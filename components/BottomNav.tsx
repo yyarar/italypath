@@ -3,9 +3,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, School, Bot, User, BookOpen } from 'lucide-react';
+import { Home, School, Bot, User } from 'lucide-react'; // BookOpen silindi
 import { useLanguage } from '@/context/LanguageContext';
-import { motion } from 'framer-motion'; // Animasyon için
+import { motion } from 'framer-motion';
 
 export default function BottomNav() {
   const pathname = usePathname();
@@ -13,12 +13,11 @@ export default function BottomNav() {
 
   const isActive = (path: string) => pathname === path;
 
-  // Navigasyon elemanlarını bir diziye alalım (Daha temiz kod ve animasyon yönetimi için)
+  // Quiz buradan tamamen uçuruldu 🚀
   const navItems = [
-    { href: '/', icon: Home, label: 'Home' }, // Burayı ileride t('home') yapabilirsin
+    { href: '/', icon: Home, label: 'Home' },
     { href: '/universities', icon: School, label: 'Unis' },
     { href: '/ai-mentor', icon: Bot, label: 'AI', isCenter: true },
-    { href: '/quiz', icon: BookOpen, label: 'Quiz' },
     { href: '/profile', icon: User, label: 'Profile', disabled: true },
   ];
 
@@ -40,7 +39,6 @@ export default function BottomNav() {
                 >
                   <Bot className="w-7 h-7" />
                 </motion.div>
-                {/* Aktifse altında bir parlama efekti */}
                 {active && (
                   <motion.div 
                     layoutId="activeGlow"
@@ -59,8 +57,6 @@ export default function BottomNav() {
             >
               <div className="relative">
                 <ActiveIcon className={`w-6 h-6 mb-0.5 transition-colors ${active ? 'text-blue-600' : 'text-slate-400'}`} />
-                
-                {/* Aktif Sekme Göstergesi (Minik Nokta) */}
                 {active && (
                   <motion.div 
                     layoutId="activeTab"

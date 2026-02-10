@@ -1,14 +1,12 @@
 "use client";
 
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
-import React from 'react'; // useState sildik çünkü hamburger menü gitti
+import React from 'react'; 
 import Link from 'next/link';
-import { GraduationCap, BookOpen, MessageCircle, ArrowRight, Globe } from 'lucide-react'; // Menu ve X ikonlarını sildik
+import { GraduationCap, MessageCircle, ArrowRight, Globe } from 'lucide-react'; // BookOpen silindi
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Home() {
-  // isMobileMenuOpen STATE'ini SİLDİK. Artık gerek yok.
-  
   const { t, toggleLanguage, language } = useLanguage();
 
   return (
@@ -25,14 +23,12 @@ export default function Home() {
               </span>
             </div>
 
-            {/* MASAÜSTÜ MENÜSÜ (Hidden md:flex - Sadece PC'de görünür) */}
+            {/* MASAÜSTÜ MENÜSÜ */}
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/universities" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition">
                 {t.navbar.universities}
               </Link>
-              <a href="#" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition">
-                {t.navbar.exams}
-              </a>
+              {/* Sınavlar linki uçuruldu 🚀 */}
               <Link href="/ai-mentor" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition">
                 {t.navbar.mentor}
               </Link>
@@ -63,7 +59,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* MOBİL GÖRÜNÜM (Sadece Dil Butonu ve Profil - Hamburger YOK) */}
+            {/* MOBİL GÖRÜNÜM */}
             <div className="md:hidden flex items-center gap-3">
               <button 
                 onClick={toggleLanguage}
@@ -72,12 +68,9 @@ export default function Home() {
                 <Globe className="w-3 h-3" />
                 {language === 'tr' ? 'EN' : 'TR'}
               </button>
-              
-              {/* Mobilde sağ üstte sadece giriş yapmışsa profil resmi görünsün */}
               <SignedIn>
                  <UserButton afterSignOutUrl="/" />
               </SignedIn>
-               {/* Giriş yapmamışsa zaten aşağıda login var veya yönlendiriyoruz */}
             </div>
           </div>
         </div>
@@ -85,7 +78,6 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        {/* ... (Geri kalan kodlar aynı, dokunmana gerek yok) ... */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-50/90 to-orange-50/90 z-10" />
         </div>
@@ -105,20 +97,17 @@ export default function Home() {
             {t.hero.subtitle}
           </p>
           
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Link href="/universities" className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-xl shadow-blue-600/20 flex items-center justify-center">
+          <div className="flex justify-center items-center">
+            {/* Soru Çöz butonu uçuruldu, Üniversite butonu merkeze alındı 🚀 */}
+            <Link href="/universities" className="w-full sm:w-auto px-10 py-4 bg-blue-600 text-white rounded-xl font-bold text-lg hover:bg-blue-700 transition shadow-xl shadow-blue-600/20 flex items-center justify-center">
               {t.hero.btnPrimary}
               <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-            <Link href="/quiz" className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border-2 border-slate-100 rounded-xl font-bold text-lg hover:border-blue-200 hover:text-blue-600 transition flex items-center justify-center shadow-lg hover:shadow-xl">
-              {t.hero.btnSecondary}
-              <BookOpen className="ml-2 w-5 h-5 text-blue-600" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Özellikler Grid (Aynı) */}
+      {/* Özellikler Grid */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -126,7 +115,8 @@ export default function Home() {
             <p className="text-slate-600">{t.features.subtitle}</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Grid 3'ten 2'ye düşürüldü 🚀 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 transition duration-300 group">
               <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
                 <GraduationCap className="w-7 h-7 text-blue-600" />
@@ -146,26 +136,17 @@ export default function Home() {
                 {t.features.card2Desc}
               </p>
             </div>
-
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:shadow-indigo-900/5 transition duration-300 group">
-              <div className="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                <BookOpen className="w-7 h-7 text-indigo-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{t.features.card3Title}</h3>
-              <p className="text-slate-600 leading-relaxed">
-                {t.features.card3Desc}
-              </p>
-            </div>
+            {/* Üçüncü kart tamamen uçuruldu 🚀 */}
           </div>
         </div>
       </section>
 
-      {/* Footer (Aynı) */}
+      {/* Footer */}
       <footer className="bg-slate-50 border-t border-slate-200 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <span className="text-xl font-bold text-slate-900">ItalyPath</span>
-            <p className="text-sm text-slate-500 mt-1">© 2024 All rights reserved.</p>
+            <p className="text-sm text-slate-500 mt-1">© 2026 All rights reserved.</p>
           </div>
           <div className="flex space-x-6">
             <a href="#" className="text-slate-400 hover:text-blue-600 transition">Twitter</a>
