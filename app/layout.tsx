@@ -1,9 +1,8 @@
 import { ClerkProvider } from '@clerk/nextjs'
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next"; // Viewport ekledik
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from '@/context/LanguageContext';
-// 👇 1. BottomNav'ı import et
 import BottomNav from '@/components/BottomNav';
 
 const geistSans = Geist({
@@ -19,6 +18,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ItalyPath",
   description: "İtalya Eğitim Rehberi",
+  // PWA ve mobil cihazlarda uygulamanın adını ve ikon ayarlarını destekler
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "ItalyPath",
+  },
+};
+
+// Üst barın rengini Slate-50 (arka plan rengin) ile eşleyelim
+export const viewport: Viewport = {
+  themeColor: "#f8fafc", 
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1, // Kullanıcının zoom yapıp arayüzü bozmasını engeller (Native hissi için)
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -30,15 +44,16 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 text-slate-900`}
         >
           <LanguageProvider>
-            {/* Sayfa İçeriği */}
-            <main className="pb-20"> {/* 👇 Alt menü içeriği kapatmasın diye padding bıraktık */}
+            {/* pb-20 kalsın ama içine 'safe-area' desteği ekleyeceğiz 
+                Ayrıca taşmaları engellemek için overflow-x-hidden önemli.
+            */}
+            <main className="min-h-screen pb-24 overflow-x-hidden">
               {children}
             </main>
             
-            {/* 👇 2. Alt Menüyü Buraya Koyduk (Tüm sayfalarda çıkacak) */}
             <BottomNav />
             
           </LanguageProvider>
