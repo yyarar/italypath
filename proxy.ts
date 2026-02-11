@@ -1,7 +1,22 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-// Fonksiyonu dışa aktarırken (export) artık varsayılan olarak Clerk'i çağırıyoruz
-export default clerkMiddleware();
+/**
+ * Patron, burada korumaya alınmayacak yolları tanımlıyoruz.
+ * /api/chat eklenmezse, AI isteği Clerk engeline takılır.
+ */
+const isPublicRoute = createRouteMatcher([
+  '/', 
+  '/api/chat(.*)', // AI rotasını serbest bırakıyoruz
+  '/sign-in(.*)', 
+  '/sign-up(.*)'
+]);
+
+export default clerkMiddleware(async (auth, request) => {
+  if (!isPublicRoute(request)) {
+    // Eğer rota public değilse, kullanıcıyı doğrula
+    await auth.protect();
+  }
+});
 
 export const config = {
   matcher: [

@@ -1,11 +1,10 @@
 // types/index.ts
 
-// 🏛️ Üniversite Veri Yapısı
 export interface University {
   id: string;
   name: string;
   city: string;
-  type: string; // Public / Private
+  type: string;
   ranking?: number;
   description?: string;
   website?: string;
@@ -13,13 +12,13 @@ export interface University {
   is_favorite?: boolean;
 }
 
-// 🤖 AI Mentor (Chat) Yapısı
+// 🤖 AI Mentor Yapısını SDK ile uyumlu hale getirelim
 export interface Message {
   id: string;
-  role: 'user' | 'assistant';
-  content: string;
-  timestamp: number;
+  role: 'user' | 'assistant' | 'system' | 'data';
+  content?: string; // Bazı sürümler hala bunu kullanır
+  parts?: Array<{ type: 'text'; text: string }>; // Yeni sürümler bunu bekler
+  timestamp?: number;
 }
 
-// 🌍 Dil Seçenekleri (Sadece gerçek olanlar!)
 export type Language = 'tr' | 'en';
