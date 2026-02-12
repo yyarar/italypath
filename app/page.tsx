@@ -3,7 +3,8 @@
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import React from 'react'; 
 import Link from 'next/link';
-import { GraduationCap, MessageCircle, ArrowRight, Globe, Calculator } from 'lucide-react'; 
+// FileText ikonu eklendi 📂
+import { GraduationCap, MessageCircle, ArrowRight, Globe, Calculator, FileText } from 'lucide-react'; 
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
               </span>
             </div>
 
-            {/* MASAÜSTÜ MENÜSÜ (Burası senin orijinal kodun, dokunmadım) */}
+            {/* MASAÜSTÜ MENÜSÜ */}
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/universities" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition">
                 {t.navbar.universities}
@@ -39,7 +40,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* MOBİL NAVBUTONLARI (TELEFON İÇİN EKLEDİĞİM KISIM) 🚀 */}
+            {/* MOBİL NAVBUTONLARI */}
             <div className="md:hidden flex items-center gap-3">
               <button 
                 onClick={toggleLanguage} 
@@ -70,7 +71,6 @@ export default function Home() {
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0 z-0"><div className="absolute inset-0 bg-gradient-to-br from-blue-50/90 to-orange-50/90 z-10" /></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Animasyonun burada duruyor: animate-fade-in-up */}
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium mb-8 animate-fade-in-up">
             <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>{t.hero.badge}
           </div>
@@ -86,25 +86,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Özellikler Grid */}
+      {/* Özellikler Grid - 3'lü Yapıya Güncellendi */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">{t.features.title}</h2>
             <p className="text-slate-600">{t.features.subtitle}</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Animasyonların burada: group-hover ve transition */}
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 transition duration-300 group">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Kart 1: Üniversiteler */}
+            <Link href="/universities" className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 transition duration-300 group">
               <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition"><GraduationCap className="w-7 h-7 text-blue-600" /></div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">{t.features.card1Title}</h3>
-              <p className="text-slate-600 leading-relaxed">{t.features.card1Desc}</p>
-            </div>
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:shadow-orange-900/5 transition duration-300 group">
+              <p className="text-slate-600 leading-relaxed text-sm">{t.features.card1Desc}</p>
+            </Link>
+
+            {/* Kart 2: AI Mentor */}
+            <Link href="/ai-mentor" className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:shadow-orange-900/5 transition duration-300 group">
               <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition"><MessageCircle className="w-7 h-7 text-orange-600" /></div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">{t.features.card2Title}</h3>
-              <p className="text-slate-600 leading-relaxed">{t.features.card2Desc}</p>
-            </div>
+              <p className="text-slate-600 leading-relaxed text-sm">{t.features.card2Desc}</p>
+            </Link>
+
+            {/* YENİ Kart 3: Belge Cüzdanı 🚀 */}
+            <Link href="/documents" className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:shadow-emerald-900/5 transition duration-300 group">
+              <div className="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition"><FileText className="w-7 h-7 text-emerald-600" /></div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Belge Cüzdanı</h3>
+              <p className="text-slate-600 leading-relaxed text-sm">
+                Pasaport, transkript ve dil belgelerini tara, güvenle sakla ve her yerden ulaş.
+              </p>
+            </Link>
           </div>
         </div>
       </section>
