@@ -58,7 +58,7 @@ italypath-main/
 │   └── useFavorites.ts             # Birleşik favori hook'u (localStorage + Supabase)
 ├── types/
 │   └── index.ts                    # Paylaşılan tipler (Language)
-├── proxy.ts                        # Clerk middleware (⚠️ dosya adı middleware.ts olmalı)
+├── proxy.ts                        # Clerk Request Boundary (Next.js 16 standardı)
 └── public/                         # Sadece varsayılan SVG'ler (PWA ikonları eksik)
 ```
 
@@ -92,9 +92,9 @@ italypath-main/
 - Kamera ile doğrudan tarama (`capture="environment"`) veya galeriden dosya seçme
 - Clerk `user.id` ile kullanıcıya özel dosya yolu: `{userId}/{timestamp}.{ext}`
 
-### 5. Clerk Middleware
-- `proxy.ts` (⚠️ `middleware.ts` olmalı) dosyasında tanımlı
-- Public rotalar: `/`, `/api/chat`, `/sign-in`, `/sign-up`
+### 5. Clerk Request Boundary (proxy.ts)
+- `proxy.ts` dosyasında tanımlı (Next.js 16 yeni Request Boundary standardı uyarınca).
+- Public rotalar: `/`, `/api/chat`, `/sign-in`, `/sign-up`, `/universities(.*)`, `/isee(.*)`
 - Diğer tüm rotalar `auth.protect()` ile korumalı
 
 ---
@@ -114,6 +114,17 @@ italypath-main/
 | `app/universities/page.tsx` | ♻️ localStorage lojiği → `useFavorites` hook'una geçildi |
 | `app/universities/[id]/page.tsx` | ♻️ Supabase + Clerk direkt çağrıları → `useFavorites` hook'una geçildi, `any` cast kaldırıldı |
 | `app/favorites/page.tsx` | ♻️ Supabase + Clerk direkt çağrıları → `useFavorites` hook'una geçildi, i18n eklendi |
+
+### Commit 3 (Performans ve Güvenlik):
+| Dosya | Değişiklik |
+|-------|------------|
+| `next.config.ts` | 🖼️ `images.remotePatterns` tanımlanarak Unsplash ve Pexels domainleri eklendi |
+| `app/universities/page.tsx` | ⚡ `<Image>` component ve liste filtresi için `useMemo` optimizasyonları yapıldı |
+| `app/universities/[id]/page.tsx` | ⚡ `<Image>` component eklendi, dış linke `rel="noopener noreferrer"` güvenlik açığı kapatıldı |
+| `proxy.ts` | 🔓 `/universities(.*)` ve `/isee(.*)` rotaları public hale getirip i18n/arama indexlenmesi sağlandı |
+| `app/template.tsx` | 🐛 Framer Motion `AnimatePresence` temelli sayfa "çift render" olma glitch hatası çözüldü |
+| `README.md` | 📝 Proje App Router ağacı ve kullanılan teknolojilere göre sıfırdan detaylı yazıldı |
+| `app/globals.css` | 🌗 Bozuk Dark Mode ayarı silinerek tüm projenin sadece kusursuz Işık (Light) modunda çalışması zorunlu kılındı |
 | `app/documents/page.tsx` | 🌍 Hard-coded Türkçe → i18n çevirilerine geçildi |
 | `components/BottomNav.tsx` | 🌍 Hard-coded İngilizce label'lar → i18n çevirilerine geçildi |
 | `lib/translations.ts` | ➕ `favorites`, `documents`, `bottomNav` çeviri blokları eklendi (TR + EN) |
@@ -127,10 +138,7 @@ italypath-main/
 ## ⚠️ Bilinen Sorunlar & Açık Öneriler
 
 ### 🔴 Yüksek Öncelik
-1. **`proxy.ts` → `middleware.ts`** olarak yeniden adlandırılmalı (Next.js standardı)
-2. **Public route eksikleri:** `/universities(.*)` ve `/isee(.*)` middleware'de public değil — giriş yapmadan erişilemez
-3. **Supabase RLS:** `user_documents`, `favorites` tabloları ve `documents` storage bucket'ında Row Level Security politikaları doğrulanmalı
-4. **Dark mode bozuk:** `globals.css`'te `prefers-color-scheme: dark` tanımlı ama hiçbir bileşende `dark:` prefix kullanılmıyor → koyu modda body arka planı siyah, kartlar/butonlar beyaz kalıyor. Ya tüm bileşenlere `dark:` sınıfları eklenmeli ya da CSS'teki dark mode bloğu kaldırılmalı
+1. **Supabase RLS:** `user_documents`, `favorites` tabloları ve `documents` storage bucket'ında Row Level Security politikaları doğrulanmalı
 
 ### 🟡 Orta Öncelik
 5. **`error.tsx` / `not-found.tsx` yok:** Hiçbir hata boundary veya 404 sayfası tanımlanmamış — hatalarda ham Next.js ekranı görünür
@@ -144,9 +152,8 @@ italypath-main/
 11. **Erişilebilirlik (a11y):** `ai-mentor` haricindeki sayfalarda `aria-label` eksik (favori butonları, arama kutusu, dil değiştirme butonu, `<nav>` etiketi)
 12. **Footer boş linkler:** Ana sayfadaki sosyal medya linkleri `href="#"` → SEO'yu olumsuz etkiler
 13. **`katex` paketi** projede kullanılmıyor → `npm uninstall katex @types/katex`
-14. **`next/image`** geçişi: `<img>` → `<Image>` bileşeni ile performans optimizasyonu
-15. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
-16. **Veri katmanı:** 860 satırlık `data.ts` (38KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
+14. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
+15. **Veri katmanı:** 860 satırlık `data.ts` (38KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
 
 ---
 
@@ -198,3 +205,30 @@ CREATE TABLE user_documents (
 ```
 
 > ⚠️ Bu tablo yapıları koddan tahmin edilmiştir. Gerçek şema Supabase Dashboard'dan doğrulanmalıdır.
+
+---
+
+## 🛑 STRICT AGENT GUIDELINES (AI'lar İçin Kesin Kurallar)
+
+> **DİKKAT YENİ AGENT:** Aşağıdaki kurallar projenin bütünlüğünü korumak için yazılmıştır. Bu kuralları çiğnediğin an Next.js build'i kırılacaktır. Asla inisiyatif alıp bu kuralların dışına çıkma.
+
+1. **Supabase TypeScript Kuralları**
+   - Şu an projede `types/supabase.ts` (Database Generated Types) **YOKTUR**. `lib/supabaseClient.ts` düz JS tipleriyle çalışmaktadır. 
+   - Yeni bir veritabanı sorgusu yazarken `any` kullanmaktan kaçın; `types/index.ts` içine spesifik interface yaz. Zamanı geldiğinde Supabase CLI ile type-generation işlemi yapılacaktır.
+
+2. **Tailwind CSS v4 Standartları**
+   - Bu projede **Tailwind v4** kullanılmaktadır. 
+   - `tailwind.config.ts` veya `tailwind.config.js` dosyası **YOKTUR** ve oluşturulmamalıdır.
+   - Tüm özel temalar, fontlar ve değişkenler sadece `app/globals.css` içinde `@theme` ve `:root` mantığıyla tanımlanır.
+
+3. **React State Management & Hooks**
+   - Küresel (Global) state için sadece **React Context** (`context/` klasörü) kullanılacaktır.
+   - Redux, Zustand veya Jotai gibi dış kütüphaneler projeye eklenecek kadar karmaşık bir veri ağacı yoktur, KESİNLİKLE önermeyin.
+   - Hook'lar `lib/` klasörü içinde toplanmalıdır (örneğin `useFavorites.ts`).
+
+4. **Next.js 16 (App Router) Component Mimarisi**
+   - `"use client"` direktifi sadece hook (useState, useEffect vb.), onClick veya tarayıcı API'si gerektiren en uç (yaprak) komponentlere eklenmelidir.
+   - Detay sayfalarındaki asenkron veri çekme opsiyonları (`fetch`) mümkünse Server Component'lerde tutulmalıdır. 
+   - Route güvenliği sadece `proxy.ts` (Clerk Request Boundary) ile sağlanır, eski tip `middleware.ts` oluşturulmayacaktır.
+
+*(Bu dosyanın son sürümü Agent Antigravity tarafından v4 standartlarına uygun olarak mühürlenmiştir.)*

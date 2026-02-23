@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc; /* Slate-50: Uygulama geneli daha yumuşak bir beyaz */
-  --foreground: #0f172a; /* Slate-900: Daha derin bir yazı rengi */
+  --background: #f8fafc;
+  /* Slate-50: Uygulama geneli daha yumuşak bir beyaz */
+  --foreground: #0f172a;
+  /* Slate-900: Daha derin bir yazı rengi */
   /* iPhone alt bar değişkeni */
   --sab: env(safe-area-inset-bottom);
 }
@@ -14,13 +16,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* Dark mode'u mobil uygulama hissiyatı için biraz daha koyu gri (OLED uyumlu) yapabiliriz */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #020617;
-    --foreground: #f8fafc;
-  }
-}
 
 @layer base {
   body {
@@ -39,7 +34,8 @@
   }
 
   /* Form elemanlarında metin seçimini tekrar aktif edelim ki kullanıcı yazı yazabilsin */
-  input, textarea {
+  input,
+  textarea {
     user-select: text;
   }
 }
@@ -52,5 +48,6 @@
 /* Sayfa geçiş animasyonları sırasında layout'un zıplamasını önlemek için */
 main {
   width: 100%;
-  min-height: 100dvh; /* dynamic viewport height: mobil tarayıcı barları dahil */
+  min-height: 100dvh;
+  /* dynamic viewport height: mobil tarayıcı barları dahil */
 }

@@ -5,10 +5,12 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
  * /api/chat eklenmezse, AI isteği Clerk engeline takılır.
  */
 const isPublicRoute = createRouteMatcher([
-  '/', 
+  '/',
   '/api/chat(.*)', // AI rotasını serbest bırakıyoruz
-  '/sign-in(.*)', 
-  '/sign-up(.*)'
+  '/sign-in(.*)',
+  '/sign-up(.*)',
+  '/universities(.*)', // Ziyaretçiler okulları ve detayları görebilsin
+  '/isee(.*)'         // Ziyaretçiler burs hesaplayıcıyı kullanabilsin
 ]);
 
 export default clerkMiddleware(async (auth, request) => {
