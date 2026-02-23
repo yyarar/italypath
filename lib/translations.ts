@@ -73,6 +73,30 @@ export const translations = {
       homeCardDesc: "İtalya'da eğitim maliyetlerini düşürmenin ilk adımı ISEE değerinizi bilmektir. Ücretsiz simülatörümüzle tahmini değerinizi saniyeler içinde öğrenin.",
       homeCardBtn: "Hemen Hesapla",
       person: "Kişi"
+    },
+    favorites: {
+      title: "Favorilerim",
+      empty: "Henüz favori üniversiten yok.",
+      explore: "Okulları Keşfet",
+      loading: "Yükleniyor..."
+    },
+    documents: {
+      title: "Belge Cüzdanı",
+      subtitle: "İtalya Yolculuğu Evrakları",
+      scan: "Belge Tara",
+      upload: "Dosya Seç",
+      uploading: "BELGE ŞİFRELENİYOR VE YÜKLENİYOR...",
+      savedDocs: "Kayıtlı Belgeler",
+      view: "GÖRÜNTÜLE",
+      empty: "Henüz belge taranmamış.",
+      deleteConfirm: "Bu belgeyi silmek istediğine emin misin?",
+      deleteFail: "Silme işlemi başarısız oldu."
+    },
+    bottomNav: {
+      home: "Ana Sayfa",
+      unis: "Okullar",
+      ai: "AI",
+      profile: "Profil"
     }
   },
   en: {
@@ -149,6 +173,30 @@ export const translations = {
       homeCardDesc: "The first step to reducing costs in Italy is knowing your ISEE. Get an estimate in seconds with our free simulator.",
       homeCardBtn: "Calculate Now",
       person: "People"
+    },
+    favorites: {
+      title: "My Favorites",
+      empty: "You have no favorite universities yet.",
+      explore: "Explore Universities",
+      loading: "Loading..."
+    },
+    documents: {
+      title: "Document Wallet",
+      subtitle: "Italy Journey Documents",
+      scan: "Scan Document",
+      upload: "Choose File",
+      uploading: "ENCRYPTING AND UPLOADING DOCUMENT...",
+      savedDocs: "Saved Documents",
+      view: "VIEW",
+      empty: "No documents scanned yet.",
+      deleteConfirm: "Are you sure you want to delete this document?",
+      deleteFail: "Deletion failed."
+    },
+    bottomNav: {
+      home: "Home",
+      unis: "Unis",
+      ai: "AI",
+      profile: "Profile"
     }
   }
 };
