@@ -1,8 +1,9 @@
 "use client";
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin, ArrowLeft, Globe, GraduationCap, Banknote, BookOpen, CheckCircle, Sparkles, Heart } from 'lucide-react';
 import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
 import { useLanguage } from '@/context/LanguageContext';
@@ -14,7 +15,9 @@ export default function UniversityDetailPage() {
   const { isFavorite, toggleFavorite, loading } = useFavorites();
 
   const idFromUrl = Array.isArray(params?.id) ? params?.id[0] : params?.id;
-  const university = universitiesData.find((u) => String(u.id) === String(idFromUrl));
+  const university = useMemo(() => {
+    return universitiesData.find((u) => String(u.id) === String(idFromUrl));
+  }, [idFromUrl]);
 
   if (!university) {
     return (
@@ -38,7 +41,14 @@ export default function UniversityDetailPage() {
       {/* ÜST HERO */}
       <div className="relative h-[50vh] flex items-end overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
-          <img src={university.image || DEFAULT_IMAGE} alt={university.name} className="w-full h-full object-cover opacity-90" />
+          <Image
+            src={university.image || DEFAULT_IMAGE}
+            alt={university.name}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-90"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-slate-900/30"></div>
         </div>
 
@@ -108,7 +118,7 @@ export default function UniversityDetailPage() {
                   <Globe className="w-6 h-6 text-slate-400 mt-1 mr-3" />
                   <div>
                     <p className="text-xs text-slate-500 uppercase font-semibold">{t.detail.website}</p>
-                    <a href={university.website} target="_blank" className="text-blue-600 font-bold hover:underline break-all">{t.detail.visitSite}</a>
+                    <a href={university.website} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold hover:underline break-all">{t.detail.visitSite}</a>
                   </div>
                 </div>
               </div>

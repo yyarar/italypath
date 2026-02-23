@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Search, MapPin, ArrowRight, GraduationCap, School, ArrowLeft, Heart, X, Globe } from 'lucide-react';
 import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
 import { useLanguage } from '@/context/LanguageContext';
@@ -14,16 +15,18 @@ export default function UniversitiesPage() {
     const { t, language, toggleLanguage } = useLanguage();
     const { favorites, toggleFavorite, isFavorite, loading } = useFavorites();
 
-    const filteredUniversities = universitiesData.filter((uni) => {
-        const term = searchTerm.toLowerCase();
-        const nameMatch = uni.name ? uni.name.toLowerCase().includes(term) : false;
-        const cityMatch = uni.city ? uni.city.toLowerCase().includes(term) : false;
-        const deptMatch = uni.departments ? uni.departments.some((dep) => dep.toLowerCase().includes(term)) : false;
-        const matchesSearch = nameMatch || cityMatch || deptMatch;
-        const matchesFavorites = showFavoritesOnly ? isFavorite(uni.id) : true;
+    const filteredUniversities = useMemo(() => {
+        return universitiesData.filter((uni) => {
+            const term = searchTerm.toLowerCase();
+            const nameMatch = uni.name ? uni.name.toLowerCase().includes(term) : false;
+            const cityMatch = uni.city ? uni.city.toLowerCase().includes(term) : false;
+            const deptMatch = uni.departments ? uni.departments.some((dep) => dep.toLowerCase().includes(term)) : false;
+            const matchesSearch = nameMatch || cityMatch || deptMatch;
+            const matchesFavorites = showFavoritesOnly ? isFavorite(uni.id) : true;
 
-        return matchesSearch && matchesFavorites;
-    });
+            return matchesSearch && matchesFavorites;
+        });
+    }, [searchTerm, showFavoritesOnly, isFavorite]);
 
     if (loading) return null;
 
@@ -95,8 +98,8 @@ export default function UniversitiesPage() {
                     <button
                         onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
                         className={`flex items-center justify-center px-6 py-4 rounded-xl font-bold transition-all shadow-lg border-2 whitespace-nowrap ${showFavoritesOnly
-                                ? 'bg-red-500 border-red-500 text-white hover:bg-red-600'
-                                : 'bg-white border-white text-slate-600 hover:border-red-100 hover:text-red-500'
+                            ? 'bg-red-500 border-red-500 text-white hover:bg-red-600'
+                            : 'bg-white border-white text-slate-600 hover:border-red-100 hover:text-red-500'
                             }`}
                     >
                         {showFavoritesOnly ? (
@@ -127,11 +130,12 @@ export default function UniversitiesPage() {
 
                                     {/* GÖRSEL ALANI */}
                                     <div className="h-48 relative overflow-hidden">
-                                        <img
+                                        <Image
                                             src={uni.image || DEFAULT_IMAGE}
                                             alt={uni.name}
-                                            loading="lazy"
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                            className="object-cover group-hover:scale-110 transition-transform duration-700"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
 
