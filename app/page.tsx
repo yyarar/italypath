@@ -1,10 +1,10 @@
 "use client";
 
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
-import React from 'react'; 
+import React from 'react';
 import Link from 'next/link';
 // FileText ikonu eklendi 📂
-import { GraduationCap, MessageCircle, ArrowRight, Globe, Calculator, FileText } from 'lucide-react'; 
+import { GraduationCap, MessageCircle, ArrowRight, Globe, Calculator, FileText } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Home() {
@@ -42,14 +42,14 @@ export default function Home() {
 
             {/* MOBİL NAVBUTONLARI */}
             <div className="md:hidden flex items-center gap-3">
-              <button 
-                onClick={toggleLanguage} 
+              <button
+                onClick={toggleLanguage}
                 className="flex items-center gap-1 text-[10px] font-bold text-slate-700 bg-slate-100 px-2.5 py-1.5 rounded-full"
               >
                 <Globe className="w-3 h-3" />
                 {language === 'tr' ? 'EN' : 'TR'}
               </button>
-              
+
               <SignedOut>
                 <SignInButton mode="modal">
                   <span className="bg-blue-600 text-white px-4 py-2 rounded-full text-[11px] font-bold shadow-lg shadow-blue-600/20">
@@ -57,7 +57,7 @@ export default function Home() {
                   </span>
                 </SignInButton>
               </SignedOut>
-              
+
               <SignedIn>
                 <UserButton afterSignOutUrl="/" />
               </SignedIn>
@@ -111,9 +111,9 @@ export default function Home() {
             {/* YENİ Kart 3: Belge Cüzdanı 🚀 */}
             <Link href="/documents" className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:shadow-emerald-900/5 transition duration-300 group">
               <div className="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition"><FileText className="w-7 h-7 text-emerald-600" /></div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Belge Cüzdanı</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">{t.features.card3Title}</h3>
               <p className="text-slate-600 leading-relaxed text-sm">
-                Pasaport, transkript ve dil belgelerini tara, güvenle sakla ve her yerden ulaş.
+                {t.features.card3Desc}
               </p>
             </Link>
           </div>
@@ -138,8 +138,8 @@ export default function Home() {
                   {t.isee.homeCardDesc}
                 </p>
               </div>
-              <Link 
-                href="/isee" 
+              <Link
+                href="/isee"
                 className="group bg-white text-blue-700 px-10 py-5 rounded-2xl font-black text-xl hover:bg-blue-50 transition-all transform hover:scale-105 shadow-2xl whitespace-nowrap flex items-center"
               >
                 {t.isee.homeCardBtn}
@@ -158,9 +158,9 @@ export default function Home() {
             <p className="text-sm text-slate-500 mt-1">© 2026 All rights reserved.</p>
           </div>
           <div className="flex space-x-6">
-            <a href="#" className="text-slate-400 hover:text-blue-600 transition">Twitter</a>
-            <a href="#" className="text-slate-400 hover:text-blue-600 transition">Instagram</a>
-            <a href="#" className="text-slate-400 hover:text-blue-600 transition">LinkedIn</a>
+            <a href="/" className="text-slate-400 hover:text-blue-600 transition">Twitter</a>
+            <a href="/" className="text-slate-400 hover:text-blue-600 transition">Instagram</a>
+            <a href="/" className="text-slate-400 hover:text-blue-600 transition">LinkedIn</a>
           </div>
         </div>
       </footer>

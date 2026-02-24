@@ -23,8 +23,8 @@ export const translations = {
       card1Desc: "Milano, Roma, Bologna... Şehirler, bölümler ve kabul şartları hakkında en güncel veritabanı.",
       card2Title: "AI Mentor 7/24",
       card2Desc: "Aklına takılan soruları beklemeden sor. Senin için kişiselleştirilmiş yol haritası çıkaran yapay zeka.",
-      card3Title: "SAT & TOLC Hazırlık",
-      card3Desc: "Sınav simülasyonları, çıkmış sorular ve konu anlatımları ile hedefine odaklan.",
+      card3Title: "Belge Cüzdanı",
+      card3Desc: "Pasaport, transkript ve dil belgelerini tara, güvenle sakla ve her yerden ulaş.",
     },
     detail: {
       back: "Geri Dön",
@@ -97,6 +97,11 @@ export const translations = {
       unis: "Okullar",
       ai: "AI",
       profile: "Profil"
+    },
+    notFound: {
+      title: "404 - Sayfa Bulunamadı",
+      desc: "İtalya'da kaybolmuş olabilirsiniz ama endişelenmeyin! Doğru yolu bulmak için ana sayfaya dönebilirsiniz.",
+      btn: "Ana Sayfaya Dön"
     }
   },
   en: {
@@ -123,8 +128,8 @@ export const translations = {
       card1Desc: "Milan, Rome, Bologna... The most up-to-date database on cities, departments, and admission requirements.",
       card2Title: "AI Mentor 24/7",
       card2Desc: "Ask questions without waiting. AI that creates a personalized roadmap for you.",
-      card3Title: "SAT & TOLC Prep",
-      card3Desc: "Focus on your goal with exam simulations, past questions, and subject explanations.",
+      card3Title: "Document Wallet",
+      card3Desc: "Scan your passport, transcripts, and language certificates. Store them securely and access from anywhere.",
     },
     detail: {
       back: "Go Back",
@@ -197,6 +202,11 @@ export const translations = {
       unis: "Unis",
       ai: "AI",
       profile: "Profile"
+    },
+    notFound: {
+      title: "404 - Page Not Found",
+      desc: "You might be lost in Italy, but don't worry! You can go back to the homepage to find the right path.",
+      btn: "Back to Home"
     }
   }
 };

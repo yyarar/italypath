@@ -44,7 +44,9 @@ italypath-main/
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
 │   ├── universities/
 │   │   ├── page.tsx                # Üniversite listesi (arama, filtre, favoriler)
-│   │   └── [id]/page.tsx           # Üniversite detay (hero, bilgiler, favori butonu)
+│   │   └── [id]/
+│   │       ├── layout.tsx          # SEO (`generateMetadata`) için Server Component
+│   │       └── page.tsx            # Üniversite detay Ui (`use client`)
 │   ├── documents/page.tsx          # Belge cüzdanı (Supabase Storage upload/delete)
 │   ├── favorites/page.tsx          # Favori üniversiteler listesi
 │   └── isee/page.tsx               # ISEE burs hesaplayıcı (scala equivalente formülü)
@@ -123,8 +125,10 @@ italypath-main/
 | `app/universities/[id]/page.tsx` | ⚡ `<Image>` component eklendi, dış linke `rel="noopener noreferrer"` güvenlik açığı kapatıldı |
 | `proxy.ts` | 🔓 `/universities(.*)` ve `/isee(.*)` rotaları public hale getirip i18n/arama indexlenmesi sağlandı |
 | `app/template.tsx` | 🐛 Framer Motion `AnimatePresence` temelli sayfa "çift render" olma glitch hatası çözüldü |
-| `README.md` | 📝 Proje App Router ağacı ve kullanılan teknolojilere göre sıfırdan detaylı yazıldı |
 | `app/globals.css` | 🌗 Bozuk Dark Mode ayarı silinerek tüm projenin sadece kusursuz Işık (Light) modunda çalışması zorunlu kılındı |
+| `app/not-found.tsx` | 🧭 Next.js standartlarına uygun, çift dilli ve özel tasarımlı 404 Not Found sayfası eklendi |
+| `app/page.tsx` | 🌍 Eksik i18n çevirileri (Belge Cüzdanı) eklendi ve Footer'daki ölü / boş link sızıntıları giderildi |
+| `app/universities/[id]/layout.tsx` | 🔍 Server Component olarak oluşturulup dinamik SEO (`generateMetadata`) işlemi `use client` sayfasından ayrılarak build hatası (çatışması) ortadan kaldırıldı |
 | `app/documents/page.tsx` | 🌍 Hard-coded Türkçe → i18n çevirilerine geçildi |
 | `components/BottomNav.tsx` | 🌍 Hard-coded İngilizce label'lar → i18n çevirilerine geçildi |
 | `lib/translations.ts` | ➕ `favorites`, `documents`, `bottomNav` çeviri blokları eklendi (TR + EN) |
@@ -141,16 +145,12 @@ italypath-main/
 1. **Supabase RLS:** `user_documents`, `favorites` tabloları ve `documents` storage bucket'ında Row Level Security politikaları doğrulanmalı
 
 ### 🟡 Orta Öncelik
-5. **`error.tsx` / `not-found.tsx` yok:** Hiçbir hata boundary veya 404 sayfası tanımlanmamış — hatalarda ham Next.js ekranı görünür
-6. **`target="_blank"` güvenlik:** `universities/[id]/page.tsx` ve `documents/page.tsx`'te `rel="noopener noreferrer"` eksik
-7. **Ana sayfa i18n eksik:** `page.tsx`'teki 3. özellik kartı (Belge Cüzdanı) hard-coded Türkçe, diğer kartlar i18n kullanıyor
-8. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı
-9. **SEO:** Her sayfaya `generateMetadata` ile dinamik `title` ve `description` eklenmeli
-10. **Tekrarlanan görseller:** `data.ts`'te id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor
+5. **`target="_blank"` güvenlik:** `universities/[id]/page.tsx` ve `documents/page.tsx`'te `rel="noopener noreferrer"` eksik
+6. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı
+7. **Tekrarlanan görseller:** `data.ts`'te id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor
 
 ### 🟢 Düşük Öncelik
-11. **Erişilebilirlik (a11y):** `ai-mentor` haricindeki sayfalarda `aria-label` eksik (favori butonları, arama kutusu, dil değiştirme butonu, `<nav>` etiketi)
-12. **Footer boş linkler:** Ana sayfadaki sosyal medya linkleri `href="#"` → SEO'yu olumsuz etkiler
+8. **Erişilebilirlik (a11y):** `ai-mentor` haricindeki sayfalarda `aria-label` eksik (favori butonları, arama kutusu, dil değiştirme butonu, `<nav>` etiketi)
 13. **`katex` paketi** projede kullanılmıyor → `npm uninstall katex @types/katex`
 14. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
 15. **Veri katmanı:** 860 satırlık `data.ts` (38KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
@@ -228,6 +228,7 @@ CREATE TABLE user_documents (
 
 4. **Next.js 16 (App Router) Component Mimarisi**
    - `"use client"` direktifi sadece hook (useState, useEffect vb.), onClick veya tarayıcı API'si gerektiren en uç (yaprak) komponentlere eklenmelidir.
+   - **Kritik Kural:** Dinamik Meta Verileri (`generateMetadata()`) KESİNLİKLE `"use client"` ibaresi olan sayfalarda barınamaz (Build hatası yaratır). SEO gerektiren her dinamik sayfa için mecburen aynı klasörde ayrı bir `layout.tsx` (Server Component) yaratılmalı ve SEO tarafı orada işlenmelidir. 
    - Detay sayfalarındaki asenkron veri çekme opsiyonları (`fetch`) mümkünse Server Component'lerde tutulmalıdır. 
    - Route güvenliği sadece `proxy.ts` (Clerk Request Boundary) ile sağlanır, eski tip `middleware.ts` oluşturulmayacaktır.
 
