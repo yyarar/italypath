@@ -9,7 +9,7 @@ export default function Navbar() {
     const { t, toggleLanguage, language } = useLanguage();
 
     return (
-        <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+        <nav aria-label="Ana Navigasyon" className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     <div className="flex items-center">
@@ -26,7 +26,7 @@ export default function Navbar() {
                         <Link href="/ai-mentor" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition">
                             {t.navbar.mentor}
                         </Link>
-                        <button onClick={toggleLanguage} className="flex items-center gap-1 text-sm font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-full hover:bg-slate-200 transition">
+                        <button onClick={toggleLanguage} aria-label={language === 'tr' ? 'Switch to English' : 'Türkçeye Geç'} className="flex items-center gap-1 text-sm font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-full hover:bg-slate-200 transition">
                             <Globe className="w-4 h-4" />
                             {language === 'tr' ? 'EN' : 'TR'}
                         </button>
@@ -40,6 +40,7 @@ export default function Navbar() {
                     <div className="md:hidden flex items-center gap-3">
                         <button
                             onClick={toggleLanguage}
+                            aria-label={language === 'tr' ? 'Switch to English' : 'Türkçeye Geç'}
                             className="flex items-center gap-1 text-[10px] font-bold text-slate-700 bg-slate-100 px-2.5 py-1.5 rounded-full"
                         >
                             <Globe className="w-3 h-3" />

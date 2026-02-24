@@ -142,7 +142,7 @@ export default function DocumentsPage() {
                     <div className="overflow-hidden">
                       <h3 className="text-sm font-bold text-slate-800 truncate pr-4">{doc.file_name}</h3>
                       <div className="flex items-center gap-3 mt-1">
-                        <a href={doc.file_url} target="_blank" className="flex items-center gap-1 text-[10px] font-black text-blue-600 hover:text-blue-700">
+                        <a href={doc.file_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-[10px] font-black text-blue-600 hover:text-blue-700">
                           <ExternalLink size={10} /> {t.documents.view}
                         </a>
                       </div>

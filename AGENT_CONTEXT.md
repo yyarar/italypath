@@ -155,6 +155,19 @@ italypath-main/
 | `components/IseeSection.tsx` | 🆕 Oluşturuldu: ISEE hesaplayıcıya yönlendiren gradient CTA kartı |
 | `components/Footer.tsx` | 🆕 Oluşturuldu: Alt bilgi logosu ve sosyal medya linkleri |
 
+### Commit 5 (Güvenlik, SEO ve Erişilebilirlik):
+| Dosya | Değişiklik |
+|-------|------------|
+| `app/documents/page.tsx` | 🔒 L145: Eksik `rel="noopener noreferrer"` eklendi (tabnabbing güvenlik açığı kapatıldı) |
+| `package.json` | 🗑️ `katex` ve `@types/katex` kaldırıldı (3 paket silindi, kullanılmıyordu) |
+| `app/error.tsx` | 🆕 Oluşturuldu: Çift dilli (TR/EN) Global Error Boundary |
+| `app/sitemap.ts` | 🆕 Oluşturuldu: Tüm statik rotalar + 45 üniversite detay sayfası dahil |
+| `app/robots.ts` | 🆕 Oluşturuldu: Public rotalar açık, auth gerektiren rotalar kapalı |
+| `components/Navbar.tsx` | ♻️ `<nav aria-label>` ve her iki dil butonu için `aria-label` eklendi |
+| `app/universities/page.tsx` | ♻️ Arama kutusu, dil butonu, favori filtre ve kart favori butonlarına `aria-label` + `aria-pressed` eklendi |
+| `app/favorites/page.tsx` | ♻️ Geri dön linkine `aria-label` eklendi |
+| `proxy.ts` | 🔓 `/sitemap.xml` ve `/robots.txt` public route listesine eklendi (Clerk redirect'e takılıyordu) |
+
 ---
 
 ## ⚠️ Bilinen Sorunlar & Açık Öneriler
@@ -163,18 +176,14 @@ italypath-main/
 1. **Supabase RLS:** `user_documents`, `favorites` tabloları ve `documents` storage bucket'ında Row Level Security politikaları doğrulanmalı
 
 ### 🟡 Orta Öncelik
-2. **Global Error Boundary (`error.tsx`):** `app/error.tsx` eksik. Beklenmedik çökmeleri yakalamak için global bir hata yakalayıcı oluşturulmalı
-3. **`target="_blank"` güvenlik:** Sadece `documents/page.tsx` (145. satır) dosyasındaki dış linkte `rel="noopener noreferrer"` eksik
-4. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı. Şu anda tasarım aşamasındadır. Dokunma.
-5. **Tekrarlanan görseller:** `data.ts`'te id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor
-6. ~~**Modülerlik (Ana Sayfa):** `app/page.tsx` içeriği tek dosyada gömülü.~~ ✅ **TAMAMLANDI** — `Navbar`, `HeroSection`, `FeaturesSection`, `IseeSection`, `Footer` bileşenleri `components/` altına ayrıldı.
+2. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı. Şu anda tasarım aşamasındadır. Dokunma.
+3. **Tekrarlanan görseller:** `data.ts`'te id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor
+
 
 ### 🟢 Düşük Öncelik
-7. **Erişilebilirlik (a11y):** `ai-mentor` haricindeki sayfalarda `aria-label` eksik (favori butonları, arama kutusu, dil değiştirme butonu, `<nav>` etiketi)
-8. **SEO / Bot Dosyaları:** Google botları için dinamik bir `sitemap.ts` ve `robots.ts` yazılmalı
-9. **`katex` paketi** projede kullanılmıyor → `npm uninstall katex @types/katex`
-10. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
-11. **Veri katmanı:** 860 satırlık `data.ts` (38KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
+
+4. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
+5. **Veri katmanı:** 860 satırlık `data.ts` (38KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
 
 ---
 

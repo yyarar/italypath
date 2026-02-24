@@ -10,7 +10,9 @@ const isPublicRoute = createRouteMatcher([
   '/sign-in(.*)',
   '/sign-up(.*)',
   '/universities(.*)', // Ziyaretçiler okulları ve detayları görebilsin
-  '/isee(.*)'         // Ziyaretçiler burs hesaplayıcıyı kullanabilsin
+  '/isee(.*)',         // Ziyaretçiler burs hesaplayıcıyı kullanabilsin
+  '/sitemap.xml',     // Google botları için
+  '/robots.txt',      // Google botları için
 ]);
 
 export default clerkMiddleware(async (auth, request) => {

@@ -54,6 +54,7 @@ export default function UniversitiesPage() {
                     {/* DİL DEĞİŞTİRME BUTONU */}
                     <button
                         onClick={toggleLanguage}
+                        aria-label={language === 'tr' ? 'Switch to English' : 'Türkçeye Geç'}
                         className="flex items-center gap-1 text-xs font-bold text-slate-700 bg-white border border-slate-200 px-3 py-1.5 rounded-full hover:bg-slate-100 transition shadow-sm"
                     >
                         <Globe className="w-3 h-3" />
@@ -83,6 +84,7 @@ export default function UniversitiesPage() {
                         <input
                             type="text"
                             placeholder={t.list.searchPlaceholder}
+                            aria-label={t.list.searchPlaceholder}
                             className="block w-full pl-14 pr-6 py-4 bg-white border-0 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20 text-lg transition"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
@@ -97,6 +99,8 @@ export default function UniversitiesPage() {
                     {/* FAVORİ FİLTRE BUTONU */}
                     <button
                         onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+                        aria-label={showFavoritesOnly ? t.list.showAll : t.list.favoritesOnly}
+                        aria-pressed={showFavoritesOnly}
                         className={`flex items-center justify-center px-6 py-4 rounded-xl font-bold transition-all shadow-lg border-2 whitespace-nowrap ${showFavoritesOnly
                             ? 'bg-red-500 border-red-500 text-white hover:bg-red-600'
                             : 'bg-white border-white text-slate-600 hover:border-red-100 hover:text-red-500'
@@ -149,6 +153,11 @@ export default function UniversitiesPage() {
                                                 e.preventDefault();
                                                 toggleFavorite(uni.id);
                                             }}
+                                            aria-label={favStatus
+                                                ? (language === 'tr' ? `${uni.name} favorilerden çıkar` : `Remove ${uni.name} from favorites`)
+                                                : (language === 'tr' ? `${uni.name} favorilere ekle` : `Add ${uni.name} to favorites`)
+                                            }
+                                            aria-pressed={favStatus}
                                             className="absolute top-3 right-3 p-2 rounded-full bg-white/90 backdrop-blur-md shadow-lg hover:scale-110 active:scale-95 transition z-20 group-hover:bg-white"
                                         >
                                             <Heart
