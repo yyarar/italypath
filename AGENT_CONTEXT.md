@@ -35,10 +35,12 @@
 ```
 italypath-main/
 ├── app/
-│   ├── page.tsx                    # Ana sayfa (Hero, Features, ISEE CTA, Footer)
+│   ├── page.tsx                    # Ana sayfa (bileşen birleştirici — sadece import + render)
 │   ├── layout.tsx                  # Root layout (Clerk, LanguageProvider, BottomNav)
 │   ├── template.tsx                # Sayfa geçiş animasyonları (Framer Motion)
+│   ├── not-found.tsx               # Özel 404 Hata Sayfası
 │   ├── globals.css                 # Tailwind v4 + mobil PWA stilleri
+│   ├── favicon.ico                 # Site ikonu
 │   ├── data.ts                     # 45 üniversite verisi (860 satır, çift dilli)
 │   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu)
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
@@ -51,7 +53,12 @@ italypath-main/
 │   ├── favorites/page.tsx          # Favori üniversiteler listesi
 │   └── isee/page.tsx               # ISEE burs hesaplayıcı (scala equivalente formülü)
 ├── components/
-│   └── BottomNav.tsx               # Mobil alt navigasyon (4 sekme, ortada AI butonu)
+│   ├── BottomNav.tsx               # Mobil alt navigasyon (4 sekme, ortada AI butonu)
+│   ├── Navbar.tsx                  # Üst navigasyon (masaüstü + mobil, Clerk auth, dil butonu)
+│   ├── HeroSection.tsx             # Ana sayfa Hero bölümü (başlık, rozet, CTA)
+│   ├── FeaturesSection.tsx         # Ana sayfa 3'lü özellik grid kartları
+│   ├── IseeSection.tsx             # Ana sayfa ISEE hesaplayıcı CTA kartı
+│   └── Footer.tsx                  # Alt bilgi (logo, sosyal linkler)
 ├── context/
 │   └── LanguageContext.tsx          # TR/EN dil sistemi (Context + localStorage)
 ├── lib/
@@ -60,8 +67,9 @@ italypath-main/
 │   └── useFavorites.ts             # Birleşik favori hook'u (localStorage + Supabase)
 ├── types/
 │   └── index.ts                    # Paylaşılan tipler (Language)
+├── next.config.ts                  # Next.js yapılandırması (Unsplash + Pexels remotePatterns)
 ├── proxy.ts                        # Clerk Request Boundary (Next.js 16 standardı)
-└── public/                         # Sadece varsayılan SVG'ler (PWA ikonları eksik)
+└── public/                         # Varsayılan SVG'ler (file, globe, next, vercel, window)
 ```
 
 ---
@@ -137,6 +145,16 @@ italypath-main/
 | `datatemizyedek.ts` | 🗑️ Silindi (124KB yedek dosya) |
 | `datayedek.ts` | 🗑️ Silindi (25KB yedek dosya) |
 
+### Commit 4 (Modülerlik — Ana Sayfa):
+| Dosya | Değişiklik |
+|-------|------------|
+| `app/page.tsx` | ♻️ 169 satırlık monolitik sayfa → 14 satırlık bileşen birleştirici haline getirildi |
+| `components/Navbar.tsx` | 🆕 Oluşturuldu: Masaüstü + mobil navigasyon, Clerk auth, dil geçiş butonu |
+| `components/HeroSection.tsx` | 🆕 Oluşturuldu: Hero başlık, rozet ve birincil CTA butonu |
+| `components/FeaturesSection.tsx` | 🆕 Oluşturuldu: Üniversiteler, AI Mentor ve Belge Cüzdanı 3'lü grid |
+| `components/IseeSection.tsx` | 🆕 Oluşturuldu: ISEE hesaplayıcıya yönlendiren gradient CTA kartı |
+| `components/Footer.tsx` | 🆕 Oluşturuldu: Alt bilgi logosu ve sosyal medya linkleri |
+
 ---
 
 ## ⚠️ Bilinen Sorunlar & Açık Öneriler
@@ -145,15 +163,18 @@ italypath-main/
 1. **Supabase RLS:** `user_documents`, `favorites` tabloları ve `documents` storage bucket'ında Row Level Security politikaları doğrulanmalı
 
 ### 🟡 Orta Öncelik
-5. **`target="_blank"` güvenlik:** `universities/[id]/page.tsx` ve `documents/page.tsx`'te `rel="noopener noreferrer"` eksik
-6. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı
-7. **Tekrarlanan görseller:** `data.ts`'te id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor
+2. **Global Error Boundary (`error.tsx`):** `app/error.tsx` eksik. Beklenmedik çökmeleri yakalamak için global bir hata yakalayıcı oluşturulmalı
+3. **`target="_blank"` güvenlik:** Sadece `documents/page.tsx` (145. satır) dosyasındaki dış linkte `rel="noopener noreferrer"` eksik
+4. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı. Şu anda tasarım aşamasındadır. Dokunma.
+5. **Tekrarlanan görseller:** `data.ts`'te id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor
+6. ~~**Modülerlik (Ana Sayfa):** `app/page.tsx` içeriği tek dosyada gömülü.~~ ✅ **TAMAMLANDI** — `Navbar`, `HeroSection`, `FeaturesSection`, `IseeSection`, `Footer` bileşenleri `components/` altına ayrıldı.
 
 ### 🟢 Düşük Öncelik
-8. **Erişilebilirlik (a11y):** `ai-mentor` haricindeki sayfalarda `aria-label` eksik (favori butonları, arama kutusu, dil değiştirme butonu, `<nav>` etiketi)
-13. **`katex` paketi** projede kullanılmıyor → `npm uninstall katex @types/katex`
-14. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
-15. **Veri katmanı:** 860 satırlık `data.ts` (38KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
+7. **Erişilebilirlik (a11y):** `ai-mentor` haricindeki sayfalarda `aria-label` eksik (favori butonları, arama kutusu, dil değiştirme butonu, `<nav>` etiketi)
+8. **SEO / Bot Dosyaları:** Google botları için dinamik bir `sitemap.ts` ve `robots.ts` yazılmalı
+9. **`katex` paketi** projede kullanılmıyor → `npm uninstall katex @types/katex`
+10. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
+11. **Veri katmanı:** 860 satırlık `data.ts` (38KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
 
 ---
 
