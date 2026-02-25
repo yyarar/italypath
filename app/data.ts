@@ -53,7 +53,11 @@ export const universitiesData: University[] = [
       "Nursing",
       "Economics and Finance",
       "Business Sciences",
-      "Environmental Engineering"
+      "Environmental Engineering",
+      "Applied Computer Science and Artificial Intelligence",
+      "Environmental Engineering for Sustainable Development",
+      "Oriental Languages and Civilizations",
+      "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications"
     ],
     fee: "150€ - 2.924€",
     image: "https://images.unsplash.com/photo-1529154036614-a60975f5c760?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cm9tYXxlbnwwfHwwfHx8MA%3D%3D",
@@ -75,7 +79,15 @@ export const universitiesData: University[] = [
       "Genomics",
       "Economics of Tourism",
       "International Studies",
-      "Statistical Sciences"
+      "Statistical Sciences",
+      "Building Construction Engineering",
+      "Business and Economics",
+      "Business Economics",
+      "Economics and Finance",
+      "Economics of Tourism and Cities",
+      "Economics, Politics and Social Sciences",
+      "European Studies",
+      "Management and Economics"
     ],
     fee: "150€ - 2.500€",
     image: "https://plus.unsplash.com/premium_photo-1677427230972-7cabe0d3e005?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Ym9sb2duYXxlbnwwfHwwfHx8MA%3D%3D",
@@ -96,7 +108,12 @@ export const universitiesData: University[] = [
       "Information Engineering",
       "Italian Medieval Renaissance",
       "Biology of Human and Environmental Health",
-      "Earth and Climate Dynamics"
+      "Earth and Climate Dynamics",
+      "Health Assistance",
+      "Automation and System Engineering",
+      "Internet, Multimedia and Telecommunications Engineering",
+      "Italian Medieval and Renaissance Studies",
+      "Techniques and Methods in Psychological Science"
     ],
     fee: "150€ - 2.600€",
     image: "https://images.unsplash.com/photo-1584699232068-ab0eabccc805?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -116,7 +133,8 @@ export const universitiesData: University[] = [
       "Computer Engineering",
       "Electronic and Communications Engineering",
       "Mechanical Engineering",
-      "Architecture"
+      "Architecture",
+      "Civil and Environmental Engineering"
     ],
     fee: "150€ - 2.600€",
     image: "https://images.unsplash.com/photo-1610651219730-6b580d616e72?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -137,7 +155,16 @@ export const universitiesData: University[] = [
       "Economics and Management",
       "Computer Science",
       "Wood Technology",
-      "Food and Enogastronomy Sciences"
+      "Food and Enogastronomy Sciences",
+      "Sustainable Agriculture and Forestry in Mountain Environments",
+      "Economics, Politics and Ethics",
+      "Informatics and Management of Digital Business",
+      "Electronic and Information Engineering",
+      "Industrial and Mechanical Engineering",
+      "Tourism, Sport and Event Management",
+      "Social Education",
+      "Communication Sciences and Culture",
+      "Social Work"
     ],
     fee: "150€ - 1.350€",
     image: "https://plus.unsplash.com/premium_photo-1736063854328-48347237635a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -158,7 +185,12 @@ export const universitiesData: University[] = [
       "Economic and Social Sciences",
       "Economics, Management and Computer Science",
       "Mathematical and Computing Sciences for AI",
-      "World Bachelor in Business"
+      "World Bachelor in Business",
+      "Business (World Bachelor in Business)",
+      "Economics and Management for Arts, Culture and Communication",
+      "Global Law",
+      "International Politics and Government",
+      "Mathematical and Computing Sciences for Artificial Intelligence"
     ],
     fee: "14.000€ - 16.500€",
     image: "https://images.unsplash.com/photo-1595193284747-a1e41bae7746?q=80&w=1343&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -179,7 +211,12 @@ export const universitiesData: University[] = [
       "Psychology",
       "Food Production Management",
       "Medicine (Roma)",
-      "Communication and Society"
+      "Communication and Society",
+      "Business and Finance",
+      "Business Administration",
+      "Food Science and Technology",
+      "Political Sciences and International Relations",
+      "Sociology"
     ],
     fee: "3.000€ - 9.000€",
     image: "https://plus.unsplash.com/premium_photo-1677097570196-0d81ee690408?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -199,7 +236,9 @@ export const universitiesData: University[] = [
       "Economics and Business",
       "Philosophy, International and Economic Studies",
       "Hospitality Innovation and E-Tourism",
-      "Computer Science"
+      "Computer Science",
+      "Business Administration and Management",
+      "Languages, Cultures and Societies of Asia and Mediterranean Africa"
     ],
     fee: "150€ - 2.300€",
     image: "https://images.pexels.com/photos/26555694/pexels-photo-26555694.jpeg",
@@ -219,7 +258,8 @@ export const universitiesData: University[] = [
       "Artificial Intelligence",
       "Political Sciences",
       "Economics: Behavior, Data and Policy",
-      "Medical Biotechnology"
+      "Medical Biotechnology",
+      "Ancient Civilizations for the Contemporary World"
     ],
     fee: "150€ - 4.000€",
     image: "https://images.unsplash.com/photo-1617102827974-c3f440b2ed70?q=80&w=2063&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -238,7 +278,9 @@ export const universitiesData: University[] = [
       "Global Law and Transnational Legal Studies",
       "Business & Management",
       "Biotechnology",
-      "Economics"
+      "Economics",
+      "Economics and Finance with Data Science",
+      "Mathematics for Economics, Finance and Insurance"
     ],
     fee: "150€ - 2.800€",
     image: "https://images.unsplash.com/photo-1569355849432-0ed9d0a55bf5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -258,7 +300,10 @@ export const universitiesData: University[] = [
       "Politics: Philosophy and Economics (PPE)",
       "Business Administration",
       "Global Law",
-      "Management and AI"
+      "Management and AI",
+      "Economics and Business",
+      "Management and Artificial Intelligence",
+      "Politics: Philosophy and Economics"
     ],
     fee: "11.000€ - 12.000€",
     image: "https://images.unsplash.com/photo-1548585742-1df49e753a83?q=80&w=2077&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -296,7 +341,8 @@ export const universitiesData: University[] = [
       "Biology for One-Health",
       "Civil and Environmental Engineering",
       "Hospitality Management",
-      "Precision Livestock Farming"
+      "Precision Livestock Farming",
+      "Community Design"
     ],
     fee: "150€ - 2.500€",
     image: "https://images.unsplash.com/photo-1642263975707-8118ed3ff145?q=80&w=2029&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -355,7 +401,13 @@ export const universitiesData: University[] = [
       "Medicine (6 Yıl)",
       "Civil Engineering",
       "Marine Biology",
-      "Computer Science"
+      "Computer Science",
+      "Biotechnology",
+      "Economics, Banking and Finance",
+      "Business Management",
+      "Marine Biology and Blue Biotechnologies",
+      "Political Sciences and International Relations",
+      "Transnational and European Legal Studies"
     ],
     fee: "150€ - 750€",
     image: "https://images.unsplash.com/photo-1558652361-3d3b72a5dc79?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -374,7 +426,10 @@ export const universitiesData: University[] = [
       "Computer Science",
       "Comparative Legal Studies",
       "Biomolecular Sciences",
-      "Computer & Electronic Engineering"
+      "Computer & Electronic Engineering",
+      "Computer, Communications and Electronic Engineering",
+      "Biomolecular Sciences and Technology",
+      "Comparative, European and International Legal Studies"
     ],
     fee: "150€ - 2.000€",
     image: "https://images.unsplash.com/photo-1681477421173-804e57cda0e5?q=80&w=2038&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -393,7 +448,9 @@ export const universitiesData: University[] = [
       "Humanities (IPM)",
       "Management for Business and Economics",
       "Geology",
-      "Cultural Heritage Studies"
+      "Cultural Heritage Studies",
+      "Studies in Performing Arts and Communication",
+      "Historical Studies"
     ],
     fee: "150€ - 2.400€",
     image: "https://images.pexels.com/photos/20296310/pexels-photo-20296310.jpeg",
@@ -411,7 +468,8 @@ export const universitiesData: University[] = [
     departments: [
       "Maritime Science and Technology",
       "Computer Engineering",
-      "Engineering Technology for Strategy"
+      "Engineering Technology for Strategy",
+      "Computer Engineering (Sede Imperia)"
     ],
     fee: "0€ - 3.000€",
     image: "https://images.unsplash.com/photo-1601047197922-156024782afd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -430,7 +488,10 @@ export const universitiesData: University[] = [
       "Earth Sciences",
       "Business Administration",
       "International Economics",
-      "Industrial Engineering"
+      "Industrial Engineering",
+      "Earth Sciences for Sustainable Development",
+      "Business Administration and Management",
+      "International Economics and Financial Markets"
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1676706980757-e3b5d6c16321?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -451,7 +512,10 @@ export const universitiesData: University[] = [
       "Dental Hygiene",
       "Environmental Sciences",
       "Imaging and Radiotherapy",
-      "Midwifery"
+      "Midwifery",
+      "Digital Economics and Business",
+      "Environmental Sciences and Civil Protection",
+      "Imaging and Radiotherapy Techniques"
     ],
     fee: "150€ - 3.000€",
     image: "https://plus.unsplash.com/premium_photo-1677048148083-99e9f8eb12a5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -468,7 +532,8 @@ export const universitiesData: University[] = [
     type: "Devlet",
     departments: [
       "Dental Hygiene",
-      "Global Studies for Sustainable Development"
+      "Global Studies for Sustainable Development",
+      "Global Studies for Sustainable Local and International Development and Cooperation"
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1603056740028-4291336263c8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -506,7 +571,8 @@ export const universitiesData: University[] = [
       "Economics & International Cooperation",
       "Electronics Engineering",
       "Management Engineering",
-      "Nursing"
+      "Nursing",
+      "Economics, International Cooperation and Sustainable Development"
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1586729223498-2cc4a05d3858?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -607,7 +673,8 @@ export const universitiesData: University[] = [
       "Economics and Business",
       "Global Economy",
       "Industrial Engineering",
-      "Economics with Data Science"
+      "Economics with Data Science",
+      "Industrial Engineering Technology"
     ],
     fee: "150€ - 1.800€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -626,7 +693,9 @@ export const universitiesData: University[] = [
       "Design",
       "Agricultural Sciences",
       "Food and Wine Technologies",
-      "Forestry"
+      "Forestry",
+      "Forestry and Environmental Sciences",
+      "Agricultural and Environmental Sciences"
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -660,7 +729,8 @@ export const universitiesData: University[] = [
     city: "Perugia",
     type: "Devlet",
     departments: [
-      "Social Sciences for Sustainability"
+      "Social Sciences for Sustainability",
+      "Social Sciences for Sustainability and International Cooperation"
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -679,7 +749,8 @@ export const universitiesData: University[] = [
       "Business Administration",
       "International Business",
       "Tourist Firm Management",
-      "Sustainable Blue Economy"
+      "Sustainable Blue Economy",
+      "International Business Administration and Management"
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -727,7 +798,8 @@ export const universitiesData: University[] = [
     city: "Macerata",
     type: "Devlet",
     departments: [
-      "International, European and Comparative Legal Studies"
+      "International, European and Comparative Legal Studies",
+      "International, European and Comparative Legal Studies (IECOLS)"
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -780,7 +852,9 @@ export const universitiesData: University[] = [
       "Nursing",
       "Midwifery",
       "Biomedical Lab Techniques",
-      "Radiotherapy Techniques"
+      "Radiotherapy Techniques",
+      "Biomedical Laboratory Techniques",
+      "Imaging and Radiotherapy Techniques"
     ],
     fee: "Özel Ücret",
     image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
@@ -798,7 +872,10 @@ export const universitiesData: University[] = [
     departments: [
       "Business and Institutional Economics",
       "Communication Sciences & Digital Technologies",
-      "Political Science & Diplomacy"
+      "Political Science & Diplomacy",
+      "Business and Institutional Economics and Management",
+      "Communication Sciences, Media and Digital Technologies",
+      "Political Science, Diplomacy and Government of Administrations"
     ],
     fee: "Özel Ücret",
     image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
@@ -856,5 +933,249 @@ export const universitiesData: University[] = [
     website: "https://www.unisg.it",
     features: ["Gastronomi", "Gıda Kültürü", "Butik"],
     features_en: ["Gastronomy", "Food Culture", "Boutique"]
+  },
+  {
+    id: 46,
+    name: "Politecnico di Bari",
+    city: "Bari",
+    type: "Devlet",
+    departments: [
+      "Architecture Sciences for Heritage",
+      "Management Engineering for Innovation"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Tarihi mirasın korunması ve mimari bilimlerin teknik analizi üzerine odaklanan uzmanlık.`,
+    website: "https://google.com/search?q=Politecnico+di+Bari+Architecture+Sciences",
+    features: ["İngilizce Eğitim", "Teknik Uzmanlık", "Akdeniz Kültürü"]
+  },
+  {
+    id: 47,
+    name: "Università Campus Bio-Medico di Roma",
+    city: "Roma",
+    type: "Devlet",
+    departments: [
+      "Biomedical Engineering"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Roma'da mühendislik ve tıp dünyasını birleştiren, teknoloji odaklı biyomedikal eğitimi.`,
+    website: "https://google.com/search?q=Università+Campus+Bio-Medico+di+Roma+Biomedical+Engineering",
+    features: ["İngilizce Eğitim", "İleri Teknoloji", "Tıbbi Mühendislik"]
+  },
+  {
+    id: 48,
+    name: "Università degli Studi di Teramo",
+    city: "Teramo",
+    type: "Devlet",
+    departments: [
+      "Biotechnology"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Biyoteknoloji dünyasına giriş yapmak isteyenler için kapsamlı ve bilimsel bir temel.`,
+    website: "https://google.com/search?q=Università+degli+Studi+di+Teramo+Biotechnology",
+    features: ["İngilizce Eğitim", "Temel Bilimler", "Merkezi Konum"]
+  },
+  {
+    id: 49,
+    name: "Università degli Studi del Piemonte Orientale",
+    city: "Piemonte",
+    type: "Devlet",
+    departments: [
+      "Biotechnology"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Kuzey İtalya'nın dinamik ortamında modern biyoteknolojik yöntemler üzerine uzmanlık.`,
+    website: "https://google.com/search?q=Università+degli+Studi+del+Piemonte+Orientale+Biotechnology",
+    features: ["İngilizce Eğitim", "Modern Laboratuvar", "3 Yıllık"]
+  },
+  {
+    id: 50,
+    name: "Università Telematica Internazionale UNINETTUNO",
+    city: "Uzaktan Eğitim / Roma",
+    type: "Özel",
+    departments: [
+      "Psycho-Social Disciplines",
+      "Economics and Business Administration"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Psikososyal disiplinler üzerine uzmanlaşma imkanı sunan, esnek yapılı uluslararası uzaktan eğitim programı.`,
+    website: "https://google.com/search?q=UNINETTUNO+Psycho-Social+Disciplines",
+    features: ["İngilizce Eğitim", "Online Eğitim", "Esnek Müfredat"]
+  },
+  {
+    id: 51,
+    name: "Università degli Studi di Bari Aldo Moro",
+    city: "Bari",
+    type: "Devlet",
+    departments: [
+      "Earth System and Global Changes"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Küresel değişimleri ve dünya sistemini jeolojik perspektiften inceleyen kapsamlı lisans programı.`,
+    website: "https://google.com/search?q=Università+di+Bari+Earth+System+Global+Changes",
+    features: ["İngilizce Eğitim", "Jeoloji", "3 Yıllık"]
+  },
+  {
+    id: 52,
+    name: "Università degli Studi Guglielmo Marconi - Telematica",
+    city: "Roma",
+    type: "Özel",
+    departments: [
+      "Business Economics and Management",
+      "Computer Engineering",
+      "Psychological Science and Techniques"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Uzaktan eğitim modeliyle esnek, küresel standartlarda işletme ve ekonomi yönetimi eğitimi.`,
+    website: "https://google.com/search?q=Università+Guglielmo+Marconi+Business+Economics+and+Management",
+    features: ["İngilizce Eğitim", "Online Eğitim", "3 Yıllık"]
+  },
+  {
+    id: 53,
+    name: "Università degli Studi di Cagliari",
+    city: "Cagliari",
+    type: "Devlet",
+    departments: [
+      "Business and Economics"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Sardinya'nın merkezinde, ekonomi ve işletme dünyasının temellerine global bir bakış.`,
+    website: "https://google.com/search?q=Università+di+Cagliari+Business+and+Economics",
+    features: ["İngilizce Eğitim", "Stratejik Konum", "3 Yıllık"]
+  },
+  {
+    id: 54,
+    name: "Università Carlo Cattaneo - LIUC",
+    city: "Castellanza",
+    type: "Özel",
+    departments: [
+      "Economics and Management",
+      "Industrial Engineering"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Sanayi dünyasıyla doğrudan bağları olan, işletme ve ekonomi odaklı profesyonel bir eğitim.`,
+    website: "https://google.com/search?q=LIUC+Carlo+Cattaneo+Economics+and+Management",
+    features: ["İngilizce Eğitim", "İş Dünyası Odaklı", "Uygulamalı Eğitim"]
+  },
+  {
+    id: 55,
+    name: "LUM Giuseppe Degennaro",
+    city: "Casamassima",
+    type: "Özel",
+    departments: [
+      "Business Economics and Organization"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Organizasyonel yapılar ve işletme ekonomisi üzerine yoğunlaşan, kariyer odaklı bir lisans programı.`,
+    website: "https://google.com/search?q=LUM+University+Business+Economics+and+Organization",
+    features: ["İngilizce Eğitim", "Organizasyonel Gelişim", "3 Yıllık"]
+  },
+  {
+    id: 56,
+    name: "Università degli Studi G. d'Annunzio CHIETI-PESCARA",
+    city: "Pescara",
+    type: "Devlet",
+    departments: [
+      "Economics and Finance"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Adriyatik kıyısında, finansal piyasalar ve ekonomi yönetimi üzerine sağlam bir temel.`,
+    website: "https://google.com/search?q=Università+Pescara+Economics+and+Finance",
+    features: ["İngilizce Eğitim", "Finans Odağı", "3 Yıllık"]
+  },
+  {
+    id: 57,
+    name: "Università degli Studi di CATANIA",
+    city: "Catania",
+    type: "Devlet",
+    departments: [
+      "Physics"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Teorik ve uygulamalı fizik alanında, Sicilya'nın en güçlü araştırma merkezlerinden birinde eğitim.`,
+    website: "https://google.com/search?q=Università+di+Catania+Physics+Bachelor+English",
+    features: ["İngilizce Eğitim", "Temel Bilimler", "Araştırma Odaklı"]
+  },
+  {
+    id: 58,
+    name: "Università degli Studi di FERRARA",
+    city: "Ferrara",
+    type: "Devlet",
+    departments: [
+      "Physiotherapy"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Hareket biliminde uzmanlaşmak isteyenler için modern tekniklerle donatılmış fizyoterapi eğitimi.`,
+    website: "https://google.com/search?q=Università+di+Ferrara+Physiotherapy+English",
+    features: ["İngilizce Eğitim", "Klinik Uygulama", "3 Yıllık"]
+  },
+  {
+    id: 59,
+    name: "Università degli Studi Mediterranea di REGGIO CALABRIA",
+    city: "Reggio Calabria",
+    type: "Devlet",
+    departments: [
+      "Civil and Environmental Engineering for Sustainable Development"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Sürdürülebilir kalkınma odaklı inşaat ve çevre mühendisliği çözümleri üzerine uzmanlaşmış bir program.`,
+    website: "https://google.com/search?q=Università+Mediterranea+Civil+Environmental+Engineering",
+    features: ["İngilizce Eğitim", "Sürdürülebilirlik", "3 Yıllık"]
+  },
+  {
+    id: 60,
+    name: "Università della VALLE D'AOSTA",
+    city: "Aosta",
+    type: "Devlet",
+    departments: [
+      "Language and Communication for Business and Tourism"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `İş dünyası ve turizm sektörü için profesyonel dil ve iletişim becerileri kazandıran çok dilli program.`,
+    website: "https://google.com/search?q=Università+Valle+Aosta+Language+Business+Tourism",
+    features: ["İngilizce Eğitim", "Turizm İletişimi", "3 Yıllık"]
+  },
+  {
+    id: 62,
+    name: "Università Telematica Giustino Fortunato",
+    city: "Benevento / Online",
+    type: "Özel",
+    departments: [
+      "Science and Technology of Transportation"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Ulaşım sistemleri teknolojisi ve yönetimi üzerine uzaktan eğitim esnekliğiyle uzmanlaşın.`,
+    website: "https://google.com/search?q=Università+Giustino+Fortunato+Transportation+Science",
+    features: ["İngilizce Eğitim", "Online Eğitim", "Lojistik Odaklı"]
+  },
+  {
+    id: 63,
+    name: "Università degli Studi di Firenze",
+    city: "Floransa",
+    type: "Devlet",
+    departments: [
+      "Sustainable Business for Societal Challenges"
+    ],
+    fee: "150€ - 3.000€",
+    image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
+    description: `Toplumsal sorunlara sürdürülebilir iş modelleriyle çözümler üreten modern işletme yönetimi eğitimi.`,
+    website: "https://google.com/search?q=Università+di+Firenze+Sustainable+Business",
+    features: ["İngilizce Eğitim", "İnovasyon", "3 Yıllık"]
   }
+
 ];

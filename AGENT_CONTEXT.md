@@ -41,7 +41,7 @@ italypath-main/
 │   ├── not-found.tsx               # Özel 404 Hata Sayfası
 │   ├── globals.css                 # Tailwind v4 + mobil PWA stilleri
 │   ├── favicon.ico                 # Site ikonu
-│   ├── data.ts                     # 45 üniversite verisi (860 satır, çift dilli)
+│   ├── data.ts                     # 62 üniversite, 262 bölüm verisi (1180 satır, çift dilli)
 │   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu)
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
 │   ├── universities/
@@ -168,6 +168,12 @@ italypath-main/
 | `app/favorites/page.tsx` | ♻️ Geri dön linkine `aria-label` eklendi |
 | `proxy.ts` | 🔓 `/sitemap.xml` ve `/robots.txt` public route listesine eklendi (Clerk redirect'e takılıyordu) |
 
+### Commit 6 (Veri Genişletme — Yedek Merge):
+| Dosya | Değişiklik |
+|-------|------------|
+| `app/data.ts` | 📊 `yedek` dosyasındaki 217 girişten bölüm verileri çekildi. 76 yeni bölüm mevcut 45 üniversiteye eklendi, 17 yeni üniversite oluşturuldu. Toplam: 62 üniversite, 262 bölüm (860 → 1180 satır). Replica ve geçersiz girişler (10 adet) atlandı. Tuscia duplicate tespit edilip düzeltildi. |
+| `yedek` | 📁 Universitaly scraping verisini içeren JSON kaynak dosyası (merge sonrası korundu) |
+
 ---
 
 ## ⚠️ Bilinen Sorunlar & Açık Öneriler
@@ -177,13 +183,13 @@ italypath-main/
 
 ### 🟡 Orta Öncelik
 2. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı. Şu anda tasarım aşamasındadır. Dokunma.
-3. **Tekrarlanan görseller:** `data.ts`'te id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor
-
+3. **Tekrarlanan görseller:** `data.ts`'te yeni eklenen 17 üniversite ve id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor
+4. **Eksik İngilizce çeviriler:** Yeni eklenen 17 üniversitede `description_en` ve `features_en` alanları eksik
 
 ### 🟢 Düşük Öncelik
 
-4. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
-5. **Veri katmanı:** 860 satırlık `data.ts` (38KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
+5. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
+6. **Veri katmanı:** 1180 satırlık `data.ts` (~53KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
 
 ---
 
