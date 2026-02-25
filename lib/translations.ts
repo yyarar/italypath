@@ -102,6 +102,15 @@ export const translations = {
       title: "404 - Sayfa Bulunamadı",
       desc: "İtalya'da kaybolmuş olabilirsiniz ama endişelenmeyin! Doğru yolu bulmak için ana sayfaya dönebilirsiniz.",
       btn: "Ana Sayfaya Dön"
+    },
+    department: {
+      backToUni: "Üniversiteye Dön",
+      otherDepts: "Diğer Bölümler",
+      askAi: "Bu Bölümü AI'ya Sor",
+      university: "Üniversite",
+      city: "Şehir",
+      fee: "Yıllık Ücret",
+      overview: "Bölüm Hakkında"
     }
   },
   en: {
@@ -207,6 +216,15 @@ export const translations = {
       title: "404 - Page Not Found",
       desc: "You might be lost in Italy, but don't worry! You can go back to the homepage to find the right path.",
       btn: "Back to Home"
+    },
+    department: {
+      backToUni: "Back to University",
+      otherDepts: "Other Programs",
+      askAi: "Ask AI About This Program",
+      university: "University",
+      city: "City",
+      fee: "Annual Tuition",
+      overview: "About This Program"
     }
   }
 };

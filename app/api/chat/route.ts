@@ -5,7 +5,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
 // Üniversite bilgilerini sistem bağlamına hazırla
 const uniContext = universitiesData
-  .map((u) => `• ${u.name} (${u.city}): ${u.departments.join(", ")}`)
+  .map((u) => `• ${u.name} (${u.city}): ${u.departments.map(d => d.name).join(", ")}`)
   .join("\n");
 
 const SYSTEM_PROMPT = `Sen ItalyPath Mentörüsün. Türkçe konuşan Türk öğrencilerin İtalya'da üniversite, burs ve yaşam konularında rehber ol.

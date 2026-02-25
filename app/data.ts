@@ -1,11 +1,16 @@
 // src/app/data.ts
 
+export interface Department {
+  name: string;
+  slug: string;
+}
+
 export interface University {
   id: number;
   name: string;
   city: string;
   type: string;
-  departments: string[];
+  departments: Department[];
   fee: string;
   image: string;
   description: string;
@@ -25,11 +30,11 @@ export const universitiesData: University[] = [
     city: "Milano",
     type: "Devlet",
     departments: [
-      "Architectural Design",
-      "Civil Engineering",
-      "Interaction Design",
-      "Mechanical Engineering",
-      "Industrial and Production Engineering"
+      { name: "Architectural Design", slug: "architectural-design" },
+      { name: "Civil Engineering", slug: "civil-engineering" },
+      { name: "Interaction Design", slug: "interaction-design" },
+      { name: "Mechanical Engineering", slug: "mechanical-engineering" },
+      { name: "Industrial and Production Engineering", slug: "industrial-and-production-engineering" }
     ],
     fee: "150€ - 3.898€",
     image: "https://images.unsplash.com/photo-1588523641901-a18c795682e6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG1pbGFub3xlbnwwfHwwfHx8MA%3D%3D",
@@ -45,19 +50,19 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Devlet",
     departments: [
-      "Applied Computer Science & AI (ACSAI)",
-      "Bioinformatics",
-      "Classics",
-      "Global Humanities",
-      "Sustainable Building Engineering",
-      "Nursing",
-      "Economics and Finance",
-      "Business Sciences",
-      "Environmental Engineering",
-      "Applied Computer Science and Artificial Intelligence",
-      "Environmental Engineering for Sustainable Development",
-      "Oriental Languages and Civilizations",
-      "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications"
+      { name: "Applied Computer Science & AI (ACSAI)", slug: "applied-computer-science-and-ai-acsai" },
+      { name: "Bioinformatics", slug: "bioinformatics" },
+      { name: "Classics", slug: "classics" },
+      { name: "Global Humanities", slug: "global-humanities" },
+      { name: "Sustainable Building Engineering", slug: "sustainable-building-engineering" },
+      { name: "Nursing", slug: "nursing" },
+      { name: "Economics and Finance", slug: "economics-and-finance" },
+      { name: "Business Sciences", slug: "business-sciences" },
+      { name: "Environmental Engineering", slug: "environmental-engineering" },
+      { name: "Applied Computer Science and Artificial Intelligence", slug: "applied-computer-science-and-artificial-intelligence" },
+      { name: "Environmental Engineering for Sustainable Development", slug: "environmental-engineering-for-sustainable-development" },
+      { name: "Oriental Languages and Civilizations", slug: "oriental-languages-and-civilizations" },
+      { name: "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications", slug: "molecular-biology-medicinal-chemistry-and-computer-science-for-pharmaceutical-applications" }
     ],
     fee: "150€ - 2.924€",
     image: "https://images.unsplash.com/photo-1529154036614-a60975f5c760?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cm9tYXxlbnwwfHwwfHx8MA%3D%3D",
@@ -73,21 +78,21 @@ export const universitiesData: University[] = [
     city: "Bologna",
     type: "Devlet",
     departments: [
-      "Business and Economics (CLABE)",
-      "Economics and Finance (CLEF)",
-      "International Relations",
-      "Genomics",
-      "Economics of Tourism",
-      "International Studies",
-      "Statistical Sciences",
-      "Building Construction Engineering",
-      "Business and Economics",
-      "Business Economics",
-      "Economics and Finance",
-      "Economics of Tourism and Cities",
-      "Economics, Politics and Social Sciences",
-      "European Studies",
-      "Management and Economics"
+      { name: "Business and Economics (CLABE)", slug: "business-and-economics-clabe" },
+      { name: "Economics and Finance (CLEF)", slug: "economics-and-finance-clef" },
+      { name: "International Relations", slug: "international-relations" },
+      { name: "Genomics", slug: "genomics" },
+      { name: "Economics of Tourism", slug: "economics-of-tourism" },
+      { name: "International Studies", slug: "international-studies" },
+      { name: "Statistical Sciences", slug: "statistical-sciences" },
+      { name: "Building Construction Engineering", slug: "building-construction-engineering" },
+      { name: "Business and Economics", slug: "business-and-economics" },
+      { name: "Business Economics", slug: "business-economics" },
+      { name: "Economics and Finance", slug: "economics-and-finance" },
+      { name: "Economics of Tourism and Cities", slug: "economics-of-tourism-and-cities" },
+      { name: "Economics, Politics and Social Sciences", slug: "economics-politics-and-social-sciences" },
+      { name: "European Studies", slug: "european-studies" },
+      { name: "Management and Economics", slug: "management-and-economics" }
     ],
     fee: "150€ - 2.500€",
     image: "https://plus.unsplash.com/premium_photo-1677427230972-7cabe0d3e005?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Ym9sb2duYXxlbnwwfHwwfHx8MA%3D%3D",
@@ -103,17 +108,17 @@ export const universitiesData: University[] = [
     city: "Padova",
     type: "Devlet",
     departments: [
-      "Psychological Science",
-      "Animal Care",
-      "Information Engineering",
-      "Italian Medieval Renaissance",
-      "Biology of Human and Environmental Health",
-      "Earth and Climate Dynamics",
-      "Health Assistance",
-      "Automation and System Engineering",
-      "Internet, Multimedia and Telecommunications Engineering",
-      "Italian Medieval and Renaissance Studies",
-      "Techniques and Methods in Psychological Science"
+      { name: "Psychological Science", slug: "psychological-science" },
+      { name: "Animal Care", slug: "animal-care" },
+      { name: "Information Engineering", slug: "information-engineering" },
+      { name: "Italian Medieval Renaissance", slug: "italian-medieval-renaissance" },
+      { name: "Biology of Human and Environmental Health", slug: "biology-of-human-and-environmental-health" },
+      { name: "Earth and Climate Dynamics", slug: "earth-and-climate-dynamics" },
+      { name: "Health Assistance", slug: "health-assistance" },
+      { name: "Automation and System Engineering", slug: "automation-and-system-engineering" },
+      { name: "Internet, Multimedia and Telecommunications Engineering", slug: "internet-multimedia-and-telecommunications-engineering" },
+      { name: "Italian Medieval and Renaissance Studies", slug: "italian-medieval-and-renaissance-studies" },
+      { name: "Techniques and Methods in Psychological Science", slug: "techniques-and-methods-in-psychological-science" }
     ],
     fee: "150€ - 2.600€",
     image: "https://images.unsplash.com/photo-1584699232068-ab0eabccc805?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -129,12 +134,12 @@ export const universitiesData: University[] = [
     city: "Torino",
     type: "Devlet",
     departments: [
-      "Automotive Engineering",
-      "Computer Engineering",
-      "Electronic and Communications Engineering",
-      "Mechanical Engineering",
-      "Architecture",
-      "Civil and Environmental Engineering"
+      { name: "Automotive Engineering", slug: "automotive-engineering" },
+      { name: "Computer Engineering", slug: "computer-engineering" },
+      { name: "Electronic and Communications Engineering", slug: "electronic-and-communications-engineering" },
+      { name: "Mechanical Engineering", slug: "mechanical-engineering" },
+      { name: "Architecture", slug: "architecture" },
+      { name: "Civil and Environmental Engineering", slug: "civil-and-environmental-engineering" }
     ],
     fee: "150€ - 2.600€",
     image: "https://images.unsplash.com/photo-1610651219730-6b580d616e72?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -150,21 +155,21 @@ export const universitiesData: University[] = [
     city: "Bolzano",
     type: "Devlet",
     departments: [
-      "Sustainable Agriculture and Forestry",
-      "Design and Art",
-      "Economics and Management",
-      "Computer Science",
-      "Wood Technology",
-      "Food and Enogastronomy Sciences",
-      "Sustainable Agriculture and Forestry in Mountain Environments",
-      "Economics, Politics and Ethics",
-      "Informatics and Management of Digital Business",
-      "Electronic and Information Engineering",
-      "Industrial and Mechanical Engineering",
-      "Tourism, Sport and Event Management",
-      "Social Education",
-      "Communication Sciences and Culture",
-      "Social Work"
+      { name: "Sustainable Agriculture and Forestry", slug: "sustainable-agriculture-and-forestry" },
+      { name: "Design and Art", slug: "design-and-art" },
+      { name: "Economics and Management", slug: "economics-and-management" },
+      { name: "Computer Science", slug: "computer-science" },
+      { name: "Wood Technology", slug: "wood-technology" },
+      { name: "Food and Enogastronomy Sciences", slug: "food-and-enogastronomy-sciences" },
+      { name: "Sustainable Agriculture and Forestry in Mountain Environments", slug: "sustainable-agriculture-and-forestry-in-mountain-environments" },
+      { name: "Economics, Politics and Ethics", slug: "economics-politics-and-ethics" },
+      { name: "Informatics and Management of Digital Business", slug: "informatics-and-management-of-digital-business" },
+      { name: "Electronic and Information Engineering", slug: "electronic-and-information-engineering" },
+      { name: "Industrial and Mechanical Engineering", slug: "industrial-and-mechanical-engineering" },
+      { name: "Tourism, Sport and Event Management", slug: "tourism-sport-and-event-management" },
+      { name: "Social Education", slug: "social-education" },
+      { name: "Communication Sciences and Culture", slug: "communication-sciences-and-culture" },
+      { name: "Social Work", slug: "social-work" }
     ],
     fee: "150€ - 1.350€",
     image: "https://plus.unsplash.com/premium_photo-1736063854328-48347237635a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -180,17 +185,17 @@ export const universitiesData: University[] = [
     city: "Milano",
     type: "Özel",
     departments: [
-      "International Economics and Management",
-      "International Economics and Finance",
-      "Economic and Social Sciences",
-      "Economics, Management and Computer Science",
-      "Mathematical and Computing Sciences for AI",
-      "World Bachelor in Business",
-      "Business (World Bachelor in Business)",
-      "Economics and Management for Arts, Culture and Communication",
-      "Global Law",
-      "International Politics and Government",
-      "Mathematical and Computing Sciences for Artificial Intelligence"
+      { name: "International Economics and Management", slug: "international-economics-and-management" },
+      { name: "International Economics and Finance", slug: "international-economics-and-finance" },
+      { name: "Economic and Social Sciences", slug: "economic-and-social-sciences" },
+      { name: "Economics, Management and Computer Science", slug: "economics-management-and-computer-science" },
+      { name: "Mathematical and Computing Sciences for AI", slug: "mathematical-and-computing-sciences-for-ai" },
+      { name: "World Bachelor in Business", slug: "world-bachelor-in-business" },
+      { name: "Business (World Bachelor in Business)", slug: "business-world-bachelor-in-business" },
+      { name: "Economics and Management for Arts, Culture and Communication", slug: "economics-and-management-for-arts-culture-and-communication" },
+      { name: "Global Law", slug: "global-law" },
+      { name: "International Politics and Government", slug: "international-politics-and-government" },
+      { name: "Mathematical and Computing Sciences for Artificial Intelligence", slug: "mathematical-and-computing-sciences-for-artificial-intelligence" }
     ],
     fee: "14.000€ - 16.500€",
     image: "https://images.unsplash.com/photo-1595193284747-a1e41bae7746?q=80&w=1343&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -206,17 +211,17 @@ export const universitiesData: University[] = [
     city: "Milano",
     type: "Özel",
     departments: [
-      "Economics and Management",
-      "International Relations and Global Affairs",
-      "Psychology",
-      "Food Production Management",
-      "Medicine (Roma)",
-      "Communication and Society",
-      "Business and Finance",
-      "Business Administration",
-      "Food Science and Technology",
-      "Political Sciences and International Relations",
-      "Sociology"
+      { name: "Economics and Management", slug: "economics-and-management" },
+      { name: "International Relations and Global Affairs", slug: "international-relations-and-global-affairs" },
+      { name: "Psychology", slug: "psychology" },
+      { name: "Food Production Management", slug: "food-production-management" },
+      { name: "Medicine (Roma)", slug: "medicine-roma" },
+      { name: "Communication and Society", slug: "communication-and-society" },
+      { name: "Business and Finance", slug: "business-and-finance" },
+      { name: "Business Administration", slug: "business-administration" },
+      { name: "Food Science and Technology", slug: "food-science-and-technology" },
+      { name: "Political Sciences and International Relations", slug: "political-sciences-and-international-relations" },
+      { name: "Sociology", slug: "sociology" }
     ],
     fee: "3.000€ - 9.000€",
     image: "https://plus.unsplash.com/premium_photo-1677097570196-0d81ee690408?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -232,13 +237,13 @@ export const universitiesData: University[] = [
     city: "Venedik",
     type: "Devlet",
     departments: [
-      "Digital Management",
-      "Economics and Business",
-      "Philosophy, International and Economic Studies",
-      "Hospitality Innovation and E-Tourism",
-      "Computer Science",
-      "Business Administration and Management",
-      "Languages, Cultures and Societies of Asia and Mediterranean Africa"
+      { name: "Digital Management", slug: "digital-management" },
+      { name: "Economics and Business", slug: "economics-and-business" },
+      { name: "Philosophy, International and Economic Studies", slug: "philosophy-international-and-economic-studies" },
+      { name: "Hospitality Innovation and E-Tourism", slug: "hospitality-innovation-and-e-tourism" },
+      { name: "Computer Science", slug: "computer-science" },
+      { name: "Business Administration and Management", slug: "business-administration-and-management" },
+      { name: "Languages, Cultures and Societies of Asia and Mediterranean Africa", slug: "languages-cultures-and-societies-of-asia-and-mediterranean-africa" }
     ],
     fee: "150€ - 2.300€",
     image: "https://images.pexels.com/photos/26555694/pexels-photo-26555694.jpeg",
@@ -254,12 +259,12 @@ export const universitiesData: University[] = [
     city: "Milano",
     type: "Devlet",
     departments: [
-      "International Politics, Law and Economics (IPLE)",
-      "Artificial Intelligence",
-      "Political Sciences",
-      "Economics: Behavior, Data and Policy",
-      "Medical Biotechnology",
-      "Ancient Civilizations for the Contemporary World"
+      { name: "International Politics, Law and Economics (IPLE)", slug: "international-politics-law-and-economics-iple" },
+      { name: "Artificial Intelligence", slug: "artificial-intelligence" },
+      { name: "Political Sciences", slug: "political-sciences" },
+      { name: "Economics: Behavior, Data and Policy", slug: "economics-behavior-data-and-policy" },
+      { name: "Medical Biotechnology", slug: "medical-biotechnology" },
+      { name: "Ancient Civilizations for the Contemporary World", slug: "ancient-civilizations-for-the-contemporary-world" }
     ],
     fee: "150€ - 4.000€",
     image: "https://images.unsplash.com/photo-1617102827974-c3f440b2ed70?q=80&w=2063&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -275,12 +280,12 @@ export const universitiesData: University[] = [
     city: "Torino",
     type: "Devlet",
     departments: [
-      "Global Law and Transnational Legal Studies",
-      "Business & Management",
-      "Biotechnology",
-      "Economics",
-      "Economics and Finance with Data Science",
-      "Mathematics for Economics, Finance and Insurance"
+      { name: "Global Law and Transnational Legal Studies", slug: "global-law-and-transnational-legal-studies" },
+      { name: "Business & Management", slug: "business-and-management" },
+      { name: "Biotechnology", slug: "biotechnology" },
+      { name: "Economics", slug: "economics" },
+      { name: "Economics and Finance with Data Science", slug: "economics-and-finance-with-data-science" },
+      { name: "Mathematics for Economics, Finance and Insurance", slug: "mathematics-for-economics-finance-and-insurance" }
     ],
     fee: "150€ - 2.800€",
     image: "https://images.unsplash.com/photo-1569355849432-0ed9d0a55bf5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -296,14 +301,14 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Özel",
     departments: [
-      "Management & Computer Science",
-      "Politics: Philosophy and Economics (PPE)",
-      "Business Administration",
-      "Global Law",
-      "Management and AI",
-      "Economics and Business",
-      "Management and Artificial Intelligence",
-      "Politics: Philosophy and Economics"
+      { name: "Management & Computer Science", slug: "management-and-computer-science" },
+      { name: "Politics: Philosophy and Economics (PPE)", slug: "politics-philosophy-and-economics-ppe" },
+      { name: "Business Administration", slug: "business-administration" },
+      { name: "Global Law", slug: "global-law" },
+      { name: "Management and AI", slug: "management-and-ai" },
+      { name: "Economics and Business", slug: "economics-and-business" },
+      { name: "Management and Artificial Intelligence", slug: "management-and-artificial-intelligence" },
+      { name: "Politics: Philosophy and Economics", slug: "politics-philosophy-and-economics" }
     ],
     fee: "11.000€ - 12.000€",
     image: "https://images.unsplash.com/photo-1548585742-1df49e753a83?q=80&w=2077&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -319,10 +324,10 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Devlet",
     departments: [
-      "Global Governance",
-      "Engineering Sciences",
-      "Business Administration & Economics",
-      "Tourism Sciences"
+      { name: "Global Governance", slug: "global-governance" },
+      { name: "Engineering Sciences", slug: "engineering-sciences" },
+      { name: "Business Administration & Economics", slug: "business-administration-and-economics" },
+      { name: "Tourism Sciences", slug: "tourism-sciences" }
     ],
     fee: "150€ - 2.500€",
     image: "https://plus.unsplash.com/premium_photo-1675975706513-9daba0ec12a8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -338,11 +343,11 @@ export const universitiesData: University[] = [
     city: "Napoli",
     type: "Devlet",
     departments: [
-      "Biology for One-Health",
-      "Civil and Environmental Engineering",
-      "Hospitality Management",
-      "Precision Livestock Farming",
-      "Community Design"
+      { name: "Biology for One-Health", slug: "biology-for-one-health" },
+      { name: "Civil and Environmental Engineering", slug: "civil-and-environmental-engineering" },
+      { name: "Hospitality Management", slug: "hospitality-management" },
+      { name: "Precision Livestock Farming", slug: "precision-livestock-farming" },
+      { name: "Community Design", slug: "community-design" }
     ],
     fee: "150€ - 2.500€",
     image: "https://images.unsplash.com/photo-1642263975707-8118ed3ff145?q=80&w=2029&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -358,10 +363,10 @@ export const universitiesData: University[] = [
     city: "Pavia",
     type: "Devlet",
     departments: [
-      "Artificial Intelligence",
-      "Medicine (6 Yıl)",
-      "Bioengineering",
-      "Social Sciences for Global Challenges"
+      { name: "Artificial Intelligence", slug: "artificial-intelligence" },
+      { name: "Medicine (6 Yıl)", slug: "medicine-6-y-l" },
+      { name: "Bioengineering", slug: "bioengineering" },
+      { name: "Social Sciences for Global Challenges", slug: "social-sciences-for-global-challenges" }
     ],
     fee: "150€ - 4.500€",
     image: "https://images.unsplash.com/photo-1679098419872-77cb6eb24e46?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -377,10 +382,10 @@ export const universitiesData: University[] = [
     city: "Siena",
     type: "Devlet",
     departments: [
-      "Economics and Banking",
-      "Economics and Management",
-      "Dentistry (Diş Hekimliği)",
-      "Biotech Engineering for Health"
+      { name: "Economics and Banking", slug: "economics-and-banking" },
+      { name: "Economics and Management", slug: "economics-and-management" },
+      { name: "Dentistry (Diş Hekimliği)", slug: "dentistry-di-hekimli-i" },
+      { name: "Biotech Engineering for Health", slug: "biotech-engineering-for-health" }
     ],
     fee: "150€ - 2.200€",
     image: "https://images.unsplash.com/photo-1612820676918-1682b0d4afa0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -396,18 +401,18 @@ export const universitiesData: University[] = [
     city: "Messina",
     type: "Devlet",
     departments: [
-      "Data Analysis",
-      "Political Sciences",
-      "Medicine (6 Yıl)",
-      "Civil Engineering",
-      "Marine Biology",
-      "Computer Science",
-      "Biotechnology",
-      "Economics, Banking and Finance",
-      "Business Management",
-      "Marine Biology and Blue Biotechnologies",
-      "Political Sciences and International Relations",
-      "Transnational and European Legal Studies"
+      { name: "Data Analysis", slug: "data-analysis" },
+      { name: "Political Sciences", slug: "political-sciences" },
+      { name: "Medicine (6 Yıl)", slug: "medicine-6-y-l" },
+      { name: "Civil Engineering", slug: "civil-engineering" },
+      { name: "Marine Biology", slug: "marine-biology" },
+      { name: "Computer Science", slug: "computer-science" },
+      { name: "Biotechnology", slug: "biotechnology" },
+      { name: "Economics, Banking and Finance", slug: "economics-banking-and-finance" },
+      { name: "Business Management", slug: "business-management" },
+      { name: "Marine Biology and Blue Biotechnologies", slug: "marine-biology-and-blue-biotechnologies" },
+      { name: "Political Sciences and International Relations", slug: "political-sciences-and-international-relations" },
+      { name: "Transnational and European Legal Studies", slug: "transnational-and-european-legal-studies" }
     ],
     fee: "150€ - 750€",
     image: "https://images.unsplash.com/photo-1558652361-3d3b72a5dc79?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -423,13 +428,13 @@ export const universitiesData: University[] = [
     city: "Trento",
     type: "Devlet",
     departments: [
-      "Computer Science",
-      "Comparative Legal Studies",
-      "Biomolecular Sciences",
-      "Computer & Electronic Engineering",
-      "Computer, Communications and Electronic Engineering",
-      "Biomolecular Sciences and Technology",
-      "Comparative, European and International Legal Studies"
+      { name: "Computer Science", slug: "computer-science" },
+      { name: "Comparative Legal Studies", slug: "comparative-legal-studies" },
+      { name: "Biomolecular Sciences", slug: "biomolecular-sciences" },
+      { name: "Computer & Electronic Engineering", slug: "computer-and-electronic-engineering" },
+      { name: "Computer, Communications and Electronic Engineering", slug: "computer-communications-and-electronic-engineering" },
+      { name: "Biomolecular Sciences and Technology", slug: "biomolecular-sciences-and-technology" },
+      { name: "Comparative, European and International Legal Studies", slug: "comparative-european-and-international-legal-studies" }
     ],
     fee: "150€ - 2.000€",
     image: "https://images.unsplash.com/photo-1681477421173-804e57cda0e5?q=80&w=2038&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -445,12 +450,12 @@ export const universitiesData: University[] = [
     city: "Pisa",
     type: "Devlet",
     departments: [
-      "Humanities (IPM)",
-      "Management for Business and Economics",
-      "Geology",
-      "Cultural Heritage Studies",
-      "Studies in Performing Arts and Communication",
-      "Historical Studies"
+      { name: "Humanities (IPM)", slug: "humanities-ipm" },
+      { name: "Management for Business and Economics", slug: "management-for-business-and-economics" },
+      { name: "Geology", slug: "geology" },
+      { name: "Cultural Heritage Studies", slug: "cultural-heritage-studies" },
+      { name: "Studies in Performing Arts and Communication", slug: "studies-in-performing-arts-and-communication" },
+      { name: "Historical Studies", slug: "historical-studies" }
     ],
     fee: "150€ - 2.400€",
     image: "https://images.pexels.com/photos/20296310/pexels-photo-20296310.jpeg",
@@ -466,10 +471,10 @@ export const universitiesData: University[] = [
     city: "Cenova",
     type: "Devlet",
     departments: [
-      "Maritime Science and Technology",
-      "Computer Engineering",
-      "Engineering Technology for Strategy",
-      "Computer Engineering (Sede Imperia)"
+      { name: "Maritime Science and Technology", slug: "maritime-science-and-technology" },
+      { name: "Computer Engineering", slug: "computer-engineering" },
+      { name: "Engineering Technology for Strategy", slug: "engineering-technology-for-strategy" },
+      { name: "Computer Engineering (Sede Imperia)", slug: "computer-engineering-sede-imperia" }
     ],
     fee: "0€ - 3.000€",
     image: "https://images.unsplash.com/photo-1601047197922-156024782afd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -485,13 +490,13 @@ export const universitiesData: University[] = [
     city: "Trieste",
     type: "Devlet",
     departments: [
-      "Earth Sciences",
-      "Business Administration",
-      "International Economics",
-      "Industrial Engineering",
-      "Earth Sciences for Sustainable Development",
-      "Business Administration and Management",
-      "International Economics and Financial Markets"
+      { name: "Earth Sciences", slug: "earth-sciences" },
+      { name: "Business Administration", slug: "business-administration" },
+      { name: "International Economics", slug: "international-economics" },
+      { name: "Industrial Engineering", slug: "industrial-engineering" },
+      { name: "Earth Sciences for Sustainable Development", slug: "earth-sciences-for-sustainable-development" },
+      { name: "Business Administration and Management", slug: "business-administration-and-management" },
+      { name: "International Economics and Financial Markets", slug: "international-economics-and-financial-markets" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1676706980757-e3b5d6c16321?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -507,15 +512,15 @@ export const universitiesData: University[] = [
     city: "Ancona",
     type: "Devlet",
     departments: [
-      "Dietistic",
-      "Digital Economics",
-      "Dental Hygiene",
-      "Environmental Sciences",
-      "Imaging and Radiotherapy",
-      "Midwifery",
-      "Digital Economics and Business",
-      "Environmental Sciences and Civil Protection",
-      "Imaging and Radiotherapy Techniques"
+      { name: "Dietistic", slug: "dietistic" },
+      { name: "Digital Economics", slug: "digital-economics" },
+      { name: "Dental Hygiene", slug: "dental-hygiene" },
+      { name: "Environmental Sciences", slug: "environmental-sciences" },
+      { name: "Imaging and Radiotherapy", slug: "imaging-and-radiotherapy" },
+      { name: "Midwifery", slug: "midwifery" },
+      { name: "Digital Economics and Business", slug: "digital-economics-and-business" },
+      { name: "Environmental Sciences and Civil Protection", slug: "environmental-sciences-and-civil-protection" },
+      { name: "Imaging and Radiotherapy Techniques", slug: "imaging-and-radiotherapy-techniques" }
     ],
     fee: "150€ - 3.000€",
     image: "https://plus.unsplash.com/premium_photo-1677048148083-99e9f8eb12a5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -531,9 +536,9 @@ export const universitiesData: University[] = [
     city: "Parma",
     type: "Devlet",
     departments: [
-      "Dental Hygiene",
-      "Global Studies for Sustainable Development",
-      "Global Studies for Sustainable Local and International Development and Cooperation"
+      { name: "Dental Hygiene", slug: "dental-hygiene" },
+      { name: "Global Studies for Sustainable Development", slug: "global-studies-for-sustainable-development" },
+      { name: "Global Studies for Sustainable Local and International Development and Cooperation", slug: "global-studies-for-sustainable-local-and-international-development-and-cooperation" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1603056740028-4291336263c8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -549,9 +554,9 @@ export const universitiesData: University[] = [
     city: "Napoli / Caserta",
     type: "Devlet",
     departments: [
-      "Nursing",
-      "Data Analytics",
-      "Medicine (6 Yıl)"
+      { name: "Nursing", slug: "nursing" },
+      { name: "Data Analytics", slug: "data-analytics" },
+      { name: "Medicine (6 Yıl)", slug: "medicine-6-y-l" }
     ],
     fee: "150€ - 2.000€",
     image: "https://images.unsplash.com/photo-1586108683830-eee157a26bdb?q=80&w=1036&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -567,12 +572,12 @@ export const universitiesData: University[] = [
     city: "Palermo",
     type: "Devlet",
     departments: [
-      "Economics and Finance",
-      "Economics & International Cooperation",
-      "Electronics Engineering",
-      "Management Engineering",
-      "Nursing",
-      "Economics, International Cooperation and Sustainable Development"
+      { name: "Economics and Finance", slug: "economics-and-finance" },
+      { name: "Economics & International Cooperation", slug: "economics-and-international-cooperation" },
+      { name: "Electronics Engineering", slug: "electronics-engineering" },
+      { name: "Management Engineering", slug: "management-engineering" },
+      { name: "Nursing", slug: "nursing" },
+      { name: "Economics, International Cooperation and Sustainable Development", slug: "economics-international-cooperation-and-sustainable-development" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1586729223498-2cc4a05d3858?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -588,7 +593,7 @@ export const universitiesData: University[] = [
     city: "Bergamo",
     type: "Devlet",
     departments: [
-      "Business Administration"
+      { name: "Business Administration", slug: "business-administration" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1722068326894-405c682d6933?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -604,7 +609,7 @@ export const universitiesData: University[] = [
     city: "Brescia",
     type: "Devlet",
     departments: [
-      "Business and Economics"
+      { name: "Business and Economics", slug: "business-and-economics" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1718120744257-65c98b102c6b?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -620,7 +625,7 @@ export const universitiesData: University[] = [
     city: "Verona",
     type: "Devlet",
     departments: [
-      "Computer Engineering for Robotic and Intelligent Systems"
+      { name: "Computer Engineering for Robotic and Intelligent Systems", slug: "computer-engineering-for-robotic-and-intelligent-systems" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1555796861-b29396df890e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -636,8 +641,8 @@ export const universitiesData: University[] = [
     city: "Milano",
     type: "Devlet",
     departments: [
-      "Economics and Science for Environmental Sustainability",
-      "Physical Sciences for Innovative Technologies"
+      { name: "Economics and Science for Environmental Sustainability", slug: "economics-and-science-for-environmental-sustainability" },
+      { name: "Physical Sciences for Innovative Technologies", slug: "physical-sciences-for-innovative-technologies" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=800&q=80",
@@ -653,8 +658,8 @@ export const universitiesData: University[] = [
     city: "Camerino",
     type: "Devlet",
     departments: [
-      "Biosciences and Biotechnology",
-      "Gastronomic Sciences"
+      { name: "Biosciences and Biotechnology", slug: "biosciences-and-biotechnology" },
+      { name: "Gastronomic Sciences", slug: "gastronomic-sciences" }
     ],
     fee: "156€ flat tax",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -670,11 +675,11 @@ export const universitiesData: University[] = [
     city: "Cassino",
     type: "Devlet",
     departments: [
-      "Economics and Business",
-      "Global Economy",
-      "Industrial Engineering",
-      "Economics with Data Science",
-      "Industrial Engineering Technology"
+      { name: "Economics and Business", slug: "economics-and-business" },
+      { name: "Global Economy", slug: "global-economy" },
+      { name: "Industrial Engineering", slug: "industrial-engineering" },
+      { name: "Economics with Data Science", slug: "economics-with-data-science" },
+      { name: "Industrial Engineering Technology", slug: "industrial-engineering-technology" }
     ],
     fee: "150€ - 1.800€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -690,12 +695,12 @@ export const universitiesData: University[] = [
     city: "Viterbo",
     type: "Devlet",
     departments: [
-      "Design",
-      "Agricultural Sciences",
-      "Food and Wine Technologies",
-      "Forestry",
-      "Forestry and Environmental Sciences",
-      "Agricultural and Environmental Sciences"
+      { name: "Design", slug: "design" },
+      { name: "Agricultural Sciences", slug: "agricultural-sciences" },
+      { name: "Food and Wine Technologies", slug: "food-and-wine-technologies" },
+      { name: "Forestry", slug: "forestry" },
+      { name: "Forestry and Environmental Sciences", slug: "forestry-and-environmental-sciences" },
+      { name: "Agricultural and Environmental Sciences", slug: "agricultural-and-environmental-sciences" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -711,9 +716,9 @@ export const universitiesData: University[] = [
     city: "Perugia",
     type: "Devlet",
     departments: [
-      "Engineering Management",
-      "Optics and Optometry",
-      "Programming and Management of Computer Systems"
+      { name: "Engineering Management", slug: "engineering-management" },
+      { name: "Optics and Optometry", slug: "optics-and-optometry" },
+      { name: "Programming and Management of Computer Systems", slug: "programming-and-management-of-computer-systems" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -729,8 +734,8 @@ export const universitiesData: University[] = [
     city: "Perugia",
     type: "Devlet",
     departments: [
-      "Social Sciences for Sustainability",
-      "Social Sciences for Sustainability and International Cooperation"
+      { name: "Social Sciences for Sustainability", slug: "social-sciences-for-sustainability" },
+      { name: "Social Sciences for Sustainability and International Cooperation", slug: "social-sciences-for-sustainability-and-international-cooperation" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -746,11 +751,11 @@ export const universitiesData: University[] = [
     city: "Napoli",
     type: "Devlet",
     departments: [
-      "Business Administration",
-      "International Business",
-      "Tourist Firm Management",
-      "Sustainable Blue Economy",
-      "International Business Administration and Management"
+      { name: "Business Administration", slug: "business-administration" },
+      { name: "International Business", slug: "international-business" },
+      { name: "Tourist Firm Management", slug: "tourist-firm-management" },
+      { name: "Sustainable Blue Economy", slug: "sustainable-blue-economy" },
+      { name: "International Business Administration and Management", slug: "international-business-administration-and-management" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -766,7 +771,7 @@ export const universitiesData: University[] = [
     city: "Lecce",
     type: "Devlet",
     departments: [
-      "Digital Management"
+      { name: "Digital Management", slug: "digital-management" }
     ],
     fee: "150€ - 2.500€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -782,7 +787,7 @@ export const universitiesData: University[] = [
     city: "Udine",
     type: "Devlet",
     departments: [
-      "Management & Business Analytics"
+      { name: "Management & Business Analytics", slug: "management-and-business-analytics" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -798,8 +803,8 @@ export const universitiesData: University[] = [
     city: "Macerata",
     type: "Devlet",
     departments: [
-      "International, European and Comparative Legal Studies",
-      "International, European and Comparative Legal Studies (IECOLS)"
+      { name: "International, European and Comparative Legal Studies", slug: "international-european-and-comparative-legal-studies" },
+      { name: "International, European and Comparative Legal Studies (IECOLS)", slug: "international-european-and-comparative-legal-studies-iecols" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -815,7 +820,7 @@ export const universitiesData: University[] = [
     city: "Urbino",
     type: "Devlet",
     departments: [
-      "Economics and Management"
+      { name: "Economics and Management", slug: "economics-and-management" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -831,7 +836,7 @@ export const universitiesData: University[] = [
     city: "Sassari",
     type: "Devlet",
     departments: [
-      "Computer Engineering"
+      { name: "Computer Engineering", slug: "computer-engineering" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -847,14 +852,14 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Özel",
     departments: [
-      "Medicine",
-      "Physiotherapy",
-      "Nursing",
-      "Midwifery",
-      "Biomedical Lab Techniques",
-      "Radiotherapy Techniques",
-      "Biomedical Laboratory Techniques",
-      "Imaging and Radiotherapy Techniques"
+      { name: "Medicine", slug: "medicine" },
+      { name: "Physiotherapy", slug: "physiotherapy" },
+      { name: "Nursing", slug: "nursing" },
+      { name: "Midwifery", slug: "midwifery" },
+      { name: "Biomedical Lab Techniques", slug: "biomedical-lab-techniques" },
+      { name: "Radiotherapy Techniques", slug: "radiotherapy-techniques" },
+      { name: "Biomedical Laboratory Techniques", slug: "biomedical-laboratory-techniques" },
+      { name: "Imaging and Radiotherapy Techniques", slug: "imaging-and-radiotherapy-techniques" }
     ],
     fee: "Özel Ücret",
     image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
@@ -870,12 +875,12 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Özel",
     departments: [
-      "Business and Institutional Economics",
-      "Communication Sciences & Digital Technologies",
-      "Political Science & Diplomacy",
-      "Business and Institutional Economics and Management",
-      "Communication Sciences, Media and Digital Technologies",
-      "Political Science, Diplomacy and Government of Administrations"
+      { name: "Business and Institutional Economics", slug: "business-and-institutional-economics" },
+      { name: "Communication Sciences & Digital Technologies", slug: "communication-sciences-and-digital-technologies" },
+      { name: "Political Science & Diplomacy", slug: "political-science-and-diplomacy" },
+      { name: "Business and Institutional Economics and Management", slug: "business-and-institutional-economics-and-management" },
+      { name: "Communication Sciences, Media and Digital Technologies", slug: "communication-sciences-media-and-digital-technologies" },
+      { name: "Political Science, Diplomacy and Government of Administrations", slug: "political-science-diplomacy-and-government-of-administrations" }
     ],
     fee: "Özel Ücret",
     image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
@@ -891,8 +896,8 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Özel",
     departments: [
-      "Economics and Business Management",
-      "Tourism and Local Development"
+      { name: "Economics and Business Management", slug: "economics-and-business-management" },
+      { name: "Tourism and Local Development", slug: "tourism-and-local-development" }
     ],
     fee: "Özel Ücret",
     image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
@@ -908,7 +913,7 @@ export const universitiesData: University[] = [
     city: "Milano",
     type: "Özel",
     departments: [
-      "Corporate Communication and Public Relations"
+      { name: "Corporate Communication and Public Relations", slug: "corporate-communication-and-public-relations" }
     ],
     fee: "Özel Ücret",
     image: "https://images.unsplash.com/photo-1610016302534-6f67f1c968d8?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -924,7 +929,7 @@ export const universitiesData: University[] = [
     city: "Pollenzo",
     type: "Özel",
     departments: [
-      "Gastronomic Sciences and Cultures"
+      { name: "Gastronomic Sciences and Cultures", slug: "gastronomic-sciences-and-cultures" }
     ],
     fee: "Özel Ücret",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -940,8 +945,8 @@ export const universitiesData: University[] = [
     city: "Bari",
     type: "Devlet",
     departments: [
-      "Architecture Sciences for Heritage",
-      "Management Engineering for Innovation"
+      { name: "Architecture Sciences for Heritage", slug: "architecture-sciences-for-heritage" },
+      { name: "Management Engineering for Innovation", slug: "management-engineering-for-innovation" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -957,7 +962,7 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Devlet",
     departments: [
-      "Biomedical Engineering"
+      { name: "Biomedical Engineering", slug: "biomedical-engineering" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -973,7 +978,7 @@ export const universitiesData: University[] = [
     city: "Teramo",
     type: "Devlet",
     departments: [
-      "Biotechnology"
+      { name: "Biotechnology", slug: "biotechnology" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -989,7 +994,7 @@ export const universitiesData: University[] = [
     city: "Piemonte",
     type: "Devlet",
     departments: [
-      "Biotechnology"
+      { name: "Biotechnology", slug: "biotechnology" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1005,8 +1010,8 @@ export const universitiesData: University[] = [
     city: "Uzaktan Eğitim / Roma",
     type: "Özel",
     departments: [
-      "Psycho-Social Disciplines",
-      "Economics and Business Administration"
+      { name: "Psycho-Social Disciplines", slug: "psycho-social-disciplines" },
+      { name: "Economics and Business Administration", slug: "economics-and-business-administration" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1022,7 +1027,7 @@ export const universitiesData: University[] = [
     city: "Bari",
     type: "Devlet",
     departments: [
-      "Earth System and Global Changes"
+      { name: "Earth System and Global Changes", slug: "earth-system-and-global-changes" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1038,9 +1043,9 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Özel",
     departments: [
-      "Business Economics and Management",
-      "Computer Engineering",
-      "Psychological Science and Techniques"
+      { name: "Business Economics and Management", slug: "business-economics-and-management" },
+      { name: "Computer Engineering", slug: "computer-engineering" },
+      { name: "Psychological Science and Techniques", slug: "psychological-science-and-techniques" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1056,7 +1061,7 @@ export const universitiesData: University[] = [
     city: "Cagliari",
     type: "Devlet",
     departments: [
-      "Business and Economics"
+      { name: "Business and Economics", slug: "business-and-economics" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1072,8 +1077,8 @@ export const universitiesData: University[] = [
     city: "Castellanza",
     type: "Özel",
     departments: [
-      "Economics and Management",
-      "Industrial Engineering"
+      { name: "Economics and Management", slug: "economics-and-management" },
+      { name: "Industrial Engineering", slug: "industrial-engineering" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1089,7 +1094,7 @@ export const universitiesData: University[] = [
     city: "Casamassima",
     type: "Özel",
     departments: [
-      "Business Economics and Organization"
+      { name: "Business Economics and Organization", slug: "business-economics-and-organization" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1105,7 +1110,7 @@ export const universitiesData: University[] = [
     city: "Pescara",
     type: "Devlet",
     departments: [
-      "Economics and Finance"
+      { name: "Economics and Finance", slug: "economics-and-finance" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1121,7 +1126,7 @@ export const universitiesData: University[] = [
     city: "Catania",
     type: "Devlet",
     departments: [
-      "Physics"
+      { name: "Physics", slug: "physics" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1137,7 +1142,7 @@ export const universitiesData: University[] = [
     city: "Ferrara",
     type: "Devlet",
     departments: [
-      "Physiotherapy"
+      { name: "Physiotherapy", slug: "physiotherapy" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1153,7 +1158,7 @@ export const universitiesData: University[] = [
     city: "Reggio Calabria",
     type: "Devlet",
     departments: [
-      "Civil and Environmental Engineering for Sustainable Development"
+      { name: "Civil and Environmental Engineering for Sustainable Development", slug: "civil-and-environmental-engineering-for-sustainable-development" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1169,7 +1174,7 @@ export const universitiesData: University[] = [
     city: "Aosta",
     type: "Devlet",
     departments: [
-      "Language and Communication for Business and Tourism"
+      { name: "Language and Communication for Business and Tourism", slug: "language-and-communication-for-business-and-tourism" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1185,7 +1190,7 @@ export const universitiesData: University[] = [
     city: "Benevento / Online",
     type: "Özel",
     departments: [
-      "Science and Technology of Transportation"
+      { name: "Science and Technology of Transportation", slug: "science-and-technology-of-transportation" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1201,7 +1206,7 @@ export const universitiesData: University[] = [
     city: "Floransa",
     type: "Devlet",
     departments: [
-      "Sustainable Business for Societal Challenges"
+      { name: "Sustainable Business for Societal Challenges", slug: "sustainable-business-for-societal-challenges" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",

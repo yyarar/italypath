@@ -2,10 +2,9 @@
 
 import React, { useMemo } from 'react';
 import { useParams } from 'next/navigation';
-import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MapPin, ArrowLeft, Globe, GraduationCap, Banknote, BookOpen, CheckCircle, Sparkles, Heart } from 'lucide-react';
+import { MapPin, ArrowLeft, ArrowRight, Globe, GraduationCap, Banknote, BookOpen, CheckCircle, Sparkles, Heart } from 'lucide-react';
 import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
 import { useLanguage } from '@/context/LanguageContext';
 import { useFavorites } from '@/lib/useFavorites';
@@ -88,6 +87,26 @@ export default function UniversityDetailPage() {
             <section>
               <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center"><BookOpen className="w-6 h-6 mr-2 text-blue-600" /> {t.detail.about}</h2>
               <p className="text-slate-600 leading-relaxed text-lg">{description}</p>
+            </section>
+            <hr className="border-slate-100" />
+            {/* BÖLÜMLER - Tıklanabilir */}
+            <section>
+              <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center"><GraduationCap className="w-6 h-6 mr-2 text-indigo-600" /> {t.detail.departments}</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {university.departments && university.departments.map((dept, i) => (
+                  <Link
+                    key={i}
+                    href={`/universities/${university.id}/departments/${dept.slug}`}
+                    className="flex items-center justify-between bg-gradient-to-r from-indigo-50 to-blue-50 hover:from-indigo-100 hover:to-blue-100 p-4 rounded-xl border border-indigo-100 transition-all duration-200 group hover:shadow-md hover:-translate-y-0.5"
+                  >
+                    <div className="flex items-center min-w-0">
+                      <div className="w-2 h-2 bg-indigo-500 rounded-full mr-3 shrink-0"></div>
+                      <span className="text-slate-800 font-medium truncate">{dept.name}</span>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-indigo-400 group-hover:text-indigo-600 transition shrink-0 ml-2" />
+                  </Link>
+                ))}
+              </div>
             </section>
             <hr className="border-slate-100" />
             <section>

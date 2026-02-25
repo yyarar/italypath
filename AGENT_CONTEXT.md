@@ -39,16 +39,23 @@ italypath-main/
 │   ├── layout.tsx                  # Root layout (Clerk, LanguageProvider, BottomNav)
 │   ├── template.tsx                # Sayfa geçiş animasyonları (Framer Motion)
 │   ├── not-found.tsx               # Özel 404 Hata Sayfası
+│   ├── error.tsx                   # Çift dilli Global Error Boundary
+│   ├── sitemap.ts                  # Dinamik sitemap (statik rotalar + 62 üniversite + 262 bölüm)
+│   ├── robots.ts                   # Robots.txt (public rotalar açık, auth rotalar kapalı)
 │   ├── globals.css                 # Tailwind v4 + mobil PWA stilleri
 │   ├── favicon.ico                 # Site ikonu
-│   ├── data.ts                     # 62 üniversite, 262 bölüm verisi (1180 satır, çift dilli)
+│   ├── data.ts                     # 62 üniversite, 262 bölüm verisi (Department[] objeler, çift dilli)
 │   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu)
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
 │   ├── universities/
 │   │   ├── page.tsx                # Üniversite listesi (arama, filtre, favoriler)
 │   │   └── [id]/
 │   │       ├── layout.tsx          # SEO (`generateMetadata`) için Server Component
-│   │       └── page.tsx            # Üniversite detay Ui (`use client`)
+│   │       ├── page.tsx            # Üniversite detay Ui (`use client`)
+│   │       └── departments/
+│   │           └── [deptSlug]/
+│   │               ├── layout.tsx  # Bölüm SEO (`generateMetadata`) Server Component
+│   │               └── page.tsx   # Bölüm detay UI (`use client`)
 │   ├── documents/page.tsx          # Belge cüzdanı (Supabase Storage upload/delete)
 │   ├── favorites/page.tsx          # Favori üniversiteler listesi
 │   └── isee/page.tsx               # ISEE burs hesaplayıcı (scala equivalente formülü)
@@ -173,6 +180,18 @@ italypath-main/
 |-------|------------|
 | `app/data.ts` | 📊 `yedek` dosyasındaki 217 girişten bölüm verileri çekildi. 76 yeni bölüm mevcut 45 üniversiteye eklendi, 17 yeni üniversite oluşturuldu. Toplam: 62 üniversite, 262 bölüm (860 → 1180 satır). Replica ve geçersiz girişler (10 adet) atlandı. Tuscia duplicate tespit edilip düzeltildi. |
 | `yedek` | 📁 Universitaly scraping verisini içeren JSON kaynak dosyası (merge sonrası korundu) |
+
+### Commit 7 (Bölüm Detay Sayfaları):
+| Dosya | Değişiklik |
+|-------|------------|
+| `app/data.ts` | 🔄 `departments: string[]` → `departments: Department[]` (name + slug). 262 bölüme otomatik slug üretildi |
+| `app/universities/[id]/departments/[deptSlug]/page.tsx` | 🆕 Bölüm detay sayfası (hero, üniversite bilgileri, diğer bölümler, AI CTA) |
+| `app/universities/[id]/departments/[deptSlug]/layout.tsx` | 🆕 Bölüm SEO metadata (Server Component) |
+| `app/universities/[id]/page.tsx` | ♻️ Tıklanabilir bölüm kartları eklendi (Link ile `/departments/{slug}` rotasına yönlendirme) |
+| `app/universities/page.tsx` | ♻️ `dep` → `dep.name` olarak güncellendi |
+| `app/api/chat/route.ts` | ♻️ `.join()` → `.map(d => d.name).join()` olarak güncellendi |
+| `lib/translations.ts` | ➕ `department` çeviri bloğu eklendi (TR + EN, 7 anahtar) |
+| `app/sitemap.ts` | ➕ ~262 bölüm URL'i eklendi |
 
 ---
 

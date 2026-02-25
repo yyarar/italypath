@@ -20,7 +20,7 @@ export default function UniversitiesPage() {
             const term = searchTerm.toLowerCase();
             const nameMatch = uni.name ? uni.name.toLowerCase().includes(term) : false;
             const cityMatch = uni.city ? uni.city.toLowerCase().includes(term) : false;
-            const deptMatch = uni.departments ? uni.departments.some((dep) => dep.toLowerCase().includes(term)) : false;
+            const deptMatch = uni.departments ? uni.departments.some((dep) => dep.name.toLowerCase().includes(term)) : false;
             const matchesSearch = nameMatch || cityMatch || deptMatch;
             const matchesFavorites = showFavoritesOnly ? isFavorite(uni.id) : true;
 
@@ -188,7 +188,7 @@ export default function UniversitiesPage() {
                                             <div className="flex flex-wrap gap-2">
                                                 {uni.departments && uni.departments.slice(0, 3).map((dep, idx) => (
                                                     <span key={idx} className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded border border-blue-100 font-medium truncate max-w-full">
-                                                        {dep}
+                                                        {dep.name}
                                                     </span>
                                                 ))}
                                                 {uni.departments && uni.departments.length > 3 && (
