@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { Suspense, useMemo, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
@@ -9,7 +9,7 @@ import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
 import { useLanguage } from '@/context/LanguageContext';
 import { useFavorites } from '@/lib/useFavorites';
 
-export default function UniversitiesPage() {
+function UniversitiesContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const pathname = usePathname();
@@ -330,5 +330,17 @@ export default function UniversitiesPage() {
                 )}
             </div>
         </div>
+    );
+}
+
+export default function UniversitiesPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+                <div className="animate-pulse text-slate-400 text-lg font-medium">Yükleniyor...</div>
+            </div>
+        }>
+            <UniversitiesContent />
+        </Suspense>
     );
 }
