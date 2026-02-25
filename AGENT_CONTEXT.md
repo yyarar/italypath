@@ -44,7 +44,7 @@ italypath-main/
 │   ├── robots.ts                   # Robots.txt (public rotalar açık, auth rotalar kapalı)
 │   ├── globals.css                 # Tailwind v4 + mobil PWA stilleri
 │   ├── favicon.ico                 # Site ikonu
-│   ├── data.ts                     # 62 üniversite, 262 bölüm verisi (Department[] objeler, çift dilli)
+│   ├── data.ts                     # 62 üniversite, 262 bölüm verisi (1219 satır, ~69KB, Department[] objeler, çift dilli)
 │   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu)
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
 │   ├── universities/
@@ -85,7 +85,7 @@ italypath-main/
 
 ### 1. Dil Sistemi (i18n)
 - `context/LanguageContext.tsx` → React Context + `localStorage` ile dil tercihi saklanır
-- `lib/translations.ts` → Tüm UI metinleri burada (navbar, hero, list, detail, isee, favorites, documents, bottomNav)
+- `lib/translations.ts` → Tüm UI metinleri burada (navbar, hero, list, detail, isee, favorites, documents, bottomNav, department)
 - Üniversite verileri (`data.ts`) → `description_en`, `features_en` opsiyonel alanları ile çift dilli
 - Dil değiştirme: Her sayfada Globe butonu ile `toggleLanguage()` çağrılır
 
@@ -114,6 +114,13 @@ italypath-main/
 - Public rotalar: `/`, `/api/chat`, `/sign-in`, `/sign-up`, `/universities(.*)`, `/isee(.*)`
 - Diğer tüm rotalar `auth.protect()` ile korumalı
 
+### 6. Bölüm Detay Sayfaları
+- `data.ts`'teki `departments` alanı `Department[]` obje dizisidir (`{ name, slug }`).
+- Slug, bölüm adından otomatik üretilir (URL-safe). Aynı üniversite içinde benzersizdir.
+- Rota: `/universities/[id]/departments/[deptSlug]`
+- SEO: `layout.tsx` (Server Component) → dinamik `generateMetadata()` — `page.tsx` ile aynı klasörde
+- Üniversite detay sayfasındaki bölüm kartları `Link` ile bu rotaya yönlendirilir
+
 ---
 
 ## 🛠️ Yapılan Değişiklikler (Bu Chat'te)
@@ -124,7 +131,7 @@ italypath-main/
 | `app/api/chat/route.ts` | ❌ Eski: Tek mesaj gönderim, JSON yanıt → ✅ Yeni: `sendMessageStream`, full history, sistem promptu, ReadableStream yanıt |
 | `app/ai-mentor/page.tsx` | ❌ Eski: `fetch` + `res.json()` bekleme → ✅ Yeni: Stream okuma, durdur butonu (AbortController), yazıyor animasyonu, aria-label'lar |
 
-### Commit 2 (henüz commit edilmedi):
+### Commit 2 (Favori Birleşik Hook):
 | Dosya | Değişiklik |
 |-------|------------|
 | `lib/useFavorites.ts` | 🆕 Oluşturuldu: Birleşik favori hook'u (localStorage + Supabase) |
@@ -208,7 +215,7 @@ italypath-main/
 ### 🟢 Düşük Öncelik
 
 5. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
-6. **Veri katmanı:** 1180 satırlık `data.ts` (~53KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
+6. **Veri katmanı:** 1219 satırlık `data.ts` (~69KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
 
 ---
 
