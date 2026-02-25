@@ -8,6 +8,7 @@ import { MapPin, ArrowLeft, ArrowRight, Globe, GraduationCap, Banknote, BookOpen
 import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
 import { useLanguage } from '@/context/LanguageContext';
 import { useFavorites } from '@/lib/useFavorites';
+import ScrollProgress from '@/components/ScrollProgress';
 
 export default function UniversityDetailPage() {
   const params = useParams();
@@ -38,6 +39,7 @@ export default function UniversityDetailPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      <ScrollProgress />
       {/* ÜST HERO */}
       <div className="relative h-[50vh] flex items-end overflow-hidden bg-slate-900">
         <div className="absolute inset-0">

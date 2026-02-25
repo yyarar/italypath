@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { MapPin, ArrowLeft, Globe, GraduationCap, Banknote, BookOpen, Sparkles, ArrowRight, Building2, ExternalLink } from 'lucide-react';
 import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
 import { useLanguage } from '@/context/LanguageContext';
+import ScrollProgress from '@/components/ScrollProgress';
 
 export default function DepartmentDetailPage() {
     const params = useParams();
@@ -46,6 +47,7 @@ export default function DepartmentDetailPage() {
 
     return (
         <div className="min-h-screen bg-slate-50">
+            <ScrollProgress />
             {/* ÜST HERO */}
             <div className="relative h-[45vh] flex items-end overflow-hidden bg-slate-900">
                 <div className="absolute inset-0">
