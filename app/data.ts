@@ -946,8 +946,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Tarihi mirasın korunması ve mimari bilimlerin teknik analizi üzerine odaklanan uzmanlık.`,
+    description_en: `A specialization focused on preservation of historical heritage and technical analysis of architectural sciences.`,
     website: "https://google.com/search?q=Politecnico+di+Bari+Architecture+Sciences",
-    features: ["İngilizce Eğitim", "Teknik Uzmanlık", "Akdeniz Kültürü"]
+    features: ["İngilizce Eğitim", "Teknik Uzmanlık", "Akdeniz Kültürü"],
+    features_en: ["English Education","Technical Expertise","Mediterranean Culture"]
   },
   {
     id: 47,
@@ -960,8 +962,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Roma'da mühendislik ve tıp dünyasını birleştiren, teknoloji odaklı biyomedikal eğitimi.`,
+    description_en: `Technology-focused biomedical education bridging engineering and medicine in Rome.`,
     website: "https://google.com/search?q=Università+Campus+Bio-Medico+di+Roma+Biomedical+Engineering",
-    features: ["İngilizce Eğitim", "İleri Teknoloji", "Tıbbi Mühendislik"]
+    features: ["İngilizce Eğitim", "İleri Teknoloji", "Tıbbi Mühendislik"],
+    features_en: ["English Education","Advanced Technology","Medical Engineering"]
   },
   {
     id: 48,
@@ -974,8 +978,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Biyoteknoloji dünyasına giriş yapmak isteyenler için kapsamlı ve bilimsel bir temel.`,
+    description_en: `A comprehensive, scientific foundation for those looking to enter the world of biotechnology.`,
     website: "https://google.com/search?q=Università+degli+Studi+di+Teramo+Biotechnology",
-    features: ["İngilizce Eğitim", "Temel Bilimler", "Merkezi Konum"]
+    features: ["İngilizce Eğitim", "Temel Bilimler", "Merkezi Konum"],
+    features_en: ["English Education","Fundamental Sciences","Central Location"]
   },
   {
     id: 49,
@@ -988,8 +994,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Kuzey İtalya'nın dinamik ortamında modern biyoteknolojik yöntemler üzerine uzmanlık.`,
+    description_en: `Expertise in modern biotechnological methods in the dynamic environment of Northern Italy.`,
     website: "https://google.com/search?q=Università+degli+Studi+del+Piemonte+Orientale+Biotechnology",
-    features: ["İngilizce Eğitim", "Modern Laboratuvar", "3 Yıllık"]
+    features: ["İngilizce Eğitim", "Modern Laboratuvar", "3 Yıllık"],
+    features_en: ["English Education","Modern Lab","3 Years"]
   },
   {
     id: 50,
@@ -1003,8 +1011,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Psikososyal disiplinler üzerine uzmanlaşma imkanı sunan, esnek yapılı uluslararası uzaktan eğitim programı.`,
+    description_en: `A flexible international distance education program offering specialization in psycho-social disciplines.`,
     website: "https://google.com/search?q=UNINETTUNO+Psycho-Social+Disciplines",
-    features: ["İngilizce Eğitim", "Online Eğitim", "Esnek Müfredat"]
+    features: ["İngilizce Eğitim", "Online Eğitim", "Esnek Müfredat"],
+    features_en: ["English Education","Online Education","Flexible Curriculum"]
   },
   {
     id: 51,
@@ -1017,8 +1027,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Küresel değişimleri ve dünya sistemini jeolojik perspektiften inceleyen kapsamlı lisans programı.`,
+    description_en: `A comprehensive bachelor's program examining global changes and earth systems from a geological perspective.`,
     website: "https://google.com/search?q=Università+di+Bari+Earth+System+Global+Changes",
-    features: ["İngilizce Eğitim", "Jeoloji", "3 Yıllık"]
+    features: ["İngilizce Eğitim", "Jeoloji", "3 Yıllık"],
+    features_en: ["English Education","Geology","3 Years"]
   },
   {
     id: 52,
@@ -1033,8 +1045,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Uzaktan eğitim modeliyle esnek, küresel standartlarda işletme ve ekonomi yönetimi eğitimi.`,
+    description_en: `Flexible business economics and management education at global standards through distance learning.`,
     website: "https://google.com/search?q=Università+Guglielmo+Marconi+Business+Economics+and+Management",
-    features: ["İngilizce Eğitim", "Online Eğitim", "3 Yıllık"]
+    features: ["İngilizce Eğitim", "Online Eğitim", "3 Yıllık"],
+    features_en: ["English Education","Online Education","3 Years"]
   },
   {
     id: 53,
@@ -1047,8 +1061,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Sardinya'nın merkezinde, ekonomi ve işletme dünyasının temellerine global bir bakış.`,
+    description_en: `A global perspective on the fundamentals of economics and business in the center of Sardinia.`,
     website: "https://google.com/search?q=Università+di+Cagliari+Business+and+Economics",
-    features: ["İngilizce Eğitim", "Stratejik Konum", "3 Yıllık"]
+    features: ["İngilizce Eğitim", "Stratejik Konum", "3 Yıllık"],
+    features_en: ["English Education","Strategic Location","3 Years"]
   },
   {
     id: 54,
@@ -1062,8 +1078,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Sanayi dünyasıyla doğrudan bağları olan, işletme ve ekonomi odaklı profesyonel bir eğitim.`,
+    description_en: `Professional education focused on business and economics with direct ties to the industrial world.`,
     website: "https://google.com/search?q=LIUC+Carlo+Cattaneo+Economics+and+Management",
-    features: ["İngilizce Eğitim", "İş Dünyası Odaklı", "Uygulamalı Eğitim"]
+    features: ["İngilizce Eğitim", "İş Dünyası Odaklı", "Uygulamalı Eğitim"],
+    features_en: ["English Education","Industry Focused","Applied Education"]
   },
   {
     id: 55,
@@ -1076,8 +1094,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Organizasyonel yapılar ve işletme ekonomisi üzerine yoğunlaşan, kariyer odaklı bir lisans programı.`,
+    description_en: `A career-oriented bachelor's program focused on organizational structures and business economics.`,
     website: "https://google.com/search?q=LUM+University+Business+Economics+and+Organization",
-    features: ["İngilizce Eğitim", "Organizasyonel Gelişim", "3 Yıllık"]
+    features: ["İngilizce Eğitim", "Organizasyonel Gelişim", "3 Yıllık"],
+    features_en: ["English Education","Organizational Dev.","3 Years"]
   },
   {
     id: 56,
@@ -1090,8 +1110,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Adriyatik kıyısında, finansal piyasalar ve ekonomi yönetimi üzerine sağlam bir temel.`,
+    description_en: `A solid foundation in financial markets and economic management on the Adriatic coast.`,
     website: "https://google.com/search?q=Università+Pescara+Economics+and+Finance",
-    features: ["İngilizce Eğitim", "Finans Odağı", "3 Yıllık"]
+    features: ["İngilizce Eğitim", "Finans Odağı", "3 Yıllık"],
+    features_en: ["English Education","Finance Focus","3 Years"]
   },
   {
     id: 57,
@@ -1104,8 +1126,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Teorik ve uygulamalı fizik alanında, Sicilya'nın en güçlü araştırma merkezlerinden birinde eğitim.`,
+    description_en: `Education in theoretical and applied physics at one of Sicily's strongest research centers.`,
     website: "https://google.com/search?q=Università+di+Catania+Physics+Bachelor+English",
-    features: ["İngilizce Eğitim", "Temel Bilimler", "Araştırma Odaklı"]
+    features: ["İngilizce Eğitim", "Temel Bilimler", "Araştırma Odaklı"],
+    features_en: ["English Education","Fundamental Sciences","Research Focused"]
   },
   {
     id: 58,
@@ -1118,8 +1142,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Hareket biliminde uzmanlaşmak isteyenler için modern tekniklerle donatılmış fizyoterapi eğitimi.`,
+    description_en: `Physiotherapy education equipped with modern techniques for those aspiring to specialize in movement science.`,
     website: "https://google.com/search?q=Università+di+Ferrara+Physiotherapy+English",
-    features: ["İngilizce Eğitim", "Klinik Uygulama", "3 Yıllık"]
+    features: ["İngilizce Eğitim", "Klinik Uygulama", "3 Yıllık"],
+    features_en: ["English Education","Clinical Practice","3 Years"]
   },
   {
     id: 59,
@@ -1132,8 +1158,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Sürdürülebilir kalkınma odaklı inşaat ve çevre mühendisliği çözümleri üzerine uzmanlaşmış bir program.`,
+    description_en: `A program specialized in civil and environmental engineering solutions focused on sustainable development.`,
     website: "https://google.com/search?q=Università+Mediterranea+Civil+Environmental+Engineering",
-    features: ["İngilizce Eğitim", "Sürdürülebilirlik", "3 Yıllık"]
+    features: ["İngilizce Eğitim", "Sürdürülebilirlik", "3 Yıllık"],
+    features_en: ["English Education","Sustainability","3 Years"]
   },
   {
     id: 60,
@@ -1146,8 +1174,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `İş dünyası ve turizm sektörü için profesyonel dil ve iletişim becerileri kazandıran çok dilli program.`,
+    description_en: `A multilingual program building professional language and communication skills for business and tourism.`,
     website: "https://google.com/search?q=Università+Valle+Aosta+Language+Business+Tourism",
-    features: ["İngilizce Eğitim", "Turizm İletişimi", "3 Yıllık"]
+    features: ["İngilizce Eğitim", "Turizm İletişimi", "3 Yıllık"],
+    features_en: ["English Education","Tourism Comm.","3 Years"]
   },
   {
     id: 62,
@@ -1160,8 +1190,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Ulaşım sistemleri teknolojisi ve yönetimi üzerine uzaktan eğitim esnekliğiyle uzmanlaşın.`,
+    description_en: `Specialize in transportation systems technology and management with the flexibility of distance learning.`,
     website: "https://google.com/search?q=Università+Giustino+Fortunato+Transportation+Science",
-    features: ["İngilizce Eğitim", "Online Eğitim", "Lojistik Odaklı"]
+    features: ["İngilizce Eğitim", "Online Eğitim", "Lojistik Odaklı"],
+    features_en: ["English Education","Online Education","Logistics Focused"]
   },
   {
     id: 63,
@@ -1174,8 +1206,10 @@ export const universitiesData: University[] = [
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
     description: `Toplumsal sorunlara sürdürülebilir iş modelleriyle çözümler üreten modern işletme yönetimi eğitimi.`,
+    description_en: `Modern business management education producing sustainable business model solutions for societal challenges.`,
     website: "https://google.com/search?q=Università+di+Firenze+Sustainable+Business",
-    features: ["İngilizce Eğitim", "İnovasyon", "3 Yıllık"]
+    features: ["İngilizce Eğitim", "İnovasyon", "3 Yıllık"],
+    features_en: ["English Education","Innovation","3 Years"]
   }
 
 ];

@@ -184,7 +184,7 @@ italypath-main/
 ### 🟡 Orta Öncelik
 2. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı. Şu anda tasarım aşamasındadır. Dokunma.
 3. **Tekrarlanan görseller:** `data.ts`'te yeni eklenen 17 üniversite ve id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor
-4. **Eksik İngilizce çeviriler:** Yeni eklenen 17 üniversitede `description_en` ve `features_en` alanları eksik
+
 
 ### 🟢 Düşük Öncelik
 
