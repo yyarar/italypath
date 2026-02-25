@@ -48,7 +48,7 @@ italypath-main/
 │   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu)
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
 │   ├── universities/
-│   │   ├── page.tsx                # Üniversite listesi (arama, filtre, favoriler)
+│   │   ├── page.tsx                # Üniversite listesi (arama, şehir/tip filtreleri, URL sync, favoriler)
 │   │   └── [id]/
 │   │       ├── layout.tsx          # SEO (`generateMetadata`) için Server Component
 │   │       ├── page.tsx            # Üniversite detay Ui (`use client`)
@@ -199,6 +199,11 @@ italypath-main/
 | `app/api/chat/route.ts` | ♻️ `.join()` → `.map(d => d.name).join()` olarak güncellendi |
 | `lib/translations.ts` | ➕ `department` çeviri bloğu eklendi (TR + EN, 7 anahtar) |
 | `app/sitemap.ts` | ➕ ~262 bölüm URL'i eklendi |
+
+### Commit 8 (Gelişmiş Filtreler + URL Sync):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `app/universities/page.tsx` | ➕ Şehir dropdown (46 şehir, sayılı: "Milano (5)"), Devlet/Özel toggle butonları, Temizle butonu, sonuç sayacı ("49 / 62"). `useState` → `useSearchParams` ile URL sync (`?city=Milano&type=Devlet&q=design&fav=1`). Filtreler sayfa yenilenmede korunur ve paylaşılabilir |
 
 ---
 

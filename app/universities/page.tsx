@@ -1,19 +1,52 @@
 "use client";
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Search, MapPin, ArrowRight, GraduationCap, School, ArrowLeft, Heart, X, Globe } from 'lucide-react';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { Search, MapPin, ArrowRight, GraduationCap, School, ArrowLeft, Heart, X, Globe, Building2, Filter, ChevronDown } from 'lucide-react';
 import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
 import { useLanguage } from '@/context/LanguageContext';
 import { useFavorites } from '@/lib/useFavorites';
 
 export default function UniversitiesPage() {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const pathname = usePathname();
+
+    // URL'den oku
+    const searchTerm = searchParams.get('q') || '';
+    const selectedCity = searchParams.get('city') || '';
+    const selectedType = searchParams.get('type') || '';
+    const showFavoritesOnly = searchParams.get('fav') === '1';
+
+    // URL güncelle (history'ye eklemeden)
+    const updateFilter = useCallback((key: string, value: string) => {
+        const params = new URLSearchParams(searchParams.toString());
+        if (value) {
+            params.set(key, value);
+        } else {
+            params.delete(key);
+        }
+        const qs = params.toString();
+        router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    }, [searchParams, router, pathname]);
+
+    const clearAllFilters = useCallback(() => {
+        router.replace(pathname, { scroll: false });
+    }, [router, pathname]);
 
     const { t, language, toggleLanguage } = useLanguage();
     const { favorites, toggleFavorite, isFavorite, loading } = useFavorites();
+
+    // Benzersiz şehir listeleri (sayılarıyla)
+    const citiesWithCounts = useMemo(() => {
+        const cityMap = new Map<string, number>();
+        universitiesData.forEach(u => cityMap.set(u.city, (cityMap.get(u.city) || 0) + 1));
+        return [...cityMap.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+    }, []);
+
+    const hasActiveFilters = selectedCity || selectedType || searchTerm || showFavoritesOnly;
 
     const filteredUniversities = useMemo(() => {
         return universitiesData.filter((uni) => {
@@ -23,10 +56,12 @@ export default function UniversitiesPage() {
             const deptMatch = uni.departments ? uni.departments.some((dep) => dep.name.toLowerCase().includes(term)) : false;
             const matchesSearch = nameMatch || cityMatch || deptMatch;
             const matchesFavorites = showFavoritesOnly ? isFavorite(uni.id) : true;
+            const matchesCity = selectedCity ? uni.city === selectedCity : true;
+            const matchesType = selectedType ? uni.type === selectedType : true;
 
-            return matchesSearch && matchesFavorites;
+            return matchesSearch && matchesFavorites && matchesCity && matchesType;
         });
-    }, [searchTerm, showFavoritesOnly, isFavorite]);
+    }, [searchTerm, showFavoritesOnly, selectedCity, selectedType, isFavorite]);
 
     if (loading) return null;
 
@@ -87,18 +122,21 @@ export default function UniversitiesPage() {
                             aria-label={t.list.searchPlaceholder}
                             className="block w-full pl-14 pr-6 py-4 bg-white border-0 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20 text-lg transition"
                             value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onChange={(e) => updateFilter('q', e.target.value)}
                         />
                         <div className="absolute inset-y-0 right-0 pr-5 flex items-center pointer-events-none">
                             <span className="text-sm text-slate-400 bg-slate-100 px-2 py-1 rounded">
-                                {filteredUniversities.length} {t.list.results}
+                                {hasActiveFilters
+                                    ? <><strong className="text-blue-600">{filteredUniversities.length}</strong> / {universitiesData.length}
+                                    </>
+                                    : <>{filteredUniversities.length} {t.list.results}</>}
                             </span>
                         </div>
                     </div>
 
                     {/* FAVORİ FİLTRE BUTONU */}
                     <button
-                        onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+                        onClick={() => updateFilter('fav', showFavoritesOnly ? '' : '1')}
                         aria-label={showFavoritesOnly ? t.list.showAll : t.list.favoritesOnly}
                         aria-pressed={showFavoritesOnly}
                         className={`flex items-center justify-center px-6 py-4 rounded-xl font-bold transition-all shadow-lg border-2 whitespace-nowrap ${showFavoritesOnly
@@ -118,6 +156,61 @@ export default function UniversitiesPage() {
                             </>
                         )}
                     </button>
+                </div>
+
+                {/* FİLTRE ÇUBUĞU */}
+                <div className="flex flex-wrap gap-3 mt-4 max-w-5xl items-center">
+                    <Filter className="w-4 h-4 text-slate-400 hidden sm:block" />
+
+                    {/* ŞEHİR FİLTRE */}
+                    <div className="relative">
+                        <select
+                            value={selectedCity}
+                            onChange={(e) => updateFilter('city', e.target.value)}
+                            aria-label={language === 'tr' ? 'Şehir filtrele' : 'Filter by city'}
+                            className="appearance-none bg-white border border-slate-200 text-slate-700 text-sm font-medium pl-9 pr-8 py-2.5 rounded-full hover:border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition cursor-pointer shadow-sm"
+                        >
+                            <option value="">{language === 'tr' ? '🏙️ Tüm Şehirler' : '🏙️ All Cities'} ({universitiesData.length})</option>
+                            {citiesWithCounts.map(([city, count]) => (
+                                <option key={city} value={city}>{city} ({count})</option>
+                            ))}
+                        </select>
+                        <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+                        <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none" />
+                    </div>
+
+                    {/* TİP FİLTRE (Devlet / Özel) */}
+                    <button
+                        onClick={() => updateFilter('type', selectedType === 'Devlet' ? '' : 'Devlet')}
+                        className={`flex items-center text-sm font-medium px-4 py-2.5 rounded-full border transition-all shadow-sm ${selectedType === 'Devlet'
+                            ? 'bg-blue-600 border-blue-600 text-white'
+                            : 'bg-white border-slate-200 text-slate-700 hover:border-blue-300'
+                            }`}
+                    >
+                        <Building2 className="w-3.5 h-3.5 mr-1.5" />
+                        {language === 'tr' ? 'Devlet' : 'Public'}
+                    </button>
+                    <button
+                        onClick={() => updateFilter('type', selectedType === 'Özel' ? '' : 'Özel')}
+                        className={`flex items-center text-sm font-medium px-4 py-2.5 rounded-full border transition-all shadow-sm ${selectedType === 'Özel'
+                            ? 'bg-purple-600 border-purple-600 text-white'
+                            : 'bg-white border-slate-200 text-slate-700 hover:border-purple-300'
+                            }`}
+                    >
+                        <GraduationCap className="w-3.5 h-3.5 mr-1.5" />
+                        {language === 'tr' ? 'Özel' : 'Private'}
+                    </button>
+
+                    {/* AKTİF FİLTRE TEMİZLE */}
+                    {hasActiveFilters && (
+                        <button
+                            onClick={() => clearAllFilters()}
+                            className="flex items-center text-sm font-medium px-4 py-2.5 rounded-full border border-red-200 text-red-500 bg-red-50 hover:bg-red-100 transition-all shadow-sm"
+                        >
+                            <X className="w-3.5 h-3.5 mr-1.5" />
+                            {language === 'tr' ? 'Temizle' : 'Clear'}
+                        </button>
+                    )}
                 </div>
             </div>
 
@@ -228,10 +321,7 @@ export default function UniversitiesPage() {
                         )}
 
                         <button
-                            onClick={() => {
-                                setSearchTerm("");
-                                setShowFavoritesOnly(false);
-                            }}
+                            onClick={() => clearAllFilters()}
                             className="mt-6 px-6 py-3 bg-blue-50 text-blue-600 font-bold rounded-xl hover:bg-blue-100 transition"
                         >
                             {t.list.clearFilters}
