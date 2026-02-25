@@ -3,9 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { supabase } from '@/lib/supabaseClient';
-import { FileText, Camera, Trash2, Loader2, Image as ImageIcon, ExternalLink } from 'lucide-react';
+import { FileText, Camera, Trash2, Loader2, Image as ImageIcon, ExternalLink, Lightbulb } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+
+const CHECKLIST_KEYS = ['emptyStep1', 'emptyStep2', 'emptyStep3', 'emptyStep4'] as const;
 
 export default function DocumentsPage() {
   const { user } = useUser();
@@ -160,9 +162,50 @@ export default function DocumentsPage() {
             </AnimatePresence>
 
             {docs.length === 0 && !uploading && (
-              <div className="text-center py-20 bg-slate-50 rounded-[2.5rem] border-2 border-dashed border-slate-100">
-                <p className="text-slate-400 text-sm font-medium">{t.documents.empty}</p>
-              </div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="py-10"
+              >
+                {/* Animated Icon */}
+                <div className="flex justify-center mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-100 via-indigo-50 to-sky-100 rounded-full flex items-center justify-center shadow-lg shadow-blue-200/40">
+                    <FileText className="w-9 h-9 text-blue-400 animate-pulse" />
+                  </div>
+                </div>
+
+                {/* Title & Subtitle */}
+                <h2 className="text-lg font-black text-slate-800 text-center mb-1">{t.documents.emptyTitle}</h2>
+                <p className="text-sm text-slate-500 text-center mb-8 max-w-xs mx-auto">{t.documents.emptySubtitle}</p>
+
+                {/* Document Checklist */}
+                <div className="space-y-2.5 max-w-xs mx-auto mb-6">
+                  {CHECKLIST_KEYS.map((key, i) => (
+                    <motion.div
+                      key={key}
+                      initial={{ opacity: 0, x: -12 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.25 + i * 0.1, duration: 0.35 }}
+                      className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 border border-slate-100 shadow-sm"
+                    >
+                      <div className="w-6 h-6 rounded-full border-2 border-slate-200 shrink-0" />
+                      <span className="text-sm text-slate-600 font-medium">{t.documents[key]}</span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Hint Box */}
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7, duration: 0.4 }}
+                  className="flex items-start gap-3 bg-amber-50 border border-amber-100 rounded-2xl px-4 py-3.5 max-w-xs mx-auto"
+                >
+                  <Lightbulb className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                  <p className="text-sm text-amber-800 font-semibold leading-snug">{t.documents.emptyHint}</p>
+                </motion.div>
+              </motion.div>
             )}
           </div>
         </div>

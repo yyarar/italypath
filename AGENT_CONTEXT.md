@@ -215,12 +215,14 @@ italypath-main/
 ### 🟡 Orta Öncelik
 2. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı. Şu anda tasarım aşamasındadır. Dokunma.
 3. **Tekrarlanan görseller:** `data.ts`'te yeni eklenen 17 üniversite ve id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor
+4. **Üniversite Karşılaştırma:** 2-3 üniversiteyi yan yana kıyaslama (ücret, bölüm sayısı, şehir, özellikler). Mevcut `data.ts` yapısıyla yapılabilir, ek veri gerekmez. Favori sisteminden beslenebilir.
+5. **Şehir Rehberi:** Her şehir için yaşam maliyeti, ulaşım, iklim, öğrenci nüfusu bilgisi. Şehir filtresi zaten mevcut — detay sayfası eklenebilir.
 
 
 ### 🟢 Düşük Öncelik
 
-5. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
-6. **Veri katmanı:** 1219 satırlık `data.ts` (~69KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
+6. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
+7. **Veri katmanı:** 1219 satırlık `data.ts` (~69KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
 
 ---
 

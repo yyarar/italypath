@@ -5,6 +5,7 @@ import { Send, Bot, User, ArrowLeft, RefreshCcw, Sparkles, Square } from "lucide
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ChatMessage {
   id: string;
@@ -18,27 +19,29 @@ const WELCOME_MESSAGE: ChatMessage = {
   content: "Ciao! ItalyPath Mentor hazır. İtalya hayalini gerçekleştirmek için neyi çözmemi istersin?",
 };
 
+const PROMPT_KEYS = ["prompt1", "prompt2", "prompt3", "prompt4"] as const;
+
 export default function AIMentorPage() {
   const [messages, setMessages] = useState<ChatMessage[]>([WELCOME_MESSAGE]);
   const [input, setInput] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const { t } = useLanguage();
 
   // Yeni mesaj / stream chunk geldiğinde aşağı kaydır
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  const handleSend = useCallback(
-    async (e: React.FormEvent) => {
-      e.preventDefault();
-      if (!input.trim() || isStreaming) return;
+  const sendPrompt = useCallback(
+    async (text: string) => {
+      if (!text.trim() || isStreaming) return;
 
       const userMessage: ChatMessage = {
         id: Date.now().toString(),
         role: "user",
-        content: input.trim(),
+        content: text.trim(),
       };
 
       const updatedMessages = [...messages, userMessage];
@@ -102,7 +105,15 @@ export default function AIMentorPage() {
         abortRef.current = null;
       }
     },
-    [input, isStreaming, messages]
+    [isStreaming, messages]
+  );
+
+  const handleSend = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      sendPrompt(input);
+    },
+    [input, sendPrompt]
   );
 
   const handleStop = () => {
@@ -114,6 +125,8 @@ export default function AIMentorPage() {
     setMessages([WELCOME_MESSAGE]);
     setIsStreaming(false);
   };
+
+  const showPromptChips = messages.length === 1 && !isStreaming;
 
   return (
     <div className="flex flex-col h-[100dvh] bg-[#FDFCFB] text-slate-900 overflow-hidden">
@@ -169,8 +182,8 @@ export default function AIMentorPage() {
                 {/* Mesaj Balonu */}
                 <div
                   className={`p-4 rounded-[20px] shadow-sm ${m.role === "user"
-                      ? "bg-indigo-600 text-white"
-                      : "bg-white border text-slate-800"
+                    ? "bg-indigo-600 text-white"
+                    : "bg-white border text-slate-800"
                     }`}
                 >
                   {m.content ? (
@@ -190,6 +203,36 @@ export default function AIMentorPage() {
             </motion.div>
           ))}
         </AnimatePresence>
+
+        {/* Prompt Suggestion Chips */}
+        {showPromptChips && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.4 }}
+            className="space-y-3 pt-2"
+          >
+            <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] px-1">
+              {t.aiMentor.promptsTitle}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {PROMPT_KEYS.map((key, i) => (
+                <motion.button
+                  key={key}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 + i * 0.1, duration: 0.3 }}
+                  onClick={() => sendPrompt(t.aiMentor[key])}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2.5 bg-white border border-slate-200 rounded-2xl text-xs font-semibold text-slate-700 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700 active:scale-95 transition-all shadow-sm"
+                >
+                  <Sparkles className="w-3 h-3 text-indigo-400 shrink-0" />
+                  <span className="text-left">{t.aiMentor[key]}</span>
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
         <div ref={scrollRef} className="h-4" />
       </div>
 

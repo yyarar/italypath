@@ -78,7 +78,11 @@ export const translations = {
       title: "Favorilerim",
       empty: "Henüz favori üniversiten yok.",
       explore: "Okulları Keşfet",
-      loading: "Yükleniyor..."
+      loading: "Yükleniyor...",
+      emptyTitle: "Henüz favori üniversiten yok",
+      emptySubtitle: "Sana uygun okulları keşfet, beğendiklerini kaydet!",
+      emptyCta: "Üniversiteleri Keşfet",
+      emptyRecommendTitle: "Başlamak için popüler seçenekler"
     },
     documents: {
       title: "Belge Cüzdanı",
@@ -90,7 +94,14 @@ export const translations = {
       view: "GÖRÜNTÜLE",
       empty: "Henüz belge taranmamış.",
       deleteConfirm: "Bu belgeyi silmek istediğine emin misin?",
-      deleteFail: "Silme işlemi başarısız oldu."
+      deleteFail: "Silme işlemi başarısız oldu.",
+      emptyTitle: "Belge cüzdanın boş",
+      emptySubtitle: "İtalya yolculuğunda ihtiyacın olan belgeleri buraya yükle",
+      emptyStep1: "📘 Pasaport",
+      emptyStep2: "📄 Transkript",
+      emptyStep3: "🎓 Diploma",
+      emptyStep4: "🌐 Dil Belgesi",
+      emptyHint: "İlk adım olarak pasaportunu yükleyerek başla!"
     },
     bottomNav: {
       home: "Ana Sayfa",
@@ -111,6 +122,13 @@ export const translations = {
       city: "Şehir",
       fee: "Yıllık Ücret",
       overview: "Bölüm Hakkında"
+    },
+    aiMentor: {
+      promptsTitle: "Neler sorabilirsin?",
+      prompt1: "İtalya'da en uygun harç ücretli üniversiteler hangileri?",
+      prompt2: "Milano'da İngilizce mühendislik bölümleri var mı?",
+      prompt3: "ISEE değerim düşükse ne kadar burs alabilirim?",
+      prompt4: "Başvuru için hangi belgeler gerekiyor?"
     }
   },
   en: {
@@ -192,7 +210,11 @@ export const translations = {
       title: "My Favorites",
       empty: "You have no favorite universities yet.",
       explore: "Explore Universities",
-      loading: "Loading..."
+      loading: "Loading...",
+      emptyTitle: "No favorite universities yet",
+      emptySubtitle: "Discover universities, save the ones you love!",
+      emptyCta: "Explore Universities",
+      emptyRecommendTitle: "Popular picks to get started"
     },
     documents: {
       title: "Document Wallet",
@@ -204,7 +226,14 @@ export const translations = {
       view: "VIEW",
       empty: "No documents scanned yet.",
       deleteConfirm: "Are you sure you want to delete this document?",
-      deleteFail: "Deletion failed."
+      deleteFail: "Deletion failed.",
+      emptyTitle: "Your document wallet is empty",
+      emptySubtitle: "Upload the documents you need for your Italy journey",
+      emptyStep1: "📘 Passport",
+      emptyStep2: "📄 Transcript",
+      emptyStep3: "🎓 Diploma",
+      emptyStep4: "🌐 Language Certificate",
+      emptyHint: "Start by uploading your passport!"
     },
     bottomNav: {
       home: "Home",
@@ -225,6 +254,13 @@ export const translations = {
       city: "City",
       fee: "Annual Tuition",
       overview: "About This Program"
+    },
+    aiMentor: {
+      promptsTitle: "What can you ask?",
+      prompt1: "Which universities in Italy have the lowest tuition?",
+      prompt2: "Are there English engineering programs in Milan?",
+      prompt3: "How much scholarship can I get with a low ISEE?",
+      prompt4: "What documents are needed for application?"
     }
   }
 };
