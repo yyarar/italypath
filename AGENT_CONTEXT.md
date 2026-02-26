@@ -303,6 +303,40 @@ CREATE TABLE user_documents (
 
 ---
 
+## geçici Codex raporu
+
+> Tarih: 26 Şubat 2026  
+> Kaynak: Kod tabanı + `npm run lint` yeniden doğrulama çıktısı
+
+### ✅ Yeniden Doğrulanan Problemler
+
+1. **Lint kırıkları (hata seviyesinde) mevcut**
+   - `app/documents/page.tsx`: `any` kullanımı (`docs` state ve `catch (error: any)`)
+   - `context/LanguageContext.tsx`: `useEffect` içinde senkron `setLanguage(savedLang)` (`react-hooks/set-state-in-effect`)
+   - `app/universities/page.tsx`: unescaped quote (`"{searchTerm}"`)
+   - `components/Footer.tsx`: `/` navigasyonu için `<a>` kullanımı (Next.js `Link` kural ihlali)
+
+2. **Footer link hedefleri işlevsel değil**
+   - `Twitter`, `Instagram`, `LinkedIn` linkleri şu an üçü de `/`'a gidiyor.
+
+3. **View Transitions isim eşleşmesi tutarsız**
+   - CSS tarafı `::view-transition-old/new(uni-hero)` ve `(...uni-title)` bekliyor.
+   - Bileşenler `viewTransitionName: uni-hero-${id}` ve `uni-title-${id}` atıyor.
+   - Sonuç: tanımlı shared-element transition selector'ları hedef elemanları tam yakalamıyor.
+
+4. **Documents URL paylaşım modeli potansiyel gizlilik riski taşıyor**
+   - Yükleme sonrası `getPublicUrl(filePath)` ile herkese açık URL üretimi yapılıyor.
+   - Bu akış, bucket private değilse/yanlış politikadaysa belge gizliliğini zayıflatabilir.
+   - Not: Nihai güvenlik durumu Supabase bucket ayarı + RLS policy doğrulamasıyla kesinleşir.
+
+### ℹ️ Ek Notlar (Warning Seviyesi)
+
+- `app/favorites/page.tsx`: bir adet `<img>` kullanımı (`next/image` önerisi).
+- `app/api/chat/route.ts`: kullanılmayan `err` değişkeni.
+- `app/documents/page.tsx`: `fetchDocs` için effect dependency uyarısı.
+
+---
+
 ## 🛑 STRICT AGENT GUIDELINES (AI'lar İçin Kesin Kurallar)
 
 > **DİKKAT YENİ AGENT:** Aşağıdaki kurallar projenin bütünlüğünü korumak için yazılmıştır. Bu kuralları çiğnediğin an Next.js build'i kırılacaktır. Asla inisiyatif alıp bu kuralların dışına çıkma.

@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { supabase } from '@/lib/supabaseClient';
-import { FileText, Camera, Trash2, Loader2, Image as ImageIcon, ExternalLink, Lightbulb } from 'lucide-react';
+import Link from 'next/link';
+import { FileText, Camera, Trash2, Loader2, Image as ImageIcon, ExternalLink, Lightbulb, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -79,6 +80,14 @@ export default function DocumentsPage() {
   return (
     <div className="min-h-screen bg-[#FDFCFB] pb-32 font-sans">
       <header className="p-6 bg-white/80 backdrop-blur-md border-b sticky top-0 z-30">
+        <Link
+          href="/"
+          className="inline-flex items-center text-slate-500 hover:text-blue-600 transition font-medium mb-3"
+          aria-label={t.list.backHome}
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          {t.list.backHome}
+        </Link>
         <h1 className="text-2xl font-black text-slate-900 tracking-tight">{t.documents.title}</h1>
         <p className="text-[11px] text-slate-500 font-bold uppercase tracking-widest mt-1">{t.documents.subtitle}</p>
       </header>
