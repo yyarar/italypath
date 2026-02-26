@@ -77,6 +77,9 @@ italypath-main/
 │   └── index.ts                    # Paylaşılan tipler (Language)
 ├── next.config.ts                  # Next.js yapılandırması (Unsplash + Pexels remotePatterns, experimental.viewTransition)
 ├── proxy.ts                        # Clerk Request Boundary (Next.js 16 standardı)
+├── SUPABASE_SECURITY_RUNBOOK.md    # Clerk + Supabase RLS adım adım operasyon rehberi
+├── supabase/
+│   └── rls_hardening.sql           # RLS + Storage policy hardening SQL scripti
 └── public/                         # Varsayılan SVG'ler (file, globe, next, vercel, window)
 ```
 
@@ -93,6 +96,7 @@ italypath-main/
 ### 2. Favori Sistemi (`lib/useFavorites.ts`)
 - **Misafir kullanıcı:** `localStorage` → `italyPathFavorites` key'i
 - **Giriş yapmış kullanıcı:** Supabase `favorites` tablosu (`user_id`, `university_id`)
+- Giriş yapmış kullanıcı istekleri Clerk `supabase` JWT template token'ı ile Supabase'e gider (`createClerkSupabaseClient`)
 - Hook tüm sayfalarda aynı API sunar: `{ favorites, toggleFavorite, isFavorite, loading }`
 - Optimistic update uygulanmış (UI anında güncellenir, hata olursa geri alınır)
 
@@ -109,6 +113,7 @@ italypath-main/
 - Supabase `user_documents` tablosuna metadata yazma
 - Kamera ile doğrudan tarama (`capture="environment"`) veya galeriden dosya seçme
 - Clerk `user.id` ile kullanıcıya özel dosya yolu: `{userId}/{timestamp}.{ext}`
+- Belge görüntüleme için kalıcı public URL yerine kısa ömürlü signed URL (`createSignedUrls`) kullanılır
 
 ### 5. Clerk Request Boundary (proxy.ts)
 - `proxy.ts` dosyasında tanımlı (Next.js 16 yeni Request Boundary standardı uyarınca).
@@ -230,12 +235,35 @@ italypath-main/
 | `app/universities/page.tsx` | ➕ Kart image container: `style={{ viewTransitionName: \`uni-hero-\${uni.id}\` }}`, başlık: `uni-title-{id}` |
 | `app/universities/[id]/page.tsx` | ➕ Hero container: `viewTransitionName: uni-hero-{id}`, h1 başlık: `uni-title-{id}` — kart ile eşleşen morph geçişi |
 
+### Commit 12 (Lint Stabilizasyonu — 0 Error/0 Warning):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `context/LanguageContext.tsx` | ♻️ `useEffect` içi senkron `setState` kaldırıldı; lazy initializer + güvenli `localStorage` okuması eklendi |
+| `types/index.ts` | ➕ `UserDocument` interface'i eklendi |
+| `app/documents/page.tsx` | ♻️ `any` kaldırıldı, `UserDocument` kullanıldı, `fetchDocs` dependency uyarısı kapatıldı, güvenli `unknown` hata yakalama eklendi |
+| `app/universities/page.tsx` | ♻️ Unescaped quote (`"{searchTerm}"`) JSX-safe hale getirildi |
+| `components/Footer.tsx` | ♻️ Geçici `/` sosyal linkleri non-clickable etiketlere çevrildi |
+| `app/api/chat/route.ts` | ♻️ Kullanılmayan `err` değişkeni kaldırıldı |
+| `app/favorites/page.tsx` | ♻️ Kalan `<img>` etiketi `next/image` ile değiştirildi |
+
+### Commit 13 (Supabase Güvenlik Hardening — Clerk + RLS + Signed URL):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `lib/supabaseClient.ts` | ➕ `createClerkSupabaseClient()` eklendi (Supabase `accessToken` callback ile Clerk JWT entegrasyonu) |
+| `lib/useFavorites.ts` | 🔐 Giriş yapmış kullanıcı favori sorguları Clerk `supabase` template token'ı ile çalışacak şekilde güncellendi |
+| `app/documents/page.tsx` | 🔐 `getPublicUrl` kaldırıldı; `createSignedUrls` (10 dk) ile private bucket uyumlu görüntüleme akışı eklendi; DB'ye `file_url` olarak `storage_path` yazımı hizalandı |
+| `types/index.ts` | ➕ `UserDocument.signed_url` opsiyonel alanı eklendi |
+| `supabase/rls_hardening.sql` | 🆕 `favorites`, `user_documents`, `storage.objects` için RLS/policy hardening scripti eklendi |
+| `SUPABASE_SECURITY_RUNBOOK.md` | 🆕 Dashboard adımlarını sadeleştiren operasyon runbook'u eklendi |
+| `Supabase Dashboard` | ✅ `documents` bucket private (`public=false`) yapıldı; `storage.objects` policy'leri yalnızca `authenticated` rolüne indirildi (SELECT/INSERT/UPDATE/DELETE 4 policy) |
+
 ---
 
 ## ⚠️ Bilinen Sorunlar & Açık Öneriler
 
 ### 🔴 Yüksek Öncelik
-1. **Supabase RLS:** `user_documents`, `favorites` tabloları ve `documents` storage bucket'ında Row Level Security politikaları doğrulanmalı
+1. **Aktif kritik bloklayıcı yok (26 Şubat 2026 doğrulaması)**
+   - `favorites` + `user_documents` RLS policy'leri ve `documents` private bucket doğrulandı.
 
 ### 🟡 Orta Öncelik
 2. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı. Şu anda tasarım aşamasındadır. Dokunma.
@@ -247,8 +275,8 @@ italypath-main/
 
 ### 🟢 Düşük Öncelik
 
-6. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
-7. **Veri katmanı:** 1219 satırlık `data.ts` (~69KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
+7. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
+8. **Veri katmanı:** 1219 satırlık `data.ts` (~69KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
 
 ---
 
@@ -320,17 +348,22 @@ CREATE TABLE user_documents (
      - `app/favorites/page.tsx`: kalan `<img>` etiketi `next/image` ile değiştirildi.
      - `app/api/chat/route.ts`: kullanılmayan `err` değişkeni kaldırıldı.
 
+2. **Supabase erişim modeli Clerk JWT + RLS ile güçlendirildi**
+   - `lib/supabaseClient.ts` içinde `createClerkSupabaseClient(accessToken)` factory eklendi.
+   - `useFavorites` ve `documents` sayfası, Clerk `supabase` template token'ı ile Supabase'e bağlanacak şekilde güncellendi.
+   - Dashboard doğrulaması: `documents` bucket private (`public=false`), `storage.objects` policy'leri yalnızca `authenticated`.
+
+3. **Documents gizlilik modeli public URL'den signed URL'e geçirildi**
+   - Yükleme sonrası `getPublicUrl` akışı kaldırıldı.
+   - Listeleme aşamasında `createSignedUrls(..., 600s)` ile kısa ömürlü görüntüleme linkleri üretiliyor.
+   - Sonuç: belge linkleri kalıcı public URL olmaktan çıkarıldı.
+
 ### ⚠️ Hâlâ açık teknik notlar
 
-2. **View Transitions isim eşleşmesi tutarsız**
+4. **View Transitions isim eşleşmesi tutarsız**
    - CSS tarafı `::view-transition-old/new(uni-hero)` ve `(...uni-title)` bekliyor.
    - Bileşenler `viewTransitionName: uni-hero-${id}` ve `uni-title-${id}` atıyor.
    - Sonuç: tanımlı shared-element transition selector'ları hedef elemanları tam yakalamıyor.
-
-3. **Documents URL paylaşım modeli potansiyel gizlilik riski taşıyor**
-   - Yükleme sonrası `getPublicUrl(filePath)` ile herkese açık URL üretimi yapılıyor.
-   - Bu akış, bucket private değilse/yanlış politikadaysa belge gizliliğini zayıflatabilir.
-   - Not: Nihai güvenlik durumu Supabase bucket ayarı + RLS policy doğrulamasıyla kesinleşir.
 
 ---
 
