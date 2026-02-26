@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { supabase } from '@/lib/supabaseClient';
 import Link from 'next/link';
 import { FileText, Camera, Trash2, Loader2, Image as ImageIcon, ExternalLink, Lightbulb, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import type { UserDocument } from '@/types';
 
 const CHECKLIST_KEYS = ['emptyStep1', 'emptyStep2', 'emptyStep3', 'emptyStep4'] as const;
 
@@ -14,20 +15,24 @@ export default function DocumentsPage() {
   const { user } = useUser();
   const { t } = useLanguage();
   const [uploading, setUploading] = useState(false);
-  const [docs, setDocs] = useState<any[]>([]);
+  const [docs, setDocs] = useState<UserDocument[]>([]);
 
   // 1. Belgeleri Veritabanından Çek
-  const fetchDocs = async () => {
-    if (!user) return;
+  const fetchDocs = useCallback(async () => {
+    if (!user?.id) return;
+
     const { data } = await supabase
       .from('user_documents')
       .select('*')
       .eq('user_id', user.id)
       .order('created_at', { ascending: false });
-    if (data) setDocs(data);
-  };
 
-  useEffect(() => { fetchDocs(); }, [user]);
+    if (data) setDocs(data as UserDocument[]);
+  }, [user?.id]);
+
+  useEffect(() => {
+    void fetchDocs();
+  }, [fetchDocs]);
 
   // 2. Belge Yükleme (Kamera veya Galeri)
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,9 +61,10 @@ export default function DocumentsPage() {
 
       if (dbError) throw dbError;
 
-      fetchDocs();
-    } catch (error: any) {
-      alert(`Hata: ${error.message}`);
+      await fetchDocs();
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Beklenmeyen bir hata oluştu.';
+      alert(`Hata: ${message}`);
     } finally {
       setUploading(false);
     }
@@ -72,7 +78,7 @@ export default function DocumentsPage() {
       await supabase.storage.from('documents').remove([storagePath]);
       await supabase.from('user_documents').delete().eq('id', id);
       setDocs(prev => prev.filter(d => d.id !== id));
-    } catch (error) {
+    } catch {
       alert(t.documents.deleteFail);
     }
   };

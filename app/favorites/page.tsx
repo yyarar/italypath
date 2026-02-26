@@ -113,10 +113,12 @@ export default function FavoritesPage() {
           favoriteUnis.map((uni) => (
             <Link key={uni.id} href={`/universities/${uni.id}`}>
               <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex items-center gap-4 active:scale-[0.98] transition-transform mb-4">
-                <img
+                <Image
                   src={uni.image}
-                  className="w-20 h-20 rounded-xl object-cover"
                   alt={uni.name}
+                  width={80}
+                  height={80}
+                  className="w-20 h-20 rounded-xl object-cover"
                 />
                 <div className="flex-1">
                   <h2 className="font-bold text-slate-800 leading-tight">{uni.name}</h2>

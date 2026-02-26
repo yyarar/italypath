@@ -52,7 +52,7 @@ export async function POST(req: Request) {
               controller.enqueue(encoder.encode(text));
             }
           }
-        } catch (err) {
+        } catch {
           controller.enqueue(
             encoder.encode("\n\n_Scusa! Bir hata oluştu._")
           );

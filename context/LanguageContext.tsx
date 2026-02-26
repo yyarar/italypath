@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { translations } from '@/lib/translations';
 
 // Dil tipi (Sadece tr veya en olabilir)
@@ -15,20 +15,18 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>('tr');
-
-  // Sayfa açılınca LocalStorage'dan son seçimi hatırla
-  useEffect(() => {
-    const savedLang = localStorage.getItem('italyPathLang') as Language;
-    if (savedLang) {
-      setLanguage(savedLang);
-    }
-  }, []);
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window === 'undefined') return 'tr';
+    const savedLang = localStorage.getItem('italyPathLang');
+    return savedLang === 'tr' || savedLang === 'en' ? savedLang : 'tr';
+  });
 
   const toggleLanguage = () => {
-    const newLang = language === 'tr' ? 'en' : 'tr';
-    setLanguage(newLang);
-    localStorage.setItem('italyPathLang', newLang); // Seçimi kaydet
+    setLanguage((prevLang) => {
+      const newLang = prevLang === 'tr' ? 'en' : 'tr';
+      localStorage.setItem('italyPathLang', newLang); // Seçimi kaydet
+      return newLang;
+    });
   };
 
   return (

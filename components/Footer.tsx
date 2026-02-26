@@ -9,9 +9,9 @@ export default function Footer() {
                     <p className="text-sm text-slate-500 mt-1">© 2026 All rights reserved.</p>
                 </div>
                 <div className="flex space-x-6">
-                    <a href="/" className="text-slate-400 hover:text-blue-600 transition">Twitter</a>
-                    <a href="/" className="text-slate-400 hover:text-blue-600 transition">Instagram</a>
-                    <a href="/" className="text-slate-400 hover:text-blue-600 transition">LinkedIn</a>
+                    <span className="text-slate-400">Twitter</span>
+                    <span className="text-slate-400">Instagram</span>
+                    <span className="text-slate-400">LinkedIn</span>
                 </div>
             </div>
         </footer>

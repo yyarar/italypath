@@ -306,9 +306,7 @@ CREATE TABLE user_documents (
 ## geçici Codex raporu
 
 > Tarih: 26 Şubat 2026  
-> Kaynak: Kod tabanı + `npm run lint` yeniden doğrulama çıktısı
-
-### ✅ Yeniden Doğrulanan Problemler
+> Kaynak: Kod tabanı + `npm run lint` yeniden doğrulama çıktısı 
 
 1. **Lint kırıkları (hata seviyesinde) mevcut**
    - `app/documents/page.tsx`: `any` kullanımı (`docs` state ve `catch (error: any)`)
