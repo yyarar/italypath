@@ -306,32 +306,31 @@ CREATE TABLE user_documents (
 ## geçici Codex raporu
 
 > Tarih: 26 Şubat 2026  
-> Kaynak: Kod tabanı + `npm run lint` yeniden doğrulama çıktısı 
+> Kaynak: Kod tabanı + `npm run lint` yeniden doğrulama çıktısı
 
-1. **Lint kırıkları (hata seviyesinde) mevcut**
-   - `app/documents/page.tsx`: `any` kullanımı (`docs` state ve `catch (error: any)`)
-   - `context/LanguageContext.tsx`: `useEffect` içinde senkron `setLanguage(savedLang)` (`react-hooks/set-state-in-effect`)
-   - `app/universities/page.tsx`: unescaped quote (`"{searchTerm}"`)
-   - `components/Footer.tsx`: `/` navigasyonu için `<a>` kullanımı (Next.js `Link` kural ihlali)
+### ✅ Bu turda tamamlananlar
 
-2. **Footer link hedefleri işlevsel değil**
-   - `Twitter`, `Instagram`, `LinkedIn` linkleri şu an üçü de `/`'a gidiyor.
+1. **Lint tamamen temizlendi**
+   - `npm run lint` sonucu: **0 error, 0 warning**.
+   - Düzelen başlıklar:
+     - `app/documents/page.tsx`: `any` kullanımları kaldırıldı, `UserDocument` tipi kullanıldı, `fetchDocs` dependency uyarısı kapatıldı.
+     - `context/LanguageContext.tsx`: effect içi senkron `setState` kaldırıldı, lazy initializer + güvenli localStorage okuması uygulandı.
+     - `app/universities/page.tsx`: unescaped quote düzeltildi.
+     - `components/Footer.tsx`: yanlış `/` yönlendiren `<a>` etiketleri kaldırıldı (geçici non-clickable sosyal etiketler).
+     - `app/favorites/page.tsx`: kalan `<img>` etiketi `next/image` ile değiştirildi.
+     - `app/api/chat/route.ts`: kullanılmayan `err` değişkeni kaldırıldı.
 
-3. **View Transitions isim eşleşmesi tutarsız**
+### ⚠️ Hâlâ açık teknik notlar
+
+2. **View Transitions isim eşleşmesi tutarsız**
    - CSS tarafı `::view-transition-old/new(uni-hero)` ve `(...uni-title)` bekliyor.
    - Bileşenler `viewTransitionName: uni-hero-${id}` ve `uni-title-${id}` atıyor.
    - Sonuç: tanımlı shared-element transition selector'ları hedef elemanları tam yakalamıyor.
 
-4. **Documents URL paylaşım modeli potansiyel gizlilik riski taşıyor**
+3. **Documents URL paylaşım modeli potansiyel gizlilik riski taşıyor**
    - Yükleme sonrası `getPublicUrl(filePath)` ile herkese açık URL üretimi yapılıyor.
    - Bu akış, bucket private değilse/yanlış politikadaysa belge gizliliğini zayıflatabilir.
    - Not: Nihai güvenlik durumu Supabase bucket ayarı + RLS policy doğrulamasıyla kesinleşir.
-
-### ℹ️ Ek Notlar (Warning Seviyesi)
-
-- `app/favorites/page.tsx`: bir adet `<img>` kullanımı (`next/image` önerisi).
-- `app/api/chat/route.ts`: kullanılmayan `err` değişkeni.
-- `app/documents/page.tsx`: `fetchDocs` için effect dependency uyarısı.
 
 ---
 
