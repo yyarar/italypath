@@ -12,4 +12,5 @@ export interface UserDocument {
   file_url: string;
   storage_path: string;
   created_at: string;
+  signed_url?: string;
 }

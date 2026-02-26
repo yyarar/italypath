@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useCallback } from 'react';
-import { useUser } from '@clerk/nextjs';
-import { supabase } from '@/lib/supabaseClient';
+import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useAuth, useUser } from '@clerk/nextjs';
+import { createClerkSupabaseClient } from '@/lib/supabaseClient';
 
 /**
  * Birleşik Favori Hook'u
@@ -12,8 +12,19 @@ import { supabase } from '@/lib/supabaseClient';
  */
 export function useFavorites() {
     const { user, isLoaded } = useUser();
+    const { getToken } = useAuth();
     const [favorites, setFavorites] = useState<number[]>([]);
     const [loading, setLoading] = useState(true);
+    const supabase = useMemo(
+        () => createClerkSupabaseClient(async () => {
+            try {
+                return await getToken({ template: 'supabase' });
+            } catch {
+                return null;
+            }
+        }),
+        [getToken]
+    );
 
     // Favorileri yükle
     useEffect(() => {
@@ -49,7 +60,7 @@ export function useFavorites() {
         }
 
         loadFavorites();
-    }, [user, isLoaded]);
+    }, [user, isLoaded, supabase]);
 
     // Favori ekle/çıkar
     const toggleFavorite = useCallback(
@@ -90,7 +101,7 @@ export function useFavorites() {
                 }
             }
         },
-        [favorites, user]
+        [favorites, user, supabase]
     );
 
     // Belirli bir üniversitenin favori olup olmadığını kontrol et

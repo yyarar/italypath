@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from 'react';
-import { useUser } from '@clerk/nextjs';
-import { supabase } from '@/lib/supabaseClient';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { useAuth, useUser } from '@clerk/nextjs';
+import { createClerkSupabaseClient } from '@/lib/supabaseClient';
 import Link from 'next/link';
 import { FileText, Camera, Trash2, Loader2, Image as ImageIcon, ExternalLink, Lightbulb, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -10,25 +10,59 @@ import { useLanguage } from '@/context/LanguageContext';
 import type { UserDocument } from '@/types';
 
 const CHECKLIST_KEYS = ['emptyStep1', 'emptyStep2', 'emptyStep3', 'emptyStep4'] as const;
+const SIGNED_URL_EXPIRES_IN_SECONDS = 60 * 10;
 
 export default function DocumentsPage() {
   const { user } = useUser();
+  const { getToken } = useAuth();
   const { t } = useLanguage();
   const [uploading, setUploading] = useState(false);
   const [docs, setDocs] = useState<UserDocument[]>([]);
+  const supabase = useMemo(
+    () => createClerkSupabaseClient(async () => {
+      try {
+        return await getToken({ template: 'supabase' });
+      } catch {
+        return null;
+      }
+    }),
+    [getToken]
+  );
 
   // 1. Belgeleri Veritabanından Çek
   const fetchDocs = useCallback(async () => {
     if (!user?.id) return;
 
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from('user_documents')
       .select('*')
       .eq('user_id', user.id)
       .order('created_at', { ascending: false });
+    if (error) throw error;
 
-    if (data) setDocs(data as UserDocument[]);
-  }, [user?.id]);
+    const rawDocs = (data ?? []) as UserDocument[];
+    if (!rawDocs.length) {
+      setDocs([]);
+      return;
+    }
+
+    const storagePaths = rawDocs.map((doc) => doc.storage_path);
+    const { data: signedData, error: signedError } = await supabase.storage
+      .from('documents')
+      .createSignedUrls(storagePaths, SIGNED_URL_EXPIRES_IN_SECONDS);
+    if (signedError) throw signedError;
+
+    const signedUrlByPath = new Map(
+      (signedData ?? []).map((item) => [item.path, item.signedUrl ?? undefined])
+    );
+
+    setDocs(
+      rawDocs.map((doc) => ({
+        ...doc,
+        signed_url: signedUrlByPath.get(doc.storage_path),
+      }))
+    );
+  }, [supabase, user?.id]);
 
   useEffect(() => {
     void fetchDocs();
@@ -50,12 +84,10 @@ export default function DocumentsPage() {
 
       if (storageError) throw storageError;
 
-      const { data: { publicUrl } } = supabase.storage.from('documents').getPublicUrl(filePath);
-
       const { error: dbError } = await supabase.from('user_documents').insert({
         user_id: user.id,
         file_name: file.name,
-        file_url: publicUrl,
+        file_url: filePath,
         storage_path: filePath
       });
 
@@ -159,9 +191,15 @@ export default function DocumentsPage() {
                     <div className="overflow-hidden">
                       <h3 className="text-sm font-bold text-slate-800 truncate pr-4">{doc.file_name}</h3>
                       <div className="flex items-center gap-3 mt-1">
-                        <a href={doc.file_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-[10px] font-black text-blue-600 hover:text-blue-700">
-                          <ExternalLink size={10} /> {t.documents.view}
-                        </a>
+                        {doc.signed_url ? (
+                          <a href={doc.signed_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-[10px] font-black text-blue-600 hover:text-blue-700">
+                            <ExternalLink size={10} /> {t.documents.view}
+                          </a>
+                        ) : (
+                          <span className="flex items-center gap-1 text-[10px] font-black text-slate-400">
+                            <ExternalLink size={10} /> {t.documents.view}
+                          </span>
+                        )}
                       </div>
                     </div>
                   </div>
