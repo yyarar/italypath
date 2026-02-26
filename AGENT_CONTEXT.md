@@ -37,15 +37,15 @@ italypath-main/
 ├── app/
 │   ├── page.tsx                    # Ana sayfa (bileşen birleştirici — sadece import + render)
 │   ├── layout.tsx                  # Root layout (Clerk, LanguageProvider, BottomNav)
-│   ├── template.tsx                # Sayfa geçiş animasyonları (Framer Motion)
+│   ├── template.tsx                # Sayfa geçiş wrapper (passthrough — View Transitions API kullanılıyor)
 │   ├── not-found.tsx               # Özel 404 Hata Sayfası
 │   ├── error.tsx                   # Çift dilli Global Error Boundary
 │   ├── sitemap.ts                  # Dinamik sitemap (statik rotalar + 62 üniversite + 262 bölüm)
 │   ├── robots.ts                   # Robots.txt (public rotalar açık, auth rotalar kapalı)
-│   ├── globals.css                 # Tailwind v4 + mobil PWA stilleri
+│   ├── globals.css                 # Tailwind v4 + mobil PWA stilleri + View Transition CSS keyframes
 │   ├── favicon.ico                 # Site ikonu
 │   ├── data.ts                     # 62 üniversite, 262 bölüm verisi (1219 satır, ~69KB, Department[] objeler, çift dilli)
-│   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu)
+│   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu + prompt chip önerileri)
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
 │   ├── universities/
 │   │   ├── page.tsx                # Üniversite listesi (arama, şehir/tip filtreleri, URL sync, favoriler)
@@ -56,8 +56,8 @@ italypath-main/
 │   │           └── [deptSlug]/
 │   │               ├── layout.tsx  # Bölüm SEO (`generateMetadata`) Server Component
 │   │               └── page.tsx   # Bölüm detay UI (`use client`)
-│   ├── documents/page.tsx          # Belge cüzdanı (Supabase Storage upload/delete)
-│   ├── favorites/page.tsx          # Favori üniversiteler listesi
+│   ├── documents/page.tsx          # Belge cüzdanı (Supabase Storage upload/delete + premium empty state)
+│   ├── favorites/page.tsx          # Favori üniversiteler listesi (premium empty state + 3 öneri kartı)
 │   └── isee/page.tsx               # ISEE burs hesaplayıcı (scala equivalente formülü)
 ├── components/
 │   ├── BottomNav.tsx               # Mobil alt navigasyon (4 sekme, ortada AI butonu)
@@ -65,6 +65,7 @@ italypath-main/
 │   ├── HeroSection.tsx             # Ana sayfa Hero bölümü (başlık, rozet, CTA)
 │   ├── FeaturesSection.tsx         # Ana sayfa 3'lü özellik grid kartları
 │   ├── IseeSection.tsx             # Ana sayfa ISEE hesaplayıcı CTA kartı
+│   ├── ScrollProgress.tsx          # Scroll ilerleme çubuğu (Framer Motion useScroll + useSpring)
 │   └── Footer.tsx                  # Alt bilgi (logo, sosyal linkler)
 ├── context/
 │   └── LanguageContext.tsx          # TR/EN dil sistemi (Context + localStorage)
@@ -74,7 +75,7 @@ italypath-main/
 │   └── useFavorites.ts             # Birleşik favori hook'u (localStorage + Supabase)
 ├── types/
 │   └── index.ts                    # Paylaşılan tipler (Language)
-├── next.config.ts                  # Next.js yapılandırması (Unsplash + Pexels remotePatterns)
+├── next.config.ts                  # Next.js yapılandırması (Unsplash + Pexels remotePatterns, experimental.viewTransition)
 ├── proxy.ts                        # Clerk Request Boundary (Next.js 16 standardı)
 └── public/                         # Varsayılan SVG'ler (file, globe, next, vercel, window)
 ```
@@ -205,6 +206,30 @@ italypath-main/
 |-------|-----------|
 | `app/universities/page.tsx` | ➕ Şehir dropdown (46 şehir, sayılı: "Milano (5)"), Devlet/Özel toggle butonları, Temizle butonu, sonuç sayacı ("49 / 62"). `useState` → `useSearchParams` ile URL sync (`?city=Milano&type=Devlet&q=design&fav=1`). Filtreler sayfa yenilenmede korunur ve paylaşılabilir |
 
+### Commit 9 (Premium Empty States):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `lib/translations.ts` | ➕ +16 yeni çeviri anahtarı (TR + EN): favorites (emptyTitle, emptySubtitle, emptyCta, emptyRecommendTitle), documents (emptyTitle, emptySubtitle, emptyStep1-4, emptyHint), aiMentor (promptsTitle, prompt1-4) |
+| `app/favorites/page.tsx` | ♻️ Basit boş ekran → Gradient pulse kalp ikonu + Sparkles rozeti, başlık/alt yazı, gradient CTA butonu (`/universities`), 3 öneri kartı (PoliMi, Bologna, Bocconi) stagger animasyonlu |
+| `app/documents/page.tsx` | ♻️ Basit boş ekran → Gradient FileText ikonu, 4 maddelik belge checklist'i (Pasaport, Transkript, Diploma, Dil Sertifikası) slide-in animasyonlu + amber ipucu kutusu ("Pasaportla başla!") |
+| `app/ai-mentor/page.tsx` | ♻️ `handleSend` → yeniden kullanılabilir `sendPrompt` fonksiyonuna refactor. Welcome mesajının altına 4 tıklanabilir prompt chip'i eklendi (tıklayınca otomatik gönderim). Chip'ler sadece sohbet başlamadan görünür (`messages.length === 1`), stagger animasyonlu |
+
+### Commit 10 (Scroll Progress Bar):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/ScrollProgress.tsx` | 🆕 Oluşturuldu: Framer Motion `useScroll` + `useSpring` ile fizik-bazlı scroll ilerleme çubuğu. 3px ince gradient (indigo→blue→sky), `z-50`, sayfa tepesindeyken otomatik gizlenir |
+| `app/universities/[id]/page.tsx` | ➕ `<ScrollProgress />` eklendi |
+| `app/universities/[id]/departments/[deptSlug]/page.tsx` | ➕ `<ScrollProgress />` eklendi |
+
+### Commit 11 (Shared Element Transitions — View Transitions API):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `next.config.ts` | ➕ `experimental.viewTransition: true` — Next.js route değişikliklerini `document.startViewTransition()` ile sarar |
+| `app/template.tsx` | ♻️ Framer Motion sayfa fade animasyonu kaldırıldı → passthrough. View Transitions API artık geçişleri natively yönetiyor |
+| `app/globals.css` | ➕ View Transition CSS: sayfa geneli fade+slide (0.25-0.3s), paylaşılan elemanlar crossfade (0.35s), `::view-transition-old/new` pseudo elementleri |
+| `app/universities/page.tsx` | ➕ Kart image container: `style={{ viewTransitionName: \`uni-hero-\${uni.id}\` }}`, başlık: `uni-title-{id}` |
+| `app/universities/[id]/page.tsx` | ➕ Hero container: `viewTransitionName: uni-hero-{id}`, h1 başlık: `uni-title-{id}` — kart ile eşleşen morph geçişi |
+
 ---
 
 ## ⚠️ Bilinen Sorunlar & Açık Öneriler
@@ -217,6 +242,7 @@ italypath-main/
 3. **Tekrarlanan görseller:** `data.ts`'te yeni eklenen 17 üniversite ve id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor
 4. **Üniversite Karşılaştırma:** 2-3 üniversiteyi yan yana kıyaslama (ücret, bölüm sayısı, şehir, özellikler). Mevcut `data.ts` yapısıyla yapılabilir, ek veri gerekmez. Favori sisteminden beslenebilir.
 5. **Şehir Rehberi:** Her şehir için yaşam maliyeti, ulaşım, iklim, öğrenci nüfusu bilgisi. Şehir filtresi zaten mevcut — detay sayfası eklenebilir.
+6. **View Transitions Polishing:** Shared element geçişleri (`viewTransitionName`) implement edildi ancak görsel sonuç henüz ideal değil. CSS animasyon timing/easing ve hangi elemanların geçişe dahil edileceği ince ayar gerektirir. Mevcut altyapı (`experimental.viewTransition: true`, CSS keyframes, dinamik `view-transition-name`) hazır.
 
 
 ### 🟢 Düşük Öncelik

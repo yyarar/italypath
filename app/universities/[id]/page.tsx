@@ -41,7 +41,7 @@ export default function UniversityDetailPage() {
     <div className="min-h-screen bg-slate-50">
       <ScrollProgress />
       {/* ÜST HERO */}
-      <div className="relative h-[50vh] flex items-end overflow-hidden bg-slate-900">
+      <div className="relative h-[50vh] flex items-end overflow-hidden bg-slate-900" style={{ viewTransitionName: `uni-hero-${university.id}` }}>
         <div className="absolute inset-0">
           <Image
             src={university.image || DEFAULT_IMAGE}
@@ -75,7 +75,10 @@ export default function UniversityDetailPage() {
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg shadow-blue-900/20">{university.type}</span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2 drop-shadow-xl leading-tight">{university.name}</h1>
+          <h1
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2 drop-shadow-xl leading-tight"
+            style={{ viewTransitionName: `uni-title-${university.id}` }}
+          >{university.name}</h1>
           <div className="flex items-center text-slate-200 text-lg font-medium">
             <MapPin className="w-5 h-5 mr-2 text-red-400" /> {university.city}, Italy
           </div>

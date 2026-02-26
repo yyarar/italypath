@@ -226,7 +226,7 @@ function UniversitiesContent() {
                                 <div className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full relative">
 
                                     {/* GÖRSEL ALANI */}
-                                    <div className="h-48 relative overflow-hidden">
+                                    <div className="h-48 relative overflow-hidden" style={{ viewTransitionName: `uni-hero-${uni.id}` }}>
                                         <Image
                                             src={uni.image || DEFAULT_IMAGE}
                                             alt={uni.name}
@@ -263,7 +263,10 @@ function UniversitiesContent() {
                                     {/* İÇERİK */}
                                     <div className="p-6 flex-1 flex flex-col">
                                         <div className="mb-2">
-                                            <h2 className="text-lg font-bold text-slate-900 leading-tight group-hover:text-blue-600 transition line-clamp-2 min-h-[3.5rem]">
+                                            <h2
+                                                className="text-lg font-bold text-slate-900 leading-tight group-hover:text-blue-600 transition line-clamp-2 min-h-[3.5rem]"
+                                                style={{ viewTransitionName: `uni-title-${uni.id}` }}
+                                            >
                                                 {uni.name}
                                             </h2>
                                         </div>
