@@ -11,14 +11,16 @@ Bu doküman teknik olmayan kullanım için hazırlanmıştır. Sırayla uygula.
 
 ```json
 {
-  "aud": "authenticated",
   "role": "authenticated",
-  "sub": "{{user.id}}",
   "email": "{{user.primary_email_address.email_address}}"
 }
 ```
 
 Bu template, uygulamanın Supabase'e güvenli kimlik ile bağlanması için gerekli.
+
+Not:
+- `sub` claim'ini elle ekleme. Clerk bunu otomatik üretir (reserved claim).
+- `aud` bazı ortamlarda reserved olabilir. Hata alırsan ekleme.
 
 ## 2) Supabase tarafı (Clerk provider)
 
@@ -40,6 +42,14 @@ Not: Bu adım olmadan RLS politikaları "kim kullanıcı?" bilgisini doğru okuy
    - `documents` bucket'ını private yapar.
    - Storage policy'leri ile sadece kendi klasörüne (`{userId}/...`) erişim verir.
 
+Eğer şu hatayı alırsan:
+- `ERROR: must be owner of table objects`
+
+Şu yolu izle:
+1. Scriptin `public` tablolarını (`favorites`, `user_documents`) çalıştır.
+2. `storage.objects` policy'lerini `Storage -> Policies` ekranından UI ile yönet.
+3. `documents` bucket için `public = false` ayarını UI'dan doğrula.
+
 ## 4) Uygulama davranışı (bu repoda hazırlandı)
 
 Kod tarafında şu güvenlik iyileştirmeleri zaten uygulandı:
@@ -58,6 +68,7 @@ Kod tarafında şu güvenlik iyileştirmeleri zaten uygulandı:
 ## 6) Sorun olursa hızlı kontrol
 
 1. Clerk template adı gerçekten `supabase` mı?
-2. Supabase Third-Party Auth içinde Clerk aktif mi?
-3. SQL script hata vermeden tamamlandı mı?
-4. `documents` bucket kesinlikle `public = false` mı?
+2. Template içinde `sub` elle yazılmış mı? (yazılmamalı)
+3. Supabase Third-Party Auth içinde Clerk aktif mi?
+4. SQL script hata vermeden tamamlandı mı?
+5. `documents` bucket kesinlikle `public = false` mı?

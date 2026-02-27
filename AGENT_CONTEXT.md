@@ -254,16 +254,16 @@ italypath-main/
 | `app/documents/page.tsx` | 🔐 `getPublicUrl` kaldırıldı; `createSignedUrls` (10 dk) ile private bucket uyumlu görüntüleme akışı eklendi; DB'ye `file_url` olarak `storage_path` yazımı hizalandı |
 | `types/index.ts` | ➕ `UserDocument.signed_url` opsiyonel alanı eklendi |
 | `supabase/rls_hardening.sql` | 🆕 `favorites`, `user_documents`, `storage.objects` için RLS/policy hardening scripti eklendi |
-| `SUPABASE_SECURITY_RUNBOOK.md` | 🆕 Dashboard adımlarını sadeleştiren operasyon runbook'u eklendi |
+| `SUPABASE_SECURITY_RUNBOOK.md` | 🆕 Dashboard adımlarını sadeleştiren operasyon runbook'u eklendi (reserved claim notları + `storage.objects owner` hatası için UI fallback rehberi ile güncellendi) |
 | `Supabase Dashboard` | ✅ `documents` bucket private (`public=false`) yapıldı; `storage.objects` policy'leri yalnızca `authenticated` rolüne indirildi (SELECT/INSERT/UPDATE/DELETE 4 policy) |
 
 ---
 
 ## ⚠️ Bilinen Sorunlar & Açık Öneriler
 
-### 🔴 Yüksek Öncelik
-1. **Aktif kritik bloklayıcı yok (26 Şubat 2026 doğrulaması)**
-   - `favorites` + `user_documents` RLS policy'leri ve `documents` private bucket doğrulandı.
+### 🔴 Yüksek Öncelik: Yok
+- 26 Şubat 2026 doğrulamasında aktif kritik bloklayıcı bulunmadı.
+- `favorites` + `user_documents` RLS policy'leri ve `documents` private bucket doğrulandı.
 
 ### 🟡 Orta Öncelik
 2. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı. Şu anda tasarım aşamasındadır. Dokunma.
