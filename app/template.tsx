@@ -1,10 +1,27 @@
 "use client";
 
-/**
- * Template — Next.js View Transitions API ile sayfa geçişleri artık tarayıcı
- * tarafından yönetildiğinden, Framer Motion animasyonu kaldırılmıştır.
- * viewTransition: true → next.config.ts'te aktif.
- */
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { usePathname } from "next/navigation";
+
 export default function Template({ children }: { children: React.ReactNode }) {
-    return <>{children}</>;
+    const pathname = usePathname();
+    const shouldReduceMotion = useReducedMotion();
+
+    if (shouldReduceMotion) {
+        return <>{children}</>;
+    }
+
+    return (
+        <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+                key={pathname}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.24, ease: "easeOut" }}
+            >
+                {children}
+            </motion.div>
+        </AnimatePresence>
+    );
 }
