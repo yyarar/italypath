@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, ArrowLeft, ArrowRight, Globe, GraduationCap, Banknote, BookOpen, CheckCircle, Sparkles, Heart } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
 import { useLanguage } from '@/context/LanguageContext';
 import { useFavorites } from '@/lib/useFavorites';
@@ -41,7 +42,11 @@ export default function UniversityDetailPage() {
     <div className="min-h-screen bg-slate-50">
       <ScrollProgress />
       {/* ÜST HERO */}
-      <div className="relative h-[50vh] flex items-end overflow-hidden bg-slate-900" style={{ viewTransitionName: `uni-hero-${university.id}` }}>
+      <motion.div
+        className="relative h-[50vh] flex items-end overflow-hidden bg-slate-900"
+        layoutId={`uni-hero-${university.id}`}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
         <div className="absolute inset-0">
           <Image
             src={university.image || DEFAULT_IMAGE}
@@ -75,15 +80,16 @@ export default function UniversityDetailPage() {
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg shadow-blue-900/20">{university.type}</span>
           </div>
-          <h1
+          <motion.h1
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2 drop-shadow-xl leading-tight"
-            style={{ viewTransitionName: `uni-title-${university.id}` }}
-          >{university.name}</h1>
+            layoutId={`uni-title-${university.id}`}
+            transition={{ duration: 0.28, ease: "easeInOut" }}
+          >{university.name}</motion.h1>
           <div className="flex items-center text-slate-200 text-lg font-medium">
             <MapPin className="w-5 h-5 mr-2 text-red-400" /> {university.city}, Italy
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* İÇERİK ALANI */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20 pb-20">

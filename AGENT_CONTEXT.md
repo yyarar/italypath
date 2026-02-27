@@ -37,12 +37,12 @@ italypath-main/
 ├── app/
 │   ├── page.tsx                    # Ana sayfa (bileşen birleştirici — sadece import + render)
 │   ├── layout.tsx                  # Root layout (Clerk, LanguageProvider, BottomNav)
-│   ├── template.tsx                # Sayfa geçiş wrapper (passthrough — View Transitions API kullanılıyor)
+│   ├── template.tsx                # Next.js template boundary (minimal passthrough)
 │   ├── not-found.tsx               # Özel 404 Hata Sayfası
 │   ├── error.tsx                   # Çift dilli Global Error Boundary
 │   ├── sitemap.ts                  # Dinamik sitemap (statik rotalar + 62 üniversite + 262 bölüm)
 │   ├── robots.ts                   # Robots.txt (public rotalar açık, auth rotalar kapalı)
-│   ├── globals.css                 # Tailwind v4 + mobil PWA stilleri + View Transition CSS keyframes
+│   ├── globals.css                 # Tailwind v4 + mobil PWA stilleri
 │   ├── favicon.ico                 # Site ikonu
 │   ├── data.ts                     # 62 üniversite, 262 bölüm verisi (1219 satır, ~69KB, Department[] objeler, çift dilli)
 │   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu + prompt chip önerileri)
@@ -65,6 +65,7 @@ italypath-main/
 │   ├── HeroSection.tsx             # Ana sayfa Hero bölümü (başlık, rozet, CTA)
 │   ├── FeaturesSection.tsx         # Ana sayfa 3'lü özellik grid kartları
 │   ├── IseeSection.tsx             # Ana sayfa ISEE hesaplayıcı CTA kartı
+│   ├── RouteTransition.tsx         # Route geçiş katmanı (Framer Motion + shared layout)
 │   ├── ScrollProgress.tsx          # Scroll ilerleme çubuğu (Framer Motion useScroll + useSpring)
 │   └── Footer.tsx                  # Alt bilgi (logo, sosyal linkler)
 ├── context/
@@ -75,7 +76,7 @@ italypath-main/
 │   └── useFavorites.ts             # Birleşik favori hook'u (localStorage + Supabase)
 ├── types/
 │   └── index.ts                    # Paylaşılan tipler (Language)
-├── next.config.ts                  # Next.js yapılandırması (Unsplash + Pexels remotePatterns, experimental.viewTransition)
+├── next.config.ts                  # Next.js yapılandırması (Unsplash + Pexels remotePatterns)
 ├── proxy.ts                        # Clerk Request Boundary (Next.js 16 standardı)
 ├── SUPABASE_SECURITY_RUNBOOK.md    # Clerk + Supabase RLS adım adım operasyon rehberi
 ├── supabase/
@@ -234,6 +235,7 @@ italypath-main/
 | `app/globals.css` | ➕ View Transition CSS: sayfa geneli fade+slide (0.25-0.3s), paylaşılan elemanlar crossfade (0.35s), `::view-transition-old/new` pseudo elementleri |
 | `app/universities/page.tsx` | ➕ Kart image container: `style={{ viewTransitionName: \`uni-hero-\${uni.id}\` }}`, başlık: `uni-title-{id}` |
 | `app/universities/[id]/page.tsx` | ➕ Hero container: `viewTransitionName: uni-hero-{id}`, h1 başlık: `uni-title-{id}` — kart ile eşleşen morph geçişi |
+| `Not` | ℹ️ Bu yaklaşım daha sonra Commit 14'te sadeleştirilip Framer Motion route transition modeline taşındı. |
 
 ### Commit 12 (Lint Stabilizasyonu — 0 Error/0 Warning):
 | Dosya | Değişiklik |
@@ -257,26 +259,37 @@ italypath-main/
 | `SUPABASE_SECURITY_RUNBOOK.md` | 🆕 Dashboard adımlarını sadeleştiren operasyon runbook'u eklendi (reserved claim notları + `storage.objects owner` hatası için UI fallback rehberi ile güncellendi) |
 | `Supabase Dashboard` | ✅ `documents` bucket private (`public=false`) yapıldı; `storage.objects` policy'leri yalnızca `authenticated` rolüne indirildi (SELECT/INSERT/UPDATE/DELETE 4 policy) |
 
+### Commit 14 (Route Transition Stabilizasyonu — Framer Motion):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/RouteTransition.tsx` | 🆕 Oluşturuldu: `AnimatePresence + LayoutGroup` ile route seviyesinde fade/slide/scale/blur geçişi (reduced-motion fallback dahil) |
+| `app/layout.tsx` | ➕ `<RouteTransition>{children}</RouteTransition>` entegre edildi; tüm sayfalar tek geçiş katmanından geçiyor |
+| `app/template.tsx` | ♻️ Minimal passthrough olarak bırakıldı (çakışan animasyon katmanları kaldırıldı) |
+| `app/universities/page.tsx` | ➕ Kart görseli ve başlığına `layoutId` eklendi (`uni-hero-{id}`, `uni-title-{id}`) |
+| `app/universities/[id]/page.tsx` | ➕ Detay hero ve başlıkta eşleşen `layoutId` kullanılarak shared-element hissi güçlendirildi |
+| `next.config.ts` | ♻️ `experimental.viewTransition` kaldırıldı; geçiş sorumluluğu tamamen Framer Motion'a alındı |
+
 ---
 
 ## ⚠️ Bilinen Sorunlar & Açık Öneriler
 
 ### 🔴 Yüksek Öncelik: Yok
-- 26 Şubat 2026 doğrulamasında aktif kritik bloklayıcı bulunmadı.
+- 27 Şubat 2026 doğrulamasında aktif kritik bloklayıcı bulunmadı.
 - `favorites` + `user_documents` RLS policy'leri ve `documents` private bucket doğrulandı.
 
 ### 🟡 Orta Öncelik
-2. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı. Şu anda tasarım aşamasındadır. Dokunma.
-3. **Tekrarlanan görseller:** `data.ts`'te yeni eklenen 17 üniversite ve id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor
-4. **Üniversite Karşılaştırma:** 2-3 üniversiteyi yan yana kıyaslama (ücret, bölüm sayısı, şehir, özellikler). Mevcut `data.ts` yapısıyla yapılabilir, ek veri gerekmez. Favori sisteminden beslenebilir.
-5. **Şehir Rehberi:** Her şehir için yaşam maliyeti, ulaşım, iklim, öğrenci nüfusu bilgisi. Şehir filtresi zaten mevcut — detay sayfası eklenebilir.
-6. **View Transitions Polishing:** Shared element geçişleri (`viewTransitionName`) implement edildi ancak görsel sonuç henüz ideal değil. CSS animasyon timing/easing ve hangi elemanların geçişe dahil edileceği ince ayar gerektirir. Mevcut altyapı (`experimental.viewTransition: true`, CSS keyframes, dinamik `view-transition-name`) hazır.
+1. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı. Şu anda tasarım aşamasındadır. Dokunma.
+2. **Tekrarlanan görseller:** `data.ts`'te yeni eklenen 17 üniversite ve id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor.
+3. **Üniversite Karşılaştırma:** 2-3 üniversiteyi yan yana kıyaslama (ücret, bölüm sayısı, şehir, özellikler). Mevcut `data.ts` yapısıyla yapılabilir, ek veri gerekmez. Favori sisteminden beslenebilir.
+4. **Şehir Rehberi:** Her şehir için yaşam maliyeti, ulaşım, iklim, öğrenci nüfusu bilgisi. Şehir filtresi zaten mevcut — detay sayfası eklenebilir.
+5. **Animasyon Polishing:** Route geçişleri artık Framer Motion ile çalışıyor, ama "ultra premium" his için easing/duration, kart hover ile page transition uyumu ve olası stagger akışları daha da rafine edilebilir.
 
 
 ### 🟢 Düşük Öncelik
 
-7. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı
-8. **Veri katmanı:** 1219 satırlık `data.ts` (~69KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı
+6. **Legacy CSS temizlik:** `app/globals.css` içindeki eski View Transition selector'ları aktif akışta kullanılmıyor; fırsat olduğunda temizlenebilir.
+7. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı.
+8. **Veri katmanı:** 1219 satırlık `data.ts` (~69KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı.
 
 ---
 
@@ -333,7 +346,7 @@ CREATE TABLE user_documents (
 
 ## geçici Codex raporu
 
-> Tarih: 26 Şubat 2026  
+> Tarih: 27 Şubat 2026  
 > Kaynak: Kod tabanı + `npm run lint` yeniden doğrulama çıktısı
 
 ### ✅ Bu turda tamamlananlar
@@ -358,12 +371,21 @@ CREATE TABLE user_documents (
    - Listeleme aşamasında `createSignedUrls(..., 600s)` ile kısa ömürlü görüntüleme linkleri üretiliyor.
    - Sonuç: belge linkleri kalıcı public URL olmaktan çıkarıldı.
 
+4. **Route geçiş altyapısı Framer Motion'da stabilize edildi**
+   - `components/RouteTransition.tsx` eklendi (`AnimatePresence + LayoutGroup`).
+   - `app/layout.tsx` içinde tüm sayfalar ortak geçiş katmanına alındı.
+   - `app/universities/page.tsx` ve `app/universities/[id]/page.tsx` arasında `layoutId` eşleşmeleri ile shared-element geçişi güçlendirildi.
+   - `next.config.ts` içindeki `experimental.viewTransition` kaldırıldı (çakışan model sadeleştirildi).
+
+5. **Veri güvenliği notu (anayasa kuralı)**
+   - Bu turda veritabanı tablosu silme/değiştirme, bucket silme veya feature kaldırma yapılmadı.
+   - Yapılan işler ağırlıklı olarak lint, auth/RLS sıkılaştırması, signed URL akışı ve UI geçiş katmanı iyileştirmesidir.
+
 ### ⚠️ Hâlâ açık teknik notlar
 
-4. **View Transitions isim eşleşmesi tutarsız**
-   - CSS tarafı `::view-transition-old/new(uni-hero)` ve `(...uni-title)` bekliyor.
-   - Bileşenler `viewTransitionName: uni-hero-${id}` ve `uni-title-${id}` atıyor.
-   - Sonuç: tanımlı shared-element transition selector'ları hedef elemanları tam yakalamıyor.
+6. **Animasyon kalitesi için son mil ayarı açık**
+   - Geçişler çalışır durumda ve gözle görülür iyileşme var.
+   - Daha "premium" his için easing/duration ve bazı sayfalarda giriş sıralaması (stagger) ek tuning yapılabilir.
 
 ---
 

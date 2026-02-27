@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { Search, MapPin, ArrowRight, GraduationCap, School, ArrowLeft, Heart, X, Globe, Building2, Filter, ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
 import { useLanguage } from '@/context/LanguageContext';
 import { useFavorites } from '@/lib/useFavorites';
@@ -226,7 +227,11 @@ function UniversitiesContent() {
                                 <div className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full relative">
 
                                     {/* GÖRSEL ALANI */}
-                                    <div className="h-48 relative overflow-hidden" style={{ viewTransitionName: `uni-hero-${uni.id}` }}>
+                                    <motion.div
+                                        className="h-48 relative overflow-hidden"
+                                        layoutId={`uni-hero-${uni.id}`}
+                                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                                    >
                                         <Image
                                             src={uni.image || DEFAULT_IMAGE}
                                             alt={uni.name}
@@ -258,17 +263,18 @@ function UniversitiesContent() {
                                                     }`}
                                             />
                                         </button>
-                                    </div>
+                                    </motion.div>
 
                                     {/* İÇERİK */}
                                     <div className="p-6 flex-1 flex flex-col">
                                         <div className="mb-2">
-                                            <h2
+                                            <motion.h2
                                                 className="text-lg font-bold text-slate-900 leading-tight group-hover:text-blue-600 transition line-clamp-2 min-h-[3.5rem]"
-                                                style={{ viewTransitionName: `uni-title-${uni.id}` }}
+                                                layoutId={`uni-title-${uni.id}`}
+                                                transition={{ duration: 0.28, ease: "easeInOut" }}
                                             >
                                                 {uni.name}
-                                            </h2>
+                                            </motion.h2>
                                         </div>
 
                                         <div className="flex items-center text-slate-500 text-sm mb-4">

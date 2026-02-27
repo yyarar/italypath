@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from '@/context/LanguageContext';
 import BottomNav from '@/components/BottomNav';
+import RouteTransition from '@/components/RouteTransition';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,7 +52,7 @@ export default function RootLayout({
                 Ayrıca taşmaları engellemek için overflow-x-hidden önemli.
             */}
             <main className="min-h-screen pb-24 overflow-x-hidden">
-              {children}
+              <RouteTransition>{children}</RouteTransition>
             </main>
             
             <BottomNav />
