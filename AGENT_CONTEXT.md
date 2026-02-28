@@ -41,7 +41,7 @@ italypath-main/
 │   ├── not-found.tsx               # Özel 404 Hata Sayfası
 │   ├── error.tsx                   # Çift dilli Global Error Boundary
 │   ├── sitemap.ts                  # Dinamik sitemap (statik rotalar + 62 üniversite + 262 bölüm)
-│   ├── robots.ts                   # Robots.txt (public rotalar açık, auth rotalar kapalı)
+│   ├── robots.ts                   # Robots.txt (seçili public rotalar açık, bazı korumalı rotalar kapalı)
 │   ├── globals.css                 # Tailwind v4 + mobil PWA stilleri
 │   ├── favicon.ico                 # Site ikonu
 │   ├── data.ts                     # 62 üniversite, 262 bölüm verisi (1219 satır, ~69KB, Department[] objeler, çift dilli)
@@ -67,7 +67,7 @@ italypath-main/
 │   ├── IseeSection.tsx             # Ana sayfa ISEE hesaplayıcı CTA kartı
 │   ├── RouteTransition.tsx         # Route geçiş katmanı (Framer Motion + shared layout)
 │   ├── ScrollProgress.tsx          # Scroll ilerleme çubuğu (Framer Motion useScroll + useSpring)
-│   └── Footer.tsx                  # Alt bilgi (logo, sosyal linkler)
+│   └── Footer.tsx                  # Alt bilgi (logo, sosyal etiketler)
 ├── context/
 │   └── LanguageContext.tsx          # TR/EN dil sistemi (Context + localStorage)
 ├── lib/
@@ -75,8 +75,8 @@ italypath-main/
 │   ├── translations.ts             # Tüm UI çevirileri (TR + EN)
 │   └── useFavorites.ts             # Birleşik favori hook'u (localStorage + Supabase)
 ├── types/
-│   └── index.ts                    # Paylaşılan tipler (Language)
-├── next.config.ts                  # Next.js yapılandırması (Unsplash + Pexels remotePatterns)
+│   └── index.ts                    # Paylaşılan tipler (Language, UserDocument)
+├── next.config.ts                  # Next.js yapılandırması (remotePatterns: Unsplash, Pexels, plus.unsplash.com)
 ├── proxy.ts                        # Clerk Request Boundary (Next.js 16 standardı)
 ├── SUPABASE_SECURITY_RUNBOOK.md    # Clerk + Supabase RLS adım adım operasyon rehberi
 ├── supabase/
@@ -92,13 +92,13 @@ italypath-main/
 - `context/LanguageContext.tsx` → React Context + `localStorage` ile dil tercihi saklanır
 - `lib/translations.ts` → Tüm UI metinleri burada (navbar, hero, list, detail, isee, favorites, documents, bottomNav, department)
 - Üniversite verileri (`data.ts`) → `description_en`, `features_en` opsiyonel alanları ile çift dilli
-- Dil değiştirme: Her sayfada Globe butonu ile `toggleLanguage()` çağrılır
+- Dil değiştirme: Navbar ve üniversite listesi gibi toggle sunan ekranlarda `toggleLanguage()` çağrılır
 
 ### 2. Favori Sistemi (`lib/useFavorites.ts`)
 - **Misafir kullanıcı:** `localStorage` → `italyPathFavorites` key'i
 - **Giriş yapmış kullanıcı:** Supabase `favorites` tablosu (`user_id`, `university_id`)
 - Giriş yapmış kullanıcı istekleri Clerk `supabase` JWT template token'ı ile Supabase'e gider (`createClerkSupabaseClient`)
-- Hook tüm sayfalarda aynı API sunar: `{ favorites, toggleFavorite, isFavorite, loading }`
+- Hook tüm sayfalarda aynı API sunar: `{ favorites, toggleFavorite, isFavorite, loading, isLoggedIn }`
 - Optimistic update uygulanmış (UI anında güncellenir, hata olursa geri alınır)
 
 ### 3. AI Mentor Streaming
@@ -118,12 +118,12 @@ italypath-main/
 
 ### 5. Clerk Request Boundary (proxy.ts)
 - `proxy.ts` dosyasında tanımlı (Next.js 16 yeni Request Boundary standardı uyarınca).
-- Public rotalar: `/`, `/api/chat`, `/sign-in`, `/sign-up`, `/universities(.*)`, `/isee(.*)`
+- Public rotalar: `/`, `/api/chat`, `/sign-in`, `/sign-up`, `/universities(.*)`, `/isee(.*)`, `/sitemap.xml`, `/robots.txt`
 - Diğer tüm rotalar `auth.protect()` ile korumalı
 
 ### 6. Bölüm Detay Sayfaları
 - `data.ts`'teki `departments` alanı `Department[]` obje dizisidir (`{ name, slug }`).
-- Slug, bölüm adından otomatik üretilir (URL-safe). Aynı üniversite içinde benzersizdir.
+- Slug alanları veri setinde hazır tutulur; mevcut veriler bölüm adlarından türetilmiş URL-safe slug'lar içerir. Aynı üniversite içinde benzersizdir.
 - Rota: `/universities/[id]/departments/[deptSlug]`
 - SEO: `layout.tsx` (Server Component) → dinamik `generateMetadata()` — `page.tsx` ile aynı klasörde
 - Üniversite detay sayfasındaki bölüm kartları `Link` ile bu rotaya yönlendirilir
@@ -183,7 +183,7 @@ italypath-main/
 | `package.json` | 🗑️ `katex` ve `@types/katex` kaldırıldı (3 paket silindi, kullanılmıyordu) |
 | `app/error.tsx` | 🆕 Oluşturuldu: Çift dilli (TR/EN) Global Error Boundary |
 | `app/sitemap.ts` | 🆕 Oluşturuldu: Tüm statik rotalar + 45 üniversite detay sayfası dahil |
-| `app/robots.ts` | 🆕 Oluşturuldu: Public rotalar açık, auth gerektiren rotalar kapalı |
+| `app/robots.ts` | 🆕 Oluşturuldu: Public rotalar açık, seçili korumalı rotalar kapalı |
 | `components/Navbar.tsx` | ♻️ `<nav aria-label>` ve her iki dil butonu için `aria-label` eklendi |
 | `app/universities/page.tsx` | ♻️ Arama kutusu, dil butonu, favori filtre ve kart favori butonlarına `aria-label` + `aria-pressed` eklendi |
 | `app/favorites/page.tsx` | ♻️ Geri dön linkine `aria-label` eklendi |
@@ -273,9 +273,15 @@ italypath-main/
 
 ## ⚠️ Bilinen Sorunlar & Açık Öneriler
 
-### 🔴 Yüksek Öncelik: Yok
-- 27 Şubat 2026 doğrulamasında aktif kritik bloklayıcı bulunmadı.
-- `favorites` + `user_documents` RLS policy'leri ve `documents` private bucket doğrulandı.
+### 🚨 Yüksek Öncelik
+1. **Public AI endpoint doğrudan maliyet/suistimal yüzeyi oluşturuyor**
+   - `proxy.ts` içinde `/api/chat(.*)` public bırakılmış durumda.
+   - `app/api/chat/route.ts` içinde auth, rate limit, payload boyutu, mesaj sayısı veya token sınırı yok.
+   - Sonuç: herhangi bir anonim istemci bu endpoint'i sınırsız çağırıp Gemini maliyeti oluşturabilir; prompt injection değil, doğrudan **API bütçesi sömürüsü / DoS-by-cost** riski vardır.
+2. **AI route request doğrulaması zayıf**
+   - `app/api/chat/route.ts` içinde `messages` gövdesi şemasız okunuyor ve `messages[messages.length - 1].content` doğrudan kullanılıyor.
+   - Bozuk veya kasıtlı malformed body, gereksiz 500 üretir; log şişmesi ve hata gürültüsü yaratır.
+   - Bu, public endpoint olduğu için pratikte saldırı yüzeyini büyütür.
 
 ### 🟡 Orta Öncelik
 1. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı. Şu anda tasarım aşamasındadır. Dokunma.
@@ -283,13 +289,52 @@ italypath-main/
 3. **Üniversite Karşılaştırma:** 2-3 üniversiteyi yan yana kıyaslama (ücret, bölüm sayısı, şehir, özellikler). Mevcut `data.ts` yapısıyla yapılabilir, ek veri gerekmez. Favori sisteminden beslenebilir.
 4. **Şehir Rehberi:** Her şehir için yaşam maliyeti, ulaşım, iklim, öğrenci nüfusu bilgisi. Şehir filtresi zaten mevcut — detay sayfası eklenebilir.
 5. **Animasyon Polishing:** Route geçişleri artık Framer Motion ile çalışıyor, ama "ultra premium" his için easing/duration, kart hover ile page transition uyumu ve olası stagger akışları daha da rafine edilebilir.
-
+6. **Favorites optimistic update akışı Supabase hata dönüşlerini kaçırıyor**
+   - `lib/useFavorites.ts` içinde `insert()` ve `delete()` sonuçlarındaki `error` alanı kontrol edilmiyor; sadece `try/catch` var.
+   - Supabase çoğu DB/RLS hatasını throw etmek yerine response içinde döndürdüğü için UI tarafı başarılı sanıp state'i yanlış bırakabilir.
+   - Sonuç: favori kalbi ile gerçek veritabanı durumu sessizce ayrışabilir.
+7. **Documents yükleme/silme akışında kısmi başarısızlıklar orphan data üretebilir**
+   - `app/documents/page.tsx` yüklemede önce storage, sonra DB insert yapıyor; DB insert başarısız olursa yüklenen dosya geri temizlenmiyor.
+   - Silmede storage silme ve DB silme çağrılarının hata objeleri kontrol edilmiyor.
+   - Sonuç: orphan storage object, orphan DB row veya kullanıcıya yanlış "silindi" algısı oluşabilir.
+8. **Sitemap ile auth boundary senkron değil**
+   - `app/sitemap.ts` içinde `/ai-mentor` sitemap'e eklenmiş.
+   - `proxy.ts` tarafında `/ai-mentor` public değil.
+   - Sonuç: arama motorlarına ve crawler'lara giriş gerektiren rota ilan ediliyor; crawl bütçesi boşa gider, kalite sinyali düşer.
+9. **Build, dış ağa bağımlı Google font fetch nedeniyle kırılabiliyor**
+   - `app/layout.tsx` `next/font/google` ile `Geist` ve `Geist Mono` çekiyor.
+   - Bu turdaki `npm run build`, sandbox ağ kısıtı altında bu iki font fetch'i nedeniyle failed oldu.
+   - İnternet erişimi olmayan CI/CD veya kısıtlı build ortamlarında üretim build'i kırılabilir.
+10. **Documents bucket için istemci tarafı doğrulama yetersiz**
+    - `app/documents/page.tsx` sadece `accept` attribute'u kullanıyor; dosya tipi/boyutu için gerçek runtime kontrol yok.
+    - Auth'lu bir kullanıcı developer tools veya custom client ile beklenmeyen içerik ve büyük dosya yükleyebilir.
+    - RLS kullanıcı izolasyonunu sağlıyor, ama **storage maliyeti ve abuse** riskini çözmüyor.
 
 ### 🟢 Düşük Öncelik
+1. **Legacy CSS temizlik:** `app/globals.css` içindeki eski View Transition selector'ları aktif akışta kullanılmıyor; fırsat olduğunda temizlenebilir.
+2. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı.
+3. **Veri dosyası client bundle'a gereğinden fazla taşınıyor**
+   - `app/data.ts` yaklaşık `68,685` byte ve birçok client component tarafından import ediliyor (`universities`, `favorites`, detail sayfaları).
+   - Ölçek büyüdükçe ilk yükleme ve hydration maliyeti artacaktır.
+   - Şu an kabul edilebilir, ancak veri büyüme trendi sürerse server-side veri katmanına taşınmalı.
+4. **Erişilebilirlikte gereksiz kısıt var**
+   - `app/layout.tsx` içinde `maximumScale: 1` ve `userScalable: false` ayarlı.
+   - Bu, görme erişilebilirliği için negatif; mobil native hissi sağlasa da profesyonel erişilebilirlik standardını aşağı çeker.
+5. **Dil durumu ile `<html lang>` senkron değil**
+   - `app/layout.tsx` içinde `<html lang="en">` sabit.
+   - Uygulama TR/EN switch ediyor ama document language güncellenmiyor.
+   - SEO ve ekran okuyucu doğruluğu açısından eksik.
+6. **Dokümantasyon drift'i mevcut**
+   - Bu dosyanın teknoloji tablosunda AI SDK bölümü ile `package.json` birebir örtüşmüyor.
+   - Kod gerçeği: `ai@6.0.78`, `@ai-sdk/react@3.0.80`, `@ai-sdk/google@3.0.23`.
+   - Yeni agent'ların yanlış varsayım üretmemesi için bu fark göz önünde bulundurulmalı.
 
-6. **Legacy CSS temizlik:** `app/globals.css` içindeki eski View Transition selector'ları aktif akışta kullanılmıyor; fırsat olduğunda temizlenebilir.
-7. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı.
-8. **Veri katmanı:** 1219 satırlık `data.ts` (~69KB) client bundle'a dahil — üniversite sayısı artarsa Supabase'e taşınmalı.
+### 🧠 Bilinmeyen / Sessiz Tehditler
+
+- **Cost amplification:** bugün görünmeyen ama en gerçek tehdit, AI endpoint'in anonim ve limitsiz kalmasıdır. Trafik artana kadar fark edilmeyebilir; fatura geldiğinde görünür olur.
+- **Storage creep:** upload ve delete akışındaki kısmi hata senaryoları zaman içinde sessiz veri artığı ve maliyet oluşturabilir.
+- **SEO trust erosion:** auth gerektiren rotaların sitemap/robots gibi açık sinyallerle karışması, zamanla indeks kalitesi ve crawl verimliliğini düşürür.
+- **Bundle creep:** veri dosyası büyüdükçe performans düşüşü bir anda değil, sessizce ve parça parça hissedilir; bu tip tehditler geç fark edilir.
 
 ---
 
@@ -344,50 +389,6 @@ CREATE TABLE user_documents (
 
 ---
 
-## geçici Codex raporu
-
-> Tarih: 27 Şubat 2026  
-> Kaynak: Kod tabanı + `npm run lint` yeniden doğrulama çıktısı
-
-### ✅ Bu turda tamamlananlar
-
-1. **Lint tamamen temizlendi**
-   - `npm run lint` sonucu: **0 error, 0 warning**.
-   - Düzelen başlıklar:
-     - `app/documents/page.tsx`: `any` kullanımları kaldırıldı, `UserDocument` tipi kullanıldı, `fetchDocs` dependency uyarısı kapatıldı.
-     - `context/LanguageContext.tsx`: effect içi senkron `setState` kaldırıldı, lazy initializer + güvenli localStorage okuması uygulandı.
-     - `app/universities/page.tsx`: unescaped quote düzeltildi.
-     - `components/Footer.tsx`: yanlış `/` yönlendiren `<a>` etiketleri kaldırıldı (geçici non-clickable sosyal etiketler).
-     - `app/favorites/page.tsx`: kalan `<img>` etiketi `next/image` ile değiştirildi.
-     - `app/api/chat/route.ts`: kullanılmayan `err` değişkeni kaldırıldı.
-
-2. **Supabase erişim modeli Clerk JWT + RLS ile güçlendirildi**
-   - `lib/supabaseClient.ts` içinde `createClerkSupabaseClient(accessToken)` factory eklendi.
-   - `useFavorites` ve `documents` sayfası, Clerk `supabase` template token'ı ile Supabase'e bağlanacak şekilde güncellendi.
-   - Dashboard doğrulaması: `documents` bucket private (`public=false`), `storage.objects` policy'leri yalnızca `authenticated`.
-
-3. **Documents gizlilik modeli public URL'den signed URL'e geçirildi**
-   - Yükleme sonrası `getPublicUrl` akışı kaldırıldı.
-   - Listeleme aşamasında `createSignedUrls(..., 600s)` ile kısa ömürlü görüntüleme linkleri üretiliyor.
-   - Sonuç: belge linkleri kalıcı public URL olmaktan çıkarıldı.
-
-4. **Route geçiş altyapısı Framer Motion'da stabilize edildi**
-   - `components/RouteTransition.tsx` eklendi (`AnimatePresence + LayoutGroup`).
-   - `app/layout.tsx` içinde tüm sayfalar ortak geçiş katmanına alındı.
-   - `app/universities/page.tsx` ve `app/universities/[id]/page.tsx` arasında `layoutId` eşleşmeleri ile shared-element geçişi güçlendirildi.
-   - `next.config.ts` içindeki `experimental.viewTransition` kaldırıldı (çakışan model sadeleştirildi).
-
-5. **Veri güvenliği notu (anayasa kuralı)**
-   - Bu turda veritabanı tablosu silme/değiştirme, bucket silme veya feature kaldırma yapılmadı.
-   - Yapılan işler ağırlıklı olarak lint, auth/RLS sıkılaştırması, signed URL akışı ve UI geçiş katmanı iyileştirmesidir.
-
-### ⚠️ Hâlâ açık teknik notlar
-
-6. **Animasyon kalitesi için son mil ayarı açık**
-   - Geçişler çalışır durumda ve gözle görülür iyileşme var.
-   - Daha "premium" his için easing/duration ve bazı sayfalarda giriş sıralaması (stagger) ek tuning yapılabilir.
-
----
 
 ## 🛑 STRICT AGENT GUIDELINES (AI'lar İçin Kesin Kurallar)
 
