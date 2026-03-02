@@ -124,6 +124,16 @@ export const translations = {
       overview: "Bölüm Hakkında"
     },
     aiMentor: {
+      title: "ItalyPath Mentor",
+      welcome: "Ciao! ItalyPath Mentor hazır. İtalya hayalini gerçekleştirmek için neyi çözmemi istersin?",
+      thinking: "Yazıyor...",
+      reset: "Sohbeti sıfırla",
+      backHome: "Ana sayfaya dön",
+      inputPlaceholder: "İtalya hakkında bir şeyler sor...",
+      inputPlaceholderStreaming: "Mentor yanıt yazıyor...",
+      stop: "Yanıtı durdur",
+      send: "Mesaj gönder",
+      error: "Scusa! Bir hata oluştu. Tekrar dener misin?",
       promptsTitle: "Neler sorabilirsin?",
       prompt1: "İtalya'da en uygun harç ücretli üniversiteler hangileri?",
       prompt2: "Milano'da İngilizce mühendislik bölümleri var mı?",
@@ -256,6 +266,16 @@ export const translations = {
       overview: "About This Program"
     },
     aiMentor: {
+      title: "ItalyPath Mentor",
+      welcome: "Ciao! ItalyPath Mentor is ready. What should I help you solve for your Italy journey?",
+      thinking: "Typing...",
+      reset: "Reset chat",
+      backHome: "Back to home",
+      inputPlaceholder: "Ask something about Italy...",
+      inputPlaceholderStreaming: "Mentor is writing...",
+      stop: "Stop response",
+      send: "Send message",
+      error: "Scusa! Something went wrong. Can you try again?",
       promptsTitle: "What can you ask?",
       prompt1: "Which universities in Italy have the lowest tuition?",
       prompt2: "Are there English engineering programs in Milan?",

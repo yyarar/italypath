@@ -30,41 +30,73 @@ export function useFavorites() {
     useEffect(() => {
         if (!isLoaded) return;
 
+        let isActive = true;
+
         async function loadFavorites() {
-            if (user) {
-                // Giriş yapmış → Supabase'den çek
-                try {
+            setLoading(true);
+            setFavorites([]);
+
+            try {
+                if (user) {
+                    // Giriş yapmış → Supabase'den çek
                     const { data, error } = await supabase
                         .from('favorites')
                         .select('university_id')
                         .eq('user_id', user.id);
 
-                    if (data && !error) {
-                        setFavorites(data.map((f) => Number(f.university_id)));
+                    if (error) {
+                        throw error;
                     }
-                } catch (err) {
-                    console.error("Favori yükleme hatası:", err);
+
+                    if (isActive) {
+                        setFavorites(
+                            (data ?? [])
+                                .map((f) => Number(f.university_id))
+                                .filter((id) => Number.isFinite(id))
+                        );
+                    }
+                    return;
                 }
-            } else {
+
                 // Giriş yapmamış → localStorage'dan oku
-                try {
-                    const saved = localStorage.getItem('italyPathFavorites');
-                    if (saved) {
-                        setFavorites(JSON.parse(saved));
-                    }
-                } catch {
-                    // localStorage erişim hatası, sessizce devam et
+                const saved = localStorage.getItem('italyPathFavorites');
+                if (!saved) return;
+
+                const parsed = JSON.parse(saved);
+                if (!Array.isArray(parsed)) {
+                    throw new Error('Geçersiz favori verisi');
+                }
+
+                if (isActive) {
+                    setFavorites(
+                        parsed
+                            .map((id) => Number(id))
+                            .filter((id) => Number.isFinite(id))
+                    );
+                }
+            } catch (err) {
+                console.error("Favori yükleme hatası:", err);
+                if (isActive) {
+                    setFavorites([]);
+                }
+            } finally {
+                if (isActive) {
+                    setLoading(false);
                 }
             }
-            setLoading(false);
         }
 
-        loadFavorites();
+        void loadFavorites();
+
+        return () => {
+            isActive = false;
+        };
     }, [user, isLoaded, supabase]);
 
     // Favori ekle/çıkar
     const toggleFavorite = useCallback(
         async (universityId: number) => {
+            const previousFavorites = favorites;
             const alreadyFavorite = favorites.includes(universityId);
 
             // Optimistic update: UI'ı hemen güncelle
@@ -77,27 +109,36 @@ export function useFavorites() {
                 // Supabase'e yaz
                 try {
                     if (alreadyFavorite) {
-                        await supabase
+                        const { error } = await supabase
                             .from('favorites')
                             .delete()
                             .eq('user_id', user.id)
                             .eq('university_id', String(universityId));
+
+                        if (error) {
+                            throw error;
+                        }
                     } else {
-                        await supabase
+                        const { error } = await supabase
                             .from('favorites')
                             .insert([{ user_id: user.id, university_id: String(universityId) }]);
+
+                        if (error) {
+                            throw error;
+                        }
                     }
                 } catch (err) {
                     // Hata olursa geri al
                     console.error("Favori güncelleme hatası:", err);
-                    setFavorites(favorites);
+                    setFavorites(previousFavorites);
                 }
             } else {
                 // localStorage'a yaz
                 try {
                     localStorage.setItem('italyPathFavorites', JSON.stringify(newFavorites));
-                } catch {
-                    // localStorage erişim hatası
+                } catch (err) {
+                    console.error("Favori kaydetme hatası:", err);
+                    setFavorites(previousFavorites);
                 }
             }
         },

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { translations } from '@/lib/translations';
 
 // Dil tipi (Sadece tr veya en olabilir)
@@ -28,6 +28,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       return newLang;
     });
   };
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={{ language, toggleLanguage, t: translations[language] }}>

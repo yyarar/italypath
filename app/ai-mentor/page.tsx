@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { Send, Bot, User, ArrowLeft, RefreshCcw, Sparkles, Square } from "lucide-react";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
@@ -13,26 +13,40 @@ interface ChatMessage {
   content: string;
 }
 
-const WELCOME_MESSAGE: ChatMessage = {
-  id: "welcome",
-  role: "assistant",
-  content: "Ciao! ItalyPath Mentor hazır. İtalya hayalini gerçekleştirmek için neyi çözmemi istersin?",
-};
-
 const PROMPT_KEYS = ["prompt1", "prompt2", "prompt3", "prompt4"] as const;
 
+function createWelcomeMessage(content: string): ChatMessage {
+  return {
+    id: "welcome",
+    role: "assistant",
+    content,
+  };
+}
+
 export default function AIMentorPage() {
-  const [messages, setMessages] = useState<ChatMessage[]>([WELCOME_MESSAGE]);
+  const { t } = useLanguage();
+  const welcomeMessage = useMemo(
+    () => createWelcomeMessage(t.aiMentor.welcome),
+    [t.aiMentor.welcome]
+  );
+  const [messages, setMessages] = useState<ChatMessage[]>(() => [createWelcomeMessage(t.aiMentor.welcome)]);
   const [input, setInput] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
-  const { t } = useLanguage();
 
   // Yeni mesaj / stream chunk geldiğinde aşağı kaydır
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  useEffect(() => {
+    setMessages((prev) => (
+      prev.length === 1 && prev[0]?.id === "welcome"
+        ? [welcomeMessage]
+        : prev
+    ));
+  }, [welcomeMessage]);
 
   const sendPrompt = useCallback(
     async (text: string) => {
@@ -69,7 +83,20 @@ export default function AIMentorPage() {
           signal: controller.signal,
         });
 
-        if (!res.ok) throw new Error("API hatası");
+        if (!res.ok) {
+          let errorMessage = t.aiMentor.error;
+
+          try {
+            const data = (await res.json()) as { error?: string };
+            if (data.error) {
+              errorMessage = data.error;
+            }
+          } catch {
+            // JSON body yoksa genel hata mesajını kullan
+          }
+
+          throw new Error(errorMessage);
+        }
 
         const reader = res.body?.getReader();
         const decoder = new TextDecoder();
@@ -95,7 +122,10 @@ export default function AIMentorPage() {
           setMessages((prev) =>
             prev.map((m) =>
               m.id === assistantId
-                ? { ...m, content: m.content || "Scusa! Bir hata oluştu. Tekrar dener misin?" }
+                ? {
+                  ...m,
+                  content: m.content || (err instanceof Error ? err.message : t.aiMentor.error),
+                }
                 : m
             )
           );
@@ -105,7 +135,7 @@ export default function AIMentorPage() {
         abortRef.current = null;
       }
     },
-    [isStreaming, messages]
+    [isStreaming, messages, t.aiMentor.error]
   );
 
   const handleSend = useCallback(
@@ -122,7 +152,7 @@ export default function AIMentorPage() {
 
   const handleReset = () => {
     abortRef.current?.abort();
-    setMessages([WELCOME_MESSAGE]);
+    setMessages([welcomeMessage]);
     setIsStreaming(false);
   };
 
@@ -133,22 +163,22 @@ export default function AIMentorPage() {
       {/* Header */}
       <header className="p-4 border-b bg-white flex items-center justify-between shadow-sm z-10">
         <div className="flex items-center gap-3">
-          <Link href="/" aria-label="Ana sayfaya dön">
+          <Link href="/" aria-label={t.aiMentor.backHome}>
             <ArrowLeft className="w-6 h-6 text-slate-400 hover:text-slate-600 transition" />
           </Link>
           <div className="w-10 h-10 bg-gradient-to-br from-green-600 via-white to-red-600 rounded-full flex items-center justify-center border">
             <Bot className="text-slate-700 w-5 h-5" />
           </div>
           <div>
-            <h1 className="font-bold text-sm text-slate-800">ItalyPath Mentor</h1>
+            <h1 className="font-bold text-sm text-slate-800">{t.aiMentor.title}</h1>
             {isStreaming && (
               <p className="text-[10px] text-indigo-500 font-semibold animate-pulse">
-                Yazıyor...
+                {t.aiMentor.thinking}
               </p>
             )}
           </div>
         </div>
-        <button onClick={handleReset} title="Sohbeti sıfırla" aria-label="Sohbeti sıfırla">
+        <button onClick={handleReset} title={t.aiMentor.reset} aria-label={t.aiMentor.reset}>
           <RefreshCcw className="w-5 h-5 text-slate-300 hover:text-slate-500 transition" />
         </button>
       </header>
@@ -246,7 +276,7 @@ export default function AIMentorPage() {
             onChange={(e) => setInput(e.target.value)}
             disabled={isStreaming}
             placeholder={
-              isStreaming ? "Mentor yanıt yazıyor..." : "İtalya hakkında bir şeyler sor..."
+              isStreaming ? t.aiMentor.inputPlaceholderStreaming : t.aiMentor.inputPlaceholder
             }
             autoComplete="off"
           />
@@ -254,7 +284,7 @@ export default function AIMentorPage() {
             <button
               type="button"
               onClick={handleStop}
-              aria-label="Yanıtı durdur"
+              aria-label={t.aiMentor.stop}
               className="absolute right-2 p-2.5 bg-red-500 text-white rounded-xl active:scale-95 transition-all"
             >
               <Square size={18} />
@@ -263,7 +293,7 @@ export default function AIMentorPage() {
             <button
               type="submit"
               disabled={!input.trim()}
-              aria-label="Mesaj gönder"
+              aria-label={t.aiMentor.send}
               className="absolute right-2 p-2.5 bg-indigo-600 text-white rounded-xl active:scale-95 transition-all disabled:opacity-30"
             >
               <Send size={18} />

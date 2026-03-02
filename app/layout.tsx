@@ -29,11 +29,9 @@ export const metadata: Metadata = {
 
 // Üst barın rengini Slate-50 (arka plan rengin) ile eşleyelim
 export const viewport: Viewport = {
-  themeColor: "#f8fafc", 
+  themeColor: "#f8fafc",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1, // Kullanıcının zoom yapıp arayüzü bozmasını engeller (Native hissi için)
-  userScalable: false,
 };
 
 export default function RootLayout({
@@ -43,20 +41,17 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="tr">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 text-slate-900`}
         >
           <LanguageProvider>
-            {/* pb-20 kalsın ama içine 'safe-area' desteği ekleyeceğiz 
-                Ayrıca taşmaları engellemek için overflow-x-hidden önemli.
-            */}
             <main className="min-h-screen pb-24 overflow-x-hidden">
               <RouteTransition>{children}</RouteTransition>
             </main>
-            
+
             <BottomNav />
-            
+
           </LanguageProvider>
         </body>
       </html>

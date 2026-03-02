@@ -1,7 +1,15 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { universitiesData } from "@/app/data";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+type ChatRole = "user" | "assistant";
+
+interface ChatMessage {
+  role: ChatRole;
+  content: string;
+}
+
+const MAX_MESSAGES = 20;
+const MAX_MESSAGE_LENGTH = 4000;
 
 // Üniversite bilgilerini sistem bağlamına hazırla
 const uniContext = universitiesData
@@ -14,9 +22,66 @@ Samimi, teşvik edici ve bilgili bir ton kullan. Kesin bilgi vermediğin konular
 Bilgi bankan:
 ${uniContext}`;
 
+function jsonError(message: string, status: number) {
+  return new Response(JSON.stringify({ error: message }), {
+    status,
+    headers: { "Content-Type": "application/json; charset=utf-8" },
+  });
+}
+
+function normalizeMessages(value: unknown): ChatMessage[] | null {
+  if (!Array.isArray(value) || value.length === 0 || value.length > MAX_MESSAGES) {
+    return null;
+  }
+
+  const normalized: ChatMessage[] = [];
+
+  for (const item of value) {
+    if (!item || typeof item !== "object") {
+      return null;
+    }
+
+    const { role, content } = item as { role?: unknown; content?: unknown };
+    if ((role !== "user" && role !== "assistant") || typeof content !== "string") {
+      return null;
+    }
+
+    const trimmedContent = content.trim();
+    if (!trimmedContent || trimmedContent.length > MAX_MESSAGE_LENGTH) {
+      return null;
+    }
+
+    normalized.push({ role, content: trimmedContent });
+  }
+
+  if (normalized[normalized.length - 1]?.role !== "user") {
+    return null;
+  }
+
+  return normalized;
+}
+
 export async function POST(req: Request) {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    console.error("GEMINI_API_KEY tanımlı değil.");
+    return jsonError("AI servisi şu anda kullanılamıyor.", 503);
+  }
+
   try {
-    const { messages } = await req.json();
+    let body: { messages?: unknown };
+    try {
+      body = (await req.json()) as { messages?: unknown };
+    } catch {
+      return jsonError("Geçersiz istek gövdesi.", 400);
+    }
+
+    const messages = normalizeMessages(body.messages);
+    if (!messages) {
+      return jsonError("Geçersiz mesaj listesi.", 400);
+    }
+
+    const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     // Sohbet geçmişini Gemini'nin anladığı formata çevir
@@ -27,8 +92,7 @@ export async function POST(req: Request) {
     ];
 
     // Önceki mesajları geçmişe ekle (son mesaj hariç)
-    for (let i = 0; i < messages.length - 1; i++) {
-      const msg = messages[i];
+    for (const msg of messages.slice(0, -1)) {
       geminiHistory.push({
         role: msg.role === "user" ? ("user" as const) : ("model" as const),
         parts: [{ text: msg.content }],
@@ -70,9 +134,6 @@ export async function POST(req: Request) {
     });
   } catch (error) {
     console.error("API Hatası:", error);
-    return new Response(
-      JSON.stringify({ content: "Bir hata oluştu patron." }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
-    );
+    return jsonError("Bir hata oluştu. Lütfen tekrar deneyin.", 500);
   }
 }

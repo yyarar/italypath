@@ -31,7 +31,10 @@ export default function DocumentsPage() {
 
   // 1. Belgeleri Veritabanından Çek
   const fetchDocs = useCallback(async () => {
-    if (!user?.id) return;
+    if (!user?.id) {
+      setDocs([]);
+      return;
+    }
 
     const { data, error } = await supabase
       .from('user_documents')
@@ -65,7 +68,10 @@ export default function DocumentsPage() {
   }, [supabase, user?.id]);
 
   useEffect(() => {
-    void fetchDocs();
+    void fetchDocs().catch((error: unknown) => {
+      console.error('Belge yükleme hatası:', error);
+      setDocs([]);
+    });
   }, [fetchDocs]);
 
   // 2. Belge Yükleme (Kamera veya Galeri)
@@ -76,6 +82,8 @@ export default function DocumentsPage() {
     setUploading(true);
     const fileExt = file.name.split('.').pop();
     const filePath = `${user.id}/${Date.now()}.${fileExt}`;
+    let uploadedToStorage = false;
+    let documentRowCreated = false;
 
     try {
       const { error: storageError } = await supabase.storage
@@ -83,6 +91,7 @@ export default function DocumentsPage() {
         .upload(filePath, file);
 
       if (storageError) throw storageError;
+      uploadedToStorage = true;
 
       const { error: dbError } = await supabase.from('user_documents').insert({
         user_id: user.id,
@@ -92,9 +101,16 @@ export default function DocumentsPage() {
       });
 
       if (dbError) throw dbError;
+      documentRowCreated = true;
 
       await fetchDocs();
     } catch (error: unknown) {
+      if (uploadedToStorage && !documentRowCreated) {
+        const { error: cleanupError } = await supabase.storage.from('documents').remove([filePath]);
+        if (cleanupError) {
+          console.error('Yükleme sonrası temizleme hatası:', cleanupError);
+        }
+      }
       const message = error instanceof Error ? error.message : 'Beklenmeyen bir hata oluştu.';
       alert(`Hata: ${message}`);
     } finally {
@@ -107,10 +123,15 @@ export default function DocumentsPage() {
     if (!confirm(t.documents.deleteConfirm)) return;
 
     try {
-      await supabase.storage.from('documents').remove([storagePath]);
-      await supabase.from('user_documents').delete().eq('id', id);
+      const { error: storageError } = await supabase.storage.from('documents').remove([storagePath]);
+      if (storageError) throw storageError;
+
+      const { error: dbError } = await supabase.from('user_documents').delete().eq('id', id);
+      if (dbError) throw dbError;
+
       setDocs(prev => prev.filter(d => d.id !== id));
-    } catch {
+    } catch (error) {
+      console.error('Belge silme hatası:', error);
       alert(t.documents.deleteFail);
     }
   };
