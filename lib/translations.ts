@@ -101,7 +101,9 @@ export const translations = {
       emptyStep2: "📄 Transkript",
       emptyStep3: "🎓 Diploma",
       emptyStep4: "🌐 Dil Belgesi",
-      emptyHint: "İlk adım olarak pasaportunu yükleyerek başla!"
+      emptyHint: "İlk adım olarak pasaportunu yükleyerek başla!",
+      fileSizeError: "Dosya boyutu çok büyük (Maksimum 5MB).",
+      fileTypeError: "Sadece resim ve PDF dosyaları yüklenebilir."
     },
     bottomNav: {
       home: "Ana Sayfa",
@@ -243,7 +245,9 @@ export const translations = {
       emptyStep2: "📄 Transcript",
       emptyStep3: "🎓 Diploma",
       emptyStep4: "🌐 Language Certificate",
-      emptyHint: "Start by uploading your passport!"
+      emptyHint: "Start by uploading your passport!",
+      fileSizeError: "File is too large (Maximum 5MB).",
+      fileTypeError: "Only images and PDF files are allowed."
     },
     bottomNav: {
       home: "Home",

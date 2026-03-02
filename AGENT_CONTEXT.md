@@ -92,6 +92,7 @@ italypath-main/
 
 ### 1. Dil Sistemi (i18n)
 - `context/LanguageContext.tsx` → React Context + `localStorage` ile dil tercihi saklanır
+- `LanguageProvider`, aktif dili runtime'da `document.documentElement.lang` ile senkronlar
 - `lib/translations.ts` → Tüm UI metinleri burada (navbar, hero, list, detail, isee, favorites, documents, bottomNav, department)
 - Üniversite verileri (`data.ts`) → `description_en`, `features_en` opsiyonel alanları ile çift dilli
 - Dil değiştirme: Navbar ve üniversite listesi gibi toggle sunan ekranlarda `toggleLanguage()` çağrılır
@@ -101,15 +102,19 @@ italypath-main/
 - **Giriş yapmış kullanıcı:** Supabase `favorites` tablosu (`user_id`, `university_id`)
 - Giriş yapmış kullanıcı istekleri Clerk `supabase` JWT template token'ı ile Supabase'e gider (`createClerkSupabaseClient`)
 - Hook tüm sayfalarda aynı API sunar: `{ favorites, toggleFavorite, isFavorite, loading, isLoggedIn }`
-- Optimistic update uygulanmış (UI anında güncellenir, hata olursa geri alınır)
+- Auth durumu değiştiğinde state deterministik temizlenir; logout sonrası stale favori state'i bırakılmaz
+- Optimistic update uygulanmış (UI anında güncellenir, Supabase response `error` dönerse geri alınır)
 
 ### 3. AI Mentor Streaming
 - **Backend** (`api/chat/route.ts`): `@google/generative-ai` paketi ile `sendMessageStream` kullanılır
 - Tüm mesaj geçmişi Gemini chat history olarak iletilir (sohbet hafızası)
 - Sistem promptu: Üniversite veritabanından oluşturulan bağlam + mentör kişilik tanımı
+- İstek gövdesi temel şema doğrulamasından geçer (`messages[]`, rol, boş olmayan içerik, adet/uzunluk sınırları)
+- `GEMINI_API_KEY` yoksa kontrollü `503` döner; malformed body doğrudan `500` üretmez
 - **Frontend** (`ai-mentor/page.tsx`): `fetch` + `ReadableStream` + `TextDecoder` ile chunk chunk okuma
 - `AbortController` ile kullanıcı yanıtı yarıda kesebilir (kırmızı durdur butonu)
 - Stream başlayana kadar zıplayan 3 nokta animasyonu gösterilir
+- AI Mentor ekranındaki temel UI metinleri artık `lib/translations.ts` üzerinden dil uyumlu çalışır
 
 ### 4. Belge Cüzdanı
 - Supabase Storage `documents` bucket'ına dosya yükleme
@@ -117,10 +122,12 @@ italypath-main/
 - Kamera ile doğrudan tarama (`capture="environment"`) veya galeriden dosya seçme
 - Clerk `user.id` ile kullanıcıya özel dosya yolu: `{userId}/{timestamp}.{ext}`
 - Belge görüntüleme için kalıcı public URL yerine kısa ömürlü signed URL (`createSignedUrls`) kullanılır
+- Upload akışında storage başarılı, DB insert başarısız olursa yüklenen obje cleanup edilir
+- Silme akışında hem storage hem DB response hataları kontrol edilir; sessiz başarısızlık bırakılmaz
 
 ### 5. Clerk Request Boundary (proxy.ts)
 - `proxy.ts` dosyasında tanımlı (Next.js 16 yeni Request Boundary standardı uyarınca).
-- Public rotalar: `/`, `/api/chat`, `/sign-in`, `/sign-up`, `/universities(.*)`, `/isee(.*)`, `/sitemap.xml`, `/robots.txt`
+- Public rotalar: `/`, `/ai-mentor(.*)`, `/api/chat(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/isee(.*)`, `/sitemap.xml`, `/robots.txt`
 - Diğer tüm rotalar `auth.protect()` ile korumalı
 
 ### 6. Bölüm Detay Sayfaları
@@ -271,46 +278,41 @@ italypath-main/
 | `app/universities/[id]/page.tsx` | ➕ Detay hero ve başlıkta eşleşen `layoutId` kullanılarak shared-element hissi güçlendirildi |
 | `next.config.ts` | ♻️ `experimental.viewTransition` kaldırıldı; geçiş sorumluluğu tamamen Framer Motion'a alındı |
 
+### Commit 15 (Tutarlılık, Doğrulama ve Erişilebilirlik):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `lib/useFavorites.ts` | ♻️ Auth değişiminde state sıfırlama sertleştirildi; `localStorage` verisi normalize edildi; Supabase `insert/delete` response `error` alanları kontrol edilip optimistic rollback güvenilir hale getirildi |
+| `app/documents/page.tsx` | ♻️ İlk yükleme hataları yakalanır hale geldi; upload sırasında DB insert fail olursa storage cleanup eklenerek orphan object riski kapatıldı; delete akışında storage ve DB hata objeleri kontrol edilmeye başlandı |
+| `app/api/chat/route.ts` | ♻️ `GEMINI_API_KEY` guard eklendi; JSON parse + `messages` şema doğrulaması, mesaj sayısı/uzunluk limiti ve kontrollü `400/503/500` yanıtları eklendi |
+| `app/ai-mentor/page.tsx` | ♻️ Hard-coded AI Mentor UI string'leri çevirilere taşındı; welcome mesajı aktif dile göre yenilenir hale geldi; API hata mesajı JSON'dan okunarak kullanıcıya daha tutarlı gösterilir |
+| `lib/translations.ts` | ➕ AI Mentor için `title`, `welcome`, `thinking`, `reset`, `inputPlaceholder`, `stop`, `send`, `error` anahtarları eklendi (TR + EN) |
+| `app/layout.tsx` | ♻️ `maximumScale` / `userScalable` kısıtları kaldırıldı; kök `<html lang>` varsayılanı `tr` olarak düzeltildi |
+| `context/LanguageContext.tsx` | ➕ Aktif dilin `document.documentElement.lang` ile senkronlanması eklendi |
+| `proxy.ts` | 🔓 `/ai-mentor(.*)` public route listesine eklendi; sitemap ve CTA akışlarıyla auth boundary hizalandı |
+| `app/robots.ts` | ➕ `/ai-mentor` robots allow listesine eklendi |
+| `app/sitemap.ts` | ♻️ Volatile `lastModified: new Date()` alanları kaldırıldı; sitemap kayıtları artık değişken zaman damgaları üretmiyor |
+
+### Commit 16 (Güvenlik Hardening & Performans İyileştirmeleri):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `proxy.ts` | 🔒 `/api/chat(.*)` public route listesinden çıkarılarak uç nokta sadece oturum açmış kullanıcılara özel hale getirildi (API cost/abuse önlemi) |
+| `app/documents/page.tsx` | 🔒 Client-side 5MB boyut (size) ve MimeType (image/pdf) doğrulama limitleri eklenerek bucket/storage şişirme (depolama) tehlikesi kapatıldı |
+| `lib/translations.ts` | ➕ `documents` objeleri altına (`fileSizeError`, `fileTypeError`) çevirileri TR ve EN için eklendi |
+
 ---
 
 ## ⚠️ Bilinen Sorunlar & Açık Öneriler
 
-### 🚨 Yüksek Öncelik
-1. **Public AI endpoint doğrudan maliyet/suistimal yüzeyi oluşturuyor**
-   - `proxy.ts` içinde `/api/chat(.*)` public bırakılmış durumda.
-   - `app/api/chat/route.ts` içinde auth, rate limit, payload boyutu, mesaj sayısı veya token sınırı yok.
-   - Sonuç: herhangi bir anonim istemci bu endpoint'i sınırsız çağırıp Gemini maliyeti oluşturabilir; prompt injection değil, doğrudan **API bütçesi sömürüsü / DoS-by-cost** riski vardır.
-2. **AI route request doğrulaması zayıf**
-   - `app/api/chat/route.ts` içinde `messages` gövdesi şemasız okunuyor ve `messages[messages.length - 1].content` doğrudan kullanılıyor.
-   - Bozuk veya kasıtlı malformed body, gereksiz 500 üretir; log şişmesi ve hata gürültüsü yaratır.
-   - Bu, public endpoint olduğu için pratikte saldırı yüzeyini büyütür.
-
-### 🟡 Orta Öncelik
+###  Orta Öncelik
 1. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı. Şu anda tasarım aşamasındadır. Dokunma.
 2. **Tekrarlanan görseller:** `data.ts`'te yeni eklenen 17 üniversite ve id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor.
 3. **Üniversite Karşılaştırma:** 2-3 üniversiteyi yan yana kıyaslama (ücret, bölüm sayısı, şehir, özellikler). Mevcut `data.ts` yapısıyla yapılabilir, ek veri gerekmez. Favori sisteminden beslenebilir.
 4. **Şehir Rehberi:** Her şehir için yaşam maliyeti, ulaşım, iklim, öğrenci nüfusu bilgisi. Şehir filtresi zaten mevcut — detay sayfası eklenebilir.
 5. **Animasyon Polishing:** Route geçişleri artık Framer Motion ile çalışıyor, ama "ultra premium" his için easing/duration, kart hover ile page transition uyumu ve olası stagger akışları daha da rafine edilebilir.
-6. **Favorites optimistic update akışı Supabase hata dönüşlerini kaçırıyor**
-   - `lib/useFavorites.ts` içinde `insert()` ve `delete()` sonuçlarındaki `error` alanı kontrol edilmiyor; sadece `try/catch` var.
-   - Supabase çoğu DB/RLS hatasını throw etmek yerine response içinde döndürdüğü için UI tarafı başarılı sanıp state'i yanlış bırakabilir.
-   - Sonuç: favori kalbi ile gerçek veritabanı durumu sessizce ayrışabilir.
-7. **Documents yükleme/silme akışında kısmi başarısızlıklar orphan data üretebilir**
-   - `app/documents/page.tsx` yüklemede önce storage, sonra DB insert yapıyor; DB insert başarısız olursa yüklenen dosya geri temizlenmiyor.
-   - Silmede storage silme ve DB silme çağrılarının hata objeleri kontrol edilmiyor.
-   - Sonuç: orphan storage object, orphan DB row veya kullanıcıya yanlış "silindi" algısı oluşabilir.
-8. **Sitemap ile auth boundary senkron değil**
-   - `app/sitemap.ts` içinde `/ai-mentor` sitemap'e eklenmiş.
-   - `proxy.ts` tarafında `/ai-mentor` public değil.
-   - Sonuç: arama motorlarına ve crawler'lara giriş gerektiren rota ilan ediliyor; crawl bütçesi boşa gider, kalite sinyali düşer.
-9. **Build, dış ağa bağımlı Google font fetch nedeniyle kırılabiliyor**
+6. **Build, dış ağa bağımlı Google font fetch nedeniyle kırılabiliyor**
    - `app/layout.tsx` `next/font/google` ile `Geist` ve `Geist Mono` çekiyor.
    - Bu turdaki `npm run build`, sandbox ağ kısıtı altında bu iki font fetch'i nedeniyle failed oldu.
    - İnternet erişimi olmayan CI/CD veya kısıtlı build ortamlarında üretim build'i kırılabilir.
-10. **Documents bucket için istemci tarafı doğrulama yetersiz**
-    - `app/documents/page.tsx` sadece `accept` attribute'u kullanıyor; dosya tipi/boyutu için gerçek runtime kontrol yok.
-    - Auth'lu bir kullanıcı developer tools veya custom client ile beklenmeyen içerik ve büyük dosya yükleyebilir.
-    - RLS kullanıcı izolasyonunu sağlıyor, ama **storage maliyeti ve abuse** riskini çözmüyor.
 
 ### 🟢 Düşük Öncelik
 1. **Legacy CSS temizlik:** `app/globals.css` içindeki eski View Transition selector'ları aktif akışta kullanılmıyor; fırsat olduğunda temizlenebilir.
@@ -319,18 +321,8 @@ italypath-main/
    - `app/data.ts` yaklaşık `68,685` byte ve birçok client component tarafından import ediliyor (`universities`, `favorites`, detail sayfaları).
    - Ölçek büyüdükçe ilk yükleme ve hydration maliyeti artacaktır.
    - Şu an kabul edilebilir, ancak veri büyüme trendi sürerse server-side veri katmanına taşınmalı.
-4. **Erişilebilirlikte gereksiz kısıt var**
-   - `app/layout.tsx` içinde `maximumScale: 1` ve `userScalable: false` ayarlı.
-   - Bu, görme erişilebilirliği için negatif; mobil native hissi sağlasa da profesyonel erişilebilirlik standardını aşağı çeker.
-5. **Dil durumu ile `<html lang>` senkron değil**
-   - `app/layout.tsx` içinde `<html lang="en">` sabit.
-   - Uygulama TR/EN switch ediyor ama document language güncellenmiyor.
-   - SEO ve ekran okuyucu doğruluğu açısından eksik.
 ### 🧠 Bilinmeyen / Sessiz Tehditler
 
-- **Cost amplification:** bugün görünmeyen ama en gerçek tehdit, AI endpoint'in anonim ve limitsiz kalmasıdır. Trafik artana kadar fark edilmeyebilir; fatura geldiğinde görünür olur.
-- **Storage creep:** upload ve delete akışındaki kısmi hata senaryoları zaman içinde sessiz veri artığı ve maliyet oluşturabilir.
-- **SEO trust erosion:** auth gerektiren rotaların sitemap/robots gibi açık sinyallerle karışması, zamanla indeks kalitesi ve crawl verimliliğini düşürür.
 - **Bundle creep:** veri dosyası büyüdükçe performans düşüşü bir anda değil, sessizce ve parça parça hissedilir; bu tip tehditler geç fark edilir.
 
 ---

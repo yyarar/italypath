@@ -7,7 +7,6 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 const isPublicRoute = createRouteMatcher([
   '/',
   '/ai-mentor(.*)',   // AI mentor ekranı sitemap ve public CTA'larla uyumlu olsun
-  '/api/chat(.*)', // AI rotasını serbest bırakıyoruz
   '/sign-in(.*)',
   '/sign-up(.*)',
   '/universities(.*)', // Ziyaretçiler okulları ve detayları görebilsin

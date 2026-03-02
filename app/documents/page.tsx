@@ -79,6 +79,19 @@ export default function DocumentsPage() {
     const file = e.target.files?.[0];
     if (!file || !user) return;
 
+    // Validate size (max 5MB)
+    const MAX_FILE_SIZE = 5 * 1024 * 1024;
+    if (file.size > MAX_FILE_SIZE) {
+      alert(t.documents.fileSizeError);
+      return;
+    }
+
+    // Validate type (image or pdf only)
+    if (!file.type.startsWith('image/') && file.type !== 'application/pdf') {
+      alert(t.documents.fileTypeError);
+      return;
+    }
+
     setUploading(true);
     const fileExt = file.name.split('.').pop();
     const filePath = `${user.id}/${Date.now()}.${fileExt}`;
