@@ -6,7 +6,7 @@
 
 ## 🎯 Proje Tanımı
 
-İtalya'da eğitim almak isteyen Türk öğrenciler için **yapay zeka destekli rehber uygulaması**. Üniversite arama, AI mentörlük, belge yönetimi, ISEE burs hesaplayıcı ve favoriler gibi özellikler sunar. Mobil öncelikli (PWA-ready) tasarıma sahiptir.
+İtalya'da eğitim almak isteyen Türk öğrenciler için **yapay zeka destekli rehber uygulaması**. Üniversite arama, AI mentörlük, belge yönetimi, ISEE burs hesaplayıcı ve favoriler gibi özellikler sunar. Mobil öncelikli tasarıma sahiptir; temel mobil web app metadata'sı mevcut olsa da tam PWA paketi (manifest + ikon seti) henüz tamamlanmamıştır.
 
 ---
 
@@ -23,14 +23,16 @@
 | Auth | Clerk (`@clerk/nextjs`) | 6.37.3 |
 | Veritabanı | Supabase (`@supabase/supabase-js`) | 2.95.3 |
 | AI | Google Gemini (`@google/generative-ai`) | 0.24.1 |
-| AI SDK | Vercel AI SDK (`ai`, `@ai-sdk/google`, `@ai-sdk/react`) | v6 (yeni API) |
+| AI SDK | Vercel AI SDK (`ai`, `@ai-sdk/google`, `@ai-sdk/react`) | `ai` 6.0.78 / `@ai-sdk/google` 3.0.23 / `@ai-sdk/react` 3.0.80 |
 | Dil | TypeScript | 5.x |
 
-> ⚠️ **AI SDK v6 Uyarısı:** `@ai-sdk/react` v6'da `useChat` hook'u tamamen değişti. Eski `handleSubmit`, `handleInputChange`, `isLoading`, `input` property'leri artık yok. Yeni API: `sendMessage`, `status`, `UIMessage.parts`. Bu nedenle AI Mentor **native Google AI streaming** kullanılarak yazıldı, Vercel AI SDK'nın `useChat` hook'u kullanılmadı.
+> ℹ️ **AI SDK Notu:** Bu paketler projede kurulu olsa da mevcut AI Mentor implementasyonu `@google/generative-ai` üzerinden native streaming kullanır. `@ai-sdk/react` içindeki `useChat` hook'u bu akışta kullanılmamaktadır.
 
 ---
 
-## 📁 Proje Yapısı
+## 📁 Proje Yapısı (Uygulama Odaklı Özet)
+
+> Aşağıdaki ağaç repo'nun tam envanteri değil; mimariyi anlamak için kritik uygulama dosyalarını özetler.
 
 ```
 italypath-main/
@@ -169,7 +171,7 @@ italypath-main/
 ### Commit 4 (Modülerlik — Ana Sayfa):
 | Dosya | Değişiklik |
 |-------|------------|
-| `app/page.tsx` | ♻️ 169 satırlık monolitik sayfa → 14 satırlık bileşen birleştirici haline getirildi |
+| `app/page.tsx` | ♻️ 169 satırlık monolitik sayfa → küçük bir bileşen birleştirici haline getirildi (bugün ~18 satır) |
 | `components/Navbar.tsx` | 🆕 Oluşturuldu: Masaüstü + mobil navigasyon, Clerk auth, dil geçiş butonu |
 | `components/HeroSection.tsx` | 🆕 Oluşturuldu: Hero başlık, rozet ve birincil CTA butonu |
 | `components/FeaturesSection.tsx` | 🆕 Oluşturuldu: Üniversiteler, AI Mentor ve Belge Cüzdanı 3'lü grid |
@@ -192,7 +194,7 @@ italypath-main/
 ### Commit 6 (Veri Genişletme — Yedek Merge):
 | Dosya | Değişiklik |
 |-------|------------|
-| `app/data.ts` | 📊 `yedek` dosyasındaki 217 girişten bölüm verileri çekildi. 76 yeni bölüm mevcut 45 üniversiteye eklendi, 17 yeni üniversite oluşturuldu. Toplam: 62 üniversite, 262 bölüm (860 → 1180 satır). Replica ve geçersiz girişler (10 adet) atlandı. Tuscia duplicate tespit edilip düzeltildi. |
+| `app/data.ts` | 📊 `yedek` dosyasındaki 217 girişten bölüm verileri çekildi. 76 yeni bölüm mevcut 45 üniversiteye eklendi, 17 yeni üniversite oluşturuldu. Toplam: 62 üniversite, 262 bölüm (o commit anında 860 → 1180 satır). Replica ve geçersiz girişler (10 adet) atlandı. Tuscia duplicate tespit edilip düzeltildi. Sonraki güncellemelerle dosya bugün daha uzundur. |
 | `yedek` | 📁 Universitaly scraping verisini içeren JSON kaynak dosyası (merge sonrası korundu) |
 
 ### Commit 7 (Bölüm Detay Sayfaları):
@@ -324,11 +326,6 @@ italypath-main/
    - `app/layout.tsx` içinde `<html lang="en">` sabit.
    - Uygulama TR/EN switch ediyor ama document language güncellenmiyor.
    - SEO ve ekran okuyucu doğruluğu açısından eksik.
-6. **Dokümantasyon drift'i mevcut**
-   - Bu dosyanın teknoloji tablosunda AI SDK bölümü ile `package.json` birebir örtüşmüyor.
-   - Kod gerçeği: `ai@6.0.78`, `@ai-sdk/react@3.0.80`, `@ai-sdk/google@3.0.23`.
-   - Yeni agent'ların yanlış varsayım üretmemesi için bu fark göz önünde bulundurulmalı.
-
 ### 🧠 Bilinmeyen / Sessiz Tehditler
 
 - **Cost amplification:** bugün görünmeyen ama en gerçek tehdit, AI endpoint'in anonim ve limitsiz kalmasıdır. Trafik artana kadar fark edilmeyebilir; fatura geldiğinde görünür olur.
