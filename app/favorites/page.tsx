@@ -1,13 +1,15 @@
 "use client";
 
 import React from 'react';
-import { universitiesData } from '@/app/data';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Heart, ArrowLeft, GraduationCap, MapPin, ChevronRight, Sparkles } from 'lucide-react';
 import { useFavorites } from '@/lib/useFavorites';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion } from 'framer-motion';
+import { useUniversitiesData } from '@/lib/useUniversitiesData';
+
+const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80";
 
 // Popüler öneri üniversiteleri (PoliMi, Bologna, Bocconi)
 const RECOMMENDED_IDS = [1, 3, 7];
@@ -15,12 +17,21 @@ const RECOMMENDED_IDS = [1, 3, 7];
 export default function FavoritesPage() {
   const { favorites, loading } = useFavorites();
   const { t } = useLanguage();
+  const { universities, loading: universitiesLoading, error: universitiesError } = useUniversitiesData();
 
   // Favori üniversiteleri data.ts'ten filtrele
-  const favoriteUnis = universitiesData.filter((u) => favorites.includes(u.id));
-  const recommendedUnis = universitiesData.filter((u) => RECOMMENDED_IDS.includes(u.id));
+  const favoriteUnis = universities.filter((u) => favorites.includes(u.id));
+  const recommendedUnis = universities.filter((u) => RECOMMENDED_IDS.includes(u.id));
 
-  if (loading) return <div className="p-10 text-center">{t.favorites.loading}</div>;
+  if (loading || universitiesLoading) return <div className="p-10 text-center">{t.favorites.loading}</div>;
+
+  if (universitiesError) {
+    return (
+      <div className="min-h-screen bg-slate-50 p-10 text-center text-sm text-slate-500">
+        Üniversite verisi yüklenemedi.
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 pb-20">
@@ -83,7 +94,7 @@ export default function FavoritesPage() {
                   <Link href={`/universities/${uni.id}`}>
                     <div className="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-100 flex items-center gap-3.5 hover:shadow-md hover:border-slate-200 active:scale-[0.98] transition-all">
                       <Image
-                        src={uni.image}
+                        src={uni.image || DEFAULT_IMAGE}
                         alt={uni.name}
                         width={56}
                         height={56}
@@ -114,7 +125,7 @@ export default function FavoritesPage() {
             <Link key={uni.id} href={`/universities/${uni.id}`}>
               <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex items-center gap-4 active:scale-[0.98] transition-transform mb-4">
                 <Image
-                  src={uni.image}
+                  src={uni.image || DEFAULT_IMAGE}
                   alt={uni.name}
                   width={80}
                   height={80}

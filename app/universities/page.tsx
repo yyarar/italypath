@@ -6,9 +6,11 @@ import Image from 'next/image';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { Search, MapPin, ArrowRight, GraduationCap, School, ArrowLeft, Heart, X, Globe, Building2, ChevronDown, SlidersHorizontal } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
 import { useLanguage } from '@/context/LanguageContext';
 import { useFavorites } from '@/lib/useFavorites';
+import { useUniversitiesData } from '@/lib/useUniversitiesData';
+
+const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80";
 
 function UniversitiesContent() {
     const searchParams = useSearchParams();
@@ -37,17 +39,18 @@ function UniversitiesContent() {
 
     const { t, language, toggleLanguage } = useLanguage();
     const { favorites, toggleFavorite, isFavorite, loading } = useFavorites();
+    const { universities, loading: universitiesLoading, error: universitiesError } = useUniversitiesData();
 
     const citiesWithCounts = useMemo(() => {
         const cityMap = new Map<string, number>();
-        universitiesData.forEach(u => cityMap.set(u.city, (cityMap.get(u.city) || 0) + 1));
+        universities.forEach(u => cityMap.set(u.city, (cityMap.get(u.city) || 0) + 1));
         return [...cityMap.entries()].sort((a, b) => a[0].localeCompare(b[0]));
-    }, []);
+    }, [universities]);
 
     const hasActiveFilters = selectedCity || selectedType || searchTerm || showFavoritesOnly;
 
     const filteredUniversities = useMemo(() => {
-        return universitiesData.filter((uni) => {
+        return universities.filter((uni) => {
             const term = searchTerm.toLowerCase();
             const nameMatch = uni.name ? uni.name.toLowerCase().includes(term) : false;
             const cityMatch = uni.city ? uni.city.toLowerCase().includes(term) : false;
@@ -58,9 +61,17 @@ function UniversitiesContent() {
             const matchesType = selectedType ? uni.type === selectedType : true;
             return matchesSearch && matchesFavorites && matchesCity && matchesType;
         });
-    }, [searchTerm, showFavoritesOnly, selectedCity, selectedType, isFavorite]);
+    }, [searchTerm, showFavoritesOnly, selectedCity, selectedType, isFavorite, universities]);
 
-    if (loading) return null;
+    if (loading || universitiesLoading) return null;
+
+    if (universitiesError) {
+        return (
+            <div className="min-h-screen bg-[#f8fafc] flex items-center justify-center px-4">
+                <p className="text-sm text-slate-500">Üniversite verisi yüklenemedi.</p>
+            </div>
+        );
+    }
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -109,7 +120,7 @@ function UniversitiesContent() {
                         <div>
                             <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 leading-none">{t.list.title}</h1>
                             <p className="text-slate-400 text-xs font-medium mt-0.5">
-                                {t.list.subtitle} <strong className="text-slate-600">{universitiesData.length}</strong> {t.list.subtitleEnd}
+                                {t.list.subtitle} <strong className="text-slate-600">{universities.length}</strong> {t.list.subtitleEnd}
                             </p>
                         </div>
                     </div>
@@ -131,7 +142,7 @@ function UniversitiesContent() {
                             <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                                 <span className="text-xs font-semibold text-slate-400 bg-slate-100 px-2 py-1 rounded-lg">
                                     {hasActiveFilters
-                                        ? <><strong className="text-indigo-600">{filteredUniversities.length}</strong> / {universitiesData.length}</>
+                                        ? <><strong className="text-indigo-600">{filteredUniversities.length}</strong> / {universities.length}</>
                                         : <>{filteredUniversities.length} {t.list.results}</>}
                                 </span>
                             </div>
@@ -166,7 +177,7 @@ function UniversitiesContent() {
                                 aria-label={language === 'tr' ? 'Şehir filtrele' : 'Filter by city'}
                                 className="appearance-none bg-white border border-slate-200 text-slate-600 text-xs font-semibold pl-8 pr-7 py-2 rounded-full hover:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition cursor-pointer shadow-sm"
                             >
-                                <option value="">{language === 'tr' ? '🏙️ Tüm Şehirler' : '🏙️ All Cities'} ({universitiesData.length})</option>
+                                <option value="">{language === 'tr' ? '🏙️ Tüm Şehirler' : '🏙️ All Cities'} ({universities.length})</option>
                                 {citiesWithCounts.map(([city, count]) => (
                                     <option key={city} value={city}>{city} ({count})</option>
                                 ))}

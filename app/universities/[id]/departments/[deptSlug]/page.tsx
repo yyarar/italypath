@@ -5,20 +5,23 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, ArrowLeft, Globe, GraduationCap, Banknote, BookOpen, Sparkles, ArrowRight, Building2, ExternalLink } from 'lucide-react';
-import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
 import { useLanguage } from '@/context/LanguageContext';
 import ScrollProgress from '@/components/ScrollProgress';
+import { useUniversitiesData } from '@/lib/useUniversitiesData';
+
+const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80";
 
 export default function DepartmentDetailPage() {
     const params = useParams();
     const { t, language } = useLanguage();
+    const { universities, loading: universitiesLoading, error: universitiesError } = useUniversitiesData();
 
     const idFromUrl = Array.isArray(params?.id) ? params?.id[0] : params?.id;
     const deptSlugFromUrl = Array.isArray(params?.deptSlug) ? params?.deptSlug[0] : params?.deptSlug;
 
     const university = useMemo(() => {
-        return universitiesData.find((u) => String(u.id) === String(idFromUrl));
-    }, [idFromUrl]);
+        return universities.find((u) => String(u.id) === String(idFromUrl));
+    }, [idFromUrl, universities]);
 
     const department = useMemo(() => {
         return university?.departments.find((d) => d.slug === deptSlugFromUrl);
@@ -27,6 +30,22 @@ export default function DepartmentDetailPage() {
     const otherDepts = useMemo(() => {
         return university?.departments.filter((d) => d.slug !== deptSlugFromUrl) || [];
     }, [university, deptSlugFromUrl]);
+
+    if (universitiesLoading) {
+        return (
+            <div className="flex items-center justify-center h-screen bg-slate-50">
+                <p className="text-sm text-slate-500">Yükleniyor...</p>
+            </div>
+        );
+    }
+
+    if (universitiesError) {
+        return (
+            <div className="flex items-center justify-center h-screen bg-slate-50">
+                <p className="text-sm text-slate-500">Üniversite verisi yüklenemedi.</p>
+            </div>
+        );
+    }
 
     if (!university || !department) {
         return (

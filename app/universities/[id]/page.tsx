@@ -6,20 +6,39 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, ArrowLeft, ArrowRight, Globe, GraduationCap, Banknote, BookOpen, CheckCircle, Sparkles, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
 import { useLanguage } from '@/context/LanguageContext';
 import { useFavorites } from '@/lib/useFavorites';
 import ScrollProgress from '@/components/ScrollProgress';
+import { useUniversitiesData } from '@/lib/useUniversitiesData';
+
+const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80";
 
 export default function UniversityDetailPage() {
   const params = useParams();
   const { t, language } = useLanguage();
   const { isFavorite, toggleFavorite, loading } = useFavorites();
+  const { universities, loading: universitiesLoading, error: universitiesError } = useUniversitiesData();
 
   const idFromUrl = Array.isArray(params?.id) ? params?.id[0] : params?.id;
   const university = useMemo(() => {
-    return universitiesData.find((u) => String(u.id) === String(idFromUrl));
-  }, [idFromUrl]);
+    return universities.find((u) => String(u.id) === String(idFromUrl));
+  }, [idFromUrl, universities]);
+
+  if (universitiesLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-slate-50">
+        <p className="text-sm text-slate-500">Yükleniyor...</p>
+      </div>
+    );
+  }
+
+  if (universitiesError) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-slate-50">
+        <p className="text-sm text-slate-500">Üniversite verisi yüklenemedi.</p>
+      </div>
+    );
+  }
 
   if (!university) {
     return (

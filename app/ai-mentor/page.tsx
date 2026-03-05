@@ -27,10 +27,20 @@ export default function AIMentorPage() {
   const [isStreaming, setIsStreaming] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const lastMessageIdRef = useRef<string | null>(null);
 
   useEffect(() => {
-    scrollRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    const lastMessage = messages[messages.length - 1];
+    if (!lastMessage) return;
+
+    const isNewBubble = lastMessageIdRef.current !== lastMessage.id;
+    lastMessageIdRef.current = lastMessage.id;
+
+    scrollRef.current?.scrollIntoView({
+      behavior: isStreaming || !isNewBubble ? "auto" : "smooth",
+      block: "end",
+    });
+  }, [messages, isStreaming]);
 
   useEffect(() => {
     setMessages((prev) =>
