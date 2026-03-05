@@ -5,11 +5,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Home, School, Bot, User } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 export default function BottomNav() {
   const pathname = usePathname();
   const { t } = useLanguage();
+  const shouldReduceMotion = useReducedMotion();
 
   const isActive = (path: string) => pathname === path;
 
@@ -41,8 +42,8 @@ export default function BottomNav() {
             return (
               <Link key={item.href} href={item.href} className="relative -top-7 z-10">
                 <motion.div
-                  whileTap={{ scale: 0.88 }}
-                  whileHover={{ scale: 1.05 }}
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.88 }}
+                  whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   className="relative flex items-center justify-center"
                 >
@@ -59,13 +60,17 @@ export default function BottomNav() {
                   {/* Pulse ring */}
                   <AnimatePresence>
                     {active && (
-                      <motion.div
-                        key="pulse"
-                        className="absolute inset-0 rounded-full border-2 border-indigo-400/60"
-                        initial={{ scale: 1, opacity: 0.7 }}
-                        animate={{ scale: 1.5, opacity: 0 }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut" }}
-                      />
+                      shouldReduceMotion ? (
+                        <div className="absolute inset-0 rounded-full border-2 border-indigo-400/60 opacity-70" />
+                      ) : (
+                        <motion.div
+                          key="pulse"
+                          className="absolute inset-0 rounded-full border-2 border-indigo-400/60"
+                          initial={{ scale: 1, opacity: 0.7 }}
+                          animate={{ scale: 1.5, opacity: 0 }}
+                          transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut" }}
+                        />
+                      )
                     )}
                   </AnimatePresence>
                   {/* Main button */}
@@ -94,7 +99,7 @@ export default function BottomNav() {
               className={`flex flex-col items-center justify-center flex-1 pb-2 h-full transition-all ${item.disabled ? 'opacity-25 cursor-not-allowed' : ''}`}
             >
               <motion.div
-                whileTap={{ scale: 0.85 }}
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.85 }}
                 transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 className="relative flex flex-col items-center"
               >

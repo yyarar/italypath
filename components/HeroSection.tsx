@@ -3,11 +3,12 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Sparkles, GraduationCap } from 'lucide-react';
-import { motion, useMotionTemplate, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionTemplate, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function HeroSection() {
     const { t } = useLanguage();
+    const shouldReduceMotion = useReducedMotion();
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
@@ -39,26 +40,28 @@ export default function HeroSection() {
     return (
         <section
             ref={sectionRef}
-            onMouseMove={handleMouseMove}
+            onMouseMove={shouldReduceMotion ? undefined : handleMouseMove}
             className="relative pt-28 pb-20 lg:pt-44 lg:pb-36 overflow-hidden bg-[#fafbff]"
         >
             {/* Gradient background */}
             <div className="absolute inset-0 z-0" style={{ background: 'var(--gradient-hero)' }} />
 
             {/* Mouse-follow gradient */}
-            <motion.div className="absolute inset-0 z-0 pointer-events-none" style={{ background: gradientMask }} />
+            {!shouldReduceMotion && (
+                <motion.div className="absolute inset-0 z-0 pointer-events-none" style={{ background: gradientMask }} />
+            )}
 
             {/* Animated blobs */}
             <div
-                className="blob absolute top-1/4 left-[10%] w-72 h-72 rounded-full opacity-30 pointer-events-none"
+                className={`${shouldReduceMotion ? '' : 'blob'} absolute top-1/4 left-[10%] w-72 h-72 rounded-full opacity-30 pointer-events-none`}
                 style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 70%)', ['--blob-duration' as string]: '10s', ['--blob-delay' as string]: '0s' }}
             />
             <div
-                className="blob absolute bottom-1/4 right-[8%] w-96 h-96 rounded-full opacity-20 pointer-events-none"
+                className={`${shouldReduceMotion ? '' : 'blob'} absolute bottom-1/4 right-[8%] w-96 h-96 rounded-full opacity-20 pointer-events-none`}
                 style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%)', ['--blob-duration' as string]: '14s', ['--blob-delay' as string]: '-4s' }}
             />
             <div
-                className="blob absolute top-1/3 right-[25%] w-48 h-48 rounded-full opacity-20 pointer-events-none"
+                className={`${shouldReduceMotion ? '' : 'blob'} absolute top-1/3 right-[25%] w-48 h-48 rounded-full opacity-20 pointer-events-none`}
                 style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%)', ['--blob-duration' as string]: '12s', ['--blob-delay' as string]: '-2s' }}
             />
 
@@ -73,7 +76,9 @@ export default function HeroSection() {
                     <div className="inline-flex items-center px-4 py-2 rounded-full glass border border-indigo-100/60 text-indigo-700 text-sm font-semibold shadow-sm">
                         <span className="relative flex items-center mr-2">
                             <span className="w-2 h-2 bg-green-500 rounded-full" />
-                            <span className="absolute w-2 h-2 bg-green-500 rounded-full animate-ping opacity-60" />
+                            {!shouldReduceMotion && (
+                                <span className="absolute w-2 h-2 bg-green-500 rounded-full animate-ping opacity-60" />
+                            )}
                         </span>
                         <GraduationCap className="w-3.5 h-3.5 mr-1.5 text-indigo-500" />
                         {t.hero.badge}
@@ -127,14 +132,14 @@ export default function HeroSection() {
                                 className="absolute inset-0 rounded-2xl"
                                 style={{
                                     background: 'conic-gradient(from 180deg, transparent 0%, #4f46e5 20%, #818cf8 40%, transparent 60%, transparent 100%)',
-                                    animation: 'beam-rotate 3s linear infinite',
+                                    animation: shouldReduceMotion ? 'none' : 'beam-rotate 3s linear infinite',
                                     transformOrigin: 'center',
                                 }}
                             />
                         </span>
                         <motion.span
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
+                            whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
+                            whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                             transition={{ type: "spring", stiffness: 400, damping: 25 }}
                             className="relative z-10 flex items-center px-10 py-4 bg-indigo-600 text-white rounded-[14px] font-bold text-lg shadow-2xl shadow-indigo-600/30 m-[1.5px]"
                         >
@@ -142,7 +147,7 @@ export default function HeroSection() {
                             <motion.span
                                 className="ml-2 flex items-center"
                                 initial={{ x: 0 }}
-                                whileHover={{ x: 3 }}
+                                whileHover={shouldReduceMotion ? undefined : { x: 3 }}
                                 transition={{ type: "spring", stiffness: 400, damping: 20 }}
                             >
                                 <ArrowRight className="w-5 h-5" />

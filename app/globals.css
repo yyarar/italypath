@@ -277,6 +277,16 @@ main {
   animation: shimmer 1.5s ease-in-out infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .blob,
+  .shimmer,
+  .animate-fade-in-up,
+  .border-beam-wrapper::before,
+  .pulse-ring::before {
+    animation: none !important;
+  }
+}
+
 /* Prose customization for AI chat */
 .prose-chat p {
   margin: 0.25rem 0;

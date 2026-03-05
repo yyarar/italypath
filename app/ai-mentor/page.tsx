@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect, useCallback, useMemo } from "react"
 import { Send, Bot, User, ArrowLeft, RefreshCcw, Sparkles, Square } from "lucide-react";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface ChatMessage {
@@ -21,6 +21,7 @@ function createWelcomeMessage(content: string): ChatMessage {
 
 export default function AIMentorPage() {
   const { t } = useLanguage();
+  const shouldReduceMotion = useReducedMotion();
   const welcomeMessage = useMemo(() => createWelcomeMessage(t.aiMentor.welcome), [t.aiMentor.welcome]);
   const [messages, setMessages] = useState<ChatMessage[]>(() => [createWelcomeMessage(t.aiMentor.welcome)]);
   const [input, setInput] = useState("");
@@ -133,7 +134,7 @@ export default function AIMentorPage() {
               <Bot className="text-slate-700 w-5 h-5" />
             </div>
             {isStreaming && (
-              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-400 rounded-full border-2 border-white animate-pulse" />
+              <span className={`absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-400 rounded-full border-2 border-white ${shouldReduceMotion ? "" : "animate-pulse"}`} />
             )}
           </div>
           <div>
@@ -214,19 +215,26 @@ export default function AIMentorPage() {
                   ) : (
                     /* Organic typing indicator */
                     <div className="flex gap-1.5 items-center h-5 px-1">
-                      {[0, 1, 2].map((i) => (
-                        <motion.span
-                          key={i}
-                          className="w-2 h-2 bg-indigo-300 rounded-full block"
-                          animate={{ scale: [1, 1.4, 1], opacity: [0.5, 1, 0.5] }}
-                          transition={{
-                            duration: 1.2,
-                            repeat: Infinity,
-                            delay: i * 0.22,
-                            ease: "easeInOut",
-                          }}
-                        />
-                      ))}
+                      {shouldReduceMotion
+                        ? [0, 1, 2].map((i) => (
+                          <span
+                            key={i}
+                            className="w-2 h-2 bg-indigo-300 rounded-full block opacity-80"
+                          />
+                        ))
+                        : [0, 1, 2].map((i) => (
+                          <motion.span
+                            key={i}
+                            className="w-2 h-2 bg-indigo-300 rounded-full block"
+                            animate={{ scale: [1, 1.4, 1], opacity: [0.5, 1, 0.5] }}
+                            transition={{
+                              duration: 1.2,
+                              repeat: Infinity,
+                              delay: i * 0.22,
+                              ease: "easeInOut",
+                            }}
+                          />
+                        ))}
                     </div>
                   )}
                 </div>
