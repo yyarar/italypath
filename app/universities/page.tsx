@@ -11,6 +11,20 @@ import { useFavorites } from '@/lib/useFavorites';
 import { useUniversitiesData } from '@/lib/useUniversitiesData';
 
 const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80";
+const MAX_STAGGER_WINDOW = 0.9;
+const MIN_STAGGER = 0.014;
+const MAX_STAGGER = 0.09;
+
+function UniversitiesLoadingState() {
+    return (
+        <div className="min-h-screen bg-[#f8fafc] flex items-center justify-center">
+            <div className="flex flex-col items-center gap-3">
+                <div className="w-10 h-10 rounded-full border-2 border-indigo-200 border-t-indigo-600 animate-spin" />
+                <p className="text-sm text-slate-400 font-medium">Yükleniyor...</p>
+            </div>
+        </div>
+    );
+}
 
 function UniversitiesContent() {
     const searchParams = useSearchParams();
@@ -63,7 +77,11 @@ function UniversitiesContent() {
         });
     }, [searchTerm, showFavoritesOnly, selectedCity, selectedType, isFavorite, universities]);
 
-    if (loading || universitiesLoading) return null;
+    const staggerChildren = useMemo(() => {
+        const childCount = Math.max(filteredUniversities.length - 1, 1);
+        const computed = MAX_STAGGER_WINDOW / childCount;
+        return Math.min(MAX_STAGGER, Math.max(MIN_STAGGER, computed));
+    }, [filteredUniversities.length]);
 
     if (universitiesError) {
         return (
@@ -73,9 +91,14 @@ function UniversitiesContent() {
         );
     }
 
+    const showLoadingState = universitiesLoading || (showFavoritesOnly && loading);
+    if (showLoadingState) {
+        return <UniversitiesLoadingState />;
+    }
+
     const containerVariants = {
         hidden: { opacity: 0 },
-        show: { opacity: 1, transition: { staggerChildren: 0.07 } }
+        show: { opacity: 1, transition: { staggerChildren } }
     };
     const cardVariants = {
         hidden: { opacity: 0, y: 24 },
@@ -253,19 +276,21 @@ function UniversitiesContent() {
                                             className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-md group flex flex-col h-full relative"
                                         >
                                             {/* Image area */}
-                                            <motion.div
-                                                className="h-44 relative overflow-hidden"
-                                                layoutId={`uni-hero-${uni.id}`}
-                                                transition={{ type: "spring", stiffness: 260, damping: 25 }}
-                                            >
-                                                <Image
-                                                    src={uni.image || DEFAULT_IMAGE}
-                                                    alt={uni.name}
-                                                    fill
-                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                                />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                                            <div className="h-44 relative overflow-hidden">
+                                                <motion.div
+                                                    className="absolute inset-0"
+                                                    layoutId={`uni-hero-${uni.id}`}
+                                                    transition={{ type: "spring", stiffness: 260, damping: 25 }}
+                                                >
+                                                    <Image
+                                                        src={uni.image || DEFAULT_IMAGE}
+                                                        alt={uni.name}
+                                                        fill
+                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                    />
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                                                </motion.div>
 
                                                 {/* Type badge */}
                                                 <div className="absolute bottom-3 left-3 glass px-2.5 py-1 rounded-full text-[10px] font-bold text-slate-800 flex items-center z-10">
@@ -287,7 +312,7 @@ function UniversitiesContent() {
                                                 >
                                                     <Heart className={`w-4 h-4 transition-colors ${favStatus ? 'fill-rose-500 text-rose-500' : 'text-slate-500'}`} />
                                                 </motion.button>
-                                            </motion.div>
+                                            </div>
 
                                             {/* Content */}
                                             <div className="p-5 flex-1 flex flex-col">
@@ -382,14 +407,7 @@ function UniversitiesContent() {
 
 export default function UniversitiesPage() {
     return (
-        <Suspense fallback={
-            <div className="min-h-screen bg-[#f8fafc] flex items-center justify-center">
-                <div className="flex flex-col items-center gap-3">
-                    <div className="w-10 h-10 rounded-full border-2 border-indigo-200 border-t-indigo-600 animate-spin" />
-                    <p className="text-sm text-slate-400 font-medium">Yükleniyor...</p>
-                </div>
-            </div>
-        }>
+        <Suspense fallback={<UniversitiesLoadingState />}>
             <UniversitiesContent />
         </Suspense>
     );

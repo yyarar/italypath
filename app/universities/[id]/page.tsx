@@ -69,10 +69,12 @@ export default function UniversityDetailPage() {
       {/* Hero */}
       <motion.div
         className="relative h-[55vh] lg:h-[60vh] flex items-end overflow-hidden bg-slate-900"
-        layoutId={`uni-hero-${university.id}`}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
       >
-        <div className="absolute inset-0">
+        <motion.div
+          className="absolute inset-0"
+          layoutId={`uni-hero-${university.id}`}
+          transition={{ type: "spring", stiffness: 260, damping: 25 }}
+        >
           <Image
             src={university.image || DEFAULT_IMAGE}
             alt={university.name}
@@ -82,7 +84,7 @@ export default function UniversityDetailPage() {
             className="object-cover opacity-80"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-900/20" />
-        </div>
+        </motion.div>
 
         {/* Back + Fav buttons */}
         <div className="absolute top-6 left-6 z-20">
@@ -117,7 +119,7 @@ export default function UniversityDetailPage() {
           <motion.h1
             className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-white mb-3 drop-shadow-xl leading-tight"
             layoutId={`uni-title-${university.id}`}
-            transition={{ duration: 0.28, ease: "easeInOut" }}
+            transition={{ type: "spring", stiffness: 280, damping: 24 }}
           >
             {university.name}
           </motion.h1>
