@@ -38,7 +38,7 @@
 italypath-main/
 ├── app/
 │   ├── page.tsx                    # Ana sayfa (bileşen birleştirici — sadece import + render)
-│   ├── layout.tsx                  # Root layout (Clerk, LanguageProvider, BottomNav)
+│   ├── layout.tsx                  # Root layout (Clerk, LanguageProvider, RouteTransition içinde BottomNav)
 │   ├── template.tsx                # Next.js template boundary (minimal passthrough)
 │   ├── not-found.tsx               # Özel 404 Hata Sayfası
 │   ├── error.tsx                   # Çift dilli Global Error Boundary
@@ -49,8 +49,9 @@ italypath-main/
 │   ├── data.ts                     # 62 üniversite, 262 bölüm verisi (1219 satır, ~69KB, Department[] objeler, çift dilli)
 │   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu + prompt chip önerileri)
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
+│   ├── api/universities/route.ts   # Üniversite verisini cache header'larıyla JSON dönen public API
 │   ├── universities/
-│   │   ├── page.tsx                # Üniversite listesi (arama, şehir/tip filtreleri, URL sync, favoriler)
+│   │   ├── page.tsx                # Üniversite listesi (arama, şehir/tip filtreleri, URL sync, favoriler, API veri kaynağı)
 │   │   └── [id]/
 │   │       ├── layout.tsx          # SEO (`generateMetadata`) için Server Component
 │   │       ├── page.tsx            # Üniversite detay Ui (`use client`)
@@ -67,7 +68,7 @@ italypath-main/
 │   ├── HeroSection.tsx             # Ana sayfa Hero bölümü (başlık, rozet, CTA)
 │   ├── FeaturesSection.tsx         # Ana sayfa 3'lü özellik grid kartları
 │   ├── IseeSection.tsx             # Ana sayfa ISEE hesaplayıcı CTA kartı
-│   ├── RouteTransition.tsx         # Route geçiş katmanı (Framer Motion + shared layout)
+│   ├── RouteTransition.tsx         # Route geçiş katmanı (Framer Motion + reduced-motion fallback)
 │   ├── ScrollProgress.tsx          # Scroll ilerleme çubuğu (Framer Motion useScroll + useSpring)
 │   └── Footer.tsx                  # Alt bilgi (logo, sosyal etiketler)
 ├── context/
@@ -75,7 +76,8 @@ italypath-main/
 ├── lib/
 │   ├── supabaseClient.ts           # Supabase client (anon key)
 │   ├── translations.ts             # Tüm UI çevirileri (TR + EN)
-│   └── useFavorites.ts             # Birleşik favori hook'u (localStorage + Supabase)
+│   ├── useFavorites.ts             # Birleşik favori hook'u (localStorage + Supabase)
+│   └── useUniversitiesData.ts      # Üniversite verisi için cache'li client fetch hook'u (/api/universities)
 ├── types/
 │   └── index.ts                    # Paylaşılan tipler (Language, UserDocument)
 ├── next.config.ts                  # Next.js yapılandırması (remotePatterns: Unsplash, Pexels, plus.unsplash.com)
@@ -114,6 +116,7 @@ italypath-main/
 - **Frontend** (`ai-mentor/page.tsx`): `fetch` + `ReadableStream` + `TextDecoder` ile chunk chunk okuma
 - `AbortController` ile kullanıcı yanıtı yarıda kesebilir (kırmızı durdur butonu)
 - Stream başlayana kadar zıplayan 3 nokta animasyonu gösterilir
+- Scroll davranışı chunk akışında stabil olacak şekilde ayarlanmıştır: yeni mesaj balonunda `smooth`, stream token güncellemelerinde `auto`
 - AI Mentor ekranındaki temel UI metinleri artık `lib/translations.ts` üzerinden dil uyumlu çalışır
 
 ### 4. Belge Cüzdanı
@@ -127,7 +130,7 @@ italypath-main/
 
 ### 5. Clerk Request Boundary (proxy.ts)
 - `proxy.ts` dosyasında tanımlı (Next.js 16 yeni Request Boundary standardı uyarınca).
-- Public rotalar: `/`, `/ai-mentor(.*)`, `/api/chat(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/isee(.*)`, `/sitemap.xml`, `/robots.txt`
+- Public rotalar: `/`, `/ai-mentor(.*)`, `/api/universities(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/isee(.*)`, `/sitemap.xml`, `/robots.txt`
 - Diğer tüm rotalar `auth.protect()` ile korumalı
 
 ### 6. Bölüm Detay Sayfaları
@@ -136,6 +139,17 @@ italypath-main/
 - Rota: `/universities/[id]/departments/[deptSlug]`
 - SEO: `layout.tsx` (Server Component) → dinamik `generateMetadata()` — `page.tsx` ile aynı klasörde
 - Üniversite detay sayfasındaki bölüm kartları `Link` ile bu rotaya yönlendirilir
+
+### 7. Üniversite Veri Katmanı (`/api/universities` + `useUniversitiesData`)
+- `app/api/universities/route.ts` üniversite verisini cache header'ları (`s-maxage`, `stale-while-revalidate`) ile JSON olarak döner
+- `lib/useUniversitiesData.ts` client tarafında in-memory cache + request deduplication uygular
+- `universities`, `favorites`, üniversite detay ve bölüm detay sayfaları veriyi bu hook üzerinden alır; `data.ts` doğrudan client import'u azaltılmıştır
+
+### 8. Motion Erişilebilirlik & Native Hissiyat
+- `components/RouteTransition.tsx` geçişleri blur/scale yerine hafif `opacity + y` ile çalışır; `AnimatePresence mode="popLayout"` kullanılır
+- `BottomNav`, `HeroSection`, `ai-mentor/page.tsx` içinde `useReducedMotion` ile sürekli/pulse animasyonlar azaltılmış hareket tercihine göre devre dışı kalır
+- `app/globals.css` içinde `@media (prefers-reduced-motion: reduce)` ile CSS tabanlı sonsuz animasyonlar kapatılır
+- `app/globals.css` içindeki `overscroll-behavior-y: none` kaldırılarak platformun doğal scroll/overscroll davranışı korunur
 
 ---
 
@@ -313,6 +327,38 @@ italypath-main/
 | `app/favorites/page.tsx` | ✨ Önerilen favoriler listesi için statik gecikmeli `duration` iptal edilip dinamik hesaplanan `spring` easing kullanıldı |
 | `app/globals.css` | 🗑️ Artık kullanılmayan View Transitions API (`::view-transition-(*)`) legacy animasyon CSS seçicileri silindi |
 
+### Commit 19 (Route Transition Refactor — Native Hissiyat):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/RouteTransition.tsx` | ♻️ Ağır `blur/scale` geçişleri kaldırıldı; hafif `opacity + y` akışına geçildi |
+| `components/RouteTransition.tsx` | ♻️ `AnimatePresence mode="sync"` yerine `mode="popLayout"` kullanıldı (çift render/layout thrash etkisi azaltıldı) |
+
+### Commit 20 (Üniversite Veri Katmanı Ayrıştırma):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `app/api/universities/route.ts` | 🆕 Üniversite verisini cache header'ları ile dönen public API endpoint eklendi |
+| `lib/useUniversitiesData.ts` | 🆕 In-memory cache + request deduplication yapan client veri hook'u eklendi |
+| `app/universities/page.tsx` | ♻️ `data.ts` client import'u kaldırıldı; veri kaynağı `useUniversitiesData` oldu |
+| `app/favorites/page.tsx` | ♻️ `data.ts` client import'u kaldırıldı; veri kaynağı `useUniversitiesData` oldu |
+| `app/universities/[id]/page.tsx` | ♻️ `data.ts` client import'u kaldırıldı; veri kaynağı `useUniversitiesData` oldu |
+| `app/universities/[id]/departments/[deptSlug]/page.tsx` | ♻️ `data.ts` client import'u kaldırıldı; veri kaynağı `useUniversitiesData` oldu |
+| `proxy.ts` | 🔓 `/api/universities(.*)` public route listesine eklendi |
+
+### Commit 21 (Motion Accessibility + Scroll Stabilizasyonu):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `app/ai-mentor/page.tsx` | ♻️ Stream sırasında sürekli `smooth-scroll` yerine yeni mesajda `smooth`, chunk akışında `auto` davranışı eklendi |
+| `components/BottomNav.tsx` | ♿ `useReducedMotion` entegrasyonu ile aktif ring pulse ve hover/tap ölçek animasyonları erişilebilir hale getirildi |
+| `components/HeroSection.tsx` | ♿ `useReducedMotion` entegrasyonu ile blob/mouse-follow/ping/beam animasyonları azaltılmış harekete göre kapatıldı |
+| `app/ai-mentor/page.tsx` | ♿ Typing indicator ve status pulse animasyonları reduced-motion modunda statik hale getirildi |
+| `app/globals.css` | ♿ `@media (prefers-reduced-motion: reduce)` bloğu eklenerek CSS tabanlı infinite animasyonlar kapatıldı |
+
+### Commit 22 (Transition Katman Tutarlılığı + Native Scroll):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `app/layout.tsx` | ♻️ `<BottomNav />`, `RouteTransition` içine alındı; sayfa geçişleri tek katmanda bütünleşti |
+| `app/globals.css` | ♻️ `overscroll-behavior-y: none` kaldırıldı; doğal platform scroll/overscroll davranışı geri kazanıldı |
+
 ---
 
 ## ⚠️ Bilinen Sorunlar & Açık Öneriler
@@ -322,13 +368,16 @@ italypath-main/
 2. **Tekrarlanan görseller:** `data.ts`'te yeni eklenen 17 üniversite ve id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor.
 3. **Üniversite Karşılaştırma:** 2-3 üniversiteyi yan yana kıyaslama (ücret, bölüm sayısı, şehir, özellikler). Mevcut `data.ts` yapısıyla yapılabilir, ek veri gerekmez. Favori sisteminden beslenebilir.
 4. **Şehir Rehberi:** Her şehir için yaşam maliyeti, ulaşım, iklim, öğrenci nüfusu bilgisi. Şehir filtresi zaten mevcut — detay sayfası eklenebilir.
+5. **Üniversiteler sayfası ilk yükleme blank anı:** `app/universities/page.tsx` içinde `loading` durumunda `return null` halen kısa beyaz/boş an etkisi üretebilir.
+6. **Liste giriş animasyonu uzun:** `staggerChildren: 0.07` 62 kartta geç animasyon bitişine yol açıyor; algılanan hız düşük.
+7. **Shared-element eşleşme tutarsızlığı:** Liste kart görseli ve detay hero farklı boyut/katman yapılarında aynı `layoutId` ile eşleniyor; geçişte jump riski var.
 
 ### 🟢 Düşük Öncelik
 1. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı.
-2. **Veri dosyası client bundle'a gereğinden fazla taşınıyor**
-   - `app/data.ts` yaklaşık `68,685` byte ve birçok client component tarafından import ediliyor (`universities`, `favorites`, detail sayfaları).
-   - Ölçek büyüdükçe ilk yükleme ve hydration maliyeti artacaktır.
-   - Şu an kabul edilebilir, ancak veri büyüme trendi sürerse server-side veri katmanına taşınmalı.
+2. **Veri katmanı kısmen iyileştirildi, server taşınması uzun vadede hala açık**
+   - Client kritik ekranlar artık `/api/universities` + `useUniversitiesData` kullanıyor.
+   - `data.ts` halen API, sitemap/metadata ve chat context tarafında merkezi kaynak.
+   - Veri büyüme trendi sürerse DB veya ayrı server-side content katmanına taşınmalı.
 ### 🧠 Bilinmeyen / Sessiz Tehditler
 
 - **Bundle creep:** veri dosyası büyüdükçe performans düşüşü bir anda değil, sessizce ve parça parça hissedilir; bu tip tehditler geç fark edilir.

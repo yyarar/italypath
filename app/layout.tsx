@@ -36,11 +36,13 @@ export default function RootLayout({
         >
           <LanguageProvider>
             <main className="min-h-screen pb-24 overflow-x-hidden">
-              <RouteTransition>{children}</RouteTransition>
+              <RouteTransition>
+                <>
+                  {children}
+                  <BottomNav />
+                </>
+              </RouteTransition>
             </main>
-
-            <BottomNav />
-
           </LanguageProvider>
         </body>
       </html>
