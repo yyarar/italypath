@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Home, School, Bot, User } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function BottomNav() {
   const pathname = usePathname();
@@ -21,29 +21,68 @@ export default function BottomNav() {
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-lg border-t border-slate-200 z-50 pb-[env(safe-area-inset-bottom)]">
-      <div className="flex justify-around items-end h-16 px-2 relative">
-
+    <nav className="md:hidden fixed bottom-0 left-0 w-full z-50 pb-[env(safe-area-inset-bottom)]">
+      {/* Frosted glass bar */}
+      <div
+        className="mx-3 mb-3 rounded-3xl flex justify-around items-end h-16 px-2 relative"
+        style={{
+          background: 'rgba(255,255,255,0.88)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          boxShadow: '0 -1px 0 rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.08)',
+          border: '1px solid rgba(255,255,255,0.6)',
+        }}
+      >
         {navItems.map((item) => {
-          const ActiveIcon = item.icon;
+          const NavIcon = item.icon;
           const active = isActive(item.href);
 
           if (item.isCenter) {
             return (
-              <Link key={item.href} href={item.href} className="relative -top-6 z-10">
+              <Link key={item.href} href={item.href} className="relative -top-7 z-10">
                 <motion.div
-                  whileTap={{ scale: 0.9 }}
+                  whileTap={{ scale: 0.88 }}
                   whileHover={{ scale: 1.05 }}
-                  className={`w-14 h-14 rounded-full flex items-center justify-center shadow-xl border-4 border-slate-50 transition-colors ${active ? 'bg-blue-600 text-white' : 'bg-slate-900 text-white'}`}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="relative flex items-center justify-center"
                 >
-                  <Bot className="w-7 h-7" />
-                </motion.div>
-                {active && (
-                  <motion.div
-                    layoutId="activeGlow"
-                    className="absolute -inset-1 bg-blue-500/30 blur-lg rounded-full -z-10"
+                  {/* Outer glow ring (always subtle, stronger when active) */}
+                  <div
+                    className="absolute inset-0 rounded-full blur-md"
+                    style={{
+                      background: active
+                        ? 'rgba(99,102,241,0.35)'
+                        : 'rgba(99,102,241,0.15)',
+                      transform: 'scale(1.2)',
+                    }}
                   />
-                )}
+                  {/* Pulse ring */}
+                  <AnimatePresence>
+                    {active && (
+                      <motion.div
+                        key="pulse"
+                        className="absolute inset-0 rounded-full border-2 border-indigo-400/60"
+                        initial={{ scale: 1, opacity: 0.7 }}
+                        animate={{ scale: 1.5, opacity: 0 }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut" }}
+                      />
+                    )}
+                  </AnimatePresence>
+                  {/* Main button */}
+                  <div
+                    className="w-14 h-14 rounded-full flex items-center justify-center border-4 border-white relative"
+                    style={{
+                      background: active
+                        ? 'linear-gradient(135deg, #4f46e5 0%, #6366f1 100%)'
+                        : 'linear-gradient(135deg, #1e1b4b 0%, #312e81 100%)',
+                      boxShadow: active
+                        ? '0 8px 24px rgba(99,102,241,0.45)'
+                        : '0 6px 16px rgba(0,0,0,0.25)',
+                    }}
+                  >
+                    <Bot className="w-6 h-6 text-white" />
+                  </div>
+                </motion.div>
               </Link>
             );
           }
@@ -52,24 +91,34 @@ export default function BottomNav() {
             <Link
               key={item.href}
               href={item.disabled ? '#' : item.href}
-              className={`flex flex-col items-center justify-center w-full pb-2 transition-all ${item.disabled ? 'opacity-30 cursor-not-allowed' : 'active:scale-90'}`}
+              className={`flex flex-col items-center justify-center flex-1 pb-2 h-full transition-all ${item.disabled ? 'opacity-25 cursor-not-allowed' : ''}`}
             >
-              <div className="relative">
-                <ActiveIcon className={`w-6 h-6 mb-0.5 transition-colors ${active ? 'text-blue-600' : 'text-slate-400'}`} />
-                {active && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-blue-600 rounded-full"
-                  />
-                )}
-              </div>
-              <span className={`text-[10px] font-semibold transition-colors ${active ? 'text-blue-600' : 'text-slate-500'}`}>
-                {item.label}
-              </span>
+              <motion.div
+                whileTap={{ scale: 0.85 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                className="relative flex flex-col items-center"
+              >
+                {/* Active pill indicator */}
+                <AnimatePresence>
+                  {active && (
+                    <motion.div
+                      layoutId="activeNavPill"
+                      className="absolute -top-2 left-1/2 -translate-x-1/2 w-5 h-1 rounded-full bg-indigo-600"
+                      initial={{ opacity: 0, width: 0 }}
+                      animate={{ opacity: 1, width: 20 }}
+                      exit={{ opacity: 0, width: 0 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                </AnimatePresence>
+                <NavIcon className={`w-6 h-6 mb-1 transition-colors ${active ? 'text-indigo-600' : 'text-slate-400'}`} />
+                <span className={`text-[10px] font-bold transition-colors ${active ? 'text-indigo-600' : 'text-slate-400'}`}>
+                  {item.label}
+                </span>
+              </motion.div>
             </Link>
           );
         })}
-
       </div>
     </nav>
   );

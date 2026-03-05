@@ -2,11 +2,22 @@
 
 :root {
   --background: #f8fafc;
-  /* Slate-50: Uygulama geneli daha yumuşak bir beyaz */
   --foreground: #0f172a;
-  /* Slate-900: Daha derin bir yazı rengi */
-  /* iPhone alt bar değişkeni */
   --sab: env(safe-area-inset-bottom);
+
+  /* Premium Color Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  --gradient-hero: radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(249, 115, 22, 0.08) 0%, transparent 50%);
+
+  /* Border Beam */
+  --beam-size: 120px;
+  --beam-duration: 4s;
+  --beam-color-from: #4f46e5;
+  --beam-color-to: #818cf8;
 }
 
 @theme inline {
@@ -14,38 +25,281 @@
   --color-foreground: var(--foreground);
 }
 
+/* ─── Keyframes ─────────────────────────────────────────────── */
+
+@keyframes border-beam {
+  0% {
+    offset-distance: 0%;
+  }
+
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes blob-float {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(20px, -25px) scale(1.05);
+  }
+
+  66% {
+    transform: translate(-15px, 15px) scale(0.97);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  70% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes beam-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Utility Classes ───────────────────────────────────────── */
+
+/* Glassmorphism */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Border Beam wrapper */
+.border-beam-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.border-beam-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(from var(--beam-angle, 0deg),
+      transparent 0%,
+      #4f46e5 15%,
+      #818cf8 30%,
+      #c4b5fd 45%,
+      transparent 60%,
+      transparent 100%);
+  border-radius: inherit;
+  animation: beam-rotate var(--beam-duration) linear infinite;
+  z-index: 0;
+}
+
+.border-beam-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: white;
+  border-radius: calc(var(--beam-inner-radius, 10px));
+  z-index: 1;
+}
+
+.border-beam-wrapper>* {
+  position: relative;
+  z-index: 2;
+}
+
+/* Floating Labels */
+.float-field {
+  position: relative;
+}
+
+.float-field input,
+.float-field select {
+  padding-top: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.float-field label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  transform-origin: left center;
+}
+
+.float-field input:focus~label,
+.float-field input:not(:placeholder-shown)~label,
+.float-field select:focus~label,
+.float-field select:valid~label {
+  top: 0.6rem;
+  transform: translateY(0) scale(0.78);
+  color: #6366f1;
+  font-weight: 600;
+}
+
+/* Blob animation */
+.blob {
+  animation: blob-float var(--blob-duration, 8s) ease-in-out infinite;
+  animation-delay: var(--blob-delay, 0s);
+}
+
+/* Pulse ring for active indicators */
+.pulse-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: currentColor;
+  animation: pulse-ring 2s ease-out infinite;
+  opacity: 0.4;
+}
+
+/* Animate utilities */
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease both;
+}
+
+/* ─── Base Layer ────────────────────────────────────────────── */
 
 @layer base {
   body {
     background: var(--background);
     color: var(--foreground);
-    /* Mobil cihazlarda istenmeyen yakınlaştırmaları ve mavi tıklama gölgesini kaldırır */
     -webkit-tap-highlight-color: transparent;
-    /* Sayfa kaydırmayı daha "akışkan" (momentum) hale getirir */
     -webkit-overflow-scrolling: touch;
-    /* Metin seçmeyi engeller (daha uygulama gibi hissettirir) */
     user-select: none;
-    /* Yatay taşmaları global olarak engeller (Animasyonlar sırasında önemli) */
     overflow-x: hidden;
-    /* Alt bar çakışmasını önlemek için varsayılan overscroll davranışı */
     overscroll-behavior-y: none;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* Form elemanlarında metin seçimini tekrar aktif edelim ki kullanıcı yazı yazabilsin */
   input,
   textarea {
     user-select: text;
   }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
-/* Yardımcı Utility Class: BottomNav'ın iPhone barı altında kalmasını önler */
+/* ─── Utilities ─────────────────────────────────────────────── */
+
 .pb-safe {
   padding-bottom: calc(4rem + var(--sab));
 }
 
-/* Sayfa geçiş animasyonları sırasında layout'un zıplamasını önlemek için */
 main {
   width: 100%;
   min-height: 100dvh;
-  /* dynamic viewport height: mobil tarayıcı barları dahil */
+}
+
+/* Gradient text helper */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Shimmer loading */
+.shimmer {
+  background: linear-gradient(90deg,
+      #f1f5f9 0%,
+      #e2e8f0 50%,
+      #f1f5f9 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Prose customization for AI chat */
+.prose-chat p {
+  margin: 0.25rem 0;
+  line-height: 1.6;
+}
+
+.prose-chat ul {
+  margin: 0.5rem 0;
+  padding-left: 1.25rem;
+}
+
+.prose-chat li {
+  margin: 0.125rem 0;
+}
+
+.prose-chat strong {
+  font-weight: 700;
+}
+
+.prose-chat code {
+  background: rgba(99, 102, 241, 0.1);
+  color: #4f46e5;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.8em;
 }

@@ -25,25 +25,31 @@ export default function UniversityDetailPage() {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-slate-50">
         <h1 className="text-3xl font-bold text-slate-800 mb-4">{t.detail.notFound}</h1>
-        <Link href="/universities" className="text-blue-600 hover:underline">{t.detail.backToList}</Link>
+        <Link href="/universities" className="text-indigo-600 hover:underline">{t.detail.backToList}</Link>
       </div>
     );
   }
 
   const favStatus = isFavorite(university.id);
+  const description = (language === 'en' && university.description_en) ? university.description_en : university.description;
+  const features = (language === 'en' && university.features_en) ? university.features_en : university.features;
 
-  // Dil içeriği seçimi
-  const description = (language === 'en' && university.description_en)
-    ? university.description_en : university.description;
-  const features = (language === 'en' && university.features_en)
-    ? university.features_en : university.features;
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.15 } }
+  };
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100, damping: 20 } }
+  };
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-[#f8fafc]">
       <ScrollProgress />
-      {/* ÜST HERO */}
+
+      {/* Hero */}
       <motion.div
-        className="relative h-[50vh] flex items-end overflow-hidden bg-slate-900"
+        className="relative h-[55vh] lg:h-[60vh] flex items-end overflow-hidden bg-slate-900"
         layoutId={`uni-hero-${university.id}`}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
@@ -54,113 +60,180 @@ export default function UniversityDetailPage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-90"
+            className="object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-slate-900/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-900/20" />
         </div>
 
+        {/* Back + Fav buttons */}
         <div className="absolute top-6 left-6 z-20">
-          <Link href="/universities" className="flex items-center text-white/90 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition backdrop-blur-md border border-white/10 font-medium">
-            <ArrowLeft className="w-5 h-5 mr-2" /> {t.detail.back}
+          <Link
+            href="/universities"
+            className="flex items-center text-white/90 glass-dark hover:bg-white/20 px-4 py-2 rounded-full transition font-semibold text-sm gap-2"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            {t.detail.back}
           </Link>
         </div>
-
-        {/* Favori Butonu (Birleşik Hook) */}
         <div className="absolute top-6 right-6 z-20">
-          <button
+          <motion.button
             onClick={() => toggleFavorite(university.id)}
             disabled={loading}
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/10 transition active:scale-95 group disabled:opacity-50"
+            whileTap={{ scale: 0.85 }}
+            whileHover={{ scale: 1.08 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            className="flex items-center justify-center w-12 h-12 rounded-full glass-dark hover:bg-white/20 transition active:scale-90 disabled:opacity-50"
           >
-            <Heart className={`w-7 h-7 transition-colors ${favStatus ? 'fill-red-500 text-red-500' : 'text-white group-hover:text-red-400'}`} />
-          </button>
+            <Heart className={`w-6 h-6 transition-colors ${favStatus ? 'fill-rose-500 text-rose-500' : 'text-white/90'}`} />
+          </motion.button>
         </div>
 
-        <div className="max-w-7xl mx-auto w-full px-6 pb-12 relative z-10">
+        {/* Hero content */}
+        <div className="max-w-7xl mx-auto w-full px-6 pb-12 lg:pb-16 relative z-10">
           <div className="flex flex-wrap gap-2 mb-4">
-            <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg shadow-blue-900/20">{university.type}</span>
+            <span className="bg-indigo-600/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+              {university.type}
+            </span>
           </div>
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2 drop-shadow-xl leading-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-white mb-3 drop-shadow-xl leading-tight"
             layoutId={`uni-title-${university.id}`}
             transition={{ duration: 0.28, ease: "easeInOut" }}
-          >{university.name}</motion.h1>
-          <div className="flex items-center text-slate-200 text-lg font-medium">
-            <MapPin className="w-5 h-5 mr-2 text-red-400" /> {university.city}, Italy
+          >
+            {university.name}
+          </motion.h1>
+          <div className="flex items-center text-slate-300 text-base font-medium">
+            <MapPin className="w-4 h-4 mr-2 text-rose-400" />
+            {university.city}, Italy
           </div>
         </div>
       </motion.div>
 
-      {/* İÇERİK ALANI */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20 pb-20">
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8 grid grid-cols-1 lg:grid-cols-3 gap-10">
-          <div className="lg:col-span-2 space-y-8">
-            <section>
-              <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center"><BookOpen className="w-6 h-6 mr-2 text-blue-600" /> {t.detail.about}</h2>
-              <p className="text-slate-600 leading-relaxed text-lg">{description}</p>
-            </section>
-            <hr className="border-slate-100" />
-            {/* BÖLÜMLER - Tıklanabilir */}
-            <section>
-              <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center"><GraduationCap className="w-6 h-6 mr-2 text-indigo-600" /> {t.detail.departments}</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {/* Content area */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20 pb-24">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6"
+        >
+          {/* Main content */}
+          <div className="lg:col-span-2 space-y-5">
+
+            {/* About card */}
+            <motion.div variants={itemVariants} className="bg-white rounded-3xl border border-slate-100 shadow-sm p-7">
+              <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2 tracking-tight">
+                <div className="w-8 h-8 bg-indigo-100 rounded-xl flex items-center justify-center">
+                  <BookOpen className="w-4 h-4 text-indigo-600" />
+                </div>
+                {t.detail.about}
+              </h2>
+              <p className="text-slate-600 leading-relaxed">{description}</p>
+            </motion.div>
+
+            {/* Departments card */}
+            <motion.div variants={itemVariants} className="bg-white rounded-3xl border border-slate-100 shadow-sm p-7">
+              <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2 tracking-tight">
+                <div className="w-8 h-8 bg-blue-100 rounded-xl flex items-center justify-center">
+                  <GraduationCap className="w-4 h-4 text-blue-600" />
+                </div>
+                {t.detail.departments}
+                <span className="ml-auto text-xs font-semibold text-slate-400 bg-slate-100 px-2 py-1 rounded-full">
+                  {university.departments?.length ?? 0}
+                </span>
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {university.departments && university.departments.map((dept, i) => (
                   <Link
                     key={i}
                     href={`/universities/${university.id}/departments/${dept.slug}`}
-                    className="flex items-center justify-between bg-gradient-to-r from-indigo-50 to-blue-50 hover:from-indigo-100 hover:to-blue-100 p-4 rounded-xl border border-indigo-100 transition-all duration-200 group hover:shadow-md hover:-translate-y-0.5"
+                    className="group flex items-center justify-between bg-slate-50 hover:bg-indigo-50 p-4 rounded-2xl border border-slate-100 hover:border-indigo-200 transition-all duration-200"
                   >
-                    <div className="flex items-center min-w-0">
-                      <div className="w-2 h-2 bg-indigo-500 rounded-full mr-3 shrink-0"></div>
-                      <span className="text-slate-800 font-medium truncate">{dept.name}</span>
+                    <div className="flex items-center min-w-0 gap-2.5">
+                      <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full shrink-0" />
+                      <span className="text-slate-700 font-medium text-sm truncate group-hover:text-indigo-700">{dept.name}</span>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-indigo-400 group-hover:text-indigo-600 transition shrink-0 ml-2" />
+                    <motion.div
+                      initial={{ x: 0 }}
+                      whileHover={{ x: 3 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                    >
+                      <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-indigo-500 transition shrink-0 ml-2" />
+                    </motion.div>
                   </Link>
                 ))}
               </div>
-            </section>
-            <hr className="border-slate-100" />
-            <section>
-              <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center"><CheckCircle className="w-6 h-6 mr-2 text-green-600" /> {t.detail.why}</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            </motion.div>
+
+            {/* Features card */}
+            <motion.div variants={itemVariants} className="bg-white rounded-3xl border border-slate-100 shadow-sm p-7">
+              <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2 tracking-tight">
+                <div className="w-8 h-8 bg-emerald-100 rounded-xl flex items-center justify-center">
+                  <CheckCircle className="w-4 h-4 text-emerald-600" />
+                </div>
+                {t.detail.why}
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {features && features.map((f: string, i: number) => (
-                  <div key={i} className="flex items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                    <span className="text-slate-700 font-medium">{f}</span>
+                  <div key={i} className="flex items-center bg-emerald-50 p-3.5 rounded-xl border border-emerald-100/80">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mr-3 shrink-0" />
+                    <span className="text-slate-700 font-medium text-sm">{f}</span>
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.div>
           </div>
 
-          {/* SAĞ PANEL */}
+          {/* Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 sticky top-24">
-              <h3 className="text-lg font-bold text-slate-900 mb-6 border-b border-slate-200 pb-2">{t.detail.summary}</h3>
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <Banknote className="w-6 h-6 text-slate-400 mt-1 mr-3" />
+            <motion.div variants={itemVariants} className="glass rounded-3xl p-6 border border-white/40 sticky top-20 shadow-lg shadow-slate-200/40">
+              <h3 className="text-base font-bold text-slate-900 mb-5 tracking-tight border-b border-slate-100 pb-4">
+                {t.detail.summary}
+              </h3>
+              <div className="space-y-5">
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 bg-slate-100 rounded-xl flex items-center justify-center shrink-0">
+                    <Banknote className="w-4 h-4 text-slate-500" />
+                  </div>
                   <div>
-                    <p className="text-xs text-slate-500 uppercase font-semibold">{t.detail.fee}</p>
-                    <p className="text-slate-900 font-bold text-lg">{university.fee}</p>
+                    <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider mb-0.5">{t.detail.fee}</p>
+                    <p className="text-slate-900 font-bold text-base leading-tight">{university.fee}</p>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <Globe className="w-6 h-6 text-slate-400 mt-1 mr-3" />
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 bg-slate-100 rounded-xl flex items-center justify-center shrink-0">
+                    <Globe className="w-4 h-4 text-slate-500" />
+                  </div>
                   <div>
-                    <p className="text-xs text-slate-500 uppercase font-semibold">{t.detail.website}</p>
-                    <a href={university.website} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold hover:underline break-all">{t.detail.visitSite}</a>
+                    <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider mb-0.5">{t.detail.website}</p>
+                    <a
+                      href={university.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-indigo-600 font-bold hover:underline text-sm break-all"
+                    >
+                      {t.detail.visitSite}
+                    </a>
                   </div>
                 </div>
               </div>
-              <div className="mt-8 pt-6 border-t border-slate-200">
-                <Link href="/ai-mentor" className="w-full bg-slate-900 text-white flex items-center justify-center py-4 rounded-xl font-bold hover:bg-blue-600 transition-all shadow-lg group">
-                  <Sparkles className="w-5 h-5 mr-2 text-yellow-400 group-hover:animate-pulse" /> {t.detail.askAi}
+
+              <div className="mt-6 pt-5 border-t border-slate-100">
+                <Link href="/ai-mentor">
+                  <motion.div
+                    whileHover={{ scale: 1.02, y: -1 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    className="w-full bg-indigo-600 text-white flex items-center justify-center py-3.5 rounded-2xl font-bold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-600/25 group text-sm"
+                  >
+                    <Sparkles className="w-4 h-4 mr-2 text-yellow-300 group-hover:animate-pulse" />
+                    {t.detail.askAi}
+                  </motion.div>
                 </Link>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

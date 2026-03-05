@@ -16,216 +16,207 @@ interface ChatMessage {
 const PROMPT_KEYS = ["prompt1", "prompt2", "prompt3", "prompt4"] as const;
 
 function createWelcomeMessage(content: string): ChatMessage {
-  return {
-    id: "welcome",
-    role: "assistant",
-    content,
-  };
+  return { id: "welcome", role: "assistant", content };
 }
 
 export default function AIMentorPage() {
   const { t } = useLanguage();
-  const welcomeMessage = useMemo(
-    () => createWelcomeMessage(t.aiMentor.welcome),
-    [t.aiMentor.welcome]
-  );
+  const welcomeMessage = useMemo(() => createWelcomeMessage(t.aiMentor.welcome), [t.aiMentor.welcome]);
   const [messages, setMessages] = useState<ChatMessage[]>(() => [createWelcomeMessage(t.aiMentor.welcome)]);
   const [input, setInput] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
-  // Yeni mesaj / stream chunk geldiğinde aşağı kaydır
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   useEffect(() => {
-    setMessages((prev) => (
-      prev.length === 1 && prev[0]?.id === "welcome"
-        ? [welcomeMessage]
-        : prev
-    ));
+    setMessages((prev) =>
+      prev.length === 1 && prev[0]?.id === "welcome" ? [welcomeMessage] : prev
+    );
   }, [welcomeMessage]);
 
-  const sendPrompt = useCallback(
-    async (text: string) => {
-      if (!text.trim() || isStreaming) return;
+  const sendPrompt = useCallback(async (text: string) => {
+    if (!text.trim() || isStreaming) return;
 
-      const userMessage: ChatMessage = {
-        id: Date.now().toString(),
-        role: "user",
-        content: text.trim(),
-      };
+    const userMessage: ChatMessage = { id: Date.now().toString(), role: "user", content: text.trim() };
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
+    setInput("");
+    setIsStreaming(true);
 
-      const updatedMessages = [...messages, userMessage];
-      setMessages(updatedMessages);
-      setInput("");
-      setIsStreaming(true);
+    const assistantId = (Date.now() + 1).toString();
+    setMessages((prev) => [...prev, { id: assistantId, role: "assistant", content: "" }]);
 
-      // Boş asistan mesajı oluştur (streaming ile doldurulacak)
-      const assistantId = (Date.now() + 1).toString();
-      setMessages((prev) => [...prev, { id: assistantId, role: "assistant", content: "" }]);
+    const controller = new AbortController();
+    abortRef.current = controller;
 
-      const controller = new AbortController();
-      abortRef.current = controller;
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: updatedMessages.map((m) => ({ role: m.role, content: m.content })),
+        }),
+        signal: controller.signal,
+      });
 
-      try {
-        const res = await fetch("/api/chat", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            messages: updatedMessages.map((m) => ({
-              role: m.role,
-              content: m.content,
-            })),
-          }),
-          signal: controller.signal,
-        });
-
-        if (!res.ok) {
-          let errorMessage = t.aiMentor.error;
-
-          try {
-            const data = (await res.json()) as { error?: string };
-            if (data.error) {
-              errorMessage = data.error;
-            }
-          } catch {
-            // JSON body yoksa genel hata mesajını kullan
-          }
-
-          throw new Error(errorMessage);
-        }
-
-        const reader = res.body?.getReader();
-        const decoder = new TextDecoder();
-
-        if (!reader) throw new Error("Stream okunamadı");
-
-        // Chunk chunk oku ve asistan mesajını güncelle
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-
-          const text = decoder.decode(value, { stream: true });
-          setMessages((prev) =>
-            prev.map((m) =>
-              m.id === assistantId ? { ...m, content: m.content + text } : m
-            )
-          );
-        }
-      } catch (err: unknown) {
-        if (err instanceof Error && err.name === "AbortError") {
-          // Kullanıcı durdurdu — son mesajı olduğu gibi bırak
-        } else {
-          setMessages((prev) =>
-            prev.map((m) =>
-              m.id === assistantId
-                ? {
-                  ...m,
-                  content: m.content || (err instanceof Error ? err.message : t.aiMentor.error),
-                }
-                : m
-            )
-          );
-        }
-      } finally {
-        setIsStreaming(false);
-        abortRef.current = null;
+      if (!res.ok) {
+        let errorMessage = t.aiMentor.error;
+        try {
+          const data = (await res.json()) as { error?: string };
+          if (data.error) errorMessage = data.error;
+        } catch { /* */ }
+        throw new Error(errorMessage);
       }
-    },
-    [isStreaming, messages, t.aiMentor.error]
-  );
 
-  const handleSend = useCallback(
-    (e: React.FormEvent) => {
-      e.preventDefault();
-      sendPrompt(input);
-    },
-    [input, sendPrompt]
-  );
+      const reader = res.body?.getReader();
+      const decoder = new TextDecoder();
+      if (!reader) throw new Error("Stream okunamadı");
 
-  const handleStop = () => {
-    abortRef.current?.abort();
-  };
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const text = decoder.decode(value, { stream: true });
+        setMessages((prev) =>
+          prev.map((m) => m.id === assistantId ? { ...m, content: m.content + text } : m)
+        );
+      }
+    } catch (err: unknown) {
+      if (err instanceof Error && err.name === "AbortError") {
+        // User stopped — keep partial message
+      } else {
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === assistantId
+              ? { ...m, content: m.content || (err instanceof Error ? err.message : t.aiMentor.error) }
+              : m
+          )
+        );
+      }
+    } finally {
+      setIsStreaming(false);
+      abortRef.current = null;
+    }
+  }, [isStreaming, messages, t.aiMentor.error]);
 
-  const handleReset = () => {
-    abortRef.current?.abort();
-    setMessages([welcomeMessage]);
-    setIsStreaming(false);
-  };
+  const handleSend = useCallback((e: React.FormEvent) => { e.preventDefault(); sendPrompt(input); }, [input, sendPrompt]);
+  const handleStop = () => { abortRef.current?.abort(); };
+  const handleReset = () => { abortRef.current?.abort(); setMessages([welcomeMessage]); setIsStreaming(false); };
 
   const showPromptChips = messages.length === 1 && !isStreaming;
 
   return (
-    <div className="flex flex-col h-[100dvh] bg-[#FDFCFB] text-slate-900 overflow-hidden">
+    <div className="flex flex-col h-[100dvh] bg-[#fafbff] text-slate-900 overflow-hidden">
+
       {/* Header */}
-      <header className="p-4 border-b bg-white flex items-center justify-between shadow-sm z-10">
+      <header className="shrink-0 px-4 py-3 bg-white/85 backdrop-blur-md border-b border-slate-100 flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-10">
         <div className="flex items-center gap-3">
-          <Link href="/" aria-label={t.aiMentor.backHome}>
-            <ArrowLeft className="w-6 h-6 text-slate-400 hover:text-slate-600 transition" />
+          <Link href="/" aria-label={t.aiMentor.backHome} className="p-1.5 rounded-xl hover:bg-slate-100 transition">
+            <ArrowLeft className="w-5 h-5 text-slate-400 hover:text-slate-600 transition" />
           </Link>
-          <div className="w-10 h-10 bg-gradient-to-br from-green-600 via-white to-red-600 rounded-full flex items-center justify-center border">
-            <Bot className="text-slate-700 w-5 h-5" />
-          </div>
-          <div>
-            <h1 className="font-bold text-sm text-slate-800">{t.aiMentor.title}</h1>
+          <div className="relative">
+            {/* Italian flag gradient avatar */}
+            <div className="w-10 h-10 rounded-2xl flex items-center justify-center border border-slate-200 overflow-hidden shadow-sm bg-gradient-to-br from-green-500 via-white to-red-500">
+              <Bot className="text-slate-700 w-5 h-5" />
+            </div>
             {isStreaming && (
-              <p className="text-[10px] text-indigo-500 font-semibold animate-pulse">
-                {t.aiMentor.thinking}
-              </p>
+              <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-400 rounded-full border-2 border-white animate-pulse" />
             )}
           </div>
+          <div>
+            <h1 className="font-bold text-sm text-slate-800 tracking-tight">{t.aiMentor.title}</h1>
+            <AnimatePresence mode="wait">
+              {isStreaming ? (
+                <motion.p
+                  key="thinking"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="text-[10px] text-indigo-500 font-semibold"
+                >
+                  {t.aiMentor.thinking}
+                </motion.p>
+              ) : (
+                <motion.p
+                  key="online"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="text-[10px] text-emerald-500 font-semibold"
+                >
+                  Online
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
-        <button onClick={handleReset} title={t.aiMentor.reset} aria-label={t.aiMentor.reset}>
-          <RefreshCcw className="w-5 h-5 text-slate-300 hover:text-slate-500 transition" />
+        <button
+          onClick={handleReset}
+          title={t.aiMentor.reset}
+          aria-label={t.aiMentor.reset}
+          className="p-2 rounded-xl hover:bg-slate-100 transition text-slate-300 hover:text-slate-500"
+        >
+          <RefreshCcw className="w-4 h-4" />
         </button>
       </header>
 
-      {/* Chat Alanı */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-6 bg-slate-50/50">
+      {/* Chat area */}
+      <div className="flex-1 overflow-y-auto px-4 py-5 space-y-4 bg-gradient-to-b from-slate-50/50 to-[#fafbff]">
         <AnimatePresence mode="popLayout">
           {messages.map((m) => (
             <motion.div
               key={m.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 12, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 30 }}
               className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
             >
-              <div
-                className={`flex gap-3 max-w-[85%] ${m.role === "user" ? "flex-row-reverse" : "flex-row"
-                  }`}
-              >
+              <div className={`flex gap-2.5 max-w-[82%] ${m.role === "user" ? "flex-row-reverse" : "flex-row"}`}>
                 {/* Avatar */}
-                <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center border shrink-0 ${m.role === "user" ? "bg-slate-900" : "bg-white"
-                    }`}
-                >
-                  {m.role === "user" ? (
-                    <User size={14} className="text-white" />
-                  ) : (
-                    <Sparkles size={14} className="text-indigo-500" />
-                  )}
+                <div className={`w-8 h-8 rounded-2xl flex items-center justify-center shrink-0 border ${m.role === "user"
+                    ? "bg-indigo-600 border-indigo-700"
+                    : "bg-white border-slate-200 shadow-sm"
+                  }`}>
+                  {m.role === "user"
+                    ? <User size={13} className="text-white" />
+                    : <Sparkles size={13} className="text-indigo-500" />
+                  }
                 </div>
 
-                {/* Mesaj Balonu */}
+                {/* Bubble */}
                 <div
-                  className={`p-4 rounded-[20px] shadow-sm ${m.role === "user"
-                    ? "bg-indigo-600 text-white"
-                    : "bg-white border text-slate-800"
+                  className={`px-4 py-3 text-sm leading-relaxed shadow-sm ${m.role === "user"
+                      ? "bg-gradient-to-br from-indigo-500 to-blue-600 text-white rounded-[20px_20px_4px_20px]"
+                      : "bg-white border border-slate-100 text-slate-800 rounded-[20px_20px_20px_4px]"
                     }`}
                 >
                   {m.content ? (
-                    <div className="prose prose-sm max-w-none prose-p:leading-relaxed prose-p:my-1 prose-ul:my-1 prose-li:my-0">
-                      <ReactMarkdown>{m.content}</ReactMarkdown>
+                    <div className={m.role === "assistant" ? "prose-chat" : ""}>
+                      {m.role === "assistant"
+                        ? <ReactMarkdown>{m.content}</ReactMarkdown>
+                        : <span>{m.content}</span>
+                      }
                     </div>
                   ) : (
-                    /* Stream henüz başlamadıysa yazıyor animasyonu */
-                    <div className="flex gap-1.5 items-center h-5">
-                      <span className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce [animation-delay:0ms]" />
-                      <span className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce [animation-delay:150ms]" />
-                      <span className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce [animation-delay:300ms]" />
+                    /* Organic typing indicator */
+                    <div className="flex gap-1.5 items-center h-5 px-1">
+                      {[0, 1, 2].map((i) => (
+                        <motion.span
+                          key={i}
+                          className="w-2 h-2 bg-indigo-300 rounded-full block"
+                          animate={{ scale: [1, 1.4, 1], opacity: [0.5, 1, 0.5] }}
+                          transition={{
+                            duration: 1.2,
+                            repeat: Infinity,
+                            delay: i * 0.22,
+                            ease: "easeInOut",
+                          }}
+                        />
+                      ))}
                     </div>
                   )}
                 </div>
@@ -234,71 +225,88 @@ export default function AIMentorPage() {
           ))}
         </AnimatePresence>
 
-        {/* Prompt Suggestion Chips */}
-        {showPromptChips && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.4 }}
-            className="space-y-3 pt-2"
-          >
-            <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] px-1">
-              {t.aiMentor.promptsTitle}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {PROMPT_KEYS.map((key, i) => (
-                <motion.button
-                  key={key}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + i * 0.1, duration: 0.3 }}
-                  onClick={() => sendPrompt(t.aiMentor[key])}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-2.5 bg-white border border-slate-200 rounded-2xl text-xs font-semibold text-slate-700 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700 active:scale-95 transition-all shadow-sm"
-                >
-                  <Sparkles className="w-3 h-3 text-indigo-400 shrink-0" />
-                  <span className="text-left">{t.aiMentor[key]}</span>
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
-        )}
+        {/* Prompt chips */}
+        <AnimatePresence>
+          {showPromptChips && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.3, type: "spring", stiffness: 100, damping: 20 }}
+              className="space-y-3 pt-1"
+            >
+              <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] px-1">
+                {t.aiMentor.promptsTitle}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {PROMPT_KEYS.map((key, i) => (
+                  <motion.button
+                    key={key}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 + i * 0.08, type: "spring", stiffness: 100, damping: 20 }}
+                    whileHover={{ scale: 1.02, y: -1 }}
+                    whileTap={{ scale: 0.97 }}
+                    onClick={() => sendPrompt(t.aiMentor[key])}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-2.5 glass border border-indigo-100 rounded-2xl text-xs font-semibold text-slate-600 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700 transition-all shadow-sm"
+                  >
+                    <Sparkles className="w-3 h-3 text-indigo-400 shrink-0" />
+                    <span className="text-left">{t.aiMentor[key]}</span>
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-        <div ref={scrollRef} className="h-4" />
+        <div ref={scrollRef} className="h-2" />
       </div>
 
-      {/* Input Alanı */}
-      <div className="p-4 pb-8 bg-white border-t">
-        <form onSubmit={handleSend} className="max-w-3xl mx-auto relative flex items-center">
+      {/* Input area */}
+      <div className="shrink-0 p-4 pb-8 bg-white/90 backdrop-blur-md border-t border-slate-100 shadow-[0_-1px_8px_rgba(0,0,0,0.04)]">
+        <form onSubmit={handleSend} className="max-w-3xl mx-auto relative flex items-center gap-2">
           <input
             type="text"
-            className="w-full p-4 pr-14 rounded-2xl border border-slate-200 bg-slate-50 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-sm transition-all"
+            className="flex-1 p-3.5 pr-4 rounded-2xl border border-slate-200 bg-slate-50/80 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400 text-sm transition-all"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             disabled={isStreaming}
-            placeholder={
-              isStreaming ? t.aiMentor.inputPlaceholderStreaming : t.aiMentor.inputPlaceholder
-            }
+            placeholder={isStreaming ? t.aiMentor.inputPlaceholderStreaming : t.aiMentor.inputPlaceholder}
             autoComplete="off"
           />
-          {isStreaming ? (
-            <button
-              type="button"
-              onClick={handleStop}
-              aria-label={t.aiMentor.stop}
-              className="absolute right-2 p-2.5 bg-red-500 text-white rounded-xl active:scale-95 transition-all"
-            >
-              <Square size={18} />
-            </button>
-          ) : (
-            <button
-              type="submit"
-              disabled={!input.trim()}
-              aria-label={t.aiMentor.send}
-              className="absolute right-2 p-2.5 bg-indigo-600 text-white rounded-xl active:scale-95 transition-all disabled:opacity-30"
-            >
-              <Send size={18} />
-            </button>
-          )}
+          <AnimatePresence mode="wait">
+            {isStreaming ? (
+              <motion.button
+                key="stop"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                type="button"
+                onClick={handleStop}
+                aria-label={t.aiMentor.stop}
+                className="p-3 bg-rose-500 text-white rounded-2xl transition-all shadow-lg shadow-rose-500/25"
+              >
+                <Square size={16} />
+              </motion.button>
+            ) : (
+              <motion.button
+                key="send"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                type="submit"
+                disabled={!input.trim()}
+                aria-label={t.aiMentor.send}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-3 bg-indigo-600 text-white rounded-2xl transition-all shadow-lg shadow-indigo-600/25 disabled:opacity-30 disabled:shadow-none disabled:scale-100"
+              >
+                <Send size={16} />
+              </motion.button>
+            )}
+          </AnimatePresence>
         </form>
       </div>
     </div>
