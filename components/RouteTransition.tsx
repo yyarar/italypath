@@ -9,16 +9,21 @@ export default function RouteTransition({ children }: { children: React.ReactNod
 
   const initial = shouldReduceMotion
     ? { opacity: 0 }
-    : { opacity: 0, y: 20, scale: 0.985, filter: "blur(6px)" };
+    : { opacity: 0, y: 16, scale: 0.98, filter: "blur(8px)" };
   const animate = shouldReduceMotion
     ? { opacity: 1 }
     : { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" };
   const exit = shouldReduceMotion
     ? { opacity: 0 }
-    : { opacity: 0, y: -12, scale: 0.99, filter: "blur(4px)" };
+    : { opacity: 0, y: -8, scale: 0.99, filter: "blur(4px)" };
   const transition = shouldReduceMotion
     ? { duration: 0.14, ease: "easeOut" as const }
-    : { duration: 0.42, ease: [0.22, 1, 0.36, 1] as const };
+    : {
+      type: "spring" as const,
+      stiffness: 260,
+      damping: 24,
+      mass: 0.9
+    };
 
   return (
     <LayoutGroup id="route-shared-elements">

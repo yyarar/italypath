@@ -78,7 +78,7 @@ export default function FavoritesPage() {
                   key={uni.id}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + i * 0.12, duration: 0.4 }}
+                  transition={{ delay: 0.2 + i * 0.1, type: "spring", stiffness: 260, damping: 20 }}
                 >
                   <Link href={`/universities/${uni.id}`}>
                     <div className="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-100 flex items-center gap-3.5 hover:shadow-md hover:border-slate-200 active:scale-[0.98] transition-all">

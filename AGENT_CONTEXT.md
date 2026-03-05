@@ -299,25 +299,33 @@ italypath-main/
 | `app/documents/page.tsx` | 🔒 Client-side 5MB boyut (size) ve MimeType (image/pdf) doğrulama limitleri eklenerek bucket/storage şişirme (depolama) tehlikesi kapatıldı |
 | `lib/translations.ts` | ➕ `documents` objeleri altına (`fileSizeError`, `fileTypeError`) çevirileri TR ve EN için eklendi |
 
+### Commit 17 (Font Optimizasyonu ve Build Fix):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `app/layout.tsx` | ⚡ `next/font/google` üzerinden `Geist` fetch işlemi kaldırılarak, CI/CD ve sandbox ortamlarındaki dış bağlantı kısıtlı build hatası/riski tamamen ortadan kaldırıldı |
+| `app/globals.css` | 🗑️ Artık kullanılmayan `var(--font-geist-sans)` gibi font css-variable tanımları silindi |
+
+### Commit 18 (Premium UI Polishing):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/RouteTransition.tsx` | ✨ Sayfa geçişleri `easeOut`/`linear` mekanizmasından daha pürüzsüz ve organik olan `spring` matematiğine taşındı |
+| `app/universities/page.tsx` | ✨ Üniversite grid listesine içeriklerin bir saniye arayla aşağıdan kayarak aktığı `staggerChildren` animasyonu eklendi, hero görseli ve liste başlığının transitionı `spring` ağırlıklı yenilendi |
+| `app/favorites/page.tsx` | ✨ Önerilen favoriler listesi için statik gecikmeli `duration` iptal edilip dinamik hesaplanan `spring` easing kullanıldı |
+| `app/globals.css` | 🗑️ Artık kullanılmayan View Transitions API (`::view-transition-(*)`) legacy animasyon CSS seçicileri silindi |
+
 ---
 
 ## ⚠️ Bilinen Sorunlar & Açık Öneriler
 
-###  Orta Öncelik
+### 🟡 Orta Öncelik
 1. **PWA eksikleri:** `public/manifest.webmanifest` ve uygulama ikonları (`192x192`, `512x512`) oluşturulmalı. Şu anda tasarım aşamasındadır. Dokunma.
 2. **Tekrarlanan görseller:** `data.ts`'te yeni eklenen 17 üniversite ve id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor.
 3. **Üniversite Karşılaştırma:** 2-3 üniversiteyi yan yana kıyaslama (ücret, bölüm sayısı, şehir, özellikler). Mevcut `data.ts` yapısıyla yapılabilir, ek veri gerekmez. Favori sisteminden beslenebilir.
 4. **Şehir Rehberi:** Her şehir için yaşam maliyeti, ulaşım, iklim, öğrenci nüfusu bilgisi. Şehir filtresi zaten mevcut — detay sayfası eklenebilir.
-5. **Animasyon Polishing:** Route geçişleri artık Framer Motion ile çalışıyor, ama "ultra premium" his için easing/duration, kart hover ile page transition uyumu ve olası stagger akışları daha da rafine edilebilir.
-6. **Build, dış ağa bağımlı Google font fetch nedeniyle kırılabiliyor**
-   - `app/layout.tsx` `next/font/google` ile `Geist` ve `Geist Mono` çekiyor.
-   - Bu turdaki `npm run build`, sandbox ağ kısıtı altında bu iki font fetch'i nedeniyle failed oldu.
-   - İnternet erişimi olmayan CI/CD veya kısıtlı build ortamlarında üretim build'i kırılabilir.
 
 ### 🟢 Düşük Öncelik
-1. **Legacy CSS temizlik:** `app/globals.css` içindeki eski View Transition selector'ları aktif akışta kullanılmıyor; fırsat olduğunda temizlenebilir.
-2. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı.
-3. **Veri dosyası client bundle'a gereğinden fazla taşınıyor**
+1. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı.
+2. **Veri dosyası client bundle'a gereğinden fazla taşınıyor**
    - `app/data.ts` yaklaşık `68,685` byte ve birçok client component tarafından import ediliyor (`universities`, `favorites`, detail sayfaları).
    - Ölçek büyüdükçe ilk yükleme ve hydration maliyeti artacaktır.
    - Şu an kabul edilebilir, ancak veri büyüme trendi sürerse server-side veri katmanına taşınmalı.

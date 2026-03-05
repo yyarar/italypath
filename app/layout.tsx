@@ -1,20 +1,9 @@
 import { ClerkProvider } from '@clerk/nextjs'
-import type { Metadata, Viewport } from "next"; // Viewport ekledik
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { LanguageProvider } from '@/context/LanguageContext';
 import BottomNav from '@/components/BottomNav';
 import RouteTransition from '@/components/RouteTransition';
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "ItalyPath",
@@ -43,7 +32,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="tr">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 text-slate-900`}
+          className={`font-sans antialiased bg-slate-50 text-slate-900`}
         >
           <LanguageProvider>
             <main className="min-h-screen pb-24 overflow-x-hidden">

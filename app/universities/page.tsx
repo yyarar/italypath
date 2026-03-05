@@ -216,101 +216,122 @@ function UniversitiesContent() {
             </div>
 
             {/* LİSTELEME ALANI */}
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div className="max-w-7xl mx-auto">
                 {filteredUniversities.length > 0 ? (
-                    filteredUniversities.map((uni) => {
-                        const favStatus = isFavorite(uni.id);
-                        const description = (language === 'en' && uni.description_en) ? uni.description_en : uni.description;
+                    <motion.div
+                        initial="hidden"
+                        animate="show"
+                        variants={{
+                            hidden: { opacity: 0 },
+                            show: {
+                                opacity: 1,
+                                transition: { staggerChildren: 0.1 }
+                            }
+                        }}
+                        className="col-span-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+                    >
+                        {filteredUniversities.map((uni) => {
+                            const favStatus = isFavorite(uni.id);
+                            const description = (language === 'en' && uni.description_en) ? uni.description_en : uni.description;
 
-                        return (
-                            <Link href={`/universities/${uni.id}`} key={uni.id} className="block h-full">
-                                <div className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full relative">
+                            return (
+                                <motion.div
+                                    key={uni.id}
+                                    variants={{
+                                        hidden: { opacity: 0, y: 20 },
+                                        show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+                                    }}
+                                    className="block h-full"
+                                >
+                                    <Link href={`/universities/${uni.id}`} className="block h-full">
+                                        <div className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full relative">
 
-                                    {/* GÖRSEL ALANI */}
-                                    <motion.div
-                                        className="h-48 relative overflow-hidden"
-                                        layoutId={`uni-hero-${uni.id}`}
-                                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                                    >
-                                        <Image
-                                            src={uni.image || DEFAULT_IMAGE}
-                                            alt={uni.name}
-                                            fill
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                            className="object-cover group-hover:scale-110 transition-transform duration-700"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
-
-                                        <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-slate-900 shadow-md flex items-center z-10">
-                                            <GraduationCap className="w-3 h-3 mr-1 text-blue-600" />
-                                            {uni.type}
-                                        </div>
-
-                                        <button
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                toggleFavorite(uni.id);
-                                            }}
-                                            aria-label={favStatus
-                                                ? (language === 'tr' ? `${uni.name} favorilerden çıkar` : `Remove ${uni.name} from favorites`)
-                                                : (language === 'tr' ? `${uni.name} favorilere ekle` : `Add ${uni.name} to favorites`)
-                                            }
-                                            aria-pressed={favStatus}
-                                            className="absolute top-3 right-3 p-2 rounded-full bg-white/90 backdrop-blur-md shadow-lg hover:scale-110 active:scale-95 transition z-20 group-hover:bg-white"
-                                        >
-                                            <Heart
-                                                className={`w-5 h-5 transition-colors ${favStatus ? 'fill-red-500 text-red-500' : 'text-slate-400 hover:text-red-500'
-                                                    }`}
-                                            />
-                                        </button>
-                                    </motion.div>
-
-                                    {/* İÇERİK */}
-                                    <div className="p-6 flex-1 flex flex-col">
-                                        <div className="mb-2">
-                                            <motion.h2
-                                                className="text-lg font-bold text-slate-900 leading-tight group-hover:text-blue-600 transition line-clamp-2 min-h-[3.5rem]"
-                                                layoutId={`uni-title-${uni.id}`}
-                                                transition={{ duration: 0.28, ease: "easeInOut" }}
+                                            <motion.div
+                                                className="h-48 relative overflow-hidden"
+                                                layoutId={`uni-hero-${uni.id}`}
+                                                transition={{ type: "spring", stiffness: 260, damping: 25 }}
                                             >
-                                                {uni.name}
-                                            </motion.h2>
-                                        </div>
+                                                <Image
+                                                    src={uni.image || DEFAULT_IMAGE}
+                                                    alt={uni.name}
+                                                    fill
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
 
-                                        <div className="flex items-center text-slate-500 text-sm mb-4">
-                                            <MapPin className="w-4 h-4 mr-1 text-red-500" />
-                                            <span className="font-medium">{uni.city}</span>
-                                        </div>
+                                                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-slate-900 shadow-md flex items-center z-10">
+                                                    <GraduationCap className="w-3 h-3 mr-1 text-blue-600" />
+                                                    {uni.type}
+                                                </div>
 
-                                        <p className="text-slate-600 text-sm mb-4 line-clamp-2">
-                                            {description}
-                                        </p>
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        toggleFavorite(uni.id);
+                                                    }}
+                                                    aria-label={favStatus
+                                                        ? (language === 'tr' ? `${uni.name} favorilerden çıkar` : `Remove ${uni.name} from favorites`)
+                                                        : (language === 'tr' ? `${uni.name} favorilere ekle` : `Add ${uni.name} to favorites`)
+                                                    }
+                                                    aria-pressed={favStatus}
+                                                    className="absolute top-3 right-3 p-2 rounded-full bg-white/90 backdrop-blur-md shadow-lg hover:scale-110 active:scale-95 transition z-20 group-hover:bg-white"
+                                                >
+                                                    <Heart
+                                                        className={`w-5 h-5 transition-colors ${favStatus ? 'fill-red-500 text-red-500' : 'text-slate-400 hover:text-red-500'
+                                                            }`}
+                                                    />
+                                                </button>
+                                            </motion.div>
 
-                                        <div className="space-y-2 mb-6 flex-1">
-                                            <div className="flex flex-wrap gap-2">
-                                                {uni.departments && uni.departments.slice(0, 3).map((dep, idx) => (
-                                                    <span key={idx} className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded border border-blue-100 font-medium truncate max-w-full">
-                                                        {dep.name}
-                                                    </span>
-                                                ))}
-                                                {uni.departments && uni.departments.length > 3 && (
-                                                    <span className="text-xs text-slate-400">+ {uni.departments.length - 3} {t.list.more}</span>
-                                                )}
+                                            {/* İÇERİK */}
+                                            <div className="p-6 flex-1 flex flex-col">
+                                                <div className="mb-2">
+                                                    <motion.h2
+                                                        className="text-lg font-bold text-slate-900 leading-tight group-hover:text-blue-600 transition line-clamp-2 min-h-[3.5rem]"
+                                                        layoutId={`uni-title-${uni.id}`}
+                                                        transition={{ type: "spring", stiffness: 280, damping: 24 }}
+                                                    >
+                                                        {uni.name}
+                                                    </motion.h2>
+                                                </div>
+
+                                                <div className="flex items-center text-slate-500 text-sm mb-4">
+                                                    <MapPin className="w-4 h-4 mr-1 text-red-500" />
+                                                    <span className="font-medium">{uni.city}</span>
+                                                </div>
+
+                                                <p className="text-slate-600 text-sm mb-4 line-clamp-2">
+                                                    {description}
+                                                </p>
+
+                                                <div className="space-y-2 mb-6 flex-1">
+                                                    <div className="flex flex-wrap gap-2">
+                                                        {uni.departments && uni.departments.slice(0, 3).map((dep, idx) => (
+                                                            <span key={idx} className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded border border-blue-100 font-medium truncate max-w-full">
+                                                                {dep.name}
+                                                            </span>
+                                                        ))}
+                                                        {uni.departments && uni.departments.length > 3 && (
+                                                            <span className="text-xs text-slate-400">+ {uni.departments.length - 3} {t.list.more}</span>
+                                                        )}
+                                                    </div>
+                                                </div>
+
+                                                <div className="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
+                                                    <span className="text-sm font-bold text-slate-900">{uni.fee}</span>
+                                                    <div className="bg-slate-900 text-white px-4 py-2 rounded-lg text-xs font-bold group-hover:bg-blue-600 transition flex items-center">
+                                                        {t.list.review}
+                                                        <ArrowRight className="w-3 h-3 ml-1" />
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <div className="pt-4 border-t border-slate-100 flex items-center justify-between mt-auto">
-                                            <span className="text-sm font-bold text-slate-900">{uni.fee}</span>
-                                            <div className="bg-slate-900 text-white px-4 py-2 rounded-lg text-xs font-bold group-hover:bg-blue-600 transition flex items-center">
-                                                {t.list.review}
-                                                <ArrowRight className="w-3 h-3 ml-1" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
-                        )
-                    })
+                                    </Link>
+                                </motion.div>
+                            )
+                        })}
+                    </motion.div>
                 ) : (
                     <div className="col-span-full flex flex-col items-center justify-center py-20 text-center">
                         {showFavoritesOnly ? (
