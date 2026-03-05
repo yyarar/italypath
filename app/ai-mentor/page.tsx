@@ -285,7 +285,7 @@ export default function AIMentorPage() {
         <form onSubmit={handleSend} className="max-w-3xl mx-auto relative flex items-center gap-2">
           <input
             type="text"
-            className="flex-1 p-3.5 pr-4 rounded-2xl border border-slate-200 bg-slate-50/80 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400 text-sm transition-all"
+            className="flex-1 p-3.5 pr-4 rounded-2xl border border-slate-200 bg-slate-50/80 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400 text-base sm:text-sm transition-all"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             disabled={isStreaming}

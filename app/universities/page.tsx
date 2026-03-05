@@ -158,7 +158,7 @@ function UniversitiesContent() {
                                 type="text"
                                 placeholder={t.list.searchPlaceholder}
                                 aria-label={t.list.searchPlaceholder}
-                                className="block w-full pl-11 pr-20 py-3 bg-white border border-slate-200 rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/25 focus:border-indigo-400 text-sm transition-all shadow-sm"
+                                className="block w-full pl-11 pr-20 py-3 bg-white border border-slate-200 rounded-2xl text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/25 focus:border-indigo-400 text-base sm:text-sm transition-all shadow-sm"
                                 value={searchTerm}
                                 onChange={(e) => updateFilter('q', e.target.value)}
                             />

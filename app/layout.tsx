@@ -4,6 +4,7 @@ import "./globals.css";
 import { LanguageProvider } from '@/context/LanguageContext';
 import BottomNav from '@/components/BottomNav';
 import RouteTransition from '@/components/RouteTransition';
+import MobileZoomLock from '@/components/MobileZoomLock';
 
 export const metadata: Metadata = {
   title: "ItalyPath",
@@ -21,6 +22,10 @@ export const viewport: Viewport = {
   themeColor: "#f8fafc",
   width: "device-width",
   initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -34,6 +39,7 @@ export default function RootLayout({
         <body
           className={`font-sans antialiased bg-slate-50 text-slate-900`}
         >
+          <MobileZoomLock />
           <LanguageProvider>
             <main className="min-h-screen pb-24 overflow-x-hidden">
               <RouteTransition>

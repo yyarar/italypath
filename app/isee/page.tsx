@@ -64,7 +64,7 @@ export default function ISEEPage() {
                 id="income"
                 placeholder=" "
                 onChange={(e) => setIncome(Number(e.target.value))}
-                className="w-full px-4 py-5 rounded-2xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/25 focus:border-indigo-400 transition-all text-slate-900 text-sm"
+                className="w-full px-4 py-5 rounded-2xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/25 focus:border-indigo-400 transition-all text-slate-900 text-base sm:text-sm"
               />
               <label htmlFor="income">{t.isee.incomeLabel}</label>
             </div>
@@ -76,7 +76,7 @@ export default function ISEEPage() {
                 id="assets"
                 placeholder=" "
                 onChange={(e) => setAssets(Number(e.target.value))}
-                className="w-full px-4 py-5 rounded-2xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/25 focus:border-indigo-400 transition-all text-slate-900 text-sm"
+                className="w-full px-4 py-5 rounded-2xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/25 focus:border-indigo-400 transition-all text-slate-900 text-base sm:text-sm"
               />
               <label htmlFor="assets">{t.isee.assetsLabel}</label>
             </div>
@@ -87,7 +87,7 @@ export default function ISEEPage() {
                 id="family"
                 value={familyMembers}
                 onChange={(e) => setFamilyMembers(Number(e.target.value))}
-                className="w-full px-4 py-5 rounded-2xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/25 focus:border-indigo-400 transition-all text-slate-900 text-sm appearance-none"
+                className="w-full px-4 py-5 rounded-2xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/25 focus:border-indigo-400 transition-all text-slate-900 text-base sm:text-sm appearance-none"
               >
                 {[1, 2, 3, 4, 5, 6].map((num) => (
                   <option key={num} value={num}>{num} {t.isee.person}</option>
