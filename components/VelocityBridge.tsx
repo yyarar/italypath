@@ -25,7 +25,7 @@ function ItalyPathLine({ accent = false }: { accent?: boolean }) {
 
 export default function VelocityBridge() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/55 to-slate-50/80 py-9 md:py-12">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/55 to-slate-50/80 py-0">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white/85 py-8 shadow-[0_14px_34px_rgba(15,23,42,0.07)] md:py-10">
           <ScrollVelocityContainer className="text-[2rem] font-black tracking-[-0.04em] leading-none md:text-[4.75rem]">
@@ -44,4 +44,3 @@ export default function VelocityBridge() {
     </section>
   );
 }
-

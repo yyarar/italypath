@@ -9,7 +9,7 @@ export default function IseeSection() {
     const { t } = useLanguage();
 
     return (
-        <section className="py-20 lg:py-28 bg-slate-50/80">
+        <section className="bg-slate-50/80 pb-20 pt-0 lg:pb-28 lg:pt-0">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 32 }}

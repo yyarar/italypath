@@ -133,7 +133,7 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-white pb-0 pt-20 lg:pb-0 lg:pt-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
