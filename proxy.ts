@@ -1,12 +1,11 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
 /**
- * Patron, burada korumaya alınmayacak yolları tanımlıyoruz.
- * /api/chat eklenmezse, AI isteği Clerk engeline takılır.
+ * Auth gerektirmeyen (public) yollar.
+ * Bu listenin dışındaki tüm route'lar `auth.protect()` ile korunur.
  */
 const isPublicRoute = createRouteMatcher([
   '/',
-  '/ai-mentor(.*)',   // AI mentor ekranı sitemap ve public CTA'larla uyumlu olsun
   '/api/universities(.*)',
   '/sign-in(.*)',
   '/sign-up(.*)',

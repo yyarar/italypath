@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { SignInButton, SignedIn, SignedOut, UserButton, useAuth } from '@clerk/nextjs';
 import Link from 'next/link';
 import { Globe } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -9,8 +9,12 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 
 export default function Navbar() {
     const { t, toggleLanguage, language } = useLanguage();
+    const { isSignedIn } = useAuth();
     const [scrolled, setScrolled] = useState(false);
     const { scrollY } = useScroll();
+    const aiMentorHref = isSignedIn
+        ? '/ai-mentor'
+        : '/sign-in?redirect_url=%2Fai-mentor';
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         setScrolled(latest > 20);
@@ -43,7 +47,7 @@ export default function Navbar() {
                     <div className="hidden md:flex items-center space-x-1">
                         {[
                             { href: '/universities', label: t.navbar.universities },
-                            { href: '/ai-mentor', label: t.navbar.mentor },
+                            { href: aiMentorHref, label: t.navbar.mentor },
                         ].map((item) => (
                             <Link
                                 key={item.href}

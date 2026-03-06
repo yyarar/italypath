@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, ArrowLeft, Globe, GraduationCap, Banknote, BookOpen, Sparkles, ArrowRight, Building2, ExternalLink } from 'lucide-react';
+import { useAuth } from '@clerk/nextjs';
 import { useLanguage } from '@/context/LanguageContext';
 import ScrollProgress from '@/components/ScrollProgress';
 import { useUniversitiesData } from '@/lib/useUniversitiesData';
@@ -13,8 +14,12 @@ const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756ded
 
 export default function DepartmentDetailPage() {
     const params = useParams();
+    const { isSignedIn } = useAuth();
     const { t, language } = useLanguage();
     const { universities, loading: universitiesLoading, error: universitiesError } = useUniversitiesData();
+    const aiMentorHref = isSignedIn
+        ? '/ai-mentor'
+        : '/sign-in?redirect_url=%2Fai-mentor';
 
     const idFromUrl = Array.isArray(params?.id) ? params?.id[0] : params?.id;
     const deptSlugFromUrl = Array.isArray(params?.deptSlug) ? params?.deptSlug[0] : params?.deptSlug;
@@ -191,7 +196,7 @@ export default function DepartmentDetailPage() {
                                 </div>
                             </div>
                             <div className="mt-8 pt-6 border-t border-slate-200">
-                                <Link href="/ai-mentor" className="w-full bg-slate-900 text-white flex items-center justify-center py-4 rounded-xl font-bold hover:bg-indigo-600 transition-all shadow-lg group">
+                                <Link href={aiMentorHref} className="w-full bg-slate-900 text-white flex items-center justify-center py-4 rounded-xl font-bold hover:bg-indigo-600 transition-all shadow-lg group">
                                     <Sparkles className="w-5 h-5 mr-2 text-yellow-400 group-hover:animate-pulse" /> {t.department.askAi}
                                 </Link>
                             </div>

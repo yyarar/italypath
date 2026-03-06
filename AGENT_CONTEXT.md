@@ -136,7 +136,7 @@ italypath-main/
 
 ### 5. Clerk Request Boundary (proxy.ts)
 - `proxy.ts` dosyasında tanımlı (Next.js 16 yeni Request Boundary standardı uyarınca).
-- Public rotalar: `/`, `/ai-mentor(.*)`, `/api/universities(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/isee(.*)`, `/sitemap.xml`, `/robots.txt`
+- Public rotalar: `/`, `/api/universities(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/isee(.*)`, `/sitemap.xml`, `/robots.txt`
 - Diğer tüm rotalar `auth.protect()` ile korumalı
 
 ### 6. Bölüm Detay Sayfaları
@@ -181,7 +181,6 @@ BURADA DEĞİL BAŞKA DOSYADA! AGENT_COMMITS.MD DOSYASINA BAK!
 2. **Tekrarlanan görseller:** `data.ts`'te yeni eklenen 17 üniversite ve id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor.
 3. **Üniversite Karşılaştırma:** 2-3 üniversiteyi yan yana kıyaslama (ücret, bölüm sayısı, şehir, özellikler). Mevcut `data.ts` yapısıyla yapılabilir, ek veri gerekmez. Favori sisteminden beslenebilir.
 4. **Şehir Rehberi:** Her şehir için yaşam maliyeti, ulaşım, iklim, öğrenci nüfusu bilgisi. Şehir filtresi zaten mevcut — detay sayfası eklenebilir.
-5. **AI Mentor girişsiz kullanımda `Failed to fetch` deneyimi:** `/ai-mentor` sayfası public iken `/api/chat` route'u Clerk `auth.protect()` ile korumalı. Giriş yapılmadan soru gönderildiğinde network/auth boundary kaynaklı `Failed to fetch` görülebiliyor; giriş yapıldıktan sonra akış normal çalışıyor. Şimdilik bilinçli olarak çözüm uygulanmadı (ileride UX veya auth stratejisiyle ele alınacak).
 
 ### 🟢 Düşük Öncelik
 1. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı.

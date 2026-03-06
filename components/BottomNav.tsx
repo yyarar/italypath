@@ -4,20 +4,25 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Home, School, Bot, User } from 'lucide-react';
+import { useAuth } from '@clerk/nextjs';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 export default function BottomNav() {
   const pathname = usePathname();
+  const { isSignedIn } = useAuth();
   const { t } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
+  const aiMentorHref = isSignedIn
+    ? '/ai-mentor'
+    : '/sign-in?redirect_url=%2Fai-mentor';
 
   const isActive = (path: string) => pathname === path;
 
   const navItems = [
     { href: '/', icon: Home, label: t.bottomNav.home },
     { href: '/universities', icon: School, label: t.bottomNav.unis },
-    { href: '/ai-mentor', icon: Bot, label: t.bottomNav.ai, isCenter: true },
+    { href: aiMentorHref, icon: Bot, label: t.bottomNav.ai, isCenter: true },
     { href: '/profile', icon: User, label: t.bottomNav.profile, disabled: true },
   ];
 

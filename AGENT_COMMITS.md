@@ -145,7 +145,7 @@
 | `app/api/chat/route.ts` | ♻️ `GEMINI_API_KEY` guard eklendi; JSON parse + `messages` şema doğrulaması, mesaj sayısı/uzunluk limiti ve kontrollü `400/503/500` yanıtları eklendi |
 | `app/ai-mentor/page.tsx` | ♻️ Hard-coded AI Mentor UI string'leri çevirilere taşındı; welcome mesajı aktif dile göre yenilenir hale geldi; API hata mesajı JSON'dan okunarak kullanıcıya daha tutarlı gösterilir |
 | `lib/translations.ts` | ➕ AI Mentor için `title`, `welcome`, `thinking`, `reset`, `inputPlaceholder`, `stop`, `send`, `error` anahtarları eklendi (TR + EN) |
-| `app/layout.tsx` | ♻️ `maximumScale` / `userScalable` kısıtları kaldırıldı; kök `<html lang>` varsayılanı `tr` olarak düzeltildi |
+| `app/layout.tsx` | ♻️ Kök `<html lang>` varsayılanı `tr` olarak düzeltildi; zoom kısıtları (`maximumScale: 1`, `userScalable: false`) native uygulama hissi için geri eklenip korunuyor |
 | `context/LanguageContext.tsx` | ➕ Aktif dilin `document.documentElement.lang` ile senkronlanması eklendi |
 | `proxy.ts` | 🔓 `/ai-mentor(.*)` public route listesine eklendi; sitemap ve CTA akışlarıyla auth boundary hizalandı |
 | `app/robots.ts` | ➕ `/ai-mentor` robots allow listesine eklendi |
@@ -248,3 +248,22 @@
 |-------|-----------|
 | `AGENT_CONTEXT.md` | ♻️ Orta öncelik listesine AI Mentor için "girişsiz `Failed to fetch`" problemi netleştirildi; giriş yapıldığında çalıştığı notu eklendi |
 | `AGENT_COMMITS.md` | ♻️ Son yapılan stabilizasyon ve CTA animasyon değişikliklerini kapsayan commit geçmişi agent dokümantasyonu ile hizalandı |
+
+### Commit 29 (Auth Boundary Kuralı — AI Mentor Login Zorunlu):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `proxy.ts` | 🔒 `/ai-mentor(.*)` public route listesinden çıkarıldı; AI Mentor artık giriş gerektiriyor |
+| `app/robots.ts` | ♻️ `/ai-mentor` allow listesinden çıkarılıp disallow listesine alındı |
+| `app/sitemap.ts` | ♻️ `/ai-mentor` sitemap statik route listesinden kaldırıldı |
+| `AGENT_CONTEXT.md` | ♻️ Public route listesi ve bilinen sorunlar bölümü yeni auth kuralına göre güncellendi |
+
+### Commit 30 (Protected Link Redirect + Route Matrix Smoke Check):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/Navbar.tsx` | 🔐 AI Mentor menü linki signed-out kullanıcıda `/sign-in?redirect_url=/ai-mentor` olacak şekilde güncellendi |
+| `components/BottomNav.tsx` | 🔐 Orta AI butonu signed-out kullanıcıda login redirect akışına bağlandı |
+| `components/FeaturesSection.tsx` | 🔐 AI Mentor ve Belge Cüzdanı kartları signed-out kullanıcıda sırasıyla `/sign-in?redirect_url=/ai-mentor` ve `/sign-in?redirect_url=/documents` hedeflerine yönlendiriliyor |
+| `app/universities/[id]/page.tsx` | 🔐 "Bu Okulu AI'ya Sor" CTA'sı signed-out kullanıcı için login redirect ile güncellendi |
+| `app/universities/[id]/departments/[deptSlug]/page.tsx` | 🔐 "Bu Bölümü AI'ya Sor" CTA'sı signed-out kullanıcı için login redirect ile güncellendi |
+| `scripts/check-route-access.mjs` | 🆕 `proxy.ts` public/protected route matrisini doğrulayan smoke check script'i eklendi |
+| `package.json` | ➕ `check:routes` script'i eklendi (`node scripts/check-route-access.mjs`) |

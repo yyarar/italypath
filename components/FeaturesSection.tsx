@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { GraduationCap, MessageCircle, FileText, ArrowRight } from 'lucide-react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useAuth } from '@clerk/nextjs';
 import { useLanguage } from '@/context/LanguageContext';
 import Marquee from '@/components/ui/marquee';
 import BorderBeam from '@/components/ui/border-beam';
@@ -101,7 +102,14 @@ function MentorCardBackground() {
 
 export default function FeaturesSection() {
     const { t } = useLanguage();
+    const { isSignedIn } = useAuth();
     const shouldReduceMotion = useReducedMotion() ?? false;
+    const aiMentorHref = isSignedIn
+        ? '/ai-mentor'
+        : '/sign-in?redirect_url=%2Fai-mentor';
+    const documentsHref = isSignedIn
+        ? '/documents'
+        : '/sign-in?redirect_url=%2Fdocuments';
     const docListItems: AnimatedListItemData[] = t.featureAnimations.docList.map((item, index) => ({
         id: `doc-${index}`,
         title: item.title,
@@ -122,7 +130,7 @@ export default function FeaturesSection() {
             background: <UniversitiesCardBackground items={t.featureAnimations.marquee} reduceMotion={shouldReduceMotion} />,
         },
         {
-            href: '/ai-mentor',
+            href: aiMentorHref,
             icon: MessageCircle,
             color: 'from-orange-500 to-amber-500',
             bg: 'hover:bg-orange-50/50',
@@ -134,7 +142,7 @@ export default function FeaturesSection() {
             background: <MentorCardBackground />,
         },
         {
-            href: '/documents',
+            href: documentsHref,
             icon: FileText,
             color: 'from-emerald-500 to-teal-600',
             bg: 'hover:bg-emerald-50/50',

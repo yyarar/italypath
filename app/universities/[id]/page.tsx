@@ -16,8 +16,11 @@ const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756ded
 export default function UniversityDetailPage() {
   const params = useParams();
   const { t, language } = useLanguage();
-  const { isFavorite, toggleFavorite, loading } = useFavorites();
+  const { isFavorite, toggleFavorite, loading, isLoggedIn } = useFavorites();
   const { universities, loading: universitiesLoading, error: universitiesError } = useUniversitiesData();
+  const aiMentorHref = isLoggedIn
+    ? '/ai-mentor'
+    : '/sign-in?redirect_url=%2Fai-mentor';
 
   const idFromUrl = Array.isArray(params?.id) ? params?.id[0] : params?.id;
   const university = useMemo(() => {
@@ -240,7 +243,7 @@ export default function UniversityDetailPage() {
               </div>
 
               <div className="mt-6 pt-5 border-t border-slate-100">
-                <Link href="/ai-mentor">
+                <Link href={aiMentorHref}>
                   <motion.div
                     whileHover={{ scale: 1.02, y: -1 }}
                     whileTap={{ scale: 0.98 }}
