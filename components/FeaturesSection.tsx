@@ -101,7 +101,7 @@ function MentorCardBackground() {
 
 export default function FeaturesSection() {
     const { t } = useLanguage();
-    const shouldReduceMotion = useReducedMotion();
+    const shouldReduceMotion = useReducedMotion() ?? false;
     const docListItems: AnimatedListItemData[] = t.featureAnimations.docList.map((item, index) => ({
         id: `doc-${index}`,
         title: item.title,

@@ -21,6 +21,8 @@ export type BorderBeamProps = {
 type CssVars = React.CSSProperties & {
   "--color-from"?: string;
   "--color-to"?: string;
+  WebkitOffsetPath?: string;
+  WebkitOffsetDistance?: string;
 };
 
 function cn(...classes: Array<string | false | null | undefined>) {
