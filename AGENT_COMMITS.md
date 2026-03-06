@@ -267,3 +267,9 @@
 | `app/universities/[id]/departments/[deptSlug]/page.tsx` | 🔐 "Bu Bölümü AI'ya Sor" CTA'sı signed-out kullanıcı için login redirect ile güncellendi |
 | `scripts/check-route-access.mjs` | 🆕 `proxy.ts` public/protected route matrisini doğrulayan smoke check script'i eklendi |
 | `package.json` | ➕ `check:routes` script'i eklendi (`node scripts/check-route-access.mjs`) |
+
+### Commit 31 (Bento Grid API Birebir Entegrasyon Refactor):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/ui/bento-grid.tsx` | 🆕 Magic UI örneğiyle uyumlu `BentoGrid` ve `BentoCard` reusable bileşenleri eklendi (`features[]` tabanlı kullanım API'si) |
+| `components/FeaturesSection.tsx` | ♻️ Manuel kart yerleşimi kaldırıldı; bölüm `features[] -> <BentoCard />` modeline taşındı ve mevcut Marquee / AnimatedList / BorderBeam arka planları yeni API ile entegre edildi |
