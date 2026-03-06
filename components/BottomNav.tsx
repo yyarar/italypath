@@ -27,10 +27,10 @@ export default function BottomNav() {
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 w-full z-50 pb-[env(safe-area-inset-bottom)]">
+    <nav className="md:hidden fixed inset-x-0 bottom-0 z-50 border-t border-slate-200/50 bg-white/90 backdrop-blur-sm pb-[env(safe-area-inset-bottom)]">
       {/* Frosted glass bar */}
       <div
-        className="mx-3 mb-3 rounded-3xl flex justify-around items-end h-16 px-2 relative"
+        className="mx-3 mb-0 rounded-3xl flex justify-around items-end h-16 px-2 relative"
         style={{
           background: 'rgba(255,255,255,0.88)',
           backdropFilter: 'blur(20px)',
@@ -45,7 +45,7 @@ export default function BottomNav() {
 
           if (item.isCenter) {
             return (
-              <Link key={item.href} href={item.href} className="relative -top-7 z-10">
+              <Link key={item.href} href={item.href} className="relative -top-5 z-10">
                 <motion.div
                   whileTap={shouldReduceMotion ? undefined : { scale: 0.88 }}
                   whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}

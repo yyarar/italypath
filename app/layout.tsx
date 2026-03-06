@@ -41,7 +41,7 @@ export default function RootLayout({
         >
           <MobileZoomLock />
           <LanguageProvider>
-            <main className="min-h-screen pb-24 overflow-x-hidden">
+            <main className="min-h-screen overflow-x-hidden pb-[calc(7.5rem+env(safe-area-inset-bottom))] md:pb-24">
               <RouteTransition>{children}</RouteTransition>
             </main>
             <BottomNav />
