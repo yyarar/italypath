@@ -203,3 +203,20 @@
 |-------|-----------|
 | `app/layout.tsx` | ♻️ `<BottomNav />`, `RouteTransition` içine alındı; sayfa geçişleri tek katmanda bütünleşti |
 | `app/globals.css` | ♻️ `overscroll-behavior-y: none` kaldırıldı; doğal platform scroll/overscroll davranışı geri kazanıldı |
+
+### Commit 23 (Magic UI Bento Arka Plan Animasyonları):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/ui/marquee.tsx` | 🆕 Magic UI yaklaşımıyla sonsuz yatay/dikey kayan içerik bileşeni eklendi (`repeat`, `duration`, `reverse`, `pauseOnHover`, reduced-motion fallback) |
+| `components/ui/animated-list.tsx` | 🆕 Döngüsel bildirim/liste animasyonu eklendi (`AnimatePresence`, interval tabanlı sıralı akış, reduced-motion fallback) |
+| `components/ui/border-beam.tsx` | 🆕 İlk sürüm border beam bileşeni eklendi (AI kart arka plan entegrasyonu için) |
+| `components/FeaturesSection.tsx` | ♻️ Bento kartları dekoratif arka plan katmanlarıyla güncellendi: Üniversite kartına `Marquee`, Belge kartına `AnimatedList`, AI kartına `BorderBeam`; soft mask + pointer-events güvenliği eklendi |
+| `lib/translations.ts` | ➕ Merkezi i18n yapısına `featureAnimations.marquee[]` ve `featureAnimations.docList[]` alanları eklendi (TR + EN) |
+| `app/globals.css` | ➕ Yeni animasyon keyframe/utility sınıfları eklendi: `marquee-x`, `marquee-y`, `soft-beam-sweep`, `soft-fade-up`, `animate-marquee-x/y`, `mask-fade-horizontal/vertical`; reduced-motion kuralları genişletildi |
+
+### Commit 24 (Border Beam Magic UI Birebir Düzeltme):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/ui/border-beam.tsx` | ♻️ Bileşen API'si Magic UI çizgisine taşındı: `size`, `duration`, `anchor`, `borderWidth`, `colorFrom`, `colorTo`, `delay`, `className`, `style`, `reverse`, `initialOffset`, `transition`; `opacity` prop'u kaldırıldı |
+| `components/ui/border-beam.tsx` | ♻️ Implementasyon `motion + offsetPath(rect) + offsetDistance` ve mask compositing tekniğine geçirildi; reduced-motion modunda statik ama görünür beam davranışı eklendi |
+| `components/FeaturesSection.tsx` | ♻️ AI Mentor kartında beam katman sırası düzeltildi (`z-index`); kullanım `duration={8}` ve `size={100}` olacak şekilde Magic UI demosuna yaklaştırıldı |

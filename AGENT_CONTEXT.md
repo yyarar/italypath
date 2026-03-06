@@ -70,7 +70,11 @@ italypath-main/
 │   ├── IseeSection.tsx             # Ana sayfa ISEE hesaplayıcı CTA kartı
 │   ├── RouteTransition.tsx         # Route geçiş katmanı (Framer Motion + reduced-motion fallback)
 │   ├── ScrollProgress.tsx          # Scroll ilerleme çubuğu (Framer Motion useScroll + useSpring)
-│   └── Footer.tsx                  # Alt bilgi (logo, sosyal etiketler)
+│   ├── Footer.tsx                  # Alt bilgi (logo, sosyal etiketler)
+│   └── ui/
+│       ├── marquee.tsx             # Sonsuz kayan metin/ikon animasyon bileşeni (Magic UI yaklaşımı)
+│       ├── animated-list.tsx       # Döngüsel bildirim/liste animasyon bileşeni
+│       └── border-beam.tsx         # Kart kenarı boyunca akan beam efekti (Magic UI tarzı)
 ├── context/
 │   └── LanguageContext.tsx          # TR/EN dil sistemi (Context + localStorage)
 ├── lib/
@@ -95,7 +99,7 @@ italypath-main/
 ### 1. Dil Sistemi (i18n)
 - `context/LanguageContext.tsx` → React Context + `localStorage` ile dil tercihi saklanır
 - `LanguageProvider`, aktif dili runtime'da `document.documentElement.lang` ile senkronlar
-- `lib/translations.ts` → Tüm UI metinleri burada (navbar, hero, list, detail, isee, favorites, documents, bottomNav, department)
+- `lib/translations.ts` → Tüm UI metinleri burada (navbar, hero, list, detail, isee, favorites, documents, bottomNav, department, featureAnimations)
 - Üniversite verileri (`data.ts`) → `description_en`, `features_en` opsiyonel alanları ile çift dilli
 - Dil değiştirme: Navbar ve üniversite listesi gibi toggle sunan ekranlarda `toggleLanguage()` çağrılır
 
@@ -150,6 +154,12 @@ italypath-main/
 - `BottomNav`, `HeroSection`, `ai-mentor/page.tsx` içinde `useReducedMotion` ile sürekli/pulse animasyonlar azaltılmış hareket tercihine göre devre dışı kalır
 - `app/globals.css` içinde `@media (prefers-reduced-motion: reduce)` ile CSS tabanlı sonsuz animasyonlar kapatılır
 - `app/globals.css` içindeki `overscroll-behavior-y: none` kaldırılarak platformun doğal scroll/overscroll davranışı korunur
+
+### 9. Magic UI Esintili Bento Arka Planları
+- Ana sayfa `FeaturesSection` kartları dekoratif arka plan katmanlarıyla çalışır: Üniversiteler kartında `Marquee`, Belge kartında `AnimatedList`, AI kartında `BorderBeam`
+- Arka plan metinleri hard-code değil, `lib/translations.ts` içindeki `featureAnimations` alanından dil uyumlu (TR/EN) okunur
+- Kartlarda `pointer-events-none` ve soft mask (`bg-gradient`) katmanı ile hem etkileşim güvenliği hem içerik okunurluğu korunur
+- `BorderBeam` bileşeni Magic UI tekniğine yakın şekilde `offsetPath(rect)` + `offsetDistance` + mask compositing ile uygulanır; reduced-motion modunda statik beam gösterir
 
 ---
 
@@ -358,6 +368,23 @@ italypath-main/
 |-------|-----------|
 | `app/layout.tsx` | ♻️ `<BottomNav />`, `RouteTransition` içine alındı; sayfa geçişleri tek katmanda bütünleşti |
 | `app/globals.css` | ♻️ `overscroll-behavior-y: none` kaldırıldı; doğal platform scroll/overscroll davranışı geri kazanıldı |
+
+### Commit 23 (Magic UI Bento Arka Plan Animasyonları):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/ui/marquee.tsx` | 🆕 Magic UI yaklaşımıyla sonsuz yatay/dikey kayan içerik bileşeni eklendi (`repeat`, `duration`, `reverse`, `pauseOnHover`, reduced-motion fallback) |
+| `components/ui/animated-list.tsx` | 🆕 Döngüsel bildirim/liste animasyonu eklendi (`AnimatePresence`, interval tabanlı sıralı akış, reduced-motion fallback) |
+| `components/ui/border-beam.tsx` | 🆕 İlk sürüm border beam bileşeni eklendi (AI kart arka plan entegrasyonu için) |
+| `components/FeaturesSection.tsx` | ♻️ Bento kartları dekoratif arka plan katmanlarıyla güncellendi: Üniversite kartına `Marquee`, Belge kartına `AnimatedList`, AI kartına `BorderBeam`; soft mask + pointer-events güvenliği eklendi |
+| `lib/translations.ts` | ➕ Merkezi i18n yapısına `featureAnimations.marquee[]` ve `featureAnimations.docList[]` alanları eklendi (TR + EN) |
+| `app/globals.css` | ➕ Yeni animasyon keyframe/utility sınıfları eklendi: `marquee-x`, `marquee-y`, `soft-beam-sweep`, `soft-fade-up`, `animate-marquee-x/y`, `mask-fade-horizontal/vertical`; reduced-motion kuralları genişletildi |
+
+### Commit 24 (Border Beam Magic UI Birebir Düzeltme):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/ui/border-beam.tsx` | ♻️ Bileşen API'si Magic UI çizgisine taşındı: `size`, `duration`, `anchor`, `borderWidth`, `colorFrom`, `colorTo`, `delay`, `className`, `style`, `reverse`, `initialOffset`, `transition`; `opacity` prop'u kaldırıldı |
+| `components/ui/border-beam.tsx` | ♻️ Implementasyon `motion + offsetPath(rect) + offsetDistance` ve mask compositing tekniğine geçirildi; reduced-motion modunda statik ama görünür beam davranışı eklendi |
+| `components/FeaturesSection.tsx` | ♻️ AI Mentor kartında beam katman sırası düzeltildi (`z-index`); kullanım `duration={8}` ve `size={100}` olacak şekilde Magic UI demosuna yaklaştırıldı |
 
 ---
 
