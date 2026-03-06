@@ -112,6 +112,62 @@
   }
 }
 
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap, 0.75rem)));
+  }
+}
+
+@keyframes marquee-y {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap, 0.75rem)));
+  }
+}
+
+@keyframes soft-beam-sweep {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.02);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes soft-fade-up {
+  0% {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+
+  25% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  75% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+}
+
 /* ─── Utility Classes ───────────────────────────────────────── */
 
 /* Glassmorphism */
@@ -221,6 +277,33 @@
   animation: fade-in-up 0.6s ease both;
 }
 
+.animate-marquee-x {
+  animation: marquee-x var(--duration, 30s) linear infinite;
+}
+
+.animate-marquee-y {
+  animation: marquee-y var(--duration, 30s) linear infinite;
+}
+
+.animate-soft-beam {
+  animation: soft-beam-sweep var(--duration, 10s) linear infinite;
+  will-change: transform;
+}
+
+.animate-soft-fade-up {
+  animation: soft-fade-up var(--duration, 6s) ease-in-out infinite;
+}
+
+.mask-fade-horizontal {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.mask-fade-vertical {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+}
+
 /* ─── Base Layer ────────────────────────────────────────────── */
 
 @layer base {
@@ -289,7 +372,11 @@ main {
   .shimmer,
   .animate-fade-in-up,
   .border-beam-wrapper::before,
-  .pulse-ring::before {
+  .pulse-ring::before,
+  .animate-marquee-x,
+  .animate-marquee-y,
+  .animate-soft-beam,
+  .animate-soft-fade-up {
     animation: none !important;
   }
 }

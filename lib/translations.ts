@@ -26,6 +26,26 @@ export const translations = {
       card3Title: "Belge Cüzdanı",
       card3Desc: "Pasaport, transkript ve dil belgelerini tara, güvenle sakla ve her yerden ulaş.",
     },
+    featureAnimations: {
+      marquee: [
+        "Milano",
+        "Roma",
+        "Bologna",
+        "Padova",
+        "Torino",
+        "Sapienza",
+        "Bocconi",
+        "Politecnico di Milano",
+        "Floransa",
+        "Pisa"
+      ],
+      docList: [
+        { title: "Transkript yüklendi", subtitle: "Belge Cüzdanı • şimdi" },
+        { title: "Pasaport doğrulandı", subtitle: "Güvenli depolama • 2 dk önce" },
+        { title: "Dil sertifikası eklendi", subtitle: "Kontrol tamamlandı • 5 dk önce" },
+        { title: "Diploma PDF kaydedildi", subtitle: "Şifreli klasör • 8 dk önce" }
+      ]
+    },
     detail: {
       back: "Geri Dön",
       about: "Üniversite Hakkında",
@@ -169,6 +189,26 @@ export const translations = {
       card2Desc: "Ask questions without waiting. AI that creates a personalized roadmap for you.",
       card3Title: "Document Wallet",
       card3Desc: "Scan your passport, transcripts, and language certificates. Store them securely and access from anywhere.",
+    },
+    featureAnimations: {
+      marquee: [
+        "Milan",
+        "Rome",
+        "Bologna",
+        "Padua",
+        "Turin",
+        "Sapienza",
+        "Bocconi",
+        "Politecnico di Milano",
+        "Florence",
+        "Pisa"
+      ],
+      docList: [
+        { title: "Transcript uploaded", subtitle: "Document Wallet • now" },
+        { title: "Passport verified", subtitle: "Secure storage • 2 min ago" },
+        { title: "Language certificate added", subtitle: "Validation complete • 5 min ago" },
+        { title: "Diploma PDF saved", subtitle: "Encrypted folder • 8 min ago" }
+      ]
     },
     detail: {
       back: "Go Back",
