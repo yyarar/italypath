@@ -23,6 +23,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --animate-pulsating-button: pulsating-button var(--duration, 1.5s) ease-out infinite;
 }
 
 /* ─── Keyframes ─────────────────────────────────────────────── */
@@ -170,6 +171,17 @@
   }
 }
 
+@keyframes pulsating-button {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--pulse-color);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px var(--pulse-color);
+  }
+}
+
 /* ─── Utility Classes ───────────────────────────────────────── */
 
 /* Glassmorphism */
@@ -302,6 +314,10 @@
   animation: soft-fade-up var(--duration, 6s) ease-in-out infinite;
 }
 
+.animate-pulsating-button {
+  animation: var(--animate-pulsating-button);
+}
+
 .mask-fade-horizontal {
   -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
   mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
@@ -385,7 +401,8 @@ main {
   .animate-marquee-y,
   .animate-soft-beam,
   .animate-border-beam,
-  .animate-soft-fade-up {
+  .animate-soft-fade-up,
+  .animate-pulsating-button {
     animation: none !important;
   }
 }

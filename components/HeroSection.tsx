@@ -1,13 +1,15 @@
 "use client";
 
 import { useRef } from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ArrowRight, Sparkles, GraduationCap } from 'lucide-react';
 import { motion, useMotionTemplate, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import { PulsatingButton } from '@/components/ui/pulsating-button';
 
 export default function HeroSection() {
     const { t } = useLanguage();
+    const router = useRouter();
     const shouldReduceMotion = useReducedMotion();
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -123,25 +125,20 @@ export default function HeroSection() {
                     ))}
                 </motion.div>
 
-                {/* CTA Button with border-beam */}
+                {/* CTA Button with pulsating effect */}
                 <motion.div variants={itemVariants} className="flex justify-center">
-                    <Link href="/universities" className="group relative inline-flex items-center justify-center">
-                        {/* Border beam outer */}
-                        <span className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none z-0">
-                            <span
-                                className="absolute inset-0 rounded-2xl"
-                                style={{
-                                    background: 'conic-gradient(from 180deg, transparent 0%, #4f46e5 20%, #818cf8 40%, transparent 60%, transparent 100%)',
-                                    animation: shouldReduceMotion ? 'none' : 'beam-rotate 3s linear infinite',
-                                    transformOrigin: 'center',
-                                }}
-                            />
-                        </span>
-                        <motion.span
-                            whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
-                            whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                            className="relative z-10 flex items-center px-10 py-4 bg-indigo-600 text-white rounded-[14px] font-bold text-lg shadow-2xl shadow-indigo-600/30 m-[1.5px]"
+                    <motion.div
+                        whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
+                        whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                    >
+                        <PulsatingButton
+                            type="button"
+                            onClick={() => router.push('/universities')}
+                            duration="2.4s"
+                            pulseColor="rgba(99,102,241,0.35)"
+                            className="bg-indigo-600 text-white rounded-[14px] px-10 py-4 font-bold text-lg shadow-2xl shadow-indigo-600/30"
+                            aria-label={t.hero.btnPrimary}
                         >
                             {t.hero.btnPrimary}
                             <motion.span
@@ -152,8 +149,8 @@ export default function HeroSection() {
                             >
                                 <ArrowRight className="w-5 h-5" />
                             </motion.span>
-                        </motion.span>
-                    </Link>
+                        </PulsatingButton>
+                    </motion.div>
                 </motion.div>
 
                 {/* Social proof footnote */}

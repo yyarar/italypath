@@ -74,12 +74,14 @@ italypath-main/
 │   └── ui/
 │       ├── marquee.tsx             # Sonsuz kayan metin/ikon animasyon bileşeni (Magic UI yaklaşımı)
 │       ├── animated-list.tsx       # Döngüsel bildirim/liste animasyon bileşeni
-│       └── border-beam.tsx         # Kart kenarı boyunca akan beam efekti (Magic UI tarzı)
+│       ├── border-beam.tsx         # Kart kenarı boyunca akan beam efekti (Magic UI tarzı)
+│       └── pulsating-button.tsx    # Hero CTA için Magic UI pulsating button bileşeni
 ├── context/
 │   └── LanguageContext.tsx          # TR/EN dil sistemi (Context + localStorage)
 ├── lib/
 │   ├── supabaseClient.ts           # Supabase client (anon key)
 │   ├── translations.ts             # Tüm UI çevirileri (TR + EN)
+│   ├── utils.ts                    # `cn()` className birleştirme helper'ı
 │   ├── useFavorites.ts             # Birleşik favori hook'u (localStorage + Supabase)
 │   └── useUniversitiesData.ts      # Üniversite verisi için cache'li client fetch hook'u (/api/universities)
 ├── types/
@@ -161,6 +163,11 @@ italypath-main/
 - Kartlarda `pointer-events-none` ve soft mask (`bg-gradient`) katmanı ile hem etkileşim güvenliği hem içerik okunurluğu korunur
 - `BorderBeam` bileşeni Magic UI tekniğine yakın şekilde `offsetPath(rect)` + `offsetDistance` + mask compositing ile uygulanır; animasyon motoru ilk açılış güvenilirliği için CSS keyframe (`border-beam`) kullanır, reduced-motion modunda statik beam gösterir
 
+### 10. Hero CTA Animasyonu
+- Ana sayfadaki birincil CTA (`Hemen Başla / Get Started`) için `components/ui/pulsating-button.tsx` kullanılır
+- Pulsating efekt global animasyon token'ı üzerinden (`--animate-pulsating-button`) `app/globals.css` içinde yönetilir
+- Efekt yalnızca Hero CTA'da aktif olacak şekilde sınırlandırılmıştır
+
 ---
 
 ## 🛠️ Yapılan Değişiklikler 
@@ -174,6 +181,7 @@ BURADA DEĞİL BAŞKA DOSYADA! AGENT_COMMITS.MD DOSYASINA BAK!
 2. **Tekrarlanan görseller:** `data.ts`'te yeni eklenen 17 üniversite ve id 30+ üniversitelerin çoğu aynı placeholder görseli kullanıyor.
 3. **Üniversite Karşılaştırma:** 2-3 üniversiteyi yan yana kıyaslama (ücret, bölüm sayısı, şehir, özellikler). Mevcut `data.ts` yapısıyla yapılabilir, ek veri gerekmez. Favori sisteminden beslenebilir.
 4. **Şehir Rehberi:** Her şehir için yaşam maliyeti, ulaşım, iklim, öğrenci nüfusu bilgisi. Şehir filtresi zaten mevcut — detay sayfası eklenebilir.
+5. **AI Mentor girişsiz kullanımda `Failed to fetch` deneyimi:** `/ai-mentor` sayfası public iken `/api/chat` route'u Clerk `auth.protect()` ile korumalı. Giriş yapılmadan soru gönderildiğinde network/auth boundary kaynaklı `Failed to fetch` görülebiliyor; giriş yapıldıktan sonra akış normal çalışıyor. Şimdilik bilinçli olarak çözüm uygulanmadı (ileride UX veya auth stratejisiyle ele alınacak).
 
 ### 🟢 Düşük Öncelik
 1. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı.

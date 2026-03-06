@@ -228,3 +228,23 @@
 | `components/ui/border-beam.tsx` | ♻️ `useReducedMotion` akışı netleştirildi (`null` fallback), reduced-motion modunda beam statik pozisyonda görünür bırakıldı |
 | `components/ui/border-beam.tsx` | ♻️ Safari uyumluluğu için `WebkitMask*` ve `WebkitOffset*` stilleri güçlendirildi; `transition.duration/delay` değerleri backward-compat olarak CSS süresine yansıtıldı |
 | `app/globals.css` | ➕ `.animate-border-beam` utility sınıfı eklendi; `@keyframes border-beam` içine `-webkit-offset-distance` satırları eklendi; reduced-motion bloğuna `animate-border-beam` dahil edildi |
+
+### Commit 26 (Build Type Error Stabilizasyonu):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/FeaturesSection.tsx` | ♻️ Vercel TypeScript build hatası için `useReducedMotion()` çıktısı `boolean`'a normalize edildi (`const shouldReduceMotion = useReducedMotion() ?? false`) |
+| `components/ui/border-beam.tsx` | ♻️ CSS değişken tipleri genişletildi (`WebkitOffsetPath/WebkitOffsetDistance`) ve `tsc` uyumluluğu güçlendirildi |
+
+### Commit 27 (Hero CTA — Magic UI Pulsating Button):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/ui/pulsating-button.tsx` | 🆕 Magic UI dokümantasyonuna uyumlu `PulsatingButton` bileşeni eklendi (`pulseColor`, `duration`, `forwardRef`) |
+| `components/HeroSection.tsx` | ♻️ Ana CTA (`Hemen Başla / Get Started`) yeni `PulsatingButton` ile değiştirildi; efekt yalnızca bu butona uygulandı |
+| `app/globals.css` | ➕ `pulsating-button` keyframe'i, `--animate-pulsating-button` token'ı ve `.animate-pulsating-button` utility sınıfı eklendi; reduced-motion bloğuna dahil edildi |
+| `lib/utils.ts` | 🆕 `cn()` yardımcı fonksiyonu eklendi (UI className birleştirme için) |
+
+### Commit 28 (Agent Dokümantasyon Senkronu):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `AGENT_CONTEXT.md` | ♻️ Orta öncelik listesine AI Mentor için "girişsiz `Failed to fetch`" problemi netleştirildi; giriş yapıldığında çalıştığı notu eklendi |
+| `AGENT_COMMITS.md` | ♻️ Son yapılan stabilizasyon ve CTA animasyon değişikliklerini kapsayan commit geçmişi agent dokümantasyonu ile hizalandı |
