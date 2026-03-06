@@ -159,7 +159,7 @@ italypath-main/
 - Ana sayfa `FeaturesSection` kartları dekoratif arka plan katmanlarıyla çalışır: Üniversiteler kartında `Marquee`, Belge kartında `AnimatedList`, AI kartında `BorderBeam`
 - Arka plan metinleri hard-code değil, `lib/translations.ts` içindeki `featureAnimations` alanından dil uyumlu (TR/EN) okunur
 - Kartlarda `pointer-events-none` ve soft mask (`bg-gradient`) katmanı ile hem etkileşim güvenliği hem içerik okunurluğu korunur
-- `BorderBeam` bileşeni Magic UI tekniğine yakın şekilde `offsetPath(rect)` + `offsetDistance` + mask compositing ile uygulanır; reduced-motion modunda statik beam gösterir
+- `BorderBeam` bileşeni Magic UI tekniğine yakın şekilde `offsetPath(rect)` + `offsetDistance` + mask compositing ile uygulanır; animasyon motoru ilk açılış güvenilirliği için CSS keyframe (`border-beam`) kullanır, reduced-motion modunda statik beam gösterir
 
 ---
 

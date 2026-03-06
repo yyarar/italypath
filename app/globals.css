@@ -30,10 +30,12 @@
 @keyframes border-beam {
   0% {
     offset-distance: 0%;
+    -webkit-offset-distance: 0%;
   }
 
   100% {
     offset-distance: 100%;
+    -webkit-offset-distance: 100%;
   }
 }
 
@@ -290,6 +292,12 @@
   will-change: transform;
 }
 
+.animate-border-beam {
+  animation-name: border-beam;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
 .animate-soft-fade-up {
   animation: soft-fade-up var(--duration, 6s) ease-in-out infinite;
 }
@@ -376,6 +384,7 @@ main {
   .animate-marquee-x,
   .animate-marquee-y,
   .animate-soft-beam,
+  .animate-border-beam,
   .animate-soft-fade-up {
     animation: none !important;
   }

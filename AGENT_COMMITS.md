@@ -220,3 +220,11 @@
 | `components/ui/border-beam.tsx` | ♻️ Bileşen API'si Magic UI çizgisine taşındı: `size`, `duration`, `anchor`, `borderWidth`, `colorFrom`, `colorTo`, `delay`, `className`, `style`, `reverse`, `initialOffset`, `transition`; `opacity` prop'u kaldırıldı |
 | `components/ui/border-beam.tsx` | ♻️ Implementasyon `motion + offsetPath(rect) + offsetDistance` ve mask compositing tekniğine geçirildi; reduced-motion modunda statik ama görünür beam davranışı eklendi |
 | `components/FeaturesSection.tsx` | ♻️ AI Mentor kartında beam katman sırası düzeltildi (`z-index`); kullanım `duration={8}` ve `size={100}` olacak şekilde Magic UI demosuna yaklaştırıldı |
+
+### Commit 25 (Border Beam İlk Açılış Donukluk Fix — CSS Motoru):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/ui/border-beam.tsx` | ♻️ Beam animasyonu Framer Motion'dan CSS keyframe (`border-beam`) motoruna taşındı; `offsetPath(rect)` tekniği korundu ve ilk mount/hydration anında donuk başlama sorunu hedeflenerek stabil başlangıç sağlandı |
+| `components/ui/border-beam.tsx` | ♻️ `useReducedMotion` akışı netleştirildi (`null` fallback), reduced-motion modunda beam statik pozisyonda görünür bırakıldı |
+| `components/ui/border-beam.tsx` | ♻️ Safari uyumluluğu için `WebkitMask*` ve `WebkitOffset*` stilleri güçlendirildi; `transition.duration/delay` değerleri backward-compat olarak CSS süresine yansıtıldı |
+| `app/globals.css` | ➕ `.animate-border-beam` utility sınıfı eklendi; `@keyframes border-beam` içine `-webkit-offset-distance` satırları eklendi; reduced-motion bloğuna `animate-border-beam` dahil edildi |
