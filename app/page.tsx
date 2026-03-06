@@ -3,6 +3,7 @@
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/FeaturesSection';
+import VelocityBridge from '@/components/VelocityBridge';
 import IseeSection from '@/components/IseeSection';
 import Footer from '@/components/Footer';
 
@@ -12,6 +13,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <FeaturesSection />
+      <VelocityBridge />
       <IseeSection />
       <Footer />
     </div>
