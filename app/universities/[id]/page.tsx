@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, ArrowLeft, ArrowRight, Globe, GraduationCap, Banknote, BookOpen, CheckCircle, Sparkles, Heart } from 'lucide-react';
@@ -15,12 +15,23 @@ const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756ded
 
 export default function UniversityDetailPage() {
   const params = useParams();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { t, language } = useLanguage();
   const { isFavorite, toggleFavorite, loading, isLoggedIn } = useFavorites();
   const { universities, loading: universitiesLoading, error: universitiesError } = useUniversitiesData();
   const aiMentorHref = isLoggedIn
     ? '/ai-mentor'
     : '/sign-in?redirect_url=%2Fai-mentor';
+
+  const handleBack = () => {
+    const cameFromList = searchParams.get('from') === 'list';
+    if (cameFromList && typeof window !== 'undefined' && window.history.length > 1) {
+      router.back();
+      return;
+    }
+    router.push('/universities');
+  };
 
   const idFromUrl = Array.isArray(params?.id) ? params?.id[0] : params?.id;
   const university = useMemo(() => {
@@ -91,13 +102,14 @@ export default function UniversityDetailPage() {
 
         {/* Back + Fav buttons */}
         <div className="absolute top-6 left-6 z-20">
-          <Link
-            href="/universities"
+          <button
+            type="button"
+            onClick={handleBack}
             className="flex items-center text-white/90 glass-dark hover:bg-white/20 px-4 py-2 rounded-full transition font-semibold text-sm gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
             {t.detail.back}
-          </Link>
+          </button>
         </div>
         <div className="absolute top-6 right-6 z-20">
           <motion.button

@@ -269,7 +269,10 @@ function UniversitiesContent() {
                                     variants={cardVariants}
                                     className="block h-full"
                                 >
-                                    <Link href={`/universities/${uni.id}`} className="block h-full">
+                                    <Link
+                                        href={{ pathname: `/universities/${uni.id}`, query: { from: 'list' } }}
+                                        className="block h-full"
+                                    >
                                         <motion.div
                                             whileHover={{ y: -6, boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}
                                             transition={{ type: "spring", stiffness: 300, damping: 25 }}
