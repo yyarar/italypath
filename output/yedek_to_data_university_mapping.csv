@@ -1,0 +1,218 @@
+yedek_id,yedek_university_name,yedek_city,department_name,mapped_data_university_id,mapped_data_university_name,match_type
+1,Libera Università di Bolzano,Bolzano,Sustainable Agriculture and Forestry in Mountain Environments,6,Free University of Bozen-Bolzano,alias
+2,Università degli Studi di Milano,Milano,Ancient Civilizations for the Contemporary World,10,University of Milan (Statale),alias
+3,Università degli Studi di Padova,Padova,Animal Care,4,University of Padua,alias
+4,Università degli Studi di Roma La Sapienza,Roma,Applied Computer Science and Artificial Intelligence,2,Sapienza University of Rome,alias
+5,Politecnico di Bari,Bari,Architecture Sciences for Heritage,46,Politecnico di Bari,exact
+6,Politecnico di Torino,Torino,Architecture,5,Politecnico di Torino,exact
+7,Università degli Studi di Pavia,Pavia,Artificial Intelligence,15,University of Pavia,alias
+8,Università degli Studi di Padova,Padova,Health Assistance,4,University of Padua,alias
+9,Università degli Studi di Roma La Sapienza,Roma,Bioinformatics,2,Sapienza University of Rome,alias
+10,Università degli Studi di Napoli Federico II,Napoli,Biology for One-Health,14,University of Naples Federico II,alias
+11,Università degli Studi di Padova,Padova,Biology of Human and Environmental Health,4,University of Padua,alias
+12,Università Campus Bio-Medico di Roma,Roma,Biomedical Engineering,47,Università Campus Bio-Medico di Roma,exact
+13,Università degli Studi di Camerino,Camerino,Biosciences and Biotechnology,30,University of Camerino,alias
+14,Università degli Studi di Siena,Siena,Biotech Engineering for Health,16,University of Siena,alias
+15,Università degli Studi di Teramo,Teramo,Biotechnology,48,Università degli Studi di Teramo,exact
+16,Università degli Studi di Torino,Torino,Biotechnology,11,University of Turin,alias
+17,Università degli Studi del Piemonte Orientale,Piemonte,Biotechnology,49,Università degli Studi del Piemonte Orientale,exact
+18,Università degli Studi di Messina,Messina,Biotechnology,17,University of Messina,alias
+19,Università degli Studi di Milano,Milano,Medical Biotechnology,10,University of Milan (Statale),alias
+20,Alma Mater Studiorum - Università di Bologna,Bologna,Building Construction Engineering,3,University of Bologna,alias
+21,Università degli Studi di Torino,Torino,Business & Management,11,University of Turin,alias
+22,Università Commerciale Luigi Bocconi,Milano,Business (World Bachelor in Business),7,Bocconi University,alias
+23,Luiss Guido Carli,Roma,Business Administration,12,Luiss Guido Carli,exact
+24,Università degli Studi di Roma Tor Vergata,Roma,Business Administration & Economics,13,University of Rome Tor Vergata,alias
+25,Università Ca' Foscari Venezia,Venedik,Business Administration and Management,9,Ca' Foscari University of Venice,alias
+26,Alma Mater Studiorum - Università di Bologna,Bologna,Business and Economics,3,University of Bologna,alias
+27,Università degli Studi di Brescia,Brescia,Business and Economics,27,University of Brescia,alias
+28,Università Cattolica del Sacro Cuore,Milano,Business and Finance,8,Università Cattolica del Sacro Cuore,exact
+29,Politecnico di Torino,Torino,Civil and Environmental Engineering,5,Politecnico di Torino,exact
+30,Università degli Studi di Napoli Federico II,Napoli,Civil and Environmental Engineering,14,University of Naples Federico II,alias
+31,Università degli Studi di Roma La Sapienza,Roma,Classics,2,Sapienza University of Rome,alias
+32,Libera Università di Lingue e Comunicazione IULM,Milano,Corporate Communication and Public Relations,44,IULM University,alias
+33,Università Cattolica del Sacro Cuore,Milano,Communication and Society,8,Università Cattolica del Sacro Cuore,exact
+34,Università degli Studi della Campania Luigi Vanvitelli,Caserta,Data Analytics,24,Vanvitelli University,alias
+35,Università degli Studi di Parma,Parma,Dental Hygiene,23,University of Parma,alias
+36,Università degli Studi della Tuscia,Viterbo,Design,32,University of Tuscia,alias
+37,Libera Università di Bolzano,Bolzano,Design and Art,6,Free University of Bozen-Bolzano,alias
+38,Università degli Studi di Napoli Federico II,Napoli,Community Design,14,University of Naples Federico II,alias
+39,Università Politecnica delle Marche,Ancona,Dietistic,22,Marche Polytechnic University,alias
+40,Università Politecnica delle Marche,Ancona,Digital Economics and Business,22,Marche Polytechnic University,alias
+41,Università Ca' Foscari Venezia,Venedik,Digital Management,9,Ca' Foscari University of Venice,alias
+42,Università di Pisa,Pisa,Studies in Performing Arts and Communication,19,University of Pisa,alias
+43,Università Telematica Internazionale UNINETTUNO,Uzaktan Eğitim / Roma,Psycho-Social Disciplines,50,Università Telematica Internazionale UNINETTUNO,exact
+44,Università degli Studi di Padova,Padova,Earth and Climate Dynamics,4,University of Padua,alias
+45,Università degli Studi di Trieste,Trieste,Earth Sciences for Sustainable Development,21,University of Trieste,alias
+46,Università degli Studi di Bari Aldo Moro,Bari,Earth System and Global Changes,51,Università degli Studi di Bari Aldo Moro,exact
+47,Università degli Studi di Torino,Torino,Economics,11,University of Turin,alias
+48,Università degli Studi di Bergamo,Bergamo,Business Administration,26,University of Bergamo,alias
+49,Università degli Studi di Napoli Parthenope,Napoli,Business Administration,35,University of Naples Parthenope,alias
+50,Università Cattolica del Sacro Cuore,Milano / Roma,Business Administration,8,Università Cattolica del Sacro Cuore,exact
+51,Università degli Studi Guglielmo Marconi - Telematica,Roma,Business Economics and Management,52,Università degli Studi Guglielmo Marconi - Telematica,exact
+52,Università Cattolica del Sacro Cuore,Milano,Business Administration Replica,8,Università Cattolica del Sacro Cuore,exact
+53,Alma Mater Studiorum - Università di Bologna,Bologna,Business Economics,3,University of Bologna,alias
+54,Università degli Studi di Cassino e del Lazio Meridionale,Cassino,Economics and Business,31,University of Cassino,alias
+55,Università degli Studi di Palermo,Palermo,"Economics, International Cooperation and Sustainable Development",25,University of Palermo,alias
+56,Università degli Studi di Palermo,Palermo,Economics and Finance,25,University of Palermo,alias
+57,Università degli Studi di Roma La Sapienza,Roma,Economics and Finance,2,Sapienza University of Rome,alias
+58,Università degli Studi Europea di Roma,Roma,Economics and Business Management,43,European University of Rome,alias
+59,Università degli Studi di Trieste,Trieste,Business Administration and Management,21,University of Trieste,alias
+60,Università degli Studi di Cagliari,Cagliari,Business and Economics,53,Università degli Studi di Cagliari,exact
+61,Università Telematica Internazionale UNINETTUNO,Online / Roma,Economics and Business Administration,50,Università Telematica Internazionale UNINETTUNO,exact
+62,Università degli Studi di Urbino Carlo Bo,Urbino,Economics and Management,39,University of Urbino Carlo Bo,alias
+63,Università Carlo Cattaneo - LIUC,Castellanza,Economics and Management,54,Università Carlo Cattaneo - LIUC,exact
+64,Libera Università di BOLZANO,Bolzano,Economics and Management,6,Free University of Bozen-Bolzano,alias
+65,LINK CAMPUS University,Roma,Business and Institutional Economics and Management,42,Link Campus University,exact
+66,Università Commerciale Luigi Bocconi MILANO,Milano,"Economics and Management for Arts, Culture and Communication",7,Bocconi University,alias
+67,LUM Giuseppe Degennaro,Casamassima,Business Economics and Organization,55,LUM Giuseppe Degennaro,exact
+68,Università degli Studi di TRIESTE,Trieste,International Economics and Financial Markets,21,University of Trieste,alias
+69,Università degli Studi di MESSINA,Messina,"Economics, Banking and Finance",17,University of Messina,alias
+70,Libera Università di BOLZANO,Bolzano,"Economics, Politics and Ethics",6,Free University of Bozen-Bolzano,alias
+71,Università Commerciale Luigi Bocconi MILANO,Milano,Economic and Social Sciences,7,Bocconi University,alias
+72,Università Ca' Foscari VENEZIA,Venedik,Economics and Business,9,Ca' Foscari University of Venice,alias
+73,Luiss Libera Università internazionale degli studi sociali Guido Carli,Roma,Economics and Business,12,Luiss Guido Carli,alias
+74,Università degli Studi G. d'Annunzio CHIETI-PESCARA,Pescara,Economics and Finance,56,Università degli Studi G. d'Annunzio CHIETI-PESCARA,exact
+75,Alma Mater Studiorum - Università di BOLOGNA,Bologna,Economics and Finance,3,University of Bologna,alias
+76,Università degli Studi di TORINO,Torino,Economics and Finance with Data Science,11,University of Turin,alias
+77,Università Cattolica del Sacro Cuore,Milano,Economics and Management,8,Università Cattolica del Sacro Cuore,exact
+78,Università degli Studi di SIENA,Siena,Economics and Management,16,University of Siena,alias
+79,Università degli Studi di MILANO-BICOCCA,Milano,Economics and Science for Environmental Sustainability,29,University of Milano-Bicocca,alias
+80,Alma Mater Studiorum - Università di BOLOGNA,Bologna / Rimini,Economics of Tourism and Cities,3,University of Bologna,alias
+81,Università degli Studi di Cassino e del Lazio Meridionale,Cassino,Economics with Data Science,31,University of Cassino,alias
+82,Università Commerciale Luigi Bocconi MILANO,Milano,"Economics, Management and Computer Science",7,Bocconi University,alias
+83,Alma Mater Studiorum - Università di BOLOGNA,Bologna,"Economics, Politics and Social Sciences",3,University of Bologna,alias
+84,Università degli Studi di MILANO,Milano,"Economics: Behavior, Data and Policy",10,University of Milan (Statale),alias
+85,Politecnico di TORINO,Torino,Electronic and Communications Engineering,5,Politecnico di Torino,exact
+86,Università degli Studi di PERUGIA,Perugia,Engineering Management,33,University of Perugia,alias
+87,Università degli Studi di ROMA Tor Vergata,Roma,Engineering Sciences,13,University of Rome Tor Vergata,alias
+88,Università Politecnica delle MARCHE,Ancona,Environmental Sciences and Civil Protection,22,Marche Polytechnic University,alias
+89,Alma Mater Studiorum - Università di BOLOGNA,Bologna,European Studies,3,University of Bologna,alias
+90,Università degli Studi di CATANIA,Catania,Physics,57,Università degli Studi di CATANIA,exact
+91,Università degli Studi di FERRARA,Ferrara,Physiotherapy,58,Università degli Studi di FERRARA,exact
+92,UniCamillus - Saint Camillus International University of Health Sciences,Roma,Physiotherapy,41,UniCamillus,alias
+93,Università degli Studi di FERRARA,Bolzano,Physiotherapy Replica Bolzano,58,Università degli Studi di FERRARA,exact
+94,Alma Mater Studiorum - Università di BOLOGNA,Bologna,Genomics,3,University of Bologna,alias
+95,Università di PISA,Pisa,Geology,19,University of Pisa,alias
+96,Università degli Studi di ROMA Tor Vergata,Roma,Global Governance,13,University of Rome Tor Vergata,alias
+97,Università degli Studi di ROMA La Sapienza,Roma,Global Humanities,2,Sapienza University of Rome,alias
+98,Università Commerciale Luigi Bocconi MILANO,Milano,Global Law,7,Bocconi University,alias
+99,Luiss Libera Università internazionale degli studi sociali Guido Carli,Roma,Global Law,12,Luiss Guido Carli,alias
+100,Università degli Studi di TORINO,Torino,Global Law and Transnational Legal Studies,11,University of Turin,alias
+101,Università degli Studi di PARMA,Parma,Global Studies for Sustainable Local and International Development and Cooperation,23,University of Parma,alias
+102,Università Ca' Foscari VENEZIA,Venedik,Hospitality Innovation and E-Tourism,9,Ca' Foscari University of Venice,alias
+103,Università degli Studi di Napoli Federico II,Napoli,Hospitality Management,14,University of Naples Federico II,alias
+104,Università Politecnica delle MARCHE,Ancona,Dental Hygiene,22,Marche Polytechnic University,alias
+105,Università degli Studi di Cassino e del Lazio Meridionale,Cassino,Industrial Engineering Technology,31,University of Cassino,alias
+106,UniCamillus - Saint Camillus International University of Health Sciences,Roma,Nursing,41,UniCamillus,alias
+107,Università Ca' Foscari VENEZIA,Venedik,Computer Science,9,Ca' Foscari University of Venice,alias
+108,Università degli Studi di MESSINA,Messina,Computer Science,17,University of Messina,alias
+109,Libera Università di BOLZANO,Bolzano,Computer Science,6,Free University of Bozen-Bolzano,alias
+110,Libera Università di BOLZANO,Bolzano,Informatics and Management of Digital Business,6,Free University of Bozen-Bolzano,alias
+111,Università degli Studi di PADOVA,Padova,Information Engineering,4,University of Padua,alias
+112,Università degli Studi di MESSINA,Messina,Civil Engineering,17,University of Messina,alias
+113,Politecnico di MILANO,Milano,Civil Engineering,1,Politecnico di Milano,exact
+114,Università degli Studi Mediterranea di REGGIO CALABRIA,Reggio Calabria,Civil and Environmental Engineering for Sustainable Development,59,Università degli Studi Mediterranea di REGGIO CALABRIA,exact
+115,Università degli Studi di VERONA,Verona,Computer Engineering for Robotic and Intelligent Systems,28,University of Verona,alias
+116,Università degli Studi di ROMA La Sapienza,Roma,Environmental Engineering for Sustainable Development,2,Sapienza University of Rome,alias
+117,Università degli Studi di PADOVA,Padova,Automation and System Engineering,4,University of Padua,alias
+118,Politecnico di TORINO,Torino,Automotive Engineering,5,Politecnico di Torino,exact
+119,Politecnico di MILANO,Milano,Industrial and Production Engineering,1,Politecnico di Milano,exact
+120,Università degli Studi di PADOVA,Padova,"Internet, Multimedia and Telecommunications Engineering",4,University of Padua,alias
+121,Università degli Studi di PALERMO,Palermo,Electronics Engineering,25,University of Palermo,alias
+122,Libera Università di BOLZANO,Bolzano,Electronic and Information Engineering,6,Free University of Bozen-Bolzano,alias
+123,Università Carlo Cattaneo - LIUC,Castellanza,Industrial Engineering,54,Università Carlo Cattaneo - LIUC,exact
+124,Università degli Studi di PALERMO,Palermo,Management Engineering,25,University of Palermo,alias
+125,Università degli Studi di TRIESTE,Trieste,Industrial Engineering,21,University of Trieste,alias
+126,Libera Università di BOLZANO,Bolzano,Industrial and Mechanical Engineering,6,Free University of Bozen-Bolzano,alias
+127,Università degli Studi Guglielmo Marconi - Telematica,Online / Roma,Computer Engineering,52,Università degli Studi Guglielmo Marconi - Telematica,exact
+128,Università degli Studi di GENOVA,Genova,Computer Engineering,20,University of Genoa,alias
+129,Università degli Studi di SASSARI,Sassari,Computer Engineering,40,University of Sassari,alias
+130,Politecnico di TORINO,Torino,Computer Engineering,5,Politecnico di Torino,exact
+131,Università degli Studi di GENOVA,Imperia,Computer Engineering (Sede Imperia),20,University of Genoa,alias
+132,Università degli Studi di TRENTO,Trento,"Computer, Communications and Electronic Engineering",18,University of Trento,alias
+133,Politecnico di TORINO,Torino,Mechanical Engineering,5,Politecnico di Torino,exact
+134,Politecnico di MILANO,Milano,Mechanical Engineering,1,Politecnico di Milano,exact
+135,Politecnico di MILANO,Piacenza,Mechanical Engineering (Replica Piacenza),1,Politecnico di Milano,exact
+136,Politecnico di MILANO,Milano,Interaction Design,1,Politecnico di Milano,exact
+137,Università Commerciale Luigi Bocconi MILANO,Milano,International Economics and Finance,7,Bocconi University,alias
+138,Università Commerciale Luigi Bocconi MILANO,Milano,International Economics and Management,7,Bocconi University,alias
+139,Università Commerciale Luigi Bocconi MILANO,Milano,International Politics and Government,7,Bocconi University,alias
+140,Università degli Studi di MILANO,Milano,"International Politics, Law and Economics (IPLE)",10,University of Milan (Statale),alias
+141,Alma Mater Studiorum - Università di BOLOGNA,Bologna,International Studies,3,University of Bologna,alias
+142,Università degli Studi di MACERATA,Macerata,"International, European and Comparative Legal Studies (IECOLS)",38,University of Macerata,alias
+143,Università degli Studi di PADOVA,Padova,Italian Medieval and Renaissance Studies,4,University of Padua,alias
+144,Ateneo Straniero,Yurt Dışı / Çeşitli,Upper Limits of Maximum Systems,34,University for Foreigners of Perugia,alias
+145,Ateneo Straniero,Roma,Upper Limits of Maximum Systems Replica Roma,34,University for Foreigners of Perugia,alias
+146,Università degli Studi di ROMA La Sapienza,Roma,Oriental Languages and Civilizations,2,Sapienza University of Rome,alias
+147,Università della VALLE D'AOSTA,Aosta,Language and Communication for Business and Tourism,60,Università della VALLE D'AOSTA,exact
+148,Università Ca' Foscari VENEZIA,Venedik,"Languages, Cultures and Societies of Asia and Mediterranean Africa",9,Ca' Foscari University of Venice,alias
+149,Università degli Studi di UDINE,Udine,Management & Business Analytics,37,University of Udine,alias
+150,Luiss Libera Università internazionale degli studi sociali Guido Carli,Roma,Management and Artificial Intelligence,12,Luiss Guido Carli,alias
+151,Alma Mater Studiorum - Università di BOLOGNA,Bologna,Management and Economics,3,University of Bologna,alias
+152,Università degli Studi di MESSINA,Messina,Business Management,17,University of Messina,alias
+153,Libera Università di BOLZANO,Brunico,"Tourism, Sport and Event Management",6,Free University of Bozen-Bolzano,alias
+154,Università degli Studi di NAPOLI Parthenope,Napoli,International Business Administration and Management,35,University of Naples Parthenope,alias
+155,Università degli Studi di NAPOLI Parthenope,Napoli,Tourist Firm Management,35,University of Naples Parthenope,alias
+156,Università del SALENTO,Lecce,Digital Management,36,University of Salento,alias
+157,Politecnico di BARI,Bari,Management Engineering for Innovation,46,Politecnico di Bari,exact
+158,Università di PISA,Pisa,Management for Business and Economics,19,University of Pisa,alias
+159,Università degli Studi di MESSINA,Messina,Marine Biology and Blue Biotechnologies,17,University of Messina,alias
+160,Università degli Studi di GENOVA,Genova,Maritime Science and Technology,20,University of Genoa,alias
+161,Università degli Studi di TORINO,Torino,"Mathematics for Economics, Finance and Insurance",11,University of Turin,alias
+162,Università Commerciale Luigi Bocconi MILANO,Milano,Mathematical and Computing Sciences for Artificial Intelligence,7,Bocconi University,alias
+163,Università degli Studi di ROMA La Sapienza,Roma,"Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications",2,Sapienza University of Rome,alias
+164,Università degli Studi della Campania Luigi Vanvitelli,Napoli / Caserta,Nursing,24,Vanvitelli University,alias
+165,Università degli Studi di PALERMO,Palermo,Nursing,25,University of Palermo,alias
+166,Università degli Studi di ROMA La Sapienza,Roma,Nursing,2,Sapienza University of Rome,alias
+167,UniCamillus - Saint Camillus International University of Health Sciences,Roma,Midwifery,41,UniCamillus,alias
+168,Università Politecnica delle MARCHE,Ancona,Midwifery,22,Marche Polytechnic University,alias
+169,Università degli Studi di PERUGIA,Perugia,Optics and Optometry,33,University of Perugia,alias
+170,Università Ca' Foscari VENEZIA,Venedik,"Philosophy, International and Economic Studies",9,Ca' Foscari University of Venice,alias
+171,Università degli Studi di MILANO-BICOCCA,Milano,Physical Sciences for Innovative Technologies,29,University of Milano-Bicocca,alias
+172,Luiss Libera Università internazionale degli studi sociali Guido Carli,Roma,Politics: Philosophy and Economics,12,Luiss Guido Carli,alias
+173,Politecnico di MILANO,Milano,Architectural Design,1,Politecnico di Milano,exact
+174,Politecnico di MILANO,Mantova,Architectural Design Replica Mantova,1,Politecnico di Milano,exact
+175,Politecnico di MILANO,Piacenza,Architectural Design Replica Piacenza,1,Politecnico di Milano,exact
+176,Università degli Studi di PERUGIA,Perugia,Programming and Management of Computer Systems,33,University of Perugia,alias
+177,Università degli Studi di PADOVA,Padova,Psychological Science,4,University of Padua,alias
+178,Università degli Studi della TUSCIA,Viterbo,Agricultural and Environmental Sciences,32,University of Tuscia,alias
+179,Libera Università di BOLZANO,Bolzano,Food and Enogastronomy Sciences,6,Free University of Bozen-Bolzano,alias
+180,Università degli Studi di ROMA La Sapienza,Roma,Business Sciences,2,Sapienza University of Rome,alias
+181,Università di Pisa,Pisa,Cultural Heritage Studies,19,University of Pisa,alias
+182,Università degli Studi di Roma Tor Vergata,Roma,Tourism Sciences,13,University of Rome Tor Vergata,alias
+183,Libera Università di Bolzano,Bressanone,Social Education,6,Free University of Bozen-Bolzano,alias
+184,Libera Università di Bolzano,Bolzano,Communication Sciences and Culture,6,Free University of Bozen-Bolzano,alias
+185,Link Campus University,Roma,"Communication Sciences, Media and Digital Technologies",42,Link Campus University,exact
+186,Università degli Studi di Scienze Gastronomiche,Pollenzo,Gastronomic Sciences and Cultures,45,University of Gastronomic Sciences,alias
+187,Università degli Studi Guglielmo Marconi - Telematica,Online / Roma,Psychological Science and Techniques,52,Università degli Studi Guglielmo Marconi - Telematica,exact
+188,Università Cattolica del Sacro Cuore,Cremona,Food Science and Technology,8,Università Cattolica del Sacro Cuore,exact
+189,Università Cattolica del Sacro Cuore,Piacenza,Food Science and Technology Replica,8,Università Cattolica del Sacro Cuore,exact
+190,Università degli Studi di Trento,Trento,Biomolecular Sciences and Technology,18,University of Trento,alias
+191,Università Telematica Giustino Fortunato,Benevento / Online,Science and Technology of Transportation,62,Università Telematica Giustino Fortunato,exact
+192,Università degli Studi di Siena,Siena,Economics and Banking,16,University of Siena,alias
+193,Università degli Studi della Tuscia,Viterbo,Forestry and Environmental Sciences,32,University of Tuscia,alias
+194,Università degli Studi di Camerino,Camerino,Gastronomic Sciences,30,University of Camerino,alias
+195,Università degli Studi di Milano,Milano,Political Sciences,10,University of Milan (Statale),alias
+196,Università degli Studi di Messina,Messina,Political Sciences and International Relations,17,University of Messina,alias
+197,Università Cattolica del Sacro Cuore,Milano,Political Sciences and International Relations,8,Università Cattolica del Sacro Cuore,exact
+198,Università Cattolica del Sacro Cuore,Brescia,Political Sciences and International Relations Replica,8,Università Cattolica del Sacro Cuore,exact
+199,Link Campus University,Roma,"Political Science, Diplomacy and Government of Administrations",42,Link Campus University,exact
+200,Università per Stranieri di Perugia,Perugia,Social Sciences for Sustainability and International Cooperation,34,University for Foreigners of Perugia,alias
+201,Libera Università di Bolzano,Bressanone,Social Work,6,Free University of Bozen-Bolzano,alias
+202,Università degli Studi di Pavia,Pavia,Social Sciences for Global Challenges,15,University of Pavia,alias
+203,Università Cattolica del Sacro Cuore,Milano,Sociology,8,Università Cattolica del Sacro Cuore,exact
+204,Università di Pisa,Pisa,Historical Studies,19,University of Pisa,alias
+205,Università degli Studi di Trento,Trento,"Comparative, European and International Legal Studies",18,University of Trento,alias
+206,Università degli Studi di Napoli Parthenope,Napoli,Sustainable Blue Economy,35,University of Naples Parthenope,alias
+207,Università degli Studi di Roma La Sapienza,Roma,Sustainable Building Engineering,2,Sapienza University of Rome,alias
+208,Università degli Studi di Firenze,Floransa,Sustainable Business for Societal Challenges,63,Università degli Studi di Firenze,exact
+209,Università degli Studi di Padova,Padova,Techniques and Methods in Psychological Science,4,University of Padua,alias
+210,UniCamillus - Saint Camillus International University of Health Sciences,Roma,Biomedical Laboratory Techniques,41,UniCamillus,alias
+211,Università Politecnica delle Marche,Ancona,Imaging and Radiotherapy Techniques,22,Marche Polytechnic University,alias
+212,UniCamillus - Saint Camillus International University of Health Sciences,Roma,Imaging and Radiotherapy Techniques,41,UniCamillus,alias
+213,Università Politecnica delle Marche,Ascoli Piceno,Imaging and Radiotherapy Techniques (Replica Ascoli Piceno),22,Marche Polytechnic University,alias
+214,Università degli Studi della Tuscia,Viterbo,Food and Wine Technologies,32,University of Tuscia,alias
+215,Libera Università di Bolzano,Bolzano,Wood Technology,6,Free University of Bozen-Bolzano,alias
+216,Università degli Studi di Messina,Messina,Transnational and European Legal Studies,17,University of Messina,alias
+217,Università degli Studi Europea di Roma,Roma,Tourism and Local Development,43,European University of Rome,alias

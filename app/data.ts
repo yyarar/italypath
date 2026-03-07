@@ -30,11 +30,14 @@ export const universitiesData: University[] = [
     city: "Milano",
     type: "Devlet",
     departments: [
-      { name: "Architectural Design", slug: "architectural-design" },
       { name: "Civil Engineering", slug: "civil-engineering" },
-      { name: "Interaction Design", slug: "interaction-design" },
+      { name: "Industrial and Production Engineering", slug: "industrial-and-production-engineering" },
       { name: "Mechanical Engineering", slug: "mechanical-engineering" },
-      { name: "Industrial and Production Engineering", slug: "industrial-and-production-engineering" }
+      { name: "Mechanical Engineering (Replica Piacenza)", slug: "mechanical-engineering-replica-piacenza" },
+      { name: "Interaction Design", slug: "interaction-design" },
+      { name: "Architectural Design", slug: "architectural-design" },
+      { name: "Architectural Design Replica Mantova", slug: "architectural-design-replica-mantova" },
+      { name: "Architectural Design Replica Piacenza", slug: "architectural-design-replica-piacenza" }
     ],
     fee: "150€ - 3.898€",
     image: "https://images.unsplash.com/photo-1588523641901-a18c795682e6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG1pbGFub3xlbnwwfHwwfHx8MA%3D%3D",
@@ -50,19 +53,17 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Devlet",
     departments: [
-      { name: "Applied Computer Science & AI (ACSAI)", slug: "applied-computer-science-and-ai-acsai" },
+      { name: "Applied Computer Science and Artificial Intelligence", slug: "applied-computer-science-and-artificial-intelligence" },
       { name: "Bioinformatics", slug: "bioinformatics" },
       { name: "Classics", slug: "classics" },
-      { name: "Global Humanities", slug: "global-humanities" },
-      { name: "Sustainable Building Engineering", slug: "sustainable-building-engineering" },
-      { name: "Nursing", slug: "nursing" },
       { name: "Economics and Finance", slug: "economics-and-finance" },
-      { name: "Business Sciences", slug: "business-sciences" },
-      { name: "Environmental Engineering", slug: "environmental-engineering" },
-      { name: "Applied Computer Science and Artificial Intelligence", slug: "applied-computer-science-and-artificial-intelligence" },
+      { name: "Global Humanities", slug: "global-humanities" },
       { name: "Environmental Engineering for Sustainable Development", slug: "environmental-engineering-for-sustainable-development" },
       { name: "Oriental Languages and Civilizations", slug: "oriental-languages-and-civilizations" },
-      { name: "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications", slug: "molecular-biology-medicinal-chemistry-and-computer-science-for-pharmaceutical-applications" }
+      { name: "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications", slug: "molecular-biology-medicinal-chemistry-and-computer-science-for-pharmaceutical-applications" },
+      { name: "Nursing", slug: "nursing" },
+      { name: "Business Sciences", slug: "business-sciences" },
+      { name: "Sustainable Building Engineering", slug: "sustainable-building-engineering" }
     ],
     fee: "150€ - 2.924€",
     image: "https://images.unsplash.com/photo-1529154036614-a60975f5c760?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cm9tYXxlbnwwfHwwfHx8MA%3D%3D",
@@ -78,13 +79,6 @@ export const universitiesData: University[] = [
     city: "Bologna",
     type: "Devlet",
     departments: [
-      { name: "Business and Economics (CLABE)", slug: "business-and-economics-clabe" },
-      { name: "Economics and Finance (CLEF)", slug: "economics-and-finance-clef" },
-      { name: "International Relations", slug: "international-relations" },
-      { name: "Genomics", slug: "genomics" },
-      { name: "Economics of Tourism", slug: "economics-of-tourism" },
-      { name: "International Studies", slug: "international-studies" },
-      { name: "Statistical Sciences", slug: "statistical-sciences" },
       { name: "Building Construction Engineering", slug: "building-construction-engineering" },
       { name: "Business and Economics", slug: "business-and-economics" },
       { name: "Business Economics", slug: "business-economics" },
@@ -92,6 +86,8 @@ export const universitiesData: University[] = [
       { name: "Economics of Tourism and Cities", slug: "economics-of-tourism-and-cities" },
       { name: "Economics, Politics and Social Sciences", slug: "economics-politics-and-social-sciences" },
       { name: "European Studies", slug: "european-studies" },
+      { name: "Genomics", slug: "genomics" },
+      { name: "International Studies", slug: "international-studies" },
       { name: "Management and Economics", slug: "management-and-economics" }
     ],
     fee: "150€ - 2.500€",
@@ -108,16 +104,15 @@ export const universitiesData: University[] = [
     city: "Padova",
     type: "Devlet",
     departments: [
-      { name: "Psychological Science", slug: "psychological-science" },
       { name: "Animal Care", slug: "animal-care" },
-      { name: "Information Engineering", slug: "information-engineering" },
-      { name: "Italian Medieval Renaissance", slug: "italian-medieval-renaissance" },
+      { name: "Health Assistance", slug: "health-assistance" },
       { name: "Biology of Human and Environmental Health", slug: "biology-of-human-and-environmental-health" },
       { name: "Earth and Climate Dynamics", slug: "earth-and-climate-dynamics" },
-      { name: "Health Assistance", slug: "health-assistance" },
+      { name: "Information Engineering", slug: "information-engineering" },
       { name: "Automation and System Engineering", slug: "automation-and-system-engineering" },
       { name: "Internet, Multimedia and Telecommunications Engineering", slug: "internet-multimedia-and-telecommunications-engineering" },
       { name: "Italian Medieval and Renaissance Studies", slug: "italian-medieval-and-renaissance-studies" },
+      { name: "Psychological Science", slug: "psychological-science" },
       { name: "Techniques and Methods in Psychological Science", slug: "techniques-and-methods-in-psychological-science" }
     ],
     fee: "150€ - 2.600€",
@@ -134,12 +129,12 @@ export const universitiesData: University[] = [
     city: "Torino",
     type: "Devlet",
     departments: [
+      { name: "Architecture", slug: "architecture" },
+      { name: "Civil and Environmental Engineering", slug: "civil-and-environmental-engineering" },
+      { name: "Electronic and Communications Engineering", slug: "electronic-and-communications-engineering" },
       { name: "Automotive Engineering", slug: "automotive-engineering" },
       { name: "Computer Engineering", slug: "computer-engineering" },
-      { name: "Electronic and Communications Engineering", slug: "electronic-and-communications-engineering" },
-      { name: "Mechanical Engineering", slug: "mechanical-engineering" },
-      { name: "Architecture", slug: "architecture" },
-      { name: "Civil and Environmental Engineering", slug: "civil-and-environmental-engineering" }
+      { name: "Mechanical Engineering", slug: "mechanical-engineering" }
     ],
     fee: "150€ - 2.600€",
     image: "https://images.unsplash.com/photo-1610651219730-6b580d616e72?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -155,21 +150,20 @@ export const universitiesData: University[] = [
     city: "Bolzano",
     type: "Devlet",
     departments: [
-      { name: "Sustainable Agriculture and Forestry", slug: "sustainable-agriculture-and-forestry" },
+      { name: "Sustainable Agriculture and Forestry in Mountain Environments", slug: "sustainable-agriculture-and-forestry-in-mountain-environments" },
       { name: "Design and Art", slug: "design-and-art" },
       { name: "Economics and Management", slug: "economics-and-management" },
-      { name: "Computer Science", slug: "computer-science" },
-      { name: "Wood Technology", slug: "wood-technology" },
-      { name: "Food and Enogastronomy Sciences", slug: "food-and-enogastronomy-sciences" },
-      { name: "Sustainable Agriculture and Forestry in Mountain Environments", slug: "sustainable-agriculture-and-forestry-in-mountain-environments" },
       { name: "Economics, Politics and Ethics", slug: "economics-politics-and-ethics" },
+      { name: "Computer Science", slug: "computer-science" },
       { name: "Informatics and Management of Digital Business", slug: "informatics-and-management-of-digital-business" },
       { name: "Electronic and Information Engineering", slug: "electronic-and-information-engineering" },
       { name: "Industrial and Mechanical Engineering", slug: "industrial-and-mechanical-engineering" },
       { name: "Tourism, Sport and Event Management", slug: "tourism-sport-and-event-management" },
+      { name: "Food and Enogastronomy Sciences", slug: "food-and-enogastronomy-sciences" },
       { name: "Social Education", slug: "social-education" },
       { name: "Communication Sciences and Culture", slug: "communication-sciences-and-culture" },
-      { name: "Social Work", slug: "social-work" }
+      { name: "Social Work", slug: "social-work" },
+      { name: "Wood Technology", slug: "wood-technology" }
     ],
     fee: "150€ - 1.350€",
     image: "https://plus.unsplash.com/premium_photo-1736063854328-48347237635a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -185,15 +179,13 @@ export const universitiesData: University[] = [
     city: "Milano",
     type: "Özel",
     departments: [
-      { name: "International Economics and Management", slug: "international-economics-and-management" },
-      { name: "International Economics and Finance", slug: "international-economics-and-finance" },
-      { name: "Economic and Social Sciences", slug: "economic-and-social-sciences" },
-      { name: "Economics, Management and Computer Science", slug: "economics-management-and-computer-science" },
-      { name: "Mathematical and Computing Sciences for AI", slug: "mathematical-and-computing-sciences-for-ai" },
-      { name: "World Bachelor in Business", slug: "world-bachelor-in-business" },
       { name: "Business (World Bachelor in Business)", slug: "business-world-bachelor-in-business" },
       { name: "Economics and Management for Arts, Culture and Communication", slug: "economics-and-management-for-arts-culture-and-communication" },
+      { name: "Economic and Social Sciences", slug: "economic-and-social-sciences" },
+      { name: "Economics, Management and Computer Science", slug: "economics-management-and-computer-science" },
       { name: "Global Law", slug: "global-law" },
+      { name: "International Economics and Finance", slug: "international-economics-and-finance" },
+      { name: "International Economics and Management", slug: "international-economics-and-management" },
       { name: "International Politics and Government", slug: "international-politics-and-government" },
       { name: "Mathematical and Computing Sciences for Artificial Intelligence", slug: "mathematical-and-computing-sciences-for-artificial-intelligence" }
     ],
@@ -211,16 +203,15 @@ export const universitiesData: University[] = [
     city: "Milano",
     type: "Özel",
     departments: [
-      { name: "Economics and Management", slug: "economics-and-management" },
-      { name: "International Relations and Global Affairs", slug: "international-relations-and-global-affairs" },
-      { name: "Psychology", slug: "psychology" },
-      { name: "Food Production Management", slug: "food-production-management" },
-      { name: "Medicine (Roma)", slug: "medicine-roma" },
-      { name: "Communication and Society", slug: "communication-and-society" },
       { name: "Business and Finance", slug: "business-and-finance" },
+      { name: "Communication and Society", slug: "communication-and-society" },
       { name: "Business Administration", slug: "business-administration" },
+      { name: "Business Administration Replica", slug: "business-administration-replica" },
+      { name: "Economics and Management", slug: "economics-and-management" },
       { name: "Food Science and Technology", slug: "food-science-and-technology" },
+      { name: "Food Science and Technology Replica", slug: "food-science-and-technology-replica" },
       { name: "Political Sciences and International Relations", slug: "political-sciences-and-international-relations" },
+      { name: "Political Sciences and International Relations Replica", slug: "political-sciences-and-international-relations-replica" },
       { name: "Sociology", slug: "sociology" }
     ],
     fee: "3.000€ - 9.000€",
@@ -237,13 +228,13 @@ export const universitiesData: University[] = [
     city: "Venedik",
     type: "Devlet",
     departments: [
+      { name: "Business Administration and Management", slug: "business-administration-and-management" },
       { name: "Digital Management", slug: "digital-management" },
       { name: "Economics and Business", slug: "economics-and-business" },
-      { name: "Philosophy, International and Economic Studies", slug: "philosophy-international-and-economic-studies" },
       { name: "Hospitality Innovation and E-Tourism", slug: "hospitality-innovation-and-e-tourism" },
       { name: "Computer Science", slug: "computer-science" },
-      { name: "Business Administration and Management", slug: "business-administration-and-management" },
-      { name: "Languages, Cultures and Societies of Asia and Mediterranean Africa", slug: "languages-cultures-and-societies-of-asia-and-mediterranean-africa" }
+      { name: "Languages, Cultures and Societies of Asia and Mediterranean Africa", slug: "languages-cultures-and-societies-of-asia-and-mediterranean-africa" },
+      { name: "Philosophy, International and Economic Studies", slug: "philosophy-international-and-economic-studies" }
     ],
     fee: "150€ - 2.300€",
     image: "https://images.pexels.com/photos/26555694/pexels-photo-26555694.jpeg",
@@ -259,12 +250,10 @@ export const universitiesData: University[] = [
     city: "Milano",
     type: "Devlet",
     departments: [
-      { name: "International Politics, Law and Economics (IPLE)", slug: "international-politics-law-and-economics-iple" },
-      { name: "Artificial Intelligence", slug: "artificial-intelligence" },
-      { name: "Political Sciences", slug: "political-sciences" },
-      { name: "Economics: Behavior, Data and Policy", slug: "economics-behavior-data-and-policy" },
+      { name: "Ancient Civilizations for the Contemporary World", slug: "ancient-civilizations-for-the-contemporary-world" },
       { name: "Medical Biotechnology", slug: "medical-biotechnology" },
-      { name: "Ancient Civilizations for the Contemporary World", slug: "ancient-civilizations-for-the-contemporary-world" }
+      { name: "Economics: Behavior, Data and Policy", slug: "economics-behavior-data-and-policy" },
+      { name: "International Politics, Law and Economics (IPLE)", slug: "international-politics-law-and-economics-iple" }
     ],
     fee: "150€ - 4.000€",
     image: "https://images.unsplash.com/photo-1617102827974-c3f440b2ed70?q=80&w=2063&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -280,11 +269,11 @@ export const universitiesData: University[] = [
     city: "Torino",
     type: "Devlet",
     departments: [
-      { name: "Global Law and Transnational Legal Studies", slug: "global-law-and-transnational-legal-studies" },
-      { name: "Business & Management", slug: "business-and-management" },
       { name: "Biotechnology", slug: "biotechnology" },
+      { name: "Business & Management", slug: "business-and-management" },
       { name: "Economics", slug: "economics" },
       { name: "Economics and Finance with Data Science", slug: "economics-and-finance-with-data-science" },
+      { name: "Global Law and Transnational Legal Studies", slug: "global-law-and-transnational-legal-studies" },
       { name: "Mathematics for Economics, Finance and Insurance", slug: "mathematics-for-economics-finance-and-insurance" }
     ],
     fee: "150€ - 2.800€",
@@ -301,12 +290,9 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Özel",
     departments: [
-      { name: "Management & Computer Science", slug: "management-and-computer-science" },
-      { name: "Politics: Philosophy and Economics (PPE)", slug: "politics-philosophy-and-economics-ppe" },
       { name: "Business Administration", slug: "business-administration" },
-      { name: "Global Law", slug: "global-law" },
-      { name: "Management and AI", slug: "management-and-ai" },
       { name: "Economics and Business", slug: "economics-and-business" },
+      { name: "Global Law", slug: "global-law" },
       { name: "Management and Artificial Intelligence", slug: "management-and-artificial-intelligence" },
       { name: "Politics: Philosophy and Economics", slug: "politics-philosophy-and-economics" }
     ],
@@ -324,9 +310,9 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Devlet",
     departments: [
-      { name: "Global Governance", slug: "global-governance" },
-      { name: "Engineering Sciences", slug: "engineering-sciences" },
       { name: "Business Administration & Economics", slug: "business-administration-and-economics" },
+      { name: "Engineering Sciences", slug: "engineering-sciences" },
+      { name: "Global Governance", slug: "global-governance" },
       { name: "Tourism Sciences", slug: "tourism-sciences" }
     ],
     fee: "150€ - 2.500€",
@@ -345,9 +331,8 @@ export const universitiesData: University[] = [
     departments: [
       { name: "Biology for One-Health", slug: "biology-for-one-health" },
       { name: "Civil and Environmental Engineering", slug: "civil-and-environmental-engineering" },
-      { name: "Hospitality Management", slug: "hospitality-management" },
-      { name: "Precision Livestock Farming", slug: "precision-livestock-farming" },
-      { name: "Community Design", slug: "community-design" }
+      { name: "Community Design", slug: "community-design" },
+      { name: "Hospitality Management", slug: "hospitality-management" }
     ],
     fee: "150€ - 2.500€",
     image: "https://images.unsplash.com/photo-1642263975707-8118ed3ff145?q=80&w=2029&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -364,8 +349,6 @@ export const universitiesData: University[] = [
     type: "Devlet",
     departments: [
       { name: "Artificial Intelligence", slug: "artificial-intelligence" },
-      { name: "Medicine (6 Yıl)", slug: "medicine-6-y-l" },
-      { name: "Bioengineering", slug: "bioengineering" },
       { name: "Social Sciences for Global Challenges", slug: "social-sciences-for-global-challenges" }
     ],
     fee: "150€ - 4.500€",
@@ -382,10 +365,9 @@ export const universitiesData: University[] = [
     city: "Siena",
     type: "Devlet",
     departments: [
-      { name: "Economics and Banking", slug: "economics-and-banking" },
+      { name: "Biotech Engineering for Health", slug: "biotech-engineering-for-health" },
       { name: "Economics and Management", slug: "economics-and-management" },
-      { name: "Dentistry (Diş Hekimliği)", slug: "dentistry-di-hekimli-i" },
-      { name: "Biotech Engineering for Health", slug: "biotech-engineering-for-health" }
+      { name: "Economics and Banking", slug: "economics-and-banking" }
     ],
     fee: "150€ - 2.200€",
     image: "https://images.unsplash.com/photo-1612820676918-1682b0d4afa0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -401,14 +383,10 @@ export const universitiesData: University[] = [
     city: "Messina",
     type: "Devlet",
     departments: [
-      { name: "Data Analysis", slug: "data-analysis" },
-      { name: "Political Sciences", slug: "political-sciences" },
-      { name: "Medicine (6 Yıl)", slug: "medicine-6-y-l" },
-      { name: "Civil Engineering", slug: "civil-engineering" },
-      { name: "Marine Biology", slug: "marine-biology" },
-      { name: "Computer Science", slug: "computer-science" },
       { name: "Biotechnology", slug: "biotechnology" },
       { name: "Economics, Banking and Finance", slug: "economics-banking-and-finance" },
+      { name: "Computer Science", slug: "computer-science" },
+      { name: "Civil Engineering", slug: "civil-engineering" },
       { name: "Business Management", slug: "business-management" },
       { name: "Marine Biology and Blue Biotechnologies", slug: "marine-biology-and-blue-biotechnologies" },
       { name: "Political Sciences and International Relations", slug: "political-sciences-and-international-relations" },
@@ -428,10 +406,6 @@ export const universitiesData: University[] = [
     city: "Trento",
     type: "Devlet",
     departments: [
-      { name: "Computer Science", slug: "computer-science" },
-      { name: "Comparative Legal Studies", slug: "comparative-legal-studies" },
-      { name: "Biomolecular Sciences", slug: "biomolecular-sciences" },
-      { name: "Computer & Electronic Engineering", slug: "computer-and-electronic-engineering" },
       { name: "Computer, Communications and Electronic Engineering", slug: "computer-communications-and-electronic-engineering" },
       { name: "Biomolecular Sciences and Technology", slug: "biomolecular-sciences-and-technology" },
       { name: "Comparative, European and International Legal Studies", slug: "comparative-european-and-international-legal-studies" }
@@ -450,11 +424,10 @@ export const universitiesData: University[] = [
     city: "Pisa",
     type: "Devlet",
     departments: [
-      { name: "Humanities (IPM)", slug: "humanities-ipm" },
-      { name: "Management for Business and Economics", slug: "management-for-business-and-economics" },
-      { name: "Geology", slug: "geology" },
-      { name: "Cultural Heritage Studies", slug: "cultural-heritage-studies" },
       { name: "Studies in Performing Arts and Communication", slug: "studies-in-performing-arts-and-communication" },
+      { name: "Geology", slug: "geology" },
+      { name: "Management for Business and Economics", slug: "management-for-business-and-economics" },
+      { name: "Cultural Heritage Studies", slug: "cultural-heritage-studies" },
       { name: "Historical Studies", slug: "historical-studies" }
     ],
     fee: "150€ - 2.400€",
@@ -471,10 +444,9 @@ export const universitiesData: University[] = [
     city: "Cenova",
     type: "Devlet",
     departments: [
-      { name: "Maritime Science and Technology", slug: "maritime-science-and-technology" },
       { name: "Computer Engineering", slug: "computer-engineering" },
-      { name: "Engineering Technology for Strategy", slug: "engineering-technology-for-strategy" },
-      { name: "Computer Engineering (Sede Imperia)", slug: "computer-engineering-sede-imperia" }
+      { name: "Computer Engineering (Sede Imperia)", slug: "computer-engineering-sede-imperia" },
+      { name: "Maritime Science and Technology", slug: "maritime-science-and-technology" }
     ],
     fee: "0€ - 3.000€",
     image: "https://images.unsplash.com/photo-1601047197922-156024782afd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -490,13 +462,10 @@ export const universitiesData: University[] = [
     city: "Trieste",
     type: "Devlet",
     departments: [
-      { name: "Earth Sciences", slug: "earth-sciences" },
-      { name: "Business Administration", slug: "business-administration" },
-      { name: "International Economics", slug: "international-economics" },
-      { name: "Industrial Engineering", slug: "industrial-engineering" },
       { name: "Earth Sciences for Sustainable Development", slug: "earth-sciences-for-sustainable-development" },
       { name: "Business Administration and Management", slug: "business-administration-and-management" },
-      { name: "International Economics and Financial Markets", slug: "international-economics-and-financial-markets" }
+      { name: "International Economics and Financial Markets", slug: "international-economics-and-financial-markets" },
+      { name: "Industrial Engineering", slug: "industrial-engineering" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1676706980757-e3b5d6c16321?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -513,14 +482,12 @@ export const universitiesData: University[] = [
     type: "Devlet",
     departments: [
       { name: "Dietistic", slug: "dietistic" },
-      { name: "Digital Economics", slug: "digital-economics" },
-      { name: "Dental Hygiene", slug: "dental-hygiene" },
-      { name: "Environmental Sciences", slug: "environmental-sciences" },
-      { name: "Imaging and Radiotherapy", slug: "imaging-and-radiotherapy" },
-      { name: "Midwifery", slug: "midwifery" },
       { name: "Digital Economics and Business", slug: "digital-economics-and-business" },
       { name: "Environmental Sciences and Civil Protection", slug: "environmental-sciences-and-civil-protection" },
-      { name: "Imaging and Radiotherapy Techniques", slug: "imaging-and-radiotherapy-techniques" }
+      { name: "Dental Hygiene", slug: "dental-hygiene" },
+      { name: "Midwifery", slug: "midwifery" },
+      { name: "Imaging and Radiotherapy Techniques", slug: "imaging-and-radiotherapy-techniques" },
+      { name: "Imaging and Radiotherapy Techniques (Replica Ascoli Piceno)", slug: "imaging-and-radiotherapy-techniques-replica-ascoli-piceno" }
     ],
     fee: "150€ - 3.000€",
     image: "https://plus.unsplash.com/premium_photo-1677048148083-99e9f8eb12a5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -537,7 +504,6 @@ export const universitiesData: University[] = [
     type: "Devlet",
     departments: [
       { name: "Dental Hygiene", slug: "dental-hygiene" },
-      { name: "Global Studies for Sustainable Development", slug: "global-studies-for-sustainable-development" },
       { name: "Global Studies for Sustainable Local and International Development and Cooperation", slug: "global-studies-for-sustainable-local-and-international-development-and-cooperation" }
     ],
     fee: "150€ - 3.000€",
@@ -554,9 +520,8 @@ export const universitiesData: University[] = [
     city: "Napoli / Caserta",
     type: "Devlet",
     departments: [
-      { name: "Nursing", slug: "nursing" },
       { name: "Data Analytics", slug: "data-analytics" },
-      { name: "Medicine (6 Yıl)", slug: "medicine-6-y-l" }
+      { name: "Nursing", slug: "nursing" }
     ],
     fee: "150€ - 2.000€",
     image: "https://images.unsplash.com/photo-1586108683830-eee157a26bdb?q=80&w=1036&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -572,12 +537,11 @@ export const universitiesData: University[] = [
     city: "Palermo",
     type: "Devlet",
     departments: [
+      { name: "Economics, International Cooperation and Sustainable Development", slug: "economics-international-cooperation-and-sustainable-development" },
       { name: "Economics and Finance", slug: "economics-and-finance" },
-      { name: "Economics & International Cooperation", slug: "economics-and-international-cooperation" },
       { name: "Electronics Engineering", slug: "electronics-engineering" },
       { name: "Management Engineering", slug: "management-engineering" },
-      { name: "Nursing", slug: "nursing" },
-      { name: "Economics, International Cooperation and Sustainable Development", slug: "economics-international-cooperation-and-sustainable-development" }
+      { name: "Nursing", slug: "nursing" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1586729223498-2cc4a05d3858?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -676,8 +640,6 @@ export const universitiesData: University[] = [
     type: "Devlet",
     departments: [
       { name: "Economics and Business", slug: "economics-and-business" },
-      { name: "Global Economy", slug: "global-economy" },
-      { name: "Industrial Engineering", slug: "industrial-engineering" },
       { name: "Economics with Data Science", slug: "economics-with-data-science" },
       { name: "Industrial Engineering Technology", slug: "industrial-engineering-technology" }
     ],
@@ -696,11 +658,9 @@ export const universitiesData: University[] = [
     type: "Devlet",
     departments: [
       { name: "Design", slug: "design" },
-      { name: "Agricultural Sciences", slug: "agricultural-sciences" },
-      { name: "Food and Wine Technologies", slug: "food-and-wine-technologies" },
-      { name: "Forestry", slug: "forestry" },
+      { name: "Agricultural and Environmental Sciences", slug: "agricultural-and-environmental-sciences" },
       { name: "Forestry and Environmental Sciences", slug: "forestry-and-environmental-sciences" },
-      { name: "Agricultural and Environmental Sciences", slug: "agricultural-and-environmental-sciences" }
+      { name: "Food and Wine Technologies", slug: "food-and-wine-technologies" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -734,7 +694,6 @@ export const universitiesData: University[] = [
     city: "Perugia",
     type: "Devlet",
     departments: [
-      { name: "Social Sciences for Sustainability", slug: "social-sciences-for-sustainability" },
       { name: "Social Sciences for Sustainability and International Cooperation", slug: "social-sciences-for-sustainability-and-international-cooperation" }
     ],
     fee: "150€ - 3.000€",
@@ -752,10 +711,9 @@ export const universitiesData: University[] = [
     type: "Devlet",
     departments: [
       { name: "Business Administration", slug: "business-administration" },
-      { name: "International Business", slug: "international-business" },
+      { name: "International Business Administration and Management", slug: "international-business-administration-and-management" },
       { name: "Tourist Firm Management", slug: "tourist-firm-management" },
-      { name: "Sustainable Blue Economy", slug: "sustainable-blue-economy" },
-      { name: "International Business Administration and Management", slug: "international-business-administration-and-management" }
+      { name: "Sustainable Blue Economy", slug: "sustainable-blue-economy" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -803,7 +761,6 @@ export const universitiesData: University[] = [
     city: "Macerata",
     type: "Devlet",
     departments: [
-      { name: "International, European and Comparative Legal Studies", slug: "international-european-and-comparative-legal-studies" },
       { name: "International, European and Comparative Legal Studies (IECOLS)", slug: "international-european-and-comparative-legal-studies-iecols" }
     ],
     fee: "150€ - 3.000€",
@@ -852,12 +809,9 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Özel",
     departments: [
-      { name: "Medicine", slug: "medicine" },
       { name: "Physiotherapy", slug: "physiotherapy" },
       { name: "Nursing", slug: "nursing" },
       { name: "Midwifery", slug: "midwifery" },
-      { name: "Biomedical Lab Techniques", slug: "biomedical-lab-techniques" },
-      { name: "Radiotherapy Techniques", slug: "radiotherapy-techniques" },
       { name: "Biomedical Laboratory Techniques", slug: "biomedical-laboratory-techniques" },
       { name: "Imaging and Radiotherapy Techniques", slug: "imaging-and-radiotherapy-techniques" }
     ],
@@ -875,9 +829,6 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Özel",
     departments: [
-      { name: "Business and Institutional Economics", slug: "business-and-institutional-economics" },
-      { name: "Communication Sciences & Digital Technologies", slug: "communication-sciences-and-digital-technologies" },
-      { name: "Political Science & Diplomacy", slug: "political-science-and-diplomacy" },
       { name: "Business and Institutional Economics and Management", slug: "business-and-institutional-economics-and-management" },
       { name: "Communication Sciences, Media and Digital Technologies", slug: "communication-sciences-media-and-digital-technologies" },
       { name: "Political Science, Diplomacy and Government of Administrations", slug: "political-science-diplomacy-and-government-of-administrations" }
@@ -954,7 +905,7 @@ export const universitiesData: University[] = [
     description_en: `A specialization focused on preservation of historical heritage and technical analysis of architectural sciences.`,
     website: "https://google.com/search?q=Politecnico+di+Bari+Architecture+Sciences",
     features: ["İngilizce Eğitim", "Teknik Uzmanlık", "Akdeniz Kültürü"],
-    features_en: ["English Education","Technical Expertise","Mediterranean Culture"]
+    features_en: ["English Education", "Technical Expertise", "Mediterranean Culture"]
   },
   {
     id: 47,
@@ -970,7 +921,7 @@ export const universitiesData: University[] = [
     description_en: `Technology-focused biomedical education bridging engineering and medicine in Rome.`,
     website: "https://google.com/search?q=Università+Campus+Bio-Medico+di+Roma+Biomedical+Engineering",
     features: ["İngilizce Eğitim", "İleri Teknoloji", "Tıbbi Mühendislik"],
-    features_en: ["English Education","Advanced Technology","Medical Engineering"]
+    features_en: ["English Education", "Advanced Technology", "Medical Engineering"]
   },
   {
     id: 48,
@@ -986,7 +937,7 @@ export const universitiesData: University[] = [
     description_en: `A comprehensive, scientific foundation for those looking to enter the world of biotechnology.`,
     website: "https://google.com/search?q=Università+degli+Studi+di+Teramo+Biotechnology",
     features: ["İngilizce Eğitim", "Temel Bilimler", "Merkezi Konum"],
-    features_en: ["English Education","Fundamental Sciences","Central Location"]
+    features_en: ["English Education", "Fundamental Sciences", "Central Location"]
   },
   {
     id: 49,
@@ -1002,7 +953,7 @@ export const universitiesData: University[] = [
     description_en: `Expertise in modern biotechnological methods in the dynamic environment of Northern Italy.`,
     website: "https://google.com/search?q=Università+degli+Studi+del+Piemonte+Orientale+Biotechnology",
     features: ["İngilizce Eğitim", "Modern Laboratuvar", "3 Yıllık"],
-    features_en: ["English Education","Modern Lab","3 Years"]
+    features_en: ["English Education", "Modern Lab", "3 Years"]
   },
   {
     id: 50,
@@ -1019,7 +970,7 @@ export const universitiesData: University[] = [
     description_en: `A flexible international distance education program offering specialization in psycho-social disciplines.`,
     website: "https://google.com/search?q=UNINETTUNO+Psycho-Social+Disciplines",
     features: ["İngilizce Eğitim", "Online Eğitim", "Esnek Müfredat"],
-    features_en: ["English Education","Online Education","Flexible Curriculum"]
+    features_en: ["English Education", "Online Education", "Flexible Curriculum"]
   },
   {
     id: 51,
@@ -1035,7 +986,7 @@ export const universitiesData: University[] = [
     description_en: `A comprehensive bachelor's program examining global changes and earth systems from a geological perspective.`,
     website: "https://google.com/search?q=Università+di+Bari+Earth+System+Global+Changes",
     features: ["İngilizce Eğitim", "Jeoloji", "3 Yıllık"],
-    features_en: ["English Education","Geology","3 Years"]
+    features_en: ["English Education", "Geology", "3 Years"]
   },
   {
     id: 52,
@@ -1053,7 +1004,7 @@ export const universitiesData: University[] = [
     description_en: `Flexible business economics and management education at global standards through distance learning.`,
     website: "https://google.com/search?q=Università+Guglielmo+Marconi+Business+Economics+and+Management",
     features: ["İngilizce Eğitim", "Online Eğitim", "3 Yıllık"],
-    features_en: ["English Education","Online Education","3 Years"]
+    features_en: ["English Education", "Online Education", "3 Years"]
   },
   {
     id: 53,
@@ -1069,7 +1020,7 @@ export const universitiesData: University[] = [
     description_en: `A global perspective on the fundamentals of economics and business in the center of Sardinia.`,
     website: "https://google.com/search?q=Università+di+Cagliari+Business+and+Economics",
     features: ["İngilizce Eğitim", "Stratejik Konum", "3 Yıllık"],
-    features_en: ["English Education","Strategic Location","3 Years"]
+    features_en: ["English Education", "Strategic Location", "3 Years"]
   },
   {
     id: 54,
@@ -1086,7 +1037,7 @@ export const universitiesData: University[] = [
     description_en: `Professional education focused on business and economics with direct ties to the industrial world.`,
     website: "https://google.com/search?q=LIUC+Carlo+Cattaneo+Economics+and+Management",
     features: ["İngilizce Eğitim", "İş Dünyası Odaklı", "Uygulamalı Eğitim"],
-    features_en: ["English Education","Industry Focused","Applied Education"]
+    features_en: ["English Education", "Industry Focused", "Applied Education"]
   },
   {
     id: 55,
@@ -1102,7 +1053,7 @@ export const universitiesData: University[] = [
     description_en: `A career-oriented bachelor's program focused on organizational structures and business economics.`,
     website: "https://google.com/search?q=LUM+University+Business+Economics+and+Organization",
     features: ["İngilizce Eğitim", "Organizasyonel Gelişim", "3 Yıllık"],
-    features_en: ["English Education","Organizational Dev.","3 Years"]
+    features_en: ["English Education", "Organizational Dev.", "3 Years"]
   },
   {
     id: 56,
@@ -1118,7 +1069,7 @@ export const universitiesData: University[] = [
     description_en: `A solid foundation in financial markets and economic management on the Adriatic coast.`,
     website: "https://google.com/search?q=Università+Pescara+Economics+and+Finance",
     features: ["İngilizce Eğitim", "Finans Odağı", "3 Yıllık"],
-    features_en: ["English Education","Finance Focus","3 Years"]
+    features_en: ["English Education", "Finance Focus", "3 Years"]
   },
   {
     id: 57,
@@ -1134,7 +1085,7 @@ export const universitiesData: University[] = [
     description_en: `Education in theoretical and applied physics at one of Sicily's strongest research centers.`,
     website: "https://google.com/search?q=Università+di+Catania+Physics+Bachelor+English",
     features: ["İngilizce Eğitim", "Temel Bilimler", "Araştırma Odaklı"],
-    features_en: ["English Education","Fundamental Sciences","Research Focused"]
+    features_en: ["English Education", "Fundamental Sciences", "Research Focused"]
   },
   {
     id: 58,
@@ -1142,7 +1093,8 @@ export const universitiesData: University[] = [
     city: "Ferrara",
     type: "Devlet",
     departments: [
-      { name: "Physiotherapy", slug: "physiotherapy" }
+      { name: "Physiotherapy", slug: "physiotherapy" },
+      { name: "Physiotherapy Replica Bolzano", slug: "physiotherapy-replica-bolzano" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1150,7 +1102,7 @@ export const universitiesData: University[] = [
     description_en: `Physiotherapy education equipped with modern techniques for those aspiring to specialize in movement science.`,
     website: "https://google.com/search?q=Università+di+Ferrara+Physiotherapy+English",
     features: ["İngilizce Eğitim", "Klinik Uygulama", "3 Yıllık"],
-    features_en: ["English Education","Clinical Practice","3 Years"]
+    features_en: ["English Education", "Clinical Practice", "3 Years"]
   },
   {
     id: 59,
@@ -1166,7 +1118,7 @@ export const universitiesData: University[] = [
     description_en: `A program specialized in civil and environmental engineering solutions focused on sustainable development.`,
     website: "https://google.com/search?q=Università+Mediterranea+Civil+Environmental+Engineering",
     features: ["İngilizce Eğitim", "Sürdürülebilirlik", "3 Yıllık"],
-    features_en: ["English Education","Sustainability","3 Years"]
+    features_en: ["English Education", "Sustainability", "3 Years"]
   },
   {
     id: 60,
@@ -1182,7 +1134,7 @@ export const universitiesData: University[] = [
     description_en: `A multilingual program building professional language and communication skills for business and tourism.`,
     website: "https://google.com/search?q=Università+Valle+Aosta+Language+Business+Tourism",
     features: ["İngilizce Eğitim", "Turizm İletişimi", "3 Yıllık"],
-    features_en: ["English Education","Tourism Comm.","3 Years"]
+    features_en: ["English Education", "Tourism Comm.", "3 Years"]
   },
   {
     id: 62,
@@ -1198,7 +1150,7 @@ export const universitiesData: University[] = [
     description_en: `Specialize in transportation systems technology and management with the flexibility of distance learning.`,
     website: "https://google.com/search?q=Università+Giustino+Fortunato+Transportation+Science",
     features: ["İngilizce Eğitim", "Online Eğitim", "Lojistik Odaklı"],
-    features_en: ["English Education","Online Education","Logistics Focused"]
+    features_en: ["English Education", "Online Education", "Logistics Focused"]
   },
   {
     id: 63,
@@ -1214,7 +1166,7 @@ export const universitiesData: University[] = [
     description_en: `Modern business management education producing sustainable business model solutions for societal challenges.`,
     website: "https://google.com/search?q=Università+di+Firenze+Sustainable+Business",
     features: ["İngilizce Eğitim", "İnovasyon", "3 Yıllık"],
-    features_en: ["English Education","Innovation","3 Years"]
+    features_en: ["English Education", "Innovation", "3 Years"]
   }
 
 ];
