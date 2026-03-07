@@ -50,41 +50,55 @@ export const DEFAULT_DEPARTMENT_LEVEL: ProgramLevel = "bachelor";
 // Future overrides: "universityId:departmentSlug" -> value
 export const DEPARTMENT_LANGUAGE_OVERRIDES: Partial<Record<DepartmentKey, readonly ProgramLanguage[]>> = {
   "2:dentistry-and-dental-prosthodontics": ["en"],
-  "2:medicine-and-surgery": ["en"],
+  "3:medicine-and-surgery": ["en"],
   "4:medicine-and-surgery": ["en"],
   "8:medicine-and-surgery": ["en"],
   "8:medicine-and-surgery-replica-bolzano": ["en"],
+  "10:medicine-and-surgery": ["en"],
   "11:medicine-and-surgery": ["en"],
   "13:medicine-and-surgery": ["en"],
+  "14:medicine-and-surgery": ["en"],
   "15:medicine-and-surgery": ["en"],
   "16:dentistry-and-dental-prosthodontics": ["en"],
   "17:medicine-and-surgery": ["en"],
+  "22:medicine-and-surgery": ["en"],
+  "23:medicine-and-surgery": ["en"],
   "24:medicine-and-surgery": ["en"],
   "29:medicine-and-surgery": ["en"],
   "41:medicine-and-surgery": ["en"],
   "47:medicine-and-surgery": ["en"],
   "47:medicine-and-surgery-medtech": ["en"],
+  "51:medicine-and-surgery": ["en"],
   "53:medicine-and-surgery": ["en"],
+  "57:medicine-and-surgery": ["en"],
   "61:medicine-and-surgery": ["en"],
+  "64:medicine-and-surgery": ["en"],
 };
 export const DEPARTMENT_DURATION_OVERRIDES: Partial<Record<DepartmentKey, ProgramDurationYears>> = {
   "2:dentistry-and-dental-prosthodontics": 6,
-  "2:medicine-and-surgery": 6,
+  "3:medicine-and-surgery": 6,
   "4:medicine-and-surgery": 6,
   "8:medicine-and-surgery": 6,
   "8:medicine-and-surgery-replica-bolzano": 6,
+  "10:medicine-and-surgery": 6,
   "11:medicine-and-surgery": 6,
   "13:medicine-and-surgery": 6,
+  "14:medicine-and-surgery": 6,
   "15:medicine-and-surgery": 6,
   "16:dentistry-and-dental-prosthodontics": 6,
   "17:medicine-and-surgery": 6,
+  "22:medicine-and-surgery": 6,
+  "23:medicine-and-surgery": 6,
   "24:medicine-and-surgery": 6,
   "29:medicine-and-surgery": 6,
   "41:medicine-and-surgery": 6,
   "47:medicine-and-surgery": 6,
   "47:medicine-and-surgery-medtech": 6,
+  "51:medicine-and-surgery": 6,
   "53:medicine-and-surgery": 6,
+  "57:medicine-and-surgery": 6,
   "61:medicine-and-surgery": 6,
+  "64:medicine-and-surgery": 6,
 };
 export const DEPARTMENT_LEVEL_OVERRIDES: Partial<Record<DepartmentKey, ProgramLevel>> = {
   // "10:medicine": "master",
@@ -135,7 +149,6 @@ export const universitiesBaseData: UniversitySeed[] = [
       { name: "Nursing", slug: "nursing" },
       { name: "Business Sciences", slug: "business-sciences" },
       { name: "Sustainable Building Engineering", slug: "sustainable-building-engineering" },
-      { name: "Medicine and Surgery", slug: "medicine-and-surgery" },
       { name: "Dentistry and Dental Prosthodontics", slug: "dentistry-and-dental-prosthodontics" }
     ],
     fee: "150€ - 2.924€",
@@ -161,7 +174,8 @@ export const universitiesBaseData: UniversitySeed[] = [
       { name: "European Studies", slug: "european-studies" },
       { name: "Genomics", slug: "genomics" },
       { name: "International Studies", slug: "international-studies" },
-      { name: "Management and Economics", slug: "management-and-economics" }
+      { name: "Management and Economics", slug: "management-and-economics" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 2.500€",
     image: "https://plus.unsplash.com/premium_photo-1677427230972-7cabe0d3e005?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Ym9sb2duYXxlbnwwfHwwfHx8MA%3D%3D",
@@ -329,7 +343,8 @@ export const universitiesBaseData: UniversitySeed[] = [
       { name: "Ancient Civilizations for the Contemporary World", slug: "ancient-civilizations-for-the-contemporary-world" },
       { name: "Medical Biotechnology", slug: "medical-biotechnology" },
       { name: "Economics: Behavior, Data and Policy", slug: "economics-behavior-data-and-policy" },
-      { name: "International Politics, Law and Economics (IPLE)", slug: "international-politics-law-and-economics-iple" }
+      { name: "International Politics, Law and Economics (IPLE)", slug: "international-politics-law-and-economics-iple" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 4.000€",
     image: "https://images.unsplash.com/photo-1617102827974-c3f440b2ed70?q=80&w=2063&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -410,7 +425,8 @@ export const universitiesBaseData: UniversitySeed[] = [
       { name: "Biology for One-Health", slug: "biology-for-one-health" },
       { name: "Civil and Environmental Engineering", slug: "civil-and-environmental-engineering" },
       { name: "Community Design", slug: "community-design" },
-      { name: "Hospitality Management", slug: "hospitality-management" }
+      { name: "Hospitality Management", slug: "hospitality-management" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 2.500€",
     image: "https://images.unsplash.com/photo-1642263975707-8118ed3ff145?q=80&w=2029&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -568,7 +584,8 @@ export const universitiesBaseData: UniversitySeed[] = [
       { name: "Dental Hygiene", slug: "dental-hygiene" },
       { name: "Midwifery", slug: "midwifery" },
       { name: "Imaging and Radiotherapy Techniques", slug: "imaging-and-radiotherapy-techniques" },
-      { name: "Imaging and Radiotherapy Techniques (Replica Ascoli Piceno)", slug: "imaging-and-radiotherapy-techniques-replica-ascoli-piceno" }
+      { name: "Imaging and Radiotherapy Techniques (Replica Ascoli Piceno)", slug: "imaging-and-radiotherapy-techniques-replica-ascoli-piceno" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 3.000€",
     image: "https://plus.unsplash.com/premium_photo-1677048148083-99e9f8eb12a5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -585,7 +602,8 @@ export const universitiesBaseData: UniversitySeed[] = [
     type: "Devlet",
     departments: [
       { name: "Dental Hygiene", slug: "dental-hygiene" },
-      { name: "Global Studies for Sustainable Local and International Development and Cooperation", slug: "global-studies-for-sustainable-local-and-international-development-and-cooperation" }
+      { name: "Global Studies for Sustainable Local and International Development and Cooperation", slug: "global-studies-for-sustainable-local-and-international-development-and-cooperation" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1603056740028-4291336263c8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -1064,7 +1082,8 @@ export const universitiesBaseData: UniversitySeed[] = [
     city: "Bari",
     type: "Devlet",
     departments: [
-      { name: "Earth System and Global Changes", slug: "earth-system-and-global-changes" }
+      { name: "Earth System and Global Changes", slug: "earth-system-and-global-changes" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1164,7 +1183,8 @@ export const universitiesBaseData: UniversitySeed[] = [
     city: "Catania",
     type: "Devlet",
     departments: [
-      { name: "Physics", slug: "physics" }
+      { name: "Physics", slug: "physics" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1271,7 +1291,24 @@ export const universitiesBaseData: UniversitySeed[] = [
     website: "https://google.com/search?q=Università+di+Firenze+Sustainable+Business",
     features: ["İngilizce Eğitim", "İnovasyon", "3 Yıllık"],
     features_en: ["English Education", "Innovation", "3 Years"]
-  }
+  },
+  {
+    id: 64,
+    name: "UNISR - Università Vita Salute San Raffaele",
+    city: "Milano",
+    type: "Özel",
+    departments: [
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
+    ],
+    fee: "Bilgi için üniversite sitesini kontrol et",
+    image: DEFAULT_IMAGE,
+    description: `Milano'da yer alan, sağlık bilimleri ve tıp odaklı özel üniversite.`,
+    description_en: `A private university in Milan focused on medicine and health sciences.`,
+    website: "https://www.unisr.it",
+    features: ["İngilizce Tıp", "6 Yıllık Program", "Özel Üniversite"],
+    features_en: ["Medicine in English", "6-Year Program", "Private University"]
+  },
+
 
 ];
 
