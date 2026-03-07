@@ -42,11 +42,11 @@ italypath-main/
 │   ├── template.tsx                # Next.js template boundary (minimal passthrough)
 │   ├── not-found.tsx               # Özel 404 Hata Sayfası
 │   ├── error.tsx                   # Çift dilli Global Error Boundary
-│   ├── sitemap.ts                  # Dinamik sitemap (statik rotalar + 62 üniversite + 262 bölüm)
+│   ├── sitemap.ts                  # Dinamik sitemap (statik rotalar + 64 üniversite + 238 bölüm)
 │   ├── robots.ts                   # Robots.txt (seçili public rotalar açık, bazı korumalı rotalar kapalı)
 │   ├── globals.css                 # Tailwind v4 + mobil PWA stilleri
 │   ├── favicon.ico                 # Site ikonu
-│   ├── data.ts                     # 62 üniversite, 262 bölüm verisi (1219 satır, ~69KB, Department[] objeler, çift dilli)
+│   ├── data.ts                     # 64 üniversite, 238 bölüm verisi (seed + normalized metadata modeli)
 │   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu + prompt chip önerileri)
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
 │   ├── api/universities/route.ts   # Üniversite verisini cache header'larıyla JSON dönen public API
@@ -88,6 +88,11 @@ italypath-main/
 │   └── index.ts                    # Paylaşılan tipler (Language, UserDocument)
 ├── next.config.ts                  # Next.js yapılandırması (remotePatterns: Unsplash, Pexels, plus.unsplash.com)
 ├── proxy.ts                        # Clerk Request Boundary (Next.js 16 standardı)
+├── scripts/
+│   ├── check-route-access.mjs      # Public/protected route matrisi smoke check
+│   ├── validate-data-integrity.mjs # data.ts bütünlük kontrolü (id/slug/override/type dağılımı)
+│   └── clean-med-data.mjs          # `med` kaynağını parse/temizleyip eşleşme+override çıktısı üretir
+├── DATA_ENTRY_GUIDE.md             # Yeni bölüm/dil/süre/seviye giriş rehberi (default+override akışı)
 ├── SUPABASE_SECURITY_RUNBOOK.md    # Clerk + Supabase RLS adım adım operasyon rehberi
 ├── supabase/
 │   └── rls_hardening.sql           # RLS + Storage policy hardening SQL scripti
@@ -140,7 +145,8 @@ italypath-main/
 - Diğer tüm rotalar `auth.protect()` ile korumalı
 
 ### 6. Bölüm Detay Sayfaları
-- `data.ts`'teki `departments` alanı `Department[]` obje dizisidir (`{ name, slug }`).
+- `data.ts`'te bölüm kaynağı `DepartmentSeed[]` (giriş seviyesi: `{ name, slug }`) olarak tutulur.
+- Uygulamanın kullandığı `departments` çıktısı normalize `Department[]` tipidir: `{ name, slug, languages, durationYears, level }`.
 - Slug alanları veri setinde hazır tutulur; mevcut veriler bölüm adlarından türetilmiş URL-safe slug'lar içerir. Aynı üniversite içinde benzersizdir.
 - Rota: `/universities/[id]/departments/[deptSlug]`
 - SEO: `layout.tsx` (Server Component) → dinamik `generateMetadata()` — `page.tsx` ile aynı klasörde
@@ -150,6 +156,24 @@ italypath-main/
 - `app/api/universities/route.ts` üniversite verisini cache header'ları (`s-maxage`, `stale-while-revalidate`) ile JSON olarak döner
 - `lib/useUniversitiesData.ts` client tarafında in-memory cache + request deduplication uygular
 - `universities`, `favorites`, üniversite detay ve bölüm detay sayfaları veriyi bu hook üzerinden alır; `data.ts` doğrudan client import'u azaltılmıştır
+- `data.ts` içinde `universitiesBaseData` (seed) + `universitiesData` (normalize metadata) ayrımı vardır; API katmanı `universitiesData` döner
+
+### 11. Program Metadata Modeli (Dil / Süre / Seviye)
+- Program metadata modeli: `languages: ProgramLanguage[]`, `durationYears: ProgramDurationYears`, `level: ProgramLevel`
+- Geçerli değerler:
+  - `ProgramLanguage`: `"en" | "it"`
+  - `ProgramDurationYears`: `1 | 2 | 3 | 4 | 5 | 6`
+  - `ProgramLevel`: `"bachelor" | "master"`
+- Varsayılanlar merkezi uygulanır:
+  - `languages = ["en"]`
+  - `durationYears = 3`
+  - `level = "bachelor"`
+- İstisnalar `DepartmentKey` (`"${universityId}:${departmentSlug}"`) ile override map'lerinde tutulur:
+  - `DEPARTMENT_LANGUAGE_OVERRIDES`
+  - `DEPARTMENT_DURATION_OVERRIDES`
+  - `DEPARTMENT_LEVEL_OVERRIDES`
+- `createDepartmentKey(universityId, slug)` helper'ı override anahtar tutarlılığı için kullanılır.
+- Mevcut durumda 24 program için `6 yıl + EN` override aktif (Medicine/Dentistry listesi).
 
 ### 8. Motion Erişilebilirlik & Native Hissiyat
 - `components/RouteTransition.tsx` geçişleri blur/scale yerine hafif `opacity + y` ile çalışır; `AnimatePresence mode="popLayout"` kullanılır
@@ -215,6 +239,8 @@ npm install
 npm run dev        # http://localhost:3000
 npm run build      # Production build
 npm run lint       # ESLint kontrolü
+npm run check:data # data.ts bütünlük ve dağılım kontrolü
+npm run clean:med  # med kaynağını temizleyip matched/unmatched/override çıktısı üretir
 ```
 
 ---

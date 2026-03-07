@@ -273,3 +273,37 @@
 |-------|-----------|
 | `components/ui/bento-grid.tsx` | 🆕 Magic UI örneğiyle uyumlu `BentoGrid` ve `BentoCard` reusable bileşenleri eklendi (`features[]` tabanlı kullanım API'si) |
 | `components/FeaturesSection.tsx` | ♻️ Manuel kart yerleşimi kaldırıldı; bölüm `features[] -> <BentoCard />` modeline taşındı ve mevcut Marquee / AnimatedList / BorderBeam arka planları yeni API ile entegre edildi |
+
+### Commit 32 (Data Reset + Remap Operasyonu):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `app/data.ts` | ♻️ Tüm üniversitelerde `departments` alanı korunarak içerikler geçici olarak temizlendi (`[]`) |
+| `app/data.ts` | ♻️ `yedek` verisi ile üniversite-adı alias eşleştirmesi yapılarak 217 bölüm yeniden dağıtıldı |
+| `app/data.ts` | ♻️ `Ateneo Straniero` kaynaklı 2 kayıt ve `University of Milan (Statale)` altındaki `Political Sciences` kaydı kaldırıldı |
+| `output/yedek_to_data_university_mapping.csv` | 🆕 `yedek_id -> data.ts university_id` eşleştirme çıktısı üretildi |
+| `output/yedek_to_data_university_mapping.summary.json` | 🆕 Üniversite bazlı mapping yoğunluk özeti eklendi |
+| `output/yedek_to_data_university_mapping.unmatched.json` | 🆕 Eşleşmeyen kayıt raporu (o iterasyonda boş) eklendi |
+
+### Commit 33 (Program Metadata Modeli + Data Quality Pipeline):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `app/data.ts` | ♻️ Program metadata modeli eklendi: `ProgramLanguage`, `ProgramDurationYears`, `ProgramLevel`, `DepartmentKey` |
+| `app/data.ts` | ♻️ `DepartmentSeed` (giriş) ve `Department` (normalize çıktı) ayrımı yapıldı |
+| `app/data.ts` | ➕ `DEFAULT_DEPARTMENT_*` sabitleri ve `DEPARTMENT_*_OVERRIDES` map'leri eklendi |
+| `app/data.ts` | ➕ `createDepartmentKey()` helper'ı eklendi; override anahtarları standartlaştırıldı |
+| `app/data.ts` | ♻️ `universitiesBaseData` + `universitiesData` normalize map akışı kuruldu (default + override) |
+| `scripts/validate-data-integrity.mjs` | 🆕 data.ts için bütünlük denetimi eklendi (duplicate id/name/slug, override key doğrulaması, type/value doğrulaması, dağılım özeti) |
+| `package.json` | ➕ `check:data` script'i eklendi (`node --no-warnings scripts/validate-data-integrity.mjs`) |
+| `DATA_ENTRY_GUIDE.md` | 🆕 Veri giriş rehberi eklendi (default + override stratejisi, senaryo bazlı kullanım, kontrol komutu) |
+
+### Commit 34 (MED Kaynağı Temizleme + 6 Yıllık EN Programların Entegrasyonu):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `scripts/clean-med-data.mjs` | 🆕 `med` dosyasını parse eden, tekrarı temizleyen ve matched/unmatched/override çıktısı üreten script eklendi |
+| `package.json` | ➕ `clean:med` script'i eklendi (`node --no-warnings scripts/clean-med-data.mjs`) |
+| `output/med.cleaned.matched.json` | 🆕 `med` kaynağından eşleşen normalize kayıtlar üretildi |
+| `output/med.cleaned.unmatched.json` | 🆕 Eşleşmeyen `med` kayıt raporu üretildi |
+| `output/med.cleaned.overrides.json` | 🆕 6 yıllık/language override taslağı üretildi |
+| `app/data.ts` | ➕ Yeni final listeye göre 6 yıllık EN Medicine/Dentistry programları üniversitelere işlendi (24 program) |
+| `app/data.ts` | ➕ `HUMANITAS University` (`id: 61`) ve `UNISR - Università Vita Salute San Raffaele` (`id: 64`) kayıtları data setine dahil edildi |
+| `app/data.ts` | ♻️ `DEPARTMENT_LANGUAGE_OVERRIDES` ve `DEPARTMENT_DURATION_OVERRIDES` listeleri yeni 24 program setine göre hizalandı (`["en"]`, `6`) |
