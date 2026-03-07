@@ -1,0 +1,22 @@
+{
+  "durationOverrides": {
+    "41:medicine-and-surgery": 6,
+    "29:medicine-and-surgery": 6,
+    "53:medicine-and-surgery": 6,
+    "47:medicine-and-surgery": 6,
+    "47:medicine-and-surgery-medtech": 6,
+    "4:medicine-and-surgery": 6,
+    "11:medicine-and-surgery": 6,
+    "17:medicine-and-surgery": 6,
+    "15:medicine-and-surgery": 6,
+    "2:medicine-and-surgery": 6,
+    "2:dentistry-and-dental-prosthodontics": 6,
+    "13:medicine-and-surgery": 6,
+    "16:dentistry-and-dental-prosthodontics": 6,
+    "24:medicine-and-surgery": 6,
+    "8:medicine-and-surgery-replica-bolzano": 6,
+    "8:medicine-and-surgery": 6
+  },
+  "languageOverrides": {},
+  "levelOverrides": {}
+}

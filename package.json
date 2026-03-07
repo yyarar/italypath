@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "check:routes": "node scripts/check-route-access.mjs"
+    "check:routes": "node scripts/check-route-access.mjs",
+    "check:data": "node --no-warnings scripts/validate-data-integrity.mjs",
+    "clean:med": "node --no-warnings scripts/clean-med-data.mjs"
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.23",

@@ -1,8 +1,24 @@
 // src/app/data.ts
 
+export type ProgramLanguage = "en" | "it";
+export type ProgramLevel = "bachelor" | "master";
+export type ProgramDurationYears = 1 | 2 | 3 | 4 | 5 | 6;
+export type DepartmentKey = `${number}:${string}`;
+
+export interface DepartmentSeed {
+  name: string;
+  slug: string;
+  languages?: ProgramLanguage[];
+  durationYears?: ProgramDurationYears;
+  level?: ProgramLevel;
+}
+
 export interface Department {
   name: string;
   slug: string;
+  languages: ProgramLanguage[];
+  durationYears: ProgramDurationYears;
+  level: ProgramLevel;
 }
 
 export interface University {
@@ -21,9 +37,64 @@ export interface University {
   features_en?: string[];
 }
 
+export type UniversitySeed = Omit<University, "departments"> & {
+  departments: DepartmentSeed[];
+};
+
 export const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80";
 
-export const universitiesData: University[] = [
+export const DEFAULT_DEPARTMENT_LANGUAGES: readonly ProgramLanguage[] = ["en"];
+export const DEFAULT_DEPARTMENT_DURATION_YEARS: ProgramDurationYears = 3;
+export const DEFAULT_DEPARTMENT_LEVEL: ProgramLevel = "bachelor";
+
+// Future overrides: "universityId:departmentSlug" -> value
+export const DEPARTMENT_LANGUAGE_OVERRIDES: Partial<Record<DepartmentKey, readonly ProgramLanguage[]>> = {
+  "2:dentistry-and-dental-prosthodontics": ["en"],
+  "2:medicine-and-surgery": ["en"],
+  "4:medicine-and-surgery": ["en"],
+  "8:medicine-and-surgery": ["en"],
+  "8:medicine-and-surgery-replica-bolzano": ["en"],
+  "11:medicine-and-surgery": ["en"],
+  "13:medicine-and-surgery": ["en"],
+  "15:medicine-and-surgery": ["en"],
+  "16:dentistry-and-dental-prosthodontics": ["en"],
+  "17:medicine-and-surgery": ["en"],
+  "24:medicine-and-surgery": ["en"],
+  "29:medicine-and-surgery": ["en"],
+  "41:medicine-and-surgery": ["en"],
+  "47:medicine-and-surgery": ["en"],
+  "47:medicine-and-surgery-medtech": ["en"],
+  "53:medicine-and-surgery": ["en"],
+  "61:medicine-and-surgery": ["en"],
+};
+export const DEPARTMENT_DURATION_OVERRIDES: Partial<Record<DepartmentKey, ProgramDurationYears>> = {
+  "2:dentistry-and-dental-prosthodontics": 6,
+  "2:medicine-and-surgery": 6,
+  "4:medicine-and-surgery": 6,
+  "8:medicine-and-surgery": 6,
+  "8:medicine-and-surgery-replica-bolzano": 6,
+  "11:medicine-and-surgery": 6,
+  "13:medicine-and-surgery": 6,
+  "15:medicine-and-surgery": 6,
+  "16:dentistry-and-dental-prosthodontics": 6,
+  "17:medicine-and-surgery": 6,
+  "24:medicine-and-surgery": 6,
+  "29:medicine-and-surgery": 6,
+  "41:medicine-and-surgery": 6,
+  "47:medicine-and-surgery": 6,
+  "47:medicine-and-surgery-medtech": 6,
+  "53:medicine-and-surgery": 6,
+  "61:medicine-and-surgery": 6,
+};
+export const DEPARTMENT_LEVEL_OVERRIDES: Partial<Record<DepartmentKey, ProgramLevel>> = {
+  // "10:medicine": "master",
+};
+
+export function createDepartmentKey(universityId: number, departmentSlug: string): DepartmentKey {
+  return `${universityId}:${departmentSlug}`;
+}
+
+export const universitiesBaseData: UniversitySeed[] = [
   {
     id: 1,
     name: "Politecnico di Milano",
@@ -63,7 +134,9 @@ export const universitiesData: University[] = [
       { name: "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications", slug: "molecular-biology-medicinal-chemistry-and-computer-science-for-pharmaceutical-applications" },
       { name: "Nursing", slug: "nursing" },
       { name: "Business Sciences", slug: "business-sciences" },
-      { name: "Sustainable Building Engineering", slug: "sustainable-building-engineering" }
+      { name: "Sustainable Building Engineering", slug: "sustainable-building-engineering" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" },
+      { name: "Dentistry and Dental Prosthodontics", slug: "dentistry-and-dental-prosthodontics" }
     ],
     fee: "150€ - 2.924€",
     image: "https://images.unsplash.com/photo-1529154036614-a60975f5c760?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cm9tYXxlbnwwfHwwfHx8MA%3D%3D",
@@ -113,7 +186,8 @@ export const universitiesData: University[] = [
       { name: "Internet, Multimedia and Telecommunications Engineering", slug: "internet-multimedia-and-telecommunications-engineering" },
       { name: "Italian Medieval and Renaissance Studies", slug: "italian-medieval-and-renaissance-studies" },
       { name: "Psychological Science", slug: "psychological-science" },
-      { name: "Techniques and Methods in Psychological Science", slug: "techniques-and-methods-in-psychological-science" }
+      { name: "Techniques and Methods in Psychological Science", slug: "techniques-and-methods-in-psychological-science" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 2.600€",
     image: "https://images.unsplash.com/photo-1584699232068-ab0eabccc805?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -212,7 +286,9 @@ export const universitiesData: University[] = [
       { name: "Food Science and Technology Replica", slug: "food-science-and-technology-replica" },
       { name: "Political Sciences and International Relations", slug: "political-sciences-and-international-relations" },
       { name: "Political Sciences and International Relations Replica", slug: "political-sciences-and-international-relations-replica" },
-      { name: "Sociology", slug: "sociology" }
+      { name: "Sociology", slug: "sociology" },
+      { name: "Medicine and Surgery REPLICA - BOLZANO", slug: "medicine-and-surgery-replica-bolzano" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "3.000€ - 9.000€",
     image: "https://plus.unsplash.com/premium_photo-1677097570196-0d81ee690408?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -274,7 +350,8 @@ export const universitiesData: University[] = [
       { name: "Economics", slug: "economics" },
       { name: "Economics and Finance with Data Science", slug: "economics-and-finance-with-data-science" },
       { name: "Global Law and Transnational Legal Studies", slug: "global-law-and-transnational-legal-studies" },
-      { name: "Mathematics for Economics, Finance and Insurance", slug: "mathematics-for-economics-finance-and-insurance" }
+      { name: "Mathematics for Economics, Finance and Insurance", slug: "mathematics-for-economics-finance-and-insurance" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 2.800€",
     image: "https://images.unsplash.com/photo-1569355849432-0ed9d0a55bf5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -313,7 +390,8 @@ export const universitiesData: University[] = [
       { name: "Business Administration & Economics", slug: "business-administration-and-economics" },
       { name: "Engineering Sciences", slug: "engineering-sciences" },
       { name: "Global Governance", slug: "global-governance" },
-      { name: "Tourism Sciences", slug: "tourism-sciences" }
+      { name: "Tourism Sciences", slug: "tourism-sciences" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 2.500€",
     image: "https://plus.unsplash.com/premium_photo-1675975706513-9daba0ec12a8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -349,7 +427,8 @@ export const universitiesData: University[] = [
     type: "Devlet",
     departments: [
       { name: "Artificial Intelligence", slug: "artificial-intelligence" },
-      { name: "Social Sciences for Global Challenges", slug: "social-sciences-for-global-challenges" }
+      { name: "Social Sciences for Global Challenges", slug: "social-sciences-for-global-challenges" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 4.500€",
     image: "https://images.unsplash.com/photo-1679098419872-77cb6eb24e46?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -367,7 +446,8 @@ export const universitiesData: University[] = [
     departments: [
       { name: "Biotech Engineering for Health", slug: "biotech-engineering-for-health" },
       { name: "Economics and Management", slug: "economics-and-management" },
-      { name: "Economics and Banking", slug: "economics-and-banking" }
+      { name: "Economics and Banking", slug: "economics-and-banking" },
+      { name: "Dentistry and Dental Prosthodontics", slug: "dentistry-and-dental-prosthodontics" }
     ],
     fee: "150€ - 2.200€",
     image: "https://images.unsplash.com/photo-1612820676918-1682b0d4afa0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -390,7 +470,8 @@ export const universitiesData: University[] = [
       { name: "Business Management", slug: "business-management" },
       { name: "Marine Biology and Blue Biotechnologies", slug: "marine-biology-and-blue-biotechnologies" },
       { name: "Political Sciences and International Relations", slug: "political-sciences-and-international-relations" },
-      { name: "Transnational and European Legal Studies", slug: "transnational-and-european-legal-studies" }
+      { name: "Transnational and European Legal Studies", slug: "transnational-and-european-legal-studies" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 750€",
     image: "https://images.unsplash.com/photo-1558652361-3d3b72a5dc79?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -521,7 +602,8 @@ export const universitiesData: University[] = [
     type: "Devlet",
     departments: [
       { name: "Data Analytics", slug: "data-analytics" },
-      { name: "Nursing", slug: "nursing" }
+      { name: "Nursing", slug: "nursing" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 2.000€",
     image: "https://images.unsplash.com/photo-1586108683830-eee157a26bdb?q=80&w=1036&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -606,7 +688,8 @@ export const universitiesData: University[] = [
     type: "Devlet",
     departments: [
       { name: "Economics and Science for Environmental Sustainability", slug: "economics-and-science-for-environmental-sustainability" },
-      { name: "Physical Sciences for Innovative Technologies", slug: "physical-sciences-for-innovative-technologies" }
+      { name: "Physical Sciences for Innovative Technologies", slug: "physical-sciences-for-innovative-technologies" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=800&q=80",
@@ -813,7 +896,8 @@ export const universitiesData: University[] = [
       { name: "Nursing", slug: "nursing" },
       { name: "Midwifery", slug: "midwifery" },
       { name: "Biomedical Laboratory Techniques", slug: "biomedical-laboratory-techniques" },
-      { name: "Imaging and Radiotherapy Techniques", slug: "imaging-and-radiotherapy-techniques" }
+      { name: "Imaging and Radiotherapy Techniques", slug: "imaging-and-radiotherapy-techniques" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "Özel Ücret",
     image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80",
@@ -913,7 +997,9 @@ export const universitiesData: University[] = [
     city: "Roma",
     type: "Devlet",
     departments: [
-      { name: "Biomedical Engineering", slug: "biomedical-engineering" }
+      { name: "Biomedical Engineering", slug: "biomedical-engineering" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" },
+      { name: "Medicine and Surgery-MedTech", slug: "medicine-and-surgery-medtech" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1012,7 +1098,8 @@ export const universitiesData: University[] = [
     city: "Cagliari",
     type: "Devlet",
     departments: [
-      { name: "Business and Economics", slug: "business-and-economics" }
+      { name: "Business and Economics", slug: "business-and-economics" },
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "150€ - 3.000€",
     image: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80",
@@ -1137,6 +1224,23 @@ export const universitiesData: University[] = [
     features_en: ["English Education", "Tourism Comm.", "3 Years"]
   },
   {
+    id: 61,
+    name: "HUMANITAS University",
+    city: "Milano",
+    type: "Özel",
+    departments: [
+      { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
+    ],
+    fee: "Bilgi için üniversite sitesini kontrol et",
+    image: DEFAULT_IMAGE,
+    description: `Milano merkezli, sağlık ve tıp alanına odaklanan özel bir üniversite.`,
+    description_en: `A private university based in Milan, focused on medicine and health sciences.`,
+    website: "https://www.hunimed.eu",
+    features: ["İngilizce Tıp", "6 Yıllık Program", "Sağlık Odaklı"],
+    features_en: ["Medicine in English", "6-Year Program", "Health Focus"]
+  },
+
+  {
     id: 62,
     name: "Università Telematica Giustino Fortunato",
     city: "Benevento / Online",
@@ -1170,3 +1274,34 @@ export const universitiesData: University[] = [
   }
 
 ];
+
+function withDepartmentMetadata(
+  universityId: number,
+  department: DepartmentSeed
+): Department {
+  const departmentKey = createDepartmentKey(universityId, department.slug);
+  const languages =
+    department.languages ??
+    DEPARTMENT_LANGUAGE_OVERRIDES[departmentKey] ??
+    DEFAULT_DEPARTMENT_LANGUAGES;
+
+  return {
+    ...department,
+    languages: [...languages],
+    durationYears:
+      department.durationYears ??
+      DEPARTMENT_DURATION_OVERRIDES[departmentKey] ??
+      DEFAULT_DEPARTMENT_DURATION_YEARS,
+    level:
+      department.level ??
+      DEPARTMENT_LEVEL_OVERRIDES[departmentKey] ??
+      DEFAULT_DEPARTMENT_LEVEL,
+  };
+}
+
+export const universitiesData: University[] = universitiesBaseData.map((university) => ({
+  ...university,
+  departments: university.departments.map((department) =>
+    withDepartmentMetadata(university.id, department)
+  ),
+}));

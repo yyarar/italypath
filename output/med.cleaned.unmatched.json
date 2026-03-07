@@ -1,0 +1,15 @@
+[
+  {
+    "sourceUniversityName": "HUMANITAS University",
+    "sourceTitle": "Medicine and Surgery - LM-41 R",
+    "programCode": "LM-41",
+    "departmentName": "Medicine and Surgery",
+    "departmentSlug": "medicine-and-surgery",
+    "languages": [
+      "en"
+    ],
+    "durationYears": 6,
+    "level": "bachelor",
+    "cycleLabel": "EN Ciclo unico"
+  }
+]
