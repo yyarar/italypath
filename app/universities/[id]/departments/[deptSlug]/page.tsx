@@ -4,7 +4,8 @@ import React, { useMemo } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MapPin, ArrowLeft, Globe, GraduationCap, Banknote, BookOpen, Sparkles, ArrowRight, Building2, ExternalLink } from 'lucide-react';
+import { MapPin, ArrowLeft, Globe, GraduationCap, Banknote, BookOpen, Sparkles, ArrowRight, Building2, ExternalLink, Languages, Clock3 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useAuth } from '@clerk/nextjs';
 import { useLanguage } from '@/context/LanguageContext';
 import ScrollProgress from '@/components/ScrollProgress';
@@ -68,142 +69,218 @@ export default function DepartmentDetailPage() {
 
     const description = (language === 'en' && university.description_en)
         ? university.description_en : university.description;
+    const safeLanguages = Array.isArray(department.languages) && department.languages.length > 0
+        ? department.languages
+        : ['en'];
+    const safeDurationYears = typeof department.durationYears === 'number'
+        ? department.durationYears
+        : 3;
+    const safeLevel = department.level === 'master' ? 'master' : 'bachelor';
+    const deptCardLayoutId = `dept-card-${university.id}-${department.slug}`;
+    const deptTitleLayoutId = `dept-title-${university.id}-${department.slug}`;
+    const deptLevelLabel = safeLevel === 'master'
+        ? (language === 'tr' ? 'Yüksek Lisans' : 'Master')
+        : (language === 'tr' ? 'Lisans' : 'Bachelor');
+    const deptDuration = language === 'tr'
+        ? `${safeDurationYears} yıl`
+        : `${safeDurationYears} year${safeDurationYears === 1 ? '' : 's'}`;
+    const deptLanguageLabel = safeLanguages
+        .map((lang) => {
+            if (lang === 'it') return language === 'tr' ? 'İtalyanca' : 'Italian';
+            return language === 'tr' ? 'İngilizce' : 'English';
+        })
+        .join(' / ');
 
     return (
-        <div className="min-h-screen bg-slate-50">
+        <div className="min-h-screen bg-slate-950 p-2 sm:p-3">
             <ScrollProgress />
-            {/* ÜST HERO */}
-            <div className="relative h-[45vh] flex items-end overflow-hidden bg-slate-900">
-                <div className="absolute inset-0">
+            <motion.section
+                layoutId={deptCardLayoutId}
+                transition={{ type: "spring", stiffness: 220, damping: 30 }}
+                className="relative min-h-[calc(100vh-0.5rem)] sm:min-h-[calc(100vh-0.75rem)] overflow-hidden rounded-[24px] border border-white/10 bg-slate-900 shadow-[0_30px_120px_rgba(2,6,23,0.6)]"
+            >
+                <div className="absolute inset-0 z-0">
                     <Image
                         src={university.image || DEFAULT_IMAGE}
-                        alt={department.name}
+                        alt={`${department.name} - ${university.name}`}
                         fill
                         priority
                         sizes="100vw"
-                        className="object-cover opacity-80"
+                        className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-slate-900/30"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-900/78 to-indigo-950/72" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(99,102,241,0.38),transparent_38%),radial-gradient(circle_at_84%_72%,rgba(14,165,233,0.32),transparent_42%)]" />
                 </div>
 
-                {/* NAVİGASYON */}
-                <div className="absolute top-6 left-6 z-20 flex gap-2">
+                <div className="absolute top-5 left-5 z-30 flex gap-2">
                     <Link
                         href={`/universities/${university.id}`}
-                        className="flex items-center text-white/90 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full transition backdrop-blur-md border border-white/10 font-medium text-sm"
+                        className="flex items-center text-white bg-white/12 hover:bg-white/20 px-4 py-2 rounded-full transition backdrop-blur-md border border-white/20 font-semibold text-sm"
                     >
                         <ArrowLeft className="w-4 h-4 mr-2" /> {t.department.backToUni}
                     </Link>
                 </div>
 
-                <div className="max-w-7xl mx-auto w-full px-6 pb-12 relative z-10">
-                    <div className="flex flex-wrap gap-2 mb-3">
-                        <span className="bg-indigo-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg shadow-indigo-900/20 flex items-center">
-                            <GraduationCap className="w-4 h-4 mr-1.5" />
-                            {language === 'tr' ? 'Bölüm Detayı' : 'Program Detail'}
-                        </span>
-                        <span className="bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full text-sm font-medium border border-white/10">
-                            {university.type}
-                        </span>
-                    </div>
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2 drop-shadow-xl leading-tight">
-                        {department.name}
-                    </h1>
-                    <div className="flex items-center text-slate-200 text-base font-medium">
-                        <Building2 className="w-5 h-5 mr-2 text-indigo-300" /> {university.name}
-                        <span className="mx-2 text-white/40">•</span>
-                        <MapPin className="w-4 h-4 mr-1 text-red-400" /> {university.city}
-                    </div>
-                </div>
-            </div>
+                <div className="relative z-20 mx-auto flex min-h-[calc(100vh-0.5rem)] max-w-7xl items-center px-4 py-24 sm:px-6 lg:px-8">
+                    <div className="grid w-full grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.85fr)]">
+                        <div className="rounded-3xl border border-white/15 bg-white/8 p-6 shadow-2xl backdrop-blur-xl sm:p-8">
+                            <div className="mb-4 flex flex-wrap gap-2">
+                                <span className="inline-flex items-center rounded-full border border-white/15 bg-white/12 px-3 py-1 text-xs font-semibold text-white">
+                                    <GraduationCap className="mr-1.5 h-3.5 w-3.5 text-indigo-200" />
+                                    {language === 'tr' ? 'Bölüm Detayı' : 'Program Detail'}
+                                </span>
+                                <span className="rounded-full border border-indigo-200/40 bg-indigo-400/20 px-3 py-1 text-xs font-semibold text-indigo-100">
+                                    {deptLevelLabel}
+                                </span>
+                            </div>
 
-            {/* İÇERİK ALANI */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20 pb-20">
-                <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8 grid grid-cols-1 lg:grid-cols-3 gap-10">
-                    <div className="lg:col-span-2 space-y-8">
-                        {/* HAKKINDA */}
-                        <section>
-                            <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center">
-                                <BookOpen className="w-6 h-6 mr-2 text-blue-600" /> {t.department.overview}
-                            </h2>
-                            <p className="text-slate-600 leading-relaxed text-lg">{description}</p>
-                        </section>
+                            <motion.h1
+                                layoutId={deptTitleLayoutId}
+                                transition={{ type: "spring", stiffness: 280, damping: 28 }}
+                                className="text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
+                            >
+                                {department.name}
+                            </motion.h1>
 
-                        {/* DİĞER BÖLÜMLER */}
-                        {otherDepts.length > 0 && (
-                            <>
-                                <hr className="border-slate-100" />
-                                <section>
-                                    <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center">
-                                        <GraduationCap className="w-6 h-6 mr-2 text-indigo-600" /> {t.department.otherDepts}
+                            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-medium text-slate-200">
+                                <span className="inline-flex items-center">
+                                    <Building2 className="mr-1.5 h-4 w-4 text-indigo-200" />
+                                    {university.name}
+                                </span>
+                                <span className="inline-flex items-center">
+                                    <MapPin className="mr-1.5 h-4 w-4 text-rose-300" />
+                                    {university.city}, Italy
+                                </span>
+                            </div>
+
+                            <p className="mt-6 text-base leading-relaxed text-slate-100/95 sm:text-lg">
+                                {description}
+                            </p>
+
+                            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                                <div className="rounded-2xl border border-white/15 bg-slate-950/35 p-4">
+                                    <p className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-300">
+                                        {t.department.fee}
+                                    </p>
+                                    <p className="text-base font-bold text-white">{university.fee}</p>
+                                </div>
+                                <div className="rounded-2xl border border-white/15 bg-slate-950/35 p-4">
+                                    <p className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-300">
+                                        {language === 'tr' ? 'Süre' : 'Duration'}
+                                    </p>
+                                    <p className="inline-flex items-center text-base font-bold text-white">
+                                        <Clock3 className="mr-1.5 h-4 w-4 text-cyan-200" />
+                                        {deptDuration}
+                                    </p>
+                                </div>
+                                <div className="rounded-2xl border border-white/15 bg-slate-950/35 p-4">
+                                    <p className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-slate-300">
+                                        {language === 'tr' ? 'Dil' : 'Language'}
+                                    </p>
+                                    <p className="inline-flex items-center text-base font-bold text-white">
+                                        <Languages className="mr-1.5 h-4 w-4 text-emerald-200" />
+                                        {deptLanguageLabel}
+                                    </p>
+                                </div>
+                            </div>
+
+                            {otherDepts.length > 0 && (
+                                <section className="mt-8 border-t border-white/15 pt-6">
+                                    <h2 className="mb-4 flex items-center text-lg font-bold text-white sm:text-xl">
+                                        <BookOpen className="mr-2 h-5 w-5 text-indigo-200" />
+                                        {t.department.otherDepts}
                                     </h2>
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                        {otherDepts.map((dept, i) => (
-                                            <Link
-                                                key={i}
-                                                href={`/universities/${university.id}/departments/${dept.slug}`}
-                                                className="flex items-center justify-between bg-gradient-to-r from-indigo-50 to-blue-50 hover:from-indigo-100 hover:to-blue-100 p-4 rounded-xl border border-indigo-100 transition-all duration-200 group hover:shadow-md hover:-translate-y-0.5"
-                                            >
-                                                <div className="flex items-center min-w-0">
-                                                    <div className="w-2 h-2 bg-indigo-500 rounded-full mr-3 shrink-0"></div>
-                                                    <span className="text-slate-800 font-medium truncate">{dept.name}</span>
-                                                </div>
-                                                <ArrowRight className="w-4 h-4 text-indigo-400 group-hover:text-indigo-600 transition shrink-0 ml-2" />
-                                            </Link>
-                                        ))}
+                                    <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                                        {otherDepts.map((dept) => {
+                                            const otherDeptCardLayoutId = `dept-card-${university.id}-${dept.slug}`;
+                                            const otherDeptTitleLayoutId = `dept-title-${university.id}-${dept.slug}`;
+
+                                            return (
+                                                <Link
+                                                    key={dept.slug}
+                                                    href={`/universities/${university.id}/departments/${dept.slug}`}
+                                                    className="block"
+                                                >
+                                                    <motion.div
+                                                        layoutId={otherDeptCardLayoutId}
+                                                        transition={{ type: "spring", stiffness: 250, damping: 28 }}
+                                                        className="group flex items-center justify-between rounded-2xl border border-white/15 bg-white/10 p-3.5 hover:bg-white/16 transition-all"
+                                                    >
+                                                        <motion.span
+                                                            layoutId={otherDeptTitleLayoutId}
+                                                            transition={{ type: "spring", stiffness: 280, damping: 28 }}
+                                                            className="truncate pr-3 text-sm font-semibold text-white"
+                                                        >
+                                                            {dept.name}
+                                                        </motion.span>
+                                                        <ArrowRight className="h-4 w-4 shrink-0 text-slate-200 group-hover:text-white transition" />
+                                                    </motion.div>
+                                                </Link>
+                                            );
+                                        })}
                                     </div>
                                 </section>
-                            </>
-                        )}
-                    </div>
+                            )}
+                        </div>
 
-                    {/* SAĞ PANEL */}
-                    <div className="lg:col-span-1">
-                        <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 sticky top-24">
-                            <h3 className="text-lg font-bold text-slate-900 mb-6 border-b border-slate-200 pb-2">{t.department.university}</h3>
-                            <div className="space-y-5">
-                                <div className="flex items-start">
-                                    <Building2 className="w-6 h-6 text-slate-400 mt-1 mr-3" />
+                        <div className="rounded-3xl border border-white/15 bg-white/8 p-6 shadow-2xl backdrop-blur-xl sm:p-7">
+                            <h2 className="mb-6 text-lg font-bold text-white">{t.department.university}</h2>
+                            <div className="space-y-5 text-slate-100">
+                                <div className="flex items-start gap-3">
+                                    <Building2 className="mt-0.5 h-5 w-5 text-indigo-200 shrink-0" />
                                     <div>
-                                        <p className="text-xs text-slate-500 uppercase font-semibold">{t.department.university}</p>
-                                        <Link href={`/universities/${university.id}`} className="text-slate-900 font-bold text-lg hover:text-blue-600 transition">
+                                        <p className="text-xs uppercase tracking-wide text-slate-300">{t.department.university}</p>
+                                        <Link
+                                            href={`/universities/${university.id}`}
+                                            className="text-base font-bold text-white hover:text-indigo-200 transition"
+                                        >
                                             {university.name}
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="flex items-start">
-                                    <MapPin className="w-6 h-6 text-slate-400 mt-1 mr-3" />
+                                <div className="flex items-start gap-3">
+                                    <MapPin className="mt-0.5 h-5 w-5 text-rose-200 shrink-0" />
                                     <div>
-                                        <p className="text-xs text-slate-500 uppercase font-semibold">{t.department.city}</p>
-                                        <p className="text-slate-900 font-bold text-lg">{university.city}, Italy</p>
+                                        <p className="text-xs uppercase tracking-wide text-slate-300">{t.department.city}</p>
+                                        <p className="text-base font-semibold text-white">{university.city}, Italy</p>
                                     </div>
                                 </div>
-                                <div className="flex items-start">
-                                    <Banknote className="w-6 h-6 text-slate-400 mt-1 mr-3" />
+                                <div className="flex items-start gap-3">
+                                    <Banknote className="mt-0.5 h-5 w-5 text-emerald-200 shrink-0" />
                                     <div>
-                                        <p className="text-xs text-slate-500 uppercase font-semibold">{t.department.fee}</p>
-                                        <p className="text-slate-900 font-bold text-lg">{university.fee}</p>
+                                        <p className="text-xs uppercase tracking-wide text-slate-300">{t.department.fee}</p>
+                                        <p className="text-base font-semibold text-white">{university.fee}</p>
                                     </div>
                                 </div>
-                                <div className="flex items-start">
-                                    <Globe className="w-6 h-6 text-slate-400 mt-1 mr-3" />
+                                <div className="flex items-start gap-3">
+                                    <Globe className="mt-0.5 h-5 w-5 text-cyan-200 shrink-0" />
                                     <div>
-                                        <p className="text-xs text-slate-500 uppercase font-semibold">{t.detail.website}</p>
-                                        <a href={university.website} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold hover:underline break-all flex items-center">
-                                            {t.detail.visitSite} <ExternalLink className="w-3.5 h-3.5 ml-1.5" />
+                                        <p className="text-xs uppercase tracking-wide text-slate-300">{t.detail.website}</p>
+                                        <a
+                                            href={university.website}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center text-sm font-semibold text-indigo-200 hover:text-white transition"
+                                        >
+                                            {t.detail.visitSite} <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-8 pt-6 border-t border-slate-200">
-                                <Link href={aiMentorHref} className="w-full bg-slate-900 text-white flex items-center justify-center py-4 rounded-xl font-bold hover:bg-indigo-600 transition-all shadow-lg group">
-                                    <Sparkles className="w-5 h-5 mr-2 text-yellow-400 group-hover:animate-pulse" /> {t.department.askAi}
+
+                            <div className="mt-7 border-t border-white/15 pt-6">
+                                <Link
+                                    href={aiMentorHref}
+                                    className="flex w-full items-center justify-center rounded-2xl bg-white px-4 py-3 font-bold text-slate-900 transition hover:bg-indigo-100"
+                                >
+                                    <Sparkles className="mr-2 h-4 w-4 text-indigo-600" />
+                                    {t.department.askAi}
                                 </Link>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.section>
         </div>
     );
 }

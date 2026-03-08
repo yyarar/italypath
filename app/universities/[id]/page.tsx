@@ -179,25 +179,42 @@ export default function UniversityDetailPage() {
                 </span>
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {university.departments && university.departments.map((dept, i) => (
-                  <Link
-                    key={i}
-                    href={`/universities/${university.id}/departments/${dept.slug}`}
-                    className="group flex items-center justify-between bg-slate-50 hover:bg-indigo-50 p-4 rounded-2xl border border-slate-100 hover:border-indigo-200 transition-all duration-200"
-                  >
-                    <div className="flex items-center min-w-0 gap-2.5">
-                      <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full shrink-0" />
-                      <span className="text-slate-700 font-medium text-sm truncate group-hover:text-indigo-700">{dept.name}</span>
-                    </div>
-                    <motion.div
-                      initial={{ x: 0 }}
-                      whileHover={{ x: 3 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                {university.departments && university.departments.map((dept) => {
+                  const deptCardLayoutId = `dept-card-${university.id}-${dept.slug}`;
+                  const deptTitleLayoutId = `dept-title-${university.id}-${dept.slug}`;
+
+                  return (
+                    <Link
+                      key={dept.slug}
+                      href={`/universities/${university.id}/departments/${dept.slug}`}
+                      className="block"
                     >
-                      <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-indigo-500 transition shrink-0 ml-2" />
-                    </motion.div>
-                  </Link>
-                ))}
+                      <motion.div
+                        layoutId={deptCardLayoutId}
+                        transition={{ type: "spring", stiffness: 250, damping: 28 }}
+                        className="group flex items-center justify-between bg-slate-50 hover:bg-indigo-50 p-4 rounded-2xl border border-slate-100 hover:border-indigo-200 transition-all duration-200"
+                      >
+                        <div className="flex items-center min-w-0 gap-2.5">
+                          <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full shrink-0" />
+                          <motion.span
+                            layoutId={deptTitleLayoutId}
+                            transition={{ type: "spring", stiffness: 280, damping: 28 }}
+                            className="text-slate-700 font-medium text-sm truncate group-hover:text-indigo-700"
+                          >
+                            {dept.name}
+                          </motion.span>
+                        </div>
+                        <motion.div
+                          initial={{ x: 0 }}
+                          whileHover={{ x: 3 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                        >
+                          <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-indigo-500 transition shrink-0 ml-2" />
+                        </motion.div>
+                      </motion.div>
+                    </Link>
+                  );
+                })}
               </div>
             </motion.div>
 
