@@ -307,3 +307,17 @@
 | `app/data.ts` | ➕ Yeni final listeye göre 6 yıllık EN Medicine/Dentistry programları üniversitelere işlendi (24 program) |
 | `app/data.ts` | ➕ `HUMANITAS University` (`id: 61`) ve `UNISR - Università Vita Salute San Raffaele` (`id: 64`) kayıtları data setine dahil edildi |
 | `app/data.ts` | ♻️ `DEPARTMENT_LANGUAGE_OVERRIDES` ve `DEPARTMENT_DURATION_OVERRIDES` listeleri yeni 24 program setine göre hizalandı (`["en"]`, `6`) |
+
+### Commit 35 (Liste Scroll Koruma + Geri Dönüş Davranışı):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `app/universities/page.tsx` | ♻️ Üniversite kartı linkleri `?from=list` query paramı ile güncellendi; liste -> detay geçiş kaynağı işaretlenir hale geldi |
+| `app/universities/[id]/page.tsx` | ♻️ Hero geri butonu statik `href="/universities"` yerine `handleBack` akışına taşındı; `from=list` + history varsa `router.back()`, aksi durumda `/universities` fallback davranışı eklendi |
+
+### Commit 36 (Department Expandable-Screen Morph Geçiş Sistemi):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/ui/expandable-screen.tsx` | 🆕 Local `ExpandableScreen` sistemi eklendi: `ExpandableScreen`, `ExpandableScreenTrigger`, `ExpandableScreenContent`, `ExpandableScreenBackground`, `useExpandableScreen`; `layoutId` tabanlı morph, `Escape` ile kapama ve opsiyonel scroll lock davranışı dahil |
+| `app/universities/[id]/page.tsx` | ♻️ Department kartları `ExpandableScreenTrigger` ile bağlandı; tıklamada anında route yerine kısa expand animasyonu (`~280ms`) oynatılıp sonra department route'una geçiş eklendi |
+| `app/universities/[id]/departments/[deptSlug]/page.tsx` | ♻️ Sayfa root'u `ExpandableScreenContent` ile eşlendi; "Diğer Bölümler" kartları da aynı expand->route akışına taşındı; program metadata alanları için runtime fallback (`languages`, `durationYears`, `level`) eklendi |
+| `components/RouteTransition.tsx` | ♻️ Üniversite/department detay rotalarında route-level opacity fade kapatıldı; morph geçiş sırasında görülen geçici kararma engellendi |

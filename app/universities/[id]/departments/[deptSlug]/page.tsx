@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useMemo } from 'react';
-import { useParams } from 'next/navigation';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, ArrowLeft, Globe, GraduationCap, Banknote, BookOpen, Sparkles, ArrowRight, Building2, ExternalLink, Languages, Clock3 } from 'lucide-react';
@@ -10,14 +10,17 @@ import { useAuth } from '@clerk/nextjs';
 import { useLanguage } from '@/context/LanguageContext';
 import ScrollProgress from '@/components/ScrollProgress';
 import { useUniversitiesData } from '@/lib/useUniversitiesData';
+import { ExpandableScreen, ExpandableScreenContent, ExpandableScreenTrigger } from '@/components/ui/expandable-screen';
 
 const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80";
 
 export default function DepartmentDetailPage() {
     const params = useParams();
+    const router = useRouter();
     const { isSignedIn } = useAuth();
     const { t, language } = useLanguage();
     const { universities, loading: universitiesLoading, error: universitiesError } = useUniversitiesData();
+    const [expandingDeptSlug, setExpandingDeptSlug] = useState<string | null>(null);
     const aiMentorHref = isSignedIn
         ? '/ai-mentor'
         : '/sign-in?redirect_url=%2Fai-mentor';
@@ -36,6 +39,18 @@ export default function DepartmentDetailPage() {
     const otherDepts = useMemo(() => {
         return university?.departments.filter((d) => d.slug !== deptSlugFromUrl) || [];
     }, [university, deptSlugFromUrl]);
+
+    useEffect(() => {
+        if (!expandingDeptSlug || !university?.id) return;
+
+        const timer = window.setTimeout(() => {
+            router.push(`/universities/${university.id}/departments/${expandingDeptSlug}`);
+        }, 280);
+
+        return () => {
+            window.clearTimeout(timer);
+        };
+    }, [expandingDeptSlug, university?.id, router]);
 
     if (universitiesLoading) {
         return (
@@ -94,11 +109,18 @@ export default function DepartmentDetailPage() {
     return (
         <div className="min-h-screen bg-slate-950 p-2 sm:p-3">
             <ScrollProgress />
-            <motion.section
+            <ExpandableScreen
                 layoutId={deptCardLayoutId}
-                transition={{ type: "spring", stiffness: 220, damping: 30 }}
-                className="relative min-h-[calc(100vh-0.5rem)] sm:min-h-[calc(100vh-0.75rem)] overflow-hidden rounded-[24px] border border-white/10 bg-slate-900 shadow-[0_30px_120px_rgba(2,6,23,0.6)]"
+                triggerRadius="16px"
+                contentRadius="24px"
+                animationDuration={0.3}
+                defaultExpanded
+                lockScroll={false}
             >
+                <ExpandableScreenContent
+                    showCloseButton={false}
+                    className="relative min-h-[calc(100vh-0.5rem)] sm:min-h-[calc(100vh-0.75rem)] overflow-hidden rounded-[24px] border border-white/10 bg-slate-900 shadow-[0_30px_120px_rgba(2,6,23,0.6)]"
+                >
                 <div className="absolute inset-0 z-0">
                     <Image
                         src={university.image || DEFAULT_IMAGE}
@@ -196,26 +218,67 @@ export default function DepartmentDetailPage() {
                                             const otherDeptTitleLayoutId = `dept-title-${university.id}-${dept.slug}`;
 
                                             return (
-                                                <Link
+                                                <ExpandableScreen
                                                     key={dept.slug}
-                                                    href={`/universities/${university.id}/departments/${dept.slug}`}
-                                                    className="block"
+                                                    layoutId={otherDeptCardLayoutId}
+                                                    triggerRadius="16px"
+                                                    contentRadius="24px"
+                                                    animationDuration={0.3}
+                                                    defaultExpanded={expandingDeptSlug === dept.slug}
                                                 >
-                                                    <motion.div
-                                                        layoutId={otherDeptCardLayoutId}
-                                                        transition={{ type: "spring", stiffness: 250, damping: 28 }}
-                                                        className="group flex items-center justify-between rounded-2xl border border-white/15 bg-white/10 p-3.5 hover:bg-white/16 transition-all"
-                                                    >
-                                                        <motion.span
-                                                            layoutId={otherDeptTitleLayoutId}
-                                                            transition={{ type: "spring", stiffness: 280, damping: 28 }}
-                                                            className="truncate pr-3 text-sm font-semibold text-white"
+                                                    <ExpandableScreenTrigger className="group rounded-2xl border border-white/15 bg-white/10 transition-all hover:bg-white/16">
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => {
+                                                                if (expandingDeptSlug) return;
+                                                                setExpandingDeptSlug(dept.slug);
+                                                            }}
+                                                            className="block w-full p-3.5 text-left"
+                                                            disabled={Boolean(expandingDeptSlug)}
                                                         >
-                                                            {dept.name}
-                                                        </motion.span>
-                                                        <ArrowRight className="h-4 w-4 shrink-0 text-slate-200 group-hover:text-white transition" />
-                                                    </motion.div>
-                                                </Link>
+                                                            <motion.div transition={{ type: "spring", stiffness: 250, damping: 28 }} className="flex items-center justify-between">
+                                                                <motion.span
+                                                                    layoutId={otherDeptTitleLayoutId}
+                                                                    transition={{ type: "spring", stiffness: 280, damping: 28 }}
+                                                                    className="truncate pr-3 text-sm font-semibold text-white"
+                                                                >
+                                                                    {dept.name}
+                                                                </motion.span>
+                                                                <ArrowRight className="h-4 w-4 shrink-0 text-slate-200 group-hover:text-white transition" />
+                                                            </motion.div>
+                                                        </button>
+                                                    </ExpandableScreenTrigger>
+
+                                                    <ExpandableScreenContent
+                                                        showCloseButton={false}
+                                                        className="fixed inset-2 sm:inset-3 z-[90] overflow-hidden rounded-[24px] border border-white/10 bg-slate-900 shadow-[0_30px_120px_rgba(2,6,23,0.6)]"
+                                                    >
+                                                        <div className="absolute inset-0 z-0">
+                                                            <Image
+                                                                src={university.image || DEFAULT_IMAGE}
+                                                                alt={`${dept.name} - ${university.name}`}
+                                                                fill
+                                                                sizes="100vw"
+                                                                className="object-cover"
+                                                            />
+                                                            <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-900/78 to-indigo-950/72" />
+                                                        </div>
+                                                        <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
+                                                            <div>
+                                                                <motion.h3
+                                                                    layoutId={otherDeptTitleLayoutId}
+                                                                    transition={{ type: "spring", stiffness: 280, damping: 28 }}
+                                                                    className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white"
+                                                                >
+                                                                    {dept.name}
+                                                                </motion.h3>
+                                                                <p className="mt-3 text-sm sm:text-base text-slate-200">
+                                                                    {language === 'tr' ? 'Bölüm açılıyor...' : 'Opening program...'}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </ExpandableScreenContent>
+                                                </ExpandableScreen>
                                             );
                                         })}
                                     </div>
@@ -280,7 +343,8 @@ export default function DepartmentDetailPage() {
                         </div>
                     </div>
                 </div>
-            </motion.section>
+                </ExpandableScreenContent>
+            </ExpandableScreen>
         </div>
     );
 }

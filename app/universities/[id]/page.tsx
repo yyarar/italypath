@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -10,6 +10,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { useFavorites } from '@/lib/useFavorites';
 import ScrollProgress from '@/components/ScrollProgress';
 import { useUniversitiesData } from '@/lib/useUniversitiesData';
+import { ExpandableScreen, ExpandableScreenContent, ExpandableScreenTrigger } from '@/components/ui/expandable-screen';
 
 const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80";
 
@@ -20,6 +21,7 @@ export default function UniversityDetailPage() {
   const { t, language } = useLanguage();
   const { isFavorite, toggleFavorite, loading, isLoggedIn } = useFavorites();
   const { universities, loading: universitiesLoading, error: universitiesError } = useUniversitiesData();
+  const [expandingDeptSlug, setExpandingDeptSlug] = useState<string | null>(null);
   const aiMentorHref = isLoggedIn
     ? '/ai-mentor'
     : '/sign-in?redirect_url=%2Fai-mentor';
@@ -37,6 +39,18 @@ export default function UniversityDetailPage() {
   const university = useMemo(() => {
     return universities.find((u) => String(u.id) === String(idFromUrl));
   }, [idFromUrl, universities]);
+
+  useEffect(() => {
+    if (!expandingDeptSlug || !idFromUrl) return;
+
+    const timer = window.setTimeout(() => {
+      router.push(`/universities/${idFromUrl}/departments/${expandingDeptSlug}`);
+    }, 280);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [expandingDeptSlug, idFromUrl, router]);
 
   if (universitiesLoading) {
     return (
@@ -184,35 +198,76 @@ export default function UniversityDetailPage() {
                   const deptTitleLayoutId = `dept-title-${university.id}-${dept.slug}`;
 
                   return (
-                    <Link
+                    <ExpandableScreen
                       key={dept.slug}
-                      href={`/universities/${university.id}/departments/${dept.slug}`}
-                      className="block"
+                      layoutId={deptCardLayoutId}
+                      triggerRadius="16px"
+                      contentRadius="24px"
+                      animationDuration={0.3}
+                      defaultExpanded={expandingDeptSlug === dept.slug}
                     >
-                      <motion.div
-                        layoutId={deptCardLayoutId}
-                        transition={{ type: "spring", stiffness: 250, damping: 28 }}
-                        className="group flex items-center justify-between bg-slate-50 hover:bg-indigo-50 p-4 rounded-2xl border border-slate-100 hover:border-indigo-200 transition-all duration-200"
-                      >
-                        <div className="flex items-center min-w-0 gap-2.5">
-                          <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full shrink-0" />
-                          <motion.span
-                            layoutId={deptTitleLayoutId}
-                            transition={{ type: "spring", stiffness: 280, damping: 28 }}
-                            className="text-slate-700 font-medium text-sm truncate group-hover:text-indigo-700"
-                          >
-                            {dept.name}
-                          </motion.span>
-                        </div>
-                        <motion.div
-                          initial={{ x: 0 }}
-                          whileHover={{ x: 3 }}
-                          transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                      <ExpandableScreenTrigger className="group rounded-2xl border border-slate-100 bg-slate-50 transition-all duration-200 hover:border-indigo-200 hover:bg-indigo-50">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            if (expandingDeptSlug) return;
+                            setExpandingDeptSlug(dept.slug);
+                          }}
+                          className="block w-full p-4 text-left"
+                          disabled={Boolean(expandingDeptSlug)}
                         >
-                          <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-indigo-500 transition shrink-0 ml-2" />
-                        </motion.div>
-                      </motion.div>
-                    </Link>
+                          <motion.div whileHover={{ y: -2 }} transition={{ type: "spring", stiffness: 360, damping: 30 }} className="flex items-center justify-between">
+                            <div className="flex items-center min-w-0 gap-2.5">
+                              <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full shrink-0" />
+                              <motion.span
+                                layoutId={deptTitleLayoutId}
+                                transition={{ type: "spring", stiffness: 280, damping: 28 }}
+                                className="text-slate-700 font-medium text-sm truncate group-hover:text-indigo-700"
+                              >
+                                {dept.name}
+                              </motion.span>
+                            </div>
+                            <motion.div
+                              initial={{ x: 0 }}
+                              whileHover={{ x: 3 }}
+                              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                            >
+                              <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-indigo-500 transition shrink-0 ml-2" />
+                            </motion.div>
+                          </motion.div>
+                        </button>
+                      </ExpandableScreenTrigger>
+
+                      <ExpandableScreenContent
+                        showCloseButton={false}
+                        className="fixed inset-2 sm:inset-3 z-[90] overflow-hidden rounded-[24px] border border-white/10 bg-slate-900 shadow-[0_30px_120px_rgba(2,6,23,0.6)]"
+                      >
+                        <div className="absolute inset-0 z-0">
+                          <Image
+                            src={university.image || DEFAULT_IMAGE}
+                            alt={`${dept.name} - ${university.name}`}
+                            fill
+                            sizes="100vw"
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-900/78 to-indigo-950/72" />
+                        </div>
+                        <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
+                          <div>
+                            <motion.h3
+                              layoutId={deptTitleLayoutId}
+                              transition={{ type: "spring", stiffness: 280, damping: 28 }}
+                              className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white"
+                            >
+                              {dept.name}
+                            </motion.h3>
+                            <p className="mt-3 text-sm sm:text-base text-slate-200">
+                              {language === 'tr' ? 'Bölüm açılıyor...' : 'Opening program...'}
+                            </p>
+                          </div>
+                        </div>
+                      </ExpandableScreenContent>
+                    </ExpandableScreen>
                   );
                 })}
               </div>

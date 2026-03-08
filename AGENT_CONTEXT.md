@@ -75,7 +75,8 @@ italypath-main/
 │       ├── marquee.tsx             # Sonsuz kayan metin/ikon animasyon bileşeni (Magic UI yaklaşımı)
 │       ├── animated-list.tsx       # Döngüsel bildirim/liste animasyon bileşeni
 │       ├── border-beam.tsx         # Kart kenarı boyunca akan beam efekti (Magic UI tarzı)
-│       └── pulsating-button.tsx    # Hero CTA için Magic UI pulsating button bileşeni
+│       ├── pulsating-button.tsx    # Hero CTA için Magic UI pulsating button bileşeni
+│       └── expandable-screen.tsx   # Cult UI benzeri morph/expand geçiş bileşen seti (Trigger/Content/Hook)
 ├── context/
 │   └── LanguageContext.tsx          # TR/EN dil sistemi (Context + localStorage)
 ├── lib/
@@ -150,7 +151,9 @@ italypath-main/
 - Slug alanları veri setinde hazır tutulur; mevcut veriler bölüm adlarından türetilmiş URL-safe slug'lar içerir. Aynı üniversite içinde benzersizdir.
 - Rota: `/universities/[id]/departments/[deptSlug]`
 - SEO: `layout.tsx` (Server Component) → dinamik `generateMetadata()` — `page.tsx` ile aynı klasörde
-- Üniversite detay sayfasındaki bölüm kartları `Link` ile bu rotaya yönlendirilir
+- Üniversite detay sayfasındaki bölüm kartları `ExpandableScreenTrigger` ile açılış animasyonu başlatır; kısa expand geçişinden sonra route push yapılır
+- Department detail root'u `ExpandableScreenContent` ile eşlenmiştir; "Diğer Bölümler" kartları da aynı morph/expand modelini kullanır
+- Eski/cache kaynaklı eksik metadata alanlarına karşı runtime fallback uygulanır (`languages`, `durationYears`, `level`)
 
 ### 7. Üniversite Veri Katmanı (`/api/universities` + `useUniversitiesData`)
 - `app/api/universities/route.ts` üniversite verisini cache header'ları (`s-maxage`, `stale-while-revalidate`) ile JSON olarak döner
@@ -191,6 +194,15 @@ italypath-main/
 - Ana sayfadaki birincil CTA (`Hemen Başla / Get Started`) için `components/ui/pulsating-button.tsx` kullanılır
 - Pulsating efekt global animasyon token'ı üzerinden (`--animate-pulsating-button`) `app/globals.css` içinde yönetilir
 - Efekt yalnızca Hero CTA'da aktif olacak şekilde sınırlandırılmıştır
+
+### 12. Liste Scroll Koruma & Back Davranışı
+- Üniversite listesi -> detay geçişi sırasında kart linkleri `?from=list` query paramı taşır.
+- Üniversite detay hero geri butonu `router.back()` + fallback (`/universities`) akışıyla çalışır.
+- Böylece kullanıcı listeden bir okula girip geri döndüğünde scroll konumu/history bağlamı korunur.
+
+### 13. Detail Route Transition Çakışma Önlemi
+- `components/RouteTransition.tsx` içinde `/universities/[id]` ve `/universities/[id]/departments/[deptSlug]` rotalarında route-level opacity fade devre dışıdır.
+- Amaç, shared-layout/morph geçiş sırasında görülen geçici ekran kararmasını engellemektir.
 
 ---
 

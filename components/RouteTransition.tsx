@@ -6,16 +6,23 @@ import { usePathname } from "next/navigation";
 export default function RouteTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
+  const isSharedLayoutDetailRoute = /^\/universities\/[^/]+(\/departments\/[^/]+)?$/.test(pathname);
 
-  const initial = shouldReduceMotion
-    ? { opacity: 0 }
-    : { opacity: 0, y: 10 };
-  const animate = shouldReduceMotion
-    ? { opacity: 1 }
-    : { opacity: 1, y: 0 };
-  const exit = shouldReduceMotion
-    ? { opacity: 0 }
-    : { opacity: 0, y: -6 };
+  const initial = isSharedLayoutDetailRoute
+    ? { opacity: 1, y: 0 }
+    : shouldReduceMotion
+      ? { opacity: 0 }
+      : { opacity: 0, y: 10 };
+  const animate = isSharedLayoutDetailRoute
+    ? { opacity: 1, y: 0 }
+    : shouldReduceMotion
+      ? { opacity: 1 }
+      : { opacity: 1, y: 0 };
+  const exit = isSharedLayoutDetailRoute
+    ? { opacity: 1, y: 0 }
+    : shouldReduceMotion
+      ? { opacity: 0 }
+      : { opacity: 0, y: -6 };
   const transition = shouldReduceMotion
     ? { duration: 0.12, ease: "easeOut" as const }
     : {
