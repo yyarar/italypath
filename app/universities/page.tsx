@@ -128,7 +128,11 @@ function UniversityCompactRow({
                 href={{ pathname: `/universities/${university.id}`, query: { from: 'list' } }}
                 className="block"
             >
-                <div className="group rounded-2xl border border-slate-200 bg-white px-3 py-3 pr-14 shadow-sm transition hover:border-slate-300 hover:shadow-md sm:px-4 sm:py-3.5 sm:pr-16">
+                <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white px-3 py-3 pr-14 shadow-sm transition hover:border-indigo-200 hover:bg-slate-50/70 hover:shadow-md focus-within:border-indigo-300 sm:px-4 sm:py-3.5 sm:pr-16">
+                    <span
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-y-2 left-0 w-1 rounded-r-full bg-indigo-500/0 transition-colors group-hover:bg-indigo-500/60 group-focus-within:bg-indigo-500/60"
+                    />
                     <div className="flex items-center gap-3">
                         <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 sm:h-16 sm:w-16">
                             <Image
@@ -144,16 +148,16 @@ function UniversityCompactRow({
                             <h2 className="truncate text-sm font-bold text-slate-900 transition-colors group-hover:text-indigo-600 sm:text-base">
                                 {university.name}
                             </h2>
-                            <div className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[11px] sm:text-xs">
-                                <span className="inline-flex items-center font-medium text-slate-500">
+                            <div className="mt-1.5 grid grid-cols-2 gap-x-2 gap-y-1.5 text-[11px] sm:flex sm:flex-wrap sm:items-center sm:gap-x-2.5 sm:gap-y-1.5 sm:text-xs">
+                                <span className="inline-flex min-w-0 items-center font-medium text-slate-500">
                                     <MapPin className="mr-1 h-3.5 w-3.5 text-rose-400" />
-                                    {university.city}
+                                    <span className="truncate">{university.city}</span>
                                 </span>
-                                <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 font-semibold text-slate-600">
+                                <span className="justify-self-start rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 font-semibold text-slate-600">
                                     {typeLabel}
                                 </span>
-                                <span className="font-semibold text-slate-700">{university.fee}</span>
-                                <span className="font-medium text-slate-500">
+                                <span className="truncate font-semibold text-slate-700">{university.fee}</span>
+                                <span className="truncate font-medium text-slate-500">
                                     {university.departments?.length ?? 0} {departmentsLabel}
                                 </span>
                             </div>
@@ -174,7 +178,7 @@ function UniversityCompactRow({
                     ? (language === 'tr' ? `${university.name} favorilerden çıkar` : `Remove ${university.name} from favorites`)
                     : (language === 'tr' ? `${university.name} favorilere ekle` : `Add ${university.name} to favorites`)}
                 aria-pressed={isFavorite}
-                className="absolute right-3 top-3 rounded-full border border-slate-200 bg-white p-2 shadow-sm transition hover:scale-105 hover:border-rose-200 sm:right-4 sm:top-3.5"
+                className="absolute right-3 top-3 rounded-full border border-slate-200 bg-white p-2 shadow-sm transition hover:scale-105 hover:border-rose-200 hover:bg-rose-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-300/60 sm:right-4 sm:top-3.5"
             >
                 <Heart className={`h-4 w-4 transition-colors ${isFavorite ? 'fill-rose-500 text-rose-500' : 'text-slate-500'}`} />
             </button>
