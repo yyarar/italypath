@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import ScholarshipsExplorer from '@/components/scholarships/ScholarshipsExplorer';
 
@@ -18,6 +19,25 @@ export const metadata: Metadata = {
   },
 };
 
+function ScholarshipsPageFallback() {
+  return (
+    <div className="min-h-screen bg-[#e9eaec]">
+      <div className="mx-auto w-full max-w-[1440px] px-4 pb-10 pt-6 sm:px-6 lg:px-8">
+        <div className="grid gap-4 lg:grid-cols-2">
+          <div className="h-14 rounded-lg bg-rose-600/90" />
+          <div className="h-14 rounded-lg bg-blue-600/90" />
+          <div className="h-[680px] rounded-2xl bg-slate-200/80" />
+          <div className="h-[680px] rounded-2xl bg-slate-200/80" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ScholarshipsPage() {
-  return <ScholarshipsExplorer />;
+  return (
+    <Suspense fallback={<ScholarshipsPageFallback />}>
+      <ScholarshipsExplorer />
+    </Suspense>
+  );
 }
