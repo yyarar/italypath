@@ -31,7 +31,7 @@ import {
 import type { RegionSlug } from '@/types/scholarships';
 
 const REGIONS_GEOJSON_URL =
-  'https://raw.githubusercontent.com/openpolis/geojson-italy/master/geojson/limits_IT_regions.geojson';
+  '/data/italy-regions.geojson';
 
 const MAP_WIDTH = 760;
 const MAP_HEIGHT = 980;

@@ -321,3 +321,40 @@
 | `app/universities/[id]/page.tsx` | ♻️ Department kartları `ExpandableScreenTrigger` ile bağlandı; tıklamada anında route yerine kısa expand animasyonu (`~280ms`) oynatılıp sonra department route'una geçiş eklendi |
 | `app/universities/[id]/departments/[deptSlug]/page.tsx` | ♻️ Sayfa root'u `ExpandableScreenContent` ile eşlendi; "Diğer Bölümler" kartları da aynı expand->route akışına taşındı; program metadata alanları için runtime fallback (`languages`, `durationYears`, `level`) eklendi |
 | `components/RouteTransition.tsx` | ♻️ Üniversite/department detay rotalarında route-level opacity fade kapatıldı; morph geçiş sırasında görülen geçici kararma engellendi |
+
+### Commit 37 (Regional Scholarships V1 — Public Route + Data Layer + UI):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `types/scholarships.ts` | 🆕 `RegionSlug`, `ScholarshipRegionRecord` ve veri sözleşmesi tipleri eklendi |
+| `lib/scholarships/regions.ts` | 🆕 20 bölge registry + 8 öncelikli bölge (`verified-full`) detayları + resmi kaynak URL'leri eklendi |
+| `components/scholarships/ScholarshipsExplorer.tsx` | 🆕 İlk sürüm client explorer eklendi (`?region=` URL sync, detay paneli, resmi linkler, uyarı kutusu) |
+| `app/scholarships/page.tsx` | 🆕 Public scholarships sayfası eklendi (metadata + explorer render) |
+| `components/ScholarshipsSection.tsx` | 🆕 Ana sayfa için scholarships CTA bölümü eklendi |
+| `app/page.tsx` | ➕ `ScholarshipsSection` home akışına eklendi |
+| `lib/translations.ts` | ➕ `homeScholarshipsCta` ve `scholarships` çeviri blokları (TR+EN) eklendi |
+| `proxy.ts` | 🔓 `/scholarships(.*)` public route listesine eklendi |
+| `app/sitemap.ts` | ➕ `/scholarships` sitemap'e eklendi |
+| `app/robots.ts` | ➕ `/scholarships` robots allow listesine eklendi |
+| `scripts/check-route-access.mjs` | ➕ Route matrix'e `/scholarships` public kontrolü eklendi |
+
+### Commit 38 (Scholarships UX Refactor + Hydration Warning Guard):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/scholarships/ScholarshipsExplorer.tsx` | ♻️ Grid-first görünümden map-first iki kolon deneyime geçirildi (sol map alanı + sağ detay paneli) |
+| `components/scholarships/ScholarshipsExplorer.tsx` | ♻️ Harita etkileşimi marker tabanlı akışa taşındı; bölge seçimi map tıklaması ile çalışır hale geldi |
+| `app/layout.tsx` | ➕ `<html>` ve `<body>` için `suppressHydrationWarning` eklendi (extension kaynaklı hydration mismatch gürültüsünü azaltmak için) |
+
+### Commit 39 (Scholarships Build Fix — Suspense Boundary):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `app/scholarships/page.tsx` | ♻️ `useSearchParams` kullanan client leaf için `Suspense` boundary eklendi; Vercel prerender hatası (`missing-suspense-with-csr-bailout`) giderildi |
+| `app/scholarships/page.tsx` | ➕ Static fallback skeleton eklendi (SSR/CSR geçişinde boş ekran önleme) |
+
+### Commit 40 (Scholarships Real Region Map + Local GeoJSON Stabilization):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `public/data/italy-regions.geojson` | 🆕 İtalya 20 bölge geometrisi lokal statik veri olarak projeye eklendi |
+| `components/scholarships/ScholarshipsExplorer.tsx` | ♻️ Geçici/fallback silüet kaldırıldı; GeoJSON -> gerçek SVG region path üretimi eklendi (tıklanabilir bölge path + aktif marker) |
+| `components/scholarships/ScholarshipsExplorer.tsx` | ♻️ Harita kaynağı harici URL'den lokal `/data/italy-regions.geojson` dosyasına taşındı (dış ağ bağımlılığı kaldırıldı) |
+| `lib/translations.ts` | ➕ Harita durum metinleri eklendi: `mapLoading`, `mapError` (TR+EN) |
+| `next.config.ts` | ♻️ Kullanılmayan `upload.wikimedia.org` remote pattern kaldırıldı |

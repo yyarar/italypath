@@ -6,7 +6,7 @@
 
 ## 🎯 Proje Tanımı
 
-İtalya'da eğitim almak isteyen Türk öğrenciler için **yapay zeka destekli rehber uygulaması**. Üniversite arama, AI mentörlük, belge yönetimi, ISEE burs hesaplayıcı ve favoriler gibi özellikler sunar. Mobil öncelikli tasarıma sahiptir; temel mobil web app metadata'sı mevcut olsa da tam PWA paketi (manifest + ikon seti) henüz tamamlanmamıştır.
+İtalya'da eğitim almak isteyen Türk öğrenciler için **yapay zeka destekli rehber uygulaması**. Üniversite arama, AI mentörlük, belge yönetimi, ISEE burs hesaplayıcı, bölgesel burs haritası ve favoriler gibi özellikler sunar. Mobil öncelikli tasarıma sahiptir; temel mobil web app metadata'sı mevcut olsa da tam PWA paketi (manifest + ikon seti) henüz tamamlanmamıştır.
 
 ---
 
@@ -42,11 +42,11 @@ italypath-main/
 │   ├── template.tsx                # Next.js template boundary (minimal passthrough)
 │   ├── not-found.tsx               # Özel 404 Hata Sayfası
 │   ├── error.tsx                   # Çift dilli Global Error Boundary
-│   ├── sitemap.ts                  # Dinamik sitemap (statik rotalar + 64 üniversite + 238 bölüm)
+│   ├── sitemap.ts                  # Dinamik sitemap (statik rotalar + 64 üniversite + 240 bölüm)
 │   ├── robots.ts                   # Robots.txt (seçili public rotalar açık, bazı korumalı rotalar kapalı)
 │   ├── globals.css                 # Tailwind v4 + mobil PWA stilleri
 │   ├── favicon.ico                 # Site ikonu
-│   ├── data.ts                     # 64 üniversite, 238 bölüm verisi (seed + normalized metadata modeli)
+│   ├── data.ts                     # 64 üniversite, 240 bölüm verisi (seed + normalized metadata modeli)
 │   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu + prompt chip önerileri)
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
 │   ├── api/universities/route.ts   # Üniversite verisini cache header'larıyla JSON dönen public API
@@ -61,16 +61,20 @@ italypath-main/
 │   │               └── page.tsx   # Bölüm detay UI (`use client`)
 │   ├── documents/page.tsx          # Belge cüzdanı (Supabase Storage upload/delete + premium empty state)
 │   ├── favorites/page.tsx          # Favori üniversiteler listesi (premium empty state + 3 öneri kartı)
-│   └── isee/page.tsx               # ISEE burs hesaplayıcı (scala equivalente formülü)
+│   ├── isee/page.tsx               # ISEE burs hesaplayıcı (scala equivalente formülü)
+│   └── scholarships/page.tsx       # Bölgesel burs haritası sayfası (metadata + Suspense boundary)
 ├── components/
 │   ├── BottomNav.tsx               # Mobil alt navigasyon (4 sekme, ortada AI butonu)
 │   ├── Navbar.tsx                  # Üst navigasyon (masaüstü + mobil, Clerk auth, dil butonu)
 │   ├── HeroSection.tsx             # Ana sayfa Hero bölümü (başlık, rozet, CTA)
 │   ├── FeaturesSection.tsx         # Ana sayfa 3'lü özellik grid kartları
 │   ├── IseeSection.tsx             # Ana sayfa ISEE hesaplayıcı CTA kartı
+│   ├── ScholarshipsSection.tsx     # Ana sayfa burs haritası CTA kartı
 │   ├── RouteTransition.tsx         # Route geçiş katmanı (Framer Motion + reduced-motion fallback)
 │   ├── ScrollProgress.tsx          # Scroll ilerleme çubuğu (Framer Motion useScroll + useSpring)
 │   ├── Footer.tsx                  # Alt bilgi (logo, sosyal etiketler)
+│   ├── scholarships/
+│   │   └── ScholarshipsExplorer.tsx # Harita + bölge detay paneli (client)
 │   └── ui/
 │       ├── marquee.tsx             # Sonsuz kayan metin/ikon animasyon bileşeni (Magic UI yaklaşımı)
 │       ├── animated-list.tsx       # Döngüsel bildirim/liste animasyon bileşeni
@@ -84,9 +88,12 @@ italypath-main/
 │   ├── translations.ts             # Tüm UI çevirileri (TR + EN)
 │   ├── utils.ts                    # `cn()` className birleştirme helper'ı
 │   ├── useFavorites.ts             # Birleşik favori hook'u (localStorage + Supabase)
-│   └── useUniversitiesData.ts      # Üniversite verisi için cache'li client fetch hook'u (/api/universities)
+│   ├── useUniversitiesData.ts      # Üniversite verisi için cache'li client fetch hook'u (/api/universities)
+│   └── scholarships/
+│       └── regions.ts              # 20 bölge burs registry + verified/pending detay katmanı
 ├── types/
-│   └── index.ts                    # Paylaşılan tipler (Language, UserDocument)
+│   ├── index.ts                    # Paylaşılan tipler (Language, UserDocument)
+│   └── scholarships.ts             # Bölgesel burs veri sözleşmesi tipleri
 ├── next.config.ts                  # Next.js yapılandırması (remotePatterns: Unsplash, Pexels, plus.unsplash.com)
 ├── proxy.ts                        # Clerk Request Boundary (Next.js 16 standardı)
 ├── scripts/
@@ -97,7 +104,9 @@ italypath-main/
 ├── SUPABASE_SECURITY_RUNBOOK.md    # Clerk + Supabase RLS adım adım operasyon rehberi
 ├── supabase/
 │   └── rls_hardening.sql           # RLS + Storage policy hardening SQL scripti
-└── public/                         # Varsayılan SVG'ler (file, globe, next, vercel, window)
+└── public/
+    ├── data/italy-regions.geojson # Lokal bölgesel harita verisi (20 bölge)
+    └── ...                         # Varsayılan SVG'ler (file, globe, next, vercel, window)
 ```
 
 ---
@@ -107,7 +116,7 @@ italypath-main/
 ### 1. Dil Sistemi (i18n)
 - `context/LanguageContext.tsx` → React Context + `localStorage` ile dil tercihi saklanır
 - `LanguageProvider`, aktif dili runtime'da `document.documentElement.lang` ile senkronlar
-- `lib/translations.ts` → Tüm UI metinleri burada (navbar, hero, list, detail, isee, favorites, documents, bottomNav, department, featureAnimations)
+- `lib/translations.ts` → Tüm UI metinleri burada (navbar, hero, list, detail, isee, scholarships, favorites, documents, bottomNav, department, featureAnimations)
 - Üniversite verileri (`data.ts`) → `description_en`, `features_en` opsiyonel alanları ile çift dilli
 - Dil değiştirme: Navbar ve üniversite listesi gibi toggle sunan ekranlarda `toggleLanguage()` çağrılır
 
@@ -142,7 +151,7 @@ italypath-main/
 
 ### 5. Clerk Request Boundary (proxy.ts)
 - `proxy.ts` dosyasında tanımlı (Next.js 16 yeni Request Boundary standardı uyarınca).
-- Public rotalar: `/`, `/api/universities(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/isee(.*)`, `/sitemap.xml`, `/robots.txt`
+- Public rotalar: `/`, `/api/universities(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/isee(.*)`, `/scholarships(.*)`, `/sitemap.xml`, `/robots.txt`
 - Diğer tüm rotalar `auth.protect()` ile korumalı
 
 ### 6. Bölüm Detay Sayfaları
@@ -203,6 +212,15 @@ italypath-main/
 ### 13. Detail Route Transition Çakışma Önlemi
 - `components/RouteTransition.tsx` içinde `/universities/[id]` ve `/universities/[id]/departments/[deptSlug]` rotalarında route-level opacity fade devre dışıdır.
 - Amaç, shared-layout/morph geçiş sırasında görülen geçici ekran kararmasını engellemektir.
+
+### 14. Bölgesel Burs Haritası (Scholarships)
+- Rota: `/scholarships` (public)
+- Sayfa yapısı: `app/scholarships/page.tsx` server component, client leaf `components/scholarships/ScholarshipsExplorer.tsx`
+- `ScholarshipsExplorer` içinde bölgesel veri sözleşmesi `types/scholarships.ts`, veri kaynağı `lib/scholarships/regions.ts`
+- Harita render modeli: 20 bölgeyi GeoJSON'dan SVG path'e çeviren client-side çizim (tıklanabilir path + aktif bölge marker)
+- Dış bağımlılık kaldırıldı: harita GeoJSON kaynağı artık lokal dosya `public/data/italy-regions.geojson`
+- Next.js 16 gereği `useSearchParams` kullanan client leaf, `app/scholarships/page.tsx` içinde `Suspense` boundary ile sarılmıştır (prerender/build hata önlemi)
+- Kök hydration mismatch gürültüsünü azaltmak için `app/layout.tsx` içinde `<html>` ve `<body>` elementlerinde `suppressHydrationWarning` aktif
 
 ---
 
