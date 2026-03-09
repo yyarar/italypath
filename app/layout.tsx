@@ -35,8 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="tr">
+      <html lang="tr" suppressHydrationWarning>
         <body
+          suppressHydrationWarning
           className={`font-sans antialiased bg-slate-50 text-slate-900`}
         >
           <MobileZoomLock />

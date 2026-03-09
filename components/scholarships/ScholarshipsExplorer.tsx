@@ -1,9 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useCallback, type ReactNode } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useState,
+  type KeyboardEvent,
+  type ReactNode,
+} from 'react';
 import {
   AlertTriangle,
   ArrowLeft,
@@ -25,31 +30,264 @@ import {
 } from '@/lib/scholarships/regions';
 import type { RegionSlug } from '@/types/scholarships';
 
-const ITALY_REGIONS_MAP_URL =
-  'https://upload.wikimedia.org/wikipedia/commons/c/ca/Italy%2C_administrative_divisions_-_de_-_colored.svg';
+const REGIONS_GEOJSON_URL =
+  'https://raw.githubusercontent.com/openpolis/geojson-italy/master/geojson/limits_IT_regions.geojson';
 
-const REGION_MARKERS: Record<RegionSlug, { x: number; y: number }> = {
-  abruzzo: { x: 58.5, y: 56.8 },
-  basilicata: { x: 66.5, y: 70.5 },
-  calabria: { x: 74, y: 83.5 },
-  campania: { x: 54, y: 66.5 },
-  'emilia-romagna': { x: 49.5, y: 35 },
-  'friuli-venezia-giulia': { x: 63, y: 19 },
-  lazio: { x: 47, y: 58.5 },
-  liguria: { x: 31.5, y: 40.2 },
-  lombardia: { x: 34.5, y: 25 },
-  marche: { x: 57.8, y: 49.2 },
-  molise: { x: 63.3, y: 62.8 },
-  piemonte: { x: 24, y: 30 },
-  puglia: { x: 72.5, y: 65.3 },
-  sardegna: { x: 26.5, y: 74.5 },
-  sicilia: { x: 56.5, y: 95 },
-  toscana: { x: 41.5, y: 46.5 },
-  'trentino-alto-adige-suedtirol': { x: 47, y: 16.5 },
-  umbria: { x: 49, y: 52.2 },
-  'valle-d-aosta': { x: 20.5, y: 18.5 },
-  veneto: { x: 52.5, y: 25.3 },
+const MAP_WIDTH = 760;
+const MAP_HEIGHT = 980;
+const MAP_PADDING = 26;
+
+const REGION_FILL_COLORS = [
+  '#6EA8F5', '#7CB1F7', '#4B97F0', '#82B6F8', '#5FA1F2',
+  '#95C0FA', '#5F9EF0', '#7FB4F7', '#3D8DEA', '#67A5F2',
+  '#86B9F8', '#4A95EF', '#6CA8F3', '#8ABCF9', '#5CA0F1',
+  '#7AAFF6', '#4F97EC', '#6AA7F3', '#89BBF8', '#5B9EED',
+] as const;
+
+type Position = [number, number];
+type Polygon = Position[][];
+type MultiPolygon = Polygon[];
+
+type RegionShape = {
+  slug: RegionSlug;
+  d: string;
+  centerX: number;
+  centerY: number;
+  name: string;
 };
+
+const REGION_NAME_SYNONYMS: Record<RegionSlug, string[]> = {
+  abruzzo: ['abruzzo'],
+  basilicata: ['basilicata'],
+  calabria: ['calabria'],
+  campania: ['campania'],
+  'emilia-romagna': ['emilia-romagna', 'emilia romagna'],
+  'friuli-venezia-giulia': ['friuli-venezia giulia', 'friuli venezia giulia'],
+  lazio: ['lazio'],
+  liguria: ['liguria'],
+  lombardia: ['lombardia'],
+  marche: ['marche'],
+  molise: ['molise'],
+  piemonte: ['piemonte'],
+  puglia: ['puglia'],
+  sardegna: ['sardegna'],
+  sicilia: ['sicilia'],
+  toscana: ['toscana'],
+  'trentino-alto-adige-suedtirol': [
+    'trentino-alto adige',
+    'trentino alto adige',
+    'trentino alto adige sudtirol',
+    'trentino-alto adige/sudtirol',
+    'trentino-sudtirol',
+  ],
+  umbria: ['umbria'],
+  'valle-d-aosta': [
+    "valle d'aosta",
+    'valle d aosta',
+    "vallee d'aoste",
+    'vallee d aoste',
+    "valle d'aosta / vallee d'aoste",
+  ],
+  veneto: ['veneto'],
+};
+
+const REGION_NAME_TO_SLUG = new Map<string, RegionSlug>();
+for (const [slug, names] of Object.entries(REGION_NAME_SYNONYMS) as [RegionSlug, string[]][]) {
+  for (const name of names) {
+    REGION_NAME_TO_SLUG.set(normalizeRegionText(name), slug);
+  }
+}
+
+function normalizeRegionText(value: string) {
+  return value
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function toPosition(value: unknown): Position | null {
+  if (!Array.isArray(value) || value.length < 2) return null;
+  const [lon, lat] = value;
+  if (typeof lon !== 'number' || typeof lat !== 'number') return null;
+  return [lon, lat];
+}
+
+function sanitizePolygon(raw: unknown): Polygon {
+  if (!Array.isArray(raw)) return [];
+
+  const polygon: Polygon = [];
+  for (const ringRaw of raw) {
+    if (!Array.isArray(ringRaw)) continue;
+
+    const ring: Position[] = [];
+    for (const pointRaw of ringRaw) {
+      const point = toPosition(pointRaw);
+      if (point) ring.push(point);
+    }
+
+    if (ring.length >= 3) polygon.push(ring);
+  }
+
+  return polygon;
+}
+
+function sanitizeGeometry(
+  geometry: { type?: unknown; coordinates?: unknown } | undefined
+): MultiPolygon {
+  if (!geometry || typeof geometry.type !== 'string') return [];
+
+  if (geometry.type === 'Polygon') {
+    const polygon = sanitizePolygon(geometry.coordinates);
+    return polygon.length > 0 ? [polygon] : [];
+  }
+
+  if (geometry.type === 'MultiPolygon' && Array.isArray(geometry.coordinates)) {
+    const polygons: MultiPolygon = [];
+    for (const polygonRaw of geometry.coordinates) {
+      const polygon = sanitizePolygon(polygonRaw);
+      if (polygon.length > 0) polygons.push(polygon);
+    }
+    return polygons;
+  }
+
+  return [];
+}
+
+function regionSlugFromProperties(properties: Record<string, unknown> | undefined) {
+  if (!properties) return null;
+
+  const directKeys = [
+    'reg_name',
+    'REG_NAME',
+    'name',
+    'NAME_1',
+    'DEN_REG',
+    'den_reg',
+    'NOME_REG',
+    'shapeName',
+  ];
+
+  for (const key of directKeys) {
+    const candidate = properties[key];
+    if (typeof candidate === 'string') {
+      const slug = REGION_NAME_TO_SLUG.get(normalizeRegionText(candidate));
+      if (slug) return slug;
+    }
+  }
+
+  for (const value of Object.values(properties)) {
+    if (typeof value !== 'string') continue;
+    const slug = REGION_NAME_TO_SLUG.get(normalizeRegionText(value));
+    if (slug) return slug;
+  }
+
+  return null;
+}
+
+function buildRegionShapes(payload: unknown): RegionShape[] {
+  if (!payload || typeof payload !== 'object') return [];
+
+  const rawFeatures = (payload as { features?: unknown }).features;
+  if (!Array.isArray(rawFeatures)) return [];
+
+  const polygonsBySlug = new Map<RegionSlug, MultiPolygon>();
+
+  for (const rawFeature of rawFeatures) {
+    if (!rawFeature || typeof rawFeature !== 'object') continue;
+
+    const feature = rawFeature as {
+      properties?: Record<string, unknown>;
+      geometry?: { type?: unknown; coordinates?: unknown };
+    };
+
+    const slug = regionSlugFromProperties(feature.properties);
+    if (!slug) continue;
+
+    const polygons = sanitizeGeometry(feature.geometry);
+    if (polygons.length === 0) continue;
+
+    const current = polygonsBySlug.get(slug) ?? [];
+    current.push(...polygons);
+    polygonsBySlug.set(slug, current);
+  }
+
+  let minLon = Number.POSITIVE_INFINITY;
+  let maxLon = Number.NEGATIVE_INFINITY;
+  let minLat = Number.POSITIVE_INFINITY;
+  let maxLat = Number.NEGATIVE_INFINITY;
+
+  for (const polygons of polygonsBySlug.values()) {
+    for (const polygon of polygons) {
+      for (const ring of polygon) {
+        for (const [lon, lat] of ring) {
+          if (lon < minLon) minLon = lon;
+          if (lon > maxLon) maxLon = lon;
+          if (lat < minLat) minLat = lat;
+          if (lat > maxLat) maxLat = lat;
+        }
+      }
+    }
+  }
+
+  if (!Number.isFinite(minLon) || !Number.isFinite(minLat)) {
+    return [];
+  }
+
+  const lonRange = Math.max(maxLon - minLon, 1e-9);
+  const latRange = Math.max(maxLat - minLat, 1e-9);
+  const innerWidth = MAP_WIDTH - MAP_PADDING * 2;
+  const innerHeight = MAP_HEIGHT - MAP_PADDING * 2;
+
+  const project = ([lon, lat]: Position) => {
+    const x = MAP_PADDING + ((lon - minLon) / lonRange) * innerWidth;
+    const y = MAP_PADDING + ((maxLat - lat) / latRange) * innerHeight;
+    return { x, y };
+  };
+
+  const shapes: RegionShape[] = [];
+
+  for (const region of SCHOLARSHIP_REGIONS) {
+    const polygons = polygonsBySlug.get(region.regionSlug);
+    if (!polygons || polygons.length === 0) continue;
+
+    const pathParts: string[] = [];
+    let sumX = 0;
+    let sumY = 0;
+    let pointCount = 0;
+
+    for (const polygon of polygons) {
+      for (const ring of polygon) {
+        if (ring.length < 3) continue;
+
+        const ringCommands: string[] = [];
+        for (let i = 0; i < ring.length; i += 1) {
+          const point = project(ring[i]);
+          ringCommands.push(`${i === 0 ? 'M' : 'L'}${point.x.toFixed(2)} ${point.y.toFixed(2)}`);
+
+          sumX += point.x;
+          sumY += point.y;
+          pointCount += 1;
+        }
+
+        pathParts.push(`${ringCommands.join(' ')} Z`);
+      }
+    }
+
+    if (pathParts.length === 0 || pointCount === 0) continue;
+
+    shapes.push({
+      slug: region.regionSlug,
+      name: region.regionName,
+      d: pathParts.join(' '),
+      centerX: sumX / pointCount,
+      centerY: sumY / pointCount,
+    });
+  }
+
+  return shapes;
+}
 
 function formatLastVerified(value: string | null, language: 'tr' | 'en') {
   if (!value) return null;
@@ -100,6 +338,9 @@ export default function ScholarshipsExplorer() {
   const router = useRouter();
   const pathname = usePathname();
 
+  const [regionShapes, setRegionShapes] = useState<RegionShape[]>([]);
+  const [mapStatus, setMapStatus] = useState<'loading' | 'ready' | 'error'>('loading');
+
   const rawRegion = searchParams.get('region');
   const selectedSlug: RegionSlug = isRegionSlug(rawRegion)
     ? rawRegion
@@ -120,6 +361,60 @@ export default function ScholarshipsExplorer() {
     },
     [pathname, router, searchParams]
   );
+
+  const handleMapKeyDown = useCallback(
+    (event: KeyboardEvent<SVGPathElement>, slug: RegionSlug) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        handleRegionSelect(slug);
+      }
+    },
+    [handleRegionSelect]
+  );
+
+  useEffect(() => {
+    const controller = new AbortController();
+    let active = true;
+
+    async function loadMap() {
+      setMapStatus('loading');
+      try {
+        const response = await fetch(REGIONS_GEOJSON_URL, {
+          signal: controller.signal,
+          cache: 'force-cache',
+        });
+
+        if (!response.ok) {
+          throw new Error(`GeoJSON fetch failed: ${response.status}`);
+        }
+
+        const payload = (await response.json()) as unknown;
+        const shapes = buildRegionShapes(payload);
+
+        if (!active) return;
+
+        if (shapes.length < 20) {
+          setMapStatus('error');
+          setRegionShapes([]);
+          return;
+        }
+
+        setRegionShapes(shapes);
+        setMapStatus('ready');
+      } catch {
+        if (!active || controller.signal.aborted) return;
+        setMapStatus('error');
+        setRegionShapes([]);
+      }
+    }
+
+    loadMap();
+
+    return () => {
+      active = false;
+      controller.abort();
+    };
+  }, []);
 
   const isVerified = selectedRegion.completeness === 'verified-full';
   const lastVerified = formatLastVerified(selectedRegion.lastVerifiedAt, language);
@@ -174,41 +469,70 @@ export default function ScholarshipsExplorer() {
 
             <div className="relative mx-auto w-full max-w-[740px] overflow-hidden rounded-xl bg-[#ececee]">
               <div className="relative aspect-[0.86] w-full">
-                <Image
-                  src={ITALY_REGIONS_MAP_URL}
-                  alt={t.scholarships.mapAlt}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="object-contain"
-                />
+                {mapStatus === 'loading' && (
+                  <div className="absolute inset-0 grid place-items-center rounded-xl border border-dashed border-slate-300 bg-slate-100 text-sm font-semibold text-slate-600">
+                    {t.scholarships.mapLoading}
+                  </div>
+                )}
 
-                {SCHOLARSHIP_REGIONS.map((region) => {
-                  const marker = REGION_MARKERS[region.regionSlug];
-                  const active = region.regionSlug === selectedSlug;
+                {mapStatus === 'error' && (
+                  <div className="absolute inset-0 grid place-items-center rounded-xl border border-dashed border-rose-300 bg-rose-50 px-4 text-center text-sm font-semibold text-rose-700">
+                    {t.scholarships.mapError}
+                  </div>
+                )}
 
-                  return (
-                    <button
-                      key={region.regionSlug}
-                      type="button"
-                      onClick={() => handleRegionSelect(region.regionSlug)}
-                      aria-label={`${region.regionName} ${t.scholarships.openRegionAria}`}
-                      className="group absolute -translate-x-1/2 -translate-y-1/2"
-                      style={{ left: `${marker.x}%`, top: `${marker.y}%` }}
-                    >
-                      <span
-                        className={`block h-3.5 w-3.5 rounded-full border-2 border-white transition ${
-                          active
-                            ? 'bg-blue-600 ring-4 ring-blue-300/80'
-                            : 'bg-rose-500 group-hover:bg-rose-600'
-                        }`}
-                      />
-                      <span className="pointer-events-none absolute left-1/2 top-[115%] hidden -translate-x-1/2 rounded-md bg-slate-900/90 px-2 py-1 text-[10px] font-semibold text-white shadow-sm group-hover:block lg:group-hover:block">
-                        {region.regionName}
-                      </span>
-                    </button>
-                  );
-                })}
+                {mapStatus === 'ready' && (
+                  <svg
+                    viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
+                    role="img"
+                    aria-label={t.scholarships.mapAlt}
+                    className="h-full w-full"
+                  >
+                    {regionShapes.map((shape, index) => {
+                      const active = shape.slug === selectedSlug;
+                      const fill = active ? '#1E4FBE' : REGION_FILL_COLORS[index % REGION_FILL_COLORS.length];
+
+                      return (
+                        <path
+                          key={shape.slug}
+                          d={shape.d}
+                          fill={fill}
+                          fillRule="evenodd"
+                          stroke={active ? '#0f2f7a' : '#ffffff'}
+                          strokeWidth={active ? 2.8 : 2}
+                          className="cursor-pointer transition-all duration-150 hover:brightness-95 focus:outline-none"
+                          role="button"
+                          tabIndex={0}
+                          aria-label={`${shape.name} ${t.scholarships.openRegionAria}`}
+                          onClick={() => handleRegionSelect(shape.slug)}
+                          onKeyDown={(event) => handleMapKeyDown(event, shape.slug)}
+                        />
+                      );
+                    })}
+
+                    {regionShapes.map((shape) => {
+                      const active = shape.slug === selectedSlug;
+                      return (
+                        <g
+                          key={`${shape.slug}-marker`}
+                          role="button"
+                          tabIndex={-1}
+                          className="cursor-pointer"
+                          onClick={() => handleRegionSelect(shape.slug)}
+                        >
+                          <circle
+                            cx={shape.centerX}
+                            cy={shape.centerY}
+                            r={active ? 6.8 : 5.4}
+                            fill={active ? '#1E4FBE' : '#F43368'}
+                            stroke="#ffffff"
+                            strokeWidth={active ? 3 : 2.5}
+                          />
+                        </g>
+                      );
+                    })}
+                  </svg>
+                )}
               </div>
             </div>
           </section>
