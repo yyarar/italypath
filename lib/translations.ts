@@ -75,6 +75,11 @@ export const translations = {
       emptyFav: "Listeniz Boş",
       emptyFavDesc: "Henüz hiçbir okulu favorilere eklememişsiniz.",
       clearFilters: "Filtreleri Temizle & Tümünü Göster",
+      viewSwitcherLabel: "Üniversite görünüm seçici",
+      viewGrid: "Kart",
+      viewCompact: "Kompakt",
+      viewGridAria: "Kart görünümünü aç",
+      viewCompactAria: "Kompakt liste görünümünü aç",
       review: "İNCELE",
       more: "daha"
     },
@@ -279,6 +284,11 @@ export const translations = {
       emptyFav: "Your List is Empty",
       emptyFavDesc: "You haven't added any schools to your favorites yet.",
       clearFilters: "Clear Filters & Show All",
+      viewSwitcherLabel: "University view switcher",
+      viewGrid: "Cards",
+      viewCompact: "Compact",
+      viewGridAria: "Switch to card view",
+      viewCompactAria: "Switch to compact list view",
       review: "REVIEW",
       more: "more"
     },

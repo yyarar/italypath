@@ -1,11 +1,12 @@
 "use client";
 
-import React, { Suspense, useMemo, useCallback } from 'react';
+import React, { Suspense, useMemo, useCallback, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
-import { Search, MapPin, ArrowRight, GraduationCap, School, ArrowLeft, Heart, X, Globe, Building2, ChevronDown, SlidersHorizontal } from 'lucide-react';
+import { Search, MapPin, ArrowRight, GraduationCap, School, ArrowLeft, Heart, X, Globe, Building2, ChevronDown, SlidersHorizontal, LayoutGrid, List } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { University } from '@/app/data';
 import { useLanguage } from '@/context/LanguageContext';
 import { useFavorites } from '@/lib/useFavorites';
 import { useUniversitiesData } from '@/lib/useUniversitiesData';
@@ -14,6 +15,172 @@ const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756ded
 const MAX_STAGGER_WINDOW = 0.9;
 const MIN_STAGGER = 0.014;
 const MAX_STAGGER = 0.09;
+const UNIVERSITIES_VIEW_MODE_STORAGE_KEY = "italyPathUniversitiesViewMode";
+const UNIVERSITIES_VIEW_MODE_EVENT = "italypath-universities-view-mode-change";
+
+type UniversityViewMode = "grid" | "compact";
+
+interface UniversityViewToggleLabels {
+    viewSwitcherLabel: string;
+    viewGrid: string;
+    viewCompact: string;
+    viewGridAria: string;
+    viewCompactAria: string;
+}
+
+interface UniversityViewToggleProps {
+    viewMode: UniversityViewMode;
+    onChange: (nextMode: UniversityViewMode) => void;
+    labels: UniversityViewToggleLabels;
+}
+
+interface UniversityCompactRowProps {
+    university: University;
+    language: 'tr' | 'en';
+    reviewLabel: string;
+    departmentsLabel: string;
+    isFavorite: boolean;
+    onToggleFavorite: (universityId: number) => void;
+}
+
+function getTypeLabel(type: string, language: 'tr' | 'en') {
+    if (language === 'tr') return type;
+    if (type === 'Devlet') return 'Public';
+    if (type === 'Özel') return 'Private';
+    return type;
+}
+
+function readStoredViewMode(): UniversityViewMode {
+    if (typeof window === 'undefined') return 'grid';
+    const storedMode = window.localStorage.getItem(UNIVERSITIES_VIEW_MODE_STORAGE_KEY);
+    return storedMode === 'compact' ? 'compact' : 'grid';
+}
+
+function subscribeToViewMode(callback: () => void) {
+    if (typeof window === 'undefined') return () => undefined;
+
+    const handleStorageChange = (event: StorageEvent) => {
+        if (event.key === UNIVERSITIES_VIEW_MODE_STORAGE_KEY) {
+            callback();
+        }
+    };
+    const handleLocalChange = () => callback();
+
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener(UNIVERSITIES_VIEW_MODE_EVENT, handleLocalChange);
+
+    return () => {
+        window.removeEventListener('storage', handleStorageChange);
+        window.removeEventListener(UNIVERSITIES_VIEW_MODE_EVENT, handleLocalChange);
+    };
+}
+
+function UniversityViewToggle({ viewMode, onChange, labels }: UniversityViewToggleProps) {
+    return (
+        <div
+            className="inline-flex items-center rounded-2xl border border-slate-200 bg-white p-1 shadow-sm"
+            role="group"
+            aria-label={labels.viewSwitcherLabel}
+        >
+            <button
+                type="button"
+                onClick={() => onChange('grid')}
+                aria-label={labels.viewGridAria}
+                aria-pressed={viewMode === 'grid'}
+                className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-semibold transition-all ${viewMode === 'grid'
+                    ? 'bg-slate-900 text-white shadow-sm'
+                    : 'text-slate-600 hover:bg-slate-100'
+                    }`}
+            >
+                <LayoutGrid className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">{labels.viewGrid}</span>
+            </button>
+            <button
+                type="button"
+                onClick={() => onChange('compact')}
+                aria-label={labels.viewCompactAria}
+                aria-pressed={viewMode === 'compact'}
+                className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-semibold transition-all ${viewMode === 'compact'
+                    ? 'bg-slate-900 text-white shadow-sm'
+                    : 'text-slate-600 hover:bg-slate-100'
+                    }`}
+            >
+                <List className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">{labels.viewCompact}</span>
+            </button>
+        </div>
+    );
+}
+
+function UniversityCompactRow({
+    university,
+    language,
+    reviewLabel,
+    departmentsLabel,
+    isFavorite,
+    onToggleFavorite
+}: UniversityCompactRowProps) {
+    const typeLabel = getTypeLabel(university.type, language);
+
+    return (
+        <div className="relative">
+            <Link
+                href={{ pathname: `/universities/${university.id}`, query: { from: 'list' } }}
+                className="block"
+            >
+                <div className="group rounded-2xl border border-slate-200 bg-white px-3 py-3 pr-14 shadow-sm transition hover:border-slate-300 hover:shadow-md sm:px-4 sm:py-3.5 sm:pr-16">
+                    <div className="flex items-center gap-3">
+                        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 sm:h-16 sm:w-16">
+                            <Image
+                                src={university.image || DEFAULT_IMAGE}
+                                alt={university.name}
+                                fill
+                                sizes="64px"
+                                className="object-cover"
+                            />
+                        </div>
+
+                        <div className="min-w-0 flex-1">
+                            <h2 className="truncate text-sm font-bold text-slate-900 transition-colors group-hover:text-indigo-600 sm:text-base">
+                                {university.name}
+                            </h2>
+                            <div className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[11px] sm:text-xs">
+                                <span className="inline-flex items-center font-medium text-slate-500">
+                                    <MapPin className="mr-1 h-3.5 w-3.5 text-rose-400" />
+                                    {university.city}
+                                </span>
+                                <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 font-semibold text-slate-600">
+                                    {typeLabel}
+                                </span>
+                                <span className="font-semibold text-slate-700">{university.fee}</span>
+                                <span className="font-medium text-slate-500">
+                                    {university.departments?.length ?? 0} {departmentsLabel}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="hidden items-center gap-1 text-xs font-bold text-indigo-600 transition-colors group-hover:text-indigo-700 sm:flex">
+                            {reviewLabel}
+                            <ArrowRight className="h-3.5 w-3.5" />
+                        </div>
+                    </div>
+                </div>
+            </Link>
+
+            <button
+                type="button"
+                onClick={() => onToggleFavorite(university.id)}
+                aria-label={isFavorite
+                    ? (language === 'tr' ? `${university.name} favorilerden çıkar` : `Remove ${university.name} from favorites`)
+                    : (language === 'tr' ? `${university.name} favorilere ekle` : `Add ${university.name} to favorites`)}
+                aria-pressed={isFavorite}
+                className="absolute right-3 top-3 rounded-full border border-slate-200 bg-white p-2 shadow-sm transition hover:scale-105 hover:border-rose-200 sm:right-4 sm:top-3.5"
+            >
+                <Heart className={`h-4 w-4 transition-colors ${isFavorite ? 'fill-rose-500 text-rose-500' : 'text-slate-500'}`} />
+            </button>
+        </div>
+    );
+}
 
 function UniversitiesLoadingState() {
     return (
@@ -54,6 +221,16 @@ function UniversitiesContent() {
     const { t, language, toggleLanguage } = useLanguage();
     const { favorites, toggleFavorite, isFavorite, loading } = useFavorites();
     const { universities, loading: universitiesLoading, error: universitiesError } = useUniversitiesData();
+    const activeViewMode = useSyncExternalStore(
+        subscribeToViewMode,
+        readStoredViewMode,
+        () => 'grid'
+    );
+    const handleViewModeChange = useCallback((nextMode: UniversityViewMode) => {
+        if (typeof window === 'undefined') return;
+        window.localStorage.setItem(UNIVERSITIES_VIEW_MODE_STORAGE_KEY, nextMode);
+        window.dispatchEvent(new Event(UNIVERSITIES_VIEW_MODE_EVENT));
+    }, []);
 
     const citiesWithCounts = useMemo(() => {
         const cityMap = new Map<string, number>();
@@ -62,6 +239,13 @@ function UniversitiesContent() {
     }, [universities]);
 
     const hasActiveFilters = selectedCity || selectedType || searchTerm || showFavoritesOnly;
+    const viewToggleLabels: UniversityViewToggleLabels = {
+        viewSwitcherLabel: t.list.viewSwitcherLabel,
+        viewGrid: t.list.viewGrid,
+        viewCompact: t.list.viewCompact,
+        viewGridAria: t.list.viewGridAria,
+        viewCompactAria: t.list.viewCompactAria
+    };
 
     const filteredUniversities = useMemo(() => {
         return universities.filter((uni) => {
@@ -103,6 +287,10 @@ function UniversitiesContent() {
     const cardVariants = {
         hidden: { opacity: 0, y: 24 },
         show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100, damping: 20 } }
+    };
+    const compactRowVariants = {
+        hidden: { opacity: 0, y: 12 },
+        show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 120, damping: 20 } }
     };
 
     return (
@@ -171,21 +359,28 @@ function UniversitiesContent() {
                             </div>
                         </div>
 
-                        <button
-                            onClick={() => updateFilter('fav', showFavoritesOnly ? '' : '1')}
-                            aria-label={showFavoritesOnly ? t.list.showAll : t.list.favoritesOnly}
-                            aria-pressed={showFavoritesOnly}
-                            className={`flex items-center justify-center px-5 py-3 rounded-2xl font-bold transition-all text-sm border whitespace-nowrap shadow-sm ${showFavoritesOnly
-                                ? 'bg-rose-500 border-rose-500 text-white shadow-rose-200'
-                                : 'bg-white border-slate-200 text-slate-600 hover:border-rose-200 hover:text-rose-500'
-                                }`}
-                        >
-                            {showFavoritesOnly ? (
-                                <><X className="w-4 h-4 mr-1.5" />{t.list.showAll}</>
-                            ) : (
-                                <><Heart className={`w-4 h-4 mr-1.5 ${favorites.length > 0 ? 'text-rose-500 fill-rose-500' : ''}`} />{t.list.favoritesOnly}</>
-                            )}
-                        </button>
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={() => updateFilter('fav', showFavoritesOnly ? '' : '1')}
+                                aria-label={showFavoritesOnly ? t.list.showAll : t.list.favoritesOnly}
+                                aria-pressed={showFavoritesOnly}
+                                className={`flex items-center justify-center px-5 py-3 rounded-2xl font-bold transition-all text-sm border whitespace-nowrap shadow-sm ${showFavoritesOnly
+                                    ? 'bg-rose-500 border-rose-500 text-white shadow-rose-200'
+                                    : 'bg-white border-slate-200 text-slate-600 hover:border-rose-200 hover:text-rose-500'
+                                    }`}
+                            >
+                                {showFavoritesOnly ? (
+                                    <><X className="w-4 h-4 mr-1.5" />{t.list.showAll}</>
+                                ) : (
+                                    <><Heart className={`w-4 h-4 mr-1.5 ${favorites.length > 0 ? 'text-rose-500 fill-rose-500' : ''}`} />{t.list.favoritesOnly}</>
+                                )}
+                            </button>
+                            <UniversityViewToggle
+                                viewMode={activeViewMode}
+                                onChange={handleViewModeChange}
+                                labels={viewToggleLabels}
+                            />
+                        </div>
                     </div>
 
                     {/* Filter pills row */}
@@ -253,124 +448,146 @@ function UniversitiesContent() {
             {/* Grid */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
                 {filteredUniversities.length > 0 ? (
-                    <motion.div
-                        initial="hidden"
-                        animate="show"
-                        variants={containerVariants}
-                        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
-                    >
-                        {filteredUniversities.map((uni) => {
-                            const favStatus = isFavorite(uni.id);
-                            const description = (language === 'en' && uni.description_en) ? uni.description_en : uni.description;
+                    activeViewMode === 'grid' ? (
+                        <motion.div
+                            initial="hidden"
+                            animate="show"
+                            variants={containerVariants}
+                            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
+                        >
+                            {filteredUniversities.map((uni) => {
+                                const favStatus = isFavorite(uni.id);
+                                const description = (language === 'en' && uni.description_en) ? uni.description_en : uni.description;
 
-                            return (
-                                <motion.div
-                                    key={uni.id}
-                                    variants={cardVariants}
-                                    className="block h-full"
-                                >
-                                    <Link
-                                        href={{ pathname: `/universities/${uni.id}`, query: { from: 'list' } }}
+                                return (
+                                    <motion.div
+                                        key={uni.id}
+                                        variants={cardVariants}
                                         className="block h-full"
                                     >
-                                        <motion.div
-                                            whileHover={{ y: -6, boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}
-                                            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                                            className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-md group flex flex-col h-full relative"
+                                        <Link
+                                            href={{ pathname: `/universities/${uni.id}`, query: { from: 'list' } }}
+                                            className="block h-full"
                                         >
-                                            {/* Image area */}
-                                            <div className="h-44 relative overflow-hidden">
-                                                <motion.div
-                                                    className="absolute inset-0"
-                                                    layoutId={`uni-hero-${uni.id}`}
-                                                    transition={{ type: "spring", stiffness: 260, damping: 25 }}
-                                                >
-                                                    <Image
-                                                        src={uni.image || DEFAULT_IMAGE}
-                                                        alt={uni.name}
-                                                        fill
-                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                                    />
-                                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-                                                </motion.div>
+                                            <motion.div
+                                                whileHover={{ y: -6, boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}
+                                                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                                                className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-md group flex flex-col h-full relative"
+                                            >
+                                                {/* Image area */}
+                                                <div className="h-44 relative overflow-hidden">
+                                                    <motion.div
+                                                        className="absolute inset-0"
+                                                        layoutId={`uni-hero-${uni.id}`}
+                                                        transition={{ type: "spring", stiffness: 260, damping: 25 }}
+                                                    >
+                                                        <Image
+                                                            src={uni.image || DEFAULT_IMAGE}
+                                                            alt={uni.name}
+                                                            fill
+                                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                        />
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                                                    </motion.div>
 
-                                                {/* Type badge */}
-                                                <div className="absolute bottom-3 left-3 glass px-2.5 py-1 rounded-full text-[10px] font-bold text-slate-800 flex items-center z-10">
-                                                    <GraduationCap className="w-2.5 h-2.5 mr-1 text-indigo-600" />
-                                                    {uni.type}
-                                                </div>
-
-                                                {/* Favorite button */}
-                                                <motion.button
-                                                    onClick={(e) => { e.preventDefault(); toggleFavorite(uni.id); }}
-                                                    whileTap={{ scale: 0.8 }}
-                                                    whileHover={{ scale: 1.1 }}
-                                                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                                                    aria-label={favStatus
-                                                        ? (language === 'tr' ? `${uni.name} favorilerden çıkar` : `Remove ${uni.name} from favorites`)
-                                                        : (language === 'tr' ? `${uni.name} favorilere ekle` : `Add ${uni.name} to favorites`)}
-                                                    aria-pressed={favStatus}
-                                                    className="absolute top-3 right-3 p-2 rounded-full glass shadow-lg z-20"
-                                                >
-                                                    <Heart className={`w-4 h-4 transition-colors ${favStatus ? 'fill-rose-500 text-rose-500' : 'text-slate-500'}`} />
-                                                </motion.button>
-                                            </div>
-
-                                            {/* Content */}
-                                            <div className="p-5 flex-1 flex flex-col">
-                                                <motion.h2
-                                                    className="text-base font-bold text-slate-900 leading-snug group-hover:text-indigo-600 transition line-clamp-2 mb-2"
-                                                    layoutId={`uni-title-${uni.id}`}
-                                                    transition={{ type: "spring", stiffness: 280, damping: 24 }}
-                                                >
-                                                    {uni.name}
-                                                </motion.h2>
-
-                                                {/* Three key stats */}
-                                                <div className="flex items-center gap-3 mb-4 flex-wrap">
-                                                    <div className="flex items-center text-slate-500 text-xs font-medium">
-                                                        <MapPin className="w-3 h-3 mr-1 text-rose-400" />
-                                                        {uni.city}
+                                                    {/* Type badge */}
+                                                    <div className="absolute bottom-3 left-3 glass px-2.5 py-1 rounded-full text-[10px] font-bold text-slate-800 flex items-center z-10">
+                                                        <GraduationCap className="w-2.5 h-2.5 mr-1 text-indigo-600" />
+                                                        {uni.type}
                                                     </div>
-                                                    <div className="w-px h-3 bg-slate-200" />
-                                                    <div className="text-xs font-semibold text-slate-700">{uni.fee}</div>
-                                                    <div className="w-px h-3 bg-slate-200" />
-                                                    <div className="text-xs text-slate-400 font-medium">
-                                                        {uni.departments?.length ?? 0} {language === 'tr' ? 'bölüm' : 'dept'}
+
+                                                    {/* Favorite button */}
+                                                    <motion.button
+                                                        onClick={(e) => { e.preventDefault(); toggleFavorite(uni.id); }}
+                                                        whileTap={{ scale: 0.8 }}
+                                                        whileHover={{ scale: 1.1 }}
+                                                        transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                                                        aria-label={favStatus
+                                                            ? (language === 'tr' ? `${uni.name} favorilerden çıkar` : `Remove ${uni.name} from favorites`)
+                                                            : (language === 'tr' ? `${uni.name} favorilere ekle` : `Add ${uni.name} to favorites`)}
+                                                        aria-pressed={favStatus}
+                                                        className="absolute top-3 right-3 p-2 rounded-full glass shadow-lg z-20"
+                                                    >
+                                                        <Heart className={`w-4 h-4 transition-colors ${favStatus ? 'fill-rose-500 text-rose-500' : 'text-slate-500'}`} />
+                                                    </motion.button>
+                                                </div>
+
+                                                {/* Content */}
+                                                <div className="p-5 flex-1 flex flex-col">
+                                                    <motion.h2
+                                                        className="text-base font-bold text-slate-900 leading-snug group-hover:text-indigo-600 transition line-clamp-2 mb-2"
+                                                        layoutId={`uni-title-${uni.id}`}
+                                                        transition={{ type: "spring", stiffness: 280, damping: 24 }}
+                                                    >
+                                                        {uni.name}
+                                                    </motion.h2>
+
+                                                    {/* Three key stats */}
+                                                    <div className="flex items-center gap-3 mb-4 flex-wrap">
+                                                        <div className="flex items-center text-slate-500 text-xs font-medium">
+                                                            <MapPin className="w-3 h-3 mr-1 text-rose-400" />
+                                                            {uni.city}
+                                                        </div>
+                                                        <div className="w-px h-3 bg-slate-200" />
+                                                        <div className="text-xs font-semibold text-slate-700">{uni.fee}</div>
+                                                        <div className="w-px h-3 bg-slate-200" />
+                                                        <div className="text-xs text-slate-400 font-medium">
+                                                            {uni.departments?.length ?? 0} {language === 'tr' ? 'bölüm' : 'dept'}
+                                                        </div>
+                                                    </div>
+
+                                                    <p className="text-slate-500 text-xs leading-relaxed line-clamp-2 flex-1">
+                                                        {description}
+                                                    </p>
+
+                                                    {/* Department tags */}
+                                                    <div className="flex flex-wrap gap-1.5 mt-3">
+                                                        {uni.departments && uni.departments.slice(0, 2).map((dep, idx) => (
+                                                            <span key={idx} className="text-[10px] bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded-full border border-indigo-100 font-semibold truncate max-w-[110px]">
+                                                                {dep.name}
+                                                            </span>
+                                                        ))}
+                                                        {uni.departments && uni.departments.length > 2 && (
+                                                            <span className="text-[10px] text-slate-400 font-medium">+{uni.departments.length - 2}</span>
+                                                        )}
+                                                    </div>
+
+                                                    {/* Footer CTA */}
+                                                    <div className="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
+                                                        <div className="flex items-center gap-1 text-xs font-bold text-indigo-600 group-hover:gap-2 transition-all">
+                                                            {t.list.review}
+                                                            <ArrowRight className="w-3.5 h-3.5" />
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <p className="text-slate-500 text-xs leading-relaxed line-clamp-2 flex-1">
-                                                    {description}
-                                                </p>
-
-                                                {/* Department tags */}
-                                                <div className="flex flex-wrap gap-1.5 mt-3">
-                                                    {uni.departments && uni.departments.slice(0, 2).map((dep, idx) => (
-                                                        <span key={idx} className="text-[10px] bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded-full border border-indigo-100 font-semibold truncate max-w-[110px]">
-                                                            {dep.name}
-                                                        </span>
-                                                    ))}
-                                                    {uni.departments && uni.departments.length > 2 && (
-                                                        <span className="text-[10px] text-slate-400 font-medium">+{uni.departments.length - 2}</span>
-                                                    )}
-                                                </div>
-
-                                                {/* Footer CTA */}
-                                                <div className="pt-4 mt-3 border-t border-slate-100 flex items-center justify-end">
-                                                    <div className="flex items-center gap-1 text-xs font-bold text-indigo-600 group-hover:gap-2 transition-all">
-                                                        {t.list.review}
-                                                        <ArrowRight className="w-3.5 h-3.5" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </motion.div>
-                                    </Link>
+                                            </motion.div>
+                                        </Link>
+                                    </motion.div>
+                                );
+                            })}
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            initial="hidden"
+                            animate="show"
+                            variants={containerVariants}
+                            className="space-y-3"
+                        >
+                            {filteredUniversities.map((uni) => (
+                                <motion.div key={uni.id} variants={compactRowVariants}>
+                                    <UniversityCompactRow
+                                        university={uni}
+                                        language={language}
+                                        reviewLabel={t.list.review}
+                                        departmentsLabel={language === 'tr' ? 'bölüm' : 'dept'}
+                                        isFavorite={isFavorite(uni.id)}
+                                        onToggleFavorite={toggleFavorite}
+                                    />
                                 </motion.div>
-                            );
-                        })}
-                    </motion.div>
+                            ))}
+                        </motion.div>
+                    )
                 ) : (
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
