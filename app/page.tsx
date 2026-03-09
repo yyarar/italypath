@@ -5,6 +5,7 @@ import HeroSection from '@/components/HeroSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import VelocityBridge from '@/components/VelocityBridge';
 import IseeSection from '@/components/IseeSection';
+import ScholarshipsSection from '@/components/ScholarshipsSection';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <HeroSection />
       <FeaturesSection />
       <VelocityBridge />
+      <ScholarshipsSection />
       <IseeSection />
       <Footer />
     </div>

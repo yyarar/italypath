@@ -11,6 +11,7 @@ const isPublicRoute = createRouteMatcher([
   '/sign-up(.*)',
   '/universities(.*)', // Ziyaretçiler okulları ve detayları görebilsin
   '/isee(.*)',         // Ziyaretçiler burs hesaplayıcıyı kullanabilsin
+  '/scholarships(.*)', // Ziyaretçiler burs haritasını görebilsin
   '/sitemap.xml',     // Google botları için
   '/robots.txt',      // Google botları için
 ]);

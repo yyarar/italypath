@@ -20,6 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'monthly',
             priority: 0.8,
         },
+        {
+            url: `${baseUrl}/scholarships`,
+            changeFrequency: 'weekly',
+            priority: 0.85,
+        },
     ];
 
     const universityRoutes: MetadataRoute.Sitemap = universitiesData.map((uni) => ({
