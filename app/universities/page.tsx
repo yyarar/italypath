@@ -221,10 +221,10 @@ function UniversitiesContent() {
     const { t, language, toggleLanguage } = useLanguage();
     const { favorites, toggleFavorite, isFavorite, loading } = useFavorites();
     const { universities, loading: universitiesLoading, error: universitiesError } = useUniversitiesData();
-    const activeViewMode = useSyncExternalStore(
+    const activeViewMode = useSyncExternalStore<UniversityViewMode>(
         subscribeToViewMode,
         readStoredViewMode,
-        () => 'grid'
+        (): UniversityViewMode => 'grid'
     );
     const handleViewModeChange = useCallback((nextMode: UniversityViewMode) => {
         if (typeof window === 'undefined') return;
