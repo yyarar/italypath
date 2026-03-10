@@ -47,6 +47,7 @@ export default function Navbar() {
                     <div className="hidden md:flex items-center space-x-1">
                         {[
                             { href: '/universities', label: t.navbar.universities },
+                            { href: '/communities', label: t.navbar.communities },
                             { href: aiMentorHref, label: t.navbar.mentor },
                         ].map((item) => (
                             <Link

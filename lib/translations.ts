@@ -2,6 +2,7 @@ export const translations = {
   tr: {
     navbar: {
       universities: "Üniversiteler",
+      communities: "Topluluklar",
       exams: "Sınavlar (SAT/TOLC)",
       mentor: "AI Mentor",
       login: "Giriş Yap",
@@ -139,6 +140,62 @@ export const translations = {
       warningItem1: "Burs çağrıları ve eşikler her akademik yılda değişebilir.",
       warningItem2: "Başvuru yapmadan önce resmi kurum sayfasındaki son bando metnini kontrol et."
     },
+    communities: {
+      backHome: "Ana sayfaya dön",
+      badge: "Curated Public Guide",
+      title: "Öğrenci Toplulukları",
+      subtitle:
+        "Bu sayfa resmi topluluk listesi değildir. ItalyPath editörleri tarafından seçilmiş dış WhatsApp, Telegram ve Facebook gruplarını keşfetmeniz için hazırlanmıştır.",
+      notOfficial: "ItalyPath bu toplulukları yönetmez ve resmi temsil sunmaz.",
+      curationPolicy:
+        "Linkler editoryal olarak seçilir, düzenli aralıklarla kontrol edilir ve durum etiketiyle gösterilir.",
+      searchPlaceholder: "Topluluk, şehir veya konu ara...",
+      platformLabel: "Platform filtresi",
+      categoryLabel: "Kategori filtresi",
+      allPlatforms: "Tüm platformlar",
+      allCategories: "Tüm kategoriler",
+      allStatuses: "Tüm durumlar",
+      clearFilters: "Filtreleri temizle",
+      resultsLabel: "topluluk listelendi",
+      emptyTitle: "Sonuç bulunamadı",
+      emptyDescription:
+        "Seçtiğiniz filtrelerde eşleşen topluluk yok. Farklı bir platform, kategori veya arama terimi deneyin.",
+      cityUnknown: "Şehir belirtilmemiş",
+      regionUnknown: "Bölge belirtilmemiş",
+      audienceLabel: "Hedef kitle",
+      verificationLabel: "Doğrulama",
+      lastCheckedLabel: "Son kontrol",
+      sizeHintLabel: "Büyüklük ipucu",
+      editorialNoteLabel: "Editör notu",
+      openCommunity: "Topluluğu aç",
+      platformNames: {
+        whatsapp: "WhatsApp",
+        telegram: "Telegram",
+        facebook: "Facebook"
+      },
+      categoryNames: {
+        university: "Üniversite",
+        housing: "Konaklama",
+        scholarship: "Burs",
+        admissions: "Başvuru",
+        social: "Sosyal",
+        general: "Genel"
+      },
+      statusNames: {
+        active: "Aktif",
+        limited: "Sınırlı",
+        unverified: "Doğrulanmadı"
+      },
+      verificationNames: {
+        "editor-reviewed": "Editör incelemesi",
+        "user-confirmed": "Kullanıcı teyidi"
+      },
+      sizeHintNames: {
+        small: "Niş",
+        medium: "Orta",
+        large: "Geniş"
+      }
+    },
     favorites: {
       title: "Favorilerim",
       empty: "Henüz favori üniversiten yok.",
@@ -173,6 +230,7 @@ export const translations = {
     bottomNav: {
       home: "Ana Sayfa",
       unis: "Okullar",
+      communities: "Topluluk",
       ai: "AI",
       profile: "Profil"
     },
@@ -211,6 +269,7 @@ export const translations = {
   en: {
     navbar: {
       universities: "Universities",
+      communities: "Communities",
       exams: "Exams (SAT/TOLC)",
       mentor: "AI Mentor",
       login: "Sign In",
@@ -348,6 +407,62 @@ export const translations = {
       warningItem1: "Calls and thresholds can change every academic year.",
       warningItem2: "Before applying, verify the newest call text on the official source."
     },
+    communities: {
+      backHome: "Back to home",
+      badge: "Curated Public Guide",
+      title: "Curated Student Communities",
+      subtitle:
+        "This page is not an official community directory. It is an editorially curated guide to external WhatsApp, Telegram, and Facebook student groups.",
+      notOfficial: "ItalyPath does not run these groups and does not provide official representation.",
+      curationPolicy:
+        "Links are selected editorially, checked regularly, and shown with transparent status labels.",
+      searchPlaceholder: "Search by community, city, or topic...",
+      platformLabel: "Platform filter",
+      categoryLabel: "Category filter",
+      allPlatforms: "All platforms",
+      allCategories: "All categories",
+      allStatuses: "All statuses",
+      clearFilters: "Clear filters",
+      resultsLabel: "communities listed",
+      emptyTitle: "No results found",
+      emptyDescription:
+        "No community matched your filters. Try another platform, category, or search term.",
+      cityUnknown: "City not specified",
+      regionUnknown: "Region not specified",
+      audienceLabel: "Audience",
+      verificationLabel: "Verification",
+      lastCheckedLabel: "Last checked",
+      sizeHintLabel: "Size hint",
+      editorialNoteLabel: "Editorial note",
+      openCommunity: "Open community",
+      platformNames: {
+        whatsapp: "WhatsApp",
+        telegram: "Telegram",
+        facebook: "Facebook"
+      },
+      categoryNames: {
+        university: "University",
+        housing: "Housing",
+        scholarship: "Scholarship",
+        admissions: "Admissions",
+        social: "Social",
+        general: "General"
+      },
+      statusNames: {
+        active: "Active",
+        limited: "Limited",
+        unverified: "Unverified"
+      },
+      verificationNames: {
+        "editor-reviewed": "Editor reviewed",
+        "user-confirmed": "User confirmed"
+      },
+      sizeHintNames: {
+        small: "Small",
+        medium: "Medium",
+        large: "Large"
+      }
+    },
     favorites: {
       title: "My Favorites",
       empty: "You have no favorite universities yet.",
@@ -382,6 +497,7 @@ export const translations = {
     bottomNav: {
       home: "Home",
       unis: "Unis",
+      communities: "Groups",
       ai: "AI",
       profile: "Profile"
     },

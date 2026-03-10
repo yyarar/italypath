@@ -6,7 +6,7 @@
 
 ## 🎯 Proje Tanımı
 
-İtalya'da eğitim almak isteyen Türk öğrenciler için **yapay zeka destekli rehber uygulaması**. Üniversite arama, AI mentörlük, belge yönetimi, ISEE burs hesaplayıcı, bölgesel burs haritası ve favoriler gibi özellikler sunar. Mobil öncelikli tasarıma sahiptir; temel mobil web app metadata'sı mevcut olsa da tam PWA paketi (manifest + ikon seti) henüz tamamlanmamıştır.
+İtalya'da eğitim almak isteyen Türk öğrenciler için **yapay zeka destekli rehber uygulaması**. Üniversite arama, AI mentörlük, belge yönetimi, ISEE burs hesaplayıcı, bölgesel burs haritası, kürate edilmiş topluluk rehberi ve favoriler gibi özellikler sunar. Mobil öncelikli tasarıma sahiptir; temel mobil web app metadata'sı mevcut olsa da tam PWA paketi (manifest + ikon seti) henüz tamamlanmamıştır.
 
 ---
 
@@ -50,6 +50,8 @@ italypath-main/
 │   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu + prompt chip önerileri)
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
 │   ├── api/universities/route.ts   # Üniversite verisini cache header'larıyla JSON dönen public API
+│   ├── communities/page.tsx         # Kürate edilmiş öğrenci toplulukları rehberi (public)
+│   ├── topluluklar/page.tsx         # Türkçe kısa yol route'u (redirect -> /communities)
 │   ├── universities/
 │   │   ├── page.tsx                # Üniversite listesi (arama, şehir/tip filtreleri, URL sync, favoriler, grid/kompakt görünüm toggle + localStorage)
 │   │   └── [id]/
@@ -73,6 +75,8 @@ italypath-main/
 │   ├── RouteTransition.tsx         # Route geçiş katmanı (Framer Motion + reduced-motion fallback)
 │   ├── ScrollProgress.tsx          # Scroll ilerleme çubuğu (Framer Motion useScroll + useSpring)
 │   ├── Footer.tsx                  # Alt bilgi (logo, sosyal etiketler)
+│   ├── communities/
+│   │   └── CommunityLinksExplorer.tsx # Topluluk listesi keşif ekranı (filtre + disclaimer + dış link kartları)
 │   ├── scholarships/
 │   │   └── ScholarshipsExplorer.tsx # Harita + bölge detay paneli (client)
 │   └── ui/
@@ -85,6 +89,7 @@ italypath-main/
 │   └── LanguageContext.tsx          # TR/EN dil sistemi (Context + localStorage)
 ├── lib/
 │   ├── supabaseClient.ts           # Supabase client (anon key)
+│   ├── community-links.ts          # CommunityLink tipleri + editoryal topluluk verisi
 │   ├── translations.ts             # Tüm UI çevirileri (TR + EN)
 │   ├── utils.ts                    # `cn()` className birleştirme helper'ı
 │   ├── useFavorites.ts             # Birleşik favori hook'u (localStorage + Supabase)
@@ -116,7 +121,7 @@ italypath-main/
 ### 1. Dil Sistemi (i18n)
 - `context/LanguageContext.tsx` → React Context + `localStorage` ile dil tercihi saklanır
 - `LanguageProvider`, aktif dili runtime'da `document.documentElement.lang` ile senkronlar
-- `lib/translations.ts` → Tüm UI metinleri burada (navbar, hero, list, detail, isee, scholarships, favorites, documents, bottomNav, department, featureAnimations)
+- `lib/translations.ts` → Tüm UI metinleri burada (navbar, hero, list, detail, isee, scholarships, communities, favorites, documents, bottomNav, department, featureAnimations)
 - Üniversite verileri (`data.ts`) → `description_en`, `features_en` opsiyonel alanları ile çift dilli
 - Dil değiştirme: Navbar ve üniversite listesi gibi toggle sunan ekranlarda `toggleLanguage()` çağrılır
 
@@ -151,7 +156,7 @@ italypath-main/
 
 ### 5. Clerk Request Boundary (proxy.ts)
 - `proxy.ts` dosyasında tanımlı (Next.js 16 yeni Request Boundary standardı uyarınca).
-- Public rotalar: `/`, `/api/universities(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/isee(.*)`, `/scholarships(.*)`, `/sitemap.xml`, `/robots.txt`
+- Public rotalar: `/`, `/api/universities(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/isee(.*)`, `/scholarships(.*)`, `/communities(.*)`, `/topluluklar(.*)`, `/sitemap.xml`, `/robots.txt`
 - Diğer tüm rotalar `auth.protect()` ile korumalı
 
 ### 6. Bölüm Detay Sayfaları
@@ -206,6 +211,7 @@ italypath-main/
 - Ana sayfadaki birincil CTA (`Hemen Başla / Get Started`) için `components/ui/pulsating-button.tsx` kullanılır
 - Pulsating efekt global animasyon token'ı üzerinden (`--animate-pulsating-button`) `app/globals.css` içinde yönetilir
 - Efekt yalnızca Hero CTA'da aktif olacak şekilde sınırlandırılmıştır
+- Hero satırına ikincil topluluk CTA'sı eklenmiştir (`/communities`), böylece public feature ana sayfadan direkt keşfedilebilir.
 
 ### 12. Liste Scroll Koruma & Back Davranışı
 - Üniversite listesi -> detay geçişi sırasında kart linkleri `?from=list` query paramı taşır.
@@ -226,6 +232,14 @@ italypath-main/
 - Kök hydration mismatch gürültüsünü azaltmak için `app/layout.tsx` içinde `<html>` ve `<body>` elementlerinde `suppressHydrationWarning` aktif
 - Mobil taşma stabilizasyonu için grid/kart kapsayıcılarına `min-w-0` ve uzun link metinlerine `truncate` guard'ları eklendi; map alanı bölge değişiminde yatay overflow nedeniyle kayma/kırpma üretmez.
 - SVG tarafında `preserveAspectRatio="xMidYMid meet"` açıkça set edilerek farklı cihaz en-boy oranlarında haritanın tutarlı ölçeklenmesi garanti altına alındı.
+
+### 15. Kürate Edilmiş Öğrenci Toplulukları (Communities)
+- Rota: `/communities` (public), ek kısa yol: `/topluluklar` (redirect -> `/communities`)
+- Sayfa: `app/communities/page.tsx` (metadata + canonical), client leaf: `components/communities/CommunityLinksExplorer.tsx`
+- Veri modeli: `lib/community-links.ts` içinde `CommunityPlatform`, `CommunityCategory`, `CommunitySizeHint`, `CommunityLink`
+- İçerik yaklaşımı: resmi topluluk iddiası yok; sayfa açık şekilde "editoryal/kürate edilmiş dış topluluk rehberi" olarak konumlanır.
+- Güven ilkeleri: fake üye sayısı, fake aktivite, fake social proof gösterilmez; kartlarda yalnızca status, verification source ve `lastCheckedAt` bilgisi bulunur.
+- Keşfedilebilirlik: masaüstü navbar ve mobil bottom nav üzerinden topluluklara erişim açıktır; Hero bölümünde de topluluk CTA'sı bulunur.
 
 ---
 
@@ -274,6 +288,7 @@ npm install
 npm run dev        # http://localhost:3000
 npm run build      # Production build
 npm run lint       # ESLint kontrolü
+npm run check:routes # proxy.ts public/protected route matrisi doğrulaması
 npm run check:data # data.ts bütünlük ve dağılım kontrolü
 npm run clean:med  # med kaynağını temizleyip matched/unmatched/override çıktısı üretir
 ```

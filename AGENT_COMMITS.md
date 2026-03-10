@@ -387,3 +387,26 @@
 | `components/scholarships/ScholarshipsExplorer.tsx` | ♻️ Mobilde bölge değişiminde görülen map kayma/kırpma etkisini azaltmak için layout overflow guard'ları eklendi (`min-w-0`, `truncate`, esnek link kapsayıcıları) |
 | `components/scholarships/ScholarshipsExplorer.tsx` | ♻️ Uzun kurum adı / kaynak domain metinleri grid genişliğini bozamayacak şekilde sınırlandı |
 | `components/scholarships/ScholarshipsExplorer.tsx` | ♻️ SVG ölçekleme davranışı `preserveAspectRatio="xMidYMid meet"` ile sabitlenerek cihazlar arası tutarlılık artırıldı |
+
+### Commit 45 (Curated Student Communities — Public Feature):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `lib/community-links.ts` | 🆕 `CommunityLink` veri modeli eklendi (`platform/category/status/verificationSource/lastCheckedAt`) ve kullanıcı teyitli topluluk listesi tanımlandı |
+| `app/communities/page.tsx` | 🆕 Public communities sayfası eklendi (metadata + canonical + openGraph) |
+| `components/communities/CommunityLinksExplorer.tsx` | 🆕 Filtrelenebilir topluluk rehberi eklendi (arama, platform/kategori/durum filtreleri, status badge, verification bilgisi, dış link kartları) |
+| `lib/translations.ts` | ➕ `communities` çeviri bloğu eklendi (TR/EN) ve navbar/bottomNav için topluluk label'ları tanımlandı |
+| `components/Navbar.tsx` | ➕ Masaüstü menüye `/communities` linki eklendi |
+| `components/BottomNav.tsx` | ♻️ Pasif profil sekmesi kaldırılıp aktif `/communities` sekmesi eklendi |
+| `proxy.ts` | 🔓 `/communities(.*)` public route listesine eklendi |
+| `app/sitemap.ts` | ➕ `/communities` sitemap statik route listesine eklendi |
+| `app/robots.ts` | ➕ `/communities` robots allow listesine eklendi |
+| `scripts/check-route-access.mjs` | ➕ route matrix smoke check'e `/communities` public doğrulaması eklendi |
+
+### Commit 46 (Communities Discoverability + Turkish Alias Route):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/HeroSection.tsx` | ➕ Hero CTA satırına `/communities` için ikincil görünür buton eklendi (bulunabilirlik artışı) |
+| `app/topluluklar/page.tsx` | 🆕 Türkçe kısa yol route'u eklendi; `/topluluklar` -> `/communities` redirect akışı kuruldu |
+| `proxy.ts` | 🔓 `/topluluklar(.*)` public route listesine eklendi |
+| `app/robots.ts` | ➕ `/topluluklar` allow listesine eklendi |
+| `scripts/check-route-access.mjs` | ➕ `/topluluklar` için public route doğrulaması eklendi |

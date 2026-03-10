@@ -34,6 +34,8 @@ const publicChecks = [
   "/universities/1",
   "/isee",
   "/scholarships",
+  "/communities",
+  "/topluluklar",
   "/api/universities",
   "/sign-in",
   "/sign-up",
@@ -74,6 +76,14 @@ if (!publicPatterns.includes("/api/universities(.*)")) {
 
 if (!publicPatterns.includes("/scholarships(.*)")) {
   failures.push("Public list is missing /scholarships(.*)");
+}
+
+if (!publicPatterns.includes("/communities(.*)")) {
+  failures.push("Public list is missing /communities(.*)");
+}
+
+if (!publicPatterns.includes("/topluluklar(.*)")) {
+  failures.push("Public list is missing /topluluklar(.*)");
 }
 
 if (failures.length > 0) {

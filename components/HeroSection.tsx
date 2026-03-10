@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { ArrowRight, Sparkles, GraduationCap } from 'lucide-react';
 import { motion, useMotionTemplate, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
@@ -125,8 +126,8 @@ export default function HeroSection() {
                     ))}
                 </motion.div>
 
-                {/* CTA Button with pulsating effect */}
-                <motion.div variants={itemVariants} className="flex justify-center">
+                {/* CTA Buttons */}
+                <motion.div variants={itemVariants} className="flex flex-col items-center justify-center gap-3 sm:flex-row">
                     <motion.div
                         whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
                         whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
@@ -151,6 +152,13 @@ export default function HeroSection() {
                             </motion.span>
                         </PulsatingButton>
                     </motion.div>
+
+                    <Link
+                        href="/communities"
+                        className="inline-flex items-center justify-center rounded-[14px] border border-slate-200 bg-white px-8 py-3.5 text-base font-bold text-slate-700 shadow-sm transition hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700"
+                    >
+                        {t.navbar.communities}
+                    </Link>
                 </motion.div>
 
                 {/* Social proof footnote */}

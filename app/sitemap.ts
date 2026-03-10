@@ -25,6 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'weekly',
             priority: 0.85,
         },
+        {
+            url: `${baseUrl}/communities`,
+            changeFrequency: 'weekly',
+            priority: 0.8,
+        },
     ];
 
     const universityRoutes: MetadataRoute.Sitemap = universitiesData.map((uni) => ({

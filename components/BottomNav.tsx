@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, School, Bot, User } from 'lucide-react';
+import { Home, School, Bot, Users } from 'lucide-react';
 import { useAuth } from '@clerk/nextjs';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
@@ -23,7 +23,7 @@ export default function BottomNav() {
     { href: '/', icon: Home, label: t.bottomNav.home },
     { href: '/universities', icon: School, label: t.bottomNav.unis },
     { href: aiMentorHref, icon: Bot, label: t.bottomNav.ai, isCenter: true },
-    { href: '/profile', icon: User, label: t.bottomNav.profile, disabled: true },
+    { href: '/communities', icon: Users, label: t.bottomNav.communities },
   ];
 
   return (
@@ -100,8 +100,8 @@ export default function BottomNav() {
           return (
             <Link
               key={item.href}
-              href={item.disabled ? '#' : item.href}
-              className={`flex flex-col items-center justify-center flex-1 pb-2 h-full transition-all ${item.disabled ? 'opacity-25 cursor-not-allowed' : ''}`}
+              href={item.href}
+              className="flex h-full flex-1 flex-col items-center justify-center pb-2 transition-all"
             >
               <motion.div
                 whileTap={shouldReduceMotion ? undefined : { scale: 0.85 }}
