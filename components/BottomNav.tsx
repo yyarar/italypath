@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, School, Bot, Users } from 'lucide-react';
+import { Home, School, Bot, UserRound } from 'lucide-react';
 import { useAuth } from '@clerk/nextjs';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
@@ -16,6 +16,9 @@ export default function BottomNav() {
   const aiMentorHref = isSignedIn
     ? '/ai-mentor'
     : '/sign-in?redirect_url=%2Fai-mentor';
+  const hubHref = isSignedIn
+    ? '/hub'
+    : '/sign-in?redirect_url=%2Fhub';
 
   const isActive = (path: string) => pathname === path;
 
@@ -23,7 +26,7 @@ export default function BottomNav() {
     { href: '/', icon: Home, label: t.bottomNav.home },
     { href: '/universities', icon: School, label: t.bottomNav.unis },
     { href: aiMentorHref, icon: Bot, label: t.bottomNav.ai, isCenter: true },
-    { href: '/communities', icon: Users, label: t.bottomNav.communities },
+    { href: hubHref, icon: UserRound, label: t.bottomNav.profile },
   ];
 
   return (

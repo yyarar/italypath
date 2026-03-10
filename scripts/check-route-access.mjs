@@ -48,6 +48,7 @@ const protectedChecks = [
   "/ai-mentor/session",
   "/documents",
   "/favorites",
+  "/hub",
   "/api/chat",
   "/profile",
 ];

@@ -15,6 +15,12 @@ export default function Navbar() {
     const aiMentorHref = isSignedIn
         ? '/ai-mentor'
         : '/sign-in?redirect_url=%2Fai-mentor';
+    const desktopItems = [
+        { href: '/universities', label: t.navbar.universities },
+        { href: '/communities', label: t.navbar.communities },
+        ...(isSignedIn ? [{ href: '/hub', label: t.navbar.hub }] : []),
+        { href: aiMentorHref, label: t.navbar.mentor },
+    ];
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         setScrolled(latest > 20);
@@ -45,13 +51,9 @@ export default function Navbar() {
 
                     {/* Desktop menu */}
                     <div className="hidden md:flex items-center space-x-1">
-                        {[
-                            { href: '/universities', label: t.navbar.universities },
-                            { href: '/communities', label: t.navbar.communities },
-                            { href: aiMentorHref, label: t.navbar.mentor },
-                        ].map((item) => (
+                        {desktopItems.map((item) => (
                             <Link
-                                key={item.href}
+                                key={`${item.href}-${item.label}`}
                                 href={item.href}
                                 className="px-4 py-2 rounded-xl text-sm font-semibold text-slate-600 hover:text-indigo-600 hover:bg-indigo-50/60 transition-all duration-200"
                             >
@@ -109,6 +111,12 @@ export default function Navbar() {
                             </SignInButton>
                         </SignedOut>
                         <SignedIn>
+                            <Link
+                                href="/hub"
+                                className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-slate-600"
+                            >
+                                {t.navbar.hub}
+                            </Link>
                             <UserButton afterSignOutUrl="/" />
                         </SignedIn>
                     </div>
