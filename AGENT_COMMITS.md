@@ -358,3 +358,32 @@
 | `components/scholarships/ScholarshipsExplorer.tsx` | ♻️ Harita kaynağı harici URL'den lokal `/data/italy-regions.geojson` dosyasına taşındı (dış ağ bağımlılığı kaldırıldı) |
 | `lib/translations.ts` | ➕ Harita durum metinleri eklendi: `mapLoading`, `mapError` (TR+EN) |
 | `next.config.ts` | ♻️ Kullanılmayan `upload.wikimedia.org` remote pattern kaldırıldı |
+
+### Commit 41 (Üniversite Liste Görünüm Seçici + Kompakt Mod):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `app/universities/page.tsx` | ➕ `UniversityViewToggle` eklendi (`LayoutGrid` + `List` ikonları, aktif mod vurgusu, `aria-label`/`aria-pressed`) |
+| `app/universities/page.tsx` | ➕ `UniversityCompactRow` eklendi; tek satır/mini kart görünümünde isim, şehir, tür, ücret bandı ve bölüm sayısı gösterimi sağlandı |
+| `app/universities/page.tsx` | ➕ Görünüm modu state'i eklendi (`grid` varsayılan, `compact` alternatif) |
+| `app/universities/page.tsx` | ➕ Tercih kalıcılığı için `localStorage` anahtarı: `italyPathUniversitiesViewMode` |
+| `app/universities/page.tsx` | ✅ Mevcut davranışlar korundu: filtreler, arama, URL sync, favori toggle, detay linki `?from=list`, loading/empty/error akışları |
+| `lib/translations.ts` | ➕ `list` altında görünüm switcher çeviri anahtarları eklendi (TR/EN): `viewSwitcherLabel`, `viewGrid`, `viewCompact`, `viewGridAria`, `viewCompactAria` |
+
+### Commit 42 (Vercel Build Type Fix — Görünüm Modu):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `app/universities/page.tsx` | ♻️ Vercel TypeScript build hatası için `useSyncExternalStore` generic tipi `UniversityViewMode` olarak explicit verildi; `string` widening kaynaklı prop uyuşmazlığı giderildi |
+
+### Commit 43 (Kompakt Liste Mobil UX Polishing):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `app/universities/page.tsx` | ✨ Kompakt satırlarda hover/focus ayrımı güçlendirildi (sol accent bar, border/background feedback) |
+| `app/universities/page.tsx` | ✨ Mobil taramayı iyileştirmek için meta satırı 2 kolon düzene alındı (şehir, tür, ücret, bölüm sayısı) |
+| `app/universities/page.tsx` | ✨ Uzun metin taşmalarına karşı `truncate` korumaları eklendi; favori butonuna focus-visible ring eklendi |
+
+### Commit 44 (Scholarships Mobil Harita Overflow Stabilizasyonu):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/scholarships/ScholarshipsExplorer.tsx` | ♻️ Mobilde bölge değişiminde görülen map kayma/kırpma etkisini azaltmak için layout overflow guard'ları eklendi (`min-w-0`, `truncate`, esnek link kapsayıcıları) |
+| `components/scholarships/ScholarshipsExplorer.tsx` | ♻️ Uzun kurum adı / kaynak domain metinleri grid genişliğini bozamayacak şekilde sınırlandı |
+| `components/scholarships/ScholarshipsExplorer.tsx` | ♻️ SVG ölçekleme davranışı `preserveAspectRatio="xMidYMid meet"` ile sabitlenerek cihazlar arası tutarlılık artırıldı |

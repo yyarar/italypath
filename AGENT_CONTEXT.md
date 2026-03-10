@@ -51,7 +51,7 @@ italypath-main/
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
 │   ├── api/universities/route.ts   # Üniversite verisini cache header'larıyla JSON dönen public API
 │   ├── universities/
-│   │   ├── page.tsx                # Üniversite listesi (arama, şehir/tip filtreleri, URL sync, favoriler, API veri kaynağı)
+│   │   ├── page.tsx                # Üniversite listesi (arama, şehir/tip filtreleri, URL sync, favoriler, grid/kompakt görünüm toggle + localStorage)
 │   │   └── [id]/
 │   │       ├── layout.tsx          # SEO (`generateMetadata`) için Server Component
 │   │       ├── page.tsx            # Üniversite detay Ui (`use client`)
@@ -169,6 +169,9 @@ italypath-main/
 - `lib/useUniversitiesData.ts` client tarafında in-memory cache + request deduplication uygular
 - `universities`, `favorites`, üniversite detay ve bölüm detay sayfaları veriyi bu hook üzerinden alır; `data.ts` doğrudan client import'u azaltılmıştır
 - `data.ts` içinde `universitiesBaseData` (seed) + `universitiesData` (normalize metadata) ayrımı vardır; API katmanı `universitiesData` döner
+- `app/universities/page.tsx` üzerinde görünüm seçici vardır: varsayılan premium kart/grid + kompakt liste modu.
+- Görünüm tercihi `localStorage` içinde `italyPathUniversitiesViewMode` anahtarıyla saklanır; sayfa yenilemelerinde korunur.
+- Görünüm state'i `useSyncExternalStore` ile SSR-safe okunur; TypeScript build widening riski explicit generic (`<UniversityViewMode>`) ile engellenmiştir.
 
 ### 11. Program Metadata Modeli (Dil / Süre / Seviye)
 - Program metadata modeli: `languages: ProgramLanguage[]`, `durationYears: ProgramDurationYears`, `level: ProgramLevel`
@@ -221,6 +224,8 @@ italypath-main/
 - Dış bağımlılık kaldırıldı: harita GeoJSON kaynağı artık lokal dosya `public/data/italy-regions.geojson`
 - Next.js 16 gereği `useSearchParams` kullanan client leaf, `app/scholarships/page.tsx` içinde `Suspense` boundary ile sarılmıştır (prerender/build hata önlemi)
 - Kök hydration mismatch gürültüsünü azaltmak için `app/layout.tsx` içinde `<html>` ve `<body>` elementlerinde `suppressHydrationWarning` aktif
+- Mobil taşma stabilizasyonu için grid/kart kapsayıcılarına `min-w-0` ve uzun link metinlerine `truncate` guard'ları eklendi; map alanı bölge değişiminde yatay overflow nedeniyle kayma/kırpma üretmez.
+- SVG tarafında `preserveAspectRatio="xMidYMid meet"` açıkça set edilerek farklı cihaz en-boy oranlarında haritanın tutarlı ölçeklenmesi garanti altına alındı.
 
 ---
 
