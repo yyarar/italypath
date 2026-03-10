@@ -441,15 +441,15 @@ export default function ScholarshipsExplorer() {
           </button>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div className="grid min-w-0 gap-4 lg:grid-cols-2">
           <div className="rounded-lg bg-rose-600 px-4 py-4 text-xl font-black text-white">
             {t.scholarships.mapHeaderLeft}
           </div>
-          <div className="rounded-lg bg-blue-600 px-4 py-4 text-xl font-black text-white">
+          <div className="truncate rounded-lg bg-blue-600 px-4 py-4 text-xl font-black text-white">
             {selectedRegion.regionName}
           </div>
 
-          <section className="rounded-2xl bg-[#ececee] p-3 sm:p-4">
+          <section className="min-w-0 rounded-2xl bg-[#ececee] p-3 sm:p-4">
             <div className="mb-3 lg:hidden">
               <label className="mb-1 block text-xs font-black uppercase tracking-[0.12em] text-slate-600">
                 {t.scholarships.mobilePickerLabel}
@@ -467,7 +467,7 @@ export default function ScholarshipsExplorer() {
               </select>
             </div>
 
-            <div className="relative mx-auto w-full max-w-[740px] overflow-hidden rounded-xl bg-[#ececee]">
+            <div className="relative mx-auto w-full max-w-[740px] min-w-0 overflow-hidden rounded-xl bg-[#ececee]">
               <div className="relative aspect-[0.86] w-full">
                 {mapStatus === 'loading' && (
                   <div className="absolute inset-0 grid place-items-center rounded-xl border border-dashed border-slate-300 bg-slate-100 text-sm font-semibold text-slate-600">
@@ -484,6 +484,7 @@ export default function ScholarshipsExplorer() {
                 {mapStatus === 'ready' && (
                   <svg
                     viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
+                    preserveAspectRatio="xMidYMid meet"
                     role="img"
                     aria-label={t.scholarships.mapAlt}
                     className="h-full w-full"
@@ -537,7 +538,7 @@ export default function ScholarshipsExplorer() {
             </div>
           </section>
 
-          <section className="rounded-2xl bg-[#ececee] p-3 sm:p-4">
+          <section className="min-w-0 rounded-2xl bg-[#ececee] p-3 sm:p-4">
             <article className="rounded-2xl border-2 border-blue-500 bg-sky-50 px-4 py-5 sm:px-6">
               <p className="text-xs font-black uppercase tracking-[0.14em] text-blue-700">
                 {isVerified ? t.scholarships.statusVerified : t.scholarships.statusPending}
@@ -551,17 +552,17 @@ export default function ScholarshipsExplorer() {
                 {selectedRegion.statusNote}
               </p>
 
-              <div className="mt-4 grid gap-2 sm:grid-cols-2">
+              <div className="mt-4 grid min-w-0 gap-2 sm:grid-cols-2">
                 {selectedRegion.managingBodies.map((body) => (
                   <a
                     key={`${body.name}-${body.officialUrl}`}
                     href={body.officialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-blue-200 bg-white px-3 py-2 text-sm font-bold text-blue-700 hover:bg-blue-50"
+                    className="flex w-full min-w-0 items-center gap-1.5 rounded-lg border border-blue-200 bg-white px-3 py-2 text-sm font-bold text-blue-700 hover:bg-blue-50"
                   >
                     <Building2 className="h-4 w-4" />
-                    <span className="truncate">{body.name}</span>
+                    <span className="min-w-0 truncate">{body.name}</span>
                     <ExternalLink className="h-3.5 w-3.5" />
                   </a>
                 ))}
@@ -618,9 +619,9 @@ export default function ScholarshipsExplorer() {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100"
+                    className="inline-flex max-w-full items-center gap-1 rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100"
                   >
-                    {domainLabel(url)}
+                    <span className="max-w-[200px] truncate sm:max-w-[260px]">{domainLabel(url)}</span>
                     <ExternalLink className="h-3 w-3" />
                   </a>
                 ))}
