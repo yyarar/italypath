@@ -237,6 +237,7 @@ italypath-main/
 - Rota: `/communities` (public), ek kısa yol: `/topluluklar` (redirect -> `/communities`)
 - Sayfa: `app/communities/page.tsx` (metadata + canonical), client leaf: `components/communities/CommunityLinksExplorer.tsx`
 - Veri modeli: `lib/community-links.ts` içinde `CommunityPlatform`, `CommunityCategory`, `CommunitySizeHint`, `CommunityLink`
+- Veri seti: User-confirmed WhatsApp/Telegram/Facebook girişleriyle düzenli genişletilir; güncel listede Bologna/Roma housing odaklı ve genel topluluk kayıtları da bulunur.
 - İçerik yaklaşımı: resmi topluluk iddiası yok; sayfa açık şekilde "editoryal/kürate edilmiş dış topluluk rehberi" olarak konumlanır.
 - Güven ilkeleri: fake üye sayısı, fake aktivite, fake social proof gösterilmez; kartlarda yalnızca status, verification source ve `lastCheckedAt` bilgisi bulunur.
 - Keşfedilebilirlik: masaüstü navbar ve mobil bottom nav üzerinden topluluklara erişim açıktır; Hero bölümünde de topluluk CTA'sı bulunur.

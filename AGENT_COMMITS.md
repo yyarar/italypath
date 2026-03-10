@@ -410,3 +410,12 @@
 | `proxy.ts` | 🔓 `/topluluklar(.*)` public route listesine eklendi |
 | `app/robots.ts` | ➕ `/topluluklar` allow listesine eklendi |
 | `scripts/check-route-access.mjs` | ➕ `/topluluklar` için public route doğrulaması eklendi |
+
+### Commit 47 (Communities Dataset Expansion — New User-Confirmed Groups):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `lib/community-links.ts` | ➕ `apartments-bologna` eklendi (Facebook, housing, Bologna) |
+| `lib/community-links.ts` | ➕ `accomodations-in-rome-2025-2026` eklendi (Facebook, housing, Roma) |
+| `lib/community-links.ts` | ➕ `bologna-erasmus-students` eklendi (Facebook, social, Bologna) |
+| `lib/community-links.ts` | ➕ `italyada-yasayan-turkler` eklendi (Facebook, general) |
+| `lib/community-links.ts` | ➕ `italya-bilgi` eklendi (Facebook, general) |
