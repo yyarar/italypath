@@ -419,3 +419,17 @@
 | `lib/community-links.ts` | ➕ `bologna-erasmus-students` eklendi (Facebook, social, Bologna) |
 | `lib/community-links.ts` | ➕ `italyada-yasayan-turkler` eklendi (Facebook, general) |
 | `lib/community-links.ts` | ➕ `italya-bilgi` eklendi (Facebook, general) |
+
+### Commit 48 (Protected Hub / Hesabım V1):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `app/hub/page.tsx` | 🆕 Protected Hub ekranı eklendi: Clerk profil hero (avatar/ad/email fallback), favori+belge sayısı, aktif dil ve liste görünüm tercihi kartları, hızlı aksiyonlar, Clerk `openUserProfile()` CTA ve `SignOutButton` |
+| `components/Navbar.tsx` | ➕ Signed-in kullanıcılar için `/hub` giriş noktası eklendi (desktop menü + mobil üst bar) |
+| `lib/translations.ts` | ➕ `hub` çeviri bloğu eklendi (TR/EN); navbar için `hub` label anahtarı tanımlandı |
+| `app/robots.ts` | ➕ `/hub` disallow listesine eklendi (crawl hijyeni) |
+| `scripts/check-route-access.mjs` | ➕ Protected route matrisi içine `/hub` doğrulaması eklendi |
+
+### Commit 49 (BottomNav Hub Yönlendirmesi):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `components/BottomNav.tsx` | ♻️ Mobil alt navigasyondaki `Topluluk` sekmesi `Hub/Profil` olarak değiştirildi; signed-in kullanıcı `/hub`, signed-out kullanıcı `/sign-in?redirect_url=/hub` akışına yönlendiriliyor |

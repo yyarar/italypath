@@ -6,7 +6,7 @@
 
 ## 🎯 Proje Tanımı
 
-İtalya'da eğitim almak isteyen Türk öğrenciler için **yapay zeka destekli rehber uygulaması**. Üniversite arama, AI mentörlük, belge yönetimi, ISEE burs hesaplayıcı, bölgesel burs haritası, kürate edilmiş topluluk rehberi ve favoriler gibi özellikler sunar. Mobil öncelikli tasarıma sahiptir; temel mobil web app metadata'sı mevcut olsa da tam PWA paketi (manifest + ikon seti) henüz tamamlanmamıştır.
+İtalya'da eğitim almak isteyen Türk öğrenciler için **yapay zeka destekli rehber uygulaması**. Üniversite arama, AI mentörlük, belge yönetimi, ISEE burs hesaplayıcı, bölgesel burs haritası, kürate edilmiş topluluk rehberi, favoriler ve protected kişisel merkez (`/hub`) gibi özellikler sunar. Mobil öncelikli tasarıma sahiptir; temel mobil web app metadata'sı mevcut olsa da tam PWA paketi (manifest + ikon seti) henüz tamamlanmamıştır.
 
 ---
 
@@ -63,10 +63,11 @@ italypath-main/
 │   │               └── page.tsx   # Bölüm detay UI (`use client`)
 │   ├── documents/page.tsx          # Belge cüzdanı (Supabase Storage upload/delete + premium empty state)
 │   ├── favorites/page.tsx          # Favori üniversiteler listesi (premium empty state + 3 öneri kartı)
+│   ├── hub/page.tsx                # Protected kişisel merkez (Clerk profil kartı + Supabase özet + hızlı aksiyonlar)
 │   ├── isee/page.tsx               # ISEE burs hesaplayıcı (scala equivalente formülü)
 │   └── scholarships/page.tsx       # Bölgesel burs haritası sayfası (metadata + Suspense boundary)
 ├── components/
-│   ├── BottomNav.tsx               # Mobil alt navigasyon (4 sekme, ortada AI butonu)
+│   ├── BottomNav.tsx               # Mobil alt navigasyon (Ana Sayfa, Okullar, AI, Hub)
 │   ├── Navbar.tsx                  # Üst navigasyon (masaüstü + mobil, Clerk auth, dil butonu)
 │   ├── HeroSection.tsx             # Ana sayfa Hero bölümü (başlık, rozet, CTA)
 │   ├── FeaturesSection.tsx         # Ana sayfa 3'lü özellik grid kartları
@@ -121,7 +122,7 @@ italypath-main/
 ### 1. Dil Sistemi (i18n)
 - `context/LanguageContext.tsx` → React Context + `localStorage` ile dil tercihi saklanır
 - `LanguageProvider`, aktif dili runtime'da `document.documentElement.lang` ile senkronlar
-- `lib/translations.ts` → Tüm UI metinleri burada (navbar, hero, list, detail, isee, scholarships, communities, favorites, documents, bottomNav, department, featureAnimations)
+- `lib/translations.ts` → Tüm UI metinleri burada (navbar, hero, list, detail, isee, scholarships, communities, favorites, documents, bottomNav, hub, department, featureAnimations)
 - Üniversite verileri (`data.ts`) → `description_en`, `features_en` opsiyonel alanları ile çift dilli
 - Dil değiştirme: Navbar ve üniversite listesi gibi toggle sunan ekranlarda `toggleLanguage()` çağrılır
 
@@ -158,6 +159,7 @@ italypath-main/
 - `proxy.ts` dosyasında tanımlı (Next.js 16 yeni Request Boundary standardı uyarınca).
 - Public rotalar: `/`, `/api/universities(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/isee(.*)`, `/scholarships(.*)`, `/communities(.*)`, `/topluluklar(.*)`, `/sitemap.xml`, `/robots.txt`
 - Diğer tüm rotalar `auth.protect()` ile korumalı
+- Protected örnekler: `/hub`, `/favorites`, `/documents`, `/ai-mentor`, `/api/chat`
 
 ### 6. Bölüm Detay Sayfaları
 - `data.ts`'te bölüm kaynağı `DepartmentSeed[]` (giriş seviyesi: `{ name, slug }`) olarak tutulur.
@@ -240,7 +242,19 @@ italypath-main/
 - Veri seti: User-confirmed WhatsApp/Telegram/Facebook girişleriyle düzenli genişletilir; güncel listede Bologna/Roma housing odaklı ve genel topluluk kayıtları da bulunur.
 - İçerik yaklaşımı: resmi topluluk iddiası yok; sayfa açık şekilde "editoryal/kürate edilmiş dış topluluk rehberi" olarak konumlanır.
 - Güven ilkeleri: fake üye sayısı, fake aktivite, fake social proof gösterilmez; kartlarda yalnızca status, verification source ve `lastCheckedAt` bilgisi bulunur.
-- Keşfedilebilirlik: masaüstü navbar ve mobil bottom nav üzerinden topluluklara erişim açıktır; Hero bölümünde de topluluk CTA'sı bulunur.
+- Keşfedilebilirlik: masaüstü navbar ve Hero CTA üzerinden topluluklara erişim açıktır; ayrıca `/hub` içindeki hızlı aksiyon kartları topluluklara geçiş sağlar.
+
+### 16. Protected Hub / Hesabım (`/hub`)
+- Rota: `/hub` (protected)
+- Amaç: Clerk account panelinin kopyası değil, uygulama içi kişisel merkez deneyimi.
+- Veri kaynağı:
+  - Clerk: avatar, isim fallback zinciri, primary email, `openUserProfile()`, sign-out
+  - Supabase: `user_documents` için count sorgusu (`head + exact count`)
+  - Mevcut hook/state: `useFavorites` ile favori sayısı, `LanguageContext` ile aktif dil, `localStorage` ile `italyPathUniversitiesViewMode`
+- V1 kapsamı: yeni Supabase tablo/policy/env yok; mevcut `favorites` ve `user_documents` altyapısı yeniden kullanılır.
+- UI yapısı: profil hero kartı, 4 özet kartı (favoriler/belgeler/dil/liste görünümü), hızlı aksiyon grid'i (`favorites`, `documents`, `universities`, `communities`, `scholarships`, `ai-mentor`), hesap yönetimi CTA ve çıkış butonu.
+- Güvenlik & indexleme: route public değil; `robots.txt` içinde `/hub` disallow.
+- Navigasyon: signed-in kullanıcı için Navbar'da `/hub` linki bulunur; mobil BottomNav'da topluluk sekmesi Hub/Profil sekmesine dönüştürülmüştür (signed-out kullanıcıya login redirect).
 
 ---
 
