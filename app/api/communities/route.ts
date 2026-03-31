@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import { getUniversities } from "@/lib/contentRepository";
+
+import { getCommunityLinks } from "@/lib/contentRepository";
 
 export async function GET() {
-  const universities = await getUniversities();
+  const communities = await getCommunityLinks();
 
-  return NextResponse.json(universities, {
+  return NextResponse.json(communities, {
     headers: {
       "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
     },

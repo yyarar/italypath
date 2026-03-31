@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { universitiesData } from "@/app/data";
+import { getUniversities } from "@/lib/contentRepository";
 
 type ChatRole = "user" | "assistant";
 
@@ -10,17 +10,40 @@ interface ChatMessage {
 
 const MAX_MESSAGES = 20;
 const MAX_MESSAGE_LENGTH = 4000;
+const SYSTEM_PROMPT_CACHE_TTL_MS = 10 * 60 * 1000;
 
-// Üniversite bilgilerini sistem bağlamına hazırla
-const uniContext = universitiesData
-  .map((u) => `• ${u.name} (${u.city}): ${u.departments.map(d => d.name).join(", ")}`)
-  .join("\n");
+type CachedPrompt = {
+  value: string;
+  expiresAt: number;
+};
 
-const SYSTEM_PROMPT = `Sen ItalyPath Mentörüsün. Türkçe konuşan Türk öğrencilerin İtalya'da üniversite, burs ve yaşam konularında rehber ol.
+let systemPromptCache: CachedPrompt | null = null;
+
+const SYSTEM_PROMPT_BASE = `Sen ItalyPath Mentörüsün. Türkçe konuşan Türk öğrencilerin İtalya'da üniversite, burs ve yaşam konularında rehber ol.
 Samimi, teşvik edici ve bilgili bir ton kullan. Kesin bilgi vermediğin konularda dürüst ol. Yanıtlarını Markdown formatında yaz.
+`;
 
-Bilgi bankan:
-${uniContext}`;
+async function getSystemPrompt() {
+  if (systemPromptCache && systemPromptCache.expiresAt > Date.now()) {
+    return systemPromptCache.value;
+  }
+
+  const universities = await getUniversities();
+  const uniContext = universities
+    .map((university) => {
+      const departmentNames = university.departments.map((department) => department.name).join(", ");
+      return `• ${university.name} (${university.city}): ${departmentNames}`;
+    })
+    .join("\n");
+
+  const prompt = `${SYSTEM_PROMPT_BASE}\nBilgi bankan:\n${uniContext}`;
+  systemPromptCache = {
+    value: prompt,
+    expiresAt: Date.now() + SYSTEM_PROMPT_CACHE_TTL_MS,
+  };
+
+  return prompt;
+}
 
 function jsonError(message: string, status: number) {
   return new Response(JSON.stringify({ error: message }), {
@@ -69,6 +92,8 @@ export async function POST(req: Request) {
   }
 
   try {
+    const systemPrompt = await getSystemPrompt();
+
     let body: { messages?: unknown };
     try {
       body = (await req.json()) as { messages?: unknown };
@@ -87,7 +112,7 @@ export async function POST(req: Request) {
     // Sohbet geçmişini Gemini'nin anladığı formata çevir
     // İlk mesaj: sistem promptu (user/model çifti olarak)
     const geminiHistory = [
-      { role: "user" as const, parts: [{ text: SYSTEM_PROMPT }] },
+      { role: "user" as const, parts: [{ text: systemPrompt }] },
       { role: "model" as const, parts: [{ text: "Anlaşıldı! ItalyPath Mentor olarak hazırım." }] },
     ];
 

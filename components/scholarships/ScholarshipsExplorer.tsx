@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   useCallback,
   useEffect,
+  useMemo,
   useState,
   type KeyboardEvent,
   type ReactNode,
@@ -22,13 +23,8 @@ import {
 } from 'lucide-react';
 
 import { useLanguage } from '@/context/LanguageContext';
-import {
-  getScholarshipRegionBySlug,
-  isRegionSlug,
-  SCHOLARSHIP_DEFAULT_REGION,
-  SCHOLARSHIP_REGIONS,
-} from '@/lib/scholarships/regions';
-import type { RegionSlug } from '@/types/scholarships';
+import { useScholarshipsData } from '@/lib/useScholarshipsData';
+import type { RegionSlug, ScholarshipRegionRecord } from '@/types/scholarships';
 
 const REGIONS_GEOJSON_URL =
   '/data/italy-regions.geojson';
@@ -186,7 +182,10 @@ function regionSlugFromProperties(properties: Record<string, unknown> | undefine
   return null;
 }
 
-function buildRegionShapes(payload: unknown): RegionShape[] {
+function buildRegionShapes(
+  payload: unknown,
+  regions: ScholarshipRegionRecord[]
+): RegionShape[] {
   if (!payload || typeof payload !== 'object') return [];
 
   const rawFeatures = (payload as { features?: unknown }).features;
@@ -248,7 +247,7 @@ function buildRegionShapes(payload: unknown): RegionShape[] {
 
   const shapes: RegionShape[] = [];
 
-  for (const region of SCHOLARSHIP_REGIONS) {
+  for (const region of regions) {
     const polygons = polygonsBySlug.get(region.regionSlug);
     if (!polygons || polygons.length === 0) continue;
 
@@ -334,23 +333,47 @@ function QuickFact({
 
 export default function ScholarshipsExplorer() {
   const { t, language, toggleLanguage } = useLanguage();
+  const {
+    data: scholarshipsData,
+    loading: scholarshipsLoading,
+    error: scholarshipsError,
+  } = useScholarshipsData();
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
   const [regionShapes, setRegionShapes] = useState<RegionShape[]>([]);
   const [mapStatus, setMapStatus] = useState<'loading' | 'ready' | 'error'>('loading');
+  const regions = useMemo(() => scholarshipsData?.regions ?? [], [scholarshipsData]);
+  const defaultRegionSlug = useMemo(
+    () => scholarshipsData?.defaultRegionSlug ?? regions[0]?.regionSlug ?? null,
+    [regions, scholarshipsData]
+  );
 
   const rawRegion = searchParams.get('region');
-  const selectedSlug: RegionSlug = isRegionSlug(rawRegion)
-    ? rawRegion
-    : SCHOLARSHIP_DEFAULT_REGION;
-  const selectedRegion = getScholarshipRegionBySlug(selectedSlug);
+  const selectedSlug = useMemo<RegionSlug | null>(() => {
+    if (!defaultRegionSlug) {
+      return null;
+    }
+
+    const fromQuery = regions.find((region) => region.regionSlug === rawRegion);
+    return fromQuery?.regionSlug ?? defaultRegionSlug;
+  }, [defaultRegionSlug, rawRegion, regions]);
+
+  const selectedRegion = useMemo(() => {
+    if (!selectedSlug) {
+      return null;
+    }
+
+    return regions.find((region) => region.regionSlug === selectedSlug) ?? null;
+  }, [regions, selectedSlug]);
 
   const handleRegionSelect = useCallback(
     (slug: RegionSlug) => {
+      if (!defaultRegionSlug) return;
+
       const params = new URLSearchParams(searchParams.toString());
-      if (slug === SCHOLARSHIP_DEFAULT_REGION) {
+      if (slug === defaultRegionSlug) {
         params.delete('region');
       } else {
         params.set('region', slug);
@@ -359,7 +382,7 @@ export default function ScholarshipsExplorer() {
       const query = params.toString();
       router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
     },
-    [pathname, router, searchParams]
+    [defaultRegionSlug, pathname, router, searchParams]
   );
 
   const handleMapKeyDown = useCallback(
@@ -373,6 +396,12 @@ export default function ScholarshipsExplorer() {
   );
 
   useEffect(() => {
+    if (regions.length === 0) {
+      setRegionShapes([]);
+      setMapStatus('loading');
+      return;
+    }
+
     const controller = new AbortController();
     let active = true;
 
@@ -389,11 +418,11 @@ export default function ScholarshipsExplorer() {
         }
 
         const payload = (await response.json()) as unknown;
-        const shapes = buildRegionShapes(payload);
+        const shapes = buildRegionShapes(payload, regions);
 
         if (!active) return;
 
-        if (shapes.length < 20) {
+        if (shapes.length === 0) {
           setMapStatus('error');
           setRegionShapes([]);
           return;
@@ -414,7 +443,30 @@ export default function ScholarshipsExplorer() {
       active = false;
       controller.abort();
     };
-  }, []);
+  }, [regions]);
+
+  const loadingLabel =
+    language === 'tr' ? 'Burs verisi yükleniyor...' : 'Loading scholarship data...';
+  const loadErrorLabel =
+    language === 'tr'
+      ? 'Burs verisi yüklenemedi. Lütfen tekrar deneyin.'
+      : 'Failed to load scholarship data. Please try again.';
+
+  if (!selectedRegion || !selectedSlug) {
+    return (
+      <div className="min-h-screen bg-[#e9eaec] p-6">
+        <div className="mx-auto max-w-4xl rounded-2xl border border-slate-200 bg-white px-6 py-14 text-center shadow-sm">
+          <p
+            className={`text-sm font-semibold ${
+              scholarshipsLoading ? 'text-slate-500' : 'text-rose-700'
+            }`}
+          >
+            {scholarshipsLoading && !scholarshipsError ? loadingLabel : loadErrorLabel}
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   const isVerified = selectedRegion.completeness === 'verified-full';
   const lastVerified = formatLastVerified(selectedRegion.lastVerifiedAt, language);
@@ -459,7 +511,7 @@ export default function ScholarshipsExplorer() {
                 onChange={(event) => handleRegionSelect(event.target.value as RegionSlug)}
                 className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-800"
               >
-                {SCHOLARSHIP_REGIONS.map((region) => (
+                {regions.map((region) => (
                   <option key={region.regionSlug} value={region.regionSlug}>
                     {region.regionName}
                   </option>

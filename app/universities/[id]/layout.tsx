@@ -1,10 +1,11 @@
 import { Metadata } from 'next';
-import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
+import { DEFAULT_IMAGE } from '@/app/data';
+import { getUniversityById } from '@/lib/contentRepository';
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
     const resolvedParams = await params;
     const idFromUrl = resolvedParams.id;
-    const university = universitiesData.find((u) => String(u.id) === String(idFromUrl));
+    const university = await getUniversityById(idFromUrl);
 
     if (!university) {
         return {

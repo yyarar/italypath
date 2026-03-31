@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
-import { pathToFileURL } from "node:url";
+import { loadTsModule } from "./utils/load-ts-module.mjs";
 
 const MED_PATH = resolve(process.cwd(), "med");
 const OUTPUT_DIR = resolve(process.cwd(), "output");
@@ -84,8 +84,7 @@ function parseMedRows(medText) {
   return rows;
 }
 
-const dataModuleUrl = pathToFileURL(resolve(process.cwd(), "app/data.ts")).href;
-const dataModule = await import(dataModuleUrl);
+const dataModule = await loadTsModule("app/data.ts");
 const universitiesData = dataModule.universitiesData;
 
 const universityByNormalizedName = new Map(

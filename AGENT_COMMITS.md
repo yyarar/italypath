@@ -433,3 +433,29 @@
 | Dosya | Değişiklik |
 |-------|-----------|
 | `components/BottomNav.tsx` | ♻️ Mobil alt navigasyondaki `Topluluk` sekmesi `Hub/Profil` olarak değiştirildi; signed-in kullanıcı `/hub`, signed-out kullanıcı `/sign-in?redirect_url=/hub` akışına yönlendiriliyor |
+
+### Commit 50 (Supabase Content Migration + API Katmanı DB’ye Taşındı):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `supabase/content_schema.sql` | 🆕 Content tabloları eklendi: `universities`, `university_departments`, `community_links`, `scholarship_regions` (+ index, `updated_at` trigger, public read policy) |
+| `scripts/seed-supabase-content.mjs` | 🆕 Lokal içerik kaynaklarını Supabase content tablolarına senkronlayan seed script eklendi |
+| `scripts/utils/load-ts-module.mjs` | 🆕 Node 20 ortamında `.ts` modülleri script tarafında transpile+import eden yardımcı eklendi |
+| `scripts/validate-data-integrity.mjs` | ♻️ TS modül import akışı `load-ts-module` ile uyumlu hale getirildi |
+| `scripts/clean-med-data.mjs` | ♻️ TS modül import akışı `load-ts-module` ile uyumlu hale getirildi |
+| `package.json` | ➕ `seed:supabase` script'i eklendi |
+| `lib/contentRepository.ts` | 🆕 Supabase-first içerik erişim katmanı eklendi (`getUniversities`, `getUniversityById`, `getCommunityLinks`, `getScholarshipsDataset`) + local fallback |
+| `app/api/universities/route.ts` | ♻️ API kaynağı `contentRepository` üzerinden Supabase-first olacak şekilde taşındı |
+| `app/api/communities/route.ts` | 🆕 Communities için public API eklendi |
+| `app/api/scholarships/route.ts` | 🆕 Scholarships için public API eklendi |
+| `lib/useCommunitiesData.ts` | 🆕 `/api/communities` için client cache + request dedupe hook'u eklendi |
+| `lib/useScholarshipsData.ts` | 🆕 `/api/scholarships` için client cache + request dedupe hook'u eklendi |
+| `components/communities/CommunityLinksExplorer.tsx` | ♻️ Statik import yerine API hook kullanımına geçirildi; loading/error state eklendi |
+| `components/scholarships/ScholarshipsExplorer.tsx` | ♻️ Statik bölge kaynağı yerine API hook kullanımına geçirildi; default region + loading/error/fallback akışları eklendi |
+| `app/sitemap.ts` | ♻️ Sitemap üniversite/bölüm rotaları Supabase-first repository kaynağından üretilir hale getirildi |
+| `app/universities/[id]/layout.tsx` | ♻️ Üniversite metadata üretimi `getUniversityById()` ile repository katmanına taşındı |
+| `app/universities/[id]/departments/[deptSlug]/layout.tsx` | ♻️ Bölüm metadata üretimi `getUniversityById()` ile repository katmanına taşındı |
+| `app/api/chat/route.ts` | ♻️ Sistem prompt üniversite bağlamı repository kaynağına taşındı + TTL cache eklendi |
+| `proxy.ts` | 🔓 `/api/communities(.*)` ve `/api/scholarships(.*)` public route listesine eklendi |
+| `scripts/check-route-access.mjs` | ➕ Yeni public API rotaları için smoke check doğrulamaları eklendi |
+| `SUPABASE_CONTENT_MIGRATION.md` | 🆕 Content migration/seed çalışma adımlarını içeren operasyon dokümanı eklendi |
+| `AGENT_CONTEXT.md` | ♻️ Mimari özet Supabase content migration ve yeni API/repository katmanına göre güncellendi |

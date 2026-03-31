@@ -15,11 +15,11 @@ import {
 
 import { useLanguage } from "@/context/LanguageContext";
 import {
-  COMMUNITY_LINKS,
   type CommunityCategory,
   type CommunityLink,
   type CommunityPlatform,
 } from "@/lib/community-links";
+import { useCommunitiesData } from "@/lib/useCommunitiesData";
 
 const STATUS_ORDER: Record<CommunityLink["status"], number> = {
   active: 0,
@@ -62,6 +62,7 @@ function formatDate(value: string, language: "tr" | "en") {
 
 export default function CommunityLinksExplorer() {
   const { t, language, toggleLanguage } = useLanguage();
+  const { communities, loading, error } = useCommunitiesData();
 
   const [searchTerm, setSearchTerm] = useState("");
   const [platformFilter, setPlatformFilter] = useState<CommunityPlatform | "all">("all");
@@ -71,7 +72,7 @@ export default function CommunityLinksExplorer() {
   const filteredCommunities = useMemo(() => {
     const normalizedSearch = searchTerm.trim().toLowerCase();
 
-    return COMMUNITY_LINKS.filter((item) => {
+    return communities.filter((item) => {
       const matchesPlatform = platformFilter === "all" ? true : item.platform === platformFilter;
       const matchesCategory = categoryFilter === "all" ? true : item.category === categoryFilter;
       const matchesStatus = statusFilter === "all" ? true : item.status === statusFilter;
@@ -90,13 +91,18 @@ export default function CommunityLinksExplorer() {
       if (statusDiff !== 0) return statusDiff;
       return a.name.localeCompare(b.name);
     });
-  }, [categoryFilter, platformFilter, searchTerm, statusFilter]);
+  }, [categoryFilter, communities, platformFilter, searchTerm, statusFilter]);
 
   const hasActiveFilters =
     searchTerm.trim().length > 0 ||
     platformFilter !== "all" ||
     categoryFilter !== "all" ||
     statusFilter !== "all";
+  const loadingLabel = language === "tr" ? "Yükleniyor..." : "Loading...";
+  const loadErrorLabel =
+    language === "tr"
+      ? "Topluluk verisi yüklenemedi. Lütfen tekrar deneyin."
+      : "Failed to load community data. Please try again.";
 
   const clearFilters = () => {
     setSearchTerm("");
@@ -256,14 +262,22 @@ export default function CommunityLinksExplorer() {
             </div>
 
             <p className="mt-3 text-xs font-semibold text-slate-500">
-              {filteredCommunities.length} {t.communities.resultsLabel}
+              {loading ? loadingLabel : `${filteredCommunities.length} ${t.communities.resultsLabel}`}
             </p>
           </div>
         </div>
       </div>
 
       <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
-        {filteredCommunities.length === 0 ? (
+        {loading ? (
+          <div className="rounded-3xl border border-slate-200 bg-white px-6 py-14 text-center shadow-sm">
+            <p className="text-sm font-semibold text-slate-500">{loadingLabel}</p>
+          </div>
+        ) : error ? (
+          <div className="rounded-3xl border border-rose-200 bg-rose-50 px-6 py-14 text-center shadow-sm">
+            <p className="text-sm font-semibold text-rose-700">{loadErrorLabel}</p>
+          </div>
+        ) : filteredCommunities.length === 0 ? (
           <div className="rounded-3xl border border-slate-200 bg-white px-6 py-14 text-center shadow-sm">
             <h2 className="text-xl font-bold text-slate-900">{t.communities.emptyTitle}</h2>
             <p className="mx-auto mt-2 max-w-md text-sm text-slate-500">

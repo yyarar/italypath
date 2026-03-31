@@ -49,6 +49,8 @@ italypath-main/
 │   ├── data.ts                     # 64 üniversite, 240 bölüm verisi (seed + normalized metadata modeli)
 │   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu + prompt chip önerileri)
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
+│   ├── api/communities/route.ts    # Topluluk verisini cache header'larıyla JSON dönen public API
+│   ├── api/scholarships/route.ts   # Burs verisini cache header'larıyla JSON dönen public API
 │   ├── api/universities/route.ts   # Üniversite verisini cache header'larıyla JSON dönen public API
 │   ├── communities/page.tsx         # Kürate edilmiş öğrenci toplulukları rehberi (public)
 │   ├── topluluklar/page.tsx         # Türkçe kısa yol route'u (redirect -> /communities)
@@ -89,11 +91,14 @@ italypath-main/
 ├── context/
 │   └── LanguageContext.tsx          # TR/EN dil sistemi (Context + localStorage)
 ├── lib/
+│   ├── contentRepository.ts        # Supabase-first içerik deposu (universities/communities/scholarships + local fallback)
 │   ├── supabaseClient.ts           # Supabase client (anon key)
 │   ├── community-links.ts          # CommunityLink tipleri + editoryal topluluk verisi
 │   ├── translations.ts             # Tüm UI çevirileri (TR + EN)
 │   ├── utils.ts                    # `cn()` className birleştirme helper'ı
+│   ├── useCommunitiesData.ts       # Topluluk verisi için cache'li client fetch hook'u (/api/communities)
 │   ├── useFavorites.ts             # Birleşik favori hook'u (localStorage + Supabase)
+│   ├── useScholarshipsData.ts      # Burs verisi için cache'li client fetch hook'u (/api/scholarships)
 │   ├── useUniversitiesData.ts      # Üniversite verisi için cache'li client fetch hook'u (/api/universities)
 │   └── scholarships/
 │       └── regions.ts              # 20 bölge burs registry + verified/pending detay katmanı
@@ -104,11 +109,15 @@ italypath-main/
 ├── proxy.ts                        # Clerk Request Boundary (Next.js 16 standardı)
 ├── scripts/
 │   ├── check-route-access.mjs      # Public/protected route matrisi smoke check
+│   ├── seed-supabase-content.mjs   # Lokal içerik kaynaklarını Supabase content tablolarına senkronlar
 │   ├── validate-data-integrity.mjs # data.ts bütünlük kontrolü (id/slug/override/type dağılımı)
-│   └── clean-med-data.mjs          # `med` kaynağını parse/temizleyip eşleşme+override çıktısı üretir
+│   ├── clean-med-data.mjs          # `med` kaynağını parse/temizleyip eşleşme+override çıktısı üretir
+│   └── utils/load-ts-module.mjs    # Node 20 ortamında TS modülleri script tarafında güvenli import helper'ı
 ├── DATA_ENTRY_GUIDE.md             # Yeni bölüm/dil/süre/seviye giriş rehberi (default+override akışı)
+├── SUPABASE_CONTENT_MIGRATION.md   # Supabase içerik tabloları migration + seed çalışma rehberi
 ├── SUPABASE_SECURITY_RUNBOOK.md    # Clerk + Supabase RLS adım adım operasyon rehberi
 ├── supabase/
+│   ├── content_schema.sql          # Content tabloları (`universities`, `departments`, `communities`, `scholarships`) + public read policy scripti
 │   └── rls_hardening.sql           # RLS + Storage policy hardening SQL scripti
 └── public/
     ├── data/italy-regions.geojson # Lokal bölgesel harita verisi (20 bölge)
@@ -137,7 +146,7 @@ italypath-main/
 ### 3. AI Mentor Streaming
 - **Backend** (`api/chat/route.ts`): `@google/generative-ai` paketi ile `sendMessageStream` kullanılır
 - Tüm mesaj geçmişi Gemini chat history olarak iletilir (sohbet hafızası)
-- Sistem promptu: Üniversite veritabanından oluşturulan bağlam + mentör kişilik tanımı
+- Sistem promptu: `contentRepository` üzerinden gelen üniversite verisinden dinamik bağlam + mentör kişilik tanımı (TTL cache)
 - İstek gövdesi temel şema doğrulamasından geçer (`messages[]`, rol, boş olmayan içerik, adet/uzunluk sınırları)
 - `GEMINI_API_KEY` yoksa kontrollü `503` döner; malformed body doğrudan `500` üretmez
 - **Frontend** (`ai-mentor/page.tsx`): `fetch` + `ReadableStream` + `TextDecoder` ile chunk chunk okuma
@@ -157,7 +166,7 @@ italypath-main/
 
 ### 5. Clerk Request Boundary (proxy.ts)
 - `proxy.ts` dosyasında tanımlı (Next.js 16 yeni Request Boundary standardı uyarınca).
-- Public rotalar: `/`, `/api/universities(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/isee(.*)`, `/scholarships(.*)`, `/communities(.*)`, `/topluluklar(.*)`, `/sitemap.xml`, `/robots.txt`
+- Public rotalar: `/`, `/api/universities(.*)`, `/api/communities(.*)`, `/api/scholarships(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/isee(.*)`, `/scholarships(.*)`, `/communities(.*)`, `/topluluklar(.*)`, `/sitemap.xml`, `/robots.txt`
 - Diğer tüm rotalar `auth.protect()` ile korumalı
 - Protected örnekler: `/hub`, `/favorites`, `/documents`, `/ai-mentor`, `/api/chat`
 
@@ -171,11 +180,12 @@ italypath-main/
 - Department detail root'u `ExpandableScreenContent` ile eşlenmiştir; "Diğer Bölümler" kartları da aynı morph/expand modelini kullanır
 - Eski/cache kaynaklı eksik metadata alanlarına karşı runtime fallback uygulanır (`languages`, `durationYears`, `level`)
 
-### 7. Üniversite Veri Katmanı (`/api/universities` + `useUniversitiesData`)
-- `app/api/universities/route.ts` üniversite verisini cache header'ları (`s-maxage`, `stale-while-revalidate`) ile JSON olarak döner
+### 7. Üniversite Veri Katmanı (`contentRepository` + `/api/universities` + `useUniversitiesData`)
+- `lib/contentRepository.ts` içerik için Supabase-first (anon read) strateji uygular; Supabase erişimi/tabloları yoksa lokal kaynaklara fallback döner
+- `app/api/universities/route.ts` `contentRepository.getUniversities()` ile veriyi cache header'ları (`s-maxage`, `stale-while-revalidate`) ile JSON olarak döner
 - `lib/useUniversitiesData.ts` client tarafında in-memory cache + request deduplication uygular
 - `universities`, `favorites`, üniversite detay ve bölüm detay sayfaları veriyi bu hook üzerinden alır; `data.ts` doğrudan client import'u azaltılmıştır
-- `data.ts` içinde `universitiesBaseData` (seed) + `universitiesData` (normalize metadata) ayrımı vardır; API katmanı `universitiesData` döner
+- `data.ts` içinde `universitiesBaseData` (seed) + `universitiesData` (normalize metadata) ayrımı korunur; fallback ve seed script tarafında kaynak olarak kullanılır
 - `app/universities/page.tsx` üzerinde görünüm seçici vardır: varsayılan premium kart/grid + kompakt liste modu.
 - Görünüm tercihi `localStorage` içinde `italyPathUniversitiesViewMode` anahtarıyla saklanır; sayfa yenilemelerinde korunur.
 - Görünüm state'i `useSyncExternalStore` ile SSR-safe okunur; TypeScript build widening riski explicit generic (`<UniversityViewMode>`) ile engellenmiştir.
@@ -227,7 +237,8 @@ italypath-main/
 ### 14. Bölgesel Burs Haritası (Scholarships)
 - Rota: `/scholarships` (public)
 - Sayfa yapısı: `app/scholarships/page.tsx` server component, client leaf `components/scholarships/ScholarshipsExplorer.tsx`
-- `ScholarshipsExplorer` içinde bölgesel veri sözleşmesi `types/scholarships.ts`, veri kaynağı `lib/scholarships/regions.ts`
+- `ScholarshipsExplorer` içinde bölgesel veri sözleşmesi `types/scholarships.ts`, veri kaynağı `lib/useScholarshipsData.ts` (`/api/scholarships`)
+- `/api/scholarships` içeriği `contentRepository.getScholarshipsDataset()` üzerinden Supabase-first + local fallback stratejisiyle sunar
 - Harita render modeli: 20 bölgeyi GeoJSON'dan SVG path'e çeviren client-side çizim (tıklanabilir path + aktif bölge marker)
 - Dış bağımlılık kaldırıldı: harita GeoJSON kaynağı artık lokal dosya `public/data/italy-regions.geojson`
 - Next.js 16 gereği `useSearchParams` kullanan client leaf, `app/scholarships/page.tsx` içinde `Suspense` boundary ile sarılmıştır (prerender/build hata önlemi)
@@ -239,6 +250,7 @@ italypath-main/
 - Rota: `/communities` (public), ek kısa yol: `/topluluklar` (redirect -> `/communities`)
 - Sayfa: `app/communities/page.tsx` (metadata + canonical), client leaf: `components/communities/CommunityLinksExplorer.tsx`
 - Veri modeli: `lib/community-links.ts` içinde `CommunityPlatform`, `CommunityCategory`, `CommunitySizeHint`, `CommunityLink`
+- Veri erişimi: `lib/useCommunitiesData.ts` üzerinden `/api/communities`; API katmanı `contentRepository.getCommunityLinks()` ile Supabase-first + local fallback döner
 - Veri seti: User-confirmed WhatsApp/Telegram/Facebook girişleriyle düzenli genişletilir; güncel listede Bologna/Roma housing odaklı ve genel topluluk kayıtları da bulunur.
 - İçerik yaklaşımı: resmi topluluk iddiası yok; sayfa açık şekilde "editoryal/kürate edilmiş dış topluluk rehberi" olarak konumlanır.
 - Güven ilkeleri: fake üye sayısı, fake aktivite, fake social proof gösterilmez; kartlarda yalnızca status, verification source ve `lastCheckedAt` bilgisi bulunur.
@@ -255,6 +267,16 @@ italypath-main/
 - UI yapısı: profil hero kartı, 4 özet kartı (favoriler/belgeler/dil/liste görünümü), hızlı aksiyon grid'i (`favorites`, `documents`, `universities`, `communities`, `scholarships`, `ai-mentor`), hesap yönetimi CTA ve çıkış butonu.
 - Güvenlik & indexleme: route public değil; `robots.txt` içinde `/hub` disallow.
 - Navigasyon: signed-in kullanıcı için Navbar'da `/hub` linki bulunur; mobil BottomNav'da topluluk sekmesi Hub/Profil sekmesine dönüştürülmüştür (signed-out kullanıcıya login redirect).
+
+### 17. Supabase Content Migration Katmanı
+- Kapsam: `universities`, `university_departments`, `community_links`, `scholarship_regions`
+- Şema scripti: `supabase/content_schema.sql` (tablolar + indeksler + `updated_at` trigger + public read policy)
+- Seed scripti: `scripts/seed-supabase-content.mjs`
+  - Kaynaklar: `app/data.ts`, `lib/community-links.ts`, `lib/scholarships/regions.ts`
+  - Gerekli env: `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`
+- Runbook: `SUPABASE_CONTENT_MIGRATION.md`
+- Uygulama davranışı: içerik sorgularında önce Supabase denenir; başarısız/tablo yok durumunda lokal kaynaklara otomatik fallback yapılır.
+- Script runtime notu: Node 20 ortamında `.ts` modülleri için `scripts/utils/load-ts-module.mjs` transpile+import helper'ı kullanılır.
 
 ---
 
@@ -273,9 +295,9 @@ BURADA DEĞİL BAŞKA DOSYADA! AGENT_COMMITS.MD DOSYASINA BAK!
 ### 🟢 Düşük Öncelik
 1. **Supabase SSR:** `@supabase/ssr` paketi ile server/client ayrımı.
 2. **Veri katmanı kısmen iyileştirildi, server taşınması uzun vadede hala açık**
-   - Client kritik ekranlar artık `/api/universities` + `useUniversitiesData` kullanıyor.
-   - `data.ts` halen API, sitemap/metadata ve chat context tarafında merkezi kaynak.
-   - Veri büyüme trendi sürerse DB veya ayrı server-side content katmanına taşınmalı.
+   - Client kritik ekranlar artık `/api/universities`, `/api/communities`, `/api/scholarships` + ilgili hook'ları kullanıyor.
+   - Server tarafında `contentRepository` Supabase-first yaklaşımıyla merkezi erişim noktası oldu; `data.ts`/`community-links.ts`/`regions.ts` fallback + seed kaynağı olarak korunuyor.
+   - Uzun vadede fallback kaynaklarının DB ile drift üretmemesi için otomatik sync/CI doğrulaması (nightly seed check) eklenebilir.
 ### 🧠 Bilinmeyen / Sessiz Tehditler
 
 - **Bundle creep:** veri dosyası büyüdükçe performans düşüşü bir anda değil, sessizce ve parça parça hissedilir; bu tip tehditler geç fark edilir.
@@ -290,6 +312,7 @@ Dosya: `.env.local` (git'te yok, `.gitignore`'da)
 |----------|----------|
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase proje URL'i |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonim API anahtarı |
+| `SUPABASE_SERVICE_ROLE_KEY` | Content seed/migration scripti (`npm run seed:supabase`) için servis rolü anahtarı (client'a verilmez) |
 | `GEMINI_API_KEY` | Google Gemini AI API anahtarı |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk yayın anahtarı |
 | `CLERK_SECRET_KEY` | Clerk gizli anahtar |
@@ -306,6 +329,7 @@ npm run lint       # ESLint kontrolü
 npm run check:routes # proxy.ts public/protected route matrisi doğrulaması
 npm run check:data # data.ts bütünlük ve dağılım kontrolü
 npm run clean:med  # med kaynağını temizleyip matched/unmatched/override çıktısı üretir
+npm run seed:supabase # içerik verisini Supabase content tablolarına senkronlar
 ```
 
 ---
@@ -330,9 +354,16 @@ CREATE TABLE user_documents (
   storage_path TEXT NOT NULL,      -- Supabase Storage path
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+-- Content tabloları (script ile yönetilir)
+-- Kaynak: supabase/content_schema.sql
+CREATE TABLE universities (...);
+CREATE TABLE university_departments (...);
+CREATE TABLE community_links (...);
+CREATE TABLE scholarship_regions (...);
 ```
 
-> ⚠️ Bu tablo yapıları koddan tahmin edilmiştir. Gerçek şema Supabase Dashboard'dan doğrulanmalıdır.
+> ⚠️ `favorites` ve `user_documents` yapıları koddan tahmin edilmiştir. Content tablolarının canonical sürümü `supabase/content_schema.sql` dosyasında tutulur.
 
 ---
 

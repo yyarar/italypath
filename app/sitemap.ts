@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next';
-import { universitiesData } from '@/app/data';
+import { getUniversities } from '@/lib/contentRepository';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://italypath.com';
+    const universities = await getUniversities();
 
     const staticRoutes: MetadataRoute.Sitemap = [
         {
@@ -32,13 +33,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
     ];
 
-    const universityRoutes: MetadataRoute.Sitemap = universitiesData.map((uni) => ({
+    const universityRoutes: MetadataRoute.Sitemap = universities.map((uni) => ({
         url: `${baseUrl}/universities/${uni.id}`,
         changeFrequency: 'monthly',
         priority: 0.6,
     }));
 
-    const departmentRoutes: MetadataRoute.Sitemap = universitiesData.flatMap((uni) =>
+    const departmentRoutes: MetadataRoute.Sitemap = universities.flatMap((uni) =>
         uni.departments.map((dept) => ({
             url: `${baseUrl}/universities/${uni.id}/departments/${dept.slug}`,
             changeFrequency: 'monthly' as const,

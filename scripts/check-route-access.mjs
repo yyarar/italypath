@@ -36,6 +36,8 @@ const publicChecks = [
   "/scholarships",
   "/communities",
   "/topluluklar",
+  "/api/communities",
+  "/api/scholarships",
   "/api/universities",
   "/sign-in",
   "/sign-up",
@@ -73,6 +75,14 @@ if (publicPatterns.includes("/ai-mentor(.*)")) {
 
 if (!publicPatterns.includes("/api/universities(.*)")) {
   failures.push("Public list is missing /api/universities(.*)");
+}
+
+if (!publicPatterns.includes("/api/communities(.*)")) {
+  failures.push("Public list is missing /api/communities(.*)");
+}
+
+if (!publicPatterns.includes("/api/scholarships(.*)")) {
+  failures.push("Public list is missing /api/scholarships(.*)");
 }
 
 if (!publicPatterns.includes("/scholarships(.*)")) {
