@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+.superpowers/
 
 # debug
 npm-debug.log*
@@ -41,5 +42,4 @@ yarn-error.log*
 next-env.d.ts
 
 yedek
-
 
