@@ -9,6 +9,7 @@
     "lint": "eslint",
     "check:routes": "node scripts/check-route-access.mjs",
     "check:data": "node --no-warnings scripts/validate-data-integrity.mjs",
+    "check:university-department-merge": "node --no-warnings scripts/check-university-department-merge.mjs",
     "check:editorial-ui": "node scripts/check-editorial-ui.mjs",
     "clean:med": "node --no-warnings scripts/clean-med-data.mjs"
   },

@@ -14,3 +14,13 @@ export interface UserDocument {
   created_at: string;
   signed_url?: string;
 }
+
+export interface SupabaseUniversityDepartmentRow {
+  university_id: number;
+  name: string | null;
+  slug: string | null;
+  languages: string[] | null;
+  duration_years: number | null;
+  level: string | null;
+  sort_order: number | null;
+}
