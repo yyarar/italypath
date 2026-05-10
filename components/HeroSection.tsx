@@ -1,172 +1,205 @@
 "use client";
 
-import { useRef } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { ArrowRight, Sparkles, GraduationCap } from 'lucide-react';
-import { motion, useMotionTemplate, useMotionValue, useReducedMotion, useSpring } from 'framer-motion';
-import { useLanguage } from '@/context/LanguageContext';
-import { PulsatingButton } from '@/components/ui/pulsating-button';
+import Link from "next/link";
+import { ArrowRight, Check, FileText, GraduationCap, Landmark } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+
+import { useLanguage } from "@/context/LanguageContext";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 18 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring" as const, stiffness: 110, damping: 22 },
+  },
+};
+
+function StudyDossier() {
+  const { language } = useLanguage();
+
+  const schools =
+    language === "tr"
+      ? [
+          ["Politecnico di Milano", "Mühendislik"],
+          ["University of Bologna", "Kamu · 92 program"],
+          ["Sapienza Roma", "Tıp ve sosyal bilimler"],
+        ]
+      : [
+          ["Politecnico di Milano", "Engineering"],
+          ["University of Bologna", "Public · 92 programs"],
+          ["Sapienza Rome", "Medicine and social sciences"],
+        ];
+
+  const documents =
+    language === "tr"
+      ? ["Pasaport", "Transkript", "Dil belgesi", "Motivasyon mektubu"]
+      : ["Passport", "Transcript", "Language certificate", "Motivation letter"];
+
+  return (
+    <motion.aside
+      variants={itemVariants}
+      className="relative border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-4 shadow-[0_18px_50px_rgba(21,32,28,0.08)] sm:p-5 lg:p-6"
+      aria-label={language === "tr" ? "Başvuru dosyası özeti" : "Application dossier summary"}
+    >
+      <div className="mb-6 flex items-center justify-between border-b border-[var(--editorial-border)] pb-4">
+        <div>
+          <p className="text-xs font-semibold text-[var(--editorial-muted)]">
+            {language === "tr" ? "Çalışma Dosyası" : "Study dossier"}
+          </p>
+          <h2 className="mt-1 text-xl font-semibold tracking-[-0.01em] text-[var(--editorial-ink)]">
+            2026 ItalyPath
+          </h2>
+        </div>
+        <div className="flex h-11 w-11 items-center justify-center border border-[var(--editorial-border)] bg-[#f5f1e8] text-[var(--editorial-sage)]">
+          <GraduationCap className="h-5 w-5" />
+        </div>
+      </div>
+
+      <div className="space-y-6">
+        <section>
+          <div className="mb-3 flex items-center justify-between">
+            <p className="text-xs font-semibold text-[var(--editorial-muted)]">
+              {language === "tr" ? "Kısa Liste" : "Shortlist"}
+            </p>
+            <span className="text-xs text-[var(--editorial-terracotta)]">3/12</span>
+          </div>
+          <div className="divide-y divide-[var(--editorial-border)] border-y border-[var(--editorial-border)]">
+            {schools.map(([name, meta]) => (
+              <div key={name} className="grid grid-cols-[1fr_auto] gap-4 py-3">
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-semibold text-[var(--editorial-ink)]">{name}</p>
+                  <p className="mt-1 text-xs text-[var(--editorial-muted)]">{meta}</p>
+                </div>
+                <ArrowRight className="mt-1 h-4 w-4 text-[var(--editorial-muted)]" />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="grid gap-4 lg:grid-cols-[1fr_0.9fr]">
+          <div className="border border-[var(--editorial-border)] bg-white p-4">
+            <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-[var(--editorial-ink)]">
+              <FileText className="h-4 w-4 text-[var(--editorial-sage)]" />
+              {language === "tr" ? "Belge kontrolü" : "Document check"}
+            </div>
+            <div className="space-y-2">
+              {documents.map((documentName, index) => (
+                <div key={documentName} className="flex items-center gap-2 text-xs text-[var(--editorial-muted)]">
+                  <span
+                    className={`flex h-4 w-4 items-center justify-center border ${
+                      index < 2
+                        ? "border-[var(--editorial-sage)] bg-[var(--editorial-sage)] text-white"
+                        : "border-[var(--editorial-border)] text-transparent"
+                    }`}
+                  >
+                    <Check className="h-3 w-3" />
+                  </span>
+                  {documentName}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="border border-[var(--editorial-border)] bg-[#f5f1e8] p-4">
+            <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-[var(--editorial-ink)]">
+              <Landmark className="h-4 w-4 text-[var(--editorial-terracotta)]" />
+              {language === "tr" ? "Burs notu" : "Scholarship note"}
+            </div>
+            <p className="text-xs leading-5 text-[var(--editorial-muted)]">
+              {language === "tr"
+                ? "Bölgesel kurum, ISEE eşiği ve başvuru takvimi birlikte kontrol edilmeli."
+                : "Check the regional body, ISEE threshold, and application window together."}
+            </p>
+          </div>
+        </section>
+      </div>
+    </motion.aside>
+  );
+}
 
 export default function HeroSection() {
-    const { t } = useLanguage();
-    const router = useRouter();
-    const shouldReduceMotion = useReducedMotion();
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
+  const { t, language } = useLanguage();
+  const shouldReduceMotion = useReducedMotion();
 
-    const springX = useSpring(mouseX, { stiffness: 60, damping: 20 });
-    const springY = useSpring(mouseY, { stiffness: 60, damping: 20 });
-    const gradientMask = useMotionTemplate`radial-gradient(320px circle at ${springX}px ${springY}px, rgba(99,102,241,0.08) 0%, transparent 80%)`;
+  return (
+    <section className="relative overflow-hidden bg-[var(--editorial-paper)] pt-28 pb-16 lg:pt-36 lg:pb-24">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+        className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8"
+      >
+        <div className="max-w-3xl">
+          <motion.p variants={itemVariants} className="mb-6 text-sm font-medium text-[var(--editorial-muted)]">
+            ItalyPath
+          </motion.p>
 
-    const sectionRef = useRef<HTMLElement>(null);
+          <motion.h1
+            variants={itemVariants}
+            className="max-w-4xl font-serif text-5xl font-normal leading-[0.98] tracking-[-0.025em] text-[var(--editorial-ink)] sm:text-6xl lg:text-[5.35rem]"
+          >
+            {t.hero.title}
+          </motion.h1>
 
-    const handleMouseMove = (e: React.MouseEvent) => {
-        const rect = sectionRef.current?.getBoundingClientRect();
-        if (!rect) return;
-        mouseX.set(e.clientX - rect.left);
-        mouseY.set(e.clientY - rect.top);
-    };
+          <motion.p
+            variants={itemVariants}
+            className="mt-7 max-w-2xl text-lg leading-8 text-[var(--editorial-muted)] sm:text-xl"
+          >
+            {t.hero.subtitle}
+          </motion.p>
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: { staggerChildren: 0.14, delayChildren: 0.1 }
-        }
-    };
-    const itemVariants = {
-        hidden: { opacity: 0, y: 24 },
-        show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100, damping: 20 } }
-    };
-
-    return (
-        <section
-            ref={sectionRef}
-            onMouseMove={shouldReduceMotion ? undefined : handleMouseMove}
-            className="relative pt-28 pb-20 lg:pt-44 lg:pb-36 overflow-hidden bg-[#fafbff]"
-        >
-            {/* Gradient background */}
-            <div className="absolute inset-0 z-0" style={{ background: 'var(--gradient-hero)' }} />
-
-            {/* Mouse-follow gradient */}
-            {!shouldReduceMotion && (
-                <motion.div className="absolute inset-0 z-0 pointer-events-none" style={{ background: gradientMask }} />
-            )}
-
-            {/* Animated blobs */}
-            <div
-                className={`${shouldReduceMotion ? '' : 'blob'} absolute top-1/4 left-[10%] w-72 h-72 rounded-full opacity-30 pointer-events-none`}
-                style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 70%)', ['--blob-duration' as string]: '10s', ['--blob-delay' as string]: '0s' }}
-            />
-            <div
-                className={`${shouldReduceMotion ? '' : 'blob'} absolute bottom-1/4 right-[8%] w-96 h-96 rounded-full opacity-20 pointer-events-none`}
-                style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%)', ['--blob-duration' as string]: '14s', ['--blob-delay' as string]: '-4s' }}
-            />
-            <div
-                className={`${shouldReduceMotion ? '' : 'blob'} absolute top-1/3 right-[25%] w-48 h-48 rounded-full opacity-20 pointer-events-none`}
-                style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%)', ['--blob-duration' as string]: '12s', ['--blob-delay' as string]: '-2s' }}
-            />
-
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate="show"
-                className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          <motion.div variants={itemVariants} className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/universities"
+              className="inline-flex items-center justify-center border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#173d36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+              aria-label={t.hero.btnPrimary}
             >
-                {/* Badge */}
-                <motion.div variants={itemVariants} className="flex justify-center mb-8">
-                    <div className="inline-flex items-center px-4 py-2 rounded-full glass border border-indigo-100/60 text-indigo-700 text-sm font-semibold shadow-sm">
-                        <span className="relative flex items-center mr-2">
-                            <span className="w-2 h-2 bg-green-500 rounded-full" />
-                            {!shouldReduceMotion && (
-                                <span className="absolute w-2 h-2 bg-green-500 rounded-full animate-ping opacity-60" />
-                            )}
-                        </span>
-                        <GraduationCap className="w-3.5 h-3.5 mr-1.5 text-indigo-500" />
-                        {t.hero.badge}
-                    </div>
-                </motion.div>
+              {t.hero.btnPrimary}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+            <Link
+              href="/scholarships"
+              className="inline-flex items-center justify-center border border-[var(--editorial-border)] bg-transparent px-6 py-3 text-sm font-semibold text-[var(--editorial-ink)] transition hover:border-[var(--editorial-sage)] hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+              aria-label={t.hero.btnSecondary}
+            >
+              {t.hero.btnSecondary}
+            </Link>
+          </motion.div>
 
-                {/* Headline */}
-                <motion.h1
-                    variants={itemVariants}
-                    className="text-6xl sm:text-7xl lg:text-[5.5rem] font-extrabold tracking-tighter text-slate-900 mb-6 leading-[0.95]"
-                >
-                    {t.hero.titleStart}{' '}
-                    <span className="gradient-text" style={{ backgroundImage: 'linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #818cf8 100%)' }}>
-                        {t.hero.titleHighlight}
-                    </span>
-                    <br />
-                    <span className="gradient-text" style={{ backgroundImage: 'linear-gradient(135deg, #f97316 0%, #fb923c 60%, #fdba74 100%)' }}>
-                        {t.hero.titleEnd}
-                    </span>
-                </motion.h1>
+          <motion.div
+            variants={itemVariants}
+            className="mt-10 grid max-w-xl grid-cols-3 border-y border-[var(--editorial-border)] text-sm"
+          >
+            {[
+              ["64", language === "tr" ? "üniversite" : "universities"],
+              ["240", language === "tr" ? "program" : "programs"],
+              ["20", language === "tr" ? "bölge" : "regions"],
+            ].map(([value, label]) => (
+              <div key={label} className="py-4 pr-4">
+                <p className="text-2xl font-semibold tracking-[-0.02em] text-[var(--editorial-ink)]">{value}</p>
+                <p className="mt-1 text-xs text-[var(--editorial-muted)]">{label}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
 
-                {/* Subtitle */}
-                <motion.p
-                    variants={itemVariants}
-                    className="text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
-                >
-                    {t.hero.subtitle}
-                </motion.p>
-
-                {/* Stats row */}
-                <motion.div variants={itemVariants} className="flex items-center justify-center gap-6 mb-10">
-                    {[
-                        { value: '62', label: 'Üniversite' },
-                        { value: '262', label: 'Bölüm' },
-                        { value: 'AI', label: 'Destekli' },
-                    ].map((stat, i) => (
-                        <div key={i} className="flex items-center gap-1.5">
-                            <span className="text-xl font-black text-slate-800">{stat.value}</span>
-                            <span className="text-sm text-slate-400 font-medium">{stat.label}</span>
-                            {i < 2 && <div className="w-px h-4 bg-slate-200 ml-2" />}
-                        </div>
-                    ))}
-                </motion.div>
-
-                {/* CTA Buttons */}
-                <motion.div variants={itemVariants} className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-                    <motion.div
-                        whileHover={shouldReduceMotion ? undefined : { scale: 1.02 }}
-                        whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                    >
-                        <PulsatingButton
-                            type="button"
-                            onClick={() => router.push('/universities')}
-                            duration="2.4s"
-                            pulseColor="rgba(99,102,241,0.35)"
-                            className="bg-indigo-600 text-white rounded-[14px] px-10 py-4 font-bold text-lg shadow-2xl shadow-indigo-600/30"
-                            aria-label={t.hero.btnPrimary}
-                        >
-                            {t.hero.btnPrimary}
-                            <motion.span
-                                className="ml-2 flex items-center"
-                                initial={{ x: 0 }}
-                                whileHover={shouldReduceMotion ? undefined : { x: 3 }}
-                                transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                            >
-                                <ArrowRight className="w-5 h-5" />
-                            </motion.span>
-                        </PulsatingButton>
-                    </motion.div>
-
-                    <Link
-                        href="/communities"
-                        className="inline-flex items-center justify-center rounded-[14px] border border-slate-200 bg-white px-8 py-3.5 text-base font-bold text-slate-700 shadow-sm transition hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700"
-                    >
-                        {t.navbar.communities}
-                    </Link>
-                </motion.div>
-
-                {/* Social proof footnote */}
-                <motion.div variants={itemVariants} className="flex items-center justify-center gap-2 mt-6">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                    <p className="text-xs text-slate-400 font-medium">Ücretsiz · Kayıt Gerektirmez · Anında Başla</p>
-                </motion.div>
-            </motion.div>
-        </section>
-    );
+        <motion.div
+          variants={itemVariants}
+          animate={shouldReduceMotion ? undefined : { y: [0, -4, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <StudyDossier />
+        </motion.div>
+      </motion.div>
+    </section>
+  );
 }

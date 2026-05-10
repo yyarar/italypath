@@ -1,62 +1,67 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { ArrowRight, Compass, Landmark } from 'lucide-react';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import { ArrowRight, Landmark, MapPinned } from "lucide-react";
+import { motion } from "framer-motion";
 
-import { useLanguage } from '@/context/LanguageContext';
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ScholarshipsSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const regions = language === "tr" ? ["Lazio", "Lombardia", "Emilia-Romagna"] : ["Lazio", "Lombardy", "Emilia-Romagna"];
 
   return (
-    <section className="bg-white pb-20 pt-0 lg:pb-24">
+    <section className="bg-[var(--editorial-paper)] pb-16 lg:pb-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-          className="relative overflow-hidden rounded-[2.5rem] border border-slate-200/70 bg-white p-8 shadow-xl shadow-slate-200/50 sm:p-10 lg:p-12"
+          transition={{ type: "spring", stiffness: 110, damping: 22 }}
+          className="grid gap-8 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-6 sm:p-8 lg:grid-cols-[1fr_0.9fr] lg:p-10"
         >
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(59,130,246,0.13),transparent_45%),radial-gradient(circle_at_85%_10%,rgba(14,165,233,0.14),transparent_48%),radial-gradient(circle_at_60%_85%,rgba(16,185,129,0.12),transparent_45%)]" />
-          <div className="pointer-events-none absolute -left-10 top-1/2 h-28 w-28 -translate-y-1/2 rounded-full bg-sky-200/40 blur-2xl" />
-          <div className="pointer-events-none absolute -right-6 bottom-0 h-24 w-24 rounded-full bg-emerald-200/30 blur-xl" />
-
-          <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-2xl">
-              <p className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-white">
-                <Compass className="h-3.5 w-3.5" />
-                {t.homeScholarshipsCta.badge}
-              </p>
-
-              <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
-                {t.homeScholarshipsCta.title}
-              </h2>
-
-              <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
-                {t.homeScholarshipsCta.description}
-              </p>
-
-              <p className="mt-4 inline-flex items-center gap-1.5 rounded-xl bg-amber-100 px-3 py-2 text-xs font-semibold text-amber-900">
-                <Landmark className="h-3.5 w-3.5" />
-                {t.homeScholarshipsCta.note}
-              </p>
+          <div>
+            <div className="mb-5 flex h-12 w-12 items-center justify-center border border-[var(--editorial-border)] bg-[#f5f1e8] text-[var(--editorial-terracotta)]">
+              <MapPinned className="h-5 w-5" />
             </div>
+            <h2 className="max-w-xl font-serif text-3xl font-normal leading-tight tracking-[-0.015em] text-[var(--editorial-ink)] sm:text-4xl">
+              {t.homeScholarshipsCta.title}
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-[var(--editorial-muted)] sm:text-base">
+              {t.homeScholarshipsCta.description}
+            </p>
 
             <Link
               href="/scholarships"
-              className="group inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-900 px-7 py-4 text-center text-sm font-black text-white transition hover:bg-slate-800 sm:w-auto"
+              className="mt-7 inline-flex items-center border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#173d36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
             >
               {t.homeScholarshipsCta.button}
-              <motion.span
-                initial={{ x: 0 }}
-                whileHover={{ x: 3 }}
-                transition={{ type: 'spring', stiffness: 350, damping: 24 }}
-              >
-                <ArrowRight className="h-4 w-4" />
-              </motion.span>
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
+          </div>
+
+          <div className="border-y border-[var(--editorial-border)] lg:border-y-0 lg:border-l lg:pl-8">
+            <div className="flex items-center gap-2 py-4 text-sm font-semibold text-[var(--editorial-ink)] lg:pt-0">
+              <Landmark className="h-4 w-4 text-[var(--editorial-sage)]" />
+              {language === "tr" ? "Öncelikli kontrol" : "Priority checks"}
+            </div>
+            <div className="divide-y divide-[var(--editorial-border)]">
+              {regions.map((region, index) => (
+                <div key={region} className="grid grid-cols-[2rem_1fr_auto] items-center gap-3 py-4">
+                  <span className="text-sm font-semibold text-[var(--editorial-terracotta)]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-[var(--editorial-ink)]">{region}</p>
+                    <p className="mt-1 text-xs text-[var(--editorial-muted)]">
+                      {language === "tr" ? "ISEE, yurt ve yemek desteği" : "ISEE, housing, and meal support"}
+                    </p>
+                  </div>
+                  <ArrowRight className="h-4 w-4 text-[var(--editorial-muted)]" />
+                </div>
+              ))}
+            </div>
+            <p className="py-4 text-xs leading-5 text-[var(--editorial-muted)]">{t.homeScholarshipsCta.note}</p>
           </div>
         </motion.div>
       </div>

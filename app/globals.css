@@ -1,9 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #f8f7f1;
+  --foreground: #15201c;
   --sab: env(safe-area-inset-bottom);
+  --editorial-paper: #f8f7f1;
+  --editorial-surface: #fffefa;
+  --editorial-ink: #15201c;
+  --editorial-muted: #59645f;
+  --editorial-sage: #1f4f46;
+  --editorial-sage-soft: #dbe8e1;
+  --editorial-terracotta: #b75b38;
+  --editorial-border: #d8ded9;
 
   /* Premium Color Tokens */
   --glass-bg: rgba(255, 255, 255, 0.75);

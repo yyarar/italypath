@@ -10,7 +10,7 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-800">
+    <div className="min-h-screen bg-[var(--editorial-paper)] font-sans text-[var(--editorial-ink)]">
       <Navbar />
       <HeroSection />
       <FeaturesSection />

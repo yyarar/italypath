@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   },
 };
 
-// Üst barın rengini Slate-50 (arka plan rengin) ile eşleyelim
+// Üst barın rengini editorial paper arka planla eşleyelim
 export const viewport: Viewport = {
-  themeColor: "#f8fafc",
+  themeColor: "#f8f7f1",
   width: "device-width",
   initialScale: 1,
   minimumScale: 1,
@@ -38,7 +38,7 @@ export default function RootLayout({
       <html lang="tr" suppressHydrationWarning>
         <body
           suppressHydrationWarning
-          className={`font-sans antialiased bg-slate-50 text-slate-900`}
+          className={`bg-[var(--editorial-paper)] font-sans text-[var(--editorial-ink)] antialiased`}
         >
           <MobileZoomLock />
           <LanguageProvider>

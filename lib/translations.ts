@@ -11,12 +11,13 @@ export const translations = {
     },
     hero: {
       badge: "İtalya'da Eğitim Hayaline İlk Adım",
+      title: "İtalya’da eğitim kararını netleştir.",
       titleStart: "Geleceğini",
       titleHighlight: "İtalya'da",
       titleEnd: "Tasarlamaya Başla",
-      subtitle: "Yapay zeka destekli rehberlik, SAT & TOLC sınav hazırlığı ve üniversite başvuruları tek platformda.",
-      btnPrimary: "Hemen Başla",
-      btnSecondary: "Örnek Soru Çöz",
+      subtitle: "Üniversiteleri, bursları, belgeleri ve toplulukları tek bir güvenilir rehber akışında takip et.",
+      btnPrimary: "Üniversiteleri İncele",
+      btnSecondary: "Burs Haritası",
     },
     features: {
       title: "Neden ItalyPath?",
@@ -319,12 +320,13 @@ export const translations = {
     },
     hero: {
       badge: "First Step to Your Education Dream in Italy",
+      title: "Make your Italy study decision clearly.",
       titleStart: "Design Your Future",
       titleHighlight: "in Italy",
       titleEnd: "Start Now",
-      subtitle: "AI-powered guidance, SAT & TOLC exam preparation, and university applications in one platform.",
-      btnPrimary: "Get Started",
-      btnSecondary: "Take a Quiz",
+      subtitle: "Track universities, scholarships, documents, and communities in one reliable guide flow.",
+      btnPrimary: "Explore Universities",
+      btnSecondary: "Scholarship Map",
     },
     features: {
       title: "Why ItalyPath?",
