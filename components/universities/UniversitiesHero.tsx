@@ -41,8 +41,8 @@ export function UniversitiesHero({
   ];
 
   return (
-    <header className="border-b border-[var(--editorial-border)] bg-[var(--editorial-paper)] px-4 pt-6 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <header className="overflow-x-hidden border-b border-[var(--editorial-border)] bg-[var(--editorial-paper)] px-4 pt-6 sm:px-6 lg:px-8">
+      <div className="mx-auto min-w-0 max-w-7xl">
         <div className="flex items-center justify-between gap-4">
           <Link
             href="/"
@@ -63,26 +63,26 @@ export function UniversitiesHero({
           </button>
         </div>
 
-        <div className="grid gap-8 py-10 md:grid-cols-[minmax(0,1fr)_360px] md:items-end lg:py-14">
-          <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+        <div className="grid min-w-0 gap-8 py-10 md:grid-cols-[minmax(0,1fr)_360px] md:items-end lg:py-14">
+          <div className="min-w-0">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)] sm:tracking-[0.18em]">
               {guideLabel}
             </p>
-            <h1 className="max-w-3xl font-serif text-4xl font-semibold leading-[0.98] tracking-[-0.04em] text-[var(--editorial-ink)] sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-full break-words font-serif text-3xl font-semibold leading-[1.02] tracking-[-0.03em] text-[var(--editorial-ink)] sm:max-w-3xl sm:text-5xl sm:leading-[0.98] sm:tracking-[-0.04em] lg:text-6xl">
               {title}
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-[var(--editorial-muted)]">
+            <p className="mt-5 hidden max-w-2xl break-words text-base leading-7 text-[var(--editorial-muted)] min-[430px]:block">
               {subtitle}
             </p>
           </div>
 
-          <dl className="grid grid-cols-3 border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
+          <dl className="grid min-w-0 grid-cols-3 border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className={`min-w-0 p-4 sm:p-5 ${index > 0 ? "border-l border-[var(--editorial-border)]" : ""}`}
+                className={`min-w-0 p-3 sm:p-5 ${index > 0 ? "border-l border-[var(--editorial-border)]" : ""}`}
               >
-                <dt className="truncate text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
+                <dt className="truncate text-[9px] font-bold uppercase tracking-[0.1em] text-[var(--editorial-muted)] sm:text-[10px] sm:tracking-[0.14em]">
                   {stat.label}
                 </dt>
                 <dd className="mt-2 font-serif text-3xl font-semibold text-[var(--editorial-ink)]">

@@ -169,6 +169,7 @@ function UniversitiesContent() {
           viewMode={activeViewMode}
           labels={{
             searchPlaceholder: t.list.searchPlaceholder,
+            searchInputPlaceholder: t.list.searchInputPlaceholder,
             filterLabel: t.list.filterLabel,
             allCities: t.list.allCities,
             schoolType: t.list.schoolType,

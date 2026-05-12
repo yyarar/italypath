@@ -17,6 +17,7 @@ export interface UniversitiesFilterBarProps {
   viewMode: UniversityViewMode;
   labels: {
     searchPlaceholder: string;
+    searchInputPlaceholder: string;
     filterLabel: string;
     allCities: string;
     schoolType: string;
@@ -57,9 +58,9 @@ export function UniversitiesFilterBar({
   const privateActive = selectedType === "Özel";
 
   return (
-    <section className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
-      <div className="flex flex-col gap-3 border-b border-[var(--editorial-border)] p-4 lg:flex-row lg:items-center lg:justify-between">
-        <div>
+    <section className="min-w-0 overflow-hidden border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
+      <div className="flex min-w-0 flex-col gap-3 border-b border-[var(--editorial-border)] p-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="min-w-0">
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
             {labels.filterLabel}
           </p>
@@ -68,7 +69,7 @@ export function UniversitiesFilterBar({
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex min-w-0 flex-wrap items-center gap-2">
           {hasActiveFilters && (
             <button
               type="button"
@@ -81,7 +82,7 @@ export function UniversitiesFilterBar({
           )}
 
           <div
-            className="inline-flex border border-[var(--editorial-border)] bg-[var(--editorial-paper)]"
+            className="inline-flex min-w-0 border border-[var(--editorial-border)] bg-[var(--editorial-paper)]"
             role="group"
             aria-label={labels.viewSwitcherLabel}
           >
@@ -117,7 +118,7 @@ export function UniversitiesFilterBar({
         </div>
       </div>
 
-      <div className="grid gap-3 p-4 lg:grid-cols-[minmax(260px,1.4fr)_minmax(170px,0.7fr)_minmax(210px,0.8fr)_auto] lg:items-end">
+      <div className="grid min-w-0 gap-3 p-4 lg:grid-cols-[minmax(260px,1.4fr)_minmax(170px,0.7fr)_minmax(210px,0.8fr)_auto] lg:items-end">
         <label className="min-w-0">
           <span className="sr-only">{labels.searchPlaceholder}</span>
           <span className="mb-2 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
@@ -128,7 +129,7 @@ export function UniversitiesFilterBar({
             type="text"
             value={searchTerm}
             onChange={(event) => onFilterChange("q", event.target.value)}
-            placeholder={labels.searchPlaceholder}
+            placeholder={labels.searchInputPlaceholder}
             aria-label={labels.searchPlaceholder}
             className="h-12 w-full border border-[var(--editorial-border)] bg-[var(--editorial-paper)] px-4 text-base font-semibold text-[var(--editorial-ink)] outline-none transition placeholder:text-[var(--editorial-muted)] focus:border-[var(--editorial-sage)] focus:ring-2 focus:ring-[var(--editorial-sage)]/15 sm:text-sm"
           />

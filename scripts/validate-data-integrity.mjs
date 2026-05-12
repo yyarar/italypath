@@ -1,12 +1,26 @@
 import { resolve } from "node:path";
-import { pathToFileURL } from "node:url";
+import { readFileSync } from "node:fs";
+import ts from "typescript";
 
 const ALLOWED_LANGUAGES = new Set(["en", "it"]);
 const ALLOWED_DURATIONS = new Set([1, 2, 3, 4, 5, 6]);
 const ALLOWED_LEVELS = new Set(["bachelor", "master"]);
 
-const dataModuleUrl = pathToFileURL(resolve(process.cwd(), "app/data.ts")).href;
-const dataModule = await import(dataModuleUrl);
+function importTsModule(path) {
+  const source = readFileSync(resolve(process.cwd(), path), "utf8");
+  const transpiled = ts.transpileModule(source, {
+    compilerOptions: {
+      module: ts.ModuleKind.ES2022,
+      target: ts.ScriptTarget.ES2022,
+      jsx: ts.JsxEmit.ReactJSX,
+      verbatimModuleSyntax: true,
+    },
+  });
+  const encoded = Buffer.from(transpiled.outputText, "utf8").toString("base64");
+  return import(`data:text/javascript;base64,${encoded}`);
+}
+
+const dataModule = await importTsModule("app/data.ts");
 
 const {
   universitiesBaseData,
