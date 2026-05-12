@@ -48,6 +48,23 @@ Do not introduce:
 - New public/protected route behavior.
 - Decorative gradient blobs, over-rounded cards, or generic glassmorphism.
 
+## Filter Data Boundaries
+
+The current department data has names, slugs, language, duration, and level metadata, but it does not have a reliable category/faculty/field taxonomy. The redesign must not imply that those missing classifications exist.
+
+Important constraints:
+
+- Do not add department category filters such as health, engineering, business, arts, medicine, or nursing.
+- Do not infer categories from department names.
+- Do not show department chips as if they are normalized subject categories; show only real department names already present in the data.
+- Keep school type filters scoped to `university.type` only.
+- Keep search as plain text matching against university name, city, and department name.
+- Avoid hard-coded search examples such as "Nursing" unless that term is verified in the current dataset and the UI makes clear it is a text search, not a category filter.
+- Prefer neutral search copy such as "Okul, şehir veya bölüm adı ara" / "Search school, city, or department name".
+- If a user searches a term with no direct text match, the empty state should say the term was not found in the current school and department names, not imply that Italy has no such program category.
+
+Future category filters require a separate data-modeling pass with explicit department taxonomy. They are out of scope for this redesign.
+
 ## Visual System
 
 Use the existing editorial tokens in `app/globals.css`:
@@ -93,7 +110,7 @@ The hero should not become a marketing page. It is the top of the actual usable 
 
 A calm control band directly below the hero:
 
-- Search input.
+- Search input for plain text matching only.
 - City select.
 - School type segmented controls for public/private.
 - Favorites-only toggle.
@@ -186,6 +203,8 @@ Derived data:
 
 Filtering behavior should remain equivalent to the current implementation.
 
+Do not expand filtering beyond the fields above during implementation. In particular, the redesigned UI should not introduce program-category filters until the underlying data model supports them explicitly.
+
 ## Responsive Behavior
 
 Desktop:
@@ -245,6 +264,7 @@ Browser verification:
 - Desktop viewport for first viewport, filters, guide rows, empty state.
 - Mobile viewport for hero, wrapped filters, guide row layout, bottom nav clearance.
 - Search filter flow.
+- No-match search flow with a term that is not present in university, city, or department names.
 - City/type/favorites filter flow.
 - Clear filters flow.
 - View toggle persistence.
