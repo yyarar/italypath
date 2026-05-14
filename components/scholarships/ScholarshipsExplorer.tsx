@@ -14,10 +14,12 @@ import {
   ArrowLeft,
   Building2,
   CalendarRange,
+  CheckCircle2,
   ExternalLink,
   Globe,
-  Hotel,
-  Soup,
+  Landmark,
+  MapPinned,
+  ShieldCheck,
   Wallet,
 } from 'lucide-react';
 
@@ -28,7 +30,8 @@ import {
   SCHOLARSHIP_DEFAULT_REGION,
   SCHOLARSHIP_REGIONS,
 } from '@/lib/scholarships/regions';
-import type { RegionSlug } from '@/types/scholarships';
+import type { Language } from '@/types';
+import type { RegionSlug, ScholarshipRegionRecord } from '@/types/scholarships';
 
 const REGIONS_GEOJSON_URL = '/data/italy-regions.geojson';
 const REGIONS_GEOJSON_VERSION = '2026-05-14';
@@ -38,15 +41,35 @@ const MAP_HEIGHT = 980;
 const MAP_PADDING = 26;
 
 const REGION_FILL_COLORS = [
-  '#6EA8F5', '#7CB1F7', '#4B97F0', '#82B6F8', '#5FA1F2',
-  '#95C0FA', '#5F9EF0', '#7FB4F7', '#3D8DEA', '#67A5F2',
-  '#86B9F8', '#4A95EF', '#6CA8F3', '#8ABCF9', '#5CA0F1',
-  '#7AAFF6', '#4F97EC', '#6AA7F3', '#89BBF8', '#5B9EED',
+  '#d7e0d7',
+  '#cbd8cf',
+  '#e0ded2',
+  '#d1dccf',
+  '#e5dccf',
+  '#cfdad4',
+  '#ded7ca',
+  '#d9e2d8',
+  '#c9d6cc',
+  '#e2ddcf',
+  '#d3ddd5',
+  '#dad6ca',
+  '#cdd9d0',
+  '#e4dbce',
+  '#d1ddd7',
+  '#d8decf',
+  '#cbd8d3',
+  '#e1dacd',
+  '#d4dfd6',
+  '#dcd6ca',
 ] as const;
+
+const ACTIVE_REGION_FILL = '#285f68';
+const MAP_INK = '#28443d';
 
 type Position = [number, number];
 type Polygon = Position[][];
 type MultiPolygon = Polygon[];
+type MapStatus = 'loading' | 'ready' | 'error';
 
 type RegionShape = {
   slug: RegionSlug;
@@ -54,6 +77,45 @@ type RegionShape = {
   centerX: number;
   centerY: number;
   name: string;
+};
+
+type ScholarshipsText = {
+  pageIdentity: string;
+  title: string;
+  intro: string;
+  verifiedAsOf: string;
+  mapTitle: string;
+  mapAlt: string;
+  mapLoading: string;
+  mapError: string;
+  openRegionAria: string;
+  institutionFileTitle: string;
+  selectedRegionLabel: string;
+  verifiedShort: string;
+  pendingShort: string;
+  pendingValue: string;
+  academicYear: string;
+  applicationWindow: string;
+  iseeLimit: string;
+  ispeLimit: string;
+  managingBodies: string;
+  officialSources: string;
+  openInstitution: string;
+  openSource: string;
+  secondaryFacts: string;
+  sourceChecklistTitle: string;
+  sourceChecklistBody: string;
+  regionRailTitle: string;
+  lastVerified: string;
+};
+
+type ScholarshipMapProps = {
+  regionShapes: RegionShape[];
+  mapStatus: MapStatus;
+  selectedSlug: RegionSlug;
+  copy: ScholarshipsText;
+  onSelectRegion: (slug: RegionSlug) => void;
+  onRegionKeyDown: (event: KeyboardEvent<SVGPathElement>, slug: RegionSlug) => void;
 };
 
 const REGION_NAME_SYNONYMS: Record<RegionSlug, string[]> = {
@@ -289,7 +351,7 @@ function buildRegionShapes(payload: unknown): RegionShape[] {
   return shapes;
 }
 
-function formatLastVerified(value: string | null, language: 'tr' | 'en') {
+function formatLastVerified(value: string | null, language: Language) {
   if (!value) return null;
 
   const date = new Date(`${value}T00:00:00`);
@@ -310,7 +372,212 @@ function domainLabel(url: string) {
   }
 }
 
-function QuickFact({
+function ScholarshipsTopBar({
+  language,
+  onToggleLanguage,
+  pageIdentity,
+  backHome,
+}: {
+  language: Language;
+  onToggleLanguage: () => void;
+  pageIdentity: string;
+  backHome: string;
+}) {
+  return (
+    <header className="flex items-center justify-between gap-4 border-b border-[var(--editorial-border)] pb-4">
+      <Link
+        href="/"
+        className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--editorial-muted)] transition hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+      >
+        <ArrowLeft className="h-4 w-4" />
+        {backHome}
+      </Link>
+
+      <div className="hidden text-sm font-semibold text-[var(--editorial-ink)] sm:block">
+        {pageIdentity}
+      </div>
+
+      <button
+        onClick={onToggleLanguage}
+        aria-label={language === 'tr' ? 'Switch to English' : 'Türkçeye geç'}
+        className="inline-flex items-center gap-2 rounded-md border border-[var(--editorial-border)] bg-[var(--editorial-surface)] px-3 py-2 text-xs font-bold text-[var(--editorial-ink)] transition hover:border-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+      >
+        <Globe className="h-3.5 w-3.5" />
+        {language === 'tr' ? 'EN' : 'TR'}
+      </button>
+    </header>
+  );
+}
+
+function ScholarshipsIntro({
+  title,
+  intro,
+  verifiedAsOf,
+}: {
+  title: string;
+  intro: string;
+  verifiedAsOf: string;
+}) {
+  return (
+    <section className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(260px,0.35fr)] lg:items-end">
+      <div>
+        <h1 className="font-serif text-5xl font-normal leading-[0.95] tracking-normal text-[var(--editorial-ink)] sm:text-6xl lg:text-7xl">
+          {title}
+        </h1>
+        <p className="mt-5 max-w-2xl text-base leading-8 text-[var(--editorial-muted)] sm:text-lg">
+          {intro}
+        </p>
+      </div>
+
+      <div className="border-l-2 border-[var(--editorial-terracotta)] pl-4 text-sm leading-6 text-[var(--editorial-muted)]">
+        {verifiedAsOf}
+      </div>
+    </section>
+  );
+}
+
+function MapStateFrame({ children }: { children: ReactNode }) {
+  return (
+    <div className="absolute inset-0 grid place-items-center rounded-lg border border-dashed border-[var(--editorial-border)] bg-[#f1eadf] px-5 text-center text-sm font-semibold text-[var(--editorial-muted)]">
+      {children}
+    </div>
+  );
+}
+
+function ScholarshipMap({
+  regionShapes,
+  mapStatus,
+  selectedSlug,
+  copy,
+  onSelectRegion,
+  onRegionKeyDown,
+}: ScholarshipMapProps) {
+  return (
+    <section
+      aria-labelledby="scholarship-map-title"
+      className="min-w-0 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-4 shadow-[0_24px_70px_rgba(21,32,28,0.08)] sm:p-5"
+    >
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <span className="grid h-9 w-9 place-items-center rounded-md border border-[var(--editorial-border)] bg-[#f1eadf] text-[var(--editorial-sage)]">
+            <MapPinned className="h-4 w-4" />
+          </span>
+          <h2 id="scholarship-map-title" className="text-base font-semibold text-[var(--editorial-ink)]">
+            {copy.mapTitle}
+          </h2>
+        </div>
+        <p className="text-xs font-semibold text-[var(--editorial-muted)]">
+          {copy.selectedRegionLabel}: {getScholarshipRegionBySlug(selectedSlug).regionName}
+        </p>
+      </div>
+
+      <div className="relative mx-auto w-full max-w-[780px] min-w-0 overflow-hidden rounded-lg bg-[#f4efe6]">
+        <div className="relative h-[280px] w-full sm:h-auto sm:aspect-[0.86] lg:h-[620px] lg:aspect-auto">
+          {mapStatus === 'loading' && <MapStateFrame>{copy.mapLoading}</MapStateFrame>}
+          {mapStatus === 'error' && <MapStateFrame>{copy.mapError}</MapStateFrame>}
+
+          {mapStatus === 'ready' && (
+            <svg
+              viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
+              preserveAspectRatio="xMidYMid meet"
+              role="img"
+              aria-label={copy.mapAlt}
+              className="h-full w-full"
+            >
+              <rect width={MAP_WIDTH} height={MAP_HEIGHT} fill="#f4efe6" />
+              {regionShapes.map((shape, index) => {
+                const active = shape.slug === selectedSlug;
+                const fill = active
+                  ? ACTIVE_REGION_FILL
+                  : REGION_FILL_COLORS[index % REGION_FILL_COLORS.length];
+
+                return (
+                  <path
+                    key={shape.slug}
+                    d={shape.d}
+                    fill={fill}
+                    fillRule="evenodd"
+                    stroke={active ? MAP_INK : '#fffefa'}
+                    strokeWidth={active ? 3 : 1.7}
+                    className="cursor-pointer transition duration-150 hover:opacity-90 focus:outline-none"
+                    role="button"
+                    tabIndex={0}
+                    aria-pressed={active}
+                    aria-label={`${shape.name} ${copy.openRegionAria}`}
+                    onClick={() => onSelectRegion(shape.slug)}
+                    onKeyDown={(event) => onRegionKeyDown(event, shape.slug)}
+                  />
+                );
+              })}
+
+              {regionShapes.map((shape) => {
+                const active = shape.slug === selectedSlug;
+                return (
+                  <g
+                    key={`${shape.slug}-marker`}
+                    className="cursor-pointer"
+                    onClick={() => onSelectRegion(shape.slug)}
+                  >
+                    <circle
+                      cx={shape.centerX}
+                      cy={shape.centerY}
+                      r={active ? 6.5 : 4.3}
+                      fill={active ? '#fffefa' : '#b75b38'}
+                      stroke={active ? ACTIVE_REGION_FILL : '#fffefa'}
+                      strokeWidth={active ? 4 : 2}
+                    />
+                  </g>
+                );
+              })}
+            </svg>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SectionTitle({ icon, children }: { icon: ReactNode; children: ReactNode }) {
+  return (
+    <div className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
+      {icon}
+      {children}
+    </div>
+  );
+}
+
+function LinkRow({
+  href,
+  icon,
+  title,
+  action,
+}: {
+  href: string;
+  icon: ReactNode;
+  title: string;
+  action: string;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="grid min-w-0 grid-cols-[1.75rem_minmax(0,1fr)_auto] items-center gap-3 border-t border-[var(--editorial-border)] py-3 text-left transition hover:bg-[#f6f0e7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+    >
+      <span className="text-[var(--editorial-sage)]">{icon}</span>
+      <span className="min-w-0">
+        <span className="block truncate text-sm font-semibold text-[var(--editorial-ink)]">{title}</span>
+        <span className="mt-0.5 block truncate text-xs text-[var(--editorial-muted)]">{domainLabel(href)}</span>
+      </span>
+      <span className="inline-flex items-center gap-1 text-xs font-bold text-[var(--editorial-terracotta)]">
+        {action}
+        <ExternalLink className="h-3.5 w-3.5" />
+      </span>
+    </a>
+  );
+}
+
+function FactLine({
   icon,
   title,
   value,
@@ -322,13 +589,185 @@ function QuickFact({
   pendingValue: string;
 }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white px-3 py-3">
-      <div className="mb-1 flex items-center gap-1.5 text-[11px] font-black uppercase tracking-[0.12em] text-slate-500">
-        {icon}
-        {title}
+    <div className="grid grid-cols-[1.75rem_minmax(0,1fr)] gap-3 border-t border-[var(--editorial-border)] py-3">
+      <span className="pt-0.5 text-[var(--editorial-sage)]">{icon}</span>
+      <div className="min-w-0">
+        <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--editorial-muted)]">{title}</p>
+        <p className="mt-1 text-sm leading-6 text-[var(--editorial-ink)]">{value ?? pendingValue}</p>
       </div>
-      <p className="text-sm font-semibold text-slate-800">{value ?? pendingValue}</p>
     </div>
+  );
+}
+
+function RegionQuickFacts({
+  region,
+  copy,
+}: {
+  region: ScholarshipRegionRecord;
+  copy: ScholarshipsText;
+}) {
+  return (
+    <section className="mt-6">
+      <SectionTitle icon={<CalendarRange className="h-3.5 w-3.5" />}>
+        {copy.secondaryFacts}
+      </SectionTitle>
+      <div>
+        <FactLine
+          icon={<CalendarRange className="h-4 w-4" />}
+          title={copy.academicYear}
+          value={region.currentAcademicYear}
+          pendingValue={copy.pendingValue}
+        />
+        <FactLine
+          icon={<CalendarRange className="h-4 w-4" />}
+          title={copy.applicationWindow}
+          value={region.applicationWindow}
+          pendingValue={copy.pendingValue}
+        />
+        <FactLine
+          icon={<Wallet className="h-4 w-4" />}
+          title={copy.iseeLimit}
+          value={region.iseeLimit}
+          pendingValue={copy.pendingValue}
+        />
+        <FactLine
+          icon={<Wallet className="h-4 w-4" />}
+          title={copy.ispeLimit}
+          value={region.ispeLimit}
+          pendingValue={copy.pendingValue}
+        />
+      </div>
+    </section>
+  );
+}
+
+function RegionFilePanel({
+  region,
+  language,
+  copy,
+}: {
+  region: ScholarshipRegionRecord;
+  language: Language;
+  copy: ScholarshipsText;
+}) {
+  const isVerified = region.completeness === 'verified-full';
+  const lastVerified = formatLastVerified(region.lastVerifiedAt, language);
+
+  return (
+    <aside className="min-w-0 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-5 shadow-[0_24px_70px_rgba(21,32,28,0.08)] lg:sticky lg:top-5 lg:max-h-[760px] lg:overflow-y-auto">
+      <div className="border-b border-[var(--editorial-border)] pb-5">
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--editorial-muted)]">
+          {copy.institutionFileTitle}
+        </p>
+        <h2 className="mt-2 font-serif text-4xl font-normal leading-tight tracking-normal text-[var(--editorial-ink)]">
+          {region.regionName}
+        </h2>
+        <div className="mt-4 flex items-start gap-2 text-sm leading-6 text-[var(--editorial-muted)]">
+          {isVerified ? (
+            <CheckCircle2 className="mt-0.5 h-4 w-4 text-[var(--editorial-sage)]" />
+          ) : (
+            <ShieldCheck className="mt-0.5 h-4 w-4 text-[var(--editorial-terracotta)]" />
+          )}
+          <span>
+            {isVerified ? copy.verifiedShort : copy.pendingShort}
+            {lastVerified ? ` - ${copy.lastVerified}: ${lastVerified}` : ''}
+          </span>
+        </div>
+      </div>
+
+      <section className="mt-6">
+        <SectionTitle icon={<Landmark className="h-3.5 w-3.5" />}>
+          {copy.managingBodies}
+        </SectionTitle>
+        <div>
+          {region.managingBodies.map((body) => (
+            <LinkRow
+              key={`${body.name}-${body.officialUrl}`}
+              href={body.officialUrl}
+              icon={<Building2 className="h-4 w-4" />}
+              title={body.name}
+              action={copy.openInstitution}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-6">
+        <SectionTitle icon={<ExternalLink className="h-3.5 w-3.5" />}>
+          {copy.officialSources}
+        </SectionTitle>
+        <div>
+          {region.officialSourceUrls.map((url) => (
+            <LinkRow
+              key={url}
+              href={url}
+              icon={<ExternalLink className="h-4 w-4" />}
+              title={domainLabel(url)}
+              action={copy.openSource}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-6 border-t border-[var(--editorial-border)] pt-4 text-[var(--editorial-ink)]">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="mt-1 h-4 w-4 shrink-0 text-[var(--editorial-terracotta)]" />
+          <div>
+            <p className="text-sm font-bold">{copy.sourceChecklistTitle}</p>
+            <p className="mt-2 text-sm leading-6 text-[var(--editorial-muted)]">{copy.sourceChecklistBody}</p>
+          </div>
+        </div>
+      </section>
+
+      <RegionQuickFacts region={region} copy={copy} />
+    </aside>
+  );
+}
+
+function RegionRail({
+  selectedSlug,
+  onSelectRegion,
+  copy,
+}: {
+  selectedSlug: RegionSlug;
+  onSelectRegion: (slug: RegionSlug) => void;
+  copy: ScholarshipsText;
+}) {
+  return (
+    <section className="mt-6 min-w-0 border-y border-[var(--editorial-border)] py-5">
+      <div className="mb-3 flex items-center justify-between gap-3">
+        <h2 className="text-sm font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
+          {copy.regionRailTitle}
+        </h2>
+        <p className="hidden text-xs text-[var(--editorial-muted)] sm:block">{copy.selectedRegionLabel}</p>
+      </div>
+
+      <div className="-mx-4 flex min-w-0 gap-3 overflow-x-auto px-4 pb-1 sm:mx-0 sm:px-0">
+        {SCHOLARSHIP_REGIONS.map((region) => {
+          const active = region.regionSlug === selectedSlug;
+          const verified = region.completeness === 'verified-full';
+
+          return (
+            <button
+              key={region.regionSlug}
+              type="button"
+              onClick={() => onSelectRegion(region.regionSlug)}
+              aria-pressed={active}
+              className={`min-w-[180px] border px-4 py-3 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] ${
+                active
+                  ? 'border-[var(--editorial-sage)] bg-[var(--editorial-sage)] text-white'
+                  : 'border-[var(--editorial-border)] bg-[var(--editorial-surface)] text-[var(--editorial-ink)] hover:border-[var(--editorial-sage)]'
+              }`}
+            >
+              <span className="block truncate text-sm font-semibold">{region.regionName}</span>
+              <span className={`mt-1 block text-xs ${active ? 'text-white/75' : 'text-[var(--editorial-muted)]'}`}>
+                {verified ? copy.verifiedShort : copy.pendingShort}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 
@@ -339,13 +778,14 @@ export default function ScholarshipsExplorer() {
   const pathname = usePathname();
 
   const [regionShapes, setRegionShapes] = useState<RegionShape[]>([]);
-  const [mapStatus, setMapStatus] = useState<'loading' | 'ready' | 'error'>('loading');
+  const [mapStatus, setMapStatus] = useState<MapStatus>('loading');
 
   const rawRegion = searchParams.get('region');
   const selectedSlug: RegionSlug = isRegionSlug(rawRegion)
     ? rawRegion
     : SCHOLARSHIP_DEFAULT_REGION;
   const selectedRegion = getScholarshipRegionBySlug(selectedSlug);
+  const copy = t.scholarships;
 
   const handleRegionSelect = useCallback(
     (slug: RegionSlug) => {
@@ -416,234 +856,36 @@ export default function ScholarshipsExplorer() {
     };
   }, []);
 
-  const isVerified = selectedRegion.completeness === 'verified-full';
-  const lastVerified = formatLastVerified(selectedRegion.lastVerifiedAt, language);
-
   return (
-    <div className="min-h-screen bg-[#e9eaec] pb-10">
-      <div className="mx-auto w-full max-w-[1440px] px-4 pb-10 pt-6 sm:px-6 lg:px-8">
-        <div className="mb-4 flex items-center justify-between">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1.5 text-sm font-semibold text-slate-600 transition hover:text-indigo-600"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            {t.list.backHome}
-          </Link>
+    <div className="min-h-screen bg-[var(--editorial-paper)] pb-12 text-[var(--editorial-ink)]">
+      <div className="mx-auto w-full max-w-7xl px-4 pb-12 pt-5 sm:px-6 lg:px-8">
+        <ScholarshipsTopBar
+          language={language}
+          onToggleLanguage={toggleLanguage}
+          pageIdentity={copy.pageIdentity}
+          backHome={t.list.backHome}
+        />
 
-          <button
-            onClick={toggleLanguage}
-            aria-label={language === 'tr' ? 'Switch to English' : 'Türkçeye Geç'}
-            className="inline-flex items-center gap-1 rounded-full bg-white/90 px-3 py-1.5 text-xs font-black text-slate-700"
-          >
-            <Globe className="h-3.5 w-3.5" />
-            {language === 'tr' ? 'EN' : 'TR'}
-          </button>
-        </div>
+        <ScholarshipsIntro
+          title={copy.title}
+          intro={copy.intro}
+          verifiedAsOf={copy.verifiedAsOf}
+        />
 
-        <div className="grid min-w-0 gap-4 lg:grid-cols-2">
-          <div className="rounded-lg bg-rose-600 px-4 py-4 text-xl font-black text-white">
-            {t.scholarships.mapHeaderLeft}
-          </div>
-          <div className="truncate rounded-lg bg-blue-600 px-4 py-4 text-xl font-black text-white">
-            {selectedRegion.regionName}
-          </div>
+        <main className="mt-8 grid min-w-0 gap-24 lg:grid-cols-[minmax(0,1.12fr)_minmax(360px,0.88fr)] lg:items-start lg:gap-6">
+          <ScholarshipMap
+            regionShapes={regionShapes}
+            mapStatus={mapStatus}
+            selectedSlug={selectedSlug}
+            copy={copy}
+            onSelectRegion={handleRegionSelect}
+            onRegionKeyDown={handleMapKeyDown}
+          />
 
-          <section className="min-w-0 rounded-2xl bg-[#ececee] p-3 sm:p-4">
-            <div className="mb-3 lg:hidden">
-              <label className="mb-1 block text-xs font-black uppercase tracking-[0.12em] text-slate-600">
-                {t.scholarships.mobilePickerLabel}
-              </label>
-              <select
-                value={selectedSlug}
-                onChange={(event) => handleRegionSelect(event.target.value as RegionSlug)}
-                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-800"
-              >
-                {SCHOLARSHIP_REGIONS.map((region) => (
-                  <option key={region.regionSlug} value={region.regionSlug}>
-                    {region.regionName}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <RegionFilePanel region={selectedRegion} language={language} copy={copy} />
+        </main>
 
-            <div className="relative mx-auto w-full max-w-[740px] min-w-0 overflow-hidden rounded-xl bg-[#ececee]">
-              <div className="relative aspect-[0.86] w-full">
-                {mapStatus === 'loading' && (
-                  <div className="absolute inset-0 grid place-items-center rounded-xl border border-dashed border-slate-300 bg-slate-100 text-sm font-semibold text-slate-600">
-                    {t.scholarships.mapLoading}
-                  </div>
-                )}
-
-                {mapStatus === 'error' && (
-                  <div className="absolute inset-0 grid place-items-center rounded-xl border border-dashed border-rose-300 bg-rose-50 px-4 text-center text-sm font-semibold text-rose-700">
-                    {t.scholarships.mapError}
-                  </div>
-                )}
-
-                {mapStatus === 'ready' && (
-                  <svg
-                    viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
-                    preserveAspectRatio="xMidYMid meet"
-                    role="img"
-                    aria-label={t.scholarships.mapAlt}
-                    className="h-full w-full"
-                  >
-                    {regionShapes.map((shape, index) => {
-                      const active = shape.slug === selectedSlug;
-                      const fill = active ? '#1E4FBE' : REGION_FILL_COLORS[index % REGION_FILL_COLORS.length];
-
-                      return (
-                        <path
-                          key={shape.slug}
-                          d={shape.d}
-                          fill={fill}
-                          fillRule="evenodd"
-                          stroke={active ? '#0f2f7a' : '#ffffff'}
-                          strokeWidth={active ? 2.8 : 2}
-                          className="cursor-pointer transition-all duration-150 hover:brightness-95 focus:outline-none"
-                          role="button"
-                          tabIndex={0}
-                          aria-label={`${shape.name} ${t.scholarships.openRegionAria}`}
-                          onClick={() => handleRegionSelect(shape.slug)}
-                          onKeyDown={(event) => handleMapKeyDown(event, shape.slug)}
-                        />
-                      );
-                    })}
-
-                    {regionShapes.map((shape) => {
-                      const active = shape.slug === selectedSlug;
-                      return (
-                        <g
-                          key={`${shape.slug}-marker`}
-                          role="button"
-                          tabIndex={-1}
-                          className="cursor-pointer"
-                          onClick={() => handleRegionSelect(shape.slug)}
-                        >
-                          <circle
-                            cx={shape.centerX}
-                            cy={shape.centerY}
-                            r={active ? 6.8 : 5.4}
-                            fill={active ? '#1E4FBE' : '#F43368'}
-                            stroke="#ffffff"
-                            strokeWidth={active ? 3 : 2.5}
-                          />
-                        </g>
-                      );
-                    })}
-                  </svg>
-                )}
-              </div>
-            </div>
-          </section>
-
-          <section className="min-w-0 rounded-2xl bg-[#ececee] p-3 sm:p-4">
-            <article className="rounded-2xl border-2 border-blue-500 bg-sky-50 px-4 py-5 sm:px-6">
-              <p className="text-xs font-black uppercase tracking-[0.14em] text-blue-700">
-                {isVerified ? t.scholarships.statusVerified : t.scholarships.statusPending}
-              </p>
-
-              <h1 className="mt-2 text-3xl font-black leading-tight text-slate-900">
-                {selectedRegion.managingBodies[0]?.name ?? selectedRegion.regionName}
-              </h1>
-
-              <p className="mt-3 text-base leading-relaxed text-slate-800">
-                {selectedRegion.statusNote}
-              </p>
-
-              <div className="mt-4 grid min-w-0 gap-2 sm:grid-cols-2">
-                {selectedRegion.managingBodies.map((body) => (
-                  <a
-                    key={`${body.name}-${body.officialUrl}`}
-                    href={body.officialUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex w-full min-w-0 items-center gap-1.5 rounded-lg border border-blue-200 bg-white px-3 py-2 text-sm font-bold text-blue-700 hover:bg-blue-50"
-                  >
-                    <Building2 className="h-4 w-4" />
-                    <span className="min-w-0 truncate">{body.name}</span>
-                    <ExternalLink className="h-3.5 w-3.5" />
-                  </a>
-                ))}
-              </div>
-            </article>
-
-            <div className="mt-3 grid gap-2 sm:grid-cols-2">
-              <QuickFact
-                icon={<CalendarRange className="h-3.5 w-3.5" />}
-                title={t.scholarships.academicYear}
-                value={selectedRegion.currentAcademicYear}
-                pendingValue={t.scholarships.pendingValue}
-              />
-              <QuickFact
-                icon={<CalendarRange className="h-3.5 w-3.5" />}
-                title={t.scholarships.applicationWindow}
-                value={selectedRegion.applicationWindow}
-                pendingValue={t.scholarships.pendingValue}
-              />
-              <QuickFact
-                icon={<Wallet className="h-3.5 w-3.5" />}
-                title={t.scholarships.iseeLimit}
-                value={selectedRegion.iseeLimit}
-                pendingValue={t.scholarships.pendingValue}
-              />
-              <QuickFact
-                icon={<Wallet className="h-3.5 w-3.5" />}
-                title={t.scholarships.ispeLimit}
-                value={selectedRegion.ispeLimit}
-                pendingValue={t.scholarships.pendingValue}
-              />
-              <QuickFact
-                icon={<Soup className="h-3.5 w-3.5" />}
-                title={t.scholarships.canteenSupport}
-                value={selectedRegion.canteenSupport}
-                pendingValue={t.scholarships.pendingValue}
-              />
-              <QuickFact
-                icon={<Hotel className="h-3.5 w-3.5" />}
-                title={t.scholarships.housingSupport}
-                value={selectedRegion.housingSupport}
-                pendingValue={t.scholarships.pendingValue}
-              />
-            </div>
-
-            <div className="mt-3 rounded-xl border border-slate-300 bg-white px-3 py-3">
-              <p className="text-xs font-black uppercase tracking-[0.12em] text-slate-600">
-                {t.scholarships.officialSources}
-              </p>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {selectedRegion.officialSourceUrls.map((url) => (
-                  <a
-                    key={url}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex max-w-full items-center gap-1 rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100"
-                  >
-                    <span className="max-w-[200px] truncate sm:max-w-[260px]">{domainLabel(url)}</span>
-                    <ExternalLink className="h-3 w-3" />
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <section className="mt-3 rounded-xl border border-amber-300 bg-amber-50 px-3 py-3 text-amber-900">
-              <div className="flex items-start gap-2">
-                <AlertTriangle className="mt-0.5 h-4 w-4" />
-                <div>
-                  <p className="text-sm font-black">{t.scholarships.warningTitle}</p>
-                  <p className="mt-1 text-sm">{t.scholarships.warningItem1}</p>
-                  <p className="text-sm">{t.scholarships.warningItem2}</p>
-                  <p className="mt-2 text-xs font-semibold">
-                    {t.scholarships.lastVerified}:{' '}
-                    {lastVerified ?? t.scholarships.pendingValue}
-                  </p>
-                </div>
-              </div>
-            </section>
-          </section>
-        </div>
+        <RegionRail selectedSlug={selectedSlug} onSelectRegion={handleRegionSelect} copy={copy} />
       </div>
     </div>
   );

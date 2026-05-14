@@ -21,13 +21,13 @@ export const metadata: Metadata = {
 
 function ScholarshipsPageFallback() {
   return (
-    <div className="min-h-screen bg-[#e9eaec]">
-      <div className="mx-auto w-full max-w-[1440px] px-4 pb-10 pt-6 sm:px-6 lg:px-8">
-        <div className="grid gap-4 lg:grid-cols-2">
-          <div className="h-14 rounded-lg bg-rose-600/90" />
-          <div className="h-14 rounded-lg bg-blue-600/90" />
-          <div className="h-[680px] rounded-2xl bg-slate-200/80" />
-          <div className="h-[680px] rounded-2xl bg-slate-200/80" />
+    <div className="min-h-screen bg-[var(--editorial-paper)]">
+      <div className="mx-auto w-full max-w-7xl px-4 pb-12 pt-5 sm:px-6 lg:px-8">
+        <div className="h-10 w-56 rounded-md bg-[#e7ded1]" />
+        <div className="mt-10 h-24 max-w-3xl rounded-md bg-[#e7ded1]" />
+        <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.12fr)_minmax(360px,0.88fr)]">
+          <div className="h-[640px] rounded-lg border border-[var(--editorial-border)] bg-[var(--editorial-surface)]" />
+          <div className="h-[640px] rounded-lg border border-[var(--editorial-border)] bg-[var(--editorial-surface)]" />
         </div>
       </div>
     </div>
