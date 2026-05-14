@@ -10,6 +10,16 @@ export type CommunityCategory =
 
 export type CommunitySizeHint = "small" | "medium" | "large";
 
+export const COMMUNITY_CHAPTERS = [
+  "preparation",
+  "housing",
+  "university",
+  "city-voice",
+  "pan-italy",
+] as const;
+
+export type CommunityChapter = (typeof COMMUNITY_CHAPTERS)[number];
+
 export interface CommunityLink {
   id: string;
   name: string;
@@ -25,6 +35,7 @@ export interface CommunityLink {
   status: "active" | "limited" | "unverified";
   verificationSource: "user-confirmed" | "editor-reviewed";
   lastCheckedAt: string; // YYYY-MM-DD
+  chapter: CommunityChapter;
 }
 
 export const communityLinks: CommunityLink[] = [
@@ -43,6 +54,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "city-voice",
   },
   {
     id: "firenze-whatsapp",
@@ -58,6 +70,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "city-voice",
   },
   {
     id: "pre-enrollment-yardimlasma",
@@ -73,6 +86,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "preparation",
   },
   {
     id: "ergo-yardimlasma",
@@ -88,6 +102,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "preparation",
   },
   {
     id: "roma-ev-oda",
@@ -104,6 +119,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "housing",
   },
   {
     id: "bologna-hiking-club",
@@ -119,6 +135,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "city-voice",
   },
   {
     id: "bologna-erasmus-students",
@@ -134,6 +151,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "city-voice",
   },
   {
     id: "unibo-general",
@@ -149,6 +167,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "university",
   },
   {
     id: "househunters-ravenna",
@@ -164,6 +183,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "housing",
   },
   {
     id: "apartments-bologna",
@@ -179,6 +199,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "housing",
   },
   {
     id: "spotted-unibo-ravenna",
@@ -194,6 +215,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "city-voice",
   },
   {
     id: "italyada-yasayan-turkler",
@@ -210,6 +232,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "pan-italy",
   },
   {
     id: "italya-bilgi",
@@ -225,6 +248,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "pan-italy",
   },
   {
     id: "sapienza-general",
@@ -240,6 +264,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "university",
   },
   {
     id: "accomodations-in-rome-2025-2026",
@@ -255,6 +280,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "housing",
   },
   {
     id: "unito-23-24",
@@ -271,6 +297,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "university",
   },
   {
     id: "unito-22-23",
@@ -287,6 +314,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "university",
   },
   {
     id: "sapienza-2026-2027",
@@ -303,6 +331,7 @@ export const communityLinks: CommunityLink[] = [
     status: "limited",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "university",
   },
   {
     id: "ergo-burs-basvuru-sureci",
@@ -319,6 +348,7 @@ export const communityLinks: CommunityLink[] = [
     status: "active",
     verificationSource: "user-confirmed",
     lastCheckedAt: "2026-03-10",
+    chapter: "preparation",
   },
 ];
 
