@@ -7,6 +7,7 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 const isPublicRoute = createRouteMatcher([
   '/',
   '/api/universities(.*)',
+  '/data(.*)',        // Public static datasets: scholarship map GeoJSON
   '/sign-in(.*)',
   '/sign-up(.*)',
   '/universities(.*)', // Ziyaretçiler okulları ve detayları görebilsin

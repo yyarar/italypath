@@ -37,6 +37,7 @@ const publicChecks = [
   "/communities",
   "/topluluklar",
   "/api/universities",
+  "/data/italy-regions.geojson",
   "/sign-in",
   "/sign-up",
   "/sitemap.xml",
@@ -73,6 +74,10 @@ if (publicPatterns.includes("/ai-mentor(.*)")) {
 
 if (!publicPatterns.includes("/api/universities(.*)")) {
   failures.push("Public list is missing /api/universities(.*)");
+}
+
+if (!publicPatterns.includes("/data(.*)")) {
+  failures.push("Public list is missing /data(.*)");
 }
 
 if (!publicPatterns.includes("/scholarships(.*)")) {
