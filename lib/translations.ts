@@ -172,59 +172,34 @@ export const translations = {
     },
     communities: {
       backHome: "Ana sayfaya dön",
-      badge: "Curated Public Guide",
-      title: "Öğrenci Toplulukları",
-      subtitle:
-        "Bu sayfa resmi topluluk listesi değildir. ItalyPath editörleri tarafından seçilmiş dış WhatsApp, Telegram ve Facebook gruplarını keşfetmeniz için hazırlanmıştır.",
-      notOfficial: "ItalyPath bu toplulukları yönetmez ve resmi temsil sunmaz.",
-      curationPolicy:
-        "Linkler editoryal olarak seçilir, düzenli aralıklarla kontrol edilir ve durum etiketiyle gösterilir.",
-      searchPlaceholder: "Topluluk, şehir veya konu ara...",
-      platformLabel: "Platform filtresi",
-      categoryLabel: "Kategori filtresi",
-      allPlatforms: "Tüm platformlar",
-      allCategories: "Tüm kategoriler",
-      allStatuses: "Tüm durumlar",
-      clearFilters: "Filtreleri temizle",
-      resultsLabel: "topluluk listelendi",
-      emptyTitle: "Sonuç bulunamadı",
-      emptyDescription:
-        "Seçtiğiniz filtrelerde eşleşen topluluk yok. Farklı bir platform, kategori veya arama terimi deneyin.",
-      cityUnknown: "Şehir belirtilmemiş",
-      regionUnknown: "Bölge belirtilmemiş",
-      audienceLabel: "Hedef kitle",
-      verificationLabel: "Doğrulama",
-      lastCheckedLabel: "Son kontrol",
-      sizeHintLabel: "Büyüklük ipucu",
-      editorialNoteLabel: "Editör notu",
-      openCommunity: "Topluluğu aç",
-      platformNames: {
+      pageIdentity: "Öğrenci Toplulukları · Atlas",
+      issueLabel: "SAYI 01 — 2026 KAYIT YILI",
+      heroTitleLines: ["Öğrenci", "topluluklarının", "atlası."],
+      heroIntro:
+        "İtalya'da yıllardır ayakta kalan, doğrulanmış WhatsApp, Telegram ve Facebook topluluklarının seçilmiş bir rehberi. Resmi değil, sahte üye sayısı yok — sadece tek tek bakılıp kayda alınmış satırlar.",
+      curationNoteLeading: "Son toplu kontrol:",
+      curationNoteBody:
+        "Her topluluk üye tarafından onaylanmıştır; ItalyPath yönetimi yoktur.",
+      tocLabel: "İçindekiler",
+      communityCountSuffix: "topluluk",
+      platformMonograms: {
+        whatsapp: "WA",
+        telegram: "TG",
+        facebook: "FB",
+      },
+      platformLongNames: {
         whatsapp: "WhatsApp",
         telegram: "Telegram",
-        facebook: "Facebook"
+        facebook: "Facebook",
       },
-      categoryNames: {
-        university: "Üniversite",
-        housing: "Konaklama",
-        scholarship: "Burs",
-        admissions: "Başvuru",
-        social: "Sosyal",
-        general: "Genel"
-      },
-      statusNames: {
-        active: "Aktif",
-        limited: "Sınırlı",
-        unverified: "Doğrulanmadı"
-      },
-      verificationNames: {
-        "editor-reviewed": "Editör incelemesi",
-        "user-confirmed": "Kullanıcı teyidi"
-      },
-      sizeHintNames: {
-        small: "Niş",
-        medium: "Orta",
-        large: "Geniş"
-      }
+      openAction: "AÇ",
+      openAriaSuffix: "yeni sekmede açılır",
+      regionUnknown: "Bölge belirtilmemiş",
+      footerTitle: "Bilmediğimiz bir topluluk var mı?",
+      footerBody:
+        "Yaşayan, üyelerinin tanıdığı bir grup biliyorsan: linkini at, biz inceleyip atlasa alıyoruz.",
+      footerCta: "TOPLULUK ÖNER",
+      footerMailSubject: "Yeni topluluk önerisi",
     },
     favorites: {
       title: "Favorilerim",
@@ -509,59 +484,34 @@ export const translations = {
     },
     communities: {
       backHome: "Back to home",
-      badge: "Curated Public Guide",
-      title: "Curated Student Communities",
-      subtitle:
-        "This page is not an official community directory. It is an editorially curated guide to external WhatsApp, Telegram, and Facebook student groups.",
-      notOfficial: "ItalyPath does not run these groups and does not provide official representation.",
-      curationPolicy:
-        "Links are selected editorially, checked regularly, and shown with transparent status labels.",
-      searchPlaceholder: "Search by community, city, or topic...",
-      platformLabel: "Platform filter",
-      categoryLabel: "Category filter",
-      allPlatforms: "All platforms",
-      allCategories: "All categories",
-      allStatuses: "All statuses",
-      clearFilters: "Clear filters",
-      resultsLabel: "communities listed",
-      emptyTitle: "No results found",
-      emptyDescription:
-        "No community matched your filters. Try another platform, category, or search term.",
-      cityUnknown: "City not specified",
-      regionUnknown: "Region not specified",
-      audienceLabel: "Audience",
-      verificationLabel: "Verification",
-      lastCheckedLabel: "Last checked",
-      sizeHintLabel: "Size hint",
-      editorialNoteLabel: "Editorial note",
-      openCommunity: "Open community",
-      platformNames: {
+      pageIdentity: "Student Communities · Atlas",
+      issueLabel: "ISSUE 01 — 2026 INTAKE YEAR",
+      heroTitleLines: ["An atlas of", "student", "communities."],
+      heroIntro:
+        "A curated guide to long-standing, verified WhatsApp, Telegram, and Facebook student groups in Italy. No official affiliation, no fake member counts — only rows we've checked one by one.",
+      curationNoteLeading: "Last collection-wide check:",
+      curationNoteBody:
+        "Each community is member-confirmed; ItalyPath does not administer them.",
+      tocLabel: "Contents",
+      communityCountSuffix: "communities",
+      platformMonograms: {
+        whatsapp: "WA",
+        telegram: "TG",
+        facebook: "FB",
+      },
+      platformLongNames: {
         whatsapp: "WhatsApp",
         telegram: "Telegram",
-        facebook: "Facebook"
+        facebook: "Facebook",
       },
-      categoryNames: {
-        university: "University",
-        housing: "Housing",
-        scholarship: "Scholarship",
-        admissions: "Admissions",
-        social: "Social",
-        general: "General"
-      },
-      statusNames: {
-        active: "Active",
-        limited: "Limited",
-        unverified: "Unverified"
-      },
-      verificationNames: {
-        "editor-reviewed": "Editor reviewed",
-        "user-confirmed": "User confirmed"
-      },
-      sizeHintNames: {
-        small: "Small",
-        medium: "Medium",
-        large: "Large"
-      }
+      openAction: "OPEN",
+      openAriaSuffix: "opens in a new tab",
+      regionUnknown: "Region not specified",
+      footerTitle: "Know a community we missed?",
+      footerBody:
+        "If you know a live group whose members vouch for it, send us the link — we'll review and add it to the atlas.",
+      footerCta: "SUGGEST A COMMUNITY",
+      footerMailSubject: "New community suggestion",
     },
     favorites: {
       title: "My Favorites",

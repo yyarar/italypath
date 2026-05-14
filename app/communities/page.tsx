@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import CommunityLinksExplorer from "@/components/communities/CommunityLinksExplorer";
+import CommunityAtlas from "@/components/communities/CommunityAtlas";
 
 export const metadata: Metadata = {
   title: "Öğrenci Toplulukları | ItalyPath",
@@ -19,5 +19,5 @@ export const metadata: Metadata = {
 };
 
 export default function CommunitiesPage() {
-  return <CommunityLinksExplorer />;
+  return <CommunityAtlas />;
 }
