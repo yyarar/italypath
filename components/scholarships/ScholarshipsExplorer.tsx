@@ -30,8 +30,8 @@ import {
 } from '@/lib/scholarships/regions';
 import type { RegionSlug } from '@/types/scholarships';
 
-const REGIONS_GEOJSON_URL =
-  '/data/italy-regions.geojson';
+const REGIONS_GEOJSON_URL = '/data/italy-regions.geojson';
+const REGIONS_GEOJSON_VERSION = '2026-05-14';
 
 const MAP_WIDTH = 760;
 const MAP_HEIGHT = 980;
@@ -379,9 +379,9 @@ export default function ScholarshipsExplorer() {
     async function loadMap() {
       setMapStatus('loading');
       try {
-        const response = await fetch(REGIONS_GEOJSON_URL, {
+        const response = await fetch(`${REGIONS_GEOJSON_URL}?v=${REGIONS_GEOJSON_VERSION}`, {
           signal: controller.signal,
-          cache: 'force-cache',
+          cache: 'no-store',
         });
 
         if (!response.ok) {

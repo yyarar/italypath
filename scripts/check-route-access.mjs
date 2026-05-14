@@ -3,6 +3,11 @@ import { resolve } from "node:path";
 
 const proxyPath = resolve(process.cwd(), "proxy.ts");
 const source = readFileSync(proxyPath, "utf8");
+const scholarshipsExplorerPath = resolve(
+  process.cwd(),
+  "components/scholarships/ScholarshipsExplorer.tsx"
+);
+const scholarshipsExplorerSource = readFileSync(scholarshipsExplorerPath, "utf8");
 
 const matcherMatch = source.match(/createRouteMatcher\(\s*\[([\s\S]*?)\]\s*\)/m);
 if (!matcherMatch) {
@@ -78,6 +83,14 @@ if (!publicPatterns.includes("/api/universities(.*)")) {
 
 if (!publicPatterns.includes("/data(.*)")) {
   failures.push("Public list is missing /data(.*)");
+}
+
+if (scholarshipsExplorerSource.includes("cache: 'force-cache'")) {
+  failures.push("Scholarship map GeoJSON fetch must not use force-cache");
+}
+
+if (!scholarshipsExplorerSource.includes("REGIONS_GEOJSON_VERSION")) {
+  failures.push("Scholarship map GeoJSON fetch is missing an explicit cache-busting version");
 }
 
 if (!publicPatterns.includes("/scholarships(.*)")) {
