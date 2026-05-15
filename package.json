@@ -9,6 +9,7 @@
     "lint": "eslint",
     "check:routes": "node scripts/check-route-access.mjs",
     "check:data": "node --no-warnings scripts/validate-data-integrity.mjs",
+    "check:isee": "node scripts/check-isee-calculator.mjs",
     "check:university-department-merge": "node --no-warnings scripts/check-university-department-merge.mjs",
     "check:universities-ui": "node --no-warnings scripts/check-universities-field-guide.mjs",
     "check:scholarships-ui": "node scripts/check-scholarships-editorial-atlas.mjs",
