@@ -1,20 +1,25 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { formatStatValue, type UniversityStats } from "@/lib/universityStats";
 
-export default function VelocityBridge() {
+interface VelocityBridgeProps {
+  stats: UniversityStats;
+}
+
+export default function VelocityBridge({ stats }: VelocityBridgeProps) {
   const { language } = useLanguage();
   const items =
     language === "tr"
       ? [
-          ["64", "üniversite"],
-          ["240", "program"],
+          [formatStatValue(stats.universitiesCount), "üniversite"],
+          [formatStatValue(stats.programsCount), "program"],
           ["20", "bölgesel burs kaydı"],
           ["1", "kişisel merkez"],
         ]
       : [
-          ["64", "universities"],
-          ["240", "programs"],
+          [formatStatValue(stats.universitiesCount), "universities"],
+          [formatStatValue(stats.programsCount), "programs"],
           ["20", "regional scholarship records"],
           ["1", "personal hub"],
         ];

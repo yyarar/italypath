@@ -6,13 +6,26 @@ import { ArrowRight, FileText, GraduationCap, MessageCircle } from "lucide-react
 import { motion } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { formatStatValue, type UniversityStats } from "@/lib/universityStats";
 
-export default function FeaturesSection() {
+interface FeaturesSectionProps {
+  stats: UniversityStats;
+}
+
+export default function FeaturesSection({ stats }: FeaturesSectionProps) {
   const { t, language } = useLanguage();
   const { isSignedIn } = useAuth();
   const aiMentorHref = isSignedIn ? "/ai-mentor" : "/sign-in?redirect_url=%2Fai-mentor";
   const documentsHref = isSignedIn ? "/documents" : "/sign-in?redirect_url=%2Fdocuments";
   const ctaText = language === "tr" ? "İncele" : "Open";
+  const universitiesMeta =
+    stats.universitiesCount === null || stats.programsCount === null
+      ? language === "tr"
+        ? "Canlı üniversite verisi"
+        : "Live university data"
+      : language === "tr"
+        ? `${formatStatValue(stats.universitiesCount)} üniversite · ${formatStatValue(stats.programsCount)} program`
+        : `${formatStatValue(stats.universitiesCount)} universities · ${formatStatValue(stats.programsCount)} programs`;
 
   const features = [
     {
@@ -20,7 +33,7 @@ export default function FeaturesSection() {
       title: t.features.card1Title,
       description: t.features.card1Desc,
       href: "/universities",
-      meta: language === "tr" ? "64 üniversite · 240 program" : "64 universities · 240 programs",
+      meta: universitiesMeta,
     },
     {
       icon: FileText,

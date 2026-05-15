@@ -24,3 +24,18 @@ export interface SupabaseUniversityDepartmentRow {
   level: string | null;
   sort_order: number | null;
 }
+
+export interface SupabaseUniversityRow {
+  id: number;
+  name: string | null;
+  city: string | null;
+  type: string | null;
+  fee: string | null;
+  image: string | null;
+  description: string | null;
+  description_en: string | null;
+  website: string | null;
+  features: string[] | null;
+  features_en: string[] | null;
+  sort_order: number | null;
+}

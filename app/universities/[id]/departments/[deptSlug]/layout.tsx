@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
-import { universitiesData, DEFAULT_IMAGE } from '@/app/data';
+import { DEFAULT_UNIVERSITY_IMAGE } from '@/lib/universityDefaults';
+import { getUniversityById } from '@/lib/universities.server';
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string; deptSlug: string }> }): Promise<Metadata> {
     const resolvedParams = await params;
-    const university = universitiesData.find((u) => String(u.id) === String(resolvedParams.id));
+    const university = await getUniversityById(resolvedParams.id);
     const department = university?.departments.find((d) => d.slug === resolvedParams.deptSlug);
 
     if (!university || !department) {
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
         openGraph: {
             title: `${department.name} — ${university.name}`,
             description: `Study ${department.name} at ${university.name} in ${university.city}, Italy.`,
-            images: [university.image || DEFAULT_IMAGE],
+            images: [university.image || DEFAULT_UNIVERSITY_IMAGE],
         },
     };
 }

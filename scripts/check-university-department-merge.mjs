@@ -1,11 +1,23 @@
 import { strict as assert } from "node:assert";
+import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { pathToFileURL } from "node:url";
+import ts from "typescript";
 
-const mergeModuleUrl = pathToFileURL(
-  resolve(process.cwd(), "lib/mergeUniversityDepartments.ts")
-).href;
-const { mergeUniversityDepartmentRows } = await import(mergeModuleUrl);
+function importTsModule(path) {
+  const source = readFileSync(resolve(process.cwd(), path), "utf8");
+  const transpiled = ts.transpileModule(source, {
+    compilerOptions: {
+      module: ts.ModuleKind.ES2022,
+      target: ts.ScriptTarget.ES2022,
+      jsx: ts.JsxEmit.ReactJSX,
+      verbatimModuleSyntax: true,
+    },
+  });
+  const encoded = Buffer.from(transpiled.outputText, "utf8").toString("base64");
+  return import(`data:text/javascript;base64,${encoded}`);
+}
+
+const { mergeUniversityDepartmentRows } = await importTsModule("lib/mergeUniversityDepartments.ts");
 
 const baseUniversities = [
   {

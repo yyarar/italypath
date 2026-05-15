@@ -1,5 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { universitiesData } from "@/app/data";
+import { getUniversitiesData } from "@/lib/universities.server";
+import type { University } from "@/app/data";
 
 type ChatRole = "user" | "assistant";
 
@@ -11,16 +12,19 @@ interface ChatMessage {
 const MAX_MESSAGES = 20;
 const MAX_MESSAGE_LENGTH = 4000;
 
-// Üniversite bilgilerini sistem bağlamına hazırla
-const uniContext = universitiesData
-  .map((u) => `• ${u.name} (${u.city}): ${u.departments.map(d => d.name).join(", ")}`)
-  .join("\n");
+function buildUniversityContext(universities: University[]) {
+  return universities
+    .map((u) => `• ${u.name} (${u.city}): ${u.departments.map((d) => d.name).join(", ")}`)
+    .join("\n");
+}
 
-const SYSTEM_PROMPT = `Sen ItalyPath Mentörüsün. Türkçe konuşan Türk öğrencilerin İtalya'da üniversite, burs ve yaşam konularında rehber ol.
+function buildSystemPrompt(universities: University[]) {
+  return `Sen ItalyPath Mentörüsün. Türkçe konuşan Türk öğrencilerin İtalya'da üniversite, burs ve yaşam konularında rehber ol.
 Samimi, teşvik edici ve bilgili bir ton kullan. Kesin bilgi vermediğin konularda dürüst ol. Yanıtlarını Markdown formatında yaz.
 
 Bilgi bankan:
-${uniContext}`;
+${buildUniversityContext(universities)}`;
+}
 
 function jsonError(message: string, status: number) {
   return new Response(JSON.stringify({ error: message }), {
@@ -83,11 +87,13 @@ export async function POST(req: Request) {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const universities = await getUniversitiesData();
+    const systemPrompt = buildSystemPrompt(universities);
 
     // Sohbet geçmişini Gemini'nin anladığı formata çevir
     // İlk mesaj: sistem promptu (user/model çifti olarak)
     const geminiHistory = [
-      { role: "user" as const, parts: [{ text: SYSTEM_PROMPT }] },
+      { role: "user" as const, parts: [{ text: systemPrompt }] },
       { role: "model" as const, parts: [{ text: "Anlaşıldı! ItalyPath Mentor olarak hazırım." }] },
     ];
 

@@ -5,6 +5,7 @@ import { ArrowRight, Check, FileText, GraduationCap, Landmark } from "lucide-rea
 import { motion, useReducedMotion } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { formatStatValue, type UniversityStats } from "@/lib/universityStats";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -30,12 +31,12 @@ function StudyDossier() {
     language === "tr"
       ? [
           ["Politecnico di Milano", "Mühendislik"],
-          ["University of Bologna", "Kamu · 92 program"],
+          ["University of Bologna", "Kamu üniversitesi"],
           ["Sapienza Roma", "Tıp ve sosyal bilimler"],
         ]
       : [
           ["Politecnico di Milano", "Engineering"],
-          ["University of Bologna", "Public · 92 programs"],
+          ["University of Bologna", "Public university"],
           ["Sapienza Rome", "Medicine and social sciences"],
         ];
 
@@ -126,7 +127,11 @@ function StudyDossier() {
   );
 }
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  stats: UniversityStats;
+}
+
+export default function HeroSection({ stats }: HeroSectionProps) {
   const { t, language } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
 
@@ -180,8 +185,8 @@ export default function HeroSection() {
             className="mt-10 grid max-w-xl grid-cols-3 border-y border-[var(--editorial-border)] text-sm"
           >
             {[
-              ["64", language === "tr" ? "üniversite" : "universities"],
-              ["240", language === "tr" ? "program" : "programs"],
+              [formatStatValue(stats.universitiesCount), language === "tr" ? "üniversite" : "universities"],
+              [formatStatValue(stats.programsCount), language === "tr" ? "program" : "programs"],
               ["20", language === "tr" ? "bölge" : "regions"],
             ].map(([value, label]) => (
               <div key={label} className="py-4 pr-4">

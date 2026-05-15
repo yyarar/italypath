@@ -433,3 +433,15 @@
 | Dosya | Değişiklik |
 |-------|-----------|
 | `components/BottomNav.tsx` | ♻️ Mobil alt navigasyondaki `Topluluk` sekmesi `Hub/Profil` olarak değiştirildi; signed-in kullanıcı `/hub`, signed-out kullanıcı `/sign-in?redirect_url=/hub` akışına yönlendiriliyor |
+
+### Commit 50 (Supabase Tek Üniversite Veri Kaynağı):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `lib/universities.server.ts` | 🆕 `universities` + `university_departments` tablolarını Supabase'den okuyup normalize eden merkezi server data helper eklendi |
+| `app/api/universities/route.ts` | ♻️ Local `app/data.ts` merge akışı kaldırıldı; public API doğrudan merkezi Supabase helper'dan besleniyor |
+| `app/sitemap.ts` | ♻️ Sitemap department URL'leri local 240 program yerine Supabase canlı program listesinden üretiliyor |
+| `app/universities/[id]/layout.tsx` / `app/universities/[id]/departments/[deptSlug]/layout.tsx` | ♻️ SEO metadata local data yerine Supabase helper kullanıyor; Supabase-only programlar artık `Program Not Found` metadata üretmiyor |
+| `app/api/chat/route.ts` | ♻️ AI Mentor bilgi bankası local data yerine Supabase canlı üniversite/program datasından kuruluyor |
+| `app/page.tsx`, `components/HeroSection.tsx`, `components/FeaturesSection.tsx`, `components/VelocityBridge.tsx` | ♻️ Ana sayfa üniversite/program sayaçları hard-code `64/240` yerine `/api/universities` kaynaklı canlı sayılara bağlandı |
+| `scripts/validate-supabase-university-data.mjs` | 🆕 `npm run check:data` artık Supabase canlı veri bütünlüğünü doğruluyor (`64 university / 891 department`) |
+| `scripts/check-university-data-source.mjs` | 🆕 App yüzeylerinde local `universitiesData` ve eski `240 program` sabitinin geri dönmesini engelleyen guard eklendi |
