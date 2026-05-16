@@ -294,22 +294,66 @@ export const translations = {
       overview: "Bölüm Hakkında"
     },
     aiMentor: {
-      title: "ItalyPath Mentor",
-      welcome: "Ciao! ItalyPath Mentor hazır. İtalya hayalini gerçekleştirmek için neyi çözmemi istersin?",
-      thinking: "Yazıyor...",
-      reset: "Sohbeti sıfırla",
       backHome: "Ana sayfaya dön",
-      inputPlaceholder: "İtalya hakkında bir şeyler sor...",
-      inputPlaceholderStreaming: "Mentor yanıt yazıyor...",
-      stop: "Yanıtı durdur",
-      send: "Mesaj gönder",
+      backToHub: "Masalar",
+      pageIdentity: "Danışma Masaları",
+      hubEyebrow: "DANIŞMA · ÜÇ MASA",
+      hubTitle: "Hangi masaya yazmak istersin?",
+      hubIntro:
+        "Üç farklı kanaldan İtalya yolculuğu hakkında danışabilirsin: hızlı bir cevap için yapay zekâ; aynı yoldan geçmiş öğrenciler için gönüllü ekip; derin bir konu için uzman.",
+      hubActiveBadge: "AKTİF · ANINDA",
+      hubLockedBadgeFree: "YAKINDA · ÜCRETSİZ",
+      hubLockedBadgePaid: "YAKINDA · ÜCRETLİ",
+      hubOpenCta: "SOHBETE BAŞLA",
+      hubLockedCta: "YAKINDA",
+      statusReady: "HAZIR",
+      statusWriting: "YAZIYOR…",
+      statusLocked: "YAKINDA",
+      statusError: "HATA",
+      inputPlaceholder: "Bir soru daha…",
+      inputPlaceholderStreaming: "Mentor yanıt yazıyor…",
+      inputPlaceholderLocked: "Bu masada şu an mesaj alınmıyor.",
+      questionLabel: "SORU",
+      startHereLabel: "BURADAN BAŞLA",
+      resetLabel: "SIFIRLA",
+      sendAria: "Mesaj gönder",
+      stopAria: "Yanıtı durdur",
       error: "Scusa! Bir hata oluştu. Tekrar dener misin?",
-      promptsTitle: "Neler sorabilirsin?",
-      prompt1: "İtalya'da en uygun harç ücretli üniversiteler hangileri?",
-      prompt2: "Milano'da İngilizce mühendislik bölümleri var mı?",
-      prompt3: "ISEE değerim düşükse ne kadar burs alabilirim?",
-      prompt4: "Başvuru için hangi belgeler gerekiyor?"
-    }
+      lockedHeadline: "Bu masa yakında açılıyor.",
+      notifyCta: "AÇILDIĞINDA HABER ET",
+      notifyMailSubject: "Danışma masası açılış bildirimi",
+      prompts: {
+        prompt1: "İtalya'da en uygun harç ücretli üniversiteler hangileri?",
+        prompt2: "Milano'da İngilizce mühendislik bölümleri var mı?",
+        prompt3: "ISEE değerim düşükse ne kadar burs alabilirim?",
+        prompt4: "Başvuru için hangi belgeler gerekiyor?",
+      },
+      channels: {
+        ai: {
+          name: "ItalyPath AI",
+          tagline:
+            "64 üniversitenin ve 240 bölümün veritabanına bağlı yapay zekâ. İlk eşikte hızlı oryantasyon için.",
+          meta: "Anında · 7/24 · Ücretsiz",
+          lockedBody: "",
+        },
+        volunteer: {
+          name: "ItalyPath Gönüllü Ekip",
+          tagline:
+            "Aynı yoldan geçmiş, halen İtalya'da yaşayan öğrenciler. Pratik soruna pratik yanıt — birkaç saatte bir cevap.",
+          meta: "Birkaç saat içinde · Hafta içi · Ücretsiz / sınırlı",
+          lockedBody:
+            "Yakında: aynı yoldan geçmiş öğrencilerden bire-bir, gerçek deneyime dayalı yanıtlar.",
+        },
+        expert: {
+          name: "ItalyPath Uzman",
+          tagline:
+            "Vize itirazı, ISEE doğrulaması, transkript denkliği gibi konularda derin danışmanlık. Randevulu, ücretli.",
+          meta: "Randevulu · Ücretli paket",
+          lockedBody:
+            "Yakında: vize itirazı, ISEE doğrulaması ve transkript denkliği gibi konularda derin danışmanlık.",
+        },
+      },
+    },
   },
   en: {
     navbar: {
@@ -606,21 +650,65 @@ export const translations = {
       overview: "About This Program"
     },
     aiMentor: {
-      title: "ItalyPath Mentor",
-      welcome: "Ciao! ItalyPath Mentor is ready. What should I help you solve for your Italy journey?",
-      thinking: "Typing...",
-      reset: "Reset chat",
       backHome: "Back to home",
-      inputPlaceholder: "Ask something about Italy...",
-      inputPlaceholderStreaming: "Mentor is writing...",
-      stop: "Stop response",
-      send: "Send message",
-      error: "Scusa! Something went wrong. Can you try again?",
-      promptsTitle: "What can you ask?",
-      prompt1: "Which universities in Italy have the lowest tuition?",
-      prompt2: "Are there English engineering programs in Milan?",
-      prompt3: "How much scholarship can I get with a low ISEE?",
-      prompt4: "What documents are needed for application?"
-    }
-  }
+      backToHub: "Desks",
+      pageIdentity: "Consultation Desks",
+      hubEyebrow: "CONSULTATION · THREE DESKS",
+      hubTitle: "Which desk will you write to?",
+      hubIntro:
+        "Three channels for your Italy journey: an AI for a fast first answer, a volunteer team of students who've walked the same path, and an expert for deep one-on-one consultations.",
+      hubActiveBadge: "ACTIVE · INSTANT",
+      hubLockedBadgeFree: "SOON · FREE",
+      hubLockedBadgePaid: "SOON · PAID",
+      hubOpenCta: "START A CHAT",
+      hubLockedCta: "SOON",
+      statusReady: "READY",
+      statusWriting: "WRITING…",
+      statusLocked: "SOON",
+      statusError: "ERROR",
+      inputPlaceholder: "Another question…",
+      inputPlaceholderStreaming: "The mentor is replying…",
+      inputPlaceholderLocked: "This desk isn't accepting messages yet.",
+      questionLabel: "QUESTION",
+      startHereLabel: "START HERE",
+      resetLabel: "RESET",
+      sendAria: "Send message",
+      stopAria: "Stop response",
+      error: "Scusa! Something went wrong. Could you try again?",
+      lockedHeadline: "This desk is opening soon.",
+      notifyCta: "NOTIFY ME WHEN OPEN",
+      notifyMailSubject: "Consultation desk opening notification",
+      prompts: {
+        prompt1: "Which Italian universities have the most affordable tuition?",
+        prompt2: "Are there English-taught engineering programs in Milan?",
+        prompt3: "How much scholarship can I get with a low ISEE?",
+        prompt4: "Which documents do I need for the application?",
+      },
+      channels: {
+        ai: {
+          name: "ItalyPath AI",
+          tagline:
+            "AI connected to a database of 64 universities and 240 programs. For fast orientation on the first step.",
+          meta: "Instant · 24/7 · Free",
+          lockedBody: "",
+        },
+        volunteer: {
+          name: "ItalyPath Volunteer Team",
+          tagline:
+            "Students who've walked the same path and live in Italy now. Practical answers to practical questions — usually within a few hours.",
+          meta: "Within a few hours · Weekdays · Free / limited",
+          lockedBody:
+            "Coming soon: one-on-one answers from students with first-hand experience of the same journey.",
+        },
+        expert: {
+          name: "ItalyPath Expert",
+          tagline:
+            "Deep consulting on visa appeals, ISEE verification, transcript equivalency. By appointment, paid.",
+          meta: "By appointment · Paid package",
+          lockedBody:
+            "Coming soon: deep consulting on visa appeals, ISEE verification, and transcript equivalency.",
+        },
+      },
+    },
+  },
 };
