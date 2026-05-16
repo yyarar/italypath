@@ -52,12 +52,12 @@ export default function EntryPair({
               />
             ) : null}
           </div>
-        ) : (
+        ) : isStreamingResponse ? (
           <span
             aria-hidden="true"
             className="inline-block h-[1em] w-[7px] animate-pulse-cursor bg-[var(--editorial-ink)] align-text-bottom"
           />
-        )}
+        ) : null}
       </div>
     </motion.article>
   );
