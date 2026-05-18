@@ -47,7 +47,7 @@ italypath-main/
 │   ├── globals.css                 # Tailwind v4 + mobil PWA stilleri
 │   ├── favicon.ico                 # Site ikonu
 │   ├── data.ts                     # 64 üniversite, 240 bölüm verisi (seed + normalized metadata modeli)
-│   ├── ai-mentor/page.tsx          # AI sohbet arayüzü (streaming + durdur butonu + prompt chip önerileri)
+│   ├── ai-mentor/page.tsx          # Danışma Masaları hub'ı: 3 kanal (AI aktif, Gönüllü Ekip + Uzman yakında); state-toggle hub ↔ chat room
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
 │   ├── api/universities/route.ts   # Üniversite verisini cache header'larıyla JSON dönen public API
 │   ├── communities/page.tsx         # Kürate edilmiş öğrenci toplulukları rehberi (public)
@@ -77,7 +77,14 @@ italypath-main/
 │   ├── ScrollProgress.tsx          # Scroll ilerleme çubuğu (Framer Motion useScroll + useSpring)
 │   ├── Footer.tsx                  # Alt bilgi (logo, sosyal etiketler)
 │   ├── communities/
-│   │   └── CommunityLinksExplorer.tsx # Topluluk listesi keşif ekranı (filtre + disclaimer + dış link kartları)
+│   │   └── CommunityAtlas.tsx       # Editöryel topluluk atlası (5 ihtiyaç-bölümü, hybrid editor voice, no filter/badge)
+│   ├── mentor/
+│   │   ├── MentorTopBar.tsx         # Hub + chat ortak header (back link, identity, status badge, lang toggle)
+│   │   ├── MentorHub.tsx            # 3-masa danışma roster (AI / Gönüllü Ekip / Uzman) editöryel satırlar
+│   │   ├── MentorChatRoom.tsx       # Editöryel sütun chat kabuğu (her 3 masa için aynı shell, locked branch)
+│   │   ├── EntryPair.tsx            # SORU NN etiketi + sans-bold soru + hairline + serif Markdown cevap + ink cursor
+│   │   ├── StarterPrompts.tsx       # AI boş-ekran 4 prompt chip (sparkle/indigo yok)
+│   │   └── LockedDeskNotice.tsx     # Yakında masaları için merkezi editöryel kart + mailto notify CTA
 │   ├── scholarships/
 │   │   └── ScholarshipsExplorer.tsx # Harita + bölge detay paneli (client)
 │   └── ui/
@@ -90,11 +97,15 @@ italypath-main/
 │   └── LanguageContext.tsx          # TR/EN dil sistemi (Context + localStorage)
 ├── lib/
 │   ├── supabaseClient.ts           # Supabase client (anon key)
-│   ├── community-links.ts          # CommunityLink tipleri + editoryal topluluk verisi
+│   ├── community-links.ts          # CommunityLink tipleri + editoryal topluluk verisi (her kayıt `chapter` alanına sahip)
 │   ├── translations.ts             # Tüm UI çevirileri (TR + EN)
 │   ├── utils.ts                    # `cn()` className birleştirme helper'ı
 │   ├── useFavorites.ts             # Birleşik favori hook'u (localStorage + Supabase)
 │   ├── useUniversitiesData.ts      # Üniversite verisi için cache'li client fetch hook'u (/api/universities)
+│   ├── communities/
+│   │   └── chapters.ts             # 5 ihtiyaç-bölümü metadata (TR/EN title/intro/citySummary) + getCommunitiesByChapter() bucketer
+│   ├── mentor/
+│   │   └── channels.ts             # 3 danışma masası tanımı (AI / volunteer / expert) + MentorChannel tipleri + getMentorChannel() helper
 │   └── scholarships/
 │       └── regions.ts              # 20 bölge burs registry + verified/pending detay katmanı
 ├── types/
@@ -103,9 +114,16 @@ italypath-main/
 ├── next.config.ts                  # Next.js yapılandırması (remotePatterns: Unsplash, Pexels, plus.unsplash.com)
 ├── proxy.ts                        # Clerk Request Boundary (Next.js 16 standardı)
 ├── scripts/
-│   ├── check-route-access.mjs      # Public/protected route matrisi smoke check
-│   ├── validate-data-integrity.mjs # data.ts bütünlük kontrolü (id/slug/override/type dağılımı)
-│   └── clean-med-data.mjs          # `med` kaynağını parse/temizleyip eşleşme+override çıktısı üretir
+│   ├── check-route-access.mjs              # Public/protected route matrisi smoke check
+│   ├── validate-supabase-university-data.mjs # Supabase üniversite veri doğrulaması (npm run check:data hedefi)
+│   ├── validate-data-integrity.mjs         # data.ts bütünlük kontrolü (npm run check:local-data)
+│   ├── check-editorial-ui.mjs              # Editorial UI tokens smoke check (paper/sage/terracotta + serif kullanımı)
+│   ├── check-isee-calculator.mjs           # ISEE hesaplayıcı formül doğrulaması
+│   ├── check-scholarships-editorial-atlas.mjs # Scholarships atlas yapısı doğrulaması
+│   ├── check-universities-field-guide.mjs  # Universities sayfası alan rehberi doğrulaması
+│   ├── check-university-data-source.mjs    # Üniversite veri kaynağı (Supabase vs data.ts) tutarlılığı
+│   ├── check-university-department-merge.mjs # Üniversite-bölüm merge doğrulaması
+│   └── clean-med-data.mjs                  # `med` kaynağını parse/temizleyip eşleşme+override çıktısı üretir
 ├── DATA_ENTRY_GUIDE.md             # Yeni bölüm/dil/süre/seviye giriş rehberi (default+override akışı)
 ├── SUPABASE_SECURITY_RUNBOOK.md    # Clerk + Supabase RLS adım adım operasyon rehberi
 ├── supabase/
@@ -134,17 +152,19 @@ italypath-main/
 - Auth durumu değiştiğinde state deterministik temizlenir; logout sonrası stale favori state'i bırakılmaz
 - Optimistic update uygulanmış (UI anında güncellenir, Supabase response `error` dönerse geri alınır)
 
-### 3. AI Mentor Streaming
-- **Backend** (`api/chat/route.ts`): `@google/generative-ai` paketi ile `sendMessageStream` kullanılır
-- Tüm mesaj geçmişi Gemini chat history olarak iletilir (sohbet hafızası)
-- Sistem promptu: Üniversite veritabanından oluşturulan bağlam + mentör kişilik tanımı
-- İstek gövdesi temel şema doğrulamasından geçer (`messages[]`, rol, boş olmayan içerik, adet/uzunluk sınırları)
-- `GEMINI_API_KEY` yoksa kontrollü `503` döner; malformed body doğrudan `500` üretmez
-- **Frontend** (`ai-mentor/page.tsx`): `fetch` + `ReadableStream` + `TextDecoder` ile chunk chunk okuma
-- `AbortController` ile kullanıcı yanıtı yarıda kesebilir (kırmızı durdur butonu)
-- Stream başlayana kadar zıplayan 3 nokta animasyonu gösterilir
-- Scroll davranışı chunk akışında stabil olacak şekilde ayarlanmıştır: yeni mesaj balonunda `smooth`, stream token güncellemelerinde `auto`
-- AI Mentor ekranındaki temel UI metinleri artık `lib/translations.ts` üzerinden dil uyumlu çalışır
+### 3. AI Mentor → Consultation Desks Hub
+- `/ai-mentor` artık üç-masalı danışma hub'ı: **ItalyPath AI** (aktif, Gemini), **ItalyPath Gönüllü Ekip** (yakında, ücretsiz/sınırlı), **ItalyPath Uzman** (yakında, ücretli)
+- Tek route, state-toggle: sayfa açılınca hub görünür → masaya tıkla → chat room'a `AnimatePresence mode="wait"` geçişi → `Masalar` butonu hub'a döner
+- UI editöryel sütun: bubble yok, avatar yok, sparkle yok, "online" status yok — rol typography ile ayrılır (sans-bold soru / serif Markdown cevap)
+- **EntryPair anatomy**: terracotta `SORU NN` micro-label → sans bold soru → hairline border → serif Markdown response → ink streaming cursor (`.animate-pulse-cursor`, `prefers-reduced-motion` guard'lı)
+- Per-channel message history aynı oturum içinde korunur (`Record<MentorChannelId, ChatMessage[]>`); `Sıfırla` sadece aktif kanalı temizler, hub'a gitmez
+- Kilitli masalar (Gönüllü Ekip + Uzman): aynı chat shell + `LockedDeskNotice` (editöryel monogram + serif "yakında" + `mailto:contact@italypath.com` notify CTA); input disabled
+- **Backend** (`api/chat/route.ts`): değişmedi — `@google/generative-ai` `sendMessageStream`, full history, Üniversite veritabanından sistem promptu, ReadableStream yanıt, malformed body → 400, no key → 503
+- **Frontend stream** (`app/ai-mentor/page.tsx`): `fetch` + `ReadableStream` + `TextDecoder` chunk okuma, `AbortController` durdur — eski davranış birebir korundu; channel switch sırasında inflight stream abort edilir
+- Status vocabulary: `HAZIR` (idle muted) / `YAZIYOR…` (streaming sage) / `YAKINDA` (locked muted) / `HATA` (error terracotta) — top bar'da `AnimatePresence` ile cross-fade
+- Component decomposition: `MentorHub`, `MentorChatRoom`, `EntryPair`, `LockedDeskNotice`, `StarterPrompts`, `MentorTopBar` — her biri `components/mentor/` altında, tek sorumluluk
+- Channel meta: `lib/mentor/channels.ts` — `MentorChannel` tipi + `MENTOR_CHANNELS` array + `getMentorChannel()` helper
+- Translations: `t.aiMentor` bloğu tamamen yeniden yazıldı — hub + status + channels nested shape; eski `welcome`/`thinking`/`title` keys kaldırıldı, AI welcome mesajı silindi (boş ekran starter prompts gösterir)
 
 ### 4. Belge Cüzdanı
 - Supabase Storage `documents` bucket'ına dosya yükleme
@@ -235,14 +255,19 @@ italypath-main/
 - Mobil taşma stabilizasyonu için grid/kart kapsayıcılarına `min-w-0` ve uzun link metinlerine `truncate` guard'ları eklendi; map alanı bölge değişiminde yatay overflow nedeniyle kayma/kırpma üretmez.
 - SVG tarafında `preserveAspectRatio="xMidYMid meet"` açıkça set edilerek farklı cihaz en-boy oranlarında haritanın tutarlı ölçeklenmesi garanti altına alındı.
 
-### 15. Kürate Edilmiş Öğrenci Toplulukları (Communities)
+### 15. Editöryel Topluluk Atlas'ı (Communities)
 - Rota: `/communities` (public), ek kısa yol: `/topluluklar` (redirect -> `/communities`)
-- Sayfa: `app/communities/page.tsx` (metadata + canonical), client leaf: `components/communities/CommunityLinksExplorer.tsx`
-- Veri modeli: `lib/community-links.ts` içinde `CommunityPlatform`, `CommunityCategory`, `CommunitySizeHint`, `CommunityLink`
-- Veri seti: User-confirmed WhatsApp/Telegram/Facebook girişleriyle düzenli genişletilir; güncel listede Bologna/Roma housing odaklı ve genel topluluk kayıtları da bulunur.
-- İçerik yaklaşımı: resmi topluluk iddiası yok; sayfa açık şekilde "editoryal/kürate edilmiş dış topluluk rehberi" olarak konumlanır.
-- Güven ilkeleri: fake üye sayısı, fake aktivite, fake social proof gösterilmez; kartlarda yalnızca status, verification source ve `lastCheckedAt` bilgisi bulunur.
-- Keşfedilebilirlik: masaüstü navbar ve Hero CTA üzerinden topluluklara erişim açıktır; ayrıca `/hub` içindeki hızlı aksiyon kartları topluluklara geçiş sağlar.
+- Sayfa: `app/communities/page.tsx` (metadata + canonical), client leaf: `components/communities/CommunityAtlas.tsx` — eski filter/badge dashboard tamamen kaldırıldı
+- Veri modeli: `lib/community-links.ts` içinde `CommunityPlatform`, `CommunityCategory`, `CommunitySizeHint`, `CommunityLink` + **yeni** `CommunityChapter` alanı (her topluluk bir ihtiyaç-bölümüne atanır, zorunlu)
+- Bölüm metadata: `lib/communities/chapters.ts` — `CommunityChapterMeta` (TR/EN title/intro/citySummary) + `getCommunitiesByChapter()` bucketer (status-then-name sıralı)
+- 5 ihtiyaç-bölümü: `preparation` (3 topluluk), `housing` (4), `university` (5), `city-voice` (5), `pan-italy` (2) = toplam 19
+- UI iskeleti: top bar + hero (eyebrow + serif H1 + intro + terracotta-bordered kürasyon notu) + İçindekiler (lg: 5-sütun grid, mobil: `mask-fade-horizontal` snap strip) + 5 bölüm bloğu + footer "Topluluk Öner" mailto CTA
+- Bölüm bloğu: terracotta numara (01..05) + `font-serif text-3xl/4xl` başlık + italic serif intro + LinkRow listesi
+- Entry row anatomy: 2-harf platform monogram (WA sage / TG terracotta / FB ink, ikon yok) + name + sağda `region · last-checked` meta + opsiyonel italic serif blurb (sadece `editorialNote` dolu olanlarda — hybrid voice) + `AÇ ↗` terracotta dış-link
+- Search/filter/badge UI tamamen kaldırıldı — atlas yapısı kendi navigasyonunu sağlar; İçindekiler hash anchor'lar (`#chapter-housing` vs.) ile bölümlere atlar
+- İçerik yaklaşımı: resmi topluluk iddiası yok; sayfa "editoryal/kürate edilmiş dış topluluk rehberi" olarak konumlanır; fake üye sayısı/aktivite/social proof yok
+- Atlas pattern, scholarships sayfası ile aynı görsel dilden (paper background, serif + sans, border-divided rows, no SaaS cards)
+- Keşfedilebilirlik: masaüstü navbar, Hero CTA ve `/hub` hızlı aksiyon kartları üzerinden erişim açık
 
 ### 16. Protected Hub / Hesabım (`/hub`)
 - Rota: `/hub` (protected)
@@ -300,12 +325,19 @@ Dosya: `.env.local` (git'te yok, `.gitignore`'da)
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000
-npm run build      # Production build
-npm run lint       # ESLint kontrolü
-npm run check:routes # proxy.ts public/protected route matrisi doğrulaması
-npm run check:data # data.ts bütünlük ve dağılım kontrolü
-npm run clean:med  # med kaynağını temizleyip matched/unmatched/override çıktısı üretir
+npm run dev                              # http://localhost:3000
+npm run build                            # Production build
+npm run lint                             # ESLint kontrolü
+npm run check:routes                     # proxy.ts public/protected route matrisi doğrulaması
+npm run check:data                       # Supabase üniversite veri doğrulaması (validate-supabase-university-data.mjs)
+npm run check:local-data                 # data.ts bütünlük kontrolü (validate-data-integrity.mjs)
+npm run check:isee                       # ISEE hesaplayıcı formül doğrulaması
+npm run check:scholarships-ui            # Scholarships atlas yapısı doğrulaması
+npm run check:universities-ui            # Universities field guide doğrulaması
+npm run check:editorial-ui               # Editorial UI tokens smoke check
+npm run check:university-data-source     # Üniversite veri kaynağı (Supabase vs data.ts) tutarlılığı
+npm run check:university-department-merge # Üniversite-bölüm merge doğrulaması
+npm run clean:med                        # med kaynağını parse + matched/unmatched/override çıktısı
 ```
 
 ---
