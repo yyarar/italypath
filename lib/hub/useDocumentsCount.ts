@@ -28,11 +28,11 @@ export function useDocumentsCount(): {
   );
 
   useEffect(() => {
-    let active = true;
+    let isActive = true;
 
     async function load() {
       if (!user?.id) {
-        if (!active) return;
+        if (!isActive) return;
         setCount(0);
         setLoading(false);
         setUnavailable(false);
@@ -47,7 +47,7 @@ export function useDocumentsCount(): {
         .select("id", { count: "exact", head: true })
         .eq("user_id", user.id);
 
-      if (!active) return;
+      if (!isActive) return;
 
       if (error) {
         console.error("[hub] document count fetch failed:", error);
@@ -62,7 +62,7 @@ export function useDocumentsCount(): {
 
     void load();
     return () => {
-      active = false;
+      isActive = false;
     };
   }, [supabase, user?.id]);
 
