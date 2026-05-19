@@ -28,12 +28,12 @@ export default function HubPage() {
   const { favorites, loading: favoritesLoading } = useFavorites();
   const { count: documentsCount, loading: documentsCountLoading, unavailable: documentsUnavailable } = useDocumentsCount();
   const { stage } = useHubStage();
-  const { universities } = useUniversitiesData();
+  const { universities, loading: universitiesLoading } = useUniversitiesData();
 
   // useFavorites returns number[]; KisaListeCell expects readonly string[]
   const favoritesAsStrings: readonly string[] = favorites.map(String);
 
-  const loading = !userLoaded || favoritesLoading || documentsCountLoading;
+  const loading = !userLoaded || favoritesLoading || documentsCountLoading || universitiesLoading;
 
   if (loading) {
     return (

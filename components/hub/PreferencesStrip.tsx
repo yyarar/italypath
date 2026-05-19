@@ -4,16 +4,18 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import { useLanguage } from "@/context/LanguageContext";
+import {
+  UNIVERSITIES_VIEW_MODE_EVENT,
+  UNIVERSITIES_VIEW_MODE_STORAGE_KEY,
+} from "@/lib/universitiesFilters";
 
 type UniversityViewMode = "grid" | "compact";
 
-const VIEW_MODE_KEY = "italyPathUniversitiesViewMode";
-const VIEW_MODE_EVENT = "italypath-universities-view-mode-change";
 const MENTOR_DESK_KEY = "italyPathLastMentorDesk";
 
 function readViewMode(): UniversityViewMode {
   if (typeof window === "undefined") return "grid";
-  const stored = window.localStorage.getItem(VIEW_MODE_KEY);
+  const stored = window.localStorage.getItem(UNIVERSITIES_VIEW_MODE_STORAGE_KEY);
   return stored === "compact" ? "compact" : "grid";
 }
 
@@ -34,10 +36,10 @@ export default function PreferencesStrip() {
     };
     sync();
     window.addEventListener("storage", sync);
-    window.addEventListener(VIEW_MODE_EVENT, sync);
+    window.addEventListener(UNIVERSITIES_VIEW_MODE_EVENT, sync);
     return () => {
       window.removeEventListener("storage", sync);
-      window.removeEventListener(VIEW_MODE_EVENT, sync);
+      window.removeEventListener(UNIVERSITIES_VIEW_MODE_EVENT, sync);
     };
   }, []);
 
