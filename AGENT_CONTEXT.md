@@ -63,7 +63,7 @@ italypath-main/
 │   │               └── page.tsx   # Bölüm detay UI (`use client`)
 │   ├── documents/page.tsx          # Belge cüzdanı (Supabase Storage upload/delete + premium empty state)
 │   ├── favorites/page.tsx          # Favori üniversiteler listesi (premium empty state + 3 öneri kartı)
-│   ├── hub/page.tsx                # Protected kişisel merkez (Clerk profil kartı + Supabase özet + hızlı aksiyonlar)
+│   ├── hub/page.tsx                # Protected editöryel çalışma dosyası (orchestrator: DossierHero + StageStrip + 2×2 Bento + Tercihler + Account footer)
 │   ├── isee/page.tsx               # ISEE burs hesaplayıcı (scala equivalente formülü)
 │   └── scholarships/page.tsx       # Bölgesel burs haritası sayfası (metadata + Suspense boundary)
 ├── components/
@@ -78,6 +78,17 @@ italypath-main/
 │   ├── Footer.tsx                  # Alt bilgi (logo, sosyal etiketler)
 │   ├── communities/
 │   │   └── CommunityAtlas.tsx       # Editöryel topluluk atlası (5 ihtiyaç-bölümü, hybrid editor voice, no filter/badge)
+│   ├── hub/
+│   │   ├── DossierTopStrip.tsx      # Profil chip (avatar + ad + email) + sağ üst ITALYPATH·tarih etiketi
+│   │   ├── DossierHero.tsx          # Eyebrow + stage-aware serif h1 (italic sage second-read) + dinamik lede + 2-cell stat strip
+│   │   ├── StageStrip.tsx           # 5 aşama yatay rail (Keşif→Sonuç) — tıklanabilir, layoutId marker, pulse ring, reduced-motion guard
+│   │   ├── BentoGrid.tsx            # 2×2 grid wrapper (mobile 4-stack), 36px label kolonu
+│   │   ├── KisaListeCell.tsx        # Favoriler top-3 önizleme + empty state ("/12" aspirational cap)
+│   │   ├── BelgeCell.tsx            # 8-item core kit checklist (sequential mapping — editorial conceit), empty/unavailable states
+│   │   ├── BursNotuCell.tsx         # Tinted krem cell, serif italic pull-quote terracotta 「」 brackets
+│   │   ├── ToplulukNotuCell.tsx     # Editöryel nudge + 3 dekoratif tag pill
+│   │   ├── PreferencesStrip.tsx     # Dil toggle + Liste görünümü read-only + Mentor masası (italyPathLastMentorDesk forward-compat)
+│   │   └── AccountFooter.tsx        # Sessiz hesap aksiyonları (manage + sign-out, terracotta hover, tactile :active)
 │   ├── mentor/
 │   │   ├── MentorTopBar.tsx         # Hub + chat ortak header (back link, identity, status badge, lang toggle)
 │   │   ├── MentorHub.tsx            # 3-masa danışma roster (AI / Gönüllü Ekip / Uzman) editöryel satırlar
@@ -104,6 +115,10 @@ italypath-main/
 │   ├── useUniversitiesData.ts      # Üniversite verisi için cache'li client fetch hook'u (/api/universities)
 │   ├── communities/
 │   │   └── chapters.ts             # 5 ihtiyaç-bölümü metadata (TR/EN title/intro/citySummary) + getCommunitiesByChapter() bucketer
+│   ├── hub/
+│   │   ├── stages.ts                # STAGE_IDS (discovery/shortlist/documents/application/result) + HubStageId/StageState tipleri + getStageState() helper
+│   │   ├── useHubStage.ts           # `italyPathStage` localStorage hook'u (useSyncExternalStore + cross-tab `italypath-hub-stage-change` event)
+│   │   └── useDocumentsCount.ts     # Supabase user_documents head+count sorgusu (Clerk JWT, error-tolerant)
 │   ├── mentor/
 │   │   └── channels.ts             # 3 danışma masası tanımı (AI / volunteer / expert) + MentorChannel tipleri + getMentorChannel() helper
 │   └── scholarships/
@@ -269,17 +284,26 @@ italypath-main/
 - Atlas pattern, scholarships sayfası ile aynı görsel dilden (paper background, serif + sans, border-divided rows, no SaaS cards)
 - Keşfedilebilirlik: masaüstü navbar, Hero CTA ve `/hub` hızlı aksiyon kartları üzerinden erişim açık
 
-### 16. Protected Hub / Hesabım (`/hub`)
-- Rota: `/hub` (protected)
-- Amaç: Clerk account panelinin kopyası değil, uygulama içi kişisel merkez deneyimi.
-- Veri kaynağı:
+### 16. Protected Hub / Çalışma Dosyası (`/hub`)
+- Rota: `/hub` (protected, `auth.protect()` via proxy.ts)
+- Amaç: editöryel "çalışma dosyası" deneyimi — ana sayfadaki StudyDossier kartının tam sayfaya açılmış hali. Generic SaaS dashboard değil.
+- **Görsel dil:** editöryel paper/sage/terracotta palet, serif manşetler, sharp borders. Gradient/sparkle/indigo yasak. Hero h1 stage'a göre dinamik (`Belge toplama *aşamasındasın*` gibi italic sage second-read).
+- **Mimari:** `app/hub/page.tsx` orchestrator + signed-out + skeleton; tüm görsel yapı `components/hub/` altında 10 stateless component'te (DossierTopStrip · DossierHero · StageStrip · BentoGrid · 4 cell · PreferencesStrip · AccountFooter).
+- **Sayfa iskeleti (üstten alta):** top strip (profil chip + tarih) → hero (eyebrow + serif h1 + lede + 2-cell stat strip Favori/Belge) → 5 adımlı StageStrip → 2×2 Bento (Kısa Liste · Belge Kontrolü · Burs Notu krem · Topluluk) → 3-cell Tercihler şeridi → AccountFooter.
+- **Aşama takibi:** localStorage `italyPathStage` (5 sabit ID: discovery/shortlist/documents/application/result). `lib/hub/useHubStage.ts` hook'u `useSyncExternalStore` + cross-tab event ile sync sağlar. Tıkla → aşamayı set et; öncekiler otomatik "done" türetilir. Aktif step terracotta üst-bar + sage nabız (CSS `animate-hub-stage-pulse`, reduced-motion guard'lı).
+- **Bento cell border kuralı:** `sm:[&:nth-child(odd)]:border-r` + `sm:[&:nth-child(n+3)]:border-b-0` + `last:border-b-0` — wrapper border ile çakışmasın diye `border-r` mobile'da YOK.
+- **Veri kaynakları (yeni Supabase tablosu YOK):**
   - Clerk: avatar, isim fallback zinciri, primary email, `openUserProfile()`, sign-out
-  - Supabase: `user_documents` için count sorgusu (`head + exact count`)
-  - Mevcut hook/state: `useFavorites` ile favori sayısı, `LanguageContext` ile aktif dil, `localStorage` ile `italyPathUniversitiesViewMode`
-- V1 kapsamı: yeni Supabase tablo/policy/env yok; mevcut `favorites` ve `user_documents` altyapısı yeniden kullanılır.
-- UI yapısı: profil hero kartı, 4 özet kartı (favoriler/belgeler/dil/liste görünümü), hızlı aksiyon grid'i (`favorites`, `documents`, `universities`, `communities`, `scholarships`, `ai-mentor`), hesap yönetimi CTA ve çıkış butonu.
-- Güvenlik & indexleme: route public değil; `robots.txt` içinde `/hub` disallow.
-- Navigasyon: signed-in kullanıcı için Navbar'da `/hub` linki bulunur; mobil BottomNav'da topluluk sekmesi Hub/Profil sekmesine dönüştürülmüştür (signed-out kullanıcıya login redirect).
+  - Supabase: `user_documents` count (`lib/hub/useDocumentsCount.ts`, error-tolerant, "unavailable" state)
+  - Mevcut hook/state: `useFavorites` (favori sayısı + ilk 3), `useUniversitiesData` (favori isim/şehir resolve), `LanguageContext`, localStorage `italyPathUniversitiesViewMode` (canonical import `UNIVERSITIES_VIEW_MODE_STORAGE_KEY` from `lib/universitiesFilters.ts`)
+  - Forward-compat: `italyPathLastMentorDesk` localStorage anahtarı PreferencesStrip'te okunur ama henüz yazan yok (mentor sayfası yazınca aktif olur)
+- **Belge checklist editorial conceit:** 8-item core kit (Pasaport/Transkript/Dil/Diploma/Motivasyon/CV/Tavsiye/İSEE) sıralı done-mapping — döküman TYPE'ı saklanmadığından sıralı tick decorative; home StudyDossier ile aynı konvansiyon.
+- **Token + animasyon eklentileri:** `--editorial-band: #f5f1e8` (krem) ve `@keyframes hub-stage-pulse` (2.4s) — `app/globals.css` içine eklendi, reduced-motion media query'ye dahil.
+- **Translations:** `t.hub` namespace TR + EN paralel; yeni nested key'ler (dossierEyebrow, dossierHeadline, dossierLede, stages, heroStats, bento, preferences, accountFooter, topStripEyebrow, stageStripLabel, bentoStripLabel, preferencesStripLabel). Eski hub key'leri (statusGettingStarted, summaryTitle, quickActionsTitle, profileBadge, action* vb.) tamamen kaldırıldı.
+- **Güvenlik & indexleme:** `robots.txt` disallow `/hub`; sitemap'te yok.
+- **Navigasyon:** signed-in kullanıcı için Navbar'da `/hub` linki; mobil BottomNav'ın 4. sekmesi (signed-out → sign-in redirect).
+- **Açık follow-up (kritik değil):** mentor sayfasından `italyPathLastMentorDesk` write ekle; DossierHero'daki `/ 12` ve `/ 8` magic number'lar sabite çıkarılabilir.
+- **Spec/Plan:** [`docs/superpowers/specs/2026-05-18-hub-redesign-design.md`](docs/superpowers/specs/2026-05-18-hub-redesign-design.md) · [`docs/superpowers/plans/2026-05-18-hub-redesign-plan.md`](docs/superpowers/plans/2026-05-18-hub-redesign-plan.md)
 
 ---
 
