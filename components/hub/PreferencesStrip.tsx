@@ -45,7 +45,11 @@ export default function PreferencesStrip() {
 
   const viewModeLabel =
     viewMode === "compact" ? t.hub.viewModeCompact : t.hub.viewModeGrid;
-  const mentorLabel = mentorDesk ?? t.hub.preferences.mentor.defaultValue;
+  const deskLabels = t.hub.preferences.mentor.deskLabels;
+  const mentorLabel =
+    mentorDesk && mentorDesk in deskLabels
+      ? deskLabels[mentorDesk as keyof typeof deskLabels]
+      : t.hub.preferences.mentor.defaultValue;
   const languageLabel = language === "tr" ? "Türkçe" : "English";
 
   return (

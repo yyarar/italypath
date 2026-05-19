@@ -348,7 +348,15 @@ export const translations = {
       preferences: {
         language: { label: "Dil", toggleLabel: "EN'e Geç" },
         viewMode: { label: "Liste Görünümü" },
-        mentor: { label: "Mentor Masası", defaultValue: "AI · Aktif" },
+        mentor: {
+          label: "Mentor Masası",
+          defaultValue: "Henüz ziyaret edilmedi",
+          deskLabels: {
+            ai: "AI · Son ziyaret",
+            volunteer: "Gönüllü · Son ziyaret",
+            expert: "Uzman · Son ziyaret",
+          },
+        },
       },
       accountFooter: {
         label: "HESAP",
@@ -781,7 +789,15 @@ export const translations = {
       preferences: {
         language: { label: "Language", toggleLabel: "Switch to TR" },
         viewMode: { label: "List view" },
-        mentor: { label: "Mentor desk", defaultValue: "AI · Active" },
+        mentor: {
+          label: "Mentor desk",
+          defaultValue: "Not visited yet",
+          deskLabels: {
+            ai: "AI · Last visit",
+            volunteer: "Volunteer · Last visit",
+            expert: "Expert · Last visit",
+          },
+        },
       },
       accountFooter: {
         label: "ACCOUNT",

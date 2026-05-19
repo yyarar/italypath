@@ -5,6 +5,12 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import type { HubStageId } from "@/lib/hub/stages";
 
+// Aspirational caps shown in the hero stat strip and bento counters.
+// These are decorative ("3 / 12") — the app does not enforce these limits;
+// they communicate "your dossier could hold up to N items".
+const MAX_FAVORITES = 12;
+const MAX_DOCUMENTS = 8;
+
 interface DossierHeroProps {
   stage: HubStageId;
   favoritesCount: number;
@@ -73,7 +79,7 @@ export default function DossierHero({
             {t.hub.heroStats.favorites.label}
           </p>
           <p className="mt-2 font-serif text-3xl font-normal tracking-[-0.02em] text-[var(--editorial-ink)]">
-            {favoritesCount} / 12
+            {favoritesCount} / {MAX_FAVORITES}
           </p>
           <p className="mt-1 text-[11px] text-[var(--editorial-muted)]">
             {t.hub.heroStats.favorites.sub}
@@ -84,7 +90,7 @@ export default function DossierHero({
             {t.hub.heroStats.documents.label}
           </p>
           <p className="mt-2 font-serif text-3xl font-normal tracking-[-0.02em] text-[var(--editorial-ink)]">
-            {documentsUnavailable ? "—" : `${documentsCount} / 8`}
+            {documentsUnavailable ? "—" : `${documentsCount} / ${MAX_DOCUMENTS}`}
           </p>
           <p className="mt-1 text-[11px] text-[var(--editorial-muted)]">
             {t.hub.heroStats.documents.sub}

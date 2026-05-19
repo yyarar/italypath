@@ -58,6 +58,9 @@ export default function AIMentorPage() {
       abortInflightStream();
       setIsStreaming(false);
       setActiveChannelId(id);
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("italyPathLastMentorDesk", id);
+      }
     },
     [abortInflightStream],
   );
