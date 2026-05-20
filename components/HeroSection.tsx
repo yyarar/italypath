@@ -204,15 +204,27 @@ export default function HeroSection({ stats }: HeroSectionProps) {
             variants={itemVariants}
             className="mt-10 grid max-w-xl grid-cols-3 border-y border-[var(--editorial-border)] text-sm"
           >
-            {[
-              [formatStatValue(stats.universitiesCount), language === "tr" ? "üniversite" : "universities"],
-              [formatStatValue(stats.programsCount), language === "tr" ? "program" : "programs"],
-              ["20", language === "tr" ? "bölge" : "regions"],
-            ].map(([value, label]) => (
-              <div key={label} className="py-4 pr-4">
-                <p className="text-2xl font-semibold tracking-[-0.02em] text-[var(--editorial-ink)]">{value}</p>
+            {(language === "tr"
+              ? [
+                  { value: formatStatValue(stats.universitiesCount), label: "üniversite", href: "/universities", ariaLabel: "Üniversite listesine git" },
+                  { value: formatStatValue(stats.programsCount), label: "program", href: "/universities", ariaLabel: "Program listesine git" },
+                  { value: "20", label: "bölge", href: "/scholarships", ariaLabel: "Bölgesel burs haritasına git" },
+                ]
+              : [
+                  { value: formatStatValue(stats.universitiesCount), label: "universities", href: "/universities", ariaLabel: "Open university list" },
+                  { value: formatStatValue(stats.programsCount), label: "programs", href: "/universities", ariaLabel: "Open program list" },
+                  { value: "20", label: "regions", href: "/scholarships", ariaLabel: "Open regional scholarship map" },
+                ]
+            ).map(({ value, label, href, ariaLabel }) => (
+              <Link
+                key={label}
+                href={href}
+                aria-label={ariaLabel}
+                className="group block py-4 pr-4 transition-colors hover:bg-[var(--editorial-band)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--editorial-sage)]"
+              >
+                <p className="text-2xl font-semibold tracking-[-0.02em] text-[var(--editorial-ink)] transition-colors group-hover:text-[var(--editorial-sage)]">{value}</p>
                 <p className="mt-1 text-xs text-[var(--editorial-muted)]">{label}</p>
-              </div>
+              </Link>
             ))}
           </motion.div>
         </div>
