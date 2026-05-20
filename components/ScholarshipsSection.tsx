@@ -8,7 +8,18 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function ScholarshipsSection() {
   const { t, language } = useLanguage();
-  const regions = language === "tr" ? ["Lazio", "Lombardia", "Emilia-Romagna"] : ["Lazio", "Lombardy", "Emilia-Romagna"];
+  const regions: Array<{ slug: "lazio" | "lombardia" | "emilia-romagna"; name: string }> =
+    language === "tr"
+      ? [
+          { slug: "lazio", name: "Lazio" },
+          { slug: "lombardia", name: "Lombardia" },
+          { slug: "emilia-romagna", name: "Emilia-Romagna" },
+        ]
+      : [
+          { slug: "lazio", name: "Lazio" },
+          { slug: "lombardia", name: "Lombardy" },
+          { slug: "emilia-romagna", name: "Emilia-Romagna" },
+        ];
 
   return (
     <section className="bg-[var(--editorial-paper)] pb-16 lg:pb-20">
@@ -46,19 +57,23 @@ export default function ScholarshipsSection() {
               {language === "tr" ? "Öncelikli kontrol" : "Priority checks"}
             </div>
             <div className="divide-y divide-[var(--editorial-border)]">
-              {regions.map((region, index) => (
-                <div key={region} className="grid grid-cols-[2rem_1fr_auto] items-center gap-3 py-4">
+              {regions.map(({ slug, name }, index) => (
+                <Link
+                  key={slug}
+                  href={`/scholarships?region=${slug}`}
+                  className="group grid grid-cols-[2rem_1fr_auto] items-center gap-3 py-4 transition-colors hover:bg-[var(--editorial-band)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--editorial-sage)]"
+                >
                   <span className="text-sm font-semibold text-[var(--editorial-terracotta)]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-[var(--editorial-ink)]">{region}</p>
+                    <p className="text-sm font-semibold text-[var(--editorial-ink)]">{name}</p>
                     <p className="mt-1 text-xs text-[var(--editorial-muted)]">
                       {language === "tr" ? "ISEE, yurt ve yemek desteği" : "ISEE, housing, and meal support"}
                     </p>
                   </div>
-                  <ArrowRight className="h-4 w-4 text-[var(--editorial-muted)]" />
-                </div>
+                  <ArrowRight className="h-4 w-4 text-[var(--editorial-muted)] transition-transform group-hover:translate-x-0.5" />
+                </Link>
               ))}
             </div>
             <p className="py-4 text-xs leading-5 text-[var(--editorial-muted)]">{t.homeScholarshipsCta.note}</p>
