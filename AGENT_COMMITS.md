@@ -445,3 +445,57 @@
 | `app/page.tsx`, `components/HeroSection.tsx`, `components/FeaturesSection.tsx`, `components/VelocityBridge.tsx` | ♻️ Ana sayfa üniversite/program sayaçları hard-code `64/240` yerine `/api/universities` kaynaklı canlı sayılara bağlandı |
 | `scripts/validate-supabase-university-data.mjs` | 🆕 `npm run check:data` artık Supabase canlı veri bütünlüğünü doğruluyor (`64 university / 891 department`) |
 | `scripts/check-university-data-source.mjs` | 🆕 App yüzeylerinde local `universitiesData` ve eski `240 program` sabitinin geri dönmesini engelleyen guard eklendi |
+
+### Commit 51 (Mentor 3-Masa Danışma Hub'ı):
+| Dosya | Değişiklik |
+|-------|------------|
+| `app/ai-mentor/page.tsx` | ♻️ Eski: tek-stream chatbot UI → ✅ Yeni: AI / Volunteer / Expert üç-masa orkestrasyonu (kanal-bazlı mesaj geçmişi, abort isolation, view transition) |
+| `components/mentor/MentorHub.tsx` | 🆕 Oluşturuldu: 3-masa editöryel roster (numaralı satırlar, italic tagline, status badge) |
+| `components/mentor/MentorChatRoom.tsx` | 🆕 Oluşturuldu: editöryel sütun chat shell — 3 masa için aynı UI, locked branch'li |
+| `components/mentor/MentorTopBar.tsx` | 🆕 Oluşturuldu: Hub + chat ortak header (back link, identity, dil toggle) |
+| `components/mentor/EntryPair.tsx` | 🆕 Oluşturuldu: SORU NN + sans-bold soru + hairline + serif Markdown cevap + ink cursor |
+| `components/mentor/StarterPrompts.tsx` | 🆕 Oluşturuldu: AI boş-ekran 4 prompt chip (sparkle/indigo yok) |
+| `components/mentor/LockedDeskNotice.tsx` | 🆕 Oluşturuldu: Yakında masaları için merkezi editöryel kart + mailto notify CTA |
+| `lib/mentor/channels.ts` | 🆕 Oluşturuldu: 3 danışma masası tanımı + MentorChannel tipleri + getMentorChannel() helper |
+| `lib/translations.ts` | ➕ `aiMentor.channels`, locked badge'ler, status etiketleri eklendi |
+
+### Commit 52 (Communities Atlas Redesign):
+| Dosya | Değişiklik |
+|-------|------------|
+| `app/communities/page.tsx` | ♻️ Eski: filter dashboard → ✅ Yeni: 5 ihtiyaç-bölümü editöryel atlas yönlendiricisi |
+| `components/communities/CommunityAtlas.tsx` | 🆕 Oluşturuldu: editöryel atlas leaf, hybrid editor voice, badge/filter yok |
+| `lib/community-links.ts` | ➕ Yeni `CommunityChapter` alanı (her kayıt bir ihtiyaç-bölümüne atanır, zorunlu) |
+| `lib/communities/chapters.ts` | 🆕 Oluşturuldu: 5 ihtiyaç-bölümü metadata (TR/EN title/intro/citySummary) + getCommunitiesByChapter() bucketer |
+
+### Commit 53 (Hub Editöryel Çalışma Dosyası):
+| Dosya | Değişiklik |
+|-------|------------|
+| `app/hub/page.tsx` | ♻️ Eski: generic SaaS dashboard (indigo gradient + sparkle + 6-cell action grid) → ✅ Yeni: editöryel çalışma dosyası orkestratörü + skeleton + signed-out |
+| `components/hub/DossierTopStrip.tsx` | 🆕 Oluşturuldu: profil chip + sağ üst ITALYPATH·tarih |
+| `components/hub/DossierHero.tsx` | 🆕 Oluşturuldu: eyebrow + stage-aware serif h1 + dinamik lede + 2-cell stat strip |
+| `components/hub/StageStrip.tsx` | 🆕 Oluşturuldu: 5 aşama yatay rail, tıklanabilir, layoutId marker, pulse ring, reduced-motion guard |
+| `components/hub/BentoGrid.tsx` | 🆕 Oluşturuldu: 2×2 grid wrapper (mobile 4-stack) |
+| `components/hub/KisaListeCell.tsx` | 🆕 Oluşturuldu: favoriler top-3 önizleme + empty state |
+| `components/hub/BelgeCell.tsx` | 🆕 Oluşturuldu: 8-item core kit checklist (sequential mapping) + empty/unavailable states |
+| `components/hub/BursNotuCell.tsx` | 🆕 Oluşturuldu: tinted krem cell, serif italic pull-quote terracotta 「」 brackets |
+| `components/hub/ToplulukNotuCell.tsx` | 🆕 Oluşturuldu: editöryel nudge + 3 dekoratif tag pill |
+| `components/hub/PreferencesStrip.tsx` | 🆕 Oluşturuldu: dil toggle + liste görünümü + mentor masası (`italyPathLastMentorDesk` lookup) |
+| `components/hub/AccountFooter.tsx` | 🆕 Oluşturuldu: sessiz hesap aksiyonları (manage + sign-out) |
+| `lib/hub/stages.ts` | 🆕 Oluşturuldu: STAGE_IDS + tipler + getStageState() |
+| `lib/hub/useHubStage.ts` | 🆕 Oluşturuldu: `italyPathStage` localStorage hook (useSyncExternalStore + cross-tab event) |
+| `lib/hub/useDocumentsCount.ts` | 🆕 Oluşturuldu: Supabase user_documents count (Clerk JWT, error-tolerant) |
+| `app/globals.css` | ➕ `--editorial-band: #f5f1e8`, `@keyframes hub-stage-pulse`, reduced-motion guard genişletildi |
+| `lib/translations.ts` | ♻️ Eski hub key'leri (25 adet) kaldırıldı, dossier namespace eklendi (TR + EN) |
+| `app/ai-mentor/page.tsx` | ➕ Channel select → `italyPathLastMentorDesk` localStorage write (forward-compat hub için) |
+
+### Commit 54 (Home Wiring + Auto-Advance Stage):
+| Dosya | Değişiklik |
+|-------|------------|
+| `lib/hub/useHubStage.ts` | ➕ `advanceStageIfBefore(target)` helper |
+| `lib/useFavorites.ts` | ➕ `toggleFavorite` add branch'inde stage `shortlist`'e auto-advance |
+| `app/documents/page.tsx` | ➕ Upload success'te stage `documents`'e auto-advance |
+| `components/HeroSection.tsx` | ♻️ StudyDossier elemanları (header, count, 3 üni satırı, 2 kart) + hero stat grid → Link'ler |
+| `components/VelocityBridge.tsx` | ♻️ 4 stat hücresi → Link'lere döndü |
+| `components/ScholarshipsSection.tsx` | ♻️ 3 bölge satırı → `/scholarships?region=...` query param Link |
+| `components/Footer.tsx` | ♻️ Twitter/Instagram/LinkedIn ölü etiketler kaldırıldı, footer tek kolona düştü |
+| `AGENT_COMMITS.md` | 📝 Commit 51-54 entry'leri eklendi |
