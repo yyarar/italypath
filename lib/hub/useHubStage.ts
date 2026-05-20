@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useSyncExternalStore } from "react";
-import { DEFAULT_STAGE, isValidStage, type HubStageId } from "./stages";
+import { DEFAULT_STAGE, getStageIndex, isValidStage, type HubStageId } from "./stages";
 
 const STORAGE_KEY = "italyPathStage";
 const CHANGE_EVENT = "italypath-hub-stage-change";
@@ -35,4 +35,13 @@ export function useHubStage(): {
   }, []);
 
   return { stage, setStage };
+}
+
+export function advanceStageIfBefore(target: HubStageId): void {
+  if (typeof window === "undefined") return;
+  const current = readStage();
+  if (getStageIndex(current) < getStageIndex(target)) {
+    window.localStorage.setItem(STORAGE_KEY, target);
+    window.dispatchEvent(new Event(CHANGE_EVENT));
+  }
 }
