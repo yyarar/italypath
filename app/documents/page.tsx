@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useAuth, useUser } from '@clerk/nextjs';
 import { createClerkSupabaseClient } from '@/lib/supabaseClient';
+import { advanceStageIfBefore } from "@/lib/hub/useHubStage";
 import Link from 'next/link';
 import { FileText, Camera, Trash2, Loader2, ExternalLink, Lightbulb, ArrowLeft, UploadCloud } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -75,6 +76,7 @@ export default function DocumentsPage() {
       });
       if (dbError) throw dbError;
       documentRowCreated = true;
+      advanceStageIfBefore("documents");
       await fetchDocs();
     } catch (error: unknown) {
       if (uploadedToStorage && !documentRowCreated) {
