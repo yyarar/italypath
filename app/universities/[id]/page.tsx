@@ -192,8 +192,12 @@ export default function UniversityDetailPage() {
                   {university.departments?.length ?? 0}
                 </span>
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {university.departments && university.departments.map((dept) => {
+              {(() => {
+                const allDepts = university.departments ?? [];
+                const bachelorDepts = allDepts.filter((d) => d.level === "bachelor");
+                const masterDepts = allDepts.filter((d) => d.level === "master");
+
+                const renderDept = (dept: typeof allDepts[number]) => {
                   const deptCardLayoutId = `dept-card-${university.id}-${dept.slug}`;
                   const deptTitleLayoutId = `dept-title-${university.id}-${dept.slug}`;
 
@@ -269,8 +273,35 @@ export default function UniversityDetailPage() {
                       </ExpandableScreenContent>
                     </ExpandableScreen>
                   );
-                })}
-              </div>
+                };
+
+                return (
+                  <>
+                    {bachelorDepts.length > 0 && (
+                      <section className={masterDepts.length > 0 ? "mb-5" : ""}>
+                        <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-700">
+                          {t.detail.bachelorPrograms}
+                          <span className="text-xs font-normal text-slate-400">{bachelorDepts.length}</span>
+                        </h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                          {bachelorDepts.map(renderDept)}
+                        </div>
+                      </section>
+                    )}
+                    {masterDepts.length > 0 && (
+                      <section>
+                        <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold text-slate-700">
+                          {t.detail.masterPrograms}
+                          <span className="text-xs font-normal text-slate-400">{masterDepts.length}</span>
+                        </h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                          {masterDepts.map(renderDept)}
+                        </div>
+                      </section>
+                    )}
+                  </>
+                );
+              })()}
             </motion.div>
 
             {/* Features card */}
