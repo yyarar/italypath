@@ -14,6 +14,7 @@
     "check:isee": "node scripts/check-isee-calculator.mjs",
     "check:university-department-merge": "node --no-warnings scripts/check-university-department-merge.mjs",
     "check:universities-ui": "node --no-warnings scripts/check-universities-field-guide.mjs",
+    "check:university-details-ui": "node scripts/check-university-detail-portrait.mjs",
     "check:scholarships-ui": "node scripts/check-scholarships-editorial-atlas.mjs",
     "check:editorial-ui": "node scripts/check-editorial-ui.mjs",
     "clean:med": "node --no-warnings scripts/clean-med-data.mjs"
