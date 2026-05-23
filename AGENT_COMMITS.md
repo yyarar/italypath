@@ -499,3 +499,22 @@
 | `components/ScholarshipsSection.tsx` | ♻️ 3 bölge satırı → `/scholarships?region=...` query param Link |
 | `components/Footer.tsx` | ♻️ Twitter/Instagram/LinkedIn ölü etiketler kaldırıldı, footer tek kolona düştü |
 | `AGENT_COMMITS.md` | 📝 Commit 51-54 entry'leri eklendi |
+
+### Commit 55 (Editorial City Guides — Public Feature):
+| Dosya | Değişiklik |
+|-------|-----------|
+| `types/cities.ts` | 🆕 Şehir rehberi veri sözleşmesi tipleri eklendi |
+| `lib/cities/data.ts` | 🆕 8 ana öğrenci şehri (Milano, Roma...) için editoryal detaylar ve fallback mekanizması eklendi |
+| `components/cities/CityGuidesExplorer.tsx` | 🆕 İki sütunlu, editoryal, dinamik ve interaktif Şehir Rehberi atlası bileşeni eklendi |
+| `app/cities/page.tsx` | 🆕 Şehir Rehberleri ana rotası eklendi (metadata + Suspense boundaries) |
+| `components/Navbar.tsx` | ➕ Masaüstü menüsüne `/cities` linki eklendi |
+| `proxy.ts` | 🔓 `/cities(.*)` public route listesine eklendi |
+| `components/universities/UniversityRows.tsx` | 🔗 Üniversite rehber listesi kartlarındaki şehir adları `/cities?city=...` adresine bağlandı |
+| `components/university-details/UniversityPortraitMasthead.tsx` | 🔗 Detay sayfası başlığındaki şehir adı `/cities?city=...` adresine bağlandı |
+| `components/universities/UniversitiesHero.tsx` | 🔗 Kahraman başlığındaki "şehir" stat hücresi `/cities` rehberine yönlendirildi |
+| `app/sitemap.ts` | ➕ `/cities` sitemap statik rotalarına eklendi |
+| `app/robots.ts` | ➕ `/cities` robots allow listesine eklendi |
+| `scripts/check-route-access.mjs` | ➕ Rota matrisi smoke check'e `/cities` public doğrulaması eklendi |
+| `lib/translations.ts` | ➕ `tr` ve `en` dillerinde `citiesGuide` ve `navbar.cities` çeviri anahtarları eklendi |
+| `AGENT_CONTEXT.md` | 📝 Şehir Rehberleri dosyaları, public rotaları ve mimari kararları eklendi |
+| `AGENT_COMMITS.md` | 📝 Commit 55 entry'si eklendi |

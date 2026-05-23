@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowLeft, ExternalLink, Heart, MapPin } from "lucide-react";
 
 import { DEFAULT_IMAGE, type University } from "@/app/data";
@@ -81,10 +82,13 @@ export function UniversityPortraitMasthead({
                 {university.name}
               </h1>
               <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm font-bold text-[var(--editorial-muted)]">
-                <span className="inline-flex min-w-0 items-center gap-1.5">
+                <Link
+                  href={`/cities?city=${encodeURIComponent(university.city)}`}
+                  className="inline-flex min-w-0 items-center gap-1.5 hover:text-[var(--editorial-terracotta)] transition"
+                >
                   <MapPin className="h-4 w-4 shrink-0 text-[var(--editorial-terracotta)]" />
                   <span className="truncate">{university.city}</span>
-                </span>
+                </Link>
                 <span>{university.type}</span>
               </div>
             </div>

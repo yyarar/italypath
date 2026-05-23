@@ -132,10 +132,13 @@ export function UniversityGuideRow({
         </Link>
 
         <div className="mt-4 grid gap-2 text-xs font-bold text-[var(--editorial-muted)] sm:grid-cols-2 lg:grid-cols-4">
-          <span className="inline-flex min-w-0 items-center gap-1.5">
+          <Link
+            href={`/cities?city=${encodeURIComponent(university.city)}`}
+            className="inline-flex min-w-0 items-center gap-1.5 hover:text-[var(--editorial-terracotta)] transition"
+          >
             <MapPin className="h-3.5 w-3.5 shrink-0 text-[var(--editorial-terracotta)]" />
             <span className="truncate">{university.city}</span>
-          </span>
+          </Link>
           <span>{typeLabel}</span>
           <span className="truncate">{university.fee}</span>
           <span>

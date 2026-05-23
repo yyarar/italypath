@@ -77,19 +77,45 @@ export function UniversitiesHero({
           </div>
 
           <dl className="grid min-w-0 grid-cols-3 border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
-            {stats.map((stat, index) => (
-              <div
-                key={stat.label}
-                className={`min-w-0 p-3 sm:p-5 ${index > 0 ? "border-l border-[var(--editorial-border)]" : ""}`}
-              >
-                <dt className="truncate text-[9px] font-bold uppercase tracking-[0.1em] text-[var(--editorial-muted)] sm:text-[10px] sm:tracking-[0.14em]">
-                  {stat.label}
-                </dt>
-                <dd className="mt-2 font-serif text-3xl font-semibold text-[var(--editorial-ink)]">
-                  {stat.value}
-                </dd>
-              </div>
-            ))}
+            {stats.map((stat, index) => {
+              const isCity = index === 2;
+              const cellClasses = `min-w-0 p-3 sm:p-5 h-full ${
+                index > 0 ? "border-l border-[var(--editorial-border)]" : ""
+              }`;
+
+              if (isCity) {
+                return (
+                  <Link
+                    key={stat.label}
+                    href="/cities"
+                    className="min-w-0 hover:bg-[#f6f0e7] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+                  >
+                    <div className={cellClasses}>
+                      <dt className="truncate text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--editorial-terracotta)] sm:text-[10px]">
+                        {stat.label} ↗
+                      </dt>
+                      <dd className="mt-2 font-serif text-3xl font-semibold text-[var(--editorial-ink)]">
+                        {stat.value}
+                      </dd>
+                    </div>
+                  </Link>
+                );
+              }
+
+              return (
+                <div
+                  key={stat.label}
+                  className={cellClasses}
+                >
+                  <dt className="truncate text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)] sm:text-[10px]">
+                    {stat.label}
+                  </dt>
+                  <dd className="mt-2 font-serif text-3xl font-semibold text-[var(--editorial-ink)]">
+                    {stat.value}
+                  </dd>
+                </div>
+              );
+            })}
           </dl>
         </div>
       </div>

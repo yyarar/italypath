@@ -16,6 +16,7 @@ export default function Navbar() {
   const aiMentorHref = isSignedIn ? "/ai-mentor" : "/sign-in?redirect_url=%2Fai-mentor";
   const desktopItems = [
     { href: "/universities", label: t.navbar.universities },
+    { href: "/cities", label: t.navbar.cities },
     { href: "/scholarships", label: language === "tr" ? "Burslar" : "Scholarships" },
     { href: "/communities", label: t.navbar.communities },
     ...(isSignedIn ? [{ href: "/hub", label: t.navbar.hub }] : []),

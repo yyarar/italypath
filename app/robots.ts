@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
         rules: [
             {
                 userAgent: '*',
-                allow: ['/', '/universities', '/universities/*', '/isee', '/scholarships', '/communities', '/topluluklar'],
+                allow: ['/', '/universities', '/universities/*', '/isee', '/scholarships', '/communities', '/topluluklar', '/cities'],
                 disallow: ['/api/', '/ai-mentor', '/documents', '/favorites', '/hub', '/sign-in', '/sign-up'],
             },
         ],

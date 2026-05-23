@@ -50,6 +50,7 @@ italypath-main/
 │   ├── ai-mentor/page.tsx          # Danışma Masaları hub'ı: 3 kanal (AI aktif, Gönüllü Ekip + Uzman yakında); state-toggle hub ↔ chat room
 │   ├── api/chat/route.ts           # AI backend (Gemini streaming + sohbet hafızası)
 │   ├── api/universities/route.ts   # Üniversite verisini cache header'larıyla JSON dönen public API
+│   ├── cities/page.tsx             # İtalya Şehir Rehberleri ana sayfası (metadata + Suspense boundaries)
 │   ├── communities/page.tsx         # Kürate edilmiş öğrenci toplulukları rehberi (public)
 │   ├── topluluklar/page.tsx         # Türkçe kısa yol route'u (redirect -> /communities)
 │   ├── universities/
@@ -76,6 +77,8 @@ italypath-main/
 │   ├── RouteTransition.tsx         # Route geçiş katmanı (Framer Motion + reduced-motion fallback)
 │   ├── ScrollProgress.tsx          # Scroll ilerleme çubuğu (Framer Motion useScroll + useSpring)
 │   ├── Footer.tsx                  # Alt bilgi (logo, sosyal etiketler)
+│   ├── cities/
+│   │   └── CityGuidesExplorer.tsx  # İki sütunlu editoryal Şehir Rehberleri atlası
 │   ├── communities/
 │   │   └── CommunityAtlas.tsx       # Editöryel topluluk atlası (5 ihtiyaç-bölümü, hybrid editor voice, no filter/badge)
 │   ├── hub/
@@ -113,6 +116,8 @@ italypath-main/
 │   ├── utils.ts                    # `cn()` className birleştirme helper'ı
 │   ├── useFavorites.ts             # Birleşik favori hook'u (localStorage + Supabase)
 │   ├── useUniversitiesData.ts      # Üniversite verisi için cache'li client fetch hook'u (/api/universities)
+│   ├── cities/
+│   │   └── data.ts                 # 8 ana öğrenci şehri (Milano, Roma, Bologna...) editoryal veri tabanı + fallback
 │   ├── communities/
 │   │   └── chapters.ts             # 5 ihtiyaç-bölümü metadata (TR/EN title/intro/citySummary) + getCommunitiesByChapter() bucketer
 │   ├── hub/
@@ -125,6 +130,7 @@ italypath-main/
 │       └── regions.ts              # 20 bölge burs registry + verified/pending detay katmanı
 ├── types/
 │   ├── index.ts                    # Paylaşılan tipler (Language, UserDocument)
+│   ├── cities.ts                   # Şehir rehberi veri sözleşmesi tipleri
 │   └── scholarships.ts             # Bölgesel burs veri sözleşmesi tipleri
 ├── next.config.ts                  # Next.js yapılandırması (remotePatterns: Unsplash, Pexels, plus.unsplash.com)
 ├── proxy.ts                        # Clerk Request Boundary (Next.js 16 standardı)
@@ -192,7 +198,7 @@ italypath-main/
 
 ### 5. Clerk Request Boundary (proxy.ts)
 - `proxy.ts` dosyasında tanımlı (Next.js 16 yeni Request Boundary standardı uyarınca).
-- Public rotalar: `/`, `/api/universities(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/isee(.*)`, `/scholarships(.*)`, `/communities(.*)`, `/topluluklar(.*)`, `/sitemap.xml`, `/robots.txt`
+- Public rotalar: `/`, `/api/universities(.*)`, `/sign-in(.*)`, `/sign-up(.*)`, `/universities(.*)`, `/cities(.*)`, `/isee(.*)`, `/scholarships(.*)`, `/communities(.*)`, `/topluluklar(.*)`, `/sitemap.xml`, `/robots.txt`
 - Diğer tüm rotalar `auth.protect()` ile korumalı
 - Protected örnekler: `/hub`, `/favorites`, `/documents`, `/ai-mentor`, `/api/chat`
 
@@ -304,6 +310,14 @@ italypath-main/
 - **Navigasyon:** signed-in kullanıcı için Navbar'da `/hub` linki; mobil BottomNav'ın 4. sekmesi (signed-out → sign-in redirect).
 - **Açık follow-up (kritik değil):** mentor sayfasından `italyPathLastMentorDesk` write ekle; DossierHero'daki `/ 12` ve `/ 8` magic number'lar sabite çıkarılabilir.
 - **Spec/Plan:** [`docs/superpowers/specs/2026-05-18-hub-redesign-design.md`](docs/superpowers/specs/2026-05-18-hub-redesign-design.md) · [`docs/superpowers/plans/2026-05-18-hub-redesign-plan.md`](docs/superpowers/plans/2026-05-18-hub-redesign-plan.md)
+
+### 17. Editoryal Şehir Rehberleri (Cities)
+- **Rota:** `/cities` (public)
+- **Sayfa:** `app/cities/page.tsx` (metadata + canonical), client leaf: `components/cities/CityGuidesExplorer.tsx`
+- **Veri Modeli:** `types/cities.ts` & `lib/cities/data.ts` - 8 ana öğrenci şehri (Milano, Roma, Bologna, Torino, Padova, Pisa, Pavia, Trento) için detaylı yaşam maliyetleri, kira aralıkları, aylık ulaşım giderleri, iklim/öğrenci atmosferi ve editoryal tüyolar. Diğer 38 şehir için dinamik fallback şablonu.
+- **UI & UX:** İki sütunlu editoryal atlas tasarımı. Sol tarafta üniversite/bölüm sayılarına göre sıralı şehir listesi, sağ tarafta seçili şehre ait detay paneli. Detay panelinde o şehirde yer alan üniversitelerin dinamik linkleri listelenir.
+- **Entegrasyonlar:** Üniversite rehber kartlarındaki ve üniversite detay başlıklarındaki şehir isimleri tıklanabilir hale getirilerek `/cities?city={city}` adresine akıllı geçişler sağlanmıştır. UniversitiesHero üzerindeki "şehir" stat hücresi de `/cities` atlasına bağlanmıştır.
+- **SEO & Güvenlik:** `proxy.ts` public route matrix'ine eklenmiş, sitemap ve robots.txt kuralları ile endekslenmeye açılmıştır.
 
 ---
 
