@@ -12,6 +12,7 @@ import {
   ExternalLink,
   Globe,
   Info,
+  Landmark,
   MapPin,
   Navigation,
   SunDim,
@@ -21,7 +22,9 @@ import {
 import { useLanguage } from "@/context/LanguageContext";
 import { useUniversitiesData } from "@/lib/useUniversitiesData";
 import { getCityDetailBySlug, getFallbackCityDetail } from "@/lib/cities/data";
+import { getScholarshipRegionBySlug } from "@/lib/scholarships/regions";
 import type { CityDetail } from "@/types/cities";
+import type { RegionSlug } from "@/types/scholarships";
 
 // All 46 unique cities mapped to their Italian regions for fallback precision
 const CITY_TO_REGION_MAP: Record<string, string> = {
@@ -73,6 +76,31 @@ const CITY_TO_REGION_MAP: Record<string, string> = {
   "Aosta": "Valle d'Aosta",
 };
 
+function getRegionSlugByName(regionName: string): RegionSlug | null {
+  const normalized = regionName.toLowerCase().trim();
+  if (normalized.includes("lombardia")) return "lombardia";
+  if (normalized.includes("lazio")) return "lazio";
+  if (normalized.includes("emilia-romagna") || normalized.includes("emilia romagna")) return "emilia-romagna";
+  if (normalized.includes("piemonte")) return "piemonte";
+  if (normalized.includes("veneto")) return "veneto";
+  if (normalized.includes("toscana")) return "toscana";
+  if (normalized.includes("trentino")) return "trentino-alto-adige-suedtirol";
+  if (normalized.includes("campania")) return "campania";
+  if (normalized.includes("sicilia")) return "sicilia";
+  if (normalized.includes("liguria")) return "liguria";
+  if (normalized.includes("friuli")) return "friuli-venezia-giulia";
+  if (normalized.includes("marche")) return "marche";
+  if (normalized.includes("puglia")) return "puglia";
+  if (normalized.includes("abruzzo")) return "abruzzo";
+  if (normalized.includes("sardegna")) return "sardegna";
+  if (normalized.includes("calabria")) return "calabria";
+  if (normalized.includes("valle d'aosta") || normalized.includes("valle daosta")) return "valle-d-aosta";
+  if (normalized.includes("basilicata")) return "basilicata";
+  if (normalized.includes("molise")) return "molise";
+  if (normalized.includes("umbria")) return "umbria";
+  return null;
+}
+
 export default function CityGuidesExplorer() {
   const { t, language, toggleLanguage } = useLanguage();
   const searchParams = useSearchParams();
@@ -119,6 +147,13 @@ export default function CityGuidesExplorer() {
 
     return getFallbackCityDetail(name, count, region);
   }, [selectedQueryCity, citiesWithCounts]);
+
+  // Dynamic regional scholarship lookup
+  const scholarshipRegion = useMemo(() => {
+    const slug = getRegionSlugByName(activeCity.region);
+    if (!slug) return null;
+    return getScholarshipRegionBySlug(slug);
+  }, [activeCity.region]);
 
   // Handle city selection
   const handleSelectCity = useCallback(
@@ -319,6 +354,58 @@ export default function CityGuidesExplorer() {
                   </div>
                 </div>
               </section>
+
+              {/* Regional Scholarship Card */}
+              {scholarshipRegion && (
+                <section className="mt-6 border-t border-[var(--editorial-border)] pt-4 bg-[#FAF7F2] p-4 border-l-2 border-l-[var(--editorial-terracotta)]">
+                  <div className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)]">
+                    <Landmark className="h-4 w-4" />
+                    {copy.bursaryTitle}
+                  </div>
+                  
+                  <p className="text-xs leading-5 text-[var(--editorial-muted)] font-medium">
+                    {(copy.bursaryBody || "").replace("{region}", activeCity.region)}
+                  </p>
+
+                  <div className="mt-4 space-y-3 border-t border-[var(--editorial-border)]/60 pt-3">
+                    <div>
+                      <span className="block text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-muted)]">
+                        {copy.bursaryInstitution}
+                      </span>
+                      <div className="mt-1 flex flex-wrap gap-2">
+                        {scholarshipRegion.managingBodies.map((body, idx) => (
+                          <a
+                            key={idx}
+                            href={body.officialUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--editorial-terracotta)] hover:underline"
+                          >
+                            {body.name}
+                            <ExternalLink className="h-3 w-3 shrink-0" />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <span className="block text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-muted)]">
+                        {copy.bursaryIseeLimit}
+                      </span>
+                      <span className="mt-1 block text-xs font-bold text-[var(--editorial-ink)]">
+                        {scholarshipRegion.iseeLimit || (language === "tr" ? "Açıklanmadı / Kurum Bazlı" : "Not Published / Institution-Specific")}
+                      </span>
+                    </div>
+                  </div>
+
+                  <Link
+                    href={`/scholarships?region=${scholarshipRegion.regionSlug}`}
+                    className="mt-4 flex w-full items-center justify-center gap-2 border border-[var(--editorial-terracotta)] bg-transparent py-2 text-xs font-bold uppercase tracking-[0.12em] text-[var(--editorial-terracotta)] transition hover:bg-[var(--editorial-terracotta)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-terracotta)]"
+                  >
+                    {copy.bursaryCta}
+                  </Link>
+                </section>
+              )}
 
               {/* Transit & Connections */}
               <section className="mt-6 border-t border-[var(--editorial-border)] pt-4">
