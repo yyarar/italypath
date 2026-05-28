@@ -100,6 +100,7 @@ export const DEADLINE_TARGETS: DeadlineTarget[] = [
       },
     ],
   },
+  // TODO: URL path is bachelor-scoped; master deadlines may be on a different page — verify during pilot scrape
   {
     universityId: 19,
     universityName: "University of Pisa",
