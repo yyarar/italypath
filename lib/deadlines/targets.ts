@@ -6,7 +6,7 @@
 export interface DeadlineTargetUrl {
   cycle: "bachelor" | "master" | "both";
   url: string;
-  appliesToSlugs?: string[]; // if URL only covers a subset of programs
+  appliesToSlugs?: string[]; // department slugs this URL is scoped to; leave absent for all programs at the uni
 }
 
 export interface DeadlineTarget {
