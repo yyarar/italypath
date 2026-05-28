@@ -27,6 +27,7 @@ export interface Department {
   languages: ProgramLanguage[];
   durationYears: ProgramDurationYears;
   level: ProgramLevel;
+  deadline?: ProgramDeadline;
 }
 
 export interface University {
@@ -110,6 +111,9 @@ export const DEPARTMENT_DURATION_OVERRIDES: Partial<Record<DepartmentKey, Progra
 };
 export const DEPARTMENT_LEVEL_OVERRIDES: Partial<Record<DepartmentKey, ProgramLevel>> = {
   // "10:medicine": "master",
+};
+export const DEPARTMENT_DEADLINE_OVERRIDES: Partial<Record<DepartmentKey, ProgramDeadline>> = {
+  // Populated by scripts/apply-deadlines.mjs after LLM extraction.
 };
 
 export function createDepartmentKey(universityId: number, departmentSlug: string): DepartmentKey {
@@ -1343,6 +1347,7 @@ function withDepartmentMetadata(
       department.level ??
       DEPARTMENT_LEVEL_OVERRIDES[departmentKey] ??
       DEFAULT_DEPARTMENT_LEVEL,
+    deadline: DEPARTMENT_DEADLINE_OVERRIDES[departmentKey],
   };
 }
 
