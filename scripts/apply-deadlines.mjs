@@ -14,6 +14,11 @@ function extractUniversityDepartments(src) {
     const id = Number(match[1]);
     const blockStart = src.indexOf("departments: [", match.index);
     if (blockStart === -1) continue;
+    // NOTE: This assumes department seeds do not contain inline `[]` arrays
+    // (e.g. inline `languages: ["en"]`). Today, those metadata fields live in
+    // DEPARTMENT_*_OVERRIDES in app/data.ts — not in the seed. If that ever
+    // changes, this single-bracket scan will silently truncate the block.
+    // Replace with a depth-counted matcher in that case.
     const blockEnd = src.indexOf("]", blockStart);
     const block = src.slice(blockStart, blockEnd);
     const slugs = [...block.matchAll(/slug:\s*"([^"]+)"/g)].map((m) => m[1]);
