@@ -5,6 +5,14 @@ export type ProgramLevel = "bachelor" | "master";
 export type ProgramDurationYears = 1 | 2 | 3 | 4 | 5 | 6;
 export type DepartmentKey = `${number}:${string}`;
 
+export interface ProgramDeadline {
+  date: string;       // ISO "YYYY-MM-DD" | "rolling" | "TBA"
+  note?: string;      // free-form, e.g. "Early round 11 Jun; regular 15 May"
+  sourceUrl: string;  // page the data was extracted from
+}
+
+export const DEPARTMENT_DEADLINES_LAST_CHECKED_AT = "2026-05-28" as const;
+
 export interface DepartmentSeed {
   name: string;
   slug: string;
