@@ -7,6 +7,33 @@ alter table public.university_departments
   add constraint university_departments_level_check
   check (level = any (array['bachelor'::text, 'master'::text, 'single-cycle'::text]));
 
+do $$
+begin
+  if not exists (
+    select 1
+    from pg_constraint
+    where conrelid = 'public.university_departments'::regclass
+      and contype in ('p', 'u')
+      and conkey = array[
+        (
+          select attnum
+          from pg_attribute
+          where attrelid = 'public.university_departments'::regclass
+            and attname = 'id'
+        ),
+        (
+          select attnum
+          from pg_attribute
+          where attrelid = 'public.university_departments'::regclass
+            and attname = 'university_id'
+        )
+      ]::smallint[]
+  ) then
+    alter table public.university_departments
+      add constraint university_departments_id_university_id_key unique (id, university_id);
+  end if;
+end $$;
+
 create table if not exists public.program_admission_details (
   department_id bigint primary key references public.university_departments(id) on delete cascade,
   university_id bigint not null references public.universities(id) on delete cascade,
@@ -32,6 +59,52 @@ create table if not exists public.program_admission_details (
   imported_at timestamptz not null default timezone('utc'::text, now()),
   updated_at timestamptz not null default timezone('utc'::text, now())
 );
+
+do $$
+begin
+  if not exists (
+    select 1
+    from pg_constraint
+    where conrelid = 'public.program_admission_details'::regclass
+      and contype = 'f'
+      and confrelid = 'public.university_departments'::regclass
+      and confdeltype = 'c'
+      and conkey = array[
+        (
+          select attnum
+          from pg_attribute
+          where attrelid = 'public.program_admission_details'::regclass
+            and attname = 'department_id'
+        ),
+        (
+          select attnum
+          from pg_attribute
+          where attrelid = 'public.program_admission_details'::regclass
+            and attname = 'university_id'
+        )
+      ]::smallint[]
+      and confkey = array[
+        (
+          select attnum
+          from pg_attribute
+          where attrelid = 'public.university_departments'::regclass
+            and attname = 'id'
+        ),
+        (
+          select attnum
+          from pg_attribute
+          where attrelid = 'public.university_departments'::regclass
+            and attname = 'university_id'
+        )
+      ]::smallint[]
+  ) then
+    alter table public.program_admission_details
+      add constraint program_admission_details_department_university_fkey
+      foreign key (department_id, university_id)
+      references public.university_departments(id, university_id)
+      on delete cascade;
+  end if;
+end $$;
 
 create index if not exists program_admission_details_university_id_idx
   on public.program_admission_details(university_id);
