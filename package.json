@@ -9,6 +9,7 @@
     "lint": "eslint",
     "check:routes": "node scripts/check-route-access.mjs",
     "check:data": "node --no-warnings scripts/validate-supabase-university-data.mjs",
+    "check:deadlines": "node scripts/check-deadlines.mjs",
     "check:local-data": "node --no-warnings scripts/validate-data-integrity.mjs",
     "check:university-data-source": "node scripts/check-university-data-source.mjs",
     "check:isee": "node scripts/check-isee-calculator.mjs",
