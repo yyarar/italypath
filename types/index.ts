@@ -12,6 +12,7 @@ export interface UserDocument {
   file_url: string;
   storage_path: string;
   created_at: string;
+  category?: string | null;
   signed_url?: string;
 }
 
