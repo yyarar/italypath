@@ -52,16 +52,36 @@ const mergedUniversities = mergeUniversityDepartmentRows(baseUniversities, [
     level: "master",
     sort_order: 2,
   },
+  {
+    id: 3,
+    university_id: 1,
+    name: "Medicine and Surgery",
+    slug: "medicine-and-surgery",
+    languages: ["en"],
+    duration_years: 6,
+    level: "single-cycle",
+    sort_order: 3,
+  },
 ]);
 
 assert.equal(mergedUniversities.length, 1);
-assert.equal(mergedUniversities[0].departments.length, 2);
+assert.equal(mergedUniversities[0].departments.length, 3);
 assert.equal(
   mergedUniversities[0].departments.some(
     (department) =>
       department.slug === "architecture-built-environment-interiors" &&
       department.level === "master" &&
       department.durationYears === 2
+  ),
+  true
+);
+assert.equal(
+  mergedUniversities[0].departments.some(
+    (department) =>
+      department.id === 3 &&
+      department.slug === "medicine-and-surgery" &&
+      department.level === "single-cycle" &&
+      department.durationYears === 6
   ),
   true
 );
@@ -80,6 +100,7 @@ const overwrittenUniversities = mergeUniversityDepartmentRows(baseUniversities, 
 
 assert.deepEqual(overwrittenUniversities[0].departments, [
   {
+    id: undefined,
     name: "Civil Engineering",
     slug: "civil-engineering",
     languages: ["it", "en"],
@@ -90,4 +111,4 @@ assert.deepEqual(overwrittenUniversities[0].departments, [
 
 assert.equal(mergeUniversityDepartmentRows(baseUniversities, []), baseUniversities);
 
-console.log("[OK] University department merge keeps Supabase master rows visible.");
+console.log("[OK] University department merge keeps Supabase department rows visible.");

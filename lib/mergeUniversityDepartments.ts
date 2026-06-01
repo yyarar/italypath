@@ -8,7 +8,7 @@ import type {
 import type { SupabaseUniversityDepartmentRow } from "../types";
 
 const PROGRAM_LANGUAGES = new Set<ProgramLanguage>(["en", "it"]);
-const PROGRAM_LEVELS = new Set<ProgramLevel>(["bachelor", "master"]);
+const PROGRAM_LEVELS = new Set<ProgramLevel>(["bachelor", "master", "single-cycle"]);
 const PROGRAM_DURATIONS = new Set<ProgramDurationYears>([1, 2, 3, 4, 5, 6]);
 
 function normalizeLanguages(languages: string[] | null): ProgramLanguage[] {
@@ -38,6 +38,7 @@ function createDepartment(row: SupabaseUniversityDepartmentRow): Department | nu
   }
 
   return {
+    id: row.id,
     name,
     slug,
     languages: normalizeLanguages(row.languages),
