@@ -57,6 +57,7 @@ function isArray(value) {
 const supabase = createSupabaseClient();
 
 if (supabase) {
+  let detailDepartmentIds = null;
   const { data: details, error: detailsError } = await supabase
     .from("program_admission_details")
     .select(
@@ -67,6 +68,8 @@ if (supabase) {
   if (detailsError) {
     fail(`Failed to fetch program_admission_details: ${detailsError.message}`);
   } else {
+    detailDepartmentIds = new Set((details ?? []).map((detail) => detail.department_id));
+
     if ((details ?? []).length !== EXPECTED_BOLOGNA_DETAIL_COUNT) {
       fail(`Expected ${EXPECTED_BOLOGNA_DETAIL_COUNT} Bologna details, got ${(details ?? []).length}`);
     }
@@ -89,7 +92,7 @@ if (supabase) {
 
   const { data: departments, error: departmentsError } = await supabase
     .from("university_departments")
-    .select("name,slug,level,duration_years")
+    .select("id,name,slug,level,duration_years")
     .eq("university_id", BOLOGNA_UNIVERSITY_ID);
 
   if (departmentsError) {
@@ -107,28 +110,37 @@ if (supabase) {
       }
     }
 
-    const requiredPrograms = [
-      ["Medicine and Surgery", "single-cycle"],
-      ["Pharmacy", "single-cycle"],
-      ["Veterinary Medicine", "single-cycle"],
-      ["Archaeology", "master"],
-      ["Archaeology and Cultures of the Ancient World", "master"],
+    const criticalPrograms = [
+      ["Medicine and Surgery", "single-cycle", "Missing expected Bologna program: Medicine and Surgery (single-cycle)"],
+      ["Pharmacy", "single-cycle", "Missing expected Bologna program: Pharmacy (single-cycle)"],
+      [
+        "Veterinary Medicine",
+        "single-cycle",
+        "Missing expected Bologna program: Veterinary Medicine (single-cycle)",
+      ],
+      ["Archaeology", "master", "Missing expected Bologna program: Archaeology (master)"],
+      [
+        "Archaeology and Cultures of the Ancient World",
+        "master",
+        "Missing expected Bologna program: Archaeology and Cultures of the Ancient World (master)",
+      ],
+      ["Statistical Sciences", "bachelor", "Missing Statistical Sciences bachelor row"],
+      ["Statistical Sciences", "master", "Missing Statistical Sciences master row"],
     ];
 
-    for (const [name, level] of requiredPrograms) {
-      if (!(departments ?? []).some((department) => department.name === name && department.level === level)) {
-        fail(`Missing expected Bologna program: ${name} (${level})`);
-      }
-    }
+    for (const [name, level, missingProgramMessage] of criticalPrograms) {
+      const department = (departments ?? []).find(
+        (candidate) => candidate.name === name && candidate.level === level
+      );
 
-    const statisticalSciences = (departments ?? []).filter(
-      (department) => department.name === "Statistical Sciences"
-    );
-    if (!statisticalSciences.some((department) => department.level === "bachelor")) {
-      fail("Missing Statistical Sciences bachelor row");
-    }
-    if (!statisticalSciences.some((department) => department.level === "master")) {
-      fail("Missing Statistical Sciences master row");
+      if (!department) {
+        fail(missingProgramMessage);
+        continue;
+      }
+
+      if (detailDepartmentIds && !detailDepartmentIds.has(department.id)) {
+        fail(`Missing admission details for expected Bologna program: ${name} (${level})`);
+      }
     }
   }
 }
