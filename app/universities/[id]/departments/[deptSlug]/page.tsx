@@ -160,6 +160,7 @@ export default function DepartmentDetailPage() {
               campus: t.department.campus,
               degreeClass: t.department.degreeClass,
               admissionType: t.department.admissionType,
+              teachingLanguage: t.department.teachingLanguage,
               euDeadline: t.department.euDeadline,
               nonEuDeadline: t.department.nonEuDeadline,
               academicRequirements: t.department.academicRequirements,

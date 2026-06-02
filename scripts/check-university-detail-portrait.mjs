@@ -88,6 +88,8 @@ requireTokens("portrait components", portraitSource, [
   "lg:grid-cols-2",
   "ExternalLink",
   "officialProgramUrl",
+  "rawTeachingLanguage",
+  "teachingLanguage",
   "uncertaintyNote",
   "break-words",
 ]);

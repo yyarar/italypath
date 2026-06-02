@@ -10,6 +10,7 @@ interface ProgramAdmissionDetailsLabels {
   campus: string;
   degreeClass: string;
   admissionType: string;
+  teachingLanguage: string;
   euDeadline: string;
   nonEuDeadline: string;
   academicRequirements: string;
@@ -87,6 +88,10 @@ export function ProgramAdmissionDetailsPanel({
         <DetailRow label={labels.campus} value={details.campus} />
         <DetailRow label={labels.degreeClass} value={details.degreeClass} />
         <DetailRow label={labels.admissionType} value={details.admissionType} />
+        <DetailRow
+          label={labels.teachingLanguage}
+          value={details.rawTeachingLanguage}
+        />
         <DetailRow
           label={labels.euDeadline}
           value={details.applicationDeadlineEu}

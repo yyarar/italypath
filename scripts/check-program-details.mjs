@@ -116,46 +116,59 @@ if (supabase) {
         level: "single-cycle",
         missingProgramMessage: "Missing expected Bologna program: Medicine and Surgery (single-cycle)",
         requiresDetails: true,
+        expectedDurationYears: 6,
       },
       {
         name: "Pharmacy",
         level: "single-cycle",
         missingProgramMessage: "Missing expected Bologna program: Pharmacy (single-cycle)",
         requiresDetails: true,
+        expectedDurationYears: 5,
       },
       {
         name: "Veterinary Medicine",
         level: "single-cycle",
         missingProgramMessage: "Missing expected Bologna program: Veterinary Medicine (single-cycle)",
         requiresDetails: true,
+        expectedDurationYears: 5,
       },
       {
         name: "Archaeology",
         level: "master",
         missingProgramMessage: "Missing expected Bologna program: Archaeology (master)",
         requiresDetails: true,
+        expectedDurationYears: 2,
       },
       {
         name: "Archaeology and Cultures of the Ancient World",
         level: "master",
         missingProgramMessage: "Missing expected Bologna program: Archaeology and Cultures of the Ancient World (master)",
         requiresDetails: false,
+        expectedDurationYears: 2,
       },
       {
         name: "Statistical Sciences",
         level: "bachelor",
         missingProgramMessage: "Missing Statistical Sciences bachelor row",
         requiresDetails: true,
+        expectedDurationYears: 3,
       },
       {
         name: "Statistical Sciences",
         level: "master",
         missingProgramMessage: "Missing Statistical Sciences master row",
         requiresDetails: true,
+        expectedDurationYears: 2,
       },
     ];
 
-    for (const { name, level, missingProgramMessage, requiresDetails } of criticalPrograms) {
+    for (const {
+      name,
+      level,
+      missingProgramMessage,
+      requiresDetails,
+      expectedDurationYears,
+    } of criticalPrograms) {
       const department = (departments ?? []).find(
         (candidate) => candidate.name === name && candidate.level === level
       );
@@ -167,6 +180,12 @@ if (supabase) {
 
       if (requiresDetails && detailDepartmentIds && !detailDepartmentIds.has(department.id)) {
         fail(`Missing admission details for expected Bologna program: ${name} (${level})`);
+      }
+
+      if (department.duration_years !== expectedDurationYears) {
+        fail(
+          `Expected ${name} (${level}) duration ${expectedDurationYears}, got ${department.duration_years}`
+        );
       }
     }
   }

@@ -10,6 +10,11 @@ const REPORT_PATH = resolve(OUTPUT_DIR, "bologna-program-details-import-report.j
 const PAGE_SIZE = 1000;
 const VALID_LEVELS = new Set(["bachelor", "master", "single-cycle"]);
 const VALID_LANGUAGES = new Set(["en", "it"]);
+const SINGLE_CYCLE_DURATION_BY_DEGREE_CLASS_PREFIX = new Map([
+  ["LM-13", 5],
+  ["LM-41", 6],
+  ["LM-42", 5],
+]);
 
 const mode = parseMode(process.argv.slice(2));
 
@@ -117,6 +122,17 @@ function durationForLevel(level) {
   return 3;
 }
 
+function durationForSource(level, record) {
+  if (level !== "single-cycle") return durationForLevel(level);
+
+  const degreeClass = typeof record.degree_class === "string" ? record.degree_class.trim() : "";
+  for (const [prefix, durationYears] of SINGLE_CYCLE_DURATION_BY_DEGREE_CLASS_PREFIX) {
+    if (degreeClass.startsWith(prefix)) return durationYears;
+  }
+
+  return durationForLevel(level);
+}
+
 function assertStringRecord(record, field, file) {
   if (typeof record[field] !== "string" || record[field].trim().length === 0) {
     throw new Error(`${file} has missing ${field}`);
@@ -164,7 +180,7 @@ function loadSourcePrograms() {
       level,
       teachingLanguage: record.teaching_language.trim(),
       languages: normalizeLanguages(record.teaching_language),
-      durationYears: durationForLevel(level),
+      durationYears: durationForSource(level, record),
       raw: record,
     };
   });
@@ -251,6 +267,7 @@ function createPlan(sourcePrograms, dbDepartments) {
 
   const matchedExisting = [];
   const levelCorrections = [];
+  const metadataCorrections = [];
   const newDepartments = [];
   const detailRows = [];
   const programPlans = [];
@@ -303,6 +320,8 @@ function createPlan(sourcePrograms, dbDepartments) {
         slug: department.slug,
         from: department.level,
         to: source.level,
+        fromDurationYears: department.duration_years,
+        toDurationYears: source.durationYears,
         sourceFile: source.file,
         rawProgramName: source.rawProgramName,
         sourceProgramName: source.sourceProgramName,
@@ -311,6 +330,25 @@ function createPlan(sourcePrograms, dbDepartments) {
     }
 
     if (department) {
+      if (
+        !singleCycleCorrection &&
+        source.level === "single-cycle" &&
+        department.duration_years !== source.durationYears
+      ) {
+        metadataCorrections.push({
+          id: department.id,
+          name: department.name,
+          slug: department.slug,
+          level: department.level,
+          fromDurationYears: department.duration_years,
+          toDurationYears: source.durationYears,
+          sourceFile: source.file,
+          rawProgramName: source.rawProgramName,
+          sourceProgramName: source.sourceProgramName,
+          canonicalDepartmentName: source.departmentName,
+        });
+      }
+
       matchedExisting.push({
         id: department.id,
         name: department.name,
@@ -389,6 +427,7 @@ function createPlan(sourcePrograms, dbDepartments) {
     existingDepartments: dbDepartments.length,
     matchedExisting,
     levelCorrections,
+    metadataCorrections,
     newDepartments,
     duplicateNameDifferentLevel,
     detailRows,
@@ -436,41 +475,125 @@ function toDepartmentPayload(department) {
 }
 
 async function applyPlan(supabase, plan) {
-  if (plan.newDepartments.length > 0) {
+  let mutated = false;
+
+  try {
+    if (plan.newDepartments.length > 0) {
+      const { error } = await supabase
+        .from("university_departments")
+        .insert(plan.newDepartments.map(toDepartmentPayload));
+      if (error) throw new Error(`Failed to insert departments: ${error.message}`);
+      mutated = true;
+    }
+
+    for (const correction of plan.levelCorrections) {
+      const { error } = await supabase
+        .from("university_departments")
+        .update({
+          level: correction.to,
+          duration_years: correction.toDurationYears,
+        })
+        .eq("id", correction.id);
+      if (error) throw new Error(`Failed to update ${correction.slug}: ${error.message}`);
+      mutated = true;
+    }
+
+    for (const correction of plan.metadataCorrections) {
+      const { error } = await supabase
+        .from("university_departments")
+        .update({ duration_years: correction.toDurationYears })
+        .eq("id", correction.id);
+      if (error) {
+        throw new Error(`Failed to update ${correction.slug} metadata: ${error.message}`);
+      }
+      mutated = true;
+    }
+
+    const refreshedDepartments = await fetchBolognaDepartments(supabase);
+    const departmentByKey = new Map(
+      refreshedDepartments.map((department) => [
+        identityKey(department.name, department.level),
+        department,
+      ])
+    );
+
+    const detailPayloads = plan.detailRows.map(({ source }) => {
+      const department = departmentByKey.get(identityKey(source.departmentName, source.level));
+      if (!department?.id) {
+        throw new Error(`Cannot resolve department id for ${source.departmentName} (${source.level})`);
+      }
+      return toDetailPayload(source, department.id);
+    });
+
+    const { error } = await supabase
+      .from("program_admission_details")
+      .upsert(detailPayloads, { onConflict: "department_id" });
+    if (error) throw new Error(`Failed to upsert admission details: ${error.message}`);
+
+    await verifyApplyResult(supabase, detailPayloads);
+  } catch (error) {
+    if (mutated) {
+      await rollbackPlan(supabase, plan);
+    }
+    throw error;
+  }
+}
+
+async function rollbackPlan(supabase, plan) {
+  const failures = [];
+
+  for (const correction of plan.metadataCorrections) {
     const { error } = await supabase
       .from("university_departments")
-      .insert(plan.newDepartments.map(toDepartmentPayload));
-    if (error) throw new Error(`Failed to insert departments: ${error.message}`);
+      .update({ duration_years: correction.fromDurationYears })
+      .eq("id", correction.id);
+    if (error) failures.push(`${correction.slug}: ${error.message}`);
   }
 
   for (const correction of plan.levelCorrections) {
     const { error } = await supabase
       .from("university_departments")
-      .update({ level: correction.to })
+      .update({
+        level: correction.from,
+        duration_years: correction.fromDurationYears,
+      })
       .eq("id", correction.id);
-    if (error) throw new Error(`Failed to update ${correction.slug}: ${error.message}`);
+    if (error) failures.push(`${correction.slug}: ${error.message}`);
   }
 
-  const refreshedDepartments = await fetchBolognaDepartments(supabase);
-  const departmentByKey = new Map(
-    refreshedDepartments.map((department) => [
-      identityKey(department.name, department.level),
-      department,
-    ])
-  );
+  if (plan.newDepartments.length > 0) {
+    const slugs = plan.newDepartments.map((department) => department.slug);
+    const { error } = await supabase
+      .from("university_departments")
+      .delete()
+      .eq("university_id", BOLOGNA_UNIVERSITY_ID)
+      .in("slug", slugs);
+    if (error) failures.push(`new departments: ${error.message}`);
+  }
 
-  const detailPayloads = plan.detailRows.map(({ source }) => {
-    const department = departmentByKey.get(identityKey(source.departmentName, source.level));
-    if (!department?.id) {
-      throw new Error(`Cannot resolve department id for ${source.departmentName} (${source.level})`);
-    }
-    return toDetailPayload(source, department.id);
-  });
+  if (failures.length > 0) {
+    throw new Error(`Apply failed, and rollback also failed: ${failures.join(" | ")}`);
+  }
+}
 
-  const { error } = await supabase
+async function verifyApplyResult(supabase, detailPayloads) {
+  const departmentIds = detailPayloads.map((detail) => detail.department_id);
+  const { data, error } = await supabase
     .from("program_admission_details")
-    .upsert(detailPayloads, { onConflict: "department_id" });
-  if (error) throw new Error(`Failed to upsert admission details: ${error.message}`);
+    .select("department_id")
+    .eq("university_id", BOLOGNA_UNIVERSITY_ID)
+    .in("department_id", departmentIds);
+
+  if (error) {
+    throw new Error(`Failed to verify admission detail upsert: ${error.message}`);
+  }
+
+  const foundDepartmentIds = new Set((data ?? []).map((detail) => detail.department_id));
+  for (const departmentId of departmentIds) {
+    if (!foundDepartmentIds.has(departmentId)) {
+      throw new Error(`Missing admission details after apply for department ${departmentId}`);
+    }
+  }
 }
 
 function reportForOutput(plan) {
@@ -482,6 +605,7 @@ function reportForOutput(plan) {
     matchedExisting: plan.matchedExisting.length,
     matchedExistingDetails: plan.matchedExisting,
     levelCorrections: plan.levelCorrections,
+    metadataCorrections: plan.metadataCorrections,
     newDepartments: plan.newDepartments.map(({ sourceFile, ...department }) => ({
       ...department,
       sourceFile,
