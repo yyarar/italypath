@@ -33,6 +33,7 @@ const programPage = read("app/universities/[id]/departments/[deptSlug]/page.tsx"
 
 const portraitFiles = [
   "components/university-details/DetailMentorPrompt.tsx",
+  "components/university-details/ProgramAdmissionDetailsPanel.tsx",
   "components/university-details/ProgramTransitionEntry.tsx",
   "components/university-details/ProgramDirectory.tsx",
   "components/university-details/UniversityPortraitMasthead.tsx",
@@ -53,15 +54,21 @@ requireTokens("university detail", universityPage, [
   "features",
   "isFavorite",
   "toggleFavorite",
+  "singleCyclePrograms={t.detail.singleCyclePrograms}",
 ]);
 
 requireTokens("program detail", programPage, [
   "ProgramPortraitHeader",
+  "ProgramAdmissionDetailsPanel",
   "ProgramDirectory",
   "DetailMentorPrompt",
   "safeLanguages",
   "safeDurationYears",
   "safeLevel",
+  "single-cycle",
+  "t.department.singleCycle",
+  "department.admissionDetails",
+  "singleCyclePrograms={t.detail.singleCyclePrograms}",
   "otherDepts",
   "description",
   "department.durationYears",
@@ -73,6 +80,12 @@ requireTokens("portrait components", portraitSource, [
   "university.departments",
   "bachelorPrograms",
   "masterPrograms",
+  "singleCyclePrograms",
+  "singleCycleDepartments",
+  "lg:grid-cols-3",
+  "ExternalLink",
+  "officialProgramUrl",
+  "uncertaintyNote",
 ]);
 
 forbidTokens("detail redesign", allDetailSource, [

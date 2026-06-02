@@ -136,6 +136,7 @@ export default function UniversityDetailPage() {
           programCountLabel={t.detail.programCount}
           bachelorPrograms={t.detail.bachelorPrograms}
           masterPrograms={t.detail.masterPrograms}
+          singleCyclePrograms={t.detail.singleCyclePrograms}
           openingLabel={t.detail.openingProgram}
           expandingSlug={expandingDeptSlug}
           onSelect={(slug) => {
