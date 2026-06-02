@@ -80,6 +80,17 @@ export function ProgramDirectory({
   const singleCycleDepartments = departments.filter(
     (department) => department.level === "single-cycle",
   );
+  const visibleGroupCount = [
+    bachelorDepartments,
+    masterDepartments,
+    singleCycleDepartments,
+  ].filter((group) => group.length > 0).length;
+  const gridColumnsClass =
+    visibleGroupCount >= 3
+      ? "lg:grid-cols-3"
+      : visibleGroupCount === 2
+        ? "lg:grid-cols-2"
+        : "lg:grid-cols-1";
 
   return (
     <section className="space-y-5">
@@ -100,7 +111,7 @@ export function ProgramDirectory({
         </p>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-3">
+      <div className={`grid gap-4 ${gridColumnsClass}`}>
         <ProgramGroup
           university={university}
           departments={bachelorDepartments}

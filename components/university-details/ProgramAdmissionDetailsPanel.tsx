@@ -48,7 +48,7 @@ function DetailRow({ label, value }: { label: string; value?: string }) {
       <dt className="text-[10px] font-black uppercase tracking-[0.16em] text-[var(--editorial-muted)]">
         {label}
       </dt>
-      <dd className="font-serif text-lg leading-7 text-[var(--editorial-ink)]">
+      <dd className="break-words font-serif text-lg leading-7 text-[var(--editorial-ink)]">
         {value}
       </dd>
     </div>
@@ -118,7 +118,7 @@ export function ProgramAdmissionDetailsPanel({
             {details.requiredDocuments.map((document) => (
               <li
                 key={document}
-                className="border-l-2 border-[var(--editorial-sage)] pl-3 font-serif text-lg leading-7 text-[var(--editorial-ink)]"
+                className="break-words border-l-2 border-[var(--editorial-sage)] pl-3 font-serif text-lg leading-7 text-[var(--editorial-ink)]"
               >
                 {document}
               </li>

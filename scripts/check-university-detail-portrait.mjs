@@ -82,10 +82,14 @@ requireTokens("portrait components", portraitSource, [
   "masterPrograms",
   "singleCyclePrograms",
   "singleCycleDepartments",
+  "visibleGroupCount",
+  "gridColumnsClass",
   "lg:grid-cols-3",
+  "lg:grid-cols-2",
   "ExternalLink",
   "officialProgramUrl",
   "uncertaintyNote",
+  "break-words",
 ]);
 
 forbidTokens("detail redesign", allDetailSource, [
