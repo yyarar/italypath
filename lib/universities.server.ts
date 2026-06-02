@@ -2,23 +2,32 @@ import { createClient } from "@supabase/supabase-js";
 
 import type {
   Department,
+  ProgramAdmissionDetails,
   ProgramDurationYears,
   ProgramLanguage,
   ProgramLevel,
+  ProgramSourceQuote,
   University,
 } from "@/app/data";
-import type { SupabaseUniversityDepartmentRow, SupabaseUniversityRow } from "@/types";
+import type {
+  SupabaseProgramAdmissionDetailsRow,
+  SupabaseUniversityDepartmentRow,
+  SupabaseUniversityRow,
+} from "@/types";
 
 const UNIVERSITY_COLUMNS =
   "id,name,city,type,fee,image,description,description_en,website,features,features_en,sort_order";
 const UNIVERSITY_DEPARTMENT_COLUMNS =
-  "university_id,name,slug,languages,duration_years,level,sort_order";
+  "id,university_id,name,slug,languages,duration_years,level,sort_order";
+const PROGRAM_ADMISSION_DETAIL_COLUMNS =
+  "department_id,university_id,raw_program_name,raw_level,raw_teaching_language,campus,degree_class,admission_type,academic_requirements,language_requirements,application_deadline_eu,application_deadline_non_eu,required_documents,entry_exam_or_test,tuition_or_fees_link,official_program_url,official_call_url,source_quotes,uncertain,uncertainty_notes,source_file";
 const UNIVERSITY_PAGE_SIZE = 1000;
 const UNIVERSITY_DEPARTMENT_PAGE_SIZE = 1000;
+const PROGRAM_ADMISSION_DETAIL_PAGE_SIZE = 1000;
 const SERVER_CACHE_TTL_MS = 60 * 60 * 1000;
 
 const PROGRAM_LANGUAGES = new Set<ProgramLanguage>(["en", "it"]);
-const PROGRAM_LEVELS = new Set<ProgramLevel>(["bachelor", "master"]);
+const PROGRAM_LEVELS = new Set<ProgramLevel>(["bachelor", "master", "single-cycle"]);
 const PROGRAM_DURATIONS = new Set<ProgramDurationYears>([1, 2, 3, 4, 5, 6]);
 
 let cachedUniversities: { data: University[]; expiresAt: number } | null = null;
@@ -48,6 +57,39 @@ function normalizeStringList(value: string[] | null) {
   return (value ?? []).map((item) => item.trim()).filter(Boolean);
 }
 
+function normalizeUnknownStringList(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value.flatMap((item) => {
+    if (typeof item !== "string") return [];
+    const normalized = item.trim();
+    return normalized ? [normalized] : [];
+  });
+}
+
+function normalizeSourceQuotes(value: unknown): ProgramSourceQuote[] {
+  if (!Array.isArray(value)) return [];
+
+  return value.flatMap((item) => {
+    if (!item || typeof item !== "object") return [];
+    const quote = item as Record<string, unknown>;
+    const url = typeof quote.url === "string" ? quote.url.trim() : "";
+    const text = typeof quote.quote === "string" ? quote.quote.trim() : "";
+    const retrievedAt =
+      typeof quote.retrieved_at === "string" ? quote.retrieved_at.trim() : "";
+
+    if (!url || !text || !retrievedAt) return [];
+
+    return [
+      {
+        url,
+        quote: text,
+        field_refs: normalizeUnknownStringList(quote.field_refs),
+        retrieved_at: retrievedAt,
+      },
+    ];
+  });
+}
+
 function normalizeLanguages(languages: string[] | null): ProgramLanguage[] {
   const normalized = (languages ?? []).filter((language): language is ProgramLanguage =>
     PROGRAM_LANGUAGES.has(language as ProgramLanguage)
@@ -75,11 +117,47 @@ function createDepartment(row: SupabaseUniversityDepartmentRow): Department | nu
   }
 
   return {
+    id: row.id,
     name,
     slug,
     languages: normalizeLanguages(row.languages),
     durationYears: normalizeDurationYears(row.duration_years),
     level: normalizeLevel(row.level),
+  };
+}
+
+function optionalText(value: string | null): string | undefined {
+  const normalized = normalizeText(value);
+  return normalized || undefined;
+}
+
+function createAdmissionDetails(
+  row: SupabaseProgramAdmissionDetailsRow
+): ProgramAdmissionDetails | null {
+  const officialProgramUrl = normalizeText(row.official_program_url);
+  const rawTeachingLanguage = normalizeText(row.raw_teaching_language);
+
+  if (!officialProgramUrl || !rawTeachingLanguage) {
+    return null;
+  }
+
+  return {
+    officialProgramUrl,
+    officialCallUrl: optionalText(row.official_call_url),
+    tuitionOrFeesLink: optionalText(row.tuition_or_fees_link),
+    campus: optionalText(row.campus),
+    degreeClass: optionalText(row.degree_class),
+    admissionType: optionalText(row.admission_type),
+    academicRequirements: optionalText(row.academic_requirements),
+    languageRequirements: optionalText(row.language_requirements),
+    applicationDeadlineEu: optionalText(row.application_deadline_eu),
+    applicationDeadlineNonEu: optionalText(row.application_deadline_non_eu),
+    requiredDocuments: normalizeUnknownStringList(row.required_documents),
+    entryExamOrTest: optionalText(row.entry_exam_or_test),
+    sourceQuotes: normalizeSourceQuotes(row.source_quotes),
+    uncertain: normalizeUnknownStringList(row.uncertain),
+    uncertaintyNotes: normalizeUnknownStringList(row.uncertainty_notes),
+    rawTeachingLanguage,
   };
 }
 
@@ -163,18 +241,61 @@ async function fetchUniversityDepartmentRows(): Promise<SupabaseUniversityDepart
   }
 }
 
+async function fetchProgramAdmissionDetailRows(): Promise<SupabaseProgramAdmissionDetailsRow[]> {
+  const supabase = createReadOnlySupabaseClient();
+  const rows: SupabaseProgramAdmissionDetailsRow[] = [];
+
+  for (let from = 0; ; from += PROGRAM_ADMISSION_DETAIL_PAGE_SIZE) {
+    const to = from + PROGRAM_ADMISSION_DETAIL_PAGE_SIZE - 1;
+    const { data, error } = await supabase
+      .from("program_admission_details")
+      .select(PROGRAM_ADMISSION_DETAIL_COLUMNS)
+      .order("university_id", { ascending: true })
+      .order("department_id", { ascending: true })
+      .range(from, to)
+      .returns<SupabaseProgramAdmissionDetailsRow[]>();
+
+    if (error) {
+      throw new Error(`Failed to fetch program admission details from Supabase: ${error.message}`);
+    }
+
+    const page = data ?? [];
+    rows.push(...page);
+
+    if (page.length < PROGRAM_ADMISSION_DETAIL_PAGE_SIZE) {
+      return rows;
+    }
+  }
+}
+
 export function composeUniversitiesFromSupabaseRows(
   universityRows: SupabaseUniversityRow[],
-  departmentRows: SupabaseUniversityDepartmentRow[]
+  departmentRows: SupabaseUniversityDepartmentRow[],
+  admissionDetailRows: SupabaseProgramAdmissionDetailsRow[] = []
 ): University[] {
+  const detailsByDepartmentId = new Map<number, ProgramAdmissionDetails>();
+
+  for (const row of admissionDetailRows) {
+    const detail = createAdmissionDetails(row);
+    if (detail) {
+      detailsByDepartmentId.set(row.department_id, detail);
+    }
+  }
+
   const departmentsByUniversityId = new Map<number, Department[]>();
 
   for (const row of departmentRows) {
     const department = createDepartment(row);
     if (!department) continue;
 
+    const admissionDetails =
+      typeof row.id === "number" ? detailsByDepartmentId.get(row.id) : undefined;
+    const enrichedDepartment = admissionDetails
+      ? { ...department, admissionDetails }
+      : department;
+
     const departments = departmentsByUniversityId.get(row.university_id) ?? [];
-    departments.push(department);
+    departments.push(enrichedDepartment);
     departmentsByUniversityId.set(row.university_id, departments);
   }
 
@@ -195,11 +316,16 @@ export async function getUniversitiesData(): Promise<University[]> {
     return cachedUniversities.data;
   }
 
-  const [universityRows, departmentRows] = await Promise.all([
+  const [universityRows, departmentRows, admissionDetailRows] = await Promise.all([
     fetchUniversityRows(),
     fetchUniversityDepartmentRows(),
+    fetchProgramAdmissionDetailRows(),
   ]);
-  const universities = composeUniversitiesFromSupabaseRows(universityRows, departmentRows);
+  const universities = composeUniversitiesFromSupabaseRows(
+    universityRows,
+    departmentRows,
+    admissionDetailRows
+  );
 
   cachedUniversities = {
     data: universities,
