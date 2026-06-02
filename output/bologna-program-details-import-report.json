@@ -10,434 +10,620 @@
       "name": "Advanced Automotive Engineering",
       "slug": "advanced-automotive-engineering",
       "level": "master",
-      "sourceFile": "Advanced_Automotive_Engineering.json"
+      "sourceFile": "Advanced_Automotive_Engineering.json",
+      "rawProgramName": "Advanced Automotive Engineering",
+      "sourceProgramName": "Advanced Automotive Engineering",
+      "canonicalDepartmentName": "Advanced Automotive Engineering"
     },
     {
       "id": 600,
       "name": "Aerospace Engineering",
       "slug": "aerospace-engineering",
       "level": "master",
-      "sourceFile": "Aerospace_Engineering.json"
+      "sourceFile": "Aerospace_Engineering.json",
+      "rawProgramName": "Aerospace Engineering",
+      "sourceProgramName": "Aerospace Engineering",
+      "canonicalDepartmentName": "Aerospace Engineering"
     },
     {
       "id": 586,
       "name": "Applied Economics and Markets",
       "slug": "applied-economics-and-markets",
       "level": "master",
-      "sourceFile": "Applied_Economics_and_Markets.json"
+      "sourceFile": "Applied_Economics_and_Markets.json",
+      "rawProgramName": "Applied Economics and Markets",
+      "sourceProgramName": "Applied Economics and Markets",
+      "canonicalDepartmentName": "Applied Economics and Markets"
     },
     {
       "id": 601,
       "name": "Architecture and Creative Practices for the City and Landscape",
       "slug": "architecture-and-creative-practices-for-the-city-and-landscape",
       "level": "master",
-      "sourceFile": "Architecture_and_Creative_Practices_for_the_City_and_Landscape.json"
+      "sourceFile": "Architecture_and_Creative_Practices_for_the_City_and_Landscape.json",
+      "rawProgramName": "Architecture and Creative Practices for the City and Landscape",
+      "sourceProgramName": "Architecture and Creative Practices for the City and Landscape",
+      "canonicalDepartmentName": "Architecture and Creative Practices for the City and Landscape"
     },
     {
       "id": 602,
       "name": "Artificial Intelligence",
       "slug": "artificial-intelligence",
       "level": "master",
-      "sourceFile": "Artificial_Intelligence.json"
+      "sourceFile": "Artificial_Intelligence.json",
+      "rawProgramName": "Artificial Intelligence",
+      "sourceProgramName": "Artificial Intelligence",
+      "canonicalDepartmentName": "Artificial Intelligence"
     },
     {
       "id": 603,
       "name": "Automation Engineering",
       "slug": "automation-engineering",
       "level": "master",
-      "sourceFile": "Automation_Engineering.json"
+      "sourceFile": "Automation_Engineering.json",
+      "rawProgramName": "Automation Engineering",
+      "sourceProgramName": "Automation Engineering",
+      "canonicalDepartmentName": "Automation Engineering"
     },
     {
       "id": 267,
       "name": "Biology of Human and Environmental Health",
       "slug": "biology-of-human-and-environmental-health",
       "level": "bachelor",
-      "sourceFile": "Biology_of_Human_and_Environmental_Health.json"
+      "sourceFile": "Biology_of_Human_and_Environmental_Health.json",
+      "rawProgramName": "Biology of Human and Environmental Health",
+      "sourceProgramName": "Biology of Human and Environmental Health",
+      "canonicalDepartmentName": "Biology of Human and Environmental Health"
     },
     {
       "id": 604,
       "name": "Biomedical Engineering",
       "slug": "biomedical-engineering",
       "level": "master",
-      "sourceFile": "Biomedical_Engineering.json"
+      "sourceFile": "Biomedical_Engineering.json",
+      "rawProgramName": "Biomedical Engineering",
+      "sourceProgramName": "Biomedical Engineering",
+      "canonicalDepartmentName": "Biomedical Engineering"
     },
     {
       "id": 261,
       "name": "Building Construction Engineering",
       "slug": "building-construction-engineering",
       "level": "bachelor",
-      "sourceFile": "Building_Construction_Engineering.json"
+      "sourceFile": "Building_Construction_Engineering.json",
+      "rawProgramName": "Building Construction Engineering",
+      "sourceProgramName": "Building Construction Engineering",
+      "canonicalDepartmentName": "Building Construction Engineering"
     },
     {
       "id": 605,
       "name": "Building Engineering - Architecture",
       "slug": "building-engineering-architecture",
       "level": "master",
-      "sourceFile": "Building_Engineering_Architecture.json"
+      "sourceFile": "Building_Engineering_Architecture.json",
+      "rawProgramName": "Building Engineering -Architecture",
+      "sourceProgramName": "Building Engineering -Architecture",
+      "canonicalDepartmentName": "Building Engineering -Architecture"
     },
     {
       "id": 582,
       "name": "Business Administration and Sustainability",
       "slug": "business-administration-and-sustainability",
       "level": "master",
-      "sourceFile": "Business_Administration_and_Sustainability.json"
+      "sourceFile": "Business_Administration_and_Sustainability.json",
+      "rawProgramName": "Business Administration and Sustainability",
+      "sourceProgramName": "Business Administration and Sustainability",
+      "canonicalDepartmentName": "Business Administration and Sustainability"
     },
     {
       "id": 262,
       "name": "Business and Economics",
       "slug": "business-and-economics",
       "level": "bachelor",
-      "sourceFile": "Business_and_Economics.json"
+      "sourceFile": "Business_and_Economics.json",
+      "rawProgramName": "Business and Economics",
+      "sourceProgramName": "Business and Economics",
+      "canonicalDepartmentName": "Business and Economics"
     },
     {
       "id": 263,
       "name": "Business Economics",
       "slug": "business-economics",
       "level": "bachelor",
-      "sourceFile": "Business_Economics.json"
+      "sourceFile": "Business_Economics.json",
+      "rawProgramName": "Business Economics",
+      "sourceProgramName": "Business Economics",
+      "canonicalDepartmentName": "Business Economics"
     },
     {
       "id": 606,
       "name": "Chemical and Process Engineering",
       "slug": "chemical-and-process-engineering",
       "level": "master",
-      "sourceFile": "Chemical_and_Process_Engineering.json"
+      "sourceFile": "Chemical_and_Process_Engineering.json",
+      "rawProgramName": "Chemical and Process Engineering",
+      "sourceProgramName": "Chemical and Process Engineering",
+      "canonicalDepartmentName": "Chemical and Process Engineering"
     },
     {
       "id": 607,
       "name": "Civil Engineering",
       "slug": "civil-engineering",
       "level": "master",
-      "sourceFile": "Civil_Engineering.json"
+      "sourceFile": "Civil_Engineering.json",
+      "rawProgramName": "Civil Engineering",
+      "sourceProgramName": "Civil Engineering",
+      "canonicalDepartmentName": "Civil Engineering"
     },
     {
       "id": 608,
       "name": "Communications Engineering",
       "slug": "communications-engineering",
       "level": "master",
-      "sourceFile": "Communications_Engineering.json"
+      "sourceFile": "Communications_Engineering.json",
+      "rawProgramName": "Communications Engineering",
+      "sourceProgramName": "Communications Engineering",
+      "canonicalDepartmentName": "Communications Engineering"
     },
     {
       "id": 609,
       "name": "Computer Science and Engineering",
       "slug": "computer-science-and-engineering",
       "level": "master",
-      "sourceFile": "Computer_Science_and_Engineering.json"
+      "sourceFile": "Computer_Science_and_Engineering.json",
+      "rawProgramName": "Computer Science and Engineering",
+      "sourceProgramName": "Computer Science and Engineering",
+      "canonicalDepartmentName": "Computer Science and Engineering"
     },
     {
       "id": 619,
       "name": "Digital Humanities and Digital Knowledge",
       "slug": "digital-humanities-and-digital-knowledge",
       "level": "master",
-      "sourceFile": "Digital_Humanities_and_Digital_Knowledge.json"
+      "sourceFile": "Digital_Humanities_and_Digital_Knowledge.json",
+      "rawProgramName": "Digital Humanities and Digital Knowledge",
+      "sourceProgramName": "Digital Humanities and Digital Knowledge",
+      "canonicalDepartmentName": "Digital Humanities and Digital Knowledge"
     },
     {
       "id": 587,
       "name": "Digital Transformation Management",
       "slug": "digital-transformation-management",
       "level": "master",
-      "sourceFile": "Digital_Transformation_Management.json"
+      "sourceFile": "Digital_Transformation_Management.json",
+      "rawProgramName": "Digital Transformation Management",
+      "sourceProgramName": "Digital Transformation Management",
+      "canonicalDepartmentName": "Digital Transformation Management"
     },
     {
       "id": 588,
       "name": "Economics and Econometrics",
       "slug": "economics-and-econometrics",
       "level": "master",
-      "sourceFile": "Economics_and_Econometrics.json"
+      "sourceFile": "Economics_and_Econometrics.json",
+      "rawProgramName": "Economics and Econometrics",
+      "sourceProgramName": "Economics and Econometrics",
+      "canonicalDepartmentName": "Economics and Econometrics"
     },
     {
       "id": 264,
       "name": "Economics and Finance",
       "slug": "economics-and-finance",
       "level": "bachelor",
-      "sourceFile": "Economics_and_Finance.json"
+      "sourceFile": "Economics_and_Finance.json",
+      "rawProgramName": "Economics and Finance",
+      "sourceProgramName": "Economics and Finance",
+      "canonicalDepartmentName": "Economics and Finance"
     },
     {
       "id": 589,
       "name": "Economics and Public Policy",
       "slug": "economics-and-public-policy",
       "level": "master",
-      "sourceFile": "Economics_and_Public_Policy.json"
+      "sourceFile": "Economics_and_Public_Policy.json",
+      "rawProgramName": "Economics and Public Policy",
+      "sourceProgramName": "Economics and Public Policy",
+      "canonicalDepartmentName": "Economics and Public Policy"
     },
     {
       "id": 265,
       "name": "Economics of Tourism and Cities",
       "slug": "economics-of-tourism-and-cities",
       "level": "bachelor",
-      "sourceFile": "Economics_of_Tourism_and_Cities.json"
+      "sourceFile": "Economics_of_Tourism_and_Cities.json",
+      "rawProgramName": "Economics of Tourism and Cities",
+      "sourceProgramName": "Economics of Tourism and Cities",
+      "canonicalDepartmentName": "Economics of Tourism and Cities"
     },
     {
       "id": 266,
       "name": "Economics, Politics and Social Sciences",
       "slug": "economics-politics-and-social-sciences",
       "level": "bachelor",
-      "sourceFile": "Economics_Politics_and_Social_Sciences.json"
+      "sourceFile": "Economics_Politics_and_Social_Sciences.json",
+      "rawProgramName": "Economics, Politics and Social Sciences",
+      "sourceProgramName": "Economics, Politics and Social Sciences",
+      "canonicalDepartmentName": "Economics, Politics and Social Sciences"
     },
     {
       "id": 610,
       "name": "Electric Vehicle Engineering",
       "slug": "electric-vehicle-engineering",
       "level": "master",
-      "sourceFile": "Electric_Vehicle_Engineering.json"
+      "sourceFile": "Electric_Vehicle_Engineering.json",
+      "rawProgramName": "Electric Vehicle Engineering",
+      "sourceProgramName": "Electric Vehicle Engineering",
+      "canonicalDepartmentName": "Electric Vehicle Engineering"
     },
     {
       "id": 611,
       "name": "Electrical Energy Engineering",
       "slug": "electrical-energy-engineering",
       "level": "master",
-      "sourceFile": "Electrical_Energy_Engineering.json"
+      "sourceFile": "Electrical_Energy_Engineering.json",
+      "rawProgramName": "Electrical Energy Engineering",
+      "sourceProgramName": "Electrical Energy Engineering",
+      "canonicalDepartmentName": "Electrical Energy Engineering"
     },
     {
       "id": 613,
       "name": "Electronic Engineering for Intelligent Vehicles",
       "slug": "electronic-engineering-for-intelligent-vehicles",
       "level": "master",
-      "sourceFile": "Electronic_Engineering_for_Intelligent_Vehicles.json"
+      "sourceFile": "Electronic_Engineering_for_Intelligent_Vehicles.json",
+      "rawProgramName": "Electronic Engineering for Intelligent Vehicles",
+      "sourceProgramName": "Electronic Engineering for Intelligent Vehicles",
+      "canonicalDepartmentName": "Electronic Engineering for Intelligent Vehicles"
     },
     {
       "id": 612,
       "name": "Electronic Engineering",
       "slug": "electronic-engineering",
       "level": "master",
-      "sourceFile": "Electronic_Engineering.json"
+      "sourceFile": "Electronic_Engineering.json",
+      "rawProgramName": "Electronic Engineering",
+      "sourceProgramName": "Electronic Engineering",
+      "canonicalDepartmentName": "Electronic Engineering"
     },
     {
       "id": 614,
       "name": "Engineering for Historic Building Rehabilitation",
       "slug": "engineering-for-historic-building-rehabilitation",
       "level": "master",
-      "sourceFile": "Engineering_for_Historic_Building_Rehabilitation.json"
+      "sourceFile": "Engineering_for_Historic_Building_Rehabilitation.json",
+      "rawProgramName": "Engineering for Historic Building Rehabilitation",
+      "sourceProgramName": "Engineering for Historic Building Rehabilitation",
+      "canonicalDepartmentName": "Engineering for Historic Building Rehabilitation"
     },
     {
       "id": 615,
       "name": "Environmental Engineering",
       "slug": "environmental-engineering",
       "level": "master",
-      "sourceFile": "Environmental_Engineering.json"
+      "sourceFile": "Environmental_Engineering.json",
+      "rawProgramName": "Environmental Engineering",
+      "sourceProgramName": "Environmental Engineering",
+      "canonicalDepartmentName": "Environmental Engineering"
     },
     {
       "id": 268,
       "name": "European Studies",
       "slug": "european-studies",
       "level": "bachelor",
-      "sourceFile": "European_Studies.json"
+      "sourceFile": "European_Studies.json",
+      "rawProgramName": "European Studies",
+      "sourceProgramName": "European Studies",
+      "canonicalDepartmentName": "European Studies"
     },
     {
       "id": 620,
       "name": "Fashion Studies",
       "slug": "fashion-studies",
       "level": "master",
-      "sourceFile": "Fashion_Studies.json"
+      "sourceFile": "Fashion_Studies.json",
+      "rawProgramName": "Fashion Studies",
+      "sourceProgramName": "Fashion Studies",
+      "canonicalDepartmentName": "Fashion Studies"
     },
     {
       "id": 583,
       "name": "Food Safety and Food Risk Management",
       "slug": "food-safety-and-food-risk-management",
       "level": "master",
-      "sourceFile": "Food_Safety_and_Food_Risk_Management.json"
+      "sourceFile": "Food_Safety_and_Food_Risk_Management.json",
+      "rawProgramName": "Food Safety and Food Risk Management",
+      "sourceProgramName": "Food Safety and Food Risk Management",
+      "canonicalDepartmentName": "Food Safety and Food Risk Management"
     },
     {
       "id": 269,
       "name": "Genomics",
       "slug": "genomics",
       "level": "bachelor",
-      "sourceFile": "Genomics.json"
+      "sourceFile": "Genomics.json",
+      "rawProgramName": "Genomics",
+      "sourceProgramName": "Genomics",
+      "canonicalDepartmentName": "Genomics"
     },
     {
       "id": 621,
       "name": "Global Cultures",
       "slug": "global-cultures",
       "level": "master",
-      "sourceFile": "Global_Cultures.json"
+      "sourceFile": "Global_Cultures.json",
+      "rawProgramName": "Global Cultures",
+      "sourceProgramName": "Global Cultures",
+      "canonicalDepartmentName": "Global Cultures"
     },
     {
       "id": 590,
       "name": "Health Economics and Management",
       "slug": "health-economics-and-management",
       "level": "master",
-      "sourceFile": "Health_Economics_and_Management.json"
+      "sourceFile": "Health_Economics_and_Management.json",
+      "rawProgramName": "Health Economics and Management",
+      "sourceProgramName": "Health Economics and Management",
+      "canonicalDepartmentName": "Health Economics and Management"
     },
     {
       "id": 591,
       "name": "Innovation and Organization of Culture and the Arts",
       "slug": "innovation-and-organization-of-culture-and-the-arts",
       "level": "master",
-      "sourceFile": "Innovation_and_Organization_of_Culture_and_the_Arts.json"
+      "sourceFile": "Innovation_and_Organization_of_Culture_and_the_Arts.json",
+      "rawProgramName": "Innovation and Organization of Culture and the Arts",
+      "sourceProgramName": "Innovation and Organization of Culture and the Arts",
+      "canonicalDepartmentName": "Innovation and Organization of Culture and the Arts"
     },
     {
       "id": 622,
       "name": "International Cooperation on Human Rights and Intercultural Heritage",
       "slug": "international-cooperation-on-human-rights-and-intercultural-heritage",
       "level": "master",
-      "sourceFile": "International_Cooperation_on_Human_Rights_and_Intercultural_Heritage.json"
+      "sourceFile": "International_Cooperation_on_Human_Rights_and_Intercultural_Heritage.json",
+      "rawProgramName": "International Cooperation on Human Rights and Intercultural Heritage",
+      "sourceProgramName": "International Cooperation on Human Rights and Intercultural Heritage",
+      "canonicalDepartmentName": "International Cooperation on Human Rights and Intercultural Heritage"
     },
     {
       "id": 584,
       "name": "International Horticultural Science",
       "slug": "international-horticultural-science",
       "level": "master",
-      "sourceFile": "International_Horticultural_Science.json"
+      "sourceFile": "International_Horticultural_Science.json",
+      "rawProgramName": "International Horticultural Science",
+      "sourceProgramName": "International Horticultural Science",
+      "canonicalDepartmentName": "International Horticultural Science"
     },
     {
       "id": 592,
       "name": "International Management",
       "slug": "international-management",
       "level": "master",
-      "sourceFile": "International_Management.json"
+      "sourceFile": "International_Management.json",
+      "rawProgramName": "International Management",
+      "sourceProgramName": "International Management",
+      "canonicalDepartmentName": "International Management"
     },
     {
       "id": 593,
       "name": "International Politics and Economics",
       "slug": "international-politics-and-economics",
       "level": "master",
-      "sourceFile": "International_Politics_and_Economics.json"
+      "sourceFile": "International_Politics_and_Economics.json",
+      "rawProgramName": "International Politics and Economics",
+      "sourceProgramName": "International Politics and Economics",
+      "canonicalDepartmentName": "International Politics and Economics"
     },
     {
       "id": 270,
       "name": "International Studies",
       "slug": "international-studies",
       "level": "bachelor",
-      "sourceFile": "International_Studies.json"
+      "sourceFile": "International_Studies.json",
+      "rawProgramName": "International Studies",
+      "sourceProgramName": "International Studies",
+      "canonicalDepartmentName": "International Studies"
     },
     {
       "id": 626,
       "name": "Interpreting",
       "slug": "interpreting",
       "level": "master",
-      "sourceFile": "Interpreting.json"
+      "sourceFile": "Interpreting.json",
+      "rawProgramName": "Interpreting",
+      "sourceProgramName": "Interpreting",
+      "canonicalDepartmentName": "Interpreting"
     },
     {
       "id": 623,
       "name": "Italian Studies and European Literary Cultures",
       "slug": "italian-studies-and-european-literary-cultures",
       "level": "master",
-      "sourceFile": "Italian_Studies_and_European_Literary_Cultures.json"
+      "sourceFile": "Italian_Studies_and_European_Literary_Cultures.json",
+      "rawProgramName": "Italian Studies and European Literary Cultures",
+      "sourceProgramName": "Italian Studies and European Literary Cultures",
+      "canonicalDepartmentName": "Italian Studies and European Literary Cultures"
     },
     {
       "id": 627,
       "name": "Language, Society and Communication",
       "slug": "language-society-and-communication",
       "level": "master",
-      "sourceFile": "Language_Society_and_Communication.json"
+      "sourceFile": "Language_Society_and_Communication.json",
+      "rawProgramName": "Language, Society and Communication",
+      "sourceProgramName": "Language, Society and Communication",
+      "canonicalDepartmentName": "Language, Society and Communication"
     },
     {
       "id": 594,
       "name": "Law and Economics",
       "slug": "law-and-economics",
       "level": "master",
-      "sourceFile": "Law_and_Economics.json"
+      "sourceFile": "Law_and_Economics.json",
+      "rawProgramName": "Law and Economics",
+      "sourceProgramName": "Law and Economics",
+      "canonicalDepartmentName": "Law and Economics"
     },
     {
       "id": 595,
       "name": "Law, Economics and Governance",
       "slug": "law-economics-and-governance",
       "level": "master",
-      "sourceFile": "Law_Economics_and_Governance.json"
+      "sourceFile": "Law_Economics_and_Governance.json",
+      "rawProgramName": "Law, Economics and Governance",
+      "sourceProgramName": "Law, Economics and Governance",
+      "canonicalDepartmentName": "Law, Economics and Governance"
     },
     {
       "id": 629,
       "name": "Legal Studies",
       "slug": "legal-studies",
       "level": "master",
-      "sourceFile": "Legal_Studies.json"
+      "sourceFile": "Legal_Studies.json",
+      "rawProgramName": "Legal Studies",
+      "sourceProgramName": "Legal Studies",
+      "canonicalDepartmentName": "Legal Studies"
     },
     {
       "id": 271,
       "name": "Management and Economics",
       "slug": "management-and-economics",
       "level": "bachelor",
-      "sourceFile": "Management_and_Economics.json"
+      "sourceFile": "Management_and_Economics.json",
+      "rawProgramName": "Management and Economics",
+      "sourceProgramName": "Management and Economics",
+      "canonicalDepartmentName": "Management and Economics"
     },
     {
       "id": 616,
       "name": "Mechanical Engineering for Sustainability",
       "slug": "mechanical-engineering-for-sustainability",
       "level": "master",
-      "sourceFile": "Mechanical_Engineering_for_Sustainability.json"
+      "sourceFile": "Mechanical_Engineering_for_Sustainability.json",
+      "rawProgramName": "Mechanical Engineering for Sustainability",
+      "sourceProgramName": "Mechanical Engineering for Sustainability",
+      "canonicalDepartmentName": "Mechanical Engineering for Sustainability"
     },
     {
       "id": 272,
       "name": "Medicine and Surgery",
       "slug": "medicine-and-surgery",
       "level": "single-cycle",
-      "sourceFile": "Medicine_and_Surgery.json"
+      "sourceFile": "Medicine_and_Surgery.json",
+      "rawProgramName": "Medicine and Surgery",
+      "sourceProgramName": "Medicine and Surgery",
+      "canonicalDepartmentName": "Medicine and Surgery"
     },
     {
       "id": 617,
       "name": "Offshore Engineering for Energy Transition",
       "slug": "offshore-engineering-for-energy-transition",
       "level": "master",
-      "sourceFile": "Offshore_Engineering_for_Energy_Transition.json"
+      "sourceFile": "Offshore_Engineering_for_Energy_Transition.json",
+      "rawProgramName": "Offshore Engineering for Energy Transition",
+      "sourceProgramName": "Offshore Engineering for Energy Transition",
+      "canonicalDepartmentName": "Offshore Engineering for Energy Transition"
     },
     {
       "id": 273,
       "name": "Pharmacy",
       "slug": "pharmacy",
       "level": "single-cycle",
-      "sourceFile": "Pharmacy.json"
+      "sourceFile": "Pharmacy.json",
+      "rawProgramName": "Pharmacy",
+      "sourceProgramName": "Pharmacy",
+      "canonicalDepartmentName": "Pharmacy"
     },
     {
       "id": 585,
       "name": "Precise and Sustainable Agriculture",
       "slug": "precise-and-sustainable-agriculture",
       "level": "master",
-      "sourceFile": "Precise_and_Sustainable_Agriculture.json"
+      "sourceFile": "Precise_and_Sustainable_Agriculture.json",
+      "rawProgramName": "Precise and Sustainable Agriculture",
+      "sourceProgramName": "Precise and Sustainable Agriculture",
+      "canonicalDepartmentName": "Precise and Sustainable Agriculture"
     },
     {
       "id": 596,
       "name": "Resource Economics and Sustainable Development",
       "slug": "resource-economics-and-sustainable-development",
       "level": "master",
-      "sourceFile": "Resource_Economics_and_Sustainable_Development.json"
+      "sourceFile": "Resource_Economics_and_Sustainable_Development.json",
+      "rawProgramName": "Resource Economics and Sustainable Development",
+      "sourceProgramName": "Resource Economics and Sustainable Development",
+      "canonicalDepartmentName": "Resource Economics and Sustainable Development"
     },
     {
       "id": 624,
       "name": "Semiotics",
       "slug": "semiotics",
       "level": "master",
-      "sourceFile": "Semiotics.json"
+      "sourceFile": "Semiotics.json",
+      "rawProgramName": "Semiotics",
+      "sourceProgramName": "Semiotics",
+      "canonicalDepartmentName": "Semiotics"
     },
     {
       "id": 597,
       "name": "Service Management",
       "slug": "service-management",
       "level": "master",
-      "sourceFile": "Service_Management.json"
+      "sourceFile": "Service_Management.json",
+      "rawProgramName": "Service Management",
+      "sourceProgramName": "Service Management",
+      "canonicalDepartmentName": "Service Management"
     },
     {
       "id": 628,
       "name": "Specialized Translation",
       "slug": "specialized-translation",
       "level": "master",
-      "sourceFile": "Specialized_Translation.json"
+      "sourceFile": "Specialized_Translation.json",
+      "rawProgramName": "Specialized translation",
+      "sourceProgramName": "Specialized translation",
+      "canonicalDepartmentName": "Specialized translation"
     },
     {
       "id": 274,
       "name": "Statistical Sciences",
       "slug": "statistical-sciences",
       "level": "bachelor",
-      "sourceFile": "Statistical_Sciences.json"
+      "sourceFile": "Statistical_Sciences.json",
+      "rawProgramName": "Statistical Sciences",
+      "sourceProgramName": "Statistical Sciences",
+      "canonicalDepartmentName": "Statistical Sciences"
     },
     {
       "id": 598,
       "name": "Tourism Economics and Management",
       "slug": "tourism-economics-and-management",
       "level": "master",
-      "sourceFile": "Tourism_Economics_and_Management.json"
+      "sourceFile": "Tourism_Economics_and_Management.json",
+      "rawProgramName": "Tourism Economics and Management",
+      "sourceProgramName": "Tourism Economics and Management",
+      "canonicalDepartmentName": "Tourism Economics and Management"
     },
     {
       "id": 275,
       "name": "Veterinary Medicine",
       "slug": "veterinary-medicine",
       "level": "single-cycle",
-      "sourceFile": "Veterinary_Medicine.json"
+      "sourceFile": "Veterinary_Medicine.json",
+      "rawProgramName": "Veterinary Medicine",
+      "sourceProgramName": "Veterinary Medicine",
+      "canonicalDepartmentName": "Veterinary Medicine"
     },
     {
       "id": 625,
       "name": "Visual Arts",
       "slug": "visual-arts",
       "level": "master",
-      "sourceFile": "Visual_Arts.json"
+      "sourceFile": "Visual_Arts.json",
+      "rawProgramName": "Visual Arts",
+      "sourceProgramName": "Visual Arts",
+      "canonicalDepartmentName": "Visual Arts"
     }
   ],
   "levelCorrections": [
@@ -447,7 +633,10 @@
       "slug": "medicine-and-surgery",
       "from": "bachelor",
       "to": "single-cycle",
-      "sourceFile": "Medicine_and_Surgery.json"
+      "sourceFile": "Medicine_and_Surgery.json",
+      "rawProgramName": "Medicine and Surgery",
+      "sourceProgramName": "Medicine and Surgery",
+      "canonicalDepartmentName": "Medicine and Surgery"
     },
     {
       "id": 273,
@@ -455,7 +644,10 @@
       "slug": "pharmacy",
       "from": "bachelor",
       "to": "single-cycle",
-      "sourceFile": "Pharmacy.json"
+      "sourceFile": "Pharmacy.json",
+      "rawProgramName": "Pharmacy",
+      "sourceProgramName": "Pharmacy",
+      "canonicalDepartmentName": "Pharmacy"
     },
     {
       "id": 275,
@@ -463,7 +655,10 @@
       "slug": "veterinary-medicine",
       "from": "bachelor",
       "to": "single-cycle",
-      "sourceFile": "Veterinary_Medicine.json"
+      "sourceFile": "Veterinary_Medicine.json",
+      "rawProgramName": "Veterinary Medicine",
+      "sourceProgramName": "Veterinary Medicine",
+      "canonicalDepartmentName": "Veterinary Medicine"
     }
   ],
   "newDepartments": [
@@ -478,6 +673,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 64,
+      "rawProgramName": "Advanced Cosmetic Sciences",
+      "sourceProgramName": "Advanced Cosmetic Sciences",
+      "canonicalDepartmentName": "Advanced Cosmetic Sciences",
       "sourceFile": "Advanced_Cosmetic_Sciences.json"
     },
     {
@@ -491,6 +689,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 65,
+      "rawProgramName": "Advanced Methods in Particle Physics",
+      "sourceProgramName": "Advanced Methods in Particle Physics",
+      "canonicalDepartmentName": "Advanced Methods in Particle Physics",
       "sourceFile": "Advanced_Methods_in_Particle_Physics.json"
     },
     {
@@ -504,6 +705,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 66,
+      "rawProgramName": "Advanced spectroscopy in chemistry",
+      "sourceProgramName": "Advanced spectroscopy in chemistry",
+      "canonicalDepartmentName": "Advanced spectroscopy in chemistry",
       "sourceFile": "Advanced_Spectroscopy_in_Chemistry.json"
     },
     {
@@ -518,6 +722,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 67,
+      "rawProgramName": "Animal Biotechnology",
+      "sourceProgramName": "Animal Biotechnology",
+      "canonicalDepartmentName": "Animal Biotechnology",
       "sourceFile": "Animal_Biotechnology.json"
     },
     {
@@ -532,6 +739,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 68,
+      "rawProgramName": "Archaeology",
+      "sourceProgramName": "Archaeology",
+      "canonicalDepartmentName": "Archaeology",
       "sourceFile": "Archaeology.json"
     },
     {
@@ -545,6 +755,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 69,
+      "rawProgramName": "Astrophysics and Cosmology",
+      "sourceProgramName": "Astrophysics and Cosmology",
+      "canonicalDepartmentName": "Astrophysics and Cosmology",
       "sourceFile": "Astrophysics_and_Cosmology.json"
     },
     {
@@ -558,6 +771,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 70,
+      "rawProgramName": "Chemical Innovation and Regulation for Sustainability",
+      "sourceProgramName": "Chemical Innovation and Regulation for Sustainability",
+      "canonicalDepartmentName": "Chemical Innovation and Regulation for Sustainability",
       "sourceFile": "Chemical_Innovation_and_Regulation_for_Sustainability.json"
     },
     {
@@ -572,6 +788,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 71,
+      "rawProgramName": "Computer Engineering",
+      "sourceProgramName": "Computer Engineering",
+      "canonicalDepartmentName": "Computer Engineering",
       "sourceFile": "Computer_Engineering.json"
     },
     {
@@ -585,6 +804,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 72,
+      "rawProgramName": "Digital Minds",
+      "sourceProgramName": "Digital Minds",
+      "canonicalDepartmentName": "Digital Minds",
       "sourceFile": "Digital_Minds.json"
     },
     {
@@ -598,6 +820,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 73,
+      "rawProgramName": "East European and Eurasian Studies",
+      "sourceProgramName": "East European and Eurasian Studies",
+      "canonicalDepartmentName": "East European and Eurasian Studies",
       "sourceFile": "East_European_and_Eurasian_Studies.json"
     },
     {
@@ -611,6 +836,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 74,
+      "rawProgramName": "Food Animal Metabolism and Management in the Circular Economy",
+      "sourceProgramName": "Food Animal Metabolism and Management in the Circular Economy",
+      "canonicalDepartmentName": "Food Animal Metabolism and Management in the Circular Economy",
       "sourceFile": "Food_Animal_Metabolism_and_Management_in_the_Circular_Economy.json"
     },
     {
@@ -625,6 +853,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 75,
+      "rawProgramName": "Geology for Sustainable Development",
+      "sourceProgramName": "Geology for Sustainable Development",
+      "canonicalDepartmentName": "Geology for Sustainable Development",
       "sourceFile": "Geology_for_Sustainable_Development.json"
     },
     {
@@ -638,6 +869,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 76,
+      "rawProgramName": "Greening Energy Market and Finance",
+      "sourceProgramName": "Greening Energy Market and Finance",
+      "canonicalDepartmentName": "Greening Energy Market and Finance",
       "sourceFile": "Greening_Energy_Market_and_Finance.json"
     },
     {
@@ -652,6 +886,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 77,
+      "rawProgramName": "International relations and diplomatic affairs",
+      "sourceProgramName": "International relations and diplomatic affairs",
+      "canonicalDepartmentName": "International relations and diplomatic affairs",
       "sourceFile": "International_relations_and_diplomatic_affairs.json"
     },
     {
@@ -665,6 +902,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 78,
+      "rawProgramName": "International Relations",
+      "sourceProgramName": "International Relations",
+      "canonicalDepartmentName": "International Relations",
       "sourceFile": "International_Relations.json"
     },
     {
@@ -678,19 +918,25 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 79,
+      "rawProgramName": "Low carbon technologies and sustainable chemistry",
+      "sourceProgramName": "Low carbon technologies and sustainable chemistry",
+      "canonicalDepartmentName": "Low carbon technologies and sustainable chemistry",
       "sourceFile": "Low_Carbon_Technologies_and_Sustainable_Chemistry.json"
     },
     {
       "id": null,
       "university_id": 3,
-      "name": "Material Science and Batteries [uncertain]",
-      "slug": "material-science-and-batteries-uncertain",
+      "name": "Material Science and Batteries",
+      "slug": "material-science-and-batteries",
       "languages": [
         "en"
       ],
       "duration_years": 2,
       "level": "master",
       "sort_order": 80,
+      "rawProgramName": "Material Science and Batteries [uncertain]",
+      "sourceProgramName": "Material Science and Batteries [uncertain]",
+      "canonicalDepartmentName": "Material Science and Batteries",
       "sourceFile": "Materials_Science_and_Batteries.json"
     },
     {
@@ -705,6 +951,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 81,
+      "rawProgramName": "Mathematics",
+      "sourceProgramName": "Mathematics",
+      "canonicalDepartmentName": "Mathematics",
       "sourceFile": "Mathematics.json"
     },
     {
@@ -718,6 +967,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 82,
+      "rawProgramName": "Medical Biotechnology",
+      "sourceProgramName": "Medical Biotechnology",
+      "canonicalDepartmentName": "Medical Biotechnology",
       "sourceFile": "Medical_Biotechnology.json"
     },
     {
@@ -731,6 +983,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 83,
+      "rawProgramName": "Molecular and Computational Biology",
+      "sourceProgramName": "Molecular and Computational Biology",
+      "canonicalDepartmentName": "Molecular and Computational Biology",
       "sourceFile": "Molecular_and_Computational_Biology.json"
     },
     {
@@ -744,6 +999,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 84,
+      "rawProgramName": "Pharmaceutical and Industrial Biotechnology",
+      "sourceProgramName": "Pharmaceutical and Industrial Biotechnology",
+      "canonicalDepartmentName": "Pharmaceutical and Industrial Biotechnology",
       "sourceFile": "Pharmaceutical_and_Industrial_Biotechnology.json"
     },
     {
@@ -758,6 +1016,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 85,
+      "rawProgramName": "Philosophical Sciences",
+      "sourceProgramName": "Philosophical Sciences",
+      "canonicalDepartmentName": "Philosophical Sciences",
       "sourceFile": "Philosophical_Sciences.json"
     },
     {
@@ -771,6 +1032,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 86,
+      "rawProgramName": "Photochemistry and Molecular Materials",
+      "sourceProgramName": "Photochemistry and Molecular Materials",
+      "canonicalDepartmentName": "Photochemistry and Molecular Materials",
       "sourceFile": "Photochemistry_and_Molecular_Materials.json"
     },
     {
@@ -784,6 +1048,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 87,
+      "rawProgramName": "Physics of the Earth's Interior, Ocean and Atmosphere",
+      "sourceProgramName": "Physics of the Earth's Interior, Ocean and Atmosphere",
+      "canonicalDepartmentName": "Physics of the Earth's Interior, Ocean and Atmosphere",
       "sourceFile": "Physics_of_the_Earths_Interior_Ocean_and_Atmosphere.json"
     },
     {
@@ -798,6 +1065,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 88,
+      "rawProgramName": "Physics",
+      "sourceProgramName": "Physics",
+      "canonicalDepartmentName": "Physics",
       "sourceFile": "Physics.json"
     },
     {
@@ -812,6 +1082,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 89,
+      "rawProgramName": "Politics Administration and Organization",
+      "sourceProgramName": "Politics Administration and Organization",
+      "canonicalDepartmentName": "Politics Administration and Organization",
       "sourceFile": "Politics_Administration_and_Organization.json"
     },
     {
@@ -825,6 +1098,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 90,
+      "rawProgramName": "Psychology of Wellbeing and Social Inclusivity",
+      "sourceProgramName": "Psychology of Wellbeing and Social Inclusivity",
+      "canonicalDepartmentName": "Psychology of Wellbeing and Social Inclusivity",
       "sourceFile": "Psychology_of_Wellbeing_and_Social_Inclusivity.json"
     },
     {
@@ -838,6 +1114,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 91,
+      "rawProgramName": "Quantitative Finance",
+      "sourceProgramName": "Quantitative Finance",
+      "canonicalDepartmentName": "Quantitative Finance",
       "sourceFile": "Quantitative_Finance.json"
     },
     {
@@ -852,6 +1131,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 92,
+      "rawProgramName": "Science and Technologies for Environmental Sustainability",
+      "sourceProgramName": "Science and Technologies for Environmental Sustainability",
+      "canonicalDepartmentName": "Science and Technologies for Environmental Sustainability",
       "sourceFile": "Science_and_Technologies_for_Environmental_Sustainability.json"
     },
     {
@@ -865,6 +1147,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 93,
+      "rawProgramName": "Science for the Conservation-Restoration of Cultural Heritage",
+      "sourceProgramName": "Science for the Conservation-Restoration of Cultural Heritage",
+      "canonicalDepartmentName": "Science for the Conservation-Restoration of Cultural Heritage",
       "sourceFile": "Science_for_the_Conservation_Restoration_of_Cultural_Heritage.json"
     },
     {
@@ -878,6 +1163,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 94,
+      "rawProgramName": "Science of Climate",
+      "sourceProgramName": "Science of Climate",
+      "canonicalDepartmentName": "Science of Climate",
       "sourceFile": "Science_of_Climate.json"
     },
     {
@@ -892,6 +1180,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 95,
+      "rawProgramName": "Sciences and Management of Nature",
+      "sourceProgramName": "Sciences and Management of Nature",
+      "canonicalDepartmentName": "Sciences and Management of Nature",
       "sourceFile": "Sciences_and_Management_of_Nature.json"
     },
     {
@@ -905,6 +1196,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 96,
+      "rawProgramName": "Statistical Sciences",
+      "sourceProgramName": "Statistical Sciences",
+      "canonicalDepartmentName": "Statistical Sciences",
       "sourceFile": "Statistical_Sciences_6810.json"
     },
     {
@@ -919,6 +1213,9 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 97,
+      "rawProgramName": "Statistics, Economics and Business",
+      "sourceProgramName": "Statistics, Economics and Business",
+      "canonicalDepartmentName": "Statistics, Economics and Business",
       "sourceFile": "Statistics_Economics_and_Business.json"
     },
     {
@@ -932,12 +1229,17 @@
       "duration_years": 2,
       "level": "master",
       "sort_order": 98,
+      "rawProgramName": "Work, Organizational and Personnel Psychology",
+      "sourceProgramName": "Work, Organizational and Personnel Psychology",
+      "canonicalDepartmentName": "Work, Organizational and Personnel Psychology",
       "sourceFile": "Work_Organizational_and_Personnel_Psychology.json"
     }
   ],
   "duplicateNameDifferentLevel": [
     {
       "name": "Medicine and Surgery",
+      "rawProgramName": "Medicine and Surgery",
+      "sourceProgramName": "Medicine and Surgery",
       "sourceLevel": "single-cycle",
       "existingLevels": [
         "bachelor"
@@ -946,6 +1248,8 @@
     },
     {
       "name": "Pharmacy",
+      "rawProgramName": "Pharmacy",
+      "sourceProgramName": "Pharmacy",
       "sourceLevel": "single-cycle",
       "existingLevels": [
         "bachelor"
@@ -954,6 +1258,8 @@
     },
     {
       "name": "Statistical Sciences",
+      "rawProgramName": "Statistical Sciences",
+      "sourceProgramName": "Statistical Sciences",
       "sourceLevel": "master",
       "existingLevels": [
         "bachelor"
@@ -962,6 +1268,8 @@
     },
     {
       "name": "Veterinary Medicine",
+      "rawProgramName": "Veterinary Medicine",
+      "sourceProgramName": "Veterinary Medicine",
       "sourceLevel": "single-cycle",
       "existingLevels": [
         "bachelor"
@@ -972,8 +1280,12 @@
   "programPlans": [
     {
       "sourceFile": "Advanced_Automotive_Engineering.json",
-      "programName": "Advanced Automotive Engineering",
+      "rawProgramName": "Advanced Automotive Engineering",
+      "sourceProgramName": "Advanced Automotive Engineering",
+      "canonicalDepartmentName": "Advanced Automotive Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "advanced automotive engineering",
+      "normalizedSourceName": "advanced automotive engineering",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 599,
@@ -984,8 +1296,12 @@
     },
     {
       "sourceFile": "Advanced_Cosmetic_Sciences.json",
-      "programName": "Advanced Cosmetic Sciences",
+      "rawProgramName": "Advanced Cosmetic Sciences",
+      "sourceProgramName": "Advanced Cosmetic Sciences",
+      "canonicalDepartmentName": "Advanced Cosmetic Sciences",
+      "canonicalNameChanged": false,
       "normalizedName": "advanced cosmetic sciences",
+      "normalizedSourceName": "advanced cosmetic sciences",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -996,8 +1312,12 @@
     },
     {
       "sourceFile": "Advanced_Methods_in_Particle_Physics.json",
-      "programName": "Advanced Methods in Particle Physics",
+      "rawProgramName": "Advanced Methods in Particle Physics",
+      "sourceProgramName": "Advanced Methods in Particle Physics",
+      "canonicalDepartmentName": "Advanced Methods in Particle Physics",
+      "canonicalNameChanged": false,
       "normalizedName": "advanced methods in particle physics",
+      "normalizedSourceName": "advanced methods in particle physics",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1008,8 +1328,12 @@
     },
     {
       "sourceFile": "Advanced_Spectroscopy_in_Chemistry.json",
-      "programName": "Advanced spectroscopy in chemistry",
+      "rawProgramName": "Advanced spectroscopy in chemistry",
+      "sourceProgramName": "Advanced spectroscopy in chemistry",
+      "canonicalDepartmentName": "Advanced spectroscopy in chemistry",
+      "canonicalNameChanged": false,
       "normalizedName": "advanced spectroscopy in chemistry",
+      "normalizedSourceName": "advanced spectroscopy in chemistry",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1020,8 +1344,12 @@
     },
     {
       "sourceFile": "Aerospace_Engineering.json",
-      "programName": "Aerospace Engineering",
+      "rawProgramName": "Aerospace Engineering",
+      "sourceProgramName": "Aerospace Engineering",
+      "canonicalDepartmentName": "Aerospace Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "aerospace engineering",
+      "normalizedSourceName": "aerospace engineering",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 600,
@@ -1032,8 +1360,12 @@
     },
     {
       "sourceFile": "Animal_Biotechnology.json",
-      "programName": "Animal Biotechnology",
+      "rawProgramName": "Animal Biotechnology",
+      "sourceProgramName": "Animal Biotechnology",
+      "canonicalDepartmentName": "Animal Biotechnology",
+      "canonicalNameChanged": false,
       "normalizedName": "animal biotechnology",
+      "normalizedSourceName": "animal biotechnology",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1044,8 +1376,12 @@
     },
     {
       "sourceFile": "Applied_Economics_and_Markets.json",
-      "programName": "Applied Economics and Markets",
+      "rawProgramName": "Applied Economics and Markets",
+      "sourceProgramName": "Applied Economics and Markets",
+      "canonicalDepartmentName": "Applied Economics and Markets",
+      "canonicalNameChanged": false,
       "normalizedName": "applied economics and markets",
+      "normalizedSourceName": "applied economics and markets",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 586,
@@ -1056,8 +1392,12 @@
     },
     {
       "sourceFile": "Archaeology.json",
-      "programName": "Archaeology",
+      "rawProgramName": "Archaeology",
+      "sourceProgramName": "Archaeology",
+      "canonicalDepartmentName": "Archaeology",
+      "canonicalNameChanged": false,
       "normalizedName": "archaeology",
+      "normalizedSourceName": "archaeology",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1068,8 +1408,12 @@
     },
     {
       "sourceFile": "Architecture_and_Creative_Practices_for_the_City_and_Landscape.json",
-      "programName": "Architecture and Creative Practices for the City and Landscape",
+      "rawProgramName": "Architecture and Creative Practices for the City and Landscape",
+      "sourceProgramName": "Architecture and Creative Practices for the City and Landscape",
+      "canonicalDepartmentName": "Architecture and Creative Practices for the City and Landscape",
+      "canonicalNameChanged": false,
       "normalizedName": "architecture and creative practices for the city and landscape",
+      "normalizedSourceName": "architecture and creative practices for the city and landscape",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 601,
@@ -1080,8 +1424,12 @@
     },
     {
       "sourceFile": "Artificial_Intelligence.json",
-      "programName": "Artificial Intelligence",
+      "rawProgramName": "Artificial Intelligence",
+      "sourceProgramName": "Artificial Intelligence",
+      "canonicalDepartmentName": "Artificial Intelligence",
+      "canonicalNameChanged": false,
       "normalizedName": "artificial intelligence",
+      "normalizedSourceName": "artificial intelligence",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 602,
@@ -1092,8 +1440,12 @@
     },
     {
       "sourceFile": "Astrophysics_and_Cosmology.json",
-      "programName": "Astrophysics and Cosmology",
+      "rawProgramName": "Astrophysics and Cosmology",
+      "sourceProgramName": "Astrophysics and Cosmology",
+      "canonicalDepartmentName": "Astrophysics and Cosmology",
+      "canonicalNameChanged": false,
       "normalizedName": "astrophysics and cosmology",
+      "normalizedSourceName": "astrophysics and cosmology",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1104,8 +1456,12 @@
     },
     {
       "sourceFile": "Automation_Engineering.json",
-      "programName": "Automation Engineering",
+      "rawProgramName": "Automation Engineering",
+      "sourceProgramName": "Automation Engineering",
+      "canonicalDepartmentName": "Automation Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "automation engineering",
+      "normalizedSourceName": "automation engineering",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 603,
@@ -1116,8 +1472,12 @@
     },
     {
       "sourceFile": "Biology_of_Human_and_Environmental_Health.json",
-      "programName": "Biology of Human and Environmental Health",
+      "rawProgramName": "Biology of Human and Environmental Health",
+      "sourceProgramName": "Biology of Human and Environmental Health",
+      "canonicalDepartmentName": "Biology of Human and Environmental Health",
+      "canonicalNameChanged": false,
       "normalizedName": "biology of human and environmental health",
+      "normalizedSourceName": "biology of human and environmental health",
       "level": "bachelor",
       "action": "matched-existing",
       "departmentId": 267,
@@ -1128,8 +1488,12 @@
     },
     {
       "sourceFile": "Biomedical_Engineering.json",
-      "programName": "Biomedical Engineering",
+      "rawProgramName": "Biomedical Engineering",
+      "sourceProgramName": "Biomedical Engineering",
+      "canonicalDepartmentName": "Biomedical Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "biomedical engineering",
+      "normalizedSourceName": "biomedical engineering",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 604,
@@ -1140,8 +1504,12 @@
     },
     {
       "sourceFile": "Building_Construction_Engineering.json",
-      "programName": "Building Construction Engineering",
+      "rawProgramName": "Building Construction Engineering",
+      "sourceProgramName": "Building Construction Engineering",
+      "canonicalDepartmentName": "Building Construction Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "building construction engineering",
+      "normalizedSourceName": "building construction engineering",
       "level": "bachelor",
       "action": "matched-existing",
       "departmentId": 261,
@@ -1152,8 +1520,12 @@
     },
     {
       "sourceFile": "Building_Engineering_Architecture.json",
-      "programName": "Building Engineering -Architecture",
+      "rawProgramName": "Building Engineering -Architecture",
+      "sourceProgramName": "Building Engineering -Architecture",
+      "canonicalDepartmentName": "Building Engineering -Architecture",
+      "canonicalNameChanged": false,
       "normalizedName": "building engineering architecture",
+      "normalizedSourceName": "building engineering architecture",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 605,
@@ -1164,8 +1536,12 @@
     },
     {
       "sourceFile": "Business_Administration_and_Sustainability.json",
-      "programName": "Business Administration and Sustainability",
+      "rawProgramName": "Business Administration and Sustainability",
+      "sourceProgramName": "Business Administration and Sustainability",
+      "canonicalDepartmentName": "Business Administration and Sustainability",
+      "canonicalNameChanged": false,
       "normalizedName": "business administration and sustainability",
+      "normalizedSourceName": "business administration and sustainability",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 582,
@@ -1176,8 +1552,12 @@
     },
     {
       "sourceFile": "Business_and_Economics.json",
-      "programName": "Business and Economics",
+      "rawProgramName": "Business and Economics",
+      "sourceProgramName": "Business and Economics",
+      "canonicalDepartmentName": "Business and Economics",
+      "canonicalNameChanged": false,
       "normalizedName": "business and economics",
+      "normalizedSourceName": "business and economics",
       "level": "bachelor",
       "action": "matched-existing",
       "departmentId": 262,
@@ -1188,8 +1568,12 @@
     },
     {
       "sourceFile": "Business_Economics.json",
-      "programName": "Business Economics",
+      "rawProgramName": "Business Economics",
+      "sourceProgramName": "Business Economics",
+      "canonicalDepartmentName": "Business Economics",
+      "canonicalNameChanged": false,
       "normalizedName": "business economics",
+      "normalizedSourceName": "business economics",
       "level": "bachelor",
       "action": "matched-existing",
       "departmentId": 263,
@@ -1200,8 +1584,12 @@
     },
     {
       "sourceFile": "Chemical_and_Process_Engineering.json",
-      "programName": "Chemical and Process Engineering",
+      "rawProgramName": "Chemical and Process Engineering",
+      "sourceProgramName": "Chemical and Process Engineering",
+      "canonicalDepartmentName": "Chemical and Process Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "chemical and process engineering",
+      "normalizedSourceName": "chemical and process engineering",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 606,
@@ -1212,8 +1600,12 @@
     },
     {
       "sourceFile": "Chemical_Innovation_and_Regulation_for_Sustainability.json",
-      "programName": "Chemical Innovation and Regulation for Sustainability",
+      "rawProgramName": "Chemical Innovation and Regulation for Sustainability",
+      "sourceProgramName": "Chemical Innovation and Regulation for Sustainability",
+      "canonicalDepartmentName": "Chemical Innovation and Regulation for Sustainability",
+      "canonicalNameChanged": false,
       "normalizedName": "chemical innovation and regulation for sustainability",
+      "normalizedSourceName": "chemical innovation and regulation for sustainability",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1224,8 +1616,12 @@
     },
     {
       "sourceFile": "Civil_Engineering.json",
-      "programName": "Civil Engineering",
+      "rawProgramName": "Civil Engineering",
+      "sourceProgramName": "Civil Engineering",
+      "canonicalDepartmentName": "Civil Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "civil engineering",
+      "normalizedSourceName": "civil engineering",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 607,
@@ -1236,8 +1632,12 @@
     },
     {
       "sourceFile": "Communications_Engineering.json",
-      "programName": "Communications Engineering",
+      "rawProgramName": "Communications Engineering",
+      "sourceProgramName": "Communications Engineering",
+      "canonicalDepartmentName": "Communications Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "communications engineering",
+      "normalizedSourceName": "communications engineering",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 608,
@@ -1248,8 +1648,12 @@
     },
     {
       "sourceFile": "Computer_Engineering.json",
-      "programName": "Computer Engineering",
+      "rawProgramName": "Computer Engineering",
+      "sourceProgramName": "Computer Engineering",
+      "canonicalDepartmentName": "Computer Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "computer engineering",
+      "normalizedSourceName": "computer engineering",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1260,8 +1664,12 @@
     },
     {
       "sourceFile": "Computer_Science_and_Engineering.json",
-      "programName": "Computer Science and Engineering",
+      "rawProgramName": "Computer Science and Engineering",
+      "sourceProgramName": "Computer Science and Engineering",
+      "canonicalDepartmentName": "Computer Science and Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "computer science and engineering",
+      "normalizedSourceName": "computer science and engineering",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 609,
@@ -1272,8 +1680,12 @@
     },
     {
       "sourceFile": "Digital_Humanities_and_Digital_Knowledge.json",
-      "programName": "Digital Humanities and Digital Knowledge",
+      "rawProgramName": "Digital Humanities and Digital Knowledge",
+      "sourceProgramName": "Digital Humanities and Digital Knowledge",
+      "canonicalDepartmentName": "Digital Humanities and Digital Knowledge",
+      "canonicalNameChanged": false,
       "normalizedName": "digital humanities and digital knowledge",
+      "normalizedSourceName": "digital humanities and digital knowledge",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 619,
@@ -1284,8 +1696,12 @@
     },
     {
       "sourceFile": "Digital_Minds.json",
-      "programName": "Digital Minds",
+      "rawProgramName": "Digital Minds",
+      "sourceProgramName": "Digital Minds",
+      "canonicalDepartmentName": "Digital Minds",
+      "canonicalNameChanged": false,
       "normalizedName": "digital minds",
+      "normalizedSourceName": "digital minds",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1296,8 +1712,12 @@
     },
     {
       "sourceFile": "Digital_Transformation_Management.json",
-      "programName": "Digital Transformation Management",
+      "rawProgramName": "Digital Transformation Management",
+      "sourceProgramName": "Digital Transformation Management",
+      "canonicalDepartmentName": "Digital Transformation Management",
+      "canonicalNameChanged": false,
       "normalizedName": "digital transformation management",
+      "normalizedSourceName": "digital transformation management",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 587,
@@ -1308,8 +1728,12 @@
     },
     {
       "sourceFile": "East_European_and_Eurasian_Studies.json",
-      "programName": "East European and Eurasian Studies",
+      "rawProgramName": "East European and Eurasian Studies",
+      "sourceProgramName": "East European and Eurasian Studies",
+      "canonicalDepartmentName": "East European and Eurasian Studies",
+      "canonicalNameChanged": false,
       "normalizedName": "east european and eurasian studies",
+      "normalizedSourceName": "east european and eurasian studies",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1320,8 +1744,12 @@
     },
     {
       "sourceFile": "Economics_and_Econometrics.json",
-      "programName": "Economics and Econometrics",
+      "rawProgramName": "Economics and Econometrics",
+      "sourceProgramName": "Economics and Econometrics",
+      "canonicalDepartmentName": "Economics and Econometrics",
+      "canonicalNameChanged": false,
       "normalizedName": "economics and econometrics",
+      "normalizedSourceName": "economics and econometrics",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 588,
@@ -1332,8 +1760,12 @@
     },
     {
       "sourceFile": "Economics_and_Finance.json",
-      "programName": "Economics and Finance",
+      "rawProgramName": "Economics and Finance",
+      "sourceProgramName": "Economics and Finance",
+      "canonicalDepartmentName": "Economics and Finance",
+      "canonicalNameChanged": false,
       "normalizedName": "economics and finance",
+      "normalizedSourceName": "economics and finance",
       "level": "bachelor",
       "action": "matched-existing",
       "departmentId": 264,
@@ -1344,8 +1776,12 @@
     },
     {
       "sourceFile": "Economics_and_Public_Policy.json",
-      "programName": "Economics and Public Policy",
+      "rawProgramName": "Economics and Public Policy",
+      "sourceProgramName": "Economics and Public Policy",
+      "canonicalDepartmentName": "Economics and Public Policy",
+      "canonicalNameChanged": false,
       "normalizedName": "economics and public policy",
+      "normalizedSourceName": "economics and public policy",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 589,
@@ -1356,8 +1792,12 @@
     },
     {
       "sourceFile": "Economics_of_Tourism_and_Cities.json",
-      "programName": "Economics of Tourism and Cities",
+      "rawProgramName": "Economics of Tourism and Cities",
+      "sourceProgramName": "Economics of Tourism and Cities",
+      "canonicalDepartmentName": "Economics of Tourism and Cities",
+      "canonicalNameChanged": false,
       "normalizedName": "economics of tourism and cities",
+      "normalizedSourceName": "economics of tourism and cities",
       "level": "bachelor",
       "action": "matched-existing",
       "departmentId": 265,
@@ -1368,8 +1808,12 @@
     },
     {
       "sourceFile": "Economics_Politics_and_Social_Sciences.json",
-      "programName": "Economics, Politics and Social Sciences",
+      "rawProgramName": "Economics, Politics and Social Sciences",
+      "sourceProgramName": "Economics, Politics and Social Sciences",
+      "canonicalDepartmentName": "Economics, Politics and Social Sciences",
+      "canonicalNameChanged": false,
       "normalizedName": "economics politics and social sciences",
+      "normalizedSourceName": "economics politics and social sciences",
       "level": "bachelor",
       "action": "matched-existing",
       "departmentId": 266,
@@ -1380,8 +1824,12 @@
     },
     {
       "sourceFile": "Electric_Vehicle_Engineering.json",
-      "programName": "Electric Vehicle Engineering",
+      "rawProgramName": "Electric Vehicle Engineering",
+      "sourceProgramName": "Electric Vehicle Engineering",
+      "canonicalDepartmentName": "Electric Vehicle Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "electric vehicle engineering",
+      "normalizedSourceName": "electric vehicle engineering",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 610,
@@ -1392,8 +1840,12 @@
     },
     {
       "sourceFile": "Electrical_Energy_Engineering.json",
-      "programName": "Electrical Energy Engineering",
+      "rawProgramName": "Electrical Energy Engineering",
+      "sourceProgramName": "Electrical Energy Engineering",
+      "canonicalDepartmentName": "Electrical Energy Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "electrical energy engineering",
+      "normalizedSourceName": "electrical energy engineering",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 611,
@@ -1404,8 +1856,12 @@
     },
     {
       "sourceFile": "Electronic_Engineering_for_Intelligent_Vehicles.json",
-      "programName": "Electronic Engineering for Intelligent Vehicles",
+      "rawProgramName": "Electronic Engineering for Intelligent Vehicles",
+      "sourceProgramName": "Electronic Engineering for Intelligent Vehicles",
+      "canonicalDepartmentName": "Electronic Engineering for Intelligent Vehicles",
+      "canonicalNameChanged": false,
       "normalizedName": "electronic engineering for intelligent vehicles",
+      "normalizedSourceName": "electronic engineering for intelligent vehicles",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 613,
@@ -1416,8 +1872,12 @@
     },
     {
       "sourceFile": "Electronic_Engineering.json",
-      "programName": "Electronic Engineering",
+      "rawProgramName": "Electronic Engineering",
+      "sourceProgramName": "Electronic Engineering",
+      "canonicalDepartmentName": "Electronic Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "electronic engineering",
+      "normalizedSourceName": "electronic engineering",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 612,
@@ -1428,8 +1888,12 @@
     },
     {
       "sourceFile": "Engineering_for_Historic_Building_Rehabilitation.json",
-      "programName": "Engineering for Historic Building Rehabilitation",
+      "rawProgramName": "Engineering for Historic Building Rehabilitation",
+      "sourceProgramName": "Engineering for Historic Building Rehabilitation",
+      "canonicalDepartmentName": "Engineering for Historic Building Rehabilitation",
+      "canonicalNameChanged": false,
       "normalizedName": "engineering for historic building rehabilitation",
+      "normalizedSourceName": "engineering for historic building rehabilitation",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 614,
@@ -1440,8 +1904,12 @@
     },
     {
       "sourceFile": "Environmental_Engineering.json",
-      "programName": "Environmental Engineering",
+      "rawProgramName": "Environmental Engineering",
+      "sourceProgramName": "Environmental Engineering",
+      "canonicalDepartmentName": "Environmental Engineering",
+      "canonicalNameChanged": false,
       "normalizedName": "environmental engineering",
+      "normalizedSourceName": "environmental engineering",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 615,
@@ -1452,8 +1920,12 @@
     },
     {
       "sourceFile": "European_Studies.json",
-      "programName": "European Studies",
+      "rawProgramName": "European Studies",
+      "sourceProgramName": "European Studies",
+      "canonicalDepartmentName": "European Studies",
+      "canonicalNameChanged": false,
       "normalizedName": "european studies",
+      "normalizedSourceName": "european studies",
       "level": "bachelor",
       "action": "matched-existing",
       "departmentId": 268,
@@ -1464,8 +1936,12 @@
     },
     {
       "sourceFile": "Fashion_Studies.json",
-      "programName": "Fashion Studies",
+      "rawProgramName": "Fashion Studies",
+      "sourceProgramName": "Fashion Studies",
+      "canonicalDepartmentName": "Fashion Studies",
+      "canonicalNameChanged": false,
       "normalizedName": "fashion studies",
+      "normalizedSourceName": "fashion studies",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 620,
@@ -1476,8 +1952,12 @@
     },
     {
       "sourceFile": "Food_Animal_Metabolism_and_Management_in_the_Circular_Economy.json",
-      "programName": "Food Animal Metabolism and Management in the Circular Economy",
+      "rawProgramName": "Food Animal Metabolism and Management in the Circular Economy",
+      "sourceProgramName": "Food Animal Metabolism and Management in the Circular Economy",
+      "canonicalDepartmentName": "Food Animal Metabolism and Management in the Circular Economy",
+      "canonicalNameChanged": false,
       "normalizedName": "food animal metabolism and management in the circular economy",
+      "normalizedSourceName": "food animal metabolism and management in the circular economy",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1488,8 +1968,12 @@
     },
     {
       "sourceFile": "Food_Safety_and_Food_Risk_Management.json",
-      "programName": "Food Safety and Food Risk Management",
+      "rawProgramName": "Food Safety and Food Risk Management",
+      "sourceProgramName": "Food Safety and Food Risk Management",
+      "canonicalDepartmentName": "Food Safety and Food Risk Management",
+      "canonicalNameChanged": false,
       "normalizedName": "food safety and food risk management",
+      "normalizedSourceName": "food safety and food risk management",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 583,
@@ -1500,8 +1984,12 @@
     },
     {
       "sourceFile": "Genomics.json",
-      "programName": "Genomics",
+      "rawProgramName": "Genomics",
+      "sourceProgramName": "Genomics",
+      "canonicalDepartmentName": "Genomics",
+      "canonicalNameChanged": false,
       "normalizedName": "genomics",
+      "normalizedSourceName": "genomics",
       "level": "bachelor",
       "action": "matched-existing",
       "departmentId": 269,
@@ -1512,8 +2000,12 @@
     },
     {
       "sourceFile": "Geology_for_Sustainable_Development.json",
-      "programName": "Geology for Sustainable Development",
+      "rawProgramName": "Geology for Sustainable Development",
+      "sourceProgramName": "Geology for Sustainable Development",
+      "canonicalDepartmentName": "Geology for Sustainable Development",
+      "canonicalNameChanged": false,
       "normalizedName": "geology for sustainable development",
+      "normalizedSourceName": "geology for sustainable development",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1524,8 +2016,12 @@
     },
     {
       "sourceFile": "Global_Cultures.json",
-      "programName": "Global Cultures",
+      "rawProgramName": "Global Cultures",
+      "sourceProgramName": "Global Cultures",
+      "canonicalDepartmentName": "Global Cultures",
+      "canonicalNameChanged": false,
       "normalizedName": "global cultures",
+      "normalizedSourceName": "global cultures",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 621,
@@ -1536,8 +2032,12 @@
     },
     {
       "sourceFile": "Greening_Energy_Market_and_Finance.json",
-      "programName": "Greening Energy Market and Finance",
+      "rawProgramName": "Greening Energy Market and Finance",
+      "sourceProgramName": "Greening Energy Market and Finance",
+      "canonicalDepartmentName": "Greening Energy Market and Finance",
+      "canonicalNameChanged": false,
       "normalizedName": "greening energy market and finance",
+      "normalizedSourceName": "greening energy market and finance",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1548,8 +2048,12 @@
     },
     {
       "sourceFile": "Health_Economics_and_Management.json",
-      "programName": "Health Economics and Management",
+      "rawProgramName": "Health Economics and Management",
+      "sourceProgramName": "Health Economics and Management",
+      "canonicalDepartmentName": "Health Economics and Management",
+      "canonicalNameChanged": false,
       "normalizedName": "health economics and management",
+      "normalizedSourceName": "health economics and management",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 590,
@@ -1560,8 +2064,12 @@
     },
     {
       "sourceFile": "Innovation_and_Organization_of_Culture_and_the_Arts.json",
-      "programName": "Innovation and Organization of Culture and the Arts",
+      "rawProgramName": "Innovation and Organization of Culture and the Arts",
+      "sourceProgramName": "Innovation and Organization of Culture and the Arts",
+      "canonicalDepartmentName": "Innovation and Organization of Culture and the Arts",
+      "canonicalNameChanged": false,
       "normalizedName": "innovation and organization of culture and the arts",
+      "normalizedSourceName": "innovation and organization of culture and the arts",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 591,
@@ -1572,8 +2080,12 @@
     },
     {
       "sourceFile": "International_Cooperation_on_Human_Rights_and_Intercultural_Heritage.json",
-      "programName": "International Cooperation on Human Rights and Intercultural Heritage",
+      "rawProgramName": "International Cooperation on Human Rights and Intercultural Heritage",
+      "sourceProgramName": "International Cooperation on Human Rights and Intercultural Heritage",
+      "canonicalDepartmentName": "International Cooperation on Human Rights and Intercultural Heritage",
+      "canonicalNameChanged": false,
       "normalizedName": "international cooperation on human rights and intercultural heritage",
+      "normalizedSourceName": "international cooperation on human rights and intercultural heritage",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 622,
@@ -1584,8 +2096,12 @@
     },
     {
       "sourceFile": "International_Horticultural_Science.json",
-      "programName": "International Horticultural Science",
+      "rawProgramName": "International Horticultural Science",
+      "sourceProgramName": "International Horticultural Science",
+      "canonicalDepartmentName": "International Horticultural Science",
+      "canonicalNameChanged": false,
       "normalizedName": "international horticultural science",
+      "normalizedSourceName": "international horticultural science",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 584,
@@ -1596,8 +2112,12 @@
     },
     {
       "sourceFile": "International_Management.json",
-      "programName": "International Management",
+      "rawProgramName": "International Management",
+      "sourceProgramName": "International Management",
+      "canonicalDepartmentName": "International Management",
+      "canonicalNameChanged": false,
       "normalizedName": "international management",
+      "normalizedSourceName": "international management",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 592,
@@ -1608,8 +2128,12 @@
     },
     {
       "sourceFile": "International_Politics_and_Economics.json",
-      "programName": "International Politics and Economics",
+      "rawProgramName": "International Politics and Economics",
+      "sourceProgramName": "International Politics and Economics",
+      "canonicalDepartmentName": "International Politics and Economics",
+      "canonicalNameChanged": false,
       "normalizedName": "international politics and economics",
+      "normalizedSourceName": "international politics and economics",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 593,
@@ -1620,8 +2144,12 @@
     },
     {
       "sourceFile": "International_relations_and_diplomatic_affairs.json",
-      "programName": "International relations and diplomatic affairs",
+      "rawProgramName": "International relations and diplomatic affairs",
+      "sourceProgramName": "International relations and diplomatic affairs",
+      "canonicalDepartmentName": "International relations and diplomatic affairs",
+      "canonicalNameChanged": false,
       "normalizedName": "international relations and diplomatic affairs",
+      "normalizedSourceName": "international relations and diplomatic affairs",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1632,8 +2160,12 @@
     },
     {
       "sourceFile": "International_Relations.json",
-      "programName": "International Relations",
+      "rawProgramName": "International Relations",
+      "sourceProgramName": "International Relations",
+      "canonicalDepartmentName": "International Relations",
+      "canonicalNameChanged": false,
       "normalizedName": "international relations",
+      "normalizedSourceName": "international relations",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1644,8 +2176,12 @@
     },
     {
       "sourceFile": "International_Studies.json",
-      "programName": "International Studies",
+      "rawProgramName": "International Studies",
+      "sourceProgramName": "International Studies",
+      "canonicalDepartmentName": "International Studies",
+      "canonicalNameChanged": false,
       "normalizedName": "international studies",
+      "normalizedSourceName": "international studies",
       "level": "bachelor",
       "action": "matched-existing",
       "departmentId": 270,
@@ -1656,8 +2192,12 @@
     },
     {
       "sourceFile": "Interpreting.json",
-      "programName": "Interpreting",
+      "rawProgramName": "Interpreting",
+      "sourceProgramName": "Interpreting",
+      "canonicalDepartmentName": "Interpreting",
+      "canonicalNameChanged": false,
       "normalizedName": "interpreting",
+      "normalizedSourceName": "interpreting",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 626,
@@ -1668,8 +2208,12 @@
     },
     {
       "sourceFile": "Italian_Studies_and_European_Literary_Cultures.json",
-      "programName": "Italian Studies and European Literary Cultures",
+      "rawProgramName": "Italian Studies and European Literary Cultures",
+      "sourceProgramName": "Italian Studies and European Literary Cultures",
+      "canonicalDepartmentName": "Italian Studies and European Literary Cultures",
+      "canonicalNameChanged": false,
       "normalizedName": "italian studies and european literary cultures",
+      "normalizedSourceName": "italian studies and european literary cultures",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 623,
@@ -1680,8 +2224,12 @@
     },
     {
       "sourceFile": "Language_Society_and_Communication.json",
-      "programName": "Language, Society and Communication",
+      "rawProgramName": "Language, Society and Communication",
+      "sourceProgramName": "Language, Society and Communication",
+      "canonicalDepartmentName": "Language, Society and Communication",
+      "canonicalNameChanged": false,
       "normalizedName": "language society and communication",
+      "normalizedSourceName": "language society and communication",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 627,
@@ -1692,8 +2240,12 @@
     },
     {
       "sourceFile": "Law_and_Economics.json",
-      "programName": "Law and Economics",
+      "rawProgramName": "Law and Economics",
+      "sourceProgramName": "Law and Economics",
+      "canonicalDepartmentName": "Law and Economics",
+      "canonicalNameChanged": false,
       "normalizedName": "law and economics",
+      "normalizedSourceName": "law and economics",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 594,
@@ -1704,8 +2256,12 @@
     },
     {
       "sourceFile": "Law_Economics_and_Governance.json",
-      "programName": "Law, Economics and Governance",
+      "rawProgramName": "Law, Economics and Governance",
+      "sourceProgramName": "Law, Economics and Governance",
+      "canonicalDepartmentName": "Law, Economics and Governance",
+      "canonicalNameChanged": false,
       "normalizedName": "law economics and governance",
+      "normalizedSourceName": "law economics and governance",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 595,
@@ -1716,8 +2272,12 @@
     },
     {
       "sourceFile": "Legal_Studies.json",
-      "programName": "Legal Studies",
+      "rawProgramName": "Legal Studies",
+      "sourceProgramName": "Legal Studies",
+      "canonicalDepartmentName": "Legal Studies",
+      "canonicalNameChanged": false,
       "normalizedName": "legal studies",
+      "normalizedSourceName": "legal studies",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 629,
@@ -1728,8 +2288,12 @@
     },
     {
       "sourceFile": "Low_Carbon_Technologies_and_Sustainable_Chemistry.json",
-      "programName": "Low carbon technologies and sustainable chemistry",
+      "rawProgramName": "Low carbon technologies and sustainable chemistry",
+      "sourceProgramName": "Low carbon technologies and sustainable chemistry",
+      "canonicalDepartmentName": "Low carbon technologies and sustainable chemistry",
+      "canonicalNameChanged": false,
       "normalizedName": "low carbon technologies and sustainable chemistry",
+      "normalizedSourceName": "low carbon technologies and sustainable chemistry",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1740,8 +2304,12 @@
     },
     {
       "sourceFile": "Management_and_Economics.json",
-      "programName": "Management and Economics",
+      "rawProgramName": "Management and Economics",
+      "sourceProgramName": "Management and Economics",
+      "canonicalDepartmentName": "Management and Economics",
+      "canonicalNameChanged": false,
       "normalizedName": "management and economics",
+      "normalizedSourceName": "management and economics",
       "level": "bachelor",
       "action": "matched-existing",
       "departmentId": 271,
@@ -1752,20 +2320,28 @@
     },
     {
       "sourceFile": "Materials_Science_and_Batteries.json",
-      "programName": "Material Science and Batteries [uncertain]",
-      "normalizedName": "material science and batteries uncertain",
+      "rawProgramName": "Material Science and Batteries [uncertain]",
+      "sourceProgramName": "Material Science and Batteries [uncertain]",
+      "canonicalDepartmentName": "Material Science and Batteries",
+      "canonicalNameChanged": true,
+      "normalizedName": "material science and batteries",
+      "normalizedSourceName": "material science and batteries uncertain",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
-      "departmentName": "Material Science and Batteries [uncertain]",
-      "departmentSlug": "material-science-and-batteries-uncertain",
+      "departmentName": "Material Science and Batteries",
+      "departmentSlug": "material-science-and-batteries",
       "levelBefore": null,
       "levelAfter": "master"
     },
     {
       "sourceFile": "Mathematics.json",
-      "programName": "Mathematics",
+      "rawProgramName": "Mathematics",
+      "sourceProgramName": "Mathematics",
+      "canonicalDepartmentName": "Mathematics",
+      "canonicalNameChanged": false,
       "normalizedName": "mathematics",
+      "normalizedSourceName": "mathematics",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1776,8 +2352,12 @@
     },
     {
       "sourceFile": "Mechanical_Engineering_for_Sustainability.json",
-      "programName": "Mechanical Engineering for Sustainability",
+      "rawProgramName": "Mechanical Engineering for Sustainability",
+      "sourceProgramName": "Mechanical Engineering for Sustainability",
+      "canonicalDepartmentName": "Mechanical Engineering for Sustainability",
+      "canonicalNameChanged": false,
       "normalizedName": "mechanical engineering for sustainability",
+      "normalizedSourceName": "mechanical engineering for sustainability",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 616,
@@ -1788,8 +2368,12 @@
     },
     {
       "sourceFile": "Medical_Biotechnology.json",
-      "programName": "Medical Biotechnology",
+      "rawProgramName": "Medical Biotechnology",
+      "sourceProgramName": "Medical Biotechnology",
+      "canonicalDepartmentName": "Medical Biotechnology",
+      "canonicalNameChanged": false,
       "normalizedName": "medical biotechnology",
+      "normalizedSourceName": "medical biotechnology",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1800,8 +2384,12 @@
     },
     {
       "sourceFile": "Medicine_and_Surgery.json",
-      "programName": "Medicine and Surgery",
+      "rawProgramName": "Medicine and Surgery",
+      "sourceProgramName": "Medicine and Surgery",
+      "canonicalDepartmentName": "Medicine and Surgery",
+      "canonicalNameChanged": false,
       "normalizedName": "medicine and surgery",
+      "normalizedSourceName": "medicine and surgery",
       "level": "single-cycle",
       "action": "level-correction",
       "departmentId": 272,
@@ -1812,8 +2400,12 @@
     },
     {
       "sourceFile": "Molecular_and_Computational_Biology.json",
-      "programName": "Molecular and Computational Biology",
+      "rawProgramName": "Molecular and Computational Biology",
+      "sourceProgramName": "Molecular and Computational Biology",
+      "canonicalDepartmentName": "Molecular and Computational Biology",
+      "canonicalNameChanged": false,
       "normalizedName": "molecular and computational biology",
+      "normalizedSourceName": "molecular and computational biology",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1824,8 +2416,12 @@
     },
     {
       "sourceFile": "Offshore_Engineering_for_Energy_Transition.json",
-      "programName": "Offshore Engineering for Energy Transition",
+      "rawProgramName": "Offshore Engineering for Energy Transition",
+      "sourceProgramName": "Offshore Engineering for Energy Transition",
+      "canonicalDepartmentName": "Offshore Engineering for Energy Transition",
+      "canonicalNameChanged": false,
       "normalizedName": "offshore engineering for energy transition",
+      "normalizedSourceName": "offshore engineering for energy transition",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 617,
@@ -1836,8 +2432,12 @@
     },
     {
       "sourceFile": "Pharmaceutical_and_Industrial_Biotechnology.json",
-      "programName": "Pharmaceutical and Industrial Biotechnology",
+      "rawProgramName": "Pharmaceutical and Industrial Biotechnology",
+      "sourceProgramName": "Pharmaceutical and Industrial Biotechnology",
+      "canonicalDepartmentName": "Pharmaceutical and Industrial Biotechnology",
+      "canonicalNameChanged": false,
       "normalizedName": "pharmaceutical and industrial biotechnology",
+      "normalizedSourceName": "pharmaceutical and industrial biotechnology",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1848,8 +2448,12 @@
     },
     {
       "sourceFile": "Pharmacy.json",
-      "programName": "Pharmacy",
+      "rawProgramName": "Pharmacy",
+      "sourceProgramName": "Pharmacy",
+      "canonicalDepartmentName": "Pharmacy",
+      "canonicalNameChanged": false,
       "normalizedName": "pharmacy",
+      "normalizedSourceName": "pharmacy",
       "level": "single-cycle",
       "action": "level-correction",
       "departmentId": 273,
@@ -1860,8 +2464,12 @@
     },
     {
       "sourceFile": "Philosophical_Sciences.json",
-      "programName": "Philosophical Sciences",
+      "rawProgramName": "Philosophical Sciences",
+      "sourceProgramName": "Philosophical Sciences",
+      "canonicalDepartmentName": "Philosophical Sciences",
+      "canonicalNameChanged": false,
       "normalizedName": "philosophical sciences",
+      "normalizedSourceName": "philosophical sciences",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1872,8 +2480,12 @@
     },
     {
       "sourceFile": "Photochemistry_and_Molecular_Materials.json",
-      "programName": "Photochemistry and Molecular Materials",
+      "rawProgramName": "Photochemistry and Molecular Materials",
+      "sourceProgramName": "Photochemistry and Molecular Materials",
+      "canonicalDepartmentName": "Photochemistry and Molecular Materials",
+      "canonicalNameChanged": false,
       "normalizedName": "photochemistry and molecular materials",
+      "normalizedSourceName": "photochemistry and molecular materials",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1884,8 +2496,12 @@
     },
     {
       "sourceFile": "Physics_of_the_Earths_Interior_Ocean_and_Atmosphere.json",
-      "programName": "Physics of the Earth's Interior, Ocean and Atmosphere",
+      "rawProgramName": "Physics of the Earth's Interior, Ocean and Atmosphere",
+      "sourceProgramName": "Physics of the Earth's Interior, Ocean and Atmosphere",
+      "canonicalDepartmentName": "Physics of the Earth's Interior, Ocean and Atmosphere",
+      "canonicalNameChanged": false,
       "normalizedName": "physics of the earth s interior ocean and atmosphere",
+      "normalizedSourceName": "physics of the earth s interior ocean and atmosphere",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1896,8 +2512,12 @@
     },
     {
       "sourceFile": "Physics.json",
-      "programName": "Physics",
+      "rawProgramName": "Physics",
+      "sourceProgramName": "Physics",
+      "canonicalDepartmentName": "Physics",
+      "canonicalNameChanged": false,
       "normalizedName": "physics",
+      "normalizedSourceName": "physics",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1908,8 +2528,12 @@
     },
     {
       "sourceFile": "Politics_Administration_and_Organization.json",
-      "programName": "Politics Administration and Organization",
+      "rawProgramName": "Politics Administration and Organization",
+      "sourceProgramName": "Politics Administration and Organization",
+      "canonicalDepartmentName": "Politics Administration and Organization",
+      "canonicalNameChanged": false,
       "normalizedName": "politics administration and organization",
+      "normalizedSourceName": "politics administration and organization",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1920,8 +2544,12 @@
     },
     {
       "sourceFile": "Precise_and_Sustainable_Agriculture.json",
-      "programName": "Precise and Sustainable Agriculture",
+      "rawProgramName": "Precise and Sustainable Agriculture",
+      "sourceProgramName": "Precise and Sustainable Agriculture",
+      "canonicalDepartmentName": "Precise and Sustainable Agriculture",
+      "canonicalNameChanged": false,
       "normalizedName": "precise and sustainable agriculture",
+      "normalizedSourceName": "precise and sustainable agriculture",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 585,
@@ -1932,8 +2560,12 @@
     },
     {
       "sourceFile": "Psychology_of_Wellbeing_and_Social_Inclusivity.json",
-      "programName": "Psychology of Wellbeing and Social Inclusivity",
+      "rawProgramName": "Psychology of Wellbeing and Social Inclusivity",
+      "sourceProgramName": "Psychology of Wellbeing and Social Inclusivity",
+      "canonicalDepartmentName": "Psychology of Wellbeing and Social Inclusivity",
+      "canonicalNameChanged": false,
       "normalizedName": "psychology of wellbeing and social inclusivity",
+      "normalizedSourceName": "psychology of wellbeing and social inclusivity",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1944,8 +2576,12 @@
     },
     {
       "sourceFile": "Quantitative_Finance.json",
-      "programName": "Quantitative Finance",
+      "rawProgramName": "Quantitative Finance",
+      "sourceProgramName": "Quantitative Finance",
+      "canonicalDepartmentName": "Quantitative Finance",
+      "canonicalNameChanged": false,
       "normalizedName": "quantitative finance",
+      "normalizedSourceName": "quantitative finance",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1956,8 +2592,12 @@
     },
     {
       "sourceFile": "Resource_Economics_and_Sustainable_Development.json",
-      "programName": "Resource Economics and Sustainable Development",
+      "rawProgramName": "Resource Economics and Sustainable Development",
+      "sourceProgramName": "Resource Economics and Sustainable Development",
+      "canonicalDepartmentName": "Resource Economics and Sustainable Development",
+      "canonicalNameChanged": false,
       "normalizedName": "resource economics and sustainable development",
+      "normalizedSourceName": "resource economics and sustainable development",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 596,
@@ -1968,8 +2608,12 @@
     },
     {
       "sourceFile": "Science_and_Technologies_for_Environmental_Sustainability.json",
-      "programName": "Science and Technologies for Environmental Sustainability",
+      "rawProgramName": "Science and Technologies for Environmental Sustainability",
+      "sourceProgramName": "Science and Technologies for Environmental Sustainability",
+      "canonicalDepartmentName": "Science and Technologies for Environmental Sustainability",
+      "canonicalNameChanged": false,
       "normalizedName": "science and technologies for environmental sustainability",
+      "normalizedSourceName": "science and technologies for environmental sustainability",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1980,8 +2624,12 @@
     },
     {
       "sourceFile": "Science_for_the_Conservation_Restoration_of_Cultural_Heritage.json",
-      "programName": "Science for the Conservation-Restoration of Cultural Heritage",
+      "rawProgramName": "Science for the Conservation-Restoration of Cultural Heritage",
+      "sourceProgramName": "Science for the Conservation-Restoration of Cultural Heritage",
+      "canonicalDepartmentName": "Science for the Conservation-Restoration of Cultural Heritage",
+      "canonicalNameChanged": false,
       "normalizedName": "science for the conservation restoration of cultural heritage",
+      "normalizedSourceName": "science for the conservation restoration of cultural heritage",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -1992,8 +2640,12 @@
     },
     {
       "sourceFile": "Science_of_Climate.json",
-      "programName": "Science of Climate",
+      "rawProgramName": "Science of Climate",
+      "sourceProgramName": "Science of Climate",
+      "canonicalDepartmentName": "Science of Climate",
+      "canonicalNameChanged": false,
       "normalizedName": "science of climate",
+      "normalizedSourceName": "science of climate",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -2004,8 +2656,12 @@
     },
     {
       "sourceFile": "Sciences_and_Management_of_Nature.json",
-      "programName": "Sciences and Management of Nature",
+      "rawProgramName": "Sciences and Management of Nature",
+      "sourceProgramName": "Sciences and Management of Nature",
+      "canonicalDepartmentName": "Sciences and Management of Nature",
+      "canonicalNameChanged": false,
       "normalizedName": "sciences and management of nature",
+      "normalizedSourceName": "sciences and management of nature",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -2016,8 +2672,12 @@
     },
     {
       "sourceFile": "Semiotics.json",
-      "programName": "Semiotics",
+      "rawProgramName": "Semiotics",
+      "sourceProgramName": "Semiotics",
+      "canonicalDepartmentName": "Semiotics",
+      "canonicalNameChanged": false,
       "normalizedName": "semiotics",
+      "normalizedSourceName": "semiotics",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 624,
@@ -2028,8 +2688,12 @@
     },
     {
       "sourceFile": "Service_Management.json",
-      "programName": "Service Management",
+      "rawProgramName": "Service Management",
+      "sourceProgramName": "Service Management",
+      "canonicalDepartmentName": "Service Management",
+      "canonicalNameChanged": false,
       "normalizedName": "service management",
+      "normalizedSourceName": "service management",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 597,
@@ -2040,8 +2704,12 @@
     },
     {
       "sourceFile": "Specialized_Translation.json",
-      "programName": "Specialized translation",
+      "rawProgramName": "Specialized translation",
+      "sourceProgramName": "Specialized translation",
+      "canonicalDepartmentName": "Specialized translation",
+      "canonicalNameChanged": false,
       "normalizedName": "specialized translation",
+      "normalizedSourceName": "specialized translation",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 628,
@@ -2052,8 +2720,12 @@
     },
     {
       "sourceFile": "Statistical_Sciences_6810.json",
-      "programName": "Statistical Sciences",
+      "rawProgramName": "Statistical Sciences",
+      "sourceProgramName": "Statistical Sciences",
+      "canonicalDepartmentName": "Statistical Sciences",
+      "canonicalNameChanged": false,
       "normalizedName": "statistical sciences",
+      "normalizedSourceName": "statistical sciences",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -2064,8 +2736,12 @@
     },
     {
       "sourceFile": "Statistical_Sciences.json",
-      "programName": "Statistical Sciences",
+      "rawProgramName": "Statistical Sciences",
+      "sourceProgramName": "Statistical Sciences",
+      "canonicalDepartmentName": "Statistical Sciences",
+      "canonicalNameChanged": false,
       "normalizedName": "statistical sciences",
+      "normalizedSourceName": "statistical sciences",
       "level": "bachelor",
       "action": "matched-existing",
       "departmentId": 274,
@@ -2076,8 +2752,12 @@
     },
     {
       "sourceFile": "Statistics_Economics_and_Business.json",
-      "programName": "Statistics, Economics and Business",
+      "rawProgramName": "Statistics, Economics and Business",
+      "sourceProgramName": "Statistics, Economics and Business",
+      "canonicalDepartmentName": "Statistics, Economics and Business",
+      "canonicalNameChanged": false,
       "normalizedName": "statistics economics and business",
+      "normalizedSourceName": "statistics economics and business",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -2088,8 +2768,12 @@
     },
     {
       "sourceFile": "Tourism_Economics_and_Management.json",
-      "programName": "Tourism Economics and Management",
+      "rawProgramName": "Tourism Economics and Management",
+      "sourceProgramName": "Tourism Economics and Management",
+      "canonicalDepartmentName": "Tourism Economics and Management",
+      "canonicalNameChanged": false,
       "normalizedName": "tourism economics and management",
+      "normalizedSourceName": "tourism economics and management",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 598,
@@ -2100,8 +2784,12 @@
     },
     {
       "sourceFile": "Veterinary_Medicine.json",
-      "programName": "Veterinary Medicine",
+      "rawProgramName": "Veterinary Medicine",
+      "sourceProgramName": "Veterinary Medicine",
+      "canonicalDepartmentName": "Veterinary Medicine",
+      "canonicalNameChanged": false,
       "normalizedName": "veterinary medicine",
+      "normalizedSourceName": "veterinary medicine",
       "level": "single-cycle",
       "action": "level-correction",
       "departmentId": 275,
@@ -2112,8 +2800,12 @@
     },
     {
       "sourceFile": "Visual_Arts.json",
-      "programName": "Visual Arts",
+      "rawProgramName": "Visual Arts",
+      "sourceProgramName": "Visual Arts",
+      "canonicalDepartmentName": "Visual Arts",
+      "canonicalNameChanged": false,
       "normalizedName": "visual arts",
+      "normalizedSourceName": "visual arts",
       "level": "master",
       "action": "matched-existing",
       "departmentId": 625,
@@ -2124,8 +2816,12 @@
     },
     {
       "sourceFile": "Work_Organizational_and_Personnel_Psychology.json",
-      "programName": "Work, Organizational and Personnel Psychology",
+      "rawProgramName": "Work, Organizational and Personnel Psychology",
+      "sourceProgramName": "Work, Organizational and Personnel Psychology",
+      "canonicalDepartmentName": "Work, Organizational and Personnel Psychology",
+      "canonicalNameChanged": false,
       "normalizedName": "work organizational and personnel psychology",
+      "normalizedSourceName": "work organizational and personnel psychology",
       "level": "master",
       "action": "new-department",
       "departmentId": null,
@@ -2139,8 +2835,12 @@
     "statisticalSciences": [
       {
         "sourceFile": "Statistical_Sciences_6810.json",
-        "programName": "Statistical Sciences",
+        "rawProgramName": "Statistical Sciences",
+        "sourceProgramName": "Statistical Sciences",
+        "canonicalDepartmentName": "Statistical Sciences",
+        "canonicalNameChanged": false,
         "normalizedName": "statistical sciences",
+        "normalizedSourceName": "statistical sciences",
         "level": "master",
         "action": "new-department",
         "departmentId": null,
@@ -2151,8 +2851,12 @@
       },
       {
         "sourceFile": "Statistical_Sciences.json",
-        "programName": "Statistical Sciences",
+        "rawProgramName": "Statistical Sciences",
+        "sourceProgramName": "Statistical Sciences",
+        "canonicalDepartmentName": "Statistical Sciences",
+        "canonicalNameChanged": false,
         "normalizedName": "statistical sciences",
+        "normalizedSourceName": "statistical sciences",
         "level": "bachelor",
         "action": "matched-existing",
         "departmentId": 274,
@@ -2165,8 +2869,12 @@
     "archaeology": [
       {
         "sourceFile": "Archaeology.json",
-        "programName": "Archaeology",
+        "rawProgramName": "Archaeology",
+        "sourceProgramName": "Archaeology",
+        "canonicalDepartmentName": "Archaeology",
+        "canonicalNameChanged": false,
         "normalizedName": "archaeology",
+        "normalizedSourceName": "archaeology",
         "level": "master",
         "action": "new-department",
         "departmentId": null,

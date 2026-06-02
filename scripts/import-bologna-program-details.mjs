@@ -85,6 +85,14 @@ function normalizeName(value) {
     .replace(/\s+/g, " ");
 }
 
+function collapseWhitespace(value) {
+  return value.trim().replace(/\s+/g, " ");
+}
+
+function canonicalDepartmentName(value) {
+  return collapseWhitespace(value.replace(/\s*\[[^\]]+\]\s*$/, ""));
+}
+
 function createSlug(value) {
   return normalizeName(value).replace(/\s+/g, "-");
 }
@@ -139,11 +147,20 @@ function loadSourcePrograms() {
     }
 
     const level = normalizeLevel(record.level);
+    const rawProgramName = record.program_name;
+    const sourceProgramName = collapseWhitespace(rawProgramName);
+    const departmentName = canonicalDepartmentName(sourceProgramName);
+    if (!departmentName) {
+      throw new Error(`${file} has empty canonical department name`);
+    }
 
     return {
       file,
-      programName: record.program_name.trim(),
-      normalizedName: normalizeName(record.program_name),
+      rawProgramName,
+      sourceProgramName,
+      departmentName,
+      normalizedSourceName: normalizeName(sourceProgramName),
+      normalizedName: normalizeName(departmentName),
       level,
       teachingLanguage: record.teaching_language.trim(),
       languages: normalizeLanguages(record.teaching_language),
@@ -183,6 +200,32 @@ async function fetchBolognaDepartments(supabase) {
   );
 }
 
+function identityKey(name, level) {
+  return `${normalizeName(canonicalDepartmentName(name))}::${level}`;
+}
+
+function duplicateWarnings(records, describeRecord, groupByRecord, subject) {
+  const byKey = new Map();
+  const warnings = [];
+
+  for (const record of records) {
+    const key = groupByRecord(record);
+    const list = byKey.get(key) ?? [];
+    list.push(record);
+    byKey.set(key, list);
+  }
+
+  for (const [key, recordsForKey] of byKey) {
+    if (recordsForKey.length < 2) continue;
+
+    warnings.push(
+      `Duplicate ${subject} for ${key}: ${recordsForKey.map(describeRecord).join("; ")}`
+    );
+  }
+
+  return warnings;
+}
+
 function nextSlug(baseSlug, usedSlugs, level) {
   if (!usedSlugs.has(baseSlug)) return baseSlug;
 
@@ -200,7 +243,7 @@ function createPlan(sourcePrograms, dbDepartments) {
   const usedSlugs = new Set(dbDepartments.map((department) => department.slug));
 
   for (const department of dbDepartments) {
-    const key = normalizeName(department.name);
+    const key = normalizeName(canonicalDepartmentName(department.name));
     const list = byName.get(key) ?? [];
     list.push(department);
     byName.set(key, list);
@@ -219,6 +262,22 @@ function createPlan(sourcePrograms, dbDepartments) {
       `Expected ${EXPECTED_SOURCE_FILE_COUNT} source JSON files but found ${sourcePrograms.length}.`
     );
   }
+  warnings.push(
+    ...duplicateWarnings(
+      sourcePrograms,
+      (source) => `${source.file} (${source.sourceProgramName}, ${source.level})`,
+      (source) => identityKey(source.departmentName, source.level),
+      "source program canonical name + level"
+    )
+  );
+  warnings.push(
+    ...duplicateWarnings(
+      dbDepartments,
+      (department) => `${department.id}:${department.name} (${department.slug}, ${department.level})`,
+      (department) => identityKey(department.name, department.level),
+      "existing department canonical name + level"
+    )
+  );
 
   for (const source of sourcePrograms) {
     const candidates = byName.get(source.normalizedName) ?? [];
@@ -245,6 +304,9 @@ function createPlan(sourcePrograms, dbDepartments) {
         from: department.level,
         to: source.level,
         sourceFile: source.file,
+        rawProgramName: source.rawProgramName,
+        sourceProgramName: source.sourceProgramName,
+        canonicalDepartmentName: source.departmentName,
       });
     }
 
@@ -255,9 +317,12 @@ function createPlan(sourcePrograms, dbDepartments) {
         slug: department.slug,
         level: source.level,
         sourceFile: source.file,
+        rawProgramName: source.rawProgramName,
+        sourceProgramName: source.sourceProgramName,
+        canonicalDepartmentName: source.departmentName,
       });
     } else {
-      const baseSlug = createSlug(source.programName);
+      const baseSlug = createSlug(source.departmentName);
       const slug = nextSlug(baseSlug, usedSlugs, source.level);
       usedSlugs.add(slug);
 
@@ -265,14 +330,20 @@ function createPlan(sourcePrograms, dbDepartments) {
       department = {
         id: null,
         university_id: BOLOGNA_UNIVERSITY_ID,
-        name: source.programName,
+        name: source.departmentName,
         slug,
         languages: source.languages.length > 0 ? source.languages : ["en"],
         duration_years: source.durationYears,
         level: source.level,
         sort_order: sortOrder,
       };
-      newDepartments.push({ ...department, sourceFile: source.file });
+      newDepartments.push({
+        ...department,
+        sourceFile: source.file,
+        rawProgramName: source.rawProgramName,
+        sourceProgramName: source.sourceProgramName,
+        canonicalDepartmentName: source.departmentName,
+      });
       action = "new-department";
       levelBefore = null;
       levelAfter = source.level;
@@ -280,7 +351,9 @@ function createPlan(sourcePrograms, dbDepartments) {
 
     if (candidates.length > 0 && !candidates.some((candidate) => candidate.level === source.level)) {
       duplicateNameDifferentLevel.push({
-        name: source.programName,
+        name: source.departmentName,
+        rawProgramName: source.rawProgramName,
+        sourceProgramName: source.sourceProgramName,
         sourceLevel: source.level,
         existingLevels: candidates.map((candidate) => candidate.level),
         sourceFile: source.file,
@@ -289,8 +362,12 @@ function createPlan(sourcePrograms, dbDepartments) {
 
     programPlans.push({
       sourceFile: source.file,
-      programName: source.programName,
+      rawProgramName: source.rawProgramName,
+      sourceProgramName: source.sourceProgramName,
+      canonicalDepartmentName: source.departmentName,
+      canonicalNameChanged: source.sourceProgramName !== source.departmentName,
       normalizedName: source.normalizedName,
+      normalizedSourceName: source.normalizedSourceName,
       level: source.level,
       action,
       departmentId: department.id,
@@ -377,15 +454,15 @@ async function applyPlan(supabase, plan) {
   const refreshedDepartments = await fetchBolognaDepartments(supabase);
   const departmentByKey = new Map(
     refreshedDepartments.map((department) => [
-      `${normalizeName(department.name)}::${department.level}`,
+      identityKey(department.name, department.level),
       department,
     ])
   );
 
   const detailPayloads = plan.detailRows.map(({ source }) => {
-    const department = departmentByKey.get(`${source.normalizedName}::${source.level}`);
+    const department = departmentByKey.get(identityKey(source.departmentName, source.level));
     if (!department?.id) {
-      throw new Error(`Cannot resolve department id for ${source.programName} (${source.level})`);
+      throw new Error(`Cannot resolve department id for ${source.departmentName} (${source.level})`);
     }
     return toDetailPayload(source, department.id);
   });
@@ -436,6 +513,11 @@ async function main() {
   console.log(JSON.stringify(report, null, 2));
 
   if (mode === "apply") {
+    if (plan.warnings.length > 0) {
+      throw new Error(
+        `Refusing --apply because the import plan has warnings: ${plan.warnings.join(" | ")}`
+      );
+    }
     await applyPlan(supabase, plan);
     console.log(`[OK] Applied ${sourcePrograms.length} Bologna program details.`);
   } else {
