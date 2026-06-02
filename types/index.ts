@@ -17,6 +17,7 @@ export interface UserDocument {
 }
 
 export interface SupabaseUniversityDepartmentRow {
+  id?: number;
   university_id: number;
   name: string | null;
   slug: string | null;
@@ -24,6 +25,30 @@ export interface SupabaseUniversityDepartmentRow {
   duration_years: number | null;
   level: string | null;
   sort_order: number | null;
+}
+
+export interface SupabaseProgramAdmissionDetailsRow {
+  department_id: number;
+  university_id: number;
+  raw_program_name: string | null;
+  raw_level: string | null;
+  raw_teaching_language: string | null;
+  campus: string | null;
+  degree_class: string | null;
+  admission_type: string | null;
+  academic_requirements: string | null;
+  language_requirements: string | null;
+  application_deadline_eu: string | null;
+  application_deadline_non_eu: string | null;
+  required_documents: unknown;
+  entry_exam_or_test: string | null;
+  tuition_or_fees_link: string | null;
+  official_program_url: string | null;
+  official_call_url: string | null;
+  source_quotes: unknown;
+  uncertain: unknown;
+  uncertainty_notes: unknown;
+  source_file: string | null;
 }
 
 export interface SupabaseUniversityRow {

@@ -10,6 +10,7 @@ interface ProgramDirectoryProps {
   programCountLabel: string;
   bachelorPrograms: string;
   masterPrograms: string;
+  singleCyclePrograms: string;
   openingLabel: string;
   expandingSlug: string | null;
   onSelect: (slug: string) => void;
@@ -65,6 +66,7 @@ export function ProgramDirectory({
   programCountLabel,
   bachelorPrograms,
   masterPrograms,
+  singleCyclePrograms,
   openingLabel,
   expandingSlug,
   onSelect,
@@ -75,6 +77,20 @@ export function ProgramDirectory({
   const masterDepartments = departments.filter(
     (department) => department.level === "master",
   );
+  const singleCycleDepartments = departments.filter(
+    (department) => department.level === "single-cycle",
+  );
+  const visibleGroupCount = [
+    bachelorDepartments,
+    masterDepartments,
+    singleCycleDepartments,
+  ].filter((group) => group.length > 0).length;
+  const gridColumnsClass =
+    visibleGroupCount >= 3
+      ? "lg:grid-cols-3"
+      : visibleGroupCount === 2
+        ? "lg:grid-cols-2"
+        : "lg:grid-cols-1";
 
   return (
     <section className="space-y-5">
@@ -95,7 +111,7 @@ export function ProgramDirectory({
         </p>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className={`grid gap-4 ${gridColumnsClass}`}>
         <ProgramGroup
           university={university}
           departments={bachelorDepartments}
@@ -108,6 +124,14 @@ export function ProgramDirectory({
           university={university}
           departments={masterDepartments}
           label={masterPrograms}
+          openingLabel={openingLabel}
+          expandingSlug={expandingSlug}
+          onSelect={onSelect}
+        />
+        <ProgramGroup
+          university={university}
+          departments={singleCycleDepartments}
+          label={singleCyclePrograms}
           openingLabel={openingLabel}
           expandingSlug={expandingSlug}
           onSelect={onSelect}

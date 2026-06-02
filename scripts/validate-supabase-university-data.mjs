@@ -9,7 +9,7 @@ const UNIVERSITY_DEPARTMENT_COLUMNS =
 const PAGE_SIZE = 1000;
 const ALLOWED_LANGUAGES = new Set(["en", "it"]);
 const ALLOWED_DURATIONS = new Set([1, 2, 3, 4, 5, 6]);
-const ALLOWED_LEVELS = new Set(["bachelor", "master"]);
+const ALLOWED_LEVELS = new Set(["bachelor", "master", "single-cycle"]);
 
 const failures = [];
 

@@ -7,6 +7,7 @@ import { useAuth } from "@clerk/nextjs";
 
 import ScrollProgress from "@/components/ScrollProgress";
 import { DetailMentorPrompt } from "@/components/university-details/DetailMentorPrompt";
+import { ProgramAdmissionDetailsPanel } from "@/components/university-details/ProgramAdmissionDetailsPanel";
 import { ProgramDirectory } from "@/components/university-details/ProgramDirectory";
 import { ProgramMetaStrip } from "@/components/university-details/ProgramMetaStrip";
 import { ProgramPortraitHeader } from "@/components/university-details/ProgramPortraitHeader";
@@ -95,9 +96,16 @@ export default function DepartmentDetailPage() {
       : ["en"];
   const safeDurationYears =
     typeof department.durationYears === "number" ? department.durationYears : 3;
-  const safeLevel = department.level === "master" ? "master" : "bachelor";
+  const safeLevel =
+    department.level === "master" || department.level === "single-cycle"
+      ? department.level
+      : "bachelor";
   const levelValue =
-    safeLevel === "master" ? t.department.master : t.department.bachelor;
+    safeLevel === "single-cycle"
+      ? t.department.singleCycle
+      : safeLevel === "master"
+        ? t.department.master
+        : t.department.bachelor;
   const durationValue =
     language === "tr"
       ? `${safeDurationYears} yıl`
@@ -141,6 +149,29 @@ export default function DepartmentDetailPage() {
           </p>
         </section>
 
+        {department.admissionDetails ? (
+          <ProgramAdmissionDetailsPanel
+            details={department.admissionDetails}
+            labels={{
+              title: t.department.admissionDetails,
+              officialProgramPage: t.department.officialProgramPage,
+              officialCall: t.department.officialCall,
+              tuitionFees: t.department.tuitionFees,
+              campus: t.department.campus,
+              degreeClass: t.department.degreeClass,
+              admissionType: t.department.admissionType,
+              teachingLanguage: t.department.teachingLanguage,
+              euDeadline: t.department.euDeadline,
+              nonEuDeadline: t.department.nonEuDeadline,
+              academicRequirements: t.department.academicRequirements,
+              languageRequirements: t.department.languageRequirements,
+              requiredDocuments: t.department.requiredDocuments,
+              entryExamOrTest: t.department.entryExamOrTest,
+              uncertaintyNote: t.department.uncertaintyNote,
+            }}
+          />
+        ) : null}
+
         <ProgramDirectory
           university={university}
           departments={otherDepts}
@@ -148,6 +179,7 @@ export default function DepartmentDetailPage() {
           programCountLabel={t.detail.programCount}
           bachelorPrograms={t.detail.bachelorPrograms}
           masterPrograms={t.detail.masterPrograms}
+          singleCyclePrograms={t.detail.singleCyclePrograms}
           openingLabel={t.detail.openingProgram}
           expandingSlug={expandingDeptSlug}
           onSelect={(slug) => {

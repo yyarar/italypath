@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "check:routes": "node scripts/check-route-access.mjs",
+    "check:program-details": "node scripts/check-program-details.mjs",
     "check:data": "node --no-warnings scripts/validate-supabase-university-data.mjs",
     "check:local-data": "node --no-warnings scripts/validate-data-integrity.mjs",
     "check:university-data-source": "node scripts/check-university-data-source.mjs",

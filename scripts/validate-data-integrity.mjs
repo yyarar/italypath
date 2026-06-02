@@ -4,7 +4,7 @@ import ts from "typescript";
 
 const ALLOWED_LANGUAGES = new Set(["en", "it"]);
 const ALLOWED_DURATIONS = new Set([1, 2, 3, 4, 5, 6]);
-const ALLOWED_LEVELS = new Set(["bachelor", "master"]);
+const ALLOWED_LEVELS = new Set(["bachelor", "master", "single-cycle"]);
 
 function importTsModule(path) {
   const source = readFileSync(resolve(process.cwd(), path), "utf8");
