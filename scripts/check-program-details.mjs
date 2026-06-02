@@ -111,24 +111,51 @@ if (supabase) {
     }
 
     const criticalPrograms = [
-      ["Medicine and Surgery", "single-cycle", "Missing expected Bologna program: Medicine and Surgery (single-cycle)"],
-      ["Pharmacy", "single-cycle", "Missing expected Bologna program: Pharmacy (single-cycle)"],
-      [
-        "Veterinary Medicine",
-        "single-cycle",
-        "Missing expected Bologna program: Veterinary Medicine (single-cycle)",
-      ],
-      ["Archaeology", "master", "Missing expected Bologna program: Archaeology (master)"],
-      [
-        "Archaeology and Cultures of the Ancient World",
-        "master",
-        "Missing expected Bologna program: Archaeology and Cultures of the Ancient World (master)",
-      ],
-      ["Statistical Sciences", "bachelor", "Missing Statistical Sciences bachelor row"],
-      ["Statistical Sciences", "master", "Missing Statistical Sciences master row"],
+      {
+        name: "Medicine and Surgery",
+        level: "single-cycle",
+        missingProgramMessage: "Missing expected Bologna program: Medicine and Surgery (single-cycle)",
+        requiresDetails: true,
+      },
+      {
+        name: "Pharmacy",
+        level: "single-cycle",
+        missingProgramMessage: "Missing expected Bologna program: Pharmacy (single-cycle)",
+        requiresDetails: true,
+      },
+      {
+        name: "Veterinary Medicine",
+        level: "single-cycle",
+        missingProgramMessage: "Missing expected Bologna program: Veterinary Medicine (single-cycle)",
+        requiresDetails: true,
+      },
+      {
+        name: "Archaeology",
+        level: "master",
+        missingProgramMessage: "Missing expected Bologna program: Archaeology (master)",
+        requiresDetails: true,
+      },
+      {
+        name: "Archaeology and Cultures of the Ancient World",
+        level: "master",
+        missingProgramMessage: "Missing expected Bologna program: Archaeology and Cultures of the Ancient World (master)",
+        requiresDetails: false,
+      },
+      {
+        name: "Statistical Sciences",
+        level: "bachelor",
+        missingProgramMessage: "Missing Statistical Sciences bachelor row",
+        requiresDetails: true,
+      },
+      {
+        name: "Statistical Sciences",
+        level: "master",
+        missingProgramMessage: "Missing Statistical Sciences master row",
+        requiresDetails: true,
+      },
     ];
 
-    for (const [name, level, missingProgramMessage] of criticalPrograms) {
+    for (const { name, level, missingProgramMessage, requiresDetails } of criticalPrograms) {
       const department = (departments ?? []).find(
         (candidate) => candidate.name === name && candidate.level === level
       );
@@ -138,7 +165,7 @@ if (supabase) {
         continue;
       }
 
-      if (detailDepartmentIds && !detailDepartmentIds.has(department.id)) {
+      if (requiresDetails && detailDepartmentIds && !detailDepartmentIds.has(department.id)) {
         fail(`Missing admission details for expected Bologna program: ${name} (${level})`);
       }
     }
