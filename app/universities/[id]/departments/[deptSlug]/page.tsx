@@ -168,6 +168,10 @@ export default function DepartmentDetailPage() {
               requiredDocuments: t.department.requiredDocuments,
               entryExamOrTest: t.department.entryExamOrTest,
               uncertaintyNote: t.department.uncertaintyNote,
+              uncertainFields: t.department.uncertainFields,
+              uncertaintyNotes: t.department.uncertaintyNotes,
+              officialSources: t.department.officialSources,
+              officialSource: t.department.officialSource,
             }}
           />
         ) : null}

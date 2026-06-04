@@ -18,6 +18,10 @@ interface ProgramAdmissionDetailsLabels {
   requiredDocuments: string;
   entryExamOrTest: string;
   uncertaintyNote: string;
+  uncertainFields: string;
+  uncertaintyNotes: string;
+  officialSources: string;
+  officialSource: string;
 }
 
 interface ProgramAdmissionDetailsPanelProps {
@@ -61,6 +65,10 @@ export function ProgramAdmissionDetailsPanel({
   labels,
 }: ProgramAdmissionDetailsPanelProps) {
   if (!details) return null;
+
+  const sourceUrls = Array.from(
+    new Set(details.sourceQuotes.map((quote) => quote.url).filter(Boolean))
+  );
 
   return (
     <section className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
@@ -134,8 +142,61 @@ export function ProgramAdmissionDetailsPanel({
 
       {(details.uncertain.length > 0 ||
         details.uncertaintyNotes.length > 0) && (
-        <div className="border-t border-[var(--editorial-border)] bg-[var(--editorial-band)] px-4 py-4 text-sm font-bold leading-6 text-[var(--editorial-muted)] sm:px-5">
-          {labels.uncertaintyNote}
+        <div className="space-y-5 border-t border-[var(--editorial-border)] bg-[var(--editorial-band)] px-4 py-5 text-sm font-bold leading-6 text-[var(--editorial-muted)] sm:px-5">
+          <p>{labels.uncertaintyNote}</p>
+
+          {details.uncertain.length > 0 && (
+            <div>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.16em] text-[var(--editorial-muted)]">
+                {labels.uncertainFields}
+              </h3>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {details.uncertain.map((field) => (
+                  <li
+                    key={field}
+                    className="break-words border border-[var(--editorial-border)] bg-[var(--editorial-surface)] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-[var(--editorial-terracotta)]"
+                  >
+                    {field.replaceAll("_", " ")}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {details.uncertaintyNotes.length > 0 && (
+            <div>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.16em] text-[var(--editorial-muted)]">
+                {labels.uncertaintyNotes}
+              </h3>
+              <ul className="mt-3 space-y-3">
+                {details.uncertaintyNotes.map((note) => (
+                  <li
+                    key={note}
+                    className="break-words border-l-2 border-[var(--editorial-terracotta)] pl-3 font-serif text-base font-semibold leading-7 text-[var(--editorial-ink)]"
+                  >
+                    {note}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+
+      {sourceUrls.length > 0 && (
+        <div className="border-t border-[var(--editorial-border)] px-4 py-5 sm:px-5">
+          <h3 className="text-[10px] font-black uppercase tracking-[0.16em] text-[var(--editorial-muted)]">
+            {labels.officialSources}
+          </h3>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {sourceUrls.map((sourceUrl, index) => (
+              <ExternalSourceLink
+                key={sourceUrl}
+                href={sourceUrl}
+                label={`${labels.officialSource} ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       )}
     </section>

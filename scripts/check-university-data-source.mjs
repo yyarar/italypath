@@ -49,6 +49,15 @@ for (const path of marketingSurfaces) {
   }
 }
 
+const universitiesDataHook = read("lib/useUniversitiesData.ts");
+if (universitiesDataHook.includes('cache: "force-cache"')) {
+  fail("lib/useUniversitiesData.ts must not force-cache /api/universities in the browser");
+}
+
+if (!universitiesDataHook.includes('cache: "no-store"')) {
+  fail("lib/useUniversitiesData.ts must request fresh /api/universities data from the browser");
+}
+
 if (failures.length > 0) {
   console.error("[FAIL] University data source check failed.");
   for (const failure of failures) {
