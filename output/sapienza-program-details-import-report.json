@@ -1,0 +1,865 @@
+{
+  "universityId": 2,
+  "mode": "apply",
+  "sourceFiles": 23,
+  "existingDepartments": 57,
+  "matchedExisting": 21,
+  "matchedExistingDetails": [
+    {
+      "id": 249,
+      "name": "Applied Computer Science and Artificial Intelligence",
+      "slug": "applied-computer-science-and-artificial-intelligence",
+      "level": "bachelor",
+      "sourceFile": "bachelor-acsai.json",
+      "rawProgramName": "Applied Computer Science and Artificial Intelligence",
+      "sourceProgramName": "Applied Computer Science and Artificial Intelligence",
+      "canonicalDepartmentName": "Applied Computer Science and Artificial Intelligence"
+    },
+    {
+      "id": 250,
+      "name": "Bioinformatics",
+      "slug": "bioinformatics",
+      "level": "bachelor",
+      "sourceFile": "bachelor-bioinformatics.json",
+      "rawProgramName": "Bioinformatics",
+      "sourceProgramName": "Bioinformatics",
+      "canonicalDepartmentName": "Bioinformatics"
+    },
+    {
+      "id": 257,
+      "name": "Nursing",
+      "slug": "nursing",
+      "level": "bachelor",
+      "sourceFile": "bachelor-nursing.json",
+      "rawProgramName": "Nursing",
+      "sourceProgramName": "Nursing",
+      "canonicalDepartmentName": "Nursing"
+    },
+    {
+      "id": 256,
+      "name": "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications",
+      "slug": "molecular-biology-medicinal-chemistry-and-computer-science-for-pharmaceutical-applications",
+      "level": "bachelor",
+      "sourceFile": "bachelor-pharmaceutical-applications.json",
+      "rawProgramName": "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications",
+      "sourceProgramName": "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications",
+      "canonicalDepartmentName": "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications"
+    },
+    {
+      "id": 259,
+      "name": "Sustainable Building Engineering",
+      "slug": "sustainable-building-engineering",
+      "level": "bachelor",
+      "sourceFile": "bachelor-sustainable-building-engineering.json",
+      "rawProgramName": "Sustainable Building Engineering",
+      "sourceProgramName": "Sustainable Building Engineering",
+      "canonicalDepartmentName": "Sustainable Building Engineering"
+    },
+    {
+      "id": 541,
+      "name": "Artificial Intelligence and Robotics",
+      "slug": "artificial-intelligence-and-robotics",
+      "level": "master",
+      "sourceFile": "master-ai-robotics.json",
+      "rawProgramName": "Artificial Intelligence and Robotics",
+      "sourceProgramName": "Artificial Intelligence and Robotics",
+      "canonicalDepartmentName": "Artificial Intelligence and Robotics"
+    },
+    {
+      "id": 538,
+      "name": "Astrophysics and Cosmology",
+      "slug": "astrophysics-and-cosmology",
+      "level": "master",
+      "sourceFile": "master-astronomy-astrophysics.json",
+      "rawProgramName": "Astrophysics and Cosmology",
+      "sourceProgramName": "Astrophysics and Cosmology",
+      "canonicalDepartmentName": "Astrophysics and Cosmology"
+    },
+    {
+      "id": 546,
+      "name": "Cognitive Neuroscience",
+      "slug": "cognitive-neuroscience",
+      "level": "master",
+      "sourceFile": "master-cognitive-neuroscience.json",
+      "rawProgramName": "Cognitive Neuroscience",
+      "sourceProgramName": "Cognitive Neuroscience",
+      "canonicalDepartmentName": "Cognitive Neuroscience"
+    },
+    {
+      "id": 547,
+      "name": "Computer Science",
+      "slug": "computer-science",
+      "level": "master",
+      "sourceFile": "master-computer-science.json",
+      "rawProgramName": "Computer Science",
+      "sourceProgramName": "Computer Science",
+      "canonicalDepartmentName": "Computer Science"
+    },
+    {
+      "id": 548,
+      "name": "Control Engineering",
+      "slug": "control-engineering",
+      "level": "master",
+      "sourceFile": "master-control-engineering.json",
+      "rawProgramName": "Control Engineering",
+      "sourceProgramName": "Control Engineering",
+      "canonicalDepartmentName": "Control Engineering"
+    },
+    {
+      "id": 550,
+      "name": "Cybersecurity",
+      "slug": "cybersecurity",
+      "level": "master",
+      "sourceFile": "master-cybersecurity.json",
+      "rawProgramName": "Cybersecurity",
+      "sourceProgramName": "Cybersecurity",
+      "canonicalDepartmentName": "Cybersecurity"
+    },
+    {
+      "id": 551,
+      "name": "Data Science",
+      "slug": "data-science",
+      "level": "master",
+      "sourceFile": "master-data-science.json",
+      "rawProgramName": "Data Science",
+      "sourceProgramName": "Data Science",
+      "canonicalDepartmentName": "Data Science"
+    },
+    {
+      "id": 554,
+      "name": "Economics",
+      "slug": "economics",
+      "level": "master",
+      "sourceFile": "master-economics.json",
+      "rawProgramName": "Economics",
+      "sourceProgramName": "Economics",
+      "canonicalDepartmentName": "Economics"
+    },
+    {
+      "id": 563,
+      "name": "European Studies",
+      "slug": "european-studies",
+      "level": "master",
+      "sourceFile": "master-european-economy-business-law.json",
+      "rawProgramName": "European Studies",
+      "sourceProgramName": "European Studies",
+      "canonicalDepartmentName": "European Studies"
+    },
+    {
+      "id": 568,
+      "name": "Health Economics",
+      "slug": "health-economics",
+      "level": "master",
+      "sourceFile": "master-health-economics.json",
+      "rawProgramName": "Health Economics",
+      "sourceProgramName": "Health Economics",
+      "canonicalDepartmentName": "Health Economics"
+    },
+    {
+      "id": 543,
+      "name": "Business Management",
+      "slug": "business-management",
+      "level": "master",
+      "sourceFile": "master-management.json",
+      "rawProgramName": "Business Management",
+      "sourceProgramName": "Business Management",
+      "canonicalDepartmentName": "Business Management"
+    },
+    {
+      "id": 574,
+      "name": "Physics",
+      "slug": "physics",
+      "level": "master",
+      "sourceFile": "master-physics.json",
+      "rawProgramName": "Physics",
+      "sourceProgramName": "Physics",
+      "canonicalDepartmentName": "Physics"
+    },
+    {
+      "id": 575,
+      "name": "Product and Service Design",
+      "slug": "product-and-service-design",
+      "level": "master",
+      "sourceFile": "master-product-service-design.json",
+      "rawProgramName": "Product and Service Design",
+      "sourceProgramName": "Product and Service Design",
+      "canonicalDepartmentName": "Product and Service Design"
+    },
+    {
+      "id": 578,
+      "name": "Space and Astronautical Engineering",
+      "slug": "space-and-astronautical-engineering",
+      "level": "master",
+      "sourceFile": "master-space-astronautical-engineering.json",
+      "rawProgramName": "Space and Astronautical Engineering",
+      "sourceProgramName": "Space and Astronautical Engineering",
+      "canonicalDepartmentName": "Space and Astronautical Engineering"
+    },
+    {
+      "id": 581,
+      "name": "Statistical Methods and Applications",
+      "slug": "statistical-methods-and-applications",
+      "level": "master",
+      "sourceFile": "master-statistical-methods-applications.json",
+      "rawProgramName": "Statistical Methods and Applications",
+      "sourceProgramName": "Statistical Methods and Applications",
+      "canonicalDepartmentName": "Statistical Methods and Applications"
+    },
+    {
+      "id": 580,
+      "name": "Transport Systems Engineering",
+      "slug": "transport-systems-engineering",
+      "level": "master",
+      "sourceFile": "master-transport-systems-engineering.json",
+      "rawProgramName": "Transport Systems Engineering",
+      "sourceProgramName": "Transport Systems Engineering",
+      "canonicalDepartmentName": "Transport Systems Engineering"
+    }
+  ],
+  "newDepartments": [
+    {
+      "id": null,
+      "university_id": 2,
+      "name": "Engineering in Computer Science and Artificial Intelligence",
+      "slug": "engineering-in-computer-science-and-artificial-intelligence",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 46,
+      "rawProgramName": "Engineering in Computer Science and Artificial Intelligence",
+      "sourceProgramName": "Engineering in Computer Science and Artificial Intelligence",
+      "canonicalDepartmentName": "Engineering in Computer Science and Artificial Intelligence",
+      "sourceFile": "master-engineering-cs-ai.json"
+    },
+    {
+      "id": null,
+      "university_id": 2,
+      "name": "Medicine and Surgery",
+      "slug": "medicine-and-surgery",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 6,
+      "level": "single-cycle",
+      "sort_order": 47,
+      "rawProgramName": "Medicine and Surgery",
+      "sourceProgramName": "Medicine and Surgery",
+      "canonicalDepartmentName": "Medicine and Surgery",
+      "sourceFile": "single-cycle-medicine-surgery-english.json"
+    }
+  ],
+  "duplicateNameDifferentLevel": [],
+  "existingWithoutSource": [
+    {
+      "id": 537,
+      "name": "Applied Dynamic and Clinical Psychology",
+      "slug": "applied-dynamic-and-clinical-psychology",
+      "level": "master"
+    },
+    {
+      "id": 251,
+      "name": "Classics",
+      "slug": "classics",
+      "level": "bachelor"
+    },
+    {
+      "id": 539,
+      "name": "Atmospheric Science and Technology for Meteorology & Climate",
+      "slug": "atmospheric-science-and-technology-for-meteorology-and-climate",
+      "level": "master"
+    },
+    {
+      "id": 252,
+      "name": "Economics and Finance",
+      "slug": "economics-and-finance",
+      "level": "bachelor"
+    },
+    {
+      "id": 253,
+      "name": "Global Humanities",
+      "slug": "global-humanities",
+      "level": "bachelor"
+    },
+    {
+      "id": 540,
+      "name": "Koruma) (Architecture - Urban Regeneration MSc Architecture (Conservation)",
+      "slug": "koruma-architecture-urban-regeneration-msc-architecture-conservation",
+      "level": "master"
+    },
+    {
+      "id": 254,
+      "name": "Environmental Engineering for Sustainable Development",
+      "slug": "environmental-engineering-for-sustainable-development",
+      "level": "bachelor"
+    },
+    {
+      "id": 542,
+      "name": "Biochemistry",
+      "slug": "biochemistry",
+      "level": "master"
+    },
+    {
+      "id": 255,
+      "name": "Oriental Languages and Civilizations",
+      "slug": "oriental-languages-and-civilizations",
+      "level": "bachelor"
+    },
+    {
+      "id": 544,
+      "name": "Chemical Engineering",
+      "slug": "chemical-engineering",
+      "level": "master"
+    },
+    {
+      "id": 258,
+      "name": "Business Sciences",
+      "slug": "business-sciences",
+      "level": "bachelor"
+    },
+    {
+      "id": 545,
+      "name": "Cognitive Forensic Sciences",
+      "slug": "cognitive-forensic-sciences",
+      "level": "master"
+    },
+    {
+      "id": 260,
+      "name": "Dentistry and Dental Prosthodontics",
+      "slug": "dentistry-and-dental-prosthodontics",
+      "level": "bachelor"
+    },
+    {
+      "id": 549,
+      "name": "Cultural Heritage in the Near and Middle East, and in Africa",
+      "slug": "cultural-heritage-in-the-near-and-middle-east-and-in-africa",
+      "level": "master"
+    },
+    {
+      "id": 552,
+      "name": "Design, Multimedia and Visual Communication",
+      "slug": "design-multimedia-and-visual-communication",
+      "level": "master"
+    },
+    {
+      "id": 553,
+      "name": "Development and International Cooperation Studies",
+      "slug": "development-and-international-cooperation-studies",
+      "level": "master"
+    },
+    {
+      "id": 555,
+      "name": "Economics and Communication for Management and Innovation",
+      "slug": "economics-and-communication-for-management-and-innovation",
+      "level": "master"
+    },
+    {
+      "id": 556,
+      "name": "Electrical Engineering",
+      "slug": "electrical-engineering",
+      "level": "master"
+    },
+    {
+      "id": 557,
+      "name": "Electronics Engineering",
+      "slug": "electronics-engineering",
+      "level": "master"
+    },
+    {
+      "id": 558,
+      "name": "Energy Engineering",
+      "slug": "energy-engineering",
+      "level": "master"
+    },
+    {
+      "id": 559,
+      "name": "Engineering in Computer Science",
+      "slug": "engineering-in-computer-science",
+      "level": "master"
+    },
+    {
+      "id": 560,
+      "name": "English and Anglo-American Studies",
+      "slug": "english-and-anglo-american-studies",
+      "level": "master"
+    },
+    {
+      "id": 561,
+      "name": "Environmental and Sustainable Building Engineering",
+      "slug": "environmental-and-sustainable-building-engineering",
+      "level": "master"
+    },
+    {
+      "id": 562,
+      "name": "Environmental Engineering for Climate Change Adaptation and Mitigation",
+      "slug": "environmental-engineering-for-climate-change-adaptation-and-mitigation",
+      "level": "master"
+    },
+    {
+      "id": 564,
+      "name": "Fashion Theory and Practices",
+      "slug": "fashion-theory-and-practices",
+      "level": "master"
+    },
+    {
+      "id": 565,
+      "name": "Finance and Insurance",
+      "slug": "finance-and-insurance",
+      "level": "master"
+    },
+    {
+      "id": 566,
+      "name": "Genetics and Molecular Biology",
+      "slug": "genetics-and-molecular-biology",
+      "level": "master"
+    },
+    {
+      "id": 567,
+      "name": "Green Industrial Engineering for Sustainable Development",
+      "slug": "green-industrial-engineering-for-sustainable-development",
+      "level": "master"
+    },
+    {
+      "id": 569,
+      "name": "Landscape Architecture",
+      "slug": "landscape-architecture",
+      "level": "master"
+    },
+    {
+      "id": 570,
+      "name": "Management Engineering",
+      "slug": "management-engineering",
+      "level": "master"
+    },
+    {
+      "id": 571,
+      "name": "Mechanical Engineering",
+      "slug": "mechanical-engineering",
+      "level": "master"
+    },
+    {
+      "id": 572,
+      "name": "Mediterranean Archeology",
+      "slug": "mediterranean-archeology",
+      "level": "master"
+    },
+    {
+      "id": 573,
+      "name": "Nanotechnology Engineering",
+      "slug": "nanotechnology-engineering",
+      "level": "master"
+    },
+    {
+      "id": 576,
+      "name": "Safety and Civil Protection Engineering",
+      "slug": "safety-and-civil-protection-engineering",
+      "level": "master"
+    },
+    {
+      "id": 577,
+      "name": "Science and Technology for the Conservation of Cultural Heritage",
+      "slug": "science-and-technology-for-the-conservation-of-cultural-heritage",
+      "level": "master"
+    },
+    {
+      "id": 579,
+      "name": "Telecommunication Engineering",
+      "slug": "telecommunication-engineering",
+      "level": "master"
+    }
+  ],
+  "programPlans": [
+    {
+      "sourceFile": "bachelor-acsai.json",
+      "rawProgramName": "Applied Computer Science and Artificial Intelligence",
+      "sourceProgramName": "Applied Computer Science and Artificial Intelligence",
+      "canonicalDepartmentName": "Applied Computer Science and Artificial Intelligence",
+      "canonicalNameChanged": false,
+      "normalizedName": "applied computer science and artificial intelligence",
+      "normalizedSourceName": "applied computer science and artificial intelligence",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 249,
+      "departmentName": "Applied Computer Science and Artificial Intelligence",
+      "departmentSlug": "applied-computer-science-and-artificial-intelligence"
+    },
+    {
+      "sourceFile": "bachelor-bioinformatics.json",
+      "rawProgramName": "Bioinformatics",
+      "sourceProgramName": "Bioinformatics",
+      "canonicalDepartmentName": "Bioinformatics",
+      "canonicalNameChanged": false,
+      "normalizedName": "bioinformatics",
+      "normalizedSourceName": "bioinformatics",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 250,
+      "departmentName": "Bioinformatics",
+      "departmentSlug": "bioinformatics"
+    },
+    {
+      "sourceFile": "bachelor-nursing.json",
+      "rawProgramName": "Nursing",
+      "sourceProgramName": "Nursing",
+      "canonicalDepartmentName": "Nursing",
+      "canonicalNameChanged": false,
+      "normalizedName": "nursing",
+      "normalizedSourceName": "nursing",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 257,
+      "departmentName": "Nursing",
+      "departmentSlug": "nursing"
+    },
+    {
+      "sourceFile": "bachelor-pharmaceutical-applications.json",
+      "rawProgramName": "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications",
+      "sourceProgramName": "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications",
+      "canonicalDepartmentName": "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications",
+      "canonicalNameChanged": false,
+      "normalizedName": "molecular biology medicinal chemistry and computer science for pharmaceutical applications",
+      "normalizedSourceName": "molecular biology medicinal chemistry and computer science for pharmaceutical applications",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 256,
+      "departmentName": "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications",
+      "departmentSlug": "molecular-biology-medicinal-chemistry-and-computer-science-for-pharmaceutical-applications"
+    },
+    {
+      "sourceFile": "bachelor-sustainable-building-engineering.json",
+      "rawProgramName": "Sustainable Building Engineering",
+      "sourceProgramName": "Sustainable Building Engineering",
+      "canonicalDepartmentName": "Sustainable Building Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "sustainable building engineering",
+      "normalizedSourceName": "sustainable building engineering",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 259,
+      "departmentName": "Sustainable Building Engineering",
+      "departmentSlug": "sustainable-building-engineering"
+    },
+    {
+      "sourceFile": "master-ai-robotics.json",
+      "rawProgramName": "Artificial Intelligence and Robotics",
+      "sourceProgramName": "Artificial Intelligence and Robotics",
+      "canonicalDepartmentName": "Artificial Intelligence and Robotics",
+      "canonicalNameChanged": false,
+      "normalizedName": "artificial intelligence and robotics",
+      "normalizedSourceName": "artificial intelligence and robotics",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 541,
+      "departmentName": "Artificial Intelligence and Robotics",
+      "departmentSlug": "artificial-intelligence-and-robotics"
+    },
+    {
+      "sourceFile": "master-astronomy-astrophysics.json",
+      "rawProgramName": "Astrophysics and Cosmology",
+      "sourceProgramName": "Astrophysics and Cosmology",
+      "canonicalDepartmentName": "Astrophysics and Cosmology",
+      "canonicalNameChanged": false,
+      "normalizedName": "astrophysics and cosmology",
+      "normalizedSourceName": "astrophysics and cosmology",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 538,
+      "departmentName": "Astrophysics and Cosmology",
+      "departmentSlug": "astrophysics-and-cosmology"
+    },
+    {
+      "sourceFile": "master-cognitive-neuroscience.json",
+      "rawProgramName": "Cognitive Neuroscience",
+      "sourceProgramName": "Cognitive Neuroscience",
+      "canonicalDepartmentName": "Cognitive Neuroscience",
+      "canonicalNameChanged": false,
+      "normalizedName": "cognitive neuroscience",
+      "normalizedSourceName": "cognitive neuroscience",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 546,
+      "departmentName": "Cognitive Neuroscience",
+      "departmentSlug": "cognitive-neuroscience"
+    },
+    {
+      "sourceFile": "master-computer-science.json",
+      "rawProgramName": "Computer Science",
+      "sourceProgramName": "Computer Science",
+      "canonicalDepartmentName": "Computer Science",
+      "canonicalNameChanged": false,
+      "normalizedName": "computer science",
+      "normalizedSourceName": "computer science",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 547,
+      "departmentName": "Computer Science",
+      "departmentSlug": "computer-science"
+    },
+    {
+      "sourceFile": "master-control-engineering.json",
+      "rawProgramName": "Control Engineering",
+      "sourceProgramName": "Control Engineering",
+      "canonicalDepartmentName": "Control Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "control engineering",
+      "normalizedSourceName": "control engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 548,
+      "departmentName": "Control Engineering",
+      "departmentSlug": "control-engineering"
+    },
+    {
+      "sourceFile": "master-cybersecurity.json",
+      "rawProgramName": "Cybersecurity",
+      "sourceProgramName": "Cybersecurity",
+      "canonicalDepartmentName": "Cybersecurity",
+      "canonicalNameChanged": false,
+      "normalizedName": "cybersecurity",
+      "normalizedSourceName": "cybersecurity",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 550,
+      "departmentName": "Cybersecurity",
+      "departmentSlug": "cybersecurity"
+    },
+    {
+      "sourceFile": "master-data-science.json",
+      "rawProgramName": "Data Science",
+      "sourceProgramName": "Data Science",
+      "canonicalDepartmentName": "Data Science",
+      "canonicalNameChanged": false,
+      "normalizedName": "data science",
+      "normalizedSourceName": "data science",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 551,
+      "departmentName": "Data Science",
+      "departmentSlug": "data-science"
+    },
+    {
+      "sourceFile": "master-economics.json",
+      "rawProgramName": "Economics",
+      "sourceProgramName": "Economics",
+      "canonicalDepartmentName": "Economics",
+      "canonicalNameChanged": false,
+      "normalizedName": "economics",
+      "normalizedSourceName": "economics",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 554,
+      "departmentName": "Economics",
+      "departmentSlug": "economics"
+    },
+    {
+      "sourceFile": "master-engineering-cs-ai.json",
+      "rawProgramName": "Engineering in Computer Science and Artificial Intelligence",
+      "sourceProgramName": "Engineering in Computer Science and Artificial Intelligence",
+      "canonicalDepartmentName": "Engineering in Computer Science and Artificial Intelligence",
+      "canonicalNameChanged": false,
+      "normalizedName": "engineering in computer science and artificial intelligence",
+      "normalizedSourceName": "engineering in computer science and artificial intelligence",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Engineering in Computer Science and Artificial Intelligence",
+      "departmentSlug": "engineering-in-computer-science-and-artificial-intelligence"
+    },
+    {
+      "sourceFile": "master-european-economy-business-law.json",
+      "rawProgramName": "European Studies",
+      "sourceProgramName": "European Studies",
+      "canonicalDepartmentName": "European Studies",
+      "canonicalNameChanged": false,
+      "normalizedName": "european studies",
+      "normalizedSourceName": "european studies",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 563,
+      "departmentName": "European Studies",
+      "departmentSlug": "european-studies"
+    },
+    {
+      "sourceFile": "master-health-economics.json",
+      "rawProgramName": "Health Economics",
+      "sourceProgramName": "Health Economics",
+      "canonicalDepartmentName": "Health Economics",
+      "canonicalNameChanged": false,
+      "normalizedName": "health economics",
+      "normalizedSourceName": "health economics",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 568,
+      "departmentName": "Health Economics",
+      "departmentSlug": "health-economics"
+    },
+    {
+      "sourceFile": "master-management.json",
+      "rawProgramName": "Business Management",
+      "sourceProgramName": "Business Management",
+      "canonicalDepartmentName": "Business Management",
+      "canonicalNameChanged": false,
+      "normalizedName": "business management",
+      "normalizedSourceName": "business management",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 543,
+      "departmentName": "Business Management",
+      "departmentSlug": "business-management"
+    },
+    {
+      "sourceFile": "master-physics.json",
+      "rawProgramName": "Physics",
+      "sourceProgramName": "Physics",
+      "canonicalDepartmentName": "Physics",
+      "canonicalNameChanged": false,
+      "normalizedName": "physics",
+      "normalizedSourceName": "physics",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 574,
+      "departmentName": "Physics",
+      "departmentSlug": "physics"
+    },
+    {
+      "sourceFile": "master-product-service-design.json",
+      "rawProgramName": "Product and Service Design",
+      "sourceProgramName": "Product and Service Design",
+      "canonicalDepartmentName": "Product and Service Design",
+      "canonicalNameChanged": false,
+      "normalizedName": "product and service design",
+      "normalizedSourceName": "product and service design",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 575,
+      "departmentName": "Product and Service Design",
+      "departmentSlug": "product-and-service-design"
+    },
+    {
+      "sourceFile": "master-space-astronautical-engineering.json",
+      "rawProgramName": "Space and Astronautical Engineering",
+      "sourceProgramName": "Space and Astronautical Engineering",
+      "canonicalDepartmentName": "Space and Astronautical Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "space and astronautical engineering",
+      "normalizedSourceName": "space and astronautical engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 578,
+      "departmentName": "Space and Astronautical Engineering",
+      "departmentSlug": "space-and-astronautical-engineering"
+    },
+    {
+      "sourceFile": "master-statistical-methods-applications.json",
+      "rawProgramName": "Statistical Methods and Applications",
+      "sourceProgramName": "Statistical Methods and Applications",
+      "canonicalDepartmentName": "Statistical Methods and Applications",
+      "canonicalNameChanged": false,
+      "normalizedName": "statistical methods and applications",
+      "normalizedSourceName": "statistical methods and applications",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 581,
+      "departmentName": "Statistical Methods and Applications",
+      "departmentSlug": "statistical-methods-and-applications"
+    },
+    {
+      "sourceFile": "master-transport-systems-engineering.json",
+      "rawProgramName": "Transport Systems Engineering",
+      "sourceProgramName": "Transport Systems Engineering",
+      "canonicalDepartmentName": "Transport Systems Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "transport systems engineering",
+      "normalizedSourceName": "transport systems engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "action": "matched-existing",
+      "departmentId": 580,
+      "departmentName": "Transport Systems Engineering",
+      "departmentSlug": "transport-systems-engineering"
+    },
+    {
+      "sourceFile": "single-cycle-medicine-surgery-english.json",
+      "rawProgramName": "Medicine and Surgery",
+      "sourceProgramName": "Medicine and Surgery",
+      "canonicalDepartmentName": "Medicine and Surgery",
+      "canonicalNameChanged": false,
+      "normalizedName": "medicine and surgery",
+      "normalizedSourceName": "medicine and surgery",
+      "level": "single-cycle",
+      "rawLevel": "single-cycle",
+      "rawLevelNormalized": false,
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Medicine and Surgery",
+      "departmentSlug": "medicine-and-surgery"
+    }
+  ],
+  "specialChecks": {
+    "singleCycle": [
+      {
+        "sourceFile": "single-cycle-medicine-surgery-english.json",
+        "rawProgramName": "Medicine and Surgery",
+        "sourceProgramName": "Medicine and Surgery",
+        "canonicalDepartmentName": "Medicine and Surgery",
+        "canonicalNameChanged": false,
+        "normalizedName": "medicine and surgery",
+        "normalizedSourceName": "medicine and surgery",
+        "level": "single-cycle",
+        "rawLevel": "single-cycle",
+        "rawLevelNormalized": false,
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Medicine and Surgery",
+        "departmentSlug": "medicine-and-surgery"
+      }
+    ],
+    "newBachelorProgrammes": [],
+    "rawLevelNormalized": []
+  },
+  "warnings": []
+}

@@ -106,6 +106,50 @@ const UNIVERSITY_CHECKS = [
       },
     ],
   },
+  {
+    universityId: 2,
+    label: "Sapienza",
+    expectedDetailCount: 23,
+    criticalPrograms: [
+      {
+        name: "Applied Computer Science and Artificial Intelligence",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Sapienza program: Applied Computer Science and Artificial Intelligence (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Nursing",
+        level: "bachelor",
+        missingProgramMessage: "Missing expected Sapienza program: Nursing (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Medicine and Surgery",
+        level: "single-cycle",
+        missingProgramMessage:
+          "Missing expected Sapienza program: Medicine and Surgery (single-cycle)",
+        requiresDetails: true,
+        expectedDurationYears: 6,
+      },
+      {
+        name: "Computer Science",
+        level: "master",
+        missingProgramMessage: "Missing expected Sapienza program: Computer Science (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Cybersecurity",
+        level: "master",
+        missingProgramMessage: "Missing expected Sapienza program: Cybersecurity (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+    ],
+  },
 ];
 const failures = [];
 
@@ -156,6 +200,10 @@ function isArray(value) {
   return Array.isArray(value);
 }
 
+function isHttpUrl(value) {
+  return typeof value === "string" && /^https?:\/\//.test(value);
+}
+
 const supabase = createSupabaseClient();
 
 if (supabase) {
@@ -182,10 +230,7 @@ if (supabase) {
     }
 
     for (const detail of details ?? []) {
-      if (
-        typeof detail.official_program_url !== "string" ||
-        !detail.official_program_url.startsWith("https://")
-      ) {
+      if (!isHttpUrl(detail.official_program_url)) {
         fail(`${universityCheck.label} detail ${detail.department_id} has invalid official_program_url`);
       }
 
@@ -201,7 +246,7 @@ if (supabase) {
           continue;
         }
 
-        if (typeof quote.url !== "string" || !quote.url.startsWith("https://")) {
+        if (!isHttpUrl(quote.url)) {
           fail(`${universityCheck.label} detail ${detail.department_id} source quote ${index} has invalid url`);
         }
 
