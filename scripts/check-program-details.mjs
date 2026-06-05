@@ -150,6 +150,61 @@ const UNIVERSITY_CHECKS = [
       },
     ],
   },
+  {
+    universityId: 9,
+    label: "Ca' Foscari",
+    expectedDetailCount: 29,
+    criticalPrograms: [
+      {
+        name: "Business Administration and Management",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Ca' Foscari program: Business Administration and Management (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Ancient Civilizations for the Contemporary World (inter-university)",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Ca' Foscari program: Ancient Civilizations for the Contemporary World (inter-university) (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Computer Science - Data Science",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Ca' Foscari program: Computer Science - Data Science (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Hospitality Innovation and e-Tourism",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Ca' Foscari program: Hospitality Innovation and e-Tourism (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Comparative International Relations - European Union Studies and Global Studies",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Ca' Foscari program: Comparative International Relations - European Union Studies and Global Studies (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Ca' Foscari program: Sustainable Chemistry and Technologies - Biomolecular Chemistry (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+    ],
+  },
 ];
 const failures = [];
 
