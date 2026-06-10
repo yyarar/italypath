@@ -1,0 +1,793 @@
+{
+  "universityId": 20,
+  "mode": "apply",
+  "sourceFiles": 24,
+  "expectedImportCount": 24,
+  "skippedFiles": [
+    {
+      "file": "Chemical_and_Processes_Engineering.json",
+      "program_name": "Chemical and Processes Engineering",
+      "level": "master",
+      "teaching_language": "Italian (programme taught in Italian; English B2 is required as a competence, not as the language of instruction)",
+      "reason": "skipped (Italian / out of scope)"
+    },
+    {
+      "file": "Civil_Engineering.json",
+      "program_name": "Civil Engineering",
+      "level": "master",
+      "teaching_language": "Italian (programme taught in Italian; English B2 is required as a competence, not as the language of instruction)",
+      "reason": "skipped (Italian / out of scope)"
+    },
+    {
+      "file": "Medicine_and_Surgery.json",
+      "program_name": "Medicine and Surgery",
+      "level": "single-cycle",
+      "teaching_language": "Italian",
+      "reason": "skipped (Italian / out of scope)"
+    }
+  ],
+  "existingDepartments": 7,
+  "matchedExisting": 6,
+  "matchedExistingDetails": [
+    {
+      "id": 383,
+      "name": "Computer Engineering",
+      "slug": "computer-engineering",
+      "level": "bachelor",
+      "sourceFile": "Computer_Engineering_Bachelor.json",
+      "rawProgramName": "Computer Engineering",
+      "sourceProgramName": "Computer Engineering",
+      "canonicalDepartmentName": "Computer Engineering"
+    },
+    {
+      "id": 914,
+      "name": "Computer Engineering",
+      "slug": "computer-engineering-master",
+      "level": "master",
+      "sourceFile": "Computer_Engineering_Master.json",
+      "rawProgramName": "Computer Engineering",
+      "sourceProgramName": "Computer Engineering",
+      "canonicalDepartmentName": "Computer Engineering"
+    },
+    {
+      "id": 915,
+      "name": "Energy Engineering",
+      "slug": "energy-engineering",
+      "level": "master",
+      "sourceFile": "Energy_Engineering.json",
+      "rawProgramName": "Energy Engineering",
+      "sourceProgramName": "Energy Engineering",
+      "canonicalDepartmentName": "Energy Engineering"
+    },
+    {
+      "id": 385,
+      "name": "Maritime Science and Technology",
+      "slug": "maritime-science-and-technology",
+      "level": "bachelor",
+      "sourceFile": "Maritime_Science_and_Technology.json",
+      "rawProgramName": "Maritime Science and Technology",
+      "sourceProgramName": "Maritime Science and Technology",
+      "canonicalDepartmentName": "Maritime Science and Technology"
+    },
+    {
+      "id": 916,
+      "name": "Robotics Engineering",
+      "slug": "robotics-engineering",
+      "level": "master",
+      "sourceFile": "Robotics_Engineering.json",
+      "rawProgramName": "Robotics Engineering",
+      "sourceProgramName": "Robotics Engineering",
+      "canonicalDepartmentName": "Robotics Engineering"
+    },
+    {
+      "id": 917,
+      "name": "Yacht Design",
+      "slug": "yacht-design",
+      "level": "master",
+      "sourceFile": "Yacht_Design.json",
+      "rawProgramName": "Yacht Design",
+      "sourceProgramName": "Yacht Design",
+      "canonicalDepartmentName": "Yacht Design"
+    }
+  ],
+  "departmentCorrections": [],
+  "newDepartments": [
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Advanced Materials Science and Technology",
+      "slug": "advanced-materials-science-and-technology",
+      "languages": [
+        "en",
+        "it"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 5,
+      "rawProgramName": "Advanced Materials Science and Technology",
+      "sourceProgramName": "Advanced Materials Science and Technology",
+      "canonicalDepartmentName": "Advanced Materials Science and Technology",
+      "sourceFile": "Advanced_Materials_Science_and_Technology.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Architectural Composition",
+      "slug": "architectural-composition",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 6,
+      "rawProgramName": "Architectural Composition",
+      "sourceProgramName": "Architectural Composition",
+      "canonicalDepartmentName": "Architectural Composition",
+      "sourceFile": "Architectural_Composition.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Bioengineering",
+      "slug": "bioengineering",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 7,
+      "rawProgramName": "Bioengineering",
+      "sourceProgramName": "Bioengineering",
+      "canonicalDepartmentName": "Bioengineering",
+      "sourceFile": "Bioengineering.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Building Engineering",
+      "slug": "building-engineering",
+      "languages": [
+        "en",
+        "it"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 8,
+      "rawProgramName": "Building Engineering",
+      "sourceProgramName": "Building Engineering",
+      "canonicalDepartmentName": "Building Engineering",
+      "sourceFile": "Building_Engineering.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Computer Science",
+      "slug": "computer-science",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 9,
+      "rawProgramName": "Computer Science",
+      "sourceProgramName": "Computer Science",
+      "canonicalDepartmentName": "Computer Science",
+      "sourceFile": "Computer_Science.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Digital Humanities",
+      "slug": "digital-humanities",
+      "languages": [
+        "en",
+        "it"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 10,
+      "rawProgramName": "Digital Humanities - Interactive Systems and Digital Media",
+      "sourceProgramName": "Digital Humanities - Interactive Systems and Digital Media",
+      "canonicalDepartmentName": "Digital Humanities",
+      "sourceFile": "Digital_Humanities_Interactive_Systems_and_Digital_Media.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Economics and Data Science",
+      "slug": "economics-and-data-science",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 11,
+      "rawProgramName": "Economics and Data Science",
+      "sourceProgramName": "Economics and Data Science",
+      "canonicalDepartmentName": "Economics and Data Science",
+      "sourceFile": "Economics_and_Data_Science.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Electrical Engineering for Energy Transition",
+      "slug": "electrical-engineering-for-energy-transition",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 12,
+      "rawProgramName": "Electrical Engineering for Energy Transition",
+      "sourceProgramName": "Electrical Engineering for Energy Transition",
+      "canonicalDepartmentName": "Electrical Engineering for Energy Transition",
+      "sourceFile": "Electrical_Engineering_for_Energy_Transition.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Electronic Engineering",
+      "slug": "electronic-engineering",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 13,
+      "rawProgramName": "Electronic Engineering",
+      "sourceProgramName": "Electronic Engineering",
+      "canonicalDepartmentName": "Electronic Engineering",
+      "sourceFile": "Electronic_Engineering.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Engineering for Natural Risk Management",
+      "slug": "engineering-for-natural-risk-management",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 14,
+      "rawProgramName": "Engineering for Natural Risk Management",
+      "sourceProgramName": "Engineering for Natural Risk Management",
+      "canonicalDepartmentName": "Engineering for Natural Risk Management",
+      "sourceFile": "Engineering_for_Natural_Risk_Management.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Engineering Technology for Strategy and Security",
+      "slug": "engineering-technology-for-strategy-and-security",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 15,
+      "rawProgramName": "Engineering Technology for Strategy and Security",
+      "sourceProgramName": "Engineering Technology for Strategy and Security",
+      "canonicalDepartmentName": "Engineering Technology for Strategy and Security",
+      "sourceFile": "Engineering_Technology_for_Strategy_and_Security.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Environmental Engineering",
+      "slug": "environmental-engineering",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 16,
+      "rawProgramName": "Environmental Engineering",
+      "sourceProgramName": "Environmental Engineering",
+      "canonicalDepartmentName": "Environmental Engineering",
+      "sourceFile": "Environmental_Engineering.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "International Relations",
+      "slug": "international-relations",
+      "languages": [
+        "en",
+        "it"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 17,
+      "rawProgramName": "International Relations - Security and International Relations",
+      "sourceProgramName": "International Relations - Security and International Relations",
+      "canonicalDepartmentName": "International Relations",
+      "sourceFile": "International_Relations_Security_and_International_Relations.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Internet and Multimedia Engineering",
+      "slug": "internet-and-multimedia-engineering",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 18,
+      "rawProgramName": "Internet and Multimedia Engineering",
+      "sourceProgramName": "Internet and Multimedia Engineering",
+      "canonicalDepartmentName": "Internet and Multimedia Engineering",
+      "sourceFile": "Internet_and_Multimedia_Engineering.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Management for Energy and Environmental Transition (MEET)",
+      "slug": "management-for-energy-and-environmental-transition",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 19,
+      "rawProgramName": "Management for Energy and Environmental Transition (MEET)",
+      "sourceProgramName": "Management for Energy and Environmental Transition (MEET)",
+      "canonicalDepartmentName": "Management for Energy and Environmental Transition (MEET)",
+      "sourceFile": "Management_for_Energy_and_Environmental_Transition_MEET.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Medical-Pharmaceutical Biotechnology",
+      "slug": "medical-pharmaceutical-biotechnology",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 20,
+      "rawProgramName": "Medical-Pharmaceutical Biotechnology",
+      "sourceProgramName": "Medical-Pharmaceutical Biotechnology",
+      "canonicalDepartmentName": "Medical-Pharmaceutical Biotechnology",
+      "sourceFile": "Medical_Pharmaceutical_Biotechnology.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Safe Transport and Logistics Engineering",
+      "slug": "safe-transport-and-logistics-engineering",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 21,
+      "rawProgramName": "Safe Transport and Logistics Engineering",
+      "sourceProgramName": "Safe Transport and Logistics Engineering",
+      "canonicalDepartmentName": "Safe Transport and Logistics Engineering",
+      "sourceFile": "Safe_Transport_and_Logistics_Engineering.json"
+    },
+    {
+      "id": null,
+      "university_id": 20,
+      "name": "Sustainable Polymer and Process Chemistry (SMART)",
+      "slug": "sustainable-polymer-and-process-chemistry",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 22,
+      "rawProgramName": "Sustainable polyMer And pRocess chemisTry (SMART)",
+      "sourceProgramName": "Sustainable polyMer And pRocess chemisTry (SMART)",
+      "canonicalDepartmentName": "Sustainable Polymer and Process Chemistry (SMART)",
+      "sourceFile": "Sustainable_Polymer_and_Process_Chemistry.json"
+    }
+  ],
+  "duplicateDepartmentsToCleanUp": [
+    {
+      "id": 384,
+      "name": "Computer Engineering (Sede Imperia)",
+      "slug": "computer-engineering-sede-imperia",
+      "level": "bachelor",
+      "note": "duplicate to clean up — bachelor source Computer_Engineering_Bachelor.json (campus Imperia, code 12133) was mapped to id 383 (slug 'computer-engineering'). This script intentionally leaves id 384 in place; deletion is a manual decision."
+    }
+  ],
+  "programPlans": [
+    {
+      "sourceFile": "Advanced_Materials_Science_and_Technology.json",
+      "rawProgramName": "Advanced Materials Science and Technology",
+      "sourceProgramName": "Advanced Materials Science and Technology",
+      "canonicalDepartmentName": "Advanced Materials Science and Technology",
+      "normalizedName": "advanced materials science and technology",
+      "level": "master",
+      "teachingLanguage": "English and Italian (two curricula: one in Italian delivered in Genoa, and one English-language international-mobility / multiple-qualification curriculum 'SERP+')",
+      "languages": [
+        "en",
+        "it"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Advanced Materials Science and Technology",
+      "departmentSlug": "advanced-materials-science-and-technology"
+    },
+    {
+      "sourceFile": "Architectural_Composition.json",
+      "rawProgramName": "Architectural Composition",
+      "sourceProgramName": "Architectural Composition",
+      "canonicalDepartmentName": "Architectural Composition",
+      "normalizedName": "architectural composition",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Architectural Composition",
+      "departmentSlug": "architectural-composition"
+    },
+    {
+      "sourceFile": "Bioengineering.json",
+      "rawProgramName": "Bioengineering",
+      "sourceProgramName": "Bioengineering",
+      "canonicalDepartmentName": "Bioengineering",
+      "normalizedName": "bioengineering",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Bioengineering",
+      "departmentSlug": "bioengineering"
+    },
+    {
+      "sourceFile": "Building_Engineering.json",
+      "rawProgramName": "Building Engineering",
+      "sourceProgramName": "Building Engineering",
+      "canonicalDepartmentName": "Building Engineering",
+      "normalizedName": "building engineering",
+      "level": "master",
+      "teachingLanguage": "English and Italian (the degree as a whole is delivered in both languages; it offers two specialisation paths - one in Italian, 'Building and Urban Systems', and one entirely in English, 'Building Retrofitting'). The English-taught track of interest is 'Building Retrofitting'.",
+      "languages": [
+        "en",
+        "it"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Building Engineering",
+      "departmentSlug": "building-engineering"
+    },
+    {
+      "sourceFile": "Computer_Engineering_Bachelor.json",
+      "rawProgramName": "Computer Engineering",
+      "sourceProgramName": "Computer Engineering",
+      "canonicalDepartmentName": "Computer Engineering",
+      "normalizedName": "computer engineering",
+      "level": "bachelor",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 383,
+      "departmentName": "Computer Engineering",
+      "departmentSlug": "computer-engineering"
+    },
+    {
+      "sourceFile": "Computer_Engineering_Master.json",
+      "rawProgramName": "Computer Engineering",
+      "sourceProgramName": "Computer Engineering",
+      "canonicalDepartmentName": "Computer Engineering",
+      "normalizedName": "computer engineering",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 914,
+      "departmentName": "Computer Engineering",
+      "departmentSlug": "computer-engineering-master"
+    },
+    {
+      "sourceFile": "Computer_Science.json",
+      "rawProgramName": "Computer Science",
+      "sourceProgramName": "Computer Science",
+      "canonicalDepartmentName": "Computer Science",
+      "normalizedName": "computer science",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Computer Science",
+      "departmentSlug": "computer-science"
+    },
+    {
+      "sourceFile": "Digital_Humanities_Interactive_Systems_and_Digital_Media.json",
+      "rawProgramName": "Digital Humanities - Interactive Systems and Digital Media",
+      "sourceProgramName": "Digital Humanities - Interactive Systems and Digital Media",
+      "canonicalDepartmentName": "Digital Humanities",
+      "normalizedName": "digital humanities",
+      "level": "master",
+      "teachingLanguage": "English and Italian (the 'Affective Computing, Arts and Cultural Welfare' (ACW) curriculum is taught in English; the 'Interaction and Digital Creative Production' (IPC) curriculum is taught in Italian)",
+      "languages": [
+        "en",
+        "it"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Digital Humanities",
+      "departmentSlug": "digital-humanities"
+    },
+    {
+      "sourceFile": "Economics_and_Data_Science.json",
+      "rawProgramName": "Economics and Data Science",
+      "sourceProgramName": "Economics and Data Science",
+      "canonicalDepartmentName": "Economics and Data Science",
+      "normalizedName": "economics and data science",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Economics and Data Science",
+      "departmentSlug": "economics-and-data-science"
+    },
+    {
+      "sourceFile": "Electrical_Engineering_for_Energy_Transition.json",
+      "rawProgramName": "Electrical Engineering for Energy Transition",
+      "sourceProgramName": "Electrical Engineering for Energy Transition",
+      "canonicalDepartmentName": "Electrical Engineering for Energy Transition",
+      "normalizedName": "electrical engineering for energy transition",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Electrical Engineering for Energy Transition",
+      "departmentSlug": "electrical-engineering-for-energy-transition"
+    },
+    {
+      "sourceFile": "Electronic_Engineering.json",
+      "rawProgramName": "Electronic Engineering",
+      "sourceProgramName": "Electronic Engineering",
+      "canonicalDepartmentName": "Electronic Engineering",
+      "normalizedName": "electronic engineering",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Electronic Engineering",
+      "departmentSlug": "electronic-engineering"
+    },
+    {
+      "sourceFile": "Energy_Engineering.json",
+      "rawProgramName": "Energy Engineering",
+      "sourceProgramName": "Energy Engineering",
+      "canonicalDepartmentName": "Energy Engineering",
+      "normalizedName": "energy engineering",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 915,
+      "departmentName": "Energy Engineering",
+      "departmentSlug": "energy-engineering"
+    },
+    {
+      "sourceFile": "Engineering_for_Natural_Risk_Management.json",
+      "rawProgramName": "Engineering for Natural Risk Management",
+      "sourceProgramName": "Engineering for Natural Risk Management",
+      "canonicalDepartmentName": "Engineering for Natural Risk Management",
+      "normalizedName": "engineering for natural risk management",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Engineering for Natural Risk Management",
+      "departmentSlug": "engineering-for-natural-risk-management"
+    },
+    {
+      "sourceFile": "Engineering_Technology_for_Strategy_and_Security.json",
+      "rawProgramName": "Engineering Technology for Strategy and Security",
+      "sourceProgramName": "Engineering Technology for Strategy and Security",
+      "canonicalDepartmentName": "Engineering Technology for Strategy and Security",
+      "normalizedName": "engineering technology for strategy and security",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Engineering Technology for Strategy and Security",
+      "departmentSlug": "engineering-technology-for-strategy-and-security"
+    },
+    {
+      "sourceFile": "Environmental_Engineering.json",
+      "rawProgramName": "Environmental Engineering",
+      "sourceProgramName": "Environmental Engineering",
+      "canonicalDepartmentName": "Environmental Engineering",
+      "normalizedName": "environmental engineering",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Environmental Engineering",
+      "departmentSlug": "environmental-engineering"
+    },
+    {
+      "sourceFile": "International_Relations_Security_and_International_Relations.json",
+      "rawProgramName": "International Relations - Security and International Relations",
+      "sourceProgramName": "International Relations - Security and International Relations",
+      "canonicalDepartmentName": "International Relations",
+      "normalizedName": "international relations",
+      "level": "master",
+      "teachingLanguage": "English (the 'Security and International Relations' curriculum is the English-taught track of the parent programme INTERNATIONAL RELATIONS, which is offered in both English and Italian)",
+      "languages": [
+        "en",
+        "it"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "International Relations",
+      "departmentSlug": "international-relations"
+    },
+    {
+      "sourceFile": "Internet_and_Multimedia_Engineering.json",
+      "rawProgramName": "Internet and Multimedia Engineering",
+      "sourceProgramName": "Internet and Multimedia Engineering",
+      "canonicalDepartmentName": "Internet and Multimedia Engineering",
+      "normalizedName": "internet and multimedia engineering",
+      "level": "master",
+      "teachingLanguage": "English (completely taught in English)",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Internet and Multimedia Engineering",
+      "departmentSlug": "internet-and-multimedia-engineering"
+    },
+    {
+      "sourceFile": "Management_for_Energy_and_Environmental_Transition_MEET.json",
+      "rawProgramName": "Management for Energy and Environmental Transition (MEET)",
+      "sourceProgramName": "Management for Energy and Environmental Transition (MEET)",
+      "canonicalDepartmentName": "Management for Energy and Environmental Transition (MEET)",
+      "normalizedName": "management for energy and environmental transition meet",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Management for Energy and Environmental Transition (MEET)",
+      "departmentSlug": "management-for-energy-and-environmental-transition"
+    },
+    {
+      "sourceFile": "Maritime_Science_and_Technology.json",
+      "rawProgramName": "Maritime Science and Technology",
+      "sourceProgramName": "Maritime Science and Technology",
+      "canonicalDepartmentName": "Maritime Science and Technology",
+      "normalizedName": "maritime science and technology",
+      "level": "bachelor",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 385,
+      "departmentName": "Maritime Science and Technology",
+      "departmentSlug": "maritime-science-and-technology"
+    },
+    {
+      "sourceFile": "Medical_Pharmaceutical_Biotechnology.json",
+      "rawProgramName": "Medical-Pharmaceutical Biotechnology",
+      "sourceProgramName": "Medical-Pharmaceutical Biotechnology",
+      "canonicalDepartmentName": "Medical-Pharmaceutical Biotechnology",
+      "normalizedName": "medical pharmaceutical biotechnology",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Medical-Pharmaceutical Biotechnology",
+      "departmentSlug": "medical-pharmaceutical-biotechnology"
+    },
+    {
+      "sourceFile": "Robotics_Engineering.json",
+      "rawProgramName": "Robotics Engineering",
+      "sourceProgramName": "Robotics Engineering",
+      "canonicalDepartmentName": "Robotics Engineering",
+      "normalizedName": "robotics engineering",
+      "level": "master",
+      "teachingLanguage": "English (completely taught in English)",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 916,
+      "departmentName": "Robotics Engineering",
+      "departmentSlug": "robotics-engineering"
+    },
+    {
+      "sourceFile": "Safe_Transport_and_Logistics_Engineering.json",
+      "rawProgramName": "Safe Transport and Logistics Engineering",
+      "sourceProgramName": "Safe Transport and Logistics Engineering",
+      "canonicalDepartmentName": "Safe Transport and Logistics Engineering",
+      "normalizedName": "safe transport and logistics engineering",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Safe Transport and Logistics Engineering",
+      "departmentSlug": "safe-transport-and-logistics-engineering"
+    },
+    {
+      "sourceFile": "Sustainable_Polymer_and_Process_Chemistry.json",
+      "rawProgramName": "Sustainable polyMer And pRocess chemisTry (SMART)",
+      "sourceProgramName": "Sustainable polyMer And pRocess chemisTry (SMART)",
+      "canonicalDepartmentName": "Sustainable Polymer and Process Chemistry (SMART)",
+      "normalizedName": "sustainable polymer and process chemistry smart",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Sustainable Polymer and Process Chemistry (SMART)",
+      "departmentSlug": "sustainable-polymer-and-process-chemistry"
+    },
+    {
+      "sourceFile": "Yacht_Design.json",
+      "rawProgramName": "Yacht Design",
+      "sourceProgramName": "Yacht Design",
+      "canonicalDepartmentName": "Yacht Design",
+      "normalizedName": "yacht design",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 917,
+      "departmentName": "Yacht Design",
+      "departmentSlug": "yacht-design"
+    }
+  ],
+  "warnings": [],
+  "applied": {
+    "detailUpserts": 24,
+    "newDepartmentsInserted": 18,
+    "departmentCorrectionsUpdated": 0
+  }
+}

@@ -205,6 +205,71 @@ const UNIVERSITY_CHECKS = [
       },
     ],
   },
+  {
+    universityId: 20,
+    label: "Genoa",
+    expectedDetailCount: 24,
+    criticalPrograms: [
+      {
+        name: "Computer Engineering",
+        level: "bachelor",
+        missingProgramMessage: "Missing expected Genoa program: Computer Engineering (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Maritime Science and Technology",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Genoa program: Maritime Science and Technology (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Computer Engineering",
+        level: "master",
+        missingProgramMessage: "Missing expected Genoa program: Computer Engineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Robotics Engineering",
+        level: "master",
+        missingProgramMessage: "Missing expected Genoa program: Robotics Engineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Yacht Design",
+        level: "master",
+        missingProgramMessage: "Missing expected Genoa program: Yacht Design (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Digital Humanities",
+        level: "master",
+        missingProgramMessage: "Missing expected Genoa program: Digital Humanities (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "International Relations",
+        level: "master",
+        missingProgramMessage: "Missing expected Genoa program: International Relations (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Sustainable Polymer and Process Chemistry (SMART)",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Genoa program: Sustainable Polymer and Process Chemistry (SMART) (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+    ],
+  },
 ];
 const failures = [];
 
@@ -292,6 +357,20 @@ if (supabase) {
       for (const field of ["required_documents", "source_quotes", "uncertain", "uncertainty_notes"]) {
         if (!isArray(detail[field])) {
           fail(`${universityCheck.label} detail ${detail.department_id} has non-array ${field}`);
+        }
+      }
+
+      if (universityCheck.label === "Padua") {
+        for (const document of detail.required_documents ?? []) {
+          if (/document_name:|required_for:|source_url:/i.test(document)) {
+            fail(`${universityCheck.label} detail ${detail.department_id} has raw document object keys`);
+          }
+        }
+
+        for (const field of ["academic_requirements", "language_requirements", "entry_exam_or_test"]) {
+          if (/[a-z]+_[a-z_]+:/i.test(detail[field] ?? "")) {
+            fail(`${universityCheck.label} detail ${detail.department_id} has raw object key in ${field}`);
+          }
         }
       }
 
