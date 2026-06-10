@@ -106,6 +106,232 @@ const UNIVERSITY_CHECKS = [
       },
     ],
   },
+  {
+    universityId: 2,
+    label: "Sapienza",
+    expectedDetailCount: 23,
+    criticalPrograms: [
+      {
+        name: "Applied Computer Science and Artificial Intelligence",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Sapienza program: Applied Computer Science and Artificial Intelligence (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Nursing",
+        level: "bachelor",
+        missingProgramMessage: "Missing expected Sapienza program: Nursing (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Medicine and Surgery",
+        level: "single-cycle",
+        missingProgramMessage:
+          "Missing expected Sapienza program: Medicine and Surgery (single-cycle)",
+        requiresDetails: true,
+        expectedDurationYears: 6,
+      },
+      {
+        name: "Computer Science",
+        level: "master",
+        missingProgramMessage: "Missing expected Sapienza program: Computer Science (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Cybersecurity",
+        level: "master",
+        missingProgramMessage: "Missing expected Sapienza program: Cybersecurity (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+    ],
+  },
+  {
+    universityId: 4,
+    label: "Padua",
+    expectedDetailCount: 71,
+    criticalPrograms: [
+      {
+        name: "Animal Care",
+        level: "bachelor",
+        missingProgramMessage: "Missing expected Padua program: Animal Care (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Economics, Governance and Decision-Making",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Padua program: Economics, Governance and Decision-Making (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Applied Child and Adolescent Psychology",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Padua program: Applied Child and Adolescent Psychology (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Management Engineering",
+        level: "master",
+        missingProgramMessage: "Missing expected Padua program: Management Engineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Quantum Science and Engineering",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Padua program: Quantum Science and Engineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Medicine and Surgery",
+        level: "single-cycle",
+        missingProgramMessage: "Missing expected Padua program: Medicine and Surgery (single-cycle)",
+        requiresDetails: true,
+        expectedDurationYears: 6,
+        expectedUncertainField: "entry_exam_or_test",
+      },
+      {
+        name: "Medicine and Surgery - MedTech",
+        level: "single-cycle",
+        missingProgramMessage:
+          "Missing expected Padua program: Medicine and Surgery - MedTech (single-cycle)",
+        requiresDetails: true,
+        expectedDurationYears: 6,
+        expectedUncertainField: "required_documents",
+      },
+    ],
+  },
+  {
+    universityId: 9,
+    label: "Ca' Foscari",
+    expectedDetailCount: 29,
+    criticalPrograms: [
+      {
+        name: "Business Administration and Management",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Ca' Foscari program: Business Administration and Management (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Ancient Civilizations for the Contemporary World (inter-university)",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Ca' Foscari program: Ancient Civilizations for the Contemporary World (inter-university) (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Computer Science - Data Science",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Ca' Foscari program: Computer Science - Data Science (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Hospitality Innovation and e-Tourism",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Ca' Foscari program: Hospitality Innovation and e-Tourism (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Comparative International Relations - European Union Studies and Global Studies",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Ca' Foscari program: Comparative International Relations - European Union Studies and Global Studies (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Ca' Foscari program: Sustainable Chemistry and Technologies - Biomolecular Chemistry (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+    ],
+  },
+  {
+    universityId: 20,
+    label: "Genoa",
+    expectedDetailCount: 24,
+    criticalPrograms: [
+      {
+        name: "Computer Engineering",
+        level: "bachelor",
+        missingProgramMessage: "Missing expected Genoa program: Computer Engineering (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Maritime Science and Technology",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Genoa program: Maritime Science and Technology (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Computer Engineering",
+        level: "master",
+        missingProgramMessage: "Missing expected Genoa program: Computer Engineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Robotics Engineering",
+        level: "master",
+        missingProgramMessage: "Missing expected Genoa program: Robotics Engineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Yacht Design",
+        level: "master",
+        missingProgramMessage: "Missing expected Genoa program: Yacht Design (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Digital Humanities",
+        level: "master",
+        missingProgramMessage: "Missing expected Genoa program: Digital Humanities (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "International Relations",
+        level: "master",
+        missingProgramMessage: "Missing expected Genoa program: International Relations (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Sustainable Polymer and Process Chemistry (SMART)",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Genoa program: Sustainable Polymer and Process Chemistry (SMART) (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+    ],
+  },
 ];
 const failures = [];
 
@@ -156,6 +382,10 @@ function isArray(value) {
   return Array.isArray(value);
 }
 
+function isHttpUrl(value) {
+  return typeof value === "string" && /^https?:\/\//.test(value);
+}
+
 const supabase = createSupabaseClient();
 
 if (supabase) {
@@ -182,10 +412,7 @@ if (supabase) {
     }
 
     for (const detail of details ?? []) {
-      if (
-        typeof detail.official_program_url !== "string" ||
-        !detail.official_program_url.startsWith("https://")
-      ) {
+      if (!isHttpUrl(detail.official_program_url)) {
         fail(`${universityCheck.label} detail ${detail.department_id} has invalid official_program_url`);
       }
 
@@ -195,13 +422,27 @@ if (supabase) {
         }
       }
 
+      if (universityCheck.label === "Padua") {
+        for (const document of detail.required_documents ?? []) {
+          if (/document_name:|required_for:|source_url:/i.test(document)) {
+            fail(`${universityCheck.label} detail ${detail.department_id} has raw document object keys`);
+          }
+        }
+
+        for (const field of ["academic_requirements", "language_requirements", "entry_exam_or_test"]) {
+          if (/[a-z]+_[a-z_]+:/i.test(detail[field] ?? "")) {
+            fail(`${universityCheck.label} detail ${detail.department_id} has raw object key in ${field}`);
+          }
+        }
+      }
+
       for (const [index, quote] of (detail.source_quotes ?? []).entries()) {
         if (!quote || typeof quote !== "object") {
           fail(`${universityCheck.label} detail ${detail.department_id} source quote ${index} is not an object`);
           continue;
         }
 
-        if (typeof quote.url !== "string" || !quote.url.startsWith("https://")) {
+        if (!isHttpUrl(quote.url)) {
           fail(`${universityCheck.label} detail ${detail.department_id} source quote ${index} has invalid url`);
         }
 
