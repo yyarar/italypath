@@ -1,0 +1,201 @@
+{
+  "program_name": "Architecture",
+  "level": "bachelor",
+  "official_level_type": "Bachelor's degree programme (Laurea / 1st cycle)",
+  "teaching_language": "Italian, English",
+  "is_fully_english_programme": false,
+  "has_complete_english_track": true,
+  "english_track_name": "English-language track [uncertain]",
+  "campus": "Castello del Valentino",
+  "degree_class": "L-17: Architecture",
+  "double_degree_or_erasmus_mundus": null,
+  "official_program_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/architecture",
+  "curriculum_page_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/architecture/programme-curriculum",
+  "admission_type": "restricted access",
+  "admission_test_type": "TIL-A (Architecture admission test). SAT is not valid for Architecture.",
+  "applicant_route": [
+    "Applicants with an Italian qualification",
+    "Applicants with an EU qualification",
+    "Non-EU applicants residing in Italy",
+    "Non-EU applicants residing abroad and requiring a visa"
+  ],
+  "admission_call_round": "A dedicated Architecture call exists for A.Y. 2026/27, but the Architecture Call for Applications had not yet been published on 2026-06-06; the official page states only that TIL-A will take place in the second half of July. [uncertain]",
+  "special_call_flag": true,
+  "application_platform": "Apply@polito for registration, application management, test registration, and language-skills upload; UNIVERSITALY is additionally required for non-EU applicants residing abroad who need a study visa.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/calls-for-application-regulations-and-ranking-lists/calls-regulations-26-27",
+  "academic_requirements": {
+    "qualification": "Secondary school diploma or another foreign upper-secondary qualification that gives access to university studies.",
+    "schooling_length": "Applicants with a non-Italian qualification must normally have completed at least 12 years of schooling.",
+    "less_than_12_years_rule": "If the secondary-school diploma was awarded after fewer than 12 years of schooling, the applicant must additionally provide one of the following: a university transcript showing passed exams from the first academic year or first two years, a related post-secondary qualification, or proof of successful completion of a foundation course accepted by PoliTO.",
+    "country_exam_rule": "For countries where access to university is regulated by a national entrance examination, applicants must provide a certificate proving that they passed that examination.",
+    "architecture_specific_requirement": "Admission also requires the language certificate required for the chosen track and passing the Architecture admission test (TIL-A)."
+  },
+  "country_specific_eligibility": "For applicants from countries where university admission requires a national entrance exam, PoliTO requires proof of passing that exam; the official page explicitly lists YKS among the examples. This is relevant for Turkish applicants with a non-Italian qualification.",
+  "minimum_background_or_credits": null,
+  "language_requirements": {
+    "english_track": "For the English-taught Architecture track, the minimum requirement is English level B2 or above.",
+    "italian_track": "For the Italian-taught Architecture track, the minimum requirement is Italian level B2 or above.",
+    "accepted_english_certificates_examples": "PoliTO's official English B2 table includes, among others, IELTS Academic or General Training (minimum 5.5), Pearson PTE Academic (minimum 59), TOEIC with section minimums, Cambridge English certificates, and TOEFL iBT according to the official table.",
+    "english_exemptions": "PoliTO lists official exemption cases, including some English-medium qualifications, on the non-Italian-qualification page."
+  },
+  "english_certificate_codes": "For TOEFL/TOEIC certificates, applicants must indicate PoliTO code C285. For Cambridge certificates, applicants must share the results with Politecnico di Torino and provide the Candidate ID number.",
+  "language_submission_timing": "For applicants with a non-Italian qualification, certificate details must be entered in the LANGUAGE SKILLS section of Apply@polito before the applicable deadline: 22 May 2026 for non-EU applicants residing abroad and requiring a visa, or 20 July 2026 for EU/equivalent applicants. Because the dedicated 2026/27 Architecture call is still unpublished, any Architecture-specific operational refinements remain [uncertain].",
+  "application_deadline_eu": {
+    "application_deadline": "The Architecture-specific application deadline for EU/equivalent applicants had not yet been published on 2026-06-06. [uncertain]",
+    "language_requirement_deadline": "Monday 20 July 2026",
+    "enrolment_deadline": "Wednesday 30 September 2026 at 2:00 p.m. (Italian time)",
+    "test_timing": "TIL-A will take place in the second half of July 2026."
+  },
+  "application_deadline_non_eu": {
+    "application_deadline": "The Architecture-specific application deadline for non-EU visa applicants had not yet been published on 2026-06-06. [uncertain]",
+    "language_requirement_deadline": "Friday 22 May 2026",
+    "universitaly_deadline": "Tuesday 30 June 2026",
+    "enrolment_deadline": "Wednesday 30 September 2026 at 2:00 p.m. (Italian time)",
+    "test_timing": "TIL-A will take place in the second half of July 2026."
+  },
+  "universitaly_preenrolment_deadline": "Non-EU applicants residing abroad and requiring a visa must submit the UNIVERSITALY pre-enrolment application by 30 June 2026.",
+  "application_fee": null,
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport (or ID card for EU nationals)",
+    "Residence permit for non-EU citizens living in Italy",
+    "Secondary school diploma and any required supplementary certificates",
+    "Certificate proving that the applicant passed the national admission test, only for countries where university admission is regulated by such a test",
+    "English language certificate for the English track or Italian language certificate for the Italian track, or valid official exemption documentation",
+    "Self-certificate of enrolment with passed exams at another Italian university, if applicable",
+    "For enrolment: type-D student visa for non-EU applicants residing abroad",
+    "For enrolment: Italian fiscal code",
+    "For enrolment: Declaration of Value of the high-school diploma, or a CIMEA Statement of Comparability / equivalent ENIC-NARIC comparability document, with CIMEA verification recommended"
+  ],
+  "document_translation_authentication": "Documents must be issued on official letterheaded paper, stamped and signed by the issuing institution. Documents in Italian, English, French, or Spanish are accepted; if documents are in another language, the original and an official English or Italian translation must be merged into one file. PoliTO defines an official translation as one bearing the stamp and original signature of an officially recognized translator. Italian translations must be certified by the Italian Embassy in the country of issue or sworn by the translator in an Italian court. For enrolment, PoliTO also requires a Declaration of Value of the diploma or a CIMEA/ENIC-NARIC comparability document, and it recommends CIMEA verification to speed up evaluation.",
+  "entry_exam_or_test": {
+    "test_name": "TIL-A",
+    "requirement": "Mandatory admission test for Architecture.",
+    "sat_policy": "SAT is not valid for Architecture.",
+    "timing": "The official 2026/27 PoliTO page states that TIL-A will take place in the second half of July 2026.",
+    "registration_process": "Registration is handled through Apply@polito; the exact Architecture-specific registration window, payment amount, and detailed procedures are to be published in the dedicated Architecture call. [uncertain]"
+  },
+  "test_score_or_threshold": "Architecture is a capped-number programme. The 2026/27 Architecture-specific ranking rules, guaranteed threshold, and score cut-offs had not yet been published on 2026-06-06. [uncertain]",
+  "source_quotes": [
+    {
+      "quote": "Italian, English",
+      "source_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/architecture",
+      "supports_fields": [
+        "teaching_language"
+      ]
+    },
+    {
+      "quote": "Capped number of students, mandatory admission test",
+      "source_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/architecture",
+      "supports_fields": [
+        "admission_type",
+        "entry_exam_or_test",
+        "test_score_or_threshold"
+      ]
+    },
+    {
+      "quote": "TIL-A will take place in the second half of July.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/calls-for-application-regulations-and-ranking-lists/calls-regulations-26-27",
+      "supports_fields": [
+        "admission_test_type",
+        "admission_call_round",
+        "entry_exam_or_test"
+      ]
+    },
+    {
+      "quote": "SAT is NOT VALID for Architecture",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "admission_test_type",
+        "entry_exam_or_test"
+      ]
+    },
+    {
+      "quote": "English Level B2 or above",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "language_requirements"
+      ]
+    },
+    {
+      "quote": "code C285",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "english_certificate_codes"
+      ]
+    },
+    {
+      "quote": "30 th June 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "universitaly_preenrolment_deadline",
+        "application_deadline_non_eu"
+      ]
+    },
+    {
+      "quote": "IELTS Academic and General Training 5.5",
+      "source_url": "https://www.polito.it/sites/default/files/2026-01/Tabella_23_09_2019_agg_gen26_eng_0.pdf",
+      "supports_fields": [
+        "language_requirements"
+      ]
+    },
+    {
+      "quote": "Pearson Test of English Academic 59",
+      "source_url": "https://www.polito.it/sites/default/files/2026-01/Tabella_23_09_2019_agg_gen26_eng_0.pdf",
+      "supports_fields": [
+        "language_requirements"
+      ]
+    },
+    {
+      "quote": "Calculus",
+      "source_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/architecture/programme-curriculum",
+      "supports_fields": [
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "City and territory Studio A",
+      "source_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/architecture/programme-curriculum",
+      "supports_fields": [
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "Architectural Design in the Age of AI",
+      "source_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/architecture/programme-curriculum",
+      "supports_fields": [
+        "has_complete_english_track"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/bachelor-s-degree-programmes/architecture",
+    "https://www.polito.it/en/education/bachelor-s-degree-programmes/architecture/programme-curriculum",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/calls-for-application-regulations-and-ranking-lists",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/calls-for-application-regulations-and-ranking-lists/calls-regulations-26-27",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/admission-test",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/polito-language-centre-cla/certificates",
+    "https://www.polito.it/sites/default/files/2026-01/Tabella_23_09_2019_agg_gen26_eng_0.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "The programme is not fully English because the official programme page lists the teaching language as Italian and English; however, the curriculum page shows English-taught courses in Years 1, 2, and 3, so has_complete_english_track is set to true under the broad English-track rule.",
+    "The exact official track heading on the curriculum page appears in Italian, while this JSON is required to stay in English. Therefore english_track_name is translated as 'English-language track' and flagged uncertain.",
+    "As of 2026-06-06, PoliTO had not yet published the dedicated 2026/27 Architecture Call for Applications. The official call hub states only that the Architecture call will be published in spring and that TIL-A will take place in the second half of July. Exact Architecture-specific application deadlines, registration windows, test fees, test logistics, and ranking rules therefore remain uncertain.",
+    "The general bachelor's page for applicants with a non-Italian qualification provides official language-submission, enrolment, and UNIVERSITALY deadlines. These were recorded, but the unpublished Architecture-specific call could still add programme-specific operational details.",
+    "The current official English-certificate reference is a CLA certificate table hosted in 2026, but the table itself is labelled as originally adopted in 2019 and updated in 2022. It is still the official live table referenced by PoliTO for 2026/27 admissions."
+  ],
+  "uncertain": [
+    "english_track_name",
+    "admission_call_round",
+    "language_submission_timing",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "application_fee",
+    "entry_exam_or_test",
+    "test_score_or_threshold"
+  ]
+}

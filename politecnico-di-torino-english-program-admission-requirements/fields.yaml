@@ -1,0 +1,238 @@
+schema_name: "politecnico_di_torino_english_program_admission_requirements"
+schema_version: "1.0"
+generated_at: "2026-06-04"
+output_format:
+  type: "json_object_per_program"
+  required_fields:
+    - program_name
+    - level
+    - teaching_language
+    - is_fully_english_programme
+    - has_complete_english_track
+    - english_track_name
+    - campus
+    - degree_class
+    - admission_type
+    - academic_requirements
+    - language_requirements
+    - application_deadline_eu
+    - application_deadline_non_eu
+    - required_documents
+    - entry_exam_or_test
+    - tuition_or_fees_link
+    - official_program_url
+    - official_call_url
+    - source_quotes
+    - uncertainty_notes
+  empty_value_policy: "Use null only when an official PoliTo source was checked and the value is not found. Use uncertainty_notes to explain."
+  citation_policy:
+    - "Every populated requirement, deadline, test, document, and fee field should include official PoliTo source URLs (polito.it or didattica.polito.it)."
+    - "source_quotes must contain short quotes from official PoliTo sources only."
+    - "The fully-English determination MUST be backed by the official programme page and/or curriculum page."
+
+field_categories:
+  - category: "Program Identity"
+    description: "Stable identity fields for matching each result to one official PoliTo degree programme."
+    fields:
+      - name: "program_name"
+        type: "string"
+        detail_level: "brief"
+        description: "Official programme name exactly as shown on the PoliTo polito.it/en catalogue page."
+      - name: "level"
+        type: "enum"
+        allowed_values: ["bachelor", "master", "single-cycle", "other"]
+        detail_level: "brief"
+        description: "Normalized degree level. bachelor = Laurea (1st cycle); master = Laurea Magistrale (2nd cycle)."
+      - name: "official_level_type"
+        type: "string"
+        detail_level: "moderate"
+        description: "Official PoliTo wording such as 'Bachelor's degree programme' / 'Master's degree programme' (Laurea / Laurea Magistrale)."
+      - name: "teaching_language"
+        type: "string"
+        detail_level: "brief"
+        description: "Official catalogue language label exactly as shown: 'English', 'Italian, English', or 'Multilingual'."
+      - name: "is_fully_english_programme"
+        type: "boolean"
+        detail_level: "brief"
+        description: "TRUE only if the ENTIRE programme is delivered in English (catalogue label 'English', no Italian-only obligation). FALSE for bilingual programmes even if a full English track exists."
+      - name: "has_complete_english_track"
+        type: "boolean"
+        detail_level: "moderate"
+        description: "TRUE if a student can complete the programme 100% in English — either is_fully_english_programme is true, OR a bilingual programme offers a complete fully-English track/percorso across ALL years. This is the field that decides inclusion under the product owner's BROAD English definition. Must be verified on the curriculum page."
+      - name: "english_track_name"
+        type: "string_or_null"
+        detail_level: "moderate"
+        description: "For bilingual programmes, the exact name of the complete fully-English track ('Percorso in lingua inglese', 'Percorso internazionale', or a named specialisation). null if the whole programme is English or if no complete English track exists."
+      - name: "campus"
+        type: "string_or_array"
+        detail_level: "brief"
+        description: "Campus/location (e.g. Torino main campus, Mondovì, Alessandria, Verrès, Biella) as stated on the programme page."
+      - name: "degree_class"
+        type: "string_or_null"
+        detail_level: "moderate"
+        description: "Italian degree class / classe di laurea (e.g. L-7, L-8, L-9, LM-27, LM-32, LM-33). Confirm on the programme page."
+      - name: "double_degree_or_erasmus_mundus"
+        type: "string_or_null"
+        detail_level: "moderate"
+        description: "Note if the (English) programme or track is an Erasmus Mundus Joint Master (e.g. DENSYS 2.0, HySET) or a double/joint degree — these often have separate calls, deadlines, and fees."
+      - name: "official_program_url"
+        type: "url"
+        detail_level: "brief"
+        description: "Official PoliTo programme page URL on polito.it/en/education/..."
+      - name: "curriculum_page_url"
+        type: "url_or_null"
+        detail_level: "moderate"
+        description: "Official .../programme-curriculum page used to verify the fully-English determination."
+
+  - category: "Admission Classification"
+    description: "How admission works for the programme and applicant route."
+    fields:
+      - name: "admission_type"
+        type: "enum_or_string"
+        allowed_values: ["open access", "restricted access", "TOLC", "TIL", "SAT", "selection call", "evaluation/CV", "portfolio", "other"]
+        detail_level: "moderate"
+        description: "Primary admission mechanism. PoliTo bachelors typically use TIL (Test di Ingresso al Politecnico) or SAT; restricted programmes use ranked selection; masters use CV/qualification evaluation."
+      - name: "admission_test_type"
+        type: "string_or_null"
+        detail_level: "detailed"
+        description: "Specific test: TIL-I (Engineering), TIL-D (Design), Architecture test, SAT General Test (note: SAT not valid for Architecture), or master-level evaluation."
+      - name: "applicant_route"
+        type: "array"
+        detail_level: "detailed"
+        description: "Applicant routes covered: Italian qualification, EU qualification, non-EU residing in Italy, non-EU residing abroad (visa-required). Turkish applicants are typically non-EU with a non-Italian qualification."
+      - name: "admission_call_round"
+        type: "array_or_string_or_null"
+        detail_level: "moderate"
+        description: "Call round(s) and which applicant type each serves: 1st call, 2nd call, special call. Masters: 1st/2nd calls plus special calls for some programmes."
+      - name: "special_call_flag"
+        type: "boolean_or_null"
+        detail_level: "moderate"
+        description: "TRUE if the programme has its OWN separate call distinct from the standard rounds (e.g. Physics of Complex Systems International Track; Nanotechnologies MNIS — special call ~24 Apr–18 May 2026)."
+      - name: "application_platform"
+        type: "string_or_null"
+        detail_level: "moderate"
+        description: "Official application channel: Apply@polito (didattica.polito.it/.../pkg_apply); UNIVERSITALY for non-EU visa pre-enrolment."
+      - name: "official_call_url"
+        type: "url_or_null"
+        detail_level: "brief"
+        description: "Official PoliTo Call/admission page or PDF governing this programme for 2026/2027."
+
+  - category: "Academic Requirements"
+    description: "Prior qualification, curricular, and merit requirements."
+    fields:
+      - name: "academic_requirements"
+        type: "object_or_string"
+        detail_level: "detailed"
+        description: "Academic eligibility: secondary-school diploma + years of schooling for Bachelor; relevant first-cycle degree + ECTS/curricular prerequisites for Master; programme-specific prerequisites and minimum-knowledge checks."
+      - name: "country_specific_eligibility"
+        type: "string_or_null"
+        detail_level: "detailed"
+        description: "Country-specific qualification, minimum-years, or validation requirements for applicants with a non-Italian qualification."
+      - name: "minimum_background_or_credits"
+        type: "string_or_null"
+        detail_level: "detailed"
+        description: "For masters: required disciplinary background, minimum credits in specific subject areas (CFU/ECTS), or GPA thresholds."
+
+  - category: "Language Requirements"
+    description: "English (and Italian) language obligations for admission."
+    fields:
+      - name: "language_requirements"
+        type: "object_or_string"
+        detail_level: "detailed"
+        description: "English level required (typically B2+ CEFR), accepted certificates (IELTS, TOEFL, TOEIC, Cambridge), minimum scores, exemptions, and validity period."
+      - name: "english_certificate_codes"
+        type: "string_or_null"
+        detail_level: "moderate"
+        description: "Operational codes for sending scores to PoliTo (e.g. TOEFL/TOEIC institution code C285). Record if stated."
+      - name: "language_submission_timing"
+        type: "string_or_null"
+        detail_level: "moderate"
+        description: "When the language certificate must be submitted — at application, by a stated deadline, or by enrolment."
+
+  - category: "Deadlines and Fees"
+    description: "Application, pre-enrolment, and enrolment timing, separated by route wherever PoliTo distinguishes them."
+    fields:
+      - name: "application_deadline_eu"
+        type: "object_or_string_or_null"
+        detail_level: "detailed"
+        description: "Application/enrolment deadlines for EU / Italy-resident / no-visa applicants. Record the exact 2026/2027 dates and what each governs."
+      - name: "application_deadline_non_eu"
+        type: "object_or_string_or_null"
+        detail_level: "detailed"
+        description: "Application deadlines for non-EU applicants needing a visa (the relevant route for Turkish students). Masters (non-Italian qualification): 1st call ~13 Feb 2026, 2nd call ~20 Apr 2026; special calls vary. Record exact dates and times (Italian time)."
+      - name: "universitaly_preenrolment_deadline"
+        type: "string_or_null"
+        detail_level: "detailed"
+        description: "UNIVERSITALY visa pre-enrolment deadline for non-EU/visa applicants (separate from the application deadline). e.g. Bachelor ~30 Jun 2026; Master 1st call ~30 May 2026, 2nd call ~15 Jul 2026. Confirm per current official source."
+      - name: "application_fee"
+        type: "string_or_null"
+        detail_level: "moderate"
+        description: "Application fee if any, as stated by official PoliTo sources."
+      - name: "tuition_or_fees_link"
+        type: "url_or_null"
+        detail_level: "brief"
+        description: "Official PoliTo tuition/fees & funding URL. Locate the current official fees page on polito.it."
+      - name: "academic_year"
+        type: "string_or_null"
+        detail_level: "brief"
+        description: "Academic year of the governing source (prioritize 2026/2027; otherwise record the year used)."
+
+  - category: "Documents"
+    description: "Documents required for application, admission, and enrolment."
+    fields:
+      - name: "required_documents"
+        type: "array_or_string"
+        detail_level: "detailed"
+        description: "Required documents: diploma, transcript, passport/ID, language certificate, CV, motivation letter, Declaration of Value / CIMEA statement, Diploma Supplement, translations, or programme-specific documents."
+      - name: "document_translation_authentication"
+        type: "string_or_null"
+        detail_level: "moderate"
+        description: "Official translation, legalization/apostille, CIMEA statement, or Declaration of Value requirements for foreign (e.g. Turkish) documents."
+
+  - category: "Tests and Selection"
+    description: "Entrance test, alternative test, interview, and selection mechanics."
+    fields:
+      - name: "entry_exam_or_test"
+        type: "object_or_string_or_null"
+        detail_level: "detailed"
+        description: "Required/accepted test: TIL-I, TIL-D, Architecture test, SAT, or master-level evaluation/interview. Include mode (online/in-person) and registration window if stated."
+      - name: "test_score_or_threshold"
+        type: "string_or_null"
+        detail_level: "detailed"
+        description: "Minimum score, threshold, ranking rule, or OFA (additional learning requirements) trigger."
+
+  - category: "Evidence and Uncertainty"
+    description: "Traceability controls for deep research outputs."
+    fields:
+      - name: "source_quotes"
+        type: "array"
+        detail_level: "detailed"
+        description: "Short direct quotes from official PoliTo pages/PDFs, each with source URL and the field(s) it supports."
+        item_shape:
+          quote: "string"
+          source_url: "url"
+          supports_fields: "array"
+      - name: "source_urls_checked"
+        type: "array"
+        detail_level: "moderate"
+        description: "Official PoliTo URLs checked for this programme, including pages that did not contain the target field."
+      - name: "source_year"
+        type: "string_or_null"
+        detail_level: "brief"
+        description: "Academic year of the governing source, prioritizing 2026/2027."
+      - name: "uncertainty_notes"
+        type: "array"
+        detail_level: "detailed"
+        description: "Unresolved issues: fully-English status unverified, English-track Year-2 completeness unclear, 2026/2027 call not yet published, name/degree-class approximate, special-call vs standard-call ambiguity, or conflicting official sources."
+
+uncertain:
+  reserved_field: "uncertainty_notes"
+  common_uncertainties_to_check:
+    - "BROAD English rule: a bilingual programme counts ONLY if a complete fully-English track exists across all years — verify on /programme-curriculum, do not trust the catalogue label alone."
+    - "Borderline masters (Civil, Electronic, Building, Materials, Architecture group, Industrial Production): confirm whether any 100% English plan exists; set has_complete_english_track accordingly and keep the JSON even if false."
+    - "Architecture (bachelor) and Architecture masters use a dedicated test; SAT is NOT valid for Architecture."
+    - "Some English programmes have a SEPARATE special call (Physics of Complex Systems International Track; Nanotechnologies MNIS) — flag special_call_flag and record dates."
+    - "Non-EU/visa applicants (Turkish students): UNIVERSITALY pre-enrolment deadline is separate from and earlier than the application deadline — record both."
+    - "Erasmus Mundus / double-degree tracks (DENSYS 2.0, HySET) may have separate calls, deadlines and fees — flag double_degree_or_erasmus_mundus."
+    - "2026/2027 call may not be published for every programme — use latest official year and flag it in source_year + uncertainty_notes."
+    - "Cybersecurity master: confirm exact official title vs page slug 'cybersecurity-engineering'."

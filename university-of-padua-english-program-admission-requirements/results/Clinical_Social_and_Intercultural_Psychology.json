@@ -1,0 +1,142 @@
+{
+  "program_name": "Clinical, Social and Intercultural Psychology",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Padua, Italy",
+  "degree_class": "LM-51 R - Psychology",
+  "admission_type": "restricted access",
+  "academic_requirements": {
+    "summary": "Applicants need a minimum three-year bachelor's degree in Psychology or equivalent, to be obtained by July 31, 2026, and a GPA of at least 85% of the maximum obtainable grade in the country where the qualification was awarded.",
+    "prior_degree_or_diploma": "A minimum three-year undergraduate degree (or equivalent) in Psychology.",
+    "subject_requirements": "The programme requires a Psychology background. The admission committee verifies the candidate's educational background and personal preparation and may conduct an online interview if needed.",
+    "gpa_or_country_requirements": "A GPA of at least 85% of the maximum obtainable grade is required. Applicants must also satisfy the University of Padua country-specific entry-title requirements.",
+    "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_EU%20and%20equated%20students_foreign%20qualification.pdf"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent, to be achieved by July 31, 2026.",
+    "accepted_proofs": [
+      "TOEFL iBT with minimum score 80",
+      "IELTS Academic or General Training with minimum score 6.0",
+      "Cambridge English B2 First with minimum score 173",
+      "Trinity College London ISE II",
+      "Oxford Test of English with minimum score 126",
+      "Pearson PTE Academic with minimum score 65",
+      "Other certificates explicitly accepted on the official University of Padua language requirement page"
+    ],
+    "exemption_rules": [
+      "Applicants are exempt if the previous degree used as the entry qualification was completed entirely in English.",
+      "Applicants are exempt if they are native English speakers from one of the countries listed by the University of Padua.",
+      "Only certificates obtained no more than five years before the start date of the selection process are accepted."
+    ],
+    "deadline": "July 31, 2026.",
+    "source_url": "https://www.unipd.it/en/language-requirement"
+  },
+  "application_deadline_eu": {
+    "call_one": "10 March 2026 - 10 April 2026",
+    "call_two": "",
+    "call_three": "",
+    "notes": "This call is for EU and EU-equated candidates with a foreign qualification; eligible non-EU candidates already residing in Italy also follow this route.",
+    "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_EU%20and%20equated%20students_foreign%20qualification.pdf"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "7 January 2026 - 7 March 2026",
+    "call_two": "",
+    "call_three": "",
+    "notes": "This call is for non-EU candidates residing abroad. The official non-EU call lists 20 available places, including 2 places for the Marco Polo Project.",
+    "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_non-EU%20residing%20abroad.pdf"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid identity document or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "The EU and EU-equated call accepts a valid identity document or passport; the non-EU abroad call explicitly requires a passport.",
+      "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_EU%20and%20equated%20students_foreign%20qualification.pdf"
+    },
+    {
+      "document_name": "Academic transcript of records and bachelor's degree diploma",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Upload the transcript with exams, grades, and grading scale, and the bachelor's diploma if already obtained.",
+      "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_EU%20and%20equated%20students_foreign%20qualification.pdf"
+    },
+    {
+      "document_name": "Official translations into Italian or English",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required if academic documents are issued in a language other than Italian or English.",
+      "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_EU%20and%20equated%20students_foreign%20qualification.pdf"
+    },
+    {
+      "document_name": "English language proficiency certificate",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Upload if already obtained; if missing at application stage it must be achieved and submitted by July 31, 2026.",
+      "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_EU%20and%20equated%20students_foreign%20qualification.pdf"
+    },
+    {
+      "document_name": "Evaluation form",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "A programme-specific evaluation form using the official Annex 1 template is required.",
+      "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_non-EU%20residing%20abroad.pdf"
+    },
+    {
+      "document_name": "Curriculum Vitae",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required as part of the online application.",
+      "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_EU%20and%20equated%20students_foreign%20qualification.pdf"
+    },
+    {
+      "document_name": "Legalisation or Apostille or CIMEA Statement of Verification",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Admitted candidates must submit one of these qualification-verification documents by October 31, 2026. A CIMEA Statement of Comparability may also be requested if needed.",
+      "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_non-EU%20residing%20abroad.pdf"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No fixed written entry exam; ranked evaluation with possible online interview",
+    "mandatory": false,
+    "applies_to": "All applicants.",
+    "dates": "No scheduled written test is stated. The committee may conduct an online interview to assess competencies if needed during the admission evaluation.",
+    "scoring_or_threshold": "Admission requires a Psychology degree background and a GPA of at least 85% of the maximum obtainable grade. Ranking is based on the final GPA or average exam grade at application stage; in case of equal scores, work experiences, internships, and research activities declared in the evaluation form are considered, and then younger age prevails.",
+    "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_non-EU%20residing%20abroad.pdf"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/clinical-social-and-intercultural-psychology",
+  "official_call_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_EU%20and%20equated%20students_foreign%20qualification.pdf",
+  "source_quotes": [
+    {
+      "quote": "Access Scheduled access",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/clinical-social-and-intercultural-psychology",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Application period: 10 March 2026 - 10 April 2026",
+      "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_EU%20and%20equated%20students_foreign%20qualification.pdf",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "Application period: 7 January 2026 - 7 March 2026",
+      "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_non-EU%20residing%20abroad.pdf",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "A GPA of at least 85% of the maximum obtainable grade",
+      "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_EU%20and%20equated%20students_foreign%20qualification.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "English language: B2 level (CEFR)",
+      "source_url": "https://www.unipd.it/sites/unipd.it/files/2025/Clinical%2C%20Social%20and%20Intercultural%20Psychology_EU%20and%20equated%20students_foreign%20qualification.pdf",
+      "field_supported": "language_requirements"
+    }
+  ],
+  "uncertainty_notes": [
+    "The University of Padua states that English translations of admission documents are for information only; in case of disputes, the Italian version has legal validity.",
+    "The official 2026/2027 call PDFs for this programme are stored in a `/2025/` website directory, but the document text clearly states the 2026/2027 application periods and requirements."
+  ],
+  "uncertain": []
+}

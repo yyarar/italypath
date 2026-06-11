@@ -1,0 +1,1392 @@
+{
+  "universityId": 9,
+  "mode": "apply",
+  "sourceFiles": 29,
+  "existingDepartments": 28,
+  "matchedExisting": 26,
+  "matchedExistingDetails": [
+    {
+      "id": 325,
+      "name": "Business Administration and Management",
+      "slug": "business-administration-and-management",
+      "level": "bachelor",
+      "sourceFile": "Business_Administration_and_Management.json",
+      "rawProgramName": "Business Administration and Management",
+      "sourceProgramName": "Business Administration and Management",
+      "canonicalDepartmentName": "Business Administration and Management"
+    },
+    {
+      "id": 1110,
+      "name": "Comparative International Relations",
+      "slug": "comparative-international-relations",
+      "level": "master",
+      "sourceFile": "Comparative_International_Relations_European_Union_Studies_and_Global_Studies.json",
+      "rawProgramName": "Comparative International Relations - European Union Studies and Global Studies",
+      "sourceProgramName": "Comparative International Relations - European Union Studies and Global Studies",
+      "canonicalDepartmentName": "Comparative International Relations - European Union Studies and Global Studies"
+    },
+    {
+      "id": 1111,
+      "name": "Computer Science and Information Technology",
+      "slug": "computer-science-and-information-technology",
+      "level": "master",
+      "sourceFile": "Computer_Science_and_Information_Technology.json",
+      "rawProgramName": "Computer Science and Information Technology",
+      "sourceProgramName": "Computer Science and Information Technology",
+      "canonicalDepartmentName": "Computer Science and Information Technology"
+    },
+    {
+      "id": 1112,
+      "name": "Conservation Science and Technology for Cultural Heritage",
+      "slug": "conservation-science-and-technology-for-cultural-heritage",
+      "level": "master",
+      "sourceFile": "Conservation_Science_and_Technology_for_Cultural_Heritage.json",
+      "rawProgramName": "Conservation Science and Technology for Cultural Heritage",
+      "sourceProgramName": "Conservation Science and Technology for Cultural Heritage",
+      "canonicalDepartmentName": "Conservation Science and Technology for Cultural Heritage"
+    },
+    {
+      "id": 1113,
+      "name": "Data Analytics for Business and Society",
+      "slug": "data-analytics-for-business-and-society",
+      "level": "master",
+      "sourceFile": "Data_Analytics_for_Business_and_Society.json",
+      "rawProgramName": "Data Analytics for Business and Society",
+      "sourceProgramName": "Data Analytics for Business and Society",
+      "canonicalDepartmentName": "Data Analytics for Business and Society"
+    },
+    {
+      "id": 1114,
+      "name": "Digital and Public Humanities",
+      "slug": "digital-and-public-humanities",
+      "level": "master",
+      "sourceFile": "Digital_and_Public_Humanities.json",
+      "rawProgramName": "Digital and Public Humanities",
+      "sourceProgramName": "Digital and Public Humanities",
+      "canonicalDepartmentName": "Digital and Public Humanities"
+    },
+    {
+      "id": 326,
+      "name": "Digital Management",
+      "slug": "digital-management",
+      "level": "bachelor",
+      "sourceFile": "Digital_Management.json",
+      "rawProgramName": "Digital Management",
+      "sourceProgramName": "Digital Management",
+      "canonicalDepartmentName": "Digital Management"
+    },
+    {
+      "id": 327,
+      "name": "Economics and Business",
+      "slug": "economics-and-business",
+      "level": "bachelor",
+      "sourceFile": "Economics_and_Business.json",
+      "rawProgramName": "Economics and Business",
+      "sourceProgramName": "Economics and Business",
+      "canonicalDepartmentName": "Economics and Business"
+    },
+    {
+      "id": 1116,
+      "name": "Economics and Management of Arts and Cultural Activities",
+      "slug": "economics-and-management-of-arts-and-cultural-activities",
+      "level": "master",
+      "sourceFile": "Economics_and_Management_of_Arts_and_Cultural_Activities_Economics_and_Administration_of_Arts_and_Culture.json",
+      "rawProgramName": "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture",
+      "sourceProgramName": "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture",
+      "canonicalDepartmentName": "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture"
+    },
+    {
+      "id": 1115,
+      "name": "Economics, Finance and Sustainability",
+      "slug": "economics-finance-and-sustainability",
+      "level": "master",
+      "sourceFile": "Economics_Finance_and_Sustainability.json",
+      "rawProgramName": "Economics, Finance and Sustainability",
+      "sourceProgramName": "Economics, Finance and Sustainability",
+      "canonicalDepartmentName": "Economics, Finance and Sustainability"
+    },
+    {
+      "id": 1117,
+      "name": "Engineering Physics",
+      "slug": "engineering-physics",
+      "level": "master",
+      "sourceFile": "Engineering_Physics.json",
+      "rawProgramName": "Engineering Physics",
+      "sourceProgramName": "Engineering Physics",
+      "canonicalDepartmentName": "Engineering Physics"
+    },
+    {
+      "id": 1118,
+      "name": "Environmental Engineering for the Green Transition",
+      "slug": "environmental-engineering-for-the-green-transition",
+      "level": "master",
+      "sourceFile": "Environmental_Engineering_for_the_Green_Transition.json",
+      "rawProgramName": "Environmental Engineering for the Green Transition",
+      "sourceProgramName": "Environmental Engineering for the Green Transition",
+      "canonicalDepartmentName": "Environmental Engineering for the Green Transition"
+    },
+    {
+      "id": 1119,
+      "name": "Environmental Humanities",
+      "slug": "environmental-humanities",
+      "level": "master",
+      "sourceFile": "Environmental_Humanities.json",
+      "rawProgramName": "Environmental Humanities",
+      "sourceProgramName": "Environmental Humanities",
+      "canonicalDepartmentName": "Environmental Humanities"
+    },
+    {
+      "id": 1120,
+      "name": "Environmental Sciences",
+      "slug": "environmental-sciences",
+      "level": "master",
+      "sourceFile": "Environmental_Sciences_Global_Change_and_Sustainability.json",
+      "rawProgramName": "Environmental Sciences - Global Change and Sustainability",
+      "sourceProgramName": "Environmental Sciences - Global Change and Sustainability",
+      "canonicalDepartmentName": "Environmental Sciences - Global Change and Sustainability"
+    },
+    {
+      "id": 1121,
+      "name": "European, American and Postcolonial Languages and Literatures",
+      "slug": "european-american-and-postcolonial-languages-and-literatures",
+      "level": "master",
+      "sourceFile": "European_American_and_Postcolonial_Language_and_Literature_American_Studies_English_Studies_Cultural_Studies_and_Literary_Studies.json",
+      "rawProgramName": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+      "sourceProgramName": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+      "canonicalDepartmentName": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies"
+    },
+    {
+      "id": 1122,
+      "name": "Global Accounting and Finance",
+      "slug": "global-accounting-and-finance",
+      "level": "master",
+      "sourceFile": "Global_Accounting_and_Finance.json",
+      "rawProgramName": "Global Accounting and Finance",
+      "sourceProgramName": "Global Accounting and Finance",
+      "canonicalDepartmentName": "Global Accounting and Finance"
+    },
+    {
+      "id": 1123,
+      "name": "Global Development and Entrepreneurship",
+      "slug": "global-development-and-entrepreneurship",
+      "level": "master",
+      "sourceFile": "Global_Development_and_Entrepreneurship.json",
+      "rawProgramName": "Global Development and Entrepreneurship",
+      "sourceProgramName": "Global Development and Entrepreneurship",
+      "canonicalDepartmentName": "Global Development and Entrepreneurship"
+    },
+    {
+      "id": 328,
+      "name": "Hospitality Innovation and E-Tourism",
+      "slug": "hospitality-innovation-and-e-tourism",
+      "level": "bachelor",
+      "sourceFile": "Hospitality_Innovation_and_eTourism.json",
+      "rawProgramName": "Hospitality Innovation and e-Tourism",
+      "sourceProgramName": "Hospitality Innovation and e-Tourism",
+      "canonicalDepartmentName": "Hospitality Innovation and e-Tourism"
+    },
+    {
+      "id": 1124,
+      "name": "Innovation and Management for Culture and Creativity",
+      "slug": "innovation-and-management-for-culture-and-creativity",
+      "level": "master",
+      "sourceFile": "Innovation_and_Management_for_Culture_and_Creativity.json",
+      "rawProgramName": "Innovation and Management for Culture and Creativity",
+      "sourceProgramName": "Innovation and Management for Culture and Creativity",
+      "canonicalDepartmentName": "Innovation and Management for Culture and Creativity"
+    },
+    {
+      "id": 1125,
+      "name": "International Management",
+      "slug": "international-management",
+      "level": "master",
+      "sourceFile": "International_Management.json",
+      "rawProgramName": "International Management",
+      "sourceProgramName": "International Management",
+      "canonicalDepartmentName": "International Management"
+    },
+    {
+      "id": 1127,
+      "name": "Language Sciences",
+      "slug": "language-sciences",
+      "level": "master",
+      "sourceFile": "Language_Sciences_English_Linguistics_and_Language_Sciences.json",
+      "rawProgramName": "Language Sciences - English Linguistics and Language Sciences",
+      "sourceProgramName": "Language Sciences - English Linguistics and Language Sciences",
+      "canonicalDepartmentName": "Language Sciences - English Linguistics and Language Sciences"
+    },
+    {
+      "id": 1126,
+      "name": "Languages of Asia and North Africa for Business and International Cooperation",
+      "slug": "languages-of-asia-and-north-africa-for-business-and-international-cooperation",
+      "level": "master",
+      "sourceFile": "Languages_of_Asia_and_North_Africa_for_Business_and_International_Cooperation_South_East_Asia.json",
+      "rawProgramName": "Languages of Asia and North Africa for Business and International Cooperation - South East Asia",
+      "sourceProgramName": "Languages of Asia and North Africa for Business and International Cooperation - South East Asia",
+      "canonicalDepartmentName": "Languages of Asia and North Africa for Business and International Cooperation - South East Asia"
+    },
+    {
+      "id": 331,
+      "name": "Philosophy, International and Economic Studies",
+      "slug": "philosophy-international-and-economic-studies",
+      "level": "bachelor",
+      "sourceFile": "Philosophy_International_and_Economic_Studies.json",
+      "rawProgramName": "Philosophy, International and Economic Studies",
+      "sourceProgramName": "Philosophy, International and Economic Studies",
+      "canonicalDepartmentName": "Philosophy, International and Economic Studies"
+    },
+    {
+      "id": 1128,
+      "name": "Science and Technology of Bio and Nanomaterials",
+      "slug": "science-and-technology-of-bio-and-nanomaterials",
+      "level": "master",
+      "sourceFile": "Science_and_Technology_of_Bio_and_Nanomaterials.json",
+      "rawProgramName": "Science and Technology of Bio and Nanomaterials",
+      "sourceProgramName": "Science and Technology of Bio and Nanomaterials",
+      "canonicalDepartmentName": "Science and Technology of Bio and Nanomaterials"
+    },
+    {
+      "id": 1129,
+      "name": "Sustainable Chemistry and Technologies",
+      "slug": "sustainable-chemistry-and-technologies",
+      "level": "master",
+      "sourceFile": "Sustainable_Chemistry_and_Technologies_Biomolecular_Chemistry.json",
+      "rawProgramName": "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+      "sourceProgramName": "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+      "canonicalDepartmentName": "Sustainable Chemistry and Technologies - Biomolecular Chemistry"
+    },
+    {
+      "id": 1130,
+      "name": "Tourism Management and Sustainability",
+      "slug": "tourism-management-and-sustainability",
+      "level": "master",
+      "sourceFile": "Tourism_Management_and_Sustainability.json",
+      "rawProgramName": "Tourism Management and Sustainability",
+      "sourceProgramName": "Tourism Management and Sustainability",
+      "canonicalDepartmentName": "Tourism Management and Sustainability"
+    }
+  ],
+  "departmentCorrections": [
+    {
+      "id": 1110,
+      "sourceFile": "Comparative_International_Relations_European_Union_Studies_and_Global_Studies.json",
+      "rawProgramName": "Comparative International Relations - European Union Studies and Global Studies",
+      "sourceProgramName": "Comparative International Relations - European Union Studies and Global Studies",
+      "canonicalDepartmentName": "Comparative International Relations - European Union Studies and Global Studies",
+      "from": {
+        "name": "Comparative International Relations",
+        "slug": "comparative-international-relations",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Comparative International Relations - European Union Studies and Global Studies",
+        "slug": "comparative-international-relations-european-union-studies-and-global-studies",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "name",
+        "slug"
+      ]
+    },
+    {
+      "id": 1116,
+      "sourceFile": "Economics_and_Management_of_Arts_and_Cultural_Activities_Economics_and_Administration_of_Arts_and_Culture.json",
+      "rawProgramName": "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture",
+      "sourceProgramName": "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture",
+      "canonicalDepartmentName": "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture",
+      "from": {
+        "name": "Economics and Management of Arts and Cultural Activities",
+        "slug": "economics-and-management-of-arts-and-cultural-activities",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture",
+        "slug": "economics-and-management-of-arts-and-cultural-activities-economics-and-administration-of-arts-and-culture",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "name",
+        "slug"
+      ]
+    },
+    {
+      "id": 1120,
+      "sourceFile": "Environmental_Sciences_Global_Change_and_Sustainability.json",
+      "rawProgramName": "Environmental Sciences - Global Change and Sustainability",
+      "sourceProgramName": "Environmental Sciences - Global Change and Sustainability",
+      "canonicalDepartmentName": "Environmental Sciences - Global Change and Sustainability",
+      "from": {
+        "name": "Environmental Sciences",
+        "slug": "environmental-sciences",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Environmental Sciences - Global Change and Sustainability",
+        "slug": "environmental-sciences-global-change-and-sustainability",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "name",
+        "slug"
+      ]
+    },
+    {
+      "id": 1121,
+      "sourceFile": "European_American_and_Postcolonial_Language_and_Literature_American_Studies_English_Studies_Cultural_Studies_and_Literary_Studies.json",
+      "rawProgramName": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+      "sourceProgramName": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+      "canonicalDepartmentName": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+      "from": {
+        "name": "European, American and Postcolonial Languages and Literatures",
+        "slug": "european-american-and-postcolonial-languages-and-literatures",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+        "slug": "european-american-and-postcolonial-language-and-literature-american-studies-english-studies-cultural-studies-and-literary-studies",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "name",
+        "slug"
+      ]
+    },
+    {
+      "id": 328,
+      "sourceFile": "Hospitality_Innovation_and_eTourism.json",
+      "rawProgramName": "Hospitality Innovation and e-Tourism",
+      "sourceProgramName": "Hospitality Innovation and e-Tourism",
+      "canonicalDepartmentName": "Hospitality Innovation and e-Tourism",
+      "from": {
+        "name": "Hospitality Innovation and E-Tourism",
+        "slug": "hospitality-innovation-and-e-tourism",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 3,
+        "level": "bachelor"
+      },
+      "to": {
+        "name": "Hospitality Innovation and e-Tourism",
+        "slug": "hospitality-innovation-and-e-tourism",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 3,
+        "level": "bachelor"
+      },
+      "changedFields": [
+        "name"
+      ]
+    },
+    {
+      "id": 1127,
+      "sourceFile": "Language_Sciences_English_Linguistics_and_Language_Sciences.json",
+      "rawProgramName": "Language Sciences - English Linguistics and Language Sciences",
+      "sourceProgramName": "Language Sciences - English Linguistics and Language Sciences",
+      "canonicalDepartmentName": "Language Sciences - English Linguistics and Language Sciences",
+      "from": {
+        "name": "Language Sciences",
+        "slug": "language-sciences",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Language Sciences - English Linguistics and Language Sciences",
+        "slug": "language-sciences-english-linguistics-and-language-sciences",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "name",
+        "slug",
+        "languages"
+      ]
+    },
+    {
+      "id": 1126,
+      "sourceFile": "Languages_of_Asia_and_North_Africa_for_Business_and_International_Cooperation_South_East_Asia.json",
+      "rawProgramName": "Languages of Asia and North Africa for Business and International Cooperation - South East Asia",
+      "sourceProgramName": "Languages of Asia and North Africa for Business and International Cooperation - South East Asia",
+      "canonicalDepartmentName": "Languages of Asia and North Africa for Business and International Cooperation - South East Asia",
+      "from": {
+        "name": "Languages of Asia and North Africa for Business and International Cooperation",
+        "slug": "languages-of-asia-and-north-africa-for-business-and-international-cooperation",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Languages of Asia and North Africa for Business and International Cooperation - South East Asia",
+        "slug": "languages-of-asia-and-north-africa-for-business-and-international-cooperation-south-east-asia",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "name",
+        "slug",
+        "languages"
+      ]
+    },
+    {
+      "id": 1129,
+      "sourceFile": "Sustainable_Chemistry_and_Technologies_Biomolecular_Chemistry.json",
+      "rawProgramName": "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+      "sourceProgramName": "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+      "canonicalDepartmentName": "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+      "from": {
+        "name": "Sustainable Chemistry and Technologies",
+        "slug": "sustainable-chemistry-and-technologies",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+        "slug": "sustainable-chemistry-and-technologies-biomolecular-chemistry",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "name",
+        "slug"
+      ]
+    }
+  ],
+  "newDepartments": [
+    {
+      "id": null,
+      "university_id": 9,
+      "name": "Ancient Civilizations for the Contemporary World (inter-university)",
+      "slug": "ancient-civilizations-for-the-contemporary-world",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 3,
+      "level": "bachelor",
+      "sort_order": 22,
+      "rawProgramName": "Ancient Civilizations for the Contemporary World (inter-university)",
+      "sourceProgramName": "Ancient Civilizations for the Contemporary World (inter-university)",
+      "canonicalDepartmentName": "Ancient Civilizations for the Contemporary World (inter-university)",
+      "sourceFile": "Ancient_Civilizations_for_the_Contemporary_World_interuniversity.json"
+    },
+    {
+      "id": null,
+      "university_id": 9,
+      "name": "Computer Science - Data Science",
+      "slug": "computer-science-data-science",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 3,
+      "level": "bachelor",
+      "sort_order": 23,
+      "rawProgramName": "Computer Science - Data Science",
+      "sourceProgramName": "Computer Science - Data Science",
+      "canonicalDepartmentName": "Computer Science - Data Science",
+      "sourceFile": "Computer_Science_Data_Science.json"
+    },
+    {
+      "id": null,
+      "university_id": 9,
+      "name": "Italian and Mediterranean Studies",
+      "slug": "italian-and-mediterranean-studies",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 3,
+      "level": "bachelor",
+      "sort_order": 24,
+      "rawProgramName": "Italian and Mediterranean Studies",
+      "sourceProgramName": "Italian and Mediterranean Studies",
+      "canonicalDepartmentName": "Italian and Mediterranean Studies",
+      "sourceFile": "Italian_and_Mediterranean_Studies.json"
+    }
+  ],
+  "sourceWithoutExisting": [
+    {
+      "sourceFile": "Ancient_Civilizations_for_the_Contemporary_World_interuniversity.json",
+      "sourceProgramName": "Ancient Civilizations for the Contemporary World (inter-university)",
+      "canonicalDepartmentName": "Ancient Civilizations for the Contemporary World (inter-university)",
+      "level": "bachelor",
+      "plannedSlug": "ancient-civilizations-for-the-contemporary-world"
+    },
+    {
+      "sourceFile": "Computer_Science_Data_Science.json",
+      "sourceProgramName": "Computer Science - Data Science",
+      "canonicalDepartmentName": "Computer Science - Data Science",
+      "level": "bachelor",
+      "plannedSlug": "computer-science-data-science"
+    },
+    {
+      "sourceFile": "Italian_and_Mediterranean_Studies.json",
+      "sourceProgramName": "Italian and Mediterranean Studies",
+      "canonicalDepartmentName": "Italian and Mediterranean Studies",
+      "level": "bachelor",
+      "plannedSlug": "italian-and-mediterranean-studies"
+    }
+  ],
+  "duplicateNameDifferentLevel": [],
+  "existingWithoutSource": [
+    {
+      "id": 329,
+      "name": "Computer Science",
+      "slug": "computer-science",
+      "level": "bachelor"
+    },
+    {
+      "id": 330,
+      "name": "Languages, Cultures and Societies of Asia and Mediterranean Africa",
+      "slug": "languages-cultures-and-societies-of-asia-and-mediterranean-africa",
+      "level": "bachelor"
+    }
+  ],
+  "programPlans": [
+    {
+      "sourceFile": "Ancient_Civilizations_for_the_Contemporary_World_interuniversity.json",
+      "rawProgramName": "Ancient Civilizations for the Contemporary World (inter-university)",
+      "sourceProgramName": "Ancient Civilizations for the Contemporary World (inter-university)",
+      "canonicalDepartmentName": "Ancient Civilizations for the Contemporary World (inter-university)",
+      "canonicalNameChanged": false,
+      "normalizedName": "ancient civilizations for the contemporary world inter university",
+      "normalizedSourceName": "ancient civilizations for the contemporary world inter university",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Ancient Civilizations for the Contemporary World (inter-university)",
+      "departmentSlug": "ancient-civilizations-for-the-contemporary-world",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor"
+    },
+    {
+      "sourceFile": "Business_Administration_and_Management.json",
+      "rawProgramName": "Business Administration and Management",
+      "sourceProgramName": "Business Administration and Management",
+      "canonicalDepartmentName": "Business Administration and Management",
+      "canonicalNameChanged": false,
+      "normalizedName": "business administration and management",
+      "normalizedSourceName": "business administration and management",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 325,
+      "departmentName": "Business Administration and Management",
+      "departmentSlug": "business-administration-and-management",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor"
+    },
+    {
+      "sourceFile": "Comparative_International_Relations_European_Union_Studies_and_Global_Studies.json",
+      "rawProgramName": "Comparative International Relations - European Union Studies and Global Studies",
+      "sourceProgramName": "Comparative International Relations - European Union Studies and Global Studies",
+      "canonicalDepartmentName": "Comparative International Relations - European Union Studies and Global Studies",
+      "canonicalNameChanged": false,
+      "normalizedName": "comparative international relations european union studies and global studies",
+      "normalizedSourceName": "comparative international relations european union studies and global studies",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English for the European Union Studies and Global Studies curricula [uncertain]",
+      "action": "alias-correction",
+      "departmentId": 1110,
+      "departmentName": "Comparative International Relations",
+      "departmentSlug": "comparative-international-relations",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Computer_Science_and_Information_Technology.json",
+      "rawProgramName": "Computer Science and Information Technology",
+      "sourceProgramName": "Computer Science and Information Technology",
+      "canonicalDepartmentName": "Computer Science and Information Technology",
+      "canonicalNameChanged": false,
+      "normalizedName": "computer science and information technology",
+      "normalizedSourceName": "computer science and information technology",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1111,
+      "departmentName": "Computer Science and Information Technology",
+      "departmentSlug": "computer-science-and-information-technology",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Computer_Science_Data_Science.json",
+      "rawProgramName": "Computer Science - Data Science",
+      "sourceProgramName": "Computer Science - Data Science",
+      "canonicalDepartmentName": "Computer Science - Data Science",
+      "canonicalNameChanged": false,
+      "normalizedName": "computer science data science",
+      "normalizedSourceName": "computer science data science",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Computer Science - Data Science",
+      "departmentSlug": "computer-science-data-science",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor"
+    },
+    {
+      "sourceFile": "Conservation_Science_and_Technology_for_Cultural_Heritage.json",
+      "rawProgramName": "Conservation Science and Technology for Cultural Heritage",
+      "sourceProgramName": "Conservation Science and Technology for Cultural Heritage",
+      "canonicalDepartmentName": "Conservation Science and Technology for Cultural Heritage",
+      "canonicalNameChanged": false,
+      "normalizedName": "conservation science and technology for cultural heritage",
+      "normalizedSourceName": "conservation science and technology for cultural heritage",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1112,
+      "departmentName": "Conservation Science and Technology for Cultural Heritage",
+      "departmentSlug": "conservation-science-and-technology-for-cultural-heritage",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Data_Analytics_for_Business_and_Society.json",
+      "rawProgramName": "Data Analytics for Business and Society",
+      "sourceProgramName": "Data Analytics for Business and Society",
+      "canonicalDepartmentName": "Data Analytics for Business and Society",
+      "canonicalNameChanged": false,
+      "normalizedName": "data analytics for business and society",
+      "normalizedSourceName": "data analytics for business and society",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1113,
+      "departmentName": "Data Analytics for Business and Society",
+      "departmentSlug": "data-analytics-for-business-and-society",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Digital_and_Public_Humanities.json",
+      "rawProgramName": "Digital and Public Humanities",
+      "sourceProgramName": "Digital and Public Humanities",
+      "canonicalDepartmentName": "Digital and Public Humanities",
+      "canonicalNameChanged": false,
+      "normalizedName": "digital and public humanities",
+      "normalizedSourceName": "digital and public humanities",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1114,
+      "departmentName": "Digital and Public Humanities",
+      "departmentSlug": "digital-and-public-humanities",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Digital_Management.json",
+      "rawProgramName": "Digital Management",
+      "sourceProgramName": "Digital Management",
+      "canonicalDepartmentName": "Digital Management",
+      "canonicalNameChanged": false,
+      "normalizedName": "digital management",
+      "normalizedSourceName": "digital management",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 326,
+      "departmentName": "Digital Management",
+      "departmentSlug": "digital-management",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor"
+    },
+    {
+      "sourceFile": "Economics_and_Business.json",
+      "rawProgramName": "Economics and Business",
+      "sourceProgramName": "Economics and Business",
+      "canonicalDepartmentName": "Economics and Business",
+      "canonicalNameChanged": false,
+      "normalizedName": "economics and business",
+      "normalizedSourceName": "economics and business",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 327,
+      "departmentName": "Economics and Business",
+      "departmentSlug": "economics-and-business",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor"
+    },
+    {
+      "sourceFile": "Economics_and_Management_of_Arts_and_Cultural_Activities_Economics_and_Administration_of_Arts_and_Culture.json",
+      "rawProgramName": "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture",
+      "sourceProgramName": "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture",
+      "canonicalDepartmentName": "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture",
+      "canonicalNameChanged": false,
+      "normalizedName": "economics and management of arts and cultural activities economics and administration of arts and culture",
+      "normalizedSourceName": "economics and management of arts and cultural activities economics and administration of arts and culture",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "alias-correction",
+      "departmentId": 1116,
+      "departmentName": "Economics and Management of Arts and Cultural Activities",
+      "departmentSlug": "economics-and-management-of-arts-and-cultural-activities",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Economics_Finance_and_Sustainability.json",
+      "rawProgramName": "Economics, Finance and Sustainability",
+      "sourceProgramName": "Economics, Finance and Sustainability",
+      "canonicalDepartmentName": "Economics, Finance and Sustainability",
+      "canonicalNameChanged": false,
+      "normalizedName": "economics finance and sustainability",
+      "normalizedSourceName": "economics finance and sustainability",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1115,
+      "departmentName": "Economics, Finance and Sustainability",
+      "departmentSlug": "economics-finance-and-sustainability",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Engineering_Physics.json",
+      "rawProgramName": "Engineering Physics",
+      "sourceProgramName": "Engineering Physics",
+      "canonicalDepartmentName": "Engineering Physics",
+      "canonicalNameChanged": false,
+      "normalizedName": "engineering physics",
+      "normalizedSourceName": "engineering physics",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1117,
+      "departmentName": "Engineering Physics",
+      "departmentSlug": "engineering-physics",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Environmental_Engineering_for_the_Green_Transition.json",
+      "rawProgramName": "Environmental Engineering for the Green Transition",
+      "sourceProgramName": "Environmental Engineering for the Green Transition",
+      "canonicalDepartmentName": "Environmental Engineering for the Green Transition",
+      "canonicalNameChanged": false,
+      "normalizedName": "environmental engineering for the green transition",
+      "normalizedSourceName": "environmental engineering for the green transition",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1118,
+      "departmentName": "Environmental Engineering for the Green Transition",
+      "departmentSlug": "environmental-engineering-for-the-green-transition",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Environmental_Humanities.json",
+      "rawProgramName": "Environmental Humanities",
+      "sourceProgramName": "Environmental Humanities",
+      "canonicalDepartmentName": "Environmental Humanities",
+      "canonicalNameChanged": false,
+      "normalizedName": "environmental humanities",
+      "normalizedSourceName": "environmental humanities",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1119,
+      "departmentName": "Environmental Humanities",
+      "departmentSlug": "environmental-humanities",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Environmental_Sciences_Global_Change_and_Sustainability.json",
+      "rawProgramName": "Environmental Sciences - Global Change and Sustainability",
+      "sourceProgramName": "Environmental Sciences - Global Change and Sustainability",
+      "canonicalDepartmentName": "Environmental Sciences - Global Change and Sustainability",
+      "canonicalNameChanged": false,
+      "normalizedName": "environmental sciences global change and sustainability",
+      "normalizedSourceName": "environmental sciences global change and sustainability",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English (Global Change and Sustainability curriculum)",
+      "action": "alias-correction",
+      "departmentId": 1120,
+      "departmentName": "Environmental Sciences",
+      "departmentSlug": "environmental-sciences",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "European_American_and_Postcolonial_Language_and_Literature_American_Studies_English_Studies_Cultural_Studies_and_Literary_Studies.json",
+      "rawProgramName": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+      "sourceProgramName": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+      "canonicalDepartmentName": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+      "canonicalNameChanged": false,
+      "normalizedName": "european american and postcolonial language and literature american studies english studies cultural studies and literary studies",
+      "normalizedSourceName": "european american and postcolonial language and literature american studies english studies cultural studies and literary studies",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English track within a multilanguage degree [uncertain]",
+      "action": "alias-correction",
+      "departmentId": 1121,
+      "departmentName": "European, American and Postcolonial Languages and Literatures",
+      "departmentSlug": "european-american-and-postcolonial-languages-and-literatures",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Global_Accounting_and_Finance.json",
+      "rawProgramName": "Global Accounting and Finance",
+      "sourceProgramName": "Global Accounting and Finance",
+      "canonicalDepartmentName": "Global Accounting and Finance",
+      "canonicalNameChanged": false,
+      "normalizedName": "global accounting and finance",
+      "normalizedSourceName": "global accounting and finance",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1122,
+      "departmentName": "Global Accounting and Finance",
+      "departmentSlug": "global-accounting-and-finance",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Global_Development_and_Entrepreneurship.json",
+      "rawProgramName": "Global Development and Entrepreneurship",
+      "sourceProgramName": "Global Development and Entrepreneurship",
+      "canonicalDepartmentName": "Global Development and Entrepreneurship",
+      "canonicalNameChanged": false,
+      "normalizedName": "global development and entrepreneurship",
+      "normalizedSourceName": "global development and entrepreneurship",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1123,
+      "departmentName": "Global Development and Entrepreneurship",
+      "departmentSlug": "global-development-and-entrepreneurship",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Hospitality_Innovation_and_eTourism.json",
+      "rawProgramName": "Hospitality Innovation and e-Tourism",
+      "sourceProgramName": "Hospitality Innovation and e-Tourism",
+      "canonicalDepartmentName": "Hospitality Innovation and e-Tourism",
+      "canonicalNameChanged": false,
+      "normalizedName": "hospitality innovation and e tourism",
+      "normalizedSourceName": "hospitality innovation and e tourism",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 328,
+      "departmentName": "Hospitality Innovation and E-Tourism",
+      "departmentSlug": "hospitality-innovation-and-e-tourism",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor"
+    },
+    {
+      "sourceFile": "Innovation_and_Management_for_Culture_and_Creativity.json",
+      "rawProgramName": "Innovation and Management for Culture and Creativity",
+      "sourceProgramName": "Innovation and Management for Culture and Creativity",
+      "canonicalDepartmentName": "Innovation and Management for Culture and Creativity",
+      "canonicalNameChanged": false,
+      "normalizedName": "innovation and management for culture and creativity",
+      "normalizedSourceName": "innovation and management for culture and creativity",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1124,
+      "departmentName": "Innovation and Management for Culture and Creativity",
+      "departmentSlug": "innovation-and-management-for-culture-and-creativity",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "International_Management.json",
+      "rawProgramName": "International Management",
+      "sourceProgramName": "International Management",
+      "canonicalDepartmentName": "International Management",
+      "canonicalNameChanged": false,
+      "normalizedName": "international management",
+      "normalizedSourceName": "international management",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1125,
+      "departmentName": "International Management",
+      "departmentSlug": "international-management",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Italian_and_Mediterranean_Studies.json",
+      "rawProgramName": "Italian and Mediterranean Studies",
+      "sourceProgramName": "Italian and Mediterranean Studies",
+      "canonicalDepartmentName": "Italian and Mediterranean Studies",
+      "canonicalNameChanged": false,
+      "normalizedName": "italian and mediterranean studies",
+      "normalizedSourceName": "italian and mediterranean studies",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Italian and Mediterranean Studies",
+      "departmentSlug": "italian-and-mediterranean-studies",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor"
+    },
+    {
+      "sourceFile": "Language_Sciences_English_Linguistics_and_Language_Sciences.json",
+      "rawProgramName": "Language Sciences - English Linguistics and Language Sciences",
+      "sourceProgramName": "Language Sciences - English Linguistics and Language Sciences",
+      "canonicalDepartmentName": "Language Sciences - English Linguistics and Language Sciences",
+      "canonicalNameChanged": false,
+      "normalizedName": "language sciences english linguistics and language sciences",
+      "normalizedSourceName": "language sciences english linguistics and language sciences",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English track within an Italian/English degree [uncertain]",
+      "action": "alias-correction",
+      "departmentId": 1127,
+      "departmentName": "Language Sciences",
+      "departmentSlug": "language-sciences",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Languages_of_Asia_and_North_Africa_for_Business_and_International_Cooperation_South_East_Asia.json",
+      "rawProgramName": "Languages of Asia and North Africa for Business and International Cooperation - South East Asia",
+      "sourceProgramName": "Languages of Asia and North Africa for Business and International Cooperation - South East Asia",
+      "canonicalDepartmentName": "Languages of Asia and North Africa for Business and International Cooperation - South East Asia",
+      "canonicalNameChanged": false,
+      "normalizedName": "languages of asia and north africa for business and international cooperation south east asia",
+      "normalizedSourceName": "languages of asia and north africa for business and international cooperation south east asia",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English track within a broader Italian/English degree [uncertain]",
+      "action": "alias-correction",
+      "departmentId": 1126,
+      "departmentName": "Languages of Asia and North Africa for Business and International Cooperation",
+      "departmentSlug": "languages-of-asia-and-north-africa-for-business-and-international-cooperation",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Philosophy_International_and_Economic_Studies.json",
+      "rawProgramName": "Philosophy, International and Economic Studies",
+      "sourceProgramName": "Philosophy, International and Economic Studies",
+      "canonicalDepartmentName": "Philosophy, International and Economic Studies",
+      "canonicalNameChanged": false,
+      "normalizedName": "philosophy international and economic studies",
+      "normalizedSourceName": "philosophy international and economic studies",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 331,
+      "departmentName": "Philosophy, International and Economic Studies",
+      "departmentSlug": "philosophy-international-and-economic-studies",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor"
+    },
+    {
+      "sourceFile": "Science_and_Technology_of_Bio_and_Nanomaterials.json",
+      "rawProgramName": "Science and Technology of Bio and Nanomaterials",
+      "sourceProgramName": "Science and Technology of Bio and Nanomaterials",
+      "canonicalDepartmentName": "Science and Technology of Bio and Nanomaterials",
+      "canonicalNameChanged": false,
+      "normalizedName": "science and technology of bio and nanomaterials",
+      "normalizedSourceName": "science and technology of bio and nanomaterials",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1128,
+      "departmentName": "Science and Technology of Bio and Nanomaterials",
+      "departmentSlug": "science-and-technology-of-bio-and-nanomaterials",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Sustainable_Chemistry_and_Technologies_Biomolecular_Chemistry.json",
+      "rawProgramName": "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+      "sourceProgramName": "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+      "canonicalDepartmentName": "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+      "canonicalNameChanged": false,
+      "normalizedName": "sustainable chemistry and technologies biomolecular chemistry",
+      "normalizedSourceName": "sustainable chemistry and technologies biomolecular chemistry",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English (Biomolecular Chemistry curriculum)",
+      "action": "alias-correction",
+      "departmentId": 1129,
+      "departmentName": "Sustainable Chemistry and Technologies",
+      "departmentSlug": "sustainable-chemistry-and-technologies",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "Tourism_Management_and_Sustainability.json",
+      "rawProgramName": "Tourism Management and Sustainability",
+      "sourceProgramName": "Tourism Management and Sustainability",
+      "canonicalDepartmentName": "Tourism Management and Sustainability",
+      "canonicalNameChanged": false,
+      "normalizedName": "tourism management and sustainability",
+      "normalizedSourceName": "tourism management and sustainability",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "action": "matched-existing",
+      "departmentId": 1130,
+      "departmentName": "Tourism Management and Sustainability",
+      "departmentSlug": "tourism-management-and-sustainability",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    }
+  ],
+  "specialChecks": {
+    "computerScienceDataScience": [
+      {
+        "sourceFile": "Computer_Science_Data_Science.json",
+        "rawProgramName": "Computer Science - Data Science",
+        "sourceProgramName": "Computer Science - Data Science",
+        "canonicalDepartmentName": "Computer Science - Data Science",
+        "canonicalNameChanged": false,
+        "normalizedName": "computer science data science",
+        "normalizedSourceName": "computer science data science",
+        "level": "bachelor",
+        "rawLevel": "bachelor",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Computer Science - Data Science",
+        "departmentSlug": "computer-science-data-science",
+        "levelBefore": "bachelor",
+        "levelAfter": "bachelor"
+      }
+    ],
+    "ancientCivilizations": [
+      {
+        "sourceFile": "Ancient_Civilizations_for_the_Contemporary_World_interuniversity.json",
+        "rawProgramName": "Ancient Civilizations for the Contemporary World (inter-university)",
+        "sourceProgramName": "Ancient Civilizations for the Contemporary World (inter-university)",
+        "canonicalDepartmentName": "Ancient Civilizations for the Contemporary World (inter-university)",
+        "canonicalNameChanged": false,
+        "normalizedName": "ancient civilizations for the contemporary world inter university",
+        "normalizedSourceName": "ancient civilizations for the contemporary world inter university",
+        "level": "bachelor",
+        "rawLevel": "bachelor",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Ancient Civilizations for the Contemporary World (inter-university)",
+        "departmentSlug": "ancient-civilizations-for-the-contemporary-world",
+        "levelBefore": "bachelor",
+        "levelAfter": "bachelor"
+      }
+    ],
+    "aliasCorrections": [
+      {
+        "sourceFile": "Comparative_International_Relations_European_Union_Studies_and_Global_Studies.json",
+        "rawProgramName": "Comparative International Relations - European Union Studies and Global Studies",
+        "sourceProgramName": "Comparative International Relations - European Union Studies and Global Studies",
+        "canonicalDepartmentName": "Comparative International Relations - European Union Studies and Global Studies",
+        "canonicalNameChanged": false,
+        "normalizedName": "comparative international relations european union studies and global studies",
+        "normalizedSourceName": "comparative international relations european union studies and global studies",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English for the European Union Studies and Global Studies curricula [uncertain]",
+        "action": "alias-correction",
+        "departmentId": 1110,
+        "departmentName": "Comparative International Relations",
+        "departmentSlug": "comparative-international-relations",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "Economics_and_Management_of_Arts_and_Cultural_Activities_Economics_and_Administration_of_Arts_and_Culture.json",
+        "rawProgramName": "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture",
+        "sourceProgramName": "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture",
+        "canonicalDepartmentName": "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture",
+        "canonicalNameChanged": false,
+        "normalizedName": "economics and management of arts and cultural activities economics and administration of arts and culture",
+        "normalizedSourceName": "economics and management of arts and cultural activities economics and administration of arts and culture",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "action": "alias-correction",
+        "departmentId": 1116,
+        "departmentName": "Economics and Management of Arts and Cultural Activities",
+        "departmentSlug": "economics-and-management-of-arts-and-cultural-activities",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "Environmental_Sciences_Global_Change_and_Sustainability.json",
+        "rawProgramName": "Environmental Sciences - Global Change and Sustainability",
+        "sourceProgramName": "Environmental Sciences - Global Change and Sustainability",
+        "canonicalDepartmentName": "Environmental Sciences - Global Change and Sustainability",
+        "canonicalNameChanged": false,
+        "normalizedName": "environmental sciences global change and sustainability",
+        "normalizedSourceName": "environmental sciences global change and sustainability",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English (Global Change and Sustainability curriculum)",
+        "action": "alias-correction",
+        "departmentId": 1120,
+        "departmentName": "Environmental Sciences",
+        "departmentSlug": "environmental-sciences",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "European_American_and_Postcolonial_Language_and_Literature_American_Studies_English_Studies_Cultural_Studies_and_Literary_Studies.json",
+        "rawProgramName": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+        "sourceProgramName": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+        "canonicalDepartmentName": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+        "canonicalNameChanged": false,
+        "normalizedName": "european american and postcolonial language and literature american studies english studies cultural studies and literary studies",
+        "normalizedSourceName": "european american and postcolonial language and literature american studies english studies cultural studies and literary studies",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English track within a multilanguage degree [uncertain]",
+        "action": "alias-correction",
+        "departmentId": 1121,
+        "departmentName": "European, American and Postcolonial Languages and Literatures",
+        "departmentSlug": "european-american-and-postcolonial-languages-and-literatures",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "Language_Sciences_English_Linguistics_and_Language_Sciences.json",
+        "rawProgramName": "Language Sciences - English Linguistics and Language Sciences",
+        "sourceProgramName": "Language Sciences - English Linguistics and Language Sciences",
+        "canonicalDepartmentName": "Language Sciences - English Linguistics and Language Sciences",
+        "canonicalNameChanged": false,
+        "normalizedName": "language sciences english linguistics and language sciences",
+        "normalizedSourceName": "language sciences english linguistics and language sciences",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English track within an Italian/English degree [uncertain]",
+        "action": "alias-correction",
+        "departmentId": 1127,
+        "departmentName": "Language Sciences",
+        "departmentSlug": "language-sciences",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "Languages_of_Asia_and_North_Africa_for_Business_and_International_Cooperation_South_East_Asia.json",
+        "rawProgramName": "Languages of Asia and North Africa for Business and International Cooperation - South East Asia",
+        "sourceProgramName": "Languages of Asia and North Africa for Business and International Cooperation - South East Asia",
+        "canonicalDepartmentName": "Languages of Asia and North Africa for Business and International Cooperation - South East Asia",
+        "canonicalNameChanged": false,
+        "normalizedName": "languages of asia and north africa for business and international cooperation south east asia",
+        "normalizedSourceName": "languages of asia and north africa for business and international cooperation south east asia",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English track within a broader Italian/English degree [uncertain]",
+        "action": "alias-correction",
+        "departmentId": 1126,
+        "departmentName": "Languages of Asia and North Africa for Business and International Cooperation",
+        "departmentSlug": "languages-of-asia-and-north-africa-for-business-and-international-cooperation",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "Sustainable_Chemistry_and_Technologies_Biomolecular_Chemistry.json",
+        "rawProgramName": "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+        "sourceProgramName": "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+        "canonicalDepartmentName": "Sustainable Chemistry and Technologies - Biomolecular Chemistry",
+        "canonicalNameChanged": false,
+        "normalizedName": "sustainable chemistry and technologies biomolecular chemistry",
+        "normalizedSourceName": "sustainable chemistry and technologies biomolecular chemistry",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English (Biomolecular Chemistry curriculum)",
+        "action": "alias-correction",
+        "departmentId": 1129,
+        "departmentName": "Sustainable Chemistry and Technologies",
+        "departmentSlug": "sustainable-chemistry-and-technologies",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      }
+    ],
+    "newDepartments": [
+      {
+        "sourceFile": "Ancient_Civilizations_for_the_Contemporary_World_interuniversity.json",
+        "rawProgramName": "Ancient Civilizations for the Contemporary World (inter-university)",
+        "sourceProgramName": "Ancient Civilizations for the Contemporary World (inter-university)",
+        "canonicalDepartmentName": "Ancient Civilizations for the Contemporary World (inter-university)",
+        "canonicalNameChanged": false,
+        "normalizedName": "ancient civilizations for the contemporary world inter university",
+        "normalizedSourceName": "ancient civilizations for the contemporary world inter university",
+        "level": "bachelor",
+        "rawLevel": "bachelor",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Ancient Civilizations for the Contemporary World (inter-university)",
+        "departmentSlug": "ancient-civilizations-for-the-contemporary-world",
+        "levelBefore": "bachelor",
+        "levelAfter": "bachelor"
+      },
+      {
+        "sourceFile": "Computer_Science_Data_Science.json",
+        "rawProgramName": "Computer Science - Data Science",
+        "sourceProgramName": "Computer Science - Data Science",
+        "canonicalDepartmentName": "Computer Science - Data Science",
+        "canonicalNameChanged": false,
+        "normalizedName": "computer science data science",
+        "normalizedSourceName": "computer science data science",
+        "level": "bachelor",
+        "rawLevel": "bachelor",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Computer Science - Data Science",
+        "departmentSlug": "computer-science-data-science",
+        "levelBefore": "bachelor",
+        "levelAfter": "bachelor"
+      },
+      {
+        "sourceFile": "Italian_and_Mediterranean_Studies.json",
+        "rawProgramName": "Italian and Mediterranean Studies",
+        "sourceProgramName": "Italian and Mediterranean Studies",
+        "canonicalDepartmentName": "Italian and Mediterranean Studies",
+        "canonicalNameChanged": false,
+        "normalizedName": "italian and mediterranean studies",
+        "normalizedSourceName": "italian and mediterranean studies",
+        "level": "bachelor",
+        "rawLevel": "bachelor",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Italian and Mediterranean Studies",
+        "departmentSlug": "italian-and-mediterranean-studies",
+        "levelBefore": "bachelor",
+        "levelAfter": "bachelor"
+      }
+    ],
+    "rawLevelNormalized": []
+  },
+  "warnings": [],
+  "applied": {
+    "detailUpserts": 29,
+    "newDepartmentsInserted": 3,
+    "departmentCorrectionsUpdated": 8
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "program_name": "Molecular Biology of the Cell",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-6 R - Biologia",
+  "admission_type": "open with entry requirements examination",
+  "academic_requirements": "Admission is subject to curricular requirements and adequate background knowledge in disciplines related to the programme. Applicants are eligible if they hold, or will obtain by 31 December 2026, a suitable bachelor's degree. Automatic curricular recognition applies to graduates in Biological Sciences class L-13 from Italian universities following CBUI rules. The CBUI reference distribution is 66-96 ECTS in basic biological disciplines, including 18-27 ECTS in BIO/01, BIO/02, BIO/04, BIO/05, BIO/06, BIO/07; 18-24 ECTS in BIO/09 or BIO/10; 30-45 ECTS in BIO/11, BIO/18, BIO/19; plus 12-15 ECTS in CHIM/01, CHIM/02, CHIM/03, CHIM/06 and 15-18 ECTS in MAT/01-09, FIS/01-08, INF/01. Other applicants, including graduates from non-CBUI L-13 paths, DM 509/99 L-12, other degree classes, suitable foreign degrees, and L-2 Biotechnology graduates, may be admitted if they meet the stated curricular prerequisites. For these broader profiles, the programme states an adequate distribution of credits usually no less than 90 CFU across the listed non-biological and biological SSD areas; L-2 Biotechnology graduates must have at least 57 CFU in the indicated biological SSDs. Students missing credits are told to contact the programme coordinator early and may make up missing ECTS before the application deadline by passing relevant exams at the University of Milan or another university. Only candidates who possess the prerequisites are invited to the interview.",
+  "language_requirements": "The programme is taught in English. For admission, all students must have English at least at CEFR B2 ('Upper-intermediate') or an equivalent certification. The admission committee verifies scientific English during the interview, so English is checked both through documentation/certification and during assessment. The manifesto also states that, for international students, Italian at A2 level is strongly recommended for job and professional opportunities in the Italian context, but this Italian A2 requirement is presented as an additional language-skill component after enrolment rather than as an admission condition.",
+  "application_deadline_eu": "EU candidates and equivalents: online admission application from 22 January 2026 to 25 August 2026. Admitted students enrol from 5 May 2026 to 15 January 2027.",
+  "application_deadline_non_eu": "Non-EU candidates applying for a visa: online admission application from 22 January 2026 to 30 April 2026. The admission notice also requires Universitaly pre-enrolment by 31 July 2026. Admitted students enrol from 5 May 2026 to 15 January 2027.",
+  "required_documents": [
+    "For applicants with an Italian qualification: self-certification of degree or enrolment with exam records; for graduates/graduands from other Italian universities this must include exams taken, grades, ECTS credits, and disciplinary scientific sectors.",
+    "For applicants with a foreign qualification at admission stage: bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate.",
+    "For applicants with a foreign qualification at admission stage: Diploma Supplement or, alternatively, transcript of records including courses, marks, ECTS, academic field, and the grading system used by the university.",
+    "For applicants with a foreign qualification at admission stage: passport or other valid ID.",
+    "For the admission interview stated in the manifesto: official proof of identity, specifically an identity card or passport.",
+    "For finalising enrolment with a foreign qualification: legalized or apostilled bachelor's degree (or equivalent), unless exempt by law.",
+    "For finalising enrolment with a foreign qualification: high school diploma.",
+    "For finalising enrolment with a foreign qualification: official Italian translation of the academic qualifications, unless the original documents are in English, Italian, French, German, or Spanish.",
+    "For finalising enrolment with a foreign qualification: Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore in loco (DOV); for Lisbon Convention countries, the Diploma Supplement or ARDI Correspondence Statement may replace these where stated.",
+    "For finalising enrolment with a foreign qualification: Italian tax code (codice fiscale).",
+    "For non-EU students: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "The programme uses an entry requirements examination based on curricular screening and an admission interview. The Admission Board first verifies curricular requirements and background knowledge. The admission exam is a formal interview, which may be arranged online, covering Molecular Biology, Genetics, Microbiology, Biochemistry, and Physiology; a syllabus is made available beforehand for self-assessment. Knowledge is verified through both evaluation of the bachelor's study programme and the interview. The committee scores candidates out of 100 points: 25 points for graduation grade or exam average, 10 points for curriculum studiorum, and 65 points for interview performance. The minimum requirement for admission is 60/100 plus adequate English proficiency at B2 level. For A.Y. 2026/2027, EU applicants who submit by 25 August 2026 are scheduled for a face-to-face interview on 7 September 2026 at 14:30. Non-EU visa applicants with a foreign bachelor's degree are invited to online interview dates on 27 February, 20 March, 8 April, 22 April, 6 May, and 27 May 2026.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/molecular-biology-cell",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-molecular-biology-of-the-cell-%28classe-lm-6-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Master programme ... LM-6 R - Biologia ... Access Open with entry requirements examination ... Course location Milan ... Language English",
+      "url": "https://www.unimi.it/en/education/master-programme/molecular-biology-cell",
+      "field_refs": [
+        "program_name",
+        "level",
+        "academic_year",
+        "degree_class",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Application for admission: from 22/01/2026 to 25/08/2026 ... Non-EU students visa applicants are required to apply for admission no later than 30 April 2026",
+      "url": "https://mbc.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Admission is open to ... Graduates in Biological Sciences (Class L-13) ... curricular prerequisites ... usually no less than 90 CFU",
+      "url": "https://mbc.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "For all students, knowledge of the English language must be at least B2 level ... The proficiency in scientific English will be verified by the committee during the interview",
+      "url": "https://mbc.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The online admission service requires the following documents ... Self-certification of degree/enrolment with exam records",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-molecular-biology-of-the-cell-%28classe-lm-6-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor's Degree ... Diploma supplement or, alternatively, a transcript ... Passport (or other valid ID)",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-molecular-biology-of-the-cell-%28classe-lm-6-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Statement of Comparability ... or a Dichiarazione di Valore ... Italian tax code ... residence permit application or a valid residence permit",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-molecular-biology-of-the-cell-%28classe-lm-6-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-molecular-biology-of-the-cell-%28classe-lm-6-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The admission exam will consist of a formal interview ... The minimum requirement for admission is 60/100",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBIof2_2027.pdf",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "For the academic Year 2026-2027 ... EU citizens ... September 7th, 2026 at 14.30 ... Non-EU citizens applying for a visa ... by 30 April 2026",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBIof2_2027.pdf",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "The admission notice explicitly says that any additional language requirements for non-EU visa applicants will be published on a dedicated webpage under ministerial provisions for 2026/2027. No separate official page with extra programme-specific language conditions was identified among the inspected official UNIMI sources, so the language_requirements field reflects the clear B2 English rule stated on the programme application page and manifesto.",
+    "The schema has no separate field for the Universitaly pre-enrolment deadline for visa applicants, so that official 31 July 2026 deadline is included inside application_deadline_non_eu."
+  ],
+  "uncertain": []
+}

@@ -1,0 +1,106 @@
+{
+  "program_name": "Transport Systems Engineering",
+  "level": "master",
+  "official_level_type": "Laurea Magistrale",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Rome (Faculty of Civil and Industrial Engineering)",
+  "degree_class": "[uncertain]",
+  "course_code": "30841",
+  "faculty": "Civil and Industrial Engineering",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/corso/2024/30841/home",
+  "admission_type": "restricted access – pre-selection evaluation (no written entrance test)",
+  "movein_preselection_required": true,
+  "admission_test_type": "Pre-selection evaluation of curriculum and GPA; no written entrance test. International applicants evaluated on GPA (minimum 72/100 or equivalent).",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (MoveIN route, visa-required)"
+  ],
+  "application_platform": "MoveIN platform for non-EU pre-selection; Infostud for admission/enrolment",
+  "access_quota_non_eu": "[uncertain] – programme-specific non-EU quota not extracted; general Sapienza MoveIN rule applies (max 25 per non-EU country)",
+  "application_round": "September intake (A.Y. 2026-2027)",
+  "intake_semester_availability": "September intake",
+  "places_and_foreign_contingent": "[uncertain] – exact places and non-EU contingent not found in sources checked",
+  "official_call_url": null,
+  "faculty_call_pdf_url": null,
+  "academic_requirements": {
+    "prior_degree": "Engineering bachelor's degree preferred",
+    "curricular_requirements": "18 ECTS in mathematics sectors (MAT/03, MAT/05, MAT/06, MAT/07, MAT/08, MAT/09); 12 ECTS in chemistry/physics/engineering sectors (CHIM/03, CHIM/07, FIS/01 etc.); 18 ECTS in civil engineering sectors (ICAR/01-11, ICAR/17, ICAR/20). International: engineering degree or equivalent with strong mathematics and physics background.",
+    "minimum_gpa_international": "72/100 (or equivalent international grading scale)"
+  },
+  "country_specific_eligibility": "[uncertain] – country-specific rules not individually extracted; see MoveIN academic requirements PDF for 2026-2027",
+  "curricular_integration_policy": "[uncertain] – not specified in sources checked",
+  "conditional_enrolment_policy": "[uncertain] – not specified in sources checked",
+  "language_requirements": {
+    "level": "B2 CEFR in English",
+    "note": "Good written and oral communication in English is mandatory. B2 level required per programme's dedicated entry-requirements page. Acceptable proof includes TOEFL/IELTS scores or prior studies in English."
+  },
+  "language_submission_timing": "[uncertain] – at MoveIN pre-selection or at admission",
+  "italian_language_requirement": "Italian not required for admission; programme taught entirely in English.",
+  "application_deadline_eu": "31 July 2026 for EU and EU-equivalent candidates (A.Y. 2026-2027) [uncertain – programme-internal deadline may differ]",
+  "application_deadline_non_eu": "MoveIN pre-selection window 22 December 2025 – 15 May 2026 for non-EU candidates residing abroad requiring a visa",
+  "application_fee": "€30 per application via MoveIN (max 2 per candidate per intake)",
+  "visa_preenrolment_deadline": "MoveIN pre-selection by 15 May 2026; Universitaly pre-enrolment per national deadline",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2026-2027",
+  "required_documents": [
+    "Bachelor's degree certificate or enrolment certificate",
+    "Academic transcript with ECTS/CFU detail",
+    "Passport / ID",
+    "English language certificate (B2)",
+    "For foreign qualifications: Declaration of Value (DoV) or CIMEA statement, legalized/translated documents"
+  ],
+  "document_translation_authentication": "Foreign documents require official translation and legalization/apostille, plus a Declaration of Value (DoV) or CIMEA comparability statement.",
+  "entry_exam_or_test": {
+    "test": "No written entrance test",
+    "selection": "Pre-selection evaluation of curriculum, GPA, and academic background. No admission test required."
+  },
+  "test_variant_and_session": null,
+  "test_score_conversion_or_threshold": "Minimum GPA 72/100 (or international equivalent) for international applicants",
+  "source_quotes": [
+    {
+      "quote": "There is no admission test - your application will be evaluated in the pre-selection process and you will get a response from us if you are eligible for admission or not.",
+      "source_url": "https://cdaingtrasporti.web.uniroma1.it/en/entry-requirements",
+      "supports_fields": ["admission_type", "entry_exam_or_test"]
+    },
+    {
+      "quote": "B2 level (according to the Common European Framework) – good written and oral communication is necessary for academic success.",
+      "source_url": "https://cdaingtrasporti.web.uniroma1.it/en/entry-requirements",
+      "supports_fields": ["language_requirements"]
+    },
+    {
+      "quote": "Minimum GPA: 72/100 (or equivalent international grading scale)",
+      "source_url": "https://cdaingtrasporti.web.uniroma1.it/en/entry-requirements",
+      "supports_fields": ["academic_requirements", "test_score_conversion_or_threshold"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/corso/2024/30841/home",
+    "https://cdaingtrasporti.web.uniroma1.it/en/entry-requirements",
+    "https://cdaingtrasporti.web.uniroma1.it/en/about-masters-degree-transport-systems-engineering",
+    "https://www.uniroma1.it/en/admissions",
+    "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
+  ],
+  "source_year": "2025-2026",
+  "uncertainty_notes": [
+    "Degree class not confirmed from course page; standard LM class for Transport Systems Engineering is likely LM-23 or LM-33 — must verify on catalogue.",
+    "2026-2027 Call not yet published; central Sapienza international deadlines (15 May, 31 July) applied.",
+    "Per-programme non-EU quota and total places not extracted.",
+    "official_call_url and faculty_call_pdf_url not retrieved.",
+    "GPA threshold of 72/100 sourced from dedicated programme site; verify against 2026-2027 call."
+  ],
+  "uncertain": [
+    "degree_class",
+    "access_quota_non_eu",
+    "places_and_foreign_contingent",
+    "official_call_url",
+    "faculty_call_pdf_url",
+    "country_specific_eligibility",
+    "curricular_integration_policy",
+    "conditional_enrolment_policy",
+    "language_submission_timing",
+    "application_deadline_eu"
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "program_name": "Medicine and Surgery",
+  "level": "single-cycle",
+  "teaching_language": "English",
+  "campus": "Venice, Italy",
+  "degree_class": "LM-41 R - Medicine and Surgery",
+  "admission_type": "restricted access",
+  "academic_requirements": {
+    "summary": "Applicants need an upper secondary school diploma or equivalent foreign qualification suitable for university access and must qualify through the national ministerial admission procedure for the English-taught Medicine and Surgery programme.",
+    "prior_degree_or_diploma": "Secondary Studies diploma (or equivalent). Applicants with foreign qualifications must also meet the University of Padua country-based entry-title requirements.",
+    "subject_requirements": "Admission is based on the English-language IMAT and on the ministerial selection rules for the programme. The detailed 2026/27 ministerial call had not yet been published as of 2026-06-04 [uncertain].",
+    "gpa_or_country_requirements": "No GPA threshold is stated on the current official programme and admissions pages. Country-based specific entry-title requirements apply to foreign qualifications.",
+    "source_url": "https://apply.unipd.it/courses/course/36-medicine-and-surgery?search=58698"
+  },
+  "language_requirements": {
+    "required_level": "No separate English language certificate is required for applicants sitting IMAT; the current official language-requirement page exempts IMAT candidates from presenting a certificate. The current Medicine-specific pages do not state a separate CEFR level for 2026/27 [uncertain].",
+    "accepted_proofs": [
+      "IMAT participation is accepted as an exemption from presenting a separate English language certificate.",
+      "Under the University's central English-language page, accepted certificates include TOEFL iBT, IELTS Academic or General Training, Cambridge ESOL, Pearson, Oxford Test of English, and Trinity College London certificates."
+    ],
+    "exemption_rules": [
+      "Applicants sitting IMAT do not need to present an English language proficiency certificate.",
+      "Applicants who completed their previous education entirely in English are exempt.",
+      "Native English speakers from the countries listed by the University of Padua are exempt."
+    ],
+    "deadline": "No separate certificate deadline is stated for IMAT candidates on the current Medicine-specific pages; the 2026/27 call had not yet been published as of 2026-06-04 [uncertain].",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "",
+    "call_two": "",
+    "call_three": "",
+    "notes": "The official 2026/27 Medicine and Surgery call had not yet been published as of 2026-06-04. The current official admissions page says application dates, application procedure, and test dates will be published in the annual call around June/July [uncertain].",
+    "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "",
+    "call_two": "",
+    "call_three": "",
+    "notes": "The official 2026/27 Medicine and Surgery call had not yet been published as of 2026-06-04. Non-EU candidates residing outside Italy must also pre-enrol through Universitaly once the call opens [uncertain].",
+    "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+  },
+  "required_documents": [
+    {
+      "document_name": "Upper secondary school diploma or equivalent",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "The Medicine and Surgery course factsheet states 'Secondary Studies diploma (or equivalent)' as the entry qualification.",
+      "source_url": "https://apply.unipd.it/courses/course/36-medicine-and-surgery?search=58698"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "The central application page for English-taught bachelor's and single-cycle programmes lists the transcript of records among the upload documents for applicants with international entry qualifications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Certificate proving 1 or 2 years of academic studies, or a post-secondary qualification, or a foundation course qualification",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only if the applicant does not have a minimum 12-year school record.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Certificate of entrance examination to access university",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only if the law of the country where the upper secondary certificate was awarded requires such an examination.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Official translation into English or Italian of academic documents",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required if the educational documents are not already issued in English or Italian.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Valid ID card or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "The central page specifies a valid ID card for EU citizens and non-EU citizens residing in Italy, or a passport.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Residence permit",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only for non-EU citizens residing in Italy.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Universitaly registration and, for non-EU applicants residing abroad, Universitaly pre-enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "conditional",
+      "notes": "Registration on Universitaly is required to apply to Medicine and Surgery. Non-EU citizens residing outside Italy must also pre-enrol through Universitaly.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Original and legalised copies of previous qualifications",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "The Medicine and Surgery course factsheet states that no legalised documents are required at application stage, but admitted students will later have to submit original and translated/legalised copies of their previous qualifications.",
+      "source_url": "https://apply.unipd.it/courses/course/36-medicine-and-surgery?search=58698"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "IMAT (International Medical Admissions Test)",
+    "mandatory": true,
+    "applies_to": "All applicants to the English-taught Medicine and Surgery programme.",
+    "dates": "If the admission procedures are confirmed by the Ministry compared to previous years, the admission test is expected to be held during the third week of September 2026. The official 2026/27 date was not yet published as of 2026-06-04 [uncertain].",
+    "scoring_or_threshold": "Candidates proceed based on places available, their ranking, and whether they achieved the minimum score set by the admission test. The 2026/27 threshold had not yet been published as of 2026-06-04 [uncertain].",
+    "source_url": "https://www.unipd.it/en/entry-test"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/medicine-and-surgery",
+  "official_call_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply",
+  "source_quotes": [
+    {
+      "quote": "Scheduled access",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/medicine-and-surgery",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Place Venice",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/medicine-and-surgery",
+      "field_supported": "campus"
+    },
+    {
+      "quote": "Secondary Studies diploma (or equivalent)",
+      "source_url": "https://apply.unipd.it/courses/course/36-medicine-and-surgery?search=58698",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Candidates must pass an admission test in English (IMAT)",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "You are sitting the IMAT, the mandatory entry test",
+      "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "the admission test is expected to be held during the third week of September",
+      "source_url": "https://www.unipd.it/en/entry-test",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "published each year around June/July",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "As of 2026-06-04, the official 2026/27 ministerial call and decree for Medicine and Surgery had not yet been published; the university instructs candidates to wait for the annual call around June/July.",
+    "Current official sources clearly confirm IMAT-based admission and Universitaly registration, but they do not yet publish the final 2026/27 test date, ranking threshold, or application windows.",
+    "The University of Padua website notes that only the official Italian version has legal validity where translated pages differ."
+  ],
+  "uncertain": [
+    "academic_requirements",
+    "language_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "entry_exam_or_test"
+  ]
+}

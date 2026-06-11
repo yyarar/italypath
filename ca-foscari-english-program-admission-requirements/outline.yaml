@@ -1,0 +1,304 @@
+topic: "Ca' Foscari University of Venice English-taught degree programme admission requirements"
+generated_at: "2026-06-05"
+research_language: "en"
+research_question: "List Ca' Foscari University of Venice English-taught bachelor's and master's degree programmes and collect official admission requirements for each programme."
+institution:
+  name: "Ca' Foscari University of Venice"
+  official_domains:
+    - "unive.it"
+    - "apply.unive.it"
+source_policy:
+  allowed_sources:
+    - "Official Ca' Foscari University of Venice pages under unive.it only."
+    - "Official Ca' Foscari Apply platform pages under apply.unive.it only."
+    - "Official Ca' Foscari PDFs hosted under unive.it or apply.unive.it."
+  excluded_sources:
+    - "Aggregator, agency, forum, ranking, social media, student blog, Google Drive, and non-Ca' Foscari pages."
+  priority_year: "2026/2027"
+  fallback_year: "Use the newest official academic year available when 2026/2027 is not published for a programme, and flag the fallback in uncertainty_notes."
+scope:
+  included_programmes:
+    - "Bachelor's degree programmes listed on Ca' Foscari's official International programmes page as taught in English for a.y. 2026/2027."
+    - "Master's degree programmes listed on Ca' Foscari's official International programmes page as taught in English for a.y. 2026/2027."
+    - "Programmes with English-taught curricula or tracks when the official programme list names that English curriculum."
+  excluded_programmes:
+    - "Doctoral degrees, professional master's programmes, Foundation Year, exchange-only routes, single courses, summer schools, and double/joint degree mobility calls unless needed as context for a listed degree programme."
+    - "Programmes taught only in Italian."
+  item_definition: "Each item is one official English-taught degree programme entry from the 2026/2027 International programmes list."
+  current_known_counts:
+    bachelor_items: 8
+    master_items: 21
+    single_cycle_items: 0
+    total_items: 29
+seed_sources:
+  international_programmes:
+    url: "https://www.unive.it/pag/15612/?L=1"
+    role: "Authoritative 2026/2027 English-taught bachelor's and master's programme list."
+    key_quote: "Ca' Foscari offers bachelor's and master's degree programmes taught in English."
+  preliminary_evaluation:
+    url: "https://www.unive.it/pag/12520/"
+    role: "General preliminary evaluation process for international qualifications."
+    key_quote: "Applicants must request a preliminary online evaluation of their qualifications."
+  entry_requirements_international_qualification:
+    url: "https://www.unive.it/pag/41327/"
+    role: "General entry qualification and document requirements for applicants holding an international qualification."
+    key_quote: "Applications via email are not accepted at any time."
+  language_requirements:
+    url: "https://www.unive.it/language-requirements"
+    role: "General English and Italian language requirement hub."
+    key_quote: "Ca' Foscari requires verification of English language proficiency."
+  admission_rounds_2026_2027:
+    url: "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year"
+    role: "Official Apply news item for 2026/2027 admission rounds and applicant categories."
+    key_quote: "Non-EU applicants requiring a visa can no longer apply for 2026/27."
+  tuition_fees_2026_2027:
+    url: "https://www.unive.it/pag/50466"
+    role: "Official 2026/2027 bachelor's and master's tuition fees hub."
+    key_quote: "Tuition fees a.y. 2026/2027."
+execution:
+  batch_size: 4
+  items_per_agent: 3
+  output_dir: "./results"
+  expected_output_per_item: "One JSON object matching fields.yaml"
+  deduplication_key: "level + program_name + official_program_url"
+  citation_policy:
+    - "Every non-empty requirement, deadline, exam, document, and language field must cite at least one official Ca' Foscari URL."
+    - "Use short direct quotes only; prefer paraphrase for long official text."
+    - "If a programme permalink redirects to 2025/2026 while the central list states 2026/2027, keep both facts and mark the resolved admission year in uncertainty_notes."
+    - "Do not cite external Google Drive or third-party documents even when linked from apply.unive.it; use only unive.it/apply.unive.it pages or Ca' Foscari-hosted PDFs."
+source_inventory:
+  programme_catalogue:
+    international_programmes:
+      url: "https://www.unive.it/pag/15612/?L=1"
+      extraction_rule: "Include all programme links under Bachelor's degree programmes - a.y. 2026/2027 and Master's degree programmes - a.y. 2026/2027."
+  global_admission_sources:
+    preliminary_evaluation:
+      url: "https://www.unive.it/pag/12520/"
+      extraction_rule: "Use for international-qualification evaluation flow, max two programme choices, application fee, and applicant category guidance."
+    entry_requirements_international_qualification:
+      url: "https://www.unive.it/pag/41327/"
+      extraction_rule: "Use for mandatory/optional document lists and country-specific qualification rules."
+    language_requirements:
+      url: "https://www.unive.it/language-requirements"
+      extraction_rule: "Resolve programme-specific English level via linked bachelor/master requirement pages when needed."
+    admission_rounds_2026_2027:
+      url: "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year"
+      extraction_rule: "Use for official 2026/2027 round status and applicant-category caveats; do not follow non-Ca' Foscari external documents."
+    tuition_fees:
+      url: "https://www.unive.it/pag/50466"
+      extraction_rule: "Use as default tuition_or_fees_link unless a programme-specific official fee page is more precise."
+  programme_page_strategy:
+    - "Start from official_program_url."
+    - "Record the redirected programme home/presentation URL, academic year label, level, degree_class, venue, language, and admission value."
+    - "Follow only official programme quick links labelled Admission and enrolment, Admission and enrolment with an international qualification, How to enrol, Tuition fees, or selection notice/call links."
+    - "For international applicants, compare programme admission page with apply.unive.it course page when available."
+items:
+  - id: "bachelor-business-administration-and-management"
+    program_name: "Business Administration and Management"
+    level: "bachelor"
+    teaching_language: "English"
+    study_area_hint: "Economics and Management"
+    official_program_url: "https://www.unive.it/degree/etr8"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+    uncertainty_notes:
+      - "Degree permalink observed redirecting to a 2025/2026 home page during preliminary research; central International programmes page lists it for 2026/2027."
+  - id: "bachelor-digital-management"
+    program_name: "Digital Management"
+    level: "bachelor"
+    teaching_language: "English"
+    study_area_hint: "Economics and Management"
+    official_program_url: "https://www.unive.it/degree/etr7"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "bachelor-economics-and-business"
+    program_name: "Economics and Business"
+    level: "bachelor"
+    teaching_language: "English"
+    study_area_hint: "Economics and Management"
+    official_program_url: "https://www.unive.it/degree/etr9"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "bachelor-computer-science-data-science"
+    program_name: "Computer Science - Data Science"
+    level: "bachelor"
+    teaching_language: "English"
+    study_area_hint: "Science and Technology"
+    official_program_url: "https://www.unive.it/degree/ctr3"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "bachelor-hospitality-innovation-and-e-tourism"
+    program_name: "Hospitality Innovation and e-Tourism"
+    level: "bachelor"
+    teaching_language: "English"
+    study_area_hint: "Science and Technology"
+    official_program_url: "https://www.unive.it/degree/ctr9"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "bachelor-ancient-civilizations-for-the-contemporary-world"
+    program_name: "Ancient Civilizations for the Contemporary World (inter-university)"
+    level: "bachelor"
+    teaching_language: "English"
+    study_area_hint: "Arts and Humanities"
+    official_program_url: "https://www.unive.it/degree/lt7"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+    uncertainty_notes:
+      - "Inter-university programme; deep phase must verify whether admission, fees, or enrolment requirements differ by partner institution while using official Ca' Foscari pages only."
+  - id: "bachelor-italian-and-mediterranean-studies"
+    program_name: "Italian and Mediterranean Studies"
+    level: "bachelor"
+    teaching_language: "English"
+    study_area_hint: "Arts and Humanities"
+    official_program_url: "https://www.unive.it/degree/ftr6"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "bachelor-philosophy-international-and-economic-studies"
+    program_name: "Philosophy, International and Economic Studies"
+    level: "bachelor"
+    teaching_language: "English"
+    study_area_hint: "Arts and Humanities"
+    official_program_url: "https://www.unive.it/degree/ltr6"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-data-analytics-for-business-and-society"
+    program_name: "Data Analytics for Business and Society"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Economics and Management"
+    official_program_url: "https://www.unive.it/degree/emr14"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-economics-and-management-of-arts-and-cultural-activities"
+    program_name: "Economics and Management of Arts and Cultural Activities - Economics and Administration of Arts and Culture"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Economics and Management"
+    official_program_url: "https://www.unive.it/degree/emr3"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-economics-finance-and-sustainability"
+    program_name: "Economics, Finance and Sustainability"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Economics and Management"
+    official_program_url: "https://www.unive.it/degree/emr15"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-global-accounting-and-finance"
+    program_name: "Global Accounting and Finance"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Economics and Management"
+    official_program_url: "https://www.unive.it/degree/emr16"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-global-development-and-entrepreneurship"
+    program_name: "Global Development and Entrepreneurship"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Economics and Management"
+    official_program_url: "https://www.unive.it/degree/emr12"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-innovation-and-management-for-culture-and-creativity"
+    program_name: "Innovation and Management for Culture and Creativity"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Economics and Management"
+    official_program_url: "https://www.unive.it/degree/emr17"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-international-management"
+    program_name: "International Management"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Economics and Management"
+    official_program_url: "https://www.unive.it/degree/emr18"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-tourism-management-and-sustainability"
+    program_name: "Tourism Management and Sustainability"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Economics and Management"
+    official_program_url: "https://www.unive.it/degree/emr9"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-comparative-international-relations-eu-studies-global-studies"
+    program_name: "Comparative International Relations - European Union Studies and Global Studies"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Languages and Cultures"
+    official_program_url: "https://www.unive.it/degree/lmr60"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-environmental-humanities"
+    program_name: "Environmental Humanities"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Languages and Cultures"
+    official_program_url: "https://www.unive.it/degree/lmr10"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-european-american-and-postcolonial-language-and-literature"
+    program_name: "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Languages and Cultures"
+    official_program_url: "https://www.unive.it/degree/lmr3"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-languages-of-asia-and-north-africa-for-business-and-international-cooperation"
+    program_name: "Languages of Asia and North Africa for Business and International Cooperation - South East Asia"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Languages and Cultures"
+    official_program_url: "https://www.unive.it/degree/lmr40"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-language-sciences-english-linguistics-and-language-sciences"
+    program_name: "Language Sciences - English Linguistics and Language Sciences"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Languages and Cultures"
+    official_program_url: "https://www.unive.it/degree/lm5"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-computer-science-and-information-technology"
+    program_name: "Computer Science and Information Technology"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Science and Technology"
+    official_program_url: "https://www.unive.it/degree/cm90"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-conservation-science-and-technology-for-cultural-heritage"
+    program_name: "Conservation Science and Technology for Cultural Heritage"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Science and Technology"
+    official_program_url: "https://www.unive.it/degree/cmr60"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-engineering-physics"
+    program_name: "Engineering Physics"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Science and Technology"
+    official_program_url: "https://www.unive.it/degree/cmr13"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-environmental-engineering-for-the-green-transition"
+    program_name: "Environmental Engineering for the Green Transition"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Science and Technology"
+    official_program_url: "https://www.unive.it/degree/cmr15"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+    uncertainty_notes:
+      - "Programme-specific 2026/2027 presentation page observed during preliminary research; use it as a model for resolving other 2026/2027 pages."
+  - id: "master-environmental-sciences-global-change-and-sustainability"
+    program_name: "Environmental Sciences - Global Change and Sustainability"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Science and Technology"
+    official_program_url: "https://www.unive.it/degree/cmr5"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-science-and-technology-of-bio-and-nanomaterials"
+    program_name: "Science and Technology of Bio and Nanomaterials"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Science and Technology"
+    official_program_url: "https://www.unive.it/degree/cm14"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-sustainable-chemistry-and-technologies-biomolecular-chemistry"
+    program_name: "Sustainable Chemistry and Technologies - Biomolecular Chemistry"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Science and Technology"
+    official_program_url: "https://www.unive.it/degree/cmr7"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]
+  - id: "master-digital-and-public-humanities"
+    program_name: "Digital and Public Humanities"
+    level: "master"
+    teaching_language: "English"
+    study_area_hint: "Arts and Humanities"
+    official_program_url: "https://www.unive.it/degree/fmr11"
+    admission_reference_keys: ["international_programmes", "preliminary_evaluation", "entry_requirements_international_qualification", "language_requirements", "admission_rounds_2026_2027", "tuition_fees"]

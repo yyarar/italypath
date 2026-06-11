@@ -1,0 +1,189 @@
+{
+  "program_name": "Nanotechnologies for ICTs",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale, 2nd cycle)",
+  "teaching_language": "English",
+  "is_fully_english_programme": true,
+  "has_complete_english_track": true,
+  "english_track_name": null,
+  "campus": "Torino (Main Campus)",
+  "degree_class": "LM-29: Electronic Engineering",
+  "double_degree_or_erasmus_mundus": "The programme includes the MNIS international major, which awards a double degree (Italian and French) plus a joint master's degree signed by Politecnico di Torino, Grenoble INP-Phelma and EPFL.",
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/nanotechnologies-for-icts",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/nanotechnologies-for-icts/programme-curriculum",
+  "admission_type": "Mixed: the standard programme route has open access with evaluation of the admission requirements, while the MNIS international major has a restricted special selection call with ranking and interview.",
+  "admission_test_type": "No standard written entrance exam. Standard route admission is based on qualification/CV evaluation of curricular requirements and academic performance; oral interview may be used in merit-based cases for some Italian-degree applicants. The MNIS special call requires an online oral interview in addition to academic evaluation.",
+  "applicant_route": [
+    "Applicants from Politecnico di Torino (Italian qualification)",
+    "Applicants from other Italian universities (Italian qualification)",
+    "Applicants with a non-Italian qualification residing in Italy (EU applicants or equivalent applicants, including non-EU nationals legally residing in Italy)",
+    "Non-EU applicants with a non-Italian qualification residing abroad and requiring a study visa may apply through the standard programme route, but not through the MNIS special call"
+  ],
+  "admission_call_round": [
+    "Standard 1st Call for applicants with a non-Italian qualification: opening 19 December 2025; closing 13 February 2026 at 2:00 p.m. (Italian time); results 15 April 2026.",
+    "Standard 2nd Call for applicants with a non-Italian qualification: opening 18 March 2026; closing 20 April 2026 at 2:00 p.m. (Italian time); results 22 June 2026.",
+    "MNIS special call: opening 24 April 2026; closing 18 May 2026 at 23:59; online oral interviews on 17 and 19 June 2026; open only to EU applicants and equivalent applicants, including non-EU nationals legally residing in Italy."
+  ],
+  "special_call_flag": true,
+  "application_platform": "Apply@polito. For non-EU applicants residing abroad in the standard route, a separate UNIVERSITALY pre-enrolment is also required for the study visa. The MNIS special call is limited to EU/equivalent applicants and does not provide a visa route for non-EU applicants residing abroad.",
+  "official_call_url": "https://www.polito.it/sites/default/files/2026-04/Call%20for%20applications%20Nanotechnologies%20for%20ICTs%2026_27.pdf",
+  "academic_requirements": {
+    "general_rule": "Admission requires a three-year Bachelor's degree or equivalent foreign qualification recognised as suitable for admission, satisfaction of specific curricular requirements, and academic performance considered suitable for admission.",
+    "curricular_requirements": "Applicants must have at least 40 credits in CHIM/07, FIS/01, FIS/03, ING-INF/05, MAT/02, MAT/03, MAT/05 and at least 60 credits in CHIM/07, FIS/01, FIS/02, FIS/03, FIS/04, ING-IND/22, ING-IND/31, ING-IND/33, ING-INF/01, ING-INF/02, ING-INF/03, ING-INF/04, ING-INF/05, ING-INF/06, ING-INF/07, MAT/06, MAT/07, MAT/08. Credits that belong to both groups are counted first toward the 40-credit group and the remainder toward the 60-credit group.",
+    "credit_shortfall_rule": "If the applicant lacks fewer than 10 credits, the supervisor may evaluate close disciplinary similarities; if the shortfall is greater than 10 credits, final approval is required from the Coordinator or Vice-coordinator. Missing curricular requirements must be completed before enrolment.",
+    "italian_degree_merit_rule": "For applicants from Politecnico di Torino, admission is direct if the Bachelor's degree is completed in 4 years or less, or in more than 4 but less than 5 years with weighted average >= 21/30, or in more than 5 years with weighted average >= 24/30. For applicants from other Italian universities, weighted average >= 24/30 is required; applicants with weighted average between 21/30 and 24/30 may still be considered through oral interview if they have at least 24/30 in FIS/01-02-03 and ING-INF/01.",
+    "foreign_degree_rule": "Applicants with a non-Italian Bachelor's degree must hold a Bachelor's degree (EQF level 6) or equivalent foreign qualification awarded by an accredited institution and giving access to second-cycle studies. The Academic Committee evaluates consistency of the prior background with the programme, curricular content, and academic performance."
+  },
+  "country_specific_eligibility": "For Turkish applicants, the relevant category is non-EU applicants with a non-Italian qualification. They may apply through the standard non-Italian-qualification calls and, if admitted, must complete the UNIVERSITALY visa pre-enrolment and later the study-visa process. They cannot use the MNIS special call unless they are already legally residing in Italy with a valid residence permit.",
+  "minimum_background_or_credits": "Minimum curricular background: 40 credits in CHIM/07, FIS/01, FIS/03, ING-INF/05, MAT/02, MAT/03, MAT/05 and 60 credits in CHIM/07, FIS/01, FIS/02, FIS/03, FIS/04, ING-IND/22, ING-IND/31, ING-IND/33, ING-INF/01, ING-INF/02, ING-INF/03, ING-INF/04, ING-INF/05, ING-INF/06, ING-INF/07, MAT/06, MAT/07, MAT/08.",
+  "language_requirements": {
+    "level": "English level B2 or higher (CEFR).",
+    "accepted_certificates": "Accepted certificates are those listed in the official PoliTO Language Centre (CLA) certificates table, including IELTS, TOEFL, TOEIC, Cambridge and other certificates accepted by Politecnico di Torino.",
+    "exemptions": "Exemptions include the IB Diploma fully taught in English, European Schools with first language (L1) English, and English-medium qualifications issued by institutions in the countries recognised by PoliTo for exemption.",
+    "programme_note": "Because the programme is taught in English, the English requirement applies to all routes. In the MNIS special call, the certificate must be provided during the online application."
+  },
+  "english_certificate_codes": "TOEFL/TOEIC: institution code C285. Cambridge: provide the Candidate ID or enable result sharing with Politecnico di Torino.",
+  "language_submission_timing": "For the MNIS special call and for applicants with a non-Italian qualification, the English certificate must be entered/uploaded during the Apply@polito application. Applicants with an Italian qualification may submit the application before obtaining the certificate, but must provide the certificate before the enrolment deadline.",
+  "application_deadline_eu": {
+    "italian_qualification_standard_route_first_semester": "Application opening 4 June 2026; application deadline 15 October 2026; enrolment deadline 12 November 2026.",
+    "italian_qualification_standard_route_second_semester": "Application opening 13 December 2026; application deadline 24 February 2027; enrolment deadline 24 March 2027.",
+    "non_italian_qualification_eu_or_equivalent_standard_calls": "1st call closes 13 February 2026 at 2:00 p.m. (Italian time); 2nd call closes 20 April 2026 at 2:00 p.m. (Italian time).",
+    "mnis_special_call": "Open only to EU applicants and equivalent applicants, including non-EU nationals legally residing in Italy: opening 24 April 2026; closing 18 May 2026 at 23:59; interviews on 17 and 19 June 2026."
+  },
+  "application_deadline_non_eu": {
+    "route": "Relevant for non-EU applicants residing abroad and requiring a study visa, including Turkish applicants.",
+    "first_call": "Opening 19 December 2025; closing 13 February 2026 at 2:00 p.m. (Italian time); results 15 April 2026.",
+    "second_call": "Opening 18 March 2026; closing 20 April 2026 at 2:00 p.m. (Italian time); results 22 June 2026.",
+    "special_call_note": "The MNIS special call is not open to non-EU applicants residing abroad; it is open only to EU applicants and equivalent applicants already legally residing in Italy.",
+    "enrolment_deadline": "Online enrolment and upload of mandatory academic documents by 5 October 2026; study visa upload deadline 30 November 2026."
+  },
+  "universitaly_preenrolment_deadline": "Standard non-EU route only: the admissions page lists a study-visa pre-enrolment deadline of 15 May 2026 for the 1st call and 15 July 2026 for the 2nd call, while the same page also states UNIVERSITALY pre-enrolment deadlines of 30 May 2026 and 15 July 2026. The MNIS special call is not open to visa applicants. [uncertain]",
+  "application_fee": "€50 non-refundable application fee, paid online via PagoPA/credit card. This fee applies to applicants with a non-Italian qualification and is also required in the MNIS special call application procedure.",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport (or other ID only for EU nationals)",
+    "Residence permit for non-EU applicants already living in Italy",
+    "Curriculum Vitae",
+    "Bachelor's degree (EQF level 6) or official university document stating the provisional graduation date",
+    "Official Transcript of Records",
+    "Syllabus / course descriptions",
+    "English language certificate or official exemption evidence",
+    "Dichiarazione di valore of the Bachelor's degree or Statement of Comparability issued by CIMEA (if available at application stage, compulsory for enrolment)",
+    "For visa applicants after admission: UNIVERSITALY pre-enrolment, study visa type D, fiscal code, and enrolment documents uploaded on the Teaching Portal by the enrolment deadlines"
+  ],
+  "document_translation_authentication": "Documents issued in Italian, English, French or Spanish are accepted for application. Documents in other languages must be merged with an official English or Italian translation. For enrolment, Politecnico requires official Italian translations where specified, and a Declaration of Value, Statement of Comparability, Diploma Supplement, or ARDI Attestato di Corrispondenza for the foreign degree. Official translations into Italian must be certified by the Italian Embassy or sworn in an Italian court.",
+  "entry_exam_or_test": {
+    "type": "No standard written entrance exam.",
+    "standard_route": "Admission in the standard route is based on evaluation of curricular background and academic performance; an oral interview may be used for certain merit-based cases involving Italian-degree applicants.",
+    "mnis_special_call": "Applicants are evaluated on academic performance (maximum 70 points) and an oral online interview (maximum 30 points).",
+    "mode": "MNIS interview is conducted online on 17 and 19 June 2026."
+  },
+  "test_score_or_threshold": "No written test score is required. For the MNIS special call, applicants must score at least 18/30 in the oral interview to be included in the ranking list. For applicants with Italian qualifications, merit thresholds include 21/30 or 24/30 weighted averages depending on time to degree and university of origin.",
+  "source_quotes": [
+    {
+      "quote": "The Master's Degree in Nanotechnologies for ICTs is taught entirely in English.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/nanotechnologies-for-icts/programme-details",
+      "supports_fields": [
+        "teaching_language",
+        "is_fully_english_programme",
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "The course has two elective specialist tracks:",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/nanotechnologies-for-icts/programme-details",
+      "supports_fields": [
+        "admission_type",
+        "double_degree_or_erasmus_mundus"
+      ]
+    },
+    {
+      "quote": "The course has a limited number of places with 20 positions available for the Politecnico di Torino.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/nanotechnologies-for-icts/programme-details",
+      "supports_fields": [
+        "special_call_flag",
+        "double_degree_or_erasmus_mundus",
+        "admission_type"
+      ]
+    },
+    {
+      "quote": "At the end of the MNIS course the student receives a double degree (Italian and French) in addition to a joint master's degree signed by the 3 partner institutions.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/nanotechnologies-for-icts/programme-details",
+      "supports_fields": [
+        "double_degree_or_erasmus_mundus"
+      ]
+    },
+    {
+      "quote": "open only to EU applicants and non-EU applicants already residing in Italy",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "special_call_flag",
+        "applicant_route",
+        "application_deadline_non_eu",
+        "application_deadline_eu"
+      ]
+    },
+    {
+      "quote": "Opening date for applications: 24 April 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "admission_call_round",
+        "application_deadline_eu"
+      ]
+    },
+    {
+      "quote": "The application must be submitted by 18th May 2026 (23.59).",
+      "source_url": "https://www.polito.it/sites/default/files/2026-04/Call%20for%20applications%20Nanotechnologies%20for%20ICTs%2026_27.pdf",
+      "supports_fields": [
+        "admission_call_round",
+        "application_deadline_eu",
+        "official_call_url"
+      ]
+    },
+    {
+      "quote": "Applicants must have an English language certificate (B2 level or above)",
+      "source_url": "https://www.polito.it/sites/default/files/2026-04/Call%20for%20applications%20Nanotechnologies%20for%20ICTs%2026_27.pdf",
+      "supports_fields": [
+        "language_requirements",
+        "language_submission_timing"
+      ]
+    },
+    {
+      "quote": "For this procedure, a payment of 50 euros is required (the payment is not refundable).",
+      "source_url": "https://www.polito.it/sites/default/files/2026-04/Call%20for%20applications%20Nanotechnologies%20for%20ICTs%2026_27.pdf",
+      "supports_fields": [
+        "application_fee"
+      ]
+    },
+    {
+      "quote": "Applicants are considered eligible for admission to the programme and are included in the merit-based ranking list if they score at least 18 points in the oral interview.",
+      "source_url": "https://www.polito.it/sites/default/files/2026-04/Call%20for%20applications%20Nanotechnologies%20for%20ICTs%2026_27.pdf",
+      "supports_fields": [
+        "entry_exam_or_test",
+        "test_score_or_threshold"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/nanotechnologies-for-icts",
+    "https://www.polito.it/en/education/master-s-degree-programmes/nanotechnologies-for-icts/programme-details",
+    "https://www.polito.it/en/education/master-s-degree-programmes/nanotechnologies-for-icts/programme-curriculum",
+    "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_NANOTECHNOLOGIES%20FOR%20ICT_25_26.pdf",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+    "https://www.polito.it/sites/default/files/2026-04/DR%20emanazione%20Bando%20Nanotech%2026-27_0.pdf",
+    "https://www.polito.it/sites/default/files/2026-04/Call%20for%20applications%20Nanotechnologies%20for%20ICTs%2026_27.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/polito-language-centre-cla/certificates",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees"
+  ],
+  "source_year": "2026/2027 (admissions pages and MNIS special call); latest published programme academic regulations checked: 2025/2026",
+  "uncertainty_notes": [
+    "The official non-Italian-qualification admissions page contains two different first-call visa/pre-enrolment dates: a study-visa pre-enrolment deadline of 15 May 2026 in the deadlines table, and a UNIVERSITALY pre-enrolment deadline of 30 May 2026 in the visa instructions. The second-call figure is consistently 15 July 2026."
+  ],
+  "uncertain": [
+    "universitaly_preenrolment_deadline"
+  ]
+}

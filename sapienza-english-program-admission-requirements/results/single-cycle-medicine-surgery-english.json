@@ -1,0 +1,120 @@
+{
+  "program_name": "Medicine and Surgery",
+  "level": "single-cycle",
+  "official_level_type": "Laurea Magistrale a ciclo unico",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Rome (Città Universitaria / Policlinico Umberto I and associated teaching hospitals)",
+  "degree_class": "LM-41",
+  "course_code": "30893",
+  "faculty": "Faculty of Pharmacy and Medicine (interfaculty)",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33454",
+  "admission_type": "restricted access",
+  "movein_preselection_required": false,
+  "admission_test_type": "IMAT (International Medical Admissions Test)",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (visa-required)"
+  ],
+  "application_platform": "Universitaly (visa pre-enrolment for non-EU) and Infostud / Sapienza application portal; IMAT registration via Universitaly/CINECA",
+  "access_quota_non_eu": "Annual non-EU contingent set in the Ministerial decree and Sapienza call; exact 2026-2027 figure not yet extracted from official call [uncertain]",
+  "application_round": "September/October intake (single annual cycle, A.Y. 2026-2027)",
+  "intake_semester_availability": "September/October intake only",
+  "places_and_foreign_contingent": "Total places, EU and non-EU contingent set annually in the Ministerial decree and Sapienza call for the English Course F; exact 2026-2027 figures not yet published/extracted [uncertain]",
+  "official_call_url": null,
+  "faculty_call_pdf_url": null,
+  "academic_requirements": {
+    "secondary_diploma": "A valid secondary-school leaving diploma giving access to university, with at least 12 years of total schooling (or recognized equivalent); strong background in science subjects recommended.",
+    "admission": "Admission is restricted and conditional on passing the IMAT and ranking within available places.",
+    "language": "At least upper-intermediate (B2 CEFR) command of English."
+  },
+  "country_specific_eligibility": "Foreign qualifications must satisfy the equivalence/validation rules in the Sapienza/MoveIN academic requirements for 2026-2027; where fewer than 12 years of schooling, additional university credits or a foundation year may be required. Specific country rules not individually extracted [uncertain]",
+  "curricular_integration_policy": null,
+  "conditional_enrolment_policy": "Candidates completing their diploma in the same year may sit the IMAT and be enrolled conditionally pending final qualification, per the national IMAT procedure [uncertain]",
+  "language_requirements": {
+    "level": "B2 CEFR (upper-intermediate) in English",
+    "note": "All students must have at least an upper-intermediate (B2) knowledge of English (or Italian depending on the chosen programme); for the English Course F the relevant language is English.",
+    "accepted_certificates": "Standard recognized certificates (IELTS, TOEFL, Cambridge, etc.); exact accepted-certificate list and scores per the official call [uncertain]"
+  },
+  "language_submission_timing": "By enrolment / as specified in the call [uncertain]",
+  "italian_language_requirement": "Italian not required for admission; basic Italian recommended for clinical placements and daily life [uncertain]",
+  "application_deadline_eu": "Application remains open until 31 July 2026 exclusively for EU and EU-equivalent candidates (A.Y. 2026-2027). IMAT registration follows the national schedule.",
+  "application_deadline_non_eu": "Deadline for non-EU candidates requiring a visa expired on 15 May 2026 (A.Y. 2026-2027); visa pre-enrolment via Universitaly by the national deadline (typically end of June).",
+  "application_fee": "Application/registration fee per Sapienza and IMAT national procedure; exact amount per official call [uncertain]",
+  "visa_preenrolment_deadline": "Universitaly visa pre-enrolment by the national deadline for non-EU visa applicants (15 May 2026 for the Sapienza non-EU step)",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2026-2027",
+  "required_documents": [
+    "Secondary-school leaving diploma",
+    "Academic transcript",
+    "Passport / ID",
+    "English language certificate (B2)",
+    "IMAT result",
+    "For foreign qualifications: Declaration of Value (DoV) or CIMEA statement, legalized/translated documents",
+    "Visa pre-enrolment documentation via Universitaly (non-EU)"
+  ],
+  "document_translation_authentication": "Foreign documents require official translation and legalization/apostille, plus a Declaration of Value (DoV) or CIMEA comparability statement, per Sapienza international procedures.",
+  "entry_exam_or_test": {
+    "test": "IMAT (International Medical Admissions Test)",
+    "content": "Reading Skills and General Knowledge, Logical Reasoning, Biology, Chemistry, Mathematics and Physics",
+    "applies_to": "Both EU and non-EU applicants to English-taught Medicine; the 2025-2026 Italian Medicine 'filter semester' reform does NOT apply to English-taught programmes, so IMAT remains the selection method.",
+    "year_status_2026_2027": "No final 2026-2027 ministerial decree confirmed at time of research; IMAT for English-taught Medicine is the expected/confirmed method per Sapienza FAQ and national sources [uncertain]"
+  },
+  "test_variant_and_session": "IMAT single session per national CINECA/Universitaly schedule (autumn); exact 2026-2027 date per national decree [uncertain]",
+  "test_score_conversion_or_threshold": "Admission by national/Sapienza merit ranking of IMAT scores up to available places; minimum scoring threshold per national rules [uncertain]",
+  "source_quotes": [
+    {
+      "quote": "The deadline for Non-EU candidates (visa applicants) expired on May 15, 2026, and the application process remains open until July 31, 2026, exclusively for EU and EU-equivalent candidates.",
+      "source_url": "https://farmed.web.uniroma1.it/en/faq-english-course-f-medicine-and-surgery",
+      "supports_fields": ["application_deadline_eu", "application_deadline_non_eu", "visa_preenrolment_deadline"]
+    },
+    {
+      "quote": "The IMAT admission test covers Reading Skills and General Knowledge, Biology, Chemistry, Mathematics and Physics, and Logical Reasoning.",
+      "source_url": "https://farmed.web.uniroma1.it/en/faq-english-course-f-medicine-and-surgery",
+      "supports_fields": ["entry_exam_or_test", "admission_test_type"]
+    },
+    {
+      "quote": "All students must have at least an upper-intermediate knowledge of English or Italian (B2 level), depending on their chosen programme.",
+      "source_url": "https://farmed.web.uniroma1.it/en/faq-english-course-f-medicine-and-surgery",
+      "supports_fields": ["language_requirements"]
+    },
+    {
+      "quote": "Some programmes require students to sit a mandatory admission test (e.g. Medicine and Surgery).",
+      "source_url": "https://www.uniroma1.it/en/admissions",
+      "supports_fields": ["admission_type", "entry_exam_or_test"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/course/33454",
+    "https://farmed.web.uniroma1.it/en/faq-english-course-f-medicine-and-surgery",
+    "https://www.uniroma1.it/en/admissions",
+    "https://www.uniroma1.it/en/pagina/restricted-access-degree-programmes-tolc-i-and-selections",
+    "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
+  ],
+  "source_year": "2026-2027",
+  "uncertainty_notes": [
+    "Italy reformed Italian-taught Medicine admission for 2025-2026 (open 'filter semester' replacing entrance test). Multiple national sources state the reform does NOT apply to English-taught Medicine, where IMAT remains the selection method. No final 2026-2027 ministerial decree was confirmed at research time; IMAT is the expected method for English Course F.",
+    "Course code: task brief lists 30893 (used here); the live catalogue URL is /course/33454. The 33454 path is the current English Course F catalogue entry; the numeric code should be reconfirmed on the page.",
+    "Total places, EU/non-EU contingent, application fee, accepted-certificate list, IMAT 2026-2027 session date and threshold not extracted from the official call; mark as uncertain pending the published 2026-2027 call PDF.",
+    "official_call_url and faculty_call_pdf_url not retrieved; the 2026-2027 Medicine English call PDF should be located on farmed.web.uniroma1.it / corsidilaurea documenti_ufficiali.",
+    "WebFetch was disabled in this environment; values gathered via official-domain web search summaries rather than direct page parsing."
+  ],
+  "uncertain": [
+    "access_quota_non_eu",
+    "places_and_foreign_contingent",
+    "official_call_url",
+    "faculty_call_pdf_url",
+    "country_specific_eligibility",
+    "conditional_enrolment_policy",
+    "language_requirements.accepted_certificates",
+    "language_submission_timing",
+    "italian_language_requirement",
+    "application_fee",
+    "entry_exam_or_test.year_status_2026_2027",
+    "test_variant_and_session",
+    "test_score_conversion_or_threshold",
+    "course_code"
+  ]
+}

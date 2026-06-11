@@ -1,0 +1,179 @@
+{
+  "program_name": "Civil Engineering",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale / 2nd cycle)",
+  "teaching_language": "English",
+  "is_fully_english_programme": true,
+  "has_complete_english_track": true,
+  "english_track_name": null,
+  "campus": "Torino (Main Campus)",
+  "degree_class": "LM-23 (Civil Engineering)",
+  "double_degree_or_erasmus_mundus": null,
+  "admission_type": "evaluation/CV",
+  "admission_test_type": "Master-level academic and curricular evaluation through Apply@polito. No standard written entrance test is published for this programme; an interview may be used in specific cases.",
+  "applicant_route": [
+    "Italian qualification - applicants from Politecnico di Torino",
+    "Italian qualification - applicants from other Italian universities",
+    "Non-Italian qualification - EU applicants and non-EU applicants residing in Italy",
+    "Non-Italian qualification - non-EU applicants residing abroad and requiring a study visa"
+  ],
+  "admission_call_round": [
+    "Applicants with a non-Italian qualification: 1st Call and 2nd Call.",
+    "Applicants with an Italian qualification: first-semester and second-semester admission windows.",
+    "Civil Engineering is not listed among the Engineering Area programmes with a separate international special call."
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito for the application; UNIVERSITALY for non-EU applicants who need a study visa.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "general_requirement": "Applicants must hold a Bachelor's degree (level 6 EQF) or an equivalent academic qualification giving access to second-cycle studies.",
+    "equivalent_qualification_route": "Applicants enrolled in a 5- or 6-year single-cycle foreign degree who have not yet graduated may apply if they have at least 15 years of global schooling, including at least 3 years at university level, and at least 180 ECTS credits or equivalent.",
+    "programme_background": "For the 2026/2027 non-Italian qualification route, the course-specific requirements list the recommended background as Any field of Engineering.",
+    "assessment_method": "The Academic Committee checks curricular consistency and whether the applicant's academic performance is suitable for admission.",
+    "italian_qualification_note": "For applicants from other Italian universities, the general Engineering Area rule requires a weighted average grade of at least 24/30 for suitable academic performance."
+  },
+  "country_specific_eligibility": null,
+  "minimum_background_or_credits": "Recommended background to apply: Any field of Engineering. No Civil Engineering-specific minimum subject-credit distribution is stated in the checked public 2026/2027 course-specific requirements source.",
+  "language_requirements": {
+    "programme_requirement": "English level B2 or higher is required for English-taught Master's programmes.",
+    "programme_minimum_for_civil_engineering": "The 2026/2027 course-specific requirements table states IELTS 5.5 as the programme minimum.",
+    "accepted_certificate_examples": [
+      "IELTS Academic or General Training: 5.5",
+      "Pearson Test of English Academic: 59",
+      "TOEFL iBT obtained before 21 January 2026: 72",
+      "TOEIC: Listening 400, Reading 385, Speaking 160, Writing 150",
+      "Cambridge English scale: 160"
+    ],
+    "exemptions": "Official PoliTO exemptions apply for certain English-medium qualifications and specific school systems listed on the non-Italian qualification page."
+  },
+  "english_certificate_codes": "For TOEFL/TOEIC certificates, use PoliTO institution code C285. For Cambridge certificates, share the result with Politecnico di Torino and provide the Candidate's ID number.",
+  "language_submission_timing": "You may submit the application without the English certificate, but the certificate is a mandatory admission requirement for enrolment. For the non-Italian qualification route, the language certificate is uploaded in the application documents; if its status remains pending, it is verified during evaluation.",
+  "application_deadline_eu": {
+    "italian_qualification_first_semester_application_deadline": "15 October 2026",
+    "italian_qualification_first_semester_enrolment_deadline": "12 November 2026",
+    "italian_qualification_second_semester_application_deadline": "24 February 2027",
+    "italian_qualification_second_semester_enrolment_deadline": "24 March 2027",
+    "non_italian_qualification_route_note": "EU applicants with a non-Italian qualification use the same 1st/2nd call application deadlines shown for foreign-qualification applicants, but they do not need study-visa pre-enrolment."
+  },
+  "application_deadline_non_eu": {
+    "first_call_application_deadline": "13 February 2026, 2:00 p.m. Italian time",
+    "first_call_results": "15 April 2026",
+    "second_call_application_deadline": "20 April 2026, 2:00 p.m. Italian time",
+    "second_call_results": "22 June 2026",
+    "note": "The 2nd call closing date was postponed to 20 April 2026 due to technical issues."
+  },
+  "universitaly_preenrolment_deadline": "30 May 2026 if the application was submitted in the 1st call; 15 July 2026 if the application was submitted in the 2nd call.",
+  "application_fee": "€50 non-refundable application fee for applicants with a non-Italian qualification, paid online by credit card through PagoPA.",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport (other IDs are accepted only for EU nationals)",
+    "Residence permit for non-EU citizens living in Italy, if applicable",
+    "Curriculum Vitae",
+    "Bachelor's degree certificate or an official university document stating the provisional graduation date if not yet graduated",
+    "Official Transcript of Records",
+    "English language certificate",
+    "Declaration of Value of the Bachelor's degree or a CIMEA Statement of Comparability for enrolment; Diploma Supplement is also accepted at enrolment",
+    "For Civil Engineering specifically, syllabus/course descriptions are not required",
+    "For Civil Engineering specifically, portfolio is not required"
+  ],
+  "document_translation_authentication": "Application documents must be issued on letterheaded paper, stamped and signed; digitally signed documents are accepted only if they can be verified online. Documents in Italian, English, French, or Spanish are accepted for the application. Documents in other languages must be uploaded together with an official English or Italian translation. For enrolment, degree and transcript documents may require official Italian translation unless the original is in English, French, or Spanish or is accompanied by a Diploma Supplement. Declaration of Value, CIMEA Statement of Comparability, CIMEA Statement of Verification, or the ARDI Certificate of Correspondence are the official foreign-qualification recognition instruments cited by PoliTO.",
+  "entry_exam_or_test": {
+    "standard_route": "No standard written entrance exam is published for this programme. Admission is based on document review and academic/curricular evaluation.",
+    "possible_additional_check": "The non-Italian qualification page states that some programmes may require an online interview. The Civil Engineering presentation also mentions interview subjects for certain Italian-route applicants: Structural Engineering, Hydraulics, Geotechnics, and Roads, Railways and Airports."
+  },
+  "test_score_or_threshold": "There is no published written-test score threshold for the standard admission route. For applicants from other Italian universities, the general Engineering Area threshold for suitable academic performance is a weighted average of at least 24/30.",
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/civil-engineering/programme-details-0",
+  "curriculum_page_url": "https://didattica.polito.it/pls/portal30/sviluppo.offerta_formativa_2019.vis?p_cds=466&p_coorte=2026&p_sdu=32",
+  "source_quotes": [
+    {
+      "quote": "The courses are taught in English.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/civil-engineering/programme-details-0",
+      "supports_fields": [
+        "teaching_language",
+        "is_fully_english_programme",
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "CIVIL ENGINEERING English IELTS 5.5 Any field of Engineering Not Required",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": [
+        "program_name",
+        "teaching_language",
+        "language_requirements",
+        "minimum_background_or_credits",
+        "required_documents"
+      ]
+    },
+    {
+      "quote": "English-taught programmes ... English level B2 or higher",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "language_requirements"
+      ]
+    },
+    {
+      "quote": "Bachelor's degree (level 6 EQF) or an equivalent academic qualification",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "academic_requirements"
+      ]
+    },
+    {
+      "quote": "Pay the non-refundable application fee (€50)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_fee"
+      ]
+    },
+    {
+      "quote": "For TOEFL/TOEIC certificates, you must indicate the code C285",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "english_certificate_codes"
+      ]
+    },
+    {
+      "quote": "Closing ... 13 February 2026, 2:00 p.m. (Italian time)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_deadline_non_eu"
+      ]
+    },
+    {
+      "quote": "Application deadline ... first semester ... 15th October 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+      "supports_fields": [
+        "application_deadline_eu"
+      ]
+    },
+    {
+      "quote": "Weighted average grade ... equal to or greater than 24/30",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027/applicants-from-other-universities-ay-202627",
+      "supports_fields": [
+        "academic_requirements",
+        "test_score_or_threshold"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/civil-engineering/programme-details-0",
+    "https://didattica.polito.it/pls/portal30/sviluppo.offerta_formativa_2019.vis?p_cds=466&p_coorte=2026&p_sdu=32",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027/applicants-from-other-universities-ay-202627",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/polito-language-centre-cla/certificates",
+    "https://www.polito.it/sites/default/files/2026-01/Tabella_23_09_2019_agg_gen26_eng_0.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+    "https://www.polito.it/sites/default/files/2026-04/Ingegneria%20civile%20-%20Civil%20Engineering.pdf"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "The initial bilingual programme page and curriculum checked under the public slug without the '-0' suffix refer to the Italian programme and can be misleading for English-track verification.",
+    "Fully-English status was verified through the official English Civil Engineering teaching-portal page (course code p_cds=466), the official programme-details search result for Civil Engineering, and the 2026/2027 course-specific requirements PDF.",
+    "The accessible official programme-details page and the didattica curriculum page were used as the primary Civil Engineering verification sources because the homonymous bilingual public slug can point readers to the Italian-language programme translation."
+  ],
+  "uncertain": []
+}

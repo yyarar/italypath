@@ -1,0 +1,175 @@
+{
+  "program_name": "Information Engineering",
+  "level": "bachelor",
+  "teaching_language": "English",
+  "campus": "Padua, Italy",
+  "degree_class": "L-8 R - Information Engineering",
+  "admission_type": "restricted access",
+  "academic_requirements": {
+    "summary": "Applicants need an upper secondary school diploma (or equivalent) with at least 12 years of schooling suitable for access to higher education. For the foreign-qualification calls, the entry qualification must be obtained by 31 July 2026. If the school system is shorter than 12 years, applicants must add the required extra academic study, post-secondary qualification, or an Italian foundation course.",
+    "prior_degree_or_diploma": "Upper secondary school diploma (or equivalent).",
+    "subject_requirements": "No programme-specific school-subject prerequisite was stated beyond meeting the CEnT-S admission-test rules.",
+    "gpa_or_country_requirements": "No GPA requirement was stated. Applicants must verify the country-based entry-title rules, and if their home system requires a university entrance exam for higher education access, proof of passing that exam is required.",
+    "source_url": "https://www.unipd.it/en/ammissione-studenti-internazionali"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent, to be achieved by 31 July 2026.",
+    "accepted_proofs": [
+      "TOEFL iBT: minimum 80 for B2.",
+      "IELTS Academic or General Training: minimum 6.0 for B2.",
+      "Cambridge English B2 First: minimum 173.",
+      "Trinity College London Integrated Skills in English ISE II.",
+      "Oxford Test of English: minimum 126 for B2.",
+      "GATEHOUSE ESOL International Classic B2: GA Level 1 Certificate.",
+      "Pearson Test of English General: PTE General 3.",
+      "Pearson English International Certificate: Level 3 Upper Intermediate.",
+      "Pearson Test of English Academic: minimum 65 for B2."
+    ],
+    "exemption_rules": [
+      "No certificate is required if the previous education leading to the entry qualification was completed entirely in English.",
+      "No certificate is required for native English speakers from the countries listed by the University of Padua."
+    ],
+    "deadline": "31 July 2026 for this limited-access programme.",
+    "source_url": "https://www.unipd.it/en/studying-padua/admission/language-requirement"
+  },
+  "application_deadline_eu": {
+    "call_one": "10 March 2026 - 10 April 2026",
+    "call_two": "12 May 2026 - 12 June 2026",
+    "call_three": "Not stated",
+    "notes": "The second EU and EU-equated round was officially confirmed on the admissions page after the first-round ranking list.",
+    "source_url": "https://apply.unipd.it/courses/course/182-information-engineering"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "7 January 2026 - 7 March 2026",
+    "call_two": "Not stated",
+    "call_three": "Not stated",
+    "notes": "Single non-EU call for applicants residing outside Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/182-information-engineering"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or valid ID card",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU-equivalent applicants may use a valid ID card; other applicants normally provide a passport.",
+      "source_url": "https://apply.unipd.it/news/new/13-documents-required-your-application"
+    },
+    {
+      "document_name": "Italian residence permit",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only for non-EU applicants already residing in Italy.",
+      "source_url": "https://apply.unipd.it/news/new/13-documents-required-your-application"
+    },
+    {
+      "document_name": "Academic transcript or marksheet",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Documents must be official and written or translated in Italian or English.",
+      "source_url": "https://apply.unipd.it/news/new/13-documents-required-your-application"
+    },
+    {
+      "document_name": "Upper secondary school certificate or academic qualification (if already obtained)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "No legalised documents are required at application stage.",
+      "source_url": "https://apply.unipd.it/news/new/13-documents-required-your-application"
+    },
+    {
+      "document_name": "Curriculum Vitae",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Listed in the general application document checklist.",
+      "source_url": "https://apply.unipd.it/news/new/13-documents-required-your-application"
+    },
+    {
+      "document_name": "Motivation letter",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Listed in the general application document checklist.",
+      "source_url": "https://apply.unipd.it/news/new/13-documents-required-your-application"
+    },
+    {
+      "document_name": "English language proficiency certificate",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required unless the applicant qualifies for an exemption.",
+      "source_url": "https://apply.unipd.it/news/new/13-documents-required-your-application"
+    },
+    {
+      "document_name": "CEnT-S provisional result and final normalized score upload",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "The score must be uploaded to apply.unipd.it after the test and by the relevant macro-period deadline.",
+      "source_url": "https://apply.unipd.it/courses/course/182-information-engineering"
+    },
+    {
+      "document_name": "Legalised upper secondary diploma translated into Italian or English",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Required after admission to complete enrolment.",
+      "source_url": "https://www.unipd.it/en/studiare-inglese-immatricolarsi"
+    },
+    {
+      "document_name": "Proof of passed home-country university entrance exam, if required by the education system",
+      "stage": "enrolment",
+      "required_for": "conditional",
+      "notes": "Required only when the country of qualification requires such an exam for university access.",
+      "source_url": "https://www.unipd.it/en/studiare-inglese-immatricolarsi"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment and D visa for study-enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Non-EU citizens residing outside Italy must pre-enrol on Universitaly by 15 July and then apply for a study visa.",
+      "source_url": "https://www.unipd.it/en/studiare-inglese-immatricolarsi"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "CEnT-S (CISIA)",
+    "mandatory": true,
+    "applies_to": "All applicants. The main non-EU and first EU or EU-equated calls use tests taken by the end of the second macro-period; the confirmed second EU or EU-equated round accepts tests taken by the end of the third macro-period.",
+    "dates": "First macro-period: 27 November 2025, 16 December 2025, 15 January 2026 (resit 20 January 2026). Second macro-period: 19 February 2026, 26 February 2026, 12 March 2026 (resit 19 March 2026). For the second EU or EU-equated round: 7 May 2026, 21 May 2026, 9 June 2026, 16 June 2026 (resit 18 June 2026).",
+    "scoring_or_threshold": "Ranking uses weighted CEnT-S sections Mathematics, Reasoning on texts and data, Physics, and Chemistry (weight 1 each; Biology weight 0). In the non-EU call, inclusion in the ranking requires a normalized weighted score of at least 38 and at least 7 correct answers in Mathematics. The official second-round English instructions state that the same procedures as the first EU call apply.",
+    "source_url": "https://www.unipd.it/ammissioni-information-engineering"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/information-engineering",
+  "official_call_url": "https://www.unipd.it/ammissioni-information-engineering",
+  "source_quotes": [
+    {
+      "quote": "Scheduled access",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/information-engineering",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Language English",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/information-engineering",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "Secondary Studies diploma (or equivalent)",
+      "source_url": "https://apply.unipd.it/courses/course/182-information-engineering",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "B2 Level (CEFR) or equivalent.",
+      "source_url": "https://apply.unipd.it/courses/course/182-information-engineering",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "31 July for limited access programmes.",
+      "source_url": "https://www.unipd.it/en/studying-padua/admission/language-requirement",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "7 January 2026 - 7 March 2026",
+      "source_url": "https://apply.unipd.it/courses/course/182-information-engineering",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official 2026/2027 information is split across the programme page, the apply.unipd.it factsheet, and multiple admission notices; this JSON consolidates them into one record."
+  ],
+  "uncertain": []
+}

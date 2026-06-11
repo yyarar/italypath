@@ -1,0 +1,155 @@
+{
+  "program_name": "Hospitality Innovation and e-Tourism",
+  "level": "bachelor",
+  "teaching_language": "English",
+  "campus": "Venice/Mestre",
+  "degree_class": "L-15 R (Tourism)",
+  "admission_type": "TOLC",
+  "academic_requirements": {
+    "summary": "Applicants need a secondary-school qualification valid for university entry. International applicants must complete a preliminary evaluation on apply.unive.it. Admission to the first year is limited and based on an entry-test ranking.",
+    "prior_degree_or_diploma": "Secondary school leaving qualification eligible for university admission; for international qualifications, at least 12 years of schooling are required.",
+    "subject_requirements": "The programme requires adequate knowledge of mathematics, logic, and reading comprehension, plus English at B2 level. First-year admission requires participation in the ranking procedure based on the TOLC-E test; Ca' Foscari also accepts CEnT-S for 2026/2027.",
+    "gpa_or_country_requirements": "Country-specific validity rules apply under Ca' Foscari's 'Entry requirements for applicants with an international qualification'; applicants with less than 12 years of schooling must document how the gap is covered.",
+    "committee_or_pre_evaluation": "The Welcome Unit carries out the preliminary evaluation for international qualifications on apply.unive.it. The public first-year admission pages focus on the test-and-ranking procedure; Teaching Committee evaluation is explicitly mentioned for later credit-recognition cases.",
+    "source_url": "https://www.unive.it/web/en/12124/admission-and-enrolment"
+  },
+  "language_requirements": {
+    "required_level": "English B2",
+    "accepted_proofs": [
+      "A recognised B2-or-higher English certification from Ca' Foscari's official list, such as Cambridge FCE, IELTS 5.5-6.5, TOEFL iBT 72-94, or PTE Academic 59-75.",
+      "A certificate from Ca' Foscari CLA or from a university language school included in Ca' Foscari's recognised-certifications list.",
+      "Proof that the applicant falls within an official exemption category."
+    ],
+    "exemption_rules": [
+      "Completed higher-education studies or at least one year of college in a country where English is the medium of instruction.",
+      "Obtained a high-school or university qualification from a course taught entirely in English.",
+      "Completed at least one full year of high-school exchange in English.",
+      "Holds one of the listed degree exemptions in languages or linguistic mediation that includes a three-year English course."
+    ],
+    "assessment_or_upload_stage": "Proof is uploaded at enrolment. If the requirement is missing at enrolment, the programme assigns an English B2 OFA.",
+    "deadline": "By enrolment; otherwise the English B2 OFA must be fulfilled by the end of the first year of study.",
+    "source_url": "https://www.unive.it/pag/40604/"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring selection: the current public page confirms the round and states that admitted candidates must accept their place by 14 May 2026 and enrol from 1 July 2026 to 31 July 2026; the exact public registration window for this round is not clearly stated on the current page [uncertain].",
+      "Summer selection: register for the Ca' Foscari selection from 1 July 2026 to 28 August 2026; take the TOLC-E by midnight on 28 August 2026; admitted candidates must enrol by 10 September 2026."
+    ],
+    "enrolment_deadline": "31 July 2026 for admitted spring-round candidates; 10 September 2026 for admitted summer-round candidates.",
+    "notes": "The public page confirms two 2026/2027 selection rounds, spring and summer. English TOLC-E tests are not considered, and the best valid TOLC-E result is used.",
+    "source_url": "https://www.unive.it/web/en/12124/admission-and-enrolment"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "The exact application rounds for non-EU applicants requiring a study visa are shown on apply.unive.it only after selecting the correct applicant category [uncertain]."
+    ],
+    "visa_or_pre_enrolment_deadline": "Check the non-EU study-visa category deadline shown on apply.unive.it; the public Hospitality page does not state a single programme-specific visa deadline [uncertain].",
+    "current_status": "The 2026/2027 admission-rounds article is published, but the exact Hospitality deadline for non-EU visa applicants is category-based on apply.unive.it [uncertain].",
+    "notes": "Ca' Foscari accepts CEnT-S for Hospitality Innovation and e-Tourism in 2026/2027. The CEnT-S third-period results deadline of 30 June 2026 is too late for non-European applicants to submit an application, and the fourth-period results deadline is too late for any applicant with an international qualification.",
+    "source_url": "https://apply.unive.it/news/new/133-cent-s-entry-test-offered-english-cisia"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or ID card, or receipt of renewal/first request",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "European applicants may use an ID card; international applications without the mandatory identification document are rejected.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Valid residence permit or receipt of renewal/first request",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required for non-European applicants already residing in Italy or in the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Secondary-school mark sheet or transcript of records for at least the last year of study",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "If the applicant is still attending the last year of secondary school, a provisional mark sheet/transcript is mandatory; official English or Italian translations are required when needed.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Final secondary-school leaving qualification",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Optional at application stage if not yet available, but the final document must be uploaded before the end of the enrolment period if a provisional document was used; translations are required when needed.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Professional English or Italian translations of diplomas/transcripts",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Required when the original documents are not in English or Italian; translations may be issued by professional translators, courts, or court interpreters.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Statement of Comparability, Declaration of Value, ARDI Statement of Correspondence plus CIMEA Statement of Verification, or Diploma Supplement",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "These are not mandatory during the application procedure but are highly recommended because they support the evaluation of the qualification.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Recognised English B2 certificate or proof of exemption",
+      "stage": "enrolment",
+      "required_for": "programme_specific",
+      "notes": "Mandatory for enrolment in this English-taught programme.",
+      "source_url": "https://www.unive.it/web/en/12124/admission-and-enrolment"
+    },
+    {
+      "document_name": "TOLC-E result",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "Required for first-year ranking-based admission; English TOLC-E tests are not considered.",
+      "source_url": "https://www.unive.it/web/en/12124/admission-and-enrolment"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "TOLC-E; Ca' Foscari also accepts CEnT-S for 2026/2027",
+    "mandatory": true,
+    "applies_to": "All first-year applicants to this limited-admission programme; international applicants are also subject to preliminary evaluation for their qualification.",
+    "dates": "Summer selection: register from 1 July 2026 to 28 August 2026 and take the TOLC-E by midnight on 28 August 2026. Ca' Foscari-hosted TOLC@UNI dates for the summer selection are 28-30 July 2026, 4-7 August 2026, and 25-28 August 2026. The public page also confirms a spring selection round.",
+    "scoring_or_threshold": "Applicants are ranked on their TOLC-E result. A score below 9/36 (English section excluded) leads to a logic-mathematics OFA. English TOLC-E tests are not considered.",
+    "source_url": "https://www.unive.it/web/en/12124/admission-and-enrolment"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/web/en/12119/tuition-fees",
+  "official_program_url": "https://www.unive.it/degree/ctr9",
+  "official_call_url": "https://www.unive.it/web/en/12124/admission-and-enrolment",
+  "source_quotes": [
+    {
+      "quote": "Hospitality Innovation and e-Tourism",
+      "source_url": "https://www.unive.it/pag/15612/",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "This is a limited-admission programme taught in English",
+      "source_url": "https://www.unive.it/web/en/12124/admission-and-enrolment",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "must have completed at least 12 years of schooling",
+      "source_url": "https://www.unive.it/pag/41327/",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "A minimum B2-level knowledge of English is mandatory",
+      "source_url": "https://www.unive.it/web/en/12124/admission-and-enrolment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "two selection rounds: spring and summer",
+      "source_url": "https://www.unive.it/web/en/12124/admission-and-enrolment",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The current public page clearly states the spring-round acceptance and enrolment deadlines, but the spring registration window is not equally clear on the same public page.",
+    "For non-EU applicants requiring a study visa, Ca' Foscari routes applicants to citizenship-specific rounds on apply.unive.it rather than publishing a single Hospitality-specific public deadline."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu"
+  ]
+}

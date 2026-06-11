@@ -1,0 +1,99 @@
+{
+  "program_name": "European Studies",
+  "level": "master",
+  "official_level_type": "Laurea Magistrale",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Rome (Faculty of Law)",
+  "degree_class": "LM-90",
+  "course_code": "33468",
+  "faculty": "Giurisprudenza (Law), Department of Legal and Economic Studies",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33468",
+  "admission_type": "restricted access – verification of requirements and personal preparation",
+  "movein_preselection_required": true,
+  "admission_test_type": "Verification of curricular requirements and personal preparation; no standardized written entrance test",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (MoveIN route, visa-required)"
+  ],
+  "application_platform": "MoveIN platform for non-EU pre-selection; Infostud for admission",
+  "access_quota_non_eu": "[uncertain] – programme-specific non-EU quota not extracted",
+  "application_round": "September intake (A.Y. 2026-2027)",
+  "intake_semester_availability": "September intake",
+  "places_and_foreign_contingent": "[uncertain]",
+  "official_call_url": null,
+  "faculty_call_pdf_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33468_e.pdf",
+  "academic_requirements": {
+    "prior_degree": "A three-year bachelor's degree (Laurea or equivalent) in Law, Economics, Political Science, International Relations, or related field",
+    "curricular_requirements": "[uncertain] – specific ECTS/SSD requirements not extracted"
+  },
+  "country_specific_eligibility": "[uncertain] – see MoveIN academic requirements PDF 2026-2027",
+  "curricular_integration_policy": "[uncertain]",
+  "conditional_enrolment_policy": "[uncertain]",
+  "language_requirements": {
+    "level": "B2 CEFR in English (general Sapienza requirement; programme taught entirely in English)",
+    "note": "Programme is entirely taught in English, targeting international students and Italians wishing to acquire a strong command of EU law and economics."
+  },
+  "language_submission_timing": "[uncertain]",
+  "italian_language_requirement": "Italian not required for admission; programme taught entirely in English.",
+  "application_deadline_eu": "31 July 2026 for EU and EU-equivalent candidates [uncertain]",
+  "application_deadline_non_eu": "MoveIN pre-selection window 22 December 2025 – 15 May 2026 for non-EU candidates residing abroad",
+  "application_fee": "€30 per application via MoveIN (max 2 per candidate)",
+  "visa_preenrolment_deadline": "MoveIN pre-selection by 15 May 2026",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2025-2026",
+  "required_documents": [
+    "Bachelor's degree certificate or enrolment certificate",
+    "Academic transcript",
+    "Passport / ID",
+    "English language certificate (B2)",
+    "For foreign qualifications: Declaration of Value (DoV) or CIMEA statement"
+  ],
+  "document_translation_authentication": "Foreign documents require official translation and legalization/apostille plus Declaration of Value (DoV) or CIMEA statement.",
+  "entry_exam_or_test": {
+    "test": "No standardized written entrance test",
+    "selection": "Verification of curricular requirements and personal preparation"
+  },
+  "test_variant_and_session": null,
+  "test_score_conversion_or_threshold": "[uncertain]",
+  "source_quotes": [
+    {
+      "quote": "Programme: European studies; Degree Class: LM-90; Course Code: 33468; Faculty: Giurisprudenza; Language: English",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33468",
+      "supports_fields": ["program_name", "degree_class", "course_code", "faculty", "teaching_language"]
+    },
+    {
+      "quote": "Entirely taught in English. EU's Law and Economics curriculum: Economics of European Integration, European and Italian Public Law, Environmental Law and Economics.",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33468/objectives",
+      "supports_fields": ["teaching_language", "partially_english_flag"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/course/33468",
+    "https://corsidilaurea.uniroma1.it/en/course/33468/objectives",
+    "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33468_e.pdf",
+    "https://www.uniroma1.it/en/admissions"
+  ],
+  "source_year": "2025-2026",
+  "uncertainty_notes": [
+    "PROGRAMME NAME CORRECTION: Original outline item 'European Economy and Business Law' does not exist as a Sapienza programme. The correct name is 'European Studies' (Studi europei), code 33468, LM-90. Programme updated accordingly.",
+    "This programme covers EU law and economics, international relations — it does NOT have 'Business Law' in its title, but overlaps significantly in content.",
+    "Three curricula: EU's Law and Economics, International Relations, and Development Cooperation (confirm on programme page).",
+    "Specific curricular ECTS requirements not extracted.",
+    "Per-programme non-EU quota and places not extracted.",
+    "2026-2027 Call not yet published."
+  ],
+  "uncertain": [
+    "access_quota_non_eu",
+    "places_and_foreign_contingent",
+    "official_call_url",
+    "country_specific_eligibility",
+    "curricular_integration_policy",
+    "conditional_enrolment_policy",
+    "language_submission_timing",
+    "application_deadline_eu",
+    "test_score_conversion_or_threshold"
+  ]
+}

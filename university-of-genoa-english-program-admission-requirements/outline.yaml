@@ -1,0 +1,250 @@
+topic: "University of Genoa English-taught degree programme admission requirements"
+research_question: "List University of Genoa English-taught bachelor's, master's, and single-cycle degree programmes and collect official admission requirements for each programme, prioritising A.Y. 2026/2027."
+
+institution:
+  name: "University of Genoa"
+  short_name: "UniGe"
+  official_domains:
+    - "unige.it"
+    - "corsi.unige.it"
+    - "unigeapply.unige.it"
+
+source_policy:
+  allowed_sources: >-
+    Only official University of Genoa sources: central unige.it pages, the
+    corsi.unige.it course catalogue, official PDF calls / Bando documents hosted
+    on unige.it, and the UniGeApply international pre-evaluation portal.
+  excluded_sources: >-
+    Aggregators, agencies, forums, ranking sites, social media, and any
+    non-University pages. IMPORTANT: exclude switch edu-id, unige.eu and
+    unige.ch pages — those belong to the University of Geneva (Switzerland), not
+    Genoa (Italy).
+  priority_year: "2026/2027"
+  fallback_year: "Use the newest published official academic year (e.g. 2025/2026) when 2026/2027 is not yet available."
+
+# Verified entry points used to build this item list (cross-checked 2026-06-09).
+seed_sources:
+  english_course_catalogue:
+    url: "https://corsi.unige.it/en/corsi/lingua/en"
+    note: "Official course catalogue filtered to English-taught degree courses."
+  unigeapply_main:
+    url: "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    note: "UniGeApply international admissions hub for A.Y. 2026/27."
+  unigeapply_masters_english:
+    url: "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    note: "Pre-evaluation selection page listing English-taught Master's degrees for non-EU candidates."
+
+# Known global admission context (verified from UniGeApply, 2026/27).
+# Per-program deadlines should still be confirmed during deep research; these
+# are the institution-wide windows and the known early closures.
+known_context:
+  application_windows_2026_27:
+    fall_session_visa_applicants: "Opens 26 Nov 2025 — closes 20 Mar 2026"
+    spring_session_residents: "Opens 9 Apr 2026 — Master's close 28 Aug 2026; Bachelor's & single-cycle close 25 Sep 2026"
+  known_early_closures_fall_session:
+    maritime-science-and-technology: "18 Feb 2026"
+    computer-engineering-bachelor: "8 Mar 2026"
+    medical-pharmaceutical-biotechnology: "13 Feb 2026"
+  candidates_per_application: "Up to 2 courses of study per applicant on UniGeApply."
+
+# 27 programmes total: 24 verified in the official English catalogue
+# (2 bachelor + 22 master) + 2 extra English masters seen on UniGeApply
+# (codes to confirm) + Medicine (single-cycle, to verify whether English exists).
+items:
+  # ---- Bachelor's Degrees (English) ----
+  - id: computer-engineering-bachelor
+    program_name: "Computer Engineering"
+    level: "bachelor"
+    course_code: "12133"
+    official_program_url: "https://corsi.unige.it/en/corsi/12133"
+    uncertainty_notes: "Based at the Imperia campus. Confirm entry test for non-EU students (TOLC-I / English TOLC-I)."
+
+  - id: maritime-science-and-technology
+    program_name: "Maritime Science and Technology"
+    level: "bachelor"
+    course_code: "11929"
+    official_program_url: "https://corsi.unige.it/en/corsi/11929"
+    uncertainty_notes: "Confirm physical/health requirements (naval STCW standard) and any restricted-access selection."
+
+  # ---- Master's Degrees (English) ----
+  - id: advanced-materials-science-and-technology
+    program_name: "Advanced Materials Science and Technology"
+    level: "master"
+    course_code: "11967"
+    official_program_url: "https://corsi.unige.it/en/corsi/11967"
+    uncertainty_notes: ""
+
+  - id: architectural-composition
+    program_name: "Architectural Composition"
+    level: "master"
+    course_code: "11930"
+    official_program_url: "https://corsi.unige.it/en/corsi/11930"
+    uncertainty_notes: "Architecture masters are often restricted-access; confirm selection call and portfolio requirements."
+
+  - id: bioengineering
+    program_name: "Bioengineering"
+    level: "master"
+    course_code: "11933"
+    official_program_url: "https://corsi.unige.it/en/corsi/11933"
+    uncertainty_notes: ""
+
+  - id: computer-engineering-master
+    program_name: "Computer Engineering"
+    level: "master"
+    course_code: "11965"
+    official_program_url: "https://corsi.unige.it/en/corsi/11965"
+    uncertainty_notes: "Distinct from the bachelor (code 12133); keep separate."
+
+  - id: computer-science
+    program_name: "Computer Science"
+    level: "master"
+    course_code: "11964"
+    official_program_url: "https://corsi.unige.it/en/corsi/11964"
+    uncertainty_notes: ""
+
+  - id: digital-humanities
+    program_name: "Digital Humanities - Interactive Systems and Digital Media"
+    level: "master"
+    course_code: "11945"
+    official_program_url: "https://corsi.unige.it/en/corsi/11945"
+    uncertainty_notes: ""
+
+  - id: economics-and-data-science
+    program_name: "Economics and Data Science"
+    level: "master"
+    course_code: "11937"
+    official_program_url: "https://corsi.unige.it/en/corsi/11937"
+    uncertainty_notes: ""
+
+  - id: electrical-engineering-for-energy-transition
+    program_name: "Electrical Engineering for Energy Transition"
+    level: "master"
+    course_code: "11955"
+    official_program_url: "https://corsi.unige.it/en/corsi/11955"
+    uncertainty_notes: ""
+
+  - id: electronic-engineering
+    program_name: "Electronic Engineering"
+    level: "master"
+    course_code: "11970"
+    official_program_url: "https://corsi.unige.it/en/corsi/11970"
+    uncertainty_notes: ""
+
+  - id: energy-engineering
+    program_name: "Energy Engineering"
+    level: "master"
+    course_code: "11917"
+    official_program_url: "https://corsi.unige.it/en/corsi/11917"
+    uncertainty_notes: "Catalogue tags this as English+Italian language course; confirm teaching language."
+
+  - id: engineering-for-natural-risk-management
+    program_name: "Engineering for Natural Risk Management"
+    level: "master"
+    course_code: "11921"
+    official_program_url: "https://corsi.unige.it/en/corsi/11921"
+    uncertainty_notes: ""
+
+  - id: engineering-technology-for-strategy-and-security
+    program_name: "Engineering Technology for Strategy and Security"
+    level: "master"
+    course_code: "11994"
+    official_program_url: "https://corsi.unige.it/en/corsi/11994"
+    uncertainty_notes: ""
+
+  - id: environmental-engineering
+    program_name: "Environmental Engineering"
+    level: "master"
+    course_code: "11925"
+    official_program_url: "https://corsi.unige.it/en/corsi/11925"
+    uncertainty_notes: ""
+
+  - id: chemical-and-processes-engineering
+    program_name: "Chemical and Processes Engineering"
+    level: "master"
+    course_code: "11919"
+    official_program_url: "https://corsi.unige.it/en/corsi/11919"
+    uncertainty_notes: "Did not appear on UniGeApply English master's list; confirm whether fully English or English+Italian."
+
+  - id: civil-engineering
+    program_name: "Civil Engineering"
+    level: "master"
+    course_code: "11926"
+    official_program_url: "https://corsi.unige.it/en/corsi/11926"
+    uncertainty_notes: "Did not appear on UniGeApply English master's list; confirm teaching language (may be English+Italian)."
+
+  - id: building-engineering
+    program_name: "Building Engineering"
+    level: "master"
+    course_code: "11969"
+    official_program_url: "https://corsi.unige.it/en/corsi/11969"
+    uncertainty_notes: "UniGeApply lists a 'Building Engineering - Building Retrofitting' track; confirm exact name and language."
+
+  - id: internet-and-multimedia-engineering
+    program_name: "Internet and Multimedia Engineering"
+    level: "master"
+    course_code: "11962"
+    official_program_url: "https://corsi.unige.it/en/corsi/11962"
+    uncertainty_notes: ""
+
+  - id: medical-pharmaceutical-biotechnology
+    program_name: "Medical-Pharmaceutical Biotechnology"
+    level: "master"
+    course_code: "11922"
+    official_program_url: "https://corsi.unige.it/en/corsi/11922"
+    uncertainty_notes: "Restricted access; known fall early closure 13 Feb 2026. Confirm selection call and prerequisites."
+
+  - id: robotics-engineering
+    program_name: "Robotics Engineering"
+    level: "master"
+    course_code: "11963"
+    official_program_url: "https://corsi.unige.it/en/corsi/11963"
+    uncertainty_notes: ""
+
+  - id: safe-transport-and-logistics-engineering
+    program_name: "Safe Transport and Logistics Engineering"
+    level: "master"
+    course_code: "11920"
+    official_program_url: "https://corsi.unige.it/en/corsi/11920"
+    uncertainty_notes: ""
+
+  - id: sustainable-polymer-and-process-chemistry
+    program_name: "Sustainable Polymer and Process Chemistry"
+    level: "master"
+    course_code: "11950"
+    official_program_url: "https://corsi.unige.it/en/corsi/11950"
+    uncertainty_notes: "UniGeApply brands this as 'SMART'; confirm full official name."
+
+  - id: yacht-design
+    program_name: "Yacht Design"
+    level: "master"
+    course_code: "11958"
+    official_program_url: "https://corsi.unige.it/en/corsi/11958"
+    uncertainty_notes: ""
+
+  # ---- Extra English masters seen on UniGeApply (course codes to confirm) ----
+  - id: management-for-energy-and-environmental-transition-meet
+    program_name: "Management for Energy and Environmental Transition (MEET)"
+    level: "master"
+    course_code: ""
+    official_program_url: ""
+    uncertainty_notes: "Listed on UniGeApply English master's selection page but not matched in the catalogue fetch. Find official course code and program URL; confirm it is a distinct English master (not a track of an existing one)."
+
+  - id: international-relations
+    program_name: "International Relations - Security and International Relations"
+    level: "master"
+    course_code: ""
+    official_program_url: ""
+    uncertainty_notes: "Listed on UniGeApply English master's selection page but not matched in the catalogue fetch. Find official course code and program URL; confirm English teaching language."
+
+  # ---- Single-cycle (to verify whether an English-taught version exists) ----
+  - id: medicine-and-surgery
+    program_name: "Medicine and Surgery"
+    level: "single-cycle"
+    course_code: "11887"
+    official_program_url: "https://corsi.unige.it/en/corsi/11887"
+    uncertainty_notes: "NOT present in the official English course catalogue filter. An older draft listed it as English single-cycle. VERIFY FIRST whether an English-taught Medicine and Surgery actually exists at UniGe (IMAT-based). If teaching language is Italian, mark out of scope and drop."
+
+execution:
+  batch_size: 9          # number of parallel deep-research agents
+  items_per_agent: 3     # programmes handled per agent (27 items / 3 ≈ 9 agents)
+  output_dir: "./results"

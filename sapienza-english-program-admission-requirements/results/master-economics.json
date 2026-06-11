@@ -1,0 +1,97 @@
+{
+  "program_name": "Economics",
+  "level": "master",
+  "official_level_type": "Laurea Magistrale",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Rome (Faculty of Economics)",
+  "degree_class": "LM-56",
+  "course_code": "33440",
+  "faculty": "Economia (Economics)",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33440",
+  "admission_type": "restricted access – verification of requirements and personal preparation",
+  "movein_preselection_required": true,
+  "admission_test_type": "Verification of curricular requirements and personal preparation; possible interview",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (MoveIN route, visa-required)"
+  ],
+  "application_platform": "MoveIN platform for non-EU pre-selection; Infostud for admission",
+  "access_quota_non_eu": "[uncertain] – programme-specific non-EU quota not extracted",
+  "application_round": "September intake (A.Y. 2026-2027)",
+  "intake_semester_availability": "September intake",
+  "places_and_foreign_contingent": "[uncertain] – not extracted from sources",
+  "official_call_url": null,
+  "faculty_call_pdf_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33440_e.pdf",
+  "academic_requirements": {
+    "prior_degree": "A three-year bachelor's degree or equivalent, preferably in economics, mathematics, or related social sciences",
+    "curricular_requirements": "[uncertain] – specific ECTS/SSD requirements not extracted"
+  },
+  "country_specific_eligibility": "[uncertain] – see MoveIN academic requirements PDF 2026-2027",
+  "curricular_integration_policy": "[uncertain] – not specified in sources checked",
+  "conditional_enrolment_policy": "[uncertain] – not specified in sources checked",
+  "language_requirements": {
+    "level": "B2 CEFR in English (general Sapienza requirement for English-taught programmes)",
+    "note": "[uncertain] – programme-specific English certificate requirements not extracted"
+  },
+  "language_submission_timing": "[uncertain]",
+  "italian_language_requirement": "Italian not required for admission to English-taught programme.",
+  "application_deadline_eu": "31 July 2026 for EU and EU-equivalent candidates [uncertain]",
+  "application_deadline_non_eu": "MoveIN pre-selection window 22 December 2025 – 15 May 2026 for non-EU candidates residing abroad",
+  "application_fee": "€30 per application via MoveIN (max 2 per candidate per intake)",
+  "visa_preenrolment_deadline": "MoveIN pre-selection by 15 May 2026",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2025-2026",
+  "required_documents": [
+    "Bachelor's degree certificate or enrolment certificate",
+    "Academic transcript with ECTS/CFU detail",
+    "Passport / ID",
+    "English language certificate (B2)",
+    "For foreign qualifications: Declaration of Value (DoV) or CIMEA statement"
+  ],
+  "document_translation_authentication": "Foreign documents require official translation and legalization/apostille plus Declaration of Value (DoV) or CIMEA statement.",
+  "entry_exam_or_test": {
+    "test": "No standardized written entrance test",
+    "selection": "Verification of curricular requirements and personal preparation"
+  },
+  "test_variant_and_session": "[uncertain]",
+  "test_score_conversion_or_threshold": "[uncertain]",
+  "source_quotes": [
+    {
+      "quote": "Economics (course code 33440, LM-56) – Faculty of Economics; found in English-filtered catalogue",
+      "source_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33440_e.pdf",
+      "supports_fields": ["course_code", "degree_class", "faculty"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/solr-offerta-formativa-t?f[0]=field_lingua_erogazione:value:en",
+    "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33440_e.pdf",
+    "https://economia.web.uniroma1.it/en/masters-degree-programs",
+    "https://www.uniroma1.it/en/admissions"
+  ],
+  "source_year": "2025-2026",
+  "uncertainty_notes": [
+    "Course code 33440 inferred from PDF URL found in search results; verify on English-filtered catalogue.",
+    "Multiple Economics-related LM-56 codes exist at Sapienza (33440, 33441, 33444, 33445); confirm this is the correct English Economics master.",
+    "Specific curricular ECTS requirements not extracted from programme page.",
+    "2026-2027 Call not yet published.",
+    "Per-programme non-EU quota and total places not extracted."
+  ],
+  "uncertain": [
+    "course_code",
+    "official_program_url",
+    "access_quota_non_eu",
+    "places_and_foreign_contingent",
+    "official_call_url",
+    "country_specific_eligibility",
+    "curricular_integration_policy",
+    "conditional_enrolment_policy",
+    "language_requirements",
+    "language_submission_timing",
+    "application_deadline_eu",
+    "test_variant_and_session",
+    "test_score_conversion_or_threshold"
+  ]
+}

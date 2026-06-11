@@ -1,0 +1,139 @@
+{
+  "program_name": "Safety Assessment of Xenobiotics and Biotechnological Products",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan (Citta Studi teaching facilities)",
+  "degree_class": "LM-9 R - Medical, veterinary and pharmaceutical biotechnologies [uncertain]",
+  "admission_type": "Open with entry requirements examination",
+  "academic_requirements": "Applicants need a first-cycle degree or a suitable equivalent foreign qualification. The programme is open to graduates in the Italian degree classes L-2 or L-29. Graduates from other degree areas may apply if they hold at least 9 ECTS in CHIM/01, CHIM/03 or CHIM/06, at least 5 ECTS in BIO/09, at least 12 ECTS in BIO/10, BIO/11 or BIO/13, and at least 6 ECTS in BIO/14. Applicants with a foreign qualification must demonstrate equivalent background knowledge in biology, chemistry, biochemistry, pharmacology, toxicology and physiology; the Teaching Board's committee checks these requirements. The manifesto states that 180 credits are required for admission. Applicants who have not yet graduated may apply if they expect to graduate, and meet the entry requirements, by 31 October 2026.",
+  "language_requirements": "The programme application page states that candidates who meet the curricular requirements are invited to an admission interview in English. That interview verifies both subject preparation and English proficiency equivalent to CEFR B2. The 2026/2027 admission notice does not publish a separate compulsory English-certificate list or a dedicated upload requirement for admission; the official route published for this programme is assessment during the entry-requirements process. The manifesto separately mentions Additional Language Skills: Italian at CEFR A2 for foreign students as an elective/other-activities option, not as an admission requirement.",
+  "application_deadline_eu": "EU and equivalent applicants: online admission application from 22 January 2026 to 20 July 2026; admitted applicants enrol from 5 May 2026 to 30 November 2026; the degree and curricular requirements must be completed by 31 October 2026. [uncertain]",
+  "application_deadline_non_eu": "Non-EU applicants requiring a visa: online admission application from 22 January 2026 to 30 April 2026; Universitaly pre-enrolment must be submitted by 31 July 2026; admitted applicants enrol by 30 November 2026; applicants with foreign qualifications must complete their enrolment documentation by 30 November 2026.",
+  "required_documents": [
+    "For applicants with an Italian qualification: self-certification of degree or current enrolment with exam records; for graduates or graduating students from other Italian universities, the record must include the exams taken, grades, ECTS credits, and disciplinary scientific sectors.",
+    "For applicants with a foreign qualification at the admission-application stage: Bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with a foreign qualification at the admission-application stage: diploma supplement, or a transcript of records including courses, marks, ECTS, academic field, and the grading system used by the university, in English, Italian, French, German, or Spanish.",
+    "For applicants with a foreign qualification at the admission-application stage: passport or other valid ID.",
+    "For applicants with a foreign qualification at enrolment finalisation: legalized or apostilled Bachelor's degree (or equivalent), unless legalisation or apostille is exempt.",
+    "For applicants with a foreign qualification at enrolment finalisation: high school diploma.",
+    "For applicants with a foreign qualification at enrolment finalisation: official Italian translation of the academic qualifications, unless the originals are in French, English, German, or Spanish.",
+    "For applicants with a foreign qualification at enrolment finalisation: Statement of Comparability issued by an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore in loco (DOV); for Lisbon Convention countries, a Diploma Supplement or ARDI Correspondence Statement may replace the DOV and Statement of Comparability.",
+    "For applicants with a foreign qualification at enrolment finalisation: Italian tax code.",
+    "For non-EU applicants at enrolment finalisation: receipt of the residence-permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "The programme is officially 'open with entry requirements examination'. The Admission Board verifies the initial preparation of candidates by checking the curricular requirements and, according to the admission notice, may request an interview and/or a written test in person or remotely. The current programme application page specifies that candidates meeting the minimum requirements are invited to an admission interview in English, possibly remote, to verify their background and English at B2 level.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/safety-assessment-xenobiotics-and-biotechnological-products",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-safety-assessment-of-xenobiotics-and-biotechnological-products-%28classe-lm-9-.pdf?30-MAR-26",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Master programme ... LM-9 R ... Access Open with entry requirements examination ... Course location Milan ... Language English.",
+      "url": "https://www.unimi.it/en/education/master-programme/safety-assessment-xenobiotics-and-biotechnological-products",
+      "field_refs": [
+        "program_name",
+        "level",
+        "academic_year",
+        "degree_class",
+        "admission_type",
+        "campus",
+        "teaching_language",
+        "official_program_url"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "graduates with Italian degree ... in the classes L-2 or L-29 ... at least 9 credits ... CHIM/01, CHIM/03 or CHIM/06 ... 5 credits in BIO/09 ... 12 credits in BIO/10, BIO/11 or BIO/13 ... 6 credits in BIO/14.",
+      "url": "https://safetyassessment.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The interview ... is aimed at verifying the above mentioned skills and the knowledge of the English Language equivalent to B2 level.",
+      "url": "https://safetyassessment.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Online admission application for EU candidates and equivalents from 22 January to 20 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-safety-assessment-of-xenobiotics-and-biotechnological-products-%28classe-lm-9-.pdf?30-MAR-26",
+      "field_refs": [
+        "application_deadline_eu",
+        "official_call_url"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Italian students and students with foreign qualification from EU Countries: from January 22 to July 31, 2026.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_EBBof2_2027.pdf",
+      "field_refs": [
+        "application_deadline_eu",
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Online admission application for non-EU candidates applying for a visa from 22 January to 30 April 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-safety-assessment-of-xenobiotics-and-biotechnological-products-%28classe-lm-9-.pdf?30-MAR-26",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-safety-assessment-of-xenobiotics-and-biotechnological-products-%28classe-lm-9-.pdf?30-MAR-26",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The online admission service requires ... Self-certification of degree/enrolment with exam records.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-safety-assessment-of-xenobiotics-and-biotechnological-products-%28classe-lm-9-.pdf?30-MAR-26",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The online admission service requires ... Bachelor’s Degree ... Diploma supplement or ... transcript ... Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-safety-assessment-of-xenobiotics-and-biotechnological-products-%28classe-lm-9-.pdf?30-MAR-26",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor’s degree ... legalized or apostilled ... High school diploma ... Statement of Comparability ... or a Dichiarazione di Valore ... Italian tax code ... residence permit.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-safety-assessment-of-xenobiotics-and-biotechnological-products-%28classe-lm-9-.pdf?30-MAR-26",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Fees - 2026/2027 ... University tuition: fees and payment procedures, reductions and exemptions ... Academic year 2026/27.",
+      "url": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "field_refs": [
+        "tuition_or_fees_link"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official 2026/2027 sources disagree on the EU/equivalent admission deadline: the programme page and the admission notice state 20 July 2026, while the 2026/2027 manifesto states 31 July 2026. This JSON follows the admission notice and marks application_deadline_eu as uncertain.",
+    "The admission notice summary table contains an apparent typo for enrolment ('from 5 May 2025 to 30 November 2026'). The same notice later states that admitted candidates should enrol from 5 May 2026 to 30 November 2026, which matches the programme page; the JSON uses 2026.",
+    "The official degree-class label is published in Italian ('Biotecnologie mediche, veterinarie e farmaceutiche'). The degree_class field uses an English rendering to satisfy the English-only output requirement."
+  ],
+  "uncertain": [
+    "degree_class",
+    "application_deadline_eu"
+  ]
+}

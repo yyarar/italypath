@@ -321,6 +321,43 @@ const UNIVERSITY_CHECKS = [
     ],
   },
   {
+    universityId: 10,
+    label: "Milan",
+    expectedDetailCount: 45,
+    criticalPrograms: [
+      {
+        name: "Artificial Intelligence",
+        level: "bachelor",
+        missingProgramMessage: "Missing expected Milan program: Artificial Intelligence (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Computer Science",
+        level: "master",
+        missingProgramMessage: "Missing expected Milan program: Computer Science (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "International Medical School (IMS)",
+        level: "single-cycle",
+        missingProgramMessage:
+          "Missing expected Milan program: International Medical School (IMS) (single-cycle)",
+        requiresDetails: true,
+        expectedDurationYears: 6,
+        expectedUncertainField: "admission_type",
+      },
+      {
+        name: "Quantitative Biology",
+        level: "master",
+        missingProgramMessage: "Missing expected Milan program: Quantitative Biology (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+    ],
+  },
+  {
     universityId: 20,
     label: "Genoa",
     expectedDetailCount: 24,

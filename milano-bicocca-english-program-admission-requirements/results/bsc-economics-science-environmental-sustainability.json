@@ -1,0 +1,140 @@
+{
+  "program_name": "Economics and Science for Environmental Sustainability (ESES)",
+  "level": "bachelor",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "L-33 R (Degrees in Economic Sciences)",
+  "admission_type": "restricted access (limited enrolment with entry-requirements examination via English TOLC-E; ranking-based selection)",
+  "academic_requirements": {
+    "summary": "Limited-enrolment (number-capped) bachelor's programme. Admission is by ranking, based on the English TOLC-E score. A valid upper-secondary-school diploma (or a recognised equivalent foreign qualification) is required, together with a minimum TOLC-E score and a B2 English requirement.",
+    "prior_degree_or_diploma": "An upper-secondary-school diploma that grants access to university, or an equivalent foreign qualification recognised as suitable (foreign title valid if obtained after at least 12 years of schooling, with any academic-aptitude test required in the issuing country).",
+    "subject_requirements": "Minimum English TOLC-E performance: a minimum score of 4 in the Mathematics section and a minimum total score of 13 in the test (per the 2025/2026 call). Selection is by ranking of TOLC-E scores.",
+    "available_places": "150 places for academic year 2025/2026, divided as: a single selection for non-EU visa applicants; 80 places for the first (EU/equivalent) selection; 50 places for the second (EU/equivalent) selection, plus any places left over. (For early admission to 2026/2027, 22 places are reserved for penultimate-year secondary-school students.)",
+    "international_qualification": "Candidates with a foreign qualification must upload their qualification documents for verification on the apply.unimib.it (Dream Apply) portal; non-EU candidates requiring a visa take part in a dedicated single selection.",
+    "source_url": "https://www.unimib.it/sites/default/files/2025-05/Bando%20di%20ammissione%20ESES_EN_2%20versione%20DEF.pdf"
+  },
+  "language_requirements": {
+    "required_level": "English B2 or higher (CEFR).",
+    "accepted_proofs": [
+      "An English-language certificate recognised by the University corresponding to level B2 or higher, obtained no more than 3 calendar years before the application deadline.",
+      "Holding a passport from a recognised English-speaking country (Antigua and Barbuda, Australia, Bahamas, Barbados, Belize, Canada, Dominica, Grenada, Guyana, Ireland, Jamaica, Malta, New Zealand, St Kitts and Nevis, St Lucia, St Vincent and the Grenadines, Trinidad and Tobago, United Kingdom, USA).",
+      "Candidates with an Italian qualification who do not hold a certificate may sit an in-person English language proficiency test at the University of Milano-Bicocca on set dates."
+    ],
+    "certificate_upload_or_deadline": "Candidates with a foreign qualification must submit the English language certificate by 31 July 2025 (per the 2025/2026 call); the B2 requirement must be met by the application deadline of the relevant selection.",
+    "notes": "The B2 English certificate is required 'if already possessed' at application; foreign-qualification candidates without it may be admitted subject to obtaining appropriate language certification by 31 July 2025.",
+    "source_url": "https://www.unimib.it/sites/default/files/2025-05/Bando%20di%20ammissione%20ESES_EN_2%20versione%20DEF.pdf"
+  },
+  "entry_exam_or_test": {
+    "test_name": "English TOLC-E (CISIA) - English-language Test OnLine for Economics.",
+    "mandatory": true,
+    "is_selective": true,
+    "applies_to": "All applicants to the ESES bachelor (EU/equivalent, non-EU visa applicants and Marco Polo candidates).",
+    "format": "CISIA English TOLC-E, taken via the CISIA portal (cisiaonline.it) at any CISIA member university and in any mode (TOLC@UNI or TOLC@CASA); not required to be taken at Milano-Bicocca. Structure and syllabus: https://www.cisiaonline.it/tolc/english-tolc-e/structure-and-syllabus",
+    "dates": "TOLC-E must be taken within the timeframe set per selection (e.g. for 2025/2026: from January 2024 until 30 April 2025 for the non-EU single selection, until 26 May 2025 for the first EU selection, until 5 September 2025 for the second EU selection).",
+    "scoring_or_threshold": "Minimum score of 4 in the Mathematics section and a minimum total score of 13 in the test; admission is then determined by ranking of scores against available places.",
+    "source_url": "https://www.unimib.it/sites/default/files/2025-05/Bando%20di%20ammissione%20ESES_EN_2%20versione%20DEF.pdf"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "For A.Y. 2026/2027 (apply.unimib.it admission calls for EU citizens and non-EU citizens residing in Italy): 1st call 10 February 2026 - 31 March 2026; 2nd call 15 April 2026 - 6 July 2026; 3rd call 7 July 2026 - 7 September 2026.",
+      "Reference structure from the 2025/2026 ESES call: First (EU/equivalent) selection application by 28 May 2025 (12:00); Second (EU/equivalent) selection application by 8 September 2025 (12:00). Italian-qualification candidates apply via the Online Student Registry; foreign-qualification candidates apply via apply.unimib.it."
+    ],
+    "enrolment_deadline": "For the 2025/2026 first selection: acceptance/enrolment and payment of first instalment from 5 to 12 June 2025, with reopening/repechage windows through 30 June 2025; foreign-qualification candidates submit enrolment documentation by 31 October 2025.",
+    "notes": "Exact programme-specific 2026/2027 EU windows for ESES are governed by the 'Call for applications Economics and Statistics degree programmes a.y. 2026/2027' and the general apply.unimib.it 2026/27 calendar; the detailed deadline tables shown here are from the latest published full ESES call (2025/2026) plus the 2026/27 institution-wide calendar.",
+    "source_url": "https://apply.unimib.it/en_GB/news/new/39-apply-202627-admission-calls-and-deadlines"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "For A.Y. 2026/2027 (apply.unimib.it admission calls for non-EU citizens residing abroad and requiring a study visa - bachelor's): 1st call 7 November 2025 - 16 January 2026; 2nd call 16 March 2026 - 16 April 2026.",
+      "Reference structure from the 2025/2026 ESES call (single selection for non-EU visa applicants): English TOLC-E taken from January 2024 until 30 April 2025; application for inclusion in the ranking on apply.unimib.it by 2 May 2025 (12:00); ranking posted 9 May 2025; acceptance of offer 9-16 May 2025."
+    ],
+    "visa_or_pre_enrolment_deadline": "Per the 2025/2026 non-EU single selection: pre-enrolment on www.universitaly.it from 9 May to 31 July 2025; English certificate by 31 July 2025; foreign diploma by 31 August 2025; enrolment documentation by 31 October 2025; study visa issued by 31 January 2026; originals reviewed by the International Admissions office by 28 February 2026. For 2026/2027 the visa must be issued by 31 January 2027 and originals checked by 28 February 2027.",
+    "notes": "Non-EU visa applicants take part only in the dedicated single (non-EU) selection. Programme-specific 2026/2027 ESES non-EU dates are set in the 2026/2027 Economics/Statistics call; the dates here combine the latest full ESES call (2025/2026) with the 2026/27 institution-wide non-EU calendar.",
+    "source_url": "https://apply.unimib.it/en_GB/news/new/39-apply-202627-admission-calls-and-deadlines"
+  },
+  "required_documents": [
+    {
+      "document_name": "Upper-secondary-school diploma (or certificate of attendance / provisional certificate if not yet graduated)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Uploaded on apply.unimib.it for foreign-qualification candidates; verification of the foreign qualification is required before the application deadline.",
+      "source_url": "https://www.unimib.it/sites/default/files/2025-05/Bando%20di%20ammissione%20ESES_EN_2%20versione%20DEF.pdf"
+    },
+    {
+      "document_name": "Additional qualification documentation (e.g. AP for US diplomas, A-levels for British diplomas, Gaokao for China, ENEM for Brazil)",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Required where applicable to validate the foreign secondary qualification; if a 12-year school record is not met, evidence of 1-2 years of academic studies or a foundation course may be needed.",
+      "source_url": "https://apply.unimib.it/en_GB/news/new/13-bachelors-single-cycle-masters-degree---required-documents"
+    },
+    {
+      "document_name": "Identity document (passport for non-EU; ID card for EU or EU-equated applicants)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Passport required for non-EU candidates; ID card accepted for EU/equated candidates.",
+      "source_url": "https://www.unimib.it/sites/default/files/2025-05/Bando%20di%20ammissione%20ESES_EN_2%20versione%20DEF.pdf"
+    },
+    {
+      "document_name": "English TOLC-E test certificate / result",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Obtained via the CISIA portal; required for inclusion in the selection ranking.",
+      "source_url": "https://www.unimib.it/sites/default/files/2025-05/Bando%20di%20ammissione%20ESES_EN_2%20versione%20DEF.pdf"
+    },
+    {
+      "document_name": "English language certificate at B2 level (among those recognised by the University), if already possessed",
+      "stage": "application/enrolment",
+      "required_for": "all",
+      "notes": "Foreign-qualification candidates submit by 31 July 2025 (per 2025/2026 call); candidates without a certificate may sit the in-person English test or use a passport-based exemption.",
+      "source_url": "https://www.unimib.it/sites/default/files/2025-05/Bando%20di%20ammissione%20ESES_EN_2%20versione%20DEF.pdf"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment receipt, entry study visa and residence-permit application receipt",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Non-EU visa applicants complete pre-enrolment on Universitaly; the entry visa must be issued by the published deadline (31 January 2026 for 2025/26; 31 January 2027 for 2026/27).",
+      "source_url": "https://apply.unimib.it/en_GB/news/new/13-bachelors-single-cycle-masters-degree---required-documents"
+    }
+  ],
+  "tuition_or_fees_link": "https://en.unimib.it/services/fees-and-funding",
+  "official_program_url": "https://en.unimib.it/undergraduate/economics-science-environmental-sustainability",
+  "official_call_url": "https://www.unimib.it/sites/default/files/2025-05/Bando%20di%20ammissione%20ESES_EN_2%20versione%20DEF.pdf",
+  "source_quotes": [
+    {
+      "quote": "CALL FOR APPLICATIONS FOR ADMISSION TO THE DEGREE IN ECONOMICS AND SCIENCE FOR ENVIRONMENTAL SUSTAINABILITY (Class L-33 R)",
+      "source_url": "https://www.unimib.it/sites/default/files/2025-05/Bando%20di%20ammissione%20ESES_EN_2%20versione%20DEF.pdf",
+      "field_supported": "program_name, degree_class"
+    },
+    {
+      "quote": "The CISIA admissions test for the degree programme referred to in this call for applications is the English TOLC-E.",
+      "source_url": "https://www.unimib.it/sites/default/files/2025-05/Bando%20di%20ammissione%20ESES_EN_2%20versione%20DEF.pdf",
+      "field_supported": "entry_exam_or_test, admission_type"
+    },
+    {
+      "quote": "Have taken the English TOLC-E ... with a minimum score of 4 in the Mathematics section and a minimum score of 13 on the total score obtained in the test ... Have a level of knowledge of the English language of B2 or higher",
+      "source_url": "https://www.unimib.it/sites/default/files/2025-05/Bando%20di%20ammissione%20ESES_EN_2%20versione%20DEF.pdf",
+      "field_supported": "entry_exam_or_test, language_requirements"
+    },
+    {
+      "quote": "150 places are available for the 2025/2026 academic year ... Places allocated to the first selection procedure: 80 ... Places allocated to the second selection procedure: 50",
+      "source_url": "https://www.unimib.it/sites/default/files/2025-05/Bando%20di%20ammissione%20ESES_EN_2%20versione%20DEF.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Submit pre-enrolment on www.universitaly.it: From 9 May to 31 July 2025 ... Last date of issue of study visa: 31 January 2026",
+      "source_url": "https://www.unimib.it/sites/default/files/2025-05/Bando%20di%20ammissione%20ESES_EN_2%20versione%20DEF.pdf",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The latest fully published, programme-specific ESES call available is the 2025/2026 call (which also contains a 2026/2027 EARLY-admission annex reserved for penultimate-year secondary-school students with 22 places). The complete 2026/2027 ordinary ESES call (within the 'Call for applications Economics and Statistics degree programmes a.y. 2026/2027') was referenced but its full deadline tables were not directly readable; 2026/2027 dates given here are the institution-wide apply.unimib.it 2026/27 calendar.",
+    "B2 English: CONFIRMED required (B2 or higher), with certificate, passport-based exemption, or an in-person UNIMIB English test as alternatives.",
+    "Entry test: CONFIRMED it is the CISIA English TOLC-E (min 4 in Mathematics, min total 13), not a different test; selection is by ranking.",
+    "EU vs non-EU calls: CONFIRMED separate procedures (single non-EU visa selection vs first/second EU selections). Exact ESES-specific 2026/2027 round dates should be reconfirmed from the 2026/2027 Economics/Statistics call PDF once published.",
+    "tuition_or_fees_link points to the general UNIMIB fees-and-funding page; no programme-specific fee amount is invented."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu"
+  ]
+}

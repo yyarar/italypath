@@ -1,0 +1,177 @@
+{
+  "program_name": "Data Science",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Padua, Italy",
+  "degree_class": "LM-91 - Methods and techniques for the information society",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a bachelor's degree or equivalent foreign qualification and a strong background in mathematics, probability, and computer science. For international applicants, the programme evaluates curriculum content, exam grades, and GPA; the official University platform also refers applicants to country-based entry-title and GPA requirements.",
+    "prior_degree_or_diploma": "Bachelor's degree or equivalent foreign qualification.",
+    "subject_requirements": "The official programme pages require proven skills in Mathematics and Computer Science, such as calculus, linear algebra, probability, computer programming, and algorithms. The department admission page states that international applications are evaluated on coursework in Mathematics, Probability, and Computer Science.",
+    "gpa_or_country_requirements": "For international students, the programme evaluates exam grades and GPA. The apply.unipd.it page also requires applicants to verify country-based specific entry-title and GPA requirements. A fixed threshold of 85/110 is stated only for students from Italian universities.",
+    "source_url": "https://datascience.math.unipd.it/admission/"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent.",
+    "accepted_proofs": [
+      "TOEFL iBT: minimum score 80.",
+      "IELTS Academic or General Training: minimum score 6.0.",
+      "Cambridge English B2 First: minimum score 173.",
+      "Pearson Test of English General: PTE General 3.",
+      "Pearson English International Certificate: Level 3 Upper Intermediate.",
+      "Pearson Test of English Academic: minimum score 65."
+    ],
+    "exemption_rules": [
+      "Applicants are exempt if the previous education leading to the entry qualification was completed entirely in English.",
+      "Applicants are exempt if they are native English speakers from one of the countries listed by the University of Padua."
+    ],
+    "deadline": "31 August 2026 for open-access degree programmes.",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "2 June 2026 - 2 August 2026",
+    "notes": "The official programme page states that Call Two and Call Three are for EU and EU-equated applicants only.",
+    "source_url": "https://www.unipd.it/en/data-science"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026 [uncertain]",
+    "call_three": "Not applicable for non-EU applicants residing outside Italy.",
+    "notes": "The official programme page restricts Call Two and Call Three to EU and EU-equated applicants, while the official apply.unipd.it page explicitly restricts only Call Three. Non-EU access to Call Two is therefore marked uncertain. The department admission page also states that non-EU students residing abroad are admitted within a quota of 50 places.",
+    "source_url": "https://www.unipd.it/en/data-science"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae (Resume) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught master's applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Motivational letter(s) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught master's applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Provide a colour scanned PDF. An English or Italian translation is required if needed. No legalised documents are required at application stage.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Academic qualification or provisional enrolment certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "If the final qualification has not yet been awarded, an enrolment or provisional certificate is accepted.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Valid ID card or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU citizens and non-EU citizens residing in Italy may use an ID card; other applicants normally provide a passport.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Residence permit",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required only for non-EU applicants residing in Italy.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "English language certificate or other accepted proof",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required unless the applicant qualifies for an official exemption.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Any other programme-specific required document",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "The University instructs applicants to check the chosen programme for any additional required document.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Bachelor's degree translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Required after admission to complete enrolment.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Transcript of Records translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "The transcript must certify passed exams and grades; where possible it should also show credits and course syllabus information.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment and study visa D - enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Non-EU citizens residing outside Italy must pre-enrol through Universitaly by 15 July and apply for the study visa.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Residence permit or residence-permit application receipt",
+      "stage": "enrolment",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU applicants who are in Italy at enrolment stage.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No standard written entry test published",
+    "mandatory": false,
+    "applies_to": "All applicants.",
+    "dates": "Not applicable.",
+    "scoring_or_threshold": "The official pages describe admission through academic evaluation of curriculum, grades, and GPA rather than through a separate written test or interview.",
+    "source_url": "https://datascience.math.unipd.it/admission/"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/data-science",
+  "official_call_url": "https://datascience.math.unipd.it/admission/",
+  "source_quotes": [
+    {
+      "quote": "Access Open access with admission requirements",
+      "source_url": "https://www.unipd.it/en/data-science",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "A thorough analysis of the curriculum, number, and content of the courses taken in Mathematics, Probability, and Computer Science.",
+      "source_url": "https://datascience.math.unipd.it/admission/",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "The exam grades and the Grade Point Average (GPA).",
+      "source_url": "https://datascience.math.unipd.it/admission/",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Call Two: 2 March 2026 - 2 May 2026 (EU and EU-equated applicants only)",
+      "source_url": "https://www.unipd.it/en/data-science",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "Non-EU students resident abroad: 50",
+      "source_url": "https://datascience.math.unipd.it/admission/",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official programme page describes Data Science as 'open access with admission requirements', while the department admission page states that non-EU students residing abroad are admitted within a quota of 50 places.",
+    "The official programme page restricts Call Two and Call Three to EU and EU-equated applicants, while the official apply.unipd.it page for the same programme explicitly restricts only Call Three. Non-EU access to Call Two is therefore marked uncertain."
+  ],
+  "uncertain": [
+    "application_deadline_non_eu"
+  ]
+}

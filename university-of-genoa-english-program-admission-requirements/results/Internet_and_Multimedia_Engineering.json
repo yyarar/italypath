@@ -1,0 +1,140 @@
+{
+  "program_name": "Internet and Multimedia Engineering",
+  "level": "master",
+  "teaching_language": "English (completely taught in English)",
+  "campus": "Genoa",
+  "degree_class": "LM-27 (Telecommunications Engineering)",
+  "admission_type": "Master's degree with verification of curricular requirements and an assessment of personal preparation (prerequisites/admission test). Strong-grade candidates are exempt from the admission test. Non-EU candidates residing abroad must pass UniGeApply pre-evaluation, which includes a remote test/interview.",
+  "academic_requirements": {
+    "summary": "Admission requires a bachelor's degree (or equivalent) with minimum credits in Information Engineering scientific sectors, plus successful completion of a prerequisites assessment unless exempted by a high bachelor grade.",
+    "prior_degree_or_diploma": "A bachelor's degree of at least 180 CFU/ECTS, or a Laurea / Laurea Magistrale, or an equivalent qualification (including a foreign degree recognised as suitable). On UniGeApply: a bachelor in the field of engineering, computer science, or the ICT area.",
+    "subject_requirements": "At least 36 CFU (or equivalent knowledge) acquired from any university course (first cycle, second cycle, first/second-level university masters) in the scientific sectors related to L-8 Information Engineering; and at least 45 CFU (or equivalent knowledge) in the scientific sectors related to L-8 Information Engineering (Automation Engineering, Biomedical Engineering, Electronic Engineering, Computer Systems Engineering, Telecommunication Engineering).",
+    "minimum_grade_or_cgpa": "[uncertain] On UniGeApply a minimum CGPA of 75% of the maximum obtainable is listed for non-EU pre-evaluation. Separately, a bachelor grade of at least 9/10 of the maximum (or ECTS class 'A'/'B') exempts the candidate from the admission test.",
+    "preparation_assessment": "Applicants must successfully pass the Prerequisites assessment (admission test). If the bachelor's degree grade is at least 9/10 of the maximum, or corresponds to ECTS 'A' or 'B', the admission test is not required. Non-EU applicants additionally take a remote test/interview during UniGeApply pre-selection.",
+    "international_qualification": "Foreign qualifications recognised as suitable are accepted; non-EU candidates residing abroad apply through UniGeApply for pre-evaluation before enrolment.",
+    "source_url": "https://corsi.unige.it/en/corsi/11962/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English B2 level or equivalent.",
+    "accepted_proofs": [
+      "[uncertain] The admission page states 'English language, B2 level or equivalent' but does not enumerate accepted certificates/scores; UniGe accepts the standard certificates for its English-taught masters (e.g. TOEFL, Cambridge B2 First, IELTS, TOEIC, Trinity, IGCSE) and a Medium-of-Instruction (MOI) certificate.",
+      "On UniGeApply the programme lists an English certificate (or MOI) among required documents."
+    ],
+    "exemption_rules": [
+      "[uncertain] An English certificate is generally not required if the language of instruction of the applicant's previous studies was English, officially certified (standard UniGe rule; not explicitly restated on this admission page)."
+    ],
+    "assessment_or_upload_stage": "English B2 is part of the curricular/prerequisites verification; for non-EU applicants the certificate or MOI is uploaded during UniGeApply pre-evaluation.",
+    "source_url": "https://corsi.unige.it/en/corsi/11962/prospective-students-admission-criteria-procedure"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Prerequisites assessment / Admission Test (plus a remote test or interview for non-EU UniGeApply candidates).",
+    "mandatory": true,
+    "is_selective": true,
+    "applies_to": "Applicants holding the curricular requirements; non-EU candidates also sit a remote test/interview during pre-selection.",
+    "format": "Verification of the curricular CFU requirements followed by an Admission Test (prerequisites assessment). Non-EU applicants take a remote test/interview during UniGeApply pre-selection.",
+    "dates": "[uncertain] Specific test/interview dates are set during the admission/pre-evaluation procedure and are not published as a fixed institution-wide date.",
+    "scoring_or_threshold": "No numerical pass score published. Exemption: bachelor grade at least 9/10 of the maximum, or ECTS class 'A'/'B', removes the Admission Test requirement.",
+    "source_url": "https://corsi.unige.it/en/corsi/11962/prospective-students-admission-criteria-procedure"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026.",
+      "The course deadlines page shows generic enrolment-calendar dates rather than a programme-specific EU application date."
+    ],
+    "enrolment_deadline": "First-year pre-registration runs from 9 April to 30 November 2026 (until 10 March 2027 with late payment); confirmation of enrolment from 15 July 2026 to 30 November 2026 (until 10 March 2027 with late payment).",
+    "notes": "Fee instalments for A.Y. 2026/2027: second by 10 December 2026, third by 23 June 2027.",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After UniGeApply eligibility, visa applicants complete the Universitaly pre-enrolment and then apply for the study visa, per the central UniGe international enrolment calendar.",
+    "early_closure": "None published for Internet and Multimedia Engineering. The only fall-session early closures listed for A.Y. 2026/27 are Medical-Pharmaceutical Biotechnology (13 Feb 2026), Maritime Science and Technology bachelor (18 Feb 2026), and Computer Engineering bachelor (8 Mar 2026).",
+    "notes": "Non-EU visa applicants must use the fall session; the A.Y. 2026/27 fall window has closed (20 Mar 2026). UniGeApply allows 1 to 2 assessment requests per applicant. Non-EU applicants face a remote test/interview during pre-selection.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Transcript of records / list of exams with credits",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Used to verify the 36 CFU and 45 CFU Information Engineering subject-sector requirements.",
+      "source_url": "https://corsi.unige.it/en/corsi/11962/prospective-students-admission-criteria-procedure"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Bachelor of at least 180 CFU/ECTS in engineering, computer science, or the ICT area.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "English language certificate (B2) or Medium-of-Instruction (MOI) certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "B2-level English proof; an MOI letter is accepted when prior studies were taught in English.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Valid passport (non-EU) or identity card (EU)",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Passport is the only accepted ID for non-EU applicants on UniGeApply (photo as JPG, supporting documents as PDF up to 2 MB).",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Legalization / CIMEA Statement of Verification and Declaration of Value or CIMEA Statement of Comparability",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU visa applicants with a foreign qualification to complete enrolment.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11962/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11962",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "INTERNET AND MULTIMEDIA ENGINEERING ... Degree class LM-27 (Telecommunications Engineering) ... Genova ... Language: English ... 120 CFU, 2 years",
+      "source_url": "https://corsi.unige.it/en/corsi/11962",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "at least 36 CFU, or equivalent knowledge ... in the scientific sectors related to the L8- Information Engineering ... at least 45 CFU, or equivalent knowledge ... in the scientific sectors related to the L-8 Information Engineering: Automation Engineering, Biomedical Engineering, Electronic Engineering, Computer Systems Engineering, Telecommunication Engineering",
+      "source_url": "https://corsi.unige.it/en/corsi/11962/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "If your Bachelor's degree grade is at least 9/10 of the maximum or has obtained a final grade corresponding to the 'A' or 'B' classification of the ECTS system, you will not have to take the Admission Test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11962/prospective-students-admission-criteria-procedure",
+      "field_supported": "entry_exam_or_test, academic_requirements"
+    },
+    {
+      "quote": "English language, B2 level or equivalent",
+      "source_url": "https://corsi.unige.it/en/corsi/11962/prospective-students-admission-criteria-procedure",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Internet and Multimedia Engineering: minimum CGPA 75%; remote test/interview required during pre-selection; Bachelor in the field of engineering, computer science, ICT area",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "academic_requirements, entry_exam_or_test, application_deadline_non_eu"
+    },
+    {
+      "quote": "Fall session (visa applicants): opens 26 November 2025, closes 20 March 2026, results by 22 May 2026. Spring session (residents): opens 9 April 2026, master's close 28 August 2026.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "Teaching language confirmed: completely English (LM-27, Genoa).",
+    "The admission page states the B2 English requirement but does not enumerate accepted certificates/scores or the MOI exemption explicitly; certificate details are inferred from UniGe's standard English-master rules and the UniGeApply 'English certificate (or MOI)' note.",
+    "Two subject-sector CFU thresholds are published (36 CFU and 45 CFU, both linked to L-8 Information Engineering); they read as cumulative curricular requirements on the official page.",
+    "The 75% minimum CGPA and the remote test/interview come from the UniGeApply non-EU master's pre-evaluation summary; confirm against the live listing. The bachelor-grade exemption (9/10 or ECTS A/B) from the Admission Test is stated on the official course admission page.",
+    "The per-programme course deadlines page shows generic enrolment-calendar dates; the authoritative 2026/27 application windows used here are the institution-wide UniGeApply fall (visa) and spring (resident) sessions. No fall-session early closure is published for this programme."
+  ],
+  "uncertain": [
+    "language_requirements",
+    "academic_requirements"
+  ]
+}

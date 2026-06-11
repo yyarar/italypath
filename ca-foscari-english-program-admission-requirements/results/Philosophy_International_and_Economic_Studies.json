@@ -1,0 +1,184 @@
+{
+  "program_name": "Philosophy, International and Economic Studies",
+  "level": "bachelor",
+  "teaching_language": "English",
+  "campus": "Venice",
+  "degree_class": "L-5 R (Philosophy)",
+  "admission_type": "restricted access",
+  "academic_requirements": {
+    "summary": "Limited-admission bachelor's degree taught in English. Applicants need a secondary school qualification valid for university admission; admission is based on an entry test and, for international applicants, preliminary qualification evaluation through apply.unive.it.",
+    "prior_degree_or_diploma": "Secondary school leaving certificate eligible for university admission, or a European Baccalaureate/European Secondary School Leaving Certificate obtained from European Schools in Italy. International applicants must normally have completed at least 12 years of schooling.",
+    "subject_requirements": "No programme-specific subject prerequisites are published, but applicants must sit the programme's entry test and rank successfully for admission.",
+    "gpa_or_country_requirements": "The qualification must normally be valid for access to higher education in the country where it was awarded. Applicants with only 10-11 years of schooling must provide additional qualifications covering the 1-2 year gap.",
+    "committee_or_pre_evaluation": "International applicants first undergo preliminary evaluation on apply.unive.it. Applicants with international qualifications can accept a place only if they registered on apply.unive.it by the relevant deadlines and their qualification was deemed valid for admission. The programme then applies ranking-list admission through its entry test.",
+    "source_url": "https://www.unive.it/web/en/11769/admission-and-enrolment"
+  },
+  "language_requirements": {
+    "required_level": "English B2",
+    "accepted_proofs": [
+      "A recognised English certificate on Ca' Foscari's AICLU-based list, such as Cambridge FCE, Trinity ISE II, IELTS 5.5-6.5, TOEFL iBT 72-94, or PTE Academic 59-75",
+      "A CLA Ca' Foscari Level B2.2 linguistic certificate or certificate of attendance and advancement",
+      "A certificate from a university language school included in the recognised-certifications list",
+      "An approved exemption-category self-certification supported by the required evidence"
+    ],
+    "exemption_rules": [
+      "Completed higher education studies, or at least one year of college, in a country where English is the medium of instruction",
+      "Obtained a high-school diploma or university qualification from a study path taught entirely in English",
+      "Completed at least one full high-school exchange year at an institution where English was the language of instruction",
+      "Hold one of the listed Italian university language degrees with a three-year English language course"
+    ],
+    "assessment_or_upload_stage": "Candidates can upload the English B2 certificate or exemption self-certification during selection registration. For enrolment, the relevant documentation must also be present in the enrolment application.",
+    "deadline": "By the enrolment deadline. In the summer 2026/2027 call, conditional enrolment may be granted if the deadline does not allow recovery of the missing language requirement, but the requirement must then be fulfilled by 25 September 2026.",
+    "source_url": "https://www.unive.it/web/en/11769/admission-and-enrolment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "round_name": "Spring selection",
+        "application_open": "9 March 2026",
+        "application_deadline": "22 April 2026 at 12:00 Rome time",
+        "entry_test_date": "6 May 2026",
+        "ranking_publication": "14 May 2026 at 16:00",
+        "accept_place_deadline": "18 May 2026",
+        "enrolment_window": "1 July 2026 to 31 July 2026"
+      },
+      {
+        "round_name": "Summer selection",
+        "application_open": "1 July 2026",
+        "application_deadline": "17 August 2026 at 12:00 Rome time",
+        "entry_test_date": "26 August 2026",
+        "ranking_publication": "1 September 2026 at 16:00",
+        "enrolment_window": "1 September 2026 to 3 September 2026",
+        "repechage_notes": "Repechage application: 8-9 September 2026; repechage ranking: 15 September 2026; repechage acceptance deadline: 17 September 2026; further notice on remaining places: 24 September 2026."
+      }
+    ],
+    "enrolment_deadline": "31 July 2026 for spring winners; 3 September 2026 for summer winners, with repechage follow-up deadlines through 24 September 2026.",
+    "notes": "These dates apply to applicants not requiring a visa, including EU/Schengen citizens and non-EU citizens already resident in Italy with a valid permit for university enrolment.",
+    "source_url": "https://www.unive.it/web/en/11769/admission-and-enrolment"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "round_name": "Admission rounds via apply.unive.it and dedicated visa-applicant test [uncertain]",
+        "application_deadline": "[uncertain]",
+        "notes": "[uncertain] The programme's apply.unive.it profile confirms a dedicated online entry test for non-EU visa applicants with one test date per admission round, but the static official pages cited here do not expose the exact 2026/2027 round dates."
+      }
+    ],
+    "visa_or_pre_enrolment_deadline": "After admission, begin Universitaly pre-enrolment and the visa process as soon as possible.",
+    "current_status": "Closed for non-EU applicants requiring a study visa for the 2026/2027 academic year.",
+    "notes": "International applicants requiring a visa had to apply through apply.unive.it and then take the dedicated online entry test assigned to their admission round.",
+    "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid identity document",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "For selection registration, applicants must enter the details of a valid identification document and upload a copy; accepted examples in the call are identity card, passport, or driving licence.",
+      "source_url": "https://www.unive.it/web/fileadmin/user_upload/cdl_dal_2025/ltr6/documenti/bandi-regolamenti/2026-2027/Bando_LTR6_ENG_Selezione_Primaverile_26_27.pdf"
+    },
+    {
+      "document_name": "Valid passport or, for European applicants, ID card",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "A renewal or first-request receipt is also accepted where stated.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Valid residence permit or renewal/first-request receipt",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required for non-European applicants already residing in Italy or the Schengen Area; a copy of the residence permit is also uploaded at enrolment for non-EU students residing in Italy.",
+      "source_url": "https://www.unive.it/web/fileadmin/user_upload/cdl_dal_2025/ltr6/documenti/bandi-regolamenti/2026-2027/Bando_LTR6_ENG_Selezione_Estiva_26_27.pdf"
+    },
+    {
+      "document_name": "Mark sheet or transcript of at least the last year of secondary studies",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "If still in the last year of school, a provisional mark sheet/transcript is still mandatory.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Official English or Italian translations of entry documents",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required whenever the original documents are not in English or Italian.",
+      "source_url": "https://apply.unive.it/courses/course/246-ba-philosophy-international-and-economic-studies"
+    },
+    {
+      "document_name": "English B2 certificate or exemption self-certification",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "Uploaded during selection registration; the ranking gives evidence of the evaluation of the submitted language documentation.",
+      "source_url": "https://www.unive.it/web/fileadmin/user_upload/cdl_dal_2025/ltr6/documenti/bandi-regolamenti/2026-2027/Bando_LTR6_ENG_Selezione_Estiva_26_27.pdf"
+    },
+    {
+      "document_name": "Final secondary school leaving qualification",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "This may be provisional at application stage if the final document is not yet available, but the final version must be provided before the end of the enrolment period.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Qualification-recognition documentation not previously produced on apply.unive.it",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "The call requires students with qualifications achieved abroad to upload any documentation they could not produce during the apply.unive.it assessment of admission requirements.",
+      "source_url": "https://www.unive.it/web/fileadmin/user_upload/cdl_dal_2025/ltr6/documenti/bandi-regolamenti/2026-2027/Bando_LTR6_ENG_Selezione_Estiva_26_27.pdf"
+    },
+    {
+      "document_name": "Statement of Comparability from CIMEA, or Declaration of Value, or ARDI Statement of Correspondence with CIMEA Statement of Verification",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "The general international-entry page explains that one of these routes is needed later to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Online written admission test in English",
+    "mandatory": true,
+    "applies_to": "All applicants. Applicants not requiring a visa use the spring or summer selection calls; non-EU visa applicants take a dedicated online entry test assigned to their apply.unive.it admission round [uncertain exact 2026/2027 dates on static source].",
+    "dates": "Spring selection test: 6 May 2026. Summer selection test: 26 August 2026. Non-EU visa-applicant test dates are round-based and emailed individually [uncertain].",
+    "scoring_or_threshold": "The test lasts 80 minutes and contains 80 questions: 50 on topical-text understanding and 30 on general knowledge. Scoring is 1 point for each correct answer, 0 for each blank answer, and -0.33 for each incorrect answer.",
+    "source_url": "https://www.unive.it/web/fileadmin/user_upload/cdl_dal_2025/ltr6/documenti/bandi-regolamenti/2026-2027/Bando_LTR6_ENG_Selezione_Estiva_26_27.pdf"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/pag/50466",
+  "official_program_url": "https://www.unive.it/degree/ltr6",
+  "official_call_url": "https://www.unive.it/web/en/11769/admission-and-enrolment",
+  "source_quotes": [
+    {
+      "quote": "Bachelor's degree programmes - a.y. 2026/2027 ... Philosophy, International and Economic Studies",
+      "source_url": "https://www.unive.it/pag/15612/?L=1",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Admission: Limited",
+      "source_url": "https://www.unive.it/web/en/11770/presentation",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "This is a limited-admission programme taught in English that requires candidates to take an entry test.",
+      "source_url": "https://www.unive.it/web/en/11769/admission-and-enrolment",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "The admission procedure for the 2026/2027 academic year includes two selection rounds: spring and summer.",
+      "source_url": "https://www.unive.it/web/en/11769/admission-and-enrolment",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "A minimum B2-level knowledge of English is mandatory for enrolment.",
+      "source_url": "https://www.unive.it/web/en/11769/admission-and-enrolment",
+      "field_supported": "language_requirements"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official programme home and presentation pages still show 'Enrolment from 2025/2026', but the 2026/2027 central international-programmes list, the 2026/2027 admission page, the 2026/2027 call PDFs, and the 2026/2027 study-plan reference confirm current admission for 2026/2027.",
+    "The static official pages do not expose the exact 2026/2027 non-EU visa round dates for this programme; they only confirm that visa applicants use apply.unive.it and a dedicated online entry test, while the generic non-EU visa article currently says applications are closed.",
+    "apply.unive.it marketing pages show programme-specific tuition figures that differ from the central 2026/2027 fees page, so only the official central fees link is retained."
+  ],
+  "uncertain": [
+    "application_deadline_non_eu",
+    "entry_exam_or_test"
+  ]
+}

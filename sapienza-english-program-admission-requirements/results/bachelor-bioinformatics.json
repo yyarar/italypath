@@ -1,0 +1,119 @@
+{
+  "program_name": "Bioinformatics",
+  "level": "bachelor",
+  "official_level_type": "Laurea",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Rome (Faculty of Pharmacy and Medicine) [uncertain]",
+  "degree_class": "L-2",
+  "course_code": "33455",
+  "faculty": "Joint programme of the Faculty of Mathematics, Physics and Natural Sciences and the Faculty of Pharmacy and Medicine",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33455",
+  "admission_type": "restricted access",
+  "movein_preselection_required": "[uncertain]",
+  "admission_test_type": "English TOLC-F (CISIA)",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (visa-required)"
+  ],
+  "application_platform": "Sapienza selection registration (Infostud) plus CISIA (English TOLC-F) test registration; MoveIN for non-EU residing abroad [uncertain]",
+  "access_quota_non_eu": "[uncertain]",
+  "application_round": "[uncertain]",
+  "intake_semester_availability": "September intake [uncertain]",
+  "places_and_foreign_contingent": "Locally programmed number of places (numero programmato locale); 50 places for 2025/2026. Non-EU contingent and 2026/2027 figure [uncertain].",
+  "official_call_url": "https://www.uniroma1.it/en/pagina/restricted-access-degree-programmes-tolc-i-and-selections",
+  "faculty_call_pdf_url": "[uncertain]",
+  "academic_requirements": {
+    "secondary_school_diploma": "A secondary-school diploma giving access to higher education is required.",
+    "test_requirement": "Admission by selection based on the English TOLC-F. English level is assessed implicitly through the English TOLC test, so a separate B2 certificate is not strictly required to register for the test.",
+    "non_eu_requirements": "Non-EU applicants residing abroad must meet the Sapienza academic requirements (MoveIN 2026-2027) and obtain a study visa. [uncertain]"
+  },
+  "country_specific_eligibility": "Country-specific qualification and minimum schooling requirements per the Sapienza academic requirements document (MoveIN 2026-2027). [uncertain]",
+  "curricular_integration_policy": null,
+  "conditional_enrolment_policy": "[uncertain]",
+  "language_requirements": {
+    "level": "Programme entirely in English, including the admission test. Minimum B2 (CEFR) English expected.",
+    "assessment": "English level is assessed implicitly by completing the English TOLC-F; a B2 certificate is not required to register for the test.",
+    "accepted_certificates": "Where a certificate is required (e.g. non-EU/MoveIN route): FCE, IELTS (academic), TOEFL iBT, CAE, CPE, PTE (B2 or higher), or a university online interview. [uncertain]"
+  },
+  "language_submission_timing": "Assessed via the English TOLC-F at admission; certificate route applies for non-EU/MoveIN by enrolment. [uncertain]",
+  "italian_language_requirement": null,
+  "application_deadline_eu": "EU and equivalent candidates (no visa required): on or before 31 July 2026; test/registration must meet the selection deadlines. [uncertain on exact dates]",
+  "application_deadline_non_eu": "Non-EU residing abroad (visa-required): MoveIN online pre-selection by 15 May 2026; Universitaly pre-enrolment by 30 June 2026. [uncertain on exact dates]",
+  "application_fee": "€30 per application (standard Sapienza fee; max 2 applications per intake). [uncertain]",
+  "visa_preenrolment_deadline": "Universitaly pre-enrolment by 30 June 2026 for non-EU visa-required applicants.",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2025-2026 places figure; 2026-2027 cross-cutting deadlines",
+  "required_documents": [
+    "Secondary-school diploma / qualification giving access to higher education",
+    "Transcript of records",
+    "Passport / ID",
+    "English TOLC-F score (English level assessed via the test)",
+    "For non-EU residing abroad: documents required by MoveIN pre-selection and Universitaly pre-enrolment (visa)"
+  ],
+  "document_translation_authentication": "Foreign qualifications typically require Declaration of Value or CIMEA Statement of Comparability plus translation/legalisation. [uncertain]",
+  "entry_exam_or_test": {
+    "type": "English TOLC-F (CISIA)",
+    "mode": "Online/in-person CISIA TOLC formats [uncertain]",
+    "note": "The admission test is in English; English proficiency is verified implicitly by the English TOLC-F."
+  },
+  "test_variant_and_session": "English TOLC-F; specific 2026-2027 session dates and windows [uncertain].",
+  "test_score_conversion_or_threshold": "Ranking-based selection on English TOLC-F score; admission cutoff depends on ranking. [uncertain]",
+  "source_quotes": [
+    {
+      "quote": "The BCs in Bioinformatics is entirely in English, including the admission test. Your English level will be assessed implicitly by accomplishing the English TOLC test.",
+      "source_url": "https://farmed.web.uniroma1.it/en/faq-bcs-bioinformatics",
+      "supports_fields": ["teaching_language", "language_requirements", "admission_test_type"]
+    },
+    {
+      "quote": "The number of places available for the 2025/2026 academic year is 50 ... admission is via a locally programmed number of places (numero programmato locale) through a selective test (English TOLC-F).",
+      "source_url": "https://farmed.web.uniroma1.it/en/faq-bcs-bioinformatics",
+      "supports_fields": ["places_and_foreign_contingent", "admission_type", "entry_exam_or_test"]
+    },
+    {
+      "quote": "Bioinformatics ... is classified as bachelor degree class L-2 ... offered through the Faculty of Pharmacy and Medicine.",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33455/presentation",
+      "supports_fields": ["degree_class", "faculty"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/course/33455",
+    "https://corsidilaurea.uniroma1.it/en/course/33455/presentation",
+    "https://farmed.web.uniroma1.it/en/faq-bcs-bioinformatics",
+    "https://farmed.web.uniroma1.it/en/farmaciamedicina/farmaciamedicina/didactic-activities/course-catalogue/bachelors-programme",
+    "https://corsidilaurea.uniroma1.it/en/solr-offerta-formativa-t?f[0]=field_lingua_erogazione:value:en",
+    "https://www.uniroma1.it/en/admissions",
+    "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
+  ],
+  "source_year": "2025-2026 (places) / 2026-2027 (deadlines)",
+  "uncertainty_notes": [
+    "Programme URL confirmed via English-filtered catalogue: corsidilaurea.uniroma1.it/en/course/33455.",
+    "Number of places (50) is the 2025/2026 figure from the faculty FAQ; 2026/2027 figure not yet published/extracted.",
+    "Faculty is a joint programme (Mathematics/Physics/Natural Sciences + Pharmacy and Medicine); catalogue presentation primarily lists Pharmacy and Medicine.",
+    "Campus location not explicitly confirmed.",
+    "Non-EU reserved quota, application rounds, and exact selection/test session dates not extracted from the programme Call PDF.",
+    "MoveIN requirement, application fee (€30), and document authentication inferred from general Sapienza policy."
+  ],
+  "uncertain": [
+    "campus",
+    "movein_preselection_required",
+    "access_quota_non_eu",
+    "application_round",
+    "intake_semester_availability",
+    "places_and_foreign_contingent",
+    "faculty_call_pdf_url",
+    "academic_requirements",
+    "country_specific_eligibility",
+    "conditional_enrolment_policy",
+    "language_requirements",
+    "language_submission_timing",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "application_fee",
+    "document_translation_authentication",
+    "test_variant_and_session",
+    "test_score_conversion_or_threshold"
+  ]
+}

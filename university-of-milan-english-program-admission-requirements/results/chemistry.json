@@ -1,0 +1,136 @@
+{
+  "program_name": "Chemistry",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "Italian, English",
+  "campus": "Milan",
+  "degree_class": "LM-54 R - Scienze chimiche",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": "Applicants are eligible if they hold, or will obtain by 31 December 2026, a degree in class L-27 Chemical Sciences and Technologies, or another degree/foreign qualification judged suitable by UniMi. They must meet these curricular requirements: at least 20 ECTS in mathematics (MATH-01/A to MATH-06/A), physics (PHYS-01/A to PHYS-06/B), and computer science (INFO-01/A; IINF-05/A); and at least 70 ECTS in the characterising sectors of class L-27: analytical/environmental/cultural-heritage chemistry (CHEM-01/A, CHEM-01/B), inorganic and physical chemistry (CHEM-02/A, CHEM-03/A), organic and biochemical chemistry (CHEM-05/A, BIOS-07/A, BIOS-08/A, BIOS-09/A), and industrial/technological chemistry (CHEM-04/A, IIND-03/C, IMAT-01/A, ICHI-02/A). Credits outside those sectors may still be evaluated by the admissions committee. In addition to curricular requirements, applicants must show adequate personal preparation, which is checked through an admission interview.",
+  "language_requirements": "[uncertain] The official programme page lists the teaching language as \"Italian, English\", but the course's 2026/2027 admissions guide states that the master's is taught in Italian, and the educational plan shows a mixed curriculum with many Italian-taught courses plus several English-taught courses. I therefore treat this as a partially English-taught programme, not a full English curriculum. The study plan includes the compulsory activity \"English Proficiency B2 (3 ECTS)\". UniMi's general language pages state that master's degree courses normally require B2 CEFR English for exemption from the SLAM placement test and/or compulsory English course, and that accepted certificates must usually be no more than 3 years old at submission (2 years for TOEFL) and certify reading, writing, listening, and speaking. The 2026/2027 Chemistry admissions guide also tells applicants to upload English certificates in the admission application so they can be recognised in the student record. However, the Chemistry-specific 2026/2027 sources reviewed do not explicitly state whether B2 English is a hard admission threshold for this programme or a requirement that can instead be completed through SLAM after enrolment. For non-EU students residing abroad, the course guide states that this master's is taught in Italian and that they must take an Italian-language test; the university-wide international page says applicants to Italian-taught master's programmes must pass that test unless exempt, for example with a CLIQ-certified B2 Italian qualification or certain Italian-school credentials.",
+  "application_deadline_eu": "EU and equivalent applicants must submit the admission application from 22 January 2026 to 25 August 2026 at 23:59. The programme-specific 2026/2027 guide states that the ordinary interview rounds take place in June, July, September, and December 2026; the detailed session calendar lists upload deadlines/interview dates of 10 June / 18 June 2026, 10 July / 16 July 2026, 10 September / 17 September 2026, and 10 December / 17 December 2026. Admitted applicants may enrol from 5 May 2026 to 15 January 2027.",
+  "application_deadline_non_eu": "Non-EU applicants requiring a visa must submit the admission application from 22 January 2026 to 30 April 2026 at 23:59. The programme-specific 2026/2027 guide lists the early non-EU round with document upload by 30 April 2026 and interview on 21 May 2026. UniMi's international enrolment page separately requires non-EU students residing abroad to complete Universitaly pre-enrolment by 31 July 2026. For foreign-qualification holders completing enrolment through apply.unimi.it, the official document set must be completed by 30 November 2026.",
+  "required_documents": [
+    "For applicants with an Italian degree: self-certification of degree/enrolment with exams; for graduates or graduating students from other Italian universities, it must include exams taken, grades, CFU, and scientific-disciplinary sectors.",
+    "For applicants with a foreign degree: bachelor's degree or graduation certificate, in Italian, English, French, German, or Spanish.",
+    "Diploma Supplement, or equivalent university certificate(s) showing the degree awarded or to be awarded, exams passed, grades, credits, and the grading system used.",
+    "Passport page containing personal data, or another valid identity document.",
+    "Admission fee payment of EUR 30 by the application deadline.",
+    "For final enrolment with a foreign qualification: legalized or apostilled bachelor's degree, unless exempt from legalization/Apostille under applicable law.",
+    "High school diploma.",
+    "Official Italian translation of educational documents, unless the originals are in French, English, German, or Spanish.",
+    "CIMEA Statement of Comparability or Dichiarazione di Valore; for Lisbon Recognition Convention countries, ARDI Statement of Correspondence or Diploma Supplement may replace DOV/Comparability as specified by UniMi.",
+    "Italian tax code.",
+    "For non-EU citizens: receipt of the residence-permit application or a valid residence permit.",
+    "For non-EU students residing abroad: Universitaly pre-enrolment receipt.",
+    "For non-EU students residing abroad: study visa.",
+    "For non-EU students residing abroad: any certificate of Italian-language competence."
+  ],
+  "entry_exam_or_test": "There is no separate written entrance exam. Admission is open access, but UniMi verifies curricular requirements and personal preparation through an interview with an admissions committee on subjects covered in the core courses of the bachelor's programme in Chemistry. A negative interview outcome blocks admission for the current academic year. The interview may be taken before graduation if curricular requirements are already met. The 2026/2027 programme guide lists interview dates of 21 May 2026 for the early non-EU session, then 18 June 2026, 16 July 2026, 17 September 2026, and 17 December 2026. For non-EU students with visa and/or residence-permit issues, the course also states that an interview can be scheduled at the end of April-May and may be held remotely by videoconference. A positive interview remains valid for the following academic year as well.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/chemistry",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-chemistry-%28classe-lm-54-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027. Access: Open with entry requirements examination. Course location: Milan. Language: Italian, English.",
+      "url": "https://www.unimi.it/en/education/master-programme/chemistry",
+      "field_refs": [
+        "academic_year",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Graduates of the L-27 Chemical Sciences and Technologies class are eligible ... -> at least 20 ECTS credits ... -> at least 70 ECTS credits ...",
+      "url": "https://scienzechimiche.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Knowledge and personal preparation will be assessed through an interview ... The interview will take place in June, July, September and December.",
+      "url": "https://scienzechimiche.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Application for admission: from 22/01/2026 to 25/08/2026 ... Non-EU students visa applicants are required to apply ... no later than 30 April 2026.",
+      "url": "https://scienzechimiche.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "English Proficiency B2 (3 ECTS) ... Thesis Work and Final Dissertation 24 384 Italian ... Advanced Methods in Organic Synthesis 6 48 English.",
+      "url": "https://scienzechimiche.cdl.unimi.it/en/courses/educational-plan",
+      "field_refs": [
+        "language_requirements",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Certificates must have been earned for no more than 3 years at the time of submission (2 years for TOEFL) and they must certify 4 language skills.",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Master's degree courses require ... a B2 CEFR level respectively for students to be exempt from sitting the Placement test and/or attending a compulsory English language course.",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/cefr-levels-required-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "All non-EU students residing abroad, interested in enrolling in this master's degree taught in Italian, must take a test of knowledge of the Italian language.",
+      "url": "https://scienzechimiche.cdl.unimi.it/sites/lf5y/files/2026-04/AMMISSIONI%20LM54%202026-2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "All non-EU students resident abroad interested in a ... Master's degree programmes taught in Italian have to pass an Italian language proficiency test.",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "visa applicants must apply within 30 April 2026 ... pre-enrolment ... must be presented on the Universitaly website within 31 July 2026.",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Enrolment in a two-year master's degree programme: receipt of the admission fee payment ... Degree (Bachelor Sc. or equivalent) ... fiscal code ... identity document.",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "The 2026/2027 official sources agree that the programme is not a full English curriculum: the programme page says \"Italian, English\", the course admissions guide says the master's is taught in Italian, and the educational plan shows a mixed delivery with both Italian- and English-taught activities.",
+    "The Chemistry-specific 2026/2027 materials clearly include English-certificate upload instructions and a compulsory \"English Proficiency B2\" activity, but they do not explicitly state whether B2 English is an absolute admission requirement for Chemistry or a requirement that can instead be fulfilled through UniMi's SLAM pathway after enrolment."
+  ],
+  "uncertain": [
+    "language_requirements"
+  ]
+}

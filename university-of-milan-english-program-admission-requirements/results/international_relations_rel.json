@@ -1,0 +1,232 @@
+{
+  "program_name": "International Relations (REL)",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "Italian, English",
+  "campus": "Milan",
+  "degree_class": "LM-52 R - Relazioni internazionali",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": "Applicants need a bachelor's degree or equivalent university qualification. Candidates still completing their first-cycle degree may apply if they have earned at least 156 ECTS by the application deadline and must complete both the degree and the entry requirements by 31 December 2026. Standard eligible Italian degree classes are L-5, L-6, L-10, L-11, L-12, L-14, L-15, L-16, L-18, L-20, L-33, L-36, L-37, L-39, and L-42, plus corresponding classes under Ministerial Decree 509/99; applicants from other degree classes, four-year degrees, master's degrees, or foreign degrees may also be considered by the Academic Board. The normal curricular requirement is at least 60 ECTS distributed across law, history/political-social studies, economics, and language/area studies: at least 12 ECTS in IUS/13, IUS/14, SPS/04, or SECS-P/01; at least 12 ECTS in M-STO/02, M-STO/04, SPS/02, or SPS/03; at least 12 ECTS in SECS-P/01, SECS-P/02, SECS-P/03, SECS-P/06, or SECS-P/12; and at least 24 ECTS in L-LIN/04, L-LIN/07, L-LIN/09, L-LIN/12, L-LIN/14, L-OR/10, L-OR/12, L-OR/21, M-GGR/02, M-STO/03, SPS/05, SPS/06, SPS/07, SPS/08, or SPS/09. For foreign qualifications, the programme page states that adequate prior preparation in law, history/politics, and economics is assessed with flexibility across different national academic systems.",
+  "language_requirements": "English is always required. For applicants using the Italian-degree route, the programme requires either at least 9 ECTS in English language (SSD L-LIN/12) with a graded exam or an English certificate at B2 level or above recognized by the University of Milan, uploaded during the online application. For applicants with foreign qualifications, English proficiency at B2 CEFR or higher is required for all curricula. Italian proficiency at B2 CEFR or higher is additionally required for curriculum A and curriculum B. The foreign-qualification page lists examples of acceptable English certificates such as TOEFL iBT 72+ and IELTS Academic 5.5+, and acceptable Italian certificates such as CILS B2 or CELI 3. Officially the programme language is \"Italian, English\" and UniMi also lists this degree among programmes with \"2 curricula in English\"; however, this does not apply to the whole programme, because curricula A and B have Italian-language requirements while curricula C and D are the English-track admission routes.",
+  "application_deadline_eu": "Application for admission: 22 January 2026 to 25 August 2026. The programme page separately lists enrolment from 5 May 2026 to 15 January 2027 for admitted candidates.",
+  "application_deadline_non_eu": "Non-EU applicants requiring a visa had to submit the admission application by 30 April 2026. After admission, they had to complete the Universitaly pre-enrolment procedure by 31 July 2026. The general application window shown on the programme page is 22 January 2026 to 25 August 2026, but the earlier 30 April 2026 deadline applies to visa applicants.",
+  "required_documents": [
+    "Self-certification of the degree already obtained, or self-certification of enrolment with passed exams, grades, ECTS, and scientific-disciplinary sectors if the qualification was not earned at the University of Milan (Italian-qualification applicants).",
+    "Bachelor's degree diploma or equivalent university qualification certificate (foreign-qualification applicants).",
+    "Diploma Supplement or transcript of records showing exams taken, grades, credits/ECTS, subject areas, and the grading system used (foreign-qualification applicants).",
+    "Valid passport or identity document.",
+    "Curriculum vitae.",
+    "English language certificate at B2 CEFR level or higher when used to prove the English requirement.",
+    "Italian language certificate at B2 CEFR level or higher for applicants to curriculum A or curriculum B with foreign qualifications.",
+    "Upper secondary school diploma for final enrolment with a foreign qualification.",
+    "Official Italian translation of the academic qualification documents, unless the originals are issued in English, French, German, or Spanish.",
+    "Statement of Comparability issued by CIMEA or a Dichiarazione di Valore; for qualifications from countries in the Lisbon Recognition Convention, a Diploma Supplement or an ARDI Correspondence Statement may replace these in the cases stated by UniMi.",
+    "Italian tax code.",
+    "Valid residence permit or receipt proving that the residence-permit application was filed, when applicable."
+  ],
+  "entry_exam_or_test": "Admission is not automatic: applicants must pass an entry assessment. The programme page says the assessment is based on a written test whose subject areas depend on the selected curriculum. The enrolment page for foreign qualifications adds that, depending on the candidate's educational background, the Academic Board may require a written admission test and publishes the syllabus by curriculum: curriculum A covers international law, economics, and international relations; curriculum B covers international law, economics, and European Union law; curriculum C covers international law, economics, and international relations; curriculum D covers international law, economics, and comparative analysis of social systems. For curricula C and D, the admission test is carried out entirely in English. The admission notice also states that the admission board evaluates whether the entry requirements are met and may require an interview and/or a written test, either in person or remotely. Candidates admitted with gaps may receive tutoring activities to be completed between September 2026 and January 2027.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-international-relations-%28classe-lm-52-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027",
+      "url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "field_refs": [
+        "academic_year"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Master programme",
+      "url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "field_refs": [
+        "level"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "LM-52 R - Relazioni internazionali",
+      "url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "field_refs": [
+        "degree_class"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Access: Open with entry requirements examination",
+      "url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "field_refs": [
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Course location: Milan",
+      "url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "field_refs": [
+        "campus"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Language: Italian, English",
+      "url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "International Relations (REL) - 2 curricula in English",
+      "url": "https://www.unimi.it/en/education/degree-programmes-english",
+      "field_refs": [
+        "teaching_language",
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Application for admission: from 22/01/2026 to 25/08/2026",
+      "url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Non-EU students visa applicants are required to apply for admission no later than 30 April 2026",
+      "url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "must apply for pre-enrolment through Universitaly portal by 31 July 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-international-relations-%28classe-lm-52-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor's degree or equivalent university qualification",
+      "url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "obtained at least 156 ECTS by the application deadline",
+      "url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "must obtain the degree and fulfil the admission requirements by 31 December 2026",
+      "url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "having earned at least 60 credits",
+      "url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "English language proficiency",
+      "url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "B2 or higher on the CEFR scale is required for all curricula",
+      "url": "https://rel.cdl.unimi.it/en/enrolment/foreign-qualifications",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Italian Language proficiency at level B2 or higher is required for curriculum A and B",
+      "url": "https://rel.cdl.unimi.it/en/enrolment/foreign-qualifications",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The admission test for curriculum C and D will be carried out entirely in English",
+      "url": "https://rel.cdl.unimi.it/en/enrolment/foreign-qualifications",
+      "field_refs": [
+        "language_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "self-certification of the degree obtained",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-international-relations-%28classe-lm-52-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor's degree diploma",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-international-relations-%28classe-lm-52-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "curriculum vitae",
+      "url": "https://rel.cdl.unimi.it/en/enrolment/foreign-qualifications",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "passport or identity card",
+      "url": "https://rel.cdl.unimi.it/en/enrolment/foreign-qualifications",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Statement of comparability issued by CIMEA",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-international-relations-%28classe-lm-52-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "written test, either in person or remotely",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-international-relations-%28classe-lm-52-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "UniMi officially states only that the programme language is Italian and English and that the degree has \"2 curricula in English\". The exact sentence identifying which named curricula are the two English curricula is not given on the same summary page, so the mapping to curricula C and D is inferred from the foreign-qualification page and the 2026/2027 course-language tables.",
+    "The programme materials do not publish a single universal test format for every applicant. The official sources indicate a written test by curriculum, but the admission notice also allows the board to require an interview and/or written test depending on the case."
+  ],
+  "uncertain": []
+}

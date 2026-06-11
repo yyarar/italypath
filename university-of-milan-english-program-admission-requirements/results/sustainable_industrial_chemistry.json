@@ -1,0 +1,126 @@
+{
+  "program_name": "Sustainable Industrial Chemistry",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-71 R - Scienze e tecnologie della chimica industriale",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": "Applicants must hold, or obtain by 31 December 2026, a suitable bachelor's degree or a foreign qualification recognized by UniMi. The 2026/2027 Sustainable Industrial Chemistry application page states that the curricular prerequisites are those of class L-27 and require at least 20 ECTS in mathematics (MATH-01/A to MATH-06/A), physics (PHYS-01/A to PHYS-06/B), and information technology (INFO-01/A; IINF-05/A), plus at least 70 ECTS/CFU in the class L-27 chemistry areas: analytical and environmental chemistry (CHEM-01/A, CHEM-01/B), inorganic and physical chemistry (CHEM-03/A, CHEM-02/A), industrial chemistry and engineering (CHEM-04/A, IIND-03/C, IMAT-01/A, ICHI-02/A), and organic chemistry and biochemistry (CHEM-05/A, BIOS-07/A, BIOS-08/A, BIOS-09/A). These credits are fully recognized for graduates of UniMi undergraduate programmes in class L-27; all other curricular profiles are evaluated by the Admission Commission. Personal preparation is then checked through an admission interview. The admission notice also states that both the degree and the entry requirements must be obtained by 31 December 2026.",
+  "language_requirements": "English at CEFR level B2 or higher is required for admission. UniMi states that SLAM verifies this through one of three routes: a valid B2-or-higher certificate from UniMi's accepted list, issued no more than 3 years before the application date and uploaded with the online admission application; a SLAM-certified English level obtained during a UniMi degree no more than 4 years before the application date, verified automatically; or the SLAM entry test according to the official master's calendar. If the applicant does not submit a valid certificate or does not meet the required level, they are directed to the SLAM entry test. If they miss or fail the test, they must submit an accepted certificate to SLAM via InformaStudenti by the programme deadline; the 2026/2027 SLAM table lists Sustainable Industrial Chemistry with a certificate-submission deadline of 31 December 2026. UniMi's accepted-certificates page also states that certificates must certify reading, writing, listening, and speaking, and that TOEFL is valid for 2 years rather than 3. No separate Italian admission requirement is stated for entry; however, the manifesto says students who do not hold an Italian high school diploma or university degree must earn 3 ECTS either in Chemical Regulation and Legislation or in Additional Language Skills: Italian during the programme.",
+  "application_deadline_eu": "Admission application: 22 January 2026 to 25 August 2026. The course-specific 2026/2027 admission instructions list ordinary interview rounds for Italians, EU candidates, equivalents, and UNIMI students with document-upload/interview dates of 10 June / 23 June 2026, 10 July / 17 July 2026, 10 September / 18 September 2026, and 10 December / 17 December 2026. Enrolment of admitted students: 5 May 2026 to 15 January 2027.",
+  "application_deadline_non_eu": "Non-EU candidates applying for a visa must submit the admission application between 22 January 2026 and 30 April 2026. The course-specific 2026/2027 admission instructions list the early non-EU visa round with documents in the app due by 30 April 2026 and interviews scheduled between 11 May and 22 May 2026. The admission notice separately requires non-EU visa applicants to submit their Universitaly pre-enrolment application by 31 July 2026. For applicants with foreign qualifications, the final official enrolment documents on apply.unimi.it must be completed by 30 November 2026.",
+  "required_documents": [
+    "For applicants with an Italian qualification: self-certification of degree or enrolment with exam records; for graduates or graduating students from other Italian universities, it must include exams taken, grades, ECTS/CFU, and scientific-disciplinary sectors.",
+    "For applicants with a foreign qualification: bachelor's degree or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "Diploma Supplement or, alternatively, a transcript of records showing courses, marks, ECTS, academic field, and the grading system used.",
+    "Passport or another valid identity document.",
+    "Valid English B2-or-higher certificate from UniMi's accepted list, if the applicant uses the certificate route for the language requirement; it must be uploaded with the online admission application.",
+    "Preliminary study plan to be submitted through the form indicated in the official 2026/2027 course admission instructions PDF and discussed during the interview.",
+    "For final enrolment with a foreign qualification: bachelor's degree (or equivalent) legalized or apostilled, unless exempt under applicable law.",
+    "High school diploma.",
+    "Official Italian translation of the academic qualifications, unless the originals are in French, English, German, or Spanish.",
+    "Statement of Comparability from an ENIC-NARIC center such as CIMEA, or a Dichiarazione di Valore in loco; for Lisbon Convention countries, the Diploma Supplement or ARDI Correspondence Statement may replace the DOV and Statement of Comparability as specified by UniMi.",
+    "Italian tax code (codice fiscale).",
+    "For non-EU citizens: receipt of the residence-permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "There is no separate multiple-choice entrance exam published. Admission is open, but subject to an entry-requirements assessment and an interview by the Admission Commission. UniMi states that the interview verifies personal preparation on fundamental aspects of the core chemistry disciplines, and failure of the interview prevents admission for the current academic year. The official 2026/2027 course admission instructions describe the interview as an informal chat in which the commission examines the applicant's preparation in chemical topics; the preliminary study plan is also discussed, and the PDF provides sample questions in general and inorganic chemistry, analytical chemistry, chemical plants, industrial and polymer chemistry, physical chemistry, and organic chemistry. Interview sessions are scheduled in June, July, September, and December 2026, with an additional May session for non-EU applicants who may have visa or residence-permit issues. Non-EU applicants may also take the interview remotely by videoconference. A positive interview remains valid for the next academic year as well.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/sustainable-industrial-chemistry",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-sustainable-industrial-chemistry-%28classe-lm-71-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Access ... Open with entry requirements examination ... Course location ... Milan ... Language ... English.",
+      "url": "https://www.unimi.it/en/education/master-programme/sustainable-industrial-chemistry",
+      "field_refs": [
+        "academic_year",
+        "admission_type",
+        "campus",
+        "teaching_language",
+        "degree_class"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "at least 20 credits ... mathematics ... physics and information technology; - at least 70 CFU ... class L-27.",
+      "url": "https://sic.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The interview is scheduled in June, July, September and December ... For non-EU students ... also ... in May.",
+      "url": "https://sic.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "proficiency in English at level B2 or higher ... required for admission.",
+      "url": "https://sic.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Application for admission: from 22/01/2026 to 25/08/2026 ... Non-EU students visa applicants ... no later than 30 April 2026.",
+      "url": "https://sic.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Self-certification of degree/enrolment with exam records ... list of exams taken, with grades, ECTS credits, and disciplinary scientific sectors.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-sustainable-industrial-chemistry-%28classe-lm-71-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor’s Degree ... Diploma supplement ... Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-sustainable-industrial-chemistry-%28classe-lm-71-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The documentation must be completed by 30 November 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-sustainable-industrial-chemistry-%28classe-lm-71-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Sustainable industrial chemistry 31/12/2026",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "students not holding an Italian high school diploma or university degree must obtain 3 credits ... in Additional language skills: Italian.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBDof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "No field value is marked [uncertain]. However, UniMi's main programme page, manifesto, and admission notice still hyperlink the retired Industrial Chemistry application page; the current 2026/2027 Sustainable Industrial Chemistry site reproduces the operative admission requirements and was used as the authoritative course-level source.",
+    "The 2026/2027 admission notice says applicants must hold a degree 'in the classes listed in the section Application' of the programme website, but the current SIC application page expresses eligibility through L-27-equivalent credit requirements rather than an explicit list of Italian degree classes. The academic_requirements field therefore follows the published credit-based requirements exactly."
+  ],
+  "uncertain": []
+}

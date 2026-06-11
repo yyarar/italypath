@@ -1,0 +1,175 @@
+{
+  "program_name": "Finance and Economics (MEF)",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milano",
+  "degree_class": "LM-16 R - Finanza",
+  "admission_type": "Open with entry requirements examination",
+  "academic_requirements": "Applicants need a bachelor's degree or an equivalent foreign qualification recognized by the University. The programme normally admits graduates from Italian degree classes L-18 Scienze dell'economia e della gestione aziendale, L-33 Scienze economiche, and L-41 Statistica. Applicants from other degree classes may be considered only after positive evaluation by the Collegio Didattico or its delegates if, by the date of effective submission of the admission application, they already hold at least 6 ECTS in mathematics (MAT/01-MAT/05, MAT/07-MAT/09, SECS-S/06), 6 ECTS in statistics (MAT/06, SECS-S/01-SECS-S/05, SECS-P/05), and 12 ECTS in economics (SECS-P/01-SECS-P/03, SECS-P/06). Minimum curricular requirements are necessary but not sufficient: the Admission Board also evaluates personal competencies and skills through the admission procedure. The manifesto states 180 credits are required for admission. Applicants must graduate by 31 December 2026.",
+  "language_requirements": "English at CEFR B2 or higher is required for admission. SLAM verifies the requirement in one of three official ways: a recognized B2-or-higher certificate issued no more than 3 years before the application date and uploaded during the online application; an English level already certified by SLAM during a University of Milan bachelor's degree within the previous 4 years; or the SLAM English entry test. The MEF application page also states that medium-of-instruction letters are never accepted, even from fully English-taught programmes. If an applicant does not submit a valid certificate or does not meet the required level, they are directed to the SLAM test during admission. For MEF, applicants who fail or miss the SLAM test must submit an accepted certificate to SLAM via InformaStudenti by 31 August 2026. The SLAM test can be taken only once per academic year.",
+  "application_deadline_eu": "EU candidates and equivalents: admission application from 22 January 2026 to 20 July 2026.",
+  "application_deadline_non_eu": "Non-EU candidates applying for a visa: admission application from 22 January 2026 to 30 April 2026. Non-EU visa applicants must also submit the Universitaly pre-enrolment application by 31 July 2026.",
+  "required_documents": [
+    "Degree certificate if already graduated.",
+    "Transcript(s) of records listing exams taken, grades, and credits (ECTS/CFU) for each exam.",
+    "Passport or ID card.",
+    "Curriculum vitae; the MEF application page asks for a short CV, and the assessment section requires a detailed CV covering study/work experience and relevant achievements.",
+    "English language certificate, if available, to be uploaded during the online application.",
+    "For applicants with qualifications from other Italian universities: self-certification of degree/enrolment with exam records including exams taken, grades, ECTS credits, and disciplinary scientific sectors; for graduands, also exams passed but not yet registered, exams still to be taken, and expected graduation date.",
+    "For applicants with foreign qualifications: bachelor's degree or degree-awarding certificate in Italian, English, French, German, or Spanish.",
+    "For applicants with foreign qualifications: diploma supplement or, alternatively, a transcript including courses, marks, ECTS, academic field, and the grading system used by the awarding university.",
+    "For Admission Board evaluation: a detailed study plan of the bachelor's programme with the list of exams taken, relative grades, average grade obtained, and final degree.",
+    "To finalize enrolment with foreign qualifications: legalized or apostilled bachelor's degree, unless exempt from legalization/apostille.",
+    "To finalize enrolment with foreign qualifications: high school diploma.",
+    "To finalize enrolment with foreign qualifications: official Italian translations of academic qualifications, unless the originals are in English, French, German, or Spanish.",
+    "To finalize enrolment with foreign qualifications: Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore; for Lisbon Convention countries, a Diploma Supplement or ARDI correspondence statement may replace them as stated by UniMi.",
+    "To finalize enrolment with foreign qualifications: Italian tax code.",
+    "For non-EU students: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "MEF uses a compulsory online background knowledge test in English to assess personal competencies and skills. The test covers Mathematics and Statistics and Economics and Business/Finance, is multiple choice, lasts 60 minutes, and requires at least 20 correct answers out of 40 to pass, with no penalty for wrong answers. It can be taken only once, and candidates must sit the session to which they are invited. Published 2026 sessions are 16 April 2026 for applicants who applied by 31 March 2026, 13 May 2026 for applicants who applied by 30 April 2026 (the last session available for non-EU visa applicants), 11 June 2026 for applicants who applied by 31 May 2026, and 30 July 2026 for applicants who applied by 20 July 2026. Applicants holding an Italian bachelor's degree with a final score of 105/110 or higher at the date of application are exempt from the written admission test. Candidates who do not sit or do not reach the minimum level are excluded from further evaluation. The Admission Board may also request an oral interview in English via electronic means. Non-EU visa applicants must take the compulsory online admission test by the first available session immediately following the visa-applicant deadline at the latest.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/finance-and-economics-mef",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-finance-and-economics-%28mef%29-%28classe-lm-16-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Open with entry requirements examination ... Course location Milano ... Language English.",
+      "url": "https://www.unimi.it/en/education/master-programme/finance-and-economics-mef",
+      "field_refs": [
+        "academic_year",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "PROGRAMME DESCRIPTION - ACADEMIC YEAR 2026/27 ... Credits required for admission: 180 ... Access procedures: Open, subject to entry requirements",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_BBGof2_2027.pdf",
+      "field_refs": [
+        "program_name",
+        "level",
+        "degree_class",
+        "academic_requirements",
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "at least 6 ECTS in the area of mathematics ... at least 6 ECTS in the statistical area ... at least 12 ECTS in the economic area.",
+      "url": "https://mef.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Language certificate of B2 or higher ... uploaded when submitting the online application",
+      "url": "https://mef.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Finance and economics (MEF) 31/08/2026",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "EU candidates and equivalents from 22 January to 20 July 2026 ... non EU candidates applying for a visa from 22 January to 30 April 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-finance-and-economics-%28mef%29-%28classe-lm-16-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "submit an application for pre-enrolment through Universitaly platform by 31 July 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-finance-and-economics-%28mef%29-%28classe-lm-16-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "degree certificate ... transcript(s) of records ... Passport/ID card ... A short CV ... English language certification",
+      "url": "https://mef.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Self-certification of degree/enrolment with exam records",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-finance-and-economics-%28mef%29-%28classe-lm-16-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Bachelor’s Degree ... Diploma supplement ... Passport",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-finance-and-economics-%28mef%29-%28classe-lm-16-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Bachelor’s degree ... High school diploma ... Statement of Comparability ... Italian tax code",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-finance-and-economics-%28mef%29-%28classe-lm-16-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "receipt of the residence permit application or a valid residence permit",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-finance-and-economics-%28mef%29-%28classe-lm-16-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Minimum threshold to pass the test: 20 correct answers out of 40",
+      "url": "https://mef.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "13 May 2026 ... last session available for non-EU visa applicants",
+      "url": "https://mef.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "final score of 105 or higher out of 110 are exempt from taking the written admission test",
+      "url": "https://mef.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "All information on university tuition fees ... is available on the pages: https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-finance-and-economics-%28mef%29-%28classe-lm-16-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "tuition_or_fees_link"
+      ],
+      "retrieved_at": "2026-06-06"
+    }
+  ],
+  "uncertainty_notes": [],
+  "uncertain": []
+}

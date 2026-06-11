@@ -1,0 +1,151 @@
+{
+  "program_name": "International Relations - Security and International Relations",
+  "level": "master",
+  "teaching_language": "English (the 'Security and International Relations' curriculum is the English-taught track of the parent programme INTERNATIONAL RELATIONS, which is offered in both English and Italian)",
+  "campus": "Genoa",
+  "degree_class": "LM-52 R (International Relations)",
+  "admission_type": "free access but requires passing a test (verification of the adequacy of personal preparation)",
+  "academic_requirements": {
+    "summary": "A recognised bachelor's degree or equivalent (three-year first-cycle university degree, pre-doctoral degree, university diploma, or direct school for special purposes of three years) is required, together with specific curricular requirements and an assessment of the adequacy of personal preparation. The detailed list of admitted bachelor's degree classes and the minimum CFU per scientific-disciplinary sector (SSD) are set in the course regolamento.",
+    "prior_degree_or_diploma": "A bachelor's degree or equivalent (3-year first-cycle degree, pre-doctoral degree, 3-year university diploma, or 3-year direct school for special purposes).",
+    "subject_requirements": "[uncertain] The specific admitted bachelor's degree classes and the minimum CFU thresholds in particular SSDs are defined in the official course regolamento and were not exposed as plain text on the English admission pages for 11935 / 11162. They should be re-verified on the official admission-criteria page or the course regolamento PDF.",
+    "grade_threshold": "[uncertain] No explicit minimum final-degree grade was published as plain text on the English admission pages.",
+    "international_qualification": "Non-EU candidates residing abroad with a foreign qualification apply through UniGeApply for pre-evaluation; a minimum CGPA of 75% is required, with no remote interview/test, but an additional interview is required after arrival in Italy.",
+    "source_url": "https://corsi.unige.it/en/corsi/11935/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English at level B2 for the English-taught 'Security and International Relations' curriculum.",
+    "accepted_proofs": [
+      "A certificate at English level B2 (or higher), or a certificate attesting that English has been the medium of instruction (MOI) of the prior degree (per the UniGeApply English-master selection page)."
+    ],
+    "exemption_rules": [
+      "Knowledge of the Italian language is not required for courses taught in English (UniGeApply)."
+    ],
+    "italian_requirement_note": "[uncertain] The parent (bilingual) programme page states that candidates who graduated abroad must take a proof of Italian language skills; for the English-taught Security and International Relations curriculum, the UniGeApply page states Italian is not required. The exact Italian requirement for the English curriculum should be re-verified.",
+    "assessment_or_upload_stage": "English proficiency is verified via certificate/MOI; non-EU candidates upload the certificate/MOI evidence on UniGeApply for pre-evaluation and re-upload at enrolment.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Verification of the adequacy of personal preparation (personal readiness check). NOT a TOLC.",
+    "mandatory": true,
+    "is_selective": false,
+    "applies_to": "Applicants who meet the curricular requirements; the programme is 'free access, but requires passing a test'.",
+    "format": "[uncertain] The exact format (interview vs. written test) of the personal-preparation verification is not published as plain text on the English admission pages. For non-EU UniGeApply applicants there is no remote pre-selection interview/test, but an additional interview is required after arrival in Italy.",
+    "dates": "[uncertain] Specific verification session dates for A.Y. 2026/2027 are not published as plain text on the admission page.",
+    "scoring_or_threshold": "[uncertain] No explicit numerical pass threshold for the personal-preparation verification was published as plain text.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026 (A.Y. 2026/2027 institution-wide window).",
+      "EU/resident applicants without a foreign qualification follow the standard UniGe pre-enrolment and personal-readiness verification calendar."
+    ],
+    "enrolment_deadline": "[uncertain] A precise programme-specific first-year EU application/enrolment deadline is not published as plain text on corsi.unige.it; the institution-wide spring master's window (closes 28 August 2026) applies.",
+    "notes": "No programme-specific early closure is recorded for International Relations; the standard master's windows apply.",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation outcome by 22 May 2026.",
+      "No programme-specific early closure is listed for International Relations - Security and International Relations."
+    ],
+    "visa_or_pre_enrolment_deadline": "After receiving eligibility via UniGeApply, visa applicants complete the Universitaly pre-enrolment and apply for the study visa, then re-upload title and English/MOI documents at enrolment; an additional interview is required after arrival in Italy.",
+    "early_closure": "None recorded; the standard fall close of 20 March 2026 applies.",
+    "notes": "Non-EU visa applicants must use the fall session. A 30 euro application fee applies for visa applicants (covering up to two course applications). Minimum CGPA 75%; no remote interview/test, but an interview after arrival in Italy.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum vitae et studiorum",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Information about educational background, additional courses, work activities, or internships. Uploaded on UniGeApply (PDF, max 2 MB).",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Bachelor's degree (final or provisional certificate)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Final degree certificate, or provisional certificate if not yet graduated. Uploaded on UniGeApply for pre-evaluation.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "List of exams taken with number of credits and grades. Used to verify the 75% CGPA and curricular subject coverage.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "English language proficiency evidence (B2 certificate or MOI certificate)",
+      "stage": "application/enrolment",
+      "required_for": "all",
+      "notes": "A B2-or-higher English certificate, or a certificate attesting English as the medium of instruction (MOI) of the prior degree, for the English-taught Security and International Relations curriculum.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Passport (non-EU) or national identity card (EU)",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Passport mandatory for non-EU applicants (jpg format on UniGeApply); EU applicants may use a passport or national identity card.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and study-visa evidence",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Visa applicants complete Universitaly pre-enrolment after UniGeApply eligibility, then apply for the study visa and re-upload title/language documents at enrolment; an additional interview is required after arrival in Italy.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11935/students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11935",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "INTERNATIONAL RELATIONS; Master's degree; Class LM-52 R (International Relations); Languages: English Italian; Genova; 120 CFU; 2 years. Curricula: Fundamental rights and environmental protection; Security and International Relations; International Relations and European Studies.",
+      "source_url": "https://corsi.unige.it/en/corsi/11935",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "The 'Security and International Relations' curriculum is offered in English.",
+      "source_url": "https://corsi.unige.it/en/corsi/11935",
+      "field_supported": "teaching_language, program_name"
+    },
+    {
+      "quote": "This degree course is free access, but requires passing a test. You can only enter this course if you have earned a bachelor's degree or equivalent (pre-doctoral degree, university diploma - 3 years, direct school for special purposes - 3 years) and if you meet the specific requirements.",
+      "source_url": "https://corsi.unige.it/en/corsi/11935/prospective-students-admission-criteria-procedure",
+      "field_supported": "admission_type, academic_requirements, entry_exam_or_test"
+    },
+    {
+      "quote": "International Relations - Security and International Relations: Minimum CGPA 75%; remote interview/test: No; an additional interview is required after arrival in Italy.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "academic_requirements, entry_exam_or_test, application_deadline_non_eu"
+    },
+    {
+      "quote": "Knowledge of the Italian language is not required for courses taught in English. The English language proficiency level is B2 or a certificate attesting that English has been the medium of instruction (MOI). Required documents: Curriculum vitae et studiorum; Bachelor's degree (final or provisional certificate); Transcript of records.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "language_requirements, required_documents"
+    },
+    {
+      "quote": "Fall session opens 26 November 2025, closes 20 March 2026 (outcome by 22 May 2026); spring session opens 9 April 2026, master's degrees close 28 August 2026.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "Programme confirmed and matched to official course code 11935 (degree class LM-52 R, A.Y. 2026/2027); the older code 11162 covers cohorts enrolled before A.Y. 2025/26.",
+    "Teaching language: the parent programme INTERNATIONAL RELATIONS (11935) is bilingual (English + Italian) with three curricula (Fundamental rights and environmental protection; Security and International Relations; International Relations and European Studies). The 'Security and International Relations' curriculum is the English-taught track, confirmed both on the programme page and the UniGeApply English-master selection page. teaching_language is flagged uncertain because the field captures a curriculum, not the whole bilingual programme.",
+    "The detailed curricular access requirements (admitted bachelor's degree classes and minimum CFU per SSD) and the exact format/threshold of the personal-preparation verification are not exposed as plain text on the English admission pages (11935 / 11162); they are defined in the course regolamento and should be re-verified there.",
+    "Italian language: the parent programme page references a proof of Italian for candidates who graduated abroad, while the UniGeApply English-master page states Italian is not required for English-taught courses. The exact Italian requirement for the English curriculum is flagged uncertain.",
+    "No programme-specific early closure is recorded; exact per-programme first-year EU application dates are taken from the institution-wide A.Y. 2026/27 windows.",
+    "An additional interview is required after arrival in Italy for non-EU UniGeApply applicants to this programme."
+  ],
+  "uncertain": [
+    "teaching_language",
+    "academic_requirements",
+    "language_requirements",
+    "entry_exam_or_test",
+    "application_deadline_eu"
+  ]
+}

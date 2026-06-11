@@ -1,0 +1,157 @@
+{
+  "program_name": "Medical Biotechnologies",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Padua",
+  "degree_class": "LM-9 R - Medical, Veterinary and Pharmaceutical Biotechnology",
+  "admission_type": "restricted access",
+  "academic_requirements": {
+    "summary": "Applicants need a suitable first-cycle degree or equivalent in biotechnology, life sciences, medicine, chemistry, or related fields, together with specific biomedical curricular competencies.",
+    "prior_degree_or_diploma": "A minimum three-year undergraduate degree or equivalent. Foreign-qualification calls require the degree by 31 July 2026 for non-EU applicants residing abroad and by 30 September 2026 for EU and EU-equated applicants; the Italian-title call allows the degree by 31 December 2026.",
+    "subject_requirements": "The official calls list Biotechnologies, Biology, Chemistry, Medicine and Surgery, and Technical Health Profession or related fields, with proven competencies in Physiology, Applied Biology, Pharmacology, Human Anatomy, Histology, General Pathology, Microbiology and Clinical Microbiology, Experimental Physics, Applied Physics, and Biochemistry.",
+    "gpa_or_country_requirements": "Country-based entry-title requirements apply to foreign qualifications. The official foreign-qualification calls do not publish a universal minimum GPA threshold; non-EU ranking considers relevance of prior studies together with final GPA or average grade, while EU and Italian-title procedures use admission testing [uncertain].",
+    "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_non-EU%20students%20residing%20abroad_0.pdf"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent.",
+    "accepted_proofs": [
+      "TOEFL iBT with a minimum score of 80.",
+      "IELTS Academic or General Training with a minimum score of 6.0.",
+      "Cambridge English B2 First with a minimum score of 173.",
+      "Pearson Test of English Academic with a minimum score of 65.",
+      "Trinity College London ISE II or another certificate listed by the University of Padua.",
+      "Only certificates obtained no more than five years before the start of the selection process are accepted."
+    ],
+    "exemption_rules": [
+      "No certificate is required if the applicant obtained the entry qualification by completing previous education entirely in English.",
+      "No certificate is required for native English speakers from the countries listed by the University of Padua."
+    ],
+    "deadline": "Foreign-qualification calls require the English proof by 31 July 2026 for non-EU students residing abroad and by 25 August 2026 for EU and EU-equated students; the Italian-title procedure refers to the current call annex for its deadline [uncertain].",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "15 July 2026 - 25 August 2026",
+    "call_two": "Not applicable.",
+    "call_three": "Not applicable.",
+    "notes": "This deadline applies to EU and EU-equated students with a foreign qualification. Candidates with an Italian qualification follow the separate 2026 call published on the admissions page.",
+    "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_EU%20students%20.pdf"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "7 January 2026 - 7 March 2026",
+    "call_two": "Not applicable.",
+    "call_three": "Not applicable.",
+    "notes": "This deadline applies to non-EU candidates residing abroad with a foreign qualification.",
+    "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_non-EU%20students%20residing%20abroad_0.pdf"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid identity document or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU and EU-equated applicants may use a valid identity document or passport; non-EU applicants residing abroad use a passport.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_EU%20students%20.pdf"
+    },
+    {
+      "document_name": "Academic transcript of records and bachelor's degree diploma",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "The transcript must show the full list of exams taken, grades obtained, and grading scale; the diploma is required if already obtained.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_non-EU%20students%20residing%20abroad_0.pdf"
+    },
+    {
+      "document_name": "Official translations into Italian or English for academic documents issued in other languages",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required when academic documents are not issued in Italian or English.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_non-EU%20students%20residing%20abroad_0.pdf"
+    },
+    {
+      "document_name": "English language proficiency certificate of at least B2 level",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Upload it if already obtained; otherwise it must be submitted by the category-specific deadline.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_EU%20students%20.pdf"
+    },
+    {
+      "document_name": "Curriculum Vitae",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Listed in both 2026/27 foreign-qualification calls.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_non-EU%20students%20residing%20abroad_0.pdf"
+    },
+    {
+      "document_name": "Legalisation, apostille, or CIMEA Statement of Verification for academic documents",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "One of these must be submitted by 31 October 2026 to complete enrolment.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_EU%20students%20.pdf"
+    },
+    {
+      "document_name": "Study Visa D - enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU applicants residing outside Italy.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU applicants residing outside Italy before visa issuance.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "On-site admission test for EU and Italian-title selection; possible online interview for some non-EU foreign-qualification applicants",
+    "mandatory": true,
+    "applies_to": "Mandatory for EU and EU-equated applicants with a foreign qualification and for the Italian-title selection; non-EU applicants residing abroad are ranked on qualifications and may be invited to an online interview.",
+    "dates": "The on-site admission test for the EU foreign-qualification selection is scheduled for 2 September 2026 at 2:30 pm; interview dates for dossier-based assessments are not published [uncertain].",
+    "scoring_or_threshold": "EU and Italian-title selection: 40 multiple-choice questions in English, 40 minutes, +1 point for each correct answer, -0.1 for each incorrect answer, 0 for unanswered questions, and no minimum score required. Non-EU foreign-qualification ranking is based on relevance of prior studies and GPA or average grade.",
+    "source_url": "https://www.unipd.it/ammissioni-med-medicalbio"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/medical-biotechnologies",
+  "official_call_url": "https://www.unipd.it/ammissioni-med-medicalbio",
+  "source_quotes": [
+    {
+      "quote": "Scheduled access",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/medical-biotechnologies",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Biotechnologies, Biology, Chemistry, Medicine and Surgery, Technical Health Profession",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_non-EU%20students%20residing%20abroad_0.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "English language: B2 level (CEFR) or equivalent",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_EU%20students%20.pdf",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Application period: 15 July 2026 - 25 August 2026",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_EU%20students%20.pdf",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "Application period: 7 January 2026 - 7 March 2026",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_non-EU%20students%20residing%20abroad_0.pdf",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "The admission test will be held on September 2, 2026 at 2:30 pm",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Medical%20Biotechnologies_EU%20students%20.pdf",
+      "field_supported": "entry_exam_or_test"
+    }
+  ],
+  "uncertainty_notes": [
+    "Medical Biotechnologies uses different 2026/27 admission procedures depending on candidate category: an on-site admission test for EU or Italian-title procedures, and dossier-based ranking with a possible interview for non-EU applicants residing abroad.",
+    "The foreign-qualification calls do not publish a universal minimum GPA threshold, even though non-EU ranking considers the final GPA or average grade.",
+    "Language-proof deadlines differ by candidate category, and the Italian-title route is governed by the separate 2026 call annex."
+  ],
+  "uncertain": [
+    "academic_requirements",
+    "language_requirements",
+    "entry_exam_or_test"
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "program_name": "Architecture for Heritage",
+  "level": "master",
+  "official_level_type": "Master's degree programme",
+  "teaching_language": "Italian, English",
+  "is_fully_english_programme": false,
+  "has_complete_english_track": true,
+  "english_track_name": "English-language track (official label: Percorso in lingua inglese)",
+  "campus": "Castello del Valentino",
+  "degree_class": "LM-4: Architecture and Architectural Engineering",
+  "double_degree_or_erasmus_mundus": null,
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-heritage",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-heritage/programme-curriculum",
+  "admission_type": "open access, evaluation/CV",
+  "admission_test_type": null,
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "Non-EU residing in Italy",
+    "Non-EU residing abroad (study-visa applicants)"
+  ],
+  "admission_call_round": [
+    "Standard Architecture Area intake for applicants with an Italian qualification",
+    "1st Call for applicants with a non-Italian qualification",
+    "2nd Call for applicants with a non-Italian qualification"
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito; UNIVERSITALY for study-visa pre-enrolment.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "base_requirement": "Applicants must hold a Bachelor's degree (EQF level 6) or an equivalent academic qualification awarded by an accredited foreign university and giving access to second-cycle studies.",
+    "equivalent_qualification_rule": "Applicants enrolled in a foreign 5- or 6-year single-cycle degree who have not graduated yet may apply if they have at least 15 years of global schooling, including at least 3 years at university level, and at least 180 ECTS or equivalent.",
+    "programme_specific_evaluation": "An Academic Committee verifies the adequacy and consistency of the previous university background for admission.",
+    "programme_specific_materials": "For Architecture for Heritage, both a syllabus/course description file and a portfolio are required."
+  },
+  "country_specific_eligibility": null,
+  "minimum_background_or_credits": "Recommended background to apply: Architecture. For the Italian-qualification route, applicants may apply before graduation if they have earned at least 140 ECTS at Bachelor's level.",
+  "language_requirements": {
+    "programme_requirement": "English level B2 or higher.",
+    "programme_specific_minimum": "Architecture for Heritage requires IELTS 5.5 as the published minimum programme-specific score.",
+    "accepted_certificates": [
+      "IELTS Academic or General Training: 5.5 minimum.",
+      "Pearson PTE Academic: 59 minimum.",
+      "TOEFL iBT obtained before 21 January 2026: 72 minimum.",
+      "TOEFL iBT obtained after 21 January 2026: Total 4 [uncertain; this is the exact readable text in the official PoliTo certificate table, but the intended value appears truncated].",
+      "TOEIC: Listening 400, Reading 385, Speaking 160, Writing 150.",
+      "Cambridge B2 First / B2 Business Vantage / C1 Advanced / C1 Business Higher / C2 Proficiency: 160 minimum.",
+      "Older Cambridge certificates are accepted according to the official CLA table with the specific legacy thresholds stated there."
+    ],
+    "exemptions": "Official English-language exemptions exist for specific English-medium school or university qualifications and for qualifications from specified English-medium countries, as listed by PoliTo."
+  },
+  "english_certificate_codes": "TOEFL/TOEIC institution code C285; for Cambridge, results must be shared with Politecnico di Torino and the candidate ID must be provided.",
+  "language_submission_timing": "For applicants with a non-Italian qualification, the language certificate is uploaded with the application. For applicants with an Italian qualification, it is possible to apply without the certificate; if admitted through single courses for missing language requirements, the English certificate must be presented by 22 February 2027.",
+  "application_deadline_eu": {
+    "eu_or_no_visa_applicants_with_non_italian_qualification": {
+      "1st_call_application_deadline": "13 February 2026, 2:00 p.m. Italian time",
+      "1st_call_results": "15 April 2026",
+      "2nd_call_application_deadline": "20 April 2026, 2:00 p.m. Italian time",
+      "2nd_call_results": "22 June 2026"
+    },
+    "applicants_with_an_italian_qualification_architecture_area": {
+      "application_opening": "4 June 2026",
+      "application_deadline": "18 August 2026",
+      "portfolio_results": "3 September 2026",
+      "enrolment_deadline": "30 September 2026",
+      "english_certificate_deadline_if_enrolled_in_single_courses_for_missing_language": "22 February 2027"
+    }
+  },
+  "application_deadline_non_eu": {
+    "study_visa_applicants_with_non_italian_qualification": {
+      "1st_call_application_deadline": "13 February 2026, 2:00 p.m. Italian time",
+      "1st_call_results": "15 April 2026",
+      "1st_call_universitaly_deadline": "30 June 2026",
+      "2nd_call_application_deadline": "20 April 2026, 2:00 p.m. Italian time",
+      "2nd_call_results": "22 June 2026",
+      "2nd_call_universitaly_deadline": "15 July 2026"
+    }
+  },
+  "universitaly_preenrolment_deadline": "1st Call: 30 June 2026. 2nd Call: 15 July 2026.",
+  "application_fee": "EUR 50 non-refundable application fee for applicants with a non-Italian qualification.",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport; EU nationals may use another ID document.",
+    "Residence permit, only for non-EU citizens living in Italy.",
+    "Curriculum Vitae.",
+    "Bachelor's degree certificate, or an official university document stating the provisional graduation date if not yet graduated.",
+    "Official Transcript of Records.",
+    "Syllabus / course descriptions.",
+    "Portfolio.",
+    "English language certificate, or an official medium-of-instruction statement if an exemption applies.",
+    "Dichiarazione di valore of the Bachelor's degree or a CIMEA Statement of Comparability (if available at application stage, compulsory for enrolment).",
+    "Self-certificate of enrolment in another Italian university including passed exams, if currently enrolled.",
+    "One optional additional document, for example a GRE score report, recommendation letter, motivation letter, internship/training certificates, or proof of work experience."
+  ],
+  "document_translation_authentication": "Documents must be issued on institutional letterheaded paper, stamped and signed. Digitally signed documents are accepted only if they can be verified online. Documents in Italian, English, French, or Spanish are accepted; documents in other languages must be uploaded together with an official English or Italian translation in one merged file. A Dichiarazione di valore or a CIMEA Statement of Comparability is compulsory for enrolment.",
+  "entry_exam_or_test": {
+    "type": "No written entrance examination is published for Architecture for Heritage.",
+    "selection_method": "Admission is based on evaluation of the admission requirements by the Academic Committee.",
+    "programme_specific_components": [
+      "Academic background evaluation",
+      "Transcript evaluation",
+      "Syllabus / course descriptions",
+      "Portfolio"
+    ],
+    "interview": "No programme-specific interview is listed for Architecture for Heritage in the 2026/2027 course-specific requirements."
+  },
+  "test_score_or_threshold": "No entrance-test score threshold is published. The explicit published programme-specific threshold is the minimum English score of IELTS 5.5.",
+  "source_quotes": [
+    {
+      "quote": "Italian, English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-heritage",
+      "supports_fields": [
+        "teaching_language"
+      ]
+    },
+    {
+      "quote": "Uncapped number of students, evaluation of the admission requirements",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-heritage",
+      "supports_fields": [
+        "admission_type"
+      ]
+    },
+    {
+      "quote": "The Master’s degree programme is taught both in Italian ... and also entirely in English.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-heritage/programme-details",
+      "supports_fields": [
+        "is_fully_english_programme",
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "Percorso in lingua inglese",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-heritage/programme-curriculum",
+      "supports_fields": [
+        "english_track_name",
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "ARCHITECTURE FOR HERITAGE English IELTS 5.5 Architecture Both required",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": [
+        "minimum_background_or_credits",
+        "language_requirements",
+        "required_documents"
+      ]
+    },
+    {
+      "quote": "have a Bachelor's degree (level 6 EQF) or an equivalent academic qualification",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "academic_requirements"
+      ]
+    },
+    {
+      "quote": "Closing 13 February 2026, 2:00 p.m. (Italian time)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ]
+    },
+    {
+      "quote": "Pre-enrolment deadline for Study Visa 30 June 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "universitaly_preenrolment_deadline",
+        "application_deadline_non_eu"
+      ]
+    },
+    {
+      "quote": "Pay the non-refundable application fee (€50)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_fee"
+      ]
+    },
+    {
+      "quote": "Documents issued in Italian, English, French or Spanish are accepted.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "document_translation_authentication"
+      ]
+    },
+    {
+      "quote": "For TOEFL/TOEIC certificates, you must indicate the code C285",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "english_certificate_codes"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-heritage",
+    "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-heritage/programme-details",
+    "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-heritage/programme-curriculum",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://www.polito.it/sites/default/files/2023-12/Portfolio_Archi.pdf",
+    "https://didattica.polito.it/zxd/b5eda0a74558a342cf659187f06f746f/9dde3c1deee7c791026d6a0ac91322bb/4972d13566bbc18ee060c0828c37037b?1769603050327",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/architecture-area-ay-20262027",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/scadenze-area-architettura-aa-202627",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "The official PoliTo English-certificate table currently shows the post-21 January 2026 TOEFL iBT threshold as 'Total 4'; this appears truncated in the official document, so that specific TOEFL value is marked [uncertain]."
+  ],
+  "uncertain": [
+    "language_requirements"
+  ]
+}

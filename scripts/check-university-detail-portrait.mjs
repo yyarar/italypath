@@ -91,6 +91,10 @@ requireTokens("portrait components", portraitSource, [
   "rawTeachingLanguage",
   "teachingLanguage",
   "uncertaintyNote",
+  "uncertainFields",
+  "uncertaintyNotes",
+  "details.uncertain.map",
+  "details.uncertaintyNotes.map",
   "break-words",
 ]);
 

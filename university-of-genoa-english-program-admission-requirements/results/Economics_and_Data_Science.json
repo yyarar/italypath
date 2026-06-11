@@ -1,0 +1,136 @@
+{
+  "program_name": "Economics and Data Science",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Genoa (Department of Economics, Via Vivaldi 5 - Darsena)",
+  "degree_class": "LM-56 R (Economics)",
+  "admission_type": "open access (free access, but admission requires meeting curricular requirements and, where applicable, passing an assessment of adequacy of personal preparation)",
+  "academic_requirements": {
+    "summary": "Open-access (non-competitive) master's programme. Admission requires a recognised bachelor's/three-year degree, satisfaction of curricular requirements, and verification of the adequacy of personal preparation when the graduation mark is below the set threshold.",
+    "prior_degree_or_diploma": "A bachelor's degree, a three-year university degree, a four-year college degree, or any other degree awarded abroad and recognised as suitable.",
+    "curricular_requirements": "Either (a) a three-year degree in an economics or business class (L-33 Economics Sciences or L-18 Economics and Business Management Sciences), or (b) a three-year degree in another class together with at least 40 ECTS/CFU in the relevant scientific-disciplinary sectors covering economics (SECS-P), statistics (SECS-S), mathematics (MAT) and computer science (INF).",
+    "minimum_grade": "Candidates with a graduation mark of at least 99/110 (and meeting the L-33/L-18 class or sub-constraints) are exempt from the personal-preparation assessment; those with a mark below 99/110 must undergo verification. For non-EU applicants the degree grade must correspond to at least 75% of the maximum possible grade.",
+    "personal_preparation_assessment": "Where the threshold is not met, a written test with open questions verifies personal preparation in economics, mathematics and statistics (main topics of introductory economics courses including basic mathematics, statistics and microeconomics); candidates with significant deficiencies are deemed unsuitable but may retest.",
+    "international_qualification": "Non-EU candidates residing abroad with a foreign degree apply through UniGeApply for pre-evaluation, with an admission test/interview verifying both academic preparation and B2 English; the degree grade must be at least 75% of the maximum.",
+    "source_url": "https://corsi.unige.it/en/corsi/11937/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English at least B2 level.",
+    "accepted_proofs": [
+      "An official English-language certificate (e.g. IELTS, TOEFL) at B2 or higher among those accepted by the University.",
+      "A University Language Centre (CLAT) certificate.",
+      "A University English exam passed in Italy with a mark of at least 28/30.",
+      "Assessment via interview (reading, translating and discussing a text) if no certification is provided."
+    ],
+    "exemption_rules": [
+      "Holding an accepted B2-or-higher certificate (or the qualifying CLAT certificate / 28-30 university English exam) removes the need for the English interview."
+    ],
+    "assessment_or_upload_stage": "English proficiency is verified at the personal-preparation assessment stage for candidates without an accepted certificate; non-EU applicants have B2 English verified during the UniGeApply pre-evaluation interview.",
+    "source_url": "https://corsi.unige.it/en/corsi/11937/prospective-students-requisites-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Assessment of Adequacy of Personal Preparation (verifica dell'adeguatezza della preparazione personale) - NOT a TOLC. A written test with open questions, plus an English interview where required.",
+    "mandatory": false,
+    "is_selective": false,
+    "applies_to": "Candidates whose graduation mark is below 99/110, or who hold a degree outside L-33/L-18 and fail the regulation sub-constraints; non-EU applicants via UniGeApply take a remote admission test/interview.",
+    "format": "Written test with open questions verifying personal preparation in economics, mathematics and statistics; candidates needing English verification also do an interview (reading, translating and discussing a text). For non-EU pre-evaluation the test/interview is conducted remotely.",
+    "dates": "[uncertain] Specific test dates are published on the Department of Economics master's admission-test calendar (https://economia.unige.it/Calendario-test-accesso-magistrali); a fixed date list was not on the course pages at the time of research.",
+    "scoring_or_threshold": "Outcome is suitability-based: candidates with significant deficiencies are considered unsuitable (retesting permitted). Non-EU minimum degree grade is 75% of maximum.",
+    "source_url": "https://corsi.unige.it/en/corsi/11937/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026.",
+      "First-year pre-registration: from 9 April to 30 November 2026 (and until 10 March 2027 with late payment)."
+    ],
+    "enrolment_deadline": "Confirmation of enrolment from 15 July 2026 to 30 November 2026, and until 10 March 2027 with late payment; enrolment in years after the first runs 15 July to 5 October 2026 (arrears 6 October to 5 November 2026).",
+    "notes": "Open-access (non-ranked) programme; EU/resident applicants who do not meet the 99/110 threshold must pass the personal-preparation assessment before enrolling. Tuition first installment (approx. EUR 136 stamp duty + regional tax) at enrolment; second installment by 10 December 2026; third by 23 June 2027.",
+    "source_url": "https://corsi.unige.it/en/corsi/11937/prospective-students-deadlines"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026.",
+      "No programme-specific early closure is published for Economics and Data Science (only Medical-Pharmaceutical Biotechnology, Maritime Science and Technology, and the Computer Engineering bachelor have published fall early closures)."
+    ],
+    "visa_or_pre_enrolment_deadline": "After receiving eligibility via UniGeApply, visa applicants complete Universitaly pre-enrolment and apply for the study visa.",
+    "early_closure": "None published for this programme (uses the standard fall-session close of 20 March 2026).",
+    "notes": "Non-EU visa applicants must use the fall session, apply through UniGeApply (max 2 courses; 30 EUR fixed fee for visa applicants), require a degree grade of at least 75% of maximum, and pass a remote admission test/interview. The A.Y. 2026/27 fall window has now closed.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae et Studiorum",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Information on educational background, additional courses, work activities or internships.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Degree must correspond to at least 75% of the maximum grade for non-EU pre-evaluation.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "List of exams taken with number of credits and grades; used to verify the 40 ECTS curricular requirement.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "English Language Proficiency Certificate (B2) or Medium of Instruction (MOI) declaration",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "B2 certificate (IELTS/TOEFL/CLAT etc.) or proof that English was the medium of instruction; otherwise B2 verified by interview.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Passport (non-EU) / national ID or passport (EU); residence permit (non-EU residents)",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Uploaded on UniGeApply in PDF, max 2 MB.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11937/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11937",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "Economics and Data Science, Course Code 11937, Degree Class LM-56 R (Economics), Teaching language English, 120 CFU, 2 years, Genova.",
+      "source_url": "https://corsi.unige.it/en/corsi/11937",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "Knowledge of English at least B2 level is also required.",
+      "source_url": "https://corsi.unige.it/en/corsi/11937/prospective-students-admission-criteria-procedure",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "a three-year degree in an economics or business degree class (L-33 economics sciences; L-18 economics and business management sciences) ... or ... a three-year degree in another class and have at least 40 ECTS in [economics SECS-P, statistics SECS-S, mathematics MAT, computer science INF].",
+      "source_url": "https://corsi.unige.it/en/corsi/11937/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Candidates with a graduation mark of less than 99/110 must complete verification ... a written test with open questions ... evaluate the candidate's personal preparation in the fields of economics, mathematics and statistics.",
+      "source_url": "https://corsi.unige.it/en/corsi/11937/prospective-students-requisites-assessment",
+      "field_supported": "entry_exam_or_test, academic_requirements"
+    },
+    {
+      "quote": "Economics and Data Science: minimum CGPA 75%, admission test/interview: yes.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "application_deadline_non_eu, academic_requirements"
+    }
+  ],
+  "uncertainty_notes": [
+    "Programme is open-access; the 'test to be passed' on the catalogue page is the assessment of adequacy of personal preparation, not a TOLC or competitive entrance exam.",
+    "Exact dates of the personal-preparation written test/interview are not on the course pages; they are published on the Department of Economics master's admission-test calendar.",
+    "EU/spring deadlines reflect the institution-wide UniGeApply window (master's close 28 August 2026) plus the corsi.unige.it enrolment calendar; no programme-specific first-year EU application deadline is separately published.",
+    "Non-EU pre-evaluation document list does not explicitly require a Declaration of Value or CIMEA at the application stage; these are typically required at the enrolment/visa stage per central UniGe rules."
+  ],
+  "uncertain": [
+    "entry_exam_or_test"
+  ]
+}

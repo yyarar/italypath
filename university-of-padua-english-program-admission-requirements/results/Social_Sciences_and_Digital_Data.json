@@ -1,0 +1,156 @@
+{
+  "program_name": "Social Sciences and Digital Data",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Padua",
+  "degree_class": "LM-88 R - Sociology and Social Research",
+  "admission_type": "restricted access",
+  "academic_requirements": {
+    "summary": "Applicants need a minimum three-year bachelor's degree or equivalent and must satisfy specific curricular requirements in social-science or related areas.",
+    "prior_degree_or_diploma": "A minimum three-year undergraduate degree (or equivalent) to be obtained by 31 July 2026.",
+    "subject_requirements": "The official foreign-qualification calls list degrees in Sociology, Education and Training, Communication Sciences, Psychology, Political Science and International Relations, or other fields with proven competencies in Social and Political Sciences, Statistics, Social Statistics, or Psychometrics.",
+    "gpa_or_country_requirements": "Country-based entry-title requirements apply. The ranking is based on the final GPA or the average grade of exams taken at the time of application, but the official calls do not publish a universal minimum GPA threshold [uncertain].",
+    "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_non-EU%20students%20residing%20abroad.docx_0_0.pdf"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent.",
+    "accepted_proofs": [
+      "TOEFL iBT with a minimum score of 80.",
+      "IELTS Academic or General Training with a minimum score of 6.0.",
+      "Cambridge English B2 First with a minimum score of 173.",
+      "Pearson Test of English Academic with a minimum score of 65.",
+      "Trinity College London ISE II or another certificate listed by the University of Padua.",
+      "Only certificates obtained no more than five years before the start of the selection process are accepted."
+    ],
+    "exemption_rules": [
+      "No certificate is required if the applicant obtained the entry qualification by completing previous education entirely in English.",
+      "No certificate is required for native English speakers from the countries listed by the University of Padua."
+    ],
+    "deadline": "Foreign-qualification calls require the English proof by 31 July 2026.",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "10 March 2026 - 10 April 2026",
+    "call_two": "Not applicable.",
+    "call_three": "Not applicable.",
+    "notes": "This deadline applies to EU and EU-equated students with a foreign qualification; candidates with an Italian qualification follow the separate annexed procedure.",
+    "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_EU%20and%20equated%20students_foreign%20qualification.docx%20%281%29_0.pdf"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "7 January 2026 - 7 March 2026",
+    "call_two": "Not applicable.",
+    "call_three": "Not applicable.",
+    "notes": "This deadline applies to non-EU candidates residing abroad with a foreign qualification.",
+    "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_non-EU%20students%20residing%20abroad.docx_0_0.pdf"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid identity document or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU and EU-equated applicants may use a valid identity document or passport; non-EU applicants residing abroad use a passport.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_EU%20and%20equated%20students_foreign%20qualification.docx%20%281%29_0.pdf"
+    },
+    {
+      "document_name": "Academic transcript of records and bachelor's degree diploma",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "The transcript must include the full list of exams taken, the grades obtained, and the grading scale; the diploma is required if already obtained.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_non-EU%20students%20residing%20abroad.docx_0_0.pdf"
+    },
+    {
+      "document_name": "Official translations into Italian or English for academic documents issued in other languages",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required when academic documents are not issued in Italian or English.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_non-EU%20students%20residing%20abroad.docx_0_0.pdf"
+    },
+    {
+      "document_name": "English language proficiency certificate of at least B2 level",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Upload it if already obtained; otherwise it must be submitted by 31 July 2026.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_EU%20and%20equated%20students_foreign%20qualification.docx%20%281%29_0.pdf"
+    },
+    {
+      "document_name": "Curriculum Vitae",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Listed in both 2026/27 foreign-qualification calls.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_non-EU%20students%20residing%20abroad.docx_0_0.pdf"
+    },
+    {
+      "document_name": "Legalisation, apostille, or CIMEA Statement of Verification for academic documents",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "One of these must be submitted by 31 October 2026 to complete enrolment.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_EU%20and%20equated%20students_foreign%20qualification.docx%20%281%29_0.pdf"
+    },
+    {
+      "document_name": "Study Visa D - enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU applicants residing outside Italy.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU applicants residing outside Italy before visa issuance.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No written entrance test; possible online interview",
+    "mandatory": false,
+    "applies_to": "Applicants whose competencies the committee decides to assess further.",
+    "dates": "Interview dates are not published in the 2026/27 calls [uncertain].",
+    "scoring_or_threshold": "The ranking is based on the final GPA or average grade of exams taken at the time of application; in case of a tie, priority is given to the younger candidate.",
+    "source_url": "https://www.unipd.it/ammissioni-scu-social-science-digital-data"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/social-sciences-and-digital-data",
+  "official_call_url": "https://www.unipd.it/ammissioni-scu-social-science-digital-data",
+  "source_quotes": [
+    {
+      "quote": "Scheduled access",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/social-sciences-and-digital-data",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Sociology, Education and Training, Communication Sciences, Psychology, Political science and international relations",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_non-EU%20students%20residing%20abroad.docx_0_0.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "English language: B2 level (CEFR) or equivalent",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_EU%20and%20equated%20students_foreign%20qualification.docx%20%281%29_0.pdf",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Application period: 10 March 2026 - 10 April 2026",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_EU%20and%20equated%20students_foreign%20qualification.docx%20%281%29_0.pdf",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "Application period: 7 January 2026 - 7 March 2026",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_non-EU%20students%20residing%20abroad.docx_0_0.pdf",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "may conduct an online interview to assess the candidate's competencies",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Social%20Sciences%20and%20Digital%20Data_non-EU%20students%20residing%20abroad.docx_0_0.pdf",
+      "field_supported": "entry_exam_or_test"
+    }
+  ],
+  "uncertainty_notes": [
+    "The 2026/27 foreign-qualification calls clearly state the curricular areas and deadlines, but they do not publish a universal minimum GPA threshold.",
+    "Selection is dossier-based and the committee may conduct an online interview, but the official calls do not publish interview dates or a separate interview rubric.",
+    "The programme page and the foreign-qualification calls were used together because they describe different parts of the admission process."
+  ],
+  "uncertain": [
+    "academic_requirements",
+    "entry_exam_or_test"
+  ]
+}

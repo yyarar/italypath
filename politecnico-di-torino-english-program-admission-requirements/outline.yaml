@@ -1,0 +1,357 @@
+topic: "Politecnico di Torino – English-taught degree programme admission requirements"
+generated_at: "2026-06-04"
+research_language: "en"
+
+scope:
+  institution: "Politecnico di Torino (PoliTo)"
+  allowed_sources:
+    - "Official Politecnico di Torino pages only (polito.it domain)"
+    - "Official programme pages under www.polito.it/en/education/..."
+    - "Official programme curriculum pages (.../programme-curriculum)"
+    - "Official admissions/enrolment pages under www.polito.it/en/education/applying-studying-graduating/..."
+    - "Official apply platform (didattica.polito.it/.../pkg_apply)"
+    - "Official PoliTo PDFs/calls hosted under polito.it or didattica.polito.it"
+  source_priority:
+    - "Use 2026/2027 admission pages or calls where available."
+    - "If 2026/2027 is not published for a programme, use the latest official PoliTo year and flag uncertainty."
+  english_definition: "BROAD reading approved by product owner: a programme qualifies if a student can complete it 100% in English — either the whole programme is catalogue-labelled 'English', OR the programme is bilingual ('Italian, English') but offers a COMPLETE fully-English track/percorso across all years."
+  included_programmes:
+    - "Programmes catalogue-labelled 'English' (entirely English)."
+    - "Bilingual programmes that contain a verified complete fully-English track (Percorso in lingua inglese / Percorso internazionale / named English specialisation)."
+    - "Bachelor (Laurea / 1st cycle) and Master (Laurea Magistrale / 2nd cycle)."
+  excluded_programmes:
+    - "Programmes taught only in Italian (e.g. Aerospace, Biomedical, Mathematical Engineering masters)."
+    - "Programmes whose 'English option' is only a partial set of courses with no complete English plan."
+    - "Inter-university programmes hosted on another university's domain (e.g. Food Tech -> unisg.it, Sustainable Design for Food Systems -> unipr.it)."
+    - "PhD, specialising masters (master di I/II livello), exchange-only tracks, single courses."
+  item_definition: "Each item is one official PoliTo degree programme at one level, not one track, call, or campus."
+  uncertain_programmes_policy: "Product owner approved INCLUDE + VERIFY for borderline programmes. Borderline items (Civil Eng MSc, Electronic Eng MSc, Architecture group, Building Eng, Materials Eng, Industrial Production, Architecture bachelor) are kept as items; each deep-research agent must verify on the official curriculum page whether a complete fully-English plan exists and set is_fully_english_programme / has_complete_english_track accordingly. If verification proves NOT fully English, keep the JSON but set has_complete_english_track: false and explain in uncertainty_notes (do not silently drop)."
+
+source_inventory:
+  bachelor_catalogue:
+    url: "https://www.polito.it/en/education/bachelor-s-degree-programmes"
+    role: "Official Bachelor catalogue — confirm programme existence and catalogue language label."
+  master_catalogue:
+    url: "https://www.polito.it/en/education/master-s-degree-programmes"
+    role: "Official Master catalogue — confirm programme existence and catalogue language label."
+  curriculum_page_pattern:
+    url: "https://www.polito.it/en/education/<bachelor-s|master-s>-degree-programmes/<programme-slug>/programme-curriculum"
+    role: "Per-programme curriculum page — primary source to verify a COMPLETE fully-English track across all years."
+  bachelor_admissions_non_italian:
+    url: "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    role: "Bachelor admission rules for applicants with a non-Italian qualification (non-EU / international route)."
+  bachelor_calls_regulations_26_27:
+    url: "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/calls-for-application-regulations-and-ranking-lists/calls-regulations-26-27"
+    role: "Bachelor 2026/2027 calls, regulations and ranking lists — official deadlines and TIL/SAT rules."
+  master_admissions_non_italian:
+    url: "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    role: "Master admission rules + deadlines for applicants with a non-Italian qualification (1st/2nd/special calls)."
+  master_admissions_engineering_area_26_27:
+    url: "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027"
+    role: "Master Engineering-area admission rules 2026/2027 (Italian-qualification route)."
+  apply_platform:
+    url: "https://didattica.polito.it/pls/portal30/sviluppo.pkg_apply.registrazione"
+    role: "Official online application/registration platform (Apply@polito)."
+  tuition_fees:
+    url: null
+    role: "Official PoliTo fees & funding page — each deep-research agent must locate the current official tuition/fees URL on polito.it and record it in tuition_or_fees_link."
+
+execution:
+  batch_size: 5
+  items_per_agent: 1
+  output_dir: "./results"
+  expected_output_per_item: "One JSON object matching fields.yaml"
+  deduplication_key: "level + program_name + official_program_url"
+  citation_policy:
+    - "Every non-empty requirement/deadline/test/fee field must cite at least one official PoliTo source URL."
+    - "Use short direct quotes only; prefer paraphrase for long official text."
+    - "Always verify the fully-English claim on the official programme or curriculum page and record the result."
+    - "If a field is inferred from a catalogue label, record the inference in uncertainty_notes."
+
+items:
+  # ─── BACHELOR (Laurea / 1st cycle) ─────────────────────────────────────────
+  - id: "bachelor-civil-environmental-engineering"
+    program_name: "Civil and Environmental Engineering"
+    level: "bachelor"
+    teaching_language: "English"
+    english_status: "fully-english (catalogue 'English')"
+    official_program_url: "https://www.polito.it/en/education/bachelor-s-degree-programmes/civil-and-environmental-engineering"
+    admission_notes: "Open/restricted via TIL-I or SAT; English B2+. Confirm 2026/27 call."
+    uncertainty_notes: []
+
+  - id: "bachelor-electronic-communications-engineering"
+    program_name: "Electronic and Communications Engineering"
+    level: "bachelor"
+    teaching_language: "English"
+    english_status: "fully-english (catalogue 'English'; 'all courses given in English')"
+    official_program_url: "https://www.polito.it/en/education/bachelor-s-degree-programmes/electronic-and-communications-engineering"
+    admission_notes: "TIL-I or SAT; English B2+. Confirm 2026/27 call."
+    uncertainty_notes: []
+
+  - id: "bachelor-computer-engineering"
+    program_name: "Computer Engineering"
+    level: "bachelor"
+    teaching_language: "Italian, English"
+    english_status: "bilingual with complete 3-year English track (Percorso in lingua inglese)"
+    official_program_url: "https://www.polito.it/en/education/bachelor-s-degree-programmes/computer-engineering"
+    admission_notes: "Verify complete English track on curriculum page; TIL-I or SAT."
+    uncertainty_notes: ["Confirm the full English track covers all 3 years on /programme-curriculum."]
+
+  - id: "bachelor-automotive-engineering"
+    program_name: "Automotive Engineering"
+    level: "bachelor"
+    teaching_language: "Italian, English"
+    english_status: "bilingual with complete 3-year English track"
+    official_program_url: "https://www.polito.it/en/education/bachelor-s-degree-programmes/automotive-engineering"
+    admission_notes: "Verify complete English track on curriculum page; TIL-I or SAT."
+    uncertainty_notes: ["Confirm the full English track covers all 3 years on /programme-curriculum."]
+
+  - id: "bachelor-mechanical-engineering"
+    program_name: "Mechanical Engineering"
+    level: "bachelor"
+    teaching_language: "Italian, English"
+    english_status: "bilingual with complete 3-year English track"
+    official_program_url: "https://www.polito.it/en/education/bachelor-s-degree-programmes/mechanical-engineering"
+    admission_notes: "Verify complete English track on curriculum page; TIL-I or SAT."
+    uncertainty_notes: ["Confirm the full English track covers all 3 years on /programme-curriculum."]
+
+  - id: "bachelor-architecture"
+    program_name: "Architecture"
+    level: "bachelor"
+    teaching_language: "Italian, English"
+    english_status: "UNCERTAIN — English track may be incomplete"
+    official_program_url: "https://www.polito.it/en/education/bachelor-s-degree-programmes/architecture"
+    admission_notes: "Architecture uses TIL-D / dedicated test (SAT not valid for Architecture). Verify English-track completeness."
+    uncertainty_notes: ["English track completeness not confirmed; verify on curriculum page. If no complete English plan, set has_complete_english_track: false."]
+
+  # ─── MASTER (Laurea Magistrale) — fully English (catalogue 'English') ──────
+  - id: "master-automotive-engineering"
+    program_name: "Automotive Engineering"
+    level: "master"
+    teaching_language: "English"
+    english_status: "fully-english (catalogue 'English')"
+    degree_class: "LM-33"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/automotive-engineering"
+    uncertainty_notes: []
+
+  - id: "master-communications-engineering"
+    program_name: "Communications Engineering"
+    level: "master"
+    teaching_language: "English"
+    english_status: "fully-english (catalogue 'English')"
+    degree_class: "LM-27"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering"
+    uncertainty_notes: []
+
+  - id: "master-cybersecurity"
+    program_name: "Cybersecurity"
+    level: "master"
+    teaching_language: "English"
+    english_status: "fully-english (catalogue 'English')"
+    degree_class: "LM-32"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/cybersecurity-engineering"
+    admission_notes: "Confirm exact official title ('Cybersecurity' vs page slug 'cybersecurity-engineering')."
+    uncertainty_notes: ["Verify exact published title on the live page."]
+
+  - id: "master-data-science-and-engineering"
+    program_name: "Data Science and Engineering"
+    level: "master"
+    teaching_language: "English"
+    english_status: "fully-english (catalogue 'English')"
+    degree_class: "LM-32 / LM-Data Science"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/data-science-and-engineering"
+    uncertainty_notes: ["Confirm exact degree class on programme page."]
+
+  - id: "master-georesources-and-geoenergy-engineering"
+    program_name: "Georesources and Geoenergy Engineering"
+    level: "master"
+    teaching_language: "English"
+    english_status: "fully-english (catalogue 'English')"
+    degree_class: "LM-35"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/georesources-and-geoenergy-engineering"
+    admission_notes: "Renamed from former 'Petroleum and Mining Engineering' — use current official name."
+    uncertainty_notes: []
+
+  - id: "master-ict-engineering-for-smart-societies"
+    program_name: "ICT Engineering for Smart Societies"
+    level: "master"
+    teaching_language: "English"
+    english_status: "fully-english (catalogue 'English')"
+    degree_class: "LM-27"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/ict-engineering-for-smart-societies"
+    admission_notes: "Formerly referenced as 'ICT for Smart Societies' — use current official name."
+    uncertainty_notes: []
+
+  - id: "master-mechatronic-engineering"
+    program_name: "Mechatronic Engineering"
+    level: "master"
+    teaching_language: "English"
+    english_status: "fully-english (catalogue 'English')"
+    degree_class: "LM-25 / LM-33"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/mechatronic-engineering"
+    uncertainty_notes: ["Confirm exact degree class on programme page."]
+
+  - id: "master-nanotechnologies-for-icts"
+    program_name: "Nanotechnologies for ICTs"
+    level: "master"
+    teaching_language: "English"
+    english_status: "fully-english (catalogue 'English')"
+    degree_class: "LM-29"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/nanotechnologies-for-icts"
+    admission_notes: "MNIS variant may have a SEPARATE special call (24 Apr–18 May 2026). Verify."
+    uncertainty_notes: ["Check whether special-call dates apply (special_call_flag)."]
+
+  - id: "master-quantum-engineering"
+    program_name: "Quantum Engineering"
+    level: "master"
+    teaching_language: "English"
+    english_status: "fully-english (catalogue 'English')"
+    degree_class: "LM-44 / LM-17"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/quantum-engineering"
+    uncertainty_notes: ["Confirm exact degree class on programme page."]
+
+  - id: "master-digital-skills-for-sustainable-societal-transitions"
+    program_name: "Digital Skills for Sustainable Societal Transitions"
+    level: "master"
+    teaching_language: "English"
+    english_status: "fully-english (catalogue 'English')"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/digital-skills-for-sustainable-societal-transitions"
+    admission_notes: "Newer programme; verify degree class and call."
+    uncertainty_notes: ["Confirm degree class and 2026/27 admission details."]
+
+  # ─── MASTER — bilingual with verified complete English track (Group B) ─────
+  - id: "master-engineering-and-management"
+    program_name: "Engineering and Management"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "bilingual with complete English track (Percorso in lingua inglese)"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/engineering-and-management"
+    admission_notes: "Verify complete English track on curriculum page."
+    uncertainty_notes: ["Confirm full English plan across both years."]
+
+  - id: "master-electrical-engineering"
+    program_name: "Electrical Engineering"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "bilingual with English tracks (Electrical Drives for e-Mobility; Electrification for Energy Transition)"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering"
+    admission_notes: "Verify which named tracks are 100% English on curriculum page."
+    uncertainty_notes: ["Record english_track_name(s); confirm full English plan."]
+
+  - id: "master-energy-and-nuclear-engineering"
+    program_name: "Energy and Nuclear Engineering"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "bilingual with English tracks (Renewable energy systems; Sustainable nuclear energy; DENSYS 2.0; HySET Erasmus Mundus)"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/energy-and-nuclear-engineering"
+    admission_notes: "Some tracks are Erasmus Mundus / double-degree with separate calls & fees. Flag double_degree_or_erasmus_mundus."
+    uncertainty_notes: ["Record english_track_name(s); separate-call/fee tracks need flagging."]
+
+  - id: "master-environmental-and-land-engineering"
+    program_name: "Environmental and Land Engineering"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "bilingual with English tracks (Climate change; Industrial Environmental Sustainability)"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/environmental-and-land-engineering"
+    admission_notes: "Verify which tracks are 100% English on curriculum page."
+    uncertainty_notes: ["Record english_track_name(s); confirm full English plan."]
+
+  - id: "master-chemical-and-sustainable-processes-engineering"
+    program_name: "Chemical and Sustainable Processes Engineering"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "bilingual with English track (Chemical Engineering for green transition)"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/chemical-and-sustainable-processes-engineering"
+    admission_notes: "Verify complete English track on curriculum page."
+    uncertainty_notes: ["Record english_track_name; confirm full English plan."]
+
+  - id: "master-physics-of-complex-systems"
+    program_name: "Physics of Complex Systems"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "bilingual with complete International Track (Percorso internazionale)"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems"
+    admission_notes: "Has a SEPARATE special call (open 24 Apr 2026, close 18 May 2026). Flag special_call_flag."
+    uncertainty_notes: ["Confirm international track is 100% English; record special-call dates."]
+
+  - id: "master-computer-engineering"
+    program_name: "Computer Engineering"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "bilingual with English track"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering"
+    admission_notes: "Verify complete English track on curriculum page."
+    uncertainty_notes: ["Confirm full English plan across both years; record english_track_name."]
+
+  # ─── MASTER — borderline / uncertain (INCLUDE + VERIFY per product owner) ──
+  - id: "master-civil-engineering"
+    program_name: "Civil Engineering"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "UNCERTAIN — no complete fully-English track found (tracks mix mandatory Italian courses)"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/civil-engineering"
+    admission_notes: "Verify on curriculum page whether ANY track is 100% English. Likely partly-English."
+    uncertainty_notes: ["Preliminary check found mandatory Italian courses in every track; set has_complete_english_track accordingly."]
+
+  - id: "master-electronic-engineering"
+    program_name: "Electronic Engineering"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "UNCERTAIN — tracks pair English/Italian course versions"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/electronic-engineering"
+    admission_notes: "Verify whether a single 100% English plan exists on curriculum page."
+    uncertainty_notes: ["Borderline; confirm full English plan or set has_complete_english_track: false."]
+
+  - id: "master-architecture-construction-city"
+    program_name: "Architecture Construction City"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "UNCERTAIN — Year-2 completeness of English track unclear"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/architecture-construction-city"
+    admission_notes: "Verify English track across BOTH years on curriculum page."
+    uncertainty_notes: ["English track exists but Year-2 completeness unconfirmed."]
+
+  - id: "master-building-engineering"
+    program_name: "Building Engineering"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "UNCERTAIN — not curriculum-verified"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering"
+    admission_notes: "Verify whether a complete English track exists on curriculum page."
+    uncertainty_notes: ["Catalogue 'Italian, English'; full English plan not yet verified."]
+
+  - id: "master-materials-engineering-for-industry-4-0"
+    program_name: "Materials Engineering for Industry 4.0"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "UNCERTAIN — not curriculum-verified"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-4-0"
+    admission_notes: "Verify whether a complete English track exists on curriculum page."
+    uncertainty_notes: ["Catalogue 'Italian, English'; full English plan not yet verified."]
+
+  - id: "master-architecture-for-sustainability"
+    program_name: "Architecture for Sustainability"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "UNCERTAIN — commonly fully English; verify"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-sustainability"
+    admission_notes: "Verify on curriculum page; this one is commonly reported as fully English."
+    uncertainty_notes: ["Likely fully English but unverified; confirm and set flags."]
+
+  - id: "master-architecture-for-heritage"
+    program_name: "Architecture for Heritage"
+    level: "master"
+    teaching_language: "Italian, English"
+    english_status: "UNCERTAIN — not curriculum-verified"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-heritage"
+    admission_notes: "Verify whether a complete English track exists on curriculum page."
+    uncertainty_notes: ["Catalogue 'Italian, English'; full English plan not yet verified."]
+
+  - id: "master-industrial-production-and-technological-innovation-engineering"
+    program_name: "Industrial Production and Technological Innovation Engineering"
+    level: "master"
+    teaching_language: "Multilingual"
+    english_status: "UNCERTAIN — cross-border/Erasmus, multilingual; verify English component"
+    official_program_url: "https://www.polito.it/en/education/master-s-degree-programmes/industrial-production-and-technological-innovation-engineering"
+    admission_notes: "Cross-border/Erasmus programme; verify how much is English and whether a 100% English path exists."
+    uncertainty_notes: ["Catalogue 'Multilingual'; may not have a 100% English path. Verify before treating as English."]

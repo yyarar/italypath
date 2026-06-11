@@ -1,0 +1,128 @@
+{
+  "program_name": "Data Science for Economics and Health",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-DATA - Data Science",
+  "admission_type": "Open with entry requirements examination",
+  "academic_requirements": "Applicants must hold a bachelor's degree or equivalent university qualification, or graduate by 31 December 2026. The manifesto states 180 credits are required for admission. Candidates must have earned at least 30 ECTS in one or more of the following areas: computer science and mathematics (MAT-01 to MAT-09, INF-01, INGINF/05), economic sciences and statistics (SECS-S/01, SECS-S/02, SECS-S/03, SECS-S/06, SECS-P/05, SECS-P/01, SECS-P/02, SECS-P/03, SECS-P/07, SECS-P/08, SECS-P/10), and/or medical sciences (MED/01 only). Curricular requirements must be met by the date of effective submission of the admission application. Candidates with foreign qualifications may be admitted if the qualification is recognized as appropriate by the University under the applicable ministerial rules and bilateral agreements. Admission is not automatic after credit checking: after the written admission test, the Admission Board evaluates the applicant's academic curriculum, including the quality of the previous degree, average grade, grades in mathematics/statistics/computer science/economics, and the coherence of prior studies or activities with the learning objectives of the programme.",
+  "language_requirements": "English proficiency at CEFR B2 or higher is required for admission. UniMi states that the requirement can be satisfied by: 1) a valid accepted English certificate at B2 or higher, issued no more than 3 years before the application date and uploaded during the admission procedure; 2) an English level certified by UniMi SLAM during a previous UniMi degree, provided it was achieved no more than 4 years before the application date, with automatic verification; or 3) the SLAM English entry test. If the applicant does not upload a valid certificate or the prior SLAM certification is expired/not valid, the applicant must take the SLAM entry test according to the official calendar. If the applicant fails or misses the SLAM test without an accepted excuse, they must submit an accepted language certificate via InformaStudenti under the 'language test' category by 31 December 2026 for DSEH. The DSEH application page also states that applicants who fail to meet the English requirement by the programme deadline will not be admitted.",
+  "application_deadline_eu": "EU candidates and equivalents: admission application from 22 January 2026 to 20 July 2026. Admitted students enrol from 5 May 2026 to 15 January 2027.",
+  "application_deadline_non_eu": "Non-EU candidates applying for a visa: admission application from 22 January 2026 to 30 April 2026. In addition, the admission notice requires pre-enrolment through Universitaly by 31 July 2026. Admitted students enrol from 5 May 2026 to 15 January 2027, and applicants with foreign qualifications must complete the enrolment documentation by 30 November 2026.",
+  "required_documents": [
+    "For the DSEH application according to the programme website: degree certificate if already graduated, transcripts showing exams taken with grades and credits (ECTS/CFU), passport or ID card, a short CV, and an English language certificate if already available and accepted by UniMi.",
+    "For applicants with qualifications obtained in Italy, the admission notice requires a self-certification of degree/enrolment with exam records; for graduates or graduating students from other Italian universities, this must include the list of exams taken, grades, ECTS credits, and scientific disciplinary sectors.",
+    "For applicants with qualifications obtained abroad, the admission notice requires upload of the bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, plus a diploma supplement or transcript including courses, marks, ECTS, academic field, and the grading system used by the university, and a passport or other valid ID.",
+    "To finalize enrolment with a foreign qualification, UniMi requires the bachelor's degree or equivalent legalized or apostilled when required, the high school diploma, an official Italian translation of the academic qualifications unless the originals are in French, English, German, or Spanish, and a Statement of Comparability from an ENIC-NARIC centre such as CIMEA or a Dichiarazione di Valore; for Lisbon Convention countries, a Diploma Supplement or ARDI Correspondence Statement may replace the DOV and Statement of Comparability.",
+    "To finalize enrolment with a foreign qualification, UniMi also requires the Italian tax code (codice fiscale) and, for non-EU citizens, the receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "DSEH uses a written online admission test in English to assess personal competencies and skills. According to the DSEH application page, the background knowledge test consists of 40 multiple-choice questions in 60 minutes: 10 Economics, 10 Statistics, 10 Mathematics, and 10 Computer Science. The passing threshold is 40%, with at least 16 correct answers overall, including at least 8 correct in Economics/Statistics and at least 8 correct in Mathematics/Computer Science. For A.Y. 2026/2027 the published test dates are 17 April 2026 for those who applied by March 2026, 15 May 2026 for those who applied by April 2026, 19 June 2026 for those who applied by May 2026, and 3 August 2026 for those who applied by June/July 2026. Candidates can take the background test only once, in the session to which they are invited. After the written test, the Admission Board may also request an online oral technical interview. The official DSEH interview-topics PDF lists mathematics/statistics topics such as derivatives, matrices, probability, estimation, confidence intervals, and hypothesis testing; computer science topics such as introductory programming, algorithms, data structures, databases, SQL, and computer networks; and economics topics such as microeconomics, macroeconomics, demand, costs, revenues, market equilibrium, GDP, growth, saving, investment, unemployment, and money/banking.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/data-science-economics-and-health",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-data-science-for-economics-and-health-%28classe-lm-data%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027. Master programme. LM Data - Data science. Access: Open with entry requirements examination. Course location: Milan. Language: English.",
+      "url": "https://www.unimi.it/en/education/master-programme/data-science-economics-and-health",
+      "field_refs": [
+        "academic_year",
+        "level",
+        "degree_class",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Credits required for admission: 180 ... Access procedures: open, subject to entry requirements.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_BBLof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements",
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Candidates for admission ... must have earned at least 30 ECTS in computer science and mathematics ... and/or in the area of economic sciences and statistics ... and/or in medical sciences (scientific sector MED/01 only).",
+      "url": "https://dseh.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Proficiency in English at level B2 or higher ... is required for admission ... Valid language certificate at B2 level or higher ... must be uploaded when submitting the online application.",
+      "url": "https://dseh.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Applications to open-admission Master's degree programmes for the academic year 2026/2027 are open from 22 January 2026. The application deadline for non-EU students VISA applicants is 30 April 2026. The application deadline for EU students is 20 July 2026.",
+      "url": "https://dseh.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The test consists of 40 multiple choice questions ... Time available: 60 minutes. Threshold for passing the test: 40% (min. 16 correct answers: min. 8 correct answers in Eco-Stats and min. 8 correct answers in Maths-CS).",
+      "url": "https://dseh.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The online admission service requires the following documents to be uploaded ... Self-certification of degree/enrolment with exam records ...",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-data-science-for-economics-and-health-%28classe-lm-data%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The online admission service requires the following documents to be uploaded ... Bachelor's Degree ... Diploma supplement or, alternatively, a transcript ... Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-data-science-for-economics-and-health-%28classe-lm-data%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "To finalize the online enrolment ... applicants with foreign qualifications must submit ... Bachelor’s degree ... High school diploma ... Official Italian translation ... Statement of Comparability ... or a Dichiarazione di Valore ... Italian tax code ... Receipt of the residence permit application or a valid residence permit.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-data-science-for-economics-and-health-%28classe-lm-data%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-data-science-for-economics-and-health-%28classe-lm-data%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Data Science for Economics and Health (DSEH) 31/12/2026",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "The course application page and the admission notice use partially different document checklists. The programme page explicitly asks for passport or ID, a short CV, and an English certificate if available, while the admission notice formally separates the upload requirements for qualifications obtained in Italy and abroad. The required_documents field consolidates both official checklists by applicant type rather than treating one as exclusive.",
+    "The DSEH application page says candidates who fail the SLAM route must submit a certificate by the deadline set by the programme, but it does not print that date on the page itself. The exact DSEH deadline of 31 December 2026 was confirmed from UniMi's official SLAM master's-language-requirements page."
+  ],
+  "uncertain": []
+}

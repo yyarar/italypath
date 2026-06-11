@@ -1,0 +1,155 @@
+{
+  "program_name": "Economics and Business",
+  "level": "bachelor",
+  "teaching_language": "English",
+  "campus": "Venice",
+  "degree_class": "L-33 R",
+  "admission_type": "TOLC",
+  "academic_requirements": {
+    "summary": "Applicants need a secondary school leaving qualification valid for university admission, normally after at least 12 years of schooling. International applicants must pass Ca' Foscari's preliminary evaluation on apply.unive.it; admission is limited and includes an entry test plus programme-specific mathematics and English requirements.",
+    "prior_degree_or_diploma": "A secondary school diploma or secondary school leaving qualification eligible for university admission; international qualifications must normally follow at least 12 years of schooling.",
+    "subject_requirements": "Adequate preparation in mathematics and English. The programme is limited-access and requires an entry test; applicants below 6/13 in the mathematics section receive a mathematics OFA.",
+    "gpa_or_country_requirements": "Country-specific validity rules apply. Applicants with 10-11 years of schooling must provide additional bridging qualifications; detailed country rules are published on Ca' Foscari's international qualification page.",
+    "committee_or_pre_evaluation": "Applicants with an international qualification must request a preliminary evaluation on apply.unive.it. The Welcome Unit checks eligibility and, when eligible, the entry requirements and academic background are evaluated before admission.",
+    "source_url": "https://www.unive.it/pag/41327/?L=1"
+  },
+  "language_requirements": {
+    "required_level": "English B2 minimum.",
+    "accepted_proofs": [
+      "A recognized English certification from the Ca' Foscari/AICLU list, such as Cambridge English, Trinity ISE, IELTS, TOEFL, Pearson, Oxford Test of English, LanguageCert, British Council Aptis, or a CLA/recognized university language-centre B2 certificate.",
+      "Certificates are generally accepted if submitted within 5 years of achievement, and external or CLA certificates are uploaded electronically during enrolment."
+    ],
+    "exemption_rules": [
+      "At least one year of higher education in a country where English is the medium of instruction.",
+      "A high school diploma or university qualification earned through a study path taught entirely in English.",
+      "At least one full high-school exchange year at an institution where the language of instruction was English.",
+      "Specified Italian degree classes in languages or language mediation with a three-year English study path."
+    ],
+    "assessment_or_upload_stage": "Applicants may apply before obtaining the certificate, but the programme page states that they cannot enrol unless the B2 requirement is met by the enrolment deadline. Certificates or exemption evidence are uploaded electronically during enrolment.",
+    "deadline": "By the enrolment deadline.",
+    "source_url": "https://www.unive.it/web/en/12613/admission-and-enrolment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring selection: register for the Ca' Foscari selection from 9 March to 30 April 2026; accept the place by 14 May 2026; enrol from 1 July to 31 July 2026.",
+      "Summer selection: register from 1 July to 28 August 2026; take TOLC-E or CEnT-S by 28 August 2026; admitted candidates must enrol by 10 September 2026."
+    ],
+    "enrolment_deadline": "31 July 2026 for spring-admitted candidates; 10 September 2026 for summer-admitted candidates.",
+    "notes": "The programme page states that the 2026/2027 procedure has two selection rounds, spring and summer. International applicants with 'Entry test Europeans/equivalent' status must also follow the relevant programme call.",
+    "source_url": "https://www.unive.it/web/en/12613/admission-and-enrolment"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Applications for 2026/2027 began on 17 December 2025 and were managed through citizenship-based rounds on apply.unive.it.",
+      "As of 5 June 2026, Ca' Foscari states that non-EU applicants requiring a study visa can no longer apply for admission to bachelor's or master's programmes for 2026/2027."
+    ],
+    "visa_or_pre_enrolment_deadline": "Accepted applicants who require a visa must complete pre-enrolment on Universitaly by 30 September 2026.",
+    "current_status": "Closed for 2026/2027 study-visa applicants as stated on apply.unive.it.",
+    "notes": "Non-EU citizens already residing in Italy with a residence permit valid for university enrolment are directed to the EU/equivalent route instead. After receiving a letter of eligibility, visa applicants must complete Universitaly pre-enrolment and then apply for the study visa.",
+    "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or ID card",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "European applicants may use an ID card; applicants may also upload proof of renewal or first request where applicable.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Valid residence permit or renewal/first-request receipt",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required for non-European applicants already residing in Italy or in the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Mark sheet or transcript of records of at least the last year of secondary studies, with official translation if needed",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "If the applicant is still in the last year of school, a provisional transcript is still mandatory.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Final secondary school leaving qualification, with official translation if needed",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "A provisional document may be used at application stage, but the final version must be uploaded before the end of the enrolment period.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Statement of Comparability by CIMEA, or Declaration of Value, or ARDI Statement of Correspondence with CIMEA Statement of Verification",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "Ca' Foscari strongly recommends obtaining one of these before applying; one of them is required to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "English B2 certificate or exemption evidence/self-certification",
+      "stage": "enrolment",
+      "required_for": "programme_specific",
+      "notes": "The required level and accepted proofs are programme-specific; certificates or exemption evidence are uploaded electronically during enrolment.",
+      "source_url": "https://www.unive.it/web/en/12613/admission-and-enrolment"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and study visa evidence",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Applicants requiring a visa must complete Universitaly pre-enrolment by 30 September 2026, then apply for the study visa and upload the visa in the relevant apply.unive.it task.",
+      "source_url": "https://www.unive.it/pag/40813/"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "TOLC-E or CEnT-S (SAT alternative)",
+    "mandatory": true,
+    "applies_to": "First-year applicants in the spring and summer selection rounds; international applicants to this limited-access programme must also meet the entry-test requirement, with visa-applicant timing managed separately on apply.unive.it.",
+    "dates": "Spring 2026: selection registration 9 March-30 April 2026; TOLC-E or CEnT-S by 30 April 2026. Summer 2026: selection registration 1 July-28 August 2026; TOLC-E or CEnT-S by 28 August 2026. The CEnT-S English test periods accepted for 2026/2027 were 27 November 2025, 16 December 2025, 15 January 2026; 19 February 2026, 26 February 2026, 12 March 2026; 23 April 2026, 21 May 2026, 9 June 2026; and 17 September 2026, 15 October 2026, although the fourth period was too late for 2026/2027 applications.",
+    "scoring_or_threshold": "Ranking uses the TOLC-E score or the converted CEnT-S/SAT score. SAT total >= 880/1600 can replace TOLC-E in the call. Applicants scoring below 6/13 in the mathematics section receive a mathematics OFA; SAT Math >= 542 or CEnT-S Mathematics >= 10 exempts that OFA. English B2 must be met by the enrolment deadline.",
+    "source_url": "https://www.unive.it/web/en/12613/admission-and-enrolment"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/pag/50466",
+  "official_program_url": "https://www.unive.it/degree/etr9",
+  "official_call_url": "https://www.unive.it/web/en/12613/admission-and-enrolment",
+  "source_quotes": [
+    {
+      "quote": "Economics and Business [ETR9]",
+      "source_url": "https://www.unive.it/pag/8321/",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Accesso: Programmato",
+      "source_url": "https://www.unive.it/pag/8321/",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Lingua: Inglese",
+      "source_url": "https://www.unive.it/pag/8321/",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "must have completed at least 12 years of schooling",
+      "source_url": "https://www.unive.it/pag/41327/?L=1",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "certified English proficiency at minimum B2 level",
+      "source_url": "https://www.unive.it/pag/40604/",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Registration for the Ca' Foscari selection must be submitted from July 1st until August 28th, 2026",
+      "source_url": "https://www.unive.it/web/en/12613/admission-and-enrolment",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "it is no longer possible for non-EU applicants requiring a visa to apply",
+      "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The degree permalink now resolves correctly, but some programme pages still carry the interface label 'Enrolment from 2025/2026' even where the admission content explicitly refers to the 2026/2027 procedure.",
+    "The non-EU visa-applicant rounds page on apply.unive.it points to a citizenship-specific table outside unive.it/apply.unive.it; this record uses only the official statements on opening date, closure status, and the Universitaly pre-enrolment deadline."
+  ],
+  "uncertain": []
+}

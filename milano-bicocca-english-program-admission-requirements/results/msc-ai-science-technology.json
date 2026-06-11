@@ -1,0 +1,147 @@
+{
+  "program_name": "Artificial Intelligence for Science and Technology",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Milan / Pavia (inter-university degree of the University of Milano-Bicocca, University of Milan and University of Pavia; Milano-Bicocca is the administrative headquarters)",
+  "degree_class": "LM-91 (programme code F9103Q)",
+  "admission_type": "open access with entry-requirements examination (curricular requirements check + interview assessing personal preparation)",
+  "academic_requirements": {
+    "summary": "Inter-university master's degree (LM-91) jointly organised by the University of Milan, the University of Pavia and the University of Milano-Bicocca (administrative headquarters), taught in English. Admission requires a bachelor's degree, specific curricular CFU requirements, and a B2 English level; adequacy of personal preparation is verified by an interview (with exemptions based on grade and CFU thresholds).",
+    "prior_degree_or_diploma": "A bachelor's degree (or three-year university diploma). Graduand candidates may apply if they will obtain the bachelor's degree by 31 December 2026.",
+    "subject_requirements": "A total of at least 30 CFU in the academic disciplines (SSD) INF/01, ING-INF/05, ING-INF/03, MAT/01-MAT/09, SECS-S/01-SECS-S/06, FIS/01-FIS/08. CFU from single-course exams may be counted toward the 30 CFU. The interview tests basic knowledge of Computer Science (programming, algorithms, data structures, AI), Mathematics (linear algebra, calculus, series), Statistics (descriptive statistics, probability, random variables, inference, linear model) and Physics (statics, dynamics, energy, thermodynamics, electromagnetism, optics).",
+    "interview_and_exemptions": "Admission is conditional on an interview by an Evaluation Committee (held remotely). Exemptions: (I) candidates meeting the 30-CFU requirement are exempt if they hold a bachelor's degree with mark 100/110 or higher, OR hold a master's in LM-17, LM-18, LM-21, LM-25, LM-27, LM-32, LM-35, LM-40, LM-44, LM-66, LM-82 or LM-91. (II) Also exempt if all four hold: bachelor's mark 95-99/110; at least 20 CFU in Computer Science (INF/01 and/or ING-INF/05); at least 15 CFU in Mathematics (MAT/01-05, 07-09); at least 5 CFU in Statistics/Probability (SECS-S/01-06 or MAT/06). (III) Candidates meeting the 30-CFU requirement but not exempt are admitted to the interview if all four hold: bachelor's mark 85/110 or higher; at least 6 CFU Computer Science; at least 6 CFU Mathematics; at least 4 CFU Statistics/Probability. Candidates not in any of these cases are not admitted.",
+    "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf"
+  },
+  "language_requirements": {
+    "required_level": "English B2 or higher (CEFR).",
+    "accepted_proofs": [
+      "At least 5 CFU of English-language exams at B2 level passed during the university career.",
+      "An English Language Certification of at least B2 level recognised by the University (Certificazioni_INGLESE_nov2025_UNIMIB.pdf), obtained no more than 5 years ago.",
+      "The 'Bbetween Languages' Open Badge - English at B2 level or higher (only for University of Milano-Bicocca candidates).",
+      "A first-level (bachelor's) degree delivered entirely in English.",
+      "A passport from a recognised English-speaking country (Antigua and Barbuda, Australia, Bahamas, Barbados, Belize, Canada, Dominica, Grenada, Guyana, Ireland, Jamaica, Malta, New Zealand, St Kitts and Nevis, St Lucia, St Vincent and the Grenadines, Trinidad and Tobago, United Kingdom, USA).",
+      "Candidates with an Italian qualification who lack the requirement may take an in-person English proficiency test at UNIMIB (1st session 23-30 March 2026, request by 17 March; 2nd session 22 June-3 July 2026, request by 16 June; 3rd session 2-7 September 2026, request by 26 August)."
+    ],
+    "certificate_upload_or_deadline": "The B2 English requirement must be met by the application deadline of the relevant application period.",
+    "notes": "B2 English is a mandatory entry requirement alongside the curricular CFU requirements.",
+    "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Personal-preparation interview (remote), by an Evaluation Committee - no standardised admission test (no TOLC/GRE/GMAT).",
+    "mandatory": true,
+    "is_selective": true,
+    "applies_to": "Candidates who meet the curricular CFU requirements but do not qualify for an interview exemption (see academic_requirements exemption tiers).",
+    "format": "Remote interview assessing basic knowledge in Computer Science, Mathematics, Statistics and Physics. A non-refundable career-assessment fee of EUR 30 is paid via Segreterie OnLine by the application deadline.",
+    "dates": "For candidates with an Italian qualification (2026/2027), remote interview dates: 11 June 2026 (09:00), 16 July 2026 (09:00) and 10 September 2026 (09:00), each tied to an application window.",
+    "scoring_or_threshold": "No numeric test score; admission depends on the curricular-requirements check and the interview outcome (or exemption by grade/CFU thresholds).",
+    "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Candidates with an Italian academic qualification (career evaluation on Segreterie OnLine), A.Y. 2026/2027: 1st period 2 March - 29 May 2026 (interview 11 June 2026); 2nd period 1 June - 3 July 2026 (interview 16 July 2026); 3rd period 6 July - 1 September 2026 (interview 10 September 2026).",
+      "Candidates with a foreign academic qualification apply via apply.unimib.it (Dream Apply) within the institution-wide 2026/2027 master's calls: 1st call 10 February 2026 - 31 March 2026; 2nd call 15 April 2026 - 6 July 2026; 3rd call (EU citizens and non-EU residing in Italy) 7 July 2026 - 7 September 2026."
+    ],
+    "enrolment_deadline": "Admitted candidates enrol via Segreterie OnLine and pay the first instalment within the deadline set per period; graduating Milano-Bicocca students must in any case enrol by 21 October 2026 (first period). Late-enrolling students (January-March 2027) pay full-year fees.",
+    "notes": "EU/equivalent candidates and non-EU candidates already residing in Italy follow either the Italian-qualification (Segreterie OnLine) route or the foreign-qualification (apply.unimib.it) route depending on where the bachelor's degree was awarded.",
+    "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Non-EU citizens residing abroad and requiring a study visa apply with a foreign qualification exclusively via apply.unimib.it (Dream Apply). A.Y. 2026/2027 master's non-EU visa calls: 1st call 10 February 2026 - 31 March 2026; 2nd call 15 April 2026 - 6 July 2026.",
+      "The earlier institution-wide non-EU visa windows (1st call 7 November 2025 - 16 January 2026; 2nd call 16 March 2026 - 16 April 2026) also apply across UNIMIB programmes; candidates should follow the windows published for this master on apply.unimib.it."
+    ],
+    "visa_or_pre_enrolment_deadline": "Non-EU visa applicants complete pre-enrolment on Universitaly; the entry study visa must be issued by 31 January 2027 and original documents checked by 28 February 2027 (2026/2027 cycle). The B2 English requirement and language certification must be satisfied within the application deadlines.",
+    "notes": "Foreign-qualification candidates (including non-EU visa applicants) apply exclusively via Dream Apply / apply.unimib.it; exact programme-specific non-EU windows are those published for this master on apply.unimib.it within the 2026/2027 international calendar.",
+    "source_url": "https://apply.unimib.it/en_GB/news/new/39-apply-202627-admission-calls-and-deadlines"
+  },
+  "required_documents": [
+    {
+      "document_name": "Bachelor's degree / three-year university diploma (or enrolment certificate / self-certification if graduand)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Graduand candidates submit a self-certification (Dichiarazione Sostitutiva) of enrolment; must obtain the degree by 31 December 2026 to be considered.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf"
+    },
+    {
+      "document_name": "Academic transcript / list of exams with CFU and SSD (and syllabi where SSD differs)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required to verify the 30-CFU curricular requirement; if CFU were earned under an SSD other than those listed, the course syllabus must be attached for assessment.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf"
+    },
+    {
+      "document_name": "Valid identity document (identity card or passport) with photo",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "A passport-style photo on a light background is required (printed on the university badge upon enrolment).",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf"
+    },
+    {
+      "document_name": "English language certificate / proof of B2 (or eligible exemption)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "B2 proof via recognised certificate (max 5 years old), 5 CFU of B2 English exams, English-taught bachelor, Bbetween Open Badge, qualifying passport, or the in-person UNIMIB English test.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf"
+    },
+    {
+      "document_name": "Career-assessment fee payment receipt (EUR 30) via Segreterie OnLine",
+      "stage": "application",
+      "required_for": "italian_qualification",
+      "notes": "Paid by the application deadline of each career-evaluation period; foreign-qualification candidates apply via apply.unimib.it.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf"
+    },
+    {
+      "document_name": "Degree diploma (legalised, with translation if not in IT/EN/FR/ES/DE), Universitaly pre-enrolment receipt, entry visa and residence-permit receipt",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Non-EU visa applicants complete pre-enrolment on Universitaly; the entry visa must be issued by 31 January 2027 (2026/27 cycle).",
+      "source_url": "https://apply.unimib.it/en_GB/news/new/20-masters-degree---required-documents"
+    }
+  ],
+  "tuition_or_fees_link": "https://en.unimib.it/services/fees-and-funding",
+  "official_program_url": "https://en.unimib.it/education/teaching/international-programmes/artificial-intelligence-science-and-technology",
+  "official_call_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf",
+  "source_quotes": [
+    {
+      "quote": "ADMISSION TO THE MASTER'S DEGREE PROGRAMME IN ARTIFICIAL INTELLIGENCE FOR SCIENCE AND TECHNOLOGY - F9103Q A.Y. 2026-2027 ... Degree programme language: English ... Access: Open access with entry requirements examination",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf",
+      "field_supported": "program_name, degree_class, teaching_language, admission_type"
+    },
+    {
+      "quote": "a total of at least 30 CFUs in the following academic disciplines: INF/01, ING-INF/05, ING-INF/03, MAT/01 to MAT/09, SECS-S/01 to SECS-S/06, FIS/01 to FIS/08 ... a B2 level knowledge of the English language",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf",
+      "field_supported": "academic_requirements, language_requirements"
+    },
+    {
+      "quote": "admission to the course is conditional on the assessment of the adequacy of personal preparation. The adequacy of personal preparation will be assessed by means of an interview by an Evaluation Commission. Interviews will be held remotely.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "Application deadlines: From 2 March to 29 May 2026 (interview 11 June 2026); From 1 June to 3 July 2026 (interview 16 July 2026); From 6 July to 1 September 2026 (interview 10 September 2026)",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf",
+      "field_supported": "application_deadline_eu, entry_exam_or_test"
+    },
+    {
+      "quote": "Applicants with a foreign academic qualification must apply exclusively via Dream Apply.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27.pdf",
+      "field_supported": "application_deadline_non_eu, required_documents"
+    },
+    {
+      "quote": "jointly organised by the University of Milan, the University of Pavia and the University of Milano-Bicocca, its administrative headquarters. Taught in English",
+      "source_url": "https://en.unimib.it/graduate/artificial-intelligence",
+      "field_supported": "campus, teaching_language, program_name"
+    }
+  ],
+  "uncertainty_notes": [
+    "Distinctness from a separate 'Artificial Intelligence' programme: CONFIRMED. 'Artificial Intelligence for Science and Technology' (LM-91, code F9103Q) is the inter-university master jointly run by Milano-Bicocca, the University of Milan and the University of Pavia. It is distinct from UNIMIB's separate single-university programmes (e.g. the bachelor 'Artificial Intelligence' at en.unimib.it/undergraduate/artificial-intelligence and other AI masters). The official EN page at .../international-programmes/artificial-intelligence-science-and-technology and the course page /graduate/artificial-intelligence both refer to this same inter-university LM-91 master.",
+    "Subject-area CFU requirements: CONFIRMED - at least 30 CFU total across INF/01, ING-INF/05, ING-INF/03, MAT/01-09, SECS-S/01-06, FIS/01-08, with finer 20/15/5 (CS/Math/Stats) and 6/6/4 thresholds governing interview exemption vs admission to interview.",
+    "B2 English: CONFIRMED required, with multiple accepted proofs and an in-person UNIMIB English test fallback.",
+    "EU/non-EU calls: The 2026/2027 call PDF details the Italian-qualification (Segreterie OnLine) periods and interview dates; foreign-qualification candidates (EU equivalent and non-EU visa applicants) apply exclusively via Dream Apply/apply.unimib.it. Exact non-EU windows are governed by the apply.unimib.it 2026/27 international calendar and should be reconfirmed on the programme's Dream Apply page.",
+    "tuition_or_fees_link points to the general UNIMIB fees-and-funding page; no programme-specific fee amount is invented (only the EUR 30 career-assessment fee is stated in the call).",
+    "Deadlines re-verified 2026-06-11 against apply.unimib.it 2026/27 calendar (Master track: 1st CALL 10 Feb - 31 Mar 2026; 2nd CALL 15 Apr - 6 Jul 2026 [EU + non-EU in Italy]; 3rd CALL 7 Jul - 7 Sep 2026 [EU + non-EU in Italy]). The previously inserted 4-call Nov 2025 - Sep 2026 schedule is the Bachelor/single-cycle calendar and was incorrect for this Master. Programme keeps its own Italian-qualification windows (2 Mar - 29 May, 1 Jun - 3 Jul, 6 Jul - 1 Sep 2026) per official AISCT 2026/27 call PDF."
+  ],
+  "uncertain": [
+    "application_deadline_non_eu"
+  ]
+}

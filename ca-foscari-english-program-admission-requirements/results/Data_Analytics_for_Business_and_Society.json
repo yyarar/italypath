@@ -1,0 +1,181 @@
+{
+  "program_name": "Data Analytics for Business and Society",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Venice",
+  "degree_class": "LM-91 R (Methods and techniques for the information society)",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Open-access master's degree taught in English. Applicants need at least a three-year bachelor's degree, specific curricular preparation, and evaluation of personal preparation; international applicants also undergo preliminary evaluation on apply.unive.it.",
+    "prior_degree_or_diploma": "At least a three-year bachelor's degree or equivalent qualification valid for master's-level admission in Italy.",
+    "subject_requirements": "At least 60 ECTS in relevant fields, including at least 12 ECTS in Economics and/or Business and at least 12 ECTS in Statistics and/or Mathematics. Relevant listed sectors include Economics, Business, Statistical-Mathematics, and optionally Computer Science and Information Processing Systems.",
+    "gpa_or_country_requirements": "The apply.unive.it profile states a minimum CGPA of 70 percent. If no official numerical grading scale is provided, grades are proportionally transformed into a standard percentage. International undergraduate degrees must also be valid for master's admission in Italy.",
+    "committee_or_pre_evaluation": "The Welcome Unit performs a preliminary evaluation for international qualifications on apply.unive.it. The programme's Teaching Committee then evaluates curricular fit through the undergraduate transcript and CV; personal preparation is assessed through CV/studiorum evaluation and an interview unless the applicant is exempt. Non-EU applicants requiring a visa must also take an online written test for initial assessment of personal preparation.",
+    "source_url": "https://apply.unive.it/courses/course/622-ma-data-analytics-business-and-society"
+  },
+  "language_requirements": {
+    "required_level": "English B2",
+    "accepted_proofs": [
+      "A recognised English certificate on Ca' Foscari's AICLU-based list, such as Cambridge FCE, Trinity ISE II, IELTS 5.5-6.5, TOEFL iBT 72-94, or PTE Academic 59-75",
+      "A CLA Ca' Foscari Level B2.2 linguistic certificate or certificate of attendance and advancement",
+      "A certificate from a university language school included in the recognised-certifications list",
+      "An approved exemption-category self-certification supported by the required evidence"
+    ],
+    "exemption_rules": [
+      "Completed higher education studies, or at least one year of college, in a country where English is the medium of instruction",
+      "Obtained a high-school diploma or university qualification from a study path taught entirely in English",
+      "Completed at least one full high-school exchange year at an institution where English was the language of instruction",
+      "Hold one of the listed Italian university language degrees with a three-year English language course"
+    ],
+    "assessment_or_upload_stage": "Applicants may apply even if they do not yet have the language certificate, but the recognised proof or exemption documentation must be provided to complete enrolment. Ca' Foscari does not run a programme-specific English test as part of the application procedure.",
+    "deadline": "By the enrolment deadline.",
+    "source_url": "https://apply.unive.it/courses/course/622-ma-data-analytics-business-and-society"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "round_name": "EU/equivalent international applicant admission rounds [uncertain]",
+        "final_application_deadline": "17 June 2026",
+        "notes": "[uncertain] The official EU/equivalent apply.unive.it article gives the final deadline for all master's degrees but does not expose the full programme-level round breakdown on the static page."
+      }
+    ],
+    "enrolment_deadline": "Standard enrolment window: 1 July 2026 to 30 September 2026. Additional window with 50 EUR late fee: 1 October 2026 to 18 December 2026.",
+    "notes": "The final international-application deadline comes from the generic EU/equivalent apply.unive.it article for all master's degrees. The programme page separately publishes the enrolment window for admitted candidates.",
+    "source_url": "https://apply.unive.it/news/new/130-admission-rounds-202627-academic-year"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "round_name": "Admission rounds via apply.unive.it with programme-specific written test [uncertain]",
+        "application_deadline": "[uncertain]",
+        "notes": "[uncertain] The static official pages cited here do not expose the exact past round dates; they only confirm the current closure status and the existence of a programme-specific written test for non-EU visa applicants."
+      }
+    ],
+    "visa_or_pre_enrolment_deadline": "After admission, begin Universitaly pre-enrolment and the visa process as soon as possible.",
+    "current_status": "Closed for non-EU applicants requiring a study visa for the 2026/2027 academic year.",
+    "notes": "The apply.unive.it programme profile states that non-EU applicants requiring a visa must take an online written entry test for initial assessment of personal preparation.",
+    "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or, for European applicants, ID card",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "A renewal or first-request receipt is also accepted where stated.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Valid residence permit or renewal/first-request receipt",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required for non-European applicants already residing in Italy or the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Transcript of records for all undergraduate years",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "If the applicant is still attending the last year of study, a provisional transcript is still mandatory.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Official English or Italian translations of academic documents",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required whenever the original documents are not in English or Italian.",
+      "source_url": "https://apply.unive.it/courses/course/622-ma-data-analytics-business-and-society"
+    },
+    {
+      "document_name": "Curriculum vitae",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "Mandatory for master's-level international applications and also used by the Teaching Committee for personal-preparation assessment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Motivation letter",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "The apply.unive.it programme profile requires a dedicated motivation letter prepared specifically for this programme.",
+      "source_url": "https://apply.unive.it/courses/course/622-ma-data-analytics-business-and-society"
+    },
+    {
+      "document_name": "University grading scale or CGPA scale",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "The general international-entry page marks it as highly recommended for master's applicants, and the programme's CGPA evaluation makes it practically useful.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "English B2 certificate or exemption evidence",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Applicants may apply without it, but it must be provided to complete enrolment.",
+      "source_url": "https://apply.unive.it/courses/course/622-ma-data-analytics-business-and-society"
+    },
+    {
+      "document_name": "Bachelor's diploma/final qualification",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "If still pending at application stage, the final version must be uploaded before the end of the enrolment period.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Statement of Comparability from CIMEA, or Declaration of Value, or ARDI Statement of Correspondence with CIMEA Statement of Verification, or Diploma Supplement where applicable",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "The general international-entry page lists these as the qualification-recognition routes used later to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Entry requirements evaluation, interview, and non-EU visa written test",
+    "mandatory": true,
+    "applies_to": "All applicants must undergo entry requirements evaluation. The interview applies when the applicant is not exempt. Non-EU applicants requiring a visa must also take an online written test for initial assessment of personal preparation.",
+    "dates": "Entry requirements evaluation sessions: 7 April-4 June 2026 (results 25 June 2026), 6 July-20 August 2026 (results 10 September 2026), and 1 October-17 November 2026 (results 4 December 2026). Interview dates: 15 June 2026 at 14:00 online, 2 September 2026 at 10:00 online, and a November session with date/time to be defined.",
+    "scoring_or_threshold": "Positive evaluation is required. Interview exemption applies to applicants with bachelor's degrees in L-8, L-9, L-18, L-31, L-33, or L-41 (or equivalent) plus a minimum final grade of 95/110. The exact scoring rules for the non-EU visa written test are not published on the cited static pages [uncertain].",
+    "source_url": "https://www.unive.it/web/en/12701/admission-and-enrolment"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/pag/50466",
+  "official_program_url": "https://www.unive.it/degree/emr14",
+  "official_call_url": "https://apply.unive.it/courses/course/622-ma-data-analytics-business-and-society",
+  "source_quotes": [
+    {
+      "quote": "Master's degree programmes - a.y. 2026/2027 ... Data Analytics for Business and Society",
+      "source_url": "https://www.unive.it/pag/15612/?L=1",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Admission: Open",
+      "source_url": "https://www.unive.it/web/en/12702/presentation",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Admission ... requires you to ... possess a minimum CGPA ... of 70%",
+      "source_url": "https://apply.unive.it/courses/course/622-ma-data-analytics-business-and-society",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Candidates must have achieved minimum 60 CFU",
+      "source_url": "https://www.unive.it/web/en/12701/admission-and-enrolment",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "A minimum B2-level knowledge of English is mandatory for enrolment.",
+      "source_url": "https://www.unive.it/web/en/12701/admission-and-enrolment",
+      "field_supported": "language_requirements"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official programme home and presentation pages still show 'Enrolment from 2025/2026', but the 2026/2027 central international-programmes list, the 2026/2027 study-plan references, and the current admission materials confirm current availability for 2026/2027.",
+    "For international EU/equivalent applicants, the official static apply.unive.it page exposes only the final deadline for all master's degrees, not the full programme-level round breakdown.",
+    "For non-EU applicants requiring a visa, the static official rounds page only states that 2026/2027 applications are closed and does not expose the historical round deadlines.",
+    "The static official pages cited here do not publish the exact scoring rules for the programme-specific online written test used for non-EU visa applicants.",
+    "apply.unive.it marketing pages show programme-specific tuition figures that differ from the central 2026/2027 fees page, so only the official central fees link is retained."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "entry_exam_or_test"
+  ]
+}

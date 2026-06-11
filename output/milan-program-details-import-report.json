@@ -1,0 +1,2235 @@
+{
+  "universityId": 10,
+  "mode": "apply",
+  "sourceFiles": 45,
+  "existingDepartments": 40,
+  "matchedExisting": 39,
+  "matchedExistingDetails": [
+    {
+      "id": 332,
+      "name": "Ancient Civilizations for the Contemporary World",
+      "slug": "ancient-civilizations-for-the-contemporary-world",
+      "level": "bachelor",
+      "sourceFile": "ancient_civilizations_for_the_contemporary_world.json",
+      "rawProgramName": "Ancient Civilizations for the Contemporary World",
+      "sourceProgramName": "Ancient Civilizations for the Contemporary World",
+      "canonicalDepartmentName": "Ancient Civilizations for the Contemporary World"
+    },
+    {
+      "id": 641,
+      "name": "Artificial Intelligence for Science and Technology",
+      "slug": "artificial-intelligence-for-science-and-technology",
+      "level": "master",
+      "sourceFile": "artificial_intelligence_for_science_and_technology.json",
+      "rawProgramName": "Artificial intelligence for science and technology",
+      "sourceProgramName": "Artificial intelligence for science and technology",
+      "canonicalDepartmentName": "Artificial intelligence for science and technology"
+    },
+    {
+      "id": 642,
+      "name": "Bioinformatics for Computational Genomics",
+      "slug": "bioinformatics-for-computational-genomics",
+      "level": "master",
+      "sourceFile": "bioinformatics_for_computational_genomics.json",
+      "rawProgramName": "Bioinformatics for computational genomics",
+      "sourceProgramName": "Bioinformatics for computational genomics",
+      "canonicalDepartmentName": "Bioinformatics for computational genomics"
+    },
+    {
+      "id": 631,
+      "name": "Biomedical Omics - BO",
+      "slug": "biomedical-omics-bo",
+      "level": "master",
+      "sourceFile": "biomedical_omics_bo.json",
+      "rawProgramName": "Biomedical Omics (BO)",
+      "sourceProgramName": "Biomedical Omics (BO)",
+      "canonicalDepartmentName": "Biomedical Omics (BO)"
+    },
+    {
+      "id": 633,
+      "name": "Biotechnology for the Bioeconomy",
+      "slug": "biotechnology-for-the-bioeconomy",
+      "level": "master",
+      "sourceFile": "biotechnology_for_the_bioeconomy.json",
+      "rawProgramName": "Biotechnology for the Bioeconomy",
+      "sourceProgramName": "Biotechnology for the Bioeconomy",
+      "canonicalDepartmentName": "Biotechnology for the Bioeconomy"
+    },
+    {
+      "id": 652,
+      "name": "Computational Social and Political Science",
+      "slug": "computational-social-and-political-science",
+      "level": "master",
+      "sourceFile": "computational_social_and_political_science.json",
+      "rawProgramName": "Computational Social and Political Science",
+      "sourceProgramName": "Computational Social and Political Science",
+      "canonicalDepartmentName": "Computational Social and Political Science"
+    },
+    {
+      "id": 643,
+      "name": "Computer Science",
+      "slug": "computer-science",
+      "level": "master",
+      "sourceFile": "computer_science_master.json",
+      "rawProgramName": "Computer Science - master",
+      "sourceProgramName": "Computer Science - master",
+      "canonicalDepartmentName": "Computer Science"
+    },
+    {
+      "id": 638,
+      "name": "Cosmetic Industrial Science",
+      "slug": "cosmetic-industrial-science",
+      "level": "master",
+      "sourceFile": "cosmetic_industrial_science.json",
+      "rawProgramName": "Cosmetic Industrial Science",
+      "sourceProgramName": "Cosmetic Industrial Science",
+      "canonicalDepartmentName": "Cosmetic Industrial Science"
+    },
+    {
+      "id": 662,
+      "name": "Cultural, Intellectual and Visual History",
+      "slug": "cultural-intellectual-and-visual-history",
+      "level": "master",
+      "sourceFile": "cultural_intellectual_and_visual_history.json",
+      "rawProgramName": "Cultural, Intellectual and Visual History",
+      "sourceProgramName": "Cultural, Intellectual and Visual History",
+      "canonicalDepartmentName": "Cultural, Intellectual and Visual History"
+    },
+    {
+      "id": 644,
+      "name": "Data Science for Economics and Health",
+      "slug": "data-science-for-economics-and-health",
+      "level": "master",
+      "sourceFile": "data_science_for_economics_and_health.json",
+      "rawProgramName": "Data Science for Economics and Health",
+      "sourceProgramName": "Data Science for Economics and Health",
+      "canonicalDepartmentName": "Data Science for Economics and Health"
+    },
+    {
+      "id": 653,
+      "name": "Economics and Political Science - EPS",
+      "slug": "economics-and-political-science-eps",
+      "level": "master",
+      "sourceFile": "economics_and_political_science_eps.json",
+      "rawProgramName": "Economics and Political Science (EPS)",
+      "sourceProgramName": "Economics and Political Science (EPS)",
+      "canonicalDepartmentName": "Economics and Political Science (EPS)"
+    },
+    {
+      "id": 334,
+      "name": "Economics: Behavior, Data and Policy",
+      "slug": "economics-behavior-data-and-policy",
+      "level": "bachelor",
+      "sourceFile": "economics_behavior_data_and_policy.json",
+      "rawProgramName": "Economics: behavior, data and policy",
+      "sourceProgramName": "Economics: behavior, data and policy",
+      "canonicalDepartmentName": "Economics: behavior, data and policy"
+    },
+    {
+      "id": 634,
+      "name": "Environmental and Food Economics",
+      "slug": "environmental-and-food-economics",
+      "level": "master",
+      "sourceFile": "environmental_and_food_economics.json",
+      "rawProgramName": "Environmental and Food Economics",
+      "sourceProgramName": "Environmental and Food Economics",
+      "canonicalDepartmentName": "Environmental and Food Economics"
+    },
+    {
+      "id": 645,
+      "name": "Environmental Change and Global Sustainability - ECGS",
+      "slug": "environmental-change-and-global-sustainability-ecgs",
+      "level": "master",
+      "sourceFile": "environmental_change_and_global_sustainability_ecgs.json",
+      "rawProgramName": "Environmental Change and Global Sustainability (ECGS)",
+      "sourceProgramName": "Environmental Change and Global Sustainability (ECGS)",
+      "canonicalDepartmentName": "Environmental Change and Global Sustainability (ECGS)"
+    },
+    {
+      "id": 654,
+      "name": "Finance and Economics - MEF",
+      "slug": "finance-and-economics-mef",
+      "level": "master",
+      "sourceFile": "finance_and_economics_mef.json",
+      "rawProgramName": "Finance and Economics (MEF)",
+      "sourceProgramName": "Finance and Economics (MEF)",
+      "canonicalDepartmentName": "Finance and Economics (MEF)"
+    },
+    {
+      "id": 646,
+      "name": "Geophysics",
+      "slug": "geophysics",
+      "level": "master",
+      "sourceFile": "geophysics.json",
+      "rawProgramName": "Geophysics",
+      "sourceProgramName": "Geophysics",
+      "canonicalDepartmentName": "Geophysics"
+    },
+    {
+      "id": 635,
+      "name": "Global Environment and Development",
+      "slug": "global-environment-and-development",
+      "level": "master",
+      "sourceFile": "global_environment_and_development.json",
+      "rawProgramName": "Global Environment and Development",
+      "sourceProgramName": "Global Environment and Development",
+      "canonicalDepartmentName": "Global Environment and Development"
+    },
+    {
+      "id": 655,
+      "name": "Global Politics and Society - GPS",
+      "slug": "global-politics-and-society-gps",
+      "level": "master",
+      "sourceFile": "global_politics_and_society_gps.json",
+      "rawProgramName": "Global Politics and Society (GPS)",
+      "sourceProgramName": "Global Politics and Society (GPS)",
+      "canonicalDepartmentName": "Global Politics and Society (GPS)"
+    },
+    {
+      "id": 663,
+      "name": "Human-Centered Artificial Intelligence",
+      "slug": "human-centered-artificial-intelligence",
+      "level": "master",
+      "sourceFile": "human_centered_artificial_intelligence.json",
+      "rawProgramName": "Human-Centered Artificial Intelligence",
+      "sourceProgramName": "Human-Centered Artificial Intelligence",
+      "canonicalDepartmentName": "Human-Centered Artificial Intelligence"
+    },
+    {
+      "id": 336,
+      "name": "Medicine and Surgery",
+      "slug": "medicine-and-surgery",
+      "level": "bachelor",
+      "sourceFile": "international_medical_school_ims.json",
+      "rawProgramName": "International Medical School (IMS)",
+      "sourceProgramName": "International Medical School (IMS)",
+      "canonicalDepartmentName": "International Medical School (IMS)"
+    },
+    {
+      "id": 335,
+      "name": "International Politics, Law and Economics (IPLE)",
+      "slug": "international-politics-law-and-economics-iple",
+      "level": "bachelor",
+      "sourceFile": "international_politics_law_and_economics_iple.json",
+      "rawProgramName": "International Politics, Law and Economics (IPLE)",
+      "sourceProgramName": "International Politics, Law and Economics (IPLE)",
+      "canonicalDepartmentName": "International Politics, Law and Economics (IPLE)"
+    },
+    {
+      "id": 656,
+      "name": "International Relations - REL - 2 curricula in English",
+      "slug": "international-relations-rel-2-curricula-in-english",
+      "level": "master",
+      "sourceFile": "international_relations_rel.json",
+      "rawProgramName": "International Relations (REL)",
+      "sourceProgramName": "International Relations (REL)",
+      "canonicalDepartmentName": "International Relations (REL)"
+    },
+    {
+      "id": 630,
+      "name": "Law and Sustainable Development",
+      "slug": "law-and-sustainable-development",
+      "level": "master",
+      "sourceFile": "law_and_sustainable_development.json",
+      "rawProgramName": "Law and Sustainable Development",
+      "sourceProgramName": "Law and Sustainable Development",
+      "canonicalDepartmentName": "Law and Sustainable Development"
+    },
+    {
+      "id": 657,
+      "name": "Management of Human Resources - MHR",
+      "slug": "management-of-human-resources-mhr",
+      "level": "master",
+      "sourceFile": "management_of_human_resources_people_data_and_intelligent_technologies.json",
+      "rawProgramName": "Management of human resources: people, data and intelligent technologies",
+      "sourceProgramName": "Management of human resources: people, data and intelligent technologies",
+      "canonicalDepartmentName": "Management of human resources: people, data and intelligent technologies"
+    },
+    {
+      "id": 658,
+      "name": "Management of Innovation and Entrepreneurship - MIE",
+      "slug": "management-of-innovation-and-entrepreneurship-mie",
+      "level": "master",
+      "sourceFile": "management_of_innovation_and_entrepreneurship_mie.json",
+      "rawProgramName": "Management of Innovation and Entrepreneurship (MIE)",
+      "sourceProgramName": "Management of Innovation and Entrepreneurship (MIE)",
+      "canonicalDepartmentName": "Management of Innovation and Entrepreneurship (MIE)"
+    },
+    {
+      "id": 632,
+      "name": "Medical Biotechnology and Molecular Medicine",
+      "slug": "medical-biotechnology-and-molecular-medicine",
+      "level": "master",
+      "sourceFile": "medical_biotechnology_and_molecular_medicine.json",
+      "rawProgramName": "Medical Biotechnology and Molecular Medicine",
+      "sourceProgramName": "Medical Biotechnology and Molecular Medicine",
+      "canonicalDepartmentName": "Medical Biotechnology and Molecular Medicine"
+    },
+    {
+      "id": 659,
+      "name": "Migration Studies and New Societies",
+      "slug": "migration-studies-and-new-societies",
+      "level": "master",
+      "sourceFile": "migration_studies_and_new_societies.json",
+      "rawProgramName": "Migration Studies and New Societies",
+      "sourceProgramName": "Migration Studies and New Societies",
+      "canonicalDepartmentName": "Migration Studies and New Societies"
+    },
+    {
+      "id": 648,
+      "name": "Molecular Biology of the Cell",
+      "slug": "molecular-biology-of-the-cell",
+      "level": "master",
+      "sourceFile": "molecular_biology_of_the_cell.json",
+      "rawProgramName": "Molecular Biology of the Cell",
+      "sourceProgramName": "Molecular Biology of the Cell",
+      "canonicalDepartmentName": "Molecular Biology of the Cell"
+    },
+    {
+      "id": 649,
+      "name": "Molecular Biotechnology and Bioinformatics",
+      "slug": "molecular-biotechnology-and-bioinformatics",
+      "level": "master",
+      "sourceFile": "molecular_biotechnology_and_bioinformatics.json",
+      "rawProgramName": "Molecular Biotechnology and Bioinformatics",
+      "sourceProgramName": "Molecular Biotechnology and Bioinformatics",
+      "canonicalDepartmentName": "Molecular Biotechnology and Bioinformatics"
+    },
+    {
+      "id": 639,
+      "name": "Pharmaceutical Biotechnology - 1 curriculum in English",
+      "slug": "pharmaceutical-biotechnology-1-curriculum-in-english",
+      "level": "master",
+      "sourceFile": "pharmaceutical_biotechnology.json",
+      "rawProgramName": "Pharmaceutical Biotechnology",
+      "sourceProgramName": "Pharmaceutical Biotechnology",
+      "canonicalDepartmentName": "Pharmaceutical Biotechnology"
+    },
+    {
+      "id": 664,
+      "name": "Philosophical Sciences - 1 curriculum in English",
+      "slug": "philosophical-sciences-1-curriculum-in-english",
+      "level": "master",
+      "sourceFile": "philosophical_sciences.json",
+      "rawProgramName": "Philosophical Sciences",
+      "sourceProgramName": "Philosophical Sciences",
+      "canonicalDepartmentName": "Philosophical Sciences"
+    },
+    {
+      "id": 650,
+      "name": "Plant Science",
+      "slug": "plant-science",
+      "level": "master",
+      "sourceFile": "plant_science.json",
+      "rawProgramName": "Plant Science",
+      "sourceProgramName": "Plant Science",
+      "canonicalDepartmentName": "Plant Science"
+    },
+    {
+      "id": 661,
+      "name": "Politics, Philosophy and Public Affairs - PPPA",
+      "slug": "politics-philosophy-and-public-affairs-pppa",
+      "level": "master",
+      "sourceFile": "politics_philosophy_and_public_affairs_pppa.json",
+      "rawProgramName": "Politics, Philosophy and Public Affairs (PPPA)",
+      "sourceProgramName": "Politics, Philosophy and Public Affairs (PPPA)",
+      "canonicalDepartmentName": "Politics, Philosophy and Public Affairs (PPPA)"
+    },
+    {
+      "id": 660,
+      "name": "Public and Corporate Communication - COM - 2 curricula in English",
+      "slug": "public-and-corporate-communication-com-2-curricula-in-english",
+      "level": "master",
+      "sourceFile": "public_and_corporate_communication_com.json",
+      "rawProgramName": "Public and Corporate Communication (COM)",
+      "sourceProgramName": "Public and Corporate Communication (COM)",
+      "canonicalDepartmentName": "Public and Corporate Communication (COM)"
+    },
+    {
+      "id": 651,
+      "name": "Nicel) Biyoloji (Quantitative Biology",
+      "slug": "nicel-biyoloji-quantitative-biology",
+      "level": "master",
+      "sourceFile": "quantitative_biology.json",
+      "rawProgramName": "Quantitative Biology",
+      "sourceProgramName": "Quantitative Biology",
+      "canonicalDepartmentName": "Quantitative Biology"
+    },
+    {
+      "id": 640,
+      "name": "Safety Assessment of Xenobiotics and Biotechnological Products",
+      "slug": "safety-assessment-of-xenobiotics-and-biotechnological-products",
+      "level": "master",
+      "sourceFile": "safety_assessment_of_xenobiotics_and_biotechnological_products.json",
+      "rawProgramName": "Safety Assessment of Xenobiotics and Biotechnological Products",
+      "sourceProgramName": "Safety Assessment of Xenobiotics and Biotechnological Products",
+      "canonicalDepartmentName": "Safety Assessment of Xenobiotics and Biotechnological Products"
+    },
+    {
+      "id": 647,
+      "name": "Sustainable Industrial Chemistry",
+      "slug": "sustainable-industrial-chemistry",
+      "level": "master",
+      "sourceFile": "sustainable_industrial_chemistry.json",
+      "rawProgramName": "Sustainable Industrial Chemistry",
+      "sourceProgramName": "Sustainable Industrial Chemistry",
+      "canonicalDepartmentName": "Sustainable Industrial Chemistry"
+    },
+    {
+      "id": 636,
+      "name": "Sustainable Natural Resource Management",
+      "slug": "sustainable-natural-resource-management",
+      "level": "master",
+      "sourceFile": "sustainable_natural_resource_management.json",
+      "rawProgramName": "Sustainable natural resource management",
+      "sourceProgramName": "Sustainable natural resource management",
+      "canonicalDepartmentName": "Sustainable natural resource management"
+    },
+    {
+      "id": 637,
+      "name": "Valorization and Sustainable Development of Mountain Areas",
+      "slug": "valorization-and-sustainable-development-of-mountain-areas",
+      "level": "master",
+      "sourceFile": "valorization_and_sustainable_development_of_mountain_areas.json",
+      "rawProgramName": "Valorization and sustainable development of mountain areas",
+      "sourceProgramName": "Valorization and sustainable development of mountain areas",
+      "canonicalDepartmentName": "Valorization and sustainable development of mountain areas"
+    }
+  ],
+  "departmentCorrections": [
+    {
+      "id": 643,
+      "sourceFile": "computer_science_master.json",
+      "rawProgramName": "Computer Science - master",
+      "sourceProgramName": "Computer Science - master",
+      "canonicalDepartmentName": "Computer Science",
+      "from": {
+        "name": "Computer Science",
+        "slug": "computer-science",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Computer Science",
+        "slug": "computer-science",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 336,
+      "sourceFile": "international_medical_school_ims.json",
+      "rawProgramName": "International Medical School (IMS)",
+      "sourceProgramName": "International Medical School (IMS)",
+      "canonicalDepartmentName": "International Medical School (IMS)",
+      "from": {
+        "name": "Medicine and Surgery",
+        "slug": "medicine-and-surgery",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 6,
+        "level": "bachelor"
+      },
+      "to": {
+        "name": "International Medical School (IMS)",
+        "slug": "international-medical-school-ims",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 6,
+        "level": "single-cycle"
+      },
+      "changedFields": [
+        "name",
+        "slug",
+        "level"
+      ]
+    },
+    {
+      "id": 656,
+      "sourceFile": "international_relations_rel.json",
+      "rawProgramName": "International Relations (REL)",
+      "sourceProgramName": "International Relations (REL)",
+      "canonicalDepartmentName": "International Relations (REL)",
+      "from": {
+        "name": "International Relations - REL - 2 curricula in English",
+        "slug": "international-relations-rel-2-curricula-in-english",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "International Relations (REL)",
+        "slug": "international-relations-rel",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "name",
+        "slug",
+        "languages"
+      ]
+    },
+    {
+      "id": 657,
+      "sourceFile": "management_of_human_resources_people_data_and_intelligent_technologies.json",
+      "rawProgramName": "Management of human resources: people, data and intelligent technologies",
+      "sourceProgramName": "Management of human resources: people, data and intelligent technologies",
+      "canonicalDepartmentName": "Management of human resources: people, data and intelligent technologies",
+      "from": {
+        "name": "Management of Human Resources - MHR",
+        "slug": "management-of-human-resources-mhr",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Management of human resources: people, data and intelligent technologies",
+        "slug": "management-of-human-resources-people-data-and-intelligent-technologies",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "name",
+        "slug"
+      ]
+    },
+    {
+      "id": 639,
+      "sourceFile": "pharmaceutical_biotechnology.json",
+      "rawProgramName": "Pharmaceutical Biotechnology",
+      "sourceProgramName": "Pharmaceutical Biotechnology",
+      "canonicalDepartmentName": "Pharmaceutical Biotechnology",
+      "from": {
+        "name": "Pharmaceutical Biotechnology - 1 curriculum in English",
+        "slug": "pharmaceutical-biotechnology-1-curriculum-in-english",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Pharmaceutical Biotechnology",
+        "slug": "pharmaceutical-biotechnology",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "name",
+        "slug",
+        "languages"
+      ]
+    },
+    {
+      "id": 664,
+      "sourceFile": "philosophical_sciences.json",
+      "rawProgramName": "Philosophical Sciences",
+      "sourceProgramName": "Philosophical Sciences",
+      "canonicalDepartmentName": "Philosophical Sciences",
+      "from": {
+        "name": "Philosophical Sciences - 1 curriculum in English",
+        "slug": "philosophical-sciences-1-curriculum-in-english",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Philosophical Sciences",
+        "slug": "philosophical-sciences",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "name",
+        "slug",
+        "languages"
+      ]
+    },
+    {
+      "id": 650,
+      "sourceFile": "plant_science.json",
+      "rawProgramName": "Plant Science",
+      "sourceProgramName": "Plant Science",
+      "canonicalDepartmentName": "Plant Science",
+      "from": {
+        "name": "Plant Science",
+        "slug": "plant-science",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Plant Science",
+        "slug": "plant-science",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 660,
+      "sourceFile": "public_and_corporate_communication_com.json",
+      "rawProgramName": "Public and Corporate Communication (COM)",
+      "sourceProgramName": "Public and Corporate Communication (COM)",
+      "canonicalDepartmentName": "Public and Corporate Communication (COM)",
+      "from": {
+        "name": "Public and Corporate Communication - COM - 2 curricula in English",
+        "slug": "public-and-corporate-communication-com-2-curricula-in-english",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Public and Corporate Communication (COM)",
+        "slug": "public-and-corporate-communication-com",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "name",
+        "slug",
+        "languages"
+      ]
+    },
+    {
+      "id": 651,
+      "sourceFile": "quantitative_biology.json",
+      "rawProgramName": "Quantitative Biology",
+      "sourceProgramName": "Quantitative Biology",
+      "canonicalDepartmentName": "Quantitative Biology",
+      "from": {
+        "name": "Nicel) Biyoloji (Quantitative Biology",
+        "slug": "nicel-biyoloji-quantitative-biology",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Quantitative Biology",
+        "slug": "quantitative-biology",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "name",
+        "slug"
+      ]
+    }
+  ],
+  "newDepartments": [
+    {
+      "id": null,
+      "university_id": 10,
+      "name": "Artificial Intelligence",
+      "slug": "artificial-intelligence",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 3,
+      "level": "bachelor",
+      "sort_order": 36,
+      "rawProgramName": "Artificial Intelligence",
+      "sourceProgramName": "Artificial Intelligence",
+      "canonicalDepartmentName": "Artificial Intelligence",
+      "sourceFile": "artificial_intelligence.json"
+    },
+    {
+      "id": null,
+      "university_id": 10,
+      "name": "Chemistry",
+      "slug": "chemistry",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 37,
+      "rawProgramName": "Chemistry",
+      "sourceProgramName": "Chemistry",
+      "canonicalDepartmentName": "Chemistry",
+      "sourceFile": "chemistry.json"
+    },
+    {
+      "id": null,
+      "university_id": 10,
+      "name": "Crops and Plant Sciences",
+      "slug": "crops-and-plant-sciences",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 38,
+      "rawProgramName": "Crops and Plant Sciences",
+      "sourceProgramName": "Crops and Plant Sciences",
+      "canonicalDepartmentName": "Crops and Plant Sciences",
+      "sourceFile": "crops_and_plant_sciences.json"
+    },
+    {
+      "id": null,
+      "university_id": 10,
+      "name": "Earth Sciences",
+      "slug": "earth-sciences",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 39,
+      "rawProgramName": "Earth Sciences",
+      "sourceProgramName": "Earth Sciences",
+      "canonicalDepartmentName": "Earth Sciences",
+      "sourceFile": "earth_sciences.json"
+    },
+    {
+      "id": null,
+      "university_id": 10,
+      "name": "Food Science and Technology",
+      "slug": "food-science-and-technology",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 40,
+      "rawProgramName": "Food Science and Technology - master",
+      "sourceProgramName": "Food Science and Technology - master",
+      "canonicalDepartmentName": "Food Science and Technology",
+      "sourceFile": "food_science_and_technology_master.json"
+    },
+    {
+      "id": null,
+      "university_id": 10,
+      "name": "Theatre, Arts, Literatures. International Studies in Intermediality",
+      "slug": "theatre-arts-literatures-international-studies-in-intermediality",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 41,
+      "rawProgramName": "Theatre, Arts, Literatures. International Studies in Intermediality",
+      "sourceProgramName": "Theatre, Arts, Literatures. International Studies in Intermediality",
+      "canonicalDepartmentName": "Theatre, Arts, Literatures. International Studies in Intermediality",
+      "sourceFile": "theatre_arts_literatures_international_studies_in_intermediality.json"
+    }
+  ],
+  "sourceWithoutExisting": [
+    {
+      "sourceFile": "artificial_intelligence.json",
+      "sourceProgramName": "Artificial Intelligence",
+      "canonicalDepartmentName": "Artificial Intelligence",
+      "level": "bachelor",
+      "plannedSlug": "artificial-intelligence"
+    },
+    {
+      "sourceFile": "chemistry.json",
+      "sourceProgramName": "Chemistry",
+      "canonicalDepartmentName": "Chemistry",
+      "level": "master",
+      "plannedSlug": "chemistry"
+    },
+    {
+      "sourceFile": "crops_and_plant_sciences.json",
+      "sourceProgramName": "Crops and Plant Sciences",
+      "canonicalDepartmentName": "Crops and Plant Sciences",
+      "level": "master",
+      "plannedSlug": "crops-and-plant-sciences"
+    },
+    {
+      "sourceFile": "earth_sciences.json",
+      "sourceProgramName": "Earth Sciences",
+      "canonicalDepartmentName": "Earth Sciences",
+      "level": "master",
+      "plannedSlug": "earth-sciences"
+    },
+    {
+      "sourceFile": "food_science_and_technology_master.json",
+      "sourceProgramName": "Food Science and Technology - master",
+      "canonicalDepartmentName": "Food Science and Technology",
+      "level": "master",
+      "plannedSlug": "food-science-and-technology"
+    },
+    {
+      "sourceFile": "theatre_arts_literatures_international_studies_in_intermediality.json",
+      "sourceProgramName": "Theatre, Arts, Literatures. International Studies in Intermediality",
+      "canonicalDepartmentName": "Theatre, Arts, Literatures. International Studies in Intermediality",
+      "level": "master",
+      "plannedSlug": "theatre-arts-literatures-international-studies-in-intermediality"
+    }
+  ],
+  "duplicateNameDifferentLevel": [],
+  "existingWithoutSource": [
+    {
+      "id": 333,
+      "name": "Medical Biotechnology",
+      "slug": "medical-biotechnology",
+      "level": "bachelor"
+    }
+  ],
+  "programPlans": [
+    {
+      "sourceFile": "ancient_civilizations_for_the_contemporary_world.json",
+      "rawProgramName": "Ancient Civilizations for the Contemporary World",
+      "sourceProgramName": "Ancient Civilizations for the Contemporary World",
+      "canonicalDepartmentName": "Ancient Civilizations for the Contemporary World",
+      "canonicalNameChanged": false,
+      "normalizedName": "ancient civilizations for the contemporary world",
+      "normalizedSourceName": "ancient civilizations for the contemporary world",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 332,
+      "departmentName": "Ancient Civilizations for the Contemporary World",
+      "departmentSlug": "ancient-civilizations-for-the-contemporary-world",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor"
+    },
+    {
+      "sourceFile": "artificial_intelligence_for_science_and_technology.json",
+      "rawProgramName": "Artificial intelligence for science and technology",
+      "sourceProgramName": "Artificial intelligence for science and technology",
+      "canonicalDepartmentName": "Artificial intelligence for science and technology",
+      "canonicalNameChanged": false,
+      "normalizedName": "artificial intelligence for science and technology",
+      "normalizedSourceName": "artificial intelligence for science and technology",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 641,
+      "departmentName": "Artificial Intelligence for Science and Technology",
+      "departmentSlug": "artificial-intelligence-for-science-and-technology",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "artificial_intelligence.json",
+      "rawProgramName": "Artificial Intelligence",
+      "sourceProgramName": "Artificial Intelligence",
+      "canonicalDepartmentName": "Artificial Intelligence",
+      "canonicalNameChanged": false,
+      "normalizedName": "artificial intelligence",
+      "normalizedSourceName": "artificial intelligence",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Artificial Intelligence",
+      "departmentSlug": "artificial-intelligence",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor"
+    },
+    {
+      "sourceFile": "bioinformatics_for_computational_genomics.json",
+      "rawProgramName": "Bioinformatics for computational genomics",
+      "sourceProgramName": "Bioinformatics for computational genomics",
+      "canonicalDepartmentName": "Bioinformatics for computational genomics",
+      "canonicalNameChanged": false,
+      "normalizedName": "bioinformatics for computational genomics",
+      "normalizedSourceName": "bioinformatics for computational genomics",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 642,
+      "departmentName": "Bioinformatics for Computational Genomics",
+      "departmentSlug": "bioinformatics-for-computational-genomics",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "biomedical_omics_bo.json",
+      "rawProgramName": "Biomedical Omics (BO)",
+      "sourceProgramName": "Biomedical Omics (BO)",
+      "canonicalDepartmentName": "Biomedical Omics (BO)",
+      "canonicalNameChanged": false,
+      "normalizedName": "biomedical omics bo",
+      "normalizedSourceName": "biomedical omics bo",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 631,
+      "departmentName": "Biomedical Omics - BO",
+      "departmentSlug": "biomedical-omics-bo",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "biotechnology_for_the_bioeconomy.json",
+      "rawProgramName": "Biotechnology for the Bioeconomy",
+      "sourceProgramName": "Biotechnology for the Bioeconomy",
+      "canonicalDepartmentName": "Biotechnology for the Bioeconomy",
+      "canonicalNameChanged": false,
+      "normalizedName": "biotechnology for the bioeconomy",
+      "normalizedSourceName": "biotechnology for the bioeconomy",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 633,
+      "departmentName": "Biotechnology for the Bioeconomy",
+      "departmentSlug": "biotechnology-for-the-bioeconomy",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "chemistry.json",
+      "rawProgramName": "Chemistry",
+      "sourceProgramName": "Chemistry",
+      "canonicalDepartmentName": "Chemistry",
+      "canonicalNameChanged": false,
+      "normalizedName": "chemistry",
+      "normalizedSourceName": "chemistry",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Chemistry",
+      "departmentSlug": "chemistry",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "computational_social_and_political_science.json",
+      "rawProgramName": "Computational Social and Political Science",
+      "sourceProgramName": "Computational Social and Political Science",
+      "canonicalDepartmentName": "Computational Social and Political Science",
+      "canonicalNameChanged": false,
+      "normalizedName": "computational social and political science",
+      "normalizedSourceName": "computational social and political science",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 652,
+      "departmentName": "Computational Social and Political Science",
+      "departmentSlug": "computational-social-and-political-science",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "computer_science_master.json",
+      "rawProgramName": "Computer Science - master",
+      "sourceProgramName": "Computer Science - master",
+      "canonicalDepartmentName": "Computer Science",
+      "canonicalNameChanged": true,
+      "normalizedName": "computer science",
+      "normalizedSourceName": "computer science master",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 643,
+      "departmentName": "Computer Science",
+      "departmentSlug": "computer-science",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "cosmetic_industrial_science.json",
+      "rawProgramName": "Cosmetic Industrial Science",
+      "sourceProgramName": "Cosmetic Industrial Science",
+      "canonicalDepartmentName": "Cosmetic Industrial Science",
+      "canonicalNameChanged": false,
+      "normalizedName": "cosmetic industrial science",
+      "normalizedSourceName": "cosmetic industrial science",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 638,
+      "departmentName": "Cosmetic Industrial Science",
+      "departmentSlug": "cosmetic-industrial-science",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "crops_and_plant_sciences.json",
+      "rawProgramName": "Crops and Plant Sciences",
+      "sourceProgramName": "Crops and Plant Sciences",
+      "canonicalDepartmentName": "Crops and Plant Sciences",
+      "canonicalNameChanged": false,
+      "normalizedName": "crops and plant sciences",
+      "normalizedSourceName": "crops and plant sciences",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Crops and Plant Sciences",
+      "departmentSlug": "crops-and-plant-sciences",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "cultural_intellectual_and_visual_history.json",
+      "rawProgramName": "Cultural, Intellectual and Visual History",
+      "sourceProgramName": "Cultural, Intellectual and Visual History",
+      "canonicalDepartmentName": "Cultural, Intellectual and Visual History",
+      "canonicalNameChanged": false,
+      "normalizedName": "cultural intellectual and visual history",
+      "normalizedSourceName": "cultural intellectual and visual history",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 662,
+      "departmentName": "Cultural, Intellectual and Visual History",
+      "departmentSlug": "cultural-intellectual-and-visual-history",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "data_science_for_economics_and_health.json",
+      "rawProgramName": "Data Science for Economics and Health",
+      "sourceProgramName": "Data Science for Economics and Health",
+      "canonicalDepartmentName": "Data Science for Economics and Health",
+      "canonicalNameChanged": false,
+      "normalizedName": "data science for economics and health",
+      "normalizedSourceName": "data science for economics and health",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 644,
+      "departmentName": "Data Science for Economics and Health",
+      "departmentSlug": "data-science-for-economics-and-health",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "earth_sciences.json",
+      "rawProgramName": "Earth Sciences",
+      "sourceProgramName": "Earth Sciences",
+      "canonicalDepartmentName": "Earth Sciences",
+      "canonicalNameChanged": false,
+      "normalizedName": "earth sciences",
+      "normalizedSourceName": "earth sciences",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English; [uncertain] official 2026/2027 sources indicate a bilingual programme structure, and they do not support calling this a full English curriculum.",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Earth Sciences",
+      "departmentSlug": "earth-sciences",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "economics_and_political_science_eps.json",
+      "rawProgramName": "Economics and Political Science (EPS)",
+      "sourceProgramName": "Economics and Political Science (EPS)",
+      "canonicalDepartmentName": "Economics and Political Science (EPS)",
+      "canonicalNameChanged": false,
+      "normalizedName": "economics and political science eps",
+      "normalizedSourceName": "economics and political science eps",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 653,
+      "departmentName": "Economics and Political Science - EPS",
+      "departmentSlug": "economics-and-political-science-eps",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "economics_behavior_data_and_policy.json",
+      "rawProgramName": "Economics: behavior, data and policy",
+      "sourceProgramName": "Economics: behavior, data and policy",
+      "canonicalDepartmentName": "Economics: behavior, data and policy",
+      "canonicalNameChanged": false,
+      "normalizedName": "economics behavior data and policy",
+      "normalizedSourceName": "economics behavior data and policy",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 334,
+      "departmentName": "Economics: Behavior, Data and Policy",
+      "departmentSlug": "economics-behavior-data-and-policy",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor"
+    },
+    {
+      "sourceFile": "environmental_and_food_economics.json",
+      "rawProgramName": "Environmental and Food Economics",
+      "sourceProgramName": "Environmental and Food Economics",
+      "canonicalDepartmentName": "Environmental and Food Economics",
+      "canonicalNameChanged": false,
+      "normalizedName": "environmental and food economics",
+      "normalizedSourceName": "environmental and food economics",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 634,
+      "departmentName": "Environmental and Food Economics",
+      "departmentSlug": "environmental-and-food-economics",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "environmental_change_and_global_sustainability_ecgs.json",
+      "rawProgramName": "Environmental Change and Global Sustainability (ECGS)",
+      "sourceProgramName": "Environmental Change and Global Sustainability (ECGS)",
+      "canonicalDepartmentName": "Environmental Change and Global Sustainability (ECGS)",
+      "canonicalNameChanged": false,
+      "normalizedName": "environmental change and global sustainability ecgs",
+      "normalizedSourceName": "environmental change and global sustainability ecgs",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 645,
+      "departmentName": "Environmental Change and Global Sustainability - ECGS",
+      "departmentSlug": "environmental-change-and-global-sustainability-ecgs",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "finance_and_economics_mef.json",
+      "rawProgramName": "Finance and Economics (MEF)",
+      "sourceProgramName": "Finance and Economics (MEF)",
+      "canonicalDepartmentName": "Finance and Economics (MEF)",
+      "canonicalNameChanged": false,
+      "normalizedName": "finance and economics mef",
+      "normalizedSourceName": "finance and economics mef",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 654,
+      "departmentName": "Finance and Economics - MEF",
+      "departmentSlug": "finance-and-economics-mef",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "food_science_and_technology_master.json",
+      "rawProgramName": "Food Science and Technology - master",
+      "sourceProgramName": "Food Science and Technology - master",
+      "canonicalDepartmentName": "Food Science and Technology",
+      "canonicalNameChanged": true,
+      "normalizedName": "food science and technology",
+      "normalizedSourceName": "food science and technology master",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian and English; the 2026/2027 study plan shows a mixed-language programme with both Italian-taught and English-taught courses, and no official source reviewed states that there is a full English curriculum.",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Food Science and Technology",
+      "departmentSlug": "food-science-and-technology",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "geophysics.json",
+      "rawProgramName": "Geophysics",
+      "sourceProgramName": "Geophysics",
+      "canonicalDepartmentName": "Geophysics",
+      "canonicalNameChanged": false,
+      "normalizedName": "geophysics",
+      "normalizedSourceName": "geophysics",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 646,
+      "departmentName": "Geophysics",
+      "departmentSlug": "geophysics",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "global_environment_and_development.json",
+      "rawProgramName": "Global Environment and Development",
+      "sourceProgramName": "Global Environment and Development",
+      "canonicalDepartmentName": "Global Environment and Development",
+      "canonicalNameChanged": false,
+      "normalizedName": "global environment and development",
+      "normalizedSourceName": "global environment and development",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 635,
+      "departmentName": "Global Environment and Development",
+      "departmentSlug": "global-environment-and-development",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "global_politics_and_society_gps.json",
+      "rawProgramName": "Global Politics and Society (GPS)",
+      "sourceProgramName": "Global Politics and Society (GPS)",
+      "canonicalDepartmentName": "Global Politics and Society (GPS)",
+      "canonicalNameChanged": false,
+      "normalizedName": "global politics and society gps",
+      "normalizedSourceName": "global politics and society gps",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 655,
+      "departmentName": "Global Politics and Society - GPS",
+      "departmentSlug": "global-politics-and-society-gps",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "human_centered_artificial_intelligence.json",
+      "rawProgramName": "Human-Centered Artificial Intelligence",
+      "sourceProgramName": "Human-Centered Artificial Intelligence",
+      "canonicalDepartmentName": "Human-Centered Artificial Intelligence",
+      "canonicalNameChanged": false,
+      "normalizedName": "human centered artificial intelligence",
+      "normalizedSourceName": "human centered artificial intelligence",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 663,
+      "departmentName": "Human-Centered Artificial Intelligence",
+      "departmentSlug": "human-centered-artificial-intelligence",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "international_medical_school_ims.json",
+      "rawProgramName": "International Medical School (IMS)",
+      "sourceProgramName": "International Medical School (IMS)",
+      "canonicalDepartmentName": "International Medical School (IMS)",
+      "canonicalNameChanged": false,
+      "normalizedName": "international medical school ims",
+      "normalizedSourceName": "international medical school ims",
+      "level": "single-cycle",
+      "rawLevel": "single-cycle",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "alias-correction",
+      "departmentId": 336,
+      "departmentName": "Medicine and Surgery",
+      "departmentSlug": "medicine-and-surgery",
+      "levelBefore": "bachelor",
+      "levelAfter": "single-cycle"
+    },
+    {
+      "sourceFile": "international_politics_law_and_economics_iple.json",
+      "rawProgramName": "International Politics, Law and Economics (IPLE)",
+      "sourceProgramName": "International Politics, Law and Economics (IPLE)",
+      "canonicalDepartmentName": "International Politics, Law and Economics (IPLE)",
+      "canonicalNameChanged": false,
+      "normalizedName": "international politics law and economics iple",
+      "normalizedSourceName": "international politics law and economics iple",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 335,
+      "departmentName": "International Politics, Law and Economics (IPLE)",
+      "departmentSlug": "international-politics-law-and-economics-iple",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor"
+    },
+    {
+      "sourceFile": "international_relations_rel.json",
+      "rawProgramName": "International Relations (REL)",
+      "sourceProgramName": "International Relations (REL)",
+      "canonicalDepartmentName": "International Relations (REL)",
+      "canonicalNameChanged": false,
+      "normalizedName": "international relations rel",
+      "normalizedSourceName": "international relations rel",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "action": "alias-correction",
+      "departmentId": 656,
+      "departmentName": "International Relations - REL - 2 curricula in English",
+      "departmentSlug": "international-relations-rel-2-curricula-in-english",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "law_and_sustainable_development.json",
+      "rawProgramName": "Law and Sustainable Development",
+      "sourceProgramName": "Law and Sustainable Development",
+      "canonicalDepartmentName": "Law and Sustainable Development",
+      "canonicalNameChanged": false,
+      "normalizedName": "law and sustainable development",
+      "normalizedSourceName": "law and sustainable development",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 630,
+      "departmentName": "Law and Sustainable Development",
+      "departmentSlug": "law-and-sustainable-development",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "management_of_human_resources_people_data_and_intelligent_technologies.json",
+      "rawProgramName": "Management of human resources: people, data and intelligent technologies",
+      "sourceProgramName": "Management of human resources: people, data and intelligent technologies",
+      "canonicalDepartmentName": "Management of human resources: people, data and intelligent technologies",
+      "canonicalNameChanged": false,
+      "normalizedName": "management of human resources people data and intelligent technologies",
+      "normalizedSourceName": "management of human resources people data and intelligent technologies",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "alias-correction",
+      "departmentId": 657,
+      "departmentName": "Management of Human Resources - MHR",
+      "departmentSlug": "management-of-human-resources-mhr",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "management_of_innovation_and_entrepreneurship_mie.json",
+      "rawProgramName": "Management of Innovation and Entrepreneurship (MIE)",
+      "sourceProgramName": "Management of Innovation and Entrepreneurship (MIE)",
+      "canonicalDepartmentName": "Management of Innovation and Entrepreneurship (MIE)",
+      "canonicalNameChanged": false,
+      "normalizedName": "management of innovation and entrepreneurship mie",
+      "normalizedSourceName": "management of innovation and entrepreneurship mie",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 658,
+      "departmentName": "Management of Innovation and Entrepreneurship - MIE",
+      "departmentSlug": "management-of-innovation-and-entrepreneurship-mie",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "medical_biotechnology_and_molecular_medicine.json",
+      "rawProgramName": "Medical Biotechnology and Molecular Medicine",
+      "sourceProgramName": "Medical Biotechnology and Molecular Medicine",
+      "canonicalDepartmentName": "Medical Biotechnology and Molecular Medicine",
+      "canonicalNameChanged": false,
+      "normalizedName": "medical biotechnology and molecular medicine",
+      "normalizedSourceName": "medical biotechnology and molecular medicine",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 632,
+      "departmentName": "Medical Biotechnology and Molecular Medicine",
+      "departmentSlug": "medical-biotechnology-and-molecular-medicine",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "migration_studies_and_new_societies.json",
+      "rawProgramName": "Migration Studies and New Societies",
+      "sourceProgramName": "Migration Studies and New Societies",
+      "canonicalDepartmentName": "Migration Studies and New Societies",
+      "canonicalNameChanged": false,
+      "normalizedName": "migration studies and new societies",
+      "normalizedSourceName": "migration studies and new societies",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 659,
+      "departmentName": "Migration Studies and New Societies",
+      "departmentSlug": "migration-studies-and-new-societies",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "molecular_biology_of_the_cell.json",
+      "rawProgramName": "Molecular Biology of the Cell",
+      "sourceProgramName": "Molecular Biology of the Cell",
+      "canonicalDepartmentName": "Molecular Biology of the Cell",
+      "canonicalNameChanged": false,
+      "normalizedName": "molecular biology of the cell",
+      "normalizedSourceName": "molecular biology of the cell",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 648,
+      "departmentName": "Molecular Biology of the Cell",
+      "departmentSlug": "molecular-biology-of-the-cell",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "molecular_biotechnology_and_bioinformatics.json",
+      "rawProgramName": "Molecular Biotechnology and Bioinformatics",
+      "sourceProgramName": "Molecular Biotechnology and Bioinformatics",
+      "canonicalDepartmentName": "Molecular Biotechnology and Bioinformatics",
+      "canonicalNameChanged": false,
+      "normalizedName": "molecular biotechnology and bioinformatics",
+      "normalizedSourceName": "molecular biotechnology and bioinformatics",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 649,
+      "departmentName": "Molecular Biotechnology and Bioinformatics",
+      "departmentSlug": "molecular-biotechnology-and-bioinformatics",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "pharmaceutical_biotechnology.json",
+      "rawProgramName": "Pharmaceutical Biotechnology",
+      "sourceProgramName": "Pharmaceutical Biotechnology",
+      "canonicalDepartmentName": "Pharmaceutical Biotechnology",
+      "canonicalNameChanged": false,
+      "normalizedName": "pharmaceutical biotechnology",
+      "normalizedSourceName": "pharmaceutical biotechnology",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English. The 2026/2027 educational plan shows one full English curriculum, \"PHARMACOGENOMCS AND PRECISION THERAPEUTICS\", while the other curricula are taught in Italian.",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "action": "alias-correction",
+      "departmentId": 639,
+      "departmentName": "Pharmaceutical Biotechnology - 1 curriculum in English",
+      "departmentSlug": "pharmaceutical-biotechnology-1-curriculum-in-english",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "philosophical_sciences.json",
+      "rawProgramName": "Philosophical Sciences",
+      "sourceProgramName": "Philosophical Sciences",
+      "canonicalDepartmentName": "Philosophical Sciences",
+      "canonicalNameChanged": false,
+      "normalizedName": "philosophical sciences",
+      "normalizedSourceName": "philosophical sciences",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "action": "alias-correction",
+      "departmentId": 664,
+      "departmentName": "Philosophical Sciences - 1 curriculum in English",
+      "departmentSlug": "philosophical-sciences-1-curriculum-in-english",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "plant_science.json",
+      "rawProgramName": "Plant Science",
+      "sourceProgramName": "Plant Science",
+      "canonicalDepartmentName": "Plant Science",
+      "canonicalNameChanged": false,
+      "normalizedName": "plant science",
+      "normalizedSourceName": "plant science",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English (the programme is officially described as entirely in English; optional Italian activities also appear in the 2026/2027 study plan)",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 650,
+      "departmentName": "Plant Science",
+      "departmentSlug": "plant-science",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "politics_philosophy_and_public_affairs_pppa.json",
+      "rawProgramName": "Politics, Philosophy and Public Affairs (PPPA)",
+      "sourceProgramName": "Politics, Philosophy and Public Affairs (PPPA)",
+      "canonicalDepartmentName": "Politics, Philosophy and Public Affairs (PPPA)",
+      "canonicalNameChanged": false,
+      "normalizedName": "politics philosophy and public affairs pppa",
+      "normalizedSourceName": "politics philosophy and public affairs pppa",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 661,
+      "departmentName": "Politics, Philosophy and Public Affairs - PPPA",
+      "departmentSlug": "politics-philosophy-and-public-affairs-pppa",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "public_and_corporate_communication_com.json",
+      "rawProgramName": "Public and Corporate Communication (COM)",
+      "sourceProgramName": "Public and Corporate Communication (COM)",
+      "canonicalDepartmentName": "Public and Corporate Communication (COM)",
+      "canonicalNameChanged": false,
+      "normalizedName": "public and corporate communication com",
+      "normalizedSourceName": "public and corporate communication com",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "action": "alias-correction",
+      "departmentId": 660,
+      "departmentName": "Public and Corporate Communication - COM - 2 curricula in English",
+      "departmentSlug": "public-and-corporate-communication-com-2-curricula-in-english",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "quantitative_biology.json",
+      "rawProgramName": "Quantitative Biology",
+      "sourceProgramName": "Quantitative Biology",
+      "canonicalDepartmentName": "Quantitative Biology",
+      "canonicalNameChanged": false,
+      "normalizedName": "quantitative biology",
+      "normalizedSourceName": "quantitative biology",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "alias-correction",
+      "departmentId": 651,
+      "departmentName": "Nicel) Biyoloji (Quantitative Biology",
+      "departmentSlug": "nicel-biyoloji-quantitative-biology",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "safety_assessment_of_xenobiotics_and_biotechnological_products.json",
+      "rawProgramName": "Safety Assessment of Xenobiotics and Biotechnological Products",
+      "sourceProgramName": "Safety Assessment of Xenobiotics and Biotechnological Products",
+      "canonicalDepartmentName": "Safety Assessment of Xenobiotics and Biotechnological Products",
+      "canonicalNameChanged": false,
+      "normalizedName": "safety assessment of xenobiotics and biotechnological products",
+      "normalizedSourceName": "safety assessment of xenobiotics and biotechnological products",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 640,
+      "departmentName": "Safety Assessment of Xenobiotics and Biotechnological Products",
+      "departmentSlug": "safety-assessment-of-xenobiotics-and-biotechnological-products",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "sustainable_industrial_chemistry.json",
+      "rawProgramName": "Sustainable Industrial Chemistry",
+      "sourceProgramName": "Sustainable Industrial Chemistry",
+      "canonicalDepartmentName": "Sustainable Industrial Chemistry",
+      "canonicalNameChanged": false,
+      "normalizedName": "sustainable industrial chemistry",
+      "normalizedSourceName": "sustainable industrial chemistry",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 647,
+      "departmentName": "Sustainable Industrial Chemistry",
+      "departmentSlug": "sustainable-industrial-chemistry",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "sustainable_natural_resource_management.json",
+      "rawProgramName": "Sustainable natural resource management",
+      "sourceProgramName": "Sustainable natural resource management",
+      "canonicalDepartmentName": "Sustainable natural resource management",
+      "canonicalNameChanged": false,
+      "normalizedName": "sustainable natural resource management",
+      "normalizedSourceName": "sustainable natural resource management",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 636,
+      "departmentName": "Sustainable Natural Resource Management",
+      "departmentSlug": "sustainable-natural-resource-management",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "theatre_arts_literatures_international_studies_in_intermediality.json",
+      "rawProgramName": "Theatre, Arts, Literatures. International Studies in Intermediality",
+      "sourceProgramName": "Theatre, Arts, Literatures. International Studies in Intermediality",
+      "canonicalDepartmentName": "Theatre, Arts, Literatures. International Studies in Intermediality",
+      "canonicalNameChanged": false,
+      "normalizedName": "theatre arts literatures international studies in intermediality",
+      "normalizedSourceName": "theatre arts literatures international studies in intermediality",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Theatre, Arts, Literatures. International Studies in Intermediality",
+      "departmentSlug": "theatre-arts-literatures-international-studies-in-intermediality",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    },
+    {
+      "sourceFile": "valorization_and_sustainable_development_of_mountain_areas.json",
+      "rawProgramName": "Valorization and sustainable development of mountain areas",
+      "sourceProgramName": "Valorization and sustainable development of mountain areas",
+      "canonicalDepartmentName": "Valorization and sustainable development of mountain areas",
+      "canonicalNameChanged": false,
+      "normalizedName": "valorization and sustainable development of mountain areas",
+      "normalizedSourceName": "valorization and sustainable development of mountain areas",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 637,
+      "departmentName": "Valorization and Sustainable Development of Mountain Areas",
+      "departmentSlug": "valorization-and-sustainable-development-of-mountain-areas",
+      "levelBefore": "master",
+      "levelAfter": "master"
+    }
+  ],
+  "specialChecks": {
+    "artificialIntelligence": [
+      {
+        "sourceFile": "artificial_intelligence.json",
+        "rawProgramName": "Artificial Intelligence",
+        "sourceProgramName": "Artificial Intelligence",
+        "canonicalDepartmentName": "Artificial Intelligence",
+        "canonicalNameChanged": false,
+        "normalizedName": "artificial intelligence",
+        "normalizedSourceName": "artificial intelligence",
+        "level": "bachelor",
+        "rawLevel": "bachelor",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "languages": [
+          "en"
+        ],
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Artificial Intelligence",
+        "departmentSlug": "artificial-intelligence",
+        "levelBefore": "bachelor",
+        "levelAfter": "bachelor"
+      }
+    ],
+    "computerScience": [
+      {
+        "sourceFile": "computer_science_master.json",
+        "rawProgramName": "Computer Science - master",
+        "sourceProgramName": "Computer Science - master",
+        "canonicalDepartmentName": "Computer Science",
+        "canonicalNameChanged": true,
+        "normalizedName": "computer science",
+        "normalizedSourceName": "computer science master",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "action": "matched-existing",
+        "departmentId": 643,
+        "departmentName": "Computer Science",
+        "departmentSlug": "computer-science",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      }
+    ],
+    "internationalMedicalSchool": [
+      {
+        "sourceFile": "international_medical_school_ims.json",
+        "rawProgramName": "International Medical School (IMS)",
+        "sourceProgramName": "International Medical School (IMS)",
+        "canonicalDepartmentName": "International Medical School (IMS)",
+        "canonicalNameChanged": false,
+        "normalizedName": "international medical school ims",
+        "normalizedSourceName": "international medical school ims",
+        "level": "single-cycle",
+        "rawLevel": "single-cycle",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "languages": [
+          "en"
+        ],
+        "action": "alias-correction",
+        "departmentId": 336,
+        "departmentName": "Medicine and Surgery",
+        "departmentSlug": "medicine-and-surgery",
+        "levelBefore": "bachelor",
+        "levelAfter": "single-cycle"
+      }
+    ],
+    "quantitativeBiology": [
+      {
+        "sourceFile": "quantitative_biology.json",
+        "rawProgramName": "Quantitative Biology",
+        "sourceProgramName": "Quantitative Biology",
+        "canonicalDepartmentName": "Quantitative Biology",
+        "canonicalNameChanged": false,
+        "normalizedName": "quantitative biology",
+        "normalizedSourceName": "quantitative biology",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "languages": [
+          "en"
+        ],
+        "action": "alias-correction",
+        "departmentId": 651,
+        "departmentName": "Nicel) Biyoloji (Quantitative Biology",
+        "departmentSlug": "nicel-biyoloji-quantitative-biology",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      }
+    ],
+    "aliasCorrections": [
+      {
+        "sourceFile": "international_medical_school_ims.json",
+        "rawProgramName": "International Medical School (IMS)",
+        "sourceProgramName": "International Medical School (IMS)",
+        "canonicalDepartmentName": "International Medical School (IMS)",
+        "canonicalNameChanged": false,
+        "normalizedName": "international medical school ims",
+        "normalizedSourceName": "international medical school ims",
+        "level": "single-cycle",
+        "rawLevel": "single-cycle",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "languages": [
+          "en"
+        ],
+        "action": "alias-correction",
+        "departmentId": 336,
+        "departmentName": "Medicine and Surgery",
+        "departmentSlug": "medicine-and-surgery",
+        "levelBefore": "bachelor",
+        "levelAfter": "single-cycle"
+      },
+      {
+        "sourceFile": "international_relations_rel.json",
+        "rawProgramName": "International Relations (REL)",
+        "sourceProgramName": "International Relations (REL)",
+        "canonicalDepartmentName": "International Relations (REL)",
+        "canonicalNameChanged": false,
+        "normalizedName": "international relations rel",
+        "normalizedSourceName": "international relations rel",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "action": "alias-correction",
+        "departmentId": 656,
+        "departmentName": "International Relations - REL - 2 curricula in English",
+        "departmentSlug": "international-relations-rel-2-curricula-in-english",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "management_of_human_resources_people_data_and_intelligent_technologies.json",
+        "rawProgramName": "Management of human resources: people, data and intelligent technologies",
+        "sourceProgramName": "Management of human resources: people, data and intelligent technologies",
+        "canonicalDepartmentName": "Management of human resources: people, data and intelligent technologies",
+        "canonicalNameChanged": false,
+        "normalizedName": "management of human resources people data and intelligent technologies",
+        "normalizedSourceName": "management of human resources people data and intelligent technologies",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "languages": [
+          "en"
+        ],
+        "action": "alias-correction",
+        "departmentId": 657,
+        "departmentName": "Management of Human Resources - MHR",
+        "departmentSlug": "management-of-human-resources-mhr",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "pharmaceutical_biotechnology.json",
+        "rawProgramName": "Pharmaceutical Biotechnology",
+        "sourceProgramName": "Pharmaceutical Biotechnology",
+        "canonicalDepartmentName": "Pharmaceutical Biotechnology",
+        "canonicalNameChanged": false,
+        "normalizedName": "pharmaceutical biotechnology",
+        "normalizedSourceName": "pharmaceutical biotechnology",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English. The 2026/2027 educational plan shows one full English curriculum, \"PHARMACOGENOMCS AND PRECISION THERAPEUTICS\", while the other curricula are taught in Italian.",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "action": "alias-correction",
+        "departmentId": 639,
+        "departmentName": "Pharmaceutical Biotechnology - 1 curriculum in English",
+        "departmentSlug": "pharmaceutical-biotechnology-1-curriculum-in-english",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "philosophical_sciences.json",
+        "rawProgramName": "Philosophical Sciences",
+        "sourceProgramName": "Philosophical Sciences",
+        "canonicalDepartmentName": "Philosophical Sciences",
+        "canonicalNameChanged": false,
+        "normalizedName": "philosophical sciences",
+        "normalizedSourceName": "philosophical sciences",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "action": "alias-correction",
+        "departmentId": 664,
+        "departmentName": "Philosophical Sciences - 1 curriculum in English",
+        "departmentSlug": "philosophical-sciences-1-curriculum-in-english",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "public_and_corporate_communication_com.json",
+        "rawProgramName": "Public and Corporate Communication (COM)",
+        "sourceProgramName": "Public and Corporate Communication (COM)",
+        "canonicalDepartmentName": "Public and Corporate Communication (COM)",
+        "canonicalNameChanged": false,
+        "normalizedName": "public and corporate communication com",
+        "normalizedSourceName": "public and corporate communication com",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "action": "alias-correction",
+        "departmentId": 660,
+        "departmentName": "Public and Corporate Communication - COM - 2 curricula in English",
+        "departmentSlug": "public-and-corporate-communication-com-2-curricula-in-english",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "quantitative_biology.json",
+        "rawProgramName": "Quantitative Biology",
+        "sourceProgramName": "Quantitative Biology",
+        "canonicalDepartmentName": "Quantitative Biology",
+        "canonicalNameChanged": false,
+        "normalizedName": "quantitative biology",
+        "normalizedSourceName": "quantitative biology",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "languages": [
+          "en"
+        ],
+        "action": "alias-correction",
+        "departmentId": 651,
+        "departmentName": "Nicel) Biyoloji (Quantitative Biology",
+        "departmentSlug": "nicel-biyoloji-quantitative-biology",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      }
+    ],
+    "newDepartments": [
+      {
+        "sourceFile": "artificial_intelligence.json",
+        "rawProgramName": "Artificial Intelligence",
+        "sourceProgramName": "Artificial Intelligence",
+        "canonicalDepartmentName": "Artificial Intelligence",
+        "canonicalNameChanged": false,
+        "normalizedName": "artificial intelligence",
+        "normalizedSourceName": "artificial intelligence",
+        "level": "bachelor",
+        "rawLevel": "bachelor",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "languages": [
+          "en"
+        ],
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Artificial Intelligence",
+        "departmentSlug": "artificial-intelligence",
+        "levelBefore": "bachelor",
+        "levelAfter": "bachelor"
+      },
+      {
+        "sourceFile": "chemistry.json",
+        "rawProgramName": "Chemistry",
+        "sourceProgramName": "Chemistry",
+        "canonicalDepartmentName": "Chemistry",
+        "canonicalNameChanged": false,
+        "normalizedName": "chemistry",
+        "normalizedSourceName": "chemistry",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Chemistry",
+        "departmentSlug": "chemistry",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "crops_and_plant_sciences.json",
+        "rawProgramName": "Crops and Plant Sciences",
+        "sourceProgramName": "Crops and Plant Sciences",
+        "canonicalDepartmentName": "Crops and Plant Sciences",
+        "canonicalNameChanged": false,
+        "normalizedName": "crops and plant sciences",
+        "normalizedSourceName": "crops and plant sciences",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Crops and Plant Sciences",
+        "departmentSlug": "crops-and-plant-sciences",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "earth_sciences.json",
+        "rawProgramName": "Earth Sciences",
+        "sourceProgramName": "Earth Sciences",
+        "canonicalDepartmentName": "Earth Sciences",
+        "canonicalNameChanged": false,
+        "normalizedName": "earth sciences",
+        "normalizedSourceName": "earth sciences",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English; [uncertain] official 2026/2027 sources indicate a bilingual programme structure, and they do not support calling this a full English curriculum.",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Earth Sciences",
+        "departmentSlug": "earth-sciences",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "food_science_and_technology_master.json",
+        "rawProgramName": "Food Science and Technology - master",
+        "sourceProgramName": "Food Science and Technology - master",
+        "canonicalDepartmentName": "Food Science and Technology",
+        "canonicalNameChanged": true,
+        "normalizedName": "food science and technology",
+        "normalizedSourceName": "food science and technology master",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian and English; the 2026/2027 study plan shows a mixed-language programme with both Italian-taught and English-taught courses, and no official source reviewed states that there is a full English curriculum.",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Food Science and Technology",
+        "departmentSlug": "food-science-and-technology",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      },
+      {
+        "sourceFile": "theatre_arts_literatures_international_studies_in_intermediality.json",
+        "rawProgramName": "Theatre, Arts, Literatures. International Studies in Intermediality",
+        "sourceProgramName": "Theatre, Arts, Literatures. International Studies in Intermediality",
+        "canonicalDepartmentName": "Theatre, Arts, Literatures. International Studies in Intermediality",
+        "canonicalNameChanged": false,
+        "normalizedName": "theatre arts literatures international studies in intermediality",
+        "normalizedSourceName": "theatre arts literatures international studies in intermediality",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Theatre, Arts, Literatures. International Studies in Intermediality",
+        "departmentSlug": "theatre-arts-literatures-international-studies-in-intermediality",
+        "levelBefore": "master",
+        "levelAfter": "master"
+      }
+    ],
+    "rawLevelNormalized": []
+  },
+  "warnings": [],
+  "applied": {
+    "detailUpserts": 45,
+    "newDepartmentsInserted": 6,
+    "departmentCorrectionsUpdated": 9
+  }
+}

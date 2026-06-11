@@ -10,7 +10,7 @@ async function fetchUniversities(): Promise<University[]> {
   if (universitiesCache) return universitiesCache;
 
   if (!universitiesRequest) {
-    universitiesRequest = fetch("/api/universities", { cache: "force-cache" })
+    universitiesRequest = fetch("/api/universities", { cache: "no-store" })
       .then(async (response) => {
         if (!response.ok) throw new Error("Universities fetch failed");
         return (await response.json()) as University[];

@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ItalyPath
 
-## Getting Started
+ItalyPath, Italya'da egitim almak isteyen Turk ogrenciler icin hazirlanan Next.js tabanli rehber uygulamasidir. Universite/program arama, sehir rehberleri, bolgesel burs haritasi, ISEE hesaplayici, kurate topluluk rehberi, AI mentor, favoriler, belge cuzdani ve protected calisma dosyasi (`/hub`) yuzeylerini icerir.
 
-First, run the development server:
+Yeni agent veya gelistirici once [AGENT_CONTEXT.md](./AGENT_CONTEXT.md) dosyasini okumali. Degisiklik gecmisi [AGENT_COMMITS.md](./AGENT_COMMITS.md), son context audit'i [AGENT_CONTEXT_FIX_REPORT.md](./AGENT_CONTEXT_FIX_REPORT.md) icindedir.
+
+## Stack
+
+- Next.js 16 App Router
+- React 19
+- Tailwind CSS v4
+- Framer Motion
+- Clerk auth
+- Supabase database/storage
+- Google Gemini streaming chat
+- TypeScript
+
+## Kurulum
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dev server varsayilan olarak `http://localhost:3000` adresinde calisir.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`.env.local` git'e girmez. Gerekli degiskenler:
 
-## Learn More
+```bash
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+GEMINI_API_KEY=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+```
 
-To learn more about Next.js, take a look at the following resources:
+Supabase verisi olmayan ortamda university API ve ilgili dogrulama scriptleri hata verebilir.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Veri Mimarisi
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`app/data.ts`, local seed ve paylasilan TypeScript tiplerini tasir. Canli university/program verisi `lib/universities.server.ts` uzerinden Supabase `universities`, `university_departments` ve `program_admission_details` tablolarindan compose edilir.
 
-## Deploy on Vercel
+`/api/universities` route'u `force-dynamic` ve `no-store` calisir. Client tarafinda `lib/useUniversitiesData.ts` request dedupe ve process-ici cache yapar, fakat browser fetch `cache: "no-store"` kullanir.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Program detay sayfalari `ProgramAdmissionDetailsPanel` ile resmi program linkleri, deadline, gereksinim, belge, kaynak ve belirsizlik notlarini gosterir.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Komutlar
+
+```bash
+npm run build
+npm run lint
+npm run check:routes
+npm run check:cities
+npm run check:program-details
+npm run check:data
+npm run check:local-data
+npm run check:university-data-source
+npm run check:isee
+npm run check:university-department-merge
+npm run check:universities-ui
+npm run check:university-details-ui
+npm run check:scholarships-ui
+npm run check:editorial-ui
+node scripts/check-universities-server-compose.mjs
+```
+
+## Auth Matrix
+
+Public: `/`, `/api/universities`, `/data/*`, `/sign-in`, `/sign-up`, `/universities`, `/cities`, `/isee`, `/scholarships`, `/communities`, `/topluluklar`, `/sitemap.xml`, `/robots.txt`.
+
+Protected: `/ai-mentor`, `/documents`, `/favorites`, `/hub`, `/api/chat`.
+
+Route guvenligi `proxy.ts` ile yonetilir; `middleware.ts` olusturulmaz.
+
+## Bakim Notlari
+
+- Tailwind v4 token/theme degisiklikleri `app/globals.css` icinde yapilir; `tailwind.config.*` eklenmez.
+- UI metinleri `lib/translations.ts` icinde TR/EN paralel tutulur.
+- Generated Supabase type dosyasi yoktur; yeni DB row tipleri `types/index.ts` icine explicit interface olarak eklenir.
+- Research/import artifact klasorleri ve `output/*` dosyalari commit karari verilmeden temizlenmez.

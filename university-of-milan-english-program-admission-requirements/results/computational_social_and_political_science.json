@@ -1,0 +1,156 @@
+{
+  "program_name": "Computational Social and Political Science",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-62/88 R",
+  "admission_type": "Restricted access / limited enrolment with admission test; non-EU applicants applying for a visa are assessed through CV review and an interview.",
+  "academic_requirements": "Applicants need a bachelor's degree or an equivalent foreign qualification recognized as suitable by the University; the official manifesto states that 180 credits are required for admission. They must have at least 30 ECTS in computer science, mathematics, applied physics, statistics or econometrics and/or political science and sociology, including at least 12 ECTS in political science/sociology (SPS/04 and SPS/07-SPS/12) and at least 9 ECTS in statistics (SECS-S/01-SECS-S/06; SECS-P/05). The call is also open to students in the final year of a first-cycle degree, in Italy or abroad, provided they graduate by 31 December 2026. Admission is conditional on assessment of personal competences and skills: Italian/EU/equivalent applicants not applying for a visa take the entrance test, while non-EU visa applicants are evaluated on their academic and personal CV plus an online interview.",
+  "language_requirements": "English proficiency at CEFR B2 or higher is required for admission. UniMi SLAM verifies this in one of three official ways: a recognized B2-or-higher certificate issued no more than 3 years before the application date and uploaded with the online application; a SLAM-certified English level obtained during a UniMi degree no more than 4 years before the application date, checked automatically; or the SLAM English entry test, scheduled in the call on 29 July 2026. If an applicant does not submit a valid certificate and does not take or pass the SLAM test, they must submit a recognized language certificate via InformaStudenti by 31 December 2026. [uncertain] The admission call also says admitted non-EU candidates applying for a visa can enrol only if they pass the Italian language proficiency test unless exempt, but the linked UniMi international-enrolment page states that the Italian test applies to degree programmes taught in Italian; because this programme is officially taught in English, the applicability of that Italian-language-test rule to this programme is unclear from the official sources checked.",
+  "application_deadline_eu": "Italian, EU residents and equivalent applicants not applying for a visa: application from 24 March 2026 to 12 June 2026 at 12:00 noon; entrance test on 26 June 2026 at 11:00; ranking list publication on 2 July 2026 after 2:00pm; enrolment from 2 July 2026 at 2:00pm to 9 July 2026 at 12:00 noon.",
+  "application_deadline_non_eu": "Non-EU candidates applying for a visa: application from 24 March 2026 to 29 May 2026; ranking result by 11 June 2026 at 2:00pm; enrolment from 11 June 2026 at 2:00pm to 18 June 2026 at 12:00 noon; first update enrolment from 19 June 2026 at 2:00pm to 2 July 2026 at 12:00 noon; second update enrolment from 3 July 2026 at 2:00pm to 15 July 2026 at 12:00 noon; Universitaly pre-enrolment must be submitted by 31 July 2026.",
+  "required_documents": [
+    "Transcript of records including courses, marks, ECTS and academic field.",
+    "Bachelor's degree / BSc or equivalent, or a degree-awarding certificate, for applicants with foreign qualifications.",
+    "Diploma Supplement or, alternatively, a transcript including courses, marks, ECTS and academic field, for applicants with foreign qualifications.",
+    "Certificate declaring the grading system used by the awarding university.",
+    "Passport or other valid identity document.",
+    "Curriculum vitae for non-EU applicants applying for a visa.",
+    "English language certificate at B2 or higher, if used to satisfy the language requirement.",
+    "For applicants still completing the bachelor's degree: a transcript plus a document listing exams already passed but not yet registered, exams not yet taken, and the expected graduation date.",
+    "For final enrolment with a foreign qualification: a legalized or apostilled bachelor's degree, unless legalization or apostille is exempt.",
+    "For final enrolment with a foreign qualification: high school diploma.",
+    "Official Italian translations of academic qualifications, unless the originals are in English, French, German or Spanish.",
+    "Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore; for Lisbon Convention countries, a Diploma Supplement or ARDI correspondence statement may replace them as stated by UniMi.",
+    "Italian tax code (codice fiscale).",
+    "Receipt of the residence-permit application or a valid residence permit, for non-EU citizens."
+  ],
+  "entry_exam_or_test": "For Italian/EU/equivalent applicants not applying for a visa, admission is based on a remote online written test in English on 26 June 2026 at 11:00. The test covers basic competences in statistics, sociology and political science. Correct answers score 1 point; wrong or missing answers score 0; the test can be taken only once. Candidates must show a valid ID and may not use books, handwritten notes, calculators, smartphones or similar devices during the exam. The call also lists suggested preparation texts in statistics, programming logic, sociology and comparative politics. For non-EU applicants applying for a visa, selection is based on the academic and personal CV plus an online video interview; the outcome is sent by email by 11 June 2026.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/computational-social-and-political-science",
+  "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-computational-social-and-political-science-%28classe-lm-62-r-lm-88-r-%29.pdf?27-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027. Master programme. LM-62/88 R. Access Limited enrolment with admission test. Course location Milan. Language English.",
+      "url": "https://www.unimi.it/en/education/master-programme/computational-social-and-political-science",
+      "field_refs": [
+        "program_name",
+        "level",
+        "academic_year",
+        "degree_class",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "the maximum number of students ... is set at 35, plus 10 places reserved for international non-EU candidates residing abroad.",
+      "url": "https://www.unimi.it/en/education/master-programme/computational-social-and-political-science",
+      "field_refs": [
+        "admission_type",
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Proficiency in English at level B2 or higher ... is required for admission.",
+      "url": "https://www.unimi.it/en/education/master-programme/computational-social-and-political-science",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Application for admission: from 24/03/2026 to 12/06/2026",
+      "url": "https://www.unimi.it/en/education/master-programme/computational-social-and-political-science",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Italian, EU residents and equivalent not applying for a Visa: Application from 24 March to 12 June 2026, 12.00pm.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-computational-social-and-political-science-%28classe-lm-62-r-lm-88-r-%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Non-EU Candidates Applying for a Visa: Application from 24 March to 29 May 2026.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-computational-social-and-political-science-%28classe-lm-62-r-lm-88-r-%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Transcript of records including courses, marks, ECTS and academic field.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-computational-social-and-political-science-%28classe-lm-62-r-lm-88-r-%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Bachelor's Degree ... Diploma supplement ... grade system ... Passport ... Curriculum vitae.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-computational-social-and-political-science-%28classe-lm-62-r-lm-88-r-%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The admission exam will be held remotely on 26 June 2026 at 11.00 am.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-computational-social-and-political-science-%28classe-lm-62-r-lm-88-r-%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-computational-social-and-political-science-%28classe-lm-62-r-lm-88-r-%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Credits required for admission: 180. Access procedures: Cap on student numbers, student selection based on entrance test.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_BBNof2_2027.pdf",
+      "field_refs": [
+        "degree_class",
+        "academic_requirements",
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Computational Social and Political Science 31/12/2026",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Master's degree programmes taught in Italian have to pass an Italian language proficiency test.",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "language_requirements",
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "The 2026/2027 call says admitted non-EU applicants applying for a visa can enrol only if they pass the Italian language proficiency test unless exempt, but the linked official UniMi international-enrolment page says that Italian test applies to degree programmes taught in Italian. Because Computational Social and Political Science is officially taught in English, the applicability of that Italian-language-test rule to this programme remains unclear.",
+    "The programme application page says a comprehensive list of interview topics for non-EU visa applicants is published on the programme website, but no stable public page or PDF containing that topic list was found among the inspected official CSPS pages. The JSON therefore records the existence of the interview without inventing a topic list."
+  ],
+  "uncertain": [
+    "language_requirements"
+  ]
+}

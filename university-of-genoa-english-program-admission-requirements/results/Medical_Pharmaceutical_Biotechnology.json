@@ -1,0 +1,146 @@
+{
+  "program_name": "Medical-Pharmaceutical Biotechnology",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Genoa (San Martino Polyclinic Hospital area / biomedical teaching sites)",
+  "degree_class": "LM-9 R (Pharmaceutical, Veterinary and Medical Biotechnologies)",
+  "admission_type": "restricted access",
+  "academic_requirements": {
+    "summary": "Two-year master's degree (120 CFU) delivered in English. Described on the programme page as 'free access, but requires passing a test': enrolment is gated by curricular prerequisites (minimum CFU in named subject areas) plus an assessment of adequacy of personal readiness. For the non-EU (visa-applicant) UniGeApply selection it is treated as restricted access with a remote interview/test and a minimum CGPA of 75%.",
+    "prior_degree_or_diploma": "A bachelor's degree of at least 180 CFU/ECTS (or equivalent), including eligibility under degree class L-2; for the non-EU selection, a bachelor in the field of biology, microbiology, biological sciences or biotechnology is required.",
+    "subject_requirements": "Minimum curricular credits (CFU) are required across: Mathematics/Statistics 6 CFU, Informatics 3 CFU, Physics 5 CFU, Inorganic Chemistry 6 CFU, Organic Chemistry 6 CFU, General Biology/Genetics 18 CFU, Biochemistry/Molecular Biology 18 CFU, Anatomy/Physiology 9 CFU, Pathology/Microbiology 5 CFU.",
+    "gpa_or_country_requirements": "Non-EU UniGeApply selection requires a minimum 75% CGPA.",
+    "committee_or_pre_evaluation": "An assessment of adequacy of personal readiness (free of charge) checks the curricular prerequisites; non-EU candidates undergo a remote interview/test during pre-selection on UniGeApply.",
+    "source_url": "https://corsi.unige.it/en/corsi/11922/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English B2.",
+    "accepted_proofs": [
+      "An English language proficiency certificate at B2 level, or proof that the prior degree was taught with English as the medium of instruction (for the non-EU UniGeApply selection)."
+    ],
+    "exemption_rules": [
+      "Proof of English-medium instruction can substitute for a B2 certificate in the non-EU selection."
+    ],
+    "assessment_or_upload_stage": "B2 English is a stated access requirement; for visa applicants the certificate is uploaded on Universitaly after acceptance.",
+    "source_url": "https://corsi.unige.it/en/corsi/11922/prospective-students-admission-criteria-procedure"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Assessment of adequacy of personal readiness (curricular prerequisite check); for non-EU candidates a remote interview/test during UniGeApply pre-selection.",
+    "mandatory": true,
+    "is_selective": true,
+    "applies_to": "All applicants must satisfy the curricular prerequisites and pass the readiness assessment; non-EU visa applicants additionally sit a remote interview/test.",
+    "format": "[uncertain] The exact format (interview vs. written test vs. documentary review) of the personal-readiness assessment is not detailed on the official knowledge-assessment page; the non-EU UniGeApply page specifies a remote interview/test.",
+    "dates": "[uncertain] Specific selection/test dates not published on the programme page beyond the application windows.",
+    "scoring_or_threshold": "Non-EU selection requires minimum 75% CGPA and a bachelor in the biology/biotechnology field.",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply-international-admissions-selection-ay-202627"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026.",
+      "First-year pre-registration/enrolment for this programme runs from 9 April to 30 November 2026 per the programme deadlines page."
+    ],
+    "enrolment_deadline": "Confirmation/enrolment from 15 July 2026 to 30 November 2026, and until 10 March 2027 with late payment.",
+    "notes": "Master's spring close is 28 August 2026 institution-wide; the programme deadlines page lists the longer pre-registration/enrolment window for residents.",
+    "source_url": "https://corsi.unige.it/en/corsi/11922/prospective-students-deadlines"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026.",
+      "Programme-specific early closure: Medical-Pharmaceutical Biotechnology (master, English) closed in the fall session on 13 February 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After UniGeApply eligibility, visa applicants complete Universitaly pre-enrolment (Universitaly opened 4 May 2026; University validation from 18 May 2026) and then apply for the study visa.",
+    "early_closure": "13 February 2026 (fall session, visa applicants).",
+    "notes": "The early-closure date (13 Feb 2026) is published on the UniGeApply page and matches the project's known_context. The UniGeApply fall window for A.Y. 2026/27 has closed.",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum vitae et studiorum",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for the UniGeApply pre-evaluation/selection of this English master.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply-international-admissions-selection-ay-202627"
+    },
+    {
+      "document_name": "Bachelor's degree certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Bachelor's degree (min 180 CFU) in the biology/microbiology/biotechnology field.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply-international-admissions-selection-ay-202627"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Used to verify the curricular prerequisites (minimum CFU per subject area) and the 75% CGPA for non-EU candidates.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply-international-admissions-selection-ay-202627"
+    },
+    {
+      "document_name": "English language proficiency certificate (B2) or proof of English-medium instruction",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "B2 English is an access requirement; certificate uploaded on Universitaly post-acceptance for visa applicants.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply-international-admissions-selection-ay-202627"
+    },
+    {
+      "document_name": "Valid passport (non-EU) or identity card (EU)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Passport mandatory for non-EU applicants on UniGeApply; residence permit for non-EU spring-session residents.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Legalization or CIMEA Statement of Verification, plus Declaration of Value or CIMEA Statement of Comparability",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Non-EU candidates with a foreign degree submit the foreign qualification with Italian translation and Declaration of Value (or CIMEA equivalents) before enrolment.",
+      "source_url": "https://unige.it/en/international/enrolment-non-eu-students-residence-abroad-foreign-diploma"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and study-visa evidence",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Visa applicants complete Universitaly pre-enrolment after UniGeApply eligibility, then apply for the study visa.",
+      "source_url": "https://unige.it/en/international/enrolment-non-eu-students-residence-abroad-foreign-diploma"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11922/students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11922",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "MEDICAL-PHARMACEUTICAL BIOTECHNOLOGY, Corso di laurea magistrale, Teaching Language English, Degree Class LM-9 R, 120 CFU, Genova",
+      "source_url": "https://corsi.unige.it/en/corsi/11922",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "This degree course is free access, but requires passing a test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11922",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "a Bachelor degree (of at least 180 CFU/ECTS); minimum CFU by area: Mathematics/Statistics 6, Informatics 3, Physics 5, Inorganic Chemistry 6, Organic Chemistry 6, General Biology/Genetics 18, Biochemistry/Molecular Biology 18, Anatomy/Physiology 9, Pathology/Microbiology 5; B2 English level",
+      "source_url": "https://corsi.unige.it/en/corsi/11922/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Medical-Pharmaceutical Biotechnologies: required bachelors in the field of biology, microbiology, biological sciences, biotechnology; minimum CGPA 75%; remote interview/test during pre-selection",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply-international-admissions-selection-ay-202627",
+      "field_supported": "academic_requirements, entry_exam_or_test"
+    },
+    {
+      "quote": "Medical Pharmaceutical Biotechnology (master's, English): early closure 13 February 2026 (fall session)",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "Restricted access confirmed: the programme is 'free access but requires passing a test' (curricular prerequisites + personal-readiness assessment), and is treated as restricted with a remote interview/test for the non-EU UniGeApply selection.",
+    "The exact format of the personal-readiness assessment (interview vs. written test vs. documentary review) is not detailed on the official knowledge-assessment page, which returned navigation only.",
+    "The known fall early closure of 13 Feb 2026 is confirmed on the UniGeApply page.",
+    "official_call_url points to the English-master non-EU pre-evaluation selection page; the canonical selection page slug for A.Y. 2026/27 resolved to unige.it/en/internazionale/iscrizioni-internazionali/unigeapply-international-admissions-selection-ay-202627 in one fetch."
+  ],
+  "uncertain": [
+    "entry_exam_or_test"
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "program_name": "Advanced Materials Science and Technology",
+  "level": "master",
+  "teaching_language": "English and Italian (two curricula: one in Italian delivered in Genoa, and one English-language international-mobility / multiple-qualification curriculum 'SERP+')",
+  "campus": "Genoa (Valletta Puggia campus, Department of Chemistry and Industrial Chemistry - DCCI)",
+  "degree_class": "LM SC.MAT. (Materials Sciences) - master's degree under D.M. 1649/2023 (corresponds to the former class LM-53 Materials Science and Engineering)",
+  "admission_type": "restricted access (free participation with verification of curricular requirements and an oral assessment of adequacy of personal preparation; no competitive ranking)",
+  "academic_requirements": {
+    "summary": "A bachelor's degree (or recognised equivalent) plus specific curricular prerequisites in mathematics, physics, chemistry and engineering, followed by an assessment of adequacy of personal preparation based on CV, prior grades and an oral examination.",
+    "prior_degree_or_diploma": "A three-year bachelor's degree (laurea triennale), a university diploma, or a recognised equivalent foreign qualification.",
+    "required_credits_cfu": "Curricular prerequisite of a minimum of about 70 CFU across specified scientific-disciplinary sectors (SSD), including at least 12 CFU in Physics (FIS/01-07), at least 12 CFU in Mathematics (MAT/02-08), at least 6 CFU in Chemistry (CHIM/01-07, 12) and credits in engineering sectors (ING-IND, ING-INF, ICAR/08). [uncertain]",
+    "subject_requirements": "Background in mathematics, physics, chemistry and materials/industrial-engineering disciplines. Graduates of Italian classes such as Materials Science (L-30), Physical Sciences (L-25), Chemical Sciences (L-27) and Industrial Engineering (L-9) typically meet the prerequisites, verified case by case.",
+    "minimum_gpa_or_threshold": "UniGeApply states a minimum Cumulative Grade Point Average (CGPA) of 82% of the maximum obtainable for non-EU applicants assessed through the international pre-evaluation portal. The course pages describe an oral assessment of preparation rather than a fixed numeric grade gate. [uncertain]",
+    "international_qualification": "Holders of foreign qualifications are assessed for equivalence; non-EU candidates residing abroad must apply through the UniGeApply international pre-evaluation portal before enrolment.",
+    "source_url": "https://corsi.unige.it/en/corsi/11967/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English B2 for the English-language (SERP+) international curriculum. [uncertain]",
+    "accepted_proofs": [
+      "An English-language certificate from a recognised body (e.g. TOEFL, IELTS, Cambridge).",
+      "University certification that the prior degree was taught in English (medium of instruction).",
+      "UniGeApply requires a B2 English level or a Medium-of-Instruction (MOI) certificate for non-EU master's applicants."
+    ],
+    "exemption_rules": [
+      "Candidates whose prior degree was delivered in English (MOI certificate) are accepted without a separate certificate. [uncertain]"
+    ],
+    "assessment_or_upload_stage": "English proficiency is uploaded/verified at the UniGeApply pre-evaluation stage; holders of foreign qualifications may also be subject to an Italian language proficiency check (relevant for the Italian-taught curriculum), with supplementary learning activities assigned on failure.",
+    "source_url": "https://corsi.unige.it/en/corsi/11967/prospective-students-requisites-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Verification (assessment) of adequacy of personal preparation - an oral examination, not a TOLC or standardized test.",
+    "mandatory": true,
+    "is_selective": false,
+    "applies_to": "Applicants to the master's degree who must demonstrate adequate basic preparation.",
+    "format": "Evaluation of the curriculum vitae and prior grades plus an oral examination focusing on basic knowledge in mathematics, physics, chemistry and technology typically acquired in a science/technology bachelor's degree. For non-EU candidates UniGeApply indicates a remote interview/test is required.",
+    "dates": "Conducted on dates agreed individually with the Course Coordinator by email; candidates must pre-register to appear on the assessment roster.",
+    "scoring_or_threshold": "Outcomes are 'admitted' or 'not admitted' (the latter with specific deficiencies to be filled). If not passed it may be retaken only once, at least 30 days after the first verification.",
+    "source_url": "https://corsi.unige.it/en/corsi/11967/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026."
+    ],
+    "enrolment_deadline": "Local pre-enrolment/online enrolment on UniGe online services generally opens in April each year and follows the UniGe enrolment calendar after a positive assessment. [uncertain]",
+    "notes": "EU/resident applicants are assessed via the assessment of adequacy of personal preparation (oral exam); they are not competitively ranked. Per-programme first-year application deadlines are not separately published on the course page, so the institution-wide UniGeApply spring window is used.",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After a positive UniGeApply pre-evaluation, visa applicants complete Universitaly pre-enrolment (Universitaly window 4 May 2026 to 19 June 2026) and then apply for the study visa.",
+    "early_closure": "No programme-specific early closure was found for this master in the official sources reviewed. [uncertain]",
+    "notes": "Non-EU visa applicants must use the fall session and the UniGeApply portal; an applicant may submit up to two assessment requests.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum vitae et studiorum",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Mandatory for all UniGeApply master's applicants; used in the assessment of personal preparation.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Proof of the prior first-cycle qualification.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records (list of exams with credits and grades, and weighted average / CGPA)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Used to verify curricular CFU prerequisites and the CGPA threshold (82% for non-EU applicants).",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "English language proficiency certificate (B2) or Medium-of-Instruction (MOI) certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Demonstrates English at B2 for the English-language curriculum; MOI accepted if the prior degree was taught in English.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Valid passport (non-EU) or identity document (EU)",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Passport is the only accepted identity document for non-EU applicants on UniGeApply (photo as JPG, supporting documents as PDF up to 2 MB).",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11967/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11967",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "There are two curricula: one in Italian dispensed in Genoa and one in English language of a path of international mobility and awarding of multiple qualifications.",
+      "source_url": "https://corsi.unige.it/en/corsi/11967",
+      "field_supported": "teaching_language, program_name"
+    },
+    {
+      "quote": "strongly interdisciplinary among the sectors of chemistry, physics, and engineering relevant to the study and use of materials",
+      "source_url": "https://corsi.unige.it/en/corsi/11967",
+      "field_supported": "academic_requirements (subject background)"
+    },
+    {
+      "quote": "an oral examination, which will focus on the basic knowledge in the disciplines of mathematics, physics, chemistry, and technology that can typically be acquired with a bachelor's degree in science-technology",
+      "source_url": "https://corsi.unige.it/en/corsi/11967/prospective-students-requisites-assessment",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "If not passed, it may be taken again only once at least 30 days after the first Verification.",
+      "source_url": "https://corsi.unige.it/en/corsi/11967/prospective-students-requisites-assessment",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "Advanced Materials Science and Technology - Minimum CGPA: 82% - Remote interview/test required: Yes",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "academic_requirements (CGPA threshold), entry_exam_or_test"
+    }
+  ],
+  "uncertainty_notes": [
+    "Teaching language is officially 'English and Italian': the programme has two curricula, an Italian one delivered in Genoa and an English-language international-mobility curriculum (SERP+) awarding multiple qualifications. In-scope as an English-taught path, but it is NOT a fully English-only single-curriculum master.",
+    "The exact curricular CFU prerequisites (about 70 CFU; 12 Physics, 12 Mathematics, 6 Chemistry, plus engineering) were summarised from the admission-criteria page and should be reconfirmed against the page's precise wording.",
+    "The course pages describe an oral assessment of preparation (no fixed numeric grade gate), whereas UniGeApply lists a minimum CGPA of 82% for non-EU applicants; the 82% threshold applies to the international pre-evaluation route.",
+    "The English B2 requirement is associated with the international (SERP+) curriculum and the UniGeApply route; the requisites-assessment subpage emphasises an Italian-language check (relevant to the Italian curriculum), so the precise English-level wording for this specific master should be reconfirmed.",
+    "No programme-specific fall-session early closure was found; the institution-wide UniGeApply windows were used for deadlines.",
+    "First-year EU application deadline reflects the institution-wide UniGeApply spring window; the course page does not publish a programme-specific first-year EU deadline."
+  ],
+  "uncertain": [
+    "teaching_language",
+    "academic_requirements",
+    "language_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu"
+  ]
+}

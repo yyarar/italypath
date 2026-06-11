@@ -1,0 +1,157 @@
+{
+  "program_name": "Italian and Mediterranean Studies",
+  "level": "bachelor",
+  "teaching_language": "English",
+  "campus": "Venice",
+  "degree_class": "L-10 R (Humanities)",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Open-access bachelor's degree. Applicants need a secondary school leaving qualification valid for university admission; international applicants must undergo Ca' Foscari's preliminary evaluation through apply.unive.it.",
+    "prior_degree_or_diploma": "Secondary school leaving certificate eligible for university admission, or a European Baccalaureate/European Secondary School Leaving Certificate obtained from European Schools in Italy. International applicants must have completed at least 12 years of schooling.",
+    "subject_requirements": "No programme-specific subject prerequisites are published for admission beyond the general validity of the secondary qualification.",
+    "gpa_or_country_requirements": "The qualification must normally permit access to higher education in the country where it was awarded. Applicants with only 10-11 years of schooling must provide additional qualifications covering the 1-2 year gap.",
+    "committee_or_pre_evaluation": "For applicants with an international qualification, the Welcome Unit first verifies eligibility through a preliminary evaluation on apply.unive.it; when eligibility is confirmed, entry requirements and academic background are evaluated according to the general international-admissions process.",
+    "source_url": "https://apply.unive.it/courses/course/659-ba-italian-and-mediterranean-studies"
+  },
+  "language_requirements": {
+    "required_level": "English B2",
+    "accepted_proofs": [
+      "A recognised English certificate on Ca' Foscari's AICLU-based list, such as Cambridge FCE, Trinity ISE II, IELTS 5.5-6.5, TOEFL iBT 72-94, or PTE Academic 59-75",
+      "A CLA Ca' Foscari Level B2.2 linguistic certificate or certificate of attendance and advancement",
+      "A certificate from a university language school included in the recognised-certifications list",
+      "An approved exemption-category self-certification supported by the required evidence"
+    ],
+    "exemption_rules": [
+      "Completed higher education studies, or at least one year of college, in a country where English is the medium of instruction",
+      "Obtained a high-school diploma or university qualification from a study path taught entirely in English",
+      "Completed at least one full high-school exchange year at an institution where English was the language of instruction",
+      "Hold one of the listed Italian university language degrees with a three-year English language course"
+    ],
+    "assessment_or_upload_stage": "International applicants upload recognised proof or exemption evidence in the admission/enrolment process. The programme page states that Ca' Foscari does not run a programme-specific English test as part of the application procedure.",
+    "deadline": "English B2 must be met at enrolment. If it is missing at enrolment, the programme assigns an English B2 OFA that must be fulfilled by 30 September 2027.",
+    "source_url": "https://www.unive.it/web/en/16921/admission-and-enrolment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "round_name": "EU/equivalent international applicant admission rounds [uncertain]",
+        "final_application_deadline": "14 October 2026",
+        "notes": "[uncertain] The official EU/equivalent apply.unive.it article exposes the final deadline for bachelor's degrees without an entry test, but not the full round-by-round breakdown on the static page."
+      }
+    ],
+    "enrolment_deadline": "Standard enrolment window: 1 July 2026 to 30 September 2026. Additional window with 50 EUR late fee: 1 October 2026 to 30 October 2026.",
+    "notes": "The programme-specific enrolment page gives the enrolment windows; the international-applicant rounds page gives the final apply.unive.it deadline for bachelor's programmes without an entry test.",
+    "source_url": "https://apply.unive.it/news/new/130-admission-rounds-202627-academic-year"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "round_name": "Non-EU visa admission rounds via apply.unive.it [uncertain]",
+        "application_deadline": "[uncertain]",
+        "notes": "[uncertain] The static official page no longer shows the underlying round dates; it only states the current closure status."
+      }
+    ],
+    "visa_or_pre_enrolment_deadline": "After admission, start Universitaly pre-enrolment and the visa process as soon as possible.",
+    "current_status": "Closed for non-EU applicants requiring a study visa for the 2026/2027 academic year.",
+    "notes": "This programme is a bachelor's degree without an entry test, but international applicants requiring a visa still had to apply in the relevant apply.unive.it round before closure.",
+    "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or, for European applicants, ID card",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "A renewal or first-request receipt is also accepted where stated.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Valid residence permit or renewal/first-request receipt",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required for non-European applicants already residing in Italy or the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Mark sheet or transcript of at least the last year of secondary studies",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "If the applicant is still in the last year of school, a provisional mark sheet/transcript is still mandatory.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Official English or Italian translations of entry documents",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required whenever the original documents are not in English or Italian.",
+      "source_url": "https://apply.unive.it/courses/course/659-ba-italian-and-mediterranean-studies"
+    },
+    {
+      "document_name": "Final secondary school leaving qualification",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "This may be provisional at application stage if the final document is not yet available, but the final version must be uploaded before the end of the enrolment period.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Statement of Comparability from CIMEA, or Declaration of Value, or ARDI Statement of Correspondence with CIMEA Statement of Verification",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "The general international-entry page explains that one of these qualification-recognition routes is needed later for completion of enrolment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "English B2 certificate or exemption evidence",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "If missing at enrolment, the programme assigns an English B2 OFA instead of rejecting the student outright.",
+      "source_url": "https://www.unive.it/web/en/16921/admission-and-enrolment"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No admission test; English B2 is checked at enrolment and may generate an OFA if missing",
+    "mandatory": false,
+    "applies_to": "All applicants. International applicants still undergo preliminary evaluation through apply.unive.it.",
+    "dates": "No programme-specific admission test. Enrolment runs 1 July 2026 to 30 September 2026, with an additional window from 1 October 2026 to 30 October 2026.",
+    "scoring_or_threshold": "No ranking test is published. English B2 is required; if missing at enrolment, an English B2 OFA must be fulfilled by 30 September 2027.",
+    "source_url": "https://www.unive.it/web/en/16921/admission-and-enrolment"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/pag/50466",
+  "official_program_url": "https://www.unive.it/degree/ftr6",
+  "official_call_url": "https://apply.unive.it/courses/course/659-ba-italian-and-mediterranean-studies",
+  "source_quotes": [
+    {
+      "quote": "Bachelor's degree programmes - a.y. 2026/2027 ... Italian and Mediterranean Studies",
+      "source_url": "https://www.unive.it/pag/15612/?L=1",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Admission: Open",
+      "source_url": "https://www.unive.it/degree/ftr6",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Students must have attended school for at least 12 years",
+      "source_url": "https://apply.unive.it/courses/course/659-ba-italian-and-mediterranean-studies",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "A minimum B2-level knowledge of English is required.",
+      "source_url": "https://www.unive.it/web/en/16921/admission-and-enrolment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "You can enrol from July 1st to September 30th 2026.",
+      "source_url": "https://www.unive.it/web/en/16921/admission-and-enrolment",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official EU/equivalent apply.unive.it article gives the final deadline for bachelor's degrees without an entry test, but it does not expose the full 2026/2027 round breakdown on the static page.",
+    "The official non-EU visa article only exposes the current status ('no longer possible to apply') and does not publish the historical round deadlines on the static page.",
+    "apply.unive.it marketing pages show programme-specific tuition figures that differ from the central 2026/2027 fees page, so only the official central fees link is retained."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu"
+  ]
+}
