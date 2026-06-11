@@ -1,0 +1,2502 @@
+{
+  "requestedUniversityId": 4,
+  "resolvedUniversityId": 5,
+  "university": {
+    "id": 5,
+    "name": "Politecnico di Torino",
+    "city": "Torino",
+    "sort_order": 4
+  },
+  "mode": "apply",
+  "sourceFiles": 31,
+  "sourceFilesExpected": 31,
+  "existingDepartments": 30,
+  "matchedExisting": 26,
+  "matchedExistingDetails": [
+    {
+      "id": 287,
+      "name": "Architecture",
+      "slug": "architecture",
+      "level": "bachelor",
+      "sourceFile": "bachelor-architecture.json",
+      "rawProgramName": "Architecture",
+      "sourceProgramName": "Architecture",
+      "canonicalDepartmentName": "Architecture"
+    },
+    {
+      "id": 290,
+      "name": "Automotive Engineering",
+      "slug": "automotive-engineering",
+      "level": "bachelor",
+      "sourceFile": "bachelor-automotive-engineering.json",
+      "rawProgramName": "Automotive Engineering",
+      "sourceProgramName": "Automotive Engineering",
+      "canonicalDepartmentName": "Automotive Engineering"
+    },
+    {
+      "id": 288,
+      "name": "Civil and Environmental Engineering",
+      "slug": "civil-and-environmental-engineering",
+      "level": "bachelor",
+      "sourceFile": "bachelor-civil-environmental-engineering.json",
+      "rawProgramName": "Civil and Environmental Engineering",
+      "sourceProgramName": "Civil and Environmental Engineering",
+      "canonicalDepartmentName": "Civil and Environmental Engineering"
+    },
+    {
+      "id": 291,
+      "name": "Computer Engineering",
+      "slug": "computer-engineering",
+      "level": "bachelor",
+      "sourceFile": "bachelor-computer-engineering.json",
+      "rawProgramName": "Computer Engineering",
+      "sourceProgramName": "Computer Engineering",
+      "canonicalDepartmentName": "Computer Engineering"
+    },
+    {
+      "id": 289,
+      "name": "Electronic and Communications Engineering",
+      "slug": "electronic-and-communications-engineering",
+      "level": "bachelor",
+      "sourceFile": "bachelor-electronic-communications-engineering.json",
+      "rawProgramName": "Electronic and Communications Engineering",
+      "sourceProgramName": "Electronic and Communications Engineering",
+      "canonicalDepartmentName": "Electronic and Communications Engineering"
+    },
+    {
+      "id": 292,
+      "name": "Mechanical Engineering",
+      "slug": "mechanical-engineering",
+      "level": "bachelor",
+      "sourceFile": "bachelor-mechanical-engineering.json",
+      "rawProgramName": "Mechanical Engineering",
+      "sourceProgramName": "Mechanical Engineering",
+      "canonicalDepartmentName": "Mechanical Engineering"
+    },
+    {
+      "id": 784,
+      "name": "Architecture for Heritage",
+      "slug": "architecture-for-heritage",
+      "level": "master",
+      "sourceFile": "master-architecture-for-heritage.json",
+      "rawProgramName": "Architecture for Heritage",
+      "sourceProgramName": "Architecture for Heritage",
+      "canonicalDepartmentName": "Architecture for Heritage"
+    },
+    {
+      "id": 785,
+      "name": "Architecture for Sustainability",
+      "slug": "architecture-for-sustainability",
+      "level": "master",
+      "sourceFile": "master-architecture-for-sustainability.json",
+      "rawProgramName": "Architecture for Sustainability",
+      "sourceProgramName": "Architecture for Sustainability",
+      "canonicalDepartmentName": "Architecture for Sustainability"
+    },
+    {
+      "id": 786,
+      "name": "Automotive Engineering",
+      "slug": "automotive-engineering-master",
+      "level": "master",
+      "sourceFile": "master-automotive-engineering.json",
+      "rawProgramName": "Automotive Engineering",
+      "sourceProgramName": "Automotive Engineering",
+      "canonicalDepartmentName": "Automotive Engineering"
+    },
+    {
+      "id": 797,
+      "name": "Building Engineering",
+      "slug": "building-engineering",
+      "level": "master",
+      "sourceFile": "master-building-engineering.json",
+      "rawProgramName": "Building Engineering",
+      "sourceProgramName": "Building Engineering",
+      "canonicalDepartmentName": "Building Engineering"
+    },
+    {
+      "id": 795,
+      "name": "Chemical and Sustainable Processes Engineering",
+      "slug": "chemical-and-sustainable-processes-engineering",
+      "level": "master",
+      "sourceFile": "master-chemical-and-sustainable-processes-engineering.json",
+      "rawProgramName": "Chemical and Sustainable Processes Engineering",
+      "sourceProgramName": "Chemical and Sustainable Processes Engineering",
+      "canonicalDepartmentName": "Chemical and Sustainable Processes Engineering"
+    },
+    {
+      "id": 787,
+      "name": "Civil Engineering",
+      "slug": "civil-engineering",
+      "level": "master",
+      "sourceFile": "master-civil-engineering.json",
+      "rawProgramName": "Civil Engineering",
+      "sourceProgramName": "Civil Engineering",
+      "canonicalDepartmentName": "Civil Engineering"
+    },
+    {
+      "id": 788,
+      "name": "Communications Engineering",
+      "slug": "communications-engineering",
+      "level": "master",
+      "sourceFile": "master-communications-engineering.json",
+      "rawProgramName": "Communications Engineering",
+      "sourceProgramName": "Communications Engineering",
+      "canonicalDepartmentName": "Communications Engineering"
+    },
+    {
+      "id": 800,
+      "name": "Computer Engineering",
+      "slug": "computer-engineering-master",
+      "level": "master",
+      "sourceFile": "master-computer-engineering.json",
+      "rawProgramName": "Computer Engineering",
+      "sourceProgramName": "Computer Engineering",
+      "canonicalDepartmentName": "Computer Engineering"
+    },
+    {
+      "id": 789,
+      "name": "Cybersecurity Engineering",
+      "slug": "cybersecurity-engineering",
+      "level": "master",
+      "sourceFile": "master-cybersecurity.json",
+      "rawProgramName": "Cybersecurity Engineering",
+      "sourceProgramName": "Cybersecurity Engineering",
+      "canonicalDepartmentName": "Cybersecurity Engineering"
+    },
+    {
+      "id": 790,
+      "name": "Data Science and Engineering",
+      "slug": "data-science-and-engineering",
+      "level": "master",
+      "sourceFile": "master-data-science-and-engineering.json",
+      "rawProgramName": "Data Science and Engineering",
+      "sourceProgramName": "Data Science and Engineering",
+      "canonicalDepartmentName": "Data Science and Engineering"
+    },
+    {
+      "id": 791,
+      "name": "Digital Skills for Sustainable Societal Transitions",
+      "slug": "digital-skills-for-sustainable-societal-transitions",
+      "level": "master",
+      "sourceFile": "master-digital-skills-for-sustainable-societal-transitions.json",
+      "rawProgramName": "Digital Skills for Sustainable Societal Transitions",
+      "sourceProgramName": "Digital Skills for Sustainable Societal Transitions",
+      "canonicalDepartmentName": "Digital Skills for Sustainable Societal Transitions"
+    },
+    {
+      "id": 798,
+      "name": "Energy and Nuclear Engineering",
+      "slug": "energy-and-nuclear-engineering",
+      "level": "master",
+      "sourceFile": "master-energy-and-nuclear-engineering.json",
+      "rawProgramName": "Energy and Nuclear Engineering",
+      "sourceProgramName": "Energy and Nuclear Engineering",
+      "canonicalDepartmentName": "Energy and Nuclear Engineering"
+    },
+    {
+      "id": 799,
+      "name": "Engineering and Management",
+      "slug": "engineering-and-management",
+      "level": "master",
+      "sourceFile": "master-engineering-and-management.json",
+      "rawProgramName": "Engineering and Management",
+      "sourceProgramName": "Engineering and Management",
+      "canonicalDepartmentName": "Engineering and Management"
+    },
+    {
+      "id": 802,
+      "name": "Environmental and Land Engineering",
+      "slug": "environmental-and-land-engineering",
+      "level": "master",
+      "sourceFile": "master-environmental-and-land-engineering.json",
+      "rawProgramName": "Environmental and Land Engineering",
+      "sourceProgramName": "Environmental and Land Engineering",
+      "canonicalDepartmentName": "Environmental and Land Engineering"
+    },
+    {
+      "id": 792,
+      "name": "Georesources and Geoenergy Engineering",
+      "slug": "georesources-and-geoenergy-engineering",
+      "level": "master",
+      "sourceFile": "master-georesources-and-geoenergy-engineering.json",
+      "rawProgramName": "Georesources and Geoenergy Engineering",
+      "sourceProgramName": "Georesources and Geoenergy Engineering",
+      "canonicalDepartmentName": "Georesources and Geoenergy Engineering"
+    },
+    {
+      "id": 793,
+      "name": "ICT Engineering for Smart Societies",
+      "slug": "ict-engineering-for-smart-societies",
+      "level": "master",
+      "sourceFile": "master-ict-engineering-for-smart-societies.json",
+      "rawProgramName": "ICT Engineering for Smart Societies",
+      "sourceProgramName": "ICT Engineering for Smart Societies",
+      "canonicalDepartmentName": "ICT Engineering for Smart Societies"
+    },
+    {
+      "id": 796,
+      "name": "Materials Engineering for Industry 4.0",
+      "slug": "materials-engineering-for-industry-4-0",
+      "level": "master",
+      "sourceFile": "master-materials-engineering-for-industry-4-0.json",
+      "rawProgramName": "Materials Engineering for Industry 4.0",
+      "sourceProgramName": "Materials Engineering for Industry 4.0",
+      "canonicalDepartmentName": "Materials Engineering for Industry 4.0"
+    },
+    {
+      "id": 803,
+      "name": "Mechatronic Engineering",
+      "slug": "mechatronic-engineering",
+      "level": "master",
+      "sourceFile": "master-mechatronic-engineering.json",
+      "rawProgramName": "Mechatronic Engineering",
+      "sourceProgramName": "Mechatronic Engineering",
+      "canonicalDepartmentName": "Mechatronic Engineering"
+    },
+    {
+      "id": 804,
+      "name": "Physics of Complex Systems",
+      "slug": "physics-of-complex-systems",
+      "level": "master",
+      "sourceFile": "master-physics-of-complex-systems.json",
+      "rawProgramName": "Physics of Complex Systems",
+      "sourceProgramName": "Physics of Complex Systems",
+      "canonicalDepartmentName": "Physics of Complex Systems"
+    },
+    {
+      "id": 806,
+      "name": "Quantum Engineering",
+      "slug": "quantum-engineering",
+      "level": "master",
+      "sourceFile": "master-quantum-engineering.json",
+      "rawProgramName": "Quantum Engineering",
+      "sourceProgramName": "Quantum Engineering",
+      "canonicalDepartmentName": "Quantum Engineering"
+    }
+  ],
+  "departmentCorrections": [
+    {
+      "id": 287,
+      "sourceFile": "bachelor-architecture.json",
+      "rawProgramName": "Architecture",
+      "sourceProgramName": "Architecture",
+      "canonicalDepartmentName": "Architecture",
+      "from": {
+        "name": "Architecture",
+        "slug": "architecture",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 3,
+        "level": "bachelor"
+      },
+      "to": {
+        "name": "Architecture",
+        "slug": "architecture",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 3,
+        "level": "bachelor"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 290,
+      "sourceFile": "bachelor-automotive-engineering.json",
+      "rawProgramName": "Automotive Engineering",
+      "sourceProgramName": "Automotive Engineering",
+      "canonicalDepartmentName": "Automotive Engineering",
+      "from": {
+        "name": "Automotive Engineering",
+        "slug": "automotive-engineering",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 3,
+        "level": "bachelor"
+      },
+      "to": {
+        "name": "Automotive Engineering",
+        "slug": "automotive-engineering",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 3,
+        "level": "bachelor"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 291,
+      "sourceFile": "bachelor-computer-engineering.json",
+      "rawProgramName": "Computer Engineering",
+      "sourceProgramName": "Computer Engineering",
+      "canonicalDepartmentName": "Computer Engineering",
+      "from": {
+        "name": "Computer Engineering",
+        "slug": "computer-engineering",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 3,
+        "level": "bachelor"
+      },
+      "to": {
+        "name": "Computer Engineering",
+        "slug": "computer-engineering",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 3,
+        "level": "bachelor"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 292,
+      "sourceFile": "bachelor-mechanical-engineering.json",
+      "rawProgramName": "Mechanical Engineering",
+      "sourceProgramName": "Mechanical Engineering",
+      "canonicalDepartmentName": "Mechanical Engineering",
+      "from": {
+        "name": "Mechanical Engineering",
+        "slug": "mechanical-engineering",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 3,
+        "level": "bachelor"
+      },
+      "to": {
+        "name": "Mechanical Engineering",
+        "slug": "mechanical-engineering",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 3,
+        "level": "bachelor"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 784,
+      "sourceFile": "master-architecture-for-heritage.json",
+      "rawProgramName": "Architecture for Heritage",
+      "sourceProgramName": "Architecture for Heritage",
+      "canonicalDepartmentName": "Architecture for Heritage",
+      "from": {
+        "name": "Architecture for Heritage",
+        "slug": "architecture-for-heritage",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Architecture for Heritage",
+        "slug": "architecture-for-heritage",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 785,
+      "sourceFile": "master-architecture-for-sustainability.json",
+      "rawProgramName": "Architecture for Sustainability",
+      "sourceProgramName": "Architecture for Sustainability",
+      "canonicalDepartmentName": "Architecture for Sustainability",
+      "from": {
+        "name": "Architecture for Sustainability",
+        "slug": "architecture-for-sustainability",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Architecture for Sustainability",
+        "slug": "architecture-for-sustainability",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 797,
+      "sourceFile": "master-building-engineering.json",
+      "rawProgramName": "Building Engineering",
+      "sourceProgramName": "Building Engineering",
+      "canonicalDepartmentName": "Building Engineering",
+      "from": {
+        "name": "Building Engineering",
+        "slug": "building-engineering",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Building Engineering",
+        "slug": "building-engineering",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 795,
+      "sourceFile": "master-chemical-and-sustainable-processes-engineering.json",
+      "rawProgramName": "Chemical and Sustainable Processes Engineering",
+      "sourceProgramName": "Chemical and Sustainable Processes Engineering",
+      "canonicalDepartmentName": "Chemical and Sustainable Processes Engineering",
+      "from": {
+        "name": "Chemical and Sustainable Processes Engineering",
+        "slug": "chemical-and-sustainable-processes-engineering",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Chemical and Sustainable Processes Engineering",
+        "slug": "chemical-and-sustainable-processes-engineering",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 800,
+      "sourceFile": "master-computer-engineering.json",
+      "rawProgramName": "Computer Engineering",
+      "sourceProgramName": "Computer Engineering",
+      "canonicalDepartmentName": "Computer Engineering",
+      "from": {
+        "name": "Computer Engineering",
+        "slug": "computer-engineering-master",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Computer Engineering",
+        "slug": "computer-engineering-master",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 798,
+      "sourceFile": "master-energy-and-nuclear-engineering.json",
+      "rawProgramName": "Energy and Nuclear Engineering",
+      "sourceProgramName": "Energy and Nuclear Engineering",
+      "canonicalDepartmentName": "Energy and Nuclear Engineering",
+      "from": {
+        "name": "Energy and Nuclear Engineering",
+        "slug": "energy-and-nuclear-engineering",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Energy and Nuclear Engineering",
+        "slug": "energy-and-nuclear-engineering",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 799,
+      "sourceFile": "master-engineering-and-management.json",
+      "rawProgramName": "Engineering and Management",
+      "sourceProgramName": "Engineering and Management",
+      "canonicalDepartmentName": "Engineering and Management",
+      "from": {
+        "name": "Engineering and Management",
+        "slug": "engineering-and-management",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Engineering and Management",
+        "slug": "engineering-and-management",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 802,
+      "sourceFile": "master-environmental-and-land-engineering.json",
+      "rawProgramName": "Environmental and Land Engineering",
+      "sourceProgramName": "Environmental and Land Engineering",
+      "canonicalDepartmentName": "Environmental and Land Engineering",
+      "from": {
+        "name": "Environmental and Land Engineering",
+        "slug": "environmental-and-land-engineering",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Environmental and Land Engineering",
+        "slug": "environmental-and-land-engineering",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 796,
+      "sourceFile": "master-materials-engineering-for-industry-4-0.json",
+      "rawProgramName": "Materials Engineering for Industry 4.0",
+      "sourceProgramName": "Materials Engineering for Industry 4.0",
+      "canonicalDepartmentName": "Materials Engineering for Industry 4.0",
+      "from": {
+        "name": "Materials Engineering for Industry 4.0",
+        "slug": "materials-engineering-for-industry-4-0",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Materials Engineering for Industry 4.0",
+        "slug": "materials-engineering-for-industry-4-0",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    },
+    {
+      "id": 804,
+      "sourceFile": "master-physics-of-complex-systems.json",
+      "rawProgramName": "Physics of Complex Systems",
+      "sourceProgramName": "Physics of Complex Systems",
+      "canonicalDepartmentName": "Physics of Complex Systems",
+      "from": {
+        "name": "Physics of Complex Systems",
+        "slug": "physics-of-complex-systems",
+        "languages": [
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "to": {
+        "name": "Physics of Complex Systems",
+        "slug": "physics-of-complex-systems",
+        "languages": [
+          "it",
+          "en"
+        ],
+        "duration_years": 2,
+        "level": "master"
+      },
+      "changedFields": [
+        "languages"
+      ]
+    }
+  ],
+  "newDepartments": [
+    {
+      "id": null,
+      "university_id": 5,
+      "name": "Architecture Construction City",
+      "slug": "architecture-construction-city",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 25,
+      "rawProgramName": "Architecture Construction City",
+      "sourceProgramName": "Architecture Construction City",
+      "canonicalDepartmentName": "Architecture Construction City",
+      "sourceFile": "master-architecture-construction-city.json"
+    },
+    {
+      "id": null,
+      "university_id": 5,
+      "name": "Electrical Engineering",
+      "slug": "electrical-engineering",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 26,
+      "rawProgramName": "Electrical Engineering",
+      "sourceProgramName": "Electrical Engineering",
+      "canonicalDepartmentName": "Electrical Engineering",
+      "sourceFile": "master-electrical-engineering.json"
+    },
+    {
+      "id": null,
+      "university_id": 5,
+      "name": "Electronic Engineering",
+      "slug": "electronic-engineering",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 27,
+      "rawProgramName": "Electronic Engineering",
+      "sourceProgramName": "Electronic Engineering",
+      "canonicalDepartmentName": "Electronic Engineering",
+      "sourceFile": "master-electronic-engineering.json"
+    },
+    {
+      "id": null,
+      "university_id": 5,
+      "name": "Industrial Production and Technological Innovation Engineering",
+      "slug": "industrial-production-and-technological-innovation-engineering",
+      "languages": [
+        "it",
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 28,
+      "rawProgramName": "Industrial Production and Technological Innovation Engineering",
+      "sourceProgramName": "Industrial Production and Technological Innovation Engineering",
+      "canonicalDepartmentName": "Industrial Production and Technological Innovation Engineering",
+      "sourceFile": "master-industrial-production-and-technological-innovation-engineering.json"
+    },
+    {
+      "id": null,
+      "university_id": 5,
+      "name": "Nanotechnologies for ICTs",
+      "slug": "nanotechnologies-for-icts",
+      "languages": [
+        "en"
+      ],
+      "duration_years": 2,
+      "level": "master",
+      "sort_order": 29,
+      "rawProgramName": "Nanotechnologies for ICTs",
+      "sourceProgramName": "Nanotechnologies for ICTs",
+      "canonicalDepartmentName": "Nanotechnologies for ICTs",
+      "sourceFile": "master-nanotechnologies-for-icts.json"
+    }
+  ],
+  "sourceWithoutExisting": [
+    {
+      "sourceFile": "master-architecture-construction-city.json",
+      "sourceProgramName": "Architecture Construction City",
+      "canonicalDepartmentName": "Architecture Construction City",
+      "level": "master",
+      "plannedSlug": "architecture-construction-city"
+    },
+    {
+      "sourceFile": "master-electrical-engineering.json",
+      "sourceProgramName": "Electrical Engineering",
+      "canonicalDepartmentName": "Electrical Engineering",
+      "level": "master",
+      "plannedSlug": "electrical-engineering"
+    },
+    {
+      "sourceFile": "master-electronic-engineering.json",
+      "sourceProgramName": "Electronic Engineering",
+      "canonicalDepartmentName": "Electronic Engineering",
+      "level": "master",
+      "plannedSlug": "electronic-engineering"
+    },
+    {
+      "sourceFile": "master-industrial-production-and-technological-innovation-engineering.json",
+      "sourceProgramName": "Industrial Production and Technological Innovation Engineering",
+      "canonicalDepartmentName": "Industrial Production and Technological Innovation Engineering",
+      "level": "master",
+      "plannedSlug": "industrial-production-and-technological-innovation-engineering"
+    },
+    {
+      "sourceFile": "master-nanotechnologies-for-icts.json",
+      "sourceProgramName": "Nanotechnologies for ICTs",
+      "canonicalDepartmentName": "Nanotechnologies for ICTs",
+      "level": "master",
+      "plannedSlug": "nanotechnologies-for-icts"
+    }
+  ],
+  "duplicateNameDifferentLevel": [],
+  "aliasLevelMismatches": [],
+  "existingWithoutSource": [
+    {
+      "id": 783,
+      "name": "Agritech Engineering",
+      "slug": "agritech-engineering",
+      "level": "master"
+    },
+    {
+      "id": 794,
+      "name": "Industrial Chemistry for Circular and Bio Economy",
+      "slug": "industrial-chemistry-for-circular-and-bio-economy",
+      "level": "master"
+    },
+    {
+      "id": 801,
+      "name": "Mechanical Engineering",
+      "slug": "mechanical-engineering-master",
+      "level": "master"
+    },
+    {
+      "id": 805,
+      "name": "Urban and Regional Planning",
+      "slug": "urban-and-regional-planning",
+      "level": "master"
+    }
+  ],
+  "programPlans": [
+    {
+      "sourceFile": "bachelor-architecture.json",
+      "rawProgramName": "Architecture",
+      "sourceProgramName": "Architecture",
+      "canonicalDepartmentName": "Architecture",
+      "canonicalNameChanged": false,
+      "normalizedName": "architecture",
+      "normalizedSourceName": "architecture",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 287,
+      "departmentName": "Architecture",
+      "departmentSlug": "architecture",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "bachelor-automotive-engineering.json",
+      "rawProgramName": "Automotive Engineering",
+      "sourceProgramName": "Automotive Engineering",
+      "canonicalDepartmentName": "Automotive Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "automotive engineering",
+      "normalizedSourceName": "automotive engineering",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 290,
+      "departmentName": "Automotive Engineering",
+      "departmentSlug": "automotive-engineering",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "bachelor-civil-environmental-engineering.json",
+      "rawProgramName": "Civil and Environmental Engineering",
+      "sourceProgramName": "Civil and Environmental Engineering",
+      "canonicalDepartmentName": "Civil and Environmental Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "civil and environmental engineering",
+      "normalizedSourceName": "civil and environmental engineering",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": true,
+      "action": "matched-existing",
+      "departmentId": 288,
+      "departmentName": "Civil and Environmental Engineering",
+      "departmentSlug": "civil-and-environmental-engineering",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor",
+      "languagesAfter": [
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "bachelor-computer-engineering.json",
+      "rawProgramName": "Computer Engineering",
+      "sourceProgramName": "Computer Engineering",
+      "canonicalDepartmentName": "Computer Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "computer engineering",
+      "normalizedSourceName": "computer engineering",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 291,
+      "departmentName": "Computer Engineering",
+      "departmentSlug": "computer-engineering",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "bachelor-electronic-communications-engineering.json",
+      "rawProgramName": "Electronic and Communications Engineering",
+      "sourceProgramName": "Electronic and Communications Engineering",
+      "canonicalDepartmentName": "Electronic and Communications Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "electronic and communications engineering",
+      "normalizedSourceName": "electronic and communications engineering",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": true,
+      "action": "matched-existing",
+      "departmentId": 289,
+      "departmentName": "Electronic and Communications Engineering",
+      "departmentSlug": "electronic-and-communications-engineering",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor",
+      "languagesAfter": [
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "bachelor-mechanical-engineering.json",
+      "rawProgramName": "Mechanical Engineering",
+      "sourceProgramName": "Mechanical Engineering",
+      "canonicalDepartmentName": "Mechanical Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "mechanical engineering",
+      "normalizedSourceName": "mechanical engineering",
+      "level": "bachelor",
+      "rawLevel": "bachelor",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 292,
+      "departmentName": "Mechanical Engineering",
+      "departmentSlug": "mechanical-engineering",
+      "levelBefore": "bachelor",
+      "levelAfter": "bachelor",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-architecture-construction-city.json",
+      "rawProgramName": "Architecture Construction City",
+      "sourceProgramName": "Architecture Construction City",
+      "canonicalDepartmentName": "Architecture Construction City",
+      "canonicalNameChanged": false,
+      "normalizedName": "architecture construction city",
+      "normalizedSourceName": "architecture construction city",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Architecture Construction City",
+      "departmentSlug": "architecture-construction-city",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-architecture-for-heritage.json",
+      "rawProgramName": "Architecture for Heritage",
+      "sourceProgramName": "Architecture for Heritage",
+      "canonicalDepartmentName": "Architecture for Heritage",
+      "canonicalNameChanged": false,
+      "normalizedName": "architecture for heritage",
+      "normalizedSourceName": "architecture for heritage",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 784,
+      "departmentName": "Architecture for Heritage",
+      "departmentSlug": "architecture-for-heritage",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-architecture-for-sustainability.json",
+      "rawProgramName": "Architecture for Sustainability",
+      "sourceProgramName": "Architecture for Sustainability",
+      "canonicalDepartmentName": "Architecture for Sustainability",
+      "canonicalNameChanged": false,
+      "normalizedName": "architecture for sustainability",
+      "normalizedSourceName": "architecture for sustainability",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 785,
+      "departmentName": "Architecture for Sustainability",
+      "departmentSlug": "architecture-for-sustainability",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-automotive-engineering.json",
+      "rawProgramName": "Automotive Engineering",
+      "sourceProgramName": "Automotive Engineering",
+      "canonicalDepartmentName": "Automotive Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "automotive engineering",
+      "normalizedSourceName": "automotive engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": true,
+      "action": "matched-existing",
+      "departmentId": 786,
+      "departmentName": "Automotive Engineering",
+      "departmentSlug": "automotive-engineering-master",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-building-engineering.json",
+      "rawProgramName": "Building Engineering",
+      "sourceProgramName": "Building Engineering",
+      "canonicalDepartmentName": "Building Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "building engineering",
+      "normalizedSourceName": "building engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 797,
+      "departmentName": "Building Engineering",
+      "departmentSlug": "building-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-chemical-and-sustainable-processes-engineering.json",
+      "rawProgramName": "Chemical and Sustainable Processes Engineering",
+      "sourceProgramName": "Chemical and Sustainable Processes Engineering",
+      "canonicalDepartmentName": "Chemical and Sustainable Processes Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "chemical and sustainable processes engineering",
+      "normalizedSourceName": "chemical and sustainable processes engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": false,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 795,
+      "departmentName": "Chemical and Sustainable Processes Engineering",
+      "departmentSlug": "chemical-and-sustainable-processes-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-civil-engineering.json",
+      "rawProgramName": "Civil Engineering",
+      "sourceProgramName": "Civil Engineering",
+      "canonicalDepartmentName": "Civil Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "civil engineering",
+      "normalizedSourceName": "civil engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": true,
+      "action": "matched-existing",
+      "departmentId": 787,
+      "departmentName": "Civil Engineering",
+      "departmentSlug": "civil-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-communications-engineering.json",
+      "rawProgramName": "Communications Engineering",
+      "sourceProgramName": "Communications Engineering",
+      "canonicalDepartmentName": "Communications Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "communications engineering",
+      "normalizedSourceName": "communications engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": true,
+      "action": "matched-existing",
+      "departmentId": 788,
+      "departmentName": "Communications Engineering",
+      "departmentSlug": "communications-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-computer-engineering.json",
+      "rawProgramName": "Computer Engineering",
+      "sourceProgramName": "Computer Engineering",
+      "canonicalDepartmentName": "Computer Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "computer engineering",
+      "normalizedSourceName": "computer engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 800,
+      "departmentName": "Computer Engineering",
+      "departmentSlug": "computer-engineering-master",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-cybersecurity.json",
+      "rawProgramName": "Cybersecurity Engineering",
+      "sourceProgramName": "Cybersecurity Engineering",
+      "canonicalDepartmentName": "Cybersecurity Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "cybersecurity engineering",
+      "normalizedSourceName": "cybersecurity engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": true,
+      "action": "matched-existing",
+      "departmentId": 789,
+      "departmentName": "Cybersecurity Engineering",
+      "departmentSlug": "cybersecurity-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-data-science-and-engineering.json",
+      "rawProgramName": "Data Science and Engineering",
+      "sourceProgramName": "Data Science and Engineering",
+      "canonicalDepartmentName": "Data Science and Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "data science and engineering",
+      "normalizedSourceName": "data science and engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": true,
+      "action": "matched-existing",
+      "departmentId": 790,
+      "departmentName": "Data Science and Engineering",
+      "departmentSlug": "data-science-and-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-digital-skills-for-sustainable-societal-transitions.json",
+      "rawProgramName": "Digital Skills for Sustainable Societal Transitions",
+      "sourceProgramName": "Digital Skills for Sustainable Societal Transitions",
+      "canonicalDepartmentName": "Digital Skills for Sustainable Societal Transitions",
+      "canonicalNameChanged": false,
+      "normalizedName": "digital skills for sustainable societal transitions",
+      "normalizedSourceName": "digital skills for sustainable societal transitions",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": true,
+      "action": "matched-existing",
+      "departmentId": 791,
+      "departmentName": "Digital Skills for Sustainable Societal Transitions",
+      "departmentSlug": "digital-skills-for-sustainable-societal-transitions",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-electrical-engineering.json",
+      "rawProgramName": "Electrical Engineering",
+      "sourceProgramName": "Electrical Engineering",
+      "canonicalDepartmentName": "Electrical Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "electrical engineering",
+      "normalizedSourceName": "electrical engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Electrical Engineering",
+      "departmentSlug": "electrical-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-electronic-engineering.json",
+      "rawProgramName": "Electronic Engineering",
+      "sourceProgramName": "Electronic Engineering",
+      "canonicalDepartmentName": "Electronic Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "electronic engineering",
+      "normalizedSourceName": "electronic engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Electronic Engineering",
+      "departmentSlug": "electronic-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-energy-and-nuclear-engineering.json",
+      "rawProgramName": "Energy and Nuclear Engineering",
+      "sourceProgramName": "Energy and Nuclear Engineering",
+      "canonicalDepartmentName": "Energy and Nuclear Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "energy and nuclear engineering",
+      "normalizedSourceName": "energy and nuclear engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 798,
+      "departmentName": "Energy and Nuclear Engineering",
+      "departmentSlug": "energy-and-nuclear-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-engineering-and-management.json",
+      "rawProgramName": "Engineering and Management",
+      "sourceProgramName": "Engineering and Management",
+      "canonicalDepartmentName": "Engineering and Management",
+      "canonicalNameChanged": false,
+      "normalizedName": "engineering and management",
+      "normalizedSourceName": "engineering and management",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 799,
+      "departmentName": "Engineering and Management",
+      "departmentSlug": "engineering-and-management",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-environmental-and-land-engineering.json",
+      "rawProgramName": "Environmental and Land Engineering",
+      "sourceProgramName": "Environmental and Land Engineering",
+      "canonicalDepartmentName": "Environmental and Land Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "environmental and land engineering",
+      "normalizedSourceName": "environmental and land engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 802,
+      "departmentName": "Environmental and Land Engineering",
+      "departmentSlug": "environmental-and-land-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-georesources-and-geoenergy-engineering.json",
+      "rawProgramName": "Georesources and Geoenergy Engineering",
+      "sourceProgramName": "Georesources and Geoenergy Engineering",
+      "canonicalDepartmentName": "Georesources and Geoenergy Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "georesources and geoenergy engineering",
+      "normalizedSourceName": "georesources and geoenergy engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": true,
+      "action": "matched-existing",
+      "departmentId": 792,
+      "departmentName": "Georesources and Geoenergy Engineering",
+      "departmentSlug": "georesources-and-geoenergy-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-ict-engineering-for-smart-societies.json",
+      "rawProgramName": "ICT Engineering for Smart Societies",
+      "sourceProgramName": "ICT Engineering for Smart Societies",
+      "canonicalDepartmentName": "ICT Engineering for Smart Societies",
+      "canonicalNameChanged": false,
+      "normalizedName": "ict engineering for smart societies",
+      "normalizedSourceName": "ict engineering for smart societies",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": true,
+      "action": "matched-existing",
+      "departmentId": 793,
+      "departmentName": "ICT Engineering for Smart Societies",
+      "departmentSlug": "ict-engineering-for-smart-societies",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-industrial-production-and-technological-innovation-engineering.json",
+      "rawProgramName": "Industrial Production and Technological Innovation Engineering",
+      "sourceProgramName": "Industrial Production and Technological Innovation Engineering",
+      "canonicalDepartmentName": "Industrial Production and Technological Innovation Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "industrial production and technological innovation engineering",
+      "normalizedSourceName": "industrial production and technological innovation engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Multilingual",
+      "hasCompleteEnglishTrack": false,
+      "isFullyEnglishProgramme": false,
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Industrial Production and Technological Innovation Engineering",
+      "departmentSlug": "industrial-production-and-technological-innovation-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-materials-engineering-for-industry-4-0.json",
+      "rawProgramName": "Materials Engineering for Industry 4.0",
+      "sourceProgramName": "Materials Engineering for Industry 4.0",
+      "canonicalDepartmentName": "Materials Engineering for Industry 4.0",
+      "canonicalNameChanged": false,
+      "normalizedName": "materials engineering for industry 4 0",
+      "normalizedSourceName": "materials engineering for industry 4 0",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 796,
+      "departmentName": "Materials Engineering for Industry 4.0",
+      "departmentSlug": "materials-engineering-for-industry-4-0",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-mechatronic-engineering.json",
+      "rawProgramName": "Mechatronic Engineering",
+      "sourceProgramName": "Mechatronic Engineering",
+      "canonicalDepartmentName": "Mechatronic Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "mechatronic engineering",
+      "normalizedSourceName": "mechatronic engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": true,
+      "action": "matched-existing",
+      "departmentId": 803,
+      "departmentName": "Mechatronic Engineering",
+      "departmentSlug": "mechatronic-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-nanotechnologies-for-icts.json",
+      "rawProgramName": "Nanotechnologies for ICTs",
+      "sourceProgramName": "Nanotechnologies for ICTs",
+      "canonicalDepartmentName": "Nanotechnologies for ICTs",
+      "canonicalNameChanged": false,
+      "normalizedName": "nanotechnologies for icts",
+      "normalizedSourceName": "nanotechnologies for icts",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": true,
+      "action": "new-department",
+      "departmentId": null,
+      "departmentName": "Nanotechnologies for ICTs",
+      "departmentSlug": "nanotechnologies-for-icts",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-physics-of-complex-systems.json",
+      "rawProgramName": "Physics of Complex Systems",
+      "sourceProgramName": "Physics of Complex Systems",
+      "canonicalDepartmentName": "Physics of Complex Systems",
+      "canonicalNameChanged": false,
+      "normalizedName": "physics of complex systems",
+      "normalizedSourceName": "physics of complex systems",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "Italian, English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": false,
+      "action": "matched-existing",
+      "departmentId": 804,
+      "departmentName": "Physics of Complex Systems",
+      "departmentSlug": "physics-of-complex-systems",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "it",
+        "en"
+      ]
+    },
+    {
+      "sourceFile": "master-quantum-engineering.json",
+      "rawProgramName": "Quantum Engineering",
+      "sourceProgramName": "Quantum Engineering",
+      "canonicalDepartmentName": "Quantum Engineering",
+      "canonicalNameChanged": false,
+      "normalizedName": "quantum engineering",
+      "normalizedSourceName": "quantum engineering",
+      "level": "master",
+      "rawLevel": "master",
+      "rawLevelNormalized": false,
+      "teachingLanguage": "English",
+      "hasCompleteEnglishTrack": true,
+      "isFullyEnglishProgramme": true,
+      "action": "matched-existing",
+      "departmentId": 806,
+      "departmentName": "Quantum Engineering",
+      "departmentSlug": "quantum-engineering",
+      "levelBefore": "master",
+      "levelAfter": "master",
+      "languagesAfter": [
+        "en"
+      ]
+    }
+  ],
+  "specialChecks": {
+    "bachelorExamples": [
+      {
+        "sourceFile": "bachelor-architecture.json",
+        "rawProgramName": "Architecture",
+        "sourceProgramName": "Architecture",
+        "canonicalDepartmentName": "Architecture",
+        "canonicalNameChanged": false,
+        "normalizedName": "architecture",
+        "normalizedSourceName": "architecture",
+        "level": "bachelor",
+        "rawLevel": "bachelor",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": false,
+        "action": "matched-existing",
+        "departmentId": 287,
+        "departmentName": "Architecture",
+        "departmentSlug": "architecture",
+        "levelBefore": "bachelor",
+        "levelAfter": "bachelor",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "bachelor-automotive-engineering.json",
+        "rawProgramName": "Automotive Engineering",
+        "sourceProgramName": "Automotive Engineering",
+        "canonicalDepartmentName": "Automotive Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "automotive engineering",
+        "normalizedSourceName": "automotive engineering",
+        "level": "bachelor",
+        "rawLevel": "bachelor",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": false,
+        "action": "matched-existing",
+        "departmentId": 290,
+        "departmentName": "Automotive Engineering",
+        "departmentSlug": "automotive-engineering",
+        "levelBefore": "bachelor",
+        "levelAfter": "bachelor",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "bachelor-civil-environmental-engineering.json",
+        "rawProgramName": "Civil and Environmental Engineering",
+        "sourceProgramName": "Civil and Environmental Engineering",
+        "canonicalDepartmentName": "Civil and Environmental Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "civil and environmental engineering",
+        "normalizedSourceName": "civil and environmental engineering",
+        "level": "bachelor",
+        "rawLevel": "bachelor",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": true,
+        "action": "matched-existing",
+        "departmentId": 288,
+        "departmentName": "Civil and Environmental Engineering",
+        "departmentSlug": "civil-and-environmental-engineering",
+        "levelBefore": "bachelor",
+        "levelAfter": "bachelor",
+        "languagesAfter": [
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "bachelor-computer-engineering.json",
+        "rawProgramName": "Computer Engineering",
+        "sourceProgramName": "Computer Engineering",
+        "canonicalDepartmentName": "Computer Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "computer engineering",
+        "normalizedSourceName": "computer engineering",
+        "level": "bachelor",
+        "rawLevel": "bachelor",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": false,
+        "action": "matched-existing",
+        "departmentId": 291,
+        "departmentName": "Computer Engineering",
+        "departmentSlug": "computer-engineering",
+        "levelBefore": "bachelor",
+        "levelAfter": "bachelor",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "bachelor-electronic-communications-engineering.json",
+        "rawProgramName": "Electronic and Communications Engineering",
+        "sourceProgramName": "Electronic and Communications Engineering",
+        "canonicalDepartmentName": "Electronic and Communications Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "electronic and communications engineering",
+        "normalizedSourceName": "electronic and communications engineering",
+        "level": "bachelor",
+        "rawLevel": "bachelor",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": true,
+        "action": "matched-existing",
+        "departmentId": 289,
+        "departmentName": "Electronic and Communications Engineering",
+        "departmentSlug": "electronic-and-communications-engineering",
+        "levelBefore": "bachelor",
+        "levelAfter": "bachelor",
+        "languagesAfter": [
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "bachelor-mechanical-engineering.json",
+        "rawProgramName": "Mechanical Engineering",
+        "sourceProgramName": "Mechanical Engineering",
+        "canonicalDepartmentName": "Mechanical Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "mechanical engineering",
+        "normalizedSourceName": "mechanical engineering",
+        "level": "bachelor",
+        "rawLevel": "bachelor",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": false,
+        "action": "matched-existing",
+        "departmentId": 292,
+        "departmentName": "Mechanical Engineering",
+        "departmentSlug": "mechanical-engineering",
+        "levelBefore": "bachelor",
+        "levelAfter": "bachelor",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      }
+    ],
+    "masterExamples": [
+      {
+        "sourceFile": "master-architecture-construction-city.json",
+        "rawProgramName": "Architecture Construction City",
+        "sourceProgramName": "Architecture Construction City",
+        "canonicalDepartmentName": "Architecture Construction City",
+        "canonicalNameChanged": false,
+        "normalizedName": "architecture construction city",
+        "normalizedSourceName": "architecture construction city",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": false,
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Architecture Construction City",
+        "departmentSlug": "architecture-construction-city",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "master-architecture-for-heritage.json",
+        "rawProgramName": "Architecture for Heritage",
+        "sourceProgramName": "Architecture for Heritage",
+        "canonicalDepartmentName": "Architecture for Heritage",
+        "canonicalNameChanged": false,
+        "normalizedName": "architecture for heritage",
+        "normalizedSourceName": "architecture for heritage",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": false,
+        "action": "matched-existing",
+        "departmentId": 784,
+        "departmentName": "Architecture for Heritage",
+        "departmentSlug": "architecture-for-heritage",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "master-architecture-for-sustainability.json",
+        "rawProgramName": "Architecture for Sustainability",
+        "sourceProgramName": "Architecture for Sustainability",
+        "canonicalDepartmentName": "Architecture for Sustainability",
+        "canonicalNameChanged": false,
+        "normalizedName": "architecture for sustainability",
+        "normalizedSourceName": "architecture for sustainability",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": false,
+        "action": "matched-existing",
+        "departmentId": 785,
+        "departmentName": "Architecture for Sustainability",
+        "departmentSlug": "architecture-for-sustainability",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "master-automotive-engineering.json",
+        "rawProgramName": "Automotive Engineering",
+        "sourceProgramName": "Automotive Engineering",
+        "canonicalDepartmentName": "Automotive Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "automotive engineering",
+        "normalizedSourceName": "automotive engineering",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": true,
+        "action": "matched-existing",
+        "departmentId": 786,
+        "departmentName": "Automotive Engineering",
+        "departmentSlug": "automotive-engineering-master",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "master-building-engineering.json",
+        "rawProgramName": "Building Engineering",
+        "sourceProgramName": "Building Engineering",
+        "canonicalDepartmentName": "Building Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "building engineering",
+        "normalizedSourceName": "building engineering",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": false,
+        "action": "matched-existing",
+        "departmentId": 797,
+        "departmentName": "Building Engineering",
+        "departmentSlug": "building-engineering",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "master-chemical-and-sustainable-processes-engineering.json",
+        "rawProgramName": "Chemical and Sustainable Processes Engineering",
+        "sourceProgramName": "Chemical and Sustainable Processes Engineering",
+        "canonicalDepartmentName": "Chemical and Sustainable Processes Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "chemical and sustainable processes engineering",
+        "normalizedSourceName": "chemical and sustainable processes engineering",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "hasCompleteEnglishTrack": false,
+        "isFullyEnglishProgramme": false,
+        "action": "matched-existing",
+        "departmentId": 795,
+        "departmentName": "Chemical and Sustainable Processes Engineering",
+        "departmentSlug": "chemical-and-sustainable-processes-engineering",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "master-civil-engineering.json",
+        "rawProgramName": "Civil Engineering",
+        "sourceProgramName": "Civil Engineering",
+        "canonicalDepartmentName": "Civil Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "civil engineering",
+        "normalizedSourceName": "civil engineering",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": true,
+        "action": "matched-existing",
+        "departmentId": 787,
+        "departmentName": "Civil Engineering",
+        "departmentSlug": "civil-engineering",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "master-communications-engineering.json",
+        "rawProgramName": "Communications Engineering",
+        "sourceProgramName": "Communications Engineering",
+        "canonicalDepartmentName": "Communications Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "communications engineering",
+        "normalizedSourceName": "communications engineering",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": true,
+        "action": "matched-existing",
+        "departmentId": 788,
+        "departmentName": "Communications Engineering",
+        "departmentSlug": "communications-engineering",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "en"
+        ]
+      }
+    ],
+    "newDepartments": [
+      {
+        "sourceFile": "master-architecture-construction-city.json",
+        "rawProgramName": "Architecture Construction City",
+        "sourceProgramName": "Architecture Construction City",
+        "canonicalDepartmentName": "Architecture Construction City",
+        "canonicalNameChanged": false,
+        "normalizedName": "architecture construction city",
+        "normalizedSourceName": "architecture construction city",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": false,
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Architecture Construction City",
+        "departmentSlug": "architecture-construction-city",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "master-electrical-engineering.json",
+        "rawProgramName": "Electrical Engineering",
+        "sourceProgramName": "Electrical Engineering",
+        "canonicalDepartmentName": "Electrical Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "electrical engineering",
+        "normalizedSourceName": "electrical engineering",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": false,
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Electrical Engineering",
+        "departmentSlug": "electrical-engineering",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "master-electronic-engineering.json",
+        "rawProgramName": "Electronic Engineering",
+        "sourceProgramName": "Electronic Engineering",
+        "canonicalDepartmentName": "Electronic Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "electronic engineering",
+        "normalizedSourceName": "electronic engineering",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": false,
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Electronic Engineering",
+        "departmentSlug": "electronic-engineering",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "master-industrial-production-and-technological-innovation-engineering.json",
+        "rawProgramName": "Industrial Production and Technological Innovation Engineering",
+        "sourceProgramName": "Industrial Production and Technological Innovation Engineering",
+        "canonicalDepartmentName": "Industrial Production and Technological Innovation Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "industrial production and technological innovation engineering",
+        "normalizedSourceName": "industrial production and technological innovation engineering",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Multilingual",
+        "hasCompleteEnglishTrack": false,
+        "isFullyEnglishProgramme": false,
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Industrial Production and Technological Innovation Engineering",
+        "departmentSlug": "industrial-production-and-technological-innovation-engineering",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "master-nanotechnologies-for-icts.json",
+        "rawProgramName": "Nanotechnologies for ICTs",
+        "sourceProgramName": "Nanotechnologies for ICTs",
+        "canonicalDepartmentName": "Nanotechnologies for ICTs",
+        "canonicalNameChanged": false,
+        "normalizedName": "nanotechnologies for icts",
+        "normalizedSourceName": "nanotechnologies for icts",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "English",
+        "hasCompleteEnglishTrack": true,
+        "isFullyEnglishProgramme": true,
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Nanotechnologies for ICTs",
+        "departmentSlug": "nanotechnologies-for-icts",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "en"
+        ]
+      }
+    ],
+    "departmentCorrections": [
+      {
+        "id": 287,
+        "sourceFile": "bachelor-architecture.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Architecture",
+          "slug": "architecture",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 3,
+          "level": "bachelor"
+        },
+        "to": {
+          "name": "Architecture",
+          "slug": "architecture",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 3,
+          "level": "bachelor"
+        }
+      },
+      {
+        "id": 290,
+        "sourceFile": "bachelor-automotive-engineering.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Automotive Engineering",
+          "slug": "automotive-engineering",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 3,
+          "level": "bachelor"
+        },
+        "to": {
+          "name": "Automotive Engineering",
+          "slug": "automotive-engineering",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 3,
+          "level": "bachelor"
+        }
+      },
+      {
+        "id": 291,
+        "sourceFile": "bachelor-computer-engineering.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Computer Engineering",
+          "slug": "computer-engineering",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 3,
+          "level": "bachelor"
+        },
+        "to": {
+          "name": "Computer Engineering",
+          "slug": "computer-engineering",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 3,
+          "level": "bachelor"
+        }
+      },
+      {
+        "id": 292,
+        "sourceFile": "bachelor-mechanical-engineering.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Mechanical Engineering",
+          "slug": "mechanical-engineering",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 3,
+          "level": "bachelor"
+        },
+        "to": {
+          "name": "Mechanical Engineering",
+          "slug": "mechanical-engineering",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 3,
+          "level": "bachelor"
+        }
+      },
+      {
+        "id": 784,
+        "sourceFile": "master-architecture-for-heritage.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Architecture for Heritage",
+          "slug": "architecture-for-heritage",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        },
+        "to": {
+          "name": "Architecture for Heritage",
+          "slug": "architecture-for-heritage",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        }
+      },
+      {
+        "id": 785,
+        "sourceFile": "master-architecture-for-sustainability.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Architecture for Sustainability",
+          "slug": "architecture-for-sustainability",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        },
+        "to": {
+          "name": "Architecture for Sustainability",
+          "slug": "architecture-for-sustainability",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        }
+      },
+      {
+        "id": 797,
+        "sourceFile": "master-building-engineering.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Building Engineering",
+          "slug": "building-engineering",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        },
+        "to": {
+          "name": "Building Engineering",
+          "slug": "building-engineering",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        }
+      },
+      {
+        "id": 795,
+        "sourceFile": "master-chemical-and-sustainable-processes-engineering.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Chemical and Sustainable Processes Engineering",
+          "slug": "chemical-and-sustainable-processes-engineering",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        },
+        "to": {
+          "name": "Chemical and Sustainable Processes Engineering",
+          "slug": "chemical-and-sustainable-processes-engineering",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        }
+      },
+      {
+        "id": 800,
+        "sourceFile": "master-computer-engineering.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Computer Engineering",
+          "slug": "computer-engineering-master",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        },
+        "to": {
+          "name": "Computer Engineering",
+          "slug": "computer-engineering-master",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        }
+      },
+      {
+        "id": 798,
+        "sourceFile": "master-energy-and-nuclear-engineering.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Energy and Nuclear Engineering",
+          "slug": "energy-and-nuclear-engineering",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        },
+        "to": {
+          "name": "Energy and Nuclear Engineering",
+          "slug": "energy-and-nuclear-engineering",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        }
+      },
+      {
+        "id": 799,
+        "sourceFile": "master-engineering-and-management.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Engineering and Management",
+          "slug": "engineering-and-management",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        },
+        "to": {
+          "name": "Engineering and Management",
+          "slug": "engineering-and-management",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        }
+      },
+      {
+        "id": 802,
+        "sourceFile": "master-environmental-and-land-engineering.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Environmental and Land Engineering",
+          "slug": "environmental-and-land-engineering",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        },
+        "to": {
+          "name": "Environmental and Land Engineering",
+          "slug": "environmental-and-land-engineering",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        }
+      },
+      {
+        "id": 796,
+        "sourceFile": "master-materials-engineering-for-industry-4-0.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Materials Engineering for Industry 4.0",
+          "slug": "materials-engineering-for-industry-4-0",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        },
+        "to": {
+          "name": "Materials Engineering for Industry 4.0",
+          "slug": "materials-engineering-for-industry-4-0",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        }
+      },
+      {
+        "id": 804,
+        "sourceFile": "master-physics-of-complex-systems.json",
+        "changedFields": [
+          "languages"
+        ],
+        "from": {
+          "name": "Physics of Complex Systems",
+          "slug": "physics-of-complex-systems",
+          "languages": [
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        },
+        "to": {
+          "name": "Physics of Complex Systems",
+          "slug": "physics-of-complex-systems",
+          "languages": [
+            "it",
+            "en"
+          ],
+          "duration_years": 2,
+          "level": "master"
+        }
+      }
+    ],
+    "notCompleteEnglishTrack": [
+      {
+        "sourceFile": "master-chemical-and-sustainable-processes-engineering.json",
+        "rawProgramName": "Chemical and Sustainable Processes Engineering",
+        "sourceProgramName": "Chemical and Sustainable Processes Engineering",
+        "canonicalDepartmentName": "Chemical and Sustainable Processes Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "chemical and sustainable processes engineering",
+        "normalizedSourceName": "chemical and sustainable processes engineering",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Italian, English",
+        "hasCompleteEnglishTrack": false,
+        "isFullyEnglishProgramme": false,
+        "action": "matched-existing",
+        "departmentId": 795,
+        "departmentName": "Chemical and Sustainable Processes Engineering",
+        "departmentSlug": "chemical-and-sustainable-processes-engineering",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      },
+      {
+        "sourceFile": "master-industrial-production-and-technological-innovation-engineering.json",
+        "rawProgramName": "Industrial Production and Technological Innovation Engineering",
+        "sourceProgramName": "Industrial Production and Technological Innovation Engineering",
+        "canonicalDepartmentName": "Industrial Production and Technological Innovation Engineering",
+        "canonicalNameChanged": false,
+        "normalizedName": "industrial production and technological innovation engineering",
+        "normalizedSourceName": "industrial production and technological innovation engineering",
+        "level": "master",
+        "rawLevel": "master",
+        "rawLevelNormalized": false,
+        "teachingLanguage": "Multilingual",
+        "hasCompleteEnglishTrack": false,
+        "isFullyEnglishProgramme": false,
+        "action": "new-department",
+        "departmentId": null,
+        "departmentName": "Industrial Production and Technological Innovation Engineering",
+        "departmentSlug": "industrial-production-and-technological-innovation-engineering",
+        "levelBefore": "master",
+        "levelAfter": "master",
+        "languagesAfter": [
+          "it",
+          "en"
+        ]
+      }
+    ],
+    "rawLevelNormalized": []
+  },
+  "warnings": [],
+  "applied": {
+    "detailUpserts": 31,
+    "newDepartmentsInserted": 5,
+    "departmentCorrectionsUpdated": 14
+  }
+}

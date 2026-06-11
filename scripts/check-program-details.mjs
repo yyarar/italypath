@@ -107,6 +107,59 @@ const UNIVERSITY_CHECKS = [
     ],
   },
   {
+    universityId: 5,
+    label: "Polito",
+    expectedDetailCount: 31,
+    criticalPrograms: [
+      {
+        name: "Architecture",
+        level: "bachelor",
+        missingProgramMessage: "Missing expected Polito program: Architecture (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Computer Engineering",
+        level: "bachelor",
+        missingProgramMessage: "Missing expected Polito program: Computer Engineering (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Architecture Construction City",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Polito program: Architecture Construction City (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Cybersecurity Engineering",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Polito program: Cybersecurity Engineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Industrial Production and Technological Innovation Engineering",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Polito program: Industrial Production and Technological Innovation Engineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Nanotechnologies for ICTs",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Polito program: Nanotechnologies for ICTs (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+    ],
+  },
+  {
     universityId: 2,
     label: "Sapienza",
     expectedDetailCount: 23,
