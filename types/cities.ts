@@ -3,6 +3,9 @@ export interface CityDetail {
   name: string; // Turkish name (e.g. Milano)
   nameEn: string; // English name (e.g. Milan)
   region: string; // e.g. Lombardia
+  costSourceName?: string;
+  costSourceUrl?: string;
+  costSourceLastUpdated?: string;
   costRating: 1 | 2 | 3 | 4 | 5; // €€€€€ rating
   studentPopulation: string; // e.g. "Çok Yüksek (>80.000)"
   studentPopulationEn: string; // e.g. "Very High (>80,000)"

@@ -22,7 +22,9 @@
 
 # misc
 .DS_Store
+*.swp
 *.pem
+.claude/
 .superpowers/
 .worktrees/
 
