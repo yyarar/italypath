@@ -1,0 +1,188 @@
+{
+  "program_name": "Conservation Science and Technology for Cultural Heritage",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Mestre",
+  "degree_class": "LM-11 R (Conservation and restoration of the cultural heritage)",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a minimum three-year bachelor's degree, a preliminary online evaluation for international qualifications, the required curricular background, Teaching Committee evaluation of personal preparation, and English B2.",
+    "prior_degree_or_diploma": "Minimum three-year bachelor's degree (or higher). International applicants must first request the preliminary evaluation of their qualification on apply.unive.it.",
+    "subject_requirements": "Applicants with L-43 Conservation and restoration of cultural heritage or LMR-02 Preservation and Restoration of Cultural Property automatically satisfy the curricular requirement. Other applicants must have at least 48 ECTS/CFU overall, including at least 24 in Biology, Chemistry, Electronics/Informatics, Geography, Mathematics, and/or Physics, and at least 24 additional ECTS/CFU in relevant fields such as Anthropology, Archaeology, Cultural Heritage, Civil Engineering/Architecture, History, Law, Statistics, or related areas.",
+    "gpa_or_country_requirements": "The programme page states that students with L-43 or LMR-02 and a final grade of at least 85/110 are generally considered to have the required personal preparation. No separate country-specific CGPA threshold is published on the programme-specific international course page.",
+    "committee_or_pre_evaluation": "The Welcome Unit verifies eligibility during the preliminary evaluation, and the Teaching Committee evaluates the transcript and CV. Applicants who do not clearly meet the usual preparation profile may be assessed through an additional interview.",
+    "source_url": "https://www.unive.it/web/en/13634/admission-and-enrolment"
+  },
+  "language_requirements": {
+    "required_level": "English B2",
+    "accepted_proofs": [
+      "A recognised English certification from an officially recognised certifying body in Ca' Foscari's recognised-certifications list.",
+      "A certificate from Ca' Foscari CLA or from a university language school included in Ca' Foscari's recognised-certifications list.",
+      "Documentary proof that the applicant falls within an official exemption category."
+    ],
+    "exemption_rules": [
+      "Completed higher-education studies or at least one year of college in a country where English is the medium of instruction.",
+      "Obtained a high-school or university qualification after a course of study taught entirely in English.",
+      "Completed at least one full year of high-school exchange in English.",
+      "Holds one of the listed language-degree exemptions with a three-year English study path."
+    ],
+    "assessment_or_upload_stage": "Applicants may apply before obtaining the certificate, but the proof must be uploaded to complete enrolment. Ca' Foscari does not test English as part of the application procedure.",
+    "deadline": "By the programme enrolment deadline.",
+    "source_url": "https://www.unive.it/web/en/13634/admission-and-enrolment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Applications for 2026/2027 open from 17 December 2025 on apply.unive.it, but the exact EU/equivalent international round deadlines are shown only after selecting nationality and applicant category on the portal [uncertain]."
+    ],
+    "enrolment_deadline": "Enrolment from 1 July 2026 to 30 September 2026; additional late-enrolment period from 1 October 2026 to 18 December 2026 with a 50 EUR surcharge.",
+    "notes": "EU/equivalent applicants with an international qualification must first complete Ca' Foscari's preliminary evaluation on apply.unive.it. Non-EU citizens already residing in Italy with a residence permit valid for university enrolment are directed to the EU/equivalent route. The exact round submission deadlines are not exposed on the accessible official pages under the allowed domains [uncertain].",
+    "source_url": "https://www.unive.it/web/en/13634/admission-and-enrolment"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Applications for 2026/2027 open from 17 December 2025 on apply.unive.it, but the exact non-EU study-visa round deadlines are shown only after selecting the correct nationality/category on the portal [uncertain]."
+    ],
+    "visa_or_pre_enrolment_deadline": "Accepted or conditionally accepted applicants who require a visa must complete Universitaly pre-enrolment by 30 September 2026.",
+    "current_status": "Closed for non-EU applicants requiring a study visa.",
+    "notes": "The apply.unive.it admission-rounds article dated 4 September 2025 states that it is no longer possible for non-EU applicants requiring a study visa to apply for bachelor's or master's degrees in 2026/2027. The public official pages under the allowed domains do not expose the underlying category-specific round cut-off dates [uncertain].",
+    "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or ID card",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "European applicants may use an ID card. Applications without the mandatory identification document are rejected.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Valid residence permit or renewal/first-request receipt",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required for non-European applicants already residing in Italy or in the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Transcript of records for all undergraduate/bachelor's years of study, with official translation if needed",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "If the applicant is still attending the last year of studies, a provisional transcript is still mandatory.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Curriculum vitae",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Used by the Teaching Committee to evaluate personal preparation and academic background.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Motivation letter",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "A dedicated motivation letter for the programme must be added to the application.",
+      "source_url": "https://apply.unive.it/courses/course/586-msc-conservation-science-and-technology-cultural-heritage"
+    },
+    {
+      "document_name": "Bachelor's degree final diploma, with official translation if needed",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "Optional at application stage if the qualification is not yet available, but the final version must be uploaded before the end of the enrolment period if a provisional document was used.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Statement of Comparability by CIMEA, or Declaration of Value, or ARDI Statement of Correspondance with CIMEA Statement of Verification, or Diploma Supplement",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "For master's enrolment, one of these qualification-recognition documents is required; the Diploma Supplement is accepted only if it follows the international model and is issued by an institution in the EHEA.",
+      "source_url": "https://www.unive.it/pag/12519/"
+    },
+    {
+      "document_name": "Recognised English B2 certificate or proof of exemption",
+      "stage": "enrolment",
+      "required_for": "programme_specific",
+      "notes": "Required to complete enrolment in this English-taught programme.",
+      "source_url": "https://www.unive.it/web/en/13634/admission-and-enrolment"
+    },
+    {
+      "document_name": "Health and Safety in educational activities and research in scientific areas certificate",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "The programme page asks applicants to upload this certificate if they already have it.",
+      "source_url": "https://www.unive.it/web/en/13634/admission-and-enrolment"
+    },
+    {
+      "document_name": "Programme-specific documents listed in the tasks section on apply.unive.it",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Ca' Foscari states that other specific requirements can appear in the tasks section of the online application.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Letter of enrolment eligibility and Universitaly pre-enrolment application",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Non-EU applicants requiring a visa must receive Ca' Foscari's eligibility letter and then complete pre-enrolment on the Universitaly portal.",
+      "source_url": "https://www.unive.it/pag/40813/"
+    },
+    {
+      "document_name": "Italian study visa",
+      "stage": "enrolment",
+      "required_for": "non_eu",
+      "notes": "Once the visa is issued, it must be uploaded in the relevant task on apply.unive.it to finalize enrolment.",
+      "source_url": "https://www.unive.it/pag/40976/"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No standard entry test; additional interview may be required by the Teaching Committee",
+    "mandatory": false,
+    "applies_to": "Applicants whose personal preparation is not clearly adequate on the basis of the prior degree, grades, transcript, and CV.",
+    "dates": "No fixed test dates are published; any additional interview is at the Teaching Committee's discretion during the admission evaluation.",
+    "scoring_or_threshold": "There is no standard score threshold for a test. The programme page states that candidates in L-43 or LMR-02 with at least 85/110 are generally considered adequately prepared; otherwise an additional interview may be required.",
+    "source_url": "https://www.unive.it/web/en/13634/admission-and-enrolment"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/pag/50449/",
+  "official_program_url": "https://www.unive.it/degree/cmr60",
+  "official_call_url": "https://apply.unive.it/courses/course/586-msc-conservation-science-and-technology-cultural-heritage",
+  "source_quotes": [
+    {
+      "quote": "Conservation Science and Technology for Cultural Heritage",
+      "source_url": "https://www.unive.it/pag/15612/",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Admission: Open",
+      "source_url": "https://www.unive.it/degree/cmr60",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "must have achieved minimum 48 CFU",
+      "source_url": "https://www.unive.it/web/en/13634/admission-and-enrolment",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "A minimum B2-level knowledge of English is mandatory",
+      "source_url": "https://www.unive.it/web/en/13634/admission-and-enrolment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "A motivation letter must be added to your application.",
+      "source_url": "https://apply.unive.it/courses/course/586-msc-conservation-science-and-technology-cultural-heritage",
+      "field_supported": "required_documents"
+    },
+    {
+      "quote": "it is no longer possible for non-EU applicants requiring a visa to apply",
+      "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The central international programmes list includes this programme among the 2026/2027 English-taught master's degrees, but the degree permalink still shows the interface label 'Enrolment from 2025/2026'.",
+    "The exact EU/equivalent 2026/2027 international application-round submission dates are referred to on apply.unive.it after nationality/category selection, but they are not exposed directly on the accessible official pages under the allowed domains.",
+    "For non-EU applicants requiring a study visa, Ca' Foscari clearly states that applications are closed for 2026/2027, but the underlying category-specific round cut-off dates are not reproduced on the allowed official pages."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu"
+  ]
+}

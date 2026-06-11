@@ -1,0 +1,108 @@
+{
+  "program_name": "International Politics, Law and Economics (IPLE)",
+  "level": "bachelor",
+  "academic_year": "2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "L-36 R",
+  "admission_type": "restricted access (cap on students; selection based on entrance test)",
+  "academic_requirements": "Applicants must hold an upper secondary school diploma or an equivalent foreign qualification obtained after at least 12 years of schooling. Foreign qualifications must also allow admission to university in the country where they were awarded. Admission is restricted and requires a valid CISIA English Test - Sciences (CEnT-S) taken within the validity window set by the call. The ranking is based only on the Mathematics and Reasoning on Texts and Data sections. Students admitted with less than 9 normalised points in Mathematics receive an OFA (additional learning requirement) and must clear it within the first year; otherwise they cannot take second- or third-year exams. Students transferring from other programmes/universities and graduates must also sit the admission test and follow the ordinary procedure.",
+  "language_requirements": "Applicants need English at CEFR B2. This can be proved by a UniMi-recognised B2-or-higher language certificate earned within 3 years before submission (2 years for TOEFL under UniMi certificate rules), by a secondary-school diploma with English as teaching language, or by the UniMi SLAM placement test. Accepted certificates must certify reading, writing, listening and speaking. Students who use a certificate should attach it during enrolment; already-enrolled students can still upload it later through the UniMi language-certificate portal. Students without a valid certificate or English-medium diploma must take the SLAM placement test by the end of October 2026; those who fail it must attend the SLAM course. Students who do not take the placement test by October 2026, or who fail the SLAM end-of-course test after six attempts, must obtain a recognised certificate privately in order to register for and sit programme exams. Fulfilling the English OFA is mandatory before sitting any exam in the programme. No separate Italian entry requirement is stated in the 2026/2027 admission call. Beyond admission, the manifesto states that the course also requires proficiency in at least one other European Union language, including Italian for non-native speakers.",
+  "application_deadline_eu": "Admission application: 12 March 2026 to 6 July 2026, 11:59 pm (GMT+2). Ranking list publication: 9 July 2026 after 2:00 pm (GMT+2). Enrolment: 9 July 2026 to 22 July 2026, 2:00 pm (GMT+2). For candidates applying as graduands, enrolment confirmation runs from 15 July 2026 to 3 August 2026, 2:00 pm (GMT+2).",
+  "application_deadline_non_eu": "Admission application: 12 March 2026 to 6 July 2026, 11:59 pm (GMT+2). Non-EU candidates applying for a visa are ranked in a separate reserved quota and must also submit Universitaly pre-enrolment by 31 July 2026; applications submitted after that date are not accepted. Enrolment for admitted candidates runs from 9 July 2026 to 22 July 2026, 2:00 pm (GMT+2), subject to the reserved quota and ranking updates.",
+  "required_documents": [
+    "Online UniMi admission application submitted within the call window.",
+    "CEnT-S registration through the CISIA website; no manual score upload is required because UniMi collects the result automatically from the CISIA database.",
+    "If claiming English-language exemption, a recognised B2-or-higher certificate or a secondary-school diploma with English as teaching language, uploaded during enrolment.",
+    "For applicants with foreign qualifications: legalized or apostilled high school diploma, unless an exemption from legalization applies.",
+    "Official Italian translation of the qualification, unless the original document is in English, French, German, or Spanish.",
+    "Certificate of academic eligibility, if required in the country where the diploma was issued.",
+    "If the local school system is shorter than 12 years: a university enrolment certificate with transcript, a non-university post-secondary qualification, or a foundation-year completion certificate.",
+    "Any additional country-specific documents proving the qualification's validity, such as APs for U.S. diplomas or A-levels for U.K. diplomas.",
+    "Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Declaration of Value; for Lisbon Convention countries, the ARDI Correspondence Statement may replace them.",
+    "Italian tax code (codice fiscale).",
+    "For non-EU citizens only, receipt of the residence-permit application or a valid residence permit when required at enrolment.",
+    "For non-EU visa applicants, Universitaly pre-enrolment submitted by 31 July 2026.",
+    "Any further documents requested by the University during final verification of the foreign qualification."
+  ],
+  "entry_exam_or_test": "Required entrance test: CEnT-S (CISIA English Test - Sciences). The test is valid if taken remotely (CEnT@CASA) or in person from 1 November 2025 to 30 June 2026. The full CEnT-S includes 55 multiple-choice questions, but the IPLE ranking is based only on Mathematics (15 questions in 30 minutes) and Reasoning on Texts and Data (15 questions in 30 minutes). Scoring is +1 for each correct answer, -0.25 for each wrong answer, and 0 for unanswered items. The best valid test result is used. In case of a tie, priority goes first to the better score in Reasoning on Texts and Data, then to the younger candidate. The call also allows further evaluation through tests and/or interviews when finalising the ranking. Students admitted with less than 9 normalised points in Mathematics receive an OFA.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+  "official_program_url": "https://www.unimi.it/en/education/bachelor/international-politics-law-and-economics-iple",
+  "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-international-politics-law-and-economics-%28iple%29---%28classe-l-36-r%29.pdf?27-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "Cap on student, student selection based on entrance test",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_BAFof2_2027.pdf",
+      "field_refs": [
+        "admission_type",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "English (level B2 of the European reference framework)",
+      "url": "https://www.unimi.it/en/education/bachelor/international-politics-law-and-economics-iple",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Application for admission: from 12/03/2026 to 06/07/2026",
+      "url": "https://www.unimi.it/en/education/bachelor/international-politics-law-and-economics-iple",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "125 places plus 25 places",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-international-politics-law-and-economics-%28iple%29---%28classe-l-36-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "admission_type",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "by 31 July 2026",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-international-politics-law-and-economics-%28iple%29---%28classe-l-36-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "less than 9 normalised points",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-international-politics-law-and-economics-%28iple%29---%28classe-l-36-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "attach it to their application during the enrolment procedure",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The amount of the first instalment is the same for all students",
+      "url": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+      "field_refs": [
+        "tuition_or_fees_link"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "The 2026/2027 admission call, 2026/2027 programme page, 2026/2027 manifesto, and 2026/2027 fees page are available and were used as the primary sources.",
+    "Some descriptive text on UniMi pages still contains older 2025 session references, but the 2026/2027 call PDF and the updated 2026 application box were treated as authoritative where they conflict."
+  ],
+  "uncertain": []
+}

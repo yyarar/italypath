@@ -1,0 +1,186 @@
+{
+  "program_name": "Economics, Finance and Sustainability",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Venice",
+  "degree_class": "LM-56 R (Sciences of economics)",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "A minimum three-year bachelor's degree or equivalent is required. The current 2026/2027 programme page requires at least 60 CFU in business, economics, law, and statistical-mathematical fields and assesses personal preparation through CV/studiorum, a written test, and possibly an interview. The current apply.unive.it international course page also states a minimum CGPA of 70% [uncertain].",
+    "prior_degree_or_diploma": "A bachelor's degree equivalent to an Italian three-year bachelor's degree (at least 3 years / 180 ECTS or equivalent).",
+    "subject_requirements": "Candidates must have at least 60 CFU/ECTS in the following areas: Business (SECS-P/07, SECS-P/08, SECS-P/09, SECS-P/10, SECS-P/11), Economics (SECS-P/01, SECS-P/02, SECS-P/03, SECS-P/04, SECS-P/05, SECS-P/06, SECS-P/12), Law (IUS/01, IUS/04, IUS/05, IUS/07, IUS/09, IUS/10, IUS/12, IUS/13, IUS/14), and Statistical-Mathematics (MAT/02, MAT/03, MAT/05, MAT/06, MAT/08, MAT/09, SECS-S/01, SECS-S/03, SECS-S/06).",
+    "gpa_or_country_requirements": "[uncertain] The current apply.unive.it international course page states a minimum CGPA of 70%. The current 2026/2027 unive.it programme admission page does not restate a CGPA threshold.",
+    "committee_or_pre_evaluation": "Applicants with international qualifications must first pass the Welcome Unit preliminary evaluation on apply.unive.it. The Teaching Committee then evaluates curriculum vitae and studiorum; depending on the case, a written test and possibly an additional interview are used to assess personal preparation.",
+    "source_url": "https://www.unive.it/web/en/12851/admission-and-enrolment"
+  },
+  "language_requirements": {
+    "required_level": "English at minimum B2 level.",
+    "accepted_proofs": [
+      "A recognised English certification accepted by Ca' Foscari and submitted within 5 years from the certification date.",
+      "Examples on the official recognised list include Cambridge English FCE, CAE and CPE; Trinity ISE II-IV; IELTS; TOEFL iBT; PTE Academic; Oxford Test of English; LanguageCert ESOL; Aptis ESOL; and Ca' Foscari CLA English certificates."
+    ],
+    "exemption_rules": [
+      "Completed higher education studies, or at least one year of college, in a country where English is the medium of instruction.",
+      "Obtained a high-school diploma or university qualification in Italy or abroad after studies taught entirely in English.",
+      "Completed at least one full exchange year in high school at an institution where English was the language of instruction.",
+      "Holds one of the specific Italian university language degrees listed by Ca' Foscari for English-language exemption."
+    ],
+    "assessment_or_upload_stage": "Upload the certificate electronically during the application/enrolment process. The programme page says applicants may apply without the certificate, but they cannot enrol if they do not satisfy the requirement by the enrolment deadline.",
+    "deadline": "By the enrolment deadline.",
+    "source_url": "https://www.unive.it/pag/40605/?L=1"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "round_name": "1st evaluation session",
+        "application_window": "April 7, 2026 to June 4, 2026",
+        "results_publication": "June 25, 2026",
+        "notes": "Official evaluation session on the current 2026/2027 programme page."
+      },
+      {
+        "round_name": "2nd evaluation session",
+        "application_window": "July 6, 2026 to August 20, 2026",
+        "results_publication": "September 10, 2026",
+        "notes": "Official evaluation session on the current 2026/2027 programme page."
+      },
+      {
+        "round_name": "3rd evaluation session",
+        "application_window": "October 1, 2026 to November 17, 2026",
+        "results_publication": "December 4, 2026",
+        "notes": "Official evaluation session on the current 2026/2027 programme page."
+      }
+    ],
+    "enrolment_deadline": "Standard enrolment: July 1, 2026 to September 30, 2026. Additional late period: October 1, 2026 to December 18, 2026.",
+    "notes": "[uncertain] For international-qualification applicants who fall into the EU/equivalent category, the public apply.unive.it article gives a final master's application deadline of June 17, 2026, but its accessible text does not expose the detailed round breakdown. The programme page above gives the detailed 2026/2027 evaluation sessions and enrolment windows.",
+    "source_url": "https://www.unive.it/web/en/12851/admission-and-enrolment"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "round_name": "2026/2027 master's admission rounds for non-EU applicants requiring a study visa",
+        "application_window": "[uncertain] The public visa-applicant article does not expose the individual round windows in the accessible text.",
+        "deadline": "As of June 5, 2026, the official article states that it is no longer possible to apply for admission to a bachelor's or master's degree in 2026/2027.",
+        "notes": "Non-EU applicants already residing in Italy with a permit valid for enrolment are instructed to refer instead to the EU/equivalent admission-rounds article."
+      }
+    ],
+    "visa_or_pre_enrolment_deadline": "[uncertain] Not stated in the accessible public visa-applicant article.",
+    "current_status": "Closed as of June 5, 2026 according to the official apply.unive.it article for visa-requiring applicants.",
+    "notes": "The public source provides status rather than a round-by-round schedule.",
+    "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or valid ID card",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "European applicants may use an ID card; non-European applicants use a passport.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Valid residence permit or receipt of renewal/first request",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required for non-European applicants already residing in Italy or in the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Transcript of Records for all undergraduate years",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "A provisional transcript is acceptable if the applicant is still attending the final year.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Official English or Italian translations of transcript and diploma documents",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required when the original documents are not in English or Italian.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Grading scale of the university CGPA",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Listed as highly recommended on the official international-entry-requirements page.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Curriculum vitae",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Used by the Teaching Committee when assessing personal preparation.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Motivation letter",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "The current apply.unive.it course page requires a dedicated motivation letter for this master's degree.",
+      "source_url": "https://apply.unive.it/courses/course/262-ma-economics-finance-and-sustainability"
+    },
+    {
+      "document_name": "Bachelor's degree final diploma",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "Optional during the application stage if not yet available, but required later for final enrolment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "CIMEA Statement of Comparability, or Declaration of Value, or ARDI Statement of Correspondence with CIMEA Statement of Verification, or Diploma Supplement",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "These documents are strongly recommended during application and are mandatory later to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "[uncertain] Online written test for personal preparation assessment",
+    "mandatory": false,
+    "applies_to": "Most applicants. The current 2026/2027 programme page grants exemptions to candidates with specified bachelor's degrees and a minimum final grade of 95/110, and to certain master's-degree holders. The current apply.unive.it international course page states that all candidates must take the test.",
+    "dates": "Current 2026/2027 programme page: June 16, 2026; September 7, 2026; and November 30, 2026, all at 10:00 AM and held remotely via Zoom/Moodle.",
+    "scoring_or_threshold": "[uncertain] The unive.it programme page says candidates with L-18, L-33, or L-41 (or equivalent) and a final grade of 95/110 are exempt, and certain master's-degree holders with 95/110 may also request exemption. The apply.unive.it course page instead says all candidates must take the test.",
+    "source_url": "https://www.unive.it/web/en/12851/admission-and-enrolment"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/pag/50466",
+  "official_program_url": "https://www.unive.it/degree/emr15",
+  "official_call_url": "https://www.unive.it/web/en/12851/admission-and-enrolment",
+  "source_quotes": [
+    {
+      "quote": "Economics, Finance and Sustainability",
+      "source_url": "https://www.unive.it/international-programmes",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "The Economics, Finance and Sustainability master's degree programme is an open admission programme taught in English.",
+      "source_url": "https://www.unive.it/web/en/12851/admission-and-enrolment",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "a minimum CGPA (Cumulative Grade Point Average) of 70%",
+      "source_url": "https://apply.unive.it/courses/course/262-ma-economics-finance-and-sustainability",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "A minimum B2-level knowledge of English is mandatory for enrolment.",
+      "source_url": "https://www.unive.it/web/en/12851/admission-and-enrolment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "A motivation letter must be added to your application.",
+      "source_url": "https://apply.unive.it/courses/course/262-ma-economics-finance-and-sustainability",
+      "field_supported": "required_documents"
+    }
+  ],
+  "uncertainty_notes": [
+    "The current apply.unive.it international course page states a minimum CGPA of 70%, but the current 2026/2027 unive.it programme admission page does not restate this threshold.",
+    "The current 2026/2027 unive.it programme admission page gives exemption rules for the written test, while the current apply.unive.it international course page says all candidates must take an online written entry test.",
+    "For the EU/equivalent international-applicant route, the public apply.unive.it article gives a final master's deadline of June 17, 2026, but its accessible text does not expose the round-by-round schedule.",
+    "The public apply.unive.it article for visa-requiring applicants gives current closure status, but not a detailed visa round schedule or a specific visa/pre-enrolment deadline."
+  ],
+  "uncertain": [
+    "academic_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "entry_exam_or_test"
+  ]
+}

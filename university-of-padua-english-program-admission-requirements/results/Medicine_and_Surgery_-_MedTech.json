@@ -1,0 +1,175 @@
+{
+  "program_name": "Medicine and Surgery - MedTech",
+  "level": "single-cycle",
+  "teaching_language": "English",
+  "campus": "Padua, Italy",
+  "degree_class": "LM-41 R - Medicine and Surgery",
+  "admission_type": "restricted access",
+  "academic_requirements": {
+    "summary": "This is a new 2026/27 single-cycle programme and, on the official pages found, it is still pending ministerial approval. No programme-specific 2026/27 admission call or full academic entry requirements were published as of 2026-06-04 [uncertain].",
+    "prior_degree_or_diploma": "An upper secondary school diploma or equivalent foreign qualification suitable for university access will likely be required, but the programme-specific requirement page was still under construction and did not publish full admission rules [uncertain].",
+    "subject_requirements": "No programme-specific subject requirements or officially confirmed entry-test rules were published on the MedTech programme pages found [uncertain].",
+    "gpa_or_country_requirements": "No GPA threshold or country-based admission detail was published for MedTech on the official pages found. Applicants with foreign qualifications will likely need to meet University of Padua entry-title rules, but this was not yet stated in a MedTech-specific call [uncertain].",
+    "source_url": "https://www.medicinachirurgia.unipd.it/informazioni-chi-studia/medicine-and-surgery-medtech/prerequisites"
+  },
+  "language_requirements": {
+    "required_level": "No programme-specific 2026/27 English-language requirement was published on the official MedTech pages found [uncertain].",
+    "accepted_proofs": [
+      "If MedTech follows the University's central rule for English-taught degree programmes, accepted proofs are the certificates listed on the University's central English-language page, but this had not yet been confirmed in a MedTech-specific call [uncertain]."
+    ],
+    "exemption_rules": [
+      "No MedTech-specific exemption rule was published on the official pages found [uncertain].",
+      "The University's central English-language page exempts applicants whose previous education was entirely in English and native English speakers from listed countries, but MedTech-specific adoption was not yet stated [uncertain]."
+    ],
+    "deadline": "No programme-specific certificate deadline was published for MedTech as of 2026-06-04 [uncertain].",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "",
+    "call_two": "Spring 2026, dates TBD on the central limited-access English-programmes page; no MedTech-specific EU window was published [uncertain].",
+    "call_three": "",
+    "notes": "No programme-specific 2026/27 EU application window was found. The programme is still pending ministerial approval. The central page for limited-number English programmes lists an EU/non-EU-residing-in-Italy second call in Spring 2026 with dates TBD, but MedTech was not explicitly named [uncertain].",
+    "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "7 January 2026 - 7 March 2026 on the central limited-access English-programmes page; no MedTech-specific non-EU call was published [uncertain].",
+    "call_two": "",
+    "call_three": "",
+    "notes": "No programme-specific 2026/27 non-EU application window was found. The programme is still pending ministerial approval. The central page for limited-number English programmes lists a non-EU first call from 7 January to 7 March 2026, but MedTech was not explicitly named [uncertain].",
+    "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae (Resume) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Used from the central application page for English-taught degree programmes because no MedTech-specific admission call was published [uncertain].",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Motivational letter in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Listed on the central bachelor's application page for English-taught programmes; no MedTech-specific call was available [uncertain].",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Listed on the central bachelor's application page for English-taught programmes; no MedTech-specific call was available [uncertain].",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Upper secondary school certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Listed on the central bachelor's application page for English-taught programmes; no MedTech-specific call was available [uncertain].",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Certificate proving 1 or 2 years of academic studies, or a post-secondary qualification, or a foundation course qualification",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only if the applicant does not have a minimum 12-year school record; drawn from the central bachelor's application page because no MedTech-specific call was available [uncertain].",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Certificate of entrance examination to access university",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only if the awarding country's law requires it; drawn from the central bachelor's application page because no MedTech-specific call was available [uncertain].",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Official translation into English or Italian of academic documents",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Drawn from the central bachelor's application page because no MedTech-specific call was available [uncertain].",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Legalisation of the upper secondary school diploma",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Listed on the central bachelor's application page; no MedTech-specific call was available [uncertain].",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Valid ID card or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Listed on the central bachelor's application page; no MedTech-specific call was available [uncertain].",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Residence permit",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only for non-EU citizens residing in Italy; listed on the central bachelor's application page because no MedTech-specific call was available [uncertain].",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Selection method not yet published; the programme page states 'Scheduled access' and the school page describes the programme as limited-access [uncertain].",
+    "mandatory": true,
+    "applies_to": "All applicants [uncertain]",
+    "dates": "Not published as of 2026-06-04 [uncertain].",
+    "scoring_or_threshold": "Not published as of 2026-06-04 [uncertain].",
+    "source_url": "https://www.unipd.it/en/corsi-di-laurea/medicine-and-surgery-medtech"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/medicine-and-surgery-medtech",
+  "official_call_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply",
+  "source_quotes": [
+    {
+      "quote": "Scheduled access",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/medicine-and-surgery-medtech",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Place Padua",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/medicine-and-surgery-medtech",
+      "field_supported": "campus"
+    },
+    {
+      "quote": "Pending approval of the italian Ministry of University and Research",
+      "source_url": "https://www.medicinachirurgia.unipd.it/informazioni-chi-studia/medicine-and-surgery-medtech",
+      "field_supported": "uncertainty_notes"
+    },
+    {
+      "quote": "Site under construction.",
+      "source_url": "https://www.medicinachirurgia.unipd.it/informazioni-chi-studia/medicine-and-surgery-medtech/prerequisites",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "still pending the necessary Ministerial approval",
+      "source_url": "https://www.medicinachirurgia.unipd.it/join-our-open-weeks-%E2%80%93-english-taught-single-cycle-master%E2%80%99s-degrees-%E2%80%93-school-medicine",
+      "field_supported": "uncertainty_notes"
+    },
+    {
+      "quote": "First call (only for non-EU citizens residing outside Italy): January 7 - March 7, 2026",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "Second call (only for EU citizens and non-EU citizens residing in Italy): Spring 2026, dates TBD",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "As of 2026-06-04, the MedTech programme is still marked on official University of Padua pages as pending approval by the Italian Ministry of University and Research.",
+    "No programme-specific 2026/27 admission call, course factsheet on apply.unipd.it, or published entry-test rules were found on official pages.",
+    "The faculty prerequisites page for MedTech is live but says 'Site under construction', so academic, language, test, and deadline details remain provisional.",
+    "The central English-programmes admissions page provides general limited-access timelines, but it does not explicitly name MedTech; those timeline references are therefore reported as uncertain."
+  ],
+  "uncertain": [
+    "academic_requirements",
+    "language_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "required_documents",
+    "entry_exam_or_test"
+  ]
+}

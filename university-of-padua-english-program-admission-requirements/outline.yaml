@@ -1,0 +1,337 @@
+topic: "University of Padua English-taught degree programme admission requirements"
+research_question: "List University of Padua English-taught bachelor's, master's, and single-cycle degree programmes and collect official admission requirements for each programme."
+institution:
+  name: "University of Padua"
+  official_domains:
+    - "unipd.it"
+    - "apply.unipd.it"
+source_policy:
+  allowed_sources: "Only official University of Padua sources, including central unipd.it pages, department subdomains under unipd.it, official PDF calls hosted on unipd.it, and apply.unipd.it course pages."
+  excluded_sources: "Aggregator, agency, forum, ranking, social media, and non-University pages."
+  priority_year: "2026/2027"
+  fallback_year: "Use the newest official academic year available when 2026/2027 is not published."
+seed_sources:
+  english_degree_list:
+    url: "https://www.unipd.it/en/corsi-laurea-lingua-inglese"
+    quote: "The University's degree programmes include the possibility of enrolling in degree programmes and single-cycle master's degree programmes taught exclusively in English."
+  english_master_list:
+    url: "https://www.unipd.it/en/corsi-laurea-magistrale-lingua-inglese"
+    quote: "The degree programmes offered by the University include the possibility of enrolling in master's degree programmes taught exclusively in English."
+  study_english_how_to_apply:
+    url: "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    quote: "Degree programmes with an unlimited number of places: First call: November 2, 2025 - February 2, 2026; Second call: March 2 - May 2, 2026; Third call: June 2 - August 2, 2026."
+  english_language_requirement:
+    url: "https://www.unipd.it/en/english-language-admission"
+    quote: "A minimum level of English language proficiency is required for degree programmes taught in English."
+  tuition_fees:
+    url: "https://www.unipd.it/en/tuition-fees"
+items:
+  - id: animal-care
+    program_name: "Animal Care"
+    level: "bachelor"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/animal-care"
+  - id: psychological-science
+    program_name: "Psychological Science"
+    level: "bachelor"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/psychological-science"
+  - id: techniques-and-methods-in-psychological-science
+    program_name: "Techniques and Methods in Psychological Science"
+    level: "bachelor"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/techniques-and-methods-psychological-science"
+  - id: information-engineering
+    program_name: "Information Engineering"
+    level: "bachelor"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/information-engineering"
+  - id: italian-medieval-and-renaissance-studies
+    program_name: "Italian Medieval and Renaissance Studies"
+    level: "bachelor"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/italian-medieval-and-renaissance-studies"
+  - id: biology-of-human-and-environmental-health
+    program_name: "Biology of Human and Environmental Health"
+    level: "bachelor"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/biology-human-and-environmental-health"
+  - id: earth-and-climate-dynamics
+    program_name: "Earth and Climate Dynamics"
+    level: "bachelor"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/earth-and-climate-dynamics"
+  - id: economics-governance-and-decision-making
+    program_name: "Economics, Governance and Decision-Making"
+    level: "bachelor"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/economics-governance-and-decision-making"
+    uncertainty_notes: "Listed as a new 2026/2027 programme to be approved on the central English degree list."
+  - id: biotechnologies-for-food-science
+    program_name: "Biotechnologies for Food Science"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/biotechnologies-food-science"
+  - id: forest-sciences
+    program_name: "Forest Sciences"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/forest-sciences"
+  - id: food-and-health
+    program_name: "Food and Health"
+    level: "master"
+    official_program_url: "https://apply.unipd.it/courses/course/179-food-and-health"
+  - id: food-nutrition-and-health
+    program_name: "Food, Nutrition and Health"
+    level: "master"
+    official_program_url: "https://apply.unipd.it/courses/course/260-food-nutrition-and-health"
+    uncertainty_notes: "Listed as a new 2026/2027 programme to be approved on the central English master's list."
+  - id: italian-food-and-wine
+    program_name: "Italian Food and Wine"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/italian-food-and-wine"
+  - id: sustainable-agriculture
+    program_name: "Sustainable Agriculture"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/sustainable-agriculture"
+  - id: environmental-sciences-for-the-ecological-transition
+    program_name: "Environmental Sciences for the Ecological Transition"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/environmental-sciences-ecological-transition"
+    uncertainty_notes: "Listed as a new 2026/2027 programme to be approved on the central English master's list."
+  - id: management-for-sustainable-firms
+    program_name: "Management for Sustainable Firms"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/management-sustainable-firms"
+  - id: accounting-finance-and-business-consulting
+    program_name: "Accounting, Finance and Business Consulting"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/accounting-finance-and-business-consulting"
+  - id: applied-economics
+    program_name: "Applied Economics"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/applied-economics"
+  - id: european-and-global-studies
+    program_name: "European and Global Studies"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/european-and-global-studies"
+  - id: human-rights-and-multi-level-governance
+    program_name: "Human Rights and Multi-level Governance"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/human-rights-and-multi-level-governance"
+  - id: aerospace-engineering
+    program_name: "Aerospace Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/aerospace-engineering"
+  - id: chemical-and-process-engineering
+    program_name: "Chemical and Process Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/chemical-and-process-engineering"
+  - id: computer-engineering
+    program_name: "Computer Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/computer-engineering"
+  - id: cybersecurity
+    program_name: "Cybersecurity"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/cybersecurity"
+    uncertainty_notes: "Appears under both Engineering and Science on the central English master's list; treat as one programme."
+  - id: control-systems-engineering
+    program_name: "Control Systems Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/control-systems-engineering"
+  - id: electrical-engineering
+    program_name: "Electrical Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/electrical-engineering"
+  - id: electronic-engineering
+    program_name: "Electronic Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/electronic-engineering"
+  - id: energy-engineering
+    program_name: "Energy Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/ingegneria-dellenergia"
+  - id: environmental-engineering
+    program_name: "Environmental Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/environmental-engineering"
+  - id: food-industry-engineering
+    program_name: "Food Industry Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/food-industry-engineering"
+  - id: ict-for-internet-and-multimedia
+    program_name: "ICT for Internet and Multimedia"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/ict-internet-and-multimedia"
+  - id: intelligent-civil-infrastructures-engineering
+    program_name: "Intelligent Civil Infrastructures Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/intelligent-civil-infrastructures-engineering"
+    uncertainty_notes: "Listed as a new 2026/2027 programme to be approved on the central English master's list."
+  - id: management-engineering
+    program_name: "Management Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea-magistrali/ingegneria-gestionale"
+    uncertainty_notes: "English-taught study track of the master's degree in Ingegneria Gestionale."
+  - id: materials-engineering
+    program_name: "Materials Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/materials-engineering"
+  - id: mathematical-engineering
+    program_name: "Mathematical Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/mathematical-engineering"
+  - id: mechanical-engineering-for-product-innovation
+    program_name: "Mechanical Engineering for Product Innovation"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/mechanical-engineering-product-innovation"
+  - id: mechatronics-engineering
+    program_name: "Mechatronics Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/mechatronics-engineering"
+  - id: water-and-geological-risk-engineering
+    program_name: "Water and Geological Risk Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/educational-offer/second-cycle-degree/engineering?key=IN2935&ordinamento=2025&scuola=IN&tipo=LM"
+  - id: applied-sciences-to-cultural-heritage-materials-and-sites
+    program_name: "Applied Sciences to Cultural Heritage, Materials and Sites"
+    level: "master"
+    official_program_url: "https://www.unipd.it/offerta-didattica/corso-di-laurea-magistrale/scienze-umane-sociali-e-del-patrimonio-culturale?tipo=LM&scuola=SU&ordinamento=2021&key=LE0616&cg=beni-culturali"
+    uncertainty_notes: "English-taught study track of the master's degree in Scienze Archeologiche."
+  - id: communication-strategies
+    program_name: "Communication Strategies"
+    level: "master"
+    official_program_url: "https://www.unipd.it/offerta-didattica/corso-di-laurea-magistrale/scienze-umane-sociali-e-del-patrimonio-culturale?tipo=LM&scuola=SU&ordinamento=2020&key=IF0315&cg=studi-umanistici-e-linguistici"
+    uncertainty_notes: "English-taught study track of the master's degree in Strategie di Comunicazione."
+  - id: english-studies
+    program_name: "English Studies"
+    level: "master"
+    official_program_url: "https://www.unipd.it/offerta-didattica/corso-di-laurea-magistrale/scienze-umane-sociali-e-del-patrimonio-culturale?tipo=LM&scuola=SU&ordinamento=2021&key=LE0613&cg=studi-umanistici-e-linguistici"
+    uncertainty_notes: "English-taught study track of the master's degree in Lingue e Letterature Europee e Americane."
+  - id: local-development
+    program_name: "Local Development"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/local-development"
+  - id: mobility-studies
+    program_name: "Mobility Studies"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/mobility-studies"
+    uncertainty_notes: "English-taught study track of the master's degree in Scienze Storiche."
+  - id: social-sciences-and-digital-data
+    program_name: "Social Sciences and Digital Data"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/social-sciences-and-digital-data"
+  - id: medical-biotechnologies
+    program_name: "Medical Biotechnologies"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/medical-biotechnologies"
+  - id: pharmaceutical-biotechnologies
+    program_name: "Pharmaceutical Biotechnologies"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/pharmaceutical-biotechnologies-biotecnologie-farmaceutiche"
+  - id: clinical-social-and-intercultural-psychology
+    program_name: "Clinical, Social and Intercultural Psychology"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/clinical-social-and-intercultural-psychology"
+  - id: cognitive-neuroscience-and-clinical-neuropsychology
+    program_name: "Cognitive Neuroscience and Clinical Neuropsychology"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/cognitive-neuroscience-and-clinical-neuropsychology"
+  - id: cognitive-sciences-for-human-centric-technologies
+    program_name: "Cognitive Sciences for Human-Centric Technologies"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/cognitive-science-human-centric-technologies-cogtech"
+    uncertainty_notes: "Listed as a new 2026/2027 programme to be approved on the central English master's list."
+  - id: applied-child-and-adolescent-psychology
+    program_name: "Applied Child and Adolescent Psychology"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/applied-child-and-adolescent-psychology"
+  - id: astrophysics-and-cosmology
+    program_name: "Astrophysics and Cosmology"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/astrophysics-and-cosmology"
+  - id: complex-and-data-driven-chemistry
+    program_name: "Complex and Data Driven Chemistry"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/complex-data-driven-chemistry"
+    uncertainty_notes: "English-taught study track of the master's degree in Chimica."
+  - id: computational-finance
+    program_name: "Computational Finance"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/computational-finance"
+  - id: computer-science
+    program_name: "Computer Science"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/computer-science"
+  - id: geophysics-for-earth-and-climate-processes-risks-and-resources
+    program_name: "Geophysics for Earth and Climate Processes, Risks and Resources"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/geophysics-earth-and-climate-processes-risks-and-resources"
+  - id: data-science
+    program_name: "Data Science"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/data-science"
+  - id: earth-dynamics
+    program_name: "Earth Dynamics"
+    level: "master"
+    official_program_url: "https://www.unipd.it/offerta-didattica/corso-di-laurea-magistrale/scienze?tipo=LM&scuola=SC&ordinamento=2021&key=SC2597&cg=scienze"
+    uncertainty_notes: "English-taught study track of the master's degree in Geoscienze per la Terra, l'Ambiente e i Pianeti."
+  - id: environmental-sustainability-and-education
+    program_name: "Environmental Sustainability and Education"
+    level: "master"
+    official_program_url: "https://www.unipd.it/offerta-didattica/corso-di-laurea-magistrale/scienze?tipo=LM&scuola=SC&ordinamento=2022&key=SC2650&cg=scienze"
+  - id: evolutionary-biology
+    program_name: "Evolutionary Biology"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/evolutionary-biology"
+  - id: marine-biology
+    program_name: "Marine Biology"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/marine-biology"
+  - id: materials-science
+    program_name: "Materials Science"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/materials-science"
+  - id: mathematics
+    program_name: "Mathematics"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/mathematics"
+  - id: molecular-biology
+    program_name: "Molecular Biology"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/molecular-biology"
+  - id: quantitative-and-computational-biosciences
+    program_name: "Quantitative and Computational Biosciences"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/quantitative-and-computational-biosciences"
+  - id: quantum-science-and-engineering
+    program_name: "Quantum Science and Engineering"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/quantum-science-and-engineering"
+    uncertainty_notes: "Listed as a new 2026/2027 programme to be approved on the central English master's list."
+  - id: physics
+    program_name: "Physics"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/physics"
+  - id: physics-of-data
+    program_name: "Physics of Data"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/physics-data"
+  - id: planetary-geosciences
+    program_name: "Planetary Geosciences"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/educational-offer/second-cycle-degree/science?tipo=LM&scuola=SC&key=16638&cg=science"
+    uncertainty_notes: "English-taught study track and new 2026/2027 programme to be approved."
+  - id: sustainable-chemistry-and-technologies-for-circular-economy
+    program_name: "Sustainable Chemistry and Technologies for Circular Economy"
+    level: "master"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/sustainable-chemistry-and-technologies-circular-economy"
+  - id: medicine-and-surgery-medtech
+    program_name: "Medicine and Surgery - MedTech"
+    level: "single-cycle"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/medicine-and-surgery-medtech"
+    uncertainty_notes: "Listed as a new 2026/2027 single-cycle programme to be approved."
+  - id: medicine-and-surgery
+    program_name: "Medicine and Surgery"
+    level: "single-cycle"
+    official_program_url: "https://www.unipd.it/en/corsi-di-laurea/medicine-and-surgery"
+execution:
+  batch_size: 4
+  items_per_agent: 3
+  output_dir: "./results"
+  deep_research_output_format: "One JSON object per programme, using fields.yaml as schema."
+  notes:
+    - "Prefer the official 2026/2027 call or admission notice for each programme."
+    - "If a programme-specific call is missing, use the central Study in English application page plus the official programme page, and mark uncertainty_notes."
+    - "Keep source_quotes short and tied to exact official URLs."

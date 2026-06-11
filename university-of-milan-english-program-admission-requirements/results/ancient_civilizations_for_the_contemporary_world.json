@@ -1,0 +1,124 @@
+{
+  "program_name": "Ancient Civilizations for the Contemporary World",
+  "level": "bachelor",
+  "academic_year": "2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan, Venice",
+  "degree_class": "L-1 Cultural heritage",
+  "admission_type": "restricted access (cap on students; selection based on entrance test)",
+  "academic_requirements": "Applicants must hold an upper secondary school diploma or an equivalent foreign qualification obtained after at least 12 years of schooling and valid for university admission in the country where it was awarded. UniMi also requires an adequate historical, cultural, and methodological background for the programme subjects, plus the ability to understand a non-specialist literary text in English. Admission is restricted and based on an entrance selection: candidates must apply within the official session window and sit the English test HUMANITIES provided by CISIA. For A.Y. 2026/2027, EU candidates may apply in both the April and Summer sessions; non-EU candidates applying for a student visa must apply in the April session. The total intake is 100 places: 75 general places plus 25 reserved for non-EU candidates applying for a visa.",
+  "language_requirements": "English B2 CEFR is required. UniMi states that English proficiency can be proved by: 1) a recognised English certificate at B2 or higher, normally earned within 3 years before submission and uploadable during enrolment or later through the UniMi language-certificate portal; 2) a secondary-school diploma with English as teaching language, uploaded during enrolment; or 3) the UniMi SLAM placement test, which for this cohort must be passed by the end of October 2026. The SLAM placement test is mandatory for students who do not already hold a valid certificate or an English-medium secondary-school diploma. Students who do not pass the placement test by October 2026, or who fail the SLAM end-of-course test after six attempts, must obtain a recognised certificate in order to register for and sit programme exams. The programme page also says an eligible English certificate may be uploaded already at the application stage if the applicant has one.",
+  "application_deadline_eu": "April session: application from 12 March 2026, 2:00 pm to 2 April 2026, 11:59 pm (GMT+2). Summer session: application from 13 May 2026, 2:00 pm to 29 May 2026, 1:59 pm (GMT+2). EU candidates may apply in both sessions.",
+  "application_deadline_non_eu": "Non-EU candidates applying for a student visa may only apply in the April session: 12 March 2026, 2:00 pm to 2 April 2026, 11:59 pm (GMT+2). They must also submit their Universitaly pre-enrolment application by 31 July 2026.",
+  "required_documents": [
+    "Online admission application with the requested personal and academic data.",
+    "Receipt/proof of payment of the EUR 30 admission fee by the application deadline.",
+    "Eligible English language proficiency certificate, if already available at application stage, or later during enrolment/through the UniMi language-certificate upload portal.",
+    "For applicants with foreign qualifications: high school diploma legalized or apostilled, unless exempt under applicable rules.",
+    "Official Italian translation of the final qualification, unless the original is in English, French, German, or Spanish.",
+    "Certificate of academic eligibility for university admission, if required in the country where the qualification was awarded.",
+    "If the school system is shorter than 12 years: a university enrolment certificate with transcript, a post-secondary qualification, or proof of completion of a foundation year.",
+    "Any country-specific validity documents required for the qualification, such as APs for U.S. qualifications or A-levels for U.K. qualifications.",
+    "Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Declaration of Value; for Lisbon Convention countries, an ARDI correspondence statement may replace these.",
+    "Italian tax code (codice fiscale).",
+    "For non-EU citizens: receipt of residence-permit application or a valid residence permit.",
+    "For non-EU visa applicants: Universitaly pre-enrolment application submitted by 31 July 2026.",
+    "If requesting accommodations for disability or specific learning disabilities: the relevant certification, with legalization/translation where required."
+  ],
+  "entry_exam_or_test": "Admission is based on the English test HUMANITIES provided by CISIA and delivered remotely online. For the April session, the main test date is 10 April 2026, with a reserved sitting on 17 April 2026 for students unable to sit on 10 April. For the Summer session, the main test date is 5 June 2026, with a reserved sitting on 12 June 2026. The test has 30 questions: 10 in reading and comprehension, 10 in clues and inductive reasoning, and 10 in reasoning on texts and data. Scoring is 1 point for each correct answer, 0 for wrong answers, and 0 for unanswered questions. Ranking is based on total test score; ties are broken first by the score in 'Reasoning on texts and data', then by the score in 'Clues and inductive reasoning', then by younger age. To avoid OFA, candidates should answer at least 50% of the questions in each of the three areas; candidates may still be admitted with lower section scores if their ranking position allows it, but they will have to complete additional learning requirements (OFA). EU candidates who are not admitted in the April selection may submit a new application for the Summer session.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/bachelor/ancient-civilizations-contemporary-world",
+  "official_call_url": "https://apps.unimi.it/files/bandi/bando-2027-t-ancient-civilizations-for-the-contemporary-world-%28classe-l-1%29.pdf?27-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.A. 2026/2027 ... L-1 - Classe delle lauree in Beni culturali ... Sede Milan, Venice ... Lingua Inglese",
+      "url": "https://www.unimi.it/it/corsi/laurea-triennale/ancient-civilizations-contemporary-world",
+      "field_refs": [
+        "academic_year",
+        "degree_class",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Access procedures: Cap on student, student selection based on entrance test",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_CAHof2_2027.pdf",
+      "field_refs": [
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "students must hold an upper secondary school diploma or equivalent qualification obtained abroad after at least 12 years of schooling",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_CAHof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Application from 12 March 2:00 pm to 2 April 2026, 11:59 pm ... Application from 13 May 2:00 pm to 29 May 2026, 1:59 pm",
+      "url": "https://apps.unimi.it/files/bandi/bando-2027-t-ancient-civilizations-for-the-contemporary-world-%28classe-l-1%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Non-EU candidates applying for a student visa may only apply for the April session.",
+      "url": "https://apps.unimi.it/files/bandi/bando-2027-t-ancient-civilizations-for-the-contemporary-world-%28classe-l-1%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The English test HUMANITIES provided by CISIA aims at assessing the pre-requisites ... It includes 30 questions",
+      "url": "https://apps.unimi.it/files/bandi/bando-2027-t-ancient-civilizations-for-the-contemporary-world-%28classe-l-1%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "students must be proficient in English at a B2 level ... through a language certificate ... through a high-school diploma with English as teaching language ... through a Placement Test",
+      "url": "https://apps.unimi.it/files/bandi/bando-2027-t-ancient-civilizations-for-the-contemporary-world-%28classe-l-1%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Candidates holding foreign qualifications are required to upload the following documents",
+      "url": "https://apps.unimi.it/files/bandi/bando-2027-t-ancient-civilizations-for-the-contemporary-world-%28classe-l-1%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/bando-2027-t-ancient-civilizations-for-the-contemporary-world-%28classe-l-1%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "All information on university tuition fees ... is available on the pages: https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "url": "https://apps.unimi.it/files/bandi/bando-2027-t-ancient-civilizations-for-the-contemporary-world-%28classe-l-1%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "tuition_or_fees_link"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "The public programme page mixes current 2026/2027 application windows with an older admissions narrative that still mentions 2024 sessions. For admission rules, deadlines, and non-EU procedures, the 9 March 2026 official call was treated as authoritative.",
+    "The fees information is centralised at university level rather than published as a programme-specific tuition table. The call confirms a EUR 146 first instalment at enrolment, while the full fee calculation remains on the central UniMi fees page."
+  ],
+  "uncertain": []
+}

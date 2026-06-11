@@ -24,7 +24,7 @@ const PROGRAM_ADMISSION_DETAIL_COLUMNS =
 const UNIVERSITY_PAGE_SIZE = 1000;
 const UNIVERSITY_DEPARTMENT_PAGE_SIZE = 1000;
 const PROGRAM_ADMISSION_DETAIL_PAGE_SIZE = 1000;
-const SERVER_CACHE_TTL_MS = 60 * 60 * 1000;
+const SERVER_CACHE_TTL_MS = 0;
 
 const PROGRAM_LANGUAGES = new Set<ProgramLanguage>(["en", "it"]);
 const PROGRAM_LEVELS = new Set<ProgramLevel>(["bachelor", "master", "single-cycle"]);

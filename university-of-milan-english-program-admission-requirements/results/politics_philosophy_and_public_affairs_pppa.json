@@ -1,0 +1,139 @@
+{
+  "program_name": "Politics, Philosophy and Public Affairs (PPPA)",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-62/78 R - Scienze della politica/Scienze filosofiche",
+  "admission_type": "Open with entry requirements examination",
+  "academic_requirements": "Applicants must hold a Bachelor's degree or an equivalent Italian or foreign qualification, or graduate by 31 December 2026. Automatic curricular access applies to applicants with a Bachelor's degree in Philosophy (L-5 or equivalent) or Political Science and International Relations (L-36 or equivalent). Applicants from other degree classes are eligible only if they have at least 42 ECTS (or equivalent) in the following disciplinary fields: M-FIL/02, M-FIL/03, M-FIL/04, M-FIL/05, M-FIL/06, SPS/01, SPS/02, SPS/04, SPS/07, SPS/08, SPS/09, SPS/10, SPS/11, IUS/07, IUS/08, IUS/09, IUS/10, IUS/13, IUS/14, IUS/20, IUS/21, M-DEA/01, M-STO/04, SECS-P/01, including at least 12 ECTS in M-FIL/03, SPS/01, SPS/02, SPS/04, and IUS/20. Foreign qualifications are admissible if recognized as suitable by the University. The admission board checks curricular requirements and the applicant's initial preparation.",
+  "language_requirements": "English proficiency at CEFR B2 or higher is required for admission. UNIMI/SLAM verifies this in one of three official ways: a recognized B2-or-higher certificate earned within 3 years at submission time (2 years for TOEFL) and uploaded with the admission application; a SLAM-certified English level obtained during a University of Milan degree within the previous 4 years, which is checked automatically; or the SLAM English entry test. Applicants who do not upload a valid certificate or whose previous SLAM level is expired/non-valid must take the SLAM entry test. If they fail the test or miss it without an accepted excuse, they must submit a recognized certificate via InformaStudenti ('language test' category; subject 'Certificazione ammissione laurea magistrale') by 31 December 2026 for PPPA, otherwise they will not be admitted.",
+  "application_deadline_eu": "EU candidates and equivalents: online admission application from 22 January 2026 to 20 July 2026. Admitted students enrol from 5 May 2026 to 15 January 2027.",
+  "application_deadline_non_eu": "Non-EU candidates applying for a visa: online admission application from 22 January 2026 to 30 April 2026. Non-EU students residing abroad must also submit Universitaly pre-enrolment by 31 July 2026. Admitted students enrol from 5 May 2026 to 15 January 2027.",
+  "required_documents": [
+    "For applicants with an Italian qualification from another university: self-certification of degree/enrolment with exam records, including exams taken, grades, ECTS credits, and scientific-disciplinary sectors (SSD).",
+    "For graduating applicants with an Italian qualification from another university: the same self-certification must also indicate exams already passed but not yet registered, exams still to be taken, and the expected graduation date.",
+    "For applicants with a foreign qualification at admission stage: Bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with a foreign qualification at admission stage: diploma supplement or transcript of records showing courses, marks, ECTS, academic field, and the grading system used, in English, Italian, French, German, or Spanish.",
+    "For applicants with a foreign qualification at admission stage: passport or other valid ID.",
+    "For enrolment with a foreign qualification: Bachelor's degree (or equivalent) legalized or apostilled where required.",
+    "For enrolment with a foreign qualification: high school diploma.",
+    "For enrolment with a foreign qualification: official Italian translations of academic qualifications, unless the originals are in English, French, German, or Spanish.",
+    "For enrolment with a foreign qualification: Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or Dichiarazione di Valore in loco (DOV); for eligible Lisbon Convention cases, the Diploma Supplement or ARDI Correspondence Statement may replace the DOV and Statement of Comparability as specified by UNIMI.",
+    "For enrolment with a foreign qualification: Italian tax code (codice fiscale).",
+    "For non-EU citizens at enrolment with a foreign qualification: receipt of the residence permit application or a valid residence permit.",
+    "For non-EU students residing abroad in addition to the above: receipt of the Universitaly pre-application, study visa, and request for a residence permit.",
+    "For all admission applicants: payment of the EUR 30.00 admission fee by the admission deadline."
+  ],
+  "entry_exam_or_test": "The programme is open-admission but subject to an entry requirements examination by the Admission Board. On the PPPA application page, candidates are told they will be invited to an admission interview; interviews begin in March and run until September in the order completed applications are received, and no specific preparation is required because the interview focuses on academic background and argumentative skills. The admission notice also states that the Board may require an interview and/or a written test, either in person or remotely. Separately, applicants without valid B2 English proof must take the SLAM English entry test under UNIMI's language rules.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/politics-philosophy-and-public-affairs-pppa",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-politics-philosophy-and-public-affairs-%28pppa%29-%28classi-lm-62-r-lm-78-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027. Access: Open with entry requirements examination. Course location: Milan. Language: English.",
+      "url": "https://www.unimi.it/en/education/master-programme/politics-philosophy-and-public-affairs-pppa",
+      "field_refs": [
+        "academic_year",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Application for admission: from 22/01/2026 to 20/07/2026 ... Non-EU students visa applicants ... no later than 30 April 2026.",
+      "url": "https://pppa.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Candidates will be invited to attend an admission interview. Interviews begin in March and run until September.",
+      "url": "https://pppa.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "completed at least 42 credits ... of which at least 12 in the disciplinary fields of M-FIL/03, SPS/01, SPS/02, SPS/04, IUS/20.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_BBJof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Proficiency in English at a B2 level or higher ... The certificate must be uploaded when submitting the online application.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_BBJof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Politics, Philosophy and Public Affairs (PPPA) 31/12/2026",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The online admission service requires the following documents ... Self-certification of degree/enrolment with exam records.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-politics-philosophy-and-public-affairs-%28pppa%29-%28classi-lm-62-r-lm-78-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor’s Degree ... Diploma supplement ... Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-politics-philosophy-and-public-affairs-%28pppa%29-%28classi-lm-62-r-lm-78-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor’s degree ... High school diploma ... Statement of Comparability ... Italian tax code ... residence permit.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-politics-philosophy-and-public-affairs-%28pppa%29-%28classi-lm-62-r-lm-78-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "receipt of the Universitaly pre-application; request for a residence permit; study Visa;",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "required_documents",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Pre-application ... must be presented on the Universitaly website within 31 July 2026, under penalty of exclusion.",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Certificates must have been earned for no more than 3 years at the time of submission (2 years for TOEFL).",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "The general UNIMI international-enrolment page still contains a line saying some non-uploaded documents must be sent 'within 31st January 2026', which conflicts with the programme-specific PPPA 2026/2027 admission notice stating that foreign-qualification documentation must be completed by 30 November 2026. This JSON prioritizes the programme-specific admission notice because it is the source tied directly to PPPA A.Y. 2026/2027."
+  ],
+  "uncertain": []
+}

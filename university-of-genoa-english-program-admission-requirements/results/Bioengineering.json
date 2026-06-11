@@ -1,0 +1,140 @@
+{
+  "program_name": "Bioengineering",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Genoa (Department of Computer Science, Bioengineering, Robotics and Systems Engineering - DIBRIS)",
+  "degree_class": "LM-21 R (Biomedical Engineering)",
+  "admission_type": "open access (free access) with mandatory verification of curricular requirements and assessment of adequacy of personal preparation; no competitive entrance test. Non-EU applicants residing abroad must pass UniGeApply pre-evaluation",
+  "academic_requirements": {
+    "summary": "A first-cycle (bachelor's) degree or recognised equivalent, with specific curricular credits in information-engineering disciplines and a minimum weighted grade average; no written or oral entrance test (documentary assessment only).",
+    "prior_degree_or_diploma": "A bachelor's degree (laurea) or equivalent, in particular the Information Engineering class L-8 (D.M. 270/2004) or an equivalent foreign degree. Direct-admission for University of Genoa graduates in Biomedical, Electronic, Computer or Telecommunications Engineering.",
+    "required_credits_cfu": "At least 36 CFU (or equivalent knowledge) in the scientific-disciplinary sectors (SSD) of the basic-training activities of class L-8 Information Engineering, and at least 45 CFU (or equivalent knowledge) in the characterising sectors ING-INF/01-06 (Automation, Bioengineering, Electronics, Computer Engineering, Telecommunications).",
+    "subject_requirements": "Background in biomedical engineering or other industrial/information engineering fields; also open to graduates from mathematical, physical and natural sciences who meet the curricular credit prerequisites.",
+    "minimum_gpa_or_threshold": "A CFU-weighted grade average of at least 22.50/30, equivalently a Cumulative Grade Point Average (CGPA) of at least 75% of the maximum obtainable. Applicants below 22.50/30 cannot enrol.",
+    "international_qualification": "Holders of foreign qualifications are assessed for equivalence; non-EU candidates residing abroad apply through the UniGeApply pre-evaluation portal (which lists a 75% minimum CGPA and an engineering-bachelor requirement for this master).",
+    "source_url": "https://corsi.unige.it/en/corsi/11933/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English at B2 level.",
+    "accepted_proofs": [
+      "A B2-level English certificate from a recognised body.",
+      "A degree or master's degree taught in English (medium of instruction).",
+      "A B2-level English examination passed within a degree course.",
+      "The free CLAT B2 English test offered by the University of Genoa to prospective Bioengineering students."
+    ],
+    "exemption_rules": [
+      "Holding a degree taught in English (MOI certificate) or having passed a B2 English exam within a degree course satisfies the requirement without a separate certificate."
+    ],
+    "assessment_or_upload_stage": "English proficiency is verified at the assessment / application stage; non-EU applicants upload the certificate (or MOI) on UniGeApply, and candidates without proof may sit the free CLAT B2 test. Holders of foreign qualifications may also be subject to an Italian-language check with supplementary activities assigned on failure.",
+    "source_url": "https://corsi.unige.it/en/corsi/11933/prospective-students-requisites-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Verification (assessment) of adequacy of personal preparation - documentary, not a TOLC or standardized test.",
+    "mandatory": true,
+    "is_selective": false,
+    "applies_to": "Applicants to the master's degree, to confirm adequate preparation against the curricular and grade requirements.",
+    "format": "No interview or written/oral entrance test. Assessment is based on review of the academic record (transcript with weighted average), the CV, and English-language certification.",
+    "dates": "Conducted through the documentary procedure; non-EU applicants are assessed via UniGeApply (no remote interview/test required).",
+    "scoring_or_threshold": "Preparation is adequate if the weighted grade average is at least 22.50/30 (CGPA at least 75% of the maximum); applicants below this threshold are not admitted.",
+    "source_url": "https://corsi.unige.it/en/corsi/11933/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026."
+    ],
+    "enrolment_deadline": "Local pre-enrolment/online enrolment on UniGe online services generally opens in April each year and follows the UniGe enrolment calendar after a positive assessment. [uncertain]",
+    "notes": "EU/resident applicants are assessed via the documentary verification of preparation and are not competitively ranked. The course page does not publish a separate programme-specific first-year EU application deadline, so the institution-wide UniGeApply spring window is used.",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After a positive UniGeApply pre-evaluation, visa applicants complete Universitaly pre-enrolment (Universitaly window 4 May 2026 to 19 June 2026) and then apply for the study visa.",
+    "early_closure": "No programme-specific early closure was found for Bioengineering in the official sources reviewed. [uncertain]",
+    "notes": "Non-EU visa applicants must use the fall session and the UniGeApply portal; an applicant may submit up to two assessment requests.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum vitae et studiorum",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Mandatory for all UniGeApply master's applicants; reviewed in the assessment of preparation.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Proof of the prior first-cycle qualification; for the engineering pathway, evidence of the relevant degree class (e.g. L-8).",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records (list of exams with credits and grades, including the weighted average / CGPA)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Used to verify the 36+45 CFU curricular prerequisites and the 22.50/30 (75% CGPA) minimum.",
+      "source_url": "https://corsi.unige.it/en/corsi/11933/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "English language proficiency certificate (B2) or Medium-of-Instruction (MOI) certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "B2 certificate, English-taught degree, B2 exam in a degree course, or the free CLAT B2 test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11933/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Valid passport (non-EU) or identity document (EU)",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Passport is the only accepted identity document for non-EU applicants on UniGeApply (photo as JPG, supporting documents as PDF up to 2 MB).",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11933/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11933",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "Bioengineering - Teaching language English - Class LM-21 R (Biomedical Engineering) - Genova, 120 CFU",
+      "source_url": "https://corsi.unige.it/en/corsi/11933",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "aimed at graduates from biomedical engineering or other fields of industrial and information engineering, but is also open to graduates from the various fields of mathematical, physical and natural sciences",
+      "source_url": "https://corsi.unige.it/en/corsi/11933",
+      "field_supported": "academic_requirements (subject background)"
+    },
+    {
+      "quote": "at least 36 CFU ... in the scientific disciplinary fields (SSD) indicated for the basic training activities provided by the Degrees of Class L-8 ... at least 45 CFUs, or equivalent knowledge ... ING-INF/01-06",
+      "source_url": "https://corsi.unige.it/en/corsi/11933/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements (required credits)"
+    },
+    {
+      "quote": "To be sufficient in the assessment you must have a cfu-weighted average of 22.50 or higher. Students with a lower average will not be admitted.",
+      "source_url": "https://corsi.unige.it/en/corsi/11933/prospective-students-requisites-assessment",
+      "field_supported": "academic_requirements (GPA threshold), entry_exam_or_test"
+    },
+    {
+      "quote": "B2 certificate; a degree/master's degree taught in English; a B2-level English language examination passed in a degree course",
+      "source_url": "https://corsi.unige.it/en/corsi/11933/prospective-students-requisites-assessment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Bioengineering - Minimum CGPA: 75% - Remote interview/test: No - Only Bachelor in the field of engineering",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "academic_requirements (CGPA), entry_exam_or_test"
+    }
+  ],
+  "uncertainty_notes": [
+    "Teaching language confirmed English and course code 11933 confirmed on the official corsi.unige.it page; this file replaces an earlier flat-string version with the mandatory rich object/array structure.",
+    "The 75% CGPA threshold matches both the official requisites page (22.5/30 = 75%) and the UniGeApply summary; UniGeApply also states no remote interview/test and an engineering-bachelor requirement.",
+    "No programme-specific fall-session early closure was found for Bioengineering; institution-wide UniGeApply windows were used for the application deadlines.",
+    "First-year EU application deadline reflects the institution-wide UniGeApply spring window; the course page only lists the generic enrolment calendar, not a programme-specific first-year EU application deadline."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu"
+  ]
+}

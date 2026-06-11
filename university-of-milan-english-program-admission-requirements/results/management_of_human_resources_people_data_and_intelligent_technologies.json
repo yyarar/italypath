@@ -1,0 +1,215 @@
+{
+  "program_name": "Management of human resources: people, data and intelligent technologies",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milano",
+  "degree_class": "LM-77 R",
+  "admission_type": "Open with entry requirements examination",
+  "academic_requirements": "Applicants need a bachelor's degree or equivalent. The programme page states that candidates should have previous studies or a strong interest in economics, management, sociology, political sciences, or related subjects, plus training in mathematics and quantitative methods or strong motivation to fill those gaps quickly. The admission notice specifies that applicants with an Italian degree are directly eligible if they hold class L-16, L-18, L-33, L-36, or L-41. Applicants with other Italian degrees are eligible if they have at least 18 ECTS in economics, business/management, mathematics/statistics, or law, including at least 12 ECTS in the quantitative-economic areas listed in the notice. Applicants with a foreign degree are eligible if they hold a bachelor's degree in economics, political sciences, or related subjects, or another degree with comparable skills in logic, statistics, and mathematics. Admission is merit-based and considers the full academic record and consistency with the programme profile. Candidates may complete the degree and curricular requirements by 31 December 2026.",
+  "language_requirements": "English proficiency at CEFR B2 or higher is required for admission. The requirement is checked by the University Language Centre (SLAM) and can be satisfied with a recognized certificate, with a certificate already validated by SLAM during a previous UniMi programme within the last four years, or through the SLAM entry test if the candidate does not already hold a valid qualification. Recognized certificates must cover reading, writing, listening, and speaking; the programme page says certificates must be no more than three years old when submitted, and the official accepted-certificates page states TOEFL validity is two years while the other listed certificates are valid for three years. The MHR enrolment page for A.Y. 2026/2027 states that candidates who do not take or do not pass the SLAM test may still meet the requirement by sending a valid certificate through InformaStudenti by 31 December 2026.",
+  "application_deadline_eu": "Application for admission: 22 January 2026 to 20 July 2026.",
+  "application_deadline_non_eu": "Application for admission for non-EU applicants requiring a visa: no later than 30 April 2026. The general admission window shown on the programme page is 22 January 2026 to 20 July 2026.",
+  "required_documents": [
+    "Application form submitted through the UniMi online admission service.",
+    "Receipt proving payment of the EUR 30 admission fee.",
+    "Detailed curriculum vitae in the MHR-required format, including weighted average grade or final grade and the grading scale used by the university of origin.",
+    "Bachelor's degree certificate or, for candidates still graduating, enrolment/self-certification with the full record of passed exams, grades, ECTS credits, scientific-disciplinary sectors when applicable, pending exams, and expected graduation date.",
+    "Transcript of records or diploma supplement showing courses taken, grades, credits, degree class or academic field, and grading system; foreign applicants must provide a validated English version if the original is in another language.",
+    "Valid passport or identity document.",
+    "Valid B2-or-higher English certificate, if the applicant uses a certificate route instead of or after the SLAM test.",
+    "For enrolment with a foreign qualification: legalized or apostilled bachelor's degree.",
+    "For enrolment with a foreign qualification: high school diploma.",
+    "Official Italian translation of the foreign qualification documents, unless the originals are issued in English, French, German, or Spanish.",
+    "Statement of Comparability issued by CIMEA or another ENIC-NARIC centre, or a Declaration of Value when required by the enrolment rules; the notice also accepts a diploma supplement or ARDI where applicable under the Lisbon Recognition Convention.",
+    "Italian tax code.",
+    "For non-EU students: residence permit card, residence permit application receipt, or proof of equivalent lawful status in Italy at enrolment stage."
+  ],
+  "entry_exam_or_test": "Admission is based on an assessment of the application file and an online admission test. The MHR A.Y. 2026/2027 enrolment page states that all candidates who pass the first evaluation phase are invited to take a 45-minute online test made up of multiple-choice, open-ended, and motivational questions. The final selection score is split into 65 points for academic and curricular profile and 35 points for the admission test. Separately, candidates who do not already satisfy the English requirement through an accepted certificate or a recent SLAM validation may need to take the SLAM English entry test according to the official calendar.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/financial-support/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/management-human-resources-people-data-and-intelligent-technologies",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-management-of-human-resource-people-data-and-intelligent-technologies.pdf?30-MAR-26",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027",
+      "url": "https://www.unimi.it/en/education/master-programme/management-human-resources-people-data-and-intelligent-technologies",
+      "field_refs": [
+        "academic_year"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Master programme",
+      "url": "https://www.unimi.it/en/education/master-programme/management-human-resources-people-data-and-intelligent-technologies",
+      "field_refs": [
+        "level"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Access: Open with entry requirements examination",
+      "url": "https://www.unimi.it/en/education/master-programme/management-human-resources-people-data-and-intelligent-technologies",
+      "field_refs": [
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Course location: Milano",
+      "url": "https://www.unimi.it/en/education/master-programme/management-human-resources-people-data-and-intelligent-technologies",
+      "field_refs": [
+        "campus"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Language: English",
+      "url": "https://www.unimi.it/en/education/master-programme/management-human-resources-people-data-and-intelligent-technologies",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "LM-77 R",
+      "url": "https://www.unimi.it/en/education/master-programme/management-human-resources-people-data-and-intelligent-technologies",
+      "field_refs": [
+        "degree_class"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "bachelor's degree or equivalent",
+      "url": "https://www.unimi.it/en/education/master-programme/management-human-resources-people-data-and-intelligent-technologies",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "L-16, L-18, L-33, L-36, L-41",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-management-of-human-resource-people-data-and-intelligent-technologies.pdf?30-MAR-26",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "at least 18 ECTS credits",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-management-of-human-resource-people-data-and-intelligent-technologies.pdf?30-MAR-26",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "B2 or higher",
+      "url": "https://www.unimi.it/en/education/master-programme/management-human-resources-people-data-and-intelligent-technologies",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "no more than 3 years old",
+      "url": "https://www.unimi.it/en/education/master-programme/management-human-resources-people-data-and-intelligent-technologies",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "by 31 December 2026",
+      "url": "https://mhr.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "from 22/01/2026 to 20/07/2026",
+      "url": "https://www.unimi.it/en/education/master-programme/management-human-resources-people-data-and-intelligent-technologies",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "no later than 30 April 2026",
+      "url": "https://www.unimi.it/en/education/master-programme/management-human-resources-people-data-and-intelligent-technologies",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "curriculum vitae",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-management-of-human-resource-people-data-and-intelligent-technologies.pdf?30-MAR-26",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "degree certificate / diploma supplement / transcript",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-management-of-human-resource-people-data-and-intelligent-technologies.pdf?30-MAR-26",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "passport",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-management-of-human-resource-people-data-and-intelligent-technologies.pdf?30-MAR-26",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "residence permit application receipt",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-management-of-human-resource-people-data-and-intelligent-technologies.pdf?30-MAR-26",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "45-minute online admission test",
+      "url": "https://mhr.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "65 points and 35 points",
+      "url": "https://mhr.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "First instalment: 156 euro",
+      "url": "https://www.unimi.it/en/study/financial-support/fees-and-how-pay-them",
+      "field_refs": [
+        "tuition_or_fees_link"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Access procedures: open, subject to entry requirements",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_BBOof1_2027.pdf",
+      "field_refs": [
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "The manifesto PDF title uses the singular form 'Management of Human Resource', while the programme page and the 2026 admission notice use 'Management of human resources'; the programme page title was used as the canonical programme name.",
+    "An older FAQ PDF on the MHR site says that a missed English requirement can be regularized by 31 July, but the A.Y. 2026/2027 enrolment page says a valid certificate may be uploaded by 31 December 2026 after a missed or failed SLAM test. The newer 2026/2027 enrolment page was treated as authoritative."
+  ],
+  "uncertain": []
+}

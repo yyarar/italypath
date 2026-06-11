@@ -1,0 +1,145 @@
+{
+  "program_name": "Safe Transport and Logistics Engineering",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Genoa",
+  "degree_class": "LM-26 R (Safety Engineering)",
+  "admission_type": "open access (free access subject to a mandatory verification of personal preparation)",
+  "academic_requirements": {
+    "summary": "Free-access (non-restricted) master's programme. Admission requires a recognised Bachelor's degree plus the curricular subject credits below, and a mandatory verification of personal preparation. There is no selection ranking; candidates either meet a grade-based automatic exemption or must pass a pass/fail readiness test.",
+    "prior_degree_or_diploma": "A Bachelor's degree of at least 180 CFU/ECTS obtained at an Italian university, or an equivalent foreign qualification recognised as suitable.",
+    "required_prior_credits": "At least 36 CFU/ECTS (or equivalent knowledge) in the basic-activities scientific-disciplinary sectors (SSD) of bachelor classes L-7, L-8 and L-9, plus at least 45 CFU (or equivalent knowledge) in the characterising-activities SSD of classes L-7, L-8 and L-9. All Engineering bachelor's degrees provided by Italian universities are stated to meet the curricular requirements.",
+    "subject_requirements": "Adequate knowledge of fundamental notions in basic subjects (e.g. mathematics and physics) as well as applied and professional engineering topics; the committee also considers the curriculum of the three-year degree.",
+    "gpa_threshold": "Candidates whose Bachelor's degree final mark is at least 9/10 of the maximum (or corresponds to ECTS grade 'A' or 'B') are automatically deemed adequate and are exempted from the readiness test.",
+    "international_qualification": "Non-EU candidates residing abroad with a foreign qualification apply through the UniGeApply (Apply UniGe) portal for pre-evaluation, then complete Universitaly pre-enrolment and obtain a study visa via the Italian Embassy/Consulate.",
+    "source_url": "https://corsi.unige.it/en/corsi/11920/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English B2 or higher (mandatory).",
+    "accepted_proofs": [
+      "A recognised English-language certificate at level B2 or higher among those accepted by the University (listed on the CLAT page, https://clat.unige.it/en/CertificazioniRiconosciute).",
+      "The B2 test offered by the University Language Centre (CLAT).",
+      "A degree taught entirely in English, certified officially."
+    ],
+    "exemption_rules": [
+      "Holding a recognised B2-or-higher English certificate (or an officially certified English-medium degree) exempts the candidate from English-language verification.",
+      "Candidates without an accepted proof must have their English knowledge verified during the personal-preparation test."
+    ],
+    "assessment_or_upload_stage": "English proficiency is verified at the personal-preparation (readiness) stage; candidates without an accepted certificate are assessed for English during the readiness test.",
+    "source_url": "https://corsi.unige.it/en/corsi/11920/prospective-students-requisites-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Verification of personal preparation (assessment of adequacy of personal readiness) - a departmental written test or public interview. NOT a TOLC.",
+    "mandatory": true,
+    "is_selective": false,
+    "applies_to": "Applicants who do not qualify for the grade-based automatic exemption (Bachelor's final mark below 9/10 of the maximum / below ECTS 'A'-'B').",
+    "format": "Written test or public interview before a commission of faculty members, assessing general preparation in basic subjects (e.g. mathematics, physics) and applied/professional engineering topics. English knowledge is also checked here for candidates without an accepted B2 proof.",
+    "dates": "Five scheduled sessions for A.Y. 2026/2027: 8 September 2026, 28 September 2026, 18 November 2026, 18 January 2027, and 26 February 2027.",
+    "scoring_or_threshold": "Outcome is recorded as 'passed' or 'failed' only; there is no numerical ranking. A pass (or the grade-based exemption) is required for enrolment.",
+    "source_url": "https://corsi.unige.it/en/corsi/11920/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026.",
+      "Pre-registration (master's) on the UniGe portal: from 9 April to 30 November 2026 (until 10 March 2027 with late payment)."
+    ],
+    "enrolment_deadline": "Confirmation of enrolment from 15 July 2026 to 30 November 2026 (until 10 March 2027 with late payment). Enrolment in years after the first runs 15 July to 5 October 2026, with arrears accepted 6 October to 5 November 2026.",
+    "notes": "This is a free-access (open) programme, so EU/resident applicants are not ranked; the personal-preparation test is pass/fail and does not gate via a ranking. The programme deadlines page lists the generic UniGe enrolment calendar; the institution-wide spring UniGeApply window applies to non-EU residents in Italy.",
+    "source_url": "https://corsi.unige.it/en/corsi/11920/prospective-students-deadlines"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After receiving eligibility via UniGeApply, visa applicants complete Universitaly pre-enrolment and then apply for the study visa at the Italian Embassy/Consulate.",
+    "early_closure": "None published for this programme. The known fall-session early closures for A.Y. 2026/27 (Medical-Pharmaceutical Biotechnology 13 Feb 2026, Maritime Science and Technology 18 Feb 2026, Computer Engineering bachelor 8 Mar 2026) do NOT include Safe Transport and Logistics Engineering.",
+    "notes": "Non-EU visa applicants must use the fall session; the UniGeApply fall window for A.Y. 2026/27 (closed 20 March 2026) has already passed as of the research date (10 June 2026).",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport (non-EU) or national identity card (EU)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Passport is the only document accepted for non-EU applicants on UniGeApply; EU applicants may use a national identity card.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional) and transcript of records",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Uploaded on UniGeApply for pre-evaluation of the foreign qualification and curricular requirements.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Curriculum vitae",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Listed among UniGeApply submissions for master's pre-evaluation.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "English language proficiency certificate (B2 or higher) or Medium of Instruction (MOI) certificate",
+      "stage": "application/enrolment",
+      "required_for": "all",
+      "notes": "Required to satisfy the B2 English requirement; candidates without an accepted proof are assessed during the readiness test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11920/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Declaration of Value / CIMEA Statement of Comparability and legalization of the foreign qualification",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU visa applicants with a foreign qualification to finalise enrolment; obtained via the Italian Embassy/Consulate or CIMEA.",
+      "source_url": "https://unige.it/en/international-enrolment"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and study-visa evidence",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Visa applicants complete Universitaly pre-enrolment after UniGeApply eligibility, then apply for the study visa.",
+      "source_url": "https://unige.it/en/international-enrolment"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11920/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11920",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "SAFE TRANSPORT AND LOGISTICS ENGINEERING, Course Code 11920, Degree Class LM-26 R (Safety Engineering), Teaching Language English, Campus Genova, 120 CFU, 2 years",
+      "source_url": "https://corsi.unige.it/en/corsi/11920",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "This degree course is free access, but requires a test to be passed.",
+      "source_url": "https://corsi.unige.it/en/corsi/11920",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Bachelor's degree (of at least 180 CFU/ECTS) ... at least 36 CFU/ECTS or equivalent knowledge in the basic educational activities ... at least 45 CFU or equivalent knowledge in the characterizing activities for classes L-7, L-8, L-9. All the Bachelors in Engineering provided by Italian Universities meet the curricular requirements.",
+      "source_url": "https://corsi.unige.it/en/corsi/11920/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Students with an Italian bachelor's degree and a final mark of at least 9/10 ... are automatically verified as meeting adequacy requirements and skip the test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11920/prospective-students-requisites-assessment",
+      "field_supported": "academic_requirements, entry_exam_or_test"
+    },
+    {
+      "quote": "Adequate knowledge of the English language equivalent at least to the B2 level ... certification (listed at clat.unige.it/en/CertificazioniRiconosciute) ... University Language Centre B2 test ... a degree taught entirely in English; if none apply, language knowledge must be verified during the personal preparation test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11920/prospective-students-requisites-assessment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Five scheduled sessions: September 8 & 28, November 18, January 18, and February 26.",
+      "source_url": "https://corsi.unige.it/en/corsi/11920/prospective-students-requisites-assessment",
+      "field_supported": "entry_exam_or_test"
+    }
+  ],
+  "uncertainty_notes": [
+    "The corsi.unige.it deadlines page lists the generic UniGe enrolment calendar (pre-registration, confirmation, post-first-year and transfers) and does not separate EU vs non-EU first-year application windows; the institution-wide UniGeApply spring (residents) and fall (visa) windows were used to fill those.",
+    "No programme-specific fall-session early closure is published for Safe Transport and Logistics Engineering for A.Y. 2026/27.",
+    "Test session dates are given on the requisites page as day/month without explicit years; mapped to A.Y. 2026/27 (Sep/Nov 2026 and Jan/Feb 2027) consistent with the academic calendar.",
+    "The CLAT certificate-list URL was reported in two forms; the English path (clat.unige.it/en/CertificazioniRiconosciute) is used here."
+  ],
+  "uncertain": []
+}

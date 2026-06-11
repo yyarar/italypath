@@ -1,0 +1,168 @@
+{
+  "program_name": "Mechatronic Engineering",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale / 2nd cycle)",
+  "teaching_language": "English",
+  "is_fully_english_programme": true,
+  "has_complete_english_track": true,
+  "english_track_name": null,
+  "campus": "Torino (Main Campus), Politecnico di Torino. Collegio di Ingegneria Informatica, del Cinema e Meccatronica. NOTE: the official programme page attributes the programme to the Department of Electronics and Telecommunications (DET), while the Academic Regulations PDF lists the Department of Control and Computer Engineering (DAUIN). [uncertain]",
+  "degree_class": "LM-25 (Automation Engineering / Ingegneria dell'automazione)",
+  "double_degree_or_erasmus_mundus": "Not an Erasmus Mundus Joint Master. The programme-details page states that during the programme a student may go abroad for study or thesis-related internship and 'will be able to earn a double degree' (optional, partner-dependent). Specific partner agreements, selection rules and fees are not enumerated on the official pages reviewed; the double degree is optional and not required for standard admission. [uncertain]",
+  "admission_type": "evaluation/CV",
+  "admission_test_type": "No entrance test. Admission is by evaluation of the qualification/curriculum: verification of curricular requirements (SSD credit minimums) plus suitable academic performance, carried out by the Academic Advisor of the degree programme (or a delegate). For applicants with a non-Italian qualification, academic performance and consistency with the PoliTo programme are assessed by professors designated by the Coordinator of the Collegio on the Apply@polito platform.",
+  "applicant_route": [
+    "Applicants with an Italian qualification (Politecnico di Torino graduates)",
+    "Applicants with an Italian qualification (graduates of other Italian universities)",
+    "EU qualification applicants",
+    "Non-EU applicants residing in Italy (with valid residence permit)",
+    "Non-EU applicants residing abroad and requiring a visa (the route for Turkish applicants with a non-Italian qualification)"
+  ],
+  "admission_call_round": [
+    "1st call (A.Y. 2026/27, non-Italian qualification): closing 13 February 2026 at 2:00 p.m. (Italian time); results around 15 April 2026.",
+    "2nd call (A.Y. 2026/27, non-Italian qualification): closing 20 April 2026 at 2:00 p.m. (Italian time); results around 22 June 2026.",
+    "Deadlines extended by 15 days by decree DR 96/2026. No programme-specific special call applies to Mechatronic Engineering — it follows the standard Engineering-area evaluation calls (admission is uncapped/evaluation-based)."
+  ],
+  "special_call_flag": false,
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "application_platform": "Apply@polito (didattica.polito.it Teaching Portal, 'applicants with a non-Italian qualification' section) for the online application and evaluation. Non-EU applicants residing abroad and requiring a visa must additionally submit a pre-enrolment application via the UNIVERSITALY portal to obtain a type-D study visa.",
+  "academic_requirements": {
+    "qualification": "A three-year Bachelor's degree or university diploma, or an educational qualification obtained outside Italy recognized as suitable for admission.",
+    "automatic_eligibility": "Curricular requirements are automatically met by applicants holding a Bachelor's degree belonging to Italian classes L-8 or L-9. In all other cases the application is evaluated against the credit minimums below by the Academic Advisor (or delegate).",
+    "curricular_requirement_basic_sciences": "At least 40 credits (CFU/ECTS) in the Scientific Disciplinary Fields (SSD): CHIM/07, FIS/01, FIS/03, ING-INF/05, MAT/02, MAT/03, MAT/05, MAT/08.",
+    "curricular_requirement_specific_subjects": "At least 60 credits (CFU/ECTS) in the SSD: FIS/04, ICAR/01, ING-IND/04, ING-IND/05, ING-IND/08, ING-IND/10, ING-IND/12, ING-IND/13, ING-IND/14, ING-IND/15, ING-IND/16, ING-IND/17, ING-IND/21, ING-IND/31, ING-IND/32, ING-IND/34, ING-IND/35, ING-INF/01, ING-INF/02, ING-INF/03, ING-INF/04, ING-INF/05, ING-INF/06, ING-INF/07, SPS/09. (Credits in SSDs appearing in both groups are counted first toward the 40-credit group; the remainder toward the 60-credit group.)",
+    "adequate_background": "A BSc in electronic, mechanical, computer, electric, aerospace, telecommunications or automobile engineering provides an adequate background for direct enrolment.",
+    "shortfall_handling": "Applicants lacking fewer than 10 credits may be admitted by the Academic Advisor. Lacking more than 10 credits is subject to final approval by the Coordinator/Vice-coordinator. Those not meeting the curricular requirements must make up missing credits before enrolment via single courses (up to 60 credits) or Bachelor-level credit transfer (more than 60 credits).",
+    "academic_performance": "Applicants must have suitable academic performance and an English language certificate at CEFR B2 level or above.",
+    "non_italian_qualification_specific": "Applicants with a non-Italian qualification must hold a degree from an accredited/recognized foreign university earned after at least 15 years of total education (primary + secondary + university), with at least 3 years at university level and at least 180 ECTS credits or equivalent. Pre-university/foundation years do not count toward the minimum years or credits. Academic performance and consistency with the PoliTo programme are assessed by designated professors on Apply@polito."
+  },
+  "country_specific_eligibility": "Turkish applicants hold a non-Italian qualification and are treated as non-EU. They must satisfy the 15-years-of-total-education / 180-ECTS / 3-years-university rule and submit their bachelor's qualification with a Declaration of Value (Dichiarazione di Valore) issued by the competent Italian Embassy/Consulate OR a CIMEA Statement of Comparability (compulsory for enrolment). No Turkey-specific table was published on the official pages; general non-Italian-qualification rules apply. [uncertain]",
+  "minimum_background_or_credits": "Curricular requirements auto-met by L-8 or L-9 bachelors. Otherwise: minimum 40 ECTS in basic-science SSD (CHIM/07, FIS/01, FIS/03, ING-INF/05, MAT/02, MAT/03, MAT/05, MAT/08) AND minimum 60 ECTS in specific SSD (FIS/04, ICAR/01, ING-IND/04, 05, 08, 10, 12, 13, 14, 15, 16, 17, 21, 31, 32, 34, 35; ING-INF/01, 02, 03, 04, 05, 06, 07; SPS/09). Grade thresholds (weighted average on /30 after subtracting the worst 28 credits): PoliTo graduates — none if bachelor earned in 4 years or less, >=21/30 if between 4 and 5 years, >=24/30 if more than 5 years; other Italian-university graduates — >=24/30 regardless of duration.",
+  "language_requirements": {
+    "english": "English language certificate at CEFR B2 level or above is mandatory for admission to this fully English-taught programme. Accepted certificates are those in PoliTo's official table (IELTS, TOEFL iBT, TOEIC, Cambridge English, Pearson PTE, etc.).",
+    "italian": "No Italian certificate is required (the entire programme is taught in English).",
+    "exemptions": "Holders of a qualification taught fully in English are generally exempt; check the official certificate table/Annex (CLA) for exemption criteria. [uncertain]",
+    "submission": "The English certificate must be uploaded in the application during the relevant call and is required for a positive evaluation and for enrolment."
+  },
+  "english_certificate_codes": "For TOEFL/TOEIC, applicants indicate PoliTo institution code C285. For Cambridge English, share results online and provide the Candidate ID number.",
+  "language_submission_timing": "The English (B2+) certificate must be submitted with the online application during the chosen call; it is required for a positive evaluation and for enrolment. Exact per-call language cut-off date for masters not separately published beyond the call closing dates. [uncertain]",
+  "application_deadline_eu": {
+    "1st_call": "Closing 13 February 2026 at 2:00 p.m. (Italian time).",
+    "2nd_call": "Closing 20 April 2026 at 2:00 p.m. (Italian time).",
+    "note": "Same call windows apply to EU applicants, non-EU residing in Italy, and non-EU residing abroad. Deadlines extended by 15 days by decree DR 96/2026. Specific EU-only enrolment dates are published on the general master's admissions pages. [uncertain]"
+  },
+  "application_deadline_non_eu": {
+    "1st_call": "Closing 13 February 2026 at 2:00 p.m. (Italian time). Results around 15 April 2026.",
+    "2nd_call": "Closing 20 April 2026 at 2:00 p.m. (Italian time). Results around 22 June 2026.",
+    "study_visa_preenrolment": "UNIVERSITALY pre-enrolment for the study visa: by 15 May 2026 (1st call) / by 15 July 2026 (2nd call).",
+    "enrolment_documents_upload": "Mandatory enrolment documents by 5 October 2026.",
+    "study_visa_type_d_upload": "Type-D study visa by 30 November 2026.",
+    "note": "Deadlines extended 15 days by decree DR 96/2026. Turkish applicants (non-EU, visa-required) use this route."
+  },
+  "universitaly_preenrolment_deadline": "Non-EU applicants residing abroad and requiring a visa must submit the visa pre-enrolment application via the UNIVERSITALY portal by 15 May 2026 (1st call) or by 15 July 2026 (2nd call) - separate from, and in addition to, the Apply@polito application. UNIVERSITALY pre-enrolment is mandatory for a type-D study visa and does not replace the PoliTo eligibility procedure. (The 1st-call UNIVERSITALY date appears as 15 May 2026 on the official non-Italian-qualification page; sibling programmes recorded 30 May 2026 — re-verify against the live page near the deadline.) [uncertain]",
+  "application_fee": "No application/evaluation fee for the master's admission is stated on the official non-Italian-qualification pages (master's admission is by evaluation, not by a paid test). [uncertain]",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport (or ID card for EU nationals; Latin-alphabet ID)",
+    "Residence permit (non-EU citizens residing in Italy)",
+    "Bachelor's degree or provisional/final graduation document",
+    "Official Transcript of Records",
+    "Syllabus / course descriptions (to assess curricular SSD credits)",
+    "Curriculum Vitae (CV)",
+    "English language certificate at CEFR B2 or above (or valid exemption)",
+    "Dichiarazione di Valore (Declaration of Value) of the Bachelor's degree OR CIMEA Statement of Comparability (compulsory for enrolment)",
+    "For enrolment (non-EU residing abroad): type-D Student Visa and UNIVERSITALY pre-enrolment confirmation"
+  ],
+  "document_translation_authentication": "Foreign qualifications require either a Declaration of Value (Dichiarazione di Valore) issued by the competent Italian Embassy/Consulate or a CIMEA Statement of Comparability issued by the Italian ENIC-NARIC centre (compulsory for enrolment). Documents not in Italian/English typically require an official translation. Turkish-language documents must be accompanied by an official English/Italian translation. [uncertain]",
+  "entry_exam_or_test": "No entry exam or admission test. Admission is by evaluation of the qualification/curriculum: verification of curricular requirements (SSD credit minimums; auto-met for L-8/L-9 bachelors) plus suitable academic performance (grade thresholds and/or consistency assessment). For non-Italian-qualification applicants the evaluation is performed by designated professors on the Apply@polito platform, with a positive evaluation constituting an offer of admission valid only for the academic year of application.",
+  "test_score_or_threshold": "No test score. Grade thresholds for academic performance (weighted average /30, after subtracting the worst 28 credits): PoliTo graduates - none if bachelor completed in 4 years or less, >=21/30 if between 4 and 5 years, >=24/30 if more than 5 years; other Italian-university graduates - >=24/30 regardless of duration. Non-Italian-qualification applicants are assessed for academic performance and consistency by designated professors (no fixed numeric cut-off published). Missing curricular credits trigger make-up requirements (single courses up to 60 CFU; credit transfer above 60 CFU).",
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/mechatronic-engineering",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/mechatronic-engineering/programme-curriculum",
+  "source_quotes": [
+    {
+      "quote": "Degree Class: LM-25: AUTOMATION ENGINEERING ... Language: English ... Campus/Location: Main Campus ... Admissions: Uncapped number of students, evaluation of the admission requirements.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/mechatronic-engineering",
+      "supports_fields": ["program_name", "degree_class", "teaching_language", "is_fully_english_programme", "campus", "admission_type", "special_call_flag"]
+    },
+    {
+      "quote": "The Master's degree programme is English-taught and builds on the foundational knowledge acquired in previous Bachelor's studies. ... The programme has six specialized tracks ... Control Technologies for Industry 4.0; Software Technologies for Automation; HW & Embedded Systems for Industry 4.0; Technologies for eMobility; Industrial Technologies & Applications; Technologies for Space Applications.",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_MECHATRONIC%20ENG%2025_26.pdf",
+      "supports_fields": ["is_fully_english_programme", "has_complete_english_track", "teaching_language", "english_track_name"]
+    },
+    {
+      "quote": "The curricular requirements are automatically met by the applicants who have a Bachelor's degree belonging to classes L-8 o L-9. In all other cases ... at least 40 credits in the following Scientific Disciplinary Fields ... CHIM/07, FIS/01, FIS/03, ING-INF/05, MAT/02, MAT/03, MAT/05, MAT/08 ... and ... at least 60 credits earned in the following Scientific Disciplinary Fields ... FIS/04, ICAR/01, ING-IND/04, ING-IND/05, ING-IND/08, ING-IND/10, ING-IND/12, ING-IND/13, ING-IND/14, ING-IND/15, ING-IND/16, ING-IND/17, ING-IND/21, ING-IND/31, ING-IND/32, ING-IND/34, ING-IND/35, ING-INF/01, ING-INF/02, ING-INF/03, ING-INF/04, ING-INF/05, ING-INF/06, ING-INF/07, SPS/09.",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_MECHATRONIC%20ENG%2025_26.pdf",
+      "supports_fields": ["academic_requirements", "minimum_background_or_credits"]
+    },
+    {
+      "quote": "Applicants must have a suitable academic performance and an English language certificate (B2 level or above, as defined by the Common European Framework of Reference for Languages ... CEFR).",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_MECHATRONIC%20ENG%2025_26.pdf",
+      "supports_fields": ["language_requirements", "academic_requirements"]
+    },
+    {
+      "quote": "Applicants from Politecnico di Torino ... 4 years or less - no exam average grade required; between 4 and 5 years - exam weighted average grade required: >=21/30; more than 5 years - exam weighted average grade required: >= 24/30. ... Applicants who have a Bachelor's degree awarded by another Italian university must have a weighted average grade of all the exams >= 24/30, regardless of the number of years it took them to graduate.",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_MECHATRONIC%20ENG%2025_26.pdf",
+      "supports_fields": ["test_score_or_threshold", "minimum_background_or_credits"]
+    },
+    {
+      "quote": "Applicants who lack less than 10 credits may be admitted to the programme by the Academic Advisor. For applicants who lack more than 10 credits, the evaluation will be subject to the final approval of the Coordinator or the Vice coordinator ... make up ... by means of: enrolment in single courses ... (up to a maximum of 60 credits) ... or else, credit transfer at Bachelor's level ... (more than 60 credits).",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_MECHATRONIC%20ENG%2025_26.pdf",
+      "supports_fields": ["academic_requirements", "test_score_or_threshold"]
+    },
+    {
+      "quote": "To be admitted to Politecnico Master's degree programmes, applicants must have an academic qualification awarded by an accredited/recognized foreign university, earned after completing at least 15 years of total education ... at least 3 years at university level ... at least 180 ECTS credits or equivalent. ... The evaluation is carried out on the Apply@polito ... designated by Coordinator of the Collegio.",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_MECHATRONIC%20ENG%2025_26.pdf",
+      "supports_fields": ["academic_requirements", "country_specific_eligibility", "applicant_route", "application_platform"]
+    },
+    {
+      "quote": "1st Call closing 13 February 2026, 2:00 p.m. (Italian time); results around 15 April 2026. 2nd Call closing 20 April 2026, 2:00 p.m. (Italian time); results around 22 June 2026. Pre-enrolment deadline (Study Visa): 15 May 2026 (1st call) / 15 July 2026 (2nd call). Deadlines extended 15 days by decree DR 96/2026.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["admission_call_round", "application_deadline_eu", "application_deadline_non_eu", "universitaly_preenrolment_deadline"]
+    },
+    {
+      "quote": "Required Documents: Passport or ID, Bachelor's degree or provisional graduation document, Official Transcript of Records, Syllabus/Course descriptions, Language certificate (English B2+), Declaration of Value or CIMEA Statement of Comparability. TOEFL/TOEIC code C285; Cambridge: Candidate's ID. Platform: Apply@PoliTO.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["required_documents", "document_translation_authentication", "english_certificate_codes", "application_platform"]
+    },
+    {
+      "quote": "During the programme, you can also decide to go abroad for a period of study or for an internship related your thesis and you will be able to earn a double degree.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/mechatronic-engineering/programme-details",
+      "supports_fields": ["double_degree_or_erasmus_mundus"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/mechatronic-engineering",
+    "https://www.polito.it/en/education/master-s-degree-programmes/mechatronic-engineering/programme-curriculum",
+    "https://www.polito.it/en/education/master-s-degree-programmes/mechatronic-engineering/programme-details",
+    "https://www.polito.it/en/education/master-s-degree-programmes/mechatronic-engineering/faqs",
+    "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_MECHATRONIC%20ENG%2025_26.pdf",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "BROAD English rule confirmed TRUE: the official programme page lists Degree Class 'LM-25: AUTOMATION ENGINEERING' with 'Language: English', and the Academic Regulations PDF states 'The Master's degree programme is English-taught.' The programme-curriculum page shows all courses across all six specialized tracks (Control Technologies for Industry 4.0; Software Technologies for Automation; HW & Embedded Systems for Industry 4.0; Technologies for eMobility; Industrial Technologies & Applications; Technologies for Space Applications) flagged English. is_fully_english_programme = TRUE; has_complete_english_track = TRUE; english_track_name is null because the entire programme is in English (the six tracks are specializations, not language tracks).",
+    "Degree class CONFIRMED as LM-25 (Automation Engineering) on the official programme page — the item's 'LM-25 / LM-33' is incorrect; this programme is LM-25 only.",
+    "Department discrepancy: the official programme page attributes Mechatronic Engineering to the Department of Electronics and Telecommunications (DET), while the 2025/26 Academic Regulations PDF header lists the Department of Control and Computer Engineering (DAUIN). Both belong to the Collegio di Ingegneria Informatica, del Cinema e Meccatronica. Flagged for campus field.",
+    "official_call_url: no single programme-specific 'Call for Applications' PDF exists for Mechatronic Engineering because master's admission is uncapped/evaluation-based (not a ranked selection call). The governing official sources are the non-Italian-qualification master's admission page and the Mechatronic Engineering Academic Regulations PDF. The Academic Regulations PDF retrieved is labelled A.Y. 2025/2026 (latest published); the 2026/27 programme page confirms the same uncapped evaluation structure and the same six tracks, but a 2026/27 regulations PDF may differ slightly in wording.",
+    "Application deadlines (1st call closing 13 Feb 2026; 2nd call closing 20 Apr 2026; results ~15 Apr / ~22 Jun 2026; UNIVERSITALY 15 May / 15 Jul 2026; enrolment docs by 5 Oct 2026; type-D visa by 30 Nov 2026) come from the official PoliTo non-Italian-qualification master's page reflecting the DR 96/2026 15-day extension. The 1st-call UNIVERSITALY date returned as 15 May 2026 on the live page, whereas sibling programme files recorded 30 May 2026; re-verify against the live page near the deadline.",
+    "No master's application/evaluation fee is documented on the official non-Italian-qualification pages; flagged uncertain because a per-application fee was not explicitly confirmed as absent.",
+    "Country-specific (Turkey) details: no Turkey-specific qualification table was published; the general non-Italian-qualification rules (15 years total education, 180 ECTS, 3 years university, Declaration of Value or CIMEA) were applied. CIMEA Statement of Comparability is compulsory for enrolment.",
+    "English certificate exemptions and the exact per-call language certificate cut-off date for masters were not pinned to a single explicit sentence; the B2+ requirement and code C285 are confirmed.",
+    "double_degree_or_erasmus_mundus: the programme-details page mentions an optional double-degree possibility while studying abroad; specific partners, selection and fees are not enumerated on the official pages reviewed. It is optional and not required for standard admission.",
+    "tuition_or_fees_link points to the official PoliTo right-to-education/tuition hub; the specific master's fee amounts are on the linked '/tuition-fees' subpage and were not enumerated here."
+  ],
+  "uncertain": [
+    "campus",
+    "double_degree_or_erasmus_mundus",
+    "country_specific_eligibility",
+    "language_requirements.exemptions",
+    "language_submission_timing",
+    "application_deadline_eu",
+    "universitaly_preenrolment_deadline",
+    "application_fee",
+    "document_translation_authentication"
+  ]
+}

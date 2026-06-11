@@ -1,0 +1,121 @@
+{
+  "program_name": "Interaction Design",
+  "level": "bachelor",
+  "official_level_type": "Catalogue Level: Bachelor of Science",
+  "teaching_language": "ENG",
+  "campus": "Lecco",
+  "degree_class": "Not found in checked official catalogue/programme page [uncertain].",
+  "study_area": "Design",
+  "partner_institution": null,
+  "programme_approval_status": null,
+  "official_program_url": "https://www.polimi.it/en/education/laurea-programmes/programme-detail/interaction-design",
+  "admission_type": "TOLD / selection call / restricted ranking",
+  "school_specific_admission_rule": "Design admission route; verify the programme-specific call and applicant route before advising a student.",
+  "applicant_route": [
+    "Italian/equivalent qualification",
+    "foreign qualification",
+    "EEA",
+    "non-EEA abroad",
+    "non-EEA resident in Italy"
+  ],
+  "application_platform": "Politecnico di Milano Online Services; Universitaly/visa route may apply to non-EU applicants [uncertain].",
+  "application_round": {
+    "summary": "School of Design Laurea admission is ranking-based around the TOLD/test route. The official 2026/2027 enrolment page reports the first ranking on 8 June 2026, enrolment by 10 June 2026 at 23:59 CEST, and interest expression by 11 June 2026 at 11:59 CEST. Later rankings/second phase must be checked in the call.",
+    "sources": [
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/design/when-and-how-to-enrol",
+      "https://www.polimi.it/fileadmin/user_upload/futuri_studenti/Design_LT/Call_for_admission_Design26-27_EN.pdf"
+    ]
+  },
+  "intake_semester_availability": "September 2026 intake; other intakes not confirmed for this Laurea item [uncertain].",
+  "admission_outcome_type": [
+    "assigned",
+    "reserved",
+    "pending",
+    "not admitted / course full [uncertain wording varies by school]"
+  ],
+  "ranking_methodology": "Ranking/test methodology is school-specific; use the official Engineering, Design, Architecture, or partner call for scores, preferences, and tie-break rules [uncertain].",
+  "places_and_foreign_contingent": "Check the official call for total places and reserved places; not resolved in this batch pass [uncertain].",
+  "official_call_url": "https://www.polimi.it/fileadmin/user_upload/futuri_studenti/Design_LT/Call_for_admission_Design26-27_EN.pdf",
+  "academic_requirements": "High school diploma with at least 12 years of education; foreign qualifications may need additional verification, foundation course, CIMEA/DoV, or country-specific checks. Admission test participation requirements also apply.",
+  "country_specific_eligibility": "Foreign qualification eligibility must be checked through Polimi foreign-degree/foreign-qualification rules and country-specific documentation [uncertain].",
+  "curricular_integration_policy": "Not generally applicable before Laurea admission; OFA/additional obligations may arise from test/language results [uncertain].",
+  "conditional_enrolment_policy": "Candidates may have to enter/upload final secondary-school results by the official enrolment deadline; exact conditional rules depend on route and school.",
+  "language_requirements": "For English-taught Laurea programmes, applicants must demonstrate English before enrolment. Accepted routes include English-official citizenship, qualification obtained in English, or recognised certification such as TOEFL iBT >= 59, IELTS >= 5, or Cambridge B2 First Grade C, subject to official validity rules.",
+  "language_submission_timing": "Before enrolment for English-taught Laurea programmes; original/validated certificates may be checked by Polimi.",
+  "post_admission_italian_requirement": "Italian is not an entry requirement for English-taught Laurea programmes, but Italian B2 must be obtained before completing the Bachelor; otherwise Italian OFA applies.",
+  "application_deadline_eu": {
+    "summary": "School of Design Laurea admission is ranking-based around the TOLD/test route. The official 2026/2027 enrolment page reports the first ranking on 8 June 2026, enrolment by 10 June 2026 at 23:59 CEST, and interest expression by 11 June 2026 at 11:59 CEST. Later rankings/second phase must be checked in the call.",
+    "sources": [
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/design/when-and-how-to-enrol",
+      "https://www.polimi.it/fileadmin/user_upload/futuri_studenti/Design_LT/Call_for_admission_Design26-27_EN.pdf"
+    ]
+  },
+  "application_deadline_non_eu": {
+    "summary": "International/reserved-place timing must be checked in the Design 2026/2027 call; use the official call for non-EU quota and ranking details [uncertain].",
+    "sources": [
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/design/when-and-how-to-enrol",
+      "https://www.polimi.it/fileadmin/user_upload/futuri_studenti/Design_LT/Call_for_admission_Design26-27_EN.pdf",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/students-with-a-foreign-degree"
+    ]
+  },
+  "application_fee": "Check official call and costs page; no stable programme-specific application fee resolved in this batch pass [uncertain].",
+  "visa_preenrolment_deadline": "Non-EU visa/pre-enrolment deadline not resolved from checked Polimi sources in this batch pass [uncertain].",
+  "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/costs-and-scholarships",
+  "required_documents": [
+    "identity document/passport",
+    "final secondary school diploma",
+    "high-school final mark where required",
+    "English language proof for English-taught programmes",
+    "foreign-qualification documents and additional verification documents where applicable"
+  ],
+  "document_translation_authentication": "Foreign documents may require official verification, translation, CIMEA Statements or Declaration of Value depending on route; check official Polimi foreign-degree document rules [uncertain].",
+  "entry_exam_or_test": "Design admission is handled through TOLD/test ranking lists; the 2026/2027 Design call is the governing source.",
+  "test_variant_and_session": "Design admission is handled through TOLD/test ranking lists; the 2026/2027 Design call is the governing source.",
+  "test_score_conversion_or_threshold": "Use the official test page/call for thresholds, conversion, and OFA triggers; SAT/TOL/TOLC/TOLD/ARCHED rules vary by school and phase [uncertain].",
+  "source_quotes": [
+    {
+      "quote": "29 Bachelor of Science programmes available",
+      "source_url": "https://www.polimi.it/en/education/laurea-programmes",
+      "supports_fields": [
+        "level",
+        "official_program_url"
+      ]
+    },
+    {
+      "quote": "All the postgraduate and some undergraduate programmes are available in English.",
+      "source_url": "https://www.polimi.it/en/prospective-students/politecnico-programmes",
+      "supports_fields": [
+        "teaching_language",
+        "level"
+      ]
+    },
+    {
+      "quote": "demonstrate knowledge of the English language before enrolling",
+      "source_url": "https://www.polimi.it/en/students/language-requirements/students-of-an-english-language-laurea-study-programme",
+      "supports_fields": [
+        "language_requirements"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polimi.it/en/education/laurea-programmes/programme-detail/interaction-design",
+    "https://www.polimi.it/en/students/language-requirements/students-of-an-english-language-laurea-study-programme",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/necessary-documents-for-enrolment",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/students-with-a-foreign-degree",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/requirements-to-participate-in-the-admission-test",
+    "https://www.polimi.it/fileadmin/user_upload/futuri_studenti/Design_LT/Call_for_admission_Design26-27_EN.pdf",
+    "https://www.polimi.it/en/prospective-students/costs-and-scholarships"
+  ],
+  "source_year": "2026/2027 where available; architecture page fallback may be 2025/2026 [uncertain].",
+  "uncertainty_notes": [
+    "Degree class not resolved from official catalogue page.",
+    "Deep manual follow-up should verify programme-specific places, score thresholds, and non-EU visa/pre-enrolment deadlines."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "degree_class",
+    "places_and_foreign_contingent",
+    "visa_preenrolment_deadline"
+  ]
+}

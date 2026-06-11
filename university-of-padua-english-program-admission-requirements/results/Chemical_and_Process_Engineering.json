@@ -1,0 +1,177 @@
+{
+  "program_name": "Chemical and Process Engineering",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Padua, Italy",
+  "degree_class": "LM-22 R",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a bachelor's degree or equivalent with a minimum three-year undergraduate background in Chemical Engineering, Biochemical Engineering, Petroleum Engineering, or Process Engineering. The programme also applies country-based entry-title and GPA rules; a recommended self-evaluation test is available and the commission may invite candidates to an oral interview by video call.",
+    "prior_degree_or_diploma": "Bachelor's degree or equivalent; minimum three-year undergraduate degree in Chemical Engineering, Biochemical Engineering, Petroleum Engineering, or Process Engineering.",
+    "subject_requirements": "The official course page requires prior preparation in the named engineering fields above and expects preparation suitable for a process-engineering master's degree.",
+    "gpa_or_country_requirements": "Country-based specific entry-title and GPA requirements apply on the official application platform. No single universal GPA threshold is published on the programme page. The self-evaluation test is recommended but is not used to determine eligibility; the commission may verify competencies through an oral interview via video call.",
+    "source_url": "https://apply.unipd.it/courses/course/204-chemical-and-process-engineering"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent.",
+    "accepted_proofs": [
+      "TOEFL iBT: minimum score 80.",
+      "IELTS Academic or General Training: minimum score 6.0.",
+      "Cambridge English B2 First: minimum score 173.",
+      "Trinity College London Integrated Skills in English ISE II.",
+      "Oxford Test of English: minimum score 126.",
+      "GATEHOUSE ESOL International Classic B2: GA Level 1 Certificate.",
+      "Pearson Test of English General: PTE General 3.",
+      "Pearson English International Certificate: Level 3 Upper Intermediate.",
+      "Pearson Test of English Academic: minimum score 65."
+    ],
+    "exemption_rules": [
+      "Applicants are exempt if their previous education leading to the entry qualification was completed entirely in English.",
+      "Applicants are exempt if they are native English speakers from one of the countries listed by the University of Padua."
+    ],
+    "deadline": "31 August 2026 for open-access degree programmes.",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "2 June 2026 - 2 August 2026",
+    "notes": "The third call is only for EU students and non-EU students residing in Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/204-chemical-and-process-engineering"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026 [uncertain]",
+    "call_three": "Not applicable for non-EU applicants residing outside Italy.",
+    "notes": "The live apply.unipd.it course page lists Call Two without a residence restriction and limits only Call Three. A separate official educational-offer search snippet appeared to restrict Call Two to EU/EU-equated applicants, so non-EU access to Call Two is marked uncertain.",
+    "source_url": "https://apply.unipd.it/courses/course/204-chemical-and-process-engineering"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae (Resume) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught master's applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Motivational letter(s) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught master's applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Upload a colour scanned PDF; an English or Italian translation must be provided if needed.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Academic qualification or provisional enrolment certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "If the final qualification has not yet been awarded, an enrolment or provisional certificate is accepted.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Valid ID card or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU citizens and non-EU citizens residing in Italy may use an ID card; other applicants normally provide a passport.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Residence permit",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required only for non-EU applicants residing in Italy.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "English language certificate or other accepted proof",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required unless the applicant qualifies for an exemption under the University language rules.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Original and legalised bachelor's degree with Italian or English translation",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Required after admission to complete enrolment.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Original and legalised Transcript of Records with Italian or English translation",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "The transcript must be issued by the competent academic authority and show passed exams and grades.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment and study visa D - enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Non-EU citizens residing outside Italy must pre-enrol through Universitaly no later than 15 July and then obtain a study visa.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Residence permit or residence-permit application receipt",
+      "stage": "enrolment",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU applicants at enrolment if they are in Italy.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No standard entry test; recommended self-evaluation test and possible oral interview",
+    "mandatory": false,
+    "applies_to": "All applicants may take the anonymous self-evaluation test; only candidates selected by the commission may be invited to an oral interview via video call.",
+    "dates": "No fixed test or interview calendar is published.",
+    "scoring_or_threshold": "The self-evaluation test is not used to evaluate eligibility. The commission reserves the right to verify competencies through an oral interview.",
+    "source_url": "https://apply.unipd.it/courses/course/204-chemical-and-process-engineering"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/chemical-and-process-engineering",
+  "official_call_url": "https://apply.unipd.it/courses/course/204-chemical-and-process-engineering",
+  "source_quotes": [
+    {
+      "quote": "Open access with admission requirements",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/chemical-and-process-engineering",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "A minimum three-year undergraduate degree (or equivalent) is required in Chemical Engineering, Biochemical Engineering, Petroleum Engineering, Process Engineering.",
+      "source_url": "https://apply.unipd.it/courses/course/204-chemical-and-process-engineering",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "This is not an entry test.",
+      "source_url": "https://apply.unipd.it/courses/course/204-chemical-and-process-engineering",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "B2 Level (CEFR) or equivalent",
+      "source_url": "https://apply.unipd.it/courses/course/204-chemical-and-process-engineering",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "31st August for open access degree programmes.",
+      "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Call Three: 2 June 2026 – 2 August 2026 (only for EU students and non-EU students residing in Italy)",
+      "source_url": "https://apply.unipd.it/courses/course/204-chemical-and-process-engineering",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The live 2026/2027 apply.unipd.it course page lists Call Two without a residence restriction, while one official educational-offer search snippet appeared to restrict Call Two to EU/EU-equated applicants. Non-EU access to Call Two is therefore marked uncertain."
+  ],
+  "uncertain": [
+    "application_deadline_non_eu"
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "program_name": "Techniques and Methods in Psychological Science",
+  "level": "bachelor",
+  "teaching_language": "English",
+  "campus": "Padua, Italy (predominantly online teaching; exams are taken in person in Padua)",
+  "degree_class": "L-24 R",
+  "admission_type": "restricted access",
+  "academic_requirements": {
+    "summary": "Applicants need an upper secondary school diploma or equivalent foreign qualification with at least 12 years of schooling and must pass the programme's restricted-access selection.",
+    "prior_degree_or_diploma": "Upper secondary school diploma (or equivalent) with at least 12 years of schooling, suitable for access to higher education, to be obtained by July 31, 2026.",
+    "subject_requirements": "Admission is based on the Online English PSY test covering reading comprehension, basic mathematics, biology, verbal reasoning, and numerical reasoning.",
+    "gpa_or_country_requirements": "No GPA threshold is stated. Applicants with foreign qualifications must satisfy the University of Padua country-specific entry-title requirements.",
+    "source_url": "https://wwwassets.unipd.it/sites/default/files/2026-04/EU_ENG_BPS%20TEMPS%20%281%29.docx.pdf"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent, to be achieved by July 31, 2026.",
+    "accepted_proofs": [
+      "TOEFL iBT with minimum score 80",
+      "IELTS Academic or General Training with minimum score 6.0",
+      "Cambridge English B2 First with minimum score 173",
+      "Trinity ISE II",
+      "Oxford Test of English with minimum score 126",
+      "Pearson PTE Academic with minimum score 65",
+      "Other certificates listed on the official University of Padua language requirement page for English-taught programmes"
+    ],
+    "exemption_rules": [
+      "Applicants are exempt if their previous education used as the entry title was completed entirely in English.",
+      "Applicants are exempt if they are native English speakers from one of the countries listed by the University of Padua on the official language requirement page."
+    ],
+    "deadline": "July 31, 2026 for this limited-access programme.",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "10 March 2026 - 10 April 2026",
+    "call_two": "",
+    "call_three": "",
+    "notes": "This call is for EU and EU-equated candidates with a foreign qualification; non-EU candidates residing in Italy with an eligible permit follow this route.",
+    "source_url": "https://wwwassets.unipd.it/sites/default/files/2026-04/EU_ENG_BPS%20TEMPS%20%281%29.docx.pdf"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "7 January 2026 - 7 March 2026",
+    "call_two": "",
+    "call_three": "",
+    "notes": "This call is for non-EU candidates residing abroad. Candidates can apply for a maximum of two degree programmes in this selection.",
+    "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/nonEU_ENG_BPS%20TEMPS_0.pdf"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid identity document or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU and EU-equated candidates may use a valid identity document or passport; non-EU abroad candidates are asked for a valid passport.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/2026-04/EU_ENG_BPS%20TEMPS%20%281%29.docx.pdf"
+    },
+    {
+      "document_name": "Transcript of records and upper secondary school diploma",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Upload the transcript and, if already obtained, the upper secondary diploma with at least 12 years of schooling.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/2026-04/EU_ENG_BPS%20TEMPS%20%281%29.docx.pdf"
+    },
+    {
+      "document_name": "Official translations into Italian or English",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required if educational documents are issued in a language other than Italian or English.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/2026-04/EU_ENG_BPS%20TEMPS%20%281%29.docx.pdf"
+    },
+    {
+      "document_name": "English language proficiency certificate",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Upload if already obtained; otherwise it must be achieved and submitted by July 31, 2026. Exemption documentation can be used where allowed by the university language rules.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/2026-04/EU_ENG_BPS%20TEMPS%20%281%29.docx.pdf"
+    },
+    {
+      "document_name": "Curriculum Vitae",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required as part of the online application.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/2026-04/EU_ENG_BPS%20TEMPS%20%281%29.docx.pdf"
+    },
+    {
+      "document_name": "Legalised diploma or Apostille or CIMEA Statement of Verification",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "By October 31, 2026 admitted candidates must submit one of these forms of diploma verification. A CIMEA Statement of Comparability may also be requested if needed.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/2026-04/EU_ENG_BPS%20TEMPS%20%281%29.docx.pdf"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Online English PSY test",
+    "mandatory": true,
+    "applies_to": "All applicants. Timing differs by call: EU/EU-equated applicants and non-EU abroad applicants sit separate online sessions.",
+    "dates": "EU/EU-equated call: 21 April 2026 at 1:00 pm local time (GMT+2). Non-EU abroad call: online on 26 March 2026 or 31 March 2026, with the exact date assigned individually.",
+    "scoring_or_threshold": "The test has 50 multiple-choice questions. Score: +1 correct, -0.25 wrong, 0 unanswered. Minimum score for ranking is 10/50.",
+    "source_url": "https://wwwassets.unipd.it/sites/default/files/2026-04/EU_ENG_BPS%20TEMPS%20%281%29.docx.pdf"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/techniques-methods-psychological-science",
+  "official_call_url": "https://www.unipd.it/ammissioni-bps-temps",
+  "source_quotes": [
+    {
+      "quote": "Access 90",
+      "source_url": "https://www.unipd.it/en/techniques-methods-psychological-science",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Predominantly online teaching",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/2026-04/EU_ENG_BPS%20TEMPS%20%281%29.docx.pdf",
+      "field_supported": "campus"
+    },
+    {
+      "quote": "Application period: 10 March 2026 - 10 April 2026",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/2026-04/EU_ENG_BPS%20TEMPS%20%281%29.docx.pdf",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "Application period: 7 January 2026 - 7 March 2026",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/nonEU_ENG_BPS%20TEMPS_0.pdf",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "Online English PSY test",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/2026-04/EU_ENG_BPS%20TEMPS%20%281%29.docx.pdf",
+      "field_supported": "entry_exam_or_test"
+    }
+  ],
+  "uncertainty_notes": [
+    "The University of Padua states that English translations of admission documents are provided for information; where disputes arise, the Italian version has legal validity.",
+    "The call page is shared with Psychological Science, but the place counts, delivery mode, and programme URLs are listed separately for each programme."
+  ],
+  "uncertain": []
+}

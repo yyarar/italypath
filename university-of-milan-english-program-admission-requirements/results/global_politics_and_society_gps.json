@@ -1,0 +1,121 @@
+{
+  "program_name": "Global Politics and Society (GPS)",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-62 R - Political Science",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": "Admission is based on academic excellence. Applicants must hold a bachelor's degree or equivalent, with strong interest and/or previous studies in political science, sociology, or related subjects, and their academic record is evaluated together with the entrance test. Applicants with Italian degrees are eligible only if their degree belongs to one of these classes: L-05 Philosophy; L-11 Modern Languages and Cultures; L-12 Language Mediation; L-14 Legal Services; L-16 Administration and Organization Studies; L-18 Economics and Business Management; L-20 Communication Sciences; L-33 Economics; L-36 Political Science and International Relations; L-37 Social Sciences for Cooperation, Development and Peace; L-39 Social Service; L-40 Sociology; L-41 Statistics; L-42 History. Applicants with foreign degrees are eligible if they hold a bachelor's degree in political science, sociology, economics, or another broadly related subject and the qualification is recognized as appropriate and equivalent to one of the listed Italian classes. According to the admission notice, candidates may graduate and meet the curricular requirements by 31 December 2026.",
+  "language_requirements": "[uncertain] Admission requires sound knowledge of English. Non-native English speakers must demonstrate at least B2 English. IELTS or TOEFL will be taken into account, and candidates may also prove English proficiency through at least one year of university studies at an institution where English is the main language. The GPS admissions committee ascertains the B2 requirement. The application page also states that no Italian language test is required for admission. However, the official sources reviewed do not provide a closed list of accepted English certificates or a fully explicit submission timing rule beyond requiring a complete application by the deadline and stating in the admission notice that linguistic requirements can be met by 31 December 2026.",
+  "application_deadline_eu": "EU candidates and equivalents: online admission application from 22 January 2026 to 20 July 2026. EU applicants who submit by 30 April 2026 may sit the 11 May 2026 online test; EU applicants who submit after 30 April 2026 sit the second test on 27 July 2026. Enrolment for admitted students runs from 5 May 2026 to 15 January 2027. The degree and entry requirements must be completed by 31 December 2026.",
+  "application_deadline_non_eu": "Non-EU candidates applying for a visa: online admission application from 22 January 2026 to 30 April 2026. They must take the online admission test on 11 May 2026. Universitaly pre-enrolment must be submitted by 31 July 2026. Enrolment for admitted students runs from 5 May 2026 to 15 January 2027, and foreign-qualification enrolment documents must be completed by 30 November 2026.",
+  "required_documents": [
+    "For applicants with Italian qualifications: self-certification of degree or enrolment with exam records; for graduates or graduands from other Italian universities, this must include exams taken, grades, ECTS credits, and disciplinary scientific sectors; graduands must also indicate exams passed but not yet registered, exams still to be taken, and expected graduation date.",
+    "For applicants with foreign qualifications at admission stage: bachelor's degree or equivalent degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with foreign qualifications at admission stage: diploma supplement or transcript of records including courses, marks, ECTS, and academic field, in English, Italian, French, German, or Spanish.",
+    "For applicants with foreign qualifications at admission stage: passport or other valid ID.",
+    "For applicants with foreign qualifications at enrolment finalization: legalized or apostilled bachelor's degree or equivalent, unless exempt by law.",
+    "For applicants with foreign qualifications at enrolment finalization: high school diploma.",
+    "For applicants with foreign qualifications at enrolment finalization: official Italian translation of academic qualifications, unless the originals are in English, French, German, or Spanish.",
+    "For applicants with foreign qualifications at enrolment finalization: Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or Dichiarazione di Valore in loco; for Lisbon Convention countries, the Diploma Supplement or ARDI Correspondence Statement may replace these where allowed.",
+    "For applicants with foreign qualifications at enrolment finalization: Italian tax code (codice fiscale).",
+    "For non-EU applicants at enrolment finalization: receipt of residence permit application or a valid residence permit.",
+    "For non-EU visa applicants: Universitaly pre-enrolment application submitted by 31 July 2026."
+  ],
+  "entry_exam_or_test": "The programme uses an online admission test as the entry requirements examination. All applicants who submit a complete application are invited to sit the test. The exam consists of about 50 multiple-choice questions plus a few short open-answer questions covering General Sociology, Introduction to Political Science, Social Research Methods, and General Knowledge or Current Affairs in Global Politics and Society. Passing the exam is required in addition to strong academic records and English proficiency. Main test date: 11 May 2026; all non-EU applicants requiring a visa must take this session, and EU applicants who apply by 30 April 2026 may also use it. Second test date: 27 July 2026, reserved only for EU applicants who submit after 30 April 2026. Candidates who fail the 11 May 2026 test cannot retake the 27 July 2026 session. The admission board may also request an interview and/or a written test.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/global-politics-and-society-gps",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-global-politics-and-society-%28gps%29-%28classe-lm-62-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Master programme ... LM-62 R ... Course location Milan ... Language English.",
+      "url": "https://www.unimi.it/en/education/master-programme/global-politics-and-society-gps",
+      "field_refs": [
+        "program_name",
+        "level",
+        "academic_year",
+        "degree_class",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Access: Open with entry requirements examination.",
+      "url": "https://www.unimi.it/en/education/master-programme/global-politics-and-society-gps",
+      "field_refs": [
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Applicants should have a bachelor's degree or equivalent ... previous studies in political science, sociology or related subjects.",
+      "url": "https://gps.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "At least a B2 level is required. ... No Italian language test is required.",
+      "url": "https://gps.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "The admission test will take place online on 11 May 2026. A second admission test ... on 27 July 2026.",
+      "url": "https://gps.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test",
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "EU candidates ... from 22 January to 20 July 2026 ... non EU candidates applying for a visa ... 22 January to 30 April 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-global-politics-and-society-%28gps%29-%28classe-lm-62-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Bachelor's Degree ... Diploma supplement ... Passport ... pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-global-politics-and-society-%28gps%29-%28classe-lm-62-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "entirely taught in English.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_BBIof2_2027.pdf",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Among the electives ... Additional language skills: Italian ... A2 level in Italian.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_BBIof2_2027.pdf",
+      "field_refs": [
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-06"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official pages reviewed do not publish a closed list of accepted English-language certificates for GPS admission. They explicitly mention IELTS, TOEFL, and at least one year of English-medium university study, with the admissions committee making the final B2 assessment; therefore language_requirements is marked [uncertain].",
+    "The admission notice says curricular and linguistic requirements may be met by 31 December 2026, but the GPS application page also says only applicants with a complete application meeting the requirements by the relevant application deadline are admitted to the entrance exam. The sources do not fully explain how borderline cases are operationalized before the test.",
+    "The programme is officially classified as English and the 2026/2027 manifesto says it is entirely taught in English, but the same manifesto also lists some optional Italian-language activities or electives. The teaching_language field follows the official programme classification."
+  ],
+  "uncertain": [
+    "language_requirements"
+  ]
+}

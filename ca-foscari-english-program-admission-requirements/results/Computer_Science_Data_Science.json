@@ -1,0 +1,154 @@
+{
+  "program_name": "Computer Science - Data Science",
+  "level": "bachelor",
+  "teaching_language": "English",
+  "campus": "Mestre",
+  "degree_class": "L-31 R (Computer science)",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a secondary-school qualification valid for university entry. International applicants must complete a preliminary evaluation on apply.unive.it; the programme is open access, but non-EU applicants requiring a study visa must already hold an accepted mathematics/reasoning test result before submitting the application.",
+    "prior_degree_or_diploma": "Secondary school leaving qualification eligible for university admission; for international qualifications, at least 12 years of schooling are required.",
+    "subject_requirements": "The programme requires adequate knowledge of mathematics, logic, and reading comprehension. For EU/applicants not requiring a visa, TOLC-I is recommended and a low or missing score results in a logic-mathematics OFA. For non-EU applicants requiring a visa, an SAT or CISIA TOLC-I/CEnT-S result is required before application.",
+    "gpa_or_country_requirements": "Country-specific validity rules apply under Ca' Foscari's 'Entry requirements for applicants with an international qualification'; applicants with less than 12 years of schooling must document how the gap is covered.",
+    "committee_or_pre_evaluation": "The Welcome Unit carries out a preliminary evaluation of international qualifications on apply.unive.it; Ca' Foscari states that applicants proven eligible then have their entry requirements and academic background evaluated as required by the programme.",
+    "source_url": "https://apply.unive.it/courses/course/652-bsc-computer-science---data-science-curriculum"
+  },
+  "language_requirements": {
+    "required_level": "English B2",
+    "accepted_proofs": [
+      "A recognised B2-or-higher English certification from Ca' Foscari's official list, such as Cambridge FCE, IELTS 5.5-6.5, TOEFL iBT 72-94, or PTE Academic 59-75.",
+      "A certificate from Ca' Foscari CLA or from a university language school included in Ca' Foscari's recognised-certifications list.",
+      "Proof that the applicant falls within an official exemption category."
+    ],
+    "exemption_rules": [
+      "Completed higher-education studies or at least one year of college in a country where English is the medium of instruction.",
+      "Obtained a high-school or university qualification from a course taught entirely in English.",
+      "Completed at least one full year of high-school exchange in English.",
+      "Holds one of the listed degree exemptions in languages or linguistic mediation that includes a three-year English course."
+    ],
+    "assessment_or_upload_stage": "Proof is uploaded during enrolment; Ca' Foscari does not test English during the application procedure.",
+    "deadline": "By enrolment; otherwise an English OFA is assigned and must be fulfilled by 30 September 2027.",
+    "source_url": "https://www.unive.it/pag/40604/"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Applications for 2026/2027 open from 17 December 2025 on apply.unive.it, but the exact admission rounds visible to EU/equivalent applicants depend on the citizenship category selected on the portal [uncertain]."
+    ],
+    "enrolment_deadline": "Enrol from 1 July 2026 to 30 September 2026; additional late window from 1 October 2026 to 30 October 2026 with a 50 EUR surcharge.",
+    "notes": "The programme is open access. Ca' Foscari states that deadlines for applicants with an international qualification differ from those for applicants with an Italian qualification and are category-based on apply.unive.it. [uncertain]",
+    "source_url": "https://www.unive.it/web/en/14625/admission-and-enrolment-with-an-international-qualification"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Applications for 2026/2027 open from 17 December 2025 on apply.unive.it, but the exact round deadline for non-EU applicants requiring a study visa is shown only after selecting the correct applicant category on the portal [uncertain]."
+    ],
+    "visa_or_pre_enrolment_deadline": "Use the deadline shown on apply.unive.it for the non-EU study-visa category; the public programme page does not state a fixed programme-specific visa deadline [uncertain].",
+    "current_status": "The 2026/2027 admission-rounds article is published, but the exact Computer Science deadline for non-EU visa applicants is category-based on apply.unive.it [uncertain].",
+    "notes": "Non-EU applicants requiring a visa must already have an SAT or CISIA TOLC-I/CEnT-S result before applying. Ca' Foscari notes that the third CEnT-S period/result is too late for non-EU applicants requiring a visa and the fourth period/result is too late for any applicant with an international qualification.",
+    "source_url": "https://apply.unive.it/courses/course/652-bsc-computer-science---data-science-curriculum"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or ID card, or receipt of renewal/first request",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "European applicants may use an ID card; international applications without the mandatory identification document are rejected.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Valid residence permit or receipt of renewal/first request",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required for non-European applicants already residing in Italy or in the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Secondary-school mark sheet or transcript of records for at least the last year of study",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "If the applicant is still attending the last year of secondary school, a provisional mark sheet/transcript is mandatory; official English or Italian translations are required when needed.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Final secondary-school leaving qualification",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Optional at application stage if not yet available, but the final document must be uploaded before the end of the enrolment period if a provisional document was used; translations are required when needed.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Professional English or Italian translations of diplomas/transcripts",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Required when the original documents are not in English or Italian; translations may be issued by professional translators, courts, or court interpreters.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Statement of Comparability, Declaration of Value, ARDI Statement of Correspondence plus CIMEA Statement of Verification, or Diploma Supplement",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "These are not mandatory during the application procedure but are highly recommended because they support the evaluation of the qualification.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Recognised English B2 certificate or proof of exemption",
+      "stage": "enrolment",
+      "required_for": "programme_specific",
+      "notes": "Required for the Data Science curriculum, which is taught in English.",
+      "source_url": "https://apply.unive.it/courses/course/652-bsc-computer-science---data-science-curriculum"
+    },
+    {
+      "document_name": "SAT or CISIA TOLC-I/CEnT-S result",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required before submitting the application for non-EU applicants requiring a study visa.",
+      "source_url": "https://apply.unive.it/courses/course/652-bsc-computer-science---data-science-curriculum"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "CISIA TOLC-I for EU/applicants not requiring a visa; SAT or CISIA TOLC-I/CEnT-S accepted for non-EU applicants requiring a study visa",
+    "mandatory": false,
+    "applies_to": "TOLC-I is recommended for EU/applicants not requiring a visa and affects OFA assignment; a pre-application SAT or CISIA TOLC-I/CEnT-S result is required for non-EU applicants requiring a study visa.",
+    "dates": "CEnT-S periods for 2026/2027: 27 November 2025, 16 December 2025, 15 January 2026; 19 February 2026, 26 February 2026, 12 March 2026; 23 April 2026, 21 May 2026, 9 June 2026; 17 September 2026, 15 October 2026. Ca' Foscari says the third-period result is too late for non-EU visa applicants and the fourth-period result is too late for any applicant with an international qualification.",
+    "scoring_or_threshold": "For EU/applicants not requiring a visa, if you do not sit the TOLC-I or score less than 20/40, you may still enrol but you receive a logic-mathematics OFA; science and English sections are excluded from this total.",
+    "source_url": "https://apply.unive.it/news/new/133-cent-s-entry-test-offered-english-cisia"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/pag/50449/",
+  "official_program_url": "https://www.unive.it/degree/ctr3",
+  "official_call_url": "https://apply.unive.it/courses/course/652-bsc-computer-science---data-science-curriculum",
+  "source_quotes": [
+    {
+      "quote": "Computer Science - Data Science",
+      "source_url": "https://www.unive.it/pag/15612/",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Only the Data Science curriculum is taught in English.",
+      "source_url": "https://www.unive.it/web/en/12082/admission-and-enrolment",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "must have attended school for at least 12 years",
+      "source_url": "https://www.unive.it/pag/12520/",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "requires a minimum B2-level knowledge of the English language",
+      "source_url": "https://www.unive.it/web/en/12082/admission-and-enrolment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "must have already taken an online written entry test",
+      "source_url": "https://apply.unive.it/courses/course/652-bsc-computer-science---data-science-curriculum",
+      "field_supported": "entry_exam_or_test"
+    }
+  ],
+  "uncertainty_notes": [
+    "Ca' Foscari publishes the 2026/2027 admission-round framework on apply.unive.it, but the exact round deadlines shown to international applicants depend on the citizenship category selected on the portal.",
+    "For non-EU applicants requiring a study visa, the public programme page states the accepted tests but does not publish a single fixed programme-specific application deadline."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu"
+  ]
+}

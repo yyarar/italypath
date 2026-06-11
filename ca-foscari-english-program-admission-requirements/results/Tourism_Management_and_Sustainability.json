@@ -1,0 +1,195 @@
+{
+  "program_name": "Tourism Management and Sustainability",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Venice",
+  "degree_class": "LM-49 R (Tourism development and management)",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Open-admission master's degree. Applicants need a three-year bachelor's degree or equivalent, must satisfy the programme's curricular requirements, must show adequate personal preparation, and must meet the English-language requirement. Applicants with international qualifications must also pass the preliminary evaluation on apply.unive.it.",
+    "prior_degree_or_diploma": "A bachelor's degree, or an equivalent foreign qualification of at least three years that is valid for access to master's-level study.",
+    "subject_requirements": "Applicants with degrees in Business Administration, Economics, Social Services, Cultural Heritage, Philosophy, Humanities, History, Modern Languages and Civilisations, or Linguistic Mediation generally satisfy the curricular requirements. Applicants from other degree classes must have at least 60 CFU/ECTS in relevant fields, including at least 24 CFU/ECTS across law, economics-business, and linguistic-literary areas.",
+    "gpa_or_country_requirements": "The apply.unive.it course page states a minimum CGPA of 70% for international evaluation. Ca' Foscari also notes that not every foreign undergraduate degree allows enrolment in an Italian master's programme.",
+    "committee_or_pre_evaluation": "The Teaching Committee evaluates curriculum vitae and studiorum and may assess candidates through interview-based personal-preparation checks. For international qualifications, the Welcome Unit first performs the preliminary evaluation on apply.unive.it before the Teaching Committee assessment.",
+    "source_url": "https://apply.unive.it/courses/course/653-ma-tourism-management-and-sustainability"
+  },
+  "language_requirements": {
+    "required_level": "English at minimum B2 level.",
+    "accepted_proofs": [
+      "A recognised English-language certificate accepted by Ca' Foscari.",
+      "Examples on the official recognised-certifications list include Cambridge FCE/CAE/CPE, Trinity ISE II-IV, IELTS, TOEFL iBT, PTE Academic, Oxford Test of English, LanguageCert ESOL, Aptis ESOL, and Ca' Foscari CLA certificates."
+    ],
+    "exemption_rules": [
+      "Completed higher education studies, or at least one year of college, in a country where English is the medium of instruction.",
+      "Obtained a high-school diploma or university qualification from a study path taught entirely in English.",
+      "Completed at least one full secondary-school exchange year at an institution where English was the language of instruction.",
+      "Holds one of the specific language-degree qualifications listed by Ca' Foscari among the English-language exemption categories."
+    ],
+    "assessment_or_upload_stage": "Certificates must be uploaded electronically during application/enrolment. The programme and apply pages state that applicants may apply before obtaining the certificate, but they must provide valid proof to complete enrolment.",
+    "deadline": "By the enrolment deadline.",
+    "source_url": "https://www.unive.it/pag/40605/"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "round_name": "1st entry-requirements evaluation session",
+        "application_window": "April 7, 2026 to June 4, 2026.",
+        "results_publication": "June 25, 2026.",
+        "deadline": "These candidates then enrol in the ordinary enrolment window starting July 1, 2026.",
+        "notes": "[uncertain] This is the programme's official 2026 evaluation timetable. International-qualification applicants who do not require a visa must also respect the citizenship-based apply.unive.it admission rounds."
+      },
+      {
+        "round_name": "2nd entry-requirements evaluation session",
+        "application_window": "July 6, 2026 to August 20, 2026.",
+        "results_publication": "September 10, 2026.",
+        "deadline": "These candidates enrol within the ordinary or additional enrolment windows if admitted.",
+        "notes": "[uncertain] The static public apply.unive.it EU-round article does not expose the full round-by-round 2026/2027 timetable."
+      },
+      {
+        "round_name": "3rd entry-requirements evaluation session",
+        "application_window": "October 1, 2026 to November 17, 2026.",
+        "results_publication": "December 4, 2026.",
+        "deadline": "Admitted candidates may still use the additional enrolment window that closes in December 2026.",
+        "notes": "[uncertain] This late session overlaps with the programme's additional enrolment period."
+      }
+    ],
+    "enrolment_deadline": "Ordinary enrolment window: July 1, 2026 to September 30, 2026. Additional enrolment window with a 50 EUR late fee: October 1, 2026 to December 18, 2026.",
+    "notes": "The programme page gives the official 2026 evaluation and enrolment timetable. For international qualifications, Ca' Foscari also requires the preliminary evaluation on apply.unive.it.",
+    "source_url": "https://www.unive.it/web/en/13054/admission-and-enrolment"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "round_name": "2026/2027 visa-requiring admission rounds on apply.unive.it",
+        "application_window": "[uncertain] Ca' Foscari states that 2026/2027 applications began on December 17, 2025, but the static public article does not expose the individual visa-round windows.",
+        "results_publication": "[uncertain] Master's applicants generally receive feedback about 8 weeks after the end of the round in which they applied.",
+        "deadline": "As of June 5, 2026, the official article states that it is no longer possible for non-EU applicants requiring a visa to apply for admission in 2026/2027.",
+        "notes": "The apply.unive.it course page adds that non-EU applicants requiring a visa must take an online written entry test."
+      }
+    ],
+    "visa_or_pre_enrolment_deadline": "Universitaly pre-enrolment for 2026/2027 must be submitted by September 30, 2026.",
+    "current_status": "Closed as of June 5, 2026 for non-EU applicants requiring a study visa.",
+    "notes": "The general visa-procedure page is updated for 2026/2027, but the accessible public admission-rounds article does not publish the detailed historical round windows.",
+    "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or, for European applicants, valid ID card",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "A renewal or first-request receipt is also accepted where officially stated.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Valid residence permit or renewal/first-request receipt",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required for non-European applicants already residing in Italy or in the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Transcript of Records for all undergraduate years",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "A provisional transcript is acceptable if the applicant is still completing the degree.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Official English or Italian translations of transcript and diploma documents",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required when the original documents are not in English or Italian.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Curriculum vitae",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Mandatory for master's-level international applications and used by the Teaching Committee to assess preparation.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Motivation letter dedicated to Tourism Management and Sustainability",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "The apply.unive.it course page explicitly requires a dedicated motivation letter for this programme.",
+      "source_url": "https://apply.unive.it/courses/course/653-ma-tourism-management-and-sustainability"
+    },
+    {
+      "document_name": "University CGPA grading scale",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "The general international-entry page describes it as highly recommended; the course page says Ca' Foscari will quantify grades against the official grading scale if provided.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Bachelor's degree final diploma",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "If unavailable at application stage, the final version must be uploaded before the end of the enrolment period.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "CIMEA Statement of Comparability, or Declaration of Value, or ARDI Statement of Correspondence with CIMEA Statement of Verification, or Diploma Supplement",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "Ca' Foscari strongly recommends obtaining one of these qualification-recognition documents before application, and one accepted route is required to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/12519/?L=1"
+    },
+    {
+      "document_name": "Recognised B2 English certificate or evidence of exemption",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "The certificate may be uploaded later than the initial application, but the requirement must be satisfied by enrolment.",
+      "source_url": "https://www.unive.it/pag/12519/?L=1"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Entry-requirements evaluation interview; non-EU visa applicants also face an online written entry test [uncertain]",
+    "mandatory": false,
+    "applies_to": "The programme page publishes remote interview dates for the 2026 evaluation process. The apply.unive.it course page separately states that only non-EU applicants requiring a visa must take an online written entry test.",
+    "dates": "Remote interviews on June 11, 2026, September 8, 2026, and November 25, 2026. Non-EU written-test dates are not published in the accessible public course text [uncertain].",
+    "scoring_or_threshold": "No interview score threshold is published on the programme page. The apply.unive.it course page states a minimum CGPA threshold of 70% for international evaluation.",
+    "source_url": "https://www.unive.it/web/en/13054/admission-and-enrolment"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/pag/50466",
+  "official_program_url": "https://www.unive.it/degree/emr9",
+  "official_call_url": "https://www.unive.it/web/en/13054/admission-and-enrolment",
+  "source_quotes": [
+    {
+      "quote": "Tourism Management and Sustainability",
+      "source_url": "https://www.unive.it/international-programmes",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Admission: Open",
+      "source_url": "https://www.unive.it/degree/emr9",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "must hold at least a three-year bachelor's degree",
+      "source_url": "https://www.unive.it/web/en/13054/admission-and-enrolment",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "A minimum B2-level knowledge of English is mandatory",
+      "source_url": "https://apply.unive.it/courses/course/653-ma-tourism-management-and-sustainability",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "online application: April 7th - June 4th, 2026",
+      "source_url": "https://www.unive.it/web/en/13054/admission-and-enrolment",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The public apply.unive.it visa-round article confirms closure status for 2026/2027 but does not expose the detailed visa-round windows in accessible static text.",
+    "Tourism Management and Sustainability describes applicant assessment differently by category: the programme page publishes remote interview dates, while the apply.unive.it course page explicitly requires an online written entry test only for non-EU applicants requiring a visa.",
+    "The apply.unive.it marketing page shows a programme-specific fee figure, while the central Ca' Foscari 2026/2027 tuition page is the authoritative fees source retained here."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "entry_exam_or_test"
+  ]
+}

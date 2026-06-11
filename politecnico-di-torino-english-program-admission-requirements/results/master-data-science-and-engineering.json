@@ -1,0 +1,164 @@
+{
+  "program_name": "Data Science and Engineering",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale, 2nd cycle)",
+  "teaching_language": "English",
+  "is_fully_english_programme": true,
+  "has_complete_english_track": true,
+  "english_track_name": null,
+  "campus": "Torino (Main Campus)",
+  "degree_class": "LM-32 (Computer Systems Engineering / Ingegneria informatica)",
+  "double_degree_or_erasmus_mundus": null,
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/data-science-and-engineering",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/data-science-and-engineering/programme-curriculum",
+  "admission_type": "evaluation/CV (uncapped number of students; admission by evaluation of the admission requirements / qualification assessment)",
+  "admission_test_type": "Master-level qualification/CV evaluation by the Academic Committee; no entrance test. A GRE General Test score is optional but highly valued. No interview is required for this programme.",
+  "applicant_route": [
+    "Italian qualification (PoliTo or other Italian university bachelor) — handled via the Engineering-area Italian-qualification calls",
+    "EU qualification",
+    "non-EU applicants legally residing in Italy with a valid residence permit",
+    "non-EU applicants residing abroad and requiring a visa (the relevant route for Turkish applicants with a non-Italian qualification)"
+  ],
+  "admission_call_round": [
+    "1st call (A.Y. 2026/27, non-Italian qualification): applications 19 December 2025 – 13 February 2026, 2:00 p.m. (Italian time); results ~15 April 2026",
+    "2nd call: applications 18 March 2026 – 20 April 2026, 2:00 p.m. (Italian time) (closing postponed due to technical issues); results ~22 June 2026",
+    "Special call for International Tracks (24 April – 18 May 2026) exists but does NOT apply to Data Science and Engineering — it is for Physics of Complex Systems International Track and Micro and Nanotechnologies for Integrated Systems (MNIS); Data Science and Engineering is admitted through the standard 1st/2nd calls"
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito (didattica.polito.it Apply portal — pkg_apply registration) for the application; UNIVERSITALY portal for non-EU visa pre-enrolment after the Confirmation of Eligibility is issued.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "degree": "A Bachelor's degree (EQF Level 6) or equivalent issued by an accredited foreign university, giving access to second-cycle/master's study.",
+    "schooling_and_credits": "At least 15 years of global schooling (minimum 3 years at university level) with at least 180 ECTS credits.",
+    "curricular_requirements": "Applicants must meet the programme-specific curricular requirements, which are assessed by the Academic Committee. Recommended background to apply to Data Science and Engineering: Any field of Engineering, Mathematics, or Computer science.",
+    "programme_specific": "A Syllabus / course descriptions of the bachelor's studies is a required document for Data Science and Engineering. A GRE General Test score is optional but highly valued. No online interview is required for this programme.",
+    "evaluation": "Admission is by evaluation of the admission requirements (uncapped number of students); meeting the requirements does not guarantee admission until the Academic Committee assessment is completed."
+  },
+  "country_specific_eligibility": "Applicants with a non-Italian qualification (e.g. a Turkish bachelor's degree) must, for enrolment, provide a CIMEA Statement of Comparability (Attestato di Comparabilità) OR a Dichiarazione di Valore (Declaration of Value) issued by the Italian Embassy/Consulate in the country where the qualification was awarded, OR a Diploma Supplement. The foreign degree must be a valid official qualification giving access to second-cycle studies and meet the 15-years-schooling / 180-ECTS / minimum-3-years-university rule. [uncertain]",
+  "minimum_background_or_credits": "Minimum 180 ECTS credits and a bachelor's degree (EQF Level 6) with at least 3 years at university level. Recommended disciplinary background for Data Science and Engineering: Any field of Engineering, Mathematics, or Computer science. No published numeric GPA threshold or fixed minimum CFU per subject area for this programme; the curricular adequacy is judged by the Academic Committee. [uncertain]",
+  "language_requirements": {
+    "english_level": "English level B2 or higher (CEFR). The course-specific requirements table states a minimum of IELTS 5.5 for Data Science and Engineering.",
+    "italian_requirement": "No Italian certificate is required: Data Science and Engineering is a fully English-taught programme (Italian B2 is required only for Italian-taught or partially-Italian programmes).",
+    "accepted_certificates": "Accepted English certificates include TOEFL, TOEIC, IELTS, Cambridge, Pearson and Trinity; the full list with minimum scores is in the PoliTo Language Centre (CLA) certificate chart.",
+    "exemptions": "Exemptions from the English certificate include: IB Diploma (entire path in English), European Schools diplomas (L1 English), high-school qualifications from the USA, Canada, UK, Ireland, Australia, New Zealand, and qualifications from English-medium schools in specified countries.",
+    "minimum_score_reference": "Minimum IELTS 5.5 (equivalent to B2) per the A.Y. 2026/2027 course-specific requirements table."
+  },
+  "english_certificate_codes": "For TOEFL/TOEIC, applicants should use Politecnico di Torino institution code C285 when requesting that scores be sent.",
+  "language_submission_timing": "The English language certificate is a compulsory application document and must be uploaded in Apply@polito at the time of application (within the call deadline); it is required to evaluate eligibility for the English-taught programme.",
+  "application_deadline_eu": {
+    "note": "EU applicants and non-EU applicants residing in Italy with a non-Italian qualification apply through Apply@polito within the same Master's calls; the dedicated non-Italian-qualification page governs both EU and non-EU non-Italian-qualification applicants.",
+    "first_call": "1st call: 19 December 2025 – 13 February 2026, 2:00 p.m. (Italian time).",
+    "second_call": "2nd call: 18 March 2026 – 20 April 2026, 2:00 p.m. (Italian time).",
+    "enrolment_deadline": "1st-semester online enrolment closes 5 October 2026; mandatory enrolment documents to be uploaded by 5 October 2026 (verified by 11 November 2026). 2nd-semester enrolment (EU and non-EU residents in Italy only) 13 November 2026 – 24 March 2027.",
+    "no_visa_route": "EU applicants and non-EU applicants already residing in Italy do not use the UNIVERSITALY visa pre-enrolment route."
+  },
+  "application_deadline_non_eu": {
+    "first_call": "1st call application closing: 13 February 2026, 2:00 p.m. (Italian time) (call opened 19 December 2025). Results published ~15 April 2026.",
+    "second_call": "2nd call application closing: 20 April 2026, 2:00 p.m. (Italian time) (call opened 18 March 2026; closing postponed due to technical issues). Results published ~22 June 2026.",
+    "applies_to_turkish_applicants": "This non-EU / non-Italian-qualification route is the relevant one for Turkish applicants residing abroad and requiring a visa.",
+    "study_visa_document_deadline": "Study Visa Type D document upload deadline: 30 November 2026.",
+    "enrolment_deadline": "1st-semester online enrolment closes 5 October 2026."
+  },
+  "universitaly_preenrolment_deadline": "Non-EU applicants residing abroad and requiring a visa must complete the visa pre-enrolment on the UNIVERSITALY portal (https://www.universitaly.it/) after receiving the Confirmation of Eligibility: 1st-call candidates by 30 May 2026; 2nd-call candidates by 15 July 2026. This is separate from and required in addition to the Apply@polito application; admission to PoliTo does not automatically guarantee the visa.",
+  "application_fee": "€50.00 non-refundable application fee, paid online by credit card (VISA/MasterCard) via PagoPA when submitting the Apply@polito application.",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport (Latin alphabet; non-Latin scripts require official translation)",
+    "Curriculum Vitae (CV)",
+    "Bachelor's degree (EQF Level 6) OR an official university document stating the provisional graduation date",
+    "Official Transcript of Records (with grading system: minimum/maximum, GPA, and credits)",
+    "English language certificate (B2 / minimum IELTS 5.5), unless exempt",
+    "Syllabus / course descriptions of bachelor's studies (required for Data Science and Engineering)",
+    "For enrolment (not at application): CIMEA Statement of Comparability OR Dichiarazione di Valore (Declaration of Value) OR Diploma Supplement",
+    "Optional but recommended: GRE General Test Score Report (highly valued for Data Science and Engineering), recommendation letters, motivation letter, work-experience certificates"
+  ],
+  "document_translation_authentication": "Documents in Italian, English, French or Spanish are accepted without translation; documents in other languages require an official translation into English or Italian merged into a single file. Italian translations must be certified by the Italian Embassy in the issuing country or sworn before an Italian Court translator (asseverazione). For enrolment, foreign-qualification recognition is via a CIMEA Statement of Comparability, a Dichiarazione di Valore, or a Diploma Supplement. Documents must be on letterheaded paper, stamped and signed by the issuing institution (digitally signed documents accepted if verifiable via QR code/verification link).",
+  "entry_exam_or_test": {
+    "type": "No entrance/admission test. Admission is by evaluation of qualifications/CV by the Academic Committee.",
+    "gre": "GRE General Test is optional but highly valued for Data Science and Engineering.",
+    "interview": "No online interview is required for Data Science and Engineering (unlike some PoliTo masters such as Electrical Engineering or Systemic Design which require an online interview).",
+    "mode": "Application and evaluation are conducted entirely online via Apply@polito."
+  },
+  "test_score_or_threshold": "English requirement threshold: B2 / minimum IELTS 5.5. There is no published numeric ranking threshold or GPA cut-off for Data Science and Engineering; admission is an uncapped evaluation of whether the applicant meets the curricular and language requirements as judged by the Academic Committee. [uncertain]",
+  "source_quotes": [
+    {
+      "quote": "DATA SCIENCE AND ENGINEERING — English — IELTS 5.5 — Any field of Engineering, Mathematics, Computer science — Syllabus Required — GRE optional but highly valued",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": ["teaching_language", "is_fully_english_programme", "language_requirements", "minimum_background_or_credits", "academic_requirements", "required_documents", "entry_exam_or_test"]
+    },
+    {
+      "quote": "Degree class: LM-32: COMPUTER SYSTEMS ENGINEERING. Admission: Uncapped number of students, evaluation of the admission requirements. Teaching language: English. Campus: Main Campus.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/data-science-and-engineering",
+      "supports_fields": ["degree_class", "admission_type", "teaching_language", "campus", "is_fully_english_programme"]
+    },
+    {
+      "quote": "The programme spans two years with a total of 120 ECTS credits. It is entirely taught in English across both years.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/data-science-and-engineering/programme-curriculum",
+      "supports_fields": ["is_fully_english_programme", "has_complete_english_track", "teaching_language"]
+    },
+    {
+      "quote": "1st Call: Closing 13 February 2026, 2:00 p.m. (Italian time); Results 15 April 2026; Visa pre-enrolment deadline 30 May 2026. 2nd Call: Closing 20 April 2026, 2:00 p.m. (Italian time); Results 22 June 2026; Visa pre-enrolment deadline 15 July 2026.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_deadline_non_eu", "application_deadline_eu", "admission_call_round", "universitaly_preenrolment_deadline"]
+    },
+    {
+      "quote": "Bachelor's degree (EQF Level 6) or equivalent ... minimum 15 years of global schooling (minimum 3 years at University level) with at least 180 ECTS credits.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["academic_requirements", "minimum_background_or_credits"]
+    },
+    {
+      "quote": "English-taught programmes: English level B2 or higher. Accepted English certificates: TOEFL, TOEIC, IELTS, Cambridge, Pearson, Trinity. For TOEFL/TOEIC, use code C285 when sharing results.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["language_requirements", "english_certificate_codes"]
+    },
+    {
+      "quote": "Mandatory for enrolment: CIMEA Statement of Comparability OR Dichiarazione di Valore (Declaration of Value) from Italian Embassy OR Diploma Supplement.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["required_documents", "document_translation_authentication", "country_specific_eligibility"]
+    },
+    {
+      "quote": "€50 non-refundable application fee paid online via credit card (VISA/MasterCard) through PagoPA.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_fee"]
+    },
+    {
+      "quote": "UNIVERSITALY Portal: https://www.universitaly.it/ — Pre-enrolment deadlines: 1st Call candidates 30 May 2026; 2nd Call candidates 15 July 2026. Admission to Politecnico does not automatically guarantee the issuance of the visa.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["universitaly_preenrolment_deadline", "application_platform"]
+    },
+    {
+      "quote": "PHYSICS OF COMPLEX SYSTEMS - International Track** - SEPARATE CALL FOR ADMISSION; MICRO AND NANOTECHNOLOGIES FOR INTEGRATED SYSTEMS** - SEPARATE CALL FOR ADMISSION (Data Science and Engineering is not marked as a separate call).",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": ["special_call_flag", "admission_call_round"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/data-science-and-engineering",
+    "https://www.polito.it/en/education/master-s-degree-programmes/data-science-and-engineering/programme-curriculum",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://didattica.polito.it/guida/9999/en/homepage?cds=470&sdu=37",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+    "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_DATA%20SCIENCE_25_26.pdf"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "BROAD English rule satisfied and exceeded: Data Science and Engineering is catalogued as 'English', and the official curriculum page confirms it is entirely taught in English across both years (120 ECTS), so is_fully_english_programme = true and has_complete_english_track = true; english_track_name is null because the whole programme is English (no separate track).",
+    "Degree class confirmed as LM-32 (Computer Systems Engineering / Ingegneria informatica) from the official programme page; this resolves the item-context note 'Confirm exact degree class on programme page.' The item-context placeholder 'LM-Data Science' is NOT used by PoliTo for this programme.",
+    "2026/2027 is the governing cycle (confirmed on the non-Italian-qualification Master's page and on the programme page); the Student Guide for 2026/27 was still 'under construction' at the time of checking.",
+    "Country-specific eligibility for the Turkish bachelor's degree (CIMEA vs Dichiarazione di Valore path, exact validity) is inferred from the general non-Italian-qualification rules; no Turkey-specific clause was published for this programme.",
+    "No numeric GPA cut-off or fixed minimum CFU-per-subject is published for Data Science and Engineering; curricular adequacy and the GRE (optional but highly valued) are assessed by the Academic Committee, so minimum_background_or_credits and test_score_or_threshold are partly qualitative.",
+    "IELTS 5.5 is stated in the course-specific requirements table; the general non-Italian-qualification page phrases the English requirement as 'B2 or higher'. These are consistent (IELTS 5.5 maps to B2). Exact accepted-certificate minimum scores for other tests are in the external CLA certificate chart, which was not parsed item-by-item.",
+    "Tuition fee amount not stated numerically: PoliTo sets the non-EU comprehensive yearly fee by proportioning the maximum fee to the applicant's country income/GDP, with a stated minimum (≈ €600.00 per PoliTo's standard non-EU fee policy); use the official fees page / simulator for an exact estimate. [uncertain]",
+    "The official_call_url is the central 'applicants-with-a-non-italian-qualification' Master's page, which functions as the governing call for non-EU / non-Italian-qualification applicants; PoliTo does not publish a single per-programme PDF call for Data Science and Engineering.",
+    "The Special Call (24 Apr – 18 May 2026) applies only to Physics of Complex Systems International Track and Micro/Nanotechnologies for Integrated Systems (MNIS); Data Science and Engineering uses the standard 1st/2nd calls (special_call_flag = false)."
+  ],
+  "uncertain": [
+    "country_specific_eligibility",
+    "minimum_background_or_credits",
+    "test_score_or_threshold"
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "program_name": "Environmental and Food Economics",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-76 R - Scienze economiche per l'ambiente e la cultura",
+  "admission_type": "Open with entry requirements examination",
+  "academic_requirements": "Applicants must hold, or obtain by 31/12/2026, an Italian three-year degree in one of the listed classes (L-6, L-7, L-8, L-9, L-13, L-15, L-16, L-18, L-21, L-25, L-26, L-27, L-30, L-31, L-32, L-33, L-34, L-35, L-36, L-37, L-38, L-40, L-41, L-42, L-43) or an equivalent foreign qualification recognized as suitable by the University. Applicants from other degree classes, and applicants with foreign degrees, may still be admitted subject to a favorable decision by the Didactic Committee or a special committee. Candidates must have acquired at least 90 ECTS in the specified scientific-disciplinary sectors across mathematics/physics/statistics, business/economics/management, agricultural-biological-chemical-geological sciences, architecture/engineering, computer science, law, and social sciences. Minimum subject-area thresholds are 6 ECTS in mathematics and statistics, 6 ECTS in economics/agricultural economics, and 6 ECTS in management. Students lacking these prerequisites may fill gaps through crash courses starting at the end of August; these crash courses are only for admitted students and are not compulsory. Applicants with foreign qualifications are expected to meet requirements equivalent to the Italian minimum requirements, which are verified by a special committee.",
+  "language_requirements": "Applicants must either be English mother tongue, hold a high-school diploma taught in English, hold a Bachelor's or other first-level university degree taught in English, or otherwise prove English at B2 CEFR or higher. When a certificate is needed, it must be uploaded with the online application. If the applicant's English level was achieved during a University of Milan degree programme and certified by the University Language Centre (SLAM) no more than four years before the admission-application date, verification is automatic and no certificate must be attached. Candidates who meet the formal requirements are invited to an interview conducted in English; if no English proficiency certificate was submitted, the interview also assesses English skills.",
+  "application_deadline_eu": "Admission application for EU/equivalent candidates: 22/01/2026 to 30/10/2026. Enrolment for admitted students: 05/05/2026 to 15/01/2027. Applicants must already hold, or obtain by 31/12/2026, the degree and curricular requirements.",
+  "application_deadline_non_eu": "Non-EU candidates applying for a visa: admission application 22/01/2026 to 30/04/2026. Universitaly pre-enrolment deadline: 31/07/2026. Enrolment for admitted students: 05/05/2026 to 15/01/2027. Final foreign-qualification documents for enrolment must be completed by 30/11/2026.",
+  "required_documents": [
+    "For applicants with an Italian qualification: self-certification of degree or enrolment with exam records; for graduates or graduating students from other Italian universities, it must include the list of exams taken, grades, ECTS credits, and scientific-disciplinary sectors.",
+    "For graduating applicants from other Italian universities: indication of passed but not yet registered exams, exams still to be taken, and expected graduation date in the admission application.",
+    "If applying with a foreign qualification: Bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "If applying with a foreign qualification: Diploma Supplement or transcript of records including courses, marks, ECTS, academic field, and the grading system used, in English, Italian, French, German, or Spanish.",
+    "If applying with a foreign qualification: passport or other valid ID.",
+    "If not exempt through mother tongue or previous English-medium schooling/degree: B2-or-higher English certification uploaded with the online application.",
+    "To finalize enrolment with a foreign qualification: legalized or apostilled Bachelor's degree (or equivalent), unless legalization/apostille is exempt by law.",
+    "To finalize enrolment with a foreign qualification: high-school diploma.",
+    "To finalize enrolment with a foreign qualification: official Italian translation of academic qualifications, unless the originals are in French, English, German, or Spanish.",
+    "To finalize enrolment with a foreign qualification: Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore in loco; for Lisbon Convention countries, a Diploma Supplement or ARDI Correspondence Statement may replace them.",
+    "To finalize enrolment with a foreign qualification: Italian tax code.",
+    "For non-EU applicants during enrolment finalization: receipt of residence-permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "[uncertain] The Admission Board evaluates the applicant's academic curriculum and then invites eligible candidates to an online interview in English to assess background, knowledge, competencies, and skills in the core EFE areas. If no English proficiency certification was submitted, the interview also assesses English skills. Interviews are scheduled between February 2026 and September 2026. The admission notice also states that the Board may request an interview and/or a written test in person or remotely, but the inspected 2026/2027 EFE sources publish operational details only for the interview and do not publish a separate written-test schedule or format.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/environmental-and-food-economics",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-and-food-economics-%28classe-lm-76-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Access Open with entry requirements examination ... Course location Milan ... Language English.",
+      "url": "https://www.unimi.it/en/education/master-programme/environmental-and-food-economics",
+      "field_refs": [
+        "academic_year",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The Master's program can be attended by students with an Italian three-year undergraduate degree ... in any one of the following classes ...",
+      "url": "https://efe.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "must have acquired at least 90 ECTS ... minimum requirements ... at least 6 ECTS credits in mathematics and statistics ... 6 ECTS ... economics ... 6 ECTS ... management",
+      "url": "https://efe.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Students with foreign qualifications are expected to meet requirements equivalent to the minimum ones required from students with an Italian degree.",
+      "url": "https://efe.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "be English mother tongue ... have obtained a high-school diploma in English ... have obtained a Bachelor's ... in English ... otherwise ... B2 level or higher ... The certification must be uploaded when submitting the online application.",
+      "url": "https://efe.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "When English level is achieved during a University of Milan degree program and certified by the University Language Centre (SLAM) no more than four years before the admission application date, the process is automatic.",
+      "url": "https://efe.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Students meeting the above requirements will be invited to an online interview ... If the applicant did not submit an English proficiency certification, the interview will also aim at assessing the English skills.",
+      "url": "https://efe.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Online admission application for EU candidates and equivalents from 22 January to 30 October 2026 ... for non-EU candidates applying for a visa from 22 January to 30 April 2026 ... Enrolment ... from 5 May 2026 to 15 January 2027.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-and-food-economics-%28classe-lm-76-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu",
+        "official_call_url"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The online admission service requires ... Self-certification of degree/enrolment with exam records ...",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-and-food-economics-%28classe-lm-76-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The online admission service requires ... Bachelor's Degree ... Diploma supplement or ... transcript ... Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-and-food-economics-%28classe-lm-76-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Bachelor's degree ... legalized or apostilled ... High school diploma ... Official Italian translation ... Statement of Comparability ... or a Dichiarazione di Valore ... Italian tax code ... residence permit",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-and-food-economics-%28classe-lm-76-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-and-food-economics-%28classe-lm-76-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "All information on university tuition fees ... is available on the pages: https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-and-food-economics-%28classe-lm-76-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "tuition_or_fees_link"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "The admission notice PDF body is clearly for A.Y. 2026/2027, even though the browser-generated title from the file name displays 'aa 2025-26'.",
+    "The admission notice says the Admission Board may request an interview and/or a written test in person or remotely, but the inspected 2026/2027 programme page, application page, and manifesto publish operational details only for the interview. No separate written-test schedule, format, or threshold was found."
+  ],
+  "uncertain": [
+    "entry_exam_or_test"
+  ]
+}

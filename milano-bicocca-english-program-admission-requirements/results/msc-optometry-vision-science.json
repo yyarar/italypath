@@ -1,0 +1,45 @@
+{
+  "program_name": "Optometry and Vision Science",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-17",
+  "admission_type": "restricted access",
+  "academic_requirements": "Bachelor's degree (or equivalent foreign qualification) granting access to LM-17. Required prior coursework in physics (FIS/*), biology (BIO/*) and chemistry (CHIM/*) scientific-disciplinary sectors, with the per-sector minimum CFU thresholds set in the official Annex to the Rector's Decree (Manifesto degli Studi LM Optometry and Vision Science). Verification of curricular requirements and personal preparation is performed by the Admission Committee.",
+  "language_requirements": "Minimum English proficiency at CEFR level B2. Accepted certifications follow the UNIMIB-wide list and include IELTS (typically 6.0–6.5 at B2), TOEFL iBT, Cambridge English (FCE/CAE) and equivalents. Candidates who do not hold a valid certificate can take the English test at the University.",
+  "entry_exam_or_test": "Open with entry requirements examination: candidates apply through apply.unimib.it (foreign degree) or Segreterie OnLine (Italian degree); the Admission Committee evaluates curricular fit (FIS/BIO/CHIM CFU), CV and supporting documents, with a possible motivational interview where preparation is not sufficiently documented.",
+  "application_deadline_eu": "2026/27: application deadline for the Fall semester is 16 April 2026, 23:59:59 Central European Time, on apply.unimib.it (foreign-degree candidates) / Segreterie OnLine (Italian-degree candidates). Multiple internal calls may run within the wider UNIMIB international calendar (1st call window opens January 2026).",
+  "application_deadline_non_eu": "Non-EU candidates requiring an entry visa apply within the same 2026/27 international window via apply.unimib.it; per the UNIMIB international calendar, visa applicants must apply early to meet the 31 January 2027 arrival-in-Italy deadline and the 28 February 2027 original-document verification deadline.",
+  "required_documents": "Bachelor's degree certificate, full transcript of records with CFU/ECTS and grades, curriculum vitae, motivation letter, English language certification (B2+), valid passport / ID, and, for foreign degrees, Diploma Supplement / Statement of Comparability / Declaration of Value as requested by apply.unimib.it.",
+  "tuition_or_fees_link": "https://en.unimib.it/study/fees-and-funding",
+  "official_program_url": "https://en.unimib.it/education/teaching/international-programmes/optometry-and-vision-science",
+  "official_call_url": "https://www.unimib.it/sites/default/files/2025-05/ENG_LM_Optometry_VS_2025_2026.pdf",
+  "source_quotes": [
+    {
+      "quote": "The course is taught in English.",
+      "url": "https://en.unimib.it/education/teaching/international-programmes/optometry-and-vision-science"
+    },
+    {
+      "quote": "There is also a part-time course option that lasts four years instead of two.",
+      "url": "https://en.unimib.it/education/teaching/international-programmes/optometry-and-vision-science"
+    },
+    {
+      "quote": "The application deadline for the Fall semester 2026/27 is April 16, 2026, at 23:59:59 Central European Time.",
+      "url": "https://apply.unimib.it/en_GB/courses/course/81-optometry-and-vision-science"
+    },
+    {
+      "quote": "English language proficiency equal to or higher than level B2 is required for admission. Candidates who need to take the English test can take the exam at this University.",
+      "url": "https://apply.unimib.it/en_GB/courses/course/81-optometry-and-vision-science"
+    },
+    {
+      "quote": "Master's Degree in Optometry Vision Science (LM-17) — applicants must possess a first-level degree with specific coursework in Physics (FIS), Biology (BIO), Chemistry (CHIM).",
+      "url": "https://www.unimib.it/sites/default/files/2025-05/ENG_LM_Optometry_VS_2025_2026.pdf"
+    }
+  ],
+  "uncertainty_notes": "The programme was indicated as undergoing accreditation on the en.unimib.it page. The 2026/27 official call PDF was not yet published at the time of research; the cited official_call_url is the 2025/26 annex to the Rector's Decree which defines the per-sector CFU thresholds. Specific numerical IELTS/TOEFL minimum scores are taken from the UNIMIB-wide recognised-certification list rather than the programme page (typical mapping: IELTS 6.0–6.5, TOEFL iBT 79+, Cambridge B2 First). Deadlines re-verified 2026-06-11 against apply.unimib.it 2026/27 calendar: programme has its OWN Fall-semester deadline (16 April 2026, 23:59:59 CET) on apply.unimib.it / Segreterie OnLine, which overrides the unified UNIMIB Master 3-call calendar. application_deadline_eu remains [uncertain] until the 2026/27 official call PDF is published.",
+  "uncertain": [
+    "academic_requirements",
+    "language_requirements",
+    "application_deadline_eu"
+  ]
+}

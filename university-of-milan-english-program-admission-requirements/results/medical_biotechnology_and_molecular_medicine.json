@@ -1,0 +1,178 @@
+{
+  "program_name": "Medical Biotechnology and Molecular Medicine",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-9 R - Biotecnologie mediche, veterinarie e farmaceutiche",
+  "admission_type": "restricted access / selection call",
+  "academic_requirements": "Admission is limited. EU, Italian, and equivalent applicants are ranked through an admission test; non-EU applicants residing abroad and requiring a visa are assessed on their academic and personal background and, after positive preliminary evaluation, on an interview. Applicants must hold a first- or second-cycle university degree, or an equivalent foreign qualification recognized by the University, and must have at least 50 ECTS in the biomedical/scientific areas listed by UniMi for the programme (including physiology, biochemistry, molecular biology, clinical biochemistry, biology, pharmacology, human anatomy, genetics, microbiology, medical statistics, human genetics, pathology, oncology, internal medicine, mental health, neurology, laboratory medicine, informatics, and medical physics). Applicants from Italian or EU universities must have 180 ECTS; graduating students may apply if they have at least 156 ECTS by the application deadline and complete the degree by 31 December 2026. For the entrance-test route, applicants must score at least 20/50 to be included in the ranking list.",
+  "language_requirements": "[uncertain] English: B2 CEFR or higher is mandatory for admission. SLAM verifies this through one of three routes: a recognized B2+ certificate issued no more than three years before the application date and uploaded with the application; a University of Milan SLAM-certified English level achieved within the previous four years (automatic verification, no upload needed); or the SLAM placement/entry test. Applicants who fail or miss the SLAM test must submit a recognized certificate via InformaStudenti by the programme deadline shown on the UniMi language page for this course, which is 31 December 2026, or they will not be admitted. The course-specific call also states that admitted non-EU visa applicants can enrol only if they pass the Italian language proficiency test, except where exempt, but it does not specify the CEFR level; this conflicts with the generic UniMi international enrolment page, which limits that Italian test to degree programmes taught in Italian.",
+  "application_deadline_eu": "Application window for European and equivalent candidates: 24 March 2026 to 25 August 2026, 2:00 p.m. local time. Admission test: 10 September 2026. Ranking list publication: 17 September 2026 after 2:00 p.m. Enrolment deadline: 24 September 2026, 2:00 p.m. First ranking update: 25 September to 2 October 2026.",
+  "application_deadline_non_eu": "Application window for non-EU candidates applying for a visa: 24 March 2026 to 29 May 2026, 2:00 p.m. local time. Universitaly pre-enrolment deadline: 31 July 2026. Communication of results: by 26 August 2026. Enrolment deadline: 24 September 2026, 2:00 p.m.",
+  "required_documents": [
+    "B2 English certificate, if using a certificate rather than automatic SLAM verification from a previous University of Milan degree.",
+    "Self-certification of degree/enrolment with exam records for applicants with Italian qualifications; for applicants from Italian universities other than UniMi, this must include exams taken, grades, ECTS credits, and scientific-disciplinary sectors.",
+    "Bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate for applicants with foreign qualifications.",
+    "Diploma Supplement or transcript of records including courses and marks for applicants with foreign qualifications.",
+    "Passport pages containing personal information, or another valid ID document, for non-Italian candidates.",
+    "Curriculum vitae for non-EU candidates applying for a visa.",
+    "For final enrolment with a foreign qualification: legalized or apostilled Bachelor's degree (or equivalent), unless exempt from legalization/apostille.",
+    "For final enrolment with a foreign qualification: high school diploma.",
+    "For final enrolment with a foreign qualification: official Italian translation of academic qualifications, unless the originals are in English, French, German, or Spanish.",
+    "For final enrolment with a foreign qualification: Statement of Comparability from an ENIC-NARIC center such as CIMEA, or a Dichiarazione di Valore in loco; for Lisbon Convention cases, the Diploma Supplement or ARDI Correspondence Statement may replace them as stated by UniMi.",
+    "Italian tax code (codice fiscale) for final enrolment with a foreign qualification.",
+    "Receipt of residence permit application or a valid residence permit for non-EU citizens at final enrolment."
+  ],
+  "entry_exam_or_test": "EU, Italian, and equivalent candidates sit a competitive written admission test in English on 10 September 2026, delivered remotely according to the call. The test has 50 multiple-choice questions in biochemistry, biology, pharmacology, physics, genetics, immunology, and pathology. Scoring is +1 for each correct answer, 0 for unanswered questions, and -0.5 for each wrong answer. A minimum score of 20/50 is required to enter the ranking list. Tie-breakers are: higher number of correct answers, then younger age. Non-EU candidates residing abroad and requiring a visa do not sit this written exam; they are selected through evaluation of their scholastic/personal curriculum and, if positively pre-screened, an interview on subjects related to the required scientific-disciplinary areas.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/medical-biotechnology-and-molecular-medicine",
+  "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-medical-biotechology-and-molecular-medicine-%28classe-lm-9-r%29.pdf?27-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027. Master programme. Access: Limited enrolment with admission test. Course location: Milan. Language: English.",
+      "url": "https://www.unimi.it/en/education/master-programme/medical-biotechnology-and-molecular-medicine",
+      "field_refs": [
+        "academic_year",
+        "level",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "To be eligible for the entrance examination, applicants holding a Bachelor's degree from Italian or EU universities must have earned 180 ECTS credits.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_DBBof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Of these, at least 50 ECTS credits must be obtained in the following scientific disciplinary areas.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_DBBof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Students waiting to obtain the bachelor's degree, can participate in the admission test 'sub iudice'.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_DBBof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Application from 24 March to 25 August 2026, 2.00 p.m.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-medical-biotechology-and-molecular-medicine-%28classe-lm-9-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Application from 24 March to 29 May 2026, 2.00 p.m.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-medical-biotechology-and-molecular-medicine-%28classe-lm-9-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-medical-biotechology-and-molecular-medicine-%28classe-lm-9-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The online admission service also requires the following documents to be uploaded.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-medical-biotechology-and-molecular-medicine-%28classe-lm-9-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor's Degree (B.Sc. or equivalent) ... Diploma Supplement ... Passport ... Curriculum vitae (only for NON-EU candidates applying for VISA).",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-medical-biotechology-and-molecular-medicine-%28classe-lm-9-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Language certificate of B2 or higher level issued no more than three years before the date of admission application.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-medical-biotechology-and-molecular-medicine-%28classe-lm-9-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "language_requirements",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Medical Biotechnology and Molecular Medicine 31/12/2026",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The admission exam will take place on 10 September 2026 and will be provided remotely.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-medical-biotechology-and-molecular-medicine-%28classe-lm-9-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "entry_exam_or_test",
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The admission test consists of a written test, held in English. Is composed by 50 multiple-choice questions.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-medical-biotechology-and-molecular-medicine-%28classe-lm-9-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Candidates that do not achieve at least 20 points in the admission exam will be excluded from the ranking list.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-medical-biotechology-and-molecular-medicine-%28classe-lm-9-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "selection will be made on the basis of the preliminary evaluation of personal and scholastic curriculum and, if this initial evaluation is positive, they will be invited to an interview.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-medical-biotechology-and-molecular-medicine-%28classe-lm-9-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "visa applicants must apply within 30 April 2026.",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "uncertainty_notes",
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "language_requirements is marked [uncertain] because the course-specific call says admitted non-EU visa applicants must pass an Italian language proficiency test unless exempt, but it does not state the CEFR level; the generic international enrolment page says this Italian test is for programmes taught in Italian, while this programme page states the teaching language is English.",
+    "The generic UniMi international enrolment page says visa applicants for master's degrees must apply within 30 April 2026, but the programme-specific 2026/2027 call sets the application deadline for non-EU visa applicants at 29 May 2026 and also sets a separate Universitaly pre-enrolment deadline of 31 July 2026. The programme-specific call was treated as the controlling source for deadline fields."
+  ],
+  "uncertain": [
+    "language_requirements"
+  ]
+}

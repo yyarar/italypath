@@ -1,0 +1,212 @@
+{
+  "program_name": "Biomedical Omics (BO)",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-9 R - Biotecnologie mediche, veterinarie e farmaceutiche",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": "Applicants must hold, or obtain by 31 December 2026, a bachelor's degree or equivalent foreign qualification recognized as suitable by the University. The programme is open to graduates in L-2 Biotechnology, L-13 Biological Sciences, L-27 Chemistry, or L-29 Pharmaceutical Sciences and Technologies, as well as applicants with other degrees who have at least 40 ECTS in the listed BIO, CHIM, MED, and SECS-S scientific sectors. The manifesto states 180 credits are required for admission. For applicants with foreign qualifications, the academic record must make the relevant hours/credits clearly identifiable; otherwise the faculty evaluates additional career documents.",
+  "language_requirements": "English at B2 level is required. The programme page states that applicants without a valid language certificate may still be accepted if faculty members judge their English proficiency during the admission interview to be sufficient for all programme activities. The University page on accepted language certificates states that accepted certificates must be at the required level or higher, cover Reading, Writing, Listening, and Speaking, and be no older than 3 years at submission time, or 2 years for TOEFL.",
+  "application_deadline_eu": "EU/Italian/equivalent applicants: admission application window from 22 January 2026 to 25 August 2026. Enrolment window for admitted students: from 5 May 2026 to 15 January 2027.",
+  "application_deadline_non_eu": "Non-EU applicants requiring a visa: admission application window from 22 January 2026 to 30 April 2026. Universitaly pre-enrolment deadline: 31 July 2026. Deadline to complete the foreign-qualification enrolment documentation on apply.unimi.it: 30 November 2026. Enrolment window for admitted students: from 5 May 2026 to 15 January 2027.",
+  "required_documents": [
+    "Study plan showing the exams taken and the grade obtained in each exam.",
+    "Curriculum vitae.",
+    "Self-certification of degree or enrolment with exam records for applicants with qualifications obtained in Italy; for non-UniMi qualifications this must include exams, grades, ECTS credits, and disciplinary scientific sectors.",
+    "Bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate for applicants with foreign qualifications.",
+    "Diploma Supplement, or alternatively a transcript showing courses, marks, ECTS, academic field, and the grading system used.",
+    "Passport or other valid ID.",
+    "Additional documents certifying the student's prior academic career if the transcript does not make the relevant hours or credits clearly identifiable.",
+    "For final enrolment with foreign qualifications: legalized or apostilled bachelor's degree or equivalent, unless exempt.",
+    "For final enrolment with foreign qualifications: high school diploma.",
+    "For final enrolment with foreign qualifications: official Italian translation of the academic qualifications, unless the originals are in English, French, German, or Spanish.",
+    "For final enrolment with foreign qualifications: Statement of Comparability from an ENIC-NARIC center such as CIMEA, or a Dichiarazione di Valore; where allowed, a Diploma Supplement or ARDI correspondence statement may replace these.",
+    "For final enrolment with foreign qualifications: Italian tax code (codice fiscale).",
+    "For final enrolment with foreign qualifications: receipt of the residence-permit application or a valid residence permit, required only for non-EU citizens.",
+    "If the applicant chooses to prove English by certificate rather than interview-based assessment: an English certificate accepted by the University of Milan."
+  ],
+  "entry_exam_or_test": "[uncertain] There is no centralized entrance exam. Admission is based on evaluation of the academic curriculum and an individual interview in English, held in person or online. The published scoring system is up to 25/100 for degree grade or weighted average, up to 10/100 for the curriculum of studies, and up to 65/100 for the interview, with a minimum admission score of 60/100. For non-EU visa applicants, the application page sets the online interview on 20 May 2026 at 9:30 a.m. For Italian and EU applicants, the application page says the interview date will be published later. The admission notice also says the board may request an interview and/or a written test, while the A.Y. 2026/2027 application page specifically schedules interviews.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/biomedical-omics-bo",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-biomedical-omics-%28classe-lm-9-r%29.pdf",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027",
+      "url": "https://www.unimi.it/en/education/master-programme/biomedical-omics-bo",
+      "field_refs": [
+        "academic_year"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "LM-9 R - Biotecnologie mediche, veterinarie e farmaceutiche",
+      "url": "https://www.unimi.it/en/education/master-programme/biomedical-omics-bo",
+      "field_refs": [
+        "degree_class"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Open with entry requirements examination",
+      "url": "https://www.unimi.it/en/education/master-programme/biomedical-omics-bo",
+      "field_refs": [
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Course location Milan",
+      "url": "https://www.unimi.it/en/education/master-programme/biomedical-omics-bo",
+      "field_refs": [
+        "campus"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Language English",
+      "url": "https://www.unimi.it/en/education/master-programme/biomedical-omics-bo",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Credits required for admission: 180",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_DBCof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Knowledge of English language is required at B2 level.",
+      "url": "https://bo.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Applicants without a valid language certificate may be accepted",
+      "url": "https://bo.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "For the Academic Year 2026/2027, the application deadline for non-EU students applying for a visa is April 30th 2026.",
+      "url": "https://bo.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "the application deadline for Italian and EU students is August 25th 2026.",
+      "url": "https://bo.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "from 22 January to 30 April 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-biomedical-omics-%28classe-lm-9-r%29.pdf",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "from 22 January to 25 August 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-biomedical-omics-%28classe-lm-9-r%29.pdf",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "submit an application for pre-enrolment through Universitaly platform by 31 July 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-biomedical-omics-%28classe-lm-9-r%29.pdf",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The documentation must be completed by 30 November 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-biomedical-omics-%28classe-lm-9-r%29.pdf",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "their study plan with the indication of the exams and the grade obtained",
+      "url": "https://bo.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "their curriculum vitae",
+      "url": "https://bo.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Bachelor's Degree (B.Sc. or equivalent) or degree-awarding certificate",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-biomedical-omics-%28classe-lm-9-r%29.pdf",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Diploma supplement or, alternatively, a transcript",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-biomedical-omics-%28classe-lm-9-r%29.pdf",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-biomedical-omics-%28classe-lm-9-r%29.pdf",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Certificates must have been earned for no more than 3 years",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "must certify 4 language skills: Reading, Writing, Listening, and Speaking.",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "entry_exam_or_test is marked uncertain because the A.Y. 2026/2027 application page gives a fixed online interview date only for non-EU visa applicants, while for Italian and EU applicants it says the interview date will be published later.",
+    "entry_exam_or_test is also marked uncertain because the admission notice allows the board to request an interview and/or a written test, while the programme application page for A.Y. 2026/2027 specifically describes interviews."
+  ],
+  "uncertain": [
+    "entry_exam_or_test"
+  ]
+}

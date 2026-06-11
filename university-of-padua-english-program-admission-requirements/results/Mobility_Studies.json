@@ -1,0 +1,184 @@
+{
+  "program_name": "Mobility Studies",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Padua",
+  "degree_class": "LM-84 - Historical Sciences",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a minimum three-year bachelor's degree or equivalent in Historical and Geographical studies or in related humanities and social-science fields relevant to Mobility Studies.",
+    "prior_degree_or_diploma": "A minimum three-year undergraduate degree (or equivalent).",
+    "subject_requirements": "The official course page lists Historical and Geographical studies and related subjects such as Philology, Literature, Foreign Languages, Sociology, Anthropology, Global Studies, and Social and Political sciences.",
+    "gpa_or_country_requirements": "Country-based specific entry title and GPA requirements apply. The official course page does not publish a programme-specific minimum GPA threshold [uncertain].",
+    "source_url": "https://apply.unipd.it/courses/course/88-mobility-studies"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent.",
+    "accepted_proofs": [
+      "TOEFL iBT with a minimum score of 80.",
+      "IELTS Academic or General Training with a minimum score of 6.0.",
+      "Cambridge English B2 First with a minimum score of 173.",
+      "Pearson Test of English Academic with a minimum score of 65.",
+      "Trinity College London ISE II or another certificate listed by the University of Padua.",
+      "Only certificates obtained no more than five years before the start of the selection process are accepted."
+    ],
+    "exemption_rules": [
+      "No certificate is required if the applicant obtained the entry qualification by completing previous education entirely in English.",
+      "No certificate is required for native English speakers from the countries listed by the University of Padua."
+    ],
+    "deadline": "For open-access degree programmes, the university requires the language certificate by 31 August 2026.",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "2 June 2026 - 2 August 2026",
+    "notes": "Call Three is only for EU students and non-EU students residing in Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/88-mobility-studies"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "Not available to non-EU students residing outside Italy.",
+    "call_three": "Not available to non-EU students residing outside Italy.",
+    "notes": "Only Call One applies to non-EU students residing outside Italy; Call Three is restricted to EU students and non-EU students residing in Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/88-mobility-studies"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae (Resume) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Listed among the standard documents for master's degree applications with an international qualification.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Motivational letter in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Mobility Studies gives particular importance to the motivation letter, which must be specifically tailored to the programme.",
+      "source_url": "https://apply.unipd.it/courses/course/88-mobility-studies"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for master's applications; if it is not issued in English or Italian, an official translation is needed.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Bachelor's degree diploma or enrolment/provisional certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "If the final qualification has not yet been awarded, an enrolment or provisional certificate is accepted.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Valid ID card or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU or equivalent applicants can use an ID card; other applicants use a passport.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Residence permit",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only for non-EU citizens already residing in Italy.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "English language certificate or exempting proof",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required if the applicant does not qualify for a published exemption.",
+      "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+    },
+    {
+      "document_name": "Official translations into English or Italian for academic documents issued in other languages",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "The official course page states that official translations are needed when academic documents are not in English or Italian.",
+      "source_url": "https://apply.unipd.it/courses/course/88-mobility-studies"
+    },
+    {
+      "document_name": "Bachelor's diploma translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "The enrolment page states that previous qualifications must be translated and legalised for enrolment.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Transcript of records translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Required at enrolment together with the previous degree documentation.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Study Visa D - enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU applicants residing outside Italy.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Non-EU students residing outside Italy must complete pre-enrolment through Universitaly.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No written entrance test; possible interview via the application platform",
+    "mandatory": false,
+    "applies_to": "Applicants invited by the selection committee during the assessment procedure.",
+    "dates": "Interview dates are not published on the official course page [uncertain].",
+    "scoring_or_threshold": "No score threshold is published; the official page only states that the committee may invite applicants to an interview.",
+    "source_url": "https://apply.unipd.it/courses/course/88-mobility-studies"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.dissgea.unipd.it/didattica/corsi-di-studio/second-cycle-degree-mobility-studies",
+  "official_call_url": "https://apply.unipd.it/courses/course/88-mobility-studies",
+  "source_quotes": [
+    {
+      "quote": "Class LM-84 - Historical Sciences - Mobility Studies",
+      "source_url": "https://www.dissgea.unipd.it/didattica/corsi-di-studio/second-cycle-degree-mobility-studies",
+      "field_supported": "degree_class"
+    },
+    {
+      "quote": "A minimum three-year undergraduate degree (or equivalent)",
+      "source_url": "https://apply.unipd.it/courses/course/88-mobility-studies",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "B2 level (CEFR) or equivalent",
+      "source_url": "https://apply.unipd.it/courses/course/88-mobility-studies",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Call One: 2 November 2025 - 2 February 2026",
+      "source_url": "https://apply.unipd.it/courses/course/88-mobility-studies",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "Call Three: 2 June 2026 - 2 August 2026",
+      "source_url": "https://apply.unipd.it/courses/course/88-mobility-studies",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "the selection committee reserves the right to invite applicants to take an interview",
+      "source_url": "https://apply.unipd.it/courses/course/88-mobility-studies",
+      "field_supported": "entry_exam_or_test"
+    }
+  ],
+  "uncertainty_notes": [
+    "Mobility Studies is an English-taught study track within the master's degree in Historical Sciences, so programme identity was consolidated from the official department page and the official apply.unipd.it course page.",
+    "The task-provided URL https://www.unipd.it/en/mobility-studies currently redirects to the University home page, so it was not used as the main programme-page source.",
+    "The official open-access course page does not publish a programme-specific minimum GPA threshold or interview calendar."
+  ],
+  "uncertain": [
+    "academic_requirements",
+    "entry_exam_or_test"
+  ]
+}

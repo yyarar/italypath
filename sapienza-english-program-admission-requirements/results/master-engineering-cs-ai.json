@@ -1,0 +1,127 @@
+{
+  "program_name": "Engineering in Computer Science and Artificial Intelligence",
+  "level": "master",
+  "official_level_type": "Laurea Magistrale (Master's degree)",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": [
+    "San Pietro in Vincoli campus, Via Eudossiana 18, Rome",
+    "DIAG, Via Ariosto 25, Rome"
+  ],
+  "degree_class": "LM-32",
+  "course_code": "33515",
+  "faculty": "Information Engineering, Informatics and Statistics (Ingegneria dell'informazione, informatica e statistica)",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33515",
+
+  "admission_type": "restricted access",
+  "movein_preselection_required": true,
+  "admission_test_type": "Verification of requirements and personal preparation; CV/background assessment with a Skype/online interview for selected (non-EU MoveIN) applicants",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy (with residence permit)",
+    "non-EU residing abroad (MoveIN pre-selection / visa-required)"
+  ],
+  "application_platform": "MoveIN pre-selection platform (sapienza.gomovein.com) for international/non-EU applicants; Infostud (Sapienza student portal) for application and enrolment; Universitaly for visa pre-enrolment (non-EU)",
+  "access_quota_non_eu": "Per-programme non-EU contingent is set in the official Call for Applications; not extracted for this programme [uncertain].",
+  "application_round": "September 2026 intake. Non-EU (visa) MoveIN pre-selection 22 December 2025 - 15 May 2026; EU/equivalent applications open until 31 July 2026.",
+  "intake_semester_availability": "September 2026 intake [uncertain] (catalogue/admissions pages describe a single September intake; February intake not confirmed for this programme).",
+  "places_and_foreign_contingent": "Total places and non-EU contingent are published in the programme Call for Applications; not extracted in this pass [uncertain].",
+  "official_call_url": "https://corsidilaurea.uniroma1.it/en/course/33515/apply",
+  "faculty_call_pdf_url": null,
+
+  "academic_requirements": {
+    "summary": "An undergraduate degree (e.g. Bachelor's) in Computer Engineering, Computer Science, or another scientific area; applicants from other scientific areas are analysed and approved on a case-by-case basis. A strong academic background in Computer Science is expected. Selected (MoveIN) applicants are invited to an online/Skype interview to assess skills and background, including technical questions on the relevant background.",
+    "minimum_gpa": "75/100 (MoveIN minimum GPA for non-EU applicants)",
+    "source": "MoveIN academic requirements 2026-2027 PDF; programme catalogue page 33515"
+  },
+  "country_specific_eligibility": "Foreign qualifications must be valid for enrolment per Sapienza's 'Accepted qualifications by country' (2026/2027) document. Minimum GPA 75/100 applies to MoveIN (non-EU) applicants. See https://www.uniroma1.it/sites/default/files/field_file_allegati/accepted_qualifications_by_country_26mag26.pdf",
+  "curricular_integration_policy": "Applicants from scientific areas other than Computer Engineering/Computer Science are evaluated case-by-case; specific curricular integration rules for this programme were not detailed on the official sources checked [uncertain].",
+  "conditional_enrolment_policy": "Applicants who have not yet graduated may apply for the requirements assessment; final admission depends on completing the Bachelor's degree before enrolment. Specific dates for this programme not separately published [uncertain].",
+
+  "language_requirements": {
+    "level": "B2 (CEFR), Upper Intermediate, in English",
+    "accepted_certificates_and_scores": [
+      "IELTS (academic) 5.5 or higher",
+      "TOEFL iBT 80 or higher",
+      "Cambridge English B2 First (FCE) or higher (also CAE, CPE)",
+      "Trinity College London ISE II or higher",
+      "PTE General Level 3 (B2) or higher / PTE Academic"
+    ],
+    "waivers": "Waived for native English speakers; holders of an English-taught diploma/degree from an accredited institution in EU/EEA/Schengen, Australia, Canada, New Zealand, the UK or the US; holders of International Baccalaureate (IB), GCE/GCSE or comparable. Fully waived for applicants from UK, US, Canada, Ireland, Australia, New Zealand (English as primary medium of instruction).",
+    "source": "MoveIN academic requirements 2026-2027 and English language requirements 2026 PDF"
+  },
+  "language_submission_timing": "Language certification (or self-certification of evidence of English training) is submitted at the MoveIN pre-selection / application stage.",
+  "italian_language_requirement": "Not required for admission; the programme is taught entirely in English. Italian useful for daily life [uncertain].",
+
+  "application_deadline_eu": "EU and EU-equivalent candidates (no visa required) may apply until 31 July 2026 for 2026/2027.",
+  "application_deadline_non_eu": "Non-EU candidates residing abroad and requiring a visa: MoveIN pre-selection 22 December 2025 - 15 May 2026. Pre-accepted students must register on Universitaly by 30 June 2026.",
+  "application_fee": "EUR 30 per submitted application (maximum 2 applications per candidate per academic year); no fee waiver available.",
+  "visa_preenrolment_deadline": "Pre-accepted non-EU students must register/pre-enrol on the Universitaly platform by 30 June 2026.",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2026-2027",
+
+  "required_documents": [
+    "Passport / ID",
+    "High school diploma",
+    "University (Bachelor's) degree / diploma",
+    "Transcript of records",
+    "English language certificate (or self-certification of English training)",
+    "Reference letter (optional)",
+    "Additional supporting documents as requested in the programme call",
+    "CV (used by the committee to assess background)"
+  ],
+  "document_translation_authentication": "Foreign documents must be valid per Sapienza's 'Accepted qualifications by country' rules; legalization/Declaration of Value/CIMEA statement may be required for foreign qualifications. Specific authentication detail not separately listed for this programme [uncertain].",
+
+  "entry_exam_or_test": {
+    "type": "No standardized written entrance exam. Admission is by verification of requirements and personal preparation; selected MoveIN (non-EU) applicants undergo a CV/background assessment plus an online/Skype interview.",
+    "source": "Catalogue page 33515 (Access procedure: Verification of requirements and personal preparation) and MoveIN academic requirements 2026-2027"
+  },
+  "test_variant_and_session": "Online/Skype interview scheduled individually for selected applicants; no fixed public test session [uncertain].",
+  "test_score_conversion_or_threshold": "MoveIN minimum GPA 75/100; English minimum IELTS 5.5 / TOEFL iBT 80. No numeric entrance-test threshold (no written test).",
+
+  "source_quotes": [
+    {
+      "quote": "Programme code 33515 ... Course type Master's degree ... Bachelor class LM-32 ... Access procedure Verification of requirements and personal preparation ... Faculty Ingegneria dell'informazione, informatica e statistica ... Department INGEGNERIA INFORMATICA, AUTOMATICA E GESTIONALE \"ANTONIO RUBERTI\" ... Language English",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33515",
+      "supports_fields": ["course_code", "degree_class", "level", "admission_type", "faculty", "teaching_language"]
+    },
+    {
+      "quote": "As a minimum requirement an applicant must have an undergraduate degree (e.g. Bachelor's) in Computer Engineering, Computer Science, or other scientific areas (the latter will be analysed and approved on a case-by-case basis). Selected students will be invited for a Skype interview ... MINIMUM GPA: 75/100 ... IELTS 5.5 or higher ... TOEFL iBT 80 or higher",
+      "source_url": "https://www.uniroma1.it/sites/default/files/field_file_allegati/academic_requirements_movein_2026-2027_web_0.pdf",
+      "supports_fields": ["academic_requirements", "language_requirements", "entry_exam_or_test"]
+    },
+    {
+      "quote": "the deadline for Non-EU candidates (visa applicants) expired on May 15, 2026. The application process will remain open until July 31, 2026, exclusively for EU and EU-equivalent candidates ... a EUR 30 application fee for each submitted application (up to a maximum of two applications per candidate per intake)",
+      "source_url": "https://www.uniroma1.it/en/admissions",
+      "supports_fields": ["application_deadline_eu", "application_deadline_non_eu", "application_fee", "visa_preenrolment_deadline"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/course/33515",
+    "https://www.uniroma1.it/en/admissions",
+    "https://www.uniroma1.it/sites/default/files/field_file_allegati/academic_requirements_movein_2026-2027_web_0.pdf",
+    "https://www.uniroma1.it/sites/default/files/field_file_allegati/language_requirements_sapienza_2026.pdf",
+    "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
+  ],
+  "source_year": "2026-2027",
+
+  "uncertainty_notes": [
+    "Per-programme non-EU access quota and total places not extracted; must be confirmed in the programme Call for Applications.",
+    "official_call_url points to the catalogue 'Apply' section; a programme-specific bando PDF was not located in this pass.",
+    "Intake semester availability assumed September only; February intake not confirmed for this programme.",
+    "Curricular integration and conditional enrolment specifics for this programme not separately documented on checked sources.",
+    "Document authentication (Declaration of Value / CIMEA) requirement inferred from general Sapienza policy, not programme-specific text.",
+    "Italian language requirement assumed not required (English-taught), not explicitly stated on the programme page."
+  ],
+  "uncertain": [
+    "access_quota_non_eu",
+    "intake_semester_availability",
+    "places_and_foreign_contingent",
+    "curricular_integration_policy",
+    "conditional_enrolment_policy",
+    "italian_language_requirement",
+    "document_translation_authentication",
+    "test_variant_and_session"
+  ]
+}

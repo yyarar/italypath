@@ -1,0 +1,165 @@
+{
+  "program_name": "Bioinformatics for computational genomics",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan (University of Milan Citta Studi campus and Politecnico di Milano Leonardo Campus)",
+  "degree_class": "LM-8 R - Biotecnologie industriali",
+  "admission_type": "restricted access (Limited enrolment with admission test)",
+  "academic_requirements": "Applicants must hold, or obtain by 31 October 2026, a bachelor's/first-cycle degree in one of two background routes. Route 1: Biotechnology (L-2), Biology (L-13), Agriculture and Food Sciences (L-26), or Pharmacological Sciences (L-29), with at least 30 ECTS/CFU in biological areas and at least 18 ECTS/CFU across Genetics (BIO/18), Molecular Biology (BIO/11), and Biochemistry (BIO/10), with at least 6 ECTS in each of those three subjects. Route 2: Information Engineering (L-8), Computer Science (L-31), Physics (L-30), Mathematics (L-35), or Statistics (L-41), with at least 30 ECTS/CFU in computer science, information engineering, biomedical engineering, mathematics and/or statistics, including at least 6 ECTS in mathematics and at least 12 ECTS in INF/01, ING-INF/05, ING-INF/06, and/or SECS-S/01. Equivalent foreign degrees are accepted if the Teachers Council can identify the disciplines and credits; otherwise the candidate's academic records are examined in detail. Admission also requires adequate background knowledge in either genetics/molecular biology/biochemistry or computer science/information engineering/mathematics.",
+  "language_requirements": "English proficiency at B2 CEFR or higher is required. The admission call asks applicants to upload a B2 English certificate if they have one, while the programme page and manifesto state that in exceptional cases candidates without a valid certificate may still be admitted if the admission interview clearly demonstrates good English proficiency. Knowledge of Italian is not required for attendance or graduation. For the optional 3-credit activity 'Additional Language Skills: Italian', students without an Italian high school diploma or degree can satisfy the requirement with an Italian certificate at A2 level or higher, issued within the previous 3 years and uploaded through http://studente.unimi.it/uploadCertificazioniLingue, or by taking the one-time SLAM entry-level test; students below A2 must attend one or more 60-hour SLAM Italian courses and pass the final test.",
+  "application_deadline_eu": "Admission application: 24 March 2026 to 26 June 2026, 2:00 p.m. Interview: 1 July 2026, 9:30 a.m. Ranking publication: 7 July 2026 after 2:00 p.m. Enrolment for admitted candidates: 7 July 2026, 2:00 p.m. to 16 July 2026, 2:00 p.m.",
+  "application_deadline_non_eu": "For non-EU candidates applying for a visa: admission application 24 March 2026 to 29 May 2026, 2:00 p.m.; no interview if resident abroad; ranking publication 7 July 2026 after 2:00 p.m.; Universitaly pre-enrolment deadline 31 July 2026.",
+  "required_documents": [
+    "Curriculum vitae in English.",
+    "Diploma Supplement or official certificate(s)/transcript showing the awarded degree or current enrolment, passed exams, grades, and credits; accepted languages are Italian, English, French, Spanish, or German.",
+    "B2-or-higher English certificate, if available.",
+    "Passport personal-data pages or another valid identity document.",
+    "For applicants with qualifications obtained abroad: Bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate.",
+    "For candidates who have not yet graduated: total credits obtained, average grade, exams taken and not yet recorded with their credits, exams not yet taken with their credits, and expected graduation date entered in the application.",
+    "Application receipt; the call states this is the only accepted proof of registration for the admission exam, and the payment receipt may also be requested.",
+    "To finalize enrolment with a foreign qualification: legalized or apostilled Bachelor's degree (or equivalent) and high school diploma.",
+    "Official Italian translations of academic qualifications, unless the original documents are in English, French, German, or Spanish.",
+    "Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore; for Lisbon Recognition Convention countries, the Diploma Supplement or ARDI Statement of Correspondence may replace the DOV/Comparability statement as specified by UniMi.",
+    "Italian tax code (codice fiscale).",
+    "For non-EU citizens: receipt of the residence-permit application or a valid residence permit.",
+    "For non-EU students residing abroad: Universitaly pre-enrolment receipt, study visa, request for residence permit, and any certificates of competence in Italian."
+  ],
+  "entry_exam_or_test": "Admission is by selection interview plus CV/academic-record evaluation. Eligible applicants are scored on a 100-point scale: up to 50 points for the applicant's resume/academic record and up to 50 points for the interview. The minimum score for admission is 60/100. For A.Y. 2026/2027, interviews for Italian and EU students are held online on 1 July 2026 at 9:30 a.m.; foreign non-EU students residing in Italy must also attend. Candidates must show a valid ID at the beginning of the interview. Non-EU candidates residing abroad and applying for a visa do not take the interview and are evaluated only on their previous first-cycle study programme/resume, up to 100/100. Ranking lists for EU and non-EU candidates are published together, but visa applicants compete within the reserved quota of 10 places.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/bioinformatics-computational-genomics",
+  "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-bioinformatics-for-computational-genomics-%28classe-lm-8-r%29.pdf?27-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027. Master programme. LM-8 R - Biotecnologie industriali. Access: Limited enrolment with admission test. Course location: Milan. Language: English.",
+      "url": "https://www.unimi.it/en/education/master-programme/bioinformatics-computational-genomics",
+      "field_refs": [
+        "program_name",
+        "level",
+        "academic_year",
+        "degree_class",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Lecture rooms and laboratories are located: in the \"Citta Studi\" campus ... in the \"Leonardo\" Campus of the Politecnico di Milano.",
+      "url": "https://www.unimi.it/en/education/master-programme/bioinformatics-computational-genomics",
+      "field_refs": [
+        "campus"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Application from 24 March to 26 June 2026, 2:00 p.m. Application for NON EU visa applicants from 24 March to 29 May 2026, 2:00 p.m.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-bioinformatics-for-computational-genomics-%28classe-lm-8-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu",
+        "official_call_url"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Students must be proficient in English, with a B2 or higher level of competence.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-bioinformatics-for-computational-genomics-%28classe-lm-8-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Curriculum vitae (in English) ... Diploma Supplement ... Certificate for B2-level or higher in English ... Passport.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-bioinformatics-for-computational-genomics-%28classe-lm-8-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The interview will take place exclusively online on 1 July 2026, 9.30 a.m.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-bioinformatics-for-computational-genomics-%28classe-lm-8-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "entry_exam_or_test",
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Non-EU candidates residing abroad (visa applicants) are not required to attend the admission interview.",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-bioinformatics-for-computational-genomics-%28classe-lm-8-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "entry_exam_or_test",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "submit an application for pre-enrolment through Universitaly platform by 31 July 2026",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-bioinformatics-for-computational-genomics-%28classe-lm-8-r%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Knowledge of Italian is not required for attendance, nor for graduation.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBRof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "students without a valid language certificate may be accepted on condition that their level of English proficiency, assessed during the interview, is evidently good.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBRof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The prerequisite to access the BCG Master degree program is an adequate knowledge of the fundaments of either (1) genetics ... or (2) computer science ...",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBRof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Certificates must have been earned for no more than 3 years ... For Master's degree courses requiring the English entry test: language certificates must be uploaded when submitting the admission request.",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements",
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "In order to enrol on a Master's degree, visa applicants must apply within 30 April 2026.",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Pre-application ... must be presented on the Universitaly website within 31 July 2026, under penalty of exclusion.",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "No core programme field is missing after checking the official programme page, the A.Y. 2026/27 programme-specific admission call PDF, and the A.Y. 2026/27 manifesto PDF.",
+    "There is one official-source discrepancy for non-EU visa timing: the central UniMi international-enrolment page says visa applicants to Master's degrees must apply by 30 April 2026, while the BCG programme page and the programme-specific admission call state 29 May 2026 at 2:00 p.m. for the BCG admission application and 31 July 2026 for Universitaly pre-enrolment. The programme-specific call was prioritized.",
+    "The BCG call requires a B2 English certificate only 'if in possess' and allows interview-based assessment in exceptional cases; it does not itself list the accepted certificate families or validity period. The generic UniMi language-certificates page was used only to supply institution-wide upload timing and certificate-validity rules."
+  ],
+  "uncertain": []
+}

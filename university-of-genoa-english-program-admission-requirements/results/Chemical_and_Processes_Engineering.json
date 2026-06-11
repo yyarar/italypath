@@ -1,0 +1,151 @@
+{
+  "program_name": "Chemical and Processes Engineering",
+  "level": "master",
+  "teaching_language": "Italian (programme taught in Italian; English B2 is required as a competence, not as the language of instruction)",
+  "campus": "Genoa (DICCA - Department of Civil, Chemical and Environmental Engineering)",
+  "degree_class": "LM-22 R (Chemical Engineering)",
+  "admission_type": "open access (free access, but admission requires meeting curricular requirements and, where applicable, verification of personal preparation)",
+  "academic_requirements": {
+    "summary": "Open-access (non-competitive) master's programme taught in Italian. Admission requires a recognised bachelor's degree (3-year, at least 180 CFU/ECTS), satisfaction of curricular CFU requirements, English B2 competence, and verification of personal preparation when the bachelor's grade is below the published threshold.",
+    "prior_degree_or_diploma": "A bachelor's degree or equivalent (three-year university degree / pre-doctoral diploma), pursuant to DM 509/1999 or DM 270/2004, or equivalent qualification.",
+    "curricular_requirements": "Direct admission for UniGe graduates in Chemical Engineering, Electrical Engineering or Managerial Engineering (and for degrees in the Industrial Engineering Class). Otherwise the candidate must hold at least 36 CFU in the scientific-disciplinary sectors of the basic training activities of Class L-9 Industrial Engineering, and at least 45 CFU in the areas of Chemical Engineering, Energy Engineering or Electrical Engineering.",
+    "minimum_grade": "The initial-preparation interview is waived for holders of a bachelor's degree with a final grade of at least 9/10 of the maximum (or corresponding to ECTS classification 'A' or 'B'). [uncertain] No non-EU minimum-grade threshold is published because the programme is not offered through the UniGeApply English master's pre-evaluation route.",
+    "personal_preparation_assessment": "Candidates below the grade threshold sit a public interview assessing general preparation, in particular knowledge of engineering fundamentals and the applied and professional aspects of the specific subjects of industrial engineering. The committee reviews the bachelor's-degree resume.",
+    "international_qualification": "Candidates with a foreign qualification are assessed by the Teaching Committee; because the course is taught in Italian, those who graduated abroad must demonstrate Italian B2 proficiency (Italian language proficiency test; free University Italian courses if not passed). Non-EU students residing abroad enrol via the central international-enrolment route.",
+    "source_url": "https://corsi.unige.it/en/corsi/11919/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "Italian B2 for instruction (required for foreign graduates), plus English B2 as a disciplinary competence.",
+    "accepted_proofs": [
+      "English: an accepted B2-or-higher certificate, a degree taught in English, or passing the University's online B2 test / oral interview administered by the language-skills sector.",
+      "Italian: an accepted Italian-language certificate at B2, or passing the University's Italian language proficiency test (required for candidates who graduated abroad)."
+    ],
+    "exemption_rules": [
+      "English: candidates with an accepted B2 certificate or an English-taught degree are exempt from the University's English test.",
+      "Italian: candidates who graduated in Italy (Italian-taught degree) are not required to take the Italian test; those who fail the Italian test must take free Italian courses organised by the University."
+    ],
+    "assessment_or_upload_stage": "English B2 is verified at the admission/assessment stage; Italian B2 is verified for foreign graduates at the assessment/enrolment stage because the programme is taught in Italian.",
+    "source_url": "https://corsi.unige.it/en/corsi/11919/prospective-students-requisites-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Verification of personal preparation (assessment of adequacy of personal readiness) - NOT a TOLC or competitive entrance exam. Public interview.",
+    "mandatory": false,
+    "is_selective": false,
+    "applies_to": "Candidates whose bachelor's final grade is below 9/10 of the maximum (or below ECTS 'A'/'B'). Foreign graduates are also assessed for Italian and English language proficiency.",
+    "format": "A public interview ascertaining general preparation, in particular knowledge of engineering fundamentals and the applied and professional aspects of the specific subjects of industrial engineering, with review of the bachelor's-degree resume. Separate online language tests (English B2; Italian B2 for foreign graduates) may apply.",
+    "dates": "[uncertain] The official requisites page currently publishes assessment-session dates for an earlier academic year (interviews on 6 and 26 September, 14 November, 16 January and 26 February). A.Y. 2026/2027-specific interview dates are not yet posted on the page; equivalent autumn-2026 / early-2027 sessions are expected.",
+    "scoring_or_threshold": "Waived for bachelor's degrees with a final grade of at least 9/10 of the maximum (ECTS 'A'/'B'). No published non-EU CGPA threshold (programme not on the English master's pre-evaluation list).",
+    "source_url": "https://corsi.unige.it/en/corsi/11919/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026.",
+      "First-year master's pre-registration: from 9 April to 30 November 2026 (and until 10 March 2027 with late payment)."
+    ],
+    "enrolment_deadline": "Confirmation of enrolment from 15 July 2026 to 30 November 2026 (until 10 March 2027 with late payment); enrolment in years after the first runs 15 July to 5 October 2026 (arrears 6 October to 5 November 2026).",
+    "notes": "Open-access (non-ranked) programme; EU/resident applicants below the grade threshold must pass the personal-preparation verification before enrolling. First tuition installment approx. EUR 136 (EUR 16 stamp duty + EUR 120 regional tax) at enrolment; second installment by 10 December 2026; third by 23 June 2027.",
+    "source_url": "https://corsi.unige.it/en/corsi/11919/prospective-students-deadlines"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026.",
+      "This Italian-taught programme is NOT listed on the UniGeApply English master's pre-evaluation selection page; non-EU candidates apply via the general UniGeApply / central international-enrolment route and must satisfy the Italian-language requirement."
+    ],
+    "visa_or_pre_enrolment_deadline": "After UniGeApply eligibility, visa applicants complete the Universitaly pre-enrolment (from 4 May 2026) and then apply for the study visa at the Italian Embassy.",
+    "early_closure": "None published for this programme (uses the standard fall-session close of 20 March 2026).",
+    "notes": "[uncertain] Because the course is taught in Italian, non-EU candidates must demonstrate Italian B2 and follow the standard international-enrolment route; the programme does not appear on the English master's pre-evaluation list, and no programme-specific non-EU CGPA threshold or early closure is published. The A.Y. 2026/27 fall window has now closed.",
+    "source_url": "https://unige.it/en/international-enrolment"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae et Studiorum",
+      "stage": "application/assessment",
+      "required_for": "all",
+      "notes": "Reviewed by the Teaching Committee to assess general preparation and the foreign qualification.",
+      "source_url": "https://corsi.unige.it/en/corsi/11919/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application/assessment",
+      "required_for": "all",
+      "notes": "Three-year degree of at least 180 CFU/ECTS, pursuant to DM 509/1999 or DM 270/2004, or equivalent.",
+      "source_url": "https://corsi.unige.it/en/corsi/11919/prospective-students-admission-criteria-procedure"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application/assessment",
+      "required_for": "all",
+      "notes": "Used to verify curricular CFU (36 CFU L-9 basic SSDs + 45 CFU Chemical/Energy/Electrical Engineering), unless directly admitted.",
+      "source_url": "https://corsi.unige.it/en/corsi/11919/prospective-students-admission-criteria-procedure"
+    },
+    {
+      "document_name": "English Language Proficiency Certificate (B2) or English-medium-of-instruction declaration",
+      "stage": "application/assessment",
+      "required_for": "all",
+      "notes": "B2 certificate or English-taught degree; otherwise the University's online B2 test / oral interview.",
+      "source_url": "https://corsi.unige.it/en/corsi/11919/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Italian Language Proficiency proof (B2)",
+      "stage": "assessment/enrolment",
+      "required_for": "non_eu",
+      "notes": "Required for candidates who graduated abroad because the programme is taught in Italian; if the Italian test is failed, free University Italian courses must be taken.",
+      "source_url": "https://corsi.unige.it/en/corsi/11919/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Legalisation or CIMEA Statement of Verification, plus Declaration of Value or CIMEA Statement of Comparability",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU visa applicants with a foreign qualification to complete enrolment, together with passport, transcript and degree certificate.",
+      "source_url": "https://unige.it/en/international-enrolment"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and study-visa evidence",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Visa applicants complete Universitaly pre-enrolment (from 4 May 2026) after UniGeApply eligibility, then apply for the study visa.",
+      "source_url": "https://unige.it/en/international-enrolment"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11919/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11919",
+  "official_call_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply",
+  "source_quotes": [
+    {
+      "quote": "CHEMICAL AND PROCESSES ENGINEERING, Course Code 11919, Degree Class LM-22 R (Chemical Engineering), Teaching Language Italian, 120 CFU, 2 years, Genova (DICCA - Department of Civil, Chemical and Environmental Engineering).",
+      "source_url": "https://corsi.unige.it/en/corsi/11919",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "Minimum 36 CFUs in scientific-disciplinary fields for Industrial Engineering (Class L-9) basic training; Minimum 45 CFUs in Chemical Engineering, Energy Engineering, or Electrical Engineering areas; Fluent oral and written English. Direct admission [for] Chemical Engineering, Electrical Engineering, Managerial Engineering.",
+      "source_url": "https://corsi.unige.it/en/corsi/11919/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "If you graduated abroad, you will have to take an Italian language proficiency test to ascertain that you meet the B2 level ... If unsuccessful, you must complete free Italian courses organized by the University of Genoa.",
+      "source_url": "https://corsi.unige.it/en/corsi/11919/prospective-students-requisites-assessment",
+      "field_supported": "teaching_language, language_requirements"
+    },
+    {
+      "quote": "If your bachelor's degree grade is at least 9/10 of the maximum or earned a final grade corresponding to the 'A' or 'B' classification of the ECTS system, you will not have to take the initial preparation test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11919/prospective-students-admission-criteria-procedure",
+      "field_supported": "entry_exam_or_test, academic_requirements"
+    },
+    {
+      "quote": "Chemical and Processes Engineering does not appear in the list of English-taught master's degrees on the UniGeApply non-EU pre-evaluation selection page.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "teaching_language, application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "Teaching language CONFIRMED as Italian: the corsi.unige.it catalogue lists Teaching Language Italian, the requisites page requires foreign graduates to pass an Italian B2 test (treating English B2 only as a disciplinary competence), and the programme does NOT appear on the UniGeApply English master's pre-evaluation list. This resolves the task's open question - the programme is not fully English; it is Italian-taught with an English-competence requirement.",
+    "Programme is open-access (free access); the 'test' on the catalogue page is the assessment of adequacy of personal preparation, not a TOLC or competitive entrance exam.",
+    "Because it is Italian-taught, the standard non-EU CGPA thresholds and early closures used for the English masters do not apply; non-EU candidates follow the general international-enrolment route and must demonstrate Italian B2.",
+    "A.Y. 2026/2027-specific interview/test dates are not yet published on the requisites page (it shows an earlier academic year's sessions).",
+    "EU/spring deadlines reflect the institution-wide UniGeApply window plus the corsi.unige.it enrolment calendar; no programme-specific first-year EU application deadline is separately published."
+  ],
+  "uncertain": [
+    "entry_exam_or_test",
+    "application_deadline_non_eu"
+  ]
+}

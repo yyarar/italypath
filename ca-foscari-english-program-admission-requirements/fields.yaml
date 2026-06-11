@@ -1,0 +1,228 @@
+schema_version: 1
+output_contract:
+  format: "json"
+  granularity: "one object per programme"
+  source_policy: "Official Ca' Foscari University of Venice sources only: unive.it and apply.unive.it."
+  preferred_academic_year: "2026/2027"
+  fallback_rule: "If 2026/2027 data is unavailable for a programme, use the newest official academic year and state the fallback in uncertainty_notes."
+fields:
+  - name: program_name
+    type: string
+    detail_level: brief
+    required: true
+    description: "Official programme name as written by Ca' Foscari University of Venice."
+  - name: level
+    type: enum
+    allowed_values:
+      - bachelor
+      - master
+      - single-cycle
+      - other
+    detail_level: brief
+    required: true
+    description: "Degree level. Use bachelor for Bachelor's Degree Programme, master for Master's Degree Programme, and single-cycle only if the official source identifies a single-cycle degree."
+  - name: teaching_language
+    type: string
+    detail_level: brief
+    required: true
+    description: "Teaching language stated by the official programme list, programme presentation page, or call. Expected value is English, but capture curriculum-specific English wording when relevant."
+  - name: campus
+    type: string
+    detail_level: moderate
+    required: false
+    description: "Venue, campus, or study location stated by the official programme presentation page or apply.unive.it course page."
+  - name: degree_class
+    type: string
+    detail_level: moderate
+    required: false
+    description: "Italian degree classification or class code if stated, e.g. L-18 R, LM-91 R, LM-35 R."
+  - name: admission_type
+    type: enum
+    allowed_values:
+      - open access
+      - restricted access
+      - TOLC
+      - SAT
+      - selection call
+      - other
+    detail_level: moderate
+    required: true
+    description: "Admission model. Normalize official wording such as Open, Limited, TOLC-E, English TOLC-E, selection notice, interview, or programme-specific call."
+  - name: academic_requirements
+    type: object
+    detail_level: detailed
+    required: true
+    description: "Prior qualification and curricular requirements. For bachelor programmes capture secondary-school qualification and any entry-test rules; for master programmes capture minimum bachelor's degree, curricular prerequisites, ECTS/background requirements, and Teaching Committee evaluation."
+    suggested_shape:
+      summary: string
+      prior_degree_or_diploma: string
+      subject_requirements: string
+      gpa_or_country_requirements: string
+      committee_or_pre_evaluation: string
+      source_url: string
+  - name: language_requirements
+    type: object
+    detail_level: detailed
+    required: true
+    description: "English language requirement and accepted proof. Include CEFR level, accepted certificates, exemptions, self-certification rules, assessment timing, and whether the requirement differs by programme."
+    suggested_shape:
+      required_level: string
+      accepted_proofs: array
+      exemption_rules: array
+      assessment_or_upload_stage: string
+      deadline: string
+      source_url: string
+  - name: application_deadline_eu
+    type: object
+    detail_level: detailed
+    required: false
+    description: "Application rounds, deadlines, and enrolment deadlines for EU applicants and equivalent applicants, including non-EU citizens already resident in Italy with a qualifying permit."
+    suggested_shape:
+      rounds: array
+      enrolment_deadline: string
+      notes: string
+      source_url: string
+  - name: application_deadline_non_eu
+    type: object
+    detail_level: detailed
+    required: false
+    description: "Application rounds, deadlines, visa/pre-enrolment caveats, and closure status for non-EU applicants requiring a study visa."
+    suggested_shape:
+      rounds: array
+      visa_or_pre_enrolment_deadline: string
+      current_status: string
+      notes: string
+      source_url: string
+  - name: required_documents
+    type: array
+    detail_level: detailed
+    required: true
+    description: "Documents required during application, admission evaluation, enrolment, and visa/pre-enrolment stages. Separate all-programme documents from bachelor/master or programme-specific documents."
+    item_shape:
+      document_name: string
+      stage: "application | enrolment | visa/pre-enrolment | other"
+      required_for: "all | eu | non_eu | international_qualification | programme_specific | conditional"
+      notes: string
+      source_url: string
+  - name: entry_exam_or_test
+    type: object
+    detail_level: detailed
+    required: false
+    description: "Programme-specific test, exam, interview, TOLC, English TOLC-E, selection notice, portfolio, or no-test rule."
+    suggested_shape:
+      test_name: string
+      mandatory: boolean
+      applies_to: string
+      dates: string
+      scoring_or_threshold: string
+      source_url: string
+  - name: tuition_or_fees_link
+    type: string
+    detail_level: brief
+    required: false
+    description: "Official tuition or fees URL, preferably the 2026/2027 Ca' Foscari tuition fees page or programme-specific official fee page."
+  - name: official_program_url
+    type: string
+    detail_level: brief
+    required: true
+    description: "Official Ca' Foscari programme permalink or resolved programme presentation URL."
+  - name: official_call_url
+    type: string
+    detail_level: moderate
+    required: false
+    description: "Official 2026/2027 admission call, selection notice, programme-specific admission page, PDF, or apply.unive.it course page. Prefer programme-specific official sources."
+  - name: source_quotes
+    type: array
+    detail_level: detailed
+    required: true
+    description: "Short supporting quotes from official sources. Keep each quote short and attach source URL."
+    item_shape:
+      quote: string
+      source_url: string
+      field_supported: string
+  - name: uncertainty_notes
+    type: array
+    detail_level: moderate
+    required: true
+    description: "Caveats, missing data, 2025/2026 fallback, programme-page redirect mismatch, applicant-category ambiguity, external-linked-but-not-official deadline material, programme-specific call not found, or conflicting dates."
+reserved_fields:
+  uncertain:
+    type: array
+    detail_level: moderate
+    description: "Auto-filled list of fields that could not be confidently resolved from official sources."
+field_categories:
+  - category: "programme_identity"
+    fields:
+      - name: program_name
+        required: true
+      - name: level
+        required: true
+      - name: teaching_language
+        required: true
+      - name: campus
+        required: false
+      - name: degree_class
+        required: false
+  - category: "admission_requirements"
+    fields:
+      - name: admission_type
+        required: true
+      - name: academic_requirements
+        required: true
+      - name: language_requirements
+        required: true
+      - name: application_deadline_eu
+        required: false
+      - name: application_deadline_non_eu
+        required: false
+      - name: required_documents
+        required: true
+      - name: entry_exam_or_test
+        required: false
+  - category: "sources"
+    fields:
+      - name: tuition_or_fees_link
+        required: false
+      - name: official_program_url
+        required: true
+      - name: official_call_url
+        required: false
+      - name: source_quotes
+        required: true
+      - name: uncertainty_notes
+        required: true
+extraction_guidance:
+  programme_list_strategy:
+    - "Use https://www.unive.it/pag/15612/?L=1 as the source of truth for included English-taught 2026/2027 degree programmes."
+    - "Do not add programmes from apply.unive.it search results unless they also appear on the official International programmes list or a Ca' Foscari official 2026/2027 degree list."
+  programme_url_strategy:
+    - "Start from outline.yaml official_program_url."
+    - "Record any redirect target and the displayed enrolment academic year."
+    - "If the page displays 2025/2026 but the central list displays 2026/2027, look for a 2026/2027 presentation page or admission page from official links before using fallback data."
+  admission_type_strategy:
+    - "Map official Admission: Open to open access."
+    - "Map official Admission: Limited to restricted access unless the programme-specific call shows a TOLC/SAT model."
+    - "Map TOLC-E or English TOLC-E to TOLC."
+    - "Map interview/ranking/call-only admissions to selection call."
+  deadline_strategy:
+    - "Use programme-specific admission/enrolment pages first."
+    - "Use apply.unive.it admission rounds only for international applicants when programme-specific dates are not available."
+    - "Separate EU/equivalent applicants from non-EU applicants requiring a visa."
+    - "For non-EU visa applicants, capture if 2026/2027 applications are already closed."
+  academic_requirements_strategy:
+    - "For bachelor programmes, capture 12 years of schooling, country-specific qualification requirements, and any entry test."
+    - "For master programmes, capture minimum three-year bachelor's degree, country-specific validity, curricular prerequisites, and Teaching Committee evaluation."
+    - "For applicants from the Republic of Türkiye, capture country-specific file requirements when relevant to the final dataset."
+  document_strategy:
+    - "Include passport/ID, residence permit where applicable, transcripts/marksheets, final/provisional diplomas, official translations, CV, motivation letter, grading scale, CIMEA/Declaration of Value/ARDI/Diploma Supplement where applicable."
+    - "Label documents by stage and applicant category."
+  language_strategy:
+    - "Resolve exact CEFR level from programme-specific call or the linked Ca' Foscari language requirement page for the relevant level."
+    - "If only the general language hub is available, record that the exact level must be verified and add the field to uncertain."
+quality_checks:
+  - "Every item must have official_program_url under unive.it."
+  - "Every final JSON object must include at least one source_quote supporting programme inclusion and one source_quote supporting admission requirements."
+  - "No non-official source URLs may appear in final objects."
+  - "If any source URL is external to unive.it or apply.unive.it, reject it and record the limitation in uncertainty_notes."
+  - "If dates conflict, keep both quoted dates and explain the conflict in uncertainty_notes."
+  - "If the programme page only shows 2025/2026, mark fallback_year_used and continue searching official pages for 2026/2027 before finalizing."

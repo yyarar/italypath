@@ -1,0 +1,103 @@
+{
+  "program_name": "Product and Service Design",
+  "level": "master",
+  "official_level_type": "Laurea Magistrale",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Rome (Faculty of Architecture)",
+  "degree_class": "LM-12",
+  "course_code": "33433",
+  "faculty": "Architettura (Architecture), Department of Pianificazione, Design, Tecnologia dell'Architettura",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33433",
+  "admission_type": "restricted access – oral admission exam",
+  "movein_preselection_required": true,
+  "admission_test_type": "Oral admission exam (restricted access selection)",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (MoveIN route, visa-required)"
+  ],
+  "application_platform": "MoveIN platform for non-EU pre-selection; Infostud / corsidilaurea.uniroma1.it/en/course/33433/apply for admission",
+  "access_quota_non_eu": "[uncertain] – programme-specific non-EU quota not extracted",
+  "application_round": "September intake (A.Y. 2026-2027); oral exam dates for 2025-2026 were September 3-4, 2025",
+  "intake_semester_availability": "September intake",
+  "places_and_foreign_contingent": "[uncertain] – exact places and non-EU contingent not found",
+  "official_call_url": null,
+  "faculty_call_pdf_url": null,
+  "academic_requirements": {
+    "prior_degree": "A three-year bachelor's degree or equivalent qualification",
+    "curricular_requirements": "[uncertain] – specific ECTS/SSD requirements not extracted from programme page"
+  },
+  "country_specific_eligibility": "[uncertain] – see MoveIN academic requirements PDF for 2026-2027",
+  "curricular_integration_policy": "[uncertain] – not specified in sources checked",
+  "conditional_enrolment_policy": "[uncertain] – not specified in sources checked",
+  "language_requirements": {
+    "level": "B2 CEFR in English (general Sapienza requirement for English-taught programmes)",
+    "note": "[uncertain] – programme-specific English requirement not extracted; general Sapienza B2 minimum applied"
+  },
+  "language_submission_timing": "[uncertain] – at MoveIN pre-selection or at admission",
+  "italian_language_requirement": "Italian not required for admission; programme taught entirely in English.",
+  "application_deadline_eu": "31 July 2026 for EU and EU-equivalent candidates [uncertain – oral exam scheduling may impose earlier deadline]",
+  "application_deadline_non_eu": "MoveIN pre-selection window 22 December 2025 – 15 May 2026 for non-EU candidates residing abroad",
+  "application_fee": "€30 per application via MoveIN (max 2 per candidate per intake)",
+  "visa_preenrolment_deadline": "MoveIN pre-selection by 15 May 2026",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2025-2026",
+  "required_documents": [
+    "Bachelor's degree certificate or enrolment certificate",
+    "Academic transcript",
+    "Passport / ID",
+    "English language certificate (B2)",
+    "Portfolio or other design documentation (likely required for oral exam – [uncertain])",
+    "For foreign qualifications: Declaration of Value (DoV) or CIMEA statement"
+  ],
+  "document_translation_authentication": "Foreign documents require official translation and legalization/apostille, plus a Declaration of Value (DoV) or CIMEA comparability statement.",
+  "entry_exam_or_test": {
+    "test": "Oral admission exam",
+    "note": "Oral exam dates for 2025-2026 were September 3-4, 2025. 2026-2027 dates not yet published."
+  },
+  "test_variant_and_session": "Oral exam; September 2025 session confirmed for 2025-2026. 2026-2027 session dates [uncertain].",
+  "test_score_conversion_or_threshold": "[uncertain] – evaluation criteria for oral exam not extracted",
+  "source_quotes": [
+    {
+      "quote": "Oral admission exam; test code 16249; September 3-4, 2025 (academic year 2025/2026)",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/corso/2020/30811/home",
+      "supports_fields": ["entry_exam_or_test", "admission_type", "test_variant_and_session"]
+    },
+    {
+      "quote": "Degree Class: LM-12; Course Code: 33433; Language of Instruction: English",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33433",
+      "supports_fields": ["degree_class", "course_code", "teaching_language"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/corso/2020/30811/home",
+    "https://corsidilaurea.uniroma1.it/en/course/33433",
+    "https://corsidilaurea.uniroma1.it/en/course/33433/apply",
+    "https://www.uniroma1.it/en/admissions",
+    "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
+  ],
+  "source_year": "2025-2026",
+  "uncertainty_notes": [
+    "2026-2027 oral exam dates not yet published; 2025-2026 September 3-4 dates used as reference.",
+    "Official call URL (faculty_call_pdf_url) not retrieved.",
+    "Portfolio or design work may be required for the oral exam — not confirmed from sources.",
+    "Language requirements not explicitly stated on programme page; general B2 Sapienza minimum applied.",
+    "Per-programme non-EU quota and total places not extracted.",
+    "The URL /en/corso/2020/30811/home redirects to code 33433 — original outline code 30811 is the legacy identifier."
+  ],
+  "uncertain": [
+    "access_quota_non_eu",
+    "places_and_foreign_contingent",
+    "official_call_url",
+    "faculty_call_pdf_url",
+    "country_specific_eligibility",
+    "curricular_integration_policy",
+    "conditional_enrolment_policy",
+    "language_requirements",
+    "language_submission_timing",
+    "application_deadline_eu",
+    "test_score_conversion_or_threshold"
+  ]
+}

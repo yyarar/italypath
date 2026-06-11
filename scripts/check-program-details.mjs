@@ -204,6 +204,68 @@ const UNIVERSITY_CHECKS = [
     ],
   },
   {
+    universityId: 4,
+    label: "Padua",
+    expectedDetailCount: 71,
+    criticalPrograms: [
+      {
+        name: "Animal Care",
+        level: "bachelor",
+        missingProgramMessage: "Missing expected Padua program: Animal Care (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Economics, Governance and Decision-Making",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Padua program: Economics, Governance and Decision-Making (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Applied Child and Adolescent Psychology",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Padua program: Applied Child and Adolescent Psychology (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Management Engineering",
+        level: "master",
+        missingProgramMessage: "Missing expected Padua program: Management Engineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Quantum Science and Engineering",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Padua program: Quantum Science and Engineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Medicine and Surgery",
+        level: "single-cycle",
+        missingProgramMessage: "Missing expected Padua program: Medicine and Surgery (single-cycle)",
+        requiresDetails: true,
+        expectedDurationYears: 6,
+        expectedUncertainField: "entry_exam_or_test",
+      },
+      {
+        name: "Medicine and Surgery - MedTech",
+        level: "single-cycle",
+        missingProgramMessage:
+          "Missing expected Padua program: Medicine and Surgery - MedTech (single-cycle)",
+        requiresDetails: true,
+        expectedDurationYears: 6,
+        expectedUncertainField: "required_documents",
+      },
+    ],
+  },
+  {
     universityId: 9,
     label: "Ca' Foscari",
     expectedDetailCount: 29,

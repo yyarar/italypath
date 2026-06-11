@@ -1,0 +1,143 @@
+{
+  "program_name": "Computer Science",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Genoa",
+  "degree_class": "LM-18 (Computer Science)",
+  "admission_type": "free access with verification of curricular requirements and assessment of personal readiness (interview, possible preliminary quiz)",
+  "academic_requirements": {
+    "summary": "Free-access master's degree (120 CFU, 2 years) requiring a Bachelor degree, adequate disciplinary background, an assessment of personal readiness by interview, and a recognised B2 English certificate. Pre-enrolment and the readiness assessment are free of charge.",
+    "prior_degree_or_diploma": "A Bachelor's degree (laurea) of at least 180 CFU/ECTS, or an equivalent qualification.",
+    "curricular_credits": "Computer Science is the natural feeder; students from other areas of Science and Engineering are welcome provided they have at least 50% of credits in Computer Science, Computer Engineering, Mathematics, Physics or Statistics.",
+    "adequacy_of_preparation": "Adequacy of basic knowledge in computer science and mathematics is assessed during the admission procedure by interview, to which a preliminary quiz may be added.",
+    "minimum_cgpa_non_eu": "[uncertain] For non-EU pre-evaluation on UniGeApply, a minimum CGPA around 75% of the maximum obtainable has been indicated; confirm against the live UniGeApply listing.",
+    "two_tracks": "Two tracks are offered: Data Science & Engineering and Software Security & Engineering.",
+    "international_qualification": "Procedures differ by applicant nationality and degree origin (Italian vs foreign university); non-EU candidates abroad are assessed during UniGeApply pre-evaluation.",
+    "source_url": "https://corsi.unige.it/en/corsi/11964/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (or higher).",
+    "accepted_proofs": [
+      "From A.Y. 2025/26 onward, a valid B2 (or higher) certificate among those recognised by the University (list at https://clat.unige.it/en/CertificazioniRiconosciute) is required.",
+      "For international applicants, a degree taught in English / medium-of-instruction certificate is also accepted; an English verification interview was previously offered (A.Y. 2024/25)."
+    ],
+    "exemption_rules": [
+      "[uncertain] English-requirement wording varied between A.Y. 2024/25 (certificate OR verification interview) and 2025/26 (valid certificate required); the exact 2026/27 wording should be reconfirmed. Accepted tests (IELTS/TOEFL) and minimum scores are defined on the CLAT recognised-certificates list."
+    ],
+    "assessment_or_upload_stage": "English level is verified during the admission procedure; international applicants and those abroad are assessed during pre-evaluation on UniGeApply, others in person at Via Dodecaneso 35, Genoa.",
+    "source_url": "https://corsi.unige.it/en/corsi/11964/prospective-students-requisites-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Assessment of personal readiness: a test in mathematics and computer science by interview, to which a preliminary quiz may be added. NOT a TOLC.",
+    "mandatory": true,
+    "is_selective": false,
+    "applies_to": "All applicants to the Computer Science master.",
+    "format": "Interview assessing basic specialist knowledge in mathematics and computer science needed to succeed in the programme; a preliminary quiz may be added. For international applicants/those abroad it is conducted remotely during UniGeApply pre-evaluation.",
+    "scoring_or_threshold": "[uncertain] No numerical pass threshold for the interview is published on the page; adequacy is judged by the board, and the assessment is free of charge.",
+    "location": "International applicants/those abroad are assessed during UniGeApply pre-evaluation; other students are assessed in person at Via Dodecaneso 35, Genoa, and notified by email.",
+    "source_url": "https://corsi.unige.it/en/corsi/11964/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; English-taught master's degrees close 28 August 2026.",
+      "Open-access master pre-registration on the UniGe calendar: from 9 April to 30 November 2026, and until 10 March 2027 with late payment."
+    ],
+    "enrolment_deadline": "Confirmation of enrolment (first year): from 15 July 2026 to 30 November 2026, and until 10 March 2027 with late payment. Enrolment in years after the first: from 15 July to 5 October 2026, with arrears from 6 October to 5 November 2026.",
+    "notes": "The programme deadlines page lists uniform open-access enrolment dates and does not separate EU vs non-EU first-year windows.",
+    "source_url": "https://corsi.unige.it/en/corsi/11964/prospective-students-deadlines"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After UniGeApply eligibility, visa applicants complete the Universitaly pre-enrolment and apply for a study visa.",
+    "early_closure": "[uncertain] No programme-specific early closure is published for the Computer Science master; the only listed fall early closures are Medical-Pharmaceutical Biotechnology (master, 13 Feb 2026), Maritime Science and Technology (bachelor, 18 Feb 2026) and Computer Engineering (bachelor, 8 Mar 2026).",
+    "notes": "Non-EU visa applicants must use the fall session via UniGeApply; the A.Y. 2026/27 fall window has now closed (closed 20 March 2026).",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum vitae et studiorum",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Uploaded on UniGeApply (max 2 MB per document).",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "If still in progress, the degree must be completed by 15 August 2026.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records (exams with credits and grades)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Used to verify the disciplinary credit background (at least 50% credits in CS/CE/Math/Physics/Statistics).",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "English language proficiency certificate (B2 or higher) or medium-of-instruction certificate",
+      "stage": "application/enrolment",
+      "required_for": "all",
+      "notes": "From 2025/26 a valid recognised B2-or-higher certificate is required (CLAT recognised list); a degree taught in English is also accepted for international applicants.",
+      "source_url": "https://corsi.unige.it/en/corsi/11964/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Valid passport (non-EU; only identity document accepted) and visa/pre-enrolment documents via Universitaly",
+      "stage": "application/enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Photo as JPG, supporting documents as PDF up to 2 MB on UniGeApply; foreign qualifications require Declaration of Value or CIMEA Statement of Comparability at enrolment.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11964/students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11964",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "COMPUTER SCIENCE, Master's Degree (D.M. 1649/2023), Class LM-18, Teaching language English, Genova (Via Dodecaneso, 35), 120 CFU, 2 years.",
+      "source_url": "https://corsi.unige.it/en/corsi/11964",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "we welcome students from different areas of Science and Engineering provided that they have at least 50% credits in: Computer Science, Computer Engineering, Math, Physics, Statistics",
+      "source_url": "https://corsi.unige.it/en/corsi/11964/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Adequacy of basic knowledge in computer science and mathematics will be assessed during the admission procedure by means of an interview, to which a preliminary quiz may be added.",
+      "source_url": "https://corsi.unige.it/en/corsi/11964/prospective-students-requisites-assessment",
+      "field_supported": "entry_exam_or_test, academic_requirements"
+    },
+    {
+      "quote": "For 2025/26 onward, applicants must present a valid B2 (or higher) certificate among those listed.",
+      "source_url": "https://corsi.unige.it/en/corsi/11964/prospective-students-requisites-assessment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Pre-enrolment and the assessment of the adequacy of personal preparation are free of charge.",
+      "source_url": "https://corsi.unige.it/en/corsi/11964/prospective-students-admission-criteria-procedure",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Spring session opens 9 April 2026; Master's degrees close 28 August 2026. Fall session (non-EU visa applicants) opens 26 November 2025, closes 20 March 2026.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "Pilot already confirmed English; re-fetched in the mandatory rich object/array structure (the previous flat-string file was replaced).",
+    "No numerical pass threshold for the mathematics/computer-science interview is published; adequacy is judged by the assessment board.",
+    "A 75% CGPA minimum referenced for non-EU pre-evaluation comes from the UniGeApply summary and should be confirmed against the live UniGeApply listing.",
+    "English-requirement wording varied between A.Y. 2024/25 and 2025/26; confirm exact 2026/27 wording. Accepted certificate types/scores are on the CLAT recognised list.",
+    "The programme deadlines page gives the generic open-access enrolment calendar and does not separate EU vs non-EU first-year application windows; those come from the institution-wide UniGeApply pages."
+  ],
+  "uncertain": [
+    "academic_requirements",
+    "language_requirements",
+    "entry_exam_or_test",
+    "application_deadline_non_eu"
+  ]
+}

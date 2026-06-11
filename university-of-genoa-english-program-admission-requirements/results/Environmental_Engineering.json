@@ -1,0 +1,149 @@
+{
+  "program_name": "Environmental Engineering",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Genoa (DICCA - Department of Civil, Chemical and Environmental Engineering)",
+  "degree_class": "LM-35 R (Environmental Engineering)",
+  "admission_type": "open access (free access, but admission requires meeting curricular requirements and, where applicable, verification of personal preparation)",
+  "academic_requirements": {
+    "summary": "Open-access (non-competitive) master's programme taught in English. Admission requires a recognised bachelor's degree (at least 180 CFU/ECTS), satisfaction of curricular CFU requirements, English B2, and verification of personal preparation when the bachelor's grade is below the published threshold.",
+    "prior_degree_or_diploma": "A bachelor's (first-cycle) degree of at least 180 CFU/ECTS or an equivalent recognised qualification.",
+    "curricular_requirements": "Direct curricular access for holders of a Laurea (first-cycle degree) in Class L-7 Civil and Environmental Engineering or Class L-9 Industrial Engineering. Otherwise, the candidate must hold at least 36 ECTS in the Mathematics, Physics and Chemistry areas and at least 12 ECTS in specific engineering SSDs (ICAR/01, ICAR/02, ICAR/03, ICAR/07, ICAR/08, ICAR/09, ING-IND/24, ING-IND/25).",
+    "minimum_grade": "The personal-preparation interview is waived for holders of a bachelor's degree with a final grade of at least 9/10 of the maximum (or corresponding to ECTS classification 'A' or 'B'); for Italian degrees the published waiver threshold is a final mark above 92/110. For non-EU applicants the degree grade must correspond to at least 80% of the maximum possible grade (per the UniGeApply English master's selection page).",
+    "personal_preparation_assessment": "Candidates below the grade threshold undergo an interview (for Italian degree holders) or a documentation review plus possible interview/test (for international applicants) covering the fundamentals of engineering and the subjects characterising the environmental sector.",
+    "international_qualification": "Non-EU candidates residing abroad with a foreign qualification apply via UniGeApply for pre-evaluation; eligibility of the foreign qualification is recognised by the Degree Programme Board based on the academic qualification, examinations carried out, and the CV. Minimum degree grade of 80% of the maximum applies.",
+    "source_url": "https://corsi.unige.it/en/corsi/11925/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English B2 level or higher (C1, C2).",
+    "accepted_proofs": [
+      "An English-language certificate at level B2 or higher among those accepted by the University (listed on the CLAT page, https://clat.unige.it/CertificazioniRiconosciute).",
+      "A bachelor's degree taught in English, certified by an official document.",
+      "Passing the online B2 assessment test organised by the University's Polytechnic School (CLAT language skills sector)."
+    ],
+    "exemption_rules": [
+      "Candidates holding a B2-or-higher (C1/C2) English certificate, or whose degree was taught in English, do not need to take the University's English test."
+    ],
+    "assessment_or_upload_stage": "B2 English is verified at the admission/assessment stage; non-EU applicants have it verified during the UniGeApply pre-evaluation. No Italian-language requirement applies because the programme is taught in English.",
+    "source_url": "https://corsi.unige.it/en/corsi/11925/prospective-students-requisites-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Verification of personal preparation (assessment of adequacy of personal readiness) - NOT a TOLC or competitive entrance exam. Interview / documentation review.",
+    "mandatory": false,
+    "is_selective": false,
+    "applies_to": "Candidates whose bachelor's final grade is below 9/10 of the maximum (or below ECTS 'A'/'B'; for Italian degrees below 92/110). International applicants are assessed via documentation review and a possible interview/test.",
+    "format": "Interview for Italian degree holders; documentation review and possible interview/test for international applicants, covering the fundamentals of engineering and the subjects characterising the environmental sector. A separate online English B2 test is administered to candidates without an accepted certificate.",
+    "dates": "[uncertain] The official requisites page currently publishes assessment-session dates for an earlier academic year (interviews on 6 and 26 September, 14 November, 16 January and 26 February). A.Y. 2026/2027-specific interview dates are not yet posted on the page; equivalent autumn-2026 / early-2027 sessions are expected.",
+    "scoring_or_threshold": "Waived for bachelor's degrees with a final grade of at least 9/10 of the maximum (ECTS 'A'/'B'); Italian degrees above 92/110. Non-EU minimum degree grade is 80% of the maximum.",
+    "source_url": "https://corsi.unige.it/en/corsi/11925/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026.",
+      "First-year master's pre-registration: from 9 April to 30 November 2026 (and until 10 March 2027 with late payment)."
+    ],
+    "enrolment_deadline": "Confirmation of enrolment from 15 July 2026 to 30 November 2026 (until 10 March 2027 with late payment); enrolment in years after the first runs 15 July to 5 October 2026 (arrears 6 October to 5 November 2026).",
+    "notes": "Open-access (non-ranked) programme; EU/resident applicants below the grade threshold must pass the personal-preparation verification before enrolling. First tuition installment approx. EUR 136 (EUR 16 stamp duty + EUR 120 regional tax) at enrolment; second installment by 10 December 2026; third by 23 June 2027.",
+    "source_url": "https://corsi.unige.it/en/corsi/11925/prospective-students-deadlines"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026.",
+      "No programme-specific early closure is published for Environmental Engineering; it uses the standard fall-session close of 20 March 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After receiving eligibility via UniGeApply, visa applicants complete the Universitaly pre-enrolment (from 4 May 2026) and then apply for the study visa at the Italian Embassy.",
+    "early_closure": "None published for this programme (uses the standard fall-session close of 20 March 2026).",
+    "notes": "Environmental Engineering appears on the UniGeApply English master's pre-evaluation selection page with a minimum degree grade of 80% of the maximum. Non-EU visa applicants use the fall session (max 2 courses; EUR 30 fixed fee). The A.Y. 2026/27 fall window has now closed.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae et Studiorum",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Educational background, examinations, additional courses, work or internship activities; used by the Degree Programme Board to assess the foreign qualification.",
+      "source_url": "https://corsi.unige.it/en/corsi/11925/prospective-students-admission-criteria-procedure"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "At least 180 CFU/ECTS; degree grade at least 80% of maximum for non-EU pre-evaluation.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "List of exams with credits and grades; used to verify the curricular CFU requirements (36 ECTS Maths/Physics/Chemistry + 12 ECTS engineering SSDs, unless directly admitted via L-7/L-9).",
+      "source_url": "https://corsi.unige.it/en/corsi/11925/prospective-students-admission-criteria-procedure"
+    },
+    {
+      "document_name": "English Language Proficiency Certificate (B2 or higher) or English-medium-of-instruction declaration",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "B2 certificate among those accepted by the University, or a degree taught in English officially documented; otherwise candidates sit the University's online B2 English test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11925/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Passport (non-EU) / national ID or passport (EU)",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Uploaded on UniGeApply in jpg format; other documents in PDF (max 2 MB).",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Legalisation or CIMEA Statement of Verification, plus Declaration of Value or CIMEA Statement of Comparability",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU visa applicants with a foreign qualification to complete enrolment. Knowledge of Italian is not required because the course is taught in English.",
+      "source_url": "https://unige.it/en/international-enrolment"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and study-visa evidence",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Visa applicants complete Universitaly pre-enrolment (from 4 May 2026) after UniGeApply eligibility, then apply for the study visa.",
+      "source_url": "https://unige.it/en/international-enrolment"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11925/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11925",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "Environmental Engineering, Course Code 11925, Degree Class LM-35 R (Environmental Engineering), Teaching Language English, 120 CFU, 2 years, Genova (DICCA - Department of Civil, Chemical and Environmental Engineering).",
+      "source_url": "https://corsi.unige.it/en/corsi/11925",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "Laurea (First cycle degree) related to the following Classes L-7 Civil and Environmental Engineering or L-9 Industrial Engineering ... [otherwise] Minimum 36 ECTS in Mathematics, Physics, and Chemistry areas; Minimum 12 ECTS in specific engineering disciplines (ICAR/01, ICAR/02, ICAR/03, ICAR/07, ICAR/08, ICAR/09, ING-IND/24, ING-IND/25); English language, B2 level or equivalent.",
+      "source_url": "https://corsi.unige.it/en/corsi/11925/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements, language_requirements"
+    },
+    {
+      "quote": "You do not need to take the English test if you hold a B2 or higher (C1 or C2) language certificate ... You do not need to attend the interview to assess general knowledge if you have obtained your degree in Italy with a final mark of more than 92/110.",
+      "source_url": "https://corsi.unige.it/en/corsi/11925/prospective-students-requisites-assessment",
+      "field_supported": "language_requirements, entry_exam_or_test, academic_requirements"
+    },
+    {
+      "quote": "Environmental Engineering: minimum CGPA 80%.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "application_deadline_non_eu, academic_requirements"
+    },
+    {
+      "quote": "Master's Degree Pre-registration: from 9 April to November 30, 2026 ... by March 10, 2027 with late payment; Enrollment Confirmation active from 15 July 2026 to 30 November 2026.",
+      "source_url": "https://corsi.unige.it/en/corsi/11925/prospective-students-deadlines",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "Programme is open-access (free access); the 'verification' on the catalogue page is the assessment of adequacy of personal preparation, not a TOLC or competitive entrance exam.",
+    "Environmental Engineering is confirmed English-taught: the catalogue lists Teaching Language English, the requisites page requires English B2 (with an English B2 test) and imposes no Italian-language requirement, and the programme appears on the UniGeApply English master's pre-evaluation selection page (80% minimum grade).",
+    "A.Y. 2026/2027-specific personal-preparation interview dates are not yet published on the requisites page (it still shows an earlier academic year's sessions); these are expected to be updated.",
+    "EU/spring deadlines reflect the institution-wide UniGeApply window (master's close 28 August 2026) plus the corsi.unige.it enrolment calendar; no programme-specific first-year EU application deadline is separately published."
+  ],
+  "uncertain": [
+    "entry_exam_or_test"
+  ]
+}

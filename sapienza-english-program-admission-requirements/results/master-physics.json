@@ -1,0 +1,100 @@
+{
+  "program_name": "Physics",
+  "level": "master",
+  "official_level_type": "Laurea Magistrale",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Rome (Faculty of Mathematical, Physical and Natural Sciences, Department of Physics)",
+  "degree_class": "LM-17",
+  "course_code": "33602",
+  "faculty": "Scienze Matematiche, Fisiche e Naturali (Mathematical, Physical and Natural Sciences)",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33602",
+  "admission_type": "restricted access – verification of requirements and personal preparation",
+  "movein_preselection_required": true,
+  "admission_test_type": "Verification of curricular requirements and personal preparation; no standardized written entrance test",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (MoveIN route, visa-required)"
+  ],
+  "application_platform": "MoveIN platform for non-EU pre-selection; Infostud for admission",
+  "access_quota_non_eu": "[uncertain] – programme-specific non-EU quota not extracted",
+  "application_round": "September intake (A.Y. 2026-2027)",
+  "intake_semester_availability": "September intake",
+  "places_and_foreign_contingent": "[uncertain]",
+  "official_call_url": null,
+  "faculty_call_pdf_url": null,
+  "academic_requirements": {
+    "prior_degree": "A bachelor's degree in Physics, Mathematics, Engineering Physics, or related quantitative science",
+    "curricular_requirements": "[uncertain] – specific ECTS/SSD requirements not extracted from programme page"
+  },
+  "country_specific_eligibility": "[uncertain] – see MoveIN academic requirements PDF 2026-2027",
+  "curricular_integration_policy": "[uncertain]",
+  "conditional_enrolment_policy": "[uncertain]",
+  "language_requirements": {
+    "level": "B1 CEFR in English (minimum stated by programme sources – lower than standard Sapienza B2)",
+    "note": "The Physics programme requires a minimum B1 English certificate or 3 ECTS in English from a university programme. Acceptable: TOEFL, IELTS, or equivalent. Note: this is B1, not B2 — lower than most Sapienza English master programmes.",
+    "alternative": "Achievement of an English language qualification in a university study programme (Bachelor's or Master's) that equals at least 3 ECTS is considered equivalent."
+  },
+  "language_submission_timing": "[uncertain]",
+  "italian_language_requirement": "Italian not required for admission; programme taught entirely in English.",
+  "application_deadline_eu": "31 July 2026 for EU and EU-equivalent candidates [uncertain]",
+  "application_deadline_non_eu": "MoveIN pre-selection window 22 December 2025 – 15 May 2026 for non-EU candidates residing abroad",
+  "application_fee": "€30 per application via MoveIN (max 2 per candidate)",
+  "visa_preenrolment_deadline": "MoveIN pre-selection by 15 May 2026",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2025-2026",
+  "required_documents": [
+    "Bachelor's degree certificate or enrolment certificate",
+    "Academic transcript",
+    "Passport / ID",
+    "English language certificate (B1 minimum)",
+    "For foreign qualifications: Declaration of Value (DoV) or CIMEA statement"
+  ],
+  "document_translation_authentication": "Foreign documents require official translation and legalization/apostille plus Declaration of Value (DoV) or CIMEA statement.",
+  "entry_exam_or_test": {
+    "test": "No standardized written entrance test",
+    "selection": "Verification of curricular requirements and personal preparation (not restricted by entrance exam)"
+  },
+  "test_variant_and_session": null,
+  "test_score_conversion_or_threshold": "[uncertain]",
+  "source_quotes": [
+    {
+      "quote": "Degree Class: LM-17; Course Code: 33602; Faculty: Scienze Matematiche, Fisiche e Naturali; Language of Instruction: English",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33602",
+      "supports_fields": ["degree_class", "course_code", "faculty", "teaching_language"]
+    },
+    {
+      "quote": "To be admitted to the Master's Degree in Physics, students must present a certificate attesting at least a B-1 English level according to the QCER or equivalent. The achievement of an English language qualification in a university study programme that equals at least 3 ECTS is considered as an equivalent qualification.",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/corso/2024/32384/home",
+      "supports_fields": ["language_requirements"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/course/33602",
+    "https://corsidilaurea.uniroma1.it/en/corso/2024/32384/home",
+    "https://www.uniroma1.it/en/admissions"
+  ],
+  "source_year": "2025-2026",
+  "uncertainty_notes": [
+    "English requirement is B1 (not the standard B2 required by most Sapienza English master programmes); this is a notable difference.",
+    "Multiple Physics programme codes found: 33602 (2025-2026) and 32384 (2024-2025); 33602 used as the current code.",
+    "Available curricula include Condensed Matter Physics (Theory and Experiment) and Biosystems — both taught in English.",
+    "Specific curricular ECTS requirements not extracted.",
+    "Per-programme non-EU quota and places not extracted.",
+    "2026-2027 Call not yet published."
+  ],
+  "uncertain": [
+    "access_quota_non_eu",
+    "places_and_foreign_contingent",
+    "official_call_url",
+    "faculty_call_pdf_url",
+    "country_specific_eligibility",
+    "curricular_integration_policy",
+    "conditional_enrolment_policy",
+    "language_submission_timing",
+    "application_deadline_eu",
+    "test_score_conversion_or_threshold"
+  ]
+}

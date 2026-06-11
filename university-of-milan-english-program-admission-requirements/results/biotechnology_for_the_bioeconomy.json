@@ -1,0 +1,117 @@
+{
+  "program_name": "Biotechnology for the Bioeconomy",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan (Citta Studi campus)",
+  "degree_class": "LM-7 R - Biotecnologie agrarie",
+  "admission_type": "Open with entry requirements examination",
+  "academic_requirements": "Applicants must hold, or obtain by 31 December 2026, a bachelor's degree that meets the programme's curricular requirements. For Italian degrees, direct access is provided to graduates in class L-2 (Biotecnologia) and former class 1 (Biotecnologia). Other Italian bachelor's graduates are eligible if they have a strong biotechnology background with at least 35 CFU in basic disciplines (mathematics, physics, chemistry, biology) across the listed SSDs and at least 25 CFU in L-2 core disciplines across the listed SSDs. Applicants with a non-Italian degree must hold a bachelor's degree from an accredited institution and show prior study in mathematics, physics, general chemistry, biology, organic chemistry, biochemistry, molecular biology, microbiology, genetics, plant biology or plant physiology, and biotechnology-area disciplines. Admission is not automatic: the Admission Committee evaluates curricular prerequisites, ECTS/CFU and grades, the overall personal preparation, and the final degree grade. If necessary, the Committee may require a mandatory interview, which may be held remotely.",
+  "language_requirements": "[uncertain] The programme requires English at CEFR B2 or higher for admission. UniMi states that this is verified by SLAM through one of three routes: a recognized B2-or-higher certificate issued within 3 years and uploaded during the online application, a valid SLAM-certified English level obtained during a University of Milan degree within the previous 4 years, or the SLAM entry test. If the applicant does not submit a valid certificate, or fails or misses the SLAM test without an accepted excuse, they must submit a recognized language certificate to SLAM via InformaStudenti by 31 December 2026. The field is marked uncertain only because the 2026/2027 admission notice also says that any additional language provisions for non-EU visa applicants will be published on a dedicated webpage, and no extra visa-specific rule beyond the general B2 requirement was available in the inspected official sources on 2026-06-05.",
+  "application_deadline_eu": "EU and equivalent applicants: admission application from 22 January 2026 to 30 October 2026. Enrolment for admitted students: from 5 May 2026 to 15 January 2027. Candidates still completing the bachelor's degree may satisfy the degree and entry requirements by 31 December 2026.",
+  "application_deadline_non_eu": "Non-EU applicants requiring a visa: admission application from 22 January 2026 to 30 April 2026. Universitaly pre-enrolment application by 31 July 2026. Enrolment for admitted students: from 5 May 2026 to 15 January 2027. Foreign-qualification enrolment documents must be completed by 30 November 2026.",
+  "required_documents": [
+    "If applying with an Italian qualification: self-certification of degree or enrolment with exam records; for graduates or graduating students from other Italian universities, this must include exams taken, grades, ECTS credits, and disciplinary scientific sectors.",
+    "If still graduating from an Italian university: details of exams already passed but not yet registered, exams not yet taken, and expected graduation date, entered in the application.",
+    "If applying with a foreign qualification: bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "If applying with a foreign qualification: diploma supplement or, alternatively, transcript of records including courses, marks, ECTS, academic field, and the grading system used.",
+    "If applying with a foreign qualification: passport or other valid ID.",
+    "If using the certificate route for English: a recognized English certificate at B2 level or higher, issued no more than 3 years before the application date, uploaded during the online application.",
+    "To finalize enrolment with a foreign qualification: legalized or apostilled bachelor's degree (or equivalent), unless exempt from legalization or apostille by law.",
+    "To finalize enrolment with a foreign qualification: high school diploma.",
+    "To finalize enrolment with a foreign qualification: official Italian translation of the academic qualifications, unless the originals are in French, English, German, or Spanish.",
+    "To finalize enrolment with a foreign qualification: Statement of Comparability issued by an ENIC-NARIC center such as CIMEA, or a Dichiarazione di Valore in loco (DOV). For eligible Lisbon Convention countries, the Diploma Supplement or ARDI Correspondence Statement may replace the DOV and Statement of Comparability.",
+    "To finalize enrolment with a foreign qualification: Italian tax code (codice fiscale).",
+    "To finalize enrolment as a non-EU student: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "There is no fixed programme-specific written entrance exam listed for all candidates. Admission is based on documentary assessment of curricular requirements and personal preparation by the Admission Board or Admission Committee. If necessary, the Board may require an interview and or a written test, in person or remotely. Separately, applicants who do not present a valid English certificate or valid prior SLAM certification must take the SLAM English entry test according to the official calendar.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/biotechnology-bioeconomy",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-biotechnology-for-the-bioeconomy-%28classe-lm-7-r%29.pdf?30-MAR-26",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Access ... Open with entry requirements examination ... Language ... English.",
+      "url": "https://www.unimi.it/en/education/master-programme/biotechnology-bioeconomy",
+      "field_refs": [
+        "academic_year",
+        "admission_type",
+        "teaching_language",
+        "official_program_url"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Lecture rooms and laboratories are located in the \"Citta Studi\" campus.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_GBCof2_2027.pdf",
+      "field_refs": [
+        "campus"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Application for admission: from 22/01/2026 to 30/10/2026.",
+      "url": "https://biotechnologybioeconomy.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Non-EU students visa applicants ... no later than 30 April 2026.",
+      "url": "https://biotechnologybioeconomy.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The B2-level requirement will be ascertained by the University Language Centre (SLAM).",
+      "url": "https://biotechnologybioeconomy.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "If deemed necessary, the Committee may integrate this documentary assessment with an interview.",
+      "url": "https://biotechnologybioeconomy.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The online admission service requires the following documents to be uploaded.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-biotechnology-for-the-bioeconomy-%28classe-lm-7-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "required_documents",
+        "official_call_url"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "All students ... pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-biotechnology-for-the-bioeconomy-%28classe-lm-7-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Biotechnology for the Bioeconomy 31/12/2026",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "language_requirements is marked [uncertain] because the general B2 requirement is explicit, but the admission notice states that any additional language provisions for non-EU visa applicants will be published later on a dedicated webpage; no extra visa-specific rule was visible in the inspected official sources on 2026-06-05.",
+    "required_documents lists the expressly named documents from the 2026/2027 admission notice and programme pages. The same notice also states that the University may request additional documents if necessary, so only the mandatory items explicitly published were extracted here."
+  ],
+  "uncertain": [
+    "language_requirements"
+  ]
+}

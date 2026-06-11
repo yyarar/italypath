@@ -1,0 +1,116 @@
+{
+  "program_name": "Control Engineering",
+  "level": "master",
+  "official_level_type": "Laurea Magistrale (Master's degree)",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Città Universitaria, Rome (DIAG - Department of Computer, Control and Management Engineering 'Antonio Ruberti')",
+  "degree_class": "LM-25",
+  "course_code": "33509 (formerly 29933 up to a.y. 2024-25)",
+  "faculty": "Inter-faculty: Information Engineering, Informatics and Statistics (I3S) and Civil and Industrial Engineering (ICI); Department DIAG",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/corso/2023/29933/home",
+  "admission_type": "open access",
+  "movein_preselection_required": "[uncertain] Yes for non-EU applicants residing abroad (standard Sapienza route via MoveIN); not explicitly confirmed on the programme's own page",
+  "admission_test_type": "No entrance exam. Admission by verification of curricular requirements and adequacy of personal preparation",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (MoveIN pre-selection route)"
+  ],
+  "application_platform": "Infostud (Sapienza student portal); MoveIN platform for international/non-EU applicants residing abroad; Universitaly for non-EU visa pre-enrolment",
+  "access_quota_non_eu": "[uncertain] Per-programme non-EU quota not extracted from the 2026-2027 Call PDF",
+  "application_round": "September intake (single annual intake); enrolment procedure generally opens in July",
+  "intake_semester_availability": "[uncertain] September intake (first semester); February intake not confirmed",
+  "places_and_foreign_contingent": "[uncertain] Total places and non-EU contingent not extracted from the 2026-2027 Call PDF",
+  "official_call_url": "https://corsidilaurea.uniroma1.it/en/corso/2023/29933/home",
+  "faculty_call_pdf_url": null,
+  "academic_requirements": {
+    "summary": "Laurea Magistrale admission requires a first-level (bachelor) university degree plus possession of specific curricular credits and an adequacy check of personal preparation, as set out in the programme's Academic Regulations (Sezione II - Requisiti di ammissione). LM-25 is the Automation Engineering class; the programme is the only Sapienza Laurea Magistrale in this class.",
+    "curricular_requirements": "[uncertain] Specific ECTS thresholds in mathematics, physics, automation/systems and computer engineering disciplines are defined in the programme's Academic Regulations (Regolamento didattico), not extracted verbatim here"
+  },
+  "country_specific_eligibility": "Foreign qualifications assessed per Sapienza 'Accepted qualifications by Country' 2026/2027 document and MoveIN academic requirements. See https://www.uniroma1.it/en/admissions",
+  "curricular_integration_policy": "[uncertain] Curricular gap/integration rules governed by the programme Academic Regulations; not extracted verbatim",
+  "conditional_enrolment_policy": "[uncertain] Not extracted from official source",
+  "language_requirements": {
+    "level": "B2 CEFR English (programme taught entirely in English)",
+    "certificates": "IELTS, TOEFL, Cambridge and equivalent B2 certificates accepted per Sapienza English language requirements",
+    "note": "All Sapienza international applicants must have at least B2 in English (or Italian, depending on programme). Detailed accepted-certificate list at the central English language requirements page."
+  },
+  "language_submission_timing": "[uncertain] At MoveIN pre-selection / application for international applicants; exact timing per central rules",
+  "italian_language_requirement": "Not required for admission (programme fully in English); Italian useful for daily life",
+  "application_deadline_eu": "July 31, 2026 (EU and EU-equivalent candidates not requiring a visa), via MoveIN pre-selection then Infostud enrolment",
+  "application_deadline_non_eu": "May 15, 2026 (non-EU candidates residing abroad and requiring a visa) for MoveIN pre-selection; pre-accepted students must register on Universitaly by June 30, 2026",
+  "application_fee": "€30 per application (maximum 2 applications per candidate per academic year; no waiver)",
+  "visa_preenrolment_deadline": "June 30, 2026 (Universitaly pre-enrolment for non-EU visa applicants)",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2026-2027",
+  "required_documents": [
+    "Passport",
+    "High School and University Diploma",
+    "Transcript of Records",
+    "Language Certificate (English B2)",
+    "Reference Letter (optional)",
+    "Additional supporting documents"
+  ],
+  "document_translation_authentication": "Foreign documents require validation per Sapienza International Student Office rules (Declaration of Value / CIMEA statement / legalization-apostille as applicable). See https://www.uniroma1.it/en/pagina/international-student-office",
+  "entry_exam_or_test": "No entrance test. Access procedure: 'Verification of requirements and personal preparation' (curricular requirement check plus assessment of personal preparation)",
+  "test_variant_and_session": null,
+  "test_score_conversion_or_threshold": null,
+  "source_quotes": [
+    {
+      "quote": "Programme code 33509 / Test code 33509 / Course type Master's degree / Bachelor class LM-25 / Duration 2 years / Access procedure Verification of requirements and personal preparation / Language English",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/corso/2023/29933/home",
+      "supports_fields": ["course_code", "degree_class", "level", "admission_type", "teaching_language", "entry_exam_or_test"]
+    },
+    {
+      "quote": "Il corso di studi, di durata biennale, è erogato completamente in lingua inglese (Master of Science in Control Engineering). È l'unica laurea magistrale della Sapienza nella classe dell'Ingegneria dell'Automazione (LM-25).",
+      "source_url": "https://www.diag.uniroma1.it/automatica/",
+      "supports_fields": ["teaching_language", "partially_english_flag", "degree_class", "program_name"]
+    },
+    {
+      "quote": "A partire dall'a.a. 2025-26 il codice Infostud Sapienza del corso di Laurea Magistrale in Ingegneria Automatica è 33509 (fino all'a.a. 2024-25 incluso il codice era 29933).",
+      "source_url": "https://www.diag.uniroma1.it/automatica/",
+      "supports_fields": ["course_code"]
+    },
+    {
+      "quote": "the deadline for Non-EU candidates (visa applicants) expired on May 15, 2026 ... The application process will remain open until July 31, 2026, exclusively for EU and EU-equivalent candidates ... Pre-accepted students will have to register on the Universitaly platform by June 30th, 2026.",
+      "source_url": "https://www.uniroma1.it/en/admissions",
+      "supports_fields": ["application_deadline_eu", "application_deadline_non_eu", "visa_preenrolment_deadline"]
+    },
+    {
+      "quote": "All pre-selection candidates are required to pay a €30 application fee for each submitted application (up to a maximum of two applications per candidate per intake). No application fee waiver is available under any circumstances.",
+      "source_url": "https://www.uniroma1.it/en/admissions",
+      "supports_fields": ["application_fee"]
+    },
+    {
+      "quote": "all students must have at least an upper-intermediate knowledge of English OR Italian (B2 level), depending on their chosen programme.",
+      "source_url": "https://www.uniroma1.it/en/admissions",
+      "supports_fields": ["language_requirements"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/corso/2023/29933/home",
+    "https://www.diag.uniroma1.it/automatica/",
+    "https://www.uniroma1.it/en/admissions",
+    "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
+  ],
+  "source_year": "2026-2027",
+  "uncertainty_notes": [
+    "Specific curricular ECTS thresholds for LM-25 admission are defined in the programme Academic Regulations and were not extracted verbatim; the corsidilaurea page is a SPA whose sub-tabs (Apply/In brief) did not render via static fetch.",
+    "MoveIN pre-selection requirement is the standard Sapienza non-EU route but is not stated explicitly on this programme's own page.",
+    "Per-programme non-EU quota and total places not extracted from the 2026-2027 Call PDF.",
+    "February intake availability not confirmed; single September intake assumed.",
+    "Deadlines and fee taken from the central 2026-2027 International Admissions page (authoritative); programme-level Call PDF for 2026-2027 not individually retrieved."
+  ],
+  "uncertain": [
+    "movein_preselection_required",
+    "access_quota_non_eu",
+    "intake_semester_availability",
+    "places_and_foreign_contingent",
+    "academic_requirements.curricular_requirements",
+    "curricular_integration_policy",
+    "conditional_enrolment_policy",
+    "language_submission_timing"
+  ]
+}

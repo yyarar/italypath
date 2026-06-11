@@ -1,0 +1,178 @@
+{
+  "program_name": "Food Science and Technology - master",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "Italian and English; the 2026/2027 study plan shows a mixed-language programme with both Italian-taught and English-taught courses, and no official source reviewed states that there is a full English curriculum.",
+  "campus": "Milan",
+  "degree_class": "LM-70 R - Food Science and Technology",
+  "admission_type": "Open access with entry requirements examination.",
+  "academic_requirements": "Applicants must hold a bachelor's degree in class L-26, the corresponding class under Ministerial Decree 509/1999, another foreign university qualification recognized as suitable by the University of Milan, or a three-year university diploma. Applicants from other degree classes may also apply if they have at least 50 ECTS in the required subject areas, including mathematics (MAT/01-09), physics (FIS/01-08), analytical chemistry (CHIM/01), physical chemistry (CHIM/02), general and inorganic chemistry (CHIM/03), organic chemistry (CHIM/06), food chemistry (CHIM/10), rural economics and valuation (AGR/01), food science and technology (AGR/15), agricultural microbiology (AGR/16), biochemistry (BIO/10), physiology (BIO/09), and applied dietetic sciences (MED/49). Within those credits, at least 9 ECTS must be in AGR/15, 6 ECTS in AGR/16, and 6 ECTS in MED/49 or BIO/09. If specific curricular requirements are missing, the Academic Board may require single courses before the personal preparation assessment. L-26 graduates with a final grade of at least 80/110, or current L-26 students with a weighted average above 21/30, are admitted directly. L-26 graduates below 80/110 and applicants from other degree classes are assessed through an exam or interview, including online. The degree and curricular requirements may be completed by 31 December 2026.",
+  "language_requirements": "Admission requires English at CEFR B1 or higher. During admission, SLAM verifies B1 through one of these official routes: an accepted English certificate earned within the previous 3 years and uploaded during the admission procedure; a valid English level previously achieved at UNIMI through SLAM within the previous 4 years, checked automatically; or the SLAM entry test. Applicants who miss or fail the entry test must obtain an accepted certificate and send it to SLAM through InformaStudenti by the programme deadline; the exact course-specific deadline for this programme was not explicitly visible in the retrieved official source lines. [uncertain] The 2026/2027 manifesto also states that, to take second-year exams, students must hold English at CEFR B2. B2 can be certified by a valid certificate, by a B2 result already validated during admission, by reaching B2 in the entry test, or by taking the SLAM placement test between October and January of year 1. Students who do not reach B2 must attend the SLAM B2 course in the second semester of the first year.",
+  "application_deadline_eu": "EU and equivalent applicants: admission application from 22 January 2026 to 25 August 2026, 23:59.",
+  "application_deadline_non_eu": "Non-EU applicants requiring a visa: admission application from 22 January 2026 to 30 April 2026, 23:59; Universitaly pre-enrolment application by 31 July 2026.",
+  "required_documents": [
+    "For applicants with an Italian degree: self-certification of the degree or enrolment with exams. For graduates or students from other Italian universities, it must include passed exams, grades, ECTS, and scientific-disciplinary sectors.",
+    "For applicants still completing an Italian degree: the application must also report total earned credits, passed-but-not-yet-registered exams with credits, exams still to be taken with credits, and the expected graduation date.",
+    "If using a certificate to prove the admission English requirement: an accepted English language certificate at B1 level or higher, earned within the previous 3 years, uploaded during the admission procedure.",
+    "For applicants with a foreign degree at admission stage: bachelor's degree certificate or degree completion certificate in Italian, English, French, German, or Spanish.",
+    "For applicants with a foreign degree at admission stage: Diploma Supplement, or equivalent university certificate(s) showing the degree awarded or to be awarded, passed exams, grades, credits, and the grading system used.",
+    "For applicants with a foreign degree at admission stage: passport page with personal data, or another valid identity document.",
+    "To finalize enrolment with a foreign degree: legalized or apostilled bachelor's degree, unless exempt under applicable law.",
+    "To finalize enrolment with a foreign degree: upper secondary school diploma.",
+    "To finalize enrolment with a foreign degree: official Italian translation of the study titles, unless the original is in English, French, German, or Spanish.",
+    "To finalize enrolment with a foreign degree: ENIC-NARIC comparability statement, for example from CIMEA, or a Declaration of Value; for Lisbon Convention countries, a Diploma Supplement or ARDI statement may replace them where accepted.",
+    "To finalize enrolment with a foreign degree: Italian tax code.",
+    "To finalize enrolment with a foreign degree: receipt of the residence permit application or a valid residence permit, for non-EU students only."
+  ],
+  "entry_exam_or_test": "The programme is open access, but admission includes assessment of entry requirements and personal preparation. L-26 graduates with a final grade of at least 80/110, or current L-26 students with a weighted average above 21/30, are admitted directly. L-26 graduates below 80/110 and applicants from other degree classes undergo an exam or interview, including online, conducted by a commission appointed by the Academic Board. The assessment covers general and food microbiology, food technologies, food processing equipment, economics and marketing, food chemistry and analysis, and human nutrition. English B1 is checked separately by SLAM through a certificate, prior valid UNIMI assessment, or the SLAM entry test.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/food-science-and-technology-master",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-food-science-and-technology-%28classe-lm-70-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027. Access: Open with entry requirements examination. Course location: Milan. Language: Italian, English.",
+      "url": "https://www.unimi.it/en/education/master-programme/food-science-and-technology-master",
+      "field_refs": [
+        "academic_year",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Application for admission: from 22/01/2026 to 25/08/2026. Non-EU students visa applicants are required to apply for admission no later than 30 April 2026.",
+      "url": "https://www.unimi.it/en/education/master-programme/food-science-and-technology-master",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Presentation of admission application, EU candidates and equivalents: from 22 January to 25 August 2026, 23:59.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-food-science-and-technology-%28classe-lm-70-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu",
+        "official_call_url"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Presentation of admission application, non-EU visa applicants: from 22 January to 30 April 2026, 23:59.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-food-science-and-technology-%28classe-lm-70-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "These candidates must submit the Universitaly pre-enrolment application by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-food-science-and-technology-%28classe-lm-70-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Graduates from the Bachelor's Degree in Food Science and Technology (L-26 class) with a final grade of 80/110 or higher are admitted directly.",
+      "url": "https://www.unimi.it/en/education/master-programme/food-science-and-technology-master",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "For graduates in L-26 with grades below 80/110 or from other degree classes, the adequacy of their academic preparation will be assessed through an exam or interview.",
+      "url": "https://www.unimi.it/en/education/master-programme/food-science-and-technology-master",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Other degree classes are accepted with at least 50 ECTS in the listed subject sectors, including minimum credits in AGR/15, AGR/16, and MED/49 or BIO/09.",
+      "url": "https://scienzealimentari-lm.cdl.unimi.it/it/iscriversi",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Admission requires English knowledge at B1 level or higher; the certificate must be uploaded during the admission procedure.",
+      "url": "https://scienzealimentari-lm.cdl.unimi.it/it/iscriversi",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Applicants who fail or miss the entry test will have to submit a language certificate accepted by the University by the deadline set in the relevant table.",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "To be able to take the second year exams, students must be proficient in English at a B2 level.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_GBBof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Advanced Dairy Technologies ... English. Agri-Food Marketing ... Italian.",
+      "url": "https://www.unimi.it/en/education/master-programme/food-science-and-technology-master",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "The online admission service requires mandatory upload of the following documents.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-food-science-and-technology-%28classe-lm-70-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Bachelor's degree certificate, Diploma Supplement or equivalent certificates, and passport or valid identity document.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-food-science-and-technology-%28classe-lm-70-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Legalized or apostilled bachelor's degree, upper secondary diploma, official Italian translation, comparability statement or Declaration of Value, Italian tax code, and residence permit receipt for non-EU students.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-food-science-and-technology-%28classe-lm-70-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "English proficiency B2 (3 ECTS). ACTIVE CURRICULA LIST: INNOVATION AND DEVELOPMENT OF THE FOOD SYSTEM; QUALITY AND MANAGEMENT OF THE FOOD SYSTEM.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_GBBof2_2027.pdf",
+      "field_refs": [
+        "language_requirements",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-06"
+    }
+  ],
+  "uncertainty_notes": [
+    "The programme language itself is clear, but the official sources reviewed do not describe any fully English curriculum. The 2026/2027 plan explicitly shows both Italian-taught and English-taught courses, so the programme was treated as mixed-language rather than fully English.",
+    "The course page says that applicants who fail or miss the SLAM admission test must submit an accepted certificate by the deadline set by the master's programme, and the general SLAM page refers to a course-specific table. In the retrieved official source lines, that table did not explicitly show this programme, so the exact fallback certificate deadline was left uncertain.",
+    "The programme page and the admission notice disagree on the opening date for enrolment after admission, with the programme page showing 05 May 2026 and the admission notice showing 02 April 2026. This does not affect the application-deadline fields above, which were taken from the admission notice and the programme page consistently."
+  ],
+  "uncertain": [
+    "language_requirements"
+  ]
+}

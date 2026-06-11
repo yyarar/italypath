@@ -1,0 +1,224 @@
+{
+  "program_name": "Digital and Public Humanities",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Venice",
+  "degree_class": "LM-43 R (Information technology methods for the humanities)",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Open-access master's programme taught in English. Applicants need a minimum three-year bachelor's degree or equivalent, the required curricular background, adequate personal preparation, and English at B2 level. Applicants with international qualifications must first pass the preliminary evaluation on apply.unive.it, and the international course page also states a minimum CGPA requirement.",
+    "prior_degree_or_diploma": "A minimum three-year bachelor's degree (or higher), or an equivalent foreign qualification valid for admission to a master's degree in Italy.",
+    "subject_requirements": "Applicants with degrees in L-1 Cultural Heritage, L-10 Humanities, L-15 Tourism, L-20 Communication, L-31 Computer Science, L-42 History, or equivalent generally satisfy the curricular requirements. Applicants from other bachelor's degrees must have at least 42 CFU/ECTS in relevant fields such as literature and language, antiquities and philology, linguistics, philosophy, history, geography, arts, archaeology, cultural heritage, library and archival studies, computer science, data processing systems, logic, statistics, commercial law, and administrative law.",
+    "gpa_or_country_requirements": "For the international application route on apply.unive.it, admission is subject to a minimum CGPA of 73%. If the home institution does not use a numerical grading scale, Ca' Foscari states that grades are proportionally transformed into a standard numerical percentage. No separate country-specific minimum other than qualification validity is stated on the allowed official pages.",
+    "committee_or_pre_evaluation": "The Welcome Unit performs the preliminary evaluation for applicants with international qualifications. The programme's Teaching Committee evaluates the undergraduate transcript and CV to verify curricular coherence and personal preparation. Applicants who do not clearly meet the usual preparation profile may be assessed through an additional interview.",
+    "source_url": "https://www.unive.it/web/en/13512/admission-and-enrolment"
+  },
+  "language_requirements": {
+    "required_level": "English at minimum B2 level.",
+    "accepted_proofs": [
+      "A recognised English certification accepted by Ca' Foscari.",
+      "A certificate issued by the Ca' Foscari CLA centre or by a university language school included in Ca' Foscari's recognised-certifications list.",
+      "Examples on the recognised-certifications page include Cambridge English, Trinity ISE, IELTS, TOEFL, PTE Academic, Oxford Test of English, LanguageCert ESOL, and Aptis ESOL."
+    ],
+    "exemption_rules": [
+      "Completed higher-education studies, or at least one year of college, in a country where English is the medium of instruction.",
+      "Obtained a high-school diploma or university qualification after a course of study taught entirely in English.",
+      "Completed at least one full secondary-school exchange year at an institution where English was the language of instruction.",
+      "Holds one of the listed language-degree qualifications that include a three-year English study path."
+    ],
+    "assessment_or_upload_stage": "Applicants may apply before obtaining the certificate, but recognised proof or exemption evidence must be uploaded to complete enrolment. Ca' Foscari states that it does not run an English test as part of the application procedure.",
+    "deadline": "By the enrolment deadline.",
+    "source_url": "https://www.unive.it/pag/40605/?L=1"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "round_name": "1st entry requirements evaluation session",
+        "application_window": "April 7, 2026 - June 4, 2026",
+        "results_publication": "June 25, 2026",
+        "deadline": "Enrolment by September 30, 2026",
+        "notes": "Programme-page evaluation session for open-access admission."
+      },
+      {
+        "round_name": "2nd entry requirements evaluation session",
+        "application_window": "July 6, 2026 - August 20, 2026",
+        "results_publication": "September 10, 2026",
+        "deadline": "Enrolment by September 30, 2026",
+        "notes": "Candidates who meet all requirements may receive the result before the publication date."
+      },
+      {
+        "round_name": "3rd entry requirements evaluation session",
+        "application_window": "October 1, 2026 - November 17, 2026",
+        "results_publication": "December 4, 2026",
+        "deadline": "Additional enrolment period ends on December 18, 2026",
+        "notes": "Late enrolment in the additional period carries a 50 EUR surcharge, unless the applicant graduates in the autumn session under the conditions stated on the programme page."
+      }
+    ],
+    "enrolment_deadline": "September 30, 2026, with an additional enrolment period from October 1, 2026 to December 18, 2026.",
+    "notes": "These dates are published on the programme admission page. EU/equivalent applicants with an international qualification must also complete the preliminary evaluation on apply.unive.it; the exact category-specific portal round cut-offs are not reproduced in accessible text on the allowed official pages [uncertain].",
+    "source_url": "https://www.unive.it/web/en/13512/admission-and-enrolment"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "round_name": "2026/2027 apply.unive.it admission rounds for visa applicants",
+        "application_window": "[uncertain] Applications for 2026/2027 opened on December 17, 2025, but the exact master-level round cut-off dates are not publicly reproduced on the allowed official pages.",
+        "results_publication": "Master's applicants generally receive feedback about 8 weeks after the end of the admission round in which they applied.",
+        "deadline": "As of June 5, 2026, Ca' Foscari states that non-EU applicants requiring a visa can no longer apply for 2026/2027.",
+        "notes": "The public article is shown according to applicant category and points users to category-specific round tables that are not reproduced in accessible text on the allowed official domains."
+      }
+    ],
+    "visa_or_pre_enrolment_deadline": "Universitaly pre-enrolment must be submitted by September 30, 2026.",
+    "current_status": "Closed as of June 5, 2026 for non-EU applicants requiring a study visa.",
+    "notes": "Applicants needing a visa must first pass the preliminary evaluation on apply.unive.it, receive a letter of enrolment eligibility, and then complete Universitaly pre-enrolment and the visa application. The official public pages do not expose the historical 2026/2027 cut-off dates for each visa round [uncertain].",
+    "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or, for European applicants, valid ID card",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "A renewal or first-request receipt is accepted where officially stated.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Valid residence permit or renewal/first-request receipt",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required for non-European applicants already residing in Italy or in the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Transcript of records for all undergraduate years, with official English or Italian translations if needed",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "A provisional transcript is still mandatory if the degree has not yet been completed.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Grading scale of the home university's CGPA",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Listed as highly recommended for master's applications with an international qualification.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Curriculum vitae",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "Used by the Teaching Committee to assess personal preparation.",
+      "source_url": "https://www.unive.it/web/en/13512/admission-and-enrolment"
+    },
+    {
+      "document_name": "Motivation letter",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "The apply.unive.it course page asks for a dedicated motivation letter specifically prepared for Digital and Public Humanities.",
+      "source_url": "https://apply.unive.it/courses/course/626-ma-digital-and-public-humanities"
+    },
+    {
+      "document_name": "Signed self-certification of degree with exams, or signed self-certification of enrolment with exams",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required on the programme page for the entry requirements evaluation route used by applicants with Italian qualifications; it must list the university, degree class, exams, sectors, CFU/ECTS, dates, and marks.",
+      "source_url": "https://www.unive.it/web/en/13512/admission-and-enrolment"
+    },
+    {
+      "document_name": "Recognised English B2 certificate or exemption evidence",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Applicants may apply before obtaining it, but they cannot complete enrolment without meeting the language requirement by the enrolment deadline.",
+      "source_url": "https://www.unive.it/web/en/13512/admission-and-enrolment"
+    },
+    {
+      "document_name": "Bachelor's degree final diploma, with official translation if needed",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "Optional during application if not yet available, but needed later to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Statement of Comparability by CIMEA, or Declaration of Value, or ARDI Statement of Correspondence with CIMEA Statement of Verification, or Diploma Supplement",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "Ca' Foscari states that one of these recognition routes is mandatory at a later stage in order to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/12519/?L=1"
+    },
+    {
+      "document_name": "Letter of enrolment eligibility and Universitaly pre-enrolment application",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Non-EU applicants requiring a visa must first obtain the eligibility letter via preliminary evaluation and then submit pre-enrolment through Universitaly.",
+      "source_url": "https://www.unive.it/pag/40813/?L=1"
+    },
+    {
+      "document_name": "Italian study visa",
+      "stage": "enrolment",
+      "required_for": "non_eu",
+      "notes": "Visa-requiring applicants need the study visa to finalise enrolment.",
+      "source_url": "https://www.unive.it/pag/40976/?L=1"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No standard entry test; additional interview may be required by the Teaching Committee",
+    "mandatory": false,
+    "applies_to": "Applicants whose personal preparation is not considered clearly adequate on the basis of the prior degree, final grade, transcript, and CV.",
+    "dates": "No fixed interview dates are published; any interview is arranged during the admission evaluation.",
+    "scoring_or_threshold": "There is no standard written entry test. Candidates with a bachelor's degree in L-1, L-10, L-15, L-20, L-31, or L-42, or equivalent, and a final grade of 90/110 are generally considered to have the necessary personal preparation; otherwise the Teaching Committee may require an additional interview.",
+    "source_url": "https://www.unive.it/web/en/13512/admission-and-enrolment"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/pag/50466/?L=1",
+  "official_program_url": "https://www.unive.it/degree/fmr11",
+  "official_call_url": "https://apply.unive.it/courses/course/626-ma-digital-and-public-humanities",
+  "source_quotes": [
+    {
+      "quote": "Digital and Public Humanities",
+      "source_url": "https://www.unive.it/pag/15612/?L=1",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Admission: Open",
+      "source_url": "https://www.unive.it/degree/fmr11",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "taught in English",
+      "source_url": "https://www.unive.it/web/en/13512/admission-and-enrolment",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "minimum 42 CFU",
+      "source_url": "https://www.unive.it/web/en/13512/admission-and-enrolment",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "a minimum CGPA (Cumulative Grade Point Average) of 73%",
+      "source_url": "https://apply.unive.it/courses/course/626-ma-digital-and-public-humanities",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "A minimum B2-level knowledge of English is mandatory for enrolment.",
+      "source_url": "https://www.unive.it/web/en/13512/admission-and-enrolment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "A motivation letter must be added to your application.",
+      "source_url": "https://apply.unive.it/courses/course/626-ma-digital-and-public-humanities",
+      "field_supported": "required_documents"
+    },
+    {
+      "quote": "it is no longer possible for non-EU applicants requiring a visa to apply",
+      "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The central 2026/2027 international programmes list includes this programme, but the degree permalink still displays the interface label 'Enrolment from 2025/2026'.",
+    "For EU/equivalent applicants with an international qualification, the exact category-specific application round cut-offs on apply.unive.it are not reproduced in accessible public text on the allowed official pages; the programme-page evaluation sessions are therefore recorded for the open-access route.",
+    "For non-EU applicants requiring a study visa, the official public article confirms that applications are closed and gives general processing guidance, but the detailed 2026/2027 visa-round windows are not exposed on the allowed official pages."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu"
+  ]
+}

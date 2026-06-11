@@ -1,0 +1,183 @@
+{
+  "program_name": "Language Sciences - English Linguistics and Language Sciences",
+  "level": "master",
+  "teaching_language": "English track within an Italian/English degree [uncertain]",
+  "campus": "Venice",
+  "degree_class": "LM-39 (Linguistics)",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need at least a three-year bachelor's degree. The general Language Sciences admission page requires 54 CFU in relevant fields, including 30 CFU in language-sciences areas and 24 CFU in the language of specialisation; for the English track, the specialisation-language background is tied to English or Anglo-American studies and personal preparation in the specialisation language is expected at C1 level [uncertain because no separate official apply.unive.it page for the exact English-track entry was found during this run].",
+    "prior_degree_or_diploma": "A minimum three-year bachelor's degree or equivalent first-cycle university qualification.",
+    "subject_requirements": "Applicants need 54 CFU total: 30 CFU in Language Sciences fields, including 6 CFU in a first area such as linguistics, didactics of modern languages, or philology, plus 24 CFU in a second area such as philology/literature, linguistics, philosophy, psychology, history, sociology, or complementary studies. They also need 24 CFU in the specialisation language; for English this is in L-LIN/11 or L-LIN/12, with an alternative route for sectoral English that allows 12 CFU in L-LIN/11 or L-LIN/12 and the remaining 12 CFU in the first and second areas. Missing curricular requirements must be completed before enrolment through bachelor's-level single courses.",
+    "gpa_or_country_requirements": "The programme page says applicants with an L-11 or L-12 bachelor's degree, or an equivalent degree, and a minimum final grade of 90/110 are generally considered adequately prepared. For the English/Anglo-American specialisation, the programme page expects the specialisation language at minimum C1 level as part of personal preparation. Country-specific validity rules for international qualifications also apply [uncertain for the exact English-track apply pathway].",
+    "committee_or_pre_evaluation": "International applicants first undergo the Welcome Unit's preliminary evaluation on apply.unive.it. The Teaching Committee then evaluates the undergraduate transcript, curriculum vitae, specialisation-language background, and any additional documentation, and it may require an additional interview; double-degree routes have separate selection procedures.",
+    "source_url": "https://www.unive.it/web/en/7702/admission-and-enrolment"
+  },
+  "language_requirements": {
+    "required_level": "English B2 minimum.",
+    "accepted_proofs": [
+      "A recognised English certification on Ca' Foscari's official list.",
+      "A certificate from the CLA centre or from a university language school included in the recognised list.",
+      "Electronic upload of the certificate during enrolment."
+    ],
+    "exemption_rules": [
+      "At least one year of higher education in a country where English is the medium of instruction.",
+      "A secondary-school or university qualification earned through a study path taught entirely in English.",
+      "At least one full secondary-school exchange year at an institution where English was the language of instruction.",
+      "Specified Italian degree classes in languages or language mediation with a three-year English study path."
+    ],
+    "assessment_or_upload_stage": "The programme page requires B2 English by the enrolment deadline. The Master's Degree Programmes page lists recognised proofs and exemption categories. Separately, the Language Sciences admission page expects stronger C1-level preparation in the specialisation language for English/Anglo-American study, but that is part of personal preparation rather than the formal university-wide English requirement.",
+    "deadline": "By the enrolment deadline.",
+    "source_url": "https://www.unive.it/pag/40605/"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "For 2026/2027 international applications, Ca' Foscari states that applications begin on 17 December 2025 for applicants not requiring a study visa; exact citizenship-based round end dates are not reproduced in the official article body consulted [uncertain].",
+      "On the programme admission page, entry-requirements evaluation sessions run from 7 April to 4 June 2026, from 6 July to 20 August 2026, and from 1 October to 17 November 2026."
+    ],
+    "enrolment_deadline": "30 September 2026; additional enrolment period from 1 October to 18 December 2026 with a EUR 50 late fee.",
+    "notes": "Non-EU citizens already resident in Italy with a residence permit valid for university enrolment are directed to the EU/equivalent route. The programme page provides 2026 entry-evaluation and enrolment dates, while the central apply.unive.it article says no-study-visa applicants must follow citizenship-based admission rounds [uncertain].",
+    "source_url": "https://www.unive.it/web/en/7702/admission-and-enrolment"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "For 2026/2027 international applications, Ca' Foscari states that applications begin on 17 December 2025 for BA/MA applicants requiring a study visa; exact citizenship-based round deadlines are not reproduced in the accessible official article body [uncertain]."
+    ],
+    "visa_or_pre_enrolment_deadline": "Accepted applicants requiring a visa must submit Universitaly pre-enrolment by 30 September 2026.",
+    "current_status": "Exact 2026/2027 round availability depends on the citizenship-based apply.unive.it table and is not stated in the official article body consulted [uncertain].",
+    "notes": "Visa applicants must first complete the pre-evaluation on apply.unive.it, then use the eligibility letter to complete Universitaly pre-enrolment and the study-visa procedure. Ca' Foscari states that later Universitaly submissions will not be considered.",
+    "source_url": "https://www.unive.it/pag/40813/"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or ID card",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "European applicants may use an ID card; proof of renewal or first request may be accepted where applicable.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Valid residence permit or renewal/first-request receipt",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required for non-European applicants already residing in Italy or in the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Transcript of records for all bachelor's degree years, with official English or Italian translation if needed",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "If the applicant is still studying, a provisional transcript is still mandatory.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "University grading scale",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Listed as highly recommended for master's applications.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Curriculum vitae",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Mandatory for master's applications and used by the Teaching Committee to assess personal preparation.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Bachelor's diploma, with official English or Italian translation if needed",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "A provisional document can be used during application, but the final diploma must be uploaded before the end of the enrolment period.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Statement of Comparability by CIMEA, or Declaration of Value, or ARDI Statement of Correspondence with CIMEA Statement of Verification, or Diploma Supplement from an EHEA institution",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "Ca' Foscari strongly recommends obtaining one of these before applying; one of them is required to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "English B2 certificate or exemption evidence",
+      "stage": "enrolment",
+      "required_for": "programme_specific",
+      "notes": "The programme requires B2 English for enrolment; the English-track entry on the international-programmes list may also imply stronger English-related background as part of personal preparation [uncertain].",
+      "source_url": "https://www.unive.it/pag/40605/"
+    },
+    {
+      "document_name": "Language certifications useful to fill missing curricular requirements",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "The Language Sciences admission page explicitly lists language certifications that may be uploaded to fulfil missing curricular requirements.",
+      "source_url": "https://www.unive.it/web/en/7702/admission-and-enrolment"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and Italian study visa",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Applicants who require a visa must complete Universitaly pre-enrolment by 30 September 2026 and then upload visa-related evidence in the relevant apply.unive.it task.",
+      "source_url": "https://www.unive.it/pag/40813/"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No standard entry test; possible Teaching Committee interview",
+    "mandatory": false,
+    "applies_to": "Open-access admission to the standard Language Sciences routes. The Teaching Committee may require an additional interview if prior preparation is not automatically considered adequate; double-degree routes have separate selection procedures.",
+    "dates": "No fixed test dates were published for the standard open-access route; any additional interview is arranged case by case after academic evaluation.",
+    "scoring_or_threshold": "There is no standard written entry-test threshold. Applicants with an L-11 or L-12 degree, or equivalent, and a minimum final grade of 90/110 are generally considered adequately prepared. For the English/Anglo-American specialisation, the programme page expects the specialisation language at minimum C1 level as part of personal preparation [uncertain for the exact English-track pathway].",
+    "source_url": "https://www.unive.it/web/en/7702/admission-and-enrolment"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/pag/50466",
+  "official_program_url": "https://www.unive.it/degree/lm5",
+  "official_call_url": "https://www.unive.it/web/en/7702/admission-and-enrolment",
+  "source_quotes": [
+    {
+      "quote": "Language Sciences - English Linguistics and Language Sciences",
+      "source_url": "https://www.unive.it/pag/15612/?L=1",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Language: Italian/English",
+      "source_url": "https://www.unive.it/web/en/7711/home",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "Admission: Open",
+      "source_url": "https://www.unive.it/web/en/7711/home",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "must hold at least a three-year bachelor's degree",
+      "source_url": "https://www.unive.it/web/en/7702/admission-and-enrolment",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "A minimum B2-level knowledge of English is mandatory for enrolment",
+      "source_url": "https://www.unive.it/web/en/7702/admission-and-enrolment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "online application: April 7th - June 4th, 2026",
+      "source_url": "https://www.unive.it/web/en/7702/admission-and-enrolment",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "deadline for sending the application on Universitaly for 2026/2027 academic year has been set on September 30th, 2026",
+      "source_url": "https://www.unive.it/pag/40813/",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The 2026/2027 International programmes list names the English-track entry 'Language Sciences - English Linguistics and Language Sciences', but the degree home page says 'Italian/English' and still shows 'Enrolment from 2008/2009', while the broader admission page describes the master's programme as taught in Italian.",
+    "No separate official apply.unive.it course page for the exact English-track entry was found during this run, so the academic requirements rely on the general Language Sciences admission page plus the 2026/2027 international-programmes list.",
+    "The central apply.unive.it 2026/2027 admission-rounds article links citizenship-based round tables hosted on Google Drive. Because the project allows only unive.it and apply.unive.it sources, exact round closing dates were not transcribed from those external files."
+  ],
+  "uncertain": [
+    "teaching_language",
+    "academic_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "entry_exam_or_test"
+  ]
+}

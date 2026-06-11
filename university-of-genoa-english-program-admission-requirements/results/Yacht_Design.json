@@ -1,0 +1,147 @@
+{
+  "program_name": "Yacht Design",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "La Spezia",
+  "degree_class": "LM-34 (Naval Engineering)",
+  "admission_type": "open access (free access subject to a mandatory verification of personal preparation)",
+  "academic_requirements": {
+    "summary": "Free-access (non-restricted) master's programme. Admission requires a recognised Bachelor's degree with the naval/industrial-engineering curricular credits below, B2 English, and a mandatory verification of personal preparation. There is no selection ranking; candidates either meet a grade-based automatic exemption or must pass a pass/fail oral interview.",
+    "prior_degree_or_diploma": "A Bachelor's degree of at least 180 CFU/ECTS (e.g. in Naval Engineering or Nautical/Pleasure-Craft Engineering), or an equivalent foreign qualification recognised as suitable.",
+    "required_prior_credits": "At least 40 CFU (or equivalent knowledge) in the basic-science scientific sectors prescribed for Class L-9 (Industrial Engineering) degrees, plus at least 45 CFU (or equivalent knowledge) in characterising naval-engineering disciplines (e.g. Naval Architecture, Statics of the Ship, Ship Structures, Ship Propulsion Plants).",
+    "subject_requirements": "General knowledge of naval-engineering topics including naval architecture, shipbuilding and naval installations; assessed at the readiness interview.",
+    "gpa_threshold": "Candidates whose Bachelor's final mark is at least 9/10 of the maximum (or ECTS grade 'A'/'B'; reported as roughly >= 99/110) are deemed adequate and exempted from the interview. Holders of the UniGe first-level degrees in Naval Architecture and Marine Engineering or Pleasure Craft Engineering with that grade are exempt from the curricular check.",
+    "international_qualification": "Non-EU candidates residing abroad with a foreign qualification apply through the UniGeApply (Apply UniGe) portal for pre-evaluation, then complete Universitaly pre-enrolment and obtain a study visa via the Italian Embassy/Consulate.",
+    "source_url": "https://corsi.unige.it/en/corsi/11958/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English B2 or higher (mandatory).",
+    "accepted_proofs": [
+      "An English-language certification recognised by the University at level B2 or higher (CLAT list, https://clat.unige.it/en/CertificazioniRiconosciute).",
+      "The University B2 English test (separate assessment dates published; registration closes about 10 days before each test date).",
+      "A degree taught entirely in English, certified officially."
+    ],
+    "exemption_rules": [
+      "Holding a certification recognised by the University demonstrating B2 English bypasses the language test."
+    ],
+    "assessment_or_upload_stage": "English proficiency is verified at the readiness stage; candidates without an accepted certificate sit the University's B2 test (further details via the Polytechnic School website).",
+    "source_url": "https://corsi.unige.it/en/corsi/11958/prospective-students-requisites-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Verification of personal preparation (assessment of adequacy of personal readiness) - an oral interview before a three-member committee. NOT a TOLC.",
+    "mandatory": true,
+    "is_selective": false,
+    "applies_to": "Applicants who do not qualify for the grade-based automatic exemption (Bachelor's final mark below 9/10 of the maximum, reported as below ~99/110).",
+    "format": "Oral interview conducted by a three-member committee to ascertain the student's general knowledge of naval-engineering topics (naval architecture, shipbuilding, naval installations). A separate B2 English test applies to candidates without an accepted English certificate.",
+    "dates": "[uncertain] The page lists the prior-year (2025/2026) interview sessions (29 September 2025, 17 November 2025, 19 January 2026, 27 February 2026); explicit A.Y. 2026/2027 dates were not confirmed on the fetched page and are expected to follow the same autumn-to-February pattern.",
+    "scoring_or_threshold": "Outcome is recorded as 'passed' or 'failed' only; there is no numerical ranking. A pass (or the grade-based exemption) is required for enrolment. Pre-registration and the test are free of charge.",
+    "source_url": "https://corsi.unige.it/en/corsi/11958/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026.",
+      "Pre-registration (master's) on the UniGe portal: from 9 April to 30 November 2026 (until 10 March 2027 with late payment)."
+    ],
+    "enrolment_deadline": "Confirmation of enrolment from 15 July 2026 to 30 November 2026 (until 10 March 2027 with late payment). Enrolment in years after the first runs 15 July to 5 October 2026, with arrears accepted 6 October to 5 November 2026.",
+    "notes": "This is a free-access (open) programme, so EU/resident applicants are not ranked; the personal-preparation interview is pass/fail. The programme deadlines page lists the generic UniGe enrolment calendar; the institution-wide spring UniGeApply window applies to non-EU residents in Italy.",
+    "source_url": "https://corsi.unige.it/en/corsi/11958/prospective-students-deadlines"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After receiving eligibility via UniGeApply, visa applicants complete Universitaly pre-enrolment and then apply for the study visa at the Italian Embassy/Consulate (with diploma translation and Declaration of Value).",
+    "early_closure": "None published for this programme. The known fall-session early closures for A.Y. 2026/27 (Medical-Pharmaceutical Biotechnology 13 Feb 2026, Maritime Science and Technology 18 Feb 2026, Computer Engineering bachelor 8 Mar 2026) do NOT include Yacht Design.",
+    "notes": "Non-EU visa applicants must use the fall session; the UniGeApply fall window for A.Y. 2026/27 (closed 20 March 2026) has already passed as of the research date (10 June 2026). Yacht Design appears on the UniGeApply English master's non-EU selection list.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport (non-EU) or national identity card (EU)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Passport is the only document accepted for non-EU applicants on UniGeApply; EU applicants may use a national identity card.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional) and transcript of records",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Uploaded on UniGeApply for pre-evaluation of the naval/industrial-engineering qualification and curricular credits.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Curriculum vitae",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Listed among UniGeApply submissions for master's pre-evaluation.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "English language proficiency certificate (B2 or higher) or Medium of Instruction (MOI) certificate",
+      "stage": "application/enrolment",
+      "required_for": "all",
+      "notes": "Required to satisfy the B2 English requirement; candidates without an accepted proof sit the University's B2 test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11958/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Diploma translation and Declaration of Value (or CIMEA Statement of Comparability) and legalization of the foreign qualification",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU visa applicants with a foreign qualification to finalise enrolment; obtained via the Italian Embassy/Consulate or CIMEA.",
+      "source_url": "https://corsi.unige.it/en/corsi/11958/prospective-students-admission-criteria-procedure"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and study-visa evidence",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Visa applicants complete Universitaly pre-enrolment after UniGeApply eligibility, then apply for the study visa.",
+      "source_url": "https://unige.it/en/international-enrolment"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11958/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11958",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "Yacht Design, course code 11958, Degree Class LM-34 (Naval Engineering), Teaching Language English, Campus La Spezia, 120 CFU, 2 years",
+      "source_url": "https://corsi.unige.it/en/corsi/11958",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "This degree course is free access, but requires passing a test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11958",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "a Bachelor degree (of at least 180 CFU/ECTS) ... at least 40 CFU, or equivalent knowledge, in scientific sectors prescribed by Class L-9 (Industrial Engineering) ... at least 45 CFU in naval engineering disciplines including Naval Architecture, Static of the Ship, Ship Structures, Ship Propulsion Plants.",
+      "source_url": "https://corsi.unige.it/en/corsi/11958/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "a Bachelor's degree grade is at least 9/10 of the maximum or has obtained a final grade corresponding to the 'A' or 'B' classification of the ECTS system ... admission test exemption.",
+      "source_url": "https://corsi.unige.it/en/corsi/11958/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements, entry_exam_or_test"
+    },
+    {
+      "quote": "The assessment consists of an oral interview conducted by a three-member committee ... aims to ascertain the student's general knowledge focusing on Naval Engineering topics including naval architecture, shipbuilding, and naval installations.",
+      "source_url": "https://corsi.unige.it/en/corsi/11958/prospective-students-requisites-assessment",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "Those with a certification recognised by the university demonstrating B2 English proficiency bypass the language test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11958/prospective-students-requisites-assessment",
+      "field_supported": "language_requirements"
+    }
+  ],
+  "uncertainty_notes": [
+    "The programme overview page states 'free access, but requires passing a test'; the requisites summary phrased access as 'restricted'. Reconciled as free access subject to a mandatory pass/fail readiness verification (with grade-based exemption) rather than a ranked restricted-access selection.",
+    "Interview session dates on the requisites page are for A.Y. 2025/2026 (Sep 2025-Feb 2026); A.Y. 2026/2027 dates were not confirmed on the fetched page and are expected to follow the same pattern. Confirm on the Polytechnic School website.",
+    "The corsi.unige.it deadlines page lists the generic UniGe enrolment calendar; the institution-wide UniGeApply spring (residents) and fall (visa) windows were used for the application windows.",
+    "No programme-specific fall-session early closure is published for Yacht Design for A.Y. 2026/27.",
+    "Programme is delivered at the La Spezia campus."
+  ],
+  "uncertain": [
+    "entry_exam_or_test_dates"
+  ]
+}

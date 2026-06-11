@@ -1,0 +1,269 @@
+{
+  "program_name": "Computer Engineering",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale / 2nd cycle)",
+  "teaching_language": "Italian, English",
+  "is_fully_english_programme": false,
+  "has_complete_english_track": true,
+  "english_track_name": "Computer Engineering English-taught route [uncertain]",
+  "campus": "Main Campus, Torino",
+  "degree_class": "LM-32: Computer Systems Engineering",
+  "double_degree_or_erasmus_mundus": "Not an Erasmus Mundus programme. The programme offers a Twin Track double-Master route with Cybersecurity Engineering, allowing two Master's degrees in three academic years.",
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering/programme-curriculum",
+  "admission_type": "evaluation/CV",
+  "admission_test_type": "Document-based evaluation of curricular requirements, academic performance, and language requirements; no general entrance exam is stated. A GRE General Test score report is optional but highly valued for the Computer Engineering entries in the 2026/2027 course-specific requirements sheet.",
+  "applicant_route": [
+    "Applicants with an Italian qualification from Politecnico di Torino",
+    "Applicants with an Italian qualification from another Italian university",
+    "EU / equivalent applicants with a non-Italian qualification",
+    "Non-EU applicants residing in Italy",
+    "Non-EU applicants residing abroad and requiring a type-D study visa"
+  ],
+  "admission_call_round": [
+    "1st call for applicants with a non-Italian qualification: opening 19 December 2025; closing 13 February 2026 at 2:00 p.m. Italian time; results 15 April 2026.",
+    "2nd call for applicants with a non-Italian qualification: opening 18 March 2026; closing 20 April 2026 at 2:00 p.m. Italian time; results 22 June 2026.",
+    "The special international-track call open from 24 April 2026 to 18 May 2026 applies to Physics of Complex Systems International Track and Nanotechnologies for ICTs MNIS, not to Computer Engineering."
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito for the application and evaluation process; UNIVERSITALY is also required for non-EU applicants residing abroad who need a type-D study visa.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "qualification": "Applicants must hold a three-year Bachelor's degree, university diploma, or equivalent foreign qualification recognized as suitable for admission.",
+    "curricular_requirements": "Applicants automatically meet the curricular requirements if they hold a Bachelor's degree belonging to Italian classes L-8 or L-31. In all other cases they must have earned at least 40 credits in FIS/01, FIS/03, INF/01, ING-INF/05, MAT/02, MAT/03, MAT/05, MAT/08 and at least 60 credits in INF/01, ING-IND/31, ING-INF/01, ING-INF/03, ING-INF/04, ING-INF/05, MAT/06, SECS-S/01.",
+    "shortfall_handling": "Applicants lacking fewer than 10 credits may be admitted by the Academic Advisor; if the shortfall is greater than 10 credits, final approval is required from the Coordinator or Vice-coordinator. Missing credits must be made up before enrolment through single courses or Bachelor-level credit transfer, according to the number of missing credits.",
+    "academic_performance": "Applicants must have academic performance considered suitable for admission.",
+    "recommended_background": "The 2026/2027 course-specific requirements sheet recommends a background in any field of Engineering or Computer Science.",
+    "non_italian_qualification_specific": "Applicants with a non-Italian qualification must hold a qualification awarded by an accredited or recognized foreign university, earned after at least 15 years of total education, including at least 3 years at university level; applicants from long single-cycle systems who have not yet graduated must also have at least 180 ECTS credits or equivalent."
+  },
+  "country_specific_eligibility": "No Turkey-specific PoliTo eligibility sheet was found. Turkish applicants should therefore follow the standard non-EU, non-Italian-qualification route: a recognized Bachelor's-level qualification giving access to second-cycle studies, at least 15 years of total education, at least 180 ECTS or equivalent where applicable, and the required value/comparability documentation. [uncertain]",
+  "minimum_background_or_credits": "Automatic curricular eligibility applies to Italian classes L-8 and L-31. Otherwise the programme requires at least 40 credits in FIS/01, FIS/03, INF/01, ING-INF/05, MAT/02, MAT/03, MAT/05, MAT/08 and at least 60 credits in INF/01, ING-IND/31, ING-INF/01, ING-INF/03, ING-INF/04, ING-INF/05, MAT/06, SECS-S/01.",
+  "language_requirements": {
+    "english_taught_route": "The 2026/2027 course-specific requirements sheet lists COMPUTER ENGINEERING as English-taught with minimum English B2; the reference minimum score is IELTS 5.5.",
+    "partially_italian_route": "The same source separately lists the partially Italian / partially English route with minimum English B2 plus Italian B2.",
+    "accepted_certificates": "Accepted English and Italian certificates and exemptions are those published by the PoliTO Language Centre (CLA).",
+    "exemptions": "English exemptions include, among others, an IB Diploma entirely taught in English, specified European Schools diplomas with L1 English, and recognised qualifications awarded in English in the countries listed by PoliTo. Medium-of-instruction exemption can be supported by an official school or university statement.",
+    "route_note": "Because the live programme page remains bilingual while the admissions table contains a separate English Computer Engineering entry, the precise language requirement depends on the route actually selected. [uncertain]"
+  },
+  "english_certificate_codes": "TOEFL/TOEIC institution code C285. For Cambridge certificates, applicants must share their results with Politecnico di Torino and provide the Candidate ID number.",
+  "language_submission_timing": "Language certificates must be uploaded during the online application in the Language Skills section. If the evaluation appears as PENDING, the certificate is verified during the evaluation process. At enrolment, the required language certificate must already have been uploaded during the application process.",
+  "application_deadline_eu": {
+    "route": "EU / equivalent applicants with a non-Italian qualification",
+    "1st_call": "Opening 19 December 2025; closing 13 February 2026 at 2:00 p.m. Italian time; results 15 April 2026.",
+    "2nd_call": "Opening 18 March 2026; closing 20 April 2026 at 2:00 p.m. Italian time; results 22 June 2026.",
+    "enrolment": "Online enrolment for the 1st semester closes 5 October 2026. Online enrolment for the 2nd semester, available only for EU applicants and non-EU applicants residing in Italy, closes 24 March 2027.",
+    "note": "These dates come from the official 2026/2027 non-Italian-qualification admissions page after the DR 96/2026 deadline extension."
+  },
+  "application_deadline_non_eu": {
+    "route": "Non-EU applicants residing abroad and requiring a type-D study visa",
+    "1st_call": "Opening 19 December 2025; closing 13 February 2026 at 2:00 p.m. Italian time; results 15 April 2026.",
+    "2nd_call": "Opening 18 March 2026; closing 20 April 2026 at 2:00 p.m. Italian time; results 22 June 2026.",
+    "enrolment_documents_upload": "Mandatory enrolment documents must be uploaded by 5 October 2026; they will be verified by 11 November 2026.",
+    "study_visa_upload": "The deadline to upload the type-D study visa is 30 November 2026.",
+    "note": "Visa applicants must also complete a separate UNIVERSITALY pre-enrolment step before requesting the study visa."
+  },
+  "universitaly_preenrolment_deadline": "The official 2026/2027 page is internally inconsistent for the 1st call: the deadlines table shows 15 May 2026, while the study-visa instructions section says 30 May 2026. For the 2nd call, the page states 15 July 2026. [uncertain]",
+  "application_fee": "EUR 50 non-refundable application fee, payable online by credit card through PagoPA.",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport or EU ID card",
+    "Residence permit for non-EU applicants residing in Italy",
+    "Curriculum Vitae",
+    "Bachelor's degree certificate or official university document stating the provisional graduation date",
+    "Official Transcript of Records",
+    "Syllabus / course descriptions",
+    "English and/or Italian language certificate, depending on the selected route",
+    "Declaration of Value of the Bachelor's degree or CIMEA Statement of Comparability, if available at application stage and compulsory for enrolment",
+    "Self-certificate of enrolment in another Italian university, if currently enrolled",
+    "Optional supporting document such as a GRE General Test score report, recommendation letter, motivation letter, training certificate, internship certificate, or proof of relevant work experience",
+    "At enrolment for non-EU visa applicants: type-D study visa and fiscal code certificate"
+  ],
+  "document_translation_authentication": "Documents issued in Italian, English, French, or Spanish are accepted. Documents in other languages must be uploaded together with an official English or Italian translation in a single merged file. Official translations must bear the stamp and original signature of an officially recognized translator. Translations into Italian must be certified by the Italian Embassy in the issuing country or sworn before a court in Italy. For enrolment, PoliTo requires a Declaration of Value, a CIMEA Statement of Comparability, a Diploma Supplement, or an ARDI Certificate of Correspondence as specified by the official enrolment section.",
+  "entry_exam_or_test": {
+    "standard_route": "No entrance exam or ranking list is stated for this uncapped programme. Admission is based on evaluation of curricular requirements, academic performance, and language requirements on Apply@polito.",
+    "optional_document": "The 2026/2027 course-specific requirements sheet states that a GRE General Test score report is optional but highly valued.",
+    "faq_note": "The official FAQ states that students from other universities do not face a ranking list; they must pass the career assessment and meet the entry requirements."
+  },
+  "test_score_or_threshold": "For applicants from Politecnico di Torino: no weighted-average threshold if the Bachelor's degree is completed in 4 years or less; at least 21/30 if completed between 4 and 5 years; at least 24/30 if completed in more than 5 years. For applicants from other Italian universities: weighted average at least 24/30. For applicants with a non-Italian qualification: no fixed numeric grade threshold is published; evaluation is case-by-case.",
+  "source_quotes": [
+    {
+      "quote": "Language: Italian, English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering",
+      "supports_fields": [
+        "teaching_language"
+      ]
+    },
+    {
+      "quote": "Admissions: Uncapped number of students, evaluation of the admission requirements",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering",
+      "supports_fields": [
+        "admission_type",
+        "entry_exam_or_test"
+      ]
+    },
+    {
+      "quote": "LM-32: COMPUTER SYSTEMS ENGINEERING",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering",
+      "supports_fields": [
+        "degree_class"
+      ]
+    },
+    {
+      "quote": "Some specialist tracks are taught in English, while others are offered in Italian.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering/programme-details",
+      "supports_fields": [
+        "is_fully_english_programme",
+        "has_complete_english_track",
+        "english_track_name"
+      ]
+    },
+    {
+      "quote": "You can choose to take your compulsory courses either in Italian or in English.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering/programme-details",
+      "supports_fields": [
+        "has_complete_english_track",
+        "english_track_name"
+      ]
+    },
+    {
+      "quote": "COMPUTER ENGINEERING English IELTS 5.5",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": [
+        "has_complete_english_track",
+        "english_track_name",
+        "language_requirements"
+      ]
+    },
+    {
+      "quote": "GRE optional but highly valued",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": [
+        "admission_test_type",
+        "entry_exam_or_test"
+      ]
+    },
+    {
+      "quote": "If I have attended an orientation in English, can the thesis be in Italian? No, you must follow the language of the chosen orientation.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering/faqs",
+      "supports_fields": [
+        "has_complete_english_track",
+        "english_track_name"
+      ]
+    },
+    {
+      "quote": "Embedded & Smart System Design",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering/programme-curriculum",
+      "supports_fields": [
+        "english_track_name",
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "Energy management for IoT",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering/programme-curriculum",
+      "supports_fields": [
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "Have a Bachelor's degree (level 6 EQF) ... Meet the specific curricular requirements and have an academic performance considered suitable for admission",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "academic_requirements",
+        "country_specific_eligibility"
+      ]
+    },
+    {
+      "quote": "minimum 40 credits ... minimum 60 credits",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20INFORMATICA_25_26.pdf",
+      "supports_fields": [
+        "academic_requirements",
+        "minimum_background_or_credits"
+      ]
+    },
+    {
+      "quote": "Pay the non-refundable application fee (€50)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_fee"
+      ]
+    },
+    {
+      "quote": "For TOEFL/TOEIC certificates, you must indicate the code C285",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "english_certificate_codes"
+      ]
+    },
+    {
+      "quote": "Curriculum Vitae ... Official Transcript of Records ... Syllabus / Course descriptions",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "required_documents"
+      ]
+    },
+    {
+      "quote": "Closing date: 5 October 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ]
+    },
+    {
+      "quote": "The deadline to upload the Study visa - type D is 30 November 2026.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_deadline_non_eu"
+      ]
+    },
+    {
+      "quote": "Pre-enrolment deadline for Study Visa ... 15 May 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "universitaly_preenrolment_deadline"
+      ]
+    },
+    {
+      "quote": "May 30, 2026, if you submitted the application in the first call",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "universitaly_preenrolment_deadline"
+      ]
+    },
+    {
+      "quote": "Within the Master's Degree Program in Computer Engineering ... obtain a second Master's Degree in Cybersecurity Engineering.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering/twin-track-master-programs",
+      "supports_fields": [
+        "double_degree_or_erasmus_mundus"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering",
+    "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering/programme-details",
+    "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering/programme-curriculum",
+    "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering/faqs",
+    "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering/twin-track-master-programs",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20INFORMATICA_25_26.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "The broad English inclusion rule is treated as satisfied. The live programme page remains bilingual and states that only some specialist tracks are taught in English, but the official 2026/2027 course-specific requirements sheet separately lists COMPUTER ENGINEERING as an English-taught route with IELTS 5.5 only, while the curriculum page and FAQ confirm the existence of English orientations and English-thesis rules.",
+    "The exact canonical label of the complete English route is not clearly named on the live programme page. I therefore recorded english_track_name as 'Computer Engineering English-taught route' based on the official admissions table rather than inventing a specialist-track label. [uncertain]",
+    "The curriculum page also shows at least one specialist pathway, Embedded & Smart System Design, with Year 1 and Year 2 compulsory courses displayed in English; however, some free-choice and elective slots are listed generically rather than with a fixed language, so the precise track naming remains the main ambiguity, not the existence of an English-completable route.",
+    "The official 2026/2027 non-Italian-qualification page contains conflicting first-call UNIVERSITALY pre-enrolment dates: 15 May 2026 in the deadlines table and 30 May 2026 in the visa instructions section. The second-call date is consistently 15 July 2026. [uncertain]",
+    "No 2026/2027 programme-specific Academic Regulations PDF was found during this research. Programme-specific curricular-credit and Italian-university merit thresholds were therefore taken from the latest official Computer Engineering Academic Regulations PDF for 2025/2026, while curriculum, admissions, and deadlines were taken from 2026/2027 sources.",
+    "No Turkey-specific PoliTo eligibility table was found; the country-specific field therefore applies the standard foreign-qualification rules to Turkish applicants. [uncertain]"
+  ],
+  "uncertain": [
+    "english_track_name",
+    "country_specific_eligibility",
+    "language_requirements",
+    "universitaly_preenrolment_deadline"
+  ]
+}

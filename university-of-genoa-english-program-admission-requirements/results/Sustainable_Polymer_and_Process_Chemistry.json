@@ -1,0 +1,149 @@
+{
+  "program_name": "Sustainable polyMer And pRocess chemisTry (SMART)",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Genoa",
+  "degree_class": "LM-71 R (Industrial Chemistry)",
+  "admission_type": "open access (free access subject to a mandatory verification of personal preparation)",
+  "academic_requirements": {
+    "summary": "Free-access (non-restricted) master's programme. Admission requires a recognised Bachelor's degree (or higher) in a chemistry-related field plus a mandatory verification of personal preparation. There is no selection ranking; candidates either meet a grade-based automatic exemption or must pass a pass/fail readiness test (which may be an interview).",
+    "prior_degree_or_diploma": "A Bachelor's degree (or higher) with a major in Chemistry, Chemical Engineering, Polymer Science, Materials Chemistry and related subjects, or an equivalent foreign qualification recognised as suitable.",
+    "required_prior_credits": "[uncertain] The current course page (11950) and the prior-version verification page (11767) do not publish a precise per-SSD CFU breakdown for required curricular credits; eligibility centres on a relevant chemistry-related bachelor background plus the readiness verification.",
+    "subject_requirements": "Possession of the necessary basic specialist knowledge in chemistry-related subjects; assessed through the verification of adequacy of personal preparation.",
+    "gpa_threshold": "Applicants with an Italian (or equivalent) degree and a final grade of at least 90/110 automatically satisfy the adequacy requirement and skip the readiness test. The current programme page additionally phrases the target background as a 'cumulative average above 75' for the chemistry-related bachelor.",
+    "international_qualification": "Non-EU candidates residing abroad with a foreign qualification apply through the UniGeApply (Apply UniGe) portal for pre-evaluation, then complete Universitaly pre-enrolment and obtain a study visa via the Italian Embassy/Consulate.",
+    "source_url": "https://corsi.unige.it/en/corsi/11767/futuri-studenti-verifica-della-preparazione"
+  },
+  "language_requirements": {
+    "required_level": "English B2 or higher (mandatory).",
+    "accepted_proofs": [
+      "An existing English-language certificate at level B2 or higher among those accepted by the University (CLAT list, https://clat.unige.it/en/CertificazioniRiconosciute).",
+      "Passing the B2 test offered by the Department/Centre for the Development of Language Skills (CLAT).",
+      "Holding a degree taught entirely in English, with official documentation that coursework was conducted entirely in English."
+    ],
+    "exemption_rules": [
+      "A recognised B2-or-higher certificate, or an officially certified English-medium degree, exempts the candidate from the B2 test."
+    ],
+    "assessment_or_upload_stage": "English proficiency is verified at the personal-preparation (readiness) stage; candidates without an accepted proof must pass the University's B2 test.",
+    "source_url": "https://corsi.unige.it/en/corsi/11767/futuri-studenti-verifica-della-preparazione"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Verification of adequacy of personal preparation (readiness assessment) - a public interview, written test, or telematic video interview. NOT a TOLC.",
+    "mandatory": true,
+    "is_selective": false,
+    "applies_to": "Applicants who do not qualify for the grade-based automatic exemption (degree final grade below 90/110 or equivalent).",
+    "format": "A test in the form of a public interview, a written test, or a video interview via telematics, before an examination committee, to ascertain possession of the necessary basic specialist knowledge for the course.",
+    "dates": "[uncertain] Specific A.Y. 2026/2027 session dates are not published on the current (11950) requisites page; applicants are directed to the dedicated verification page and the Department.",
+    "scoring_or_threshold": "Outcome is recorded as 'pass' or 'fail' only; there is no numerical ranking. A pass (or the grade-based exemption) is required for enrolment.",
+    "source_url": "https://corsi.unige.it/en/corsi/11767/futuri-studenti-verifica-della-preparazione"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026.",
+      "Pre-registration (master's) on the UniGe portal: from 9 April to 30 November 2026 (until 10 March 2027 with late payment)."
+    ],
+    "enrolment_deadline": "Confirmation of enrolment from 15 July 2026 to 30 November 2026 (until 10 March 2027 with late payment). Enrolment in years after the first runs 15 July to 5 October 2026, with arrears accepted 6 October to 5 November 2026.",
+    "notes": "This is a free-access (open) programme, so EU/resident applicants are not ranked; the personal-preparation test is pass/fail. The programme deadlines page lists the generic UniGe enrolment calendar; the institution-wide spring UniGeApply window applies to non-EU residents in Italy.",
+    "source_url": "https://corsi.unige.it/en/corsi/11950/prospective-students-deadlines"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After receiving eligibility via UniGeApply, visa applicants complete Universitaly pre-enrolment and then apply for the study visa at the Italian Embassy/Consulate.",
+    "early_closure": "None published for this programme. The known fall-session early closures for A.Y. 2026/27 (Medical-Pharmaceutical Biotechnology 13 Feb 2026, Maritime Science and Technology 18 Feb 2026, Computer Engineering bachelor 8 Mar 2026) do NOT include Sustainable Polymer and Process Chemistry (SMART).",
+    "notes": "Non-EU visa applicants must use the fall session; the UniGeApply fall window for A.Y. 2026/27 (closed 20 March 2026) has already passed as of the research date (10 June 2026).",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport (non-EU) or national identity card (EU)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Passport is the only document accepted for non-EU applicants on UniGeApply; EU applicants may use a national identity card.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional) and transcript of records",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Uploaded on UniGeApply for pre-evaluation of the chemistry-related qualification and curricular background.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Curriculum vitae",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Listed among UniGeApply submissions for master's pre-evaluation.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "English language proficiency certificate (B2 or higher) or Medium of Instruction (MOI) certificate",
+      "stage": "application/enrolment",
+      "required_for": "all",
+      "notes": "Required to satisfy the B2 English requirement; candidates without an accepted proof must pass the University's B2 test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11767/futuri-studenti-verifica-della-preparazione"
+    },
+    {
+      "document_name": "Declaration of Value / CIMEA Statement of Comparability and legalization of the foreign qualification",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU visa applicants with a foreign qualification to finalise enrolment; obtained via the Italian Embassy/Consulate or CIMEA.",
+      "source_url": "https://unige.it/en/international-enrolment"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and study-visa evidence",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Visa applicants complete Universitaly pre-enrolment after UniGeApply eligibility, then apply for the study visa.",
+      "source_url": "https://unige.it/en/international-enrolment"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11950/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11950",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "Sustainable polyMer And pRocess chemisTry (SMART), Course Code 11950, Degree Class LM-71 R (Industrial Chemistry), Teaching Language English, Campus Genova, 120 CFU",
+      "source_url": "https://corsi.unige.it/en/corsi/11950",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "This degree course is free access, but requires passing a test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11950",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Bachelor's degree or higher with a major in Chemistry, Chemical Engineering, Polymer Science, Materials Chemistry and related subjects with a cumulative average above 75. An interview may be required to establish eligibility.",
+      "source_url": "https://corsi.unige.it/en/corsi/11950",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Applicants with an Italian diploma or equivalent degree earning a final grade of at least 90/110 automatically satisfy the requirement.",
+      "source_url": "https://corsi.unige.it/en/corsi/11767/futuri-studenti-verifica-della-preparazione",
+      "field_supported": "academic_requirements, entry_exam_or_test"
+    },
+    {
+      "quote": "Knowledge of the English language at level B2 or higher ... an existing B2 certificate, OR passing the B2 test offered by the Department for the Development of Language Skills, OR holding a degree in English with official documentation showing coursework conducted entirely in English.",
+      "source_url": "https://corsi.unige.it/en/corsi/11767/futuri-studenti-verifica-della-preparazione",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "The verification consists of a test in the form of a public interview, a written test or a video interview via telematics ... Results are marked as either pass or fail.",
+      "source_url": "https://corsi.unige.it/en/corsi/11767/futuri-studenti-verifica-della-preparazione",
+      "field_supported": "entry_exam_or_test"
+    }
+  ],
+  "uncertainty_notes": [
+    "Task asked to confirm the full official name behind the UniGeApply 'SMART' branding: confirmed - the official catalogue name is 'Sustainable polyMer And pRocess chemisTry (SMART)' (capitalisation forms the acronym SMART).",
+    "Detailed admission criteria, English B2 details and the readiness-test format are documented on the prior course version's verification page (code 11767, marked 'in esaurimento'/being phased out); the current 11950 requisites and admission pages are stubs that direct to that dedicated page. Confirm 11950 republishes identical criteria when its pages are populated.",
+    "Two grade thresholds appear: the dedicated verification page states automatic adequacy at >= 90/110, while the current programme page phrases the background target as a 'cumulative average above 75' (scale not stated on that page). Both are recorded.",
+    "No per-SSD CFU breakdown for required curricular credits is published; eligibility centres on a relevant chemistry-related bachelor plus the readiness verification.",
+    "Specific 2026/27 readiness-test session dates are not published on the current page.",
+    "No programme-specific fall-session early closure is published for SMART for A.Y. 2026/27."
+  ],
+  "uncertain": [
+    "required_prior_credits",
+    "entry_exam_or_test_dates"
+  ]
+}

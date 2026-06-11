@@ -1,0 +1,121 @@
+{
+  "program_name": "Economics and Political Science (EPS)",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-56/62 R",
+  "admission_type": "Open with entry requirements examination",
+  "academic_requirements": "Applicants need a bachelor's degree or equivalent and are assessed on academic excellence, prior academic record, and interview performance. The programme is intended for applicants with a strong interest in economics, political science, or related subjects, plus undergraduate or graduate training in mathematics and quantitative methods. Italian graduates from classes L-16, L-18, L-20, L-33, L-36, L-37, or L-41 (and the corresponding classes under D.M. 509/99 and/or 270/04) are eligible if they hold at least 24 CFU in SECS-P/01 to SECS-P/13, SECS-S/01 to SECS-S/06, MAT/01 to MAT/09, and SPS/04. Graduates from other classes may apply if they hold at least 30 CFU in SPS/01 to SPS/14, SECS-P/01 to SECS-P/13, SECS-S/01 to SECS-S/06, or MAT/01 to MAT/09, including at least 6 credits in MAT/01 to MAT/09 and/or SECS-S/06 and at least 6 credits in SECS-P/01 to SECS-P/06 and/or SPS/04. If one of those two 6-credit blocks is missing, the requirement may be completed through pre-courses before classes start or by passing a relevant single course, but all admission conditions must be fulfilled before enrolment and no later than 31 December 2026. Applicants with foreign degrees are eligible if their bachelor's degree in economics, political science, or another broadly related subject is recognized by the University as appropriate/equivalent. The admission notice states that curricular requirements must be held by 30 April 2026 for non-EU visa applicants and by 20 July 2026 for EU candidates and equivalents.",
+  "language_requirements": "English proficiency at CEFR B2 or higher is required for admission. The requirement can be met through: a recognized B2-or-higher certificate issued no more than three years before the admission application date and uploaded with the online application; an English level certified by UniMi's SLAM language centre during a UniMi degree programme no more than four years before the application date, in which case the check is automatic; or the SLAM entry test according to the published calendar. Applicants who do not upload a valid certificate or do not meet the required level are instructed to take the SLAM entry test. The EPS application page states that if a candidate fails or misses the SLAM test, they may send SLAM a recognized B2-or-higher English certificate by 31 August 2026 through the procedure indicated by UniMi. Medium-of-instruction letters are never accepted, even for fully English-taught programmes. Applicants who do not satisfy the language requirement by the stated deadline are not admitted.",
+  "application_deadline_eu": "Admission application for EU candidates and equivalents: 22 January 2026 to 20 July 2026. Enrolment for admitted students: 5 May 2026 to 15 January 2027. Graduands must obtain the degree by 31 December 2026.",
+  "application_deadline_non_eu": "Admission application for non-EU candidates applying for a visa: 22 January 2026 to 30 April 2026. Curricular requirements must be held by 30 April 2026. Universitaly pre-enrolment deadline: 31 July 2026. Enrolment for admitted students: 5 May 2026 to 15 January 2027.",
+  "required_documents": [
+    "For applicants using the programme-specific EPS application checklist: degree certificate if already graduated, plus transcript(s) of records listing exams taken, grades, and ECTS/CFU credits.",
+    "Passport or ID card.",
+    "Short CV.",
+    "Recognized English language certificate, if the applicant is using the certificate route for the B2 requirement.",
+    "GRE or GMAT results, if the applicant wants them considered.",
+    "For applicants with Italian qualifications from universities other than UniMi: self-certification of degree/enrolment with exam records, including exams taken, grades, ECTS credits, and scientific-disciplinary sectors; graduands must also indicate exams passed but not yet registered, exams still to be taken, and expected graduation date.",
+    "For UniMi graduates or graduands: the self-certification of degree/enrolment with exam records is acquired automatically by the online admission service.",
+    "For applicants with foreign qualifications at admission stage: Bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with foreign qualifications at admission stage: diploma supplement, or transcript of records including courses, marks, ECTS, academic field, and the grading system used by the university.",
+    "For applicants enrolling with a foreign qualification: legalized or apostilled Bachelor's degree (or equivalent), unless exempt from legalization/apostille requirements.",
+    "High school diploma for applicants enrolling with a foreign qualification.",
+    "Official Italian translation of academic qualifications, unless the originals are in English, French, German, or Spanish.",
+    "Statement of Comparability issued by an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore (DOV); for Lisbon Convention countries, a Diploma Supplement or ARDI Correspondence Statement may replace them.",
+    "Italian tax code (codice fiscale).",
+    "For non-EU citizens: receipt of residence-permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "[uncertain] Admission is not based on a fixed standardized entrance exam. UniMi classifies the programme as 'Open with entry requirements examination'. The Admission Board evaluates entry requirements and prior qualifications. The EPS application page says some applicants may be requested to attend an online interview via Skype or Teams to assess motivation and knowledge, competences, and skills in the core EPS areas, with the result communicated by email about one week later. The admission notice keeps the broader wording that the Board may request an interview and/or a written test, in person or remotely. GRE or GMAT scores are optional and are only considered if submitted.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/economics-and-political-science-eps",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-economics-and-political-science-%28eps%29-%28classi-lm-56-r-lm-62-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Master programme ... Access: Open with entry requirements examination ... Course location: Milan ... Language: English.",
+      "url": "https://www.unimi.it/en/education/master-programme/economics-and-political-science-eps",
+      "field_refs": [
+        "academic_year",
+        "level",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Applications for Master's degree programmes for the academic year 2026/2027 are open from 22 January 2026. The application deadline for non-EU students VISA applicants is 30 April 2026. The application deadline for EU students is 20 July 2026.",
+      "url": "https://eps.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Submit required documents: degree certificate ... transcript(s) of records ... Passport/ID card; A short CV; English language certification (if any); GRE / GMAT results (if any).",
+      "url": "https://eps.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The B2-level requirement will be ascertained by the University Language Centre (SLAM) ... Language certificate of B2 or higher ... uploaded when submitting the online application ... Entry test administrated by the University Language Centre (SLAM).",
+      "url": "https://eps.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "If candidates fail or miss the English test with SLAM, they have time until 31 August 2026 to send SLAM a B2 level (or higher) English certificate ... medium of instruction letters are never accepted.",
+      "url": "https://eps.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Applicants should have: a bachelor's degree or equivalent ... training in mathematics and quantitative methods ... Applicants meeting the above requirements will be invited to an online interview.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_BBFof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The online admission service requires the following documents ... Self-certification of degree/enrolment with exam records ... Bachelor's Degree ... Diploma supplement or ... transcript ... Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-economics-and-political-science-%28eps%29-%28classi-lm-56-r-lm-62-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Bachelor's degree (or equivalent), legalized or apostilled ... High school diploma ... Statement of Comparability ... Italian tax code ... Receipt of the residence permit application or a valid residence permit.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-economics-and-political-science-%28eps%29-%28classi-lm-56-r-lm-62-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-economics-and-political-science-%28eps%29-%28classi-lm-56-r-lm-62-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "The EPS application page describes the actual 2026/2027 assessment practice as an online interview for some applicants, while the formal admission notice keeps broader wording that the Admission Board may request an interview and/or a written test in person or remotely. Because the official sources do not confirm whether a written test will actually be used for this cycle, entry_exam_or_test is marked [uncertain].",
+    "The formal admission notice gives the minimum mandatory upload set by qualification type, while the programme-specific EPS application page also asks for a short CV, passport/ID, English certificate if any, and GRE/GMAT if any. required_documents combines both official 2026/2027 source lists and labels conditional items as such."
+  ],
+  "uncertain": [
+    "entry_exam_or_test"
+  ]
+}

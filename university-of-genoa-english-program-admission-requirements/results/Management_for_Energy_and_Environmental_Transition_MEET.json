@@ -1,0 +1,148 @@
+{
+  "program_name": "Management for Energy and Environmental Transition (MEET)",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Genoa",
+  "degree_class": "LM-77 R (Management)",
+  "admission_type": "free access but requires passing a test (verification of personal preparation)",
+  "academic_requirements": {
+    "summary": "A recognised three-year bachelor's degree (or equivalent foreign qualification) is required. Holders of an Italian class L-18 (Economics and Business Administration) or L-33 (Economics) degree, or an equivalent qualification, satisfy the curricular requirements; if they also graduated with a final mark of at least 99/110 they are exempt from the verification of the adequacy of personal preparation. All other candidates must undergo the verification, structured into Module 1 (basic knowledge) and/or Module 2 (personal preparation).",
+    "prior_degree_or_diploma": "A three-year (first-cycle) bachelor's degree, or an equivalent recognised foreign qualification.",
+    "subject_requirements": "Curricular requirements are met directly by an Italian L-18 (Economics and Business Administration) or L-33 (Economics) degree, or an equivalent qualification. Candidates missing the required subject credits can acquire them through a 'bridging career' (percorso ponte) by enrolling in individual educational activities before applying.",
+    "grade_threshold": "Graduates of class L-18 or L-33 (or equivalent) with a final degree mark of 99/110 or higher (and English at level B2) are exempt from the verification of the adequacy of personal preparation. L-18/L-33 graduates with a mark below 99/110 must sit Module 2 only and pass it with a minimum of 18/30.",
+    "test_for_other_classes": "Candidates whose bachelor's degree is in a class other than L-18 or L-33 must sit two tests: Module 1 (verification of basic knowledge) and Module 2 (verification of personal preparation), with Module 2 passed at a minimum of 18/30.",
+    "international_qualification": "Non-EU candidates residing abroad with a foreign qualification apply through UniGeApply for pre-evaluation; a minimum CGPA of 75% is required and no remote interview/test is required for MEET during pre-selection.",
+    "source_url": "https://corsi.unige.it/en/corsi/11939/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English at level B2 (minimum).",
+    "accepted_proofs": [
+      "A valid English-language certificate at level B2 or higher, issued no more than three years before the application.",
+      "For candidates without a certificate: an assessment via interview on the scheduled admission-test date (by contacting valutazionedeirequisiti@economia.unige.it).",
+      "For non-EU UniGeApply applicants: a certificate attesting that English was the medium of instruction (MOI) of the prior degree is accepted in lieu of a B2 certificate."
+    ],
+    "exemption_rules": [
+      "There is no waiver of the B2 English requirement itself; candidates lacking a certificate are assessed by interview rather than being exempted."
+    ],
+    "assessment_or_upload_stage": "English proficiency is checked at the personal-preparation verification stage (certificate or interview on the admission-test date); non-EU candidates upload the certificate/MOI evidence on UniGeApply for pre-evaluation.",
+    "source_url": "https://corsi.unige.it/en/corsi/11939/prospective-students-admission-criteria-procedure"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Verification of the adequacy of personal preparation (departmental admission test). NOT a TOLC.",
+    "mandatory": true,
+    "is_selective": false,
+    "applies_to": "All applicants except L-18/L-33 (or equivalent) graduates with a final mark of at least 99/110 and English at B2, who are exempt.",
+    "format": "Module 1 (verification of basic knowledge) for candidates from degree classes other than L-18/L-33; Module 2 (verification of personal preparation) for everyone not exempt. L-18/L-33 graduates with a mark below 99/110 sit Module 2 only.",
+    "dates": "[uncertain] Scheduled on dedicated admission-test sessions set by the Department of Economics; exact dates for A.Y. 2026/2027 are not published as plain text on the admission page.",
+    "scoring_or_threshold": "Module 2 must be passed with a minimum of 18/30. The programme is 'free access, but requires passing a test', so the test is a gate to enrolment rather than a competitive ranking.",
+    "source_url": "https://corsi.unige.it/en/corsi/11939/prospective-students-admission-criteria-procedure"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026 (A.Y. 2026/2027 institution-wide window).",
+      "EU/resident applicants without a foreign qualification follow the standard UniGe pre-enrolment and personal-preparation verification calendar set by the Department of Economics."
+    ],
+    "enrolment_deadline": "[uncertain] A precise programme-specific first-year EU application/enrolment deadline is not published as plain text on the corsi.unige.it page; the institution-wide spring master's window (closes 28 August 2026) applies.",
+    "notes": "No programme-specific early closure is recorded for MEET; the standard master's windows apply. EU/resident applicants are not ranked, but must pass the personal-preparation verification (Module 2 >= 18/30) unless exempt.",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation outcome by 22 May 2026.",
+      "No programme-specific early closure is listed for MEET (unlike Medical-Pharmaceutical Biotechnology, Maritime Science and Technology, and Computer Engineering bachelor)."
+    ],
+    "visa_or_pre_enrolment_deadline": "After receiving eligibility via UniGeApply, visa applicants complete the Universitaly pre-enrolment and apply for the study visa, then re-upload title and English/MOI documents at enrolment.",
+    "early_closure": "None recorded for MEET; the standard fall close of 20 March 2026 applies.",
+    "notes": "Non-EU visa applicants must use the fall session. A 30 euro application fee applies for visa applicants (covering up to two course applications). Minimum CGPA 75%; no remote interview/test for MEET.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum vitae et studiorum",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Information about educational background, additional courses, work activities, or internships. Uploaded on UniGeApply (PDF, max 2 MB).",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Bachelor's degree (final or provisional certificate)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Final degree certificate, or provisional certificate if not yet graduated. Uploaded on UniGeApply for pre-evaluation.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "List of exams taken with number of credits and grades. Used to verify the 75% CGPA and curricular subject coverage.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "English language proficiency evidence (B2 certificate or MOI certificate)",
+      "stage": "application/enrolment",
+      "required_for": "all",
+      "notes": "A valid B2-or-higher English certificate (issued within the last three years) or, for non-EU UniGeApply applicants, a certificate attesting English as the medium of instruction (MOI). Candidates without a certificate may instead be assessed by interview on the admission-test date.",
+      "source_url": "https://corsi.unige.it/en/corsi/11939/prospective-students-admission-criteria-procedure"
+    },
+    {
+      "document_name": "Passport (non-EU) or national identity card (EU)",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Passport mandatory for non-EU applicants (jpg format on UniGeApply); EU applicants may use a passport or national identity card.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and study-visa evidence",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Visa applicants complete Universitaly pre-enrolment after UniGeApply eligibility, then apply for the study visa and re-upload title/language documents at enrolment.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11939/students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11939",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "MANAGEMENT FOR ENERGY AND ENVIRONMENTAL TRANSITION (MEET); Master's degree; Class LM-77 R (Management); Language English; Genova; 120 CFU; 2 years.",
+      "source_url": "https://corsi.unige.it/en/corsi/11939",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "This degree course is free access, but requires passing a test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11939",
+      "field_supported": "admission_type, entry_exam_or_test"
+    },
+    {
+      "quote": "Candidates holding a degree in class L-18 or L-33 (or an equivalent degree) meet the curricular requirements and, with a final mark of 99/110 or higher, are exempt from the verification of the adequacy of personal preparation; others must take Module 1 (basic knowledge) and/or Module 2 (personal preparation), passing Module 2 with at least 18/30. A knowledge of English of at least level B2 is required.",
+      "source_url": "https://corsi.unige.it/en/corsi/11939/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements, entry_exam_or_test, language_requirements"
+    },
+    {
+      "quote": "Management for Energy and Environmental Transition (MEET): Minimum CGPA 75%; remote interview/test: No; additional interview after arrival: No.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "academic_requirements, application_deadline_non_eu"
+    },
+    {
+      "quote": "Knowledge of the Italian language is not required for courses taught in English. The English language proficiency level is B2 or a certificate attesting that English has been the medium of instruction (MOI). Required documents: Curriculum vitae et studiorum; Bachelor's degree (final or provisional certificate); Transcript of records.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "language_requirements, required_documents"
+    },
+    {
+      "quote": "Fall session opens 26 November 2025, closes 20 March 2026 (outcome by 22 May 2026); spring session opens 9 April 2026, master's degrees close 28 August 2026.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "CONFIRMED: distinct English-taught master, not a track of another programme. Teaching language English, degree class LM-77 R, course code 11939, campus Genova, 120 CFU, A.Y. 2026/2027 (corsi.unige.it/en/corsi/11939).",
+    "The older parallel code 11427 is the same MEET programme but is being phased out ('in esaurimento'); the official page for 11427 redirects first-year applicants to the current code 11939.",
+    "Exact admission-test session dates for A.Y. 2026/2027 are not published as plain text on the admission page (entry_exam_or_test.dates marked uncertain).",
+    "A precise programme-specific first-year EU application/enrolment deadline is not published on corsi.unige.it; the institution-wide spring master's window (closes 28 August 2026) is used (application_deadline_eu.enrolment_deadline marked uncertain).",
+    "The programme is delivered 'mostly remote' per the official page; this affects delivery mode, not admission requirements."
+  ],
+  "uncertain": [
+    "application_deadline_eu"
+  ]
+}

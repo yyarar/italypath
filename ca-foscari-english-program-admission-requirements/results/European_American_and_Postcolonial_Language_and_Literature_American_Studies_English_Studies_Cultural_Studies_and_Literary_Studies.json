@@ -1,0 +1,183 @@
+{
+  "program_name": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+  "level": "master",
+  "teaching_language": "English track within a multilanguage degree [uncertain]",
+  "campus": "Venice",
+  "degree_class": "LM-37 R (Modern American and European languages and literature)",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need at least a three-year bachelor's degree. The general programme page requires 48 CFU in relevant language, literature, linguistics, philology, history, or comparative-studies areas, and the Teaching Committee assesses personal preparation; the apply.unive.it English Studies and American Studies path pages for international applicants also state a minimum 80% CGPA and a programme-specific motivation letter [uncertain for the exact mapping of the list labels Cultural Studies and Literary Studies].",
+    "prior_degree_or_diploma": "A minimum three-year bachelor's degree or equivalent first-cycle university qualification.",
+    "subject_requirements": "The programme admission page requires 48 CFU overall. For English Studies and American Studies, this includes 12 CFU in linguistics, language teaching research, philology, Italian studies, history, or comparative studies; 24 CFU in English language or Anglo-American language; and 12 CFU in literature, with at least 6 CFU in the specific literary area chosen for the master's path. Missing curricular requirements must be completed before enrolment through bachelor's-level single courses.",
+    "gpa_or_country_requirements": "The programme page says applicants with an L-11 or L-12 bachelor's degree, or an equivalent degree, and a final grade of 90/110 are generally considered adequately prepared. The apply.unive.it English Studies and American Studies pages additionally state a minimum CGPA of 80% for international applicants; country-specific validity rules for international qualifications also apply [uncertain for Cultural Studies/Literary Studies].",
+    "committee_or_pre_evaluation": "International applicants first undergo the Welcome Unit's preliminary evaluation on apply.unive.it. The Teaching Committee then evaluates the transcript, curriculum vitae, language background, and any uploaded supporting documents, and it may require an additional interview; double or joint degree routes have separate selection procedures.",
+    "source_url": "https://www.unive.it/web/en/14212/admission-and-enrolment"
+  },
+  "language_requirements": {
+    "required_level": "English B2 minimum.",
+    "accepted_proofs": [
+      "A recognised English certification on Ca' Foscari's official list.",
+      "A certificate from the CLA centre or from a university language school included in the recognised list.",
+      "Electronic upload of the certificate during enrolment; the programme-specific apply.unive.it pages also state that applicants may apply before obtaining the certificate but must provide it to complete enrolment."
+    ],
+    "exemption_rules": [
+      "At least one year of higher education in a country where English is the medium of instruction.",
+      "A secondary-school or university qualification earned through a study path taught entirely in English.",
+      "At least one full secondary-school exchange year at an institution where English was the language of instruction.",
+      "Specified Italian degree classes in languages or language mediation with a three-year English study path."
+    ],
+    "assessment_or_upload_stage": "The programme page requires B2 English by the enrolment deadline. The Master's Degree Programmes language-requirements page lists recognised proofs and exemptions, and the apply.unive.it path pages state that Ca' Foscari does not run an English test as part of the application procedure.",
+    "deadline": "By the enrolment deadline.",
+    "source_url": "https://www.unive.it/pag/40605/"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "For 2026/2027 international applications, Ca' Foscari states that applications begin on 17 December 2025 for applicants not requiring a study visa; exact citizenship-based round end dates are not reproduced in the official article body consulted [uncertain].",
+      "On the programme admission page, entry-requirements evaluation sessions run from 7 April to 4 June 2026, from 6 July to 20 August 2026, and from 1 October to 17 November 2026."
+    ],
+    "enrolment_deadline": "30 September 2026; additional enrolment period from 1 October to 18 December 2026 with a EUR 50 late fee.",
+    "notes": "Non-EU citizens already resident in Italy with a residence permit valid for university enrolment are directed to the EU/equivalent route. The programme page provides 2026 entry-evaluation and enrolment dates, while the central apply.unive.it article says no-study-visa applicants must follow citizenship-based admission rounds [uncertain].",
+    "source_url": "https://www.unive.it/web/en/14212/admission-and-enrolment"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "For 2026/2027 international applications, Ca' Foscari states that applications begin on 17 December 2025 for BA/MA applicants requiring a study visa; exact citizenship-based round deadlines are not reproduced in the accessible official article body [uncertain]."
+    ],
+    "visa_or_pre_enrolment_deadline": "Accepted applicants requiring a visa must submit Universitaly pre-enrolment by 30 September 2026.",
+    "current_status": "Exact 2026/2027 round availability depends on the citizenship-based apply.unive.it table and is not stated in the official article body consulted [uncertain].",
+    "notes": "Visa applicants must first complete the pre-evaluation on apply.unive.it, then use the eligibility letter to complete Universitaly pre-enrolment and the study-visa procedure. Ca' Foscari states that later Universitaly submissions will not be considered.",
+    "source_url": "https://www.unive.it/pag/40813/"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or ID card",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "European applicants may use an ID card; proof of renewal or first request may be accepted where applicable.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Valid residence permit or renewal/first-request receipt",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required for non-European applicants already residing in Italy or in the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Transcript of records for all bachelor's degree years, with official English or Italian translation if needed",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "If the applicant is still studying, a provisional transcript is still mandatory.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "University grading scale",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Listed as highly recommended for master's applications because Ca' Foscari may quantify the CGPA using the home institution's official numerical scale.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Curriculum vitae",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Mandatory for master's applications and also used by the Teaching Committee during the personal-preparation assessment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Motivation letter",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "A dedicated motivation letter is required on the apply.unive.it English Studies and American Studies path pages.",
+      "source_url": "https://apply.unive.it/courses/course/242-ma-european-american-and-postcolonial-language-and-literature---literatures-and-cultures-curriculum-english-studies-path"
+    },
+    {
+      "document_name": "Bachelor's diploma, with official English or Italian translation if needed",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "A provisional document can be used during application, but the final diploma must be uploaded before the end of the enrolment period.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Statement of Comparability by CIMEA, or Declaration of Value, or ARDI Statement of Correspondence with CIMEA Statement of Verification, or Diploma Supplement from an EHEA institution",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "Ca' Foscari strongly recommends obtaining one of these before applying; one of them is required to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "English B2 certificate or exemption evidence",
+      "stage": "enrolment",
+      "required_for": "programme_specific",
+      "notes": "The programme requires B2 English for enrolment; the apply.unive.it path pages say applicants may apply without the certificate but must provide it to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/40605/"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and Italian study visa",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Applicants who require a visa must complete Universitaly pre-enrolment by 30 September 2026 and then upload visa-related evidence in the relevant apply.unive.it task.",
+      "source_url": "https://www.unive.it/pag/40813/"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No standard entry test; possible Teaching Committee interview",
+    "mandatory": false,
+    "applies_to": "Open-access admission to the standard programme routes. The Teaching Committee may require an additional interview for applicants whose prior degree or preparation is not automatically considered adequate; double or joint degree routes follow separate calls or selection procedures.",
+    "dates": "No fixed test dates were published for the standard open-access route; any additional interview is arranged case by case after academic evaluation.",
+    "scoring_or_threshold": "There is no standard written entry-test threshold. Personal preparation is generally considered adequate for applicants with an L-11 or L-12 degree, or equivalent, and a final grade of 90/110; the apply.unive.it English Studies and American Studies pages also state a minimum CGPA of 80% for international applicants [uncertain for Cultural Studies/Literary Studies].",
+    "source_url": "https://www.unive.it/web/en/14212/admission-and-enrolment"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/pag/50466",
+  "official_program_url": "https://www.unive.it/degree/lmr3",
+  "official_call_url": "https://www.unive.it/web/en/14212/admission-and-enrolment",
+  "source_quotes": [
+    {
+      "quote": "European, American and Postcolonial Language and Literature - American Studies, English Studies, Cultural Studies and Literary Studies",
+      "source_url": "https://www.unive.it/pag/15612/?L=1",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Study language English",
+      "source_url": "https://apply.unive.it/courses/course/242-ma-european-american-and-postcolonial-language-and-literature---literatures-and-cultures-curriculum-english-studies-path",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "Admission: Open",
+      "source_url": "https://www.unive.it/web/en/14220/home",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "must hold at least a three-year bachelor's degree",
+      "source_url": "https://www.unive.it/web/en/14212/admission-and-enrolment",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "A minimum B2-level knowledge of English is mandatory for enrolment",
+      "source_url": "https://www.unive.it/web/en/14212/admission-and-enrolment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "online application: April 7th - June 4th, 2026",
+      "source_url": "https://www.unive.it/web/en/14212/admission-and-enrolment",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "deadline for sending the application on Universitaly for 2026/2027 academic year has been set on September 30th, 2026",
+      "source_url": "https://www.unive.it/pag/40813/",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The 2026/2027 International programmes list names this English-track entry, but the degree home page says 'Multilanguage degree' and still shows 'Enrolment from 2025/2026'.",
+    "The official list label combines American Studies, English Studies, Cultural Studies and Literary Studies, while the most explicit apply.unive.it pages found during this run were the English Studies Path and the American Studies Path; the exact mapping of the Cultural Studies and Literary Studies labels to those routes is not fully explicit.",
+    "The central apply.unive.it 2026/2027 admission-rounds article links citizenship-based round tables hosted on Google Drive. Because the project allows only unive.it and apply.unive.it sources, exact round closing dates were not transcribed from those external files."
+  ],
+  "uncertain": [
+    "teaching_language",
+    "academic_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "entry_exam_or_test"
+  ]
+}

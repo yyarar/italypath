@@ -1,0 +1,128 @@
+{
+  "program_name": "Migration Studies and New Societies",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan, Prague, Warsaw",
+  "degree_class": "LM-90 R",
+  "admission_type": "Open with entry requirements examination",
+  "academic_requirements": "Applicants must hold, or obtain by 31 October 2026, a first-cycle degree of 180 ECTS awarded in Italy or abroad. They must show adequate competences in at least two of these fields: Political Science, Economics-Statistics, and Law. For applicants with an Italian first-cycle degree, this means at least 42 ECTS in one or more of the listed scientific-disciplinary sectors: Law (IUS/02, IUS/08, IUS/09, IUS/13, IUS/14, IUS/21), Economics and Statistics (M-GGR/02, SECS-P/01, SECS-P/02, SECS-S/01, SECS-S/03, SECS-S/04, SECS-S/05), and Political Science (SPS/04, SPS/07, SPS/08, SPS/09). The Admissions Board also checks strong personal competencies, academic performance, consistency with previous studies, relevant professional or other experiences, and career plans. The admission notice states that curricular requirements must be held by 25 August 2026 for EU/equivalent candidates and by 30 June 2026 for non-EU candidates applying for a visa.",
+  "language_requirements": "English proficiency at CEFR B2 or higher is required. UniMi accepts: a valid B2-or-higher language certificate issued no more than three years before the application date and uploaded with the online application; or a SLAM-certified English level obtained during a University of Milan degree programme no more than four years before the application date, verified automatically; or the SLAM entry test. Applicants who do not submit a valid certificate, or whose previous SLAM certification is expired or invalid, must take the SLAM English entry test according to the official calendar. If they fail or miss that test without an accepted excuse, they must submit a UniMi-recognized language certificate through InformaStudenti by 10 September 2026 for this programme; otherwise they will not be admitted. No separate Italian-language entry requirement is stated for this master's programme.",
+  "application_deadline_eu": "EU and equivalent applicants: online admission application from 22 January 2026 to 25 August 2026; curricular requirements must be held by 25 August 2026; admitted students enrol from 5 May 2026 to 16 November 2026; candidates still completing their first-cycle degree must graduate by 31 October 2026.",
+  "application_deadline_non_eu": "Non-EU applicants requiring a visa: online admission application from 22 January 2026 to 30 April 2026; curricular requirements must be held by 30 June 2026; Universitaly pre-enrolment must be submitted by 31 July 2026; admitted students enrol from 5 May 2026 to 16 November 2026; candidates still completing their first-cycle degree must graduate by 31 October 2026.",
+  "required_documents": [
+    "For applicants with an Italian qualification from another university: self-certification of degree/enrolment with exam records, including exams taken, grades, ECTS credits, and scientific-disciplinary sectors.",
+    "For graduating applicants with an Italian qualification: details of passed-but-not-yet-registered exams, exams still to be taken, and expected graduation date entered in the application.",
+    "For applicants with a foreign qualification at admission stage: Bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with a foreign qualification at admission stage: Diploma Supplement or, alternatively, a transcript showing courses, marks, ECTS, academic field, and the grading system used by the awarding university.",
+    "For applicants with a foreign qualification at admission stage: passport or other valid identity document.",
+    "For final enrolment with a foreign qualification: Bachelor's degree (or equivalent) legalized or apostilled by the competent authorities of the country issuing the qualification, unless exempt from legalization/apostille by law.",
+    "For final enrolment with a foreign qualification: high school diploma.",
+    "For final enrolment with a foreign qualification: official Italian translation of the academic qualifications, unless the original documents are in French, English, German, or Spanish.",
+    "For final enrolment with a foreign qualification: Statement of Comparability issued by an ENIC-NARIC centre such as CIMEA, or Dichiarazione di Valore in loco (DOV) issued by the Italian Embassy; for Lisbon Convention countries, the Diploma Supplement or ARDI Correspondence Statement may replace the DOV and Statement of Comparability as stated in the admission notice.",
+    "For final enrolment with a foreign qualification: Italian tax code (codice fiscale).",
+    "For non-EU applicants: receipt of the residence-permit application or a valid residence permit.",
+    "For non-EU applicants residing abroad: receipt of the Universitaly pre-application and study visa."
+  ],
+  "entry_exam_or_test": "[uncertain] Admission is not based on a standard central entrance exam. The Admissions Board evaluates the application file and, for candidates who satisfy curricular and language requirements, the course website states that a personal interview may be held exclusively remotely. The admission notice also states more broadly that the Board may request an interview and/or a written test in person or remotely, but it does not specify whether a written test is routinely used for A.Y. 2026/2027. Separately, applicants without a valid English certificate must take the SLAM English entry test.",
+  "tuition_or_fees_link": "https://migrations.cdl.unimi.it/en/enrolment",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/migration-studies-and-new-societies",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-migration-studies-and-new-societies-%28classe-lm-90-r%29.pdf?03-JUN-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027. Master programme ... Access: Open with entry requirements examination ... Course location: Milan, Praha, Warsaw ... Language: English.",
+      "url": "https://www.unimi.it/en/education/master-programme/migration-studies-and-new-societies",
+      "field_refs": [
+        "academic_year",
+        "level",
+        "admission_type",
+        "campus",
+        "teaching_language",
+        "official_program_url"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "PROGRAMME DESCRIPTION - ACADEMIC YEAR 2026/27 ... MIGRATION STUDIES AND NEW SOCIETIES (Classe LM-90 R) ... Access procedures: Open, subject to entry requirements",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_BBMof2_2027.pdf",
+      "field_refs": [
+        "program_name",
+        "degree_class",
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Hold, or obtain before 31 October 2026 ... a first cycle degree ... adequate competences in at least two ... Political Science, Economics-Statistics, Law.",
+      "url": "https://migrations.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Show proficiency in English at a B2 level or higher ... The certificate must be uploaded when submitting the online application.",
+      "url": "https://migrations.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Applicants selected for the interview will receive a notification ... personal interview to be held ... exclusively from remote.",
+      "url": "https://migrations.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "EU candidates and equivalents From 22 January to 25 August 2026 ... non EU candidates applying for a visa From 22 January to 30 April 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-migration-studies-and-new-societies-%28classe-lm-90-r%29.pdf?03-JUN-26=",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The online admission service requires ... Self-certification of degree/enrolment with exam records ... Bachelor’s Degree ... Diploma supplement ... Passport.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-migration-studies-and-new-societies-%28classe-lm-90-r%29.pdf?03-JUN-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor’s degree ... High school diploma ... Official Italian translation ... Statement of Comparability ... Italian tax code ... residence permit.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-migration-studies-and-new-societies-%28classe-lm-90-r%29.pdf?03-JUN-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Migration studies and new societies 10/09/2026",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "non-EU students residing abroad are required to submit a pre-enrolment application on Universitaly ... In order to enrol on a Master's degree, visa applicants must apply within 30 April 2026.",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "The entry-assessment format is partially ambiguous across official sources for A.Y. 2026/2027: the course website explicitly mentions a remote personal interview for selected applicants, while the admission notice also reserves the possibility of an interview and/or a written test in person or remotely without stating when a written test is actually used."
+  ],
+  "uncertain": [
+    "entry_exam_or_test"
+  ]
+}
