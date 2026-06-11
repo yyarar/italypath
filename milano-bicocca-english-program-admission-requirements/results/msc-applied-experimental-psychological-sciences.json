@@ -1,0 +1,168 @@
+{
+  "program_name": "Applied Experimental Psychological Sciences (AEPS)",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-51 (Psychology)",
+  "admission_type": "selection call (restricted/limited access with merit ranking)",
+  "academic_requirements": {
+    "summary": "Two-year MSc in the LM-51 (Psychology) class with limited places. Admission is by a competitive selection that first verifies curricular requirements and then ranks eligible candidates on two separate merit lists (one for Italian/EU/non-EU-resident-in-Italy candidates, one for non-EU candidates requiring a visa).",
+    "prior_degree_or_diploma": "A Bachelor's Degree (BSc), Specialist/Master's Degree (MSc), a degree under the pre-D.M. 509/99 system, a three-year university diploma, or an academic qualification obtained abroad recognised as suitable. Graduating students may be admitted conditionally if they graduate by 31 October 2026.",
+    "subject_requirements": "Curricular requirement: at least 88 CFU/ECTS appropriately distributed among the Psychology Scientific Disciplinary Sectors M-PSI/01 to M-PSI/08 (or the new equivalent PSIC sectors per D.M. 639 of 02-05-2024: PSIC-01 A/B/C, PSIC-02A, PSIC-03 A/B, PSIC-04 A/B). The 88 CFU must be obtained by the application deadline (31 March 2026) and correspond to graded coursework (not pass/fail).",
+    "minimum_grade": "No fixed minimum graduation mark is set as an eligibility threshold; the graduation grade is instead scored within the ranking (Study Curriculum, up to 60 points).",
+    "international_qualification": "For applicants with a foreign degree, the Selection Committee assesses the corresponding hours of activity and SSD mapping from transcripts and detailed course syllabi. CFU from single courses that are not compulsory activities of the AEPS programme can count toward the 88 CFU entry threshold.",
+    "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf"
+  },
+  "language_requirements": {
+    "required_level": "English at CEFR B2 level (minimum), to be met by the application deadline (31 March 2026, 23:59 Italian time).",
+    "accepted_proofs": [
+      "University English-language exams totalling at least 5 ECTS at B2 level passed during the previous university career (Italian-degree applicants).",
+      "A UNIMIB-recognised English certification at B2 or higher, obtained no more than 5 years before the application for Italian-degree applicants (no more than 3 years for foreign-degree applicants); accepted certificates are listed in UNIMIB's Certificazioni_INGLESE_nov2025_UNIMIB.pdf.",
+      "UNIMIB 'Bbetween Languages' Open Badge - English B2 or higher (University of Milano-Bicocca students only).",
+      "A Bachelor's degree delivered entirely in English (with certification from the issuing university).",
+      "A passport from Antigua and Barbuda, Australia, Bahamas, Barbados, Belize, Canada, Dominica, Grenada, Guyana, Ireland, Jamaica, Malta, New Zealand, St Kitts and Nevis, St Lucia, St Vincent and the Grenadines, Trinidad and Tobago, United Kingdom, or USA."
+    ],
+    "in_house_test": "Italian-degree applicants who do not otherwise meet the requirement may sit an in-person English proficiency test at UNIMIB on 25 March 2026 (registration request to segr.studenti.psicologia@unimib.it by 22 March 2026, subject 'English test for application Applied Experimental Psychological Sciences', specifying the SegreterieOnLine username).",
+    "conditional_admission": "Foreign-degree applicants who do not meet the language conditions at application may be admitted with the obligation to obtain certification by 31 July 2026.",
+    "bonus": "Applicants with a UNIMIB-recognised certification above B2 receive 1 additional point in the ranking.",
+    "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf"
+  },
+  "entry_exam_or_test": {
+    "test_name": "No standardised entry exam (no TOLC/GRE/GMAT). Admission is by a merit-based selection / ranking carried out by a Selection (Competition) Committee.",
+    "mandatory": true,
+    "is_selective": true,
+    "selection_method": "Two separate ranking lists (one for Italian/EU/non-EU-resident-in-Italy candidates, one for non-EU visa candidates). After verifying curricular and language requirements, candidates are scored on: Study Curriculum up to 60 points (graduation grade; evaluation of the 88 CFU in M-PSI/PSIC sectors; equivalent qualifications for foreign applicants); Curriculum Vitae and other evaluable qualifications up to 39 points; plus 1 point for documented English above B2. Ties are broken in favour of the younger applicant.",
+    "additional_documents_scored": "A CV and a motivation letter in English (max 1500 characters) must be uploaded and are considered in the ranking.",
+    "interview": "No admission interview; selection is documentary (curriculum + CV + motivation letter).",
+    "fee": "EUR 30 admission fee (Italian-degree applicants via 'Payments' on Segreterie OnLine; foreign-degree applicants pay a non-refundable pre-enrolment fee on apply.unimib.it).",
+    "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Single application window for A.Y. 2026/27 (Italian-degree applicants via SegreterieOnLine; foreign-degree EU applicants via apply.unimib.it): 18 February 2026 to 31 March 2026, 23:59 Italian time.",
+      "Ranking lists and list of excluded applicants published by 18 May 2026 on the programme webpage and the University Official Bulletin.",
+      "Possible reopening of applications from 7 July to 7 September 2026 if places remain after the ranking-list progression."
+    ],
+    "seats": "Total 65 places: 45 reserved for Italian, EU, and non-EU citizens legally residing in Italy; 20 reserved for non-EU citizens requiring a visa (unfilled visa places are reassigned to the EU/resident quota).",
+    "enrolment_deadline": "Admitted Italian-degree applicants enrol and pay the first tuition instalment via Segreterie OnLine following the deadlines published alongside the ranking list.",
+    "notes": "EUR 30 admission fee due by 31 March 2026. The 88 CFU curricular requirement and B2 English must both be met by 31 March 2026.",
+    "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Non-EU visa applicants (foreign degree) register and submit on apply.unimib.it within the same single window: 18 February 2026 to 31 March 2026 (12:00 PM Italian time to submit).",
+      "20 places are reserved for non-EU visa candidates on a separate ranking list (published by 18 May 2026)."
+    ],
+    "visa_or_pre_enrolment_deadline": "Admitted non-EU visa candidates must register on UNIVERSITALY (Type D study visa) as soon as possible and no later than 31 July 2026.",
+    "key_deadlines": "Final deadline to submit enrolment documentation via apply.unimib.it: 31 October 2026. Present original documents to the International Admission and Credential Evaluation desk by 28 February 2027. Foreign-degree language-certification obligation (if admitted conditionally): 31 July 2026.",
+    "notes": "Graduating non-EU visa applicants must obtain their degree by 31 October 2026. Required enrolment documents include the legalised original degree certificate (with translation if not in IT/EN/FR/ES/DE), Italian tax code, and entry visa plus residence-permit application receipt.",
+    "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid ID document (identity card or passport)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required from all applicants; mandatory for foreign-degree applicants on apply.unimib.it.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf"
+    },
+    {
+      "document_name": "Declaration of Titles and Requirements (self-certification) / academic transcript",
+      "stage": "application",
+      "required_for": "italian_qualification",
+      "notes": "Italian-degree applicants complete the on-line 'Declaration of Titles and Requirements' declaring B2 English and all M-PSI/PSIC activities; UNIMIB students have graded PSIC/M-PSI activities retrieved automatically.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf"
+    },
+    {
+      "document_name": "Degree certificate or proof of enrolment, and updated Transcript of Records",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Foreign-degree applicants upload the degree certificate (or enrolment proof for graduands) and an updated transcript on apply.unimib.it.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf"
+    },
+    {
+      "document_name": "Detailed course syllabi (with Italian or English translation)",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Required from foreign-degree applicants for each exam to enable SSD mapping; translation need not be official.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf"
+    },
+    {
+      "document_name": "Motivation letter in English (max 1500 characters)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Mandatory; scored within the ranking.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf"
+    },
+    {
+      "document_name": "Curriculum Vitae",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Mandatory; CV and other evaluable qualifications scored up to 39 points.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf"
+    },
+    {
+      "document_name": "Proof of B2 English proficiency",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Per the accepted proofs in language_requirements; foreign-degree applicants may be admitted conditionally with certification due by 31 July 2026.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf"
+    },
+    {
+      "document_name": "Legalised original degree certificate, translation, Italian tax code, entry visa and residence-permit receipt",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Non-EU visa applicants submit these via apply.unimib.it by 31 October 2026 and present originals for verification by 28 February 2027.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf"
+    }
+  ],
+  "tuition_or_fees_link": "https://en.unimib.it/services/fees-and-funding",
+  "official_program_url": "https://en.unimib.it/international/international-students/international-programmes/applied-experimental-psychological-sciences-aeps",
+  "official_call_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf",
+  "source_quotes": [
+    {
+      "quote": "CALL FOR APPLICATIONS MSc course Applied Experimental Psychological Sciences (LM-51 Psychology) Academic Year 2026-2027.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf",
+      "field_supported": "program_name, level, degree_class"
+    },
+    {
+      "quote": "For the academic year 2026/27, a total of 65 places are available... 45 places reserved for Italian, European, and non-EU citizens legally residing in Italy... 20 places reserved for non-EU citizens requiring a visa.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf",
+      "field_supported": "admission_type, application_deadline_eu, application_deadline_non_eu"
+    },
+    {
+      "quote": "Applicants must have earned 88 CFU/ECTS credits, appropriately distributed among the Psychology Scientific Disciplinary Sectors... M-PSI/01... M-PSI/08.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Applicants must demonstrate English language proficiency at the B2 level according to the Common European Framework of Reference for Languages (CEFR).",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Study Curriculum (up to 60 points)... Curriculum Vitae and other evaluable qualifications (up to 39 points)... will be awarded 1 point.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "Applicants with an Italian degree: registration on SegreterieOnLine From February 18, 2026 until March 31, 2026, 11:59 PM. Publication of rankings... By May 18, 2026.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "Non-EU citizens requiring a visa must register on the UNIVERSITALY portal... no later than July 31, 2026... The final deadline for submitting the documentation is October 31, 2026.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-02/_Call%20for%20application%20AEPS_2026_27_EN.pdf",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "Teaching language confirmed fully English (international MSc, LM-51). Confirmed: subject-area CFU prerequisite is 88 CFU across psychology sectors M-PSI/01-08 (or new PSIC sectors), B2 English required, and admission is by competitive merit ranking (not open access).",
+    "Confirmed there are two separate ranking lists and a combined quota of 65 places (45 EU/resident + 20 non-EU visa); older material referenced only '60 students' - the 2026/27 official call states 65 places.",
+    "Both EU/resident and non-EU calls share the same single application window (18 Feb - 31 Mar 2026); UNIMIB's generic multi-call Master's calendar on apply.unimib.it does NOT apply to AEPS, which runs its own dedicated departmental call.",
+    "Specific numeric IELTS/TOEFL thresholds for B2 are not in the call; they are defined in UNIMIB's reference list Certificazioni_INGLESE_nov2025_UNIMIB.pdf.",
+    "tuition_or_fees_link points to the central UNIMIB fees-and-funding page; no programme-specific fee table is published separately.",
+    "Deadlines re-verified 2026-06-11 against apply.unimib.it 2026/27 calendar: this programme runs its OWN single 2026/27 admission window (18 February - 31 March 2026) on Segreterie OnLine / apply.unimib.it, which overrides the UNIMIB unified Master 3-call calendar. Preserved as-is."
+  ],
+  "uncertain": []
+}

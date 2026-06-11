@@ -1,0 +1,120 @@
+{
+  "program_name": "Applied Computer Science and Artificial Intelligence",
+  "level": "bachelor",
+  "official_level_type": "Laurea",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Città Universitaria, Rome (ACSAI office at Viale Regina Elena 295)",
+  "degree_class": "L-31",
+  "course_code": "33502",
+  "faculty": "Faculty of Information Engineering, Informatics and Statistics (Ingegneria dell'Informazione, Informatica e Statistica)",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33502",
+  "admission_type": "restricted access",
+  "movein_preselection_required": "[uncertain]",
+  "admission_test_type": "TOLC-I (English TOLC-I, CISIA) or SAT General Test (College Board)",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (visa-required, second selection round only)"
+  ],
+  "application_platform": "Sapienza selection registration (Infostud) plus CISIA (TOLC-I) or College Board (SAT) test registration",
+  "access_quota_non_eu": "[uncertain]",
+  "application_round": ["First selection", "Second selection (open to non-EU residing abroad)", "Third selection"],
+  "intake_semester_availability": "September intake [uncertain]",
+  "places_and_foreign_contingent": "180 places total. Three selection rounds; unfilled places roll over to the next round. The second selection round is open to non-EU citizens residing abroad. Per-round and non-EU contingent breakdown [uncertain].",
+  "official_call_url": "https://www.uniroma1.it/en/pagina/restricted-access-degree-programmes-tolc-i-and-selections",
+  "faculty_call_pdf_url": "https://i3s.web.uniroma1.it/sites/default/files/allegati/acsai_e.pdf",
+  "academic_requirements": {
+    "secondary_school_diploma": "A secondary-school diploma giving access to higher education is required.",
+    "non_eu_requirements": "Non-EU applicants residing abroad must meet the Sapienza academic requirements (MoveIN 2026-2027) and obtain a study visa. [uncertain]",
+    "test_requirement": "Admission is by selection based on the English TOLC-I (CISIA) or SAT General Test."
+  },
+  "country_specific_eligibility": "Country-specific qualification and minimum schooling requirements per the Sapienza academic requirements document (MoveIN 2026-2027). [uncertain]",
+  "curricular_integration_policy": null,
+  "conditional_enrolment_policy": "[uncertain]",
+  "language_requirements": {
+    "level": "Minimum B2 (CEFR) English required to take part in the selection.",
+    "exemption": "Candidates who sit the English TOLC-I (including TOLC@HOME) or the SAT are exempted from submitting an English language certificate, as English knowledge is automatically verified.",
+    "minimum_scores": "SAT 960/1600, or English TOLC-I (CISIA) 36/50 satisfies the English requirement.",
+    "accepted_certificates": "If not exempt: FCE, IELTS (academic), TOEFL iBT, CAE, CPE, PTE (B2 or higher)."
+  },
+  "language_submission_timing": "At/through the admission test; otherwise by enrolment via certificate or university online interview. [uncertain]",
+  "italian_language_requirement": null,
+  "application_deadline_eu": "EU and equivalent candidates (no visa required): on or before 31 July 2026; test/registration/fee must be completed by the deadline set for each selection round. [uncertain on per-round dates]",
+  "application_deadline_non_eu": "Non-EU residing abroad (visa-required): MoveIN online pre-selection by 15 May 2026; Universitaly pre-enrolment by 30 June 2026; ACSAI second selection round applies. [uncertain on per-round dates]",
+  "application_fee": "€30 per application (standard Sapienza fee; max 2 applications per intake). [uncertain]",
+  "visa_preenrolment_deadline": "Universitaly pre-enrolment by 30 June 2026 for non-EU visa-required applicants.",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2026-2027",
+  "required_documents": [
+    "Secondary-school diploma / qualification giving access to higher education",
+    "Transcript of records",
+    "Passport / ID",
+    "English TOLC-I or SAT score (or English language certificate if not exempt)",
+    "For non-EU residing abroad: documents required by MoveIN pre-selection and Universitaly pre-enrolment (visa)"
+  ],
+  "document_translation_authentication": "Foreign qualifications typically require Declaration of Value or CIMEA Statement of Comparability plus translation/legalisation. [uncertain]",
+  "entry_exam_or_test": {
+    "type": "English TOLC-I (CISIA) or SAT General Test (College Board)",
+    "mode": "TOLC-I available in TOLC@HOME (online) and in-person formats",
+    "registration": "Register for the test with CISIA/College Board and for the Sapienza selection; complete test, registration and fee by each selection round deadline under penalty of exclusion."
+  },
+  "test_variant_and_session": "English TOLC-I (TOLC@HOME or in-person) or SAT. Specific 2026-2027 session dates per selection round [uncertain].",
+  "test_score_conversion_or_threshold": "Ranking-based selection. English requirement satisfied at SAT 960/1600 or English TOLC-I 36/50. Admission cutoff depends on ranking per round. [uncertain]",
+  "source_quotes": [
+    {
+      "quote": "Applied Computer Science and Artificial Intelligence is a restricted-access programme with 180 places available. Three selections are foreseen, and any places not filled in one selection will be made available for the next selection.",
+      "source_url": "https://www.uniroma1.it/en/pagina/restricted-access-degree-programmes-tolc-i-and-selections",
+      "supports_fields": ["admission_type", "places_and_foreign_contingent", "application_round"]
+    },
+    {
+      "quote": "To gain admittance to the degree programme, you can choose between TOLC-I (Online Test of CISIA – Engineering) or SAT (Scholastic Assessment Test).",
+      "source_url": "https://acsai.di.uniroma1.it/",
+      "supports_fields": ["admission_test_type", "entry_exam_or_test"]
+    },
+    {
+      "quote": "Candidates who undergo the English TOLC-I (also in the TOLC@HOME format) or SAT are exempted from submitting an English Language Certificate ... a SAT test score of 960 out of 1600, or an English TOLC-I (CISIA) score of 36 out of 50.",
+      "source_url": "https://i3s.web.uniroma1.it/sites/default/files/allegati/acsai_e.pdf",
+      "supports_fields": ["language_requirements", "test_score_conversion_or_threshold"]
+    },
+    {
+      "quote": "the second selection round is open to non-EU citizens who are residing abroad, who ... are required to obtain a visa for study purposes.",
+      "source_url": "https://www.uniroma1.it/en/pagina/restricted-access-degree-programmes-tolc-i-and-selections",
+      "supports_fields": ["applicant_route", "application_round"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/course/33502",
+    "https://acsai.di.uniroma1.it/",
+    "https://www.uniroma1.it/en/pagina/restricted-access-degree-programmes-tolc-i-and-selections",
+    "https://i3s.web.uniroma1.it/sites/default/files/allegati/acsai_e.pdf",
+    "https://www.uniroma1.it/en/admissions",
+    "https://www.uniroma1.it/sites/default/files/field_file_allegati/academic_requirements_sapienza_2026_2027_0.pdf",
+    "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
+  ],
+  "source_year": "2026-2027",
+  "uncertainty_notes": [
+    "Exact per-selection-round dates for 2026-2027 not extracted; cross-cutting MoveIN (15 May 2026), Universitaly (30 June 2026) and EU (31 July 2026) deadlines applied from the central 2026-2027 admissions sources.",
+    "Non-EU reserved quota for ACSAI not extracted from the programme Call PDF.",
+    "Application fee (€30) is the standard Sapienza fee; not separately confirmed for ACSAI 2026-2027.",
+    "MoveIN pre-selection requirement and intake semester inferred from general Sapienza non-EU procedure, not confirmed specifically for ACSAI.",
+    "Document authentication (DoV/CIMEA) inferred from general Sapienza policy."
+  ],
+  "uncertain": [
+    "movein_preselection_required",
+    "access_quota_non_eu",
+    "intake_semester_availability",
+    "places_and_foreign_contingent",
+    "academic_requirements",
+    "country_specific_eligibility",
+    "conditional_enrolment_policy",
+    "language_submission_timing",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "application_fee",
+    "document_translation_authentication",
+    "test_variant_and_session",
+    "test_score_conversion_or_threshold"
+  ]
+}

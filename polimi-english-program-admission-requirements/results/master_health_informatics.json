@@ -1,0 +1,124 @@
+{
+  "program_name": "Health Informatics",
+  "level": "master",
+  "official_level_type": "Master of Science / Laurea Magistrale",
+  "teaching_language": "ENG",
+  "campus": "Partner University",
+  "degree_class": "Not found in checked official catalogue/programme page [uncertain].",
+  "study_area": "Engineering",
+  "partner_institution": "Partner University [uncertain: exact partner institution must be verified on the programme page/call]",
+  "programme_approval_status": null,
+  "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/health-informatics",
+  "admission_type": "selection call / academic evaluation",
+  "school_specific_admission_rule": "Laurea Magistrale admission is evaluated by study area/school and applicant qualification route; programme-specific educational regulations may add curricular requirements.",
+  "applicant_route": [
+    "Italian qualification",
+    "foreign qualification",
+    "EEA",
+    "non-EEA abroad",
+    "non-EEA resident in Italy"
+  ],
+  "application_platform": "Politecnico di Milano Online Services; non-EU pre-enrolment/visa route may also require Universitaly [uncertain].",
+  "application_round": {
+    "summary": "For foreign qualifications in Engineering: September 2026 first call 1 Oct-1 Dec 2025; second call 13 Jan-26 Feb 2026; additional call for EEA and non-EEA resident in Italy 27 Feb-31 Mar 2026; February 2027 intake 18 May-18 Jun 2026. Italian-qualification Semester I application window is 22 Jun-7 Jul 2026 by 12:00 CEST.",
+    "sources": [
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/italian-qualification/when-to-apply"
+    ]
+  },
+  "intake_semester_availability": "September 2026 intake; February 2027 intake is listed for Engineering in the foreign-qualification deadlines, subject to programme availability.",
+  "admission_outcome_type": [
+    "admitted",
+    "not admitted",
+    "single courses / curricular integrations [where applicable]",
+    "application evaluation outcome [wording varies by route]"
+  ],
+  "ranking_methodology": "Academic evaluation criteria are programme/school-specific. Use programme educational regulations and school admission guide for direct admission, evaluation, portfolio, interview, or integration rules [uncertain].",
+  "places_and_foreign_contingent": "Not resolved from checked official sources for this programme; verify programme call/regulations [uncertain].",
+  "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+  "academic_requirements": "Applicants need a first-level university degree or may apply as final-year students under Polimi rules; Italian-qualification page mentions final-year students with 145 certified ECTS. Each programme may have specific admission requirements in educational regulations.",
+  "country_specific_eligibility": "Foreign qualification eligibility and any country-specific minimum GPA/qualification rule must be checked through Polimi foreign-qualification application pages and programme evaluation [uncertain].",
+  "curricular_integration_policy": "Programme/school evaluation may require curricular integrations or single courses before/after admission depending on the applicant background [uncertain].",
+  "conditional_enrolment_policy": "Conditional enrolment may apply if the first-level degree is completed after the enrolment deadline but before Polimi route-specific final dates; exact date depends on applicant route and semester.",
+  "language_requirements": "For Laurea Magistrale admission, Polimi requires recognised English certification. The 2026/2027 language page lists examples including TOEFL iBT >= 78, IELTS >= 6, Cambridge B2 First Grade B or C1 Advanced Grade C, and equivalent accepted tests, subject to validity rules.",
+  "language_submission_timing": "English certificate must be provided by the admission deadline/upload timing indicated in the relevant Polimi application route.",
+  "post_admission_italian_requirement": "International students admitted to English-language Laurea Magistrale programmes must satisfy an Italian language/OFA obligation before final exam completion.",
+  "application_deadline_eu": {
+    "summary": "For foreign qualifications in Engineering: September 2026 first call 1 Oct-1 Dec 2025; second call 13 Jan-26 Feb 2026; additional call for EEA and non-EEA resident in Italy 27 Feb-31 Mar 2026; February 2027 intake 18 May-18 Jun 2026. Italian-qualification Semester I application window is 22 Jun-7 Jul 2026 by 12:00 CEST.",
+    "sources": [
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/italian-qualification/when-to-apply"
+    ]
+  },
+  "application_deadline_non_eu": {
+    "summary": "For non-EEA applicants abroad with foreign qualifications in Engineering, use the general Engineering calls; the additional call is limited to EEA and non-EEA resident in Italy. February 2027 intake is listed only for Engineering.",
+    "sources": [
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines"
+    ]
+  },
+  "application_fee": "Foreign-qualification application fee is listed by Polimi deadline pages as early bird/standard fee amounts for applicable calls; verify exact amount by route and study area before use.",
+  "visa_preenrolment_deadline": "Universitaly/visa pre-enrolment deadline not resolved in this batch pass [uncertain].",
+  "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/costs-and-scholarships",
+  "required_documents": [
+    "online application data",
+    "degree certificate or enrolment/self-certification where applicable",
+    "transcripts",
+    "English language certificate",
+    "identity document/passport",
+    "CV/portfolio/motivation or school-specific documents where required",
+    "foreign-qualification documents required by the Admissions Office"
+  ],
+  "document_translation_authentication": "Foreign documents may require official translation, stamped transcripts, Diploma Supplement, CIMEA Statement, Declaration of Value, or Admissions Office verification depending on route [uncertain].",
+  "entry_exam_or_test": "No general entrance test for most MSc programmes; admission is academic/school evaluation. Design/Architecture/partner programmes may require portfolio, interview, or school-specific assessment [uncertain].",
+  "test_variant_and_session": "Not applicable unless the school/programme guide requires portfolio, interview, or assessment [uncertain].",
+  "test_score_conversion_or_threshold": "No general test-score threshold resolved for this MSc item; academic thresholds and direct-admission rules are programme/school-specific [uncertain].",
+  "source_quotes": [
+    {
+      "quote": "45 Master of Science programmes available",
+      "source_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes",
+      "supports_fields": [
+        "level",
+        "official_program_url"
+      ]
+    },
+    {
+      "quote": "students must demonstrate their knowledge of English",
+      "source_url": "https://www.polimi.it/en/students/language-requirements/students-of-laurea-magistrale-study-programmes",
+      "supports_fields": [
+        "language_requirements"
+      ]
+    },
+    {
+      "quote": "first level university degree",
+      "source_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/italian-qualification/requirements-for-admission",
+      "supports_fields": [
+        "academic_requirements"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/health-informatics",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/italian-qualification/requirements-for-admission",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/italian-qualification/when-to-apply",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/application/",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/application/list-of-documents-required-by-the-admissions-office",
+    "https://www.polimi.it/en/students/language-requirements/students-of-laurea-magistrale-study-programmes",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+    "https://www.polimi.it/en/prospective-students/costs-and-scholarships"
+  ],
+  "source_year": "2026/2027 for foreign-qualification deadlines and language requirements; Italian-qualification requirements may use latest official page if 2026/2027 is not published [uncertain].",
+  "uncertainty_notes": [
+    "Degree class not resolved from official catalogue page.",
+    "Programme-specific educational regulations/admission guide should be checked for curricular prerequisites and direct-admission rules.",
+    "Visa/pre-enrolment deadline and exact document authentication route remain applicant-specific."
+  ],
+  "uncertain": [
+    "curricular_integration_policy",
+    "degree_class",
+    "partner_institution",
+    "places_and_foreign_contingent",
+    "ranking_methodology",
+    "visa_preenrolment_deadline"
+  ]
+}

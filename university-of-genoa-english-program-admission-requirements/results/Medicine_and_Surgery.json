@@ -1,0 +1,25 @@
+{
+  "program_name": "Medicine and Surgery",
+  "level": "single-cycle",
+  "teaching_language": "Italian",
+  "campus": "Genoa",
+  "degree_class": "LM-41",
+  "admission_type": "restricted access (national admission test)",
+  "academic_requirements": "OUT OF SCOPE: This single-cycle degree is taught in Italian, not English. Admission is via the Italian national restricted-access procedure for Medicine and Surgery (from A.Y. 2025/2026 a common national open 'filter' first semester applies, after which a national ranking based on first-semester results determines who continues). Available places at UniGe are stated on the official page as 325 for EU and 5 for non-EU candidates. Italian-qualification requirements and the national test apply.",
+  "language_requirements": "Italian language proficiency required (instruction is in Italian). No English-taught version of Medicine and Surgery exists at UniGe; therefore the standard English/B2 requirements for the English catalogue do not apply.",
+  "entry_exam_or_test": "National admission test / common national filter semester (Italian system). Not an English-taught IMAT programme. Candidates register on Universitaly within nationally set deadlines. [uncertain]",
+  "application_deadline_eu": "Set by the Italian national procedure (announced on Universitaly / UniGe website). Not aligned with the UniGeApply English-master windows. [uncertain]",
+  "application_deadline_non_eu": "Set by the Italian national procedure for the 5 non-EU places; announced on Universitaly / UniGe. [uncertain]",
+  "required_documents": "Governed by the Italian national restricted-access enrolment procedure (Universitaly registration, valid ID, qualification documents). Not the UniGeApply English-master pre-evaluation document set. [uncertain]",
+  "tuition_or_fees_link": "https://unige.it/en/fees-and-benefits",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11887",
+  "official_call_url": "https://corsi.unige.it/en/corsi/11887/prospective-students-why",
+  "source_quotes": "From https://corsi.unige.it/en/corsi/11887 (official UniGe programme page): the course information states 'Language: Italian' and lists an 'Admission test' with available places EU 325 / Non-EU 5, with a new common national filter semester from 2025/2026. The parallel page https://corsi.unige.it/en/corsi/8745 (Medicine and Surgery, LM-41) likewise states 'Language: Italian'. No English-taught Medicine and Surgery appears in the official English course catalogue (https://corsi.unige.it/en/corsi/lingua/en).",
+  "uncertainty_notes": "OUT OF SCOPE for the ItalyPath English-programme dataset. Verified against two official UniGe course pages (codes 11887 and 8745): both Medicine and Surgery degrees at UniGe are taught in Italian (LM-41). There is NO English-taught (IMAT-based) Medicine and Surgery at the University of Genoa, and it is absent from the official English course catalogue. The older draft entry listing it as an English single-cycle programme is incorrect and this item should be dropped from the English dataset. Admission/test/deadline/document fields could not be (and need not be) confirmed because the programme is out of scope; they follow the Italian national procedure rather than UniGeApply.",
+  "uncertain": [
+    "entry_exam_or_test",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "required_documents"
+  ]
+}

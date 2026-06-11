@@ -1,0 +1,149 @@
+{
+  "program_name": "Building Engineering",
+  "level": "master",
+  "teaching_language": "English and Italian (the degree as a whole is delivered in both languages; it offers two specialisation paths - one in Italian, 'Building and Urban Systems', and one entirely in English, 'Building Retrofitting'). The English-taught track of interest is 'Building Retrofitting'.",
+  "campus": "Genoa",
+  "degree_class": "LM-24 (Construction Engineering)",
+  "admission_type": "Free access (non-restricted) master's degree subject to verification of curricular requirements and an assessment of the adequacy of personal preparation. International (non-EU residing abroad) applicants must first pass UniGeApply pre-evaluation. No competitive ranking/numerus clausus.",
+  "academic_requirements": {
+    "summary": "Admission requires a recognised bachelor's (or higher) degree in a relevant engineering/architecture field plus minimum credits in specific disciplinary sectors, followed by a verification of personal preparation. Curricular gaps must be filled before the preparation check.",
+    "prior_degree_or_diploma": "An Italian three-year degree in Civil and Environmental Engineering (L-7 DM 270/2004; class 08 DM 509/1999), Building Sciences and Techniques (L-23 DM 270/2004), Architectural Sciences (L-17 DM 270/2004), or Architectural and Building Engineering Sciences (class 04 DM 509/1999), Industrial Engineering (L-9 DM 270/2004; class 10 DM 509/1999); or a master's degree in Civil Engineering, Safety Engineering, Architecture and Building Engineering, Mechanical Engineering, or Engineering for the Environment and the Territory; or another qualification obtained abroad and recognised as suitable.",
+    "subject_requirements": "Minimum credits in specific scientific-disciplinary sectors are required: ICAR/09 minimum 4 CFU; ING-IND/10 or ING-IND/11 minimum 8 CFU. Any curricular integrations (additional CFU) must be acquired before the verification of personal preparation.",
+    "minimum_grade_or_cgpa": "[uncertain] The course page does not publish a minimum grade. On UniGeApply the 'Building Engineering - Building Retrofitting' English track lists a minimum CGPA of 75% of the maximum obtainable for non-EU pre-evaluation.",
+    "preparation_assessment": "The adequacy of the personal preparation of candidates who hold the curricular requirements, including knowledge of English, is assessed by means of an examination, with procedures defined in the Didactic Regulations of the master's degree course.",
+    "international_qualification": "Foreign qualifications recognised as suitable are accepted; non-EU candidates residing abroad must apply through UniGeApply for pre-evaluation before enrolment.",
+    "source_url": "https://corsi.unige.it/en/corsi/11969/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR/QCER): ability to use the English language fluently in written and oral form, with reference also to the disciplinary lexicons.",
+    "accepted_proofs": [
+      "[uncertain] The Building Engineering admission page states the B2 requirement but does not enumerate accepted certificates/scores; UniGe accepts the standard certificates listed for its English-taught masters (e.g. TOEFL, Cambridge B2 First, IELTS, TOEIC, Trinity, IGCSE) and an official Medium-of-Instruction (MOI) certificate.",
+      "On UniGeApply the 'Building Retrofitting' track lists 'English certificate (or MOI)' among the required documents."
+    ],
+    "exemption_rules": [
+      "[uncertain] An English certificate is generally not required if the language of instruction of the applicant's previous studies was English, certified by an official document/letter from the university (standard UniGe rule; not explicitly restated on the Building Engineering admission page)."
+    ],
+    "assessment_or_upload_stage": "Knowledge of English forms part of the personal-preparation assessment; for non-EU applicants the English certificate or MOI is uploaded during UniGeApply pre-evaluation.",
+    "source_url": "https://corsi.unige.it/en/corsi/11969/prospective-students-admission-criteria-procedure"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Verification of adequacy of personal preparation (no competitive entrance test).",
+    "mandatory": true,
+    "is_selective": false,
+    "applies_to": "All applicants holding the curricular requirements for the Building Engineering master's.",
+    "format": "An examination assessing the adequacy of personal preparation (including knowledge of English); procedures are defined in the course Didactic Regulations. For non-EU applicants, evaluation is documentary via UniGeApply pre-evaluation.",
+    "dates": "[uncertain] Specific assessment dates are set per the Didactic Regulations / dedicated admission page and are not published as a fixed institution-wide test date.",
+    "scoring_or_threshold": "No numerical pass score is published; the assessment verifies adequacy of preparation rather than producing a competitive ranking.",
+    "source_url": "https://corsi.unige.it/en/corsi/11969/prospective-students-admission-criteria-procedure"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026.",
+      "The course deadlines page also references generic dates from the enrolment calendar rather than a programme-specific EU application date."
+    ],
+    "enrolment_deadline": "First-year enrolment in this open-access master's runs from 9 April to 30 November 2026 (until 10 March 2027 with late payment); confirmation of enrolment from 15 July 2026 to 30 November 2026 (until 10 March 2027 with late payment).",
+    "notes": "This is a free-access master's, so EU/resident applicants are not ranked; the personal-preparation assessment does not gate enrolment competitively. Fee instalments for A.Y. 2026/2027: second by 10 December 2026, third by 23 June 2027.",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After UniGeApply eligibility, visa applicants complete the Universitaly pre-enrolment and then apply for the study visa, per the central UniGe international enrolment calendar.",
+    "early_closure": "None published for Building Engineering. The only fall-session early closures listed for A.Y. 2026/27 are Medical-Pharmaceutical Biotechnology (13 Feb 2026), Maritime Science and Technology bachelor (18 Feb 2026), and Computer Engineering bachelor (8 Mar 2026).",
+    "notes": "Non-EU visa applicants must use the fall session; the A.Y. 2026/27 fall window has closed (20 Mar 2026). UniGeApply allows 1 to 2 assessment requests per applicant.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Syllabus / transcript of records (list of exams with credits)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Used to verify the curricular subject-sector CFU requirements (ICAR/09, ING-IND/10 or 11).",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Only candidates holding a final or provisional degree may apply on UniGeApply.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Motivation letter",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for the Building Retrofitting (English) track; no template provided.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "English language certificate (B2) or Medium-of-Instruction (MOI) certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "B2-level English proof; an MOI letter is accepted when prior studies were taught in English.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Valid passport (non-EU) or identity card (EU)",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Passport is the only accepted ID for non-EU applicants on UniGeApply (photo as JPG, supporting documents as PDF up to 2 MB).",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Legalization / CIMEA Statement of Verification and Declaration of Value or CIMEA Statement of Comparability",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU visa applicants with a foreign qualification to complete enrolment.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11969/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11969",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "BUILDING ENGINEERING ... Degree class LM-24 (Construction Engineering) ... GENOVA ... Language: English Italian ... one address in English (Building Retrofitting), mainly oriented towards the renovation of existing buildings with particular attention to safety and sustainability aspects",
+      "source_url": "https://corsi.unige.it/en/corsi/11969",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "ICAR09: minimum 4 CFU; ING/IND10/ING/IND11: minimum 8 CFU ... Any curricular integrations in terms of CFUs must be acquired prior to the verification of individual preparation",
+      "source_url": "https://corsi.unige.it/en/corsi/11969/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "ability to use fluently, in written and oral form, the English language with reference also to the disciplinary lexicons (level B2)",
+      "source_url": "https://corsi.unige.it/en/corsi/11969/prospective-students-admission-criteria-procedure",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "The adequacy of the personal preparation of students in possession of the curricular requirements, including knowledge of English, is assessed by means of an examination, the procedures for which are defined in the Didactic Regulations of the Master's Degree Course",
+      "source_url": "https://corsi.unige.it/en/corsi/11969/prospective-students-admission-criteria-procedure",
+      "field_supported": "entry_exam_or_test, admission_type"
+    },
+    {
+      "quote": "Building Engineering - Building Retrofitting: minimum CGPA 75%; documents: Syllabus; motivation letter (no template provided); English certificate (or MOI); only candidates with final or provisional degrees may apply",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "academic_requirements, required_documents"
+    },
+    {
+      "quote": "Fall session (visa applicants): opens 26 November 2025, closes 20 March 2026, results by 22 May 2026. Spring session (residents): opens 9 April 2026, master's close 28 August 2026.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "Original task note flagged confirming the official programme name and teaching language: confirmed. The official name is 'Building Engineering' (LM-24, Genoa). The degree as a whole is bilingual (page label 'English Italian'); only the 'Building Retrofitting' specialisation track is taught entirely in English, while the 'Building and Urban Systems' track is in Italian. So the programme is NOT fully English-taught; only the Building Retrofitting curriculum is.",
+    "The Building Engineering admission page states the B2 English requirement but does not enumerate accepted certificates/scores or the MOI exemption explicitly; certificate details are inferred from UniGe's standard English-master rules and the UniGeApply 'English certificate (or MOI)' note.",
+    "The 75% minimum CGPA and the motivation-letter requirement come from the UniGeApply non-EU master's pre-evaluation summary for the Building Retrofitting track; confirm against the live listing.",
+    "The per-programme course deadlines page shows generic enrolment-calendar dates rather than programme-specific application deadlines; the authoritative 2026/27 application windows used here are the institution-wide UniGeApply fall (visa) and spring (resident) sessions.",
+    "No fall-session early closure is published for Building Engineering."
+  ],
+  "uncertain": [
+    "teaching_language",
+    "language_requirements",
+    "academic_requirements",
+    "entry_exam_or_test"
+  ]
+}

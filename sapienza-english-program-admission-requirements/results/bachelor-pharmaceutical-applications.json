@@ -1,0 +1,111 @@
+{
+  "program_name": "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications",
+  "level": "bachelor",
+  "official_level_type": "Laurea (three-year bachelor's degree)",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Latina campus",
+  "degree_class": "L-29",
+  "course_code": "33457",
+  "faculty": "Faculty of Pharmacy and Medicine (Department of Drug Chemistry and Technologies)",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33457",
+  "admission_type": "restricted access",
+  "movein_preselection_required": true,
+  "admission_test_type": "English TOLC-F (CISIA, also TOLC@CASA/TOLC@HOME mode) or SAT General Test (College Board)",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy with valid residence permit (EU-equivalent)",
+    "non-EU residing abroad (visa-required, MoveIN pre-selection route)"
+  ],
+  "application_platform": "Infostud (Sapienza), CISIA/College Board (test), QS MoveIN (non-EU pre-selection), Universitaly (visa pre-enrolment)",
+  "access_quota_non_eu": "30 places reserved for non-EU candidates residing abroad (per 2025-2026 data). [uncertain]",
+  "application_round": "September intake",
+  "intake_semester_availability": "September intake [uncertain]",
+  "places_and_foreign_contingent": "20 places reserved for EU candidates and 30 places reserved for non-EU candidates residing abroad (per 2025-2026 data); admission also requires passing English TOLC-F or SAT with a converted score above zero. [uncertain]",
+  "official_call_url": "https://corsidilaurea.uniroma1.it/en/course/33457",
+  "faculty_call_pdf_url": null,
+  "academic_requirements": "Upper secondary school diploma (5-year/13-year schooling as applicable). Restricted-access programme: candidates must pass the English TOLC-F (or SAT) achieving a total converted score above zero, plus meet the B2 English requirement. Candidates with non-Italian qualifications follow Sapienza international-enrolment document rules.",
+  "country_specific_eligibility": "Country-specific qualification, minimum schooling years and document/validation requirements are governed by the MoveIN academic requirements PDF for non-EU applicants (academic_requirements_sapienza_2026_2027). [uncertain]",
+  "curricular_integration_policy": "Further Required Courses (OFAs) may be assigned to candidates not reaching the test threshold, per Sapienza restricted-access rules. [uncertain]",
+  "conditional_enrolment_policy": "Applicants may hold a diploma obtained or to be obtained in the application year; non-EU visa applicants must complete Universitaly pre-enrolment by the stated deadline. [uncertain]",
+  "language_requirements": "English proficiency of at least B2 (CEFR) is required for admission to this entirely English-taught programme. Accepted certificates typically include IELTS, TOEFL iBT, Cambridge English B2, and Trinity ISE, with native-speaker / English-medium-instruction exemptions, per Sapienza English-programme standards. Exact minimum scores not confirmed on a programme-specific 2026-2027 source. [uncertain]",
+  "language_submission_timing": "English B2 proficiency must be met for admission/enrolment; submitted as part of the admission/MoveIN/enrolment procedure. [uncertain]",
+  "italian_language_requirement": "Not required for this English-taught programme; Italian language test applies only to non-EU applicants choosing Italian-language curricula. Recommended for daily life. [uncertain]",
+  "application_deadline_eu": "For 2026-2027, EU and EU-equivalent candidates can apply until 31 July 2026 (central international admissions deadline); programme test/enrolment dates follow the faculty call. [uncertain]",
+  "application_deadline_non_eu": "For 2026-2027, non-EU visa applicants must complete MoveIN pre-selection by 15 May 2026 (central deadline). [uncertain]",
+  "application_fee": "€30 MoveIN pre-selection fee per application (non-EU route), plus a separate €10 Infostud fee to record the test result and enrol.",
+  "visa_preenrolment_deadline": "Universitaly pre-enrolment for the study visa, per the central 2026-2027 admissions calendar. [uncertain]",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2026-2027 (central rules); places and test type confirmed from 2025-2026 data [uncertain]",
+  "required_documents": [
+    "Upper secondary school diploma",
+    "For non-Italian qualifications: Declaration of Value (DoV) or CIMEA statement, legalized/apostilled and translated diploma and transcript (per Sapienza international-enrolment rules)",
+    "Passport / ID",
+    "English language certificate or proof of exemption (B2)",
+    "English TOLC-F or SAT score report",
+    "For non-EU visa applicants: MoveIN pre-acceptance letter and Universitaly pre-enrolment"
+  ],
+  "document_translation_authentication": "Foreign secondary qualifications generally require legalization/apostille, official translation into Italian, and a Declaration of Value (DoV) or CIMEA statement of comparability per Sapienza international-enrolment rules. [uncertain]",
+  "entry_exam_or_test": "English TOLC-F (CISIA online, also TOLC@CASA/TOLC@HOME) OR SAT General Test (College Board). Restricted-access selection.",
+  "test_variant_and_session": "English TOLC-F per CISIA schedule; SAT at any centre worldwide. Exact 2026-2027 session windows depend on the programme's call. [uncertain]",
+  "test_score_conversion_or_threshold": "A total converted score above zero is required to pass the English TOLC-F or SAT; below-threshold candidates may receive Further Required Courses (OFAs). [uncertain]",
+  "source_quotes": [
+    {
+      "quote": "The degree course in Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications is a three-year degree program of the L-29 Pharmaceutical Sciences and Technologies class entirely taught in English.",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33457",
+      "supports_fields": ["program_name", "level", "teaching_language", "degree_class"]
+    },
+    {
+      "quote": "To enroll... you must take CEnT-S. It is a restricted-admission degree course. Candidates must successfully pass the English TOLC-F assessments (including the TOLC@CASA mode) or the SAT, achieving a total converted score exceeding zero.",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33457",
+      "supports_fields": ["admission_type", "admission_test_type", "entry_exam_or_test", "test_score_conversion_or_threshold"]
+    },
+    {
+      "quote": "20 places reserved to EU candidates and 30 places reserved for non-EU candidates residing abroad... for the L-29 Class at Latina Campus.",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33457",
+      "supports_fields": ["places_and_foreign_contingent", "access_quota_non_eu", "campus"]
+    },
+    {
+      "quote": "The deadline for visa seeking candidates applying to programs on the MoveIN pre-selection platform is May 15, 2026, and all other candidates will be able to submit a pre-selection application until July 31, 2026.",
+      "source_url": "https://www.uniroma1.it/en/admissions",
+      "supports_fields": ["application_deadline_eu", "application_deadline_non_eu", "movein_preselection_required"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/course/33457",
+    "https://dctf.web.uniroma1.it/en/molecular-biology-medicinal-chemistry-and-computer-science-pharmaceutical-applications",
+    "https://www.uniroma1.it/en/admissions",
+    "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
+  ],
+  "source_year": "2026-2027 (central) / 2025-2026 (places and test type)",
+  "uncertainty_notes": [
+    "Programme name in the task ('Pharmaceutical Applications (Biomolecular, Pharmaceutical & IT Research)') is a paraphrase; the official catalogue name is 'Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications' (course code 33457, L-29).",
+    "Programme-specific 2026-2027 Call PDF was not retrievable at the standard documenti_ufficiali path; admission mechanics (English TOLC-F/SAT, restricted access) and places (20 EU / 30 non-EU) reflect 2025-2026 data and may change for 2026-2027.",
+    "Faculty is the Faculty of Pharmacy and Medicine; the task listed 'Pharmacy and Medicine' which matches. Department: Drug Chemistry and Technologies (DCTF).",
+    "Exact accepted English certificate scores, document authentication, intake, deadlines and OFA policy inferred from general Sapienza/MoveIN rules, not a programme-specific 2026-2027 source.",
+    "Non-EU deadline 15 May 2026 / EU deadline 31 July 2026 are central international-admissions dates; this restricted-access programme also has its own test/enrolment deadlines via the faculty call."
+  ],
+  "uncertain": [
+    "access_quota_non_eu",
+    "application_round",
+    "intake_semester_availability",
+    "places_and_foreign_contingent",
+    "official_call_url",
+    "faculty_call_pdf_url",
+    "country_specific_eligibility",
+    "curricular_integration_policy",
+    "conditional_enrolment_policy",
+    "language_requirements",
+    "language_submission_timing",
+    "italian_language_requirement",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "visa_preenrolment_deadline",
+    "academic_year",
+    "document_translation_authentication",
+    "test_variant_and_session",
+    "test_score_conversion_or_threshold",
+    "source_year"
+  ]
+}

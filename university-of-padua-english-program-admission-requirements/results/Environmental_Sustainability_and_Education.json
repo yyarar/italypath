@@ -1,0 +1,180 @@
+{
+  "program_name": "Environmental Sustainability and Education",
+  "level": "master",
+  "teaching_language": "English (the official international apply page lists the programme as English, while the main programme page lists English and Italian). [uncertain]",
+  "campus": "Padua",
+  "degree_class": "LM-60 R",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a bachelor's degree or equivalent, a minimum degree grade of 85/110 (or equivalent), adequate preparation in scientific and environmental disciplines, and the curricular background required by the programme.",
+    "prior_degree_or_diploma": "Bachelor's degree or an equivalent qualification obtained in Italy or abroad and recognised as suitable according to current regulations.",
+    "subject_requirements": "Direct access is granted to graduates of class L-32 Environmental and Natural Sciences and Technologies. Graduates from other degree classes must show at least 50 ECTS overall: at least 15 ECTS in mathematics, informatics, physics, and chemistry, and at least 35 ECTS in life and earth sciences, including biological sciences and earth sciences.",
+    "gpa_or_country_requirements": "Minimum degree grade: 85/110 (or equivalent). Applicants with foreign qualifications must also satisfy the University of Padua country-based entry-title requirements stated on the official application platform.",
+    "source_url": "https://scienze-naturali.biologia.unipd.it/en/masters-degree/how-to-enroll/"
+  },
+  "language_requirements": {
+    "required_level": "B2 English (CEFR), with reading and listening skills required by the programme.",
+    "accepted_proofs": [
+      "TOEFL iBT with a minimum score of 80.",
+      "IELTS Academic or General Training with a minimum score of 6.0.",
+      "Cambridge B2 First with a minimum score of 173.",
+      "Pearson PTE Academic with a minimum score of 65.",
+      "Other certificates accepted by the University language-requirement page, including Trinity ISE II, Oxford Test of English 126, Gatehouse GA Level 1, PTE General 3, and Pearson English International Certificate Level 3 Upper Intermediate."
+    ],
+    "exemption_rules": [
+      "Applicants who obtained their qualifying bachelor's degree entirely in English do not need to submit a separate English certificate.",
+      "Native English speakers from the countries recognised by the University, including the United States, do not need to submit a separate English certificate."
+    ],
+    "deadline": "Language proof must be provided by 31 August 2026 for open-access degree programmes.",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "[uncertain] 2 June 2026 - 2 August 2026 (the official programme listing snippet shows '2 June 2025 - 2 August 2026', while the official apply page shows 2026).",
+    "notes": "The third call is only for EU students and non-EU students residing in Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/206-environmental-sustainability-and-education"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "Not applicable for non-EU applicants residing outside Italy.",
+    "notes": "The third call is restricted to EU students and non-EU students residing in Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/206-environmental-sustainability-and-education"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae (Resume) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for master's applications with a foreign qualification.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Motivational letter in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for master's applications with a foreign qualification.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "No legalised documents are required at application stage, but an English or Italian translation of the entry qualification must be provided.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Bachelor's degree diploma or provisional/enrolment certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "If the final qualification has not yet been awarded, an enrolment or provisional certificate is accepted.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Valid ID card or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU applicants and non-EU applicants residing in Italy may use an ID card; other applicants use a passport.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Residence permit",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required only for non-EU citizens residing in Italy.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "English language certificate or other accepted proof",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required unless the applicant qualifies for an official exemption.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Statement of Comparability issued by CIMEA",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "The Admissions and Welcome Unit may request this if further verification of the bachelor's qualification is deemed necessary.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Bachelor's diploma translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Required at enrolment for admitted students with an international qualification.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Transcript of Records translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "The transcript should state passed exams, grades, and, where applicable, ECTS credits and programme description.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Study Visa D - enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Required only for non-EU applicants residing outside Italy.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Non-EU applicants residing outside Italy must pre-enrol through Universitaly by 15 July.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Residence permit or residence-permit application receipt (Assicurata)",
+      "stage": "enrolment",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU applicants at enrolment if applicable.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No programme-specific entrance exam or admission test stated",
+    "mandatory": false,
+    "applies_to": "All applicants",
+    "dates": "Not applicable.",
+    "scoring_or_threshold": "Admission is based on degree, curricular requirements, minimum grade, and language requirements rather than a separate entrance exam.",
+    "source_url": "https://scienze-naturali.biologia.unipd.it/en/masters-degree/how-to-enroll/"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/offerta-didattica/corso-di-laurea-magistrale/scienze?tipo=LM&scuola=SC&ordinamento=2022&key=SC2650&cg=scienze",
+  "official_call_url": "https://apply.unipd.it/courses/course/206-environmental-sustainability-and-education",
+  "source_quotes": [
+    {
+      "quote": "Language English and Italian",
+      "source_url": "https://www.unipd.it/en/educational-offer/second-cycle-degree/second-cycle-degree/school-of-science?key=SC3003&ordinamento=2025&scuola=SC&tipo=LM",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "degree grade of no less than 85/110",
+      "source_url": "https://scienze-naturali.biologia.unipd.it/en/masters-degree/how-to-enroll/",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "31st August for open access degree programmes",
+      "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Call One: 2 November 2025 – 2 February 2026",
+      "source_url": "https://apply.unipd.it/courses/course/206-environmental-sustainability-and-education",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official international apply page lists the programme as taught in English, while the main programme listing page labels the programme language as English and Italian.",
+    "The programme listing snippet shows the third call as starting on 2 June 2025, but the official apply page shows 2 June 2026. This JSON records 2026.",
+    "The user-provided official programme URL points to a 2022 programme page, while the 2026/27 admissions information is available on current official programme and apply pages."
+  ],
+  "uncertain": [
+    "teaching_language",
+    "application_deadline_eu"
+  ]
+}

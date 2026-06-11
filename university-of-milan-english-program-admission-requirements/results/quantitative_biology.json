@@ -1,0 +1,224 @@
+{
+  "program_name": "Quantitative Biology",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-8 R - Industrial Biotechnologies",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": "Applicants must hold, or obtain by 31 December 2026, a bachelor's degree or other university degree awarded after a three-year course, or an equivalent foreign qualification recognized by the University as suitable. The A.Y. 2026/2027 manifesto states that 180 credits are required for admission. The programme requires basic knowledge in mathematics, chemistry, physics, and biology. Eligible Italian degree classes listed on the programme application page are L-02 Biotechnology, L-05 Philosophy, L-07 Civil and Environmental Engineering, L-08 Information Engineering, L-13 Biological Sciences, L-27 Chemical Sciences and Technologies, L-29 Pharmaceutical Sciences and Technologies, L-30 Physical Sciences and Technologies, L-31 Computer Science and Technologies, L-32 Environmental and Nature Sciences and Technologies, L-33 Economics and Statistics, L-35 Mathematical Sciences, and L-41 Statistics. Applicants from those classes must also have at least 12 CFU in basic biological disciplines relevant to QB, specifically SSD BIO/06, BIO/09, BIO/10, BIO/11, BIO/18, and BIO/19. For candidates with foreign qualifications, the title must be recognized as appropriate by UniMi under the applicable ministerial rules and bilateral agreements.",
+  "language_requirements": "English at B2 CEFR level is required. The programme page and manifesto state that applicants should already hold a B2 English certification before applying; however, applicants without a B2 certificate may still be accepted if their English proficiency, assessed during the entry interview, is evidently good. Knowledge of Italian is not required. The programme-specific 2026/2027 sources do not publish a separate QB-specific SLAM test calendar or a programme-specific upload deadline for English proof beyond the general admission process.",
+  "application_deadline_eu": "EU/Italian/equivalent applicants: admission application window from 22 January 2026 to 30 October 2026. Enrolment window for admitted students: from 5 May 2026 to 15 January 2027. Deadline to obtain the degree and satisfy the entry requirements: 31 December 2026.",
+  "application_deadline_non_eu": "Non-EU applicants requiring a visa: admission application window from 22 January 2026 to 30 April 2026. Universitaly pre-enrolment deadline: 31 July 2026. Deadline to complete the foreign-qualification enrolment documentation on apply.unimi.it: 30 November 2026. Enrolment window for admitted students: from 5 May 2026 to 15 January 2027. Deadline to obtain the degree and satisfy the entry requirements: 31 December 2026.",
+  "required_documents": [
+    "For applicants with qualifications obtained in Italy: self-certification of degree or enrolment with exam records; for applicants from Italian universities other than UniMi, this must include the list of exams taken, grades, ECTS credits, and disciplinary scientific sectors.",
+    "For graduating applicants from Italian universities other than UniMi: declaration of exams already passed but not yet registered, exams not yet taken, and expected graduation date.",
+    "For applicants with foreign qualifications: bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with foreign qualifications: Diploma Supplement, or alternatively a transcript showing courses, marks, ECTS, academic field, and the grading system used.",
+    "For applicants with foreign qualifications: passport or other valid identity document.",
+    "If the applicant uses the certificate route for English proficiency: a B2 English certificate accepted by the programme/University.",
+    "For final enrolment with foreign qualifications: legalized or apostilled bachelor's degree or equivalent, unless exempt by law.",
+    "For final enrolment with foreign qualifications: high school diploma.",
+    "For final enrolment with foreign qualifications: official Italian translation of the academic qualifications, unless the originals are in English, French, German, or Spanish.",
+    "For final enrolment with foreign qualifications: Statement of Comparability issued by an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore in loco; for Lisbon Recognition Convention countries, a Diploma Supplement or ARDI correspondence statement may replace the DOV and the Statement of Comparability as specified in the admission notice.",
+    "For final enrolment with foreign qualifications: Italian tax code (codice fiscale).",
+    "For final enrolment with foreign qualifications: receipt of the residence-permit application or a valid residence permit, required only for non-EU citizens.",
+    "For non-EU visa applicants: Universitaly pre-enrolment application or receipt."
+  ],
+  "entry_exam_or_test": "[uncertain] There is no centralized competitive entrance exam published for A.Y. 2026/2027. Admission is based on verification of entry requirements by the Admission Board. The programme application page and manifesto say that minimum English level and adequate basic knowledge are assessed by interview. However, the programme-specific admission notice says the board may request an interview and/or a written test, either in person or remotely, and the 2026/2027 sources do not publish fixed interview or written-test dates on the QB pages checked.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/quantitative-biology",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-quantitative-biology-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027",
+      "url": "https://www.unimi.it/en/education/master-programme/quantitative-biology",
+      "field_refs": [
+        "academic_year"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Open with entry requirements examination",
+      "url": "https://www.unimi.it/en/education/master-programme/quantitative-biology",
+      "field_refs": [
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Course location Milan",
+      "url": "https://www.unimi.it/en/education/master-programme/quantitative-biology",
+      "field_refs": [
+        "campus"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Language English",
+      "url": "https://www.unimi.it/en/education/master-programme/quantitative-biology",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "LM-8 R - Biotecnologie industriali",
+      "url": "https://www.unimi.it/en/education/master-programme/quantitative-biology",
+      "field_refs": [
+        "degree_class"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "at least 12 CFU",
+      "url": "https://qbio.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Knowledge of English (B2 level)",
+      "url": "https://qbio.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Knowledge of Italian is not required",
+      "url": "https://qbio.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "30 April 2026",
+      "url": "https://qbio.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Credits required for admission: 180",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBTof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Access procedures: open, subject to entry requirements",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBTof2_2027.pdf",
+      "field_refs": [
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "30 October 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-quantitative-biology-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu",
+        "official_call_url"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "31 December 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-quantitative-biology-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "academic_requirements",
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "31 July 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-quantitative-biology-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "30 November 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-quantitative-biology-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Self-certification of degree/enrolment",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-quantitative-biology-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor’s Degree",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-quantitative-biology-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Diploma supplement",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-quantitative-biology-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Passport",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-quantitative-biology-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "interview and/or a written test",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-quantitative-biology-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "entry_exam_or_test",
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "must apply within 30 April 2026",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "within 31 July 2026",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "entry_exam_or_test is marked uncertain because the programme application page and manifesto describe interview-based assessment, but the programme-specific admission notice for A.Y. 2026/2027 says the Admission Board may request an interview and/or a written test, in person or remotely, and no fixed QB interview/test dates were published on the checked QB pages.",
+    "The programme-specific QB sources require a B2 certificate or satisfactory interview-based English assessment, but they do not publish a QB-specific list of accepted certificate families, a separate SLAM test calendar, or a dedicated English-certificate upload deadline. Therefore the language field stays limited to the programme-specific rule rather than adding generic UniMi certificate logistics."
+  ],
+  "uncertain": [
+    "entry_exam_or_test"
+  ]
+}

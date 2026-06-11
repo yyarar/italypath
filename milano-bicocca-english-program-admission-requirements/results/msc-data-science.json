@@ -1,0 +1,41 @@
+{
+  "program_name": "Data Science",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-DATA (Class of Master Degrees in Data Science)",
+  "admission_type": "restricted access",
+  "academic_requirements": "Freely accessible to graduate students, subject to having previously earned at least 30 ECTS in Statistics, Computer Science, Mathematics, or Physics. A bachelor's degree (or equivalent foreign qualification) is required. Admission is 'open with entry requirements examination' — curricular requirements are verified, and personal preparation is assessed. The programme is designed for students from Natural Sciences to Social Sciences and Economics.",
+  "language_requirements": "Minimum B2 level of English required for admission. B2 knowledge can be verified through: (a) certification issued by the University or an institution accredited by the University corresponding to level B2 (IELTS, TOEFL, Cambridge, etc.); (b) the Open Badge 'English B2' of the University of Milano-Bicocca; (c) an exam of at least 4 CFU in specific scientific disciplines from previous university career taught in English; or (d) a degree programme entirely or mainly taught in English.",
+  "entry_exam_or_test": "Open access with entry requirements examination. Curricular CFU/ECTS requirements (30 ECTS in Statistics/CS/Math/Physics) are checked first, then personal preparation may be assessed by the admission board. No standardised external test (TOLC/GRE/GMAT) is required.",
+  "application_deadline_eu": "Unified UNIMIB Master's calls for 2026/2027 (EU citizens and non-EU citizens residing in Italy), per apply.unimib.it: 1st CALL: 10 February 2026 - 31 March 2026; 2nd CALL: 15 April 2026 - 6 July 2026 (EU citizens and non-EU citizens residing in Italy); 3rd CALL: 7 July 2026 - 7 September 2026 (EU citizens and non-EU citizens residing in Italy). Italian-qualification candidates apply via Segreterie OnLine; foreign-qualification candidates apply via apply.unimib.it (Dream Apply).",
+  "application_deadline_non_eu": "Non-EU citizens requiring a student visa must apply via apply.unimib.it within the earlier Master calls only: 1st CALL: 10 February 2026 - 31 March 2026; 2nd CALL: 15 April 2026 - 6 July 2026. The 3rd CALL (7 July - 7 September 2026) is reserved for EU citizens and non-EU citizens already residing in Italy. English language certification must be submitted by 31 July 2026. Arrival in Italy for visa applicants by 31 January 2027; verification of original documents by 28 February 2027.",
+  "required_documents": "Identity document (ID card or passport); digital ID photo (min 300x400 px, light background); bachelor's degree certificate / diploma; academic transcript of records (with grades and CFU/ECTS per subject area); English language certification at B2 level (IELTS, TOEFL or equivalent) — exempt for native English speakers and graduates of fully English-taught programmes; CV (recommended); for non-EU applicants: Declaration of Value (DoV) or equivalent CIMEA statement; passport copy for visa applicants.",
+  "tuition_or_fees_link": "https://en.unimib.it/services/fees-and-funding",
+  "official_program_url": "https://en.unimib.it/international/international-students/international-programmes/data-science",
+  "official_call_url": "https://apply.unimib.it/en_GB/courses/course/75-data-science",
+  "source_quotes": [
+    {
+      "quote": "The language of the master degree is English.",
+      "url": "https://en.unimib.it/international/international-students/international-programmes/data-science"
+    },
+    {
+      "quote": "freely accessible to graduate students, subject to having been previously earned 30 ETCS in Statistics, Computer Science, Mathematics, Physics.",
+      "url": "https://en.unimib.it/international/international-students/international-programmes/data-science"
+    },
+    {
+      "quote": "Applicants must demonstrate at least a B2 or higher level of English language knowledge.",
+      "url": "https://www.unimib.it/sites/default/files/2025-04/DATA%20SCIENCE_ENG_25_26.docx.pdf"
+    },
+    {
+      "quote": "Extra-EU citizens requiring a student visa and other candidates with foreign qualifications, whether EU, equivalent, or extra-EU legally residing in Italy, must apply exclusively via https://apply.unimib.it/.",
+      "url": "https://www.unimib.it/node/25711"
+    },
+    {
+      "quote": "1st CALL: November 7th, 2025 / January 16th, 2026; 2nd CALL: March 16th, 2026 / April 16th, 2026; 3rd CALL: May 15th, 2026 / June 15th, 2026; 4th CALL: July 7th, 2026 / September 7th, 2026.",
+      "url": "https://apply.unimib.it/en_GB/news/new/39-apply-202627-admission-calls-and-deadlines"
+    }
+  ],
+  "uncertainty_notes": "Exact accepted IELTS/TOEFL minimum scores for Data Science are not published as numeric thresholds on the public 2026/27 page — UNIMIB refers to its general 'accredited B2 certifications' list. Full call-by-call deadline split (EU vs non-EU per call) is taken from the unified Master's 2026/27 announcement on apply.unimib.it; programme-specific PDF for 2026/27 was not directly accessible (403 on apply.unimib.it during fetch). Required-documents list is composed from the central 'MASTER'S DEGREE – Required Documents' page on apply.unimib.it (https://apply.unimib.it/en_GB/news/new/20-masters-degree---required-documents). Deadlines re-verified 2026-06-11 against apply.unimib.it 2026/27 calendar (Master track: 1st CALL 10 Feb - 31 Mar 2026; 2nd CALL 15 Apr - 6 Jul 2026 [EU + non-EU in Italy]; 3rd CALL 7 Jul - 7 Sep 2026 [EU + non-EU in Italy]). The previously inserted 4-call Nov 2025 - Sep 2026 schedule is the Bachelor/single-cycle calendar and was incorrect for this Master.",
+  "uncertain": []
+}

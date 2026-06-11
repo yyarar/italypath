@@ -1,0 +1,150 @@
+{
+  "program_name": "Architectural Composition",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Genoa (historical centre, medieval complex of Sant'Agostino)",
+  "degree_class": "LM-4 R (Architecture and Architectural Engineering)",
+  "admission_type": "open access with curricular-requirements check and a personal-readiness assessment (no competitive ranking); a portfolio is central to the assessment",
+  "academic_requirements": {
+    "summary": "A first-cycle degree in architecture/architectural sciences (or recognised equivalent) with the required curricular credits, followed by a verification of adequacy of personal preparation in which the portfolio plays a central role.",
+    "prior_degree_or_diploma": "A degree in class L-17 (Architectural Sciences) or class 4 (Architectural and Building Engineering Sciences); a three-year university degree allowing recognition of the required L-17 credits; or a five-year single-cycle degree (class 4/S or LM-4) when pursuing a second degree.",
+    "required_credits_cfu": "At least 108 CFU in the educational activities considered indispensable for class L-17 Architectural Sciences.",
+    "subject_requirements": "Architecture and architectural-engineering background; the programme deepens Italian architectural design culture with a central focus on architectural Composition.",
+    "minimum_gpa_or_threshold": "UniGeApply states a minimum Cumulative Grade Point Average (CGPA) of 70% of the maximum obtainable for non-EU applicants assessed through the international pre-evaluation portal. The course page does not publish a separate numeric GPA gate. [uncertain]",
+    "international_qualification": "Holders of foreign qualifications are assessed for equivalence to the required class/credits; non-EU candidates residing abroad apply through the UniGeApply pre-evaluation portal.",
+    "source_url": "https://corsi.unige.it/en/corsi/11930/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English proficiency at minimum B2 level.",
+    "accepted_proofs": [
+      "A certificate from a recognised body (e.g. Cambridge, IELTS, TOEFL, PET).",
+      "A university certification (e.g. confirming the prior degree was taught in English / medium of instruction).",
+      "Passing the University of Genoa's B2-level English test (CLAT).",
+      "A letter from the university confirming an English-taught degree."
+    ],
+    "exemption_rules": [
+      "On UniGeApply the language certificate is noted as optional for students from countries with ongoing conflicts; otherwise a B2 certificate or MOI certificate is required. [uncertain]"
+    ],
+    "assessment_or_upload_stage": "English proficiency is verified at the application/pre-evaluation stage (uploaded on UniGeApply for non-EU applicants).",
+    "source_url": "https://corsi.unige.it/en/corsi/11930/prospective-students-admission-criteria-procedure"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Verification of adequacy of graduate personal readiness - a portfolio-based documentary assessment (no written entrance exam).",
+    "mandatory": true,
+    "is_selective": false,
+    "applies_to": "Applicants found eligible on curricular requirements, who must then take the personal-readiness assessment.",
+    "format": "A special committee reviews submitted documents and the Master's Degree Coordinator evaluates the CV and the portfolio, which plays a central role in the application. UniGeApply indicates no remote interview/test is required for non-EU applicants.",
+    "dates": "Pre-enrolment is mandatory to participate in the verification; dates follow the course procedure. [uncertain]",
+    "scoring_or_threshold": "Outcomes are 'admitted', 'admitted under condition', or 'not admitted'.",
+    "source_url": "https://corsi.unige.it/en/corsi/11930/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026."
+    ],
+    "enrolment_deadline": "Local pre-enrolment/online enrolment on UniGe online services generally opens in April each year and follows the UniGe enrolment calendar after a positive readiness assessment. [uncertain]",
+    "notes": "EU/resident applicants are assessed via the personal-readiness verification (portfolio review) and are not competitively ranked. The course page does not publish a separate programme-specific first-year EU application deadline, so the institution-wide UniGeApply spring window is used.",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After a positive UniGeApply pre-evaluation, visa applicants complete Universitaly pre-enrolment (Universitaly window 4 May 2026 to 19 June 2026) and then apply for the study visa.",
+    "early_closure": "No programme-specific early closure was found for this master in the official sources reviewed. [uncertain]",
+    "notes": "Non-EU visa applicants must use the fall session and the UniGeApply portal; an applicant may submit up to two assessment requests.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum vitae et studiorum",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Mandatory for all UniGeApply master's applicants; reviewed by the Course Coordinator.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Portfolio of architectural work",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Plays a central role in the application; evaluated by the Master's Degree Coordinator during the personal-readiness verification.",
+      "source_url": "https://corsi.unige.it/en/corsi/11930/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Proof of the prior first-cycle qualification (class L-17 / class 4 or equivalent).",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records (list of exams with credits and grades, and weighted average / CGPA)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Used to verify the 108 CFU curricular requirement and the CGPA threshold (70% for non-EU applicants).",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "English language proficiency certificate (B2) or Medium-of-Instruction (MOI) certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Demonstrates English at B2; the language certificate is noted as optional for students from countries with ongoing conflicts.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Valid passport (non-EU) or identity document (EU)",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Passport is the only accepted identity document for non-EU applicants on UniGeApply (photo as JPG, supporting documents as PDF up to 2 MB).",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11930/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11930",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "Architectural Composition - Teaching Language English - Class LM-4 R (Architecture and Architectural Engineering) - Genova (Sant'Agostino), 120 CFU",
+      "source_url": "https://corsi.unige.it/en/corsi/11930",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "addressed to foreign and Italian students interested to study and work in an international context",
+      "source_url": "https://corsi.unige.it/en/corsi/11930",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "108 CFU in educational activities indispensable for class L-17 Architectural Sciences",
+      "source_url": "https://corsi.unige.it/en/corsi/11930/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "English proficiency at minimum B2 level. Acceptable proofs include certificates (Cambridge, IELTS, TOEFL, PET), university certification, passing UniGe's B2-level English test, or a letter confirming an English-taught degree.",
+      "source_url": "https://corsi.unige.it/en/corsi/11930/prospective-students-admission-criteria-procedure",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Portfolio (described as playing a central role in the application) ... Results are categorized as: 'admitted,' 'admitted under condition' or 'not admitted'.",
+      "source_url": "https://corsi.unige.it/en/corsi/11930/prospective-students-requisites-assessment",
+      "field_supported": "entry_exam_or_test, required_documents"
+    },
+    {
+      "quote": "Architectural Composition - Minimum CGPA: 70% - Remote interview/test: No - Portfolio; English certificate (or MOI); optional language certificate for students from countries with ongoing conflicts",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "academic_requirements (CGPA), required_documents, language_requirements"
+    }
+  ],
+  "uncertainty_notes": [
+    "Per the task note, architecture masters can be restricted-access: confirmed there is NO competitive selection ranking - admission is open-access subject to a curricular check plus a portfolio-based personal-readiness verification (outcomes admitted / admitted under condition / not admitted). The portfolio is central and is the de facto selection instrument.",
+    "UniGeApply states no remote interview/test is required and a minimum CGPA of 70% for non-EU applicants; the course page itself does not publish a numeric GPA gate.",
+    "The English B2 language certificate is required, but on UniGeApply it is noted as optional for applicants from countries with ongoing conflicts.",
+    "No programme-specific fall-session early closure was found; institution-wide UniGeApply windows were used.",
+    "First-year EU application deadline reflects the institution-wide UniGeApply spring window; the course page does not publish a programme-specific first-year EU deadline."
+  ],
+  "uncertain": [
+    "academic_requirements",
+    "language_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu"
+  ]
+}

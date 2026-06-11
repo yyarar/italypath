@@ -1,0 +1,187 @@
+{
+  "program_name": "Complex and Data Driven Chemistry",
+  "level": "master",
+  "teaching_language": "English (study track of the master's degree in Chemistry)",
+  "campus": "Padua, Italy",
+  "degree_class": "LM-54 R - Chemical Sciences",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a bachelor's degree or equivalent foreign qualification with a minimum three-year background in Chemistry, Chemical Science and Technologies, or related subjects. The official application page also accepts applicants who can prove skills in Analytical, Physical, General, Organic and Inorganic Chemistry. Country-based entry-title and GPA rules also apply.",
+    "prior_degree_or_diploma": "Bachelor's degree or equivalent foreign qualification.",
+    "subject_requirements": "A minimum three-year undergraduate degree (or equivalent) in Chemistry, Chemical Science and Technologies or related subjects, or proven skills in Analytical, Physical, General, Organic and Inorganic Chemistry.",
+    "gpa_or_country_requirements": "The official application page requires applicants to verify country-based specific entry-title and GPA requirements. No single universal GPA threshold is separately published on the reviewed programme pages.",
+    "source_url": "https://apply.unipd.it/courses/course/235-complex-and-data-driven-chemistry"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent.",
+    "accepted_proofs": [
+      "TOEFL iBT: minimum score 80.",
+      "IELTS Academic or General Training: minimum score 6.0.",
+      "Cambridge English B2 First: minimum score 173.",
+      "Trinity College London Integrated Skills in English ISE II.",
+      "Oxford Test of English: minimum score 126.",
+      "GATEHOUSE ESOL International Classic B2: GA Level 1 Certificate.",
+      "Pearson Test of English General: PTE General 3.",
+      "Pearson English International Certificate: Level 3 Upper Intermediate.",
+      "Pearson Test of English Academic: minimum score 65."
+    ],
+    "exemption_rules": [
+      "Applicants are exempt if their previous education leading to the entry qualification was completed entirely in English.",
+      "Applicants are exempt if they are native English speakers from one of the countries listed by the University of Padua.",
+      "The IMAT exemption mentioned by the University applies only to Medicine and Surgery, not to this programme."
+    ],
+    "deadline": "31 August 2026 for open-access degree programmes.",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "2 June 2026 - 2 August 2026",
+    "notes": "Call Three is only for EU students and non-EU students residing in Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/235-complex-and-data-driven-chemistry"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026 [uncertain]",
+    "call_three": "Not applicable for non-EU applicants residing outside Italy.",
+    "notes": "The official apply.unipd.it page lists Call Two without a residence restriction, but the official Chemistry educational-offer page for A.Y. 2026/27 restricts Call Two to EU and EU-equated applicants. Non-EU access to Call Two is therefore marked uncertain.",
+    "source_url": "https://apply.unipd.it/courses/course/235-complex-and-data-driven-chemistry"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae (Resume) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught master's applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Motivational letter(s) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught master's applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Upload a colour scanned PDF. If needed, provide an English or Italian translation. No legalised documents are required at application stage.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Academic qualification or provisional enrolment certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "If the final qualification has not yet been awarded, an enrolment or provisional certificate is accepted.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Valid ID card or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU citizens and non-EU citizens residing in Italy may use an ID card; other applicants normally provide a passport.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Residence permit",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required only for non-EU applicants residing in Italy.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "English language certificate or other accepted proof",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required unless the applicant qualifies for an official exemption.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Any other programme-specific required document",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "The University asks applicants to check the entry requirements of the chosen programme for any additional required document.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Bachelor's diploma translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Required after admission to complete enrolment; a CIMEA Statement of Verification can be used as an alternative in the cases stated by the University.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Transcript of Records translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "The transcript must be issued by the competent academic authority and show passed exams, grades, and programme description.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment and study visa D - enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Non-EU citizens residing outside Italy must pre-enrol through Universitaly no later than 15 July and obtain a study visa.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Residence permit or residence-permit application receipt",
+      "stage": "enrolment",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU applicants who are in Italy at enrolment stage.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No standard written entry test published",
+    "mandatory": false,
+    "applies_to": "All applicants.",
+    "dates": "Not applicable.",
+    "scoring_or_threshold": "The official pages reviewed describe admission through verification of entry requirements and application review, but do not publish a separate written test or interview for this study track.",
+    "source_url": "https://www.unipd.it/ammissioni-scienze-magistrali"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/complex-data-driven-chemistry",
+  "official_call_url": "https://apply.unipd.it/courses/course/235-complex-and-data-driven-chemistry",
+  "source_quotes": [
+    {
+      "quote": "The programme is a study track - held completely in English - of the Master's degree programme in Chimica",
+      "source_url": "https://apply.unipd.it/courses/course/235-complex-and-data-driven-chemistry",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "A minimum three-year undergraduate degree (or equivalent) in Chemistry, Chemical science and technologies or related subjects, or proven skills in Analytical, Physical, General, Organic and Inorganic Chemistry.",
+      "source_url": "https://apply.unipd.it/courses/course/235-complex-and-data-driven-chemistry",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "B2 Level (CEFR) or equivalent",
+      "source_url": "https://apply.unipd.it/courses/course/235-complex-and-data-driven-chemistry",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Call Three: 2 June 2026 - 2 August 2026 (only for EU students and non-EU students residing in Italy)",
+      "source_url": "https://apply.unipd.it/courses/course/235-complex-and-data-driven-chemistry",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "Access Open access with admission requirements",
+      "source_url": "https://www.unipd.it/en/educational-offer/second-cycle-degree/second-cycle-degree/school-of-science?key=SC3004&ordinamento=2025&scuola=SC&tipo=LM",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Call Two: 2 March 2026 - 2 May 2026 (EU and EU-equated applicants only)",
+      "source_url": "https://www.unipd.it/en/educational-offer/second-cycle-degree/second-cycle-degree/school-of-science?key=SC3004&ordinamento=2025&scuola=SC&tipo=LM",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "This is an English-taught study track within the master's degree in Chemistry (Chimica), not a separate degree class from Chimica.",
+    "The supplied programme URL currently redirects to the University's general English homepage; the track details above were therefore confirmed from the official apply.unipd.it page and the official educational-offer pages.",
+    "The official apply.unipd.it page shows Call Two without a residence restriction, while the official Chemistry educational-offer page for A.Y. 2026/27 restricts Call Two to EU and EU-equated applicants. Non-EU access to Call Two is therefore marked uncertain."
+  ],
+  "uncertain": [
+    "application_deadline_non_eu"
+  ]
+}

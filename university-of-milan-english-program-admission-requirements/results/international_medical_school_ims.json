@@ -1,0 +1,140 @@
+{
+  "program_name": "International Medical School (IMS)",
+  "level": "single-cycle",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan; the 2026/2027 manifesto says IMS is based at the LITA - Interdisciplinary Laboratory of Advanced Technologies in Segrate, with clinical training from year 3 at ASST Grande Ospedale Metropolitano Niguarda.",
+  "degree_class": "LM-41 R - Medicine and Surgery",
+  "admission_type": "[uncertain] Restricted access with admission test / IMAT according to the 2026/2027 IMS programme page and manifesto; however, a central UniMi 2026/2027 LM-41 page says admission moved to the open semester with no admission test.",
+  "academic_requirements": "[uncertain] The IMS programme page and 2026/2027 manifesto state that applicants need an upper secondary school diploma or a foreign qualification recognized as suitable, obtained after 12 years of schooling and valid for university access in the issuing country. Those sources also describe programmed access through a national admission test and expect a strong high-school background in biology, chemistry, mathematics, and physics. At the same time, the central UniMi 2026/2027 page for LM-41 states that applicants no longer pass an admission test and instead enrol directly in the open semester, where they take Chemistry and Introductory Biochemistry, Physics, and Biology and are ranked nationally for admission to the second semester.",
+  "language_requirements": "[uncertain] Teaching is in English. The IMS prerequisites page says Italian is not required for matriculation, but a good level of Italian is needed for clinical activities; the 2026/2027 manifesto makes this explicit as Italian at CEFR B2 or higher by the end of the second year / before entering the third year, proved either by a certificate recognized by UniMi or by the SLAM entry-level test, with Italian courses assigned if the level is not reached. For admission-stage English requirements, the latest official IMS call available is for 2025/2026: it required non-EU visa applicants to upload a valid English language certificate in Universitaly and listed recognized certificates at B2 or above, including IELTS 5.5-6.5, TOEFL 87-109, Cambridge FCE, Trinity ISE II, and equivalent certificates; students who attended a school taught in English for at least one school year were also recognized. No 2026/2027 IMS call was published on the programme page as checked on 2026-06-11, so the admission-stage English-certificate rule for 2026/2027 cannot yet be confirmed.",
+  "application_deadline_eu": "[uncertain] Not yet published for IMS A.Y. 2026/2027. The official IMS programme page says the call for applications is being finalized and that application deadlines will be published shortly.",
+  "application_deadline_non_eu": "[uncertain] The IMS programme page does not yet publish an IMS-specific A.Y. 2026/2027 deadline. UniMi's general international enrolment page states that non-EU students residing abroad must submit the Universitaly pre-enrolment application by 31 July 2026; if IMS still follows the last published IMS call model, the programme-specific admission deadline may differ and has not yet been released.",
+  "required_documents": [
+    "[uncertain] Passport or other valid identity document.",
+    "[uncertain] Italian tax code (codice fiscale) for enrolment.",
+    "[uncertain] Upper secondary school diploma / high school diploma.",
+    "[uncertain] Official Italian translation of the upper secondary school diploma, unless the qualification is accepted in another language under UniMi rules.",
+    "[uncertain] Declaration of Value issued by the Italian Embassy, or a CIMEA / ENIC-NARIC statement of comparability or validity; for Lisbon Recognition Convention cases, ARDI-based correspondence plus the required verification where accepted by UniMi.",
+    "[uncertain] University enrolment certificate with transcript of records, or a post-secondary qualification / foundation-course certificate if the local system has fewer than 12 years of schooling.",
+    "[uncertain] Academic eligibility / suitability certificate, if required in the country of origin.",
+    "[uncertain] Country-specific qualification documents when applicable, such as AP results for US qualifications or A-levels for UK qualifications.",
+    "[uncertain] Valid residence permit, if already held by a non-EU applicant.",
+    "[uncertain] Universitaly pre-enrolment receipt and student visa for non-EU applicants who need a visa.",
+    "[uncertain] Valid English language certificate for non-EU visa applicants, based on the latest official IMS call available.",
+    "[uncertain] Universitaly application receipt and proof of payment of the admission-test fee, if IMS keeps the IMAT-style admission route described in its programme pages."
+  ],
+  "entry_exam_or_test": "[uncertain] The IMS programme page, IMS prerequisites page, 2026/2027 manifesto, and IMS IMAT page all describe an IMAT-style admission route: a national test on the same day worldwide, designed by the Italian Ministry, with 60 multiple-choice questions and a 90-point scale. The latest official IMS call available (2025/2026) specifies Universitaly registration from 26 August 2025 to 9 September 2025, a 100-minute exam starting at 11:00 in Italy, scoring of +1.5 for each correct answer, -0.4 for each wrong answer, and 0 for unanswered questions, with 4 questions on reading comprehension and knowledge acquired during studies, 5 on logical reasoning and problems, 23 on biology, 15 on chemistry, and 13 on physics and mathematics. That call set a 20-point minimum for EU and EU-equivalent applicants, while non-EU students residing abroad only needed a score above zero to be ranked in their reserved quota. The 2026/2027 IMS page has not yet published test dates or a 2026/2027 call. Separately, a central UniMi 2026/2027 LM-41 page says applicants no longer take an admission test and instead enter an open semester with courses in Chemistry and Introductory Biochemistry, Physics, and Biology, followed by national ranking after end-of-course exams. Because these official sources conflict, the 2026/2027 IMS entry route remains unresolved.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+  "official_program_url": "https://www.unimi.it/en/education/single-cycle-master/international-medical-school-ims",
+  "official_call_url": "https://apps.unimi.it/files/bandi/call-2026-1-medicine-and-surgery---international-medical-school-%28classe-lm-41-r%29.pdf?08-AUG-25=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Limited enrolment with admission test ... Language English.",
+      "url": "https://www.unimi.it/en/education/single-cycle-master/international-medical-school-ims",
+      "field_refs": [
+        "program_name",
+        "level",
+        "academic_year",
+        "teaching_language",
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The call for applications is being finalized ... application deadlines will be published shortly.",
+      "url": "https://www.unimi.it/en/education/single-cycle-master/international-medical-school-ims",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "IMS is based at the LITA ... clinical training ... at ASST Grande Ospedale Metropolitano Niguarda.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_DCEof2_2027.pdf",
+      "field_refs": [
+        "campus"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "require an admission test ... same day at the same time all over the world.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_DCEof2_2027.pdf",
+      "field_refs": [
+        "admission_type",
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "applicants ... no longer have to pass an admission test.",
+      "url": "https://www.unimi.it/en/study/enrolment/medicine-and-surgery-dental-medicine-and-veterinary-medicine-admission-and-open-semester",
+      "field_refs": [
+        "admission_type",
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "pre-enrolment application ... within 31 July 2026, under penalty of exclusion.",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "must upload a valid English language certificate ... will not be allowed to sit for the test.",
+      "url": "https://apps.unimi.it/files/bandi/call-2026-1-medicine-and-surgery---international-medical-school-%28classe-lm-41-r%29.pdf?08-AUG-25=",
+      "field_refs": [
+        "language_requirements",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The admission exam has a duration of 100 minutes.",
+      "url": "https://apps.unimi.it/files/bandi/call-2026-1-medicine-and-surgery---international-medical-school-%28classe-lm-41-r%29.pdf?08-AUG-25=",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "ID ... Italian tax ID ... Upper secondary school diploma ... Universitaly pre-enrolment application receipt ... Student visa.",
+      "url": "https://apps.unimi.it/files/bandi/call-2026-1-medicine-and-surgery---international-medical-school-%28classe-lm-41-r%29.pdf?08-AUG-25=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "B2 or higher ... admitted to the third year of the programme and undertake clinical activities.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_DCEof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "No IMS-specific 2026/2027 call PDF or admission notice was linked from the official programme page on 2026-06-11. The official_call_url above therefore points to the latest official IMS call available, which is for 2025/2026.",
+    "Official UniMi sources conflict on the 2026/2027 admission route. The IMS programme page, IMS prerequisites page, IMS IMAT page, and the 2026/2027 manifesto still describe IMAT-style admission, while the central UniMi LM-41 open-semester page says that, from 2025/2026 onward, applicants no longer take an admission test.",
+    "Because the 2026/2027 IMS call is not yet published, no IMS-specific EU application deadline is available. The non-EU date reported here is only the general UniMi Universitaly pre-enrolment deadline for students residing abroad, not a confirmed IMS-specific application deadline.",
+    "The concrete document checklist is assembled from the latest official IMS call (2025/2026) plus the current UniMi international-enrolment page. Some items may change once the 2026/2027 IMS call is published.",
+    "Current official IMS sources are also not fully aligned on additional educational obligations after the admission test: the programme page and the 2026/2027 manifesto use different Biology sub-score thresholds."
+  ],
+  "uncertain": [
+    "admission_type",
+    "academic_requirements",
+    "language_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "required_documents",
+    "entry_exam_or_test",
+    "official_call_url"
+  ]
+}

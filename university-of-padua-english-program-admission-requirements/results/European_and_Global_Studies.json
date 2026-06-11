@@ -1,0 +1,184 @@
+{
+  "program_name": "European and Global Studies",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Padua, Italy",
+  "degree_class": "LM-90 R",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a minimum three-year bachelor's degree or equivalent and must show prior preparation in political, international, legal, social, economic, linguistic, or related human-sciences fields relevant to the programme.",
+    "prior_degree_or_diploma": "Bachelor diploma (or equivalent), with a minimum three-year undergraduate degree.",
+    "subject_requirements": "Applicants must have proven skills in Political Science, International Relations and Diplomacy, International Economics, Management, Cooperation and Development, Intercultural Communication, Media and Cultural Studies, International Law, Linguistics, Political Philosophy, Geography, Psychology, Sociology, or History.",
+    "gpa_or_country_requirements": "Country-based specific entry title and GPA requirements apply through the University of Padua central rules. The current 2026/2027 course page does not publish a programme-specific GPA threshold [uncertain].",
+    "source_url": "https://apply.unipd.it/courses/course/25-european-and-global-studies"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent.",
+    "accepted_proofs": [
+      "TOEFL iBT with a minimum score of 80 for B2.",
+      "IELTS Academic or General Training with a minimum score of 6.0 for B2.",
+      "Cambridge English B2 First with a minimum score of 173.",
+      "Trinity College London Integrated Skills in English ISE II.",
+      "Oxford Test of English with a minimum score of 126 for B2.",
+      "Pearson English International Certificate Level 3 Upper Intermediate.",
+      "Pearson Test of English Academic with a minimum score of 65 for B2."
+    ],
+    "exemption_rules": [
+      "Applicants are exempt if their entry qualification for admission was completed entirely in English.",
+      "Applicants are exempt if they are native English speakers from one of the countries recognised by the University of Padua."
+    ],
+    "deadline": "31 August 2026 for open-access programmes [uncertain].",
+    "source_url": "https://www.unipd.it/en/english-language-admission"
+  },
+  "application_deadline_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "2 June 2026 - 2 August 2026",
+    "notes": "Call Two and Call Three are only for EU students and non-EU students residing in Italy. Applicants may apply to the programme only once per academic year.",
+    "source_url": "https://apply.unipd.it/courses/course/25-european-and-global-studies"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "Not applicable.",
+    "call_three": "Not applicable.",
+    "notes": "The later calls are reserved for EU students and non-EU students residing in Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/25-european-and-global-studies"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae (Resume) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught master's degree applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Motivational letter in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught master's degree applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "If the transcript is not issued in Italian or English, an official translation must be uploaded at application stage.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Academic qualification",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "If the final qualification has not yet been awarded, an enrolment or provisional certificate is accepted. No legalised documents are required at application stage.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Valid ID card or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU or equivalent applicants may use an ID card; other applicants use a passport.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Residence permit",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only for non-EU citizens already residing in Italy.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "English language certificate or accepted exemption proof",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required unless the applicant qualifies for an official exemption based on previous education entirely in English or native-speaker status.",
+      "source_url": "https://www.unipd.it/en/english-language-admission"
+    },
+    {
+      "document_name": "CIMEA Statement of Comparability of the Bachelor's degree",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "The Admissions and Welcome Unit may request it if further verification of the qualification is needed.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Bachelor's diploma translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "A post-secondary qualification awarded by a non-university higher education institution is also accepted if it allows admission to master's degrees.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Transcript of Records translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "The transcript should state passed exams, grades, and preferably ECTS credits and programme description.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment and Study Visa D - enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Non-EU citizens residing outside Italy must pre-enrol through Universitaly no later than 15 July and need a study visa to enter Italy.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Residence permit or residence-permit application receipt (Assicurata)",
+      "stage": "enrolment",
+      "required_for": "conditional",
+      "notes": "Required for non-EU applicants; after arrival in Italy, the residence permit application must be filed within 8 working days.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No standard entry test stated",
+    "mandatory": false,
+    "applies_to": "All applicants.",
+    "dates": "Not applicable.",
+    "scoring_or_threshold": "The current 2026/2027 programme and apply pages state admission requirements based on prior degree, subject preparation, country-based title and GPA rules, and English proficiency, but no programme-specific entry test or interview.",
+    "source_url": "https://apply.unipd.it/courses/course/25-european-and-global-studies"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/european-and-global-studies",
+  "official_call_url": "https://apply.unipd.it/courses/course/25-european-and-global-studies",
+  "source_quotes": [
+    {
+      "quote": "Access Open access with admission requirements",
+      "source_url": "https://www.unipd.it/en/educational-offer/school-of-engineering/school-of-economics-and-political-science?key=EP2901&ordinamento=2025&scuola=EP&tipo=LM",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "A minimum three-year undergraduate degree (or equivalent) is required",
+      "source_url": "https://apply.unipd.it/courses/course/25-european-and-global-studies",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "B2 Level (CEFR) or equivalent",
+      "source_url": "https://apply.unipd.it/courses/course/25-european-and-global-studies",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Call One: 2 November 2025 - 2 February 2026",
+      "source_url": "https://apply.unipd.it/courses/course/25-european-and-global-studies",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "Call Two: 2 March 2026 - 2 May 2026",
+      "source_url": "https://apply.unipd.it/courses/course/25-european-and-global-studies",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "You obtained your entry title by completing your previous education entirely in English",
+      "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes",
+      "field_supported": "language_requirements"
+    }
+  ],
+  "uncertainty_notes": [
+    "The live 2026/2027 programme page routes applicants to a central country-based entry-title and GPA table, but it does not publish a programme-specific GPA threshold on the course page.",
+    "The English-language deadline is taken from the central 2026/2027 language-requirement page rule for open-access programmes rather than from a programme-specific admission notice."
+  ],
+  "uncertain": [
+    "academic_requirements",
+    "language_requirements"
+  ]
+}

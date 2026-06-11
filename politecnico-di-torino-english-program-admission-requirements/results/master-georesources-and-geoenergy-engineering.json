@@ -1,0 +1,151 @@
+{
+  "program_name": "Georesources and Geoenergy Engineering",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale / 2nd cycle)",
+  "teaching_language": "English",
+  "is_fully_english_programme": true,
+  "has_complete_english_track": true,
+  "english_track_name": null,
+  "campus": "Torino (Main Campus)",
+  "degree_class": "LM-35 (Environmental Engineering / Ingegneria per l'ambiente e il territorio)",
+  "double_degree_or_erasmus_mundus": null,
+  "admission_type": "evaluation/CV",
+  "admission_test_type": "Master-level evaluation of admission requirements (qualifications, CV, academic background, and language certificate). No written entrance test; uncapped/uncapped-number programme with assessment of curricular requirements. GRE is not required for this programme.",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification and Equivalent applicants",
+    "Non-EU residing in Italy (with valid residence permit)",
+    "Non-EU residing abroad and requiring a visa (the route for Turkish applicants with a non-Italian qualification)"
+  ],
+  "admission_call_round": [
+    "1st call (non-Italian qualification): applications 19 Dec 2025 – 13 Feb 2026 (2:00 p.m. Italian time); results ~15 Apr 2026",
+    "2nd call (non-Italian qualification): applications 18 Mar 2026 – 20 Apr 2026 (2:00 p.m. Italian time); results ~22 Jun 2026",
+    "Special call – International Tracks (24 Apr – 18 May 2026): does NOT apply to this programme; it covers only specific programmes such as Nanotechnologies for ICTs (MNIS) and Physics of Complex Systems International pathway"
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito (online application via didattica.polito.it). Non-EU applicants residing abroad and requiring a visa must also complete visa pre-enrolment via the UNIVERSITALY portal.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "qualification": "A relevant first-cycle (Bachelor's) degree giving access to second-cycle (Master's) studies. Admission is by evaluation of qualifications and curricular requirements rather than a written test.",
+    "recommended_background": "Recommended/accepted background to apply: Any field of Engineering, Geology, Physics, or Mathematics (per the A.Y. 2026/27 Course-Specific Requirements table).",
+    "curricular_assessment": "The admission committee evaluates the applicant's prior degree, transcript of records, and CV against the programme's minimum-knowledge/curricular requirements. Applicants whose background does not fully match may be assessed for adequacy of credits in relevant subject areas.",
+    "other_requirements": "Syllabus / course-description submission is listed as 'Optional' for this programme (not compulsory), and no portfolio is required. [uncertain]"
+  },
+  "country_specific_eligibility": "Turkish applicants hold a non-Italian qualification and are treated as non-EU. For admission/enrolment, the foreign Bachelor's degree must give access to second-cycle (Master's) studies in the issuing country and be recognised as comparable to an Italian first-cycle degree. Foreign qualifications require either a Declaration of Value (Dichiarazione di Valore) issued by the competent Italian Embassy/Consulate OR a CIMEA Statement of Comparability/Verification. [uncertain]",
+  "minimum_background_or_credits": "No single explicit minimum-ECTS threshold is published per programme on the public pages; eligibility is assessed against the recommended background (Any field of Engineering, Geology, Physics, Mathematics) and the programme's curricular requirements during evaluation. [uncertain]",
+  "language_requirements": {
+    "english": "English at CEFR B2 level or higher is required for English-taught Master's programmes. The A.Y. 2026/27 Course-Specific Requirements table states a minimum of IELTS 5.5 (or equivalent) for this programme. Other accepted certificates (TOEFL, TOEIC, Cambridge English, etc.) are listed in PoliTo's official language certificates table.",
+    "italian": "Italian is NOT required for this programme, which is fully English-taught. (Italian B2 is required only for Italian-taught or partly-Italian programmes.)",
+    "exemptions": "Exemptions from the English requirement apply to holders of qualifications taught in English / from English-medium-of-instruction countries, per PoliTo's official rules. [uncertain]",
+    "minimum_scores": "IELTS 5.5 minimum (overall) per the Course-Specific Requirements table; equivalent scores in other accepted tests are mapped in PoliTo's certificate table."
+  },
+  "english_certificate_codes": "For TOEFL/TOEIC, applicants must indicate PoliTo institution code C285; for Cambridge English, provide the Candidate ID number.",
+  "language_submission_timing": "The English language certificate must be uploaded as a compulsory document within the application on Apply@polito by the relevant call deadline (13 Feb 2026 for the 1st call; 20 Apr 2026 for the 2nd call, for non-Italian-qualification applicants). [uncertain]",
+  "application_deadline_eu": {
+    "note": "EU applicants and applicants with an Italian qualification follow the Italian/EU master's admission calendar (Engineering Area) rather than the non-Italian-qualification calendar. Exact EU/Italian-qualification dates for this programme are published on the Engineering Area Master's admissions page and were not the focus of this research.",
+    "online_enrolment": "Online enrolment for the 1st semester closes 5 October 2026; 2nd-semester enrolment (EU / non-EU residing in Italy only) runs 13 November 2026 – 24 March 2027.",
+    "reference_page": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027"
+  },
+  "application_deadline_non_eu": {
+    "first_call": "Applications open 19 December 2025 and close 13 February 2026 at 2:00 p.m. (Italian time); admission results published around 15 April 2026. (Deadlines extended by 15 days under Decree DR 96/2026.)",
+    "second_call": "Applications open 18 March 2026 and close 20 April 2026 at 2:00 p.m. (Italian time); admission results published around 22 June 2026. (Deadlines extended by 15 days under Decree DR 96/2026.)",
+    "no_special_call_for_this_programme": "There is no separate special/International-Tracks call for this programme; the 24 Apr–18 May 2026 special call applies only to specific programmes (e.g. Nanotechnologies for ICTs / MNIS, Physics of Complex Systems International pathway).",
+    "enrolment": "Online enrolment for admitted students closes 5 October 2026; mandatory enrolment documents must be uploaded by 5 October 2026, with study-visa-related documentation accepted until 30 November 2026."
+  },
+  "universitaly_preenrolment_deadline": "Non-EU applicants residing abroad and requiring a visa must submit the visa pre-enrolment application via the UNIVERSITALY portal by 30 May 2026 (for 1st-call admissions) or by 15 July 2026 (for 2nd-call admissions). This is separate from, and required in addition to, the Apply@polito application.",
+  "application_fee": "€50.00 non-refundable application fee, paid online by credit card (VISA/MasterCard) via PagoPA.",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport (other IDs accepted only for EU nationals)",
+    "Residence permit (non-EU citizens residing in Italy only)",
+    "Curriculum Vitae (CV)",
+    "Bachelor's degree certificate, or provisional/expected-graduation document if not yet graduated",
+    "Official Transcript of Records",
+    "Syllabus / course descriptions (Optional for this programme)",
+    "English language certificate (IELTS 5.5 / B2 or above, or accepted equivalent)",
+    "Declaration of Value (Dichiarazione di Valore) OR CIMEA Statement of Comparability/Verification (required for enrolment with a foreign qualification)",
+    "Study (type-D) visa documentation for non-EU applicants residing abroad (at enrolment)"
+  ],
+  "document_translation_authentication": "Documents not in Italian, English, French or Spanish must be accompanied by an official translation bearing the stamp and original signature of an officially recognised translator; Italian translations must be certified by the Italian Embassy or sworn before a Court in Italy. For enrolment, the foreign Bachelor's degree requires a Declaration of Value (issued by the competent Italian Embassy/Consulate) OR a CIMEA Statement of Comparability/Verification. (CIMEA service interruptions are scheduled 17–27 April and 10–20 August.)",
+  "entry_exam_or_test": "No written entrance exam or admission test for this Master's programme. Admission is by evaluation of qualifications, CV, academic background, and language certificate against the programme's requirements (uncapped number of students). GRE is not required for this programme.",
+  "test_score_or_threshold": "No numeric admission-test threshold (no test). The binding minimum is the English language requirement: IELTS 5.5 / CEFR B2 or above. Curricular adequacy is judged by the admission committee. [uncertain]",
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/georesources-and-geoenergy-engineering",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/georesources-and-geoenergy-engineering/programme-curriculum",
+  "source_quotes": [
+    {
+      "quote": "Master's degree programme in Georesources and Geoenergy Engineering ... LM-35: ENVIRONMENTAL ENGINEERING ... Main Campus ... Uncapped number of students, evaluation of the admission requirements ... English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/georesources-and-geoenergy-engineering",
+      "supports_fields": ["program_name", "official_level_type", "teaching_language", "is_fully_english_programme", "degree_class", "campus", "admission_type", "admission_test_type"]
+    },
+    {
+      "quote": "GEORESOURCES AND GEOENERGY ENGINEERING English IELTS 5.5 Any field of Engineering, Geology, Phyisics, Mathematics Optional",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": ["teaching_language", "is_fully_english_programme", "language_requirements", "academic_requirements", "minimum_background_or_credits"]
+    },
+    {
+      "quote": "Field of Study | Master of Science program | Language of the program | Language requirement (minimum score) | Recommended background to apply | Syllabus / Portfolio/Summary | Other requirements",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": ["academic_requirements", "language_requirements", "required_documents"]
+    },
+    {
+      "quote": "By decree DR 96/2026, the deadlines for the admission procedures to the Master's degree programmes for the academic year 2026/2027, intended for students holding a foreign qualification, have been extended by 15 days. 1st call closing 13 February 2026, 2:00 p.m. (Italian time); 2nd call closing 20 April 2026, 2:00 p.m. (Italian time).",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_deadline_non_eu", "admission_call_round"]
+    },
+    {
+      "quote": "Non-EU applicants residing abroad must submit the pre-enrolment application via UNIVERSITALY by 30 May 2026 (1st call) / 15 July 2026 (2nd call). A €50 non-refundable application fee is paid online via credit card (PagoPA).",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["universitaly_preenrolment_deadline", "application_fee", "application_platform"]
+    },
+    {
+      "quote": "Compulsory documents: Passport; Curriculum Vitae; Bachelor's degree or provisional graduation document; Official Transcript of Records; English/Italian Language Certificate; Declaration of Value or Statement of Comparability from CIMEA. English level B2 or higher; for TOEFL/TOEIC indicate the code C285; for Cambridge provide the Candidate ID number.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["required_documents", "language_requirements", "english_certificate_codes", "document_translation_authentication"]
+    },
+    {
+      "quote": "Online enrolment for the 1st semester closes 5 October 2026; documents must be uploaded by 5 October 2026; 2nd-semester enrolment (EU and non-EU residing in Italy only) opens 13 November 2026 and closes 24 March 2027.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_deadline_non_eu", "application_deadline_eu"]
+    },
+    {
+      "quote": "The curriculum is organized into two tracks: GeoEnergy and Sustainable mining, with 12 free choice credits (elective courses) and a final thesis. All courses are shown with an English-language flag across both years.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/georesources-and-geoenergy-engineering/programme-curriculum",
+      "supports_fields": ["is_fully_english_programme", "has_complete_english_track", "teaching_language"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/georesources-and-geoenergy-engineering",
+    "https://www.polito.it/en/education/master-s-degree-programmes/georesources-and-geoenergy-engineering/programme-details",
+    "https://www.polito.it/en/education/master-s-degree-programmes/georesources-and-geoenergy-engineering/programme-curriculum",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees",
+    "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_GEORESOURCES%20AND%20GEOENERGY%20ENG_25_26.pdf"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "Fully-English status CONFIRMED TRUE: the official programme page lists the teaching language as 'English'; the A.Y. 2026/27 Course-Specific Requirements table lists 'GEORESOURCES AND GEOENERGY ENGINEERING English IELTS 5.5'; and the programme-curriculum page shows every course (both years, both tracks) with an English flag. is_fully_english_programme and has_complete_english_track are both TRUE; english_track_name is null (whole programme is in English, not a bilingual track).",
+    "Programme name: confirmed current official name 'Georesources and Geoenergy Engineering' (renamed from former 'Petroleum and Mining Engineering'). The former name was not displayed on the current pages checked.",
+    "Degree class LM-35 confirmed on the programme page (LM-35 Environmental Engineering).",
+    "Admission is by evaluation of qualifications (uncapped number of students) — there is NO written entrance test and GRE is NOT required for this programme (the Course-Specific Requirements table marks GRE 'optional but highly recommended' only for certain ICT/CS programmes, not this one).",
+    "The 'Optional' value in the Course-Specific Requirements row refers to the syllabus/course-description (Other requirements) column, not to a portfolio; interpreted as syllabus submission being optional. Flagged uncertain due to ambiguous column alignment in the PDF table.",
+    "Non-Italian-qualification deadlines (1st call 13 Feb 2026; 2nd call 20 Apr 2026) reflect the 15-day extension under Decree DR 96/2026. These are the dates relevant to Turkish (non-EU, non-Italian-qualification) applicants.",
+    "UNIVERSITALY visa pre-enrolment deadlines (30 May 2026 for 1st call; 15 July 2026 for 2nd call) are separate from and earlier than the enrolment deadline; applicants should re-confirm on UNIVERSITALY/PoliTo before relying on them.",
+    "No separate special/International-Tracks call exists for this programme; the 24 Apr–18 May 2026 special call is limited to specific programmes (Nanotechnologies for ICTs / MNIS, Physics of Complex Systems International pathway).",
+    "EU / Italian-qualification specific dates for this programme follow the Engineering Area Master's admission calendar and were not fully extracted (the research focused on the non-EU / non-Italian-qualification route for Turkish applicants); application_deadline_eu therefore carries the general enrolment dates plus a reference page.",
+    "Country-specific (Turkey) recognition details were applied from PoliTo's general non-Italian-qualification rules (Declaration of Value or CIMEA Statement); no Turkey-specific entry was published on the pages checked.",
+    "The official Academic Regulations PDF available at the time was for A.Y. 2025/26 (Academic Regulations_MA_GEORESOURCES AND GEOENERGY ENG_25_26.pdf); the 2026/27 regulations may not yet be published, but admission deadlines/requirements were taken from the 2026/27 admissions and Course-Specific Requirements sources."
+  ],
+  "uncertain": [
+    "academic_requirements.other_requirements",
+    "country_specific_eligibility",
+    "minimum_background_or_credits",
+    "language_requirements.exemptions",
+    "language_submission_timing",
+    "application_deadline_eu.reference_page",
+    "test_score_or_threshold"
+  ]
+}

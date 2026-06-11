@@ -1,0 +1,215 @@
+{
+  "program_name": "Electronic and Communications Engineering",
+  "level": "bachelor",
+  "official_level_type": "Bachelor's degree programme (Laurea, 1st cycle)",
+  "teaching_language": "English",
+  "is_fully_english_programme": true,
+  "has_complete_english_track": true,
+  "english_track_name": null,
+  "campus": "Torino main campus",
+  "degree_class": "L-8: Information Technology Engineering",
+  "double_degree_or_erasmus_mundus": null,
+  "official_program_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/electronic-and-communications-engineering",
+  "curriculum_page_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/electronic-and-communications-engineering/programme-curriculum",
+  "admission_type": "TIL",
+  "admission_test_type": "TIL-I (Test In Laib for Engineering); SAT General Test accepted as an alternative",
+  "applicant_route": [
+    "Italian qualification",
+    "EU and equivalent applicants (incl. holders of a foreign qualification)",
+    "Non-EU applicants residing in Italy",
+    "Non-EU applicants residing abroad and requiring a study visa (the route for Turkish applicants)"
+  ],
+  "admission_call_round": "Multiple TIL test sessions are scheduled across the cycle (the test calendar and registration windows are set out in the Engineering Call for Applications). Non-EU/visa applicants follow the dedicated 'Applicants with a non-Italian qualification' procedure and timeline. [uncertain]",
+  "special_call_flag": false,
+  "application_platform": "Apply@polito (https://didattica.polito.it/pls/portal30/sviluppo.pkg_apply.registrazione) for the application; UNIVERSITALY (https://www.universitaly.it/) for non-EU visa pre-enrolment",
+  "official_call_url": "https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+  "academic_requirements": {
+    "summary": "Capped-number Bachelor's programme. Applicants must hold a secondary-school diploma earned after at least 12 years of schooling (level 4 EQF) and pass the admission test (TIL-I) or submit a valid SAT score, in addition to meeting the English B2 language requirement.",
+    "prior_qualification": "Secondary-school diploma (level 4 EQF) earned after at least 12 years of school attendance.",
+    "merit_or_test": "Pass the TIL-I admission test, or submit an SAT score; submitting the minimum SAT score does not guarantee an offer of admission, only inclusion in the ranking list.",
+    "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification"
+  },
+  "country_specific_eligibility": "Applicants with a non-Italian qualification (such as Turkish applicants) must hold a qualification giving access to higher education in the issuing country, earned after at least 12 years of schooling. The qualification must be validated via a Statement of Comparability (Attestato di Comparabilità) issued by CIMEA and/or a Dichiarazione di Valore (Statement of Validity), together with official Italian or English translations. Where the home-country system requires a national admission test for university access, the related certificate may be required. Exact required attachments are listed in the Engineering Call for Applications and the 'Applicants with a non-Italian qualification' page. [uncertain]",
+  "minimum_background_or_credits": null,
+  "language_requirements": {
+    "required_level": "English Level B2 (CEFR) or above, required because the programme is taught entirely in English.",
+    "reference_certificate": "Minimum B2 corresponds to IELTS 5.5; PoliTo publishes a table of certificates accepted in substitution for IELTS 5.5.",
+    "accepted_certificates": [
+      "IELTS (reference threshold IELTS 5.5; other certificates accepted per the substitution table)",
+      "TOEFL / TOEIC (results shared with PoliTo via institution code C285)",
+      "Cambridge English certificates (share results with PoliTo and indicate the Candidate ID number)"
+    ],
+    "exemptions": "Specific exemptions/equivalences are defined in the official Call and the Language Centre (CLA) table. [uncertain]",
+    "deadline": "Language requirement must be met by Friday 22 May 2026 for non-EU applicants residing abroad and requiring a visa; by Monday 20 July 2026 for EU and equivalent applicants.",
+    "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification"
+  },
+  "english_certificate_codes": "TOEFL/TOEIC institution code: C285. For Cambridge certificates, share results with PoliTo and indicate the Candidate's ID number.",
+  "language_submission_timing": "The English certificate (B2 or above) must be uploaded when applying online on Apply@polito, and in any case by the language-requirement deadline (22 May 2026 for non-EU/visa applicants; 20 July 2026 for EU/equivalent applicants).",
+  "application_deadline_eu": {
+    "language_requirement_deadline": "Monday 20 July 2026 (EU and equivalent applicants).",
+    "enrolment_deadline": "Wednesday 30 September 2026 at 2.00 p.m. (online enrolment).",
+    "notes": "EU and equivalent applicants apply via Apply@polito and take the TIL or submit SAT; exact TIL test-session and application windows are set out in the Engineering Call for Applications.",
+    "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification"
+  },
+  "application_deadline_non_eu": {
+    "language_requirement_deadline": "Friday 22 May 2026 (non-EU applicants residing abroad and requiring a visa).",
+    "universitaly_preenrolment_deadline": "30 June 2026 (visa pre-enrolment via UNIVERSITALY).",
+    "enrolment_deadline": "Wednesday 30 September 2026 at 2.00 p.m. (online enrolment, after reserving a study place and meeting the language requirement).",
+    "document_check": "Documents are checked before 11 November 2026.",
+    "notes": "Exact Apply@polito application window and SAT submission deadline for non-EU/visa applicants are set out in the Engineering Call for Applications PDF (precise dates not legibly extractable). [uncertain]",
+    "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification"
+  },
+  "universitaly_preenrolment_deadline": "30 June 2026 (UNIVERSITALY visa pre-enrolment for non-EU applicants residing abroad and requiring a type-D study visa; separate from and earlier than the enrolment deadline).",
+  "required_documents": [
+    {
+      "document_name": "Passport (valid)",
+      "stage": "application",
+      "required_for": "non_eu",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "Secondary-school diploma (level 4 EQF) earned after at least 12 years of school attendance",
+      "stage": "application",
+      "required_for": "all",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "English language certificate (B2 or above)",
+      "stage": "application",
+      "required_for": "all",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "National admission-test certificate (where the home-country system requires one for university access)",
+      "stage": "application",
+      "required_for": "conditional",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "Dichiarazione di Valore (Statement of Validity) or Attestato di Comparabilità (Statement of Comparability) issued by CIMEA",
+      "stage": "enrolment/verification",
+      "required_for": "non_italian_qualification",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "Official Italian or English translation of the diploma (and transcript)",
+      "stage": "enrolment/verification",
+      "required_for": "non_italian_qualification",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "UNIVERSITALY pre-enrolment and type-D study visa documentation",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu_abroad",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    }
+  ],
+  "document_translation_authentication": "Foreign (e.g. Turkish) qualifications must be accompanied by a CIMEA Statement of Comparability (Attestato di Comparabilità) and/or a Dichiarazione di Valore (Statement of Validity), plus official Italian or English translations of the diploma and transcript. Final document validation is completed before 11 November 2026.",
+  "entry_exam_or_test": {
+    "test_name": "TIL-I (Test In Laib for Engineering), with SAT General Test accepted as an alternative",
+    "mandatory": true,
+    "mode": "In person for academic year 2026/27 ('All students will take the admission test for academic year 2026/27 in person').",
+    "format": "Adaptive computerised test: 42 questions in 1 hour 30 minutes, divided into Mathematics (16 questions), Reading Comprehension and Logical Reasoning (10), Physics (10) and Basic technical knowledge (6).",
+    "scoring": "+1 point per correct answer, -0.25 per incorrect answer, 0 for unanswered.",
+    "registration": "TIL registration opens 22 January 2026 for most sessions; full session calendar in the Engineering Call for Applications.",
+    "sat_alternative": "Applicants may submit SAT scores instead of taking the TIL, following the procedures and deadlines in the Call. Submitting the minimum SAT score does not guarantee admission, only inclusion in the ranking list. SAT is NOT valid for Architecture (not relevant to this Engineering programme).",
+    "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/admission-test"
+  },
+  "test_score_or_threshold": "Ranking-based selection on a capped number of places; admission depends on the TIL score (or SAT score) and resulting ranking position. The specific minimum SAT scores and TIL ranking thresholds are defined in the Engineering Call for Applications PDF and were not legibly extractable. [uncertain]",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees",
+  "application_fee": "Not stated on the reviewed official PoliTo pages; any application/test fee is specified in the Engineering Call for Applications. [uncertain]",
+  "academic_year": "2026/2027",
+  "source_quotes": [
+    {
+      "quote": "all courses are given in English, the official language of ICT",
+      "source_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/electronic-and-communications-engineering",
+      "supports_fields": ["teaching_language", "is_fully_english_programme", "has_complete_english_track"]
+    },
+    {
+      "quote": "Every course listed across all three years displays the English flag, indicating full English instruction.",
+      "source_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/electronic-and-communications-engineering/programme-curriculum",
+      "supports_fields": ["has_complete_english_track", "is_fully_english_programme"]
+    },
+    {
+      "quote": "L-8: INFORMATION TECHNOLOGY ENGINEERING",
+      "source_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/electronic-and-communications-engineering",
+      "supports_fields": ["degree_class"]
+    },
+    {
+      "quote": "Passing the TIL admission test or submitting a SAT score (SAT is NOT VALID for Architecture).",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["admission_type", "admission_test_type", "entry_exam_or_test"]
+    },
+    {
+      "quote": "English Level B2 or above",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["language_requirements"]
+    },
+    {
+      "quote": "For TOEFL/TOEIC certificates, applicants must indicate the code C285.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["english_certificate_codes", "language_requirements"]
+    },
+    {
+      "quote": "Friday 22nd May 2026 for non-EU applicants residing abroad and requiring visa; Monday 20th July 2026 for EU applicants and Equivalent applicants.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["language_requirements", "application_deadline_eu", "application_deadline_non_eu"]
+    },
+    {
+      "quote": "You must submit your application by 30th June 2026.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["universitaly_preenrolment_deadline", "application_deadline_non_eu"]
+    },
+    {
+      "quote": "must enrol online by Wednesday 30th September 2026 at 2.00 p.m.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_deadline_eu", "application_deadline_non_eu"]
+    },
+    {
+      "quote": "Secondary school diploma (level 4 EQF) earned after at least 12 years of school attendance",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["academic_requirements", "required_documents"]
+    },
+    {
+      "quote": "All students will take the admission test for academic year 2026/27 in person.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/admission-test",
+      "supports_fields": ["entry_exam_or_test"]
+    },
+    {
+      "quote": "1 hour and a half to answer 42 questions",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/admission-test",
+      "supports_fields": ["entry_exam_or_test"]
+    },
+    {
+      "quote": "Enrolment Regulations for Bachelor's Degree Programmes for academic year 2026/27 ... issued by Rector's Decree no. 382/2026 del 10/04/2026.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/calls-for-application-regulations-and-ranking-lists/calls-regulations-26-27",
+      "supports_fields": ["official_call_url", "academic_year", "source_year"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/bachelor-s-degree-programmes/electronic-and-communications-engineering",
+    "https://www.polito.it/en/education/bachelor-s-degree-programmes/electronic-and-communications-engineering/programme-curriculum",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/admission-test",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/calls-for-application-regulations-and-ranking-lists/calls-regulations-26-27",
+    "https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "Fully-English status CONFIRMED: the programme page states 'all courses are given in English' and the curriculum page shows every course across all three years carries the English flag (only optional Year-3 internship 'Tirocinio' appears with the Italian flag, which is an elective component). is_fully_english_programme = true, has_complete_english_track = true.",
+    "2026/27 cycle is published (Enrolment Regulations issued by Rector's Decree no. 382/2026 of 10/04/2026), so this record uses 2026/2027.",
+    "Exact TIL-I test session dates, application windows, and the SAT minimum scores (Math / EBRW) and TIL ranking thresholds are contained in the Engineering Call for Applications PDF, which was largely compressed/not legibly extractable; these are marked uncertain. Confirm directly in the PDF: https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+    "Any application/test fee was not stated on the reviewed HTML pages and is marked uncertain; verify in the Call PDF.",
+    "Full list of accepted English certificates with per-certificate minimum scores (beyond the IELTS 5.5 reference, C285 TOEFL/TOEIC code, and Cambridge sharing instructions) is published in the PoliTo / Language Centre (CLA) substitution table; exact per-certificate scores not fully enumerated here.",
+    "Degree class read as L-8 (Information Technology Engineering) from the programme page; consistent with an Electronic/Communications ICT bachelor."
+  ],
+  "uncertain": [
+    "admission_call_round",
+    "country_specific_eligibility",
+    "test_score_or_threshold",
+    "application_fee",
+    "application_deadline_non_eu"
+  ]
+}

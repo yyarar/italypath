@@ -1,0 +1,145 @@
+{
+  "program_name": "Animal Care",
+  "level": "bachelor",
+  "teaching_language": "English",
+  "campus": "Legnaro (Padua), Italy",
+  "degree_class": "L-38 R",
+  "admission_type": "restricted access",
+  "academic_requirements": {
+    "summary": "Applicants need an upper secondary school diploma or equivalent foreign qualification with at least 12 years of schooling and must pass the programme's restricted-access selection.",
+    "prior_degree_or_diploma": "Upper secondary school diploma (or equivalent) with at least 12 years of schooling, suitable for access to higher education, to be obtained by July 31, 2026.",
+    "subject_requirements": "Selection is based on the CEnT-S test sections in mathematics, reasoning on texts and data, physics, chemistry, and biology, followed by an online interview focused on animal biology.",
+    "gpa_or_country_requirements": "No GPA threshold is stated. Applicants with foreign qualifications must also satisfy the University of Padua country-specific entry-title requirements.",
+    "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_EU%20and%20equated%20students_foreign%20qualification.docx_0.pdf"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent, to be achieved by July 31, 2026.",
+    "accepted_proofs": [
+      "TOEFL iBT with minimum score 80",
+      "IELTS Academic or General Training with minimum score 6.0",
+      "Cambridge English B2 First with minimum score 173",
+      "Trinity ISE II",
+      "Oxford Test of English with minimum score 126",
+      "Pearson PTE Academic with minimum score 65",
+      "Other certificates listed on the official University of Padua language requirement page for English-taught programmes"
+    ],
+    "exemption_rules": [
+      "Applicants are exempt if their previous education used as the entry title was completed entirely in English.",
+      "Applicants are exempt if they are native English speakers from one of the countries listed by the University of Padua on the official language requirement page."
+    ],
+    "deadline": "July 31, 2026 for this limited-access programme.",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "10 March 2026 - 10 April 2026",
+    "call_two": "12 May 2026 - 12 June 2026",
+    "call_three": "",
+    "notes": "Call two is a second selection only if places remain unfilled after the first ranking. This call applies to EU and EU-equated candidates with a foreign qualification; non-EU candidates residing in Italy also follow the EU/EU-equated route when applicable.",
+    "source_url": "https://www.unipd.it/ammissioni-animal-care"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "7 January 2026 - 7 March 2026",
+    "call_two": "",
+    "call_three": "",
+    "notes": "This call is for non-EU candidates residing abroad. Application submission closes at 11:59 pm local time (GMT+1) on March 7, 2026.",
+    "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_non-EU%20students%20re.docx_0.pdf"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid identity document or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU and EU-equated candidates may use a valid identity document or passport; non-EU abroad candidates are asked for a valid passport.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_EU%20and%20equated%20students_foreign%20qualification.docx_0.pdf"
+    },
+    {
+      "document_name": "Proof of CEnT-S registration and test results",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Upload proof of registration plus provisional and normalised CEnT-S results; if not yet available at application stage, upload them as soon as released in the CISIA reserved area.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_EU%20and%20equated%20students_foreign%20qualification.docx_0.pdf"
+    },
+    {
+      "document_name": "Transcript of records and upper secondary school diploma",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Upload the transcript and, if already obtained, the upper secondary diploma with at least 12 years of schooling.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_EU%20and%20equated%20students_foreign%20qualification.docx_0.pdf"
+    },
+    {
+      "document_name": "Official translations into Italian or English",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required if educational documents are issued in a language other than Italian or English.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_EU%20and%20equated%20students_foreign%20qualification.docx_0.pdf"
+    },
+    {
+      "document_name": "English language proficiency certificate",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Upload if already obtained; otherwise it must be achieved and submitted by July 31, 2026. Exemption documentation can be used where allowed by the university language rules.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_EU%20and%20equated%20students_foreign%20qualification.docx_0.pdf"
+    },
+    {
+      "document_name": "Curriculum Vitae",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required as part of the online application.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_EU%20and%20equated%20students_foreign%20qualification.docx_0.pdf"
+    },
+    {
+      "document_name": "Legalised diploma or Apostille or CIMEA Statement of Verification",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "By October 31, 2026 admitted candidates must submit one of these forms of diploma verification. A CIMEA Statement of Comparability may also be requested if needed.",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_EU%20and%20equated%20students_foreign%20qualification.docx_0.pdf"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "CEnT-S by CISIA plus online interview",
+    "mandatory": true,
+    "applies_to": "All applicants; the same selection model is used for EU/EU-equated and non-EU abroad calls, with different application windows.",
+    "dates": "Valid CEnT-S dates: 27 November 2025, 16 December 2025, 15 January 2026 (resit 20 January 2026), 19 February 2026, 26 February 2026, 12 March 2026 (resit 19 March 2026). The interview schedule is communicated by email to eligible candidates.",
+    "scoring_or_threshold": "Candidates must obtain a normalised weighted CEnT-S score of at least 20 to access the interview and at least 30/120 in the online interview. Ranking is based on the sum of the CEnT-S and interview scores.",
+    "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_EU%20and%20equated%20students_foreign%20qualification.docx_0.pdf"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/animal-care",
+  "official_call_url": "https://www.unipd.it/ammissioni-animal-care",
+  "source_quotes": [
+    {
+      "quote": "Access 45",
+      "source_url": "https://www.unipd.it/en/animal-care",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Application period: 10 March 2026 - 10 April 2026",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_EU%20and%20equated%20students_foreign%20qualification.docx_0.pdf",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "Application period: 7 January 2026 - 7 March 2026",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_non-EU%20students%20re.docx_0.pdf",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "English language: B2 level (CEFR)",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_EU%20and%20equated%20students_foreign%20qualification.docx_0.pdf",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "CEnT-S test",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_EU%20and%20equated%20students_foreign%20qualification.docx_0.pdf",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "Online interview",
+      "source_url": "https://wwwassets.unipd.it/sites/default/files/pdf_imported_files/Animal%20Care_EU%20and%20equated%20students_foreign%20qualification.docx_0.pdf",
+      "field_supported": "entry_exam_or_test"
+    }
+  ],
+  "uncertainty_notes": [
+    "The University of Padua states that English translations of admission documents are provided for information; where disputes arise, the Italian version has legal validity."
+  ],
+  "uncertain": []
+}

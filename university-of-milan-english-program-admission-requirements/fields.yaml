@@ -1,0 +1,228 @@
+field_categories:
+  - category: "identity"
+    fields:
+      - name: "program_name"
+        description: "Official English programme name as shown on UniMi."
+        detail_level: "brief"
+        required: true
+      - name: "level"
+        description: "Programme level: bachelor, master, single-cycle, or other."
+        detail_level: "brief"
+        required: true
+      - name: "academic_year"
+        description: "Admission or course catalogue year used, preferably A.Y. 2026/2027."
+        detail_level: "brief"
+        required: true
+      - name: "teaching_language"
+        description: "Literal official teaching language."
+        detail_level: "moderate"
+        required: true
+      - name: "campus"
+        description: "Course location/campus as stated by UniMi."
+        detail_level: "brief"
+        required: false
+      - name: "degree_class"
+        description: "Italian degree class code and label if visible."
+        detail_level: "brief"
+        required: false
+  - category: "admission"
+    fields:
+      - name: "admission_type"
+        description: "Access model using official wording and normalized category when supported."
+        detail_level: "moderate"
+        required: true
+      - name: "academic_requirements"
+        description: "Prior qualification, curricular requirements, background requirements, and assessment route."
+        detail_level: "detailed"
+        required: true
+      - name: "language_requirements"
+        description: "English/Italian CEFR requirements, certificates, SLAM rules, exemptions, and upload timing."
+        detail_level: "detailed"
+        required: true
+      - name: "application_deadline_eu"
+        description: "EU/Equivalent applicant deadline or admission window."
+        detail_level: "moderate"
+        required: false
+      - name: "application_deadline_non_eu"
+        description: "Non-EU/visa applicant deadline or admission window."
+        detail_level: "moderate"
+        required: false
+      - name: "required_documents"
+        description: "Documents requested for application, selection, enrolment, or visa-relevant procedures."
+        detail_level: "detailed"
+        required: true
+      - name: "entry_exam_or_test"
+        description: "Admission test/interview/TOLC/SAT/IMAT/selection exam details."
+        detail_level: "detailed"
+        required: false
+      - name: "tuition_or_fees_link"
+        description: "Official UniMi tuition/fees page or programme-specific fee source."
+        detail_level: "brief"
+        required: false
+  - category: "provenance"
+    fields:
+      - name: "official_program_url"
+        description: "Official UniMi programme page used as the primary source."
+        detail_level: "brief"
+        required: true
+      - name: "official_call_url"
+        description: "Official call/admission notice/manifesto PDF URL."
+        detail_level: "brief"
+        required: false
+      - name: "source_quotes"
+        description: "Evidence snippets backing extracted fields."
+        detail_level: "detailed"
+        required: true
+      - name: "uncertainty_notes"
+        description: "Ambiguities, missing 2026/2027 data, curriculum-only English scope, or EU/non-EU deadline uncertainty."
+        detail_level: "moderate"
+        required: true
+      - name: "uncertain"
+        description: "Field names that are uncertain or inferred."
+        detail_level: "brief"
+        required: true
+field_groups:
+  identity:
+    description: "Programme identity and source anchors."
+    fields:
+      program_name:
+        type: "string"
+        detail_level: "brief"
+        required: true
+        description: "Official English programme name as shown on UniMi."
+      level:
+        type: "enum"
+        allowed_values: ["bachelor", "master", "single-cycle", "other"]
+        detail_level: "brief"
+        required: true
+        description: "Programme level, mapped from UniMi's Bachelor, Master programme, or Single-cycle master labels."
+      academic_year:
+        type: "string"
+        detail_level: "brief"
+        required: true
+        description: "Admission or course catalogue year used, preferably A.Y. 2026/2027."
+      teaching_language:
+        type: "string"
+        detail_level: "moderate"
+        required: true
+        description: "Literal official teaching language, including Italian/English mixed curricula where applicable."
+      campus:
+        type: "string"
+        detail_level: "brief"
+        required: false
+        description: "Course location/campus as stated by UniMi."
+      degree_class:
+        type: "string"
+        detail_level: "brief"
+        required: false
+        description: "Italian degree class code and label if visible, e.g. LM-62 R."
+  admission:
+    description: "Admission route, eligibility, requirements, deadlines, and tests."
+    fields:
+      admission_type:
+        type: "enum_or_string"
+        allowed_values_hint: ["open access", "restricted access", "TOLC", "SAT", "selection call", "other"]
+        detail_level: "moderate"
+        required: true
+        description: "Access model, using official wording and a normalized category only when supported."
+      academic_requirements:
+        type: "string"
+        detail_level: "detailed"
+        required: true
+        description: "Prior qualification, curricular requirements, credit/background requirements, minimum GPA/score rules, and assessment route."
+      language_requirements:
+        type: "string"
+        detail_level: "detailed"
+        required: true
+        description: "English/Italian CEFR requirements, certificates, SLAM assessment rules, exemptions, and upload timing."
+      application_deadline_eu:
+        type: "string"
+        detail_level: "moderate"
+        required: false
+        description: "EU/Equivalent applicant deadline or admission window; use null if not separately published."
+      application_deadline_non_eu:
+        type: "string"
+        detail_level: "moderate"
+        required: false
+        description: "Non-EU/visa applicant deadline or admission window; prioritize Turkish applicant relevance."
+      required_documents:
+        type: "array<string>"
+        detail_level: "detailed"
+        required: true
+        description: "Documents requested for application, selection, enrolment, or visa-relevant UniMi procedures."
+      entry_exam_or_test:
+        type: "string"
+        detail_level: "detailed"
+        required: false
+        description: "Admission test/interview/TOLC/SAT/IMAT/selection exam details, including mode, threshold, timing, and alternatives."
+      tuition_or_fees_link:
+        type: "url"
+        detail_level: "brief"
+        required: false
+        description: "Official UniMi tuition/fees page or programme-specific fee source."
+  provenance:
+    description: "Official source tracking and uncertainty handling."
+    fields:
+      official_program_url:
+        type: "url"
+        detail_level: "brief"
+        required: true
+        description: "Official UniMi programme page used as the primary source."
+      official_call_url:
+        type: "url_or_null"
+        detail_level: "brief"
+        required: false
+        description: "Official call/admission notice/manifesto PDF URL, preferably under unimi.it or apps.unimi.it."
+      source_quotes:
+        type: "array<object>"
+        detail_level: "detailed"
+        required: true
+        description: "Evidence snippets backing extracted fields. Keep quotes short and tied to fields."
+        item_schema:
+          quote:
+            type: "string"
+            description: "Short official source excerpt."
+          url:
+            type: "url"
+            description: "Exact official URL where the quote appears."
+          field_refs:
+            type: "array<string>"
+            description: "Fields supported by this quote."
+          retrieved_at:
+            type: "date"
+            description: "Date the source was checked."
+      uncertainty_notes:
+        type: "array<string>"
+        detail_level: "moderate"
+        required: true
+        description: "Ambiguities, missing 2026/2027 data, curriculum-only English scope, or EU/non-EU deadline uncertainty."
+      uncertain:
+        type: "array<string>"
+        detail_level: "brief"
+        required: true
+        description: "Reserved field listing field names that are uncertain or inferred."
+deep_research_output_schema:
+  program_name: null
+  level: null
+  academic_year: null
+  teaching_language: null
+  campus: null
+  degree_class: null
+  admission_type: null
+  academic_requirements: null
+  language_requirements: null
+  application_deadline_eu: null
+  application_deadline_non_eu: null
+  required_documents: []
+  entry_exam_or_test: null
+  tuition_or_fees_link: null
+  official_program_url: null
+  official_call_url: null
+  source_quotes: []
+  uncertainty_notes: []
+  uncertain: []
+normalization_notes:
+  - "Use 'single-cycle' for International Medical School (IMS), not master."
+  - "For Italian, English programmes, do not mark as fully English unless the programme page states the English curriculum is complete."
+  - "For deadlines, distinguish application submission, ranking, enrolment, language certificate upload, and Universitaly pre-enrolment when the official source separates them."
+  - "For non-EU fields, prioritize non-EU applicants residing abroad and requiring a visa."

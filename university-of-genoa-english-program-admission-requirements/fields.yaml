@@ -1,0 +1,102 @@
+# Field definitions for the deep-research phase.
+# Each programme (item in outline.yaml) must be researched into one JSON object
+# carrying the fields below. Use ONLY official University of Genoa sources.
+# Leave a field empty ("") and add a note in uncertainty_notes rather than
+# guessing when official information cannot be confirmed.
+#
+# Structure: field_categories is a LIST of { category, description, fields: [...] }
+# so it validates directly with ~/.claude/skills/research/validate_json.py.
+
+field_categories:
+
+  - category: identity
+    description: "What the programme is and where it sits."
+    fields:
+      - name: program_name
+        required: true
+        description: "Exact official programme name as published by UniGe."
+        detail_level: brief
+      - name: level
+        required: true
+        description: "One of: bachelor | master | single-cycle | other."
+        detail_level: brief
+      - name: teaching_language
+        required: true
+        description: "Language of instruction (e.g. English; English and Italian). State explicitly; this confirms in-scope status."
+        detail_level: brief
+      - name: campus
+        required: true
+        description: "City / campus where the programme is delivered (e.g. Genoa, Imperia, La Spezia, Savona)."
+        detail_level: brief
+      - name: degree_class
+        required: true
+        description: "Italian degree class code if published (e.g. L-8, LM-32). Leave empty if not stated."
+        detail_level: brief
+
+  - category: admission
+    description: "How a student gets in."
+    fields:
+      - name: admission_type
+        required: true
+        description: "One of: open access | restricted access | TOLC | SAT | selection call | other. Capture the actual access mechanism."
+        detail_level: moderate
+      - name: academic_requirements
+        required: true
+        description: "Required prior qualifications, minimum CGPA/grade thresholds, required prior credits (CFU) or subject background."
+        detail_level: detailed
+      - name: language_requirements
+        required: true
+        description: "Required English level (e.g. B2) and accepted proofs (IELTS/TOEFL scores, English-medium instruction certificate, exemptions)."
+        detail_level: detailed
+      - name: entry_exam_or_test
+        required: true
+        description: "Any required test/exam (TOLC-I, English TOLC, IMAT, departmental test, interview) with thresholds if stated."
+        detail_level: moderate
+
+  - category: deadlines
+    description: "When to apply. Prioritise A.Y. 2026/2027."
+    fields:
+      - name: application_deadline_eu
+        required: true
+        description: "Application deadline(s) for EU / resident applicants. Note session (fall/spring) if applicable."
+        detail_level: moderate
+      - name: application_deadline_non_eu
+        required: true
+        description: "Application deadline(s) for non-EU applicants requiring a visa, including any programme-specific early closure."
+        detail_level: moderate
+
+  - category: documents_and_fees
+    description: "What to submit and what it costs."
+    fields:
+      - name: required_documents
+        required: true
+        description: "List of documents needed for the application/pre-evaluation (transcripts, degree, CV, motivation letter, declaration of value, etc.)."
+        detail_level: detailed
+      - name: tuition_or_fees_link
+        required: true
+        description: "Official URL to tuition / fees / ISEE information for the programme (link only; do not invent amounts)."
+        detail_level: brief
+
+  - category: sourcing
+    description: "Provenance and confidence."
+    fields:
+      - name: official_program_url
+        required: true
+        description: "Canonical official programme page (corsi.unige.it/en/corsi/<code> or equivalent)."
+        detail_level: brief
+      - name: official_call_url
+        required: true
+        description: "URL of the official admission call / Bando / UniGeApply selection page for this programme or its degree level."
+        detail_level: brief
+      - name: source_quotes
+        required: true
+        description: "Short verbatim quotes from official pages backing the key fields (especially requirements and deadlines), each with its source URL."
+        detail_level: detailed
+      - name: uncertainty_notes
+        required: true
+        description: "Anything unconfirmed, conflicting, or assumed: missing year, ambiguous teaching language, unresolved course code, etc."
+        detail_level: moderate
+
+# Reserved field, auto-filled during deep research to flag which fields per item
+# could not be confirmed from official sources.
+uncertain: []

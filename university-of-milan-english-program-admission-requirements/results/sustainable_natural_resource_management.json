@@ -1,0 +1,172 @@
+{
+  "program_name": "Sustainable natural resource management",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-73 R - Scienze e tecnologie forestali ed ambientali",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": "Applicants must hold, or obtain by 31 December 2026, a bachelor's degree in one of the listed Italian classes L-21 (Town, Regional and Environmental Planning), L-25 (Agricultural Science and Technology), or L-32 (Environmental Sciences), or a foreign qualification recognized as suitable by the Admission Board. Applicants from other degree classes may also apply if they have at least 30 CFU/ECTS in the subject areas listed by the programme: AGR/01, AGR/02, AGR/03, AGR/04, AGR/05, AGR/07, AGR/08, AGR/09, AGR/10, AGR/11, AGR/12, AGR/13, AGR/14, AGR/16, BIO/01, BIO/02, BIO/03, BIO/04, BIO/07, BIO/13, BIO/19, CHIM/01, CHIM/06, CHIM/12, GEO/02, GEO/04, GEO/05, ICAR/06, ICAR/15, ICAR/20, ICAR/21, IUS/03, IUS/09, IUS/14, and SECS-P/08. Admission requires case-by-case verification of curricular requirements and adequate personal preparation by a Commission/Admission Board. The Board checks coherence between the applicant's background and the three reference classes and basic-subject preparation. Personal preparation is considered adequate if the bachelor's final mark is higher than 77/110, or, for applicants who have not yet graduated, if the average exam mark is higher than 21/30.",
+  "language_requirements": "English at CEFR B2 or higher is required for admission. UniMi states that the requirement is verified by SLAM through one of these official routes: a valid B2-or-higher certificate recognized by the University and issued no more than three years before the application date, uploaded during the online application; an English level achieved in a University of Milan degree programme and certified by SLAM no more than four years before the application date, checked automatically; or the SLAM English entry test according to the official calendar. If the applicant does not upload a valid certificate or does not meet the required level, they will be directed to the SLAM test. If they fail the test or miss it without an accepted excuse, the official SLAM page for master's English requirements sets the certificate-submission deadline for this programme at 31 December 2026 via InformaStudenti. Separately, the 2026/2027 manifesto states that students who do not hold an Italian high school diploma or degree may choose the 3-ECTS Additional language skills: Italian activity by proving Italian at CEFR A2; this is a study-plan rule, not an admission condition.",
+  "application_deadline_eu": "[uncertain] EU and equivalent applicants: the official 2026/2027 programme page and the admission-notice deadline summary state an admission application window from 22 January 2026 to 30 October 2026. The manifesto states up to 31 October 2026, while article 3 of the same admission notice says applications will be accepted until 25 August 2026. This JSON uses 30 October 2026 as the working deadline because it matches the programme page and the notice summary. Enrolment for admitted applicants runs from 5 May 2026 to 15 January 2027. Applicants may apply before graduating, but the degree and entry requirements must be completed by 31 December 2026.",
+  "application_deadline_non_eu": "Non-EU applicants requiring a visa: admission application from 22 January 2026 to 30 April 2026. Universitaly pre-enrolment deadline: 31 July 2026. Enrolment window for admitted applicants: 5 May 2026 to 15 January 2027. Applicants with foreign qualifications must complete the official enrolment documentation by 30 November 2026.",
+  "required_documents": [
+    "If applying with an Italian qualification from a university other than UniMi: self-certification of degree or enrolment with exam records, including exams taken, grades, ECTS credits, and disciplinary scientific sectors; graduating students must also indicate exams already passed but not yet registered, exams still to be taken, and expected graduation date.",
+    "If using the certificate route for English: a valid English certificate at CEFR B2 or higher, recognized by UniMi and issued no more than three years before the application date, uploaded during the online application.",
+    "If applying with a foreign qualification at admission stage: bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "If applying with a foreign qualification at admission stage: diploma supplement or transcript of records including courses, marks, ECTS credits when available, academic field, and the grading system used by the university.",
+    "If applying with a foreign qualification at admission stage: passport or other valid identity document.",
+    "For final enrolment with a foreign qualification: legalized or apostilled bachelor's degree (or equivalent qualification), unless exempt from legalization or Hague Apostille.",
+    "For final enrolment with a foreign qualification: high school diploma.",
+    "For final enrolment with a foreign qualification: official Italian translation of the academic qualifications, unless the originals are in English, French, German, or Spanish.",
+    "For final enrolment with a foreign qualification: Statement of Comparability issued by an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore in loco (DOV); for Lisbon Recognition Convention countries, a Diploma Supplement or ARDI correspondence statement may replace the DOV and the Statement of Comparability.",
+    "For final enrolment with a foreign qualification: Italian tax code (codice fiscale).",
+    "For final enrolment as a non-EU student: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "No standard fixed entrance-exam date is published in the inspected 2026/2027 sources. Admission is officially open but subject to verification of curricular requirements and adequate personal preparation. The Admission Board may request an interview and/or a written test, either in person or remotely. Separately, applicants who do not already satisfy the English requirement through an accepted document or prior recognized SLAM assessment may be required to take the SLAM English entry test.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/sustainable-natural-resource-management",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-sustainable-natural-resource-management-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Access Open with entry requirements examination ... Course location Milan ... Language English.",
+      "url": "https://www.unimi.it/en/education/master-programme/sustainable-natural-resource-management",
+      "field_refs": [
+        "academic_year",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "LM-73 R - Scienze e tecnologie forestali ed ambientali",
+      "url": "https://www.unimi.it/en/education/master-programme/sustainable-natural-resource-management",
+      "field_refs": [
+        "degree_class"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "required to hold a Bachelor's degree in ... L-21 ... L-25 ... L-32",
+      "url": "https://snrm.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "other degree classes are also eligible, provided they have earned at least 30 credits (CFU)",
+      "url": "https://snrm.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "personal preparation is considered adequate if the mark obtained in the BSc is higher than 77/110 or 21/30",
+      "url": "https://snrm.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Proficiency in English at level B2 or higher ... required for admission.",
+      "url": "https://snrm.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "language certificate earned for no more than 3 years at the time of submission",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Sustainable natural resource management 31/12/2026",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Online admission application for EU candidates and equivalents from 22 January to 30 October 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-sustainable-natural-resource-management-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Applications will be accepted from 22 January to 25 August 2026, at the very latest.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-sustainable-natural-resource-management-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu",
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Non-EU students visa applicants are required to apply for admission no later than 30 April 2026.",
+      "url": "https://snrm.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "submit an application for pre-enrolment through Universitaly platform by 31 July 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-sustainable-natural-resource-management-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Self-certification of degree/enrolment with exam records",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-sustainable-natural-resource-management-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor’s Degree ... Diploma supplement ... Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-sustainable-natural-resource-management-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor’s degree ... legalized or apostilled ... High school diploma ... Statement of Comparability ... Italian tax code ... residence permit",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-sustainable-natural-resource-management-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Those who do not hold an Italian high school diploma or degree can obtain 3 credits in Additional language skills: Italian by demonstrating A2 level",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_GBDof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "application_deadline_eu is marked uncertain because the official 2026/2027 sources conflict internally: the programme page and the admission-notice summary state 22 January to 30 October 2026, the manifesto states up to 31 October 2026, and article 3 of the same admission notice says applications are accepted until 25 August 2026. The JSON uses 30 October 2026 because it matches the primary programme page and the notice summary.",
+    "No separate official calendar for any interview or written personal-preparation test was published in the inspected 2026/2027 programme page, application page, admission notice, or manifesto; the notice only states that the Admission Board may request an interview and/or a written test."
+  ],
+  "uncertain": [
+    "application_deadline_eu"
+  ]
+}

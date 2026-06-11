@@ -1,0 +1,181 @@
+{
+  "program_name": "Environmental Humanities",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Venice",
+  "degree_class": "LM-1 R (Cultural anthropology and ethnology)",
+  "admission_type": "restricted access",
+  "academic_requirements": {
+    "summary": "Limited-admission master's degree. Applicants need a three-year bachelor's degree or equivalent, must satisfy the curricular requirements, must meet the English-language requirement, and must participate in the selection procedure. Applicants with international qualifications must also complete the preliminary evaluation on apply.unive.it.",
+    "prior_degree_or_diploma": "A bachelor's degree, or an equivalent foreign qualification of at least three years that is valid for master's-level access.",
+    "subject_requirements": "Applicants with degrees in Cultural Heritage, Visual Arts/Music/Performing Arts/Fashion, Philosophy, Humanities, Modern Languages and Civilisations, Linguistic Mediation, Biology, Forest and Environmental Sciences, Environmental Sciences, Economics, or History generally satisfy the curricular requirements. Applicants from other fields must have at least 42 CFU/ECTS in designated areas such as ecology, anthropology, palaeontology, English language and literature, geography, pedagogy, psychology, economics, demography, political and social studies, and art/cinema/television history.",
+    "gpa_or_country_requirements": "No separate minimum CGPA threshold is stated on the current official admission pages. Foreign qualifications must still be valid for access to master's-level study and must pass Ca' Foscari's preliminary evaluation.",
+    "committee_or_pre_evaluation": "The Teaching Committee evaluates the undergraduate transcript and curriculum vitae. Admission is limited and also depends on the selection procedure regulated by the official 2026/2027 call. For international qualifications, the Welcome Unit first performs the preliminary evaluation on apply.unive.it.",
+    "source_url": "https://www.unive.it/web/en/13861/admission-and-enrolment"
+  },
+  "language_requirements": {
+    "required_level": "English at minimum B2 level.",
+    "accepted_proofs": [
+      "A recognised English-language certificate accepted by Ca' Foscari.",
+      "Examples on the official recognised-certifications list include Cambridge FCE/CAE/CPE, Trinity ISE II-IV, IELTS, TOEFL iBT, PTE Academic, Oxford Test of English, LanguageCert ESOL, Aptis ESOL, and Ca' Foscari CLA certificates."
+    ],
+    "exemption_rules": [
+      "Completed higher education studies, or at least one year of college, in a country where English is the medium of instruction.",
+      "Obtained a high-school diploma or university qualification from a study path taught entirely in English.",
+      "Completed at least one full secondary-school exchange year at an institution where English was the language of instruction.",
+      "Holds one of the specific language-degree qualifications listed by Ca' Foscari among the English-language exemption categories."
+    ],
+    "assessment_or_upload_stage": "Upload the recognised certificate or exemption evidence during the application/enrolment process. The programme page says applicants may apply without the certificate, but must provide valid proof to complete enrolment.",
+    "deadline": "By the enrolment deadline.",
+    "source_url": "https://www.unive.it/pag/40605/"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "round_name": "2026/2027 selection procedure for EU and equivalent applicants",
+        "application_window": "Registration for the admission selection is open from April 15, 2026 until noon on July 8, 2026.",
+        "results_publication": "[uncertain] The admission page does not expose the ranking publication date in accessible text; the official call regulates ranking and any reallocation of places.",
+        "deadline": "Successful candidates must accept their place by filling out the enrolment application by August 18, 2026.",
+        "notes": "The registration requires online submission of the required dossier and payment of a 35 EUR selection fee."
+      }
+    ],
+    "enrolment_deadline": "Successful candidates must accept their place by August 18, 2026.",
+    "notes": "The official selection call governs the detailed ranking and reallocation procedure. Applicants to second-year place assignment follow separate July and August 2026 windows published on the programme page.",
+    "source_url": "https://www.unive.it/web/en/13861/admission-and-enrolment"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "round_name": "2026/2027 visa-requiring admission rounds on apply.unive.it",
+        "application_window": "[uncertain] Ca' Foscari says 2026/2027 applications began on December 17, 2025, but the static public article does not display the detailed visa-round windows.",
+        "results_publication": "[uncertain] Master's applicants generally receive feedback about 8 weeks after the round in which they applied.",
+        "deadline": "As of June 5, 2026, the official apply.unive.it article states that visa-requiring non-EU applicants can no longer apply for 2026/2027.",
+        "notes": "The apply.unive.it course page says non-EU applicants undergo the selection procedure directly via the application portal."
+      }
+    ],
+    "visa_or_pre_enrolment_deadline": "Universitaly pre-enrolment for 2026/2027 must be submitted by September 30, 2026.",
+    "current_status": "Closed as of June 5, 2026 for non-EU applicants requiring a study visa.",
+    "notes": "The public visa-round article confirms closure status, but the static accessible text does not preserve the full round history.",
+    "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or, for European applicants, valid ID card",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "A renewal or first-request receipt is also accepted where officially stated.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Valid residence permit or renewal/first-request receipt",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required for non-European applicants already residing in Italy or in the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Transcript of Records for all undergraduate years",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "A provisional transcript is acceptable if the applicant is still completing the degree.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Official English or Italian translations of transcript and diploma documents",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required when the originals are not in English or Italian.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Curriculum vitae et studiorum in English",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "Explicitly required by the programme selection procedure for EU and equivalent applicants.",
+      "source_url": "https://www.unive.it/web/en/13861/admission-and-enrolment"
+    },
+    {
+      "document_name": "Cover letter or presentation letter in English (maximum 550 words) [uncertain]",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "The programme admission page requires a cover letter in English up to 550 words. The apply.unive.it course page describes a presentation letter and explicitly says it is not a motivation letter.",
+      "source_url": "https://www.unive.it/web/en/13861/admission-and-enrolment"
+    },
+    {
+      "document_name": "Motivation letter [uncertain]",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "The apply.unive.it course page also says a motivation letter must be added to the application, which conflicts with the programme-page wording that distinguishes the presentation letter from a motivation letter.",
+      "source_url": "https://apply.unive.it/courses/course/624-ma-environmental-humanities"
+    },
+    {
+      "document_name": "Recognised B2 English certificate or evidence of exemption",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Applicants may apply before obtaining the certificate, but they must satisfy the language requirement to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/12519/?L=1"
+    },
+    {
+      "document_name": "Bachelor's degree final diploma",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "If unavailable during application, the final diploma is needed later to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "CIMEA Statement of Comparability, or Declaration of Value, or ARDI Statement of Correspondence with CIMEA Statement of Verification, or Diploma Supplement",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "Ca' Foscari strongly recommends obtaining one of these qualification-recognition documents before application, and one accepted route is required to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/12519/?L=1"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Selection procedure based on dossier evaluation",
+    "mandatory": true,
+    "applies_to": "All applicants. EU and equivalent applicants follow the official programme call; non-EU visa applicants undergo the selection directly via apply.unive.it.",
+    "dates": "EU/equivalent registration runs from April 15, 2026 until noon on July 8, 2026. Successful candidates must accept their place by August 18, 2026.",
+    "scoring_or_threshold": "The programme is limited-admission and selection is based on the required dossier and the official call. The accessible programme page does not publish a numeric pass threshold.",
+    "source_url": "https://www.unive.it/web/en/13861/admission-and-enrolment"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/pag/50466",
+  "official_program_url": "https://www.unive.it/degree/lmr10",
+  "official_call_url": "https://www.unive.it/web/fileadmin/user_upload/cdlm_dal_2025/lmr10/documenti/bandi-regolamenti/2026-2027/Bando_LMR10_ENG_26_27.pdf",
+  "source_quotes": [
+    {
+      "quote": "Environmental Humanities",
+      "source_url": "https://www.unive.it/international-programmes",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Admission: Limited",
+      "source_url": "https://www.unive.it/degree/lmr10",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "minimum 42 CFU",
+      "source_url": "https://www.unive.it/web/en/13861/admission-and-enrolment",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "A minimum B2-level knowledge of English is mandatory",
+      "source_url": "https://apply.unive.it/courses/course/624-ma-environmental-humanities",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "April 15th until noon on July 8th, 2026",
+      "source_url": "https://www.unive.it/web/en/13861/admission-and-enrolment",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The programme's official sources use conflicting document labels. The programme admission page requires a cover letter in English, while the apply.unive.it course page refers to a presentation letter and separately asks for a motivation letter.",
+    "The public apply.unive.it visa-round article confirms closure status for 2026/2027 but does not expose the detailed visa-round windows in accessible static text.",
+    "The accessible programme page does not expose a ranking-publication date for the first-year selection procedure; applicants must rely on the official call for that detail."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "required_documents"
+  ]
+}

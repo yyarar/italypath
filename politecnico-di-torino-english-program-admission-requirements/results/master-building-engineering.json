@@ -1,0 +1,231 @@
+{
+  "program_name": "Building Engineering",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale / 2nd cycle)",
+  "teaching_language": "Italian, English",
+  "is_fully_english_programme": false,
+  "has_complete_english_track": true,
+  "english_track_name": "Green Building",
+  "campus": "Torino (Main Campus)",
+  "degree_class": "LM-24: Construction Engineering",
+  "double_degree_or_erasmus_mundus": null,
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering/programme-curriculum",
+  "admission_type": "evaluation/CV",
+  "admission_test_type": "Master-level evaluation of admission requirements based on prior qualifications, curricular background, and language documentation; no written entrance test is published for this programme.",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "Non-EU qualification with legal residence in Italy",
+    "Non-EU qualification while residing abroad and requiring a study visa"
+  ],
+  "admission_call_round": [
+    "1st call for applicants with a non-Italian qualification: 19 December 2025 to 13 February 2026, 2:00 p.m. Italian time; results 15 April 2026",
+    "2nd call for applicants with a non-Italian qualification: 18 March 2026 to 20 April 2026, 2:00 p.m. Italian time; results 22 June 2026",
+    "No separate programme-specific special call was found for Building Engineering; the 24 April 2026 to 18 May 2026 special call applies to specific international tracks in other programmes"
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito for the admission application; UNIVERSITALY for non-EU applicants residing abroad who need a study visa",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "qualification": "Applicants must hold a Bachelor's degree (EQF level 6) or an equivalent academic qualification awarded by an accredited university and giving access to second-cycle studies.",
+    "schooling_and_credits": "Applicants still enrolled in a foreign long-cycle degree may apply if they meet the minimum requirement of 15 years of global schooling, at least 3 years at university level, and at least 180 ECTS credits or equivalent.",
+    "programme_background": "The A.Y. 2026/2027 course-specific requirements PDF lists the recommended background for BUILDING ENGINEERING as Civil Engineering, Building Engineering, Architectural Engineering, or Architecture.",
+    "curricular_assessment": "Applicants must meet the specific curricular requirements and have academic performance considered suitable for admission; the Academic Committee verifies whether the previous university studies are adequate and consistent with the chosen programme."
+  },
+  "country_specific_eligibility": "Applicants with a Turkish qualification fall under the non-Italian qualification route. If they reside abroad, they must also complete UNIVERSITALY pre-enrolment for a study visa. For enrolment, PoliTo refers to a Declaration of Value, a Certificate of Comparability, or CIMEA documentation for foreign qualifications.",
+  "minimum_background_or_credits": "The public 2026/2027 sources explicitly state at least 180 ECTS credits or equivalent and recommend a background in Civil Engineering, Building Engineering, Architectural Engineering, or Architecture; no public subject-area CFU breakdown was found. [uncertain]",
+  "language_requirements": {
+    "english_track": "English-taught programmes require English level B2 or higher. The A.Y. 2026/2027 course-specific requirements PDF lists IELTS 5.5 for BUILDING ENGINEERING.",
+    "italian_track": "The Italian-language counterpart row for INGEGNERIA EDILE is listed as partially in Italian/partially in English and requires Italian B2 and IELTS 5.5.",
+    "accepted_certificates": "Accepted English and Italian certificates are listed in PoliTo's official certificate charts on the admissions page.",
+    "exemptions": "Standard PoliTo exemptions from the English-certificate requirement apply in the cases listed on the official admissions page, including certain English-medium qualifications and specified countries of education. [uncertain]"
+  },
+  "english_certificate_codes": "For TOEFL/TOEIC certificates, use institution code C285. For Cambridge certificates, share the result with Politecnico di Torino and provide the Candidate ID number.",
+  "language_submission_timing": "The language certificate must be uploaded within the Apply@polito application; if the status appears as PENDING after upload, PoliTo states that it will be verified during the evaluation process.",
+  "application_deadline_eu": {
+    "note": "For EU applicants with a non-Italian qualification, and for non-EU applicants already residing in Italy, the same Apply@polito admission calls apply without the separate study-visa pre-enrolment step.",
+    "first_call": "Applications open 19 December 2025 and close 13 February 2026 at 2:00 p.m. Italian time; results 15 April 2026.",
+    "second_call": "Applications open 18 March 2026 and close 20 April 2026 at 2:00 p.m. Italian time; results 22 June 2026.",
+    "enrolment": "Online enrolment for the 1st semester closes 5 October 2026. A 2nd-semester enrolment window is published only for EU applicants and non-EU applicants residing in Italy, from 13 November 2026 to 24 March 2027."
+  },
+  "application_deadline_non_eu": {
+    "first_call": "Applications open 19 December 2025 and close 13 February 2026 at 2:00 p.m. Italian time; results 15 April 2026.",
+    "second_call": "Applications open 18 March 2026 and close 20 April 2026 at 2:00 p.m. Italian time; results 22 June 2026.",
+    "enrolment": "Online enrolment for the 1st semester closes 5 October 2026; mandatory enrolment documents are due by 5 October 2026; study-visa-related documentation may be uploaded until 30 November 2026.",
+    "note": "This is the route relevant to non-EU applicants residing abroad and requiring a study visa."
+  },
+  "universitaly_preenrolment_deadline": "The dedicated 2026/2027 visa section says non-EU applicants residing abroad must submit UNIVERSITALY pre-enrolment by 30 May 2026 for the 1st call and 15 July 2026 for the 2nd call, but the deadlines table on the same page shows 15 May 2026 as the extended 1st-call study-visa deadline. [uncertain]",
+  "application_fee": "EUR 50.00 non-refundable application fee paid online by credit card via PagoPA.",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport (other IDs are accepted only for EU nationals)",
+    "Residence permit (only for non-EU citizens living in Italy)",
+    "Curriculum Vitae",
+    "Bachelor's degree certificate or an official university document stating the provisional graduation date",
+    "Official Transcript of Records",
+    "Syllabus / course descriptions (required for the English BUILDING ENGINEERING row in the 2026/2027 course-specific requirements PDF)",
+    "English and/or Italian language certificate, depending on the chosen track and language route",
+    "Declaration of Value, Certificate of Comparability, Diploma Supplement, or equivalent foreign-qualification documentation required for enrolment/recognition",
+    "Any additional visa documentation required through UNIVERSITALY and the Italian diplomatic authorities for non-EU applicants residing abroad"
+  ],
+  "document_translation_authentication": "Documents in Italian, English, French, or Spanish are accepted as such. Documents in other languages must be accompanied by the original document plus an official English or Italian translation in one file. For enrolment, translations into Italian must be certified by the Italian Embassy in the issuing country or sworn before an Italian court translator.",
+  "entry_exam_or_test": {
+    "type": "No written entrance exam is published for this Master's programme.",
+    "selection_method": "Admission is based on evaluation of qualifications, curricular background, academic performance, and language documentation by the Academic Committee.",
+    "programme_specific_note": "No GRE, portfolio, or interview requirement was published for the English BUILDING ENGINEERING row in the checked 2026/2027 course-specific requirements PDF."
+  },
+  "test_score_or_threshold": "No admission-test score threshold is published. The explicit programme-linked threshold found in the checked sources is IELTS 5.5 for the English BUILDING ENGINEERING track.",
+  "source_quotes": [
+    {
+      "quote": "Language: Italian, English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering",
+      "supports_fields": [
+        "teaching_language",
+        "is_fully_english_programme"
+      ]
+    },
+    {
+      "quote": "Uncapped number of students, evaluation of the admission requirements",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering",
+      "supports_fields": [
+        "admission_type",
+        "admission_test_type"
+      ]
+    },
+    {
+      "quote": "LM-24: CONSTRUCTION ENGINEERING",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering",
+      "supports_fields": [
+        "degree_class"
+      ]
+    },
+    {
+      "quote": "Main Campus",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering",
+      "supports_fields": [
+        "campus"
+      ]
+    },
+    {
+      "quote": "Green building ... The entire course catalogue is English-taught.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering/specialist-tracks",
+      "supports_fields": [
+        "has_complete_english_track",
+        "english_track_name"
+      ]
+    },
+    {
+      "quote": "Construction resilience ... The entire course catalogue is Italian-taught.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering/specialist-tracks",
+      "supports_fields": [
+        "is_fully_english_programme",
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "Green Building ... Thesis ... English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering/programme-curriculum",
+      "supports_fields": [
+        "has_complete_english_track",
+        "curriculum_page_url"
+      ]
+    },
+    {
+      "quote": "BUILDING ENGINEERING English IELTS 5.5 Civil Engineering, Building Engineering, Architectural Engineering, Architecture Required",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": [
+        "language_requirements",
+        "academic_requirements",
+        "minimum_background_or_credits",
+        "required_documents"
+      ]
+    },
+    {
+      "quote": "INGEGNERIA EDILE partially in Italian/ partially in English Italian B2 and IELTS 5.5",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": [
+        "teaching_language",
+        "language_requirements",
+        "is_fully_english_programme"
+      ]
+    },
+    {
+      "quote": "have a Bachelor's degree (level 6 EQF) ... at least 180 ECTS credits or equivalent",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "academic_requirements",
+        "minimum_background_or_credits"
+      ]
+    },
+    {
+      "quote": "English-taught programmes English level B2 or higher",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "language_requirements"
+      ]
+    },
+    {
+      "quote": "For TOEFL/TOEIC certificates, you must indicate the code C285",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "english_certificate_codes"
+      ]
+    },
+    {
+      "quote": "Closing ... 13 February 2026, 2:00 p.m. (Italian time) ... postponed to 20 April 2026, 2:00 p.m. (Italian time)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_deadline_eu",
+        "application_deadline_non_eu",
+        "admission_call_round"
+      ]
+    },
+    {
+      "quote": "You must submit your application by: May 30, 2026 ... July 15, 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "universitaly_preenrolment_deadline"
+      ]
+    },
+    {
+      "quote": "Pay the non-refundable application fee (€50) online by credit card",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_fee"
+      ]
+    },
+    {
+      "quote": "Please upload the documents listed below: Passport ... Curriculum Vitae ... Official Transcript of Records",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "required_documents"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering",
+    "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering/programme-details",
+    "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering/specialist-tracks",
+    "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering/programme-curriculum",
+    "https://didattica.polito.it/pls/portal30/sviluppo.offerta_formativa_2019.vis?p_cds=548&p_coorte=2027&p_sdu=32",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "The programme is bilingual at catalogue level, so is_fully_english_programme is false. The specialist-tracks page explicitly identifies Green Building as English-taught and Construction resilience as Italian-taught.",
+    "has_complete_english_track is set to true because the specialist-tracks page states that the Green Building track's entire course catalogue is English-taught, and the curriculum page shows the Green Building track across the two-year plan.",
+    "The public curriculum page groups Year 2 Green Building courses under 'Building Engineering Courses' and 'Elective courses'; the didattica full-curriculum page was checked to confirm that Year 2 course titles for the English track are presented in English.",
+    "The first-call UNIVERSITALY deadline is conflicting on the same official admissions page: the deadlines table shows 15 May 2026, while the dedicated visa section states 30 May 2026. The field universitaly_preenrolment_deadline is therefore marked [uncertain].",
+    "No public programme-specific subject-area CFU breakdown was found for Building Engineering; the checked sources publish only the general 180 ECTS rule and the recommended degree backgrounds."
+  ],
+  "uncertain": [
+    "minimum_background_or_credits",
+    "language_requirements.exemptions",
+    "universitaly_preenrolment_deadline"
+  ]
+}

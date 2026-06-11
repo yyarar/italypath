@@ -1,0 +1,294 @@
+{
+  "program_name": "Cosmetic Industrial Science",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan (Citta Studi Campus)",
+  "degree_class": "LM-71 R - Sciences and technologies of industrial chemistry",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": "Applicants need a bachelor's degree or equivalent recognized for admission and must satisfy the entry requirements no later than 31 December 2026. The 2026/2027 sources state 180 credits are required for admission. Directly eligible Italian degree classes are L-27 Chemical Sciences and Technologies and L-29 Pharmaceutical Sciences and Technologies, including the corresponding classes under DM 509/99. Applicants from other degree classes, as well as holders of master's, specialist, or four-year degrees admitted by the competent boards, must have at least 35 ECTS across mathematics, physics, chemistry, and biology, with at least 25 ECTS in chemistry and biology and at least 15 ECTS in chemistry. Degrees obtained abroad may be accepted if recognized as corresponding to the relevant Italian degrees. The Admission Committee verifies curricular requirements and personal preparation; for foreign qualifications it evaluates the diploma supplement and may request an interview for clarification.",
+  "language_requirements": "English proficiency at CEFR B2 or higher is required for admission. UniMi states that this can be proven by: a UniMi-accepted English certificate at B2 or above, earned no more than 3 years before submission (2 years for TOEFL) and uploaded during the admission procedure; a SLAM-certified English level obtained during a University of Milan degree programme no more than 4 years before the application date, checked automatically; or the SLAM English entry test. On the CosmIS application page, applicants without a valid certificate are directed to the SLAM entry test. The inspected SLAM 2026/2027 deadline table lists Cosmetic Industrial Science with a final deadline of 31 December 2026 to submit a certificate if the SLAM test is failed or missed without justification.",
+  "application_deadline_eu": "EU candidates and equivalents: online admission application from 22 January 2026 to 25 August 2026.",
+  "application_deadline_non_eu": "Non-EU candidates applying for a visa: online admission application from 22 January 2026 to 30 April 2026; Universitaly pre-enrolment application by 31 July 2026.",
+  "required_documents": [
+    "For applicants with an Italian qualification: self-certification of degree or enrolment with exam records; for graduates or graduating students from other Italian universities, this must include exams taken, grades, ECTS credits, and disciplinary scientific sectors.",
+    "For graduating applicants with an Italian qualification: details of exams already passed but not yet registered, exams not yet taken, and the expected graduation date.",
+    "For applicants with a foreign qualification at admission stage: bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with a foreign qualification at admission stage: diploma supplement or transcript including courses, marks, ECTS, academic field, and the grading system used.",
+    "For applicants with a foreign qualification at admission stage: passport or other valid ID.",
+    "If English is proven by certificate: a UniMi-accepted English certificate at B2 or higher, uploaded during the admission procedure and still valid under UniMi rules.",
+    "For final enrolment with foreign qualifications on apply.unimi.it: legalized or apostilled bachelor's degree (or equivalent), unless exempt from legalization/apostille.",
+    "For final enrolment with foreign qualifications: high school diploma.",
+    "For final enrolment with foreign qualifications: official Italian translation of the academic qualifications, unless the originals are in French, English, German, or Spanish.",
+    "For final enrolment with foreign qualifications: Statement of Comparability from an ENIC-NARIC center such as CIMEA, or a Dichiarazione di Valore; for eligible Lisbon Convention cases, a Diploma Supplement or ARDI correspondence statement may replace these as stated by UniMi.",
+    "For final enrolment with foreign qualifications: Italian tax code (codice fiscale).",
+    "For non-EU citizens at final enrolment: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "A compulsory admission test applies to all applicants, including transfer students from other universities or programmes. The 2026/2027 course page states two sessions: 12 May 2026 and 9 September 2026; non-EU candidates applying for a student visa may sit only the first session on 12 May 2026. The test may be taken only once. Admission requires a score above the committee threshold, defined on the course page as at least 50% correct answers; borderline results between 45% and 49% may lead to curriculum review and a remote interview. The test covers biology, human physiology, biochemistry, and general, analytical, inorganic, and organic chemistry. The additional information section states that the test consists of 36 multiple-choice questions (24 chemistry and 12 biology), lasts 90 minutes, is delivered on Zoom, and is scored as +1 for each correct answer, -0.25 for each incorrect answer, and 0 for unanswered questions.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/cosmetic-industrial-science",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cosmetic-industrial-science-%28classe-lm-71-r%29.pdf",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027",
+      "url": "https://www.unimi.it/en/education/master-programme/cosmetic-industrial-science",
+      "field_refs": [
+        "academic_year"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Master programme",
+      "url": "https://www.unimi.it/en/education/master-programme/cosmetic-industrial-science",
+      "field_refs": [
+        "level"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Course location Milan",
+      "url": "https://www.unimi.it/en/education/master-programme/cosmetic-industrial-science",
+      "field_refs": [
+        "campus"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Language English",
+      "url": "https://www.unimi.it/en/education/master-programme/cosmetic-industrial-science",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Access procedures: open, subject to entry requirements",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_EBCof2_2027.pdf",
+      "field_refs": [
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "LM-71 R",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_EBCof2_2027.pdf",
+      "field_refs": [
+        "degree_class"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Credits required for admission: 180",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_EBCof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The course activities are held in the Citta Studi Campus, in Milan.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_EBCof2_2027.pdf",
+      "field_refs": [
+        "campus"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "L-27 Chemical Sciences and Technologies",
+      "url": "https://cosmis.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "L-29 Pharmaceutical Sciences and Technologies",
+      "url": "https://cosmis.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "at least 35 ECTS",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_EBCof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "at least at level B2",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_EBCof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "from 22 January to 25 August 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cosmetic-industrial-science-%28classe-lm-71-r%29.pdf",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "from 22 January to 30 April 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cosmetic-industrial-science-%28classe-lm-71-r%29.pdf",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "by 31 July 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cosmetic-industrial-science-%28classe-lm-71-r%29.pdf",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Self-certification of degree/enrolment with exam records",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cosmetic-industrial-science-%28classe-lm-71-r%29.pdf",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Bachelor's Degree (B.Sc. or equivalent)",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cosmetic-industrial-science-%28classe-lm-71-r%29.pdf",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Diploma supplement or, alternatively, a transcript",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cosmetic-industrial-science-%28classe-lm-71-r%29.pdf",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Passport (or other valid ID)",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cosmetic-industrial-science-%28classe-lm-71-r%29.pdf",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "legalized or apostilled",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cosmetic-industrial-science-%28classe-lm-71-r%29.pdf",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Statement of Comparability",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cosmetic-industrial-science-%28classe-lm-71-r%29.pdf",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Italian tax code (codice fiscale)",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cosmetic-industrial-science-%28classe-lm-71-r%29.pdf",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "receipt of the residence permit application",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cosmetic-industrial-science-%28classe-lm-71-r%29.pdf",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "two separate sessions: FIRST SESSION - May 12th 2026, SECOND SESSION - September 9th 2026",
+      "url": "https://cosmis.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Non-EU candidates applying for a student Visa can only participate to the first session",
+      "url": "https://cosmis.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "at least 50% of answers have to be correct",
+      "url": "https://cosmis.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "36 multiple choice questions",
+      "url": "https://cosmis.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The test will be conducted on Zoom platform",
+      "url": "https://cosmis.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "earned for no more than 3 years",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "2 years for TOEFL",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "uploaded during the admission procedure",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Cosmetic Industrial Science (CoSmiS) 31/12/2026",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "No unresolved field uncertainty remains after checking the A.Y. 2026/2027 programme page, the CosmIS application page, the 2026/2027 admission notice PDF, the 2026/2027 manifesto PDF, and the linked UniMi SLAM language pages."
+  ],
+  "uncertain": []
+}

@@ -1,0 +1,133 @@
+{
+  "program_name": "Computer Science - master",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "Italian, English",
+  "campus": "Milan",
+  "degree_class": "LM-18 - Computer science",
+  "admission_type": "open with entry requirements examination",
+  "academic_requirements": "The programme requires 180 credits for admission. Applicants may access the master's degree if they hold a bachelor's degree in L-31 Computer Science and Technology, or the corresponding class under Ministerial Decree 509/99. Applicants from other degree classes may apply if they have at least 48 ECTS in INF/01 or ING-INF/05 and 12 ECTS in MAT/01-09. Applicants with a foreign qualification may apply if the degree is recognized as suitable and they have equivalent knowledge and skills. The admission board verifies requirements by evaluating the previous university career on the basis of the degree certificate with final grade, the list of passed exams with grades and credits, and the syllabi/programmes of individual courses when they are not available on the University of Milan website. If the documented record does not demonstrate full adequacy of personal preparation, the candidate must also pass an individual interview. Any missing curricular credits must be completed before the assessment. Candidates may apply if they will obtain the qualifying degree by 31 December 2026.",
+  "language_requirements": "No separate Italian-language admission threshold was stated in the official English sources inspected. The official 2026/27 manifesto states that, in order to obtain the degree, students must demonstrate English at CEFR B2. This can be satisfied by submitting a University-recognized English certificate at B2 or higher; the manifesto states the certificate must be issued no more than 3 years before submission, while the University's accepted-certificates page adds a 2-year validity limit specifically for TOEFL. Certificates must be uploaded during enrolment, or later through the official certificate-upload portal. Students without a valid certificate must take the SLAM placement test between October and January of the first year. Students who fail the placement test must take a SLAM course. Students who do not take the placement test by the end of December, or who fail the end-of-course exam six times, must obtain a private certificate before graduation. The programme is not presented as a full English-track curriculum: the 2026/2027 educational plan lists both Italian-taught and English-taught courses.",
+  "application_deadline_eu": "EU candidates and equivalent applicants: online admission application from 22 January 2026 to 30 October 2026. Enrolment for admitted students: from 5 May 2026 to 15 January 2027. Candidates completing their qualifying degree after application must graduate by 31 December 2026.",
+  "application_deadline_non_eu": "Non-EU applicants requiring a visa: online admission application from 22 January 2026 to 30 April 2026. Universitaly pre-enrolment deadline: 31 July 2026. Supporting enrolment documents for foreign qualifications must be completed by 30 November 2026. Enrolment for admitted students runs from 5 May 2026 to 15 January 2027.",
+  "required_documents": [
+    "For applicants with an Italian qualification: self-certification of the degree or current enrolment with exam records; for graduates/graduands from other Italian universities this must include the list of exams taken, grades, ECTS credits, and disciplinary scientific sectors.",
+    "For applicants with an Italian qualification who are still graduating: indication of passed-but-not-yet-registered exams, exams still to be taken, and the expected graduation date in the online application.",
+    "For applicants with foreign qualifications: bachelor's degree or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with foreign qualifications: diploma supplement or transcript showing courses, marks, ECTS, academic field, and the grading system used by the awarding university.",
+    "For applicants with foreign qualifications: passport or other valid identity document.",
+    "For the academic background assessment when course details are not already available on the University of Milan website: syllabi/programmes of individual courses.",
+    "For final enrolment with a foreign qualification: legalized or apostilled bachelor's degree or equivalent qualification, unless exempt from legalization or apostille by law.",
+    "For final enrolment with a foreign qualification: high school diploma.",
+    "For final enrolment with a foreign qualification: official Italian translation of academic qualifications, unless the originals are in English, French, German, or Spanish.",
+    "For final enrolment with a foreign qualification: Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore in loco (DOV) issued by the Italian Embassy; for Lisbon Convention countries, a Diploma Supplement or ARDI Correspondence Statement may replace the DOV and Statement of Comparability where officially allowed.",
+    "For final enrolment with a foreign qualification: Italian tax code (codice fiscale).",
+    "For non-EU students: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "There is no standard written entrance exam published for this programme. Admission is open but subject to an entry-requirements assessment. The admission board reviews the candidate's prior university career and curricular background; if that review does not demonstrate full adequacy of personal preparation, the candidate must pass an individual interview. Separately, the programme requires English B2 for graduation through a recognized certificate or the SLAM placement-test/course route.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/computer-science-master",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-computer-science-%28classe-lm-18%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Access ... Open with entry requirements examination ... Language ... Italian, English.",
+      "url": "https://www.unimi.it/en/education/master-programme/computer-science-master",
+      "field_refs": [
+        "academic_year",
+        "admission_type",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "LM-18 - Computer science ... Course location ... Milan",
+      "url": "https://www.unimi.it/en/education/master-programme/computer-science-master",
+      "field_refs": [
+        "degree_class",
+        "campus"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "48 credits in the INF/01 or ING-INF/05 sector; 12 credits in the MAT/01- 09 sectors",
+      "url": "https://informatica-lm.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "When this does not demonstrate the full adequacy of personal preparation, the candidate will also be required to pass an individual interview.",
+      "url": "https://informatica-lm.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Online admission application for EU candidates and equivalents from 22 January to 30 October 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-computer-science-%28classe-lm-18%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu",
+        "official_call_url"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Online admission application for non-EU candidates applying for a visa from 22 January to 30 April 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-computer-science-%28classe-lm-18%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "submit an application for pre-enrolment through Universitaly platform by 31 July 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-computer-science-%28classe-lm-18%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "students must be proficient in English at a B2 level",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBAof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The placement test is mandatory for all those who do not hold a valid certificate.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBAof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Advanced Programming ... Italian ... Artificial Intelligence ... English",
+      "url": "https://www.unimi.it/en/education/master-programme/computer-science-master",
+      "field_refs": [
+        "language_requirements",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Certificates must have been earned for no more than 3 years ... (2 years for TOEFL)",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "No field is marked uncertain: the official A.Y. 2026/2027 programme page, programme-site application page, admission notice PDF, and manifesto PDF were all available and mutually consistent on the key admission points.",
+    "The programme should be treated as mixed-language rather than fully English-taught, because the official educational plan for 2026/2027 explicitly lists both Italian-taught and English-taught courses and does not publish a separate full-English curriculum."
+  ],
+  "uncertain": []
+}

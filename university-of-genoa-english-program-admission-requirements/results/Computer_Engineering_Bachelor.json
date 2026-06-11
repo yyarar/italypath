@@ -1,0 +1,132 @@
+{
+  "program_name": "Computer Engineering",
+  "level": "bachelor",
+  "teaching_language": "English",
+  "campus": "Imperia",
+  "degree_class": "L-8 R (Information Technology Engineering)",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Free-access (non-restricted) bachelor's programme. Admission requires a high-school diploma (or an equivalent recognised foreign qualification) and a mandatory verification of initial preparation. There is no selection ranking; the initial-preparation test does not block enrolment but can trigger Additional Learning Requirements (OFA).",
+    "prior_degree_or_diploma": "A high-school diploma valid for university admission, or a foreign qualification recognised as equivalent.",
+    "subject_requirements": "Adequate preparation in mathematics and computer science fundamentals is verified through the A.T.H.E.N.A. initial-preparation test (numerical sets, algebra, geometry, trigonometry, and computer culture).",
+    "ofa_rule": "Candidates who do not pass the initial-preparation test are assigned Additional Learning Requirements (OFA) to be fulfilled within the first semester by passing exams including General Physics 1, Linear Algebra and Geometry, and Mathematical Analysis Mod 1. Failure to clear the OFA by the second-year study-plan deadline forces re-enrolment as a repeat student.",
+    "international_qualification": "Non-EU candidates residing abroad with a foreign diploma must apply through UniGeApply for pre-evaluation of their qualification before enrolment.",
+    "source_url": "https://corsi.unige.it/en/corsi/12133/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (or higher, C1/C2).",
+    "accepted_proofs": [
+      "An English-language certificate at level B2 or higher among those accepted by the University (listed on the CLAT dedicated page, https://clat.unige.it/CertificazioniRiconosciute).",
+      "Candidates without a B2 certificate must instead sit the English section (10 questions) of the A.T.H.E.N.A. initial-preparation test."
+    ],
+    "exemption_rules": [
+      "Holding a recognised B2-or-higher English certificate exempts the candidate from the English-language section of the A.T.H.E.N.A. test."
+    ],
+    "assessment_or_upload_stage": "English proficiency is verified at the initial-preparation stage; candidates without an accepted certificate are assessed via the English section of the A.T.H.E.N.A. test.",
+    "source_url": "https://corsi.unige.it/en/corsi/12133/prospective-students-knowledge-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "A.T.H.E.N.A. (Aptitude Test for Higher Education in Numeracy and Analysis) - the verification of initial preparation. NOT a TOLC-I / English TOLC-I.",
+    "mandatory": true,
+    "is_selective": false,
+    "applies_to": "All first-year applicants to the Computer Engineering bachelor at Imperia.",
+    "format": "90 minutes, 50 multiple-choice questions in English: 20 Computer culture, 20 Logic and Mathematics, and 10 English-language questions (the English section is compulsory only for candidates without an accepted B2-or-higher English certificate).",
+    "dates": "Offered in several sessions during the first semester; this is not a selection or limited-access test.",
+    "scoring_or_threshold": "[uncertain] A precise numerical passing score is not published on the page; failing the test assigns Additional Learning Requirements (OFA) rather than blocking enrolment.",
+    "source_url": "https://corsi.unige.it/en/corsi/12133/prospective-students-knowledge-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; bachelor's degrees close 25 September 2026.",
+      "First-year enrolment confirmation and fee payment follow the UniGe enrolment calendar after passing pre-evaluation/registration."
+    ],
+    "enrolment_deadline": "Enrolment in years after the first runs from 15 July to 5 October 2026, with late payment (arrears) accepted from 6 October to 5 November 2026.",
+    "notes": "This is a free-access (open) programme, so EU/resident applicants are not ranked; the A.T.H.E.N.A. initial-preparation test does not gate enrolment. Non-EU candidates residing abroad must follow the fall-session UniGeApply route below.",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026.",
+      "Programme-specific early closure: Computer Engineering (bachelor, English) closed in the fall session on 8 March 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After receiving eligibility via UniGeApply, visa applicants complete the Universitaly pre-enrolment (Universitaly application opened 4 May 2026; University validation from 18 May 2026) and then apply for the study visa.",
+    "early_closure": "8 March 2026 (fall session, visa applicants).",
+    "notes": "Non-EU visa applicants must use the fall session; the UniGeApply fall window for A.Y. 2026/27 has closed. The early-closure date for this programme (8 Mar 2026) is published on the UniGeApply page and the Imperia non-EU selection page.",
+    "source_url": "https://unige.it/en/non-eu-students-residence-abroad-foreign-diploma/imperia"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport (non-EU) or identity card (EU)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Passport mandatory for non-EU applicants (jpg format on UniGeApply); EU applicants may use an ID card.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Foreign high-school qualification / title documents",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Uploaded as PDF (max 2 MB) on UniGeApply for pre-evaluation.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    },
+    {
+      "document_name": "Legalization of the qualification or CIMEA Statement of Verification, plus Declaration of Value or CIMEA Statement of Comparability",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU visa applicants with a foreign qualification to complete enrolment.",
+      "source_url": "https://unige.it/en/international/enrolment-non-eu-students-residence-abroad-foreign-diploma"
+    },
+    {
+      "document_name": "English language proficiency certificate (B2) or proof of English-medium instruction",
+      "stage": "application/enrolment",
+      "required_for": "all",
+      "notes": "Candidates without an accepted B2 certificate sit the English section of the A.T.H.E.N.A. test; certificate is uploaded on Universitaly post-acceptance for visa applicants.",
+      "source_url": "https://unige.it/en/international/enrolment-non-eu-students-residence-abroad-foreign-diploma"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and study-visa evidence",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Visa applicants complete Universitaly pre-enrolment after UniGeApply eligibility, then apply for the study visa.",
+      "source_url": "https://unige.it/en/international/enrolment-non-eu-students-residence-abroad-foreign-diploma"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/12133/students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/12133",
+  "official_call_url": "https://unige.it/en/non-eu-students-residence-abroad-foreign-diploma/imperia",
+  "source_quotes": [
+    {
+      "quote": "Computer Engineering (Corso di laurea in Ingegneria Informatica), Course Code 12133, Degree Class L-8 R, Teaching Language English, Campus Imperia, 180 CFU",
+      "source_url": "https://corsi.unige.it/en/corsi/12133",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "This is a free access degree programme.",
+      "source_url": "https://corsi.unige.it/en/corsi/12133/prospective-students-admission-criteria-procedure",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "you will have to take an initial preparation test (A.T.H.E.N.A., Aptitude Test for Higher Education in Numeracy and Analysis) ... This is not a selection or limited access test ... The test lasts a total of 90 minutes and consists of 50 multiple-choice questions in English",
+      "source_url": "https://corsi.unige.it/en/corsi/12133/prospective-students-knowledge-assessment",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "English language (10 questions - compulsory only for those who do not present a language certificate of level B2 or higher among those accepted by the University)",
+      "source_url": "https://corsi.unige.it/en/corsi/12133/prospective-students-knowledge-assessment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Computer Engineering (bachelor's, English): February closure 8 March 2026 (fall session early closure)",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The uncertainty_notes from the task asked to confirm whether non-EU students sit a TOLC-I / English TOLC-I: confirmed they do NOT. The verification of initial preparation is the University's own A.T.H.E.N.A. test, not a TOLC-I.",
+    "No explicit numerical pass threshold for the A.T.H.E.N.A. test is published; failing assigns OFA rather than blocking enrolment.",
+    "EU/spring deadlines reflect the institution-wide UniGeApply windows; the corsi.unige.it deadlines page only lists the generic enrolment calendar (post-first-year and transfers), not a programme-specific first-year EU application deadline."
+  ],
+  "uncertain": [
+    "entry_exam_or_test"
+  ]
+}

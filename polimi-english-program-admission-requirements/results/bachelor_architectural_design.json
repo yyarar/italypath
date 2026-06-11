@@ -1,0 +1,123 @@
+{
+  "program_name": "Architectural Design",
+  "level": "bachelor",
+  "official_level_type": "Catalogue Level: Bachelor of Science",
+  "teaching_language": "ITA-ENG",
+  "campus": "Milano Leonardo; Piacenza; Mantova",
+  "degree_class": "Not found in checked official catalogue/programme page [uncertain].",
+  "study_area": "Architecture",
+  "partner_institution": null,
+  "programme_approval_status": null,
+  "official_program_url": "https://www.polimi.it/en/education/laurea-programmes/programme-detail/architectural-design",
+  "admission_type": "ARCHED / restricted access / selection call [uncertain: 2026/2027 page pending]",
+  "school_specific_admission_rule": "Architecture admission route; verify the programme-specific call and applicant route before advising a student.",
+  "applicant_route": [
+    "Italian/equivalent qualification",
+    "foreign qualification",
+    "EEA",
+    "non-EEA abroad",
+    "non-EEA resident in Italy"
+  ],
+  "application_platform": "Politecnico di Milano Online Services; Universitaly/visa route may apply to non-EU applicants [uncertain].",
+  "application_round": {
+    "summary": "Architecture Laurea admission uses the ARCHED test and ranking lists. At generation time the official English page displayed 2025/2026 guidance and stated that 2026/2027 information would be available after ministerial guidelines [uncertain].",
+    "sources": [
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/architecture",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/architecture/when-and-how-to-enrol"
+    ]
+  },
+  "intake_semester_availability": "September 2026 intake; other intakes not confirmed for this Laurea item [uncertain].",
+  "admission_outcome_type": [
+    "assigned",
+    "reserved",
+    "pending",
+    "not admitted / course full [uncertain wording varies by school]"
+  ],
+  "ranking_methodology": "Ranking/test methodology is school-specific; use the official Engineering, Design, Architecture, or partner call for scores, preferences, and tie-break rules [uncertain].",
+  "places_and_foreign_contingent": "Check the official call for total places and reserved places; not resolved in this batch pass [uncertain].",
+  "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/architecture",
+  "academic_requirements": "High school diploma with at least 12 years of education; foreign qualifications may need additional verification, foundation course, CIMEA/DoV, or country-specific checks. Admission test participation requirements also apply.",
+  "country_specific_eligibility": "Foreign qualification eligibility must be checked through Polimi foreign-degree/foreign-qualification rules and country-specific documentation [uncertain].",
+  "curricular_integration_policy": "Not generally applicable before Laurea admission; OFA/additional obligations may arise from test/language results [uncertain].",
+  "conditional_enrolment_policy": "Candidates may have to enter/upload final secondary-school results by the official enrolment deadline; exact conditional rules depend on route and school.",
+  "language_requirements": "For English-taught Laurea programmes, applicants must demonstrate English before enrolment. Accepted routes include English-official citizenship, qualification obtained in English, or recognised certification such as TOEFL iBT >= 59, IELTS >= 5, or Cambridge B2 First Grade C, subject to official validity rules.",
+  "language_submission_timing": "Before enrolment for English-taught Laurea programmes; original/validated certificates may be checked by Polimi.",
+  "post_admission_italian_requirement": "Italian is not an entry requirement for English-taught Laurea programmes, but Italian B2 must be obtained before completing the Bachelor; otherwise Italian OFA applies.",
+  "application_deadline_eu": {
+    "summary": "Architecture Laurea admission uses the ARCHED test and ranking lists. At generation time the official English page displayed 2025/2026 guidance and stated that 2026/2027 information would be available after ministerial guidelines [uncertain].",
+    "sources": [
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/architecture",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/architecture/when-and-how-to-enrol"
+    ]
+  },
+  "application_deadline_non_eu": {
+    "summary": "International students have reserved-place rules on the Architecture admission/enrolment pages, but 2026/2027 details were not available in the checked English page [uncertain].",
+    "sources": [
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/architecture",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/architecture/when-and-how-to-enrol",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/students-with-a-foreign-degree"
+    ]
+  },
+  "application_fee": "Check official call and costs page; no stable programme-specific application fee resolved in this batch pass [uncertain].",
+  "visa_preenrolment_deadline": "Non-EU visa/pre-enrolment deadline not resolved from checked Polimi sources in this batch pass [uncertain].",
+  "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/costs-and-scholarships",
+  "required_documents": [
+    "identity document/passport",
+    "final secondary school diploma",
+    "high-school final mark where required",
+    "English language proof for English-taught programmes",
+    "foreign-qualification documents and additional verification documents where applicable"
+  ],
+  "document_translation_authentication": "Foreign documents may require official verification, translation, CIMEA Statements or Declaration of Value depending on route; check official Polimi foreign-degree document rules [uncertain].",
+  "entry_exam_or_test": "Architectural Design admission uses the ARCHED test; the checked English page used 2025/2026 guidance pending 2026/2027 ministerial guidelines [uncertain].",
+  "test_variant_and_session": "Architectural Design admission uses the ARCHED test; the checked English page used 2025/2026 guidance pending 2026/2027 ministerial guidelines [uncertain].",
+  "test_score_conversion_or_threshold": "Use the official test page/call for thresholds, conversion, and OFA triggers; SAT/TOL/TOLC/TOLD/ARCHED rules vary by school and phase [uncertain].",
+  "source_quotes": [
+    {
+      "quote": "29 Bachelor of Science programmes available",
+      "source_url": "https://www.polimi.it/en/education/laurea-programmes",
+      "supports_fields": [
+        "level",
+        "official_program_url"
+      ]
+    },
+    {
+      "quote": "All the postgraduate and some undergraduate programmes are available in English.",
+      "source_url": "https://www.polimi.it/en/prospective-students/politecnico-programmes",
+      "supports_fields": [
+        "teaching_language",
+        "level"
+      ]
+    },
+    {
+      "quote": "demonstrate knowledge of the English language before enrolling",
+      "source_url": "https://www.polimi.it/en/students/language-requirements/students-of-an-english-language-laurea-study-programme",
+      "supports_fields": [
+        "language_requirements"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polimi.it/en/education/laurea-programmes/programme-detail/architectural-design",
+    "https://www.polimi.it/en/students/language-requirements/students-of-an-english-language-laurea-study-programme",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/necessary-documents-for-enrolment",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/students-with-a-foreign-degree",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/requirements-to-participate-in-the-admission-test",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/architecture",
+    "https://www.polimi.it/en/prospective-students/costs-and-scholarships"
+  ],
+  "source_year": "2026/2027 where available; architecture page fallback may be 2025/2026 [uncertain].",
+  "uncertainty_notes": [
+    "Catalogue confirms ITA-ENG. Architecture admission page showed 2025/2026 fallback text during preliminary research.",
+    "Degree class not resolved from official catalogue page.",
+    "Deep manual follow-up should verify programme-specific places, score thresholds, and non-EU visa/pre-enrolment deadlines."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "degree_class",
+    "entry_exam_or_test",
+    "places_and_foreign_contingent",
+    "visa_preenrolment_deadline"
+  ]
+}

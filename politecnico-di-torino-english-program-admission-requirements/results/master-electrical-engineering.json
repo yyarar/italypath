@@ -1,0 +1,258 @@
+{
+  "program_name": "Electrical Engineering",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale / 2nd cycle)",
+  "teaching_language": "Italian, English",
+  "is_fully_english_programme": false,
+  "has_complete_english_track": true,
+  "english_track_name": "Electrical Drives for e-Mobility; Electrification for Energy Transition [uncertain]",
+  "campus": "Torino, Main Campus.",
+  "degree_class": "LM-28: Electrical Engineering",
+  "double_degree_or_erasmus_mundus": "Not an Erasmus Mundus programme. The programme offers an optional Twin Track double Master's route with Energy and Nuclear Engineering for students in the System Design track.",
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering/programme-curriculum",
+  "admission_type": "evaluation/CV",
+  "admission_test_type": "Standard admission is by evaluation of curricular requirements and academic performance. For some applicants with an Italian qualification who are below the standard average threshold, a merit-based oral admission interview is available.",
+  "applicant_route": [
+    "Applicants with an Italian qualification from Politecnico di Torino",
+    "Applicants with an Italian qualification from another Italian university",
+    "EU / equivalent applicants with a non-Italian qualification",
+    "Non-EU applicants residing in Italy",
+    "Non-EU applicants residing abroad and requiring a study visa"
+  ],
+  "admission_call_round": [
+    "1st call for applicants with a non-Italian qualification: opens 19 December 2025; closes 13 February 2026 at 2:00 p.m. Italian time; results 15 April 2026.",
+    "2nd call for applicants with a non-Italian qualification: opens 18 March 2026; closes 20 April 2026 at 2:00 p.m. Italian time; results 22 June 2026.",
+    "Applicants with an Italian qualification follow the Engineering Area A.Y. 2026/2027 master's admission procedures rather than a programme-specific ranked call."
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito for the application and evaluation process; UNIVERSITALY is also required for non-EU applicants residing abroad who need a study visa.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "qualification": "A three-year Bachelor's degree, university diploma, or equivalent foreign qualification recognized as suitable for admission.",
+    "curricular_requirement_basic_sciences": "Minimum 40 ECTS/CFU in CHIM/07, FIS/01, FIS/03, ING-INF/05, MAT/02, MAT/03, MAT/05, MAT/06, MAT/08, MAT/09, SECS-S/02.",
+    "curricular_requirement_specific_subjects": "Minimum 60 ECTS/CFU in ICAR/08, ICAR/09, ING-IND/06, ING-IND/08, ING-IND/09, ING-IND/10, ING-IND/11, ING-IND/12, ING-IND/13, ING-IND/14, ING-IND/15, ING-IND/22, ING-IND/31, ING-IND/32, ING-IND/33, ING-IND/35, ING-INF/01, ING-INF/03, ING-INF/04, ING-INF/05, ING-INF/07, MAT/06, SECS-S/01.",
+    "shortfall_handling": "Applicants lacking fewer than 10 credits may be admitted by the Academic Advisor; applicants lacking more than 10 credits need final approval by the Coordinator or Vice-coordinator. Missing credits must be made up before enrolment through single courses (up to 60 credits) or Bachelor-level credit transfer (more than 60 credits).",
+    "academic_performance": "Applicants must have suitable academic performance and the required language certification.",
+    "recommended_background": "The 2026/2027 course-specific requirements table recommends backgrounds in Electrical and Electronic Engineering, ICT Engineering, Mechanical Engineering, or Industrial Engineering.",
+    "non_italian_qualification_specific": "Applicants with a non-Italian qualification must hold a qualification from an accredited/recognized foreign university obtained after at least 15 years of total education, with at least 3 years at university level and at least 180 ECTS credits or equivalent."
+  },
+  "country_specific_eligibility": "No Turkey-specific country sheet was found on official PoliTo sources. Turkish applicants should follow the standard non-EU, non-Italian-qualification route: accredited foreign Bachelor's-level qualification, at least 15 years of total education, at least 180 ECTS or equivalent, and the required comparability/value documentation. [uncertain]",
+  "minimum_background_or_credits": "Required background is verified through the 40-credit basic-science group and the 60-credit specific-subject group listed in the Academic Regulations. The 2026/2027 course-specific requirements table recommends Electrical and Electronic Engineering, ICT Engineering, Mechanical Engineering, or Industrial Engineering.",
+  "language_requirements": {
+    "english": "English at CEFR B2 or above is required. The 2026/2027 course-specific requirements sheet lists IELTS 5.5 as the reference minimum score for this programme; equivalent certificates are accepted according to the PoliTO CLA tables.",
+    "italian": "Italian at CEFR B2 or above is also required because this programme is delivered in Italian or partially taught in Italian.",
+    "accepted_certificates": "Accepted English and Italian certificates or exemptions are those published by the PoliTO Language Centre (CLA).",
+    "exemptions": "For English, applicants with a valid exemption may upload an official statement from the school/university confirming that the medium of instruction was English. Italian exemptions are listed on the official admission page and the CLA certificate table.",
+    "programme_specific_note": "The course-specific requirements sheet for INGEGNERIA ELETTRICA states: Italian B2 and IELTS 5.5."
+  },
+  "english_certificate_codes": "TOEFL/TOEIC institution code C285. For Cambridge certificates, applicants must share the results with Politecnico di Torino and provide the Candidate ID number.",
+  "language_submission_timing": "Language certificates must be uploaded during the online application in the Language Skills section. If the status remains pending, the certificate is checked during the evaluation process. At enrolment, the Italian and/or English language certificate must already have been uploaded during the application process.",
+  "application_deadline_eu": {
+    "route": "EU / equivalent applicants with a non-Italian qualification",
+    "1st_call": "Opening 19 December 2025; closing 13 February 2026 at 2:00 p.m. Italian time; results 15 April 2026.",
+    "2nd_call": "Opening 18 March 2026; closing 20 April 2026 at 2:00 p.m. Italian time; results 22 June 2026.",
+    "enrolment": "Online enrolment for the 1st semester closes 5 October 2026. Online enrolment for the 2nd semester (only for EU and non-EU applicants residing in Italy) runs from 13 November 2026 to 24 March 2027.",
+    "note": "These dates come from the official A.Y. 2026/2027 page for applicants with a non-Italian qualification after the DR 96/2026 extension."
+  },
+  "application_deadline_non_eu": {
+    "route": "Non-EU applicants residing abroad and requiring a study visa",
+    "1st_call": "Opening 19 December 2025; closing 13 February 2026 at 2:00 p.m. Italian time; results 15 April 2026.",
+    "2nd_call": "Opening 18 March 2026; closing 20 April 2026 at 2:00 p.m. Italian time; results 22 June 2026.",
+    "study_visa_note": "The same official page contains two first-call study-visa pre-enrolment dates: 15 May 2026 in the deadline table and 30 May 2026 in the visa instructions section; the second-call date is 15 July 2026 in both places. [uncertain]",
+    "enrolment_documents_upload": "Mandatory enrolment documents must be uploaded by 5 October 2026; they will be verified by 11 November 2026.",
+    "study_visa_upload": "The deadline to upload the type-D study visa is 30 November 2026."
+  },
+  "universitaly_preenrolment_deadline": "The official page is internally inconsistent for the first call: the extended-deadlines table shows 15 May 2026, while the visa instructions section says 30 May 2026. For the second call, the page states 15 July 2026. [uncertain]",
+  "application_fee": "€50 non-refundable application fee for applicants with a non-Italian qualification, payable online by credit card via PagoPA.",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport or ID card",
+    "Residence permit for non-EU citizens residing in Italy",
+    "Curriculum Vitae (CV)",
+    "Bachelor's degree documentation or equivalent graduation documentation",
+    "Official Transcript of Records",
+    "Syllabus / course descriptions",
+    "English and/or Italian language certificate, or valid exemption statement where allowed",
+    "Declaration of Value of the Bachelor's degree or CIMEA Statement of Comparability (if available at application stage; compulsory for enrolment)",
+    "Self-certificate of enrolment in another Italian university including passed exams, if currently enrolled",
+    "At enrolment for visa applicants: type-D study visa and fiscal code certificate"
+  ],
+  "document_translation_authentication": "Documents issued in Italian, English, French, or Spanish are accepted. Documents in other languages must be uploaded together with an official English or Italian translation in a single file. Official translations must bear the stamp and original signature of an officially recognized translator; translations into Italian must be certified by the Italian Embassy or sworn by a translator in an Italian court. For enrolment, PoliTo requires a Declaration of Value, a CIMEA Statement of Comparability, or a Diploma Supplement, and it may request additional verification documents.",
+  "entry_exam_or_test": {
+    "standard_route": "No general entrance exam is required for applicants with a non-Italian qualification; admission is based on document evaluation of curricular requirements and academic performance.",
+    "italian_qualification_exception": "For certain applicants with an Italian qualification whose weighted average grade is below the normal threshold, PoliTo allows a merit-based admission test.",
+    "format": "The merit-based admission test is an oral interview and may also be held remotely.",
+    "subjects": [
+      "Electrical Engineering",
+      "Electrical Machines",
+      "Electrical Systems / Electrical Installations"
+    ]
+  },
+  "test_score_or_threshold": "No fixed test score is published for applicants with a non-Italian qualification; they are evaluated case by case. For Politecnico di Torino graduates: direct admission with no average threshold if the Bachelor's degree is completed in 4 years or less, at least 21/30 if completed between 4 and 5 years, and at least 24/30 if completed in more than 5 years. Those below threshold may take the oral interview only in the cases specified in the Academic Regulations, including the requirement that the weighted average in FIS/01-02-03 and ING-INF/01 be at least 24/30 where applicable. For graduates of other Italian universities: direct admission requires at least 24/30; applicants with a weighted average above 21/30 and below 24/30 may take the oral interview.",
+  "source_quotes": [
+    {
+      "quote": "Language: Italian, English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering",
+      "supports_fields": [
+        "teaching_language"
+      ]
+    },
+    {
+      "quote": "Admissions: Uncapped number of students, evaluation of the admission requirements",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering",
+      "supports_fields": [
+        "admission_type",
+        "admission_test_type"
+      ]
+    },
+    {
+      "quote": "LM-28: ELECTRICAL ENGINEERING",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering",
+      "supports_fields": [
+        "degree_class"
+      ]
+    },
+    {
+      "quote": "The three curricula present a common first year, entirely taught in Italian",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering/course-details",
+      "supports_fields": [
+        "has_complete_english_track",
+        "english_track_name",
+        "uncertainty_notes"
+      ]
+    },
+    {
+      "quote": "The pathway is taught in Italian in the first year and in English in the second year.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering/specialist-tracks",
+      "supports_fields": [
+        "has_complete_english_track",
+        "english_track_name",
+        "uncertainty_notes"
+      ]
+    },
+    {
+      "quote": "Electrical Drives for e-Mobility",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering/programme-curriculum",
+      "supports_fields": [
+        "english_track_name",
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "Applied electromagnetics ... Image: English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering/programme-curriculum",
+      "supports_fields": [
+        "english_track_name",
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "Electrification for Energy Transition",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering/programme-curriculum",
+      "supports_fields": [
+        "english_track_name",
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "Thesis ... Image: English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering/programme-curriculum",
+      "supports_fields": [
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "INGEGNERIA ELETTRICA ... Italian B2 and IELTS 5.5",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": [
+        "language_requirements",
+        "minimum_background_or_credits"
+      ]
+    },
+    {
+      "quote": "minimum 40 credits ... minimum 60 credits",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20ELETTRICA_25_26.pdf",
+      "supports_fields": [
+        "academic_requirements",
+        "minimum_background_or_credits"
+      ]
+    },
+    {
+      "quote": "students applying to degree programmes delivered in Italian or partially taught in Italian must also have an Italian language certificate",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20ELETTRICA_25_26.pdf",
+      "supports_fields": [
+        "language_requirements"
+      ]
+    },
+    {
+      "quote": "The admission tests consist in an oral interview",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20ELETTRICA_25_26.pdf",
+      "supports_fields": [
+        "entry_exam_or_test",
+        "admission_test_type",
+        "test_score_or_threshold"
+      ]
+    },
+    {
+      "quote": "Pay the non-refundable application fee (€50)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_fee"
+      ]
+    },
+    {
+      "quote": "For TOEFL/TOEIC certificates, you must indicate the code C285",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "english_certificate_codes",
+        "language_requirements"
+      ]
+    },
+    {
+      "quote": "Dichiarazione di valore ... compulsory for enrolment",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "required_documents",
+        "document_translation_authentication"
+      ]
+    },
+    {
+      "quote": "Students enrolled in Electrical Engineering – System Design track",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering/twin-track-master-programs",
+      "supports_fields": [
+        "double_degree_or_erasmus_mundus"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering",
+    "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering/course-details",
+    "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering/specialist-tracks",
+    "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering/programme-curriculum",
+    "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering/twin-track-master-programs",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20ELETTRICA_25_26.pdf",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/polito-language-centre-cla/certificates",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "The English-track determination is mixed across official sources. The narrative pages 'Course details' and 'Specialist tracks' still say the first year is taught in Italian and that Electrification for Energy Transition is Italian in year 1 and English in year 2. However, the official curriculum page for A.Y. 2026/2027 lists two English-named curricula, 'Electrical Drives for e-Mobility' and 'Electrification for Energy Transition', with year-1 and year-2 study plans shown in English and an English thesis. Because the task explicitly required verification on the curriculum page, has_complete_english_track was set to true and the named English tracks were recorded. [uncertain]",
+    "The curriculum page also still contains the Italian-named variants of the same tracks. The coexistence of Italian-named and English-named curricula on the same official page suggests a transition or duplicated presentation rather than a fully clarified publication state. [uncertain]",
+    "The 2026/2027 course-specific requirements PDF lists two separate rows: 'ELECTRICAL ENGINEERING NEW!' with language 'English' and online interview, and 'INGEGNERIA ELETTRICA' with language 'partially in Italian/ partially in English'. The supplied official programme URL still points to the bilingual page. It is therefore unclear whether PoliTo is splitting the programme into a new English-only offer or whether the admissions table and programme page are temporarily out of sync. [uncertain]",
+    "No 2026/2027 Electrical Engineering Academic Regulations PDF was found. Curricular-credit and merit-threshold details were therefore taken from the latest official programme regulations PDF located for A.Y. 2025/2026, while deadlines and general admission logistics were taken from 2026/2027 pages. [uncertain]",
+    "For non-EU study-visa pre-enrolment, the same official 2026/2027 admissions page contains conflicting first-call dates: the deadline table shows 15 May 2026, while the visa instructions section says 30 May 2026. The second-call date is consistently 15 July 2026. [uncertain]",
+    "No Turkey-specific PoliTo eligibility table was found for this programme. The country-specific field therefore applies the general non-Italian-qualification rules to Turkish applicants. [uncertain]"
+  ],
+  "uncertain": [
+    "english_track_name",
+    "country_specific_eligibility",
+    "application_deadline_non_eu",
+    "universitaly_preenrolment_deadline",
+    "has_complete_english_track",
+    "academic_requirements"
+  ]
+}

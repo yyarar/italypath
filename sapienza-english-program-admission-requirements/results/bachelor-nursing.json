@@ -1,0 +1,118 @@
+{
+  "program_name": "Nursing",
+  "level": "bachelor",
+  "official_level_type": "Laurea",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Rome — Sant'Andrea Hospital area (classes mainly in the Faculty building next to Azienda Ospedaliera Sant'Andrea, some on the Sapienza campus)",
+  "degree_class": "L/SNT1",
+  "course_code": "28614",
+  "faculty": "Faculty of Pharmacy and Medicine",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/28614",
+  "admission_type": "restricted access",
+  "movein_preselection_required": "[uncertain]",
+  "admission_test_type": "Programme admission test carried out in English",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (visa-required)"
+  ],
+  "application_platform": "Sapienza admission test registration (Infostud); Universitaly pre-enrolment and MoveIN for non-EU visa-required applicants [uncertain]",
+  "access_quota_non_eu": "Reserved places for non-EU residing abroad set by the Call; vacant non-EU places are reallocated to the EU / non-EU-resident-in-Italy ranking. Specific number [uncertain].",
+  "application_round": "[uncertain]",
+  "intake_semester_availability": "September intake [uncertain]",
+  "places_and_foreign_contingent": "Health-professions restricted-access programme (numero programmato). Total places and non-EU contingent for 2026/2027 [uncertain].",
+  "official_call_url": "https://www.uniroma1.it/en/admissions",
+  "faculty_call_pdf_url": "https://www.uniroma1.it/sites/default/files/field_file_allegati/28614_e.pdf",
+  "academic_requirements": {
+    "secondary_school_diploma": "A secondary-school diploma giving access to higher education is required.",
+    "test_requirement": "Admission is based on an entrance exam carried out in English; a separate English proficiency exam is not required for admission.",
+    "non_eu_requirements": "Non-EU applicants residing abroad must meet the Sapienza academic requirements (MoveIN 2026-2027), pre-enrol on Universitaly and obtain a study visa. [uncertain]"
+  },
+  "country_specific_eligibility": "Country-specific qualification and minimum schooling requirements per the Sapienza academic requirements document (MoveIN 2026-2027). [uncertain]",
+  "curricular_integration_policy": null,
+  "conditional_enrolment_policy": "[uncertain]",
+  "language_requirements": {
+    "level": "Programme taught in English; admission test carried out in English.",
+    "assessment": "An English proficiency certificate is not required for admission; English ability is assessed via the English-language entrance exam.",
+    "note": "B2-level English recommended; a certificate or university interview may be required at enrolment for some routes. [uncertain]"
+  },
+  "language_submission_timing": "Assessed via the English entrance exam at admission; certificate route (if any) by enrolment. [uncertain]",
+  "italian_language_requirement": "Italian proficiency is practically important for clinical internships in Italian hospitals. [uncertain]",
+  "application_deadline_eu": "EU and equivalent candidates (no visa required): on or before 31 July 2026; entrance-exam registration deadlines apply. [uncertain on exact dates]",
+  "application_deadline_non_eu": "Non-EU residing abroad (visa-required): MoveIN online pre-selection by 15 May 2026; Universitaly pre-enrolment by 30 June 2026. [uncertain on exact dates]",
+  "application_fee": "€30 per application (standard Sapienza fee; max 2 applications per intake). [uncertain]",
+  "visa_preenrolment_deadline": "Universitaly pre-enrolment by 30 June 2026 for non-EU visa-required applicants (compulsory to obtain a study visa).",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2026-2027 (cross-cutting deadlines); programme-specific places/quota year [uncertain]",
+  "required_documents": [
+    "Secondary-school diploma / qualification giving access to higher education",
+    "Transcript of records",
+    "Passport / ID",
+    "Entrance-exam registration (no separate English certificate required for admission)",
+    "For non-EU residing abroad: documents required by MoveIN pre-selection and Universitaly pre-enrolment (visa)"
+  ],
+  "document_translation_authentication": "Foreign qualifications typically require Declaration of Value or CIMEA Statement of Comparability plus translation/legalisation. [uncertain]",
+  "entry_exam_or_test": {
+    "type": "Programme-specific entrance exam carried out in English",
+    "note": "Access is via the admission test; English proficiency exams are not required for admission.",
+    "registration": "Register for the admission test and pay the fee by the Call deadlines. [uncertain on dates]"
+  },
+  "test_variant_and_session": "English-language entrance exam; specific 2026-2027 session date, mode and registration window [uncertain].",
+  "test_score_conversion_or_threshold": "Ranking-based admission on the entrance-exam score; admission cutoff depends on ranking. [uncertain]",
+  "source_quotes": [
+    {
+      "quote": "The Nursing degree ... is a 3-year Bachelor's degree taught in the English language ... 180 CFU.",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/28614",
+      "supports_fields": ["teaching_language", "level"]
+    },
+    {
+      "quote": "Admission to the course is based on an entrance exam carried out in English. English proficiency exams are not required for admission.",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/28614",
+      "supports_fields": ["admission_type", "admission_test_type", "language_requirements", "entry_exam_or_test"]
+    },
+    {
+      "quote": "the practical internship carried out in the Sant'Andrea Hospital. Classes will be carried out mainly in the Faculty building next to Azienda Ospedale Sant'Andrea and some on the Sapienza campus.",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/28614",
+      "supports_fields": ["campus", "faculty"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/course/28614",
+    "https://www.uniroma1.it/sites/default/files/field_file_allegati/28614_e.pdf",
+    "https://www.uniroma1.it/en/admissions",
+    "https://www.uniroma1.it/en/pagina/applying-sapienza-international-student",
+    "https://corsidilaurea.uniroma1.it/en/solr-offerta-formativa-t?f[0]=field_lingua_erogazione:value:en",
+    "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
+  ],
+  "source_year": "2026-2027 (deadlines); programme places/quota year unconfirmed",
+  "uncertainty_notes": [
+    "official_program_url was null in the task; confirmed via course code 28614 on the English-filtered catalogue: corsidilaurea.uniroma1.it/en/course/28614.",
+    "Degree class L/SNT1 inferred from the standard Italian class for Nursing (Infermieristica); not directly quoted from the 2026/2027 page.",
+    "Total places and non-EU contingent for 2026/2027 not extracted from the programme Call PDF (28614_e.pdf was a prior-year document).",
+    "Admission is via an English-language entrance exam; this is a health-professions programme, not the IMAT route used for Medicine.",
+    "MoveIN requirement, application fee (€30), Italian-language relevance, and document authentication inferred from general Sapienza policy.",
+    "Exact admission-test session dates and registration windows for 2026-2027 not extracted."
+  ],
+  "uncertain": [
+    "degree_class",
+    "movein_preselection_required",
+    "access_quota_non_eu",
+    "application_round",
+    "intake_semester_availability",
+    "places_and_foreign_contingent",
+    "academic_requirements",
+    "country_specific_eligibility",
+    "conditional_enrolment_policy",
+    "language_requirements",
+    "language_submission_timing",
+    "italian_language_requirement",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "application_fee",
+    "document_translation_authentication",
+    "test_variant_and_session",
+    "test_score_conversion_or_threshold"
+  ]
+}

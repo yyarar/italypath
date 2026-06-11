@@ -31,6 +31,14 @@ export interface ProgramAdmissionDetails {
   rawTeachingLanguage: string;
 }
 
+export interface ProgramDeadline {
+  date: string;       // ISO "YYYY-MM-DD" | "rolling" | "TBA"
+  note?: string;      // free-form, e.g. "Early round 11 Jun; regular 15 May"
+  sourceUrl: string;  // page the data was extracted from
+}
+
+export const DEPARTMENT_DEADLINES_LAST_CHECKED_AT = "2026-05-28" as const;
+
 export interface DepartmentSeed {
   name: string;
   slug: string;
@@ -47,6 +55,7 @@ export interface Department {
   durationYears: ProgramDurationYears;
   level: ProgramLevel;
   admissionDetails?: ProgramAdmissionDetails;
+  deadline?: ProgramDeadline;
 }
 
 export interface University {
@@ -130,6 +139,9 @@ export const DEPARTMENT_DURATION_OVERRIDES: Partial<Record<DepartmentKey, Progra
 };
 export const DEPARTMENT_LEVEL_OVERRIDES: Partial<Record<DepartmentKey, ProgramLevel>> = {
   // "10:medicine": "master",
+};
+export const DEPARTMENT_DEADLINE_OVERRIDES: Partial<Record<DepartmentKey, ProgramDeadline>> = {
+  // Populated by scripts/apply-deadlines.mjs after LLM extraction.
 };
 
 export function createDepartmentKey(universityId: number, departmentSlug: string): DepartmentKey {
@@ -1363,6 +1375,7 @@ function withDepartmentMetadata(
       department.level ??
       DEPARTMENT_LEVEL_OVERRIDES[departmentKey] ??
       DEFAULT_DEPARTMENT_LEVEL,
+    deadline: DEPARTMENT_DEADLINE_OVERRIDES[departmentKey],
   };
 }
 

@@ -58,6 +58,24 @@ if (!universitiesDataHook.includes('cache: "no-store"')) {
   fail("lib/useUniversitiesData.ts must request fresh /api/universities data from the browser");
 }
 
+const universitiesApiRoute = read("app/api/universities/route.ts");
+if (/s-maxage|stale-while-revalidate/.test(universitiesApiRoute)) {
+  fail("app/api/universities/route.ts must not return stale cache headers for admission data");
+}
+
+if (!universitiesApiRoute.includes("no-store")) {
+  fail("app/api/universities/route.ts must mark university API responses as no-store");
+}
+
+const universitiesServerData = read("lib/universities.server.ts");
+if (/60\s*\*\s*60\s*\*\s*1000/.test(universitiesServerData)) {
+  fail("lib/universities.server.ts must not keep live university data stale for one hour");
+}
+
+if (!universitiesServerData.includes("const SERVER_CACHE_TTL_MS = 0;")) {
+  fail("lib/universities.server.ts must disable the in-memory university data cache");
+}
+
 if (failures.length > 0) {
   console.error("[FAIL] University data source check failed.");
   for (const failure of failures) {

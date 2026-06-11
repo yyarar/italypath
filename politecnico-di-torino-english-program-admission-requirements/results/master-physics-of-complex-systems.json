@@ -1,0 +1,172 @@
+{
+  "program_name": "Physics of Complex Systems",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale / 2nd cycle)",
+  "teaching_language": "Italian, English",
+  "is_fully_english_programme": false,
+  "has_complete_english_track": true,
+  "english_track_name": "International track (Percorso internazionale); the programme-details page also states that both tracks can be completed entirely in English. [uncertain]",
+  "campus": "Main Campus (Torino)",
+  "degree_class": "LM-44: Mathematical Modelling for Engineering",
+  "double_degree_or_erasmus_mundus": "International track: joint training path with SISSA/ICTP in Trieste and the Paris consortium (Sorbonne Universite, Universite Paris-Cite, Universite Paris-Saclay); graduates obtain the PoliTo Master's degree and a French M2 double degree.",
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems/programme-curriculum",
+  "admission_type": "selection call for the international track; the programme page otherwise lists uncapped admission by evaluation of the admission requirements",
+  "admission_test_type": "Master-level evaluation plus an oral interview for the international-track special call; ranking-based selection with 20 places, including 2 quota places for non-EU applicants living abroad and requiring a visa.",
+  "applicant_route": [
+    "Applicants with an Italian qualification from Politecnico di Torino",
+    "Applicants with an Italian qualification from another Italian university",
+    "EU and equivalent applicants with a non-Italian qualification",
+    "Non-EU applicants living abroad and requiring a visa (quota route; relevant route for Turkish applicants with a non-Italian qualification)"
+  ],
+  "admission_call_round": [
+    "Separate special call for the international track: applications open 24 April 2026 and close 18 May 2026 (23:59).",
+    "Oral admission interviews for eligible applicants: 3-4 June 2026.",
+    "The selection uses two rankings: one for Italian/EU/equivalent applicants and one for non-EU applicants living abroad and requiring a visa."
+  ],
+  "special_call_flag": true,
+  "application_platform": "Apply@polito for the application; non-EU visa applicants also use the UNIVERSITALY portal for the visa/pre-enrolment process after admission.",
+  "official_call_url": "https://www.polito.it/sites/default/files/2026-04/Call%20for%20applications%20PCS%202026-27%20eng.pdf",
+  "academic_requirements": {
+    "italian_qualification": "Applicants with an Italian Bachelor's degree must hold a Bachelor's degree or university diploma obtained after at least 3 years of study.",
+    "italian_curricular_requirements": "The call requires 40 CFU/ECTS in a first group of Physics, Mathematics and Chemistry SSDs and 60 CFU/ECTS in a second group including Physics, Mathematics, Computer Science and Engineering SSDs. If the shortage is under 10 credits, the supervisor may assess similarities; if it exceeds 10 credits, final approval is required from the programme coordinator or vice coordinator.",
+    "italian_academic_performance": "For Politecnico di Torino graduates: admission is open with no average threshold if the Bachelor's degree is completed within 4 years or less; if completed in more than 4 but less than 5 years, the weighted average must be at least 21/30; if completed in more than 5 years, the weighted average must be at least 24/30. For applicants from other Italian universities, the weighted average after subtracting the worst 28 credits must be at least 24/30.",
+    "non_italian_qualification": "Applicants with a non-Italian Bachelor's degree must hold a Bachelor's degree (EQF level 6) or equivalent qualification awarded by an accredited foreign university and giving access to second-cycle studies, obtained by 31 July 2026, and considered suitable by the Academic Board.",
+    "not_yet_graduated": "Applicants who have not yet earned the Bachelor's degree may apply if they have earned at least 100 ECTS by 21 February 2026.",
+    "selection_basis": "Applicants are evaluated on academic performance and an oral interview."
+  },
+  "country_specific_eligibility": "For applicants with a Turkish or other non-Italian qualification, the foreign degree must be valid for access to second-cycle studies and the enrolment stage requires a Declaration of Value, a CIMEA Statement of Comparability, or a Diploma Supplement, following PoliTo's general non-Italian-qualification rules. [uncertain]",
+  "minimum_background_or_credits": "Italian-degree applicants need 40 CFU/ECTS in the first disciplinary group and 60 CFU/ECTS in the second group; applicants who have not yet graduated must have at least 100 ECTS by 21 February 2026. For foreign single-cycle applicants using the 'equivalent academic qualification' route, PoliTo's general rules require at least 15 years of global schooling, at least 3 years at university level, and at least 180 ECTS or equivalent, but the programme-specific call does not publish a fixed subject-credit grid for non-Italian qualifications. [uncertain]",
+  "language_requirements": {
+    "english_requirement": "English level B2 or higher is required.",
+    "accepted_certificates": "Accepted B2-equivalent certificates include IELTS Academic or General Training 5.5, Pearson PTE Academic 59, TOEFL iBT 72 (if obtained before 21 January 2026), TOEIC Listening 400 / Reading 385 / Speaking 160 / Writing 150, and Cambridge English 160.",
+    "exemptions": "Exemptions include an IB Diploma taught entirely in English, eligible European Schools qualifications with English as L1, and eligible English-medium qualifications from the countries listed by PoliTo.",
+    "italian_requirement": "The international-track special call explicitly requires an English certificate and does not state an Italian-language certificate requirement, even though the catalogue label for the programme is 'Italian, English'. [uncertain]"
+  },
+  "english_certificate_codes": "For TOEFL/TOEIC, use institution code C285. For Cambridge, share the results with Politecnico di Torino and provide the Candidate ID number.",
+  "language_submission_timing": "The English certificate must be entered or uploaded in Apply@polito during the application process and within the call deadline.",
+  "application_deadline_eu": {
+    "special_call_application_window": "Applications for the international-track special call open on 24 April 2026 and close on 18 May 2026 at 23:59.",
+    "interview_dates": "Oral admission interviews are scheduled for 3-4 June 2026.",
+    "enrolment_with_italian_bachelor": "Applicants with an Italian Bachelor's degree must enrol by 12 November 2026; Politecnico di Torino applicants who advance Master's courses and graduate by March 2027 may enrol by 24 March 2027.",
+    "enrolment_with_foreign_degree_no_visa": "Applicants holding a foreign degree must complete enrolment and upload the required academic documents by 5 October 2026; personal identification must be completed by 3 December 2026."
+  },
+  "application_deadline_non_eu": {
+    "special_call_application_window": "Applications for the international-track special call open on 24 April 2026 and close on 18 May 2026 at 23:59.",
+    "quota": "The call reserves 2 places for non-EU applicants living abroad and requiring a visa.",
+    "interview_dates": "Oral admission interviews are scheduled for 3-4 June 2026.",
+    "enrolment_deadline": "Enrolment must be completed by 5 October 2026.",
+    "document_upload_deadline": "Academic documents required for admission must be uploaded by 5 October 2026 and will be checked before 11 November 2026.",
+    "personal_identification_deadline": "Identification and verification of personal information must be completed by 3 December 2026."
+  },
+  "universitaly_preenrolment_deadline": null,
+  "application_fee": "€50 non-refundable application fee, paid through PagoPA when submitting the Apply@polito application.",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fee-from-25-26",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "English language certificate (B2 or higher), unless exempt",
+    "For applicants from other Italian universities: online application with Bachelor's exams entered for at least 180 credits",
+    "For applicants with a non-Italian qualification: passport, Curriculum Vitae, Bachelor's degree or official provisional-graduation document, official Transcript of Records, and the required application attachments listed on the non-Italian-qualification page",
+    "For applicants with a non-Italian qualification: syllabus or course descriptions if required by the programme evaluation",
+    "For enrolment with a non-Italian qualification: Declaration of Value, CIMEA Statement of Comparability, or Diploma Supplement"
+  ],
+  "document_translation_authentication": "For non-Italian qualifications, documents must be issued on letterheaded paper and stamped/signed by the issuing institution; digitally signed documents are accepted only if they can be verified online. Documents in Italian, English, French or Spanish are accepted as is; documents in other languages must be uploaded together with an official English or Italian translation in a single merged file. For enrolment, PoliTo requires a Declaration of Value, a CIMEA Statement of Comparability, or a Diploma Supplement.",
+  "entry_exam_or_test": {
+    "type": "Oral interview for the international-track special call, after verification of the academic requirements.",
+    "mode": "Online oral interview.",
+    "timing": "3-4 June 2026.",
+    "evaluation": "Applicants are scored on academic performance (maximum 60 points) and oral interview performance (maximum 40 points)."
+  },
+  "test_score_or_threshold": "Minimum interview score for eligibility: 24/40. Applicants from other Italian universities need a weighted average of at least 24/30 after subtracting the worst 28 credits. For Politecnico di Torino graduates, the published weighted-average thresholds are 21/30 or 24/30 depending on time to graduation.",
+  "source_quotes": [
+    {
+      "quote": "Italian, English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems",
+      "supports_fields": ["teaching_language"]
+    },
+    {
+      "quote": "LM-44: MATHEMATICAL MODELLING FOR ENGINEERING",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems",
+      "supports_fields": ["degree_class"]
+    },
+    {
+      "quote": "entire Master Programme in English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems/programme-details",
+      "supports_fields": ["has_complete_english_track", "english_track_name"]
+    },
+    {
+      "quote": "Percorso internazionale",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems/programme-curriculum",
+      "supports_fields": ["english_track_name", "curriculum_page_url"]
+    },
+    {
+      "quote": "All courses are taught in English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems/tracks",
+      "supports_fields": ["has_complete_english_track", "double_degree_or_erasmus_mundus"]
+    },
+    {
+      "quote": "Application opening date: 24 April 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+      "supports_fields": ["admission_call_round", "application_deadline_eu", "application_deadline_non_eu", "special_call_flag"]
+    },
+    {
+      "quote": "Application closing date: 18 May 2026 (23:59)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+      "supports_fields": ["admission_call_round", "application_deadline_eu", "application_deadline_non_eu", "special_call_flag"]
+    },
+    {
+      "quote": "The deadline for application submission is 18th May 2026 (23.59).",
+      "source_url": "https://www.polito.it/sites/default/files/2026-04/Call%20for%20applications%20PCS%202026-27%20eng.pdf",
+      "supports_fields": ["application_deadline_eu", "application_deadline_non_eu"]
+    },
+    {
+      "quote": "equal to or greater than 24 points",
+      "source_url": "https://www.polito.it/sites/default/files/2026-04/Call%20for%20applications%20PCS%202026-27%20eng.pdf",
+      "supports_fields": ["entry_exam_or_test", "test_score_or_threshold"]
+    },
+    {
+      "quote": "Pay the non-refundable application fee (€50)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_fee"]
+    },
+    {
+      "quote": "Bachelor's degree (level 6 EQF)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["academic_requirements", "country_specific_eligibility"]
+    },
+    {
+      "quote": "IELTS Academic and General Training 5.5",
+      "source_url": "https://www.polito.it/sites/default/files/2026-01/Tabella_23_09_2019_agg_gen26_eng_0.pdf",
+      "supports_fields": ["language_requirements"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems",
+    "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems/programme-details",
+    "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems/programme-curriculum",
+    "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems/tracks",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+    "https://www.polito.it/sites/default/files/2026-04/Call%20for%20applications%20PCS%202026-27%20eng.pdf",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/sites/default/files/2026-01/Tabella_23_09_2019_agg_gen26_eng_0.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fee-from-25-26"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "The broad English-rule check is satisfied: the catalogue label is bilingual ('Italian, English'), but the programme-details page says that in both tracks it is possible to attend the entire Master's programme in English, and the curriculum page explicitly lists an International track (Percorso internazionale) with English-taught courses across both years.",
+    "english_track_name is marked uncertain because the official pages clearly name the International track, but they also state that the National track can be completed entirely in English through course choice; there is not a single official English-only track label covering both cases.",
+    "The separate special call is confirmed from both the central Master's-admissions page and the programme-specific call PDF: opening 24 April 2026, closing 18 May 2026 at 23:59.",
+    "The programme page still lists the general programme admission as 'Uncapped number of students, evaluation of the admission requirements', while the international track uses a restricted separate call with ranking and interview. This JSON prioritizes the special-call route because it is the relevant fully-English international-track admission path.",
+    "The generic non-Italian-qualification page says partially Italian/English programmes normally require both English B2 and Italian B2, but the programme-specific international-track call requires only an English certificate. The JSON follows the programme-specific call for the international-track route.",
+    "No programme-specific UNIVERSITALY pre-enrolment deadline was found in the special-call sources checked. The standard 1st/2nd-call visa deadlines on the general non-Italian-qualification page do not map cleanly to this separate call, so universitaly_preenrolment_deadline is left null.",
+    "Country-specific treatment for Turkish applicants is derived from PoliTo's general non-Italian-qualification rules; no Turkey-specific clause was published for this programme in the sources checked.",
+    "The tuition/fees link is the current official PoliTo tuition-regulations page for students enrolled from A.Y. 2025/2026 onward; the programme-specific call states only the first instalment amount (€161) and notes that the 2026/27 tuition regulation would be approved later."
+  ],
+  "uncertain": [
+    "english_track_name",
+    "country_specific_eligibility",
+    "minimum_background_or_credits",
+    "language_requirements",
+    "universitaly_preenrolment_deadline"
+  ]
+}

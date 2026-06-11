@@ -1,0 +1,136 @@
+{
+  "program_name": "Electrical Engineering for Energy Transition",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Genoa (DITEN - Department of Naval, Electrical, Electronic and Telecommunications Engineering)",
+  "degree_class": "LM-28 (Electrical Engineering)",
+  "admission_type": "open access (free access, but admission requires meeting curricular requirements and, where applicable, passing an assessment of adequacy of personal preparation)",
+  "academic_requirements": {
+    "summary": "Open-access (non-competitive) master's programme. Admission requires a recognised bachelor's degree, satisfaction of three curricular requirements, and verification of personal preparation when the graduation mark is below 90/110.",
+    "prior_degree_or_diploma": "A bachelor's degree or equivalent (pre-doctoral degree, three-year university diploma, three-year direct school for special purposes).",
+    "curricular_requirements": "(1) At least 36 CFU (or equivalent knowledge) in the SSDs for the basic educational activities of Class L-9 Industrial Engineering; (2) at least 45 CFU (or equivalent knowledge) in the SSDs for the characterizing educational activities of Class L-9 in the fields of Electrical, Energy and Safety Engineering; (3) an English certificate of B2 level. UniGeApply notes admission is open only to bachelors in the field of engineering for non-EU applicants.",
+    "minimum_grade": "Personal preparation is deemed adequate (and the assessment waived) for holders of an Italian or EU bachelor's degree meeting the curricular requirements with a final mark equal to or higher than 90/110 (or the equivalent percentage CGPA). For non-EU applicants the degree grade must correspond to at least 85% of the maximum possible grade.",
+    "personal_preparation_assessment": "Applicants below 90/110 must pass a Personal Preparation Assessment - a public interview by a Commission appointed by the Programme Coordinator, evaluating circuit theory, electromagnetism, electric machines and drives, power electronics, power generation and distribution, and electric and electronic measurements. Outcome is pass/fail.",
+    "international_qualification": "Non-Italian graduates submit their academic career for curricular verification through UniGe's online portal; non-EU candidates residing abroad apply via UniGeApply for pre-evaluation (degree grade at least 85% of maximum, admission test/interview required).",
+    "source_url": "https://corsi.unige.it/en/corsi/11955/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English B2 level (or higher).",
+    "accepted_proofs": [
+      "A recognised B2 certificate among those accepted by the University.",
+      "A bachelor's degree awarded in English, with official documentation.",
+      "Passing the University's English B2 test.",
+      "Verification by the personal-preparation assessment Commission."
+    ],
+    "exemption_rules": [
+      "An accepted B2-or-higher certificate, or a bachelor's degree taught in English (officially documented), removes the need for the University B2 test."
+    ],
+    "assessment_or_upload_stage": "B2 English is a curricular requirement verified at the admission/assessment stage; non-EU applicants have it verified during the UniGeApply pre-evaluation.",
+    "source_url": "https://corsi.unige.it/en/corsi/11955/prospective-students-requisites-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Personal Preparation Assessment (assessment of adequacy of personal readiness) - NOT a TOLC. A public interview by an appointed Commission.",
+    "mandatory": false,
+    "is_selective": false,
+    "applies_to": "Candidates whose bachelor's final mark is below 90/110 (or equivalent percentage); non-EU applicants via UniGeApply take a remote admission test/interview.",
+    "format": "Public interview before a Commission appointed by the Degree Programme Coordinator, covering circuit theory, electromagnetism, electric machines and drives, power electronics, power generation and distribution, and electric and electronic measurements.",
+    "dates": "[uncertain] Specific assessment dates were not published on the course pages at the time of research; pre-registration is required to appear on the testing lists. Pre-registration and verification are free of charge.",
+    "scoring_or_threshold": "Binary pass/fail outcome. Waived for Italian/EU bachelors meeting curricular requirements with a final mark of at least 90/110. Non-EU minimum degree grade is 85% of maximum.",
+    "source_url": "https://corsi.unige.it/en/corsi/11955/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026.",
+      "First-year pre-registration: from 9 April to 30 November 2026 (and until 10 March 2027 with late payment)."
+    ],
+    "enrolment_deadline": "Confirmation of enrolment from 15 July 2026 to 30 November 2026, and until 10 March 2027 with late payment; enrolment in years after the first runs 15 July to 5 October 2026 (arrears 6 October to 5 November 2026).",
+    "notes": "Open-access (non-ranked) programme; EU/resident applicants who do not meet the 90/110 threshold must pass the Personal Preparation Assessment before enrolling. Tuition first installment (approx. EUR 136) at enrolment; second installment by 10 December 2026; third by 23 June 2027.",
+    "source_url": "https://corsi.unige.it/en/corsi/11955/prospective-students-deadlines"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026.",
+      "No programme-specific early closure is published for Electrical Engineering for Energy Transition (only Medical-Pharmaceutical Biotechnology, Maritime Science and Technology, and the Computer Engineering bachelor have published fall early closures)."
+    ],
+    "visa_or_pre_enrolment_deadline": "After receiving eligibility via UniGeApply, visa applicants complete Universitaly pre-enrolment and apply for the study visa.",
+    "early_closure": "None published for this programme (uses the standard fall-session close of 20 March 2026).",
+    "notes": "Non-EU visa applicants must use the fall session, apply through UniGeApply (max 2 courses; 30 EUR fixed fee for visa applicants), hold a bachelor in the field of engineering with a degree grade of at least 85% of maximum, and pass a remote admission test/interview. The A.Y. 2026/27 fall window has now closed.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae et Studiorum",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Information on educational background, additional courses, work activities or internships.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Must be a bachelor in the field of engineering; degree grade at least 85% of maximum for non-EU pre-evaluation.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "List of exams with credits and grades; used to verify the 36 CFU basic + 45 CFU characterizing engineering requirements.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "English Language Proficiency Certificate (B2) or Medium of Instruction (MOI) declaration",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "B2 certificate, or a bachelor's degree taught in English officially documented; otherwise B2 verified by the Commission.",
+      "source_url": "https://corsi.unige.it/en/corsi/11955/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Passport (non-EU) / national ID or passport (EU); residence permit (non-EU residents)",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Uploaded on UniGeApply in PDF, max 2 MB.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11955/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11955",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "Electrical Engineering for Energy Transition, Course Code 11955, Degree Class LM-28 (Electrical Engineering), Teaching language English, 120 CFU, 2 years, Genova.",
+      "source_url": "https://corsi.unige.it/en/corsi/11955",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "at least 36 CFU ... in the SSDs ... for the basic educational activities ... of Class L-9 Industrial Engineering; at least 45 CFU ... for the characterizing educational activities of ... L-9 ... in the fields of Electrical, Energy and Safety Engineering; an English certificate of B2 level.",
+      "source_url": "https://corsi.unige.it/en/corsi/11955/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements, language_requirements"
+    },
+    {
+      "quote": "an Italian or EU Bachelor's degree, complying with curricular requirements, with final mark equal to or higher than 90/110 (or the corresponding Cumulative Grade Point Average expressed in percent).",
+      "source_url": "https://corsi.unige.it/en/corsi/11955/prospective-students-requisites-assessment",
+      "field_supported": "academic_requirements, entry_exam_or_test"
+    },
+    {
+      "quote": "a public interview conducted by a Commission ... Circuit theory; Electromagnetism; Electric machines and drives; Power electronics; Power generation and distribution; Electric and electronic measurements ... 'pass' or 'fail'.",
+      "source_url": "https://corsi.unige.it/en/corsi/11955/prospective-students-requisites-assessment",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "Electrical Engineering for Energy Transition: minimum CGPA 85%, admission test/interview: yes, only Bachelor in the field of engineering.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "application_deadline_non_eu, academic_requirements"
+    }
+  ],
+  "uncertainty_notes": [
+    "Programme is open-access; the 'test to be passed' on the catalogue page is the Personal Preparation Assessment (a public interview), not a TOLC or competitive entrance exam.",
+    "Exact dates of the Personal Preparation Assessment interview were not published on the course pages at the time of research; pre-registration is required to be listed.",
+    "EU/spring deadlines reflect the institution-wide UniGeApply window (master's close 28 August 2026) plus the corsi.unige.it enrolment calendar; no programme-specific first-year EU application deadline is separately published.",
+    "The English admission-criteria page mentions 'proof of knowledge of the Italian language' for non-Italian graduates as a generic line; the programme is English-taught and the binding language requirement is English B2."
+  ],
+  "uncertain": [
+    "entry_exam_or_test"
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "program_name": "Cybersecurity Engineering",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale, 2nd cycle)",
+  "teaching_language": "English",
+  "is_fully_english_programme": true,
+  "has_complete_english_track": true,
+  "english_track_name": null,
+  "campus": "Torino (Main Campus / Sede Centrale, Corso Duca degli Abruzzi 24, 10129 Torino)",
+  "degree_class": "Multi-class (inter-class) programme: LM-32 (Computer Systems Engineering / Ingegneria informatica) AND LM-66 R (Computer Systems Safety / Sicurezza informatica). Students choose the degree class in which to graduate, finalised at enrolment in Year 2.",
+  "double_degree_or_erasmus_mundus": "Not currently a fixed double/joint degree. The Academic Regulations state: 'The programme plans to establish agreements with international universities to offer double or joint degrees' (future intention, not an existing Erasmus Mundus or active double-degree call). [uncertain]",
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/cybersecurity-engineering",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/cybersecurity-engineering/programme-curriculum",
+  "admission_type": "evaluation/CV (uncapped number of students; admission by evaluation of the admission requirements — curricular requirements + suitable academic performance, no entrance test)",
+  "admission_test_type": "Master-level qualification/CV evaluation. No written admission test. Two-step assessment: (1) the Recruitment and Admissions Unit verifies eligibility requirements; (2) the Academic Committee / professors designated by the Coordinator of the Collegio evaluate academic performance and consistency of the prior degree with the programme. GRE General Test is optional/recommended but not required.",
+  "applicant_route": [
+    "Applicants from Politecnico di Torino (Italian qualification)",
+    "Applicants from other Italian universities (Italian qualification)",
+    "Applicants with a non-Italian educational qualification residing in Italy (non-EU with residence permit, or EU)",
+    "Non-EU applicants with a non-Italian qualification residing abroad and requiring a type-D study visa (the relevant route for Turkish applicants)"
+  ],
+  "admission_call_round": [
+    "1st Call (non-Italian qualification, A.Y. 2026/2027): opens 19 December 2025, closes 13 February 2026 at 2:00 p.m. (Italian time); selection results by 15 April 2026.",
+    "2nd Call (non-Italian qualification, A.Y. 2026/2027): opens 18 March 2026, closes 20 April 2026 at 2:00 p.m. (Italian time, postponed); selection results by 22 June 2026.",
+    "Note: a separate Special Call (24 April 2026 – 18 May 2026) exists ONLY for the International Tracks 'Physics of Complex Systems' and 'Nanotechnologies for ICTs (MNIS)'; it does NOT apply to Cybersecurity Engineering, which uses the standard 1st/2nd calls. Deadlines were extended by 15 days per Rectoral Decree DR 96/2026."
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito (didattica.polito.it / https://didattica.polito.it/pls/portal30/sviluppo.pkg_apply.registrazione), section 'applicants with a non-Italian qualification'; UNIVERSITALY (https://www.universitaly.it/) for the mandatory type-D study-visa pre-enrolment for non-EU applicants residing abroad.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "general_rule": "Italian regulations require checking three things: (1) a three-year Bachelor's degree (or university diploma, or a foreign qualification recognised as suitable for admission); (2) specific curricular requirements; (3) an academic performance considered suitable for admission.",
+    "curricular_requirements_by_degree_class": "Curricular requirements are automatically met by applicants holding an Italian Bachelor's degree in class L-8 (Ingegneria dell'Informazione / Information Engineering) or L-31 (Scienze e Tecnologie Informatiche / Computer Science), or a foreign qualification recognised as equivalent.",
+    "curricular_requirements_by_credits": "Alternatively, applicants must have earned: (a) at least 40 credits in the Scientific Disciplinary Fields (SSD) FIS/01, FIS/03, INF/01, ING-INF/05, MAT/02, MAT/03, MAT/05; AND (b) at least 60 credits in the SSDs INF/01, ING-INF/01, ING-INF/03, ING-INF/05, SECS-S/01, MAT/03, MAT/05, MAT/06, MAT/08, MAT/09. Credits found in both groups are counted first for group (a), the remainder for group (b); a single course's credits may be split across both groups.",
+    "credit_shortfall_rule": "Applicants lacking fewer than 10 credits may be admitted by the Academic Advisor; those lacking more than 10 credits require final approval by the Coordinator/Vice-coordinator. Missing curricular credits must be made up BEFORE enrolment via single-course enrolment (up to 60 credits to acquire) or, if more than 60 credits are missing, via Bachelor-level credit transfer.",
+    "suitable_academic_performance_polito": "Applicants from Politecnico di Torino: admitted if Bachelor's earned in 4 years or less (no average required); in 4–5 years (weighted average >= 21/30 required); in more than 5 years (weighted average >= 24/30 required). Weighted average computed on all graded (30-scale) credits towards the degree, after subtracting the worst 28 credits.",
+    "suitable_academic_performance_other_italian": "Applicants from other Italian universities: weighted average of all exams >= 24/30 (after subtracting the worst 28 credits), regardless of years to graduate.",
+    "suitable_academic_performance_foreign": "Applicants with a non-Italian qualification: must hold a recognised foreign academic qualification earned after at least 15 years of total education (primary + secondary + university), with at least 3 years at university level and at least 180 ECTS (or equivalent). Academic performance and consistency of prior studies with the programme are assessed by professors designated by the Coordinator of the Collegio via Apply@polito."
+  },
+  "country_specific_eligibility": "Turkish applicants are non-EU with a non-Italian qualification. They must hold a recognised foreign Bachelor's degree (EQF level 6) earned after >=15 years of total education (>=3 years university, >=180 ECTS). A 'Dichiarazione di valore' (Declaration of Value) of the Bachelor's degree, OR a 'Statement of Comparability' (Attestato di Comparabilità) issued by the Italian ENIC-NARIC centre CIMEA, is required — recommended at application and compulsory for enrolment. Applicants whose native language is not Italian must also prove Italian language knowledge at minimum A2 (CEFR) via an internal Politecnico exam or a recognised certificate (per the Student Guide). [uncertain]",
+  "minimum_background_or_credits": "Required Bachelor background: Italian class L-8 or L-31 (automatic), OR >=40 ECTS in FIS/01, FIS/03, INF/01, ING-INF/05, MAT/02, MAT/03, MAT/05 AND >=60 ECTS in INF/01, ING-INF/01, ING-INF/03, ING-INF/05, SECS-S/01, MAT/03, MAT/05, MAT/06, MAT/08, MAT/09. Grade thresholds: Politecnico graduates 21/30 or 24/30 depending on years; other-Italian-university graduates 24/30; foreign-qualification applicants assessed by the Academic Committee for performance and consistency.",
+  "language_requirements": {
+    "level": "English level B2 or above (CEFR) is required for admission (the programme is taught in English).",
+    "accepted_certificates": "TOEFL, TOEIC, Cambridge, IELTS and other certificates listed in the official Politecnico CLA (Language Centre) certificate table. For TOEFL/TOEIC indicate Politecnico institution code C285; for Cambridge provide the Candidate ID.",
+    "exemptions": "Exemptions recognised for: International Baccalaureate (English-taught), European Schools (L1 English), and qualifications obtained in the USA, Canada, UK, Ireland, Australia or New Zealand. (English-medium-of-instruction may be recognised per central admissions guidance.)",
+    "italian_requirement": "Students whose native language is not Italian must additionally prove Italian knowledge at minimum A2 (CEFR) via an internal Politecnico exam or a recognised Italian certificate (per the Student Guide).",
+    "note": "Specific minimum scores per certificate are defined in the external CLA certificate table, not enumerated on the admissions page."
+  },
+  "english_certificate_codes": "TOEFL / TOEIC: Politecnico di Torino institution code C285. Cambridge: provide the Candidate ID.",
+  "language_submission_timing": "English certificate information is entered in Apply@polito at application within the relevant call deadline; the certificate (and other required documents) must be uploaded to the personal area on the Teaching Portal by the enrolment document deadline (5 October 2026 for the 1st semester), with verification by 11 November 2026.",
+  "application_deadline_eu": {
+    "note": "For EU applicants and non-EU applicants residing in Italy, the same 1st/2nd call evaluation windows apply, but there is no UNIVERSITALY/visa pre-enrolment step. Enrolment for the 1st semester closes 5 October 2026; a 2nd-semester enrolment window (only for EU and non-EU applicants residing in Italy) runs 13 November 2026 – 24 March 2027.",
+    "first_call_close": "13 February 2026, 2:00 p.m. (Italian time)",
+    "second_call_close": "20 April 2026, 2:00 p.m. (Italian time)",
+    "enrolment_deadline": "Online enrolment (1st semester) closing date 5 October 2026; mandatory document upload by 5 October 2026 (verified by 11 November 2026). [uncertain]"
+  },
+  "application_deadline_non_eu": {
+    "route": "Non-EU applicants with a non-Italian qualification residing abroad and requiring a type-D study visa (Turkish applicants).",
+    "first_call": "Opens 19 December 2025; closes 13 February 2026 at 2:00 p.m. (Italian time); selection results by 15 April 2026.",
+    "second_call": "Opens 18 March 2026; closes 20 April 2026 at 2:00 p.m. (Italian time, postponed); selection results by 22 June 2026.",
+    "note": "Deadlines were extended by 15 days by Rectoral Decree DR 96/2026. Cybersecurity Engineering uses these standard calls, NOT the International-Tracks special call (24 Apr–18 May 2026, which is only for Physics of Complex Systems and Nanotechnologies MNIS).",
+    "enrolment_and_visa": "After an offer of admission, enrolment (1st semester) closes 5 October 2026; document upload by 5 October 2026 (verified by 11 November 2026); the type-D study visa must be uploaded by 30 November 2026."
+  },
+  "universitaly_preenrolment_deadline": "UNIVERSITALY visa pre-enrolment (mandatory to obtain a type-D study visa) — for non-EU applicants residing abroad: 1st-call applicants by 30 May 2026; 2nd-call applicants by 15 July 2026. This is separate from, and required in addition to, the Apply@polito application; a confirmation-of-eligibility letter and the Apply username (FXXXXXX) are needed to complete it.",
+  "application_fee": "Non-refundable application fee of €50 (paid online via PagoPA, VISA/MasterCard) for applicants with a non-Italian qualification.",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027 (admission deadlines and process); admission requirements quoted from the Cybersecurity Engineering Academic Regulations A.Y. 2025/2026 (latest published; 2026/2027 curricula published in June 2026).",
+  "required_documents": [
+    "Passport (in Latin alphabet); non-EU applicants residing in Italy also need a residence permit (Permesso di soggiorno)",
+    "Curriculum Vitae (CV)",
+    "Bachelor's degree (EQF level 6) or equivalent academic qualification",
+    "Official Transcript of Records (front and back, including the grading system / scale)",
+    "Syllabus / course descriptions of the Bachelor's programme",
+    "English language certificate (B2 or above, CEFR)",
+    "Dichiarazione di valore (Declaration of Value) OR Statement of Comparability (Attestato di Comparabilità) issued by CIMEA — recommended at application, compulsory for enrolment",
+    "Optional but recommended: GRE General Test score report, recommendation letter, motivation letter",
+    "For enrolment (non-EU abroad): type-D study visa (uploaded by 30 November 2026), fiscal code (Codice fiscale), Bachelor's degree with Italian translation",
+    "Proof of Italian knowledge at A2 (CEFR) for non-Italian native speakers (internal Politecnico exam or recognised certificate)"
+  ],
+  "document_translation_authentication": "Foreign Bachelor's qualification requires a Dichiarazione di valore (Declaration of Value) issued by the competent Italian diplomatic authority OR a Statement of Comparability (Attestato di Comparabilità) issued by the Italian ENIC-NARIC centre CIMEA. For enrolment, the Bachelor's degree must be provided with an official Italian translation. [uncertain]",
+  "entry_exam_or_test": {
+    "type": "No entrance exam. Admission is by qualification/CV evaluation (master-level evaluation).",
+    "process": "Two-step assessment: (1) Recruitment and Admissions Unit verifies admission requirements; (2) Academic Committee / designated professors evaluate academic performance and consistency of prior studies with the programme.",
+    "gre": "GRE General Test score report is optional and recommended (not required).",
+    "outcomes": "Possible outcomes: Eligible; Conditional Offer; Not Eligible (requirements unmet); Not Eligible (curricular/academic mismatch)."
+  },
+  "test_score_or_threshold": "No test score. Merit thresholds (academic performance): Politecnico graduates 21/30 (4–5 years) or 24/30 (>5 years); other-Italian-university graduates 24/30 (worst 28 credits subtracted in both cases). Foreign-qualification applicants: no fixed numeric grade threshold — performance and study-consistency assessed by the Academic Committee. Curricular shortfall: <10 missing credits may be waived by the Academic Advisor; otherwise missing credits must be made up before enrolment. [uncertain]",
+  "source_quotes": [
+    {
+      "quote": "Master's degree programme in Cybersecurity Engineering is a multi-class programme, fulfilling the educational objectives of both the Master's degree class in Computer Engineering (LM-32) and the degree class in Cybersecurity (LM-66 R).",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_CYBERSECURITY%20ENG%2025_26.pdf",
+      "supports_fields": ["program_name", "degree_class"]
+    },
+    {
+      "quote": "The programme is delivered entirely in English. ... Year 1 is common to all tracks. In Year 2, students can tailor their studies by selecting a set of courses aligned with a specific track: Cyber Analyst, Cyber Designer, Cryptography Expert and Cyber Legal and Compliance Officer.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/cybersecurity-engineering/programme-curriculum",
+      "supports_fields": ["is_fully_english_programme", "has_complete_english_track", "teaching_language"]
+    },
+    {
+      "quote": "Uncapped number of students, evaluation of the admission requirements.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/cybersecurity-engineering",
+      "supports_fields": ["admission_type"]
+    },
+    {
+      "quote": "applicants must have a Bachelor's degree belonging to one of the following classes: Ingegneria dell'Informazione (L-8) o in Scienze e Tecnologie informatiche (L-31) ... Alternatively, applicants must have earned: at least 40 credits in the following Scientific Disciplinary Fields: FIS/01, FIS/03, INF/01, ING-INF/05, MAT/02, MAT/03, MAT/05 and at least 60 credits earned in the following Scientific Disciplinary Fields: INF/01, ING-INF/01, ING-INF/03, ING-INF/05, SECS-S/01, MAT/03, MAT/05, MAT/06, MAT/08, MAT/09.",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_CYBERSECURITY%20ENG%2025_26.pdf",
+      "supports_fields": ["academic_requirements", "minimum_background_or_credits"]
+    },
+    {
+      "quote": "Applicants must have a suitable academic performance and an English language certificate (B2 level or above, as defined by the Common European Framework of Reference for Languages - CEFR).",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_CYBERSECURITY%20ENG%2025_26.pdf",
+      "supports_fields": ["language_requirements", "academic_requirements"]
+    },
+    {
+      "quote": "To be admitted to Politecnico Master's degree programmes, applicants must have an academic qualification awarded by an accredited/recognized foreign university, earned after completing at least 15 years of total education ... at least 180 ECTS credits or equivalent. ... Students whose native language is not Italian must prove knowledge of the Italian language (minimum A2 level - CEFR).",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_CYBERSECURITY%20ENG%2025_26.pdf",
+      "supports_fields": ["country_specific_eligibility", "academic_requirements", "language_requirements"]
+    },
+    {
+      "quote": "1st Call ... Closes: 13 February 2026, 2:00 p.m. (Italian time); Results: 15 April 2026; Pre-enrolment deadline for Study Visa: 15 May 2026. 2nd Call ... Closes: 20 April 2026, 2:00 p.m. (Italian time); Results: 22 June 2026; Pre-enrolment deadline for Study Visa: 15 July 2026.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_deadline_non_eu", "application_deadline_eu", "admission_call_round", "universitaly_preenrolment_deadline"]
+    },
+    {
+      "quote": "UNIVERSITALY Pre-Enrolment ... 1st Call applicants: 30 May 2026; 2nd Call applicants: 15 July 2026. Pre-enrolment is mandatory to obtain a type D study visa.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["universitaly_preenrolment_deadline", "application_platform"]
+    },
+    {
+      "quote": "Required Documents (Compulsory): Passport ... Curriculum Vitae ... Bachelor's degree (level 6 EQF) ... Official Transcript of Records ... Syllabus/Course descriptions ... English language certificate ... Dichiarazione di valore (Declaration of Value) or Statement of Comparability issued by CIMEA. Application Fee: non-refundable fee €50.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["required_documents", "document_translation_authentication", "application_fee"]
+    },
+    {
+      "quote": "For TOEFL/TOEIC, indicate code C285. For Cambridge, provide Candidate ID. Exemptions: IB Diploma (English-taught), European Schools (L1 English), or qualifications from US, Canada, UK, Ireland, Australia, New Zealand.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["english_certificate_codes", "language_requirements"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/cybersecurity-engineering",
+    "https://www.polito.it/en/education/master-s-degree-programmes/cybersecurity-engineering/programme-curriculum",
+    "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_CYBERSECURITY%20ENG%2025_26.pdf",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+    "https://didattica.polito.it/inte/en/apply_msc_dead_noneu",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees"
+  ],
+  "source_year": "2026/2027 (deadlines/process from official A.Y. 2026/2027 non-Italian-qualification page; admission requirements from the Cybersecurity Engineering Academic Regulations A.Y. 2025/2026, the latest published)",
+  "uncertainty_notes": [
+    "FULLY-ENGLISH CONFIRMED: The official programme page lists teaching language 'English' and the curriculum page states the programme is delivered entirely in English; is_fully_english_programme = true and has_complete_english_track = true. One Year-1 'Challenge' course is offered in Italian but has an English alternative from 'table 1', so a student can complete 100% in English. english_track_name is null (whole programme is English, not a track within a bilingual programme).",
+    "OFFICIAL TITLE: The exact official title is 'Cybersecurity Engineering' (matching the page slug 'cybersecurity-engineering'), confirmed by both the programme page and the Academic Regulations; the item's short name 'Cybersecurity' is not the full official title.",
+    "DEGREE CLASS: This is an inter-class / multi-class programme spanning LM-32 (Computer Systems Engineering) AND LM-66 R (Computer Systems Safety/Cybersecurity); the item listed only LM-32. Students pick the graduating class, finalised at Year-2 enrolment.",
+    "SOURCE YEAR for admission requirements: The detailed curricular requirements, SSD credit lists, and grade thresholds are quoted from the Academic Regulations A.Y. 2025/2026 (the latest published; 26/27 curricula are published in June 2026). These requirements are stable year-to-year but the 26/27 regulations were not yet available at time of research.",
+    "DEADLINES: The 1st/2nd call deadlines (13 Feb 2026 / 20 Apr 2026, both 2:00 p.m. Italian time) and UNIVERSITALY pre-enrolment (30 May 2026 / 15 July 2026) are taken from the official A.Y. 2026/2027 non-Italian-qualification page and reflect the 15-day extension under DR 96/2026; the 2nd-call close was postponed to 20 Apr 2026 due to technical issues.",
+    "NO SPECIAL CALL: Cybersecurity Engineering uses the STANDARD 1st/2nd calls; the special call (24 Apr–18 May 2026) applies only to the International Tracks 'Physics of Complex Systems' and 'Nanotechnologies for ICTs (MNIS)'. special_call_flag = false.",
+    "VISA-VS-PRE-ENROLMENT dates: The non-Italian-qualification page lists a 'Pre-enrolment deadline for Study Visa' of 15 May 2026 (1st call) / 15 July 2026 (2nd call) in one section, and a UNIVERSITALY pre-enrolment of 30 May 2026 (1st call) / 15 July 2026 (2nd call) in another. The 1st-call figures differ slightly between sections (15 May vs 30 May); applicants should verify the exact UNIVERSITALY date on the live official page closer to application time.",
+    "DOUBLE DEGREE: The Academic Regulations note an intention to establish double/joint degrees ('plans to establish agreements'); no active double-degree or Erasmus Mundus call currently governs admission.",
+    "TUITION: The official tuition page does not state numeric figures; PoliTo determines the non-EU comprehensive yearly fee via an ISEE/income-based or country-GDP-proportioned calculation. Use the official fee simulator for an estimate.",
+    "COUNTRY-SPECIFIC (Turkey): The 15-years-of-education and CIMEA/Declaration-of-Value requirements come from the general non-Italian-qualification rules; a Turkey-specific page was not separately located. Turkish applicants must also meet the A2 Italian requirement for non-native-Italian speakers."
+  ],
+  "uncertain": [
+    "double_degree_or_erasmus_mundus",
+    "country_specific_eligibility",
+    "document_translation_authentication",
+    "test_score_or_threshold",
+    "application_deadline_eu",
+    "universitaly_preenrolment_deadline"
+  ]
+}

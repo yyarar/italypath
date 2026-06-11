@@ -1,0 +1,123 @@
+{
+  "program_name": "Cultural, Intellectual and Visual History",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-84 R - Scienze storiche",
+  "admission_type": "open with entry requirements examination",
+  "academic_requirements": "Applicants need a bachelor's-level qualification in one of the listed Italian classes (L-1, L-3, L-5, L-10, L-11, L-20, L-36, L-40, L-42, or the corresponding classes under Ministerial Decree 509/99), or a foreign bachelor's degree in History, Arts, Classics, Literature, Philosophy or related disciplines that UniMi recognizes as suitable. They must also hold at least 36 ECTS in the historical, art-historical, philosophical, literary, legal, political, economic-history, and sociology-of-culture sectors listed on the official application page. Candidates graduating later may apply only if they obtain the degree and all curricular and linguistic requirements by 31 December 2026. Undergraduates must have at least 130 credits at the time of application. For foreign qualifications, the Admissions Board checks equivalence through the diploma supplement/transcript and may require an additional online interview if the submitted documentation does not sufficiently prove the background requirements.",
+  "language_requirements": "For admission, all applicants must prove English at CEFR B2 or higher. The standard route is an official certificate recognized by UniMi, issued no more than 3 years before submission; the central UniMi accepted-certificates page adds that TOEFL is valid for 2 years and that accepted certificates must cover reading, writing, listening, and speaking. The B2 certificate must be uploaded with the online admission application. Applicants who do not hold a B2 certificate but whose university degree (or equivalent foreign qualification) was delivered in English can be assessed through an oral interview. Separately from admission, the 2026/2027 manifesto requires C1 English for graduation: students without a valid C1 certificate must take the compulsory SLAM placement test between October and January of year 1 and, if necessary, attend the SLAM course. The same manifesto also requires students who do not hold an Italian high school diploma or an Italian university degree to demonstrate Italian at CEFR A2 or higher before completing the programme, either by certificate or through SLAM testing/coursework. UniMi's general international enrolment page states that the ministerial Italian proficiency test for non-EU students resident abroad applies to degree programmes taught in Italian; this programme is taught in English.",
+  "application_deadline_eu": "Admission application window for EU/equivalent candidates: 22 January 2026 to 25 August 2026.",
+  "application_deadline_non_eu": "Admission application window for non-EU candidates applying for a visa: 22 January 2026 to 30 April 2026. Universitaly pre-enrolment deadline for non-EU students residing abroad: 31 July 2026.",
+  "required_documents": [
+    "For applicants with Italian qualifications from universities other than UniMi: self-certification of degree/enrolment with exam records, including exams taken, grades, ECTS credits, and scientific-disciplinary sectors.",
+    "For UniMi graduates or graduands: the self-certification of degree/enrolment with exam records is acquired automatically by the online admission service.",
+    "For applicants with foreign qualifications: Bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with foreign qualifications: diploma supplement, or transcript showing courses, marks, ECTS, academic field, and the grading system used by the university.",
+    "Passport or other valid ID for applicants with foreign qualifications.",
+    "English language certificate at B2 or higher, recognized by UniMi, if the applicant is using the certificate route for admission.",
+    "To finalize enrolment with a foreign qualification: legalized or apostilled Bachelor's degree (or equivalent), unless exempt from legalization/apostille rules.",
+    "High school diploma for applicants enrolling with a foreign qualification.",
+    "Official Italian translation of academic qualifications, unless the originals are in French, English, German, or Spanish.",
+    "Statement of Comparability issued by an ENIC-NARIC center (for example CIMEA), or Dichiarazione di Valore in loco; for Lisbon Convention countries, the Diploma Supplement or ARDI Correspondence Statement may replace the DOV and Statement of Comparability.",
+    "Italian tax code (codice fiscale) for applicants enrolling with a foreign qualification.",
+    "Receipt of residence-permit application or a valid residence permit for non-EU citizens enrolling with a foreign qualification."
+  ],
+  "entry_exam_or_test": "There is no standard entrance exam. Admission is 'open with entry requirements examination': the Admissions Board evaluates the online application and supporting academic records and may request an interview and/or a written test, either in person or remotely. The programme application page specifies that the interview is not an exam, but a further check used only when the committee needs to verify the applicant's academic background or language preparation. Foreign-degree applicants may be called to an additional online interview if their submitted documentation does not sufficiently prove the required 36 ECTS/background. Applicants without an official English certificate but with a degree taught in English may be invited to an oral interview on English proficiency.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/cultural-intellectual-and-visual-history",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cultural-intellectual-and-visual-history-%28classe-lm-84-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027. Access: Open with entry requirements examination. Course location: Milan. Language: English.",
+      "url": "https://www.unimi.it/en/education/master-programme/cultural-intellectual-and-visual-history",
+      "field_refs": [
+        "academic_year",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The deadline to submit the Online admission application for non EU candidates applying for a visa is April 30, 2026 ... for EU candidates and equivalents is August 25, 2026.",
+      "url": "https://visual.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "the achievement of at least 36 credits ... is required to access the programme",
+      "url": "https://visual.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Knowledge of the English language will be ascertained by possession of official certification, at least level B2 ... The certificate must be uploaded when submitting the online application.",
+      "url": "https://visual.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Certificates must have been earned for no more than 3 years at the time of submission (2 years for TOEFL) and they must certify 4 language skills.",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "The online admission service requires the following documents to be uploaded ... Bachelor's Degree ... Diploma supplement ... Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cultural-intellectual-and-visual-history-%28classe-lm-84-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cultural-intellectual-and-visual-history-%28classe-lm-84-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "ENGLISH level C1: In order to obtain their degree, students are required to have a C1 level of proficiency",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_C85of3_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "ITALIAN level A2: To obtain the degree, those who do not hold an Italian high school diploma or degree must demonstrate proficiency in Italian",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_C85of3_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "All non-EU students resident abroad interested in a Bachelor's, Single-cycle or Master's degree programmes taught in Italian have to pass an Italian language proficiency test.",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "No unresolved field-level uncertainty remains after checking the official programme page, the linked programme website application page, the admission notice PDF, the 2026/2027 manifesto PDF, the central accepted-English-certificates page, and the UniMi international enrolment page.",
+    "The generic UniMi international enrolment page includes broader non-EU handling rules; where it overlaps with the programme-specific admission notice, this JSON prioritizes the programme-specific notice for document and deadline wording."
+  ],
+  "uncertain": []
+}

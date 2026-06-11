@@ -1,9 +1,9 @@
 {
   "universityId": 2,
-  "mode": "apply",
+  "mode": "dry-run",
   "sourceFiles": 23,
-  "existingDepartments": 57,
-  "matchedExisting": 21,
+  "existingDepartments": 59,
+  "matchedExisting": 23,
   "matchedExistingDetails": [
     {
       "id": 249,
@@ -136,6 +136,16 @@
       "canonicalDepartmentName": "Economics"
     },
     {
+      "id": 1182,
+      "name": "Engineering in Computer Science and Artificial Intelligence",
+      "slug": "engineering-in-computer-science-and-artificial-intelligence",
+      "level": "master",
+      "sourceFile": "master-engineering-cs-ai.json",
+      "rawProgramName": "Engineering in Computer Science and Artificial Intelligence",
+      "sourceProgramName": "Engineering in Computer Science and Artificial Intelligence",
+      "canonicalDepartmentName": "Engineering in Computer Science and Artificial Intelligence"
+    },
+    {
       "id": 563,
       "name": "European Studies",
       "slug": "european-studies",
@@ -214,42 +224,19 @@
       "rawProgramName": "Transport Systems Engineering",
       "sourceProgramName": "Transport Systems Engineering",
       "canonicalDepartmentName": "Transport Systems Engineering"
-    }
-  ],
-  "newDepartments": [
-    {
-      "id": null,
-      "university_id": 2,
-      "name": "Engineering in Computer Science and Artificial Intelligence",
-      "slug": "engineering-in-computer-science-and-artificial-intelligence",
-      "languages": [
-        "en"
-      ],
-      "duration_years": 2,
-      "level": "master",
-      "sort_order": 46,
-      "rawProgramName": "Engineering in Computer Science and Artificial Intelligence",
-      "sourceProgramName": "Engineering in Computer Science and Artificial Intelligence",
-      "canonicalDepartmentName": "Engineering in Computer Science and Artificial Intelligence",
-      "sourceFile": "master-engineering-cs-ai.json"
     },
     {
-      "id": null,
-      "university_id": 2,
+      "id": 1183,
       "name": "Medicine and Surgery",
       "slug": "medicine-and-surgery",
-      "languages": [
-        "en"
-      ],
-      "duration_years": 6,
       "level": "single-cycle",
-      "sort_order": 47,
+      "sourceFile": "single-cycle-medicine-surgery-english.json",
       "rawProgramName": "Medicine and Surgery",
       "sourceProgramName": "Medicine and Surgery",
-      "canonicalDepartmentName": "Medicine and Surgery",
-      "sourceFile": "single-cycle-medicine-surgery-english.json"
+      "canonicalDepartmentName": "Medicine and Surgery"
     }
   ],
+  "newDepartments": [],
   "duplicateNameDifferentLevel": [],
   "existingWithoutSource": [
     {
@@ -689,8 +676,8 @@
       "level": "master",
       "rawLevel": "master",
       "rawLevelNormalized": false,
-      "action": "new-department",
-      "departmentId": null,
+      "action": "matched-existing",
+      "departmentId": 1182,
       "departmentName": "Engineering in Computer Science and Artificial Intelligence",
       "departmentSlug": "engineering-in-computer-science-and-artificial-intelligence"
     },
@@ -833,8 +820,8 @@
       "level": "single-cycle",
       "rawLevel": "single-cycle",
       "rawLevelNormalized": false,
-      "action": "new-department",
-      "departmentId": null,
+      "action": "matched-existing",
+      "departmentId": 1183,
       "departmentName": "Medicine and Surgery",
       "departmentSlug": "medicine-and-surgery"
     }
@@ -852,8 +839,8 @@
         "level": "single-cycle",
         "rawLevel": "single-cycle",
         "rawLevelNormalized": false,
-        "action": "new-department",
-        "departmentId": null,
+        "action": "matched-existing",
+        "departmentId": 1183,
         "departmentName": "Medicine and Surgery",
         "departmentSlug": "medicine-and-surgery"
       }

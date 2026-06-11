@@ -1,0 +1,98 @@
+{
+  "program_name": "Cognitive Neuroscience",
+  "level": "master",
+  "official_level_type": "Laurea Magistrale",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Rome (Faculty of Medicine and Psychology)",
+  "degree_class": "LM-51",
+  "course_code": "33574",
+  "faculty": "Medicina e Psicologia (Medicine and Psychology)",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33574",
+  "admission_type": "restricted access – verification of requirements and personal preparation",
+  "movein_preselection_required": true,
+  "admission_test_type": "Verification of curricular requirements and personal preparation; possible interview",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (MoveIN route, visa-required)"
+  ],
+  "application_platform": "MoveIN platform for non-EU pre-selection; Infostud for admission",
+  "access_quota_non_eu": "[uncertain] – programme-specific non-EU quota not extracted",
+  "application_round": "September intake (A.Y. 2026-2027)",
+  "intake_semester_availability": "September intake",
+  "places_and_foreign_contingent": "[uncertain]",
+  "official_call_url": null,
+  "faculty_call_pdf_url": null,
+  "academic_requirements": {
+    "prior_degree": "A three-year bachelor's degree in Psychology, Cognitive Science, Neuroscience, Biology, or related field",
+    "curricular_requirements": "[uncertain] – specific ECTS/SSD requirements not extracted"
+  },
+  "country_specific_eligibility": "[uncertain] – see MoveIN academic requirements PDF 2026-2027",
+  "curricular_integration_policy": "[uncertain]",
+  "conditional_enrolment_policy": "[uncertain]",
+  "language_requirements": {
+    "level": "B2 CEFR in English (general Sapienza requirement; programme taught in English for both Italian and foreign students)",
+    "note": "Courses are taught in English for both Italian and foreign students."
+  },
+  "language_submission_timing": "[uncertain]",
+  "italian_language_requirement": "Italian not required for admission; programme taught in English.",
+  "application_deadline_eu": "31 July 2026 for EU and EU-equivalent candidates [uncertain]",
+  "application_deadline_non_eu": "MoveIN pre-selection window 22 December 2025 – 15 May 2026 for non-EU candidates residing abroad",
+  "application_fee": "€30 per application via MoveIN (max 2 per candidate)",
+  "visa_preenrolment_deadline": "MoveIN pre-selection by 15 May 2026",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2025-2026",
+  "required_documents": [
+    "Bachelor's degree certificate or enrolment certificate",
+    "Academic transcript",
+    "Passport / ID",
+    "English language certificate (B2)",
+    "For foreign qualifications: Declaration of Value (DoV) or CIMEA statement"
+  ],
+  "document_translation_authentication": "Foreign documents require official translation and legalization/apostille plus Declaration of Value (DoV) or CIMEA statement.",
+  "entry_exam_or_test": {
+    "test": "No standardized written entrance test",
+    "selection": "Verification of curricular requirements and personal preparation"
+  },
+  "test_variant_and_session": "[uncertain]",
+  "test_score_conversion_or_threshold": "[uncertain]",
+  "source_quotes": [
+    {
+      "quote": "Programme Name: Cognitive neuroscience; Degree Class: LM-51; Course Code: 33574; Faculty: Medicina e Psicologia; Language: English",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33574",
+      "supports_fields": ["program_name", "degree_class", "course_code", "faculty", "teaching_language"]
+    },
+    {
+      "quote": "Courses are taught in English for both Italian and foreign students",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/corso/2023/32374/home",
+      "supports_fields": ["teaching_language", "partially_english_flag"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/course/33574",
+    "https://corsidilaurea.uniroma1.it/en/corso/2023/32374/home",
+    "https://www.uniroma1.it/en/admissions"
+  ],
+  "source_year": "2025-2026",
+  "uncertainty_notes": [
+    "Two related programmes found in search: 'Cognitive Neuroscience' (33574, LM-51) and 'Cognitive Neurosciences and Psychological Rehabilitation' (32374). The original outline item 'Cognitive Neuroscience and Neuropsychological Rehabilitation' best matches 33574 based on English-filter catalogue listing. Verify which is the correct one.",
+    "If 'Cognitive Neurosciences and Psychological Rehabilitation' (32374) is the intended programme, the course code and URL should be updated.",
+    "Specific curricular requirements not extracted.",
+    "Per-programme non-EU quota and places not extracted."
+  ],
+  "uncertain": [
+    "access_quota_non_eu",
+    "places_and_foreign_contingent",
+    "official_call_url",
+    "faculty_call_pdf_url",
+    "country_specific_eligibility",
+    "curricular_integration_policy",
+    "conditional_enrolment_policy",
+    "language_submission_timing",
+    "application_deadline_eu",
+    "test_variant_and_session",
+    "test_score_conversion_or_threshold"
+  ]
+}

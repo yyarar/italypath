@@ -1,0 +1,96 @@
+topic: "Milano-Bicocca (UNIMIB) İngilizce eğitim veren Bachelor ve Master programlarının admission requirements bilgileri"
+academic_year_priority: ["2026/2027", "2025/2026"]
+source_constraint: "Yalnızca unimib.it / en.unimib.it / apply.unimib.it / *.unimib.it altındaki resmi sayfalar"
+scope:
+  include:
+    - bachelor (laurea triennale, English-taught)
+    - master (laurea magistrale, English-taught)
+  exclude:
+    - single-cycle (Medicine in English — kapsam dışı)
+    - PhD
+    - Italian-taught programmes
+    - partial English / "some teachings in English on demand" durumundakiler
+
+items:
+  # --- Bachelor (Lisans) ---
+  - id: bsc-physical-sciences-innovative-technologies
+    program_name: "Physical Sciences for Innovative Technologies"
+    level: bachelor
+    official_program_url: "https://en.unimib.it/undergraduate/physical-sciences"
+
+  - id: bsc-economics-science-environmental-sustainability
+    program_name: "Economics and Science for Environmental Sustainability (ESES)"
+    level: bachelor
+    official_program_url: "https://en.unimib.it/undergraduate/economics-science-environmental-sustainability"
+
+  # --- Master (Yüksek Lisans) ---
+  - id: msc-data-science
+    program_name: "Data Science"
+    level: master
+    official_program_url: "https://en.unimib.it/international/international-students/international-programmes/data-science"
+
+  - id: msc-astrophysics-space-physics
+    program_name: "Astrophysics and Space Physics"
+    level: master
+    official_program_url: "https://en.unimib.it/international/international-students/international-programmes/astrophysics-and-space-physics"
+
+  - id: msc-physics
+    program_name: "Physics"
+    level: master
+    official_program_url: "https://en.unimib.it/education/teaching/bachelors-and-masters-degrees/sciences-masters-degree-programmes"
+
+  - id: msc-marine-sciences
+    program_name: "Marine Sciences"
+    level: master
+    official_program_url: "https://en.unimib.it/international/international-students/international-programmes/marine-sciences"
+
+  - id: msc-international-economics
+    program_name: "International Economics"
+    level: master
+    official_program_url: "https://en.unimib.it/education/teaching/international-programmes/international-economics"
+
+  - id: msc-materials-science-nanotechnology
+    program_name: "Materials Science and Nanotechnology"
+    level: master
+    official_program_url: "https://en.unimib.it/education/teaching/international-programmes/materials-science-and-nanotechnology"
+
+  - id: msc-artificial-intelligence
+    program_name: "Artificial Intelligence"
+    level: master
+    official_program_url: "https://en.unimib.it/education/teaching/international-programmes/artificial-intelligence"
+
+  - id: msc-ai-science-technology
+    program_name: "Artificial Intelligence for Science and Technology"
+    level: master
+    official_program_url: "https://en.unimib.it/education/teaching/international-programmes/artificial-intelligence-science-and-technology"
+
+  - id: msc-human-centered-ai
+    program_name: "Human-Centered Artificial Intelligence"
+    level: master
+    official_program_url: "https://en.unimib.it/graduate/human-centered-artificial-intelligence"
+
+  - id: msc-applied-experimental-psychological-sciences
+    program_name: "Applied Experimental Psychological Sciences (AEPS)"
+    level: master
+    official_program_url: "https://en.unimib.it/international/international-students/international-programmes/applied-experimental-psychological-sciences-aeps"
+
+  - id: msc-economics-technologies-sustainability
+    program_name: "Economics and Technologies for Sustainability"
+    level: master
+    official_program_url: "https://en.unimib.it/graduate/economics-technlogies-sustainability"
+
+  - id: msc-optometry-vision-science
+    program_name: "Optometry and Vision Science"
+    level: master
+    official_program_url: "https://en.unimib.it/education/teaching/international-programmes/optometry-and-vision-science"
+
+  - id: msc-biotechnology-bio-economy
+    program_name: "Biotechnology for the Bio-Economy (BforB)"
+    level: master
+    official_program_url: "https://www.btbs.unimib.it/en/study-programs/masters"
+
+execution:
+  batch_size: 3            # 3 paralel agent
+  items_per_agent: 5       # her agent 5 program
+  output_dir: "./results"
+  total_items: 15

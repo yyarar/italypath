@@ -1,0 +1,141 @@
+{
+  "program_name": "Computer Engineering",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Genoa",
+  "degree_class": "LM-32 (Computer Systems Engineering)",
+  "admission_type": "free access with verification of curricular requirements and assessment of personal readiness (admission test, with grade-based exemption)",
+  "academic_requirements": {
+    "summary": "Free-access master's degree (120 CFU, 2 years) requiring a Bachelor degree plus verification of curricular requirements and an assessment of personal readiness. High-performing graduates of related degrees are exempt from the assessment test.",
+    "prior_degree_or_diploma": "A Bachelor's degree of at least 180 CFU/ECTS, or an equivalent qualification recognised as suitable.",
+    "curricular_credits": "At least 36 CFU (or equivalent knowledge) in the scientific-disciplinary fields (SSD) for basic training of the Information Engineering (L-8) or Computer Science and Technology (L-31) degree classes, and at least 42 CFU (or equivalent knowledge) in the SSD indicated for the characterising training activities of those classes.",
+    "automatic_qualification": "Graduates of specified UniGe bachelor programmes (including Electronic Engineering, Computer Engineering, Biomedical Engineering, Informatics and Management Engineering) are automatically considered to meet the curricular requirements.",
+    "grade_threshold_for_exemption": "Candidates are exempt from the admission/readiness test if their Bachelor's degree final grade is at least 9/10 of the maximum, or corresponds to ECTS classification 'A' or 'B'.",
+    "three_curricula": "Three curricula are offered: Artificial Intelligence and Human Centered Computing; Software Platforms and Cybersecurity; Sustainable Systems Engineering.",
+    "international_qualification": "Non-EU candidates residing abroad with a foreign qualification apply through UniGeApply for pre-evaluation of curricular requirements before enrolment.",
+    "source_url": "https://corsi.unige.it/en/corsi/11965/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (or higher).",
+    "accepted_proofs": [
+      "A recognised English-language certificate at level B2 or higher (among those accepted by the University, listed on the CLAT page https://clat.unige.it/en/CertificazioniRiconosciute).",
+      "A Bachelor's or Master's degree taught in English.",
+      "A B2-level English exam passed during the undergraduate degree.",
+      "Candidates lacking certification may sit a free B2 English test through the University's CLAT language centre."
+    ],
+    "exemption_rules": [
+      "Holding a recognised B2-or-higher English certificate, an English-taught degree, or a B2 exam passed during the bachelor satisfies the English requirement."
+    ],
+    "assessment_or_upload_stage": "English proficiency is verified during the admission procedure / assessment of personal readiness; international applicants verify it during pre-evaluation on UniGeApply.",
+    "source_url": "https://corsi.unige.it/en/corsi/11965/prospective-students-requisites-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Assessment of personal readiness (no TOLC; a document-based evaluation by the admission Commission). NOT a TOLC-I.",
+    "mandatory": "Mandatory only for candidates who do not meet the grade-based exemption.",
+    "is_selective": false,
+    "applies_to": "Applicants to the Computer Engineering master who do not qualify for the automatic grade exemption.",
+    "format": "The Commission scores submitted documentation across criteria: academic potential (max 50 points), relevance of the bachelor's degree (max 30 points), quality of the awarding university (max 20 points), and other CV aspects (max 10 points).",
+    "scoring_or_threshold": "A score of 85 or above results in admission.",
+    "exemption": "Graduates with a final bachelor grade of at least 9/10 of the maximum (or ECTS 'A'/'B') in related engineering/computing degrees are exempt from the test.",
+    "interview": "No interview is described; the assessment is document-based.",
+    "source_url": "https://corsi.unige.it/en/corsi/11965/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; English-taught master's degrees close 28 August 2026.",
+      "Open-access master pre-registration on the UniGe calendar: from 9 April to 30 November 2026, and until 10 March 2027 with late payment."
+    ],
+    "enrolment_deadline": "Confirmation of enrolment (first year): from 15 July 2026 to 30 November 2026, and until 10 March 2027 with late payment. Enrolment in years after the first: from 15 July to 5 October 2026, with arrears accepted from 6 October to 5 November 2026.",
+    "notes": "The programme-level deadlines page does not distinguish EU vs non-EU first-year application windows; EU/resident applicants use the spring UniGeApply session and the standard enrolment calendar.",
+    "source_url": "https://corsi.unige.it/en/corsi/11965/prospective-students-deadlines"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After UniGeApply eligibility, visa applicants complete the Universitaly pre-enrolment and apply for a study visa.",
+    "early_closure": "[uncertain] No programme-specific early closure is listed for the Computer Engineering master; the only published fall early closures are Medical-Pharmaceutical Biotechnology (13 Feb 2026), Maritime Science and Technology bachelor (18 Feb 2026) and Computer Engineering bachelor (8 Mar 2026) — the bachelor, not this master.",
+    "notes": "Non-EU visa applicants must use the fall session via UniGeApply; the A.Y. 2026/27 fall window has now closed (closed 20 March 2026).",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum vitae et studiorum",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Uploaded on UniGeApply (max 2 MB per document).",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "If still in progress, the degree must be completed by 15 August 2026.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records (exams with grades)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Used to verify the curricular CFU/SSD requirements.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "English language proficiency certificate (B2 or higher) or equivalent proof",
+      "stage": "application/enrolment",
+      "required_for": "all",
+      "notes": "Recognised B2 certificate, English-taught degree, or B2 exam passed during the bachelor; otherwise a free CLAT B2 test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11965/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Valid passport (non-EU) and visa/pre-enrolment documents via Universitaly",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Non-EU visa applicants complete Universitaly pre-enrolment after UniGeApply eligibility, then apply for the study visa; foreign qualifications require Declaration of Value or CIMEA Statement of Comparability.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11965/students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11965",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "COMPUTER ENGINEERING, Master's Degree (D.M. 1649/2023), Class LM-32, Teaching language English, Genova, 120 CFU, 2 years.",
+      "source_url": "https://corsi.unige.it/en/corsi/11965",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "at least 36 CFU, or equivalent knowledge, in the scientific-disciplinary fields (SSD) ... at least 42 CFU, or equivalent knowledge, in the SSD indicated for the training activities characterizing",
+      "source_url": "https://corsi.unige.it/en/corsi/11965/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "If you obtain a score of 85 or above, you will be admitted.",
+      "source_url": "https://corsi.unige.it/en/corsi/11965/prospective-students-requisites-assessment",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "a grade of 9/10 or higher of the maximum grade required ... are exempt from the test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11965/prospective-students-requisites-assessment",
+      "field_supported": "entry_exam_or_test, academic_requirements"
+    },
+    {
+      "quote": "Spring session opens 9 April 2026; Master's degrees close 28 August 2026.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "Fall session (non-EU visa applicants) opens 26 November 2025, closes 20 March 2026; results by 22 May 2026.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "This is the MASTER degree (LM-32, code 11965), distinct from the Computer Engineering bachelor (code 12133, L-8 R, Imperia). Kept separate.",
+    "No programme-specific fall early-closure date is published for this master; the only listed early closures are for two bachelors and the Medical-Pharmaceutical Biotechnology master.",
+    "The programme-level deadlines page lists the generic UniGe enrolment calendar and does not separate EU vs non-EU first-year application windows; EU/spring and non-EU/fall windows are taken from the institution-wide UniGeApply pages."
+  ],
+  "uncertain": [
+    "application_deadline_non_eu"
+  ]
+}

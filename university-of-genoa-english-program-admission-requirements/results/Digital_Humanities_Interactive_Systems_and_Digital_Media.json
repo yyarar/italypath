@@ -1,0 +1,150 @@
+{
+  "program_name": "Digital Humanities - Interactive Systems and Digital Media",
+  "level": "master",
+  "teaching_language": "English and Italian (the 'Affective Computing, Arts and Cultural Welfare' (ACW) curriculum is taught in English; the 'Interaction and Digital Creative Production' (IPC) curriculum is taught in Italian)",
+  "campus": "Genoa (ACW curriculum, English) and Savona (IPC curriculum, Italian)",
+  "degree_class": "LM-92 R (Communication)",
+  "admission_type": "free access with verification of curricular requirements and assessment of personal readiness (document-based, with grade-based exemption)",
+  "academic_requirements": {
+    "summary": "Free-access master's degree (120 CFU, 2 years) requiring a Bachelor degree plus verification of curricular CFU requirements and an assessment of personal readiness. The English-taught in-scope curriculum is ACW (Affective Computing, Arts and Cultural Welfare) in Genoa.",
+    "prior_degree_or_diploma": "A Bachelor's degree or an equivalent qualification recognised as suitable.",
+    "general_curricular_credits": "A minimum of 6 CFU in one or more of the following SSD areas: Computer Science (INF/01, ING-INF/05); Mathematics (MAT/02-06); Architecture/Design (ICAR/13, ICAR/17); Arts/Literature (L-ART/03-07; L-FIL-LET/10-12; L-LIN/11-12); Philosophy/Psychology (M-FIL/05; M-PSI/01); Social Sciences (SPS/07-08, SECS-P/07-08, SECS-S/01).",
+    "curriculum_specific_credits": "ACW (English curriculum): at least 18 CFU in computing, OR at least 18 CFU in arts/cognitive fields plus a minimum of 6 CFU in computing. IPC (Italian curriculum): at least 18 total CFU in INF/01, ING-INF/05 (Path 1) or fewer credits with supplementary coursework (Path 2).",
+    "grade_threshold_for_exemption": "Automatic confirmation of adequate preparation for candidates with a bachelor (Italian or foreign) final grade of at least 9/10 of the maximum, or a final grade corresponding to ECTS classification 'A'.",
+    "international_qualification": "Non-EU candidates residing abroad apply through UniGeApply for pre-evaluation of curricular requirements before enrolment.",
+    "source_url": "https://corsi.unige.it/en/corsi/11945/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "ACW (English curriculum): English knowledge at a level no lower than B2. IPC (Italian curriculum): English at a level no lower than B1, plus Italian B2 for international students.",
+    "accepted_proofs": [
+      "[uncertain] The programme page states the required English level (B2 for ACW) but directs to the Polytechnic School / recognised-certificates list for accepted certificate types; specific tests (IELTS/TOEFL) and scores are not enumerated on the page.",
+      "For international applicants choosing the Italian IPC curriculum, a B2-level Italian proficiency certificate is required."
+    ],
+    "exemption_rules": [
+      "[uncertain] The page does not describe a specific English-certificate exemption beyond the recognised-certificates route; reconfirm accepted proofs on the dedicated list."
+    ],
+    "assessment_or_upload_stage": "English (and, for IPC, Italian) proficiency is verified during the assessment of personal readiness at pre-registration; international applicants verify it during UniGeApply pre-evaluation.",
+    "source_url": "https://corsi.unige.it/en/corsi/11945/prospective-students-admission-criteria-procedure"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Assessment of adequacy of personal readiness (no TOLC; a document-based verification by the committee). NOT a TOLC.",
+    "mandatory": "Mandatory only for candidates who do not meet the grade-based automatic confirmation.",
+    "is_selective": false,
+    "applies_to": "Applicants to the Digital Humanities master who do not qualify for the automatic grade exemption.",
+    "format": "The committee verifies preparation based on documentation provided at pre-registration, evaluating academic potential (GPA, class rank), relevance and quality of the bachelor's degree and awarding university, motivation letter, CV and professional experience, and optional reference letters (and Italian-language adequacy for the IPC track).",
+    "scoring_or_threshold": "[uncertain] Automatic confirmation applies at a bachelor grade of at least 9/10 of the maximum (or ECTS 'A'); otherwise the candidate must exceed the scoring threshold defined in the Educational Regulations, which is not stated numerically on the page.",
+    "interview": "No interview is described; the assessment is document-based.",
+    "source_url": "https://corsi.unige.it/en/corsi/11945/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; English-taught master's degrees close 28 August 2026.",
+      "Open-access master pre-registration on the UniGe calendar: from 9 April to 30 November 2026, and until 10 March 2027 with late payment."
+    ],
+    "enrolment_deadline": "Confirmation of enrolment (first year): from 15 July 2026 to 30 November 2026, and until 10 March 2027 with late payment. Enrolment in years after the first: from 15 July to 5 October 2026, with arrears from 6 October to 5 November 2026.",
+    "notes": "The programme deadlines page lists uniform open-access enrolment dates and does not separate EU vs non-EU first-year windows.",
+    "source_url": "https://corsi.unige.it/en/corsi/11945/prospective-students-deadlines"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026."
+    ],
+    "visa_or_pre_enrolment_deadline": "After UniGeApply eligibility, visa applicants complete the Universitaly pre-enrolment and apply for a study visa.",
+    "early_closure": "[uncertain] No programme-specific early closure is published for the Digital Humanities master; the only listed fall early closures are Medical-Pharmaceutical Biotechnology (master, 13 Feb 2026), Maritime Science and Technology (bachelor, 18 Feb 2026) and Computer Engineering (bachelor, 8 Mar 2026).",
+    "notes": "Non-EU visa applicants must use the fall session via UniGeApply; the A.Y. 2026/27 fall window has now closed (closed 20 March 2026). The English ACW curriculum is the in-scope English-taught option for non-EU applicants.",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum vitae et studiorum",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Uploaded on UniGeApply (max 2 MB per document); also evaluated in the personal-readiness assessment.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "If still in progress, the degree must be completed by 15 August 2026.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records (exams with credits and grades)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Used to verify the curricular CFU/SSD requirements (general 6 CFU plus curriculum-specific credits).",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Motivation letter",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Quality of the motivation letter is one of the readiness-assessment criteria.",
+      "source_url": "https://corsi.unige.it/en/corsi/11945/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Reference letters (optional)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Optional; considered by the committee in the readiness assessment.",
+      "source_url": "https://corsi.unige.it/en/corsi/11945/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "English language proficiency certificate (B2 for ACW) and, for IPC international students, Italian B2 certificate",
+      "stage": "application/enrolment",
+      "required_for": "all",
+      "notes": "ACW requires English B2; IPC requires English B1 plus Italian B2 for international students. Accepted certificate types per the recognised-certificates list.",
+      "source_url": "https://corsi.unige.it/en/corsi/11945/prospective-students-admission-criteria-procedure"
+    },
+    {
+      "document_name": "Valid passport (non-EU) and visa/pre-enrolment documents via Universitaly",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Non-EU visa applicants complete Universitaly pre-enrolment after UniGeApply eligibility; foreign qualifications require Declaration of Value or CIMEA Statement of Comparability.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11945/students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11945",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "DIGITAL HUMANITIES - INTERACTIVE SYSTEMS AND DIGITAL MEDIA, Master's Degree, Class LM-92 R (Communication), 120 CFU, 2 years; tracks in Genova (Affective Computing, Arts and Cultural Welfare) and Savona.",
+      "source_url": "https://corsi.unige.it/en/corsi/11945",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "ACW curriculum: at least 18 CFU in computing OR at least 18 CFU in arts/cognitive fields plus a minimum 6 CFU in computing; general requirement minimum 6 CFU in the listed SSD areas.",
+      "source_url": "https://corsi.unige.it/en/corsi/11945/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "ACW curriculum: knowledge of the English language at a level no lower than B2; IPC curriculum: knowledge of the English language at a level no lower than B1.",
+      "source_url": "https://corsi.unige.it/en/corsi/11945/prospective-students-admission-criteria-procedure",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Automatic pass with a bachelor's degree, Italian or foreign, with a grade of at least 9/10 of the maximum prescribed, or a final grade corresponding to ECTS 'A'.",
+      "source_url": "https://corsi.unige.it/en/corsi/11945/prospective-students-requisites-assessment",
+      "field_supported": "entry_exam_or_test, academic_requirements"
+    },
+    {
+      "quote": "Spring session opens 9 April 2026; Master's degrees close 28 August 2026. Fall session (non-EU visa applicants) opens 26 November 2025, closes 20 March 2026.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The programme is bilingual: the in-scope English-taught curriculum is ACW (Affective Computing, Arts and Cultural Welfare) in Genoa; the IPC curriculum is taught in Italian in Savona. Non-EU international applicants seeking the English route should select ACW.",
+    "Accepted English certificate types and scores (IELTS/TOEFL) are not enumerated on the programme page; they are defined on the University's recognised-certificates list.",
+    "No numerical readiness-assessment score threshold is published beyond the grade exemption; it is set in the Educational Regulations.",
+    "No programme-specific fall early-closure date is published for this master.",
+    "The programme deadlines page gives the generic open-access enrolment calendar and does not separate EU vs non-EU first-year application windows; those come from the institution-wide UniGeApply pages."
+  ],
+  "uncertain": [
+    "language_requirements",
+    "entry_exam_or_test",
+    "application_deadline_non_eu"
+  ]
+}

@@ -45,3 +45,6 @@ yarn-error.log*
 next-env.d.ts
 
 yedek
+
+# Deadline scrape artifacts
+tmp/

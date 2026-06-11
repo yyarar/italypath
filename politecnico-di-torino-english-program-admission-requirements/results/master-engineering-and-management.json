@@ -1,0 +1,188 @@
+{
+  "program_name": "Engineering and Management",
+  "level": "master",
+  "official_level_type": "Master's degree programme",
+  "teaching_language": "Italian, English",
+  "is_fully_english_programme": false,
+  "has_complete_english_track": true,
+  "english_track_name": "Percorso in lingua inglese",
+  "campus": "Main Campus, Turin",
+  "degree_class": "LM-31: Management Engineering",
+  "double_degree_or_erasmus_mundus": null,
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/engineering-and-management",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/engineering-and-management/programme-curriculum",
+  "admission_type": "evaluation/CV",
+  "admission_test_type": "Master's admission requirements evaluation by the Academic Committee; no standard entrance exam is listed.",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "Non-EU residing in Italy",
+    "Non-EU residing abroad (visa-required)"
+  ],
+  "admission_call_round": [
+    "Applicants with a non-Italian qualification: 1st Call and 2nd Call for a.y. 2026/2027.",
+    "Applicants with an Italian qualification: first-semester and second-semester application windows for a.y. 2026/2027."
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito for admission; UNIVERSITALY for non-EU applicants residing abroad who need study-visa pre-enrolment.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "general": "Applicants must hold a Bachelor's degree (EQF level 6) or an equivalent qualification that gives access to second-cycle study. Admission also requires a suitable curricular background and academic performance, which are checked by the Academic Committee.",
+    "pending_degree_rules": "Applicants with an Italian qualification may apply before graduation if they have earned at least 140 ECTS credits at Bachelor's level. Applicants with a non-Italian qualification who are still enrolled in a 5- or 6-year single-cycle degree may apply if they have at least 15 years of global schooling, at least 3 university years, and at least 180 ECTS credits or equivalent.",
+    "programme_specific_background": "For Engineering and Management, the recommended background includes Management Engineering, Industrial Engineering and Management, Mechanical Engineering, Aerospace Engineering, Information and Communication Technology (ICT) Engineering, Automotive Engineering, Process Engineering, Automation Engineering, and similar engineering fields."
+  },
+  "country_specific_eligibility": null,
+  "minimum_background_or_credits": "Recommended/accepted background: Management Engineering, Industrial Engineering and Management, Mechanical Engineering, Aerospace Engineering, ICT Engineering, Automotive Engineering, Process Engineering, Automation Engineering, and similar engineering fields. The course-specific requirements also state that Bachelor's degrees in Biomedical Engineering, Chemical and Food Engineering, Materials Engineering, Electrical Engineering, Electronic Engineering, Energy Engineering, and similar fields are not accepted for this programme. No programme-specific GPA or subject-credit minimum is published in the official sources checked.",
+  "language_requirements": {
+    "programme_requirement": "The English-track programme requires English level B2 or higher. In the 2026/2027 course-specific requirements, Engineering and Management is listed as an English-language programme with IELTS 5.5 as the minimum programme-specific score.",
+    "accepted_certificates_examples": [
+      "IELTS Academic or General Training: 5.5",
+      "Pearson PTE Academic: 59",
+      "TOEIC: Listening 400, Reading 385, Speaking 160, Writing 150",
+      "Cambridge B2 First / equivalent Cambridge qualification: 160"
+    ],
+    "exemptions": "Applicants with qualifying English-medium credentials may use the official PoliTO exemption routes listed on the non-Italian qualification page. English-medium exemptions depend on the country and institution conditions stated by PoliTO."
+  },
+  "english_certificate_codes": "TOEFL/TOEIC institution code: C285. For Cambridge, applicants must share results with Politecnico di Torino and provide the Candidate ID.",
+  "language_submission_timing": "Applicants with a non-Italian qualification must upload the language certificate with the application unless they qualify for an official exemption. Applicants with an Italian qualification may submit the admission application without the certificate, but the certificate must be uploaded by the enrolment deadline because it is a mandatory admission requirement.",
+  "application_deadline_eu": {
+    "italian_qualification_route": {
+      "first_semester_application_opens": "4 June 2026",
+      "first_semester_application_deadline": "15 October 2026",
+      "first_semester_enrolment_deadline": "12 November 2026",
+      "second_semester_application_opens": "13 December 2026",
+      "second_semester_application_deadline": "24 February 2027",
+      "second_semester_enrolment_deadline": "24 March 2027"
+    },
+    "non_italian_qualification_no_visa_route": {
+      "first_call_opens": "19 December 2025",
+      "first_call_closes": "13 February 2026, 2:00 p.m. Italian time",
+      "first_call_results": "15 April 2026",
+      "second_call_opens": "18 March 2026",
+      "second_call_closes": "20 April 2026, 2:00 p.m. Italian time",
+      "second_call_results": "22 June 2026"
+    }
+  },
+  "application_deadline_non_eu": {
+    "first_call_opens": "19 December 2025",
+    "first_call_closes": "13 February 2026, 2:00 p.m. Italian time",
+    "first_call_results": "15 April 2026",
+    "second_call_opens": "18 March 2026",
+    "second_call_closes": "20 April 2026, 2:00 p.m. Italian time",
+    "second_call_results": "22 June 2026"
+  },
+  "universitaly_preenrolment_deadline": "[uncertain] The same official non-Italian qualification page shows two different first-call study-visa pre-enrolment deadlines: 15 May 2026 in the deadlines table and 30 May 2026 in the visa paragraph. The second-call study-visa pre-enrolment deadline is listed as 15 July 2026.",
+  "application_fee": "Non-refundable application fee: EUR 50 for applicants with a non-Italian qualification. For applicants with an Italian qualification, the admission page states that payment is required for applicants from other Italian universities.",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport (EU nationals may use another accepted ID).",
+    "Residence permit, only for non-EU citizens already living in Italy.",
+    "Curriculum Vitae.",
+    "Bachelor's degree certificate or an official university document stating the provisional graduation date if not yet graduated.",
+    "Official Transcript of Records.",
+    "English language certificate, or a valid official exemption/medium-of-instruction statement when accepted by PoliTO.",
+    "Dichiarazione di Valore of the Bachelor's degree or a CIMEA Statement of Comparability; the non-Italian qualification page states this is compulsory for enrolment.",
+    "Self-certificate of enrolment in another Italian university, if applicable."
+  ],
+  "document_translation_authentication": "Documents must be issued on letterheaded paper, stamped and signed by the issuing institution. Digitally signed documents are accepted only if they can be verified online. Documents in Italian, English, French, or Spanish are accepted as issued; documents in other languages must be merged with an official English or Italian translation. For enrolment, official translations into Italian must be certified by the Italian Embassy in the issuing country or sworn in an Italian court. PoliTO also requires a Declaration of Value, CIMEA Statement of Comparability, ARDI Certificate of Correspondence, or Diploma Supplement as stated on the enrolment page.",
+  "entry_exam_or_test": {
+    "type": "No entrance exam listed",
+    "details": "Admission is based on document-based evaluation of admission requirements, curricular background, and academic performance. The 2026/2027 course-specific requirements for Engineering and Management do not list an online interview, GRE requirement, portfolio, or syllabus requirement for this programme."
+  },
+  "test_score_or_threshold": null,
+  "source_quotes": [
+    {
+      "quote": "Italian, English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/engineering-and-management",
+      "supports_fields": [
+        "teaching_language",
+        "is_fully_english_programme"
+      ]
+    },
+    {
+      "quote": "Uncapped number of students",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/engineering-and-management",
+      "supports_fields": [
+        "admission_type"
+      ]
+    },
+    {
+      "quote": "Percorso in lingua inglese",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/engineering-and-management/programme-curriculum",
+      "supports_fields": [
+        "has_complete_english_track",
+        "english_track_name"
+      ]
+    },
+    {
+      "quote": "Corporate governance and finance",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/engineering-and-management/programme-curriculum",
+      "supports_fields": [
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "ENGINEERING AND MANAGEMENT English IELTS 5.5",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": [
+        "language_requirements",
+        "minimum_background_or_credits"
+      ]
+    },
+    {
+      "quote": "Not Required",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": [
+        "entry_exam_or_test"
+      ]
+    },
+    {
+      "quote": "Pay the non-refundable application fee (€50)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_fee"
+      ]
+    },
+    {
+      "quote": "May 30, 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "universitaly_preenrolment_deadline"
+      ]
+    },
+    {
+      "quote": "July 15, 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "universitaly_preenrolment_deadline"
+      ]
+    },
+    {
+      "quote": "at least 140 ECTS credits",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+      "supports_fields": [
+        "academic_requirements",
+        "minimum_background_or_credits"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/engineering-and-management",
+    "https://www.polito.it/en/education/master-s-degree-programmes/engineering-and-management/programme-curriculum",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/polito-language-centre-cla/certificates",
+    "https://www.polito.it/sites/default/files/2026-01/Tabella_23_09_2019_agg_gen26_eng_0.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "The official non-Italian qualification page contains conflicting first-call UNIVERSITALY study-visa pre-enrolment deadlines: the deadlines table shows 15 May 2026, while the visa paragraph states 30 May 2026. The field universitaly_preenrolment_deadline is therefore marked uncertain."
+  ],
+  "uncertain": [
+    "universitaly_preenrolment_deadline"
+  ]
+}
