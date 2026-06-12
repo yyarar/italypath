@@ -228,7 +228,8 @@ const cookies: LegalDocument = {
     {
       heading: "",
       paragraphs: [
-        "Şu anda reklam, pazarlama veya üçüncü taraf izleme/analitik çerezleri kullanmıyoruz. İleride böyle bir teknoloji eklenirse bu politika güncellenir.",
+        "Sitenin nasıl kullanıldığını anlamak için çerez kullanmayan, anonim bir ziyaret istatistiği aracı kullanıyoruz. Bu araç cihazınıza çerez yerleştirmez, kişisel veri toplamaz ve sizi başka sitelerde takip etmez; yalnızca toplu ve anonim kullanım verisi (ör. hangi sayfaların ne sıklıkta görüntülendiği) üretir.",
+        "Şu anda reklam veya pazarlama amaçlı çerez kullanmıyoruz. Bu durum değişirse bu politika güncellenir.",
       ],
     },
     {
