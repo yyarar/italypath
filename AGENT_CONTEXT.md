@@ -103,6 +103,7 @@ italypath-main/
 │   ├── communities/chapters.ts
 │   ├── community-links.ts
 │   ├── legal/documents.ts          # Yasal sayfa metinleri (TR) + footer/sitemap linkleri
+│   ├── deadlines/targets.ts         # Deadline scrape hedefleri (universite + admission URL)
 │   ├── hub/
 │   ├── mentor/channels.ts
 │   └── scholarships/regions.ts
@@ -115,16 +116,24 @@ italypath-main/
 │   ├── check-route-access.mjs
 │   ├── check-cities-data.mjs
 │   ├── check-program-details.mjs
+│   ├── check-deadlines.mjs
 │   ├── check-university-data-source.mjs
 │   ├── check-university-detail-portrait.mjs
 │   ├── check-universities-server-compose.mjs
 │   ├── validate-supabase-university-data.mjs
 │   ├── validate-data-integrity.mjs
-│   ├── import-*-program-details.mjs
+│   ├── apply-deadlines.mjs          # cikarilan deadline JSON -> app/data.ts override map
+│   ├── save-scraped.mjs             # deadline scrape kaydetme yardimcisi
+│   ├── scrape-deadlines-runbook.md  # Claude scrape runbook (LLM extract icermez)
+│   ├── import-*-program-details.mjs # Bologna/Ca'Foscari/Genoa/Milan/Milano-Bicocca/Padua/Polimi/Polito/Sapienza
 │   └── clean-med-data.mjs
 ├── supabase/
 │   ├── rls_hardening.sql
 │   └── program_admission_details.sql
+├── docs/
+│   ├── CAMPAIGN_PLAN_LAUNCH.md
+│   ├── LAUNCH_STRATEGY_INSTAGRAM_TIKTOK.md
+│   └── superpowers/specs/           # tasarim + plan belgeleri (deadline, yasal sayfalar)
 ├── DATA_ENTRY_GUIDE.md
 ├── SUPABASE_SECURITY_RUNBOOK.md
 ├── AGENT_COMMITS.md
@@ -188,7 +197,7 @@ Son Supabase dogrulamasinda:
 - `ProgramLanguage`: `"en" | "it"`
 - `ProgramDurationYears`: `1 | 2 | 3 | 4 | 5 | 6`
 - `ProgramLevel`: `"bachelor" | "master" | "single-cycle"`
-- `Department`: `id?`, `name`, `slug`, `languages`, `durationYears`, `level`, `admissionDetails?`
+- `Department`: `id?`, `name`, `slug`, `languages`, `durationYears`, `level`, `admissionDetails?`, `deadline?`
 
 Local seed default'lari:
 
@@ -223,6 +232,24 @@ UI paneli: `components/university-details/ProgramAdmissionDetailsPanel.tsx`.
 DB setup/policy: `supabase/program_admission_details.sql`.
 
 Dogrulama: `npm run check:program-details` ve `node scripts/check-universities-server-compose.mjs`.
+
+### Program deadline modeli ve scrape akisi
+
+`Department.deadline?` alani `ProgramDeadline` tipindedir (`app/data.ts`):
+
+- `date`: ISO `YYYY-MM-DD` veya `"rolling"` / `"TBA"`
+- `note?`: serbest metin (orn. "Early round 11 Jun; regular 15 May")
+- `sourceUrl`: verinin cekildigi sayfa
+
+Deadline override'lari `app/data.ts` icindeki `DEPARTMENT_DEADLINE_OVERRIDES` map'inde tutulur ve hem local seed hem Supabase compose yolunda ilgili Department'a baglanir. Son toplu kontrol tarihi `DEPARTMENT_DEADLINES_LAST_CHECKED_AT` sabitindedir.
+
+Scrape -> extract -> apply boru hatti (Kerem'in "scrape ile LLM extract ayri" kuralina uygun):
+
+1. `lib/deadlines/targets.ts`: kazinacak universite + admission URL listesi (`DEADLINE_TARGETS`).
+2. `scripts/scrape-deadlines-runbook.md` + `scripts/save-scraped.mjs`: her URL'in temiz icerigini `tmp/scraped/`'e markdown olarak kaydeder. Bu adimda LLM extract YOK. `tmp/` gitignore'dadir.
+3. LLM extraction ayri, manuel adimda Kerem tarafindan yapilir (`docs/superpowers/specs/extraction-prompt-template.md`).
+4. `scripts/apply-deadlines.mjs`: cikarilan JSON'u `DEPARTMENT_DEADLINE_OVERRIDES`'a isler.
+5. `npm run check:deadlines`: deadline veri butunlugu guard'i.
 
 ---
 
@@ -440,6 +467,7 @@ npm run lint
 npm run check:routes
 npm run check:cities
 npm run check:program-details
+npm run check:deadlines
 npm run check:data
 npm run check:local-data
 npm run check:university-data-source
@@ -449,6 +477,7 @@ npm run check:universities-ui
 npm run check:university-details-ui
 npm run check:scholarships-ui
 npm run check:editorial-ui
+npm run check:documents-ui
 npm run clean:med
 ```
 
@@ -473,7 +502,7 @@ node scripts/check-universities-server-compose.mjs
 
 ### Repo hijyeni
 
-1. Research/import artifact klasorleri ve `output/*` dosyalarinin commitlenecegi mi yoksa dis storage/.gitignore'a mi alinacagi netlestirilmeli.
+1. Research/import artifact klasorleri (`output/*`, `*-admission-requirements/`, scrape JSON/PNG ciktilari) repoya commitlenmis ve son birlesmeyle hacmi buyumus durumda; dis storage'a mi yoksa `.gitignore`'a mi alinacagi netlestirilmeli.
 2. Legacy UI dosyalari (`components/ui/bento-grid.tsx`, `components/ui/scroll-based-velocity.tsx`) aktif import edilmiyorsa silinmeli veya "kullanma" diye isaretlenmeli.
 3. `.DS_Store`, `.swp`, editor artifact'leri repo'ya girmemeli.
 
