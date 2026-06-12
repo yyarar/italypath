@@ -1,5 +1,6 @@
 import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata, Viewport } from "next";
+import { Analytics } from '@vercel/analytics/next';
 import "./globals.css";
 import { LanguageProvider } from '@/context/LanguageContext';
 import BottomNav from '@/components/BottomNav';
@@ -47,6 +48,7 @@ export default function RootLayout({
             </main>
             <BottomNav />
           </LanguageProvider>
+          <Analytics />
         </body>
       </html>
     </ClerkProvider>
