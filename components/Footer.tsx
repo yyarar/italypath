@@ -1,6 +1,9 @@
 "use client";
 
+import Link from "next/link";
+
 import { useLanguage } from "@/context/LanguageContext";
+import { LEGAL_LINKS } from "@/lib/legal/documents";
 
 export default function Footer() {
   const { language } = useLanguage();
@@ -14,7 +17,23 @@ export default function Footer() {
             ? "İtalya'da eğitim planını daha sakin, düzenli ve güvenilir şekilde kurman için."
             : "A calmer, clearer way to plan your study path in Italy."}
         </p>
-        <p className="mt-3 text-xs text-[var(--editorial-muted)]">© 2026 ItalyPath</p>
+
+        <nav
+          aria-label={language === "tr" ? "Yasal" : "Legal"}
+          className="mt-6 flex flex-wrap gap-x-6 gap-y-2"
+        >
+          {LEGAL_LINKS.map((link) => (
+            <Link
+              key={link.slug}
+              href={link.href}
+              className="text-sm text-[var(--editorial-muted)] underline-offset-4 transition hover:text-[var(--editorial-ink)] hover:underline"
+            >
+              {link.title}
+            </Link>
+          ))}
+        </nav>
+
+        <p className="mt-6 text-xs text-[var(--editorial-muted)]">© 2026 ItalyPath</p>
       </div>
     </footer>
   );
