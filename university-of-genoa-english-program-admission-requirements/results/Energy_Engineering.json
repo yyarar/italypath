@@ -1,0 +1,148 @@
+{
+  "program_name": "Energy Engineering",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Savona",
+  "degree_class": "LM-30 R (Energy and Nuclear Engineering)",
+  "admission_type": "open access with mandatory admission test (free access, but requires passing a verification of personal readiness)",
+  "academic_requirements": {
+    "summary": "Free-access (non-restricted) master's programme that nonetheless requires meeting curricular credit requirements and passing a verification of the graduate's personal readiness unless exempt. Admission requires a bachelor's degree (or equivalent) of at least 180 CFU/ECTS, minimum credits in specified industrial-engineering scientific sectors, and English at B2 level.",
+    "prior_degree_or_diploma": "A first-cycle degree (Laurea / Bachelor's degree) or an equivalent qualification obtained abroad, with at least 180 CFU/ECTS.",
+    "curricular_credit_requirements": "At least 36 CFU in the scientific sectors related to the L-9 Industrial Engineering class, and at least 45 CFU in the scientific sectors related to the L-9 Industrial Engineering class. Qualifications outside industrial engineering are individually assessed by the University and the programme council.",
+    "minimum_grade_or_gpa": "No minimum grade is required to apply, but a final bachelor's grade of at least 99/110 (or 9/10 of the maximum) or an ECTS classification of 'A' or 'B' exempts the candidate from the admission test.",
+    "international_qualification": "Non-EU candidates residing abroad with a foreign qualification apply through UniGeApply for pre-evaluation before enrolment; a maximum number of non-EU places is set each year (50 for A.Y. 2025/26).",
+    "source_url": "https://corsi.unige.it/en/corsi/11917/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English at least equivalent to CEFR B2.",
+    "accepted_proofs": [
+      "A valid B2 (or higher) English certificate obtained no more than 3 years ago, among those recognised by the University (CLAT list, https://clat.unige.it/en/CertificazioniRiconosciute).",
+      "Passing the free B2 English test organised periodically by the University Language Centre (CLAT).",
+      "A bachelor's or master's degree taught entirely in English, with supporting official university documentation."
+    ],
+    "exemption_rules": [
+      "Holding a degree delivered entirely in English satisfies the language requirement without a separate certificate.",
+      "In the absence of a certificate, English proficiency is verified by the University Language Centre / during the personal-readiness verification."
+    ],
+    "assessment_or_upload_stage": "Verified at the admission/pre-evaluation stage; candidates without an accepted certificate are assessed by the University Language Centre or during the readiness verification.",
+    "source_url": "https://corsi.unige.it/en/corsi/11917/prospective-students-requisites-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Verification of Adequacy of the Graduate's Personal Readiness (admission test). NOT a TOLC.",
+    "mandatory": true,
+    "is_selective": true,
+    "applies_to": "All applicants who do not qualify for an automatic exemption.",
+    "format": "A written test (possibly in telematic/remote mode) before a committee, covering Fluid Dynamics, Applied Thermodynamics and Heat Transfer, Energy Systems and Machines, Electrical Systems and Chemical Processes.",
+    "dates": "[uncertain] For A.Y. 2025/26 the published sessions were 15 Sep 2025, 17 Oct 2025, 14 Nov 2025, 16 Jan 2026, 24 Feb 2026 and 4 Mar 2026. Equivalent A.Y. 2026/27 dates were not yet published on the page at the time of research.",
+    "scoring_or_threshold": "Minimum passing score 36/60 points.",
+    "exemption": "Candidates with a bachelor's/master's degree from an Italian institution with a final grade of at least 99/110 (9/10 of the maximum) or an ECTS 'A'/'B' classification are exempt.",
+    "source_url": "https://corsi.unige.it/en/corsi/11917/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026.",
+      "Enrolment and fee payment follow the UniGe enrolment calendar after the curricular check and (where applicable) the admission test."
+    ],
+    "enrolment_deadline": "[uncertain] Programme-specific first-year enrolment dates for A.Y. 2026/27 follow the central UniGe enrolment calendar; a programme-specific date was not separately published.",
+    "notes": "This is a free-access programme; EU/resident applicants are not ranked, but they must satisfy the curricular requirements and pass the admission test unless exempt.",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026.",
+      "Energy Engineering is listed among the English-taught master's degrees in the UniGeApply non-EU pre-evaluation selection."
+    ],
+    "visa_or_pre_enrolment_deadline": "After receiving eligibility via UniGeApply, visa applicants complete the Universitaly pre-enrolment and then apply for the study visa.",
+    "early_closure": "None published. Energy Engineering is not among the three programmes with a known fall-session early closure (Medical-Pharmaceutical Biotechnology, Maritime Science and Technology, Computer Engineering bachelor).",
+    "notes": "Non-EU visa applicants must use the fall session; the A.Y. 2026/27 fall window closed 20 March 2026.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum vitae et studiorum",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Uploaded on UniGeApply for non-EU pre-evaluation.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Evidence of the first-cycle qualification (180 CFU minimum).",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records (list of exams with credits and grades)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Used to verify the curricular credit requirements (36 + 45 CFU in L-9 sectors).",
+      "source_url": "https://corsi.unige.it/en/corsi/11917/prospective-students-admission-criteria-procedure"
+    },
+    {
+      "document_name": "English language proficiency certificate (B2) or proof of English-medium instruction",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "B2 certificate no older than 3 years, a degree taught entirely in English, or verification by the University Language Centre.",
+      "source_url": "https://corsi.unige.it/en/corsi/11917/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Passport / identity document",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU applicants on UniGeApply.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and study-visa evidence",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Completed after UniGeApply eligibility, before applying for the study visa.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11917/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11917",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "Class: LM-30 R ENERGY AND NUCLEAR ENGINEERING",
+      "source_url": "https://corsi.unige.it/en/corsi/11917",
+      "field_supported": "degree_class, level"
+    },
+    {
+      "quote": "all modules are taught in English, free English courses are offered to En2 students and about 60% of En2 students come from abroad",
+      "source_url": "https://corsi.unige.it/en/corsi/11917",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "This degree course is free access, but requires passing a test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11917",
+      "field_supported": "admission_type, entry_exam_or_test"
+    },
+    {
+      "quote": "At least 36 CFU ... in the scientific sectors related to the L-9 Industrial Engineering Class; At least 45 CFU ... in the scientific sectors related to the L-9 Industrial Engineering Class",
+      "source_url": "https://corsi.unige.it/en/corsi/11917/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Knowledge of the English language is required, at least equivalent to the European (CEFR) B2 level.",
+      "source_url": "https://corsi.unige.it/en/corsi/11917/prospective-students-admission-criteria-procedure",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Passing score: 36/60 points minimum.",
+      "source_url": "https://corsi.unige.it/en/corsi/11917/prospective-students-admission-criteria-procedure",
+      "field_supported": "entry_exam_or_test"
+    }
+  ],
+  "uncertainty_notes": [
+    "The catalogue tagged this course as English+Italian, but the official programme page states all modules are taught in English (with free English courses for students); teaching_language set to English accordingly.",
+    "Only A.Y. 2025/26 admission-test session dates were published on the requisites page at research time; 2026/27 session dates were not yet listed.",
+    "Programme-specific first-year EU enrolment dates were not separately published; the institution-wide UniGeApply spring window and the central enrolment calendar apply.",
+    "No programme-specific non-EU early closure is published; Energy Engineering follows the institution-wide fall close of 20 March 2026."
+  ],
+  "uncertain": [
+    "application_deadline_eu"
+  ]
+}

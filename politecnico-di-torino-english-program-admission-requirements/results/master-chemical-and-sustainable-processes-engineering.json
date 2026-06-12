@@ -1,0 +1,193 @@
+{
+  "program_name": "Chemical and Sustainable Processes Engineering",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale / 2nd cycle)",
+  "teaching_language": "Italian, English",
+  "is_fully_english_programme": false,
+  "has_complete_english_track": false,
+  "english_track_name": "Chemical Engineering for green transition",
+  "campus": "Torino (Main Campus)",
+  "degree_class": "LM-22 (Chemical Engineering)",
+  "double_degree_or_erasmus_mundus": "The programme offers Twin Track opportunities leading to a second Master's degree in Environmental and Land Engineering or Energy and Nuclear Engineering; the curriculum page also lists \"Multiphase Systems for Sustainable Engineering - Erasmus Mundus Joint Master\". [uncertain]",
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/chemical-and-sustainable-processes-engineering",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/chemical-and-sustainable-processes-engineering/programme-curriculum",
+  "admission_type": "evaluation/CV (uncapped number of students; admission by evaluation of the admission requirements)",
+  "admission_test_type": "Master-level evaluation of qualifications and curricular requirements; no written entrance test is published. The 2026/2027 course-specific requirements table does not list a GRE or interview requirement for the English track. [uncertain]",
+  "applicant_route": [
+    "Italian qualification (PoliTo or another Italian university bachelor)",
+    "EU qualification / non-Italian qualification with no visa requirement",
+    "non-EU applicants legally residing in Italy with a valid residence permit",
+    "non-EU applicants residing abroad and requiring a visa (the relevant route for Turkish applicants with a non-Italian qualification)"
+  ],
+  "admission_call_round": [
+    "Standard 1st call for applicants with a non-Italian qualification: opening 19 December 2025; closing 13 February 2026, 2:00 p.m. (Italian time); results 15 April 2026.",
+    "Standard 2nd call for applicants with a non-Italian qualification: opening 18 March 2026; closing 20 April 2026, 2:00 p.m. (Italian time); results 22 June 2026.",
+    "No separate special call is published for this programme; the 24 April 2026 to 18 May 2026 special call is for other international-track programmes only."
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito for the application and enrolment workflow; UNIVERSITALY for non-EU applicants residing abroad who require a study visa after eligibility confirmation.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "qualification": "A Bachelor's degree (EQF level 6) or equivalent academic qualification that gives access to second-cycle studies.",
+    "general_non_italian_rule": "Applicants with an equivalent foreign qualification who are not yet graduated must meet the minimum requirement of 15 years of global schooling, including at least 3 years at university level, and have earned at least 180 ECTS credits or equivalent.",
+    "programme_background": "The 2026/2027 course-specific requirements table lists the recommended background for the English track \"Chemical Engineering for green transition\" as \"Any field of Engineering\".",
+    "curricular_thresholds_from_latest_regulations_found": "The latest academic regulations located publicly (A.Y. 2025/2026) require a minimum of 40 credits in CHIM/07, FIS/01, FIS/03, ING-INF/05, MAT/02, MAT/03, MAT/05 and a minimum of 60 credits in BIO/11, ICAR/01, ICAR/03, ICAR/08, ING-IND/08, ING-IND/10, ING-IND/11, ING-IND/14, ING-IND/15, ING-IND/21, ING-IND/22, ING-IND/23, ING-IND/24, ING-IND/25, ING-IND/26, ING-IND/27, ING-IND/31, ING-IND/32, MAT/07, MAT/08. [uncertain]",
+    "evaluation": "An Academic Committee verifies the curricular requirements and whether the applicant's academic performance is suitable for admission."
+  },
+  "country_specific_eligibility": "No Turkey-specific programme rule was found. For a Turkish applicant with a non-Italian qualification, PoliTo applies the general foreign-qualification rules: the degree must give access to second-cycle studies, and enrolment requires a Declaration of Value or a CIMEA Statement of Comparability (or another officially accepted equivalent listed by PoliTo). [uncertain]",
+  "minimum_background_or_credits": "Public 2026/2027 sources summarize the background as \"Any field of Engineering\" for the English track; the latest regulations publicly located (2025/2026) also specify curricular thresholds of 40 credits in the first subject group and 60 credits in the second subject group listed in the regulations. [uncertain]",
+  "language_requirements": {
+    "overall_bilingual_programme": "For programmes partially taught in Italian/English, PoliTo states English level B2 or higher plus Italian level B2 or higher.",
+    "english_track": "The 2026/2027 course-specific requirements table lists the English track \"Chemical Engineering for green transition\" as English with a minimum requirement of IELTS 5.5.",
+    "accepted_certificates": "Accepted English certificates are listed in the official PoliTo CLA table and include IELTS, Pearson PTE, TOEFL iBT, TOEIC, and Cambridge certificates.",
+    "exemptions": "PoliTo publishes standard English-certificate exemptions for selected English-medium qualifications and countries on the non-Italian-qualification admissions page. [uncertain]"
+  },
+  "english_certificate_codes": "For TOEFL/TOEIC, PoliTo asks applicants to use institution code C285; for Cambridge, applicants must share the result and indicate the Candidate ID number.",
+  "language_submission_timing": "For the non-Italian-qualification route, the language certificate is part of the uploaded application documents in Apply@polito. For the Italian-qualification engineering-area route, applicants may submit without the English certificate and regularize it by the enrolment deadlines for the relevant semester. [uncertain]",
+  "application_deadline_eu": {
+    "italian_qualification_first_semester": "Engineering-area route: Apply@polito opens 4 June 2026; application deadline 15 October 2026; enrolment deadline 12 November 2026.",
+    "italian_qualification_second_semester": "Engineering-area route: Apply@polito opens 13 December 2026; application deadline 24 February 2027; enrolment deadline 24 March 2027.",
+    "non_italian_qualification_no_visa_route": "EU applicants or non-EU applicants already residing in Italy who hold a non-Italian qualification are governed by the non-Italian-qualification calls closing on 13 February 2026 and 20 April 2026. [uncertain]"
+  },
+  "application_deadline_non_eu": {
+    "first_call": "Opening 19 December 2025; closing 13 February 2026, 2:00 p.m. (Italian time); results 15 April 2026; study-visa pre-enrolment deadline 15 May 2026.",
+    "second_call": "Opening 18 March 2026; closing 20 April 2026, 2:00 p.m. (Italian time); results 22 June 2026; study-visa pre-enrolment deadline 15 July 2026.",
+    "enrolment": "Online enrolment for the first semester closes 5 October 2026; mandatory enrolment documents must be uploaded by 5 October 2026; the study visa type-D upload deadline is 30 November 2026."
+  },
+  "universitaly_preenrolment_deadline": "For non-EU applicants residing abroad and requiring a visa, the admissions deadlines table gives 15 May 2026 for 1st-call candidates and 15 July 2026 for 2nd-call candidates; this is separate from the Apply@polito application. [uncertain]",
+  "application_fee": "€50 non-refundable application fee, paid online by credit card (VISA or MasterCard) through PagoPA for the non-Italian-qualification application route.",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport (other IDs are accepted only for EU nationals).",
+    "Residence permit for non-EU citizens living in Italy.",
+    "Curriculum Vitae.",
+    "Bachelor's degree (EQF level 6) or official university document stating the provisional graduation date if not yet graduated.",
+    "Official Transcript of Records.",
+    "English/Italian language certificate, as applicable to the selected route or track.",
+    "Declaration of Value of the Bachelor's degree or CIMEA Statement of Comparability if available; PoliTo states this is compulsory for enrolment.",
+    "Syllabus / course descriptions and portfolio are referenced in the general document list, but the 2026/2027 course-specific table for this programme/track does not show an additional syllabus, portfolio, GRE, or interview requirement. [uncertain]"
+  ],
+  "document_translation_authentication": "Documents must be issued on letterheaded paper, stamped and signed by the issuing institution. Documents in Italian, English, French, or Spanish are accepted; documents in other languages require an official translation. For enrolment with a foreign qualification, PoliTo requires the qualification-recognition documentation stated on its admissions page, such as a Declaration of Value or CIMEA Statement of Comparability.",
+  "entry_exam_or_test": {
+    "type": "No written entrance exam is published for this Master's programme.",
+    "selection_method": "Admission is by evaluation of academic background, curricular requirements, and language requirements.",
+    "interview_or_gre": "The 2026/2027 course-specific requirements table does not list an interview or GRE requirement for the English track. [uncertain]",
+    "mode": "Application and document evaluation are handled online."
+  },
+  "test_score_or_threshold": "No entrance-test score threshold is published. The public thresholds found are language thresholds (overall bilingual route: English B2 plus Italian B2; English track: IELTS 5.5) and, in the latest regulations found, curricular thresholds of 40 credits plus 60 credits in specified subject groups. [uncertain]",
+  "source_quotes": [
+    {
+      "quote": "Language: Italian, English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/chemical-and-sustainable-processes-engineering",
+      "supports_fields": ["teaching_language", "is_fully_english_programme"]
+    },
+    {
+      "quote": "Uncapped number of students",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/chemical-and-sustainable-processes-engineering",
+      "supports_fields": ["admission_type"]
+    },
+    {
+      "quote": "LM-22: CHEMICAL ENGINEERING",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/chemical-and-sustainable-processes-engineering",
+      "supports_fields": ["degree_class"]
+    },
+    {
+      "quote": "CHEMICAL ENGINEERING FOR GREEN TRANSITION English IELTS 5.5",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": ["english_track_name", "language_requirements"]
+    },
+    {
+      "quote": "Any field of Engineering",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": ["academic_requirements", "minimum_background_or_credits"]
+    },
+    {
+      "quote": "partially in Italian/ partially in English",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": ["teaching_language", "language_requirements"]
+    },
+    {
+      "quote": "Advanced process monitoring and control ... Italian",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/chemical-and-sustainable-processes-engineering/programme-curriculum",
+      "supports_fields": ["has_complete_english_track", "uncertainty_notes"]
+    },
+    {
+      "quote": "Environmental safety technique ... Italian",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/chemical-and-sustainable-processes-engineering/programme-curriculum",
+      "supports_fields": ["has_complete_english_track", "uncertainty_notes"]
+    },
+    {
+      "quote": "offers all compulsory courses in English",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20CHIMICA%20E%20DEI%20PROCESSI%20SOSTENIBILI_25_26.pdf",
+      "supports_fields": ["has_complete_english_track", "uncertainty_notes"]
+    },
+    {
+      "quote": "minimum 40 credits",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20CHIMICA%20E%20DEI%20PROCESSI%20SOSTENIBILI_25_26.pdf",
+      "supports_fields": ["academic_requirements", "minimum_background_or_credits"]
+    },
+    {
+      "quote": "minimum 60 credits",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20CHIMICA%20E%20DEI%20PROCESSI%20SOSTENIBILI_25_26.pdf",
+      "supports_fields": ["academic_requirements", "minimum_background_or_credits"]
+    },
+    {
+      "quote": "English level B2 or higher",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["language_requirements"]
+    },
+    {
+      "quote": "Please upload the documents listed below:",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["required_documents"]
+    },
+    {
+      "quote": "Pay the non-refundable application fee (€50)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_fee"]
+    },
+    {
+      "quote": "Pre-enrolment deadline for Study Visa",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_deadline_non_eu", "universitaly_preenrolment_deadline"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/chemical-and-sustainable-processes-engineering",
+    "https://www.polito.it/en/education/master-s-degree-programmes/chemical-and-sustainable-processes-engineering/programme-curriculum",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20CHIMICA%20E%20DEI%20PROCESSI%20SOSTENIBILI_25_26.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/polito-language-centre-cla/certificates",
+    "https://www.polito.it/sites/default/files/2026-01/Tabella_23_09_2019_agg_gen26_eng_0.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "The programme page clearly labels the programme as bilingual (\"Italian, English\"), so is_fully_english_programme is recorded as false.",
+    "The English-track name is confirmed by both the programme-curriculum page and the 2026/2027 course-specific requirements table: \"Chemical Engineering for green transition\".",
+    "The current 2026/2027 curriculum page is explicitly provisional, but it shows two year-2 courses inside the English track with Italian language labels: \"Advanced process monitoring and control\" and \"Environmental safety technique\". On that basis, has_complete_english_track is recorded as false.",
+    "A conflicting official source exists: the latest academic regulations publicly located (A.Y. 2025/2026) say that \"Chemical Engineering for Green Transition offers all compulsory courses in English\". This conflict should be rechecked when the final 2026/2027 curriculum/regulations are published.",
+    "The 2026/2027 course-specific requirements PDF publishes programme-level language/background requirements for both the bilingual programme and the English track, but its compact table layout does not fully spell out whether any additional syllabus or interview condition exists for this specific track.",
+    "The visa pre-enrolment dates were taken from the 2026/2027 admissions deadlines tables (15 May 2026 and 15 July 2026). A separate UNIVERSITALY accordion on the same page was still marked \"To be defined for A.Y. 2026/27\" when checked.",
+    "The most detailed curricular credit thresholds found publicly are from the 2025/2026 academic regulations PDF, not from a separate 2026/2027 regulations PDF.",
+    "No Turkey-specific admission or recognition rule was published for this programme; country-specific eligibility is therefore based on PoliTo's general foreign-qualification rules.",
+    "The programme page advertises Twin Track and Erasmus Mundus opportunities, but those are opportunities within or alongside the programme rather than the ordinary standard-admission route for the base degree."
+  ],
+  "uncertain": [
+    "double_degree_or_erasmus_mundus",
+    "admission_test_type",
+    "country_specific_eligibility",
+    "minimum_background_or_credits",
+    "language_requirements.exemptions",
+    "language_submission_timing",
+    "application_deadline_eu.non_italian_qualification_no_visa_route",
+    "universitaly_preenrolment_deadline",
+    "required_documents",
+    "entry_exam_or_test.interview_or_gre",
+    "test_score_or_threshold"
+  ]
+}

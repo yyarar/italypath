@@ -1,0 +1,160 @@
+{
+  "program_name": "Applied Sciences to Cultural Heritage, Materials and Sites",
+  "level": "master",
+  "teaching_language": "English (study track of the master's degree in Scienze archeologiche)",
+  "campus": "Padua, Italy",
+  "degree_class": "LM-2 R",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a minimum three-year undergraduate degree or equivalent in a listed scientific, engineering, heritage, archaeology, or humanities field, plus proven skills and/or motivation in Archaeological Sciences and Conservation of Cultural Heritage.",
+    "prior_degree_or_diploma": "A minimum three-year undergraduate degree or equivalent in Chemical and Physical Sciences, Applied Sciences and Technologies, Engineering, Computer Sciences, Architectural and Environmental Sciences, Geological Sciences, Geography, Tourism Sciences, Cultural Heritage, Archaeology, or Humanities and Historical Sciences.",
+    "subject_requirements": "Proven skills and/or motivation in Archaeological Sciences and Conservation of Cultural Heritage.",
+    "gpa_or_country_requirements": "Country-based entry title and GPA requirements apply; applicants must verify them on the University's official entry-title-requirements page.",
+    "source_url": "https://apply.unipd.it/courses/course/183"
+  },
+  "language_requirements": {
+    "required_level": "English B2 level (CEFR) or equivalent.",
+    "accepted_proofs": [
+      "An official English certificate included in the University's 2026/27 accepted-certificates list for English-taught programmes, with the required B2 minimum score.",
+      "A provisional statement of results from the certifying body is accepted if the language test has been taken but the final certificate has not yet been issued."
+    ],
+    "exemption_rules": [
+      "A bachelor's, single-cycle master's, or master's degree delivered entirely in English can satisfy the requirement if the language of instruction is explicitly documented; for foreign degrees, the transcript and final diploma are also required.",
+      "Native-speaker citizenship from the University's accepted English-speaking-country list can satisfy the requirement if supported by an identity document."
+    ],
+    "deadline": "[uncertain] The central 2026/27 language page says the requirement must be met by the deadlines in the relevant call for admissions, but the programme page reviewed does not state a separate programme-specific language deadline.",
+    "source_url": "https://www.unipd.it/en/english-language-admission"
+  },
+  "application_deadline_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "2 June 2026 - 2 August 2026",
+    "notes": "Third call is only for EU students and non-EU students residing in Italy. The programme can be applied for only once per academic year.",
+    "source_url": "https://apply.unipd.it/courses/course/183"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "Not available to non-EU applicants residing outside Italy; the third call is only for EU students and non-EU students residing in Italy.",
+    "notes": "The programme can be applied for only once per academic year. Non-EU applicants residing in Italy follow the EU timeline, including the third call.",
+    "source_url": "https://apply.unipd.it/courses/course/183"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae (Resume) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Listed on the central Study in English application page for master's degree programmes.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Motivational Letter(s) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Listed on the central Study in English application page for master's degree programmes.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for master's degree applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Academic qualification or enrolment/provisional certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "If the final qualification has not yet been obtained, an enrolment or provisional certificate is accepted.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Valid ID card or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "The page specifies a valid ID card for EU citizens and non-EU citizens residing in Italy, or a passport.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Residence permit",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only for non-EU citizens residing in Italy.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "English language certificate or other accepted language certification",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "The programme requires English at B2 level or equivalent.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Statement of Comparability issued by CIMEA",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "May be requested by the Admissions and Welcome Unit if further verification of the qualification is needed.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Original and legalised copies of previous qualifications, with English or Italian translation of the entry qualification",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Legalised documents are not required at application stage, but are required after admission for enrolment.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment form",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU citizens residing outside Italy; the page says pre-enrolment must be completed through Universitaly no later than 15 July.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Possible interview via the application platform",
+    "mandatory": false,
+    "applies_to": "Applicants selected by the selection committee",
+    "dates": "Not specified; by invitation during assessment",
+    "scoring_or_threshold": "Used only if the selection committee decides to interview the applicant; no score or threshold is stated.",
+    "source_url": "https://apply.unipd.it/courses/course/183"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/offerta-didattica/corso-di-laurea-magistrale/scienze-umane-sociali-e-del-patrimonio-culturale?tipo=LM&scuola=SU&ordinamento=2021&key=LE0616&cg=beni-culturali",
+  "official_call_url": "https://apply.unipd.it/courses/course/183",
+  "source_quotes": [
+    {
+      "quote": "A minimum three-year undergraduate degree (or equivalent) in Chemical and Physical Sciences, Applied Sciences and Technologies, Engineering, Computer Sciences, Architectural and Environmental Sciences, Geological Sciences, Geography, Tourism Sciences, Cultural Heritage, Archaeology, or Humanities and Historical Sciences.",
+      "source_url": "https://apply.unipd.it/courses/course/183",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Proven skills and/or motivation in Archaeological Sciences and Conservation of Cultural Heritage are required.",
+      "source_url": "https://apply.unipd.it/courses/course/183",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "The programme is a study track - held completely in English - of the Master's degree programme in Scienze archeologiche.",
+      "source_url": "https://apply.unipd.it/courses/course/183",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "During the assessment procedure, the selection committee reserves the right to invite applicants to take an interview via the application platform.",
+      "source_url": "https://apply.unipd.it/courses/course/183",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "Curriculum Vitae (Resume) in English;",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply",
+      "field_supported": "required_documents"
+    }
+  ],
+  "uncertainty_notes": [
+    "This is an English-taught study track within the master's degree in Scienze archeologiche, so the official programme page and degree-class references belong to the parent degree while the apply.unipd.it page carries the study-track-specific admission details.",
+    "No separate 2026/27 programme-specific PDF admission notice was found during this review; the official apply.unipd.it programme page was used as the call-equivalent source.",
+    "The exact deadline for satisfying the English-language requirement is referred by the university to the relevant call for admissions, but no separate programme-specific deadline was stated on the programme page."
+  ],
+  "uncertain": [
+    "language_requirements"
+  ]
+}

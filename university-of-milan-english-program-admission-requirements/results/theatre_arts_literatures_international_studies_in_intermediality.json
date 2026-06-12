@@ -1,0 +1,154 @@
+{
+  "program_name": "Theatre, Arts, Literatures. International Studies in Intermediality",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "Italian, English",
+  "campus": "Milan; course locations include Piazza S. Alessandro 1, Via S. Sofia 9, Via Festa del Perdono 3, and Via Noto 6.",
+  "degree_class": "LM-37/65 R - Modern European and American Languages and Literatures / Performing Arts and Multimedia Production",
+  "admission_type": "open access with verification of entry requirements",
+  "academic_requirements": "[uncertain] Applicants need a first-cycle degree or an equivalent foreign qualification. The listed eligible Italian degree classes are L-1, L-3, L-5, L-10, L-11, L-12, L-20, and L-42, including corresponding classes under earlier ministerial rules. Official A.Y. 2026/2027 sources state that applicants must also hold at least 27 ECTS in specified scientific-disciplinary areas, with visible lists showing at least 9 ECTS in a modern literature area and at least 9 ECTS in an artistic, literary, or philosophical discipline related to theatre. Admission requirements are checked by a programme commission; applicants with an overseas undergraduate degree receive an individual assessment. All admission requirements, including the degree, any required single-course exams, and English/Italian language requirements, must be met by 31 December 2026.",
+  "language_requirements": "English at CEFR B2 and Italian at CEFR B1 are required for admission. English B2 can be proven by a recognized certificate issued within 3 years and uploaded with the application, by a University of Milan SLAM-certified level earned within 4 years, or by the SLAM entry test. If the English test is not taken or not passed, the applicant must obtain a recognized certificate and submit it to SLAM via InformaStudenti by the programme deadline, otherwise admission is denied. Italian B1 is verified in the same ways: a recognized certificate issued within 3 years and uploaded with the application, a University of Milan SLAM-certified level earned within 4 years, or the SLAM Italian entry test. If the Italian test is not taken or not passed, the applicant must obtain a recognized certificate and submit it to SLAM via InformaStudenti by the degree-course deadline, otherwise admission is denied.",
+  "application_deadline_eu": "EU and equivalent applicants must submit the admission application by 25 August 2026 at 23:59. Admitted candidates may enrol from 5 May 2026 to 15 January 2027.",
+  "application_deadline_non_eu": "Non-EU applicants requiring a visa must submit the admission application by 30 April 2026 at 23:59. The admission notice also requires Universitaly pre-enrolment by 31 July 2026. Admitted candidates may enrol from 5 May 2026 to 15 January 2027.",
+  "required_documents": [
+    "For applicants with an Italian qualification: self-certification of degree/enrolment with exams; for graduates or graduating students from other Italian universities, it must list exams, grades, ECTS, and scientific-disciplinary sectors.",
+    "For applicants still completing an Italian degree: the self-certification must also state total earned credits, passed but not yet registered exams, remaining exams, and expected graduation date.",
+    "For applicants with a foreign qualification at application stage: Bachelor's degree or equivalent degree certificate in Italian, English, French, German, or Spanish.",
+    "For applicants with a foreign qualification at application stage: Diploma Supplement, or equivalent university certificate(s) showing the awarded qualification, passed exams, grades, credits, and grading system.",
+    "For applicants with a foreign qualification at application stage: passport personal-data page or another valid identity document.",
+    "For applicants with a foreign qualification at enrolment finalization on apply.unimi.it: legalized or apostilled Bachelor's degree, unless exempt from legalization or Apostille requirements.",
+    "For applicants with a foreign qualification at enrolment finalization on apply.unimi.it: upper-secondary school diploma.",
+    "For applicants with a foreign qualification at enrolment finalization on apply.unimi.it: official Italian translation of study titles, unless the originals are in English, French, German, or Spanish.",
+    "For applicants with a foreign qualification at enrolment finalization on apply.unimi.it: Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Declaration of Value; for Lisbon Recognition Convention countries, a Diploma Supplement or ARDI statement may replace these.",
+    "For applicants with a foreign qualification at enrolment finalization on apply.unimi.it: Italian tax code.",
+    "For non-EU applicants: receipt of the residence-permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "[uncertain] There is no general written entrance exam for all candidates. Admission is based on verification of degree class, curricular requirements, and language requirements by a programme commission. Applicants without valid proof of English B2 or Italian B1 are directed to the relevant SLAM entry tests. Candidates who do not meet the curricular requirements are required to attend an interview on Teams; the inspected A.Y. 2026/2027 programme page, manifesto, and admission notice do not state the interview dates, and instead refer applicants to a separate notice on the programme website.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/theatre-arts-literatures-international-studies-intermediality",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-theatre-arts-literatures-international-studies-in-intermediality-%28classe-lm-.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027.",
+      "url": "https://www.unimi.it/en/education/master-programme/theatre-arts-literatures-international-studies-intermediality",
+      "field_refs": [
+        "academic_year"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Access: Open with entry requirements examination.",
+      "url": "https://www.unimi.it/en/education/master-programme/theatre-arts-literatures-international-studies-intermediality",
+      "field_refs": [
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Language: Italian, English.",
+      "url": "https://www.unimi.it/en/education/master-programme/theatre-arts-literatures-international-studies-intermediality",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "In addition to offering courses in Italian and English, TAL also provides the opportunity to choose courses delivered in other major European languages and offers the possibility to complete Italian-taught courses in English.",
+      "url": "https://www.unimi.it/en/education/master-programme/theatre-arts-literatures-international-studies-intermediality",
+      "field_refs": [
+        "teaching_language",
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Application for admission: from 22/01/2026 to 25/08/2026.",
+      "url": "https://tal.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Non-EU students visa applicants are required to apply for admission no later than 30 April 2026.",
+      "url": "https://tal.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Applicants must have earned a total of at least 27 ECTS credits in the following Scientific Disciplinary Areas.",
+      "url": "https://tal.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Proficiency in English at level B2 or higher according to the Common European Framework of Reference for Languages (CEFR) is required for admission.",
+      "url": "https://tal.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Italian proficiency at a B1 level or higher per the Common European Framework of Reference for Languages (CEFR) is a requisite for admission.",
+      "url": "https://tal.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Candidates who do not meet the above curricular requirements will be required to attend an interview on teams.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_CBLof2_2027.pdf",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "British and Irish Theatre and Performance ... Language ... English.",
+      "url": "https://www.unimi.it/en/education/master-programme/theatre-arts-literatures-international-studies-intermediality",
+      "field_refs": [
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Contemporary Italian Theatre ... Language ... Italian.",
+      "url": "https://www.unimi.it/en/education/master-programme/theatre-arts-literatures-international-studies-intermediality",
+      "field_refs": [
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Non-EU visa applicants must submit Universitaly pre-enrolment by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-theatre-arts-literatures-international-studies-in-intermediality-%28classe-lm-.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Required upload for foreign qualifications: degree certificate, diploma supplement or equivalent academic certificate, and passport or valid ID.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-theatre-arts-literatures-international-studies-in-intermediality-%28classe-lm-.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "Official A.Y. 2026/2027 programme, manifesto, and course-site application pages state a total of 27 ECTS in specified disciplinary areas, but the visible published lists show only two explicit 9-ECTS groups; the inspected sources do not display a third group or another explanation for the remaining credits.",
+    "The programme is officially labelled as taught in Italian and English, but the 2026/2027 educational plan includes compulsory teaching in both Italian and English and several options in other European languages. Official sources describe a mixed-language curriculum and the possibility of completing Italian-taught courses in English, not a fully English curriculum.",
+    "The inspected A.Y. 2026/2027 programme page, manifesto, and admission notice confirm that some candidates may need an interview on Teams, but they do not provide the actual interview dates and instead point to a separate notice on the programme website."
+  ],
+  "uncertain": [
+    "academic_requirements",
+    "entry_exam_or_test"
+  ]
+}

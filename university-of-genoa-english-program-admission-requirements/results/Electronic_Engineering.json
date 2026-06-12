@@ -1,0 +1,133 @@
+{
+  "program_name": "Electronic Engineering",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Genoa (DITEN - Department of Naval, Electrical, Electronic and Telecommunications Engineering)",
+  "degree_class": "LM-29 (Electronic Engineering)",
+  "admission_type": "open access (free access, but admission requires meeting curricular requirements and, where applicable, passing an assessment of adequacy of personal preparation)",
+  "academic_requirements": {
+    "summary": "Open-access (non-competitive) master's programme. Admission requires a recognised three-year degree (at least 180 CFU/ECTS), satisfaction of two curricular CFU requirements, and verification of personal preparation when the bachelor grade is below 9/10 of the maximum (ECTS 'A').",
+    "prior_degree_or_diploma": "A three-year degree of at least 180 CFU/ECTS or an equivalent university qualification.",
+    "curricular_requirements": "(1) At least 36 CFU (or equivalent knowledge) in the SSDs for the basic educational activities of Class L-8 Information Engineering; (2) at least 45 CFU (or equivalent knowledge) in the same SSDs, specifically within Automation, Biomedical, Electronic, Computer or Telecommunications Engineering.",
+    "minimum_grade": "Personal preparation is automatically deemed adequate (assessment waived) for holders of a three-year degree with a final grade of at least 9/10 of the maximum, or corresponding to at least the ECTS 'A' classification. For non-EU applicants the degree grade must correspond to at least 80% of the maximum possible grade.",
+    "personal_preparation_assessment": "Candidates below the 9/10 (ECTS 'A') threshold undergo an assessment via public interview, written test or remote interview evaluating analogue and digital electronics, electromagnetic fields, computer architectures, signal processing and transmission, telecommunications networks and systems, and data structures and algorithms.",
+    "international_qualification": "Non-EU candidates residing abroad apply via UniGeApply for pre-evaluation (degree grade at least 80% of maximum); in the spring session an interview is held only if competency assessment is required.",
+    "source_url": "https://corsi.unige.it/en/corsi/11970/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English B2 level or higher.",
+    "accepted_proofs": [
+      "An English certificate already in the student's possession (among those accepted by the University).",
+      "Passing the B2 test administered by the Language Skills Development Sector (CLAT).",
+      "A degree taught in English, certified by an official document.",
+      "Verification during the personal-preparation test by the examination board."
+    ],
+    "exemption_rules": [
+      "An accepted B2-or-higher certificate, or a degree taught in English (officially documented), removes the need for the CLAT B2 test."
+    ],
+    "assessment_or_upload_stage": "B2 English is verified at the admission/assessment stage; non-EU applicants have it verified during the UniGeApply pre-evaluation.",
+    "source_url": "https://corsi.unige.it/en/corsi/11970/prospective-students-requisites-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Assessment of Adequacy of Personal Readiness (verification of personal preparation) - NOT a TOLC. Public interview, written test or remote interview.",
+    "mandatory": false,
+    "is_selective": false,
+    "applies_to": "Candidates whose bachelor's final grade is below 9/10 of the maximum (or below ECTS 'A'); non-EU applicants take it only if competency assessment is required (interview).",
+    "format": "Public interview, written test or remote interview covering analogue and digital electronics, electromagnetic fields, computer architectures, signal processing and transmission, telecommunications networks and systems, and data structures and algorithms.",
+    "dates": "Test sessions for A.Y. 2026/2027: 8 September 2026, 28 September 2026, 18 November 2026, 18 January 2027, and 26 February 2027.",
+    "scoring_or_threshold": "Waived for three-year degrees with a final grade of at least 9/10 of maximum (or ECTS 'A'). Non-EU minimum degree grade is 80% of maximum.",
+    "source_url": "https://corsi.unige.it/en/corsi/11970/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026.",
+      "First-year pre-registration: from 9 April to 30 November 2026 (and until 10 March 2027 with late payment)."
+    ],
+    "enrolment_deadline": "Confirmation of enrolment from 15 July 2026 to 30 November 2026, and until 10 March 2027 with late payment; enrolment in years after the first runs 15 July to 5 October 2026 (arrears 6 October to 5 November 2026).",
+    "notes": "Open-access (non-ranked) programme; EU/resident applicants below the 9/10 (ECTS 'A') threshold must pass the personal-preparation assessment before enrolling. Tuition first installment (approx. EUR 136: EUR 16 stamp duty + EUR 120 regional tax) at enrolment; second installment by 10 December 2026; third by 23 June 2027.",
+    "source_url": "https://corsi.unige.it/en/corsi/11970/prospective-students-deadlines"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026.",
+      "No programme-specific early closure is published for Electronic Engineering (only Medical-Pharmaceutical Biotechnology, Maritime Science and Technology, and the Computer Engineering bachelor have published fall early closures)."
+    ],
+    "visa_or_pre_enrolment_deadline": "After receiving eligibility via UniGeApply, visa applicants complete Universitaly pre-enrolment and apply for the study visa.",
+    "early_closure": "None published for this programme (uses the standard fall-session close of 20 March 2026).",
+    "notes": "Non-EU visa applicants must use the fall session, apply through UniGeApply (max 2 courses; 30 EUR fixed fee for visa applicants), require a degree grade of at least 80% of maximum, with an interview held only if competency assessment is required (per the spring-session note). The A.Y. 2026/27 fall window has now closed.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae et Studiorum",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Information on educational background, additional courses, work activities or internships.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "At least 180 CFU/ECTS; degree grade at least 80% of maximum for non-EU pre-evaluation.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "List of exams with credits and grades; used to verify the 36 CFU basic + 45 CFU characterizing L-8 Information Engineering requirements.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "English Language Proficiency Certificate (B2) or Medium of Instruction (MOI) declaration",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "B2 certificate, or a degree taught in English officially documented; otherwise B2 verified by the examination board.",
+      "source_url": "https://corsi.unige.it/en/corsi/11970/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Passport (non-EU) / national ID or passport (EU); residence permit (non-EU residents)",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Uploaded on UniGeApply in PDF, max 2 MB.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11970/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11970",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "Electronic Engineering, Course Code 11970, Degree Class LM-29 (Electronic Engineering), Teaching language English, 120 CFU, 2 years, Genova.",
+      "source_url": "https://corsi.unige.it/en/corsi/11970",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "at least 36 CFU, or equivalent knowledge [in] Class L-8 Information Engineering foundational activities ... At least 45 CFU, or equivalent knowledge ... within Automation, Biomedical, Electronic, Computer, or Telecommunications Engineering.",
+      "source_url": "https://corsi.unige.it/en/corsi/11970/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "a final grade equal to at least 9/10 of the maximum grade ... or ... corresponding at least to the 'A' classification of the ECTS system.",
+      "source_url": "https://corsi.unige.it/en/corsi/11970/prospective-students-requisites-assessment",
+      "field_supported": "academic_requirements, entry_exam_or_test"
+    },
+    {
+      "quote": "a public interview, written test or remote interview ... analogue and digital electronics; electromagnetic fields; computer architectures; signal processing and transmission; telecommunications networks and systems; data structures and algorithms. Test dates: 08 September 2026, 28 September 2026, 18 November 2026, 18 January 2027, and 26 February 2027.",
+      "source_url": "https://corsi.unige.it/en/corsi/11970/prospective-students-requisites-assessment",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "Electronic Engineering: minimum CGPA 80%, admission interview only if competency assessment is required.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+      "field_supported": "application_deadline_non_eu, academic_requirements"
+    }
+  ],
+  "uncertainty_notes": [
+    "Programme is open-access; the 'test to be passed' on the catalogue page is the assessment of adequacy of personal readiness, not a TOLC or competitive entrance exam.",
+    "EU/spring deadlines reflect the institution-wide UniGeApply window (master's close 28 August 2026) plus the corsi.unige.it enrolment calendar; no programme-specific first-year EU application deadline is separately published.",
+    "Non-EU pre-evaluation document list does not explicitly require a Declaration of Value or CIMEA at the application stage; these are typically required at the enrolment/visa stage per central UniGe rules."
+  ],
+  "uncertain": []
+}

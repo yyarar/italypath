@@ -1,0 +1,167 @@
+{
+  "program_name": "Philosophical Sciences",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "Italian, English",
+  "campus": "Milan",
+  "degree_class": "LM-78 R - Scienze filosofiche",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": "Applicants must hold a bachelor's degree or equivalent foreign qualification recognized as suitable by the University, or graduate by 31 December 2026. The programme requires at least 42 ECTS/CFU in the philosophical sectors M-FIL/01, M-FIL/02, M-FIL/03, M-FIL/04, M-FIL/05, M-FIL/06, M-FIL/07, and M-FIL/08. The official programme application page also states that, when uploading the admission request, candidates must already have at least 126 ECTS in their previous academic career. Candidates with a final degree grade of 95/110 or above are considered to have adequate preparation; candidates below 95/110 must attend an individual interview, which may be online. Applicants with foreign degrees may also be interviewed so the admission board can assess the consistency of prior studies and philosophical preparation. UniMi graduates in Philosophy (class L-5) with a final grade of at least 95/110 are stated to meet curricular requirements automatically.",
+  "language_requirements": "Admission requires English proficiency at CEFR B1 or higher. UniMi accepts one of these routes for the B1 admission requirement: a UniMi-recognized language certificate issued no more than three years before the application date and uploaded during admission; an English level certified by UniMi SLAM during a UniMi bachelor's degree no more than four years before the application date, checked automatically; or the SLAM entry test. The official UniMi SLAM deadline page for A.Y. 2026/2027 lists Philosophical Sciences with a deadline of 31 December 2026 to submit a recognized certificate if the applicant fails the SLAM test or misses it without excuse. In addition, the 2026/2027 manifesto and programme application page state that students need English B2 to take English-taught exams, and the manifesto states that B2 is also required to graduate. No separate Italian-language admission certificate is stated on the official programme page, admission notice, manifesto, or programme application page.",
+  "application_deadline_eu": "Admission application window for EU candidates and equivalents: 22 January 2026 to 30 October 2026. Enrolment window for admitted students: 5 May 2026 to 15 January 2027. Degree completion and fulfilment of entry requirements: by 31 December 2026.",
+  "application_deadline_non_eu": "Admission application window for non-EU candidates applying for a visa: 22 January 2026 to 30 April 2026. Universitaly pre-enrolment deadline for visa applicants: 31 July 2026. Enrolment window for admitted students: 5 May 2026 to 15 January 2027. Foreign-qualification enrolment documents must be completed by 30 November 2026.",
+  "required_documents": [
+    "If applying with an Italian qualification from a university other than UniMi: self-certification of degree or current enrolment with exam records listing exams taken, grades, ECTS credits, and scientific-disciplinary sectors.",
+    "If applying before graduation with an Italian qualification: details of exams already passed but not yet registered, exams still to be taken, and the expected graduation date.",
+    "If using the English-certificate route for admission: a valid UniMi-recognized English certificate at B1 level or higher, issued no more than three years before the application date and uploaded during the admission process.",
+    "If applying with a foreign qualification: bachelor's degree or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "If applying with a foreign qualification: diploma supplement or transcript of records including courses, marks, ECTS, academic field, and the university grading system, in Italian, English, French, German, or Spanish.",
+    "If applying with a foreign qualification: passport or other valid ID.",
+    "If requesting recognition of previously earned master's-level credits: a plain-paper .doc or .pdf request specifying which Philosophical Sciences exams should be replaced, plus documentation of course titles, scientific-disciplinary sectors, and ECTS; the committee may also request previous course syllabi.",
+    "For final enrolment with a foreign qualification: legalized or apostilled bachelor's degree (or equivalent), unless exempt from legalization or Hague Apostille requirements.",
+    "For final enrolment with a foreign qualification: high school diploma.",
+    "For final enrolment with a foreign qualification: official Italian translations of academic qualifications, unless the originals are in English, French, German, or Spanish.",
+    "For final enrolment with a foreign qualification: Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore; for Lisbon Convention countries, a Diploma Supplement or ARDI Correspondence Statement may replace these.",
+    "For final enrolment with a foreign qualification: Italian tax code (codice fiscale).",
+    "For final enrolment as a non-EU student: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "There is no numerically restricted entrance exam on the 2026/2027 official sources. Admission is open but subject to verification of entry requirements by the Admission Board. The admission notice states that the board may request an interview and/or a written test, in person or remotely. The programme application page specifies that candidates with a final grade below 95/110 must attend an individual interview, and that applicants with foreign degrees may also be invited to interview. Separately, applicants who do not already satisfy the B1 English requirement through a valid certificate or prior SLAM record may be required to sit the SLAM English entry test.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/philosophical-sciences",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-philosophical-sciences-%28classe-lm-78-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Access ... Open with entry requirements examination ... Milan ... Italian, English.",
+      "url": "https://www.unimi.it/en/education/master-programme/philosophical-sciences",
+      "field_refs": [
+        "academic_year",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "at least 42 university credits ... M-FIL/01 ... M-FIL/08",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_CBCof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Have obtained a final grade of 95/110 or above. Candidates with a final grade below 95 will be asked to attend an individual interview.",
+      "url": "https://scienzefilosofiche.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "When uploading the Admission request, candidates must have acquired at least 126 ECTS credits.",
+      "url": "https://scienzefilosofiche.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Proficiency in English at level B1 or higher ... is required for admission.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_CBCof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Philosophical sciences 31/12/2026",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "If the Master's degree course requires a B1 English proficiency entry level and an additional B2 language assessment ...",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Online admission application for EU candidates and equivalents from 22 January to 30 October 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-philosophical-sciences-%28classe-lm-78-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Online admission application for non-EU candidates applying for a visa from 22 January to 30 April 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-philosophical-sciences-%28classe-lm-78-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-philosophical-sciences-%28classe-lm-78-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Self-certification of degree/enrolment with exam records",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-philosophical-sciences-%28classe-lm-78-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor’s Degree ... Diploma supplement ... Passport",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-philosophical-sciences-%28classe-lm-78-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "document drafted on plain paper in .doc or .pdf format ... course’s titles ... SDS ... number of ECTS credit acquired",
+      "url": "https://scienzefilosofiche.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor’s degree ... legalized or apostilled ... High school diploma ... Statement of Comparability ... Italian tax code ... residence permit.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-philosophical-sciences-%28classe-lm-78-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Courses are held either in Italian or English, and students can take the entire curriculum in English.",
+      "url": "https://scienzefilosofiche.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "teaching_language",
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "No field was marked uncertain. A.Y. 2026/2027 information was available on the UniMi programme page, the official admission notice PDF, the 2026/2027 manifesto PDF, the programme application page, and the UniMi SLAM English-requirements page.",
+    "The programme application page still contains one stale sentence saying applicants who fail or miss the SLAM test must submit a certificate by 31 December 2025. The dedicated UniMi SLAM 2026/2027 deadline page lists Philosophical Sciences with deadline 31/12/2026, so 31 December 2026 was used.",
+    "The key-step table in the admission notice contains an obvious typo showing enrolment 'from 5 May 2026 to 15 January 2026'. Article 5 of the same notice and the programme application page both give enrolment by 15 January 2027, so 15 January 2027 was used.",
+    "The degree is bilingual overall, but the official application page specifies that the Reasoning, Analysis, and Modelling curriculum can be taken entirely in English. The other curricula are not presented as fully English-medium."
+  ],
+  "uncertain": []
+}

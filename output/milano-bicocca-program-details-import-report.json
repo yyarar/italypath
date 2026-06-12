@@ -1,0 +1,334 @@
+{
+  "universityId": 29,
+  "mode": "apply",
+  "sourceFiles": 12,
+  "expectedImportCount": 12,
+  "skippedFiles": [],
+  "existingDepartments": 15,
+  "matchedExisting": 12,
+  "matchedExistingDetails": [
+    {
+      "id": 413,
+      "name": "Economics and Science for Environmental Sustainability",
+      "slug": "economics-and-science-for-environmental-sustainability",
+      "level": "bachelor",
+      "sourceFile": "bsc-economics-science-environmental-sustainability.json",
+      "rawProgramName": "Economics and Science for Environmental Sustainability (ESES)",
+      "sourceProgramName": "Economics and Science for Environmental Sustainability (ESES)",
+      "canonicalDepartmentName": "Economics and Science for Environmental Sustainability"
+    },
+    {
+      "id": 414,
+      "name": "Physical Sciences for Innovative Technologies",
+      "slug": "physical-sciences-for-innovative-technologies",
+      "level": "bachelor",
+      "sourceFile": "bsc-physical-sciences-innovative-technologies.json",
+      "rawProgramName": "Physical Sciences for Innovative Technologies",
+      "sourceProgramName": "Physical Sciences for Innovative Technologies",
+      "canonicalDepartmentName": "Physical Sciences for Innovative Technologies"
+    },
+    {
+      "id": 969,
+      "name": "Artificial Intelligence for Science and Technology",
+      "slug": "artificial-intelligence-for-science-and-technology",
+      "level": "master",
+      "sourceFile": "msc-ai-science-technology.json",
+      "rawProgramName": "Artificial Intelligence for Science and Technology",
+      "sourceProgramName": "Artificial Intelligence for Science and Technology",
+      "canonicalDepartmentName": "Artificial Intelligence for Science and Technology"
+    },
+    {
+      "id": 968,
+      "name": "Applied Experimental Psychological Sciences",
+      "slug": "applied-experimental-psychological-sciences",
+      "level": "master",
+      "sourceFile": "msc-applied-experimental-psychological-sciences.json",
+      "rawProgramName": "Applied Experimental Psychological Sciences (AEPS)",
+      "sourceProgramName": "Applied Experimental Psychological Sciences (AEPS)",
+      "canonicalDepartmentName": "Applied Experimental Psychological Sciences"
+    },
+    {
+      "id": 970,
+      "name": "Astrophysics and Space Physics",
+      "slug": "astrophysics-and-space-physics",
+      "level": "master",
+      "sourceFile": "msc-astrophysics-space-physics.json",
+      "rawProgramName": "Astrophysics and Space Physics",
+      "sourceProgramName": "Astrophysics and Space Physics",
+      "canonicalDepartmentName": "Astrophysics and Space Physics"
+    },
+    {
+      "id": 971,
+      "name": "Data Science",
+      "slug": "data-science",
+      "level": "master",
+      "sourceFile": "msc-data-science.json",
+      "rawProgramName": "Data Science",
+      "sourceProgramName": "Data Science",
+      "canonicalDepartmentName": "Data Science"
+    },
+    {
+      "id": 972,
+      "name": "Economics and Technologies for Sustainability",
+      "slug": "economics-and-technologies-for-sustainability",
+      "level": "master",
+      "sourceFile": "msc-economics-technologies-sustainability.json",
+      "rawProgramName": "Economics and Technologies for Sustainability",
+      "sourceProgramName": "Economics and Technologies for Sustainability",
+      "canonicalDepartmentName": "Economics and Technologies for Sustainability"
+    },
+    {
+      "id": 967,
+      "name": "Human-Centered Artificial Intelligence",
+      "slug": "human-centered-artificial-intelligence",
+      "level": "master",
+      "sourceFile": "msc-human-centered-ai.json",
+      "rawProgramName": "Human-Centered Artificial Intelligence",
+      "sourceProgramName": "Human-Centered Artificial Intelligence",
+      "canonicalDepartmentName": "Human-Centered Artificial Intelligence"
+    },
+    {
+      "id": 965,
+      "name": "International Economics",
+      "slug": "international-economics",
+      "level": "master",
+      "sourceFile": "msc-international-economics.json",
+      "rawProgramName": "International Economics",
+      "sourceProgramName": "International Economics",
+      "canonicalDepartmentName": "International Economics"
+    },
+    {
+      "id": 973,
+      "name": "Marine Sciences",
+      "slug": "marine-sciences",
+      "level": "master",
+      "sourceFile": "msc-marine-sciences.json",
+      "rawProgramName": "Marine Sciences",
+      "sourceProgramName": "Marine Sciences",
+      "canonicalDepartmentName": "Marine Sciences"
+    },
+    {
+      "id": 974,
+      "name": "Materials Science and Nanotechnology",
+      "slug": "materials-science-and-nanotechnology",
+      "level": "master",
+      "sourceFile": "msc-materials-science-nanotechnology.json",
+      "rawProgramName": "Materials Science and Nanotechnology",
+      "sourceProgramName": "Materials Science and Nanotechnology",
+      "canonicalDepartmentName": "Materials Science and Nanotechnology"
+    },
+    {
+      "id": 975,
+      "name": "Optometry and Vision Science",
+      "slug": "optometry-and-vision-science",
+      "level": "master",
+      "sourceFile": "msc-optometry-vision-science.json",
+      "rawProgramName": "Optometry and Vision Science",
+      "sourceProgramName": "Optometry and Vision Science",
+      "canonicalDepartmentName": "Optometry and Vision Science"
+    }
+  ],
+  "departmentCorrections": [],
+  "newDepartments": [],
+  "duplicateDepartmentsToCleanUp": [],
+  "programPlans": [
+    {
+      "sourceFile": "bsc-economics-science-environmental-sustainability.json",
+      "rawProgramName": "Economics and Science for Environmental Sustainability (ESES)",
+      "sourceProgramName": "Economics and Science for Environmental Sustainability (ESES)",
+      "canonicalDepartmentName": "Economics and Science for Environmental Sustainability",
+      "normalizedName": "economics and science for environmental sustainability",
+      "level": "bachelor",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 413,
+      "departmentName": "Economics and Science for Environmental Sustainability",
+      "departmentSlug": "economics-and-science-for-environmental-sustainability"
+    },
+    {
+      "sourceFile": "bsc-physical-sciences-innovative-technologies.json",
+      "rawProgramName": "Physical Sciences for Innovative Technologies",
+      "sourceProgramName": "Physical Sciences for Innovative Technologies",
+      "canonicalDepartmentName": "Physical Sciences for Innovative Technologies",
+      "normalizedName": "physical sciences for innovative technologies",
+      "level": "bachelor",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 414,
+      "departmentName": "Physical Sciences for Innovative Technologies",
+      "departmentSlug": "physical-sciences-for-innovative-technologies"
+    },
+    {
+      "sourceFile": "msc-ai-science-technology.json",
+      "rawProgramName": "Artificial Intelligence for Science and Technology",
+      "sourceProgramName": "Artificial Intelligence for Science and Technology",
+      "canonicalDepartmentName": "Artificial Intelligence for Science and Technology",
+      "normalizedName": "artificial intelligence for science and technology",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 969,
+      "departmentName": "Artificial Intelligence for Science and Technology",
+      "departmentSlug": "artificial-intelligence-for-science-and-technology"
+    },
+    {
+      "sourceFile": "msc-applied-experimental-psychological-sciences.json",
+      "rawProgramName": "Applied Experimental Psychological Sciences (AEPS)",
+      "sourceProgramName": "Applied Experimental Psychological Sciences (AEPS)",
+      "canonicalDepartmentName": "Applied Experimental Psychological Sciences",
+      "normalizedName": "applied experimental psychological sciences",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 968,
+      "departmentName": "Applied Experimental Psychological Sciences",
+      "departmentSlug": "applied-experimental-psychological-sciences"
+    },
+    {
+      "sourceFile": "msc-astrophysics-space-physics.json",
+      "rawProgramName": "Astrophysics and Space Physics",
+      "sourceProgramName": "Astrophysics and Space Physics",
+      "canonicalDepartmentName": "Astrophysics and Space Physics",
+      "normalizedName": "astrophysics and space physics",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 970,
+      "departmentName": "Astrophysics and Space Physics",
+      "departmentSlug": "astrophysics-and-space-physics"
+    },
+    {
+      "sourceFile": "msc-data-science.json",
+      "rawProgramName": "Data Science",
+      "sourceProgramName": "Data Science",
+      "canonicalDepartmentName": "Data Science",
+      "normalizedName": "data science",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 971,
+      "departmentName": "Data Science",
+      "departmentSlug": "data-science"
+    },
+    {
+      "sourceFile": "msc-economics-technologies-sustainability.json",
+      "rawProgramName": "Economics and Technologies for Sustainability",
+      "sourceProgramName": "Economics and Technologies for Sustainability",
+      "canonicalDepartmentName": "Economics and Technologies for Sustainability",
+      "normalizedName": "economics and technologies for sustainability",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 972,
+      "departmentName": "Economics and Technologies for Sustainability",
+      "departmentSlug": "economics-and-technologies-for-sustainability"
+    },
+    {
+      "sourceFile": "msc-human-centered-ai.json",
+      "rawProgramName": "Human-Centered Artificial Intelligence",
+      "sourceProgramName": "Human-Centered Artificial Intelligence",
+      "canonicalDepartmentName": "Human-Centered Artificial Intelligence",
+      "normalizedName": "human centered artificial intelligence",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 967,
+      "departmentName": "Human-Centered Artificial Intelligence",
+      "departmentSlug": "human-centered-artificial-intelligence"
+    },
+    {
+      "sourceFile": "msc-international-economics.json",
+      "rawProgramName": "International Economics",
+      "sourceProgramName": "International Economics",
+      "canonicalDepartmentName": "International Economics",
+      "normalizedName": "international economics",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 965,
+      "departmentName": "International Economics",
+      "departmentSlug": "international-economics"
+    },
+    {
+      "sourceFile": "msc-marine-sciences.json",
+      "rawProgramName": "Marine Sciences",
+      "sourceProgramName": "Marine Sciences",
+      "canonicalDepartmentName": "Marine Sciences",
+      "normalizedName": "marine sciences",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 973,
+      "departmentName": "Marine Sciences",
+      "departmentSlug": "marine-sciences"
+    },
+    {
+      "sourceFile": "msc-materials-science-nanotechnology.json",
+      "rawProgramName": "Materials Science and Nanotechnology",
+      "sourceProgramName": "Materials Science and Nanotechnology",
+      "canonicalDepartmentName": "Materials Science and Nanotechnology",
+      "normalizedName": "materials science and nanotechnology",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 974,
+      "departmentName": "Materials Science and Nanotechnology",
+      "departmentSlug": "materials-science-and-nanotechnology"
+    },
+    {
+      "sourceFile": "msc-optometry-vision-science.json",
+      "rawProgramName": "Optometry and Vision Science",
+      "sourceProgramName": "Optometry and Vision Science",
+      "canonicalDepartmentName": "Optometry and Vision Science",
+      "normalizedName": "optometry and vision science",
+      "level": "master",
+      "teachingLanguage": "English",
+      "languages": [
+        "en"
+      ],
+      "action": "matched-existing",
+      "departmentId": 975,
+      "departmentName": "Optometry and Vision Science",
+      "departmentSlug": "optometry-and-vision-science"
+    }
+  ],
+  "warnings": [],
+  "applied": {
+    "detailUpserts": 12,
+    "newDepartmentsInserted": 0,
+    "departmentCorrectionsUpdated": 0
+  }
+}

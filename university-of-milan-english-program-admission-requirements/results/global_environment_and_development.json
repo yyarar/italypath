@@ -1,0 +1,127 @@
+{
+  "program_name": "Global Environment and Development",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Copenhagen, Milan, Warsaw",
+  "degree_class": "LM-69 R",
+  "admission_type": "restricted access (limited enrolment with admission test / student selection based on entrance test)",
+  "academic_requirements": "Applicants must hold a three-year degree or another qualification recognized as equivalent, with 180 credits required for admission. Admission is subject to verification by the MERGED Commission of the curricular requirements on the basis of the candidate's documents. The manifesto states that eligible foreign backgrounds include Agriculture, Agronomy, Agrobiology, Agricultural Economics, Forestry, Animal Science, Biochemistry, Biology, Biotechnology, Food and Nutrition, Food Science, Geography, Geology, Geoinformatics, Landscape Architecture, Natural Resources, Anthropology, Psychology, Sociology, Development Studies, Rural Development, Economics, Interdisciplinary Economic-managerial studies, Environmental Science, and Natural Science. For graduates from Italian universities, the eligible degree classes are L-2, L-13, L-18, L-21, L-25, L-26, L-32, L-36, L-37, and L-38. Graduates from other Italian degree classes may still qualify if they have at least 60 ECTS in the specified sectors, grouped as follows: at least 14 credits in engineering applied to agriculture and the environment, 14 in agricultural production, 10 in fertility/conservation/soil study, 10 in economics-management and data analysis, 6 in biological/chemical/physical disciplines, and 6 in genetic improvement. Personal preparation is verified during selection by the international panel of the course (the Commission). Candidates who do not meet the specific curricular requirements may acquire them by enrolling in individual courses offered by UNIMI, on the recommendation of the MERGED Commission or the Italian MERGED Collegio Didattico.",
+  "language_requirements": "The programme is taught in English. Before enrolment, applicants must demonstrate English at CEFR C1 level or equivalent. The official UNIMI sources reviewed accept the following evidence: IELTS Academic with an overall score of 6.5; TOEFL iBT with a score of 83; TOEFL iBT Paper Edition; TOEFL iBT Home Edition; or Cambridge Advanced English / Cambridge English: Proficiency passed at level C1 or C2. Applicants are exempt if they hold a full degree taught in English, defined by the official sources as at least 2 years of full-time study in English, for example a secondary school diploma, Bachelor's degree, or Master's degree from the USA, Canada, Australia, New Zealand, the UK, or Ireland. No UNIMI SLAM procedure is stated for English admission on the programme page or manifesto. The manifesto mentions SLAM only for the optional 3-credit Italian language activity: students without an Italian high school diploma or degree may prove Italian at A2 with a certificate issued within the previous 3 years or through a SLAM entry-level test; this is not presented as an admission requirement for the master's programme itself.",
+  "application_deadline_eu": "[uncertain] No EU-specific MERGED application deadline is published on the official UNIMI programme page, course-site application page, or 2026/2027 manifesto reviewed. The official UNIMI programme page states only that applications for admission are managed by the University of Copenhagen.",
+  "application_deadline_non_eu": "[uncertain] The official UNIMI MERGED pages do not publish a programme-specific non-EU or visa deadline and state that applications for admission are managed by the University of Copenhagen. Separately, UNIMI's 2026/2027 international enrolment page says that master's degree visa applicants must apply within 30 April 2026 and that Universitaly pre-enrolment for non-EU students residing abroad must be submitted within 31 July 2026; these dates appear to be generic UNIMI visa/pre-enrolment deadlines rather than a MERGED-specific selection deadline.",
+  "required_documents": [
+    "Documentation proving a three-year degree or another qualification recognized as equivalent.",
+    "Academic curriculum for the MERGED Commission's evaluation.",
+    "Motivation letter.",
+    "References.",
+    "English-language proof: IELTS Academic 6.5 overall, TOEFL iBT 83, TOEFL iBT Paper Edition, TOEFL iBT Home Edition, or Cambridge Advanced English / Cambridge English: Proficiency at C1 or C2.",
+    "If claiming exemption from the English test, evidence of a full degree taught in English for at least 2 years full-time (for example a secondary school diploma, Bachelor's degree, or Master's degree from the USA, Canada, Australia, New Zealand, the UK, or Ireland).",
+    "For master's enrolment with a foreign qualification: receipt of the admission fee payment.",
+    "High school diploma; if required for the enrolment procedure, with translation into Italian by an official translator and legalization by the competent authorities.",
+    "Bachelor's degree (or equivalent); if required for the enrolment procedure, with translation into Italian by an official translator and legalization by the competent authorities.",
+    "CIMEA Statements of Comparability and Verification, or a Dichiarazione di Valore; for qualifications from Lisbon Recognition Convention countries, the Statement of Correspondence processed through ARDI or the Diploma Supplement together with the CIMEA Statement of Verification.",
+    "Copy of a valid residence permit, when applicable for non-EU citizens.",
+    "Fiscal code.",
+    "Identity document.",
+    "For non-EU students residing abroad: receipt of the Universitaly pre-application.",
+    "For non-EU students residing abroad: study visa.",
+    "For non-EU students residing abroad: request for a residence permit.",
+    "For non-EU students residing abroad: any certificates of competence in Italian, if applicable."
+  ],
+  "entry_exam_or_test": "Official UNIMI wording describes the programme as 'limited enrolment with admission test' and 'student selection based on entrance test'. The 2026/2027 manifesto clarifies that access is regulated by evaluation, by an international panel of the course (the Commission), of the candidate's documentation including the academic curriculum. A motivation letter and references also contribute to the evaluation. Personal preparation is verified during the same selection process. The number of places available in the first year for each cohort is 40. The official UNIMI pages reviewed do not describe a separate written test date, format, or score threshold.",
+  "tuition_or_fees_link": "https://apps.unimi.it/files/manifesti/eng_manifesto_GBGof2_2027.pdf",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/global-environment-and-development",
+  "official_call_url": "https://apps.unimi.it/files/manifesti/eng_manifesto_GBGof2_2027.pdf",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Access: Limited enrolment with admission test ... Language: English.",
+      "url": "https://www.unimi.it/en/education/master-programme/global-environment-and-development",
+      "field_refs": [
+        "program_name",
+        "level",
+        "academic_year",
+        "teaching_language",
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Admission to MERGED requires possession of a three-year degree",
+      "url": "https://merged.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Level C1 is required by UCPH where the student enrolls.",
+      "url": "https://merged.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "documentation including the academic curriculum. A motivation letter and references",
+      "url": "https://merged.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "required_documents",
+        "entry_exam_or_test",
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Applications for admission are managed by the University of Copenhagen",
+      "url": "https://www.unimi.it/en/education/master-programme/global-environment-and-development",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "visa applicants must apply within 30 April 2026.",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "within 31 July 2026, under penalty of exclusion.",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Enrolment in a two-year master's degree programme:",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "receipt of the Universitaly pre-application; ... study Visa;",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    }
+  ],
+  "uncertainty_notes": [
+    "No separate UNIMI admission notice/call PDF for MERGED was found on the official programme page or on the official MERGED course site pages reviewed. The official downloadable 2026/2027 UNIMI document found for this programme is the manifesto.",
+    "The official UNIMI programme page says that applications for admission are managed by the University of Copenhagen. Because of that, the official UNIMI sources reviewed do not publish a MERGED-specific EU application deadline.",
+    "The only official UNIMI non-EU timeline found is on the generic International enrolment in degree programmes page: 30 April 2026 for master's degree visa applicants and 31 July 2026 for Universitaly pre-enrolment. These dates may govern the subsequent UniMi visa/pre-enrolment stage rather than the initial MERGED selection deadline.",
+    "The campus field is normalized to English as 'Copenhagen, Milan, Warsaw'; the official programme page spells the first location as 'Copenaghen'."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu"
+  ]
+}

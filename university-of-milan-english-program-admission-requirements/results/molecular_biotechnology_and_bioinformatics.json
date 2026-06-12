@@ -1,0 +1,100 @@
+{
+  "program_name": "Molecular Biotechnology and Bioinformatics",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-8 R - Industrial Biotechnology",
+  "admission_type": "Open with entry requirements examination",
+  "academic_requirements": "Applicants must hold, or obtain by 31 December 2026, a suitable bachelor's degree and the curricular requirements listed by the programme. For applicants with an Italian degree, the programme is open to graduates in class L-2 Biotechnology (and previous class 1 Biotechnology). Graduates from other degree programmes must have at least 60 ECTS in biological disciplines BIO/01-19, including at least 36 ECTS in biochemistry (BIO/10), molecular biology (BIO/11), genetics (BIO/18), and microbiology (BIO/19), plus at least 10 ECTS in mathematics/physics/computer science/statistics (FIS/01-08, INF/01, ING-INF/05-06, MAT/01-09, MED/01, SECS-S/01-02) and at least 10 ECTS in chemistry (CHIM/01-03, CHIM/06). Applicants with a foreign qualification must hold, by the time of application or no later than 31 December 2026, a bachelor's degree from an accredited institution and show good knowledge of biochemistry, molecular biology, genetics, microbiology, mathematics, physics, chemistry, computer science, and statistics. The Admissions Committee evaluates the curriculum studiorum; personal preparation is considered adequate when the bachelor's degree score is above 88/110, or above 23/30 as the average exam mark for applicants who have not yet graduated. The committee may request additional information and may add an interview or other assessment if needed. The programme is not numerically capped, but up to 25 places are reserved for non-EU students residing outside Italy.",
+  "language_requirements": "English proficiency at CEFR level B2 or higher is required for admission. The requirement is checked by the University Language Centre (SLAM) through one of these official routes: a valid B2-or-higher certificate issued no more than three years before the application date and uploaded with the online application; an English level certified by UNIMI SLAM within the previous four years during a University of Milan degree; or the SLAM English entry test according to the university calendar. Applicants who do not upload a valid certificate, or who do not meet the level, are directed to the SLAM entry test. Applicants who do not take or pass that test must later obtain a university-recognized English certificate and submit it to SLAM through InformaStudenti by the deadline set by the programme; otherwise they are not admitted.",
+  "application_deadline_eu": "EU candidates and equivalents: admission application from 22 January 2026 to 20 July 2026. Enrolment for admitted students: from 5 May 2026 to 15 January 2027. Degree completion and all entry requirements must be satisfied by 31 December 2026.",
+  "application_deadline_non_eu": "Non-EU candidates applying for a visa: admission application from 22 January 2026 to 30 April 2026. Universitaly pre-enrolment application: by 31 July 2026. To finalize enrolment with a foreign qualification, the required official documents must be completed on apply.unimi.it by 30 November 2026; after that date enrolment is cancelled unless the delay is due to documented circumstances beyond the applicant's control.",
+  "required_documents": [
+    "Self-certification of degree or enrolment with exam records for applicants with qualifications obtained in Italy.",
+    "For applicants from other Italian universities, the self-certification must include the list of exams taken, grades, ECTS credits, and disciplinary scientific sectors.",
+    "For graduating applicants from Italian universities, a declaration of exams already passed but not yet registered, exams not yet taken, and expected graduation date.",
+    "Bachelor's degree certificate or degree-awarding certificate for applicants with foreign qualifications, in Italian, English, French, German, or Spanish.",
+    "Diploma Supplement, or alternatively a transcript showing courses, marks, ECTS, academic field, and the grading system used by the university.",
+    "Passport or other valid identity document.",
+    "For final enrolment with a foreign qualification: legalized or apostilled bachelor's degree, unless exempt from legalization or apostille.",
+    "High school diploma.",
+    "Official Italian translation of academic qualifications, unless the originals are in French, English, German, or Spanish.",
+    "Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore in loco (DOV); for Lisbon Convention countries, a Diploma Supplement or ARDI Correspondence Statement may replace the DOV and the Statement of Comparability.",
+    "Italian tax code (codice fiscale).",
+    "Receipt of residence permit application or a valid residence permit, for non-EU citizens only."
+  ],
+  "entry_exam_or_test": "There is no standard entrance examination ranking test. Admission is based on an entry requirements assessment by the Admissions Committee, which checks curricular requirements and the applicant's academic preparation. Personal preparation is considered adequate when the bachelor's degree mark is above 88/110, or above 23/30 as the average exam mark for applicants who have not yet graduated. The committee may request an interview or other additional assessment. Separately, applicants without an accepted B2 English proof may have to take the SLAM English entry test.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/molecular-biotechnology-and-bioinformatics",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-molecular-biotechnology-and-bioinformatics-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Access Open with entry requirements examination ... Language English.",
+      "url": "https://www.unimi.it/en/education/master-programme/molecular-biotechnology-and-bioinformatics",
+      "field_refs": [
+        "program_name",
+        "level",
+        "academic_year",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Application for admission: from 22/01/2026 to 20/07/2026.",
+      "url": "https://mbb.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Non-EU students visa applicants ... no later than 30 April 2026.",
+      "url": "https://mbb.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The online admission service requires ... Self-certification of degree/enrolment with exam records.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-molecular-biotechnology-and-bioinformatics-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor's Degree ... Diploma supplement ... Passport.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-molecular-biotechnology-and-bioinformatics-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-molecular-biotechnology-and-bioinformatics-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The program is delivered in English.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBSof2_2027.pdf",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official programme page shows the degree class label in Italian ('Biotecnologie industriali'). The JSON translates that label to English as 'Industrial Biotechnology' to keep field values in English."
+  ],
+  "uncertain": [
+    "degree_class"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "program_name": "Economics: behavior, data and policy",
+  "level": "bachelor",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "L-33 R - Scienze economiche",
+  "admission_type": "restricted access; limited enrolment with admission test",
+  "academic_requirements": "Applicants must hold an upper secondary school diploma or an equivalent foreign qualification obtained after at least 12 years of schooling. They must also have an adequate educational background with basic skills in language comprehension, logic, and mathematics. Admission is based on one selection session and requires a valid CISIA English Test - Sciences (CEnT-S); the ranking is formed on the CEnT-S Mathematics and Reasoning on texts and data sections only. Foreign qualifications are valid only if they also allow access to university in the country where they were awarded. Applicants transferring from another degree programme or university, and applicants who already hold a degree and request recognition, must also sit the admission test and rank high enough for admission.",
+  "language_requirements": "The programme is taught in English. To sit exams, students must satisfy an English OFA at CEFR B2 level. This can be met by uploading a UniMi-recognized English certificate at B2 or higher, normally issued within the previous 3 years at submission time (2 years for TOEFL), and covering Reading, Writing, Listening, and Speaking; by uploading a secondary-school diploma with English as teaching language; or by taking the UniMi SLAM placement test by the end of October 2026. Students who do not take the placement test by October 2026, or who fail the SLAM end-of-course test after six attempts, must obtain a recognized certificate privately in order to register for and sit exams. In addition, students holding a foreign qualification must earn 3 ECTS in Additional Language Skills: Italian (level A2) within the study plan.",
+  "application_deadline_eu": "Application window: 12 March 2026 to 6 July 2026, 11:59 pm (GMT+2). Ranking list publication: 9 July 2026 after 2:00 pm (GMT+2). Enrolment for admitted candidates: 9 July 2026 to 22 July 2026, 2:00 pm (GMT+2). First ranking update publication: 23 July 2026 after 2:00 pm; updated enrolment window: 23 July 2026 to 29 July 2026, 2:00 pm (GMT+2).",
+  "application_deadline_non_eu": "For non-EU applicants residing abroad and requiring a visa, the UniMi application window is 12 March 2026 to 6 July 2026, 11:59 pm (GMT+2), with a separate visa-applicant ranking list. In addition, Universitaly pre-enrolment must be submitted by 31 July 2026; late Universitaly submissions are not accepted. Enrolment for admitted candidates follows the same July ranking and enrolment timetable stated in the call.",
+  "required_documents": [
+    "Upper secondary school diploma or equivalent foreign qualification after at least 12 years of schooling.",
+    "Online admission application submitted through the UniMi admission service if the qualification was obtained in Italy, or through apply.unimi.it if the qualification was obtained abroad.",
+    "English language certificate, if already available, uploaded during the application or enrolment process.",
+    "For foreign qualifications: legalized or apostilled high school diploma, unless an exemption from legalization applies.",
+    "Official Italian translation of the qualification, unless the original document is in English, French, German, or Spanish.",
+    "Certificate of academic eligibility, if required in the country where the qualification was awarded.",
+    "If the local school system is shorter than 12 years: a certificate of university enrolment with transcript of records, a post-secondary qualification from a non-university higher education institution, or a foundation year completion certificate.",
+    "Any document proving specific validity requirements of the qualification, such as APs for U.S. qualifications or A-levels for U.K. qualifications.",
+    "Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Declaration of Value; for eligible Lisbon Convention countries, the ARDI correspondence statement may replace them.",
+    "Italian tax code.",
+    "For non-EU citizens only: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "Admission uses the CISIA English Test - Sciences (CEnT-S), taken online or in person in English. The test has 55 multiple-choice questions: Mathematics (15 questions, 30 minutes), Reasoning on texts and data (15 questions, 30 minutes), Biology (10 questions, 20 minutes), Chemistry (10 questions, 20 minutes), and Physics (5 questions, 10 minutes). For this programme, only the Mathematics and Reasoning on texts and data sections count for the ranking, so applicants are instructed to skip Biology, Chemistry, and Physics. Scoring is +1 for each correct answer, -0.25 for each wrong answer, and 0 for unanswered questions. The valid test window for this call is from 1 November 2025 to 30 June 2026; the test may be taken more than once, but no more than once in each macro-period, and the best valid score is used. Applicants admitted with less than 10 normalized points in Mathematics receive a mathematics OFA to be completed in the first year. UniMi also reserves the right to use further tests and/or interviews when finalizing the ranking.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+  "official_program_url": "https://www.unimi.it/en/education/bachelor/economics-behavior-data-and-policy",
+  "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-economics-behavior-data-and-policy-%28classe-l-33-r%29.pdf?24-APR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027",
+      "url": "https://www.unimi.it/en/education/bachelor/economics-behavior-data-and-policy",
+      "field_refs": ["academic_year"],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Limited enrolment with admission test",
+      "url": "https://www.unimi.it/en/education/bachelor/economics-behavior-data-and-policy",
+      "field_refs": ["admission_type"],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Language English",
+      "url": "https://www.unimi.it/en/education/bachelor/economics-behavior-data-and-policy",
+      "field_refs": ["teaching_language"],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "L-33 R - Scienze economiche",
+      "url": "https://www.unimi.it/en/education/bachelor/economics-behavior-data-and-policy",
+      "field_refs": ["degree_class"],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "must earn 3 ECTS in Additional Language Skills: Italian (level A2)",
+      "url": "https://www.unimi.it/en/education/bachelor/economics-behavior-data-and-policy",
+      "field_refs": ["language_requirements"],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Application from 12 March to 6 July 2026",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-economics-behavior-data-and-policy-%28classe-l-33-r%29.pdf?24-APR-26=",
+      "field_refs": ["application_deadline_eu", "application_deadline_non_eu"],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "100 places plus 15 places",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-economics-behavior-data-and-policy-%28classe-l-33-r%29.pdf?24-APR-26=",
+      "field_refs": ["academic_requirements", "application_deadline_non_eu"],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "pre-enrolment through Universitaly platform by 31 July 2026",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-economics-behavior-data-and-policy-%28classe-l-33-r%29.pdf?24-APR-26=",
+      "field_refs": ["application_deadline_non_eu"],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "upload the following documents",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-economics-behavior-data-and-policy-%28classe-l-33-r%29.pdf?24-APR-26=",
+      "field_refs": ["required_documents"],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Access procedures: Cap on student numbers",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_B29of3_2027.pdf",
+      "field_refs": ["admission_type"],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "first instalment is € 146",
+      "url": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+      "field_refs": ["tuition_or_fees_link"],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "must certify 4 language skills",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": ["language_requirements"],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "A.Y. 2026/2027 official sources were available on 2026-06-05, so no fallback to an older academic year was needed.",
+    "For non-EU visa applicants, the general UniMi application window is supplemented by a separate Universitaly pre-enrolment deadline of 31 July 2026.",
+    "The fees sources clearly state the first instalment, but the second instalment varies by ISEE and degree programme or, for international students with income/assets abroad, by country group."
+  ],
+  "uncertain": []
+}

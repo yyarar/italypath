@@ -1,0 +1,135 @@
+{
+  "program_name": "Pharmaceutical Biotechnology",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "Italian, English. The 2026/2027 educational plan shows one full English curriculum, \"PHARMACOGENOMCS AND PRECISION THERAPEUTICS\", while the other curricula are taught in Italian.",
+  "campus": "Milan",
+  "degree_class": "LM-9 R - Medical, veterinary and pharmaceutical biotechnologies (official class label: Biotecnologie mediche, veterinarie e farmaceutiche)",
+  "admission_type": "Open with entry requirements examination",
+  "academic_requirements": "Applicants are eligible if they hold a bachelor's degree in class L-2 (or the corresponding class under Ministerial Decree 509/99), or another degree with at least 9 CFU in CHIM/01, CHIM/03 and/or CHIM/06; at least 12 CFU in BIO/10, BIO/11 and/or BIO/13; at least 6 CFU in BIO/14; and at least 6 CFU in BIO/09, BIO/16 and/or MED/04. Applicants with a foreign qualification may apply if the degree is recognized as suitable and they can prove an equivalent background in biology, chemistry, biochemistry, molecular biology, pharmacology, anatomy, pathology, and physiology. Admission is not automatic: the admissions board evaluates the previous academic record and may also require an interview. The knowledge in the listed disciplines may also have been obtained through single courses. For A.Y. 2026/2027, applicants may graduate later, but they must obtain the degree and satisfy the entry requirements by 31 October 2026.",
+  "language_requirements": "English at CEFR B2 or higher is required for admission. The requirement can be met through: a valid B2-or-higher certificate issued no more than three years before the application date and uploaded with the online application; an English level previously certified by UniMi's University Language Centre (SLAM) within the previous four years, which is checked automatically; or the SLAM entry test according to the University calendar. Applicants who do not submit a valid certificate or do not reach the required level are directed to the SLAM entry test. Applicants who do not take or pass that test must obtain a recognized certificate and submit it to SLAM through InformaStudenti by the deadline set by the master's degree programme; otherwise they are not admitted. No separate Italian CEFR requirement is stated on the programme page or in the 2026/2027 admission notice.",
+  "application_deadline_eu": "EU candidates and equivalents: online admission application from 22 January 2026 to 25 August 2026.",
+  "application_deadline_non_eu": "Non-EU candidates requiring a visa: online admission application from 22 January 2026 to 30 April 2026; Universitaly pre-enrolment application by 31 July 2026.",
+  "required_documents": [
+    "For applicants with qualifications obtained in Italy: self-certification of degree or enrolment with exam records; for applicants from other Italian universities, the document must include the list of exams taken, grades, ECTS credits, and scientific-disciplinary sectors.",
+    "If still graduating from an Italian university: details of exams already passed but not yet registered, exams still to be taken, and expected graduation date entered in the application.",
+    "For applicants with foreign qualifications at admission stage: bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with foreign qualifications at admission stage: diploma supplement or transcript showing courses, marks, ECTS, academic field, and the grading system used, in Italian, English, French, German, or Spanish.",
+    "Passport or other valid ID for applicants with foreign qualifications.",
+    "Valid English language certificate at B2 level or higher, if the applicant is using a certificate rather than an existing UniMi SLAM record or the SLAM entry test.",
+    "For final enrolment with foreign qualifications: legalized or apostilled bachelor's degree (or equivalent), unless legalization or apostille is exempt by law.",
+    "For final enrolment with foreign qualifications: high school diploma.",
+    "For final enrolment with foreign qualifications: official Italian translation of the academic qualifications, unless the original documents are in French, English, German, or Spanish.",
+    "For final enrolment with foreign qualifications: Statement of Comparability from an ENIC-NARIC center such as CIMEA, or a Dichiarazione di Valore issued by the Italian Embassy; for Lisbon Convention countries, a Diploma Supplement or ARDI Correspondence Statement may replace these.",
+    "For final enrolment with foreign qualifications: Italian tax code (codice fiscale).",
+    "For non-EU citizens at final enrolment: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "There is no fixed national entrance exam. Admission is based on an entry requirements assessment by the Admission Board, which verifies the academic background and may request an interview and/or a written test, either in person or remotely. On the programme page, UniMi also states that any interview may be held in person at the Department of Pharmacological and Biomolecular Sciences, Via Balzaretti 9, Milan, or online, and that interview dates are posted or agreed by email with individual candidates.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/pharmaceutical-biotechnology",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-pharmaceutical-biotehnology-%28classe-lm-9-r%29.pdf",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Master programme ... LM-9 R - Biotecnologie mediche, veterinarie e farmaceutiche ... Access ... Open with entry requirements examination ... Course location ... Milan ... Language Italian, English.",
+      "url": "https://www.unimi.it/en/education/master-programme/pharmaceutical-biotechnology",
+      "field_refs": [
+        "program_name",
+        "level",
+        "academic_year",
+        "degree_class",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The following candidates are eligible ... Graduates of class L-2 ... Graduates of other classes, provided they meet the following requirements ... at least 9 academic credits ... CHIM/01, CHIM/03 and/or CHIM/06 ... at least 12 ... BIO/10, BIO/11 and/or BIO/13 ... at least 6 ... BIO/14 ... at least 6 ... BIO/09, BIO/16 and/or MED/04.",
+      "url": "https://biotecnologiafarmaco.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "In addition to curricular requirements, admission to the programme is subject to an assessment test ... based on the candidate's previous academic records, and possibly an interview.",
+      "url": "https://www.unimi.it/en/education/master-programme/pharmaceutical-biotechnology",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Proficiency in English at level B2 or higher according to the Common European Framework of Reference for Languages (CEFR) is required for admission.",
+      "url": "https://www.unimi.it/en/education/master-programme/pharmaceutical-biotechnology",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Online admission application for EU candidates and equivalents from 22 January to 25 August 2026 ... Online admission application for non-EU candidates applying for a visa from 22 January to 30 April 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-pharmaceutical-biotehnology-%28classe-lm-9-r%29.pdf",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu",
+        "official_call_url"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The online admission service requires the following documents to be uploaded ... Self-certification of degree/enrolment with exam records ... Bachelor's Degree (B.Sc. or equivalent) ... Diploma supplement or, alternatively, a transcript ... Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-pharmaceutical-biotehnology-%28classe-lm-9-r%29.pdf",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Applicants with foreign qualifications must submit ... Bachelor's degree ... High school diploma ... Official Italian translation ... Statement of Comparability ... or a Dichiarazione di Valore ... Italian tax code ... Receipt of the residence permit application or a valid residence permit.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-pharmaceutical-biotehnology-%28classe-lm-9-r%29.pdf",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-pharmaceutical-biotehnology-%28classe-lm-9-r%29.pdf",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "All information on university tuition fees ... is available on the pages: https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-pharmaceutical-biotehnology-%28classe-lm-9-r%29.pdf",
+      "field_refs": [
+        "tuition_or_fees_link"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Curriculum: PHARMACOGENOMCS AND PRECISION THERAPEUTICS ... Integrated Systems Physiology ... Language English ... Pharmacogenomics, Clinical Pharmacology, and Orphan Drugs ... Language English.",
+      "url": "https://www.unimi.it/en/education/master-programme/pharmaceutical-biotechnology",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Precision Pharmacology and Gender Therapy ... Language Italian.",
+      "url": "https://www.unimi.it/en/education/master-programme/pharmaceutical-biotechnology",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official programme page states only \"Italian, English\" in its summary. The conclusion that the degree has one full English curriculum and the remaining curricula in Italian comes from the 2026/2027 educational plan rows on the official programme page, which list the curriculum \"PHARMACOGENOMCS AND PRECISION THERAPEUTICS\" with English-taught courses, internship, and final exam, while other curricula list Italian-taught activities.",
+    "The 2026/2027 admission notice does not publish any additional visa-specific language threshold beyond the programme's B2 English admission rule. It only says that any language requirements for non-EU candidates applying for a visa will be published later on the dedicated webpage."
+  ],
+  "uncertain": []
+}

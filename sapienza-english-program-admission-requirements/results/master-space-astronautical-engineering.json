@@ -1,0 +1,112 @@
+{
+  "program_name": "Space and Astronautical Engineering",
+  "level": "master",
+  "official_level_type": "Laurea Magistrale (Master's degree)",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "San Pietro in Vincoli / Città Universitaria, Rome (Department of Mechanical and Aerospace Engineering - DIMA)",
+  "degree_class": "LM-20 (Aerospace and Astronautical Engineering)",
+  "course_code": "33484",
+  "faculty": "Civil and Industrial Engineering (ICI); Department of Mechanical and Aerospace Engineering (DIMA)",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33484",
+  "admission_type": "open access",
+  "movein_preselection_required": "[uncertain] Yes for non-EU applicants residing abroad (standard Sapienza route via MoveIN); not stated on the programme's own pages",
+  "admission_test_type": "No entrance exam. Admission by verification of curricular requirements and adequacy of personal preparation; English B2 is a separate mandatory requirement that may be certified or tested during the first year",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (MoveIN pre-selection route)"
+  ],
+  "application_platform": "Infostud (Sapienza student portal); MoveIN platform for international/non-EU applicants residing abroad; Universitaly for non-EU visa pre-enrolment",
+  "access_quota_non_eu": "[uncertain] Per-programme non-EU quota not extracted from the 2026-2027 Call PDF",
+  "application_round": "September intake (single annual intake); enrolment procedure (requirement verification then matriculation) generally opens in July",
+  "intake_semester_availability": "[uncertain] September intake; February intake not confirmed",
+  "places_and_foreign_contingent": "[uncertain] Total places and non-EU contingent not extracted from the 2026-2027 Call PDF",
+  "official_call_url": "https://corsidilaurea.uniroma1.it/en/course/33484",
+  "faculty_call_pdf_url": null,
+  "academic_requirements": {
+    "summary": "Laurea Magistrale admission is a two-phase procedure: (1) verification of access requirements (results communicated to the applicant by email to the Infostud address), then (2) matriculation. Applicants should self-assess against the programme Academic Regulations (Regolamento didattico, Sezione II - Norme generali - Requisiti di ammissione) by comparing their first-level degree curriculum with the listed access requirements.",
+    "curricular_requirements": "[uncertain] Specific curricular ECTS thresholds (typical LM-20 mathematics/physics/aerospace areas) are defined in the programme Academic Regulations; not extracted verbatim"
+  },
+  "country_specific_eligibility": "Foreign qualifications assessed per Sapienza 'Accepted qualifications by Country' 2026/2027 document and MoveIN academic requirements. See https://www.uniroma1.it/en/admissions",
+  "curricular_integration_policy": "[uncertain] Curricular gap/integration rules governed by the programme Academic Regulations; not extracted verbatim",
+  "conditional_enrolment_policy": "[uncertain] Not extracted from official source",
+  "language_requirements": {
+    "level": "B2 CEFR English (mandatory for admission to the programme since a.y. 2022-2023)",
+    "certificates": "A B2-level (or equivalent) English certificate; if not held at matriculation, the level can be verified during the first year via courses/test run by the Faculty of Civil and Industrial Engineering (ICI) English language readers",
+    "note": "Programme is taught entirely in English. B2 requirement is explicitly applied only to Space and Astronautical Engineering among the LM-20 aerospace masters."
+  },
+  "language_submission_timing": "Certificate may be uploaded at matriculation or obtained/verified during the first year of enrolment (B2 test with ICI Faculty English readers if no certificate)",
+  "italian_language_requirement": "Not required for admission (programme fully in English)",
+  "application_deadline_eu": "July 31, 2026 (EU and EU-equivalent candidates not requiring a visa), via MoveIN pre-selection then Infostud enrolment",
+  "application_deadline_non_eu": "May 15, 2026 (non-EU candidates residing abroad and requiring a visa) for MoveIN pre-selection; pre-accepted students must register on Universitaly by June 30, 2026",
+  "application_fee": "€30 per application (maximum 2 applications per candidate per academic year; no waiver)",
+  "visa_preenrolment_deadline": "June 30, 2026 (Universitaly pre-enrolment for non-EU visa applicants)",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2026-2027",
+  "required_documents": [
+    "Passport",
+    "High School and University Diploma",
+    "Transcript of Records",
+    "Language Certificate (English B2)",
+    "Reference Letter (optional)",
+    "Additional supporting documents"
+  ],
+  "document_translation_authentication": "Foreign documents require validation per Sapienza International Student Office rules (Declaration of Value / CIMEA statement / legalization-apostille as applicable). See https://www.uniroma1.it/en/pagina/international-student-office",
+  "entry_exam_or_test": "No entrance test. Access procedure: 'Verification of requirements and personal preparation' (two phases: requirement verification, then matriculation). Separately, a mandatory English B2 requirement must be certified or passed via an ICI Faculty test within the first year.",
+  "test_variant_and_session": "English B2 verification test offered by the ICI Faculty English language readers for students without a B2 certificate (within the first year of enrolment)",
+  "test_score_conversion_or_threshold": "English language threshold: B2 CEFR or equivalent",
+  "source_quotes": [
+    {
+      "quote": "Programme code 33484 / Test code 33484 / Bachelor class LM-20 / Duration 2 years / Access procedure Verification of requirements and personal preparation / Faculty Ingegneria civile e industriale / Department INGEGNERIA MECCANICA E AEROSPAZIALE / Language English",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33484",
+      "supports_fields": ["course_code", "degree_class", "level", "admission_type", "teaching_language", "faculty", "campus", "entry_exam_or_test"]
+    },
+    {
+      "quote": "La procedura prevede 2 fasi: verifica dei requisiti (i cui esiti vengono comunicati allo studente per e-mail, all'indirizzo dichiarato su Infostud); immatricolazione ... consultare i relativi Regolamenti didattici: in particolare nella Sezione II - Norme generali - Requisiti di ammissione.",
+      "source_url": "https://sites.google.com/uniroma1.it/ingaero/studenti/iscrizioni-lauree-magistrali",
+      "supports_fields": ["academic_requirements", "application_platform"]
+    },
+    {
+      "quote": "Solo per i studenti di Space and Astronautical Engineering è richiesta la verifica del requisito della conoscenza della lingua inglese livello B2 ... a partire dall'a.a. 2022-2023, ai fini dell'ammissione è richiesta una certificazione di livello B2 o equivalente ... Qualora la certificazione non fosse posseduta dallo studente all'atto dell'immatricolazione, il livello potrà essere verificato corso del primo anno attraverso corsi erogati dalla Facoltà di Ingegneria Civile e Industriale.",
+      "source_url": "https://sites.google.com/uniroma1.it/ingaero/studenti/iscrizioni-lauree-magistrali",
+      "supports_fields": ["language_requirements", "language_submission_timing", "test_variant_and_session", "test_score_conversion_or_threshold"]
+    },
+    {
+      "quote": "the deadline for Non-EU candidates (visa applicants) expired on May 15, 2026 ... open until July 31, 2026, exclusively for EU and EU-equivalent candidates ... register on the Universitaly platform by June 30th, 2026.",
+      "source_url": "https://www.uniroma1.it/en/admissions",
+      "supports_fields": ["application_deadline_eu", "application_deadline_non_eu", "visa_preenrolment_deadline"]
+    },
+    {
+      "quote": "All pre-selection candidates are required to pay a €30 application fee for each submitted application (up to a maximum of two applications per candidate per intake).",
+      "source_url": "https://www.uniroma1.it/en/admissions",
+      "supports_fields": ["application_fee"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/course/33484",
+    "https://sites.google.com/uniroma1.it/ingaero/studenti/iscrizioni-lauree-magistrali",
+    "http://www.aeroeng.uniroma1.it/",
+    "https://www.uniroma1.it/en/admissions",
+    "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
+  ],
+  "source_year": "2026-2027",
+  "uncertainty_notes": [
+    "The dedicated site http://www.aeroeng.uniroma1.it/ redirects to the ICI Faculty home (https://ici.web.uniroma1.it/); programme-specific admission detail was instead taken from the aerospace CAD Google Site (iscrizioni lauree magistrali) and the official catalogue.",
+    "Catalogue language field rendered as 'English, English'; treated as fully English (consistent with B2 English admission requirement).",
+    "Specific curricular ECTS thresholds for LM-20 admission are in the programme Academic Regulations, not extracted verbatim.",
+    "MoveIN pre-selection requirement is the standard Sapienza non-EU route but is not stated on the programme's own pages.",
+    "Per-programme non-EU quota and total places not extracted from the 2026-2027 Call PDF.",
+    "Deadlines and fee taken from the central 2026-2027 International Admissions page (authoritative); February intake not confirmed."
+  ],
+  "uncertain": [
+    "movein_preselection_required",
+    "access_quota_non_eu",
+    "intake_semester_availability",
+    "places_and_foreign_contingent",
+    "academic_requirements.curricular_requirements",
+    "curricular_integration_policy",
+    "conditional_enrolment_policy"
+  ]
+}

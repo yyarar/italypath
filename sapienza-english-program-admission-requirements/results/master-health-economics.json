@@ -1,0 +1,100 @@
+{
+  "program_name": "Health Economics",
+  "level": "master",
+  "official_level_type": "Laurea Magistrale",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Rome (Faculty of Economics, Department of Economics and Law)",
+  "degree_class": "LM-56",
+  "course_code": "33441",
+  "faculty": "Economia (Economics), Department of Economics and Law (DIPECODIR)",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33441",
+  "admission_type": "restricted access – verification of requirements and personal preparation",
+  "movein_preselection_required": true,
+  "admission_test_type": "Verification of curricular requirements and personal preparation (no standardized written test); possible interview",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (MoveIN route, visa-required)"
+  ],
+  "application_platform": "MoveIN platform for non-EU pre-selection; Infostud for admission. Contact: healtheco.ecodir@uniroma1.it",
+  "access_quota_non_eu": "[uncertain] – programme-specific non-EU quota not extracted",
+  "application_round": "September intake (A.Y. 2026-2027)",
+  "intake_semester_availability": "September intake",
+  "places_and_foreign_contingent": "[uncertain] – exact places and non-EU contingent not found in sources checked",
+  "official_call_url": null,
+  "faculty_call_pdf_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/14613_e.pdf",
+  "academic_requirements": {
+    "prior_degree": "A three-year bachelor's degree or equivalent; background in economics, statistics, or related field expected",
+    "curricular_requirements": "[uncertain] – specific ECTS/SSD requirements not extracted from programme page; see programme regulations"
+  },
+  "country_specific_eligibility": "[uncertain] – see MoveIN academic requirements PDF for 2026-2027",
+  "curricular_integration_policy": "[uncertain] – not specified in sources checked",
+  "conditional_enrolment_policy": "[uncertain] – not specified in sources checked",
+  "language_requirements": {
+    "level": "B2 CEFR in English (general Sapienza requirement; programme delivered entirely in English)",
+    "note": "Programme is described as 'delivered entirely in English' by official faculty sources."
+  },
+  "language_submission_timing": "[uncertain] – at MoveIN pre-selection or at admission",
+  "italian_language_requirement": "Italian not required for admission; programme fully in English.",
+  "application_deadline_eu": "31 July 2026 for EU and EU-equivalent candidates [uncertain – programme-internal deadline may differ]",
+  "application_deadline_non_eu": "MoveIN pre-selection window 22 December 2025 – 15 May 2026 for non-EU candidates residing abroad",
+  "application_fee": "€30 per application via MoveIN (max 2 per candidate per intake)",
+  "visa_preenrolment_deadline": "MoveIN pre-selection by 15 May 2026; Universitaly pre-enrolment per national deadline",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2026-2027",
+  "required_documents": [
+    "Bachelor's degree certificate or enrolment certificate",
+    "Academic transcript with ECTS/CFU detail",
+    "Passport / ID",
+    "English language certificate (B2)",
+    "For foreign qualifications: Declaration of Value (DoV) or CIMEA statement, legalized/translated documents"
+  ],
+  "document_translation_authentication": "Foreign documents require official translation and legalization/apostille, plus a Declaration of Value (DoV) or CIMEA comparability statement.",
+  "entry_exam_or_test": {
+    "test": "No standardized written entrance test",
+    "selection": "Verification of curricular requirements and personal preparation; interview may be required"
+  },
+  "test_variant_and_session": "[uncertain] – interview dates not extracted",
+  "test_score_conversion_or_threshold": "[uncertain] – threshold not specified in sources checked",
+  "source_quotes": [
+    {
+      "quote": "The programme is delivered entirely in English",
+      "source_url": "https://ecodir.web.uniroma1.it/en/ma-health-economics",
+      "supports_fields": ["teaching_language", "partially_english_flag"]
+    },
+    {
+      "quote": "Degree Class: LM-56; Course Code: 33441; Faculty: Economia; Language: English",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33441",
+      "supports_fields": ["degree_class", "course_code", "teaching_language"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/course/33441",
+    "https://ecodir.web.uniroma1.it/en/ma-health-economics",
+    "https://economia.web.uniroma1.it/en/masters-degree-programs",
+    "https://www.uniroma1.it/en/admissions",
+    "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
+  ],
+  "source_year": "2025-2026",
+  "uncertainty_notes": [
+    "Two course codes found for Health Economics: 33441 (English version) and 32354 (Italian version per faculty website). Used 33441 as the English programme code.",
+    "2026-2027 Call not yet published; central Sapienza deadlines applied.",
+    "Specific curricular ECTS requirements not extracted.",
+    "Per-programme non-EU quota and total places not extracted.",
+    "official_call_url not retrieved; faculty_call_pdf_url tentatively assigned from Faculty of Economics call document."
+  ],
+  "uncertain": [
+    "access_quota_non_eu",
+    "places_and_foreign_contingent",
+    "official_call_url",
+    "country_specific_eligibility",
+    "curricular_integration_policy",
+    "conditional_enrolment_policy",
+    "language_submission_timing",
+    "application_deadline_eu",
+    "test_variant_and_session",
+    "test_score_conversion_or_threshold"
+  ]
+}

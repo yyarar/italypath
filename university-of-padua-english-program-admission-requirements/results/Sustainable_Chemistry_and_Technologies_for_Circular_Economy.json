@@ -1,0 +1,191 @@
+{
+  "program_name": "Sustainable Chemistry and Technologies for Circular Economy",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Padua",
+  "degree_class": "LM-71 R - Sciences and Technologies of Industrial Chemistry",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a three-year degree or equivalent foreign qualification. They must either hold one of the specified chemistry degree classes or prove the required 40 ECTS across the listed scientific disciplinary sectors.",
+    "prior_degree_or_diploma": "Degree or university diploma of three years' duration, or a foreign equivalent deemed suitable for admission purposes.",
+    "subject_requirements": "Applicants must either hold a degree in class L-27 Chemical Sciences and Technologies ex DM 270/04 or class L-21 Chemical Sciences and Technologies ex DM 509/99, or have acquired at least 40 ECTS in the listed Scientific Disciplinary Sectors: 12 ECTS in CHIM/01, CHIM/02, CHIM/03, CHIM/04, CHIM/05, CHIM/06, CHIM/07, GEO/06; and 28 ECTS in MAT/01-09, FIS/01-03, BIO/01, BIO/10, GEO/04, GEO/07, GEO/09, CHIM/11, CHIM/12, ING-IND/35. For highly-qualified graduates with proven knowledge and competencies from previous training programmes not completely coherent with the admission requirements, a different entry route and/or specific admission tests could apply.",
+    "gpa_or_country_requirements": "No universal programme-specific GPA threshold is published on the reviewed official pages. Applicants using international qualifications should also verify any country-based entry-title and GPA rules on the University of Padua application platform.",
+    "source_url": "https://www.chimica.unipd.it/en/circulareconomy/presentation"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent, with reading, comprehension, and listening explicitly mentioned on the programme pages.",
+    "accepted_proofs": [
+      "TOEFL iBT: minimum score 80.",
+      "IELTS Academic or General Training: minimum score 6.0.",
+      "Cambridge English B2 First: minimum score 173.",
+      "Trinity College London Integrated Skills in English ISE II.",
+      "Oxford Test of English: minimum score 126.",
+      "GATEHOUSE ESOL International Classic B2: GA Level 1 Certificate.",
+      "Pearson Test of English General: PTE General 3.",
+      "Pearson English International Certificate: Level 3 Upper Intermediate.",
+      "Pearson Test of English Academic: minimum score 65."
+    ],
+    "exemption_rules": [
+      "Applicants are exempt if they obtained the entry qualification by completing their previous education entirely in English.",
+      "Applicants are exempt if they are native English speakers from the countries listed by the University of Padua."
+    ],
+    "deadline": "31 August 2026 for open-access degree programmes.",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "2 June 2026 - 2 August 2026 [uncertain]",
+    "notes": "The official apply.unipd.it admissions page shows Call Three as 2 June 2026 - 2 August 2026 and states that it is only for EU students and non-EU students residing in Italy. The official general programme page currently shows a likely typo with the start date written as 2 June 2025.",
+    "source_url": "https://apply.unipd.it/courses/course/175-sustainable-chemistry-and-technologies-circular-economy"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "Not available for non-EU applicants residing outside Italy [uncertain]",
+    "notes": "The official apply.unipd.it admissions page shows Call Three only for EU students and non-EU students residing in Italy. The official general programme page currently shows a likely typo with the Call Three start date written as 2 June 2025 instead of 2 June 2026.",
+    "source_url": "https://apply.unipd.it/courses/course/175-sustainable-chemistry-and-technologies-circular-economy"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae (Resume) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught master's applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Motivational letter(s) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught master's applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Upload a colour scanned PDF. If needed, provide an English or Italian translation. No legalised documents are required at application stage.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Academic qualification or provisional enrolment certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "If the final qualification has not yet been awarded, an enrolment or provisional certificate is accepted.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Valid ID card or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU citizens and non-EU citizens residing in Italy may use an ID card; other applicants normally provide a passport.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Residence permit",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required only for non-EU applicants residing in Italy.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "English language certificate or other accepted proof",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required unless the applicant qualifies for an official exemption.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Any other programme-specific required document",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "The University asks applicants to check the entry requirements of the chosen programme for any additional required document.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Bachelor's diploma translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Required after admission to complete enrolment; a CIMEA Statement of Verification can be used as an alternative in the cases stated by the University.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Transcript of Records translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "The transcript must be issued by the competent academic authority and show passed exams, grades, and programme description.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment and study visa D - enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Non-EU citizens residing outside Italy must pre-enrol through Universitaly no later than 15 July and obtain a study visa.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Residence permit or residence-permit application receipt",
+      "stage": "enrolment",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU applicants who are in Italy at enrolment stage.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Programme-specific admission test may apply in exceptional cases",
+    "mandatory": false,
+    "applies_to": "Highly-qualified graduates whose previous training is not completely coherent with the admission requirements.",
+    "dates": "Not published.",
+    "scoring_or_threshold": "The department page states that for highly-qualified graduates with proven knowledge and competencies resulting from previous training programmes that are not completely coherent with the admission requirements, a different entry route and/or specific admission tests could apply. No standard entry exam for all applicants is published.",
+    "source_url": "https://www.chimica.unipd.it/en/circulareconomy/presentation"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/sustainable-chemistry-and-technologies-circular-economy",
+  "official_call_url": "https://apply.unipd.it/courses/course/175-sustainable-chemistry-and-technologies-circular-economy",
+  "source_quotes": [
+    {
+      "quote": "Access Open access with admission requirements",
+      "source_url": "https://www.unipd.it/en/circular-economy",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "hold a degree in one of the following degree classes: L-27 Chemical Sciences and Technologies ex DM 270/04 or L-21 Chemical Sciences and Technologies ex DM 509/99 or have acquired at least 40 ECTS",
+      "source_url": "https://www.chimica.unipd.it/en/circulareconomy/presentation",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "have a B2 English level (reading and comprehension and listening).",
+      "source_url": "https://www.chimica.unipd.it/en/circulareconomy/presentation",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "a different entry route and/or specific admission tests could apply.",
+      "source_url": "https://www.chimica.unipd.it/en/circulareconomy/presentation",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "Call One: 2 November 2025 – 2 February 2026",
+      "source_url": "https://apply.unipd.it/courses/course/175-sustainable-chemistry-and-technologies-circular-economy",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "Call Three: 2 June 2026 – 2 August 2026 (only for EU students and non-EU students residing in Italy)",
+      "source_url": "https://apply.unipd.it/courses/course/175-sustainable-chemistry-and-technologies-circular-economy",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "Call Three: 2 June 2025 – 2 August 2026 (only for EU students and non-EU students residing in Italy)",
+      "source_url": "https://www.unipd.it/en/circular-economy",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official general programme page for 2026/2027 currently shows a likely typo in the Call Three start date ('2 June 2025'), while the official apply.unipd.it admissions page shows '2 June 2026'. The application-deadline fields are therefore marked uncertain and reported using the admissions-platform date.",
+    "No separate programme-specific PDF admission notice was found beyond the official pages reviewed on 2026-06-04."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu"
+  ]
+}

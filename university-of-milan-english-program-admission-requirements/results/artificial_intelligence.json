@@ -1,0 +1,126 @@
+{
+  "program_name": "Artificial Intelligence",
+  "level": "bachelor",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milano, Pavia",
+  "degree_class": "L-31 - Computer Science",
+  "admission_type": "restricted access; cap on student, student selection based on entrance test",
+  "academic_requirements": "Applicants must hold an upper secondary school diploma or another qualification obtained abroad and recognized as suitable by the competent University boards. Other required background elements are English proficiency at B2 or higher, written comprehension, elementary logic and reasoning skills, and secondary-school mathematics covering first- and second-degree algebraic equations, inequalities and systems, plane analytical geometry, trigonometry, and exponential and logarithmic functions. The student's educational background is assessed according to the programme Academic Regulations, and any gaps must be filled within the first year.",
+  "language_requirements": "The programme requires English language proficiency at CEFR B2 or higher. UniMi's accepted-certificates page states that accepted certificates must normally have been earned within 3 years at submission time, except TOEFL within 2 years, and must certify Reading, Writing, Listening, and Speaking. For Bachelor's degree courses, students with a certificate should attach it during enrolment; if already enrolled, they can upload it later through the UniMi certificate-upload platform. No separate Italian-language requirement is stated on the programme page; UniMi's international enrolment rules require the Italian proficiency test only for Bachelor's programmes taught in Italian, so this English-taught programme does not indicate an Italian test.",
+  "application_deadline_eu": "[uncertain] No programme-specific EU application deadline for Artificial Intelligence is published on official UniMi domains for A.Y. 2026/2027. UniMi states that first-degree calls are published between March and July, but this programme directs applicants to the University of Pavia call for deadlines.",
+  "application_deadline_non_eu": "[uncertain] No programme-specific non-EU/visa application deadline for Artificial Intelligence is published on official UniMi domains for A.Y. 2026/2027. UniMi's general international-enrolment page states that non-EU students residing abroad must submit Universitaly pre-enrolment by 31 July 2026, but the programme page says the actual call and selection deadlines are managed by the University of Pavia.",
+  "required_documents": [
+    "For standard online enrolment: Italian tax identification number (codice fiscale), passport photo, scanned identity document, access credentials, and upper secondary school diploma details (year, mark, institution).",
+    "If the secondary-school qualification was awarded abroad: high school diploma with Italian translation by an official translator and legalization by the issuing-country authorities.",
+    "CIMEA Statements of Comparability and Verification, or a Dichiarazione di Valore issued by the Italian Embassy in the country where the qualification was obtained.",
+    "If the local school system has fewer than 12 years of schooling: university enrolment certificate with exams taken, or a post-secondary qualification/foundation-course certificate.",
+    "Academic suitability certificate, if provided in the country of origin.",
+    "Any documents proving specific qualification requirements when applicable, such as APs for US qualifications or A-levels for UK qualifications.",
+    "Valid residence permit, for non-EU citizens when applicable.",
+    "For non-EU students residing abroad: Universitaly pre-enrolment receipt, study visa, request for residence permit, and any Italian-language competence certificates if applicable under general UniMi rules."
+  ],
+  "entry_exam_or_test": "Admission is by entrance-test-based ranking in a capped programme. UniMi's 2026/2027 programme page and 2026/2027 manifesto state that the admission test for EU candidates (wherever residing) and extra-EU candidates regularly residing in Italy is English TOLC-I, while the admission test for extra-EU candidates residing outside Italy is SAT. Candidates high enough in the ranking may receive OFA (additional learning requirements) based on the Mathematics section score. The programme page adds that the full selection procedure, registration instructions, and deadlines must be checked in the call managed by the University of Pavia.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+  "official_program_url": "https://www.unimi.it/en/education/bachelor/artificial-intelligence",
+  "official_call_url": "https://apps.unimi.it/files/manifesti/eng_manifesto_F3Aof2_2027.pdf",
+  "source_quotes": [
+    {
+      "quote": "Access procedures: Cap on student, student selection based on entrance test",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_F3Aof2_2027.pdf",
+      "field_refs": [
+        "admission_type",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Taught entirely in English",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_F3Aof2_2027.pdf",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "English language proficiency at a B2 level or higher",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_F3Aof2_2027.pdf",
+      "field_refs": [
+        "academic_requirements",
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Applications for admission are managed by the University of Pavia",
+      "url": "https://www.unimi.it/en/education/bachelor/artificial-intelligence",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu",
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "between March and July",
+      "url": "https://www.unimi.it/en/study/bachelor-and-master-study/degree-programme-enrolment/enrolment-first-degree-programme",
+      "field_refs": [
+        "application_deadline_eu",
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "must be presented on the Universitaly website within 31 July 2026",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Certificates must have been earned for no more than 3 years",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Students must pay within the deadline indicated in the call for admission",
+      "url": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+      "field_refs": [
+        "tuition_or_fees_link"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "have to submit electronically ... the following documents",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "receipt of the Universitaly pre-application",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "UniMi publishes the 2026/2027 programme page and 2026/2027 manifesto, but on official UniMi domains it does not publish a programme-specific 2026/2027 admission call with dates for this joint bachelor.",
+    "The UniMi programme page explicitly says that admissions are managed by the University of Pavia, so programme-specific registration and ranking deadlines are delegated outside the allowed source set.",
+    "The latest official UniMi page still states the seat split as 180 places with 50 reserved for non-EU students residing abroad for academic year 2025/2026; UniMi does not publish a separate 2026/2027 seat-count notice on its own domains.",
+    "The non-EU date of 31 July 2026 found on UniMi is the Universitaly pre-enrolment deadline for non-EU students residing abroad in general, not a programme-specific Artificial Intelligence selection deadline.",
+    "The statement that no Italian-language test is required for this programme is derived from combining the English-taught programme page with UniMi's general rule that only Bachelor's programmes taught in Italian require the Italian proficiency test for non-EU students residing abroad."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu"
+  ]
+}

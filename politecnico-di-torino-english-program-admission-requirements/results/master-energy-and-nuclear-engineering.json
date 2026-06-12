@@ -1,0 +1,184 @@
+{
+  "program_name": "Energy and Nuclear Engineering",
+  "level": "master",
+  "official_level_type": "Master's degree programme",
+  "teaching_language": "Italian, English",
+  "is_fully_english_programme": false,
+  "has_complete_english_track": true,
+  "english_track_name": "Renewable energy systems; Sustainable nuclear energy; DENSYS 2.0 - Decentralised smart ENergy SYStems - Erasmus Mundus Joint Master; HySET - Hydrogen Systems and Enabling Technologies - Erasmus Mundus Joint Master [uncertain]",
+  "campus": "Main Campus",
+  "degree_class": "LM-30",
+  "double_degree_or_erasmus_mundus": "The programme includes DENSYS 2.0 and HySET Erasmus Mundus Joint Master tracks in the 2026/2027 curriculum; the 2025/2026 programme academic regulations explicitly state that HySET has separate admission requirements and procedures. The programme page also advertises Twin Track double-master opportunities for students in Renewable Energy Systems or Design and Management of Power Plants. A current 2026/2027 PoliTo call/fee page specifically for DENSYS 2.0 was not found among the checked official sources. [uncertain]",
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/energy-and-nuclear-engineering",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/energy-and-nuclear-engineering/programme-curriculum",
+  "admission_type": "evaluation/CV",
+  "admission_test_type": "Academic evaluation of qualifications, curricular background, and language requirements on Apply@polito; no programme-specific written entrance exam was found for the standard programme.",
+  "applicant_route": [
+    "Applicants with an Italian qualification from Politecnico di Torino",
+    "Applicants with an Italian qualification from other Italian universities",
+    "Applicants with a non-Italian qualification who are EU citizens or non-EU citizens residing in Italy",
+    "Applicants with a non-Italian qualification who are non-EU citizens residing abroad and need a study visa"
+  ],
+  "admission_call_round": [
+    "Foreign-qualification route: 1st Call and 2nd Call for a.y. 2026/2027.",
+    "Italian-qualification route: first-semester and second-semester application windows for a.y. 2026/2027.",
+    "HySET specialist track: separate admission requirements and procedures.",
+    "DENSYS 2.0 appears in the provisional 2026/2027 curriculum as an Erasmus Mundus track, but a current 2026/2027 PoliTo admission-call page for that track was not found among the checked official sources. [uncertain]"
+  ],
+  "special_call_flag": true,
+  "application_platform": "Apply@polito for the admission application; UNIVERSITALY for non-EU applicants residing abroad who need visa pre-enrolment.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "general": "Admission requires a three-year Bachelor's degree or equivalent qualification recognized as suitable for admission, fulfilment of curricular requirements, and academic performance considered suitable for admission.",
+    "programme_background": "For the English Energy and Nuclear Engineering entry in the 2026/2027 course-specific requirements, the recommended background is Industrial engineering, and the syllabus is required.",
+    "italian_qualification_route": "Applicants from other Italian universities must have a weighted average grade of at least 24/30. Applicants from Politecnico di Torino are assessed under the programme rules based on time-to-degree and, where applicable, weighted average grade.",
+    "foreign_qualification_route": "Applicants with a non-Italian qualification are evaluated by an Academic Committee / designated professors for consistency between prior studies and the chosen programme."
+  },
+  "country_specific_eligibility": "Applicants with a non-Italian qualification must hold a qualification awarded by an accredited/recognized foreign university after at least 15 years of total education. Applicants still enrolled in a 5- or 6-year single-cycle programme may apply only if they still meet 15 total years of education, including at least 3 university years, and have earned at least 180 ECTS or equivalent.",
+  "minimum_background_or_credits": "According to the programme academic regulations currently linked from the programme page (Academic Year 2025/2026), applicants to the standard tracks must have at least 40 credits in the first SSD group (CHIM/07, FIS/01, FIS/03, ING-INF/05, MAT/02, MAT/03, MAT/05) and at least 60 credits in the second SSD group (including FIS/04, ICAR/01, ICAR/03, ICAR/08, ING-IND/08, 10, 11, 12, 13, 14, 15, 18, 19, 22, 24, 25, 31, 32, 33). Applicants lacking fewer than 10 credits may still be admitted by the Academic Advisor; if the gap is more than 10 credits, final approval is escalated. This specific credit framework comes from the 2025/2026 regulations, because a 2026/2027 programme-specific regulations PDF was not found among the checked sources. [uncertain]",
+  "language_requirements": {
+    "english": "English B2 or above is required. In the 2026/2027 course-specific requirements PDF, the English-taught Energy and Nuclear Engineering programme states a minimum requirement of IELTS 5.5.",
+    "accepted_certificates": "The official PoliTo B2 certificate table includes IELTS Academic/General Training 5.5, Pearson PTE Academic 59, TOEFL iBT (the table shows 72 for tests obtained before 21/01/2026), TOEIC (Listening 400, Reading 385, Speaking 160, Writing 150), and Cambridge B2/C1/C2 certificates accepted under the published minimum conditions.",
+    "italian": "Italian is not required for the English programme entry; Italian B2 appears on the separate partially Italian programme entry, not on the English one."
+  },
+  "english_certificate_codes": "TOEFL institution code: C285. The engineering-area admissions page also instructs applicants to enter the TOEFL Appointment Number on Apply@polito.",
+  "language_submission_timing": "Applicants with an Italian qualification may submit the admission application without the English certificate, but they must upload it by the enrolment deadline; otherwise they may enrol only in first-semester single courses and must obtain the certificate by 24 March 2027. For foreign-qualification applicants, the English certificate is part of the compulsory enrolment documents and is described as already uploaded during the application process.",
+  "application_deadline_eu": {
+    "italian_qualification_route": "First semester: application deadline 15 October 2026; enrolment deadline 12 November 2026. Second semester: application deadline 24 February 2027; enrolment deadline 24 March 2027.",
+    "foreign_qualification_eu_or_non_eu_residing_in_italy": "1st Call closing: 13 February 2026 at 2:00 p.m. Italian time. 2nd Call closing: 20 April 2026 at 2:00 p.m. Italian time. First-semester online enrolment closes 5 October 2026. Second-semester online enrolment (only for EU and non-EU applicants residing in Italy) closes 24 March 2027."
+  },
+  "application_deadline_non_eu": {
+    "foreign_qualification_non_eu_requiring_visa": "1st Call closing: 13 February 2026 at 2:00 p.m. Italian time. 2nd Call closing: 20 April 2026 at 2:00 p.m. Italian time. First-semester online enrolment closes 5 October 2026. The second-semester enrolment window is stated as only for EU and non-EU applicants residing in Italy."
+  },
+  "universitaly_preenrolment_deadline": "The same 2026/2027 foreign-qualification page contains conflicting first-call study-visa pre-enrolment deadlines: the deadlines table says 15 May 2026, while the visa section says 30 May 2026. Both parts agree on 15 July 2026 for the second call. [uncertain]",
+  "application_fee": "No application fee was identified on the 2026/2027 foreign-qualification page checked for this programme. Applicants from other Italian universities in the engineering-area Master's admission procedure must pay a non-refundable EUR 50.00 application fee on Apply@polito. [uncertain]",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fee-from-25-26",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Course syllabus for previous studies (required in the 2026/2027 course-specific requirements entry for Energy and Nuclear Engineering).",
+    "Passport, or national ID for EU students.",
+    "Residence permit for non-EU citizens living in Italy, or study visa type D for non-EU citizens not living in Italy.",
+    "Fiscal code certificate.",
+    "Bachelor's degree (EQF level 6) or, for eligible applicants still in a single-cycle programme, transcript covering at least the first 3 academic years as specified by PoliTo.",
+    "Transcript of records.",
+    "Declaration of Value, or Statement of Comparability / Verification from CIMEA or another ENIC-NARIC centre as applicable, or Diploma Supplement / ARDI correspondence certificate where accepted.",
+    "English language certificate.",
+    "Confirmation of eligibility letter for UNIVERSITALY pre-enrolment."
+  ],
+  "document_translation_authentication": "For foreign qualifications, degree and transcript documents require official translation into Italian unless the originals are in English, French, or Spanish, or the applicant holds a Diploma Supplement where accepted. PoliTo states that official translations into Italian must either be certified by the Italian Embassy in the issuing country or sworn by a translator in an Italian court. PoliTo also requires Declaration of Value or CIMEA/ENIC-NARIC comparability evidence as specified on the enrolment page, and notes it may request additional verification documents.",
+  "entry_exam_or_test": {
+    "standard_programme": "No programme-specific written or oral entrance exam was found for the standard Energy and Nuclear Engineering admission route. Admission is based on evaluation of curricular requirements, academic performance, and language requirements.",
+    "special_tracks": "HySET has separate admission requirements and procedures according to the programme academic regulations. DENSYS 2.0 is listed in the provisional curriculum as an Erasmus Mundus Joint Master track."
+  },
+  "test_score_or_threshold": "There is no standard entrance-test score for the programme. Key thresholds found in official sources are: applicants from other Italian universities need a weighted average grade of at least 24/30; applicants from Politecnico di Torino are assessed under programme rules tied to time-to-degree and, when applicable, weighted average grade (21/30 or 24/30); the programme academic regulations currently linked from the programme page also state the 40-credit and 60-credit SSD minimums for standard tracks.",
+  "source_quotes": [
+    {
+      "quote": "Language: Italian, English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/energy-and-nuclear-engineering",
+      "supports_fields": [
+        "teaching_language",
+        "is_fully_english_programme"
+      ]
+    },
+    {
+      "quote": "Admissions: Uncapped number of students, evaluation of the admission requirements",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/energy-and-nuclear-engineering",
+      "supports_fields": [
+        "admission_type",
+        "admission_test_type"
+      ]
+    },
+    {
+      "quote": "The “Renewable energy systems” track is English-taught.",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20ENERGETICA%20E%20NUCLEARE_25_26.pdf",
+      "supports_fields": [
+        "has_complete_english_track",
+        "english_track_name"
+      ]
+    },
+    {
+      "quote": "The “Sustainable nuclear energy” is English-taught.",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20ENERGETICA%20E%20NUCLEARE_25_26.pdf",
+      "supports_fields": [
+        "has_complete_english_track",
+        "english_track_name"
+      ]
+    },
+    {
+      "quote": "For the specialist track in “Hydrogen Systems and Enabling Technologies” the admission requirements and procedures are available at https://www.hysetmaster.polito.it/.",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20ENERGETICA%20E%20NUCLEARE_25_26.pdf",
+      "supports_fields": [
+        "double_degree_or_erasmus_mundus",
+        "special_call_flag",
+        "entry_exam_or_test"
+      ]
+    },
+    {
+      "quote": "ENERGY AND NUCLEAR ENGINEERING English IELTS 5.5 Industrial engineering* Required",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": [
+        "academic_requirements",
+        "language_requirements",
+        "required_documents"
+      ]
+    },
+    {
+      "quote": "Closing: 13 February 2026, 2:00 p.m. (Italian time)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_deadline_non_eu",
+        "application_deadline_eu"
+      ]
+    },
+    {
+      "quote": "due to technical problems postponed to 20 April 2026, 2:00 p.m. (Italian time)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_deadline_non_eu",
+        "application_deadline_eu"
+      ]
+    },
+    {
+      "quote": "Opening date: TBD July 2026 – Closing date: 5 October 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_deadline_non_eu"
+      ]
+    },
+    {
+      "quote": "the TOEFL institution code of Politecnico di Torino (C285)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+      "supports_fields": [
+        "english_certificate_codes"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/energy-and-nuclear-engineering",
+    "https://www.polito.it/en/education/master-s-degree-programmes/energy-and-nuclear-engineering/programme-curriculum",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027/applicants-from-other-universities-ay-202627",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fee-from-25-26",
+    "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20ENERGETICA%20E%20NUCLEARE_25_26.pdf"
+  ],
+  "source_year": "Primary admission sources are 2026/2027; the programme-specific academic regulations used for SSD/credit thresholds and the HySET separate-procedure note are 2025/2026. [uncertain]",
+  "uncertainty_notes": [
+    "The 2026/2027 curriculum page states that the listed curricula are provisional and that official curricula are expected in June 2026; the identified English tracks are therefore current but still provisional.",
+    "The programme page currently links a 2025/2026 academic regulations PDF. Exact 2026/2027 programme-specific SSD/credit thresholds were not found in an updated regulations PDF among the checked official sources.",
+    "The 2026/2027 foreign-qualification page contains conflicting first-call UNIVERSITALY study-visa pre-enrolment deadlines: 15 May 2026 in the deadlines table and 30 May 2026 in the visa section.",
+    "HySET clearly has separate admission requirements and procedures in the official programme regulations. DENSYS 2.0 appears on the 2026/2027 curriculum page as an Erasmus Mundus Joint Master track, but a current 2026/2027 PoliTo call or fee page specifically for DENSYS 2.0 was not found among the checked official sources.",
+    "The current PoliTo tuition-fee page available in English is the page for students enrolled from academic year 2025/2026 onward; a dedicated 2026/2027 tuition-fee page was not identified among the checked official sources.",
+    "The application-fee information found in official sources clearly covers applicants from other Italian universities (EUR 50.00), but no programme-specific foreign-qualification application fee was identified on the 2026/2027 page checked for this programme."
+  ],
+  "uncertain": [
+    "english_track_name",
+    "double_degree_or_erasmus_mundus",
+    "admission_call_round",
+    "minimum_background_or_credits",
+    "universitaly_preenrolment_deadline",
+    "application_fee",
+    "source_year"
+  ]
+}

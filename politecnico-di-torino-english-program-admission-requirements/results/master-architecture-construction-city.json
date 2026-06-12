@@ -1,0 +1,207 @@
+{
+  "program_name": "Architecture Construction City",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale / 2nd cycle)",
+  "teaching_language": "Italian, English",
+  "is_fully_english_programme": false,
+  "has_complete_english_track": true,
+  "english_track_name": "English-language pathway [uncertain]",
+  "campus": "Castello del Valentino",
+  "degree_class": "LM-4: Architecture and Architectural Engineering",
+  "double_degree_or_erasmus_mundus": null,
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-construction-city",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-construction-city/programme-curriculum",
+  "admission_type": "evaluation/CV",
+  "admission_test_type": "Master-level evaluation of curricular requirements, academic record, portfolio, and language requirements. No dedicated written entrance test or interview is published for Architecture Construction City.",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification with a non-Italian Bachelor's degree",
+    "Non-EU residing in Italy",
+    "Non-EU residing abroad and requiring a visa"
+  ],
+  "admission_call_round": [
+    "Italian qualification / Architecture Area: first-semester admission only; Apply@polito applications open 4 June 2026 and close 18 August 2026; portfolio-evaluation results are published on 3 September 2026.",
+    "Non-Italian qualification: 1st call opens 19 December 2025 and closes 13 February 2026 at 2:00 p.m. Italian time; results on 15 April 2026.",
+    "Non-Italian qualification: 2nd call opens 18 March 2026 and closes 20 April 2026 at 2:00 p.m. Italian time; results on 22 June 2026.",
+    "This programme is admitted only in the first semester."
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito. Non-EU applicants residing abroad and requiring a visa must also complete study-visa pre-enrolment on UNIVERSITALY.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "general_eligibility": "Applicants must hold a Bachelor's degree (EQF level 6) or another equivalent qualification that gives access to second-cycle studies.",
+    "programme_background": "For Architecture Construction City, the recommended background is Architecture.",
+    "curricular_requirements": "A curricular requirement is the possession of a Bachelor's degree in class L-17 (or class 4 under D.M. 509/99), or another suitable foreign qualification. Applicants must also have completed the compulsory courses and activities listed in the Class L-17 table for Bachelor's degree programmes in Architecture.",
+    "polito_students": "Students from Politecnico di Torino are directly admitted after application if they graduate in 4 years or less with a weighted average of at least 27/30, or in more than 4 years but less than 5 years with a weighted average of at least 28/30. If they do not meet direct-admission thresholds, they may submit a portfolio for merit-based evaluation.",
+    "other_universities": "Applicants from other universities must have a weighted average of at least 24/30 and must upload a portfolio. The portfolio is assessed by an Admissions Committee.",
+    "foreign_qualification_route": "Applicants with a non-Italian qualification are assessed by an Academic Committee for consistency between their previous university studies and the programme's curricular requirements. For this programme, both syllabus/course descriptions and portfolio are required.",
+    "curricular_gaps": "Applicants from degree classes other than L-17 may be assigned curricular integrations. If the gap is 60 ECTS or less, the integrations must be completed through single courses before portfolio-based admission can be completed."
+  },
+  "country_specific_eligibility": "No Turkey-specific exception was published on the official pages checked. Turkish applicants follow the general non-Italian-qualification rules: a recognized Bachelor's degree giving access to second-cycle studies, Apply@polito application, and if applying from abroad, separate UNIVERSITALY study-visa pre-enrolment.",
+  "minimum_background_or_credits": "Recommended background: Architecture. Mandatory curricular background: an L-17/class 4 Architecture-type degree or an equivalent suitable foreign qualification, plus the compulsory courses and activities of class L-17. Applicants from other classes may be required to complete up to 60 ECTS of curricular integrations before portfolio evaluation.",
+  "language_requirements": {
+    "english_pathway": "For the English-language pathway, English level B2 or higher is required. The 2026/2027 Course-Specific Requirements table gives IELTS 5.5 as the minimum reference score for Architecture Construction City.",
+    "italian_pathway": "For the Italian or partly-Italian version of the programme, PoliTO's general rule is English B2 plus Italian B2; however, the English-language pathway itself is listed separately in the course-specific table as English with IELTS 5.5.",
+    "accepted_certificates": "Accepted English certificates are those listed in PoliTO's official CLA chart. The admissions page explicitly references IELTS, TOEFL, TOEIC, Cambridge, and other certificates included in the official table.",
+    "exemptions": "Official exemption cases for English are listed on the non-Italian-qualification page, including some English-medium qualifications."
+  },
+  "english_certificate_codes": "For TOEFL/TOEIC certificates, applicants must indicate PoliTO code C285. For Cambridge certificates, applicants must share the results with Politecnico di Torino and provide the Candidate ID number.",
+  "language_submission_timing": "Applicants with a non-Italian qualification must upload the language certificate as part of the Apply@polito application by the relevant call deadline. Applicants with an Italian qualification may submit the application without the certificate, but they must upload it by the enrolment deadline; otherwise, they may only enrol in first-semester single courses for unfulfilled language requirements.",
+  "application_deadline_eu": {
+    "programme_note": "Architecture Construction City is open only in the first semester.",
+    "italian_qualification_route": "Apply@polito applications open 4 June 2026 and close 18 August 2026; portfolio-evaluation results are published on 3 September 2026.",
+    "non_italian_qualification_no_visa_route_first_call": "19 December 2025 to 13 February 2026 at 2:00 p.m. Italian time; results on 15 April 2026.",
+    "non_italian_qualification_no_visa_route_second_call": "18 March 2026 to 20 April 2026 at 2:00 p.m. Italian time; results on 22 June 2026."
+  },
+  "application_deadline_non_eu": {
+    "programme_note": "Architecture Construction City is open only in the first semester.",
+    "first_call": "19 December 2025 to 13 February 2026 at 2:00 p.m. Italian time; results on 15 April 2026.",
+    "second_call": "18 March 2026 to 20 April 2026 at 2:00 p.m. Italian time; results on 22 June 2026.",
+    "enrolment_deadline": "Online enrolment for the first semester closes on 5 October 2026.",
+    "visa_document_deadline": "The deadline to upload the study visa (type D) is 30 November 2026."
+  },
+  "universitaly_preenrolment_deadline": "For non-EU applicants residing abroad and requiring a visa: 15 May 2026 for 1st-call admissions and 15 July 2026 for 2nd-call admissions.",
+  "application_fee": "€50 non-refundable application fee for applicants with a non-Italian qualification. The Architecture Area page also says a fee is required for applicants from other Italian universities, but the amount is not stated on the page checked. [uncertain]",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport, or ID card for EU nationals",
+    "Residence permit for non-EU citizens living in Italy",
+    "Curriculum Vitae",
+    "Bachelor's degree certificate, or an official university document stating the provisional graduation date if not yet graduated",
+    "Official Transcript of Records",
+    "Syllabus / course descriptions",
+    "Portfolio",
+    "English language certificate, or valid official exemption documentation",
+    "Declaration of Value of the Bachelor's degree or CIMEA Statement of Comparability (compulsory for enrolment if applying with a foreign qualification)",
+    "Study visa type D for non-EU applicants residing abroad at enrolment stage",
+    "Fiscal code at enrolment stage"
+  ],
+  "document_translation_authentication": "Documents must be issued on official letterheaded paper, stamped and signed by the issuing institution. Documents in Italian, English, French, or Spanish are accepted. If documents are in another language, the original document and an official English or Italian translation must be merged into a single file. For enrolment, PoliTO defines an official translation as one bearing the stamp and original signature of an officially recognized translator; translations into Italian must be certified by the Italian Embassy in the issuing country or sworn before a court in Italy. PoliTO also requires a Declaration of Value, or a CIMEA / ENIC-NARIC comparability document, or a Diploma Supplement where accepted.",
+  "entry_exam_or_test": {
+    "written_test": "No dedicated written entrance exam is published for Architecture Construction City.",
+    "selection_method": "Admission is based on evaluation of curricular requirements, academic record, portfolio, and language requirements.",
+    "portfolio_rule": "Applicants from other universities must upload a portfolio; for applicants with a non-Italian qualification, both syllabus/course descriptions and portfolio are required for this programme.",
+    "result_publication": "For Italian-qualification applicants in the Architecture Area, portfolio-evaluation results are published in the Apply@polito Evaluations section on 3 September 2026."
+  },
+  "test_score_or_threshold": "Route-specific thresholds: Politecnico di Torino students have direct admission at weighted average at least 27/30 if they graduate in 4 years or less, or at least 28/30 if they graduate in more than 4 years but less than 5 years. Applicants from other universities must have weighted average at least 24/30 and portfolio evaluation; the evaluation is positive at 36/60 or above. For the English-language pathway, the minimum language reference is IELTS 5.5 / CEFR B2 or equivalent.",
+  "source_quotes": [
+    {
+      "quote": "Language: Italian, English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-construction-city",
+      "supports_fields": [
+        "teaching_language",
+        "is_fully_english_programme"
+      ]
+    },
+    {
+      "quote": "Uncapped number of students, evaluation of the admission requirements",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-construction-city",
+      "supports_fields": [
+        "admission_type",
+        "admission_test_type"
+      ]
+    },
+    {
+      "quote": "Degree code: LM-4: ARCHITECTURE AND ARCHITECTURAL ENGINEERING",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-construction-city",
+      "supports_fields": [
+        "degree_class"
+      ]
+    },
+    {
+      "quote": "Campus: Castello del Valentino",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-construction-city",
+      "supports_fields": [
+        "campus"
+      ]
+    },
+    {
+      "quote": "ARCHITECTURE CONSTRUCTION CITY English IELTS 5.5 Architecture Both required",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": [
+        "has_complete_english_track",
+        "language_requirements",
+        "required_documents",
+        "minimum_background_or_credits"
+      ]
+    },
+    {
+      "quote": "Degree thesis",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-construction-city/programme-curriculum",
+      "supports_fields": [
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "The thesis ... can be written and discussed in Italian and English.",
+      "source_url": "https://didattica.polito.it/pls/portal30/sviluppo.guide.visualizza?p_cod_ins=12ICSWI&p_a_acc=2028",
+      "supports_fields": [
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "Application deadline ... 18 August 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/scadenze-area-architettura-aa-202627",
+      "supports_fields": [
+        "application_deadline_eu",
+        "admission_call_round"
+      ]
+    },
+    {
+      "quote": "Closing 13 February 2026, 2:00 p.m. (Italian time)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_deadline_non_eu",
+        "application_deadline_eu",
+        "admission_call_round"
+      ]
+    },
+    {
+      "quote": "Pre-enrolment deadline for Study Visa ... 15 May 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "universitaly_preenrolment_deadline"
+      ]
+    },
+    {
+      "quote": "weighted average grade ... equal to or greater than 24/30",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/architecture-area-ay-20262027/requisiti-per-studenti-provenienti-da-altri-atenei-aa-202627",
+      "supports_fields": [
+        "academic_requirements",
+        "test_score_or_threshold",
+        "entry_exam_or_test"
+      ]
+    },
+    {
+      "quote": "Pay the non-refundable application fee (€50)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_fee"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/architecture-construction-city",
+    "https://www.polito.it/en/education/master-s-degree-programmes/architecture-construction-city/programme-curriculum",
+    "https://didattica.polito.it/pls/portal30/sviluppo.guide.visualizza?p_cod_ins=12ICSWI&p_a_acc=2028",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/architecture-area-ay-20262027",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/scadenze-area-architettura-aa-202627",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/architecture-area-ay-20262027/requisiti-per-studenti-del-politecnico-di-torino-aa-202627",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/architecture-area-ay-20262027/requisiti-per-studenti-provenienti-da-altri-atenei-aa-202627",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "The initial Year-2 completeness concern is resolved: the official curriculum page contains a dedicated English-language pathway across Year 1 and Year 2, and that pathway includes an English-marked degree thesis.",
+    "The programme is not fully English because the official programme page lists the overall teaching language as 'Italian, English'; however, the curriculum confirms that a complete English-language pathway exists, so has_complete_english_track is true.",
+    "english_track_name is translated into English from the curriculum heading rather than copied verbatim, so the field is marked [uncertain].",
+    "The €50 fee is explicit for applicants with a non-Italian qualification. The Architecture Area page states that a fee is required for applicants from other Italian universities, but the amount is not stated on the page checked, so application_fee is partially route-specific and marked [uncertain]."
+  ],
+  "uncertain": [
+    "english_track_name",
+    "application_fee"
+  ]
+}

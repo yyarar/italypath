@@ -1,0 +1,124 @@
+{
+  "program_name": "Engineering Science",
+  "level": "bachelor",
+  "official_level_type": "Catalogue Level: Bachelor of Science",
+  "teaching_language": "ENG",
+  "campus": "Milano Leonardo; Milano Bovisa",
+  "degree_class": "Not found in checked official catalogue/programme page [uncertain].",
+  "study_area": "Engineering",
+  "partner_institution": null,
+  "programme_approval_status": "Programme starts from 2026/2027 and was marked pending approval in the official programme page during preliminary research [uncertain].",
+  "official_program_url": "https://www.polimi.it/en/education/laurea-programmes/programme-detail/engineering-science",
+  "admission_type": "TOLC / TOL / English TOLC-I / SAT alternative test / restricted ranking [uncertain]",
+  "school_specific_admission_rule": "Engineering admission route; verify the programme-specific call and applicant route before advising a student.",
+  "applicant_route": [
+    "Italian/equivalent qualification",
+    "foreign qualification",
+    "EEA",
+    "non-EEA abroad",
+    "non-EEA resident in Italy"
+  ],
+  "application_platform": "Politecnico di Milano Online Services; Universitaly/visa route may apply to non-EU applicants [uncertain].",
+  "application_round": {
+    "summary": "Engineering Laurea admission uses Polimi/CISIA test and ranking/enrolment procedures. The SAT alternative-test registration deadline found in the official 2026/2027 page is 4 June 2026 at 11:59 CEST; the high-school diploma score upload/enrolment document deadline found in the official page is 10 September 2026.",
+    "sources": [
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/when-to-register-for-the-tol",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/you-have-an-alternative-test/sat",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/how-to-enrol"
+    ]
+  },
+  "intake_semester_availability": "September 2026 intake; other intakes not confirmed for this Laurea item [uncertain].",
+  "admission_outcome_type": [
+    "assigned",
+    "reserved",
+    "pending",
+    "not admitted / course full [uncertain wording varies by school]"
+  ],
+  "ranking_methodology": "Ranking/test methodology is school-specific; use the official Engineering, Design, Architecture, or partner call for scores, preferences, and tie-break rules [uncertain].",
+  "places_and_foreign_contingent": "Check the official call for total places and reserved places; not resolved in this batch pass [uncertain].",
+  "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/how-to-enrol",
+  "academic_requirements": "High school diploma with at least 12 years of education; foreign qualifications may need additional verification, foundation course, CIMEA/DoV, or country-specific checks. Admission test participation requirements also apply.",
+  "country_specific_eligibility": "Foreign qualification eligibility must be checked through Polimi foreign-degree/foreign-qualification rules and country-specific documentation [uncertain].",
+  "curricular_integration_policy": "Not generally applicable before Laurea admission; OFA/additional obligations may arise from test/language results [uncertain].",
+  "conditional_enrolment_policy": "Candidates may have to enter/upload final secondary-school results by the official enrolment deadline; exact conditional rules depend on route and school.",
+  "language_requirements": "For English-taught Laurea programmes, applicants must demonstrate English before enrolment. Accepted routes include English-official citizenship, qualification obtained in English, or recognised certification such as TOEFL iBT >= 59, IELTS >= 5, or Cambridge B2 First Grade C, subject to official validity rules.",
+  "language_submission_timing": "Before enrolment for English-taught Laurea programmes; original/validated certificates may be checked by Polimi.",
+  "post_admission_italian_requirement": "Italian is not an entry requirement for English-taught Laurea programmes, but Italian B2 must be obtained before completing the Bachelor; otherwise Italian OFA applies.",
+  "application_deadline_eu": {
+    "summary": "Engineering Laurea admission uses Polimi/CISIA test and ranking/enrolment procedures. The SAT alternative-test registration deadline found in the official 2026/2027 page is 4 June 2026 at 11:59 CEST; the high-school diploma score upload/enrolment document deadline found in the official page is 10 September 2026.",
+    "sources": [
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/when-to-register-for-the-tol",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/you-have-an-alternative-test/sat",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/how-to-enrol"
+    ]
+  },
+  "application_deadline_non_eu": {
+    "summary": "Non-EU/foreign-qualification candidates follow the same engineering admission-test framework plus foreign-qualification document checks and any visa/pre-enrolment route [uncertain: programme-specific quota and visa dates require the foreign-degree page/call].",
+    "sources": [
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/when-to-register-for-the-tol",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/you-have-an-alternative-test/sat",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/how-to-enrol",
+      "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/students-with-a-foreign-degree"
+    ]
+  },
+  "application_fee": "Check official call and costs page; no stable programme-specific application fee resolved in this batch pass [uncertain].",
+  "visa_preenrolment_deadline": "Non-EU visa/pre-enrolment deadline not resolved from checked Polimi sources in this batch pass [uncertain].",
+  "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/costs-and-scholarships",
+  "required_documents": [
+    "identity document/passport",
+    "final secondary school diploma",
+    "high-school final mark where required",
+    "English language proof for English-taught programmes",
+    "foreign-qualification documents and additional verification documents where applicable"
+  ],
+  "document_translation_authentication": "Foreign documents may require official verification, translation, CIMEA Statements or Declaration of Value depending on route; check official Polimi foreign-degree document rules [uncertain].",
+  "entry_exam_or_test": "Engineering admission uses Polimi/CISIA tests and accepts SAT as an alternative in the official conditions; exact test variant and score threshold must be checked per admission phase.",
+  "test_variant_and_session": "Engineering admission uses Polimi/CISIA tests and accepts SAT as an alternative in the official conditions; exact test variant and score threshold must be checked per admission phase.",
+  "test_score_conversion_or_threshold": "Use the official test page/call for thresholds, conversion, and OFA triggers; SAT/TOL/TOLC/TOLD/ARCHED rules vary by school and phase [uncertain].",
+  "source_quotes": [
+    {
+      "quote": "29 Bachelor of Science programmes available",
+      "source_url": "https://www.polimi.it/en/education/laurea-programmes",
+      "supports_fields": [
+        "level",
+        "official_program_url"
+      ]
+    },
+    {
+      "quote": "All the postgraduate and some undergraduate programmes are available in English.",
+      "source_url": "https://www.polimi.it/en/prospective-students/politecnico-programmes",
+      "supports_fields": [
+        "teaching_language",
+        "level"
+      ]
+    },
+    {
+      "quote": "demonstrate knowledge of the English language before enrolling",
+      "source_url": "https://www.polimi.it/en/students/language-requirements/students-of-an-english-language-laurea-study-programme",
+      "supports_fields": [
+        "language_requirements"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polimi.it/en/education/laurea-programmes/programme-detail/engineering-science",
+    "https://www.polimi.it/en/students/language-requirements/students-of-an-english-language-laurea-study-programme",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/necessary-documents-for-enrolment",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/students-with-a-foreign-degree",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/requirements-to-participate-in-the-admission-test",
+    "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/how-to-enrol",
+    "https://www.polimi.it/en/prospective-students/costs-and-scholarships"
+  ],
+  "source_year": "2026/2027 where available; architecture page fallback may be 2025/2026 [uncertain].",
+  "uncertainty_notes": [
+    "Programme page states it starts from 2026/2027 and is pending approval; verify status in deep phase.",
+    "Degree class not resolved from official catalogue page.",
+    "Deep manual follow-up should verify programme-specific places, score thresholds, and non-EU visa/pre-enrolment deadlines."
+  ],
+  "uncertain": [
+    "admission_type",
+    "degree_class",
+    "places_and_foreign_contingent",
+    "visa_preenrolment_deadline"
+  ]
+}

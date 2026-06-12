@@ -1,0 +1,114 @@
+{
+  "program_name": "Data Science",
+  "level": "master",
+  "official_level_type": "Laurea Magistrale",
+  "teaching_language": "English",
+  "partially_english_flag": false,
+  "campus": "Rome (Department of Computer, Control and Management Engineering 'Antonio Ruberti' - DIAG; Faculty of Information Engineering, Informatics and Statistics)",
+  "degree_class": "LM-DATA (Data Science; formerly delivered under LM-91)",
+  "course_code": "33519",
+  "faculty": "Faculty of Information Engineering, Informatics and Statistics",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33519",
+  "admission_type": "restricted access",
+  "movein_preselection_required": true,
+  "admission_test_type": "Verification of curricular requirements + appropriate personal preparation (APP); verification interview if curricular/English requirements not documented",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (MoveIN route, visa-required)"
+  ],
+  "application_platform": "MoveIN platform (sapienza.gomovein.com) for non-EU pre-selection; Infostud for admission/enrolment; programme info at datascience.i3s.uniroma1.it",
+  "access_quota_non_eu": "Maximum 25 applicants per individual non-EU country (general Sapienza MoveIN rule); programme-specific non-EU contingent per the call [uncertain]",
+  "application_round": "September intake (A.Y. 2026-2027)",
+  "intake_semester_availability": "September intake",
+  "places_and_foreign_contingent": "Programme places and non-EU contingent set in the official call; exact 2026-2027 figures not extracted [uncertain]",
+  "official_call_url": null,
+  "faculty_call_pdf_url": null,
+  "academic_requirements": {
+    "prior_degree": "A three-year bachelor's degree or university diploma, or other adequate qualification obtained abroad.",
+    "curricular_requirements": "At least 90 ECTS/CFU in the specified set of Academic Disciplines (SSD). The curricular requirements are designed to give access to graduates of classes L-8 (Information Engineering), L-31 (Computer Science) and L-41 (Statistics).",
+    "personal_preparation": "Appropriate personal preparation (APP); a verification interview is held for candidates lacking the required credits in specific sectors."
+  },
+  "country_specific_eligibility": "Foreign first-level degrees must be recognized as adequate/comparable per Sapienza/MoveIN academic requirements 2026-2027. Specific country rules not individually extracted [uncertain]",
+  "curricular_integration_policy": "Candidates lacking required credits in specific SSDs must undergo a verification interview; curricular gaps may need to be filled before admission per programme regulations [uncertain]",
+  "conditional_enrolment_policy": "Applicants in the final year of their bachelor's may apply with enrolment conditional on completing the degree by the enrolment deadline [uncertain]",
+  "language_requirements": {
+    "level": "B2 CEFR in English",
+    "note": "Students without a B2 English certificate, or who did not achieve at least 3 credits in English exams (including qualifying exams without a grade), must attend an interview to verify their English knowledge. The programme is taught entirely in English."
+  },
+  "language_submission_timing": "At MoveIN pre-selection (non-EU) and/or at admission; English verified by interview if not documented",
+  "italian_language_requirement": "Italian not required for admission; programme fully in English.",
+  "application_deadline_eu": "Open until 31 July 2026 for EU and EU-equivalent candidates (A.Y. 2026-2027). [uncertain - programme-internal admission deadlines may differ]",
+  "application_deadline_non_eu": "MoveIN pre-selection window 22 December 2025 - 15 May 2026 for non-EU candidates residing abroad requiring a visa (A.Y. 2026-2027).",
+  "application_fee": "€30 per application via MoveIN pre-selection (max 2 applications per candidate per intake)",
+  "visa_preenrolment_deadline": "MoveIN pre-selection by 15 May 2026; subsequent visa pre-enrolment via Universitaly per national deadline",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2026-2027",
+  "required_documents": [
+    "Bachelor's degree certificate / enrolment certificate",
+    "Academic transcript with ECTS/CFU and SSD detail",
+    "Passport / ID",
+    "English language certificate (B2) or evidence of English credits",
+    "For foreign qualifications: Declaration of Value (DoV) or CIMEA statement, legalized/translated documents"
+  ],
+  "document_translation_authentication": "Foreign documents require official translation and legalization/apostille, plus a Declaration of Value (DoV) or CIMEA comparability statement.",
+  "entry_exam_or_test": {
+    "test": "No standardized written entrance test",
+    "selection": "Verification of curricular requirements (>=90 ECTS in required SSDs) and appropriate personal preparation; a verification interview is held where curricular or English requirements are not documented."
+  },
+  "test_variant_and_session": "Verification interviews scheduled per the faculty/programme calendar [uncertain]",
+  "test_score_conversion_or_threshold": "Admission by meeting curricular thresholds and positive APP assessment; no numeric public threshold [uncertain]",
+  "source_quotes": [
+    {
+      "quote": "To be admitted to the masters degree programme you need to meet the curricular requirements (RC) and have an appropriate personal preparation (APP), including a 3-year degree or university diploma, or other adequate educational qualifications gained abroad.",
+      "source_url": "http://datascience.i3s.uniroma1.it/it/admission",
+      "supports_fields": ["academic_requirements", "admission_type"]
+    },
+    {
+      "quote": "The curricular requirements seek to ensure access to the degree programme for all the graduates in the degree classes L-8 (Information Technology Engineering), L-31 (Computer Science) and L-41 (Statistics).",
+      "source_url": "http://datascience.i3s.uniroma1.it/it/admission",
+      "supports_fields": ["academic_requirements"]
+    },
+    {
+      "quote": "Students without a level B2 English language certificate or who did not achieve at least 3 Credits in English exams (including qualifying exams without a grade), will have to attend an interview to have their English language knowledge verified.",
+      "source_url": "http://datascience.i3s.uniroma1.it/it/admission",
+      "supports_fields": ["language_requirements", "entry_exam_or_test"]
+    },
+    {
+      "quote": "A maximum of 25 applicants per individual non-EU country will be admitted.",
+      "source_url": "https://www.uniroma1.it/sites/default/files/field_file_allegati/academic_requirements_movein_2026-2027_web.pdf",
+      "supports_fields": ["access_quota_non_eu", "movein_preselection_required"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/course/33519",
+    "http://datascience.i3s.uniroma1.it/it/admission",
+    "http://datascience.i3s.uniroma1.it/it/overview",
+    "https://www.uniroma1.it/en/admissions",
+    "https://www.uniroma1.it/sites/default/files/field_file_allegati/academic_requirements_movein_2026-2027_web.pdf",
+    "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
+  ],
+  "source_year": "2026-2027",
+  "uncertainty_notes": [
+    "Degree class: programme renewed under the new class LM-DATA (Data Science); earlier cohorts were under LM-91. Confirm the exact 2026-2027 class label on the /course/33519 catalogue page.",
+    "Programme-specific places and non-EU contingent for 2026-2027 not extracted from the official call; only the general MoveIN rule (max 25 per non-EU country) confirmed.",
+    "official_call_url and faculty_call_pdf_url not retrieved.",
+    "Curricular threshold stated as 90 ECTS on the programme admission page; exact SSD codes not transcribed.",
+    "EU programme-internal admission deadline vs. general 31 July 2026 enrolment deadline may differ for restricted-access masters; confirm on the call.",
+    "WebFetch was disabled in this environment; values gathered via official-domain web search summaries rather than direct page parsing."
+  ],
+  "uncertain": [
+    "degree_class",
+    "access_quota_non_eu",
+    "places_and_foreign_contingent",
+    "official_call_url",
+    "faculty_call_pdf_url",
+    "country_specific_eligibility",
+    "curricular_integration_policy",
+    "conditional_enrolment_policy",
+    "application_deadline_eu",
+    "test_variant_and_session",
+    "test_score_conversion_or_threshold"
+  ]
+}

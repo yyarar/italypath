@@ -1,0 +1,251 @@
+{
+  "program_name": "Industrial Production and Technological Innovation Engineering",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale / 2nd cycle)",
+  "teaching_language": "Multilingual",
+  "is_fully_english_programme": false,
+  "has_complete_english_track": false,
+  "english_track_name": null,
+  "campus": "Torino (Main Campus); the programme's international tracks place the first year at a partner campus in Athlone, Barcelona, or Nice, and the second year at Politecnico di Torino.",
+  "degree_class": "LM-33: Mechanical Engineering",
+  "double_degree_or_erasmus_mundus": "International double-degree programme with Technological University of the Shannon (Athlone), Universitat Internacional de Catalunya (Barcelona), and IPAG Business School (Nice). It is not presented by PoliTo as an Erasmus Mundus programme.",
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/industrial-production-and-technological-innovation",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/industrial-production-and-technological-innovation/programme-curriculum",
+  "admission_type": "selection call with track-based ranking [uncertain]",
+  "admission_test_type": "No written entrance examination is published. Admission is based on evaluation of curricular requirements, language requirements, personal preparation, and merit ranking by track; no interview is stated in the latest published programme-specific call.",
+  "applicant_route": [
+    "Applicants from Politecnico di Torino with an eligible bachelor's degree.",
+    "Applicants from other Italian universities with an eligible bachelor's degree.",
+    "Applicants with a non-Italian qualification through PoliTo's foreign-qualification procedures, subject to the programme's separate-call rules. [uncertain]",
+    "Non-EU applicants residing abroad and requiring a study visa. [uncertain]"
+  ],
+  "admission_call_round": [
+    "A.Y. 2026/2027: the official master's admissions page states that the programme-specific call is going to be published in June; no current programme-specific deadline was published on the checked page as of 11 June 2026. [uncertain]",
+    "Latest published programme-specific call found: A.Y. 2025/2026 special call, with applications due by 10 July 2025 at 23:59 through Apply@polito; rankings are published in the Engineering Area admissions news section. [uncertain]"
+  ],
+  "special_call_flag": true,
+  "application_platform": "Apply@polito for the programme-specific application; UNIVERSITALY is additionally required for non-EU applicants needing a study visa if the foreign-qualification route applies. [uncertain]",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+  "academic_requirements": {
+    "eligible_degree_all_tracks": "A three-year bachelor's degree or university diploma in Industrial Production Engineering is valid for all tracks.",
+    "eligible_degree_selected_tracks_only": "A three-year bachelor's degree or university diploma in Management Engineering (class L-9 or L-8, or previous-equivalent systems) is valid only for the UIC and IPAG tracks.",
+    "credit_requirements": "Applicants must show at least 40 CFU/ECTS in CHIM/07, FIS/01, FIS/03, ING-INF/05, MAT/05, MAT/06, MAT/09 and at least 60 CFU/ECTS in BIO/07, ICAR/03, ING-IND/10, ING-IND/14, ING-IND/15, ING-IND/16, ING-IND/17, ING-IND/21, ING-IND/22, ING-IND/35, ING-INF/04, IUS/01, IUS/02, IUS/04, SECS-P/01, SECS-P/07, SECS-S/01, SPS/09.",
+    "shortfall_rule": "If the missing amount is 10 credits or less, subject affinity can be evaluated by the Academic Advisor; if the shortfall is above 10 credits, final approval is escalated to the Coordinator or Vice-coordinator.",
+    "not_yet_graduated_rule_latest_call": "Applicants who had not yet completed the bachelor's degree could apply in the latest published special call only if they had obtained at least 100 CFU by 22 February 2025.",
+    "personal_preparation_merit": "The latest published special call applies the standard PoliTo master's merit rules to internal applicants and a weighted-average threshold to applicants from other Italian universities.",
+    "foreign_qualification_reference": "For applicants with a non-Italian qualification, PoliTo's general master's rules require a recognised first-cycle degree giving access to second-cycle study and generally at least 15 years of total schooling with at least 3 years at university level and 180 ECTS or equivalent. Applicability to this programme's pending 2026/2027 separate call is not fully documented yet. [uncertain]"
+  },
+  "country_specific_eligibility": "No Turkey-specific PoliTo sheet was found. For Turkish applicants with a non-Italian qualification, the general foreign-qualification rules appear to apply: a recognised bachelor's degree giving access to second-cycle study, usually at least 15 years of total schooling with at least 3 years at university level and 180 ECTS or equivalent, plus the qualification-recognition documents required for enrolment. Because the 2026/2027 programme-specific call has not yet been published, route-specific details for this programme remain unconfirmed. [uncertain]",
+  "minimum_background_or_credits": "Required background in the latest published programme-specific call is Industrial Production Engineering for all tracks, or Management Engineering (L-9/L-8) only for the UIC and IPAG tracks, together with at least 40 credits in the first subject group and 60 credits in the second subject group listed in the call. Applicants not yet graduated needed at least 100 CFU by 22 February 2025.",
+  "language_requirements": {
+    "overall_programme": "The catalogue language is 'Multilingual', and the curriculum includes English, French, and Italian depending on the selected track and year.",
+    "programme_specific_call": "The latest published programme-specific call requires an English-language certificate at CEFR B2 by enrolment.",
+    "foreign_qualification_route": "On the general PoliTo page for applicants with a non-Italian qualification, programmes 'partially taught in Italian/English' require English level B2 or higher plus Italian level B2 or higher. Applicability to this programme's pending 2026/2027 separate call is not yet fully clarified. [uncertain]",
+    "accepted_certificates": "Accepted English and Italian certificates are those published by the PoliTo Language Centre (CLA); TOEFL, TOEIC, IELTS, Cambridge, and the other CLA-listed certificates are accepted according to the official tables.",
+    "exemptions": "PoliTo publishes exemptions for selected English-medium and Italian-medium school or university qualifications on the official admissions page and CLA certificate tables."
+  },
+  "english_certificate_codes": "TOEFL/TOEIC institution code C285; Cambridge results must be shared with Politecnico di Torino and accompanied by the Candidate ID.",
+  "language_submission_timing": "In the latest programme-specific call, applicants from other universities must enter the language certificate in Apply@polito during the application, and in all cases the English B2 requirement must be satisfied by enrolment. For the general foreign-qualification route, language documents are uploaded during the application. [uncertain]",
+  "application_deadline_eu": {
+    "current_status_2026_2027": "For A.Y. 2026/2027, the official master's admissions page says the programme-specific call will be published in June 2026; no current EU deadline was published on the checked page as of 11 June 2026. [uncertain]",
+    "latest_published_special_call": "Latest published programme-specific call found: applications due by 10 July 2025 at 23:59 through Apply@polito. [uncertain]",
+    "ranking_and_confirmation_note": "Rankings are published in the Engineering Area master's admissions news section; confirmation and enrolment deadlines are communicated with the ranking publication. [uncertain]"
+  },
+  "application_deadline_non_eu": {
+    "current_status_2026_2027": "No programme-specific 2026/2027 deadline for non-EU visa applicants was published yet on the checked separate-call page as of 11 June 2026. [uncertain]",
+    "general_foreign_route_reference": "If PoliTo applies the standard 2026/2027 foreign-qualification timetable to this programme, the general non-Italian-qualification deadlines are 13 February 2026 at 2:00 p.m. Italian time for the 1st call and 20 April 2026 at 2:00 p.m. Italian time for the 2nd call, but applicability is unconfirmed because this programme is explicitly listed under separate selection calls. [uncertain]",
+    "latest_published_special_call": "Latest published programme-specific special call found: applications due by 10 July 2025 at 23:59 through Apply@polito. [uncertain]"
+  },
+  "universitaly_preenrolment_deadline": "If the general 2026/2027 foreign-qualification timetable applies, the study-visa pre-enrolment deadlines are 30 June 2026 for the 1st call and 15 July 2026 for the 2nd call. Applicability to this programme's pending separate call is unconfirmed. [uncertain]",
+  "application_fee": "€100 in the latest published programme-specific call (A.Y. 2025/2026). The general non-Italian-qualification page states a €50 non-refundable application fee, but it is unclear whether that fee will apply to this programme's separate 2026/2027 call. [uncertain]",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2025/2026 and 2026/2027 [uncertain]",
+  "required_documents": [
+    "Apply@polito online application.",
+    "For applicants from other universities in the latest published programme-specific call: the completed or current first-cycle qualification and the list of all first-cycle courses, including those not yet passed, for at least 180 CFU.",
+    "English-language certificate at CEFR B2 or valid exemption evidence.",
+    "For TOEFL/TOEIC: score sharing via code C285; for Cambridge: shared results plus Candidate ID.",
+    "For the general foreign-qualification route: passport, residence permit if already in Italy, Curriculum Vitae, bachelor's degree or official document stating the provisional graduation date, Official Transcript of Records, syllabus/course descriptions where requested, and enrolment-stage qualification-recognition documents such as a Declaration of Value, CIMEA Statement of Comparability, or Diploma Supplement. [uncertain]"
+  ],
+  "document_translation_authentication": "For the general foreign-qualification route, documents in Italian, English, French, or Spanish are accepted as such; documents in other languages require an official translation into English or Italian. For enrolment, PoliTo may require recognition documents such as a Declaration of Value, a CIMEA Statement of Comparability, or a Diploma Supplement. Because the programme-specific 2026/2027 special call is not yet published, the exact document workflow for this programme remains partly unconfirmed. [uncertain]",
+  "entry_exam_or_test": {
+    "type": "No written entrance examination is published.",
+    "selection_method": "Admission is based on evaluation of curricular requirements, language requirements, personal preparation, and merit ranking by chosen track.",
+    "ranking_rule": "If eligible applicants exceed the available places, track-specific rankings are formed.",
+    "published_interview_requirement": "No interview requirement is stated in the latest published programme-specific call."
+  },
+  "test_score_or_threshold": "Key thresholds in the latest published programme-specific call are: English B2 by enrolment; at least 100 CFU by 22 February 2025 for applicants not yet graduated; Politecnico di Torino applicants must satisfy the standard master's merit thresholds (within 4 years any average, over 4 and up to 5 years at least 21/30, over 5 years at least 24/30); applicants from other Italian universities need a weighted average of at least 24/30. If rankings are required, the score is based on credits multiplied by grades and divided by the useful number of semesters. [uncertain]",
+  "source_quotes": [
+    {
+      "quote": "Language: Multilingual",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/industrial-production-and-technological-innovation",
+      "supports_fields": [
+        "teaching_language",
+        "is_fully_english_programme"
+      ]
+    },
+    {
+      "quote": "Degree class: LM-33: MECHANICAL ENGINEERING",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/industrial-production-and-technological-innovation",
+      "supports_fields": [
+        "degree_class"
+      ]
+    },
+    {
+      "quote": "The Call for applications is going to be published in June.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+      "supports_fields": [
+        "admission_call_round",
+        "application_deadline_eu",
+        "application_deadline_non_eu",
+        "official_call_url"
+      ]
+    },
+    {
+      "quote": "require applicants to undergo a selection process",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+      "supports_fields": [
+        "admission_type",
+        "special_call_flag"
+      ]
+    },
+    {
+      "quote": "percorso internazionale di doppia laurea",
+      "source_url": "https://www.polito.it/sites/default/files/2025-06/DR%20e%20Bando%20Produzione%20Industriale%2025_26.pdf",
+      "supports_fields": [
+        "double_degree_or_erasmus_mundus"
+      ]
+    },
+    {
+      "quote": "primo anno presso una delle 3 Università partner ... secondo anno presso il Politecnico di Torino",
+      "source_url": "https://www.polito.it/sites/default/files/2025-06/DR%20e%20Bando%20Produzione%20Industriale%2025_26.pdf",
+      "supports_fields": [
+        "campus",
+        "double_degree_or_erasmus_mundus"
+      ]
+    },
+    {
+      "quote": "Customer Relationship Management ... Image: English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/industrial-production-and-technological-innovation/programme-curriculum",
+      "supports_fields": [
+        "has_complete_english_track",
+        "language_requirements"
+      ]
+    },
+    {
+      "quote": "Ergonomia e innovazione dei processi produttivi ... Image: Italian",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/industrial-production-and-technological-innovation/programme-curriculum",
+      "supports_fields": [
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "Tesi ... Image: Italian",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/industrial-production-and-technological-innovation/programme-curriculum",
+      "supports_fields": [
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "entro il 10 luglio 2025 (23.59)",
+      "source_url": "https://www.polito.it/sites/default/files/2025-06/DR%20e%20Bando%20Produzione%20Industriale%2025_26.pdf",
+      "supports_fields": [
+        "admission_call_round",
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ]
+    },
+    {
+      "quote": "versamento di 100 euro",
+      "source_url": "https://www.polito.it/sites/default/files/2025-06/DR%20e%20Bando%20Produzione%20Industriale%2025_26.pdf",
+      "supports_fields": [
+        "application_fee"
+      ]
+    },
+    {
+      "quote": "lingua inglese di livello B2",
+      "source_url": "https://www.polito.it/sites/default/files/2025-06/DR%20e%20Bando%20Produzione%20Industriale%2025_26.pdf",
+      "supports_fields": [
+        "language_requirements",
+        "test_score_or_threshold"
+      ]
+    },
+    {
+      "quote": "partially taught in Italian/English ... English level B2 or higher + Italian level B2 or higher",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "language_requirements"
+      ]
+    },
+    {
+      "quote": "Pre-enrolment deadline for Study Visa ... 30 June 2026 ... 15 July 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_deadline_non_eu",
+        "universitaly_preenrolment_deadline"
+      ]
+    },
+    {
+      "quote": "Please upload the documents listed below:",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "required_documents"
+      ]
+    },
+    {
+      "quote": "For TOEFL/TOEIC certificates, you must indicate the code C285",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "english_certificate_codes"
+      ]
+    },
+    {
+      "quote": "Declaration of Value / Certificate of Comparability",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "country_specific_eligibility",
+        "required_documents",
+        "document_translation_authentication"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/industrial-production-and-technological-innovation",
+    "https://www.polito.it/en/education/master-s-degree-programmes/industrial-production-and-technological-innovation/programme-curriculum",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/archivio-regole-ammissione-corsi-di-laurea-magistrale/engineering-area-ay-202526",
+    "https://www.polito.it/sites/default/files/2025-06/DR%20e%20Bando%20Produzione%20Industriale%2025_26.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/polito-language-centre-cla/certificates",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees"
+  ],
+  "source_year": "2025/2026 and 2026/2027 [uncertain]",
+  "uncertainty_notes": [
+    "The English-path question is resolved negatively: the official curriculum page shows English-language teaching in part of the first year for some tracks, but every track returns to Italian-only second-year courses and an Italian-language thesis at Politecnico di Torino, so there is no complete 100% English path.",
+    "The official 2026/2027 master's admissions page explicitly says that the programme-specific call 'is going to be published in June'. As of 11 June 2026, the current call and its exact 2026/2027 deadlines were not yet published on the checked page.",
+    "The latest detailed programme-specific evidence available is the 2025/2026 special-call PDF. Admission mechanics, deadlines, and the application fee for 2026/2027 may change when the new call is published.",
+    "The non-EU / visa route is not fully clarified for this programme because PoliTo simultaneously lists it under separate selection calls and publishes a general foreign-qualification calendar. The exact relationship between the pending separate call and the standard foreign-qualification timetable is not yet stated for 2026/2027.",
+    "Language requirements are partly source-dependent: the latest programme-specific call explicitly requires English B2, while the general foreign-qualification page states that programmes partially taught in Italian/English require both English B2 and Italian B2. The exact 2026/2027 rule for this programme should be rechecked when the new special call appears.",
+    "The application-fee figure is also source-dependent: the latest programme-specific call requires €100, while the general non-Italian-qualification page states a €50 fee. It is not yet clear which fee will govern the 2026/2027 separate call.",
+    "No Turkey-specific programme note was published by PoliTo; country-specific eligibility therefore relies on the university's general foreign-qualification and recognition rules."
+  ],
+  "uncertain": [
+    "admission_type",
+    "applicant_route",
+    "admission_call_round",
+    "application_platform",
+    "academic_requirements",
+    "country_specific_eligibility",
+    "language_requirements",
+    "language_submission_timing",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "universitaly_preenrolment_deadline",
+    "application_fee",
+    "required_documents",
+    "document_translation_authentication",
+    "test_score_or_threshold",
+    "academic_year",
+    "source_year"
+  ]
+}

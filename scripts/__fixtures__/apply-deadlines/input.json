@@ -1,0 +1,20 @@
+[
+  {
+    "universityId": 1,
+    "departmentSlug": "civil-engineering",
+    "cycle": "bachelor",
+    "date": "2027-05-15",
+    "note": "Non-EU final deadline",
+    "sourceUrl": "https://www.polimi.it/en/example",
+    "confidence": "high"
+  },
+  {
+    "universityId": 7,
+    "departmentSlug": null,
+    "cycle": "bachelor",
+    "date": "2027-01-26",
+    "note": "International candidates session",
+    "sourceUrl": "https://www.unibocconi.it/example",
+    "confidence": "high"
+  }
+]

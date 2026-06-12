@@ -1,0 +1,184 @@
+{
+  "program_name": "Environmental Sciences for the Ecological Transition",
+  "level": "master",
+  "teaching_language": "English [uncertain]",
+  "campus": "Legnaro and Padua, Italy [uncertain]",
+  "degree_class": "LM-75 R",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a minimum three-year undergraduate degree or equivalent and must show a suitable scientific background for environmental systems and ecological transition studies.",
+    "prior_degree_or_diploma": "Bachelor diploma or equivalent; a minimum three-year undergraduate degree is required.",
+    "subject_requirements": "Applicants must have basic knowledge in Mathematics, Physics, Chemistry, Biology, Environmental Sciences, and Ecology, including agricultural and human systems.",
+    "gpa_or_country_requirements": "[uncertain] Country-based specific entry-title and GPA requirements apply through the University of Padua entry-title requirements page. The 2026/27 educational-offer page also says eligible candidates are assessed on a minimum degree grade, but it does not publish the exact threshold reviewed here.",
+    "source_url": "https://www.unipd.it/en/educational-offer/second/school-of-agricultural-sciences-and-veterinary-medicine?key=16701&scuola=AV&tipo=LM"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent.",
+    "accepted_proofs": [
+      "The programme's 2026/27 educational-offer page lists the following B2-equivalent thresholds: TOEFL iBT 80, IELTS 6.0, Cambridge ESOL 173, Trinity College London ISE II, Oxford Test of English 126, Gatehouse GA 1, Pearson PTE General 3, or Pearson PTE Academic 65.",
+      "A provisional statement of results issued by the certifying body while waiting for the final certificate.",
+      "A previous degree title delivered entirely in English, documented through the procedures stated on the University language-admission page."
+    ],
+    "exemption_rules": [
+      "Applicants are exempt if they hold a degree title delivered entirely in English and the documentation explicitly states the language of instruction.",
+      "Applicants are exempt if they are native English speakers from one of the citizenships listed by the University of Padua on the 2026/27 English language admission page."
+    ],
+    "deadline": "[uncertain] The 2026/27 pages reviewed state the B2 requirement and accepted proof methods, but they do not separately publish a programme-specific submission deadline for this programme on the pages reviewed.",
+    "source_url": "https://www.unipd.it/en/educational-offer/second/school-of-agricultural-sciences-and-veterinary-medicine?key=16701&scuola=AV&tipo=LM"
+  },
+  "application_deadline_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "2 June 2026 - 2 August 2026",
+    "notes": "The third call is only for EU citizens and non-EU citizens residing in Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/257-environmental-sciences-ecological-transition?search=4330969"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "",
+    "notes": "The third call is not available to non-EU citizens residing outside Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/257-environmental-sciences-ecological-transition?search=4330969"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or valid ID card",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU or equivalent applicants can use a valid ID card; other applicants normally upload a passport.",
+      "source_url": "https://apply.unipd.it/news/new/13-which-documents-required-your-application"
+    },
+    {
+      "document_name": "Italian residence permit",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only for non-EU applicants already residing in Italy.",
+      "source_url": "https://apply.unipd.it/news/new/13-which-documents-required-your-application"
+    },
+    {
+      "document_name": "Academic transcript or marksheet",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Documents must be official and written or translated in Italian or English.",
+      "source_url": "https://apply.unipd.it/news/new/13-which-documents-required-your-application"
+    },
+    {
+      "document_name": "Bachelor's degree certificate or academic qualification",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Upload if already obtained; no legalised documents are required at application stage.",
+      "source_url": "https://apply.unipd.it/news/new/13-which-documents-required-your-application"
+    },
+    {
+      "document_name": "Curriculum Vitae",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Listed in the official general document checklist for applications through apply.unipd.it.",
+      "source_url": "https://apply.unipd.it/news/new/13-which-documents-required-your-application"
+    },
+    {
+      "document_name": "Motivation letter",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Listed in the official general document checklist for applications through apply.unipd.it.",
+      "source_url": "https://apply.unipd.it/news/new/13-which-documents-required-your-application"
+    },
+    {
+      "document_name": "English language proficiency certificate or other accepted proof",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required unless the applicant qualifies for one of the University of Padua exemption routes.",
+      "source_url": "https://apply.unipd.it/news/new/13-which-documents-required-your-application"
+    },
+    {
+      "document_name": "Official translation of academic documents into Italian or English",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required if the original academic documents are issued in another language.",
+      "source_url": "https://apply.unipd.it/news/new/13-which-documents-required-your-application"
+    },
+    {
+      "document_name": "Bachelor's degree translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Apostille may replace legalisation where applicable.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Transcript of Records translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "The transcript should state passed exams, grades, and preferably credits and syllabus information.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Study Visa D - enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Required only for non-EU applicants residing outside Italy.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Valid identity document or passport and residence permit/Assicurata",
+      "stage": "enrolment",
+      "required_for": "conditional",
+      "notes": "EU or equivalent applicants provide an ID document or passport; non-EU applicants also provide a residence permit or residence-permit application receipt where applicable.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No standard written entry exam or admission test is stated on the 2026/27 programme factsheet.",
+    "mandatory": false,
+    "applies_to": "All applicants.",
+    "dates": "Not applicable.",
+    "scoring_or_threshold": "Admission is based on meeting the curricular and language requirements. The 2026/27 educational-offer page says eligible candidates are assessed on minimum degree grade and B2 English proficiency.",
+    "source_url": "https://www.unipd.it/en/educational-offer/second/school-of-agricultural-sciences-and-veterinary-medicine?key=16701&scuola=AV&tipo=LM"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/environmental-sciences-ecological-transition",
+  "official_call_url": "https://apply.unipd.it/courses/course/257-environmental-sciences-ecological-transition?search=4330969",
+  "source_quotes": [
+    {
+      "quote": "Open access with requirements",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/environmental-sciences-ecological-transition",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Study language English",
+      "source_url": "https://apply.unipd.it/courses/course/257-environmental-sciences-ecological-transition?search=4330969",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "Language Italian",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/environmental-sciences-ecological-transition",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "A minimum three-year undergraduate degree (or equivalent) is required",
+      "source_url": "https://apply.unipd.it/courses/course/257-environmental-sciences-ecological-transition?search=4330969",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "B2 level (CEFR) or equivalent",
+      "source_url": "https://apply.unipd.it/courses/course/257-environmental-sciences-ecological-transition?search=4330969",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Call One: 2 November 2025 – 2 February 2026",
+      "source_url": "https://apply.unipd.it/courses/course/257-environmental-sciences-ecological-transition?search=4330969",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "This programme is new for 2026/27 and the official pages are not fully harmonised: the central programme page shows 'Language Italian' and only 'Legnaro', while the official apply.unipd.it factsheet and the official educational-offer page describe the programme as English-taught and held in Legnaro and Padua.",
+    "The 2026/27 educational-offer page states that eligible candidates are assessed on a minimum degree grade, but the exact threshold was not found on the official pages reviewed.",
+    "The programme pages reviewed state the B2 English requirement and accepted proof routes, but they do not clearly publish a separate language-certificate submission deadline for this programme.",
+    "No separate 2026/27 PDF admission notice was found; the official apply.unipd.it programme factsheet was used as the programme-specific admissions source."
+  ],
+  "uncertain": [
+    "teaching_language",
+    "campus",
+    "academic_requirements",
+    "language_requirements"
+  ]
+}

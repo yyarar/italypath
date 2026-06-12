@@ -1,0 +1,151 @@
+{
+  "program_name": "Plant Science",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English (the programme is officially described as entirely in English; optional Italian activities also appear in the 2026/2027 study plan)",
+  "campus": "Milan; UNIMI teaching spaces are in via Celoria 26, via Celoria 20, via Golgi 19, via Colombo 62, and via Celoria 2, with the double-degree pathway also involving Universite Grenoble Alpes.",
+  "degree_class": "LM-6 R",
+  "admission_type": "restricted access (cap on student numbers; student selection based on entrance test/interview)",
+  "academic_requirements": "Admission is intended for applicants with a strong background in biological disciplines. Graduates of class L-13 Biological Sciences who fully satisfy the curricular requirements and followed a training path consistent with CBUI indications may apply. The 2026/2027 call requires 66 ECTS in the Biology sectors BIO/01, BIO/02, BIO/03, BIO/04, BIO/05, BIO/06, BIO/07, BIO/09, BIO/10, BIO/11, BIO/18 and BIO/19, of which at least 6 ECTS must be in BIO/01-BIO/04 and at least 12 ECTS in BIO/06, BIO/07, BIO/09, BIO/10, BIO/11, BIO/18 and BIO/19; 12 ECTS in physics/computer science/mathematics sectors (FIS/01-FIS/08, INF/01, ING-INF/05, MAT/01-MAT/09); and 12 ECTS in chemistry sectors (CHIM/01, CHIM/02, CHIM/03, CHIM/06). Graduates from L-13 who did not follow a CBUI-aligned path, graduates from L-12 Biological Sciences under Ministerial Decree 509/99, and graduates from other degree classes may also be admitted if they hold at least 90 ECTS in the listed scientific groups. For L-25 Agricultural and Forestry Science and Technology and related classes, credits in AGR/02, AGR/03, AGR/07, AGR/12, AGR/13, AGR/16, AGR/17, VET/01 and VET/02 are also considered. Final-year first-cycle students may apply if they have at least 156 ECTS at the time of the admission exam and graduate by 31 October 2026. Foreign qualifications may be admitted if recognized as suitable by the University. Personal preparation is assessed through an admission interview in English on biology and plant science topics; a minimum overall score of 60/100 is required.",
+  "language_requirements": "English proficiency at CEFR B2 or higher is required for admission. The manifesto states that applicants can prove this through a recognized B2-or-higher certificate obtained no more than three years earlier and uploaded during the online application, or through English level achieved in University of Milan SLAM courses/tests passed within the last four years. The call also states that a B2-level certificate or a B2 result in the University language placement test can be used. Applicants who do not submit a valid certificate may still take the admission interview, but they will be admitted only if the committee judges their English to be unequivocally good during the interview. No Italian certificate is required for admission; Italian appears only as an optional additional language activity in the study plan.",
+  "application_deadline_eu": "24 March 2026 to 12 June 2026, 12:00 pm (noon), for EU residents not applying for a visa.",
+  "application_deadline_non_eu": "[uncertain] Main visa-applicant window: 24 March 2026 to 30 April 2026, 12:00 pm (noon). The call also states a possible reopening if places remain, but gives conflicting end dates: 12 June 2026 in Art. 1 / Art. 4 and 29 May 2026 in Art. 5.1.",
+  "required_documents": [
+    "Curriculum vitae in English.",
+    "Diploma Supplement, or transcript of records including courses and marks, in English, Italian, French, German or Spanish.",
+    "B2 English certificate, if possessed / available.",
+    "Passport pages containing personal information, or another valid ID document, for non-Italian candidates applying with a foreign qualification.",
+    "A valid identity document for the admission interview.",
+    "Bachelor's degree or equivalent / first-cycle degree, legalized or apostilled where required.",
+    "High school diploma.",
+    "Official Italian translation of academic qualifications, unless the original documents are in French, English, German or Spanish.",
+    "Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore issued by the Italian Embassy; for Lisbon Convention countries, a Diploma Supplement or ARDI Correspondence Statement may replace these.",
+    "Italian tax code (codice fiscale).",
+    "Receipt of the residence permit application or a valid residence permit, for non-EU citizens."
+  ],
+  "entry_exam_or_test": "The admission exam is an interview. For EU citizens and EU residents who do not require a visa, it is scheduled for 18 June 2026 at 2:00 pm (CEST) at the Department of Biosciences, Via G. Celoria 26, Milan; applicants not residing in Italy may request an online interview. Non-European applicants who do not reside in an EU member state (visa applicants) are first screened on their curriculum and, if the requirements are met, are invited to an online interview on 11 May 2026. The interview is conducted in English and evaluates biology and plant science knowledge and, where needed, English proficiency. Scoring is up to 25 points for the graduation grade (or average grade for undergraduates), up to 10 points for curriculum, and up to 65 points for the interview; at least 60/100 is required for admission.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/plant-science",
+  "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-plant-science-%28classe-lm-6-r-%29.pdf?27-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "CALL FOR APPLICATIONS FOR ADMISSION TO THE DOUBLE DEGREE MASTER PROGRAMME IN: PLANT SCIENCE (LM-6 R) ACADEMIC YEAR 2026/2027",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-plant-science-%28classe-lm-6-r-%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "program_name",
+        "level",
+        "academic_year",
+        "degree_class",
+        "official_call_url"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Access procedures: Cap on student numbers, student selection based on entrance test",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBJof2_2027.pdf",
+      "field_refs": [
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "EU residents not applying for a Visa ... Application from 24 March to 12 June 2026, 12.00 pm (noon)",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-plant-science-%28classe-lm-6-r-%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Non-EU Candidates Applying for a Visa ... Application from 24 March to 30 April 2026, 12.00 pm (noon). If positions are still available, applications will be accepted from 14 May until 12 June 2026, 12.00 pm (noon)",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-plant-science-%28classe-lm-6-r-%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "If the 3 places reserved for non-EU students living abroad are not filled, applications will be accepted until 29 May 2026, 12.00 pm (noon)",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-plant-science-%28classe-lm-6-r-%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "uncertainty_notes",
+        "uncertain"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The requirements include: 66 ECTS ... 12 ECTS in SDS FIS/01 through FIS/08, INF/01 ... MAT/01 through MAT/09; 12 ECTS in SDS CHIM/01 ... CHIM/06",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-plant-science-%28classe-lm-6-r-%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Candidates will be required to upload the following documents ... curriculum vitae (in English); diploma supplement or, alternatively, a transcript ...; certificate for B2-level in English ...; passport ... or other valid ID document",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-plant-science-%28classe-lm-6-r-%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor's degree (or equivalent), legalized or apostilled ...; High school diploma; Official Italian translation ...; Statement of Comparability ... or a Dichiarazione di Valore ...; Italian tax code; Receipt of the residence permit application or a valid residence permit",
+      "url": "https://apps.unimi.it/files/bandi/call-2027-1-plant-science-%28classe-lm-6-r-%29.pdf?27-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "English language proficiency at level B2 or above ... is required for admission",
+      "url": "https://www.unimi.it/en/education/master-programme/plant-science",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The interview will be conducted in English and will assess the candidate's competence on topics related to Biology and Plant Science",
+      "url": "https://www.unimi.it/en/education/master-programme/plant-science",
+      "field_refs": [
+        "entry_exam_or_test",
+        "academic_requirements",
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Course location ... Milan",
+      "url": "https://www.unimi.it/en/education/master-programme/plant-science",
+      "field_refs": [
+        "campus"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "At UNIMI, classrooms are located in the University buildings, via Celoria, 26 ... most laboratories are located in the Department of Biosciences ... and ... via G. Celoria 2, Milan",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBJof2_2027.pdf",
+      "field_refs": [
+        "campus"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Fees - 2026/2027 ... University tuition: fees and payment procedures, reductions and exemptions",
+      "url": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "field_refs": [
+        "tuition_or_fees_link"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "The 2026/2027 call is internally inconsistent on the reopened non-EU / visa-application window after the first ranking round. Art. 1 and Art. 4 say that, if places remain, applications reopen from 14 May until 12 June 2026 at 12:00 pm (noon), while Art. 5.1 says applications will be accepted until 29 May 2026 at 12:00 pm (noon). The main visa-applicant deadline of 30 April 2026 at 12:00 pm (noon) is clear.",
+    "The programme is officially presented as entirely in English, but the 2026/2027 study plan still lists optional Italian activities (Additional Language Skills: Italian and a 3-ECTS Italian laboratory stage). The teaching_language field therefore reflects the official English positioning while noting the optional Italian components."
+  ],
+  "uncertain": [
+    "application_deadline_non_eu"
+  ]
+}

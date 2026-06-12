@@ -1,0 +1,145 @@
+{
+  "program_name": "Valorization and sustainable development of mountain areas",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Edolo (BS)",
+  "degree_class": "LM-73 R - Scienze e tecnologie forestali ed ambientali",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": "Candidates must hold, or obtain by 31 December 2026, a qualifying degree and the curricular and language requirements. Direct access is given to graduates in classes L-25, L-26, class 20, L-32, or class 27, as well as holders of an equivalent foreign qualification recognized as suitable. Graduates from other classes may also apply if they have at least 45 CFU in the listed scientific-disciplinary sectors, including at least 12 CFU in biological and agroforestry/environmental disciplines. The Admission Commission verifies curricular requirements and background knowledge, may request additional information, and assesses prior exam results in the required subject areas.",
+  "language_requirements": "English proficiency at CEFR B2 or higher is required for admission. The official programme sources state that this is assessed either by uploading a B2-or-higher language certificate during the online application or during a specific admission interview. The inspected programme-specific sources do not state a separate English exemption route beyond this certificate-or-interview assessment. Separately, the manifesto states that students who do not hold an Italian high school diploma or degree may obtain the optional 3 ECTS 'Additional Language Skills: Italian' activity by proving Italian at CEFR A2 with a certificate issued within the previous three years and uploaded to https://studente.unimi.it/uploadCertificazioniLingue, or by taking the one-time SLAM entry-level test; students who do not reach A2 must attend the assigned Italian course(s) or choose another elective.",
+  "application_deadline_eu": "[uncertain] Official 2026/2027 sources conflict for EU/equivalent applicants: the programme page and programme application page show 22 January 2026 to 30 October 2026; the manifesto says applications run from 22 January 2026 up to 31 October 2026; Article 3 of the admission notice says applications will be accepted from 22 January to 25 August 2026.",
+  "application_deadline_non_eu": "For non-EU applicants requiring a visa, the admission application window is 22 January 2026 to 30 April 2026. The separate Universitaly pre-enrolment deadline is 31 July 2026.",
+  "required_documents": [
+    "For applicants with an Italian qualification from another university: self-certification of degree/enrolment with exam records, including exams taken, grades, ECTS credits, and scientific-disciplinary sectors.",
+    "For applicants still graduating in Italy: declaration of exams already passed but not yet registered, exams still to be taken, and expected graduation date.",
+    "For applicants with a foreign qualification at the admission stage: bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate.",
+    "For applicants with a foreign qualification at the admission stage: diploma supplement or transcript showing courses, marks, ECTS, academic field, and the grading system used by the university.",
+    "For applicants with a foreign qualification at the admission stage: passport or other valid ID.",
+    "For enrolment finalization with a foreign qualification: bachelor's degree (or equivalent) legalized or apostilled by the competent authorities, unless exempt by law.",
+    "For enrolment finalization with a foreign qualification: high school diploma.",
+    "For enrolment finalization with a foreign qualification: official Italian translation of the academic qualifications, unless the originals are in Italian, English, French, German, or Spanish.",
+    "For enrolment finalization with a foreign qualification: Statement of Comparability from an ENIC-NARIC center such as CIMEA, or Dichiarazione di Valore in loco (DOV); for Lisbon Convention countries, the Diploma Supplement or ARDI Correspondence Statement may replace the DOV and Statement of Comparability where allowed.",
+    "For enrolment finalization with a foreign qualification: Italian tax code (codice fiscale).",
+    "For non-EU students: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "[uncertain] The Admission Board first checks curricular requirements and background knowledge. The application page says the Commission calls a candidate for an interview if the exam-based assessment reveals lack of competences, while the admission notice says candidates who meet the requirements may be summoned to an interview or a written test, in person or remotely, to verify initial preparation. English B2 may also be checked during a specific admission interview.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/valorization-and-sustainable-development-mountain-areas",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-valorization-and-sustainable-development-of-mountain-areas-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "Open with entry requirements examination",
+      "url": "https://www.unimi.it/en/education/master-programme/valorization-and-sustainable-development-mountain-areas",
+      "field_refs": [
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Course location Edolo (BS)",
+      "url": "https://www.unimi.it/en/education/master-programme/valorization-and-sustainable-development-mountain-areas",
+      "field_refs": [
+        "campus"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Language English",
+      "url": "https://www.unimi.it/en/education/master-programme/valorization-and-sustainable-development-mountain-areas",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "22/01/2026 to 30/10/2026",
+      "url": "https://www.unimi.it/en/education/master-programme/valorization-and-sustainable-development-mountain-areas",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "no later than 30 April 2026",
+      "url": "https://www.unimi.it/en/education/master-programme/valorization-and-sustainable-development-mountain-areas",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "at least 45 credits (CFU)",
+      "url": "https://mountainside.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Proficiency in English at a B2 level or higher",
+      "url": "https://mountainside.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor’s Degree ... degree-awarding certificate",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-valorization-and-sustainable-development-of-mountain-areas-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-valorization-and-sustainable-development-of-mountain-areas-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "pre-enrolment through Universitaly platform by 31 July 2026",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-valorization-and-sustainable-development-of-mountain-areas-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "interview or a written test",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-valorization-and-sustainable-development-of-mountain-areas-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "up to 31st October, 2026",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_GBFof2_2027.pdf",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Fees - 2026/2027",
+      "url": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+      "field_refs": [
+        "tuition_or_fees_link"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "application_deadline_eu is marked uncertain because official 2026/2027 sources disagree: the programme page and programme application page say 30 October 2026, the manifesto says 31 October 2026, and Article 3 of the admission notice says 25 August 2026.",
+    "entry_exam_or_test is marked uncertain because the programme application page describes an interview if competence gaps emerge, while the admission notice says candidates may be summoned to an interview or a written test, either in person or remotely.",
+    "The programme-specific sources inspected do not provide a programme-level list of recognized English certificates or an explicit English exemption framework beyond certificate upload or interview assessment, so the language requirement has been limited to what the official programme sources state directly."
+  ],
+  "uncertain": [
+    "application_deadline_eu",
+    "entry_exam_or_test"
+  ]
+}

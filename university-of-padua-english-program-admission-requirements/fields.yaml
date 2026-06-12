@@ -1,0 +1,214 @@
+schema_version: 1
+output_contract:
+  format: "json"
+  granularity: "one object per programme"
+  source_policy: "Official University of Padua sources only."
+  preferred_academic_year: "2026/2027"
+  fallback_rule: "If 2026/2027 data is unavailable, use the newest official year and state the fallback in uncertainty_notes."
+fields:
+  - name: program_name
+    type: string
+    detail_level: brief
+    required: true
+    description: "Official programme name as written by the University of Padua."
+  - name: level
+    type: enum
+    allowed_values:
+      - bachelor
+      - master
+      - single-cycle
+      - other
+    detail_level: brief
+    required: true
+    description: "Degree level. Use single-cycle for programmes such as Medicine and Surgery."
+  - name: teaching_language
+    type: string
+    detail_level: brief
+    required: true
+    description: "Teaching language stated by the official programme page or call. Expected value is English, but capture English-taught track wording when relevant."
+  - name: campus
+    type: string
+    detail_level: moderate
+    required: false
+    description: "Campus, branch, place, or study location stated by official sources."
+  - name: degree_class
+    type: string
+    detail_level: moderate
+    required: false
+    description: "Italian degree class or class code if stated, e.g. L-38 R, LM-35 R."
+  - name: admission_type
+    type: enum
+    allowed_values:
+      - open access
+      - restricted access
+      - TOLC
+      - SAT
+      - selection call
+      - other
+    detail_level: moderate
+    required: true
+    description: "Admission model. Normalize official wording such as open access with admission requirements, scheduled access, limited number of places, TOLC, SAT, IMAT, or selection call."
+  - name: academic_requirements
+    type: object
+    detail_level: detailed
+    required: true
+    description: "Prior qualification and curricular requirements. For bachelor programmes capture upper-secondary diploma/test rules; for master programmes capture bachelor's degree field, ECTS/curricular requirements, GPA or country-based requirements when present."
+    suggested_shape:
+      summary: string
+      prior_degree_or_diploma: string
+      subject_requirements: string
+      gpa_or_country_requirements: string
+      source_url: string
+  - name: language_requirements
+    type: object
+    detail_level: detailed
+    required: true
+    description: "English language requirement and accepted proof. Include CEFR level, exemptions, certificate rules, and deadlines if stated by programme call."
+    suggested_shape:
+      required_level: string
+      accepted_proofs: array
+      exemption_rules: array
+      deadline: string
+      source_url: string
+  - name: application_deadline_eu
+    type: object
+    detail_level: detailed
+    required: false
+    description: "Application windows or deadlines for EU citizens and non-EU citizens residing in Italy."
+    suggested_shape:
+      call_one: string
+      call_two: string
+      call_three: string
+      notes: string
+      source_url: string
+  - name: application_deadline_non_eu
+    type: object
+    detail_level: detailed
+    required: false
+    description: "Application windows or deadlines for non-EU citizens residing outside Italy."
+    suggested_shape:
+      call_one: string
+      call_two: string
+      call_three: string
+      notes: string
+      source_url: string
+  - name: required_documents
+    type: array
+    detail_level: detailed
+    required: true
+    description: "Documents required during application and enrolment, separated where possible. Use official wording from the application page or programme call."
+    item_shape:
+      document_name: string
+      stage: "application | enrolment | visa/pre-enrolment | other"
+      required_for: "all | eu | non_eu | conditional"
+      notes: string
+      source_url: string
+  - name: entry_exam_or_test
+    type: object
+    detail_level: detailed
+    required: false
+    description: "Programme-specific test or exam, such as TOLC, SAT, IMAT, local selection test, interview, portfolio, or no test."
+    suggested_shape:
+      test_name: string
+      mandatory: boolean
+      applies_to: string
+      dates: string
+      scoring_or_threshold: string
+      source_url: string
+  - name: tuition_or_fees_link
+    type: string
+    detail_level: brief
+    required: false
+    description: "Official tuition or fees URL, preferably the University of Padua tuition fees page or programme-specific apply.unipd.it fee section."
+  - name: official_program_url
+    type: string
+    detail_level: brief
+    required: true
+    description: "Official University of Padua programme page URL."
+  - name: official_call_url
+    type: string
+    detail_level: moderate
+    required: false
+    description: "Official 2026/2027 admission call, selection notice, PDF, or programme-specific admission notice URL. Prefer English call when available."
+  - name: source_quotes
+    type: array
+    detail_level: detailed
+    required: true
+    description: "Short supporting quotes from official sources. Keep each quote short and attach source URL."
+    item_shape:
+      quote: string
+      source_url: string
+      field_supported: string
+  - name: uncertainty_notes
+    type: array
+    detail_level: moderate
+    required: true
+    description: "Caveats, missing data, old-year fallback, translation/legal-validity caveat, programme pending approval, duplicated listings, or conflicting deadlines."
+reserved_fields:
+  uncertain:
+    type: array
+    detail_level: moderate
+    description: "Auto-filled list of fields that could not be confidently resolved from official sources."
+field_categories:
+  - category: "programme_identity"
+    fields:
+      - name: program_name
+        required: true
+      - name: level
+        required: true
+      - name: teaching_language
+        required: true
+      - name: campus
+        required: false
+      - name: degree_class
+        required: false
+  - category: "admission_requirements"
+    fields:
+      - name: admission_type
+        required: true
+      - name: academic_requirements
+        required: true
+      - name: language_requirements
+        required: true
+      - name: application_deadline_eu
+        required: false
+      - name: application_deadline_non_eu
+        required: false
+      - name: required_documents
+        required: true
+      - name: entry_exam_or_test
+        required: false
+  - category: "sources"
+    fields:
+      - name: tuition_or_fees_link
+        required: false
+      - name: official_program_url
+        required: true
+      - name: official_call_url
+        required: false
+      - name: source_quotes
+        required: true
+      - name: uncertainty_notes
+        required: true
+extraction_guidance:
+  programme_url_strategy:
+    - "Start from outline.yaml official_program_url."
+    - "Follow official Apply, Registration, Admission notice, Avviso/Bando, or Complete Course Sheet links from that page."
+    - "Use apply.unipd.it only as an official source when the central programme page does not expose enough admission detail."
+  deadline_strategy:
+    - "Distinguish unlimited-number and limited-number programmes."
+    - "For central Study in English 2026/27 timeline, unlimited-number calls are November 2, 2025-February 2, 2026; March 2-May 2, 2026; and June 2-August 2, 2026 only for EU/non-EU residing in Italy."
+    - "For limited-number programmes, use programme-specific call dates when present; otherwise capture central limited-number guidance and mark uncertainty."
+  language_strategy:
+    - "Use the programme-specific call when it states B1/B2 or certificate rules."
+    - "When only the central English language page is available, record the central rule and mark exact level as uncertain if not stated."
+  admissions_type_strategy:
+    - "Map 'Access Open access with admission requirements' to open access."
+    - "Map 'Scheduled access', 'Scheduled Local', 'limited number of places', or ranked selection to restricted access or selection call depending on call wording."
+    - "Map Medicine admissions tests separately under entry_exam_or_test."
+quality_checks:
+  - "Every item must have at least one official_program_url."
+  - "Every final JSON object must include source_quotes for requirements and deadlines."
+  - "No non-official source URLs may appear in final objects."
+  - "New/to-be-approved programmes must retain an uncertainty note until an official approval/admission call is found."
+  - "If dates conflict, keep both quoted dates and explain conflict in uncertainty_notes."

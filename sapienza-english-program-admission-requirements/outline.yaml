@@ -1,0 +1,336 @@
+topic: "Sapienza University of Rome – English-taught degree programme admission requirements"
+generated_at: "2026-06-03"
+research_language: "en"
+
+scope:
+  institution: "Sapienza University of Rome (Università degli Studi di Roma La Sapienza)"
+  allowed_sources:
+    - "Official Sapienza pages only (uniroma1.it domain)"
+    - "Official corsidilaurea.uniroma1.it course catalogue pages"
+    - "Official Sapienza PDFs hosted under uniroma1.it or corsidilaurea.uniroma1.it"
+    - "Official faculty subdomains (e.g. acsai.di.uniroma1.it, farmed.web.uniroma1.it)"
+  source_priority:
+    - "Use 2026/2027 admission pages or calls where available."
+    - "If 2026/2027 is not published for a programme, use the latest official Sapienza year and flag uncertainty."
+  included_programmes:
+    - "Programmes marked 'English' or 'English/Italian' (bilingual) in the official corsidilaurea.uniroma1.it catalogue."
+    - "Bachelor (Laurea Triennale), Master (Laurea Magistrale), and Single-Cycle programmes taught entirely or substantially in English."
+  excluded_programmes:
+    - "Programmes taught only in Italian."
+    - "Specialising masters (Master universitari), PhD programmes, exchange-only tracks, single courses, and non-degree offerings."
+    - "Non-official aggregator pages or third-party admissions summaries."
+  item_definition: "Each item is one official degree programme, not one faculty, call, or intake."
+  partially_english_policy: "Partially-English programmes (marked bilingual by Sapienza) are included but must be flagged with partially_english_flag: true."
+
+source_inventory:
+  catalogue_english_filter:
+    url: "https://corsidilaurea.uniroma1.it/en/solr-offerta-formativa-t?f[0]=field_lingua_erogazione:value:en"
+    role: "Authoritative English-filtered programme list — primary source for confirming all items."
+  main_catalogue:
+    url: "https://corsidilaurea.uniroma1.it/en"
+    role: "Main Sapienza course catalogue (2025-2026 base)."
+  programmes_in_english_brochure:
+    url: "https://www.uniroma1.it/sites/default/files/field_file_allegati/programmesinenglish_web.pdf"
+    role: "Sapienza 'Programmes in English' brochure PDF — cross-check for open-access vs restricted programmes."
+  programmes_in_english_restricted:
+    url: "https://www.uniroma1.it/sites/default/files/field_file_allegati/programmes_in_english.pdf"
+    role: "Restricted-access and pre-selection programmes PDF."
+  movein_academic_requirements_2026_2027:
+    url: "https://www.uniroma1.it/sites/default/files/field_file_allegati/academic_requirements_sapienza_2026_2027_0.pdf"
+    role: "MoveIN online pre-selection academic requirements 2026-2027 — primary source for non-EU admission requirements and deadlines."
+  international_admissions_hub:
+    url: "https://www.uniroma1.it/en/admissions"
+    role: "International admissions hub; points to per-intake calls and MoveIN platform."
+  applying_international_student:
+    url: "https://www.uniroma1.it/en/pagina/applying-sapienza-international-student"
+    role: "Step-by-step guide for international (non-EU) applicants."
+  restricted_access_tolc:
+    url: "https://www.uniroma1.it/en/pagina/restricted-access-degree-programmes-tolc-i-and-selections"
+    role: "Restricted-access programmes page: TOLC-I and selection call list."
+  tuition_fees:
+    url: "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
+    role: "Official tuition fees and benefits page."
+  acsai_site:
+    url: "https://acsai.di.uniroma1.it/"
+    role: "ACSAI bachelor official dedicated site — admission, test requirements, enrolment."
+  medicine_english_faq:
+    url: "https://farmed.web.uniroma1.it/en/faq-english-course-f-medicine-and-surgery"
+    role: "Medicine and Surgery (English, Course F) FAQ — admission test reform context."
+
+execution:
+  batch_size: 5
+  items_per_agent: 3
+  output_dir: "./results"
+  expected_output_per_item: "One JSON object matching fields.yaml"
+  deduplication_key: "level + program_name + official_program_url"
+  citation_policy:
+    - "Every non-empty requirement field must cite at least one official Sapienza source URL."
+    - "Use short direct quotes only; prefer paraphrase for long official text."
+    - "If a field is inferred from a catalogue tag or brochure, record the inference in uncertainty_notes."
+
+items:
+  # ─── BACHELOR (Laurea Triennale) ───────────────────────────────────────────
+  - id: "bachelor-acsai"
+    program_name: "Applied Computer Science and Artificial Intelligence (ACSAI)"
+    level: "bachelor"
+    teaching_language: "English"
+    faculty: "Information Engineering, Informatics and Statistics"
+    official_program_url: "https://corsidilaurea.uniroma1.it/en/course/33502"
+    admission_notes: "TOLC-I (CISIA) or SAT General Test; B2 English required"
+    uncertainty_notes: []
+
+  - id: "bachelor-bioinformatics"
+    program_name: "Bioinformatics"
+    level: "bachelor"
+    teaching_language: "English"
+    faculty: "Mathematics, Physics and Natural Sciences / Pharmacy and Medicine (joint)"
+    official_program_url: null
+    admission_notes: "Needs confirmation on English-filter catalogue"
+    uncertainty_notes: ["Confirmed as English-taught bachelor on catalogue; URL not yet retrieved."]
+
+  - id: "bachelor-nursing"
+    program_name: "Nursing"
+    level: "bachelor"
+    teaching_language: "English"
+    faculty: "Pharmacy and Medicine"
+    official_program_url: null
+    admission_notes: "Verify restricted-access or open-access status"
+    uncertainty_notes: ["Listed in agent findings; confirm on English-filtered catalogue and retrieve URL."]
+
+  - id: "bachelor-sustainable-building-engineering"
+    program_name: "Sustainable Building Engineering"
+    level: "bachelor"
+    teaching_language: "English"
+    faculty: "Civil and Industrial Engineering"
+    official_program_url: null
+    uncertainty_notes: ["Listed in agent findings; confirm on English-filtered catalogue and retrieve URL."]
+
+  - id: "bachelor-pharmaceutical-applications"
+    program_name: "Pharmaceutical Applications (Biomolecular, Pharmaceutical & IT Research)"
+    level: "bachelor"
+    teaching_language: "English"
+    faculty: "Pharmacy and Medicine"
+    official_program_url: null
+    uncertainty_notes: ["Listed in agent findings; verify exact programme name and URL on English-filtered catalogue."]
+
+  - id: "bachelor-business-management"
+    program_name: "Business Management"
+    level: "bachelor"
+    teaching_language: "English"
+    faculty: "Economics"
+    official_program_url: "https://corsidilaurea.uniroma1.it/en/course/33447"
+    uncertainty_notes: []
+
+  # ─── SINGLE-CYCLE ──────────────────────────────────────────────────────────
+  - id: "single-cycle-medicine-surgery-english"
+    program_name: "Medicine and Surgery (English – Course F)"
+    level: "single-cycle"
+    teaching_language: "English"
+    faculty: "Pharmacy and Medicine"
+    official_program_url: "https://corsidilaurea.uniroma1.it/en/course/33454"
+    admission_notes: "Restricted access; historically IMAT; 2025-2026 reform introduced filter semester — confirm 2026-2027 status"
+    uncertainty_notes: ["Italy reformed Medicine admissions for 2025-2026. Must confirm whether IMAT or filter-semester applies to English Course F for 2026-2027."]
+
+  # ─── MASTER (Laurea Magistrale) ────────────────────────────────────────────
+  - id: "master-ai-robotics"
+    program_name: "Artificial Intelligence and Robotics"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Information Engineering (DIAG)"
+    official_program_url: "https://corsidilaurea.uniroma1.it/en/corso/2021/30431/home"
+    uncertainty_notes: []
+
+  - id: "master-data-science"
+    program_name: "Data Science"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Information Engineering, Informatics and Statistics"
+    official_program_url: "https://corsidilaurea.uniroma1.it/en/course/33519"
+    uncertainty_notes: []
+
+  - id: "master-engineering-cs-ai"
+    program_name: "Engineering in Computer Science and Artificial Intelligence"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Information Engineering"
+    official_program_url: "https://corsidilaurea.uniroma1.it/en/course/33515"
+    uncertainty_notes: []
+
+  - id: "master-cybersecurity"
+    program_name: "Cybersecurity"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Information Engineering, Informatics and Statistics"
+    official_program_url: "https://corsidilaurea.uniroma1.it/en/course/33516"
+    uncertainty_notes: []
+
+  - id: "master-computer-science"
+    program_name: "Computer Science"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Information Engineering, Informatics and Statistics"
+    official_program_url: "https://corsidilaurea.uniroma1.it/en/corso/2024/29932/home"
+    uncertainty_notes: []
+
+  - id: "master-control-engineering"
+    program_name: "Control Engineering"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Information Engineering (DIAG)"
+    official_program_url: "https://corsidilaurea.uniroma1.it/en/corso/2023/29933/home"
+    uncertainty_notes: []
+
+  - id: "master-nanotechnology-engineering"
+    program_name: "Nanotechnology Engineering"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Engineering"
+    official_program_url: null
+    admission_notes: "See https://nano.web.uniroma1.it/en/enrolment"
+    uncertainty_notes: ["URL on main catalogue not yet retrieved; use dedicated site https://nano.web.uniroma1.it/en/enrolment as source."]
+
+  - id: "master-space-astronautical-engineering"
+    program_name: "Space and Astronautical Engineering"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Civil and Industrial Engineering"
+    official_program_url: null
+    uncertainty_notes: ["Confirm on English-filtered catalogue and retrieve official URL."]
+
+  - id: "master-transport-systems-engineering"
+    program_name: "Transport Systems Engineering"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Civil and Industrial Engineering"
+    official_program_url: null
+    uncertainty_notes: ["Confirm on English-filtered catalogue and retrieve official URL."]
+
+  - id: "master-product-service-design"
+    program_name: "Product and Service Design"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Architecture"
+    official_program_url: "https://corsidilaurea.uniroma1.it/en/corso/2020/30811/home"
+    uncertainty_notes: []
+
+  - id: "master-health-economics"
+    program_name: "Health Economics"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Economics (Department of Economics and Law)"
+    official_program_url: null
+    admission_notes: "See https://ecodir.web.uniroma1.it/en/ma-health-economics"
+    uncertainty_notes: ["URL on main catalogue not yet retrieved; use dedicated site as source."]
+
+  - id: "master-economics"
+    program_name: "Economics"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Economics"
+    official_program_url: null
+    uncertainty_notes: ["Confirm exact programme name and URL on English-filtered Economics-faculty pages."]
+
+  - id: "master-development-international-cooperation"
+    program_name: "Development and International Cooperation Studies"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Political Sciences / Economics"
+    official_program_url: "https://corsidilaurea.uniroma1.it/en/course/33629"
+    uncertainty_notes: []
+
+  - id: "master-industrial-pharmacy"
+    program_name: "Industrial Pharmacy"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Pharmacy and Medicine"
+    official_program_url: null
+    admission_notes: "See https://www.uniroma1.it/en/offerta-formativa/master/2025/industrial-pharmacy"
+    uncertainty_notes: ["Verify this is a Laurea Magistrale and not a Master universitario (post-graduate specialising master) — they are different degree types at Italian universities."]
+
+  - id: "master-cognitive-neuroscience"
+    program_name: "Cognitive Neuroscience and Neuropsychological Rehabilitation"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Psychology and Cognitive Science"
+    official_program_url: null
+    uncertainty_notes: ["Plausible based on prior knowledge; confirm on English-filtered catalogue and retrieve official URL."]
+
+  - id: "master-medical-biotechnology"
+    program_name: "Medical Biotechnology and Molecular Medicine"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Pharmacy and Medicine"
+    official_program_url: null
+    uncertainty_notes: ["Plausible based on prior knowledge; confirm on English-filtered catalogue and retrieve official URL."]
+
+  - id: "master-physics"
+    program_name: "Physics (English track)"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Mathematics, Physics and Natural Sciences"
+    official_program_url: null
+    uncertainty_notes: ["Prior knowledge item; may be Italian-only or bilingual. Must verify English status on catalogue before including."]
+
+  - id: "master-astronomy-astrophysics"
+    program_name: "Astronomy and Astrophysics"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Mathematics, Physics and Natural Sciences"
+    official_program_url: null
+    uncertainty_notes: ["Prior knowledge item; may be Italian-only. Must verify English status on catalogue before including."]
+
+  - id: "master-statistical-methods-applications"
+    program_name: "Statistical Methods and Applications"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Statistics"
+    official_program_url: null
+    uncertainty_notes: ["Renamed from 'Statistics' in initial framework; agent suggests this may be the correct official name. Confirm on catalogue."]
+
+  - id: "master-evolutionary-biology"
+    program_name: "Evolutionary Biology"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Mathematics, Physics and Natural Sciences"
+    official_program_url: null
+    uncertainty_notes: ["Prior knowledge item; verify English status on catalogue before including."]
+
+  - id: "master-molecular-medicine"
+    program_name: "Molecular Medicine"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Pharmacy and Medicine"
+    official_program_url: null
+    uncertainty_notes: ["Prior knowledge item; verify English status on catalogue before including."]
+
+  - id: "master-landscape-architecture"
+    program_name: "Landscape Architecture – Theory and Project"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Architecture"
+    official_program_url: null
+    uncertainty_notes: ["Prior knowledge item; verify English status on catalogue before including."]
+
+  - id: "master-environmental-resources-economics"
+    program_name: "Environmental and Resources Economics"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Economics"
+    official_program_url: null
+    uncertainty_notes: ["Prior knowledge item; confirm exact programme name and URL on English-filtered Economics-faculty pages."]
+
+  - id: "master-european-economy-business-law"
+    program_name: "European Economy and Business Law"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Economics / Law"
+    official_program_url: null
+    uncertainty_notes: ["Prior knowledge item; confirm exact programme name and URL on English-filtered catalogue."]
+
+  - id: "master-management"
+    program_name: "Management (English track)"
+    level: "master"
+    teaching_language: "English"
+    faculty: "Economics"
+    official_program_url: null
+    uncertainty_notes: ["Prior knowledge item; confirm exact programme name and English status on catalogue."]

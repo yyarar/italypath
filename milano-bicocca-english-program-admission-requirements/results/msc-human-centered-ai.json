@@ -1,0 +1,139 @@
+{
+  "program_name": "Human-Centered Artificial Intelligence",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Milan / Pavia (inter-university programme jointly organised by the University of Milano-Bicocca, the University of Pavia and the University of Milan; admission applications are managed by the University of Milan)",
+  "degree_class": "LM-55 R",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": {
+    "summary": "Candidates must hold (or obtain by 31 December 2026) a bachelor's degree (or equivalent three-year university degree, including a foreign degree recognised as appropriate by the University) and satisfy specific curricular requirements before the Admission Board verifies their initial preparation, possibly via an interview.",
+    "prior_degree_or_diploma": "A bachelor's degree (or equivalent three-year university diploma) in the degree classes listed on the programme 'Application' page, or a foreign university degree recognised as appropriate by the University. Graduating students may apply provided they obtain the degree no later than 31 December 2026.",
+    "subject_requirements_cfu": "A minimum of 30 CFU across the listed scientific-disciplinary sectors, of which at least 12 CFU in computer science / mathematics / statistics (INF/01, ING-INF/05, MAT/01, MAT/02, MAT/05, MAT/06, MAT/07, MAT/09, SECS-S/01, SECS-S/03) and at least 12 CFU in humanities, cognitive sciences and law sectors (M-FIL/02, M-FIL/03, M-FIL/05, M-PSI/01, M-PSI/02, BIO/09, IUS/01, IUS/04, IUS/08, IUS/09, IUS/10, IUS/14, IUS/20).",
+    "personal_preparation": "Personal preparation is assessed by the Admission Board, which may request an in-person or remote interview covering algorithms and programming, logic, probability, statistics, algebra, and basic philosophical / cognitive-science / legal foundations of AI.",
+    "international_qualification": "Foreign qualifications are assessed for eligibility by the University in compliance with ministerial regulations and bilateral agreements. 2 places are reserved for Marco Polo programme candidates.",
+    "source_url": "https://hcai.cdl.unimi.it/en/enrolment"
+  },
+  "language_requirements": {
+    "required_level": "English at level B2 or higher of the CEFR.",
+    "accepted_proofs": [
+      "A valid English language certificate at level B2 or higher (issued no more than 3 years before).",
+      "A University of Milan SLAM language-centre certification (within the last 4 years).",
+      "A bachelor's degree delivered entirely or predominantly in English.",
+      "Passing the entry test administered by the University of Milan Language Centre (SLAM)."
+    ],
+    "minimum_scores": "[uncertain] Specific minimum IELTS/TOEFL/Cambridge scores are not published on the HCAI programme/enrolment page; the University of Milan SLAM recognised-certificate list applies.",
+    "exemption_rules": "Holders of a bachelor's degree delivered entirely/predominantly in English, or of a recognised B2+ certificate, are exempt from the SLAM entry test.",
+    "assessment_or_upload_stage": "English proficiency must be demonstrated at admission; candidates without an accepted certificate may sit the SLAM entry test (calendar at https://www.unimi.it/en/node/39267/).",
+    "source_url": "https://hcai.cdl.unimi.it/en/enrolment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Entry requirements assessment (individual admission interview run by the Admission Board). No standardised external test (TOLC/GRE/GMAT).",
+    "mandatory": "An interview may be requested; the Admission Board may admit candidates without further interview where curricular and language requirements are clearly met.",
+    "is_selective": "Open with entry requirements examination - the interview verifies adequacy of preparation rather than ranking candidates.",
+    "format": "In-person or remote interview covering algorithms and programming, logic, probability, statistics, algebra, and basic philosophical / cognitive / legal foundations of AI.",
+    "scoring_or_threshold": "[uncertain] No numerical pass threshold is published; the Admission Board communicates the assessment outcome by email.",
+    "source_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "A.Y. 2026/2027: online admission application for EU candidates and equivalents open from 22 January 2026 to 30 October 2026 (via studente.unimi.it)."
+    ],
+    "degree_completion_deadline": "Degree and entry requirements must be obtained by 31 December 2026.",
+    "enrolment_deadline": "Enrolment of admitted students from 5 May 2026 to 15 January 2027.",
+    "notes": "Applications and enrolment are managed by the University of Milan because the programme is administered there; a EUR 30 application fee is due by the admission deadline.",
+    "source_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "A.Y. 2026/2027: non-EU candidates applying for a visa must submit the online admission application from 22 January 2026 to 30 April 2026 (via studente.unimi.it)."
+    ],
+    "visa_or_pre_enrolment_deadline": "Non-EU visa candidates must submit the Universitaly pre-enrolment application by 31 July 2026; applications after this date are not accepted.",
+    "foreign_qualification_documents_deadline": "Documentation for candidates with foreign qualifications (legalised/apostilled degree, Statement of Comparability or Declaration of Value, etc.) must be completed by 30 November 2026, otherwise enrolment is cancelled.",
+    "notes": "Candidates with qualifications obtained abroad apply via apply.unimi.it; language requirements for non-EU visa candidates follow ministerial provisions for 2026/27 published on the dedicated webpage.",
+    "source_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid ID document (identity card or passport)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Uploaded in .jpg, .pdf or .png; passport (or other valid ID) is mandatory for candidates with foreign qualifications applying via apply.unimi.it.",
+      "source_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf"
+    },
+    {
+      "document_name": "Self-certification of degree/enrolment with exam records (Italian qualifications) or Bachelor's degree certificate (foreign qualifications)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "For Italian degrees: self-certification with exams, grades, ECTS credits and SSD sectors. For foreign degrees: B.Sc. or degree-awarding certificate in Italian/English/French/German/Spanish.",
+      "source_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf"
+    },
+    {
+      "document_name": "Diploma Supplement or transcript of records (courses, marks, ECTS, academic field, grading system)",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Required for candidates with foreign qualifications; in English, Italian, French, German or Spanish.",
+      "source_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf"
+    },
+    {
+      "document_name": "English language proficiency proof (B2+ certificate, SLAM certification, English-taught degree, or SLAM entry test)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "B2-or-higher CEFR; certificate must be issued within the last 3 years.",
+      "source_url": "https://hcai.cdl.unimi.it/en/enrolment"
+    },
+    {
+      "document_name": "Statement of Comparability (ENIC-NARIC / CIMEA) or Declaration of Value, plus legalised/apostilled degree, high-school diploma, Italian tax code, residence-permit receipt",
+      "stage": "enrolment/visa",
+      "required_for": "international_qualification",
+      "notes": "Required to finalise enrolment for foreign-qualification candidates; for Lisbon Convention signatory countries the Diploma Supplement or ARDI Correspondence Statement may replace the DoV/Statement of Comparability. Due by 30 November 2026.",
+      "source_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf"
+    },
+    {
+      "document_name": "EUR 30 application fee",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Payable by the admission deadline, on pain of exclusion.",
+      "source_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf"
+    }
+  ],
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://en.unimib.it/graduate/human-centered-artificial-intelligence",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf",
+  "source_quotes": [
+    {
+      "quote": "Teaching Language: English; Campuses: Milano/Pavia; Degree Class: LM-55; Inter-university course jointly organized by University of Milano-Bicocca, University of Pavia, and University of Milan.",
+      "source_url": "https://en.unimib.it/graduate/human-centered-artificial-intelligence",
+      "field_supported": "program_name, level, teaching_language, campus, degree_class"
+    },
+    {
+      "quote": "Applications for admission are managed by the University of Milan.",
+      "source_url": "https://en.unimib.it/graduate/human-centered-artificial-intelligence",
+      "field_supported": "admission_type, official_call_url"
+    },
+    {
+      "quote": "Online admission application for EU candidates and equivalents from 22 January to 30 October 2026; Online admission application for non EU candidates applying for a visa from 22 January to 30 April 2026; Enrolment of admitted students from 5 May 2026 to 15 January 2027.",
+      "source_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "source_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "Minimum 30 CFUs: at least 12 CFU in computer science / mathematics / statistics and at least 12 CFU in humanities, cognitive sciences and law; Proficiency in English at level B2 or higher according to the Common European Framework.",
+      "source_url": "https://hcai.cdl.unimi.it/en/enrolment",
+      "field_supported": "academic_requirements, language_requirements"
+    }
+  ],
+  "uncertainty_notes": [
+    "Teaching language confirmed fully English on the official en.unimib.it programme page (also on hcai.cdl.unimi.it).",
+    "CFU/subject prerequisites confirmed: 30 CFU total (>=12 CFU computer science/maths/statistics, >=12 CFU humanities/cognitive sciences/law) with the listed SSD codes.",
+    "B2 English confirmed (B2 or higher CEFR); however specific minimum IELTS/TOEFL/Cambridge scores are not published on the HCAI page - the University of Milan SLAM recognised-certificate list applies, so language_requirements minimum_scores is marked uncertain.",
+    "EU and non-EU calls confirmed from the official 2026/27 admission notice (LM-55 R). The programme is inter-university but administered by the University of Milan, so the official call PDF and the fees link are hosted on unimi.it rather than on a unimib.it subdomain; included per task scope.",
+    "Deadlines re-verified 2026-06-11: this programme is administered by the University of Milan (lead university) via studente.unimi.it, NOT by apply.unimib.it. The UNIMIB unified Master 2026/27 calendar therefore does NOT apply. Existing programme-specific deadlines (EU 22 Jan - 30 Oct 2026; non-EU visa 22 Jan - 30 Apr 2026) preserved."
+  ],
+  "uncertain": [
+    "language_requirements"
+  ]
+}

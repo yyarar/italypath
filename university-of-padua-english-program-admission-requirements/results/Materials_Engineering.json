@@ -1,0 +1,175 @@
+{
+  "program_name": "Materials Engineering",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Padua, Italy",
+  "degree_class": "LM-53",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a minimum three-year bachelor's degree or equivalent in Materials Engineering, Chemical Engineering, Mechanical Engineering, Metallurgical Engineering, Physics, or Polymer Engineering, and they must show prior preparation in fundamentals of materials science and solid mechanics.",
+    "prior_degree_or_diploma": "Bachelor diploma (or equivalent), with a minimum three-year undergraduate degree in Materials Engineering, Chemical Engineering, Mechanical Engineering, Metallurgical Engineering, Physics, or Polymer Engineering.",
+    "subject_requirements": "Proven skills in Fundamentals of Materials Science and Solid Mechanics are always required.",
+    "gpa_or_country_requirements": "Country-based specific entry title and GPA requirements apply through the University of Padua rules. The programme page does not publish one universal GPA threshold for all applicants [uncertain].",
+    "source_url": "https://apply.unipd.it/courses/course/205-materials-engineering"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (CEFR) or equivalent.",
+    "accepted_proofs": [
+      "TOEFL iBT with a minimum score of 80.",
+      "IELTS Academic or General Training with a minimum score of 6.0.",
+      "Cambridge English B2 First with a minimum score of 173.",
+      "Trinity College London Integrated Skills in English ISE II.",
+      "Oxford Test of English with a minimum score of 126.",
+      "Pearson English International Certificate Level 3 Upper Intermediate.",
+      "Pearson Test of English Academic with a minimum score of 65."
+    ],
+    "exemption_rules": [
+      "Applicants are exempt if their previous education leading to the entry qualification was completed entirely in English.",
+      "Applicants are exempt if they are native English speakers from one of the countries recognized by the University of Padua."
+    ],
+    "deadline": "31 August 2026 for open access degree programmes.",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "2 June 2026 - 2 August 2026",
+    "notes": "Call Three is only for EU students and non-EU students residing in Italy. Applicants may apply to the programme only once per academic year.",
+    "source_url": "https://apply.unipd.it/courses/course/205-materials-engineering"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "Not applicable for non-EU applicants residing outside Italy.",
+    "notes": "The third call is reserved for EU students and non-EU students residing in Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/205-materials-engineering"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae (Resume) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught degree applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Motivational letter in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught degree applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "If needed, an English or Italian translation must be uploaded at application stage. No legalized documents are required at application stage.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Academic qualification or provisional enrollment certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "If the final qualification has not yet been awarded, an enrollment or provisional certificate is accepted.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Valid ID card or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU applicants and non-EU applicants residing in Italy may use an ID card; other applicants normally provide a passport.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Residence permit",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only for non-EU citizens residing in Italy.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "English language certificate or accepted exemption proof",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required unless the applicant qualifies for an official exemption.",
+      "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+    },
+    {
+      "document_name": "Bachelor's diploma translated into Italian or English and legalized",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "A post-secondary qualification awarded by a non-university higher education institution is also accepted if it allows admission to master's degrees.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Transcript of Records translated into Italian or English and legalized",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "The transcript should state passed exams, grades, and preferably ECTS credits and programme description.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment and Study Visa D - enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Non-EU citizens residing outside Italy must pre-enrol through Universitaly no later than 15 July and need a study visa to enter Italy.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Residence permit or residence-permit application receipt (Assicurata)",
+      "stage": "enrolment",
+      "required_for": "conditional",
+      "notes": "Required for non-EU applicants after arrival in Italy; the residence-permit application must be filed within 8 working days.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No standard written entry test; oral interview may be requested",
+    "mandatory": false,
+    "applies_to": "Applicants whose competencies need further verification by the academic commission.",
+    "dates": "If required, the interview is scheduled individually and communicated by email.",
+    "scoring_or_threshold": "No fixed test score is stated. The commission reserves the right to conduct oral interviews via video call to verify the candidates' competencies.",
+    "source_url": "https://apply.unipd.it/courses/course/205-materials-engineering"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/materials-engineering",
+  "official_call_url": "https://apply.unipd.it/courses/course/205-materials-engineering",
+  "source_quotes": [
+    {
+      "quote": "Access Open access with requirements",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/materials-engineering",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Proven skills in Fundamentals of Materials Science and Solid Mechanics are always required",
+      "source_url": "https://apply.unipd.it/courses/course/205-materials-engineering",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "B2 Level ( CEFR ) or equivalent",
+      "source_url": "https://apply.unipd.it/courses/course/205-materials-engineering",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Call Three : 2 June 2026 - 2 August 2026 (only for EU students and non-EU students residing in Italy)",
+      "source_url": "https://apply.unipd.it/courses/course/205-materials-engineering",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "The Commission reserves the right to conduct oral interviews via video call",
+      "source_url": "https://apply.unipd.it/courses/course/205-materials-engineering",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "31st August for open access degree programmes.",
+      "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes",
+      "field_supported": "language_requirements"
+    }
+  ],
+  "uncertainty_notes": [
+    "The programme page points applicants to country-based entry-title and GPA rules, but it does not publish a single programme-wide GPA threshold."
+  ],
+  "uncertain": [
+    "academic_requirements"
+  ]
+}

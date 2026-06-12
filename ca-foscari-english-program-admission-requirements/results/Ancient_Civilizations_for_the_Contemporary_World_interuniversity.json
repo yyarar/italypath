@@ -1,0 +1,140 @@
+{
+  "program_name": "Ancient Civilizations for the Contemporary World (inter-university)",
+  "level": "bachelor",
+  "teaching_language": "English",
+  "campus": "Milan/Venice",
+  "degree_class": "L-1 (Cultural heritage)",
+  "admission_type": "restricted access",
+  "academic_requirements": {
+    "summary": "This is an inter-university limited-admission bachelor's degree. Applicants need a secondary-school qualification and at least 12 years of schooling. Ca' Foscari's apply.unive.it page states that applications are submitted to the partner institution, so the full admission workflow is partner-managed from Ca' Foscari's perspective [uncertain].",
+    "prior_degree_or_diploma": "High school or secondary education qualification (or higher); students must have attended school for at least 12 years.",
+    "subject_requirements": "Applicants must take the online written entry test called English TEST HUMANITIES, which assesses reading and argumentation, logical reasoning, and interpretation and use of data.",
+    "gpa_or_country_requirements": "Country-specific validity rules still apply under Ca' Foscari's 'Entry requirements for applicants with an international qualification'; if documents are not in English or Italian, professional translations are required.",
+    "committee_or_pre_evaluation": "Ca' Foscari's public pages do not describe a full Ca' Foscari-side pre-evaluation or committee workflow for this inter-university intake; instead, they state that the application must be submitted to the partner institution and that Ca' Foscari completes registration afterward [uncertain].",
+    "source_url": "https://apply.unive.it/courses/course/645-ba-ancient-civilizations-contemporary-world-inter-university-degree"
+  },
+  "language_requirements": {
+    "required_level": "English B2",
+    "accepted_proofs": [
+      "A recognised English-language certification is required, but the Ca' Foscari apply page points to the partner institution's list rather than reproducing the accepted-certification list on unive.it/apply.unive.it [uncertain]."
+    ],
+    "exemption_rules": [
+      "No Ca' Foscari-hosted exemption list is published on the public pages reviewed for this inter-university programme [uncertain]."
+    ],
+    "assessment_or_upload_stage": "The apply.unive.it page states that proof of English level must be uploaded, and if it is missing at enrolment an English OFA is assigned.",
+    "deadline": "At enrolment; the exact public partner-managed timing is not stated on Ca' Foscari pages [uncertain].",
+    "source_url": "https://apply.unive.it/courses/course/645-ba-ancient-civilizations-contemporary-world-inter-university-degree"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "The Ca' Foscari apply page for 2026/2027 says 'This intake is not applicable' and directs applicants to the partner institution; Ca' Foscari does not publish the full EU application-round calendar for this inter-university programme on the reviewed public pages [uncertain]."
+    ],
+    "enrolment_deadline": "Ca' Foscari states it completes its own registration after enrolment at the University of Milan; no Ca' Foscari public EU enrolment deadline was found [uncertain].",
+    "notes": "For further information on enrolment, Ca' Foscari tells applicants to visit the University of Milan course website. This means the public Ca' Foscari pages do not provide a complete EU deadline set for this intake. [uncertain]",
+    "source_url": "https://www.unive.it/web/en/4966/enrol-and-study"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Non-European applicants requiring a visa must submit their application for admission during Session 1."
+    ],
+    "visa_or_pre_enrolment_deadline": "30 April 2026.",
+    "current_status": "The Ca' Foscari apply page for academic year 2026/27 says 'This intake is not applicable' on the portal itself and directs applicants to the partner institution.",
+    "notes": "The Session 1 deadline is stated on Ca' Foscari's apply page, but the detailed inter-university call and the rest of the partner-managed schedule are not published on Ca' Foscari pages. [uncertain]",
+    "source_url": "https://apply.unive.it/courses/course/645-ba-ancient-civilizations-contemporary-world-inter-university-degree"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or ID card, or receipt of renewal/first request",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "European applicants may use an ID card; Ca' Foscari's general international-entry page lists these as mandatory documents for all programmes.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Valid residence permit or receipt of renewal/first request",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required for non-European applicants already residing in Italy or in the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Secondary-school mark sheet or transcript of records for at least the last year of study",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Ca' Foscari's general international-entry page lists this as mandatory for bachelor's applications; if the applicant is still studying, a provisional transcript is mandatory.",
+      "source_url": "https://www.unive.it/pag/41327/"
+    },
+    {
+      "document_name": "Final secondary-school leaving qualification or provisional document, with translation when needed",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "The apply.unive.it programme page accepts entry documents in English or Italian and requires professional translations otherwise.",
+      "source_url": "https://apply.unive.it/courses/course/645-ba-ancient-civilizations-contemporary-world-inter-university-degree"
+    },
+    {
+      "document_name": "Recognised English B2 certification",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "Required by the programme page, but the accepted-certification list itself is not reproduced on Ca' Foscari pages and is linked externally to the partner institution [uncertain].",
+      "source_url": "https://apply.unive.it/courses/course/645-ba-ancient-civilizations-contemporary-world-inter-university-degree"
+    },
+    {
+      "document_name": "English TEST HUMANITIES registration/result",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "Applicants must register for and take the entry test in response to one of the partner-managed calls for applications [uncertain].",
+      "source_url": "https://apply.unive.it/courses/course/645-ba-ancient-civilizations-contemporary-world-inter-university-degree"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "English TEST HUMANITIES",
+    "mandatory": true,
+    "applies_to": "All applicants to this limited-admission inter-university bachelor's degree.",
+    "dates": "Non-European applicants requiring a visa must submit their admission application during Session 1, with a deadline of 30 April 2026. The detailed test calendar is managed through partner-institution calls and is not published on the Ca' Foscari pages reviewed [uncertain].",
+    "scoring_or_threshold": "The test evaluates reading and argumentation skills, the ability to draw general conclusions from specific observations, logical reasoning, and interpretation and use of data.",
+    "source_url": "https://apply.unive.it/courses/course/645-ba-ancient-civilizations-contemporary-world-inter-university-degree"
+  },
+  "tuition_or_fees_link": "https://apply.unive.it/courses/course/645-ba-ancient-civilizations-contemporary-world-inter-university-degree",
+  "official_program_url": "https://www.unive.it/degree/lt7",
+  "official_call_url": "https://apply.unive.it/courses/course/645-ba-ancient-civilizations-contemporary-world-inter-university-degree",
+  "source_quotes": [
+    {
+      "quote": "Ancient Civilizations for the Contemporary World (inter-university)",
+      "source_url": "https://www.unive.it/pag/15612/",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Admission: Limited",
+      "source_url": "https://www.unive.it/web/en/4967/presentation",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Students must have attended school for at least 12 years.",
+      "source_url": "https://apply.unive.it/courses/course/645-ba-ancient-civilizations-contemporary-world-inter-university-degree",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "A minimum B2-level knowledge of English is required.",
+      "source_url": "https://apply.unive.it/courses/course/645-ba-ancient-civilizations-contemporary-world-inter-university-degree",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "must submit an application to our partner institution",
+      "source_url": "https://apply.unive.it/courses/course/645-ba-ancient-civilizations-contemporary-world-inter-university-degree",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "Ca' Foscari's degree pages for this programme still show 'Enrolment from 2023/2024'; programme inclusion for English-taught 2026/2027 is confirmed from Ca' Foscari's international-programmes list and the 2026/27 apply page.",
+    "This is an inter-university programme hosted with the University of Milan. Ca' Foscari's public pages state that applicants must apply to the partner institution and that Ca' Foscari completes registration afterward, so the full deadline set and some document details are not published on Ca' Foscari pages.",
+    "The apply.unive.it page provides the non-EU Session 1 deadline of 30 April 2026, but Ca' Foscari does not publish the complete partner-managed schedule or the full accepted-English-certification list on the reviewed public pages."
+  ],
+  "uncertain": [
+    "academic_requirements",
+    "language_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "required_documents",
+    "entry_exam_or_test"
+  ]
+}

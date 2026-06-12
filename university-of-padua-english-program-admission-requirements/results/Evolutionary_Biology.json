@@ -1,0 +1,178 @@
+{
+  "program_name": "Evolutionary Biology",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Padua",
+  "degree_class": "LM-6 R",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a bachelor's degree or equivalent in Biological Sciences, Environmental Science and Technologies, Biotechnologies, or related subjects, or they must demonstrate the required scientific background. A minimum GPA equivalent to 90/110 is required.",
+    "prior_degree_or_diploma": "Bachelor's degree or equivalent in Biological Sciences, Environmental Science and Technologies, Biotechnologies, or related subjects.",
+    "subject_requirements": "Applicants without one of the listed degrees must prove skills in Physics, Mathematics and Informatics, Physical Chemistry, General, Organic and Inorganic Chemistry, General, Systematic, Environmental and Applied Botany, Genetics, General Microbiology, Physiology, and Hygiene and Public Health.",
+    "gpa_or_country_requirements": "Minimum GPA equivalent to the Italian mark of 90/110. Applicants with foreign qualifications must also satisfy the University of Padua country-based entry-title requirements stated on the official application platform.",
+    "source_url": "https://biologia.biologia.unipd.it/en/laurea-magistrale/how-to-enroll/"
+  },
+  "language_requirements": {
+    "required_level": "B2 English (CEFR), with reading and listening skills required by the programme.",
+    "accepted_proofs": [
+      "TOEFL iBT with a minimum score of 80.",
+      "IELTS Academic or General Training with a minimum score of 6.0.",
+      "Cambridge B2 First with a minimum score of 173.",
+      "Pearson PTE Academic with a minimum score of 65.",
+      "Other certificates accepted by the University language-requirement page, including Trinity ISE II, Oxford Test of English 126, Gatehouse GA Level 1, PTE General 3, and Pearson English International Certificate Level 3 Upper Intermediate."
+    ],
+    "exemption_rules": [
+      "Applicants who obtained their qualifying bachelor's degree entirely in English do not need to submit a separate English certificate.",
+      "Native English speakers from the countries recognised by the University, including the United States, do not need to submit a separate English certificate."
+    ],
+    "deadline": "Language proof must be provided by 31 August 2026 for open-access degree programmes.",
+    "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes"
+  },
+  "application_deadline_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "[uncertain] 2 June 2026 - 2 August 2026 (the official programme listing snippet shows '2 June 2025 - 2 August 2026', while the official apply page shows 2026).",
+    "notes": "The third call is only for EU students and non-EU students residing in Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/236-evolutionary-biology?search=2356244"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "Not applicable for non-EU applicants residing outside Italy.",
+    "notes": "The third call is restricted to EU students and non-EU students residing in Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/236-evolutionary-biology?search=2356244"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae (Resume) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for master's applications with a foreign qualification.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Motivational letter in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for master's applications with a foreign qualification.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "No legalised documents are required at application stage, but an English or Italian translation of the entry qualification must be provided.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Bachelor's degree diploma or provisional/enrolment certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "If the final qualification has not yet been awarded, an enrolment or provisional certificate is accepted.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Valid ID card or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU applicants and non-EU applicants residing in Italy may use an ID card; other applicants use a passport.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Residence permit",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required only for non-EU citizens residing in Italy.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "English language certificate or other accepted proof",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required unless the applicant qualifies for an official exemption.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Statement of Comparability issued by CIMEA",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "The Admissions and Welcome Unit may request this if further verification of the bachelor's qualification is deemed necessary.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Bachelor's diploma translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "Required at enrolment for admitted students with an international qualification.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Transcript of Records translated into Italian or English and legalised",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "The transcript should state passed exams, grades, and, where applicable, ECTS credits and programme description.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Study Visa D - enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Required only for non-EU applicants residing outside Italy.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Non-EU applicants residing outside Italy must pre-enrol through Universitaly by 15 July.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    },
+    {
+      "document_name": "Residence permit or residence-permit application receipt (Assicurata)",
+      "stage": "enrolment",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU applicants at enrolment if applicable.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "No programme-specific entrance exam or admission test stated",
+    "mandatory": false,
+    "applies_to": "All applicants",
+    "dates": "Not applicable.",
+    "scoring_or_threshold": "Admission is based on degree, curricular preparation, minimum GPA, and language requirements rather than a separate entrance exam.",
+    "source_url": "https://biologia.biologia.unipd.it/en/laurea-magistrale/how-to-enroll/"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/evolutionary-biology",
+  "official_call_url": "https://apply.unipd.it/courses/course/236-evolutionary-biology?search=2356244",
+  "source_quotes": [
+    {
+      "quote": "do not have an admission limit",
+      "source_url": "https://biologia.biologia.unipd.it/en/laurea-magistrale/how-to-enroll/",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Minimum GPA equivalent to Italian 90/110",
+      "source_url": "https://biologia.biologia.unipd.it/en/laurea-magistrale/how-to-enroll/",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "31st August for open access degree programmes",
+      "source_url": "https://www.unipd.it/en/language-requirement-admission-degree-programmes",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Call Two: 2 March 2026 – 2 May 2026",
+      "source_url": "https://apply.unipd.it/courses/course/236-evolutionary-biology?search=2356244",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official programme listing snippet shows the third call as starting on 2 June 2025, but the official apply page shows 2 June 2026. This JSON records 2026.",
+    "No separate 2026/27 programme-specific PDF admission notice was surfaced; the official apply page and the Department of Biology enrolment page were used as the current admissions sources."
+  ],
+  "uncertain": [
+    "application_deadline_eu"
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "program_name": "Global Development and Entrepreneurship",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Treviso",
+  "degree_class": "LM-56 R (Economics)",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need at least a three-year bachelor's degree or equivalent. Admission requires 60 CFU/ECTS in the listed business, economics, law, and statistical-mathematical fields, adequate personal preparation, and English at B2 level; applicants with international qualifications must also complete the preliminary evaluation on apply.unive.it.",
+    "prior_degree_or_diploma": "A bachelor's degree, three-year university diploma, old-system Italian degree, AFAM first-level qualification, or for foreign qualifications at least a three-year bachelor's degree.",
+    "subject_requirements": "Applicants must have at least 60 CFU/ECTS in the listed business, economics, law, and statistical-mathematical sectors. If they do not meet the curricular requirements, they must complete bachelor's-level single courses before enrolment.",
+    "gpa_or_country_requirements": "No separate minimum GPA is stated for all applicants. Applicants with international qualifications must hold a qualification valid for admission and comply with Ca' Foscari's country-specific recognition and document rules.",
+    "committee_or_pre_evaluation": "The Teaching Committee evaluates personal preparation through curriculum vitae and studiorum. An interview is required for applicants who do not hold an L-18, L-33, or L-41 degree (or equivalent) with at least 95/110; international-qualification applicants must first pass the Welcome Unit preliminary evaluation on apply.unive.it.",
+    "source_url": "https://www.unive.it/web/en/12938/admission-and-enrolment"
+  },
+  "language_requirements": {
+    "required_level": "English at minimum B2 level.",
+    "accepted_proofs": [
+      "A recognised English certification from Ca' Foscari's official list.",
+      "A CLA certificate or a certificate from a university language school included in the official recognised-certifications list."
+    ],
+    "exemption_rules": [
+      "Completed higher-education studies, or at least one year of college, in a country where English is the medium of instruction.",
+      "Obtained a high-school diploma or university qualification after studies taught entirely in English.",
+      "Completed at least one full year of high-school exchange at an institution where English was the language of instruction.",
+      "Holds one of the specific Italian language-degree qualifications listed by Ca' Foscari for exemption."
+    ],
+    "assessment_or_upload_stage": "Applicants can demonstrate English through a recognised certificate or an exemption category. The programme page states that applicants cannot enrol if they do not meet the language requirement by the enrolment deadline.",
+    "deadline": "By the enrolment deadline.",
+    "source_url": "https://www.unive.it/pag/40605/?L=1"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "round_name": "1st entry-requirements evaluation session",
+        "application_window": "April 7, 2026 to June 4, 2026",
+        "results_publication": "June 25, 2026",
+        "notes": "Published on the programme admission page."
+      },
+      {
+        "round_name": "2nd entry-requirements evaluation session",
+        "application_window": "July 6, 2026 to August 20, 2026",
+        "results_publication": "September 10, 2026",
+        "notes": "Candidates meeting all requirements may receive results before the formal publication date."
+      },
+      {
+        "round_name": "3rd entry-requirements evaluation session",
+        "application_window": "October 1, 2026 to November 17, 2026",
+        "results_publication": "December 4, 2026",
+        "notes": "Published on the programme admission page."
+      }
+    ],
+    "enrolment_deadline": "Standard enrolment runs from July 1, 2026 to September 30, 2026. An additional late period runs from October 1, 2026 to December 18, 2026.",
+    "notes": "Applicants with international qualifications who fall into the EU/equivalent category must also complete the preliminary evaluation on apply.unive.it.",
+    "source_url": "https://www.unive.it/web/en/12938/admission-and-enrolment"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "round_name": "2026/2027 non-EU visa-applicant admission rounds",
+        "application_window": "[uncertain] The public apply.unive.it article accessible without selecting a citizenship does not expose the detailed round windows.",
+        "deadline": "As of June 5, 2026, Ca' Foscari states that non-EU applicants requiring a study visa can no longer apply for 2026/2027 bachelor's or master's degrees.",
+        "notes": "Non-EU applicants who receive a letter of eligibility must then complete Universitaly pre-enrolment and the visa procedure."
+      }
+    ],
+    "visa_or_pre_enrolment_deadline": "Universitaly pre-enrolment by September 30, 2026.",
+    "current_status": "Closed for 2026/2027 study-visa applicants as stated on June 5, 2026.",
+    "notes": "Non-EU citizens already legally residing in Italy with a permit valid for enrolment are directed to the EU/equivalent route instead.",
+    "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid passport or ID card",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "European applicants may use an ID card.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Valid residence permit or renewal/first-request receipt",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required for non-EU applicants already residing in Italy or in the Schengen Area.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Transcript of Records for all undergraduate years, with official translation if needed",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "A provisional transcript is acceptable if the applicant is still attending the final year.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Motivation letter",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Listed among the mandatory documents for master's applications with an international qualification.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Curriculum vitae",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "Required in the programme's entry-requirements evaluation request and used for personal-preparation assessment.",
+      "source_url": "https://www.unive.it/web/en/12938/admission-and-enrolment"
+    },
+    {
+      "document_name": "Signed self-certification of degree with exams, or signed self-certification of enrolment with exams",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "The programme page specifies that the self-certification must include university, class code, programme name, graduation date and mark, and the exams taken with their sectors and CFU/ECTS weight.",
+      "source_url": "https://www.unive.it/web/en/12938/admission-and-enrolment"
+    },
+    {
+      "document_name": "English B2 certificate or exemption evidence",
+      "stage": "application",
+      "required_for": "programme_specific",
+      "notes": "The programme page lists it as an additional document useful for the evaluation of personal preparation and requires the language requirement by enrolment.",
+      "source_url": "https://www.unive.it/web/en/12938/admission-and-enrolment"
+    },
+    {
+      "document_name": "Bachelor's degree final diploma, with official translation if needed",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "Optional during application if not yet available, but required later to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "CIMEA Statement of Comparability, or Declaration of Value, or ARDI Statement of Correspondence with CIMEA Statement of Verification, or Diploma Supplement",
+      "stage": "enrolment",
+      "required_for": "international_qualification",
+      "notes": "Strongly recommended before application and mandatory later to complete enrolment.",
+      "source_url": "https://www.unive.it/pag/41327/?L=1"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and study visa evidence",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Visa-requiring applicants must complete Universitaly pre-enrolment and upload the issued visa to apply.unive.it.",
+      "source_url": "https://www.unive.it/pag/40813/"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "English-language interview for personal-preparation assessment",
+    "mandatory": true,
+    "applies_to": "Applicants who do not have an L-18, L-33, or L-41 bachelor's degree (or equivalent) with a final grade of at least 95/110; certain applicants with a master's degree in economics, business, or statistics and at least 95/110 may request exemption.",
+    "dates": "June 16, 2026 at 3:00 PM remotely via Zoom; [uncertain] September 2026 and November 2026 sessions were listed without a confirmed date and time on the programme page.",
+    "scoring_or_threshold": "The interview is passed if the arithmetic mean of the interview score converted to /110 and the bachelor's final grade is at least 88/110.",
+    "source_url": "https://www.unive.it/web/en/12938/admission-and-enrolment"
+  },
+  "tuition_or_fees_link": "https://www.unive.it/pag/50466",
+  "official_program_url": "https://www.unive.it/degree/emr12",
+  "official_call_url": "https://www.unive.it/web/en/12938/admission-and-enrolment",
+  "source_quotes": [
+    {
+      "quote": "Global Development and Entrepreneurship",
+      "source_url": "https://www.unive.it/international-programmes",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Admission: Open",
+      "source_url": "https://www.unive.it/degree/emr12",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "Candidates must have achieved minimum 60 CFU",
+      "source_url": "https://www.unive.it/web/en/12938/admission-and-enrolment",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "A minimum B2-level knowledge of English is mandatory for enrolment.",
+      "source_url": "https://www.unive.it/web/en/12938/admission-and-enrolment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "There are three evaluation sessions",
+      "source_url": "https://www.unive.it/web/en/12938/admission-and-enrolment",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "it is no longer possible for non-EU applicants requiring a visa to apply",
+      "source_url": "https://apply.unive.it/news/new/131-admission-rounds-202627-academic-year",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "The degree permalink and programme interface still display 'Enrolment from 2025/2026', but the admission page explicitly publishes 2026/2027 evaluation-session and enrolment dates.",
+    "The public apply.unive.it article for visa-requiring applicants gives closure status, but the detailed citizenship-specific round windows are not exposed in the accessible public text.",
+    "The programme page lists September and November 2026 interview sessions without confirming their exact date and time."
+  ],
+  "uncertain": [
+    "application_deadline_non_eu",
+    "entry_exam_or_test"
+  ]
+}

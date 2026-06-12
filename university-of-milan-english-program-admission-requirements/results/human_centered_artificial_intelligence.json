@@ -1,0 +1,140 @@
+{
+  "program_name": "Human-Centered Artificial Intelligence",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan, Pavia",
+  "degree_class": "LM-55 R",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": "Applicants must hold a bachelor's degree, a three-year university degree, or a foreign qualification recognized as suitable. Candidates may also apply if they will graduate by 31 December 2026. The programme requires at least 30 CFU in the listed scientific-disciplinary sectors, including at least 12 CFU in computer science/mathematics/statistics sectors (INF/01, ING-INF/05, MAT/01, MAT/02, MAT/05, MAT/06, MAT/07, MAT/09, SECS-S/01, SECS-S/03) and at least 12 CFU in philosophy/psychology/biology/law sectors (M-FIL/02, M-FIL/03, M-FIL/05, M-PSI/01, M-PSI/02, BIO/09, IUS/01, IUS/04, IUS/08, IUS/09, IUS/10, IUS/14, IUS/20). Beyond the curricular requirements, candidates need basic knowledge in logic and epistemology, mathematics and computer science, and cognitive, philosophical, and legal sciences. Personal preparation is assessed after the curricular check through an individual interview. The interview verifies basic knowledge of algorithms and programming, logic, probability, statistics and algebra, plus basic knowledge in at least one of these areas: philosophical (logic, epistemology, applied ethics), cognitive sciences (neuroscience, general psychology, neurophysiology), or legal (sources of law, fundamental rights, legal informatics). For candidates with foreign degrees, the board evaluates the congruence of prior studies and may hold the interview remotely. The manifesto lists 180 credits required for admission.",
+  "language_requirements": "English proficiency at CEFR B2 or higher is required for admission. The requirement can be satisfied through one of the official routes stated by UniMi: a valid B2-or-higher language certificate recognized by the University and issued no more than three years before the application date; the UniMi-Bicocca open badge Bbetween English B2, the University of Milan English B2 placement test, or the University of Pavia English B2 certificate; a degree delivered entirely or predominantly in English; or an English level certified by UniMi SLAM within four years before the application date, which is checked automatically. If the applicant does not upload a valid certificate during the online application, or if the previous certification is expired or invalid, SLAM may require the applicant to take the English entry test according to the official calendar. For this programme, applicants who fail the SLAM test or miss it without an accepted excuse must submit a recognized language certificate through InformaStudenti by 31 December 2026. No separate Italian-language admission requirement is stated on the official admission sources.",
+  "application_deadline_eu": "Admission application window for EU candidates and equivalents: 22 January 2026 to 30 October 2026. Enrolment window for admitted students: 5 May 2026 to 15 January 2027. Degree completion and fulfilment of entry requirements: by 31 December 2026.",
+  "application_deadline_non_eu": "Admission application window for non-EU candidates applying for a visa: 22 January 2026 to 30 April 2026. Universitaly pre-enrolment deadline for visa applicants: 31 July 2026. Enrolment window for admitted students: 5 May 2026 to 15 January 2027. Foreign-qualification enrolment documents must be completed by 30 November 2026.",
+  "required_documents": [
+    "If applying with an Italian qualification: self-certification of degree or current enrolment with exam records; for applicants from Italian universities other than UniMi, it must include the list of exams taken, grades, ECTS credits, and scientific-disciplinary sectors.",
+    "If using the certificate route for English: a valid English certificate at B2 level or higher, recognized by UniMi and issued no more than three years before the application date, uploaded during the online application.",
+    "If applying with a foreign qualification: Bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "If applying with a foreign qualification: Diploma Supplement or transcript of records including courses, marks, ECTS, academic field, and the grading system used by the university, in Italian, English, French, German, or Spanish.",
+    "If applying with a foreign qualification: passport or other valid ID.",
+    "For final enrolment with a foreign qualification: legalized or apostilled Bachelor's degree (or equivalent), unless exempt from legalization or Hague Apostille.",
+    "For final enrolment with a foreign qualification: high school diploma.",
+    "For final enrolment with a foreign qualification: official Italian translation of the academic qualifications, unless the originals are in English, French, German, or Spanish.",
+    "For final enrolment with a foreign qualification: Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore (DOV); for Lisbon Convention countries, a Diploma Supplement or ARDI Correspondence Statement may replace the DOV and Statement of Comparability.",
+    "For final enrolment with a foreign qualification: Italian tax code (codice fiscale).",
+    "For final enrolment with a foreign qualification as a non-EU citizen: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "There is no separate written entrance exam listed on the 2026/2027 official sources. Admission is open access but subject to verification of curricular requirements and an individual interview assessing personal preparation. The interview checks algorithms and programming, logic/probability/statistics/algebra, and at least one area among philosophy, cognitive sciences, or law. The official application page states that the timing and procedures for submitting the evaluation request and the interview dates will be published on the UniMi course page. Separately, applicants who do not already satisfy the English requirement through an accepted document or prior recognized assessment may be required to take the SLAM English entry test.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/human-centered-artificial-intelligence",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf?30-MAR-26",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027. Access: Open with entry requirements examination. Course location: Milan, Pavia. Language: English.",
+      "url": "https://www.unimi.it/en/education/master-programme/human-centered-artificial-intelligence",
+      "field_refs": [
+        "academic_year",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Curricula currently available: HYBRID AI / NEURO-AI / AI AND LAW ... Credits required for admission: 180 ... Access procedures: Open, subject to entry requirements.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_CBKof2_2027.pdf",
+      "field_refs": [
+        "degree_class",
+        "admission_type",
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Curricular requirements consist of the possession of at least 30 CFUs ... of which: - at least 12 ... - at least 12 ...",
+      "url": "https://hcai.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The assessment of personal preparation will be done through individual interview on the knowledge required for admission.",
+      "url": "https://hcai.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Proficiency in English at level B2 or higher ... The certificate must be uploaded when submitting the online application.",
+      "url": "https://hcai.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Online admission application for EU candidates and equivalents from 22 January to 30 October 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Online admission application for non EU candidates applying for a visa from 22 January to 30 April 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The online admission service requires the following documents to be uploaded ... Self-certification of degree/enrolment with exam records.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor’s Degree ... Diploma supplement ... transcript ... Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Bachelor’s degree (or equivalent), legalized or apostilled ... High school diploma ... Statement of Comparability ... Italian tax code ... residence permit.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-human-centered-artificial-intelligence-%28classe-lm-55-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "required_documents",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Human-Centered Artificial Intelligence 31/12/2026",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/english-requirements-masters-degree-courses",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [
+    "No field was marked uncertain. A.Y. 2026/2027 information was available on the UniMi programme page, the official HCAI application page, the admission notice PDF, the manifesto PDF, and the UniMi SLAM English-requirements page, and these sources were consistent."
+  ],
+  "uncertain": []
+}

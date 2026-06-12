@@ -1,13 +1,15 @@
 import { NextResponse } from "next/server";
 import { getUniversitiesData } from "@/lib/universities.server";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     const universities = await getUniversitiesData();
 
     return NextResponse.json(universities, {
       headers: {
-        "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+        "Cache-Control": "no-store, max-age=0",
       },
     });
   } catch (error) {

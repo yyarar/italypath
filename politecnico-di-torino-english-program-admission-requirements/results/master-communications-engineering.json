@@ -1,0 +1,264 @@
+{
+  "program_name": "Communications Engineering",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale, 2nd cycle)",
+  "teaching_language": "English",
+  "is_fully_english_programme": true,
+  "has_complete_english_track": true,
+  "english_track_name": null,
+  "campus": "Torino main campus",
+  "degree_class": "LM-27: Telecommunications Engineering",
+  "double_degree_or_erasmus_mundus": null,
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering/programme-curriculum",
+  "admission_type": "evaluation/CV",
+  "admission_test_type": "Master-level evaluation of qualifications/curricular background by an Academic Committee; an online oral interview may be required on subjects in the Scientific Disciplinary Fields ING-INF/03 (Telecommunications) and ING-INF/05 (Information Processing Systems). A GRE General Test score report is an optional document that may strengthen the application; it is not mandatory. [uncertain]",
+  "applicant_route": [
+    "Italian qualification",
+    "EU and equivalent applicants",
+    "Non-EU applicants residing in Italy (with residence permit)",
+    "Non-EU applicants residing abroad and requiring a type-D study visa (the route for Turkish applicants, via the 'applicants with a non-Italian qualification' procedure)"
+  ],
+  "admission_call_round": [
+    "1st call: opens 19 December 2025, closes 13 February 2026 at 2.00 p.m. (Italian time); results 15 April 2026 (standard call applicable to Communications Engineering)",
+    "2nd call: opens 18 March 2026, closes 20 April 2026 at 2.00 p.m. (Italian time); results 22 June 2026 (standard call applicable to Communications Engineering)",
+    "Special call (24 April - 18 May 2026, 23:59) applies only to selected international-track programmes (Nanotechnologies for ICTs / MNIS and Physics of Complex Systems International pathway) and does NOT apply to Communications Engineering"
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito (https://didattica.polito.it/pls/portal30/sviluppo.pkg_apply.registrazione); UNIVERSITALY (https://www.universitaly.it/) for non-EU type-D study visa pre-enrolment",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "summary": "Uncapped-number Master's programme admitted by evaluation of admission requirements. Applicants must hold a relevant Bachelor's degree (level 6 EQF) or equivalent academic qualification corresponding to the Italian Laurea, meet specific curricular requirements in defined Scientific Disciplinary Fields, and have an academic performance considered suitable for admission. The recommended Bachelor's is in any field of Engineering, Computer Science or Mathematics.",
+    "prior_qualification": "Bachelor's degree (level 6 EQF) or equivalent academic qualification corresponding to the Italian qualification Laurea, awarded by an accredited foreign university and giving access to second-cycle (EQF level 7) studies. Applicants not yet graduated may apply if they have acquired at least the credits required by their Bachelor's study plan (around 140 ECTS).",
+    "curricular_requirements": "A minimum of 40 credits is required across the following Scientific Disciplinary Fields (SSD): FIS/01, FIS/03, INF/01, ING-INF/05, MAT/02, MAT/03, MAT/05, MAT/06, MAT/08. Suitable academic performance is also required. [uncertain]",
+    "merit_or_evaluation": "An Academic Committee verifies whether the educational background is adequate and consistent with previous university studies; an online oral interview on ING-INF/03 and ING-INF/05 subjects may be required to verify the requirements.",
+    "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+  },
+  "country_specific_eligibility": "Applicants with a non-Italian qualification (such as Turkish applicants) must hold a Bachelor's degree (level 6 EQF) giving access to second-cycle studies in the issuing country. The foreign qualification must be validated by a 'Dichiarazione di Valore' (Declaration of Value, issued by the Italian Embassy/Consulate in the home country) OR a Statement of Comparability (Attestato di Comparabilità) issued by CIMEA, together with official Italian or English translations of the diploma and transcript. [uncertain]",
+  "minimum_background_or_credits": "Minimum 40 credits across SSD FIS/01, FIS/03, INF/01, ING-INF/05, MAT/02, MAT/03, MAT/05, MAT/06, MAT/08. Applicants not yet graduated must have acquired around 140 ECTS of their Bachelor's study plan to apply. The minimum English requirement is B2 (corresponding to IELTS 5.5). [uncertain]",
+  "language_requirements": {
+    "required_level": "English Level B2 (CEFR) or above, required because the programme is taught entirely in English. (Italian is NOT required for this fully-English programme.)",
+    "reference_certificate": "Minimum B2 corresponds to IELTS 5.5; PoliTo publishes a Language Centre (CLA) table of accepted certificates.",
+    "accepted_certificates": [
+      "IELTS (B2 minimum, reference IELTS 5.5)",
+      "TOEFL / TOEIC (share results with PoliTo using institution code C285)",
+      "Cambridge English certificates (select the sharing option and provide the Candidate ID number)",
+      "Other recognised certificates per the PoliTo Language Centre (CLA) chart"
+    ],
+    "exemptions": "Exemptions apply to, among others, holders of an IB Diploma completed entirely in English, European Schools diplomas with L1 English, and qualifications obtained in the USA, Canada, UK, Ireland, Australia or New Zealand. (Not applicable to a standard Turkish qualification.)",
+    "deadline": "An application may be submitted without the certificate, but the English language certificate is a mandatory admission requirement and must be uploaded by the enrolment deadline. [uncertain]",
+    "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+  },
+  "english_certificate_codes": "TOEFL/TOEIC institution code: C285. For Cambridge certificates, share results with PoliTo and indicate the Candidate's ID number.",
+  "language_submission_timing": "Applicants may submit the application without the English certificate, but it is a mandatory admission requirement and must be uploaded by the enrolment deadline. [uncertain]",
+  "application_deadline_eu": {
+    "application_windows": "Engineering Area master's applications run in two windows: 1st-semester window (closing around 15 October 2026, enrolment by around 12 November 2026) and 2nd-semester window (opening 13 December 2026, closing 24 February 2027, enrolment by 24 March 2027). EU and non-EU applicants residing in Italy follow the Italian-qualification / in-Italy procedure.",
+    "curricular_credit_to_apply": "At least the credits required by the Bachelor's study plan (around 140 ECTS) are needed to apply before graduation.",
+    "notes": "EU/equivalent applicants apply via Apply@polito; no visa pre-enrolment is required for EU applicants.",
+    "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027"
+  },
+  "application_deadline_non_eu": {
+    "first_call": "Opens 19 December 2025; closes 13 February 2026 at 2.00 p.m. (Italian time); admission results 15 April 2026.",
+    "second_call": "Opens 18 March 2026; closes 20 April 2026 at 2.00 p.m. (Italian time, postponed due to technical issues); admission results 22 June 2026.",
+    "universitaly_preenrolment_deadline": "1st call: 30 May 2026; 2nd call: 15 July 2026 (visa pre-enrolment via UNIVERSITALY).",
+    "document_upload_deadline": "Enrolment documents must be uploaded to the Teaching Portal personal area by 5 October 2026; documents verified by 11 November 2026; type-D study visa uploaded by 30 November 2026.",
+    "notes": "Deadlines for the 2026/2027 master's admission procedures for holders of a foreign qualification were extended by 15 days by Rector's Decree DR 96/2026. Communications Engineering uses the standard 1st/2nd calls (NOT the international-track special call).",
+    "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+  },
+  "universitaly_preenrolment_deadline": "1st call: 30 May 2026; 2nd call: 15 July 2026 (UNIVERSITALY visa pre-enrolment for non-EU applicants residing abroad and requiring a type-D study visa; separate from and earlier than the document upload / enrolment deadline). Politecnico validates the UNIVERSITALY pre-enrolment only if the online application is considered ELIGIBLE and a first-level degree has been obtained.",
+  "required_documents": [
+    {
+      "document_name": "Passport (valid) or EU ID card",
+      "stage": "application",
+      "required_for": "all",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "Residence permit (non-EU applicants residing in Italy only)",
+      "stage": "application",
+      "required_for": "non_eu_in_italy",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "Curriculum Vitae",
+      "stage": "application",
+      "required_for": "all",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "Bachelor's degree (level 6 EQF) or official university document stating the provisional graduation date",
+      "stage": "application",
+      "required_for": "all",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "Official Transcript of Records",
+      "stage": "application",
+      "required_for": "all",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "English language certificate (B2 or above)",
+      "stage": "application",
+      "required_for": "all",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "Dichiarazione di Valore (Declaration of Value) issued by the Italian Embassy/Consulate, OR Statement of Comparability (Attestato di Comparabilità) issued by CIMEA",
+      "stage": "application/verification",
+      "required_for": "non_italian_qualification",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "Syllabus / course descriptions of the Bachelor's degree (to verify curricular requirements)",
+      "stage": "application",
+      "required_for": "all",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "GRE General Test score report (optional; strengthens the application, not mandatory)",
+      "stage": "application",
+      "required_for": "optional",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering/explore-the-program/apply-info"
+    },
+    {
+      "document_name": "Recommendation letter, motivation letter, certificates of training or work experience (optional, to make the application more competitive)",
+      "stage": "application",
+      "required_for": "optional",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering/explore-the-program/apply-info"
+    },
+    {
+      "document_name": "Type-D study visa documentation and UNIVERSITALY pre-enrolment",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu_abroad",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "document_name": "Italian fiscal code (codice fiscale) and official Italian translations of the degree and transcript",
+      "stage": "enrolment",
+      "required_for": "non_italian_qualification",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    }
+  ],
+  "document_translation_authentication": "Foreign (e.g. Turkish) qualifications must be accompanied by a 'Dichiarazione di Valore' (Declaration of Value, issued by the competent Italian Embassy/Consulate) OR a CIMEA Statement of Comparability (Attestato di Comparabilità), plus official Italian or English translations of the diploma and transcript. Final enrolment-document validation is completed by 11 November 2026; the type-D study visa must be uploaded by 30 November 2026.",
+  "entry_exam_or_test": {
+    "test_name": "Master-level evaluation of qualifications by an Academic Committee, with a possible online oral interview",
+    "mandatory": false,
+    "interview": "An online oral interview may be required on subjects in the Scientific Disciplinary Fields ING-INF/03 (Telecommunications) and ING-INF/05 (Information Processing Systems) to verify that the applicant meets the admission requirements. [uncertain]",
+    "gre": "A GRE General Test score report is OPTIONAL (it can strengthen the application or, for some programmes, be sufficient for admission); it is not a mandatory requirement for Communications Engineering. [uncertain]",
+    "mode": "Online / remote where an interview is held.",
+    "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+  },
+  "test_score_or_threshold": "No numeric entrance-test threshold; admission is by evaluation of curricular background and academic performance (minimum 40 credits across the listed SSDs) plus B2 English (IELTS 5.5 reference). Where an interview is held, the Academic Committee assesses adequacy on ING-INF/03 and ING-INF/05 subjects. Exact GPA/merit thresholds are not published numerically. [uncertain]",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees",
+  "application_fee": "EUR 50 (non-refundable application fee, paid via PagoPA by credit card, for applicants with a non-Italian qualification).",
+  "academic_year": "2026/2027",
+  "source_quotes": [
+    {
+      "quote": "All classes are taught in English.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering",
+      "supports_fields": ["teaching_language", "is_fully_english_programme", "has_complete_english_track"]
+    },
+    {
+      "quote": "LM-27: TELECOMMUNICATIONS ENGINEERING",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering",
+      "supports_fields": ["degree_class"]
+    },
+    {
+      "quote": "Uncapped number of students, evaluation of the admission requirements",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering",
+      "supports_fields": ["admission_type", "special_call_flag"]
+    },
+    {
+      "quote": "Year 1 courses are all taught in English; in Year 2 the only Italian-language elective ('Storia e pratiche della diplomazia tecno-scientifica') is optional and can be avoided, so the entire programme can be completed 100% in English.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering/programme-curriculum",
+      "supports_fields": ["has_complete_english_track", "is_fully_english_programme"]
+    },
+    {
+      "quote": "Have a Bachelor's degree (level 6 EQF) or equivalent academic qualification corresponding to the Italian qualification Laurea ... Meet the specific curricular requirements and have an academic performance considered suitable for admission",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["academic_requirements", "minimum_background_or_credits"]
+    },
+    {
+      "quote": "A minimum of 40 credits is required in the following Scientific Disciplinary Fields: FIS/01, FIS/03, INF/01, ING-INF/05, MAT/02, MAT/03, MAT/05, MAT/06, MAT/08.",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": ["academic_requirements", "minimum_background_or_credits", "curricular_requirements"]
+    },
+    {
+      "quote": "the admission tests consist of an oral interview (which can also be a remote interview) about subjects in the Scientific Disciplinary Fields ING-INF/03 and ING-INF/05",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_COMMUNICATIONS%20ENG_25_26.pdf",
+      "supports_fields": ["entry_exam_or_test", "admission_test_type"]
+    },
+    {
+      "quote": "The minimum English requirement is B2 level, corresponding to IELTS 5.5.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering/explore-the-program/apply-info",
+      "supports_fields": ["language_requirements"]
+    },
+    {
+      "quote": "For TOEFL/TOEIC certificates, use code C285 to share results.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["english_certificate_codes", "language_requirements"]
+    },
+    {
+      "quote": "1st Call ... Closes: February 13, 2026, 2:00 p.m. (Italian time) ... Pre-enrolment deadline for Study Visa: May 30, 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["admission_call_round", "application_deadline_non_eu", "universitaly_preenrolment_deadline"]
+    },
+    {
+      "quote": "2nd Call ... Closes: April 20, 2026, 2:00 p.m. (Italian time) ... Pre-enrolment deadline for Study Visa: July 15, 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["admission_call_round", "application_deadline_non_eu", "universitaly_preenrolment_deadline"]
+    },
+    {
+      "quote": "Application fee: EUR 50 (non-refundable, paid via PagoPA by credit card).",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_fee"]
+    },
+    {
+      "quote": "Dichiarazione di valore or CIMEA Statement of Comparability ... Curriculum Vitae ... Bachelor's degree (level 6 EQF) ... Official Transcript of Records ... English/Italian Language Certificate",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["required_documents", "document_translation_authentication"]
+    },
+    {
+      "quote": "Documents must be uploaded ... by 5 October 2026, with documents verified by 11 November 2026 ... The deadline to upload the Study visa - type D is 30 November 2026.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_deadline_non_eu", "required_documents"]
+    },
+    {
+      "quote": "the deadlines ... for the academic year 2026/2027, intended for students holding a foreign qualification, have been extended by 15 days through decree DR 96/2026.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_deadline_non_eu", "source_year", "academic_year"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering",
+    "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering/programme-curriculum",
+    "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering/explore-the-program/apply-info",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_COMMUNICATIONS%20ENG_25_26.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "Fully-English status CONFIRMED: the programme page states 'All classes are taught in English' and the curriculum page shows all Year-1 courses are English; in Year 2 the only Italian-language elective ('Storia e pratiche della diplomazia tecno-scientifica') is optional and can be avoided, so a student can complete the programme 100% in English. is_fully_english_programme = true, has_complete_english_track = true, english_track_name = null.",
+    "2026/2027 cycle is published for masters (non-Italian qualification calls open; deadlines extended by Rector's Decree DR 96/2026), so this record uses 2026/2027. The linked Academic Regulations PDF is the 2025/26 version (the only one published at time of research) and is used to confirm degree class, curricular SSDs and the oral-interview format; verify against the 2026/27 regulations once published.",
+    "Communications Engineering is uncapped and uses the STANDARD master's 1st/2nd calls; it is NOT one of the international-track special-call programmes (Nanotechnologies for ICTs/MNIS, Physics of Complex Systems International pathway), so special_call_flag = false.",
+    "Curricular requirement (minimum 40 credits across FIS/01, FIS/03, INF/01, ING-INF/05, MAT/02, MAT/03, MAT/05, MAT/06, MAT/08) is taken from the official Course Specific Requirements PDF and PoliTo pages; the exact figures and SSD list should be re-confirmed against the 2026/27 Course Specific Requirements PDF, which was not fully text-extractable. Marked uncertain.",
+    "Oral admission interview on ING-INF/03 and ING-INF/05 is stated in the official Academic Regulations PDF (extracted via PoliTo source text); whether the interview is held for every applicant or only when the Committee deems it necessary is not fully clear. GRE is optional, not mandatory. Marked uncertain.",
+    "Exact English-certificate submission timing (at application vs. by enrolment) and full per-certificate score table are governed by the PoliTo Language Centre (CLA) chart; only the IELTS 5.5 reference, the C285 TOEFL/TOEIC code and Cambridge Candidate-ID instruction were confirmed. Marked uncertain.",
+    "EU/in-Italy application windows are taken from the Engineering Area 2026/27 page (1st-semester deadline around 15 October 2026; 2nd-semester window 13 December 2026 - 24 February 2027); some opening dates were shown as TBD on that page and should be re-confirmed."
+  ],
+  "uncertain": [
+    "admission_test_type",
+    "academic_requirements",
+    "country_specific_eligibility",
+    "minimum_background_or_credits",
+    "language_requirements",
+    "language_submission_timing",
+    "entry_exam_or_test",
+    "test_score_or_threshold"
+  ]
+}

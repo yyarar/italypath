@@ -1,0 +1,142 @@
+{
+  "program_name": "Crops and Plant Sciences",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "Italian, English",
+  "campus": "Milan",
+  "degree_class": "LM-69 R - Scienze e tecnologie agrarie",
+  "admission_type": "open access with entry requirements examination and interview",
+  "academic_requirements": "Applicants must hold a Bachelor's degree or an equivalent foreign university qualification recognized as suitable by the University of Milan, and they must obtain both the degree and the curricular requirements by 31 December 2026. Graduates in class L-25 (Agricultural Sciences and Technologies), or the corresponding class under Ministerial Decree 509/99, may apply if they have at least 30 CFU in the following areas: BIO/01, BIO/02, BIO/03, BIO/04, BIO/05, BIO/13, CHIM/03, CHIM/06, FIS/01 to FIS/07, MAT/01 to MAT/09, INF/01, ING-INF/05, and SECS-S/01. Graduates from other classes may apply if they have at least 60 CFU in the following areas: AGR/01, AGR/02, AGR/03, AGR/04, AGR/05, AGR/07, AGR/08, AGR/09, AGR/10, AGR/11, AGR/12, AGR/13, AGR/14, AGR/15, AGR/16, BIO/07, BIO/18, BIO/19, CHIM/01, CHIM/12, GEO/02, GEO/04, GEO/06, GEO/07, ICAR/06, ICAR/15, IUS/03, IUS/14, and SECS-P/08. During the application review, the examination committee verifies curricular requirements and the adequacy of the applicant's personal preparation, may request additional documentation, and may identify disciplinary gaps to be filled before the interview. Up to 24 credits may be recognized, according to DM 931/2024, for certified professional knowledge and post-secondary training activities organized with University contribution.",
+  "language_requirements": "English B1 CEFR is mandatory for admission to year 1. UniMi states that B1 can be verified by: a language certificate at B1 or above issued no more than 3 years earlier and uploaded with the online application; a SLAM-certified English level from a University of Milan degree obtained no more than 4 years before the admission application, in which case no upload is required; or a SLAM entry test. Applicants who do not submit valid proof or do not meet the required level are directed to the SLAM entry test; if they still do not meet the requirement, they must obtain a recognized certificate and send it to SLAM through InformaStudenti by the master's deadline or they will not be admitted. To take second-year exams, students must hold English B2. The 2026/2027 manifesto states that B2 can be satisfied by a valid B2-or-higher certificate issued within 3 years, by a level validated during admission, by the entry test, or by a SLAM placement test between October and January of year 1; students who do not reach B2 must attend a SLAM B2 course. In addition, students who do not hold an Italian secondary-school diploma or Italian degree must demonstrate Italian at A2 or above before completing the programme. This is not a fully English curriculum from the start: the official sources describe a common first year and two second-year curricula delivered in English.",
+  "application_deadline_eu": "Admission application window for EU and EU-equivalent applicants: 22 January 2026 to 30 October 2026 at 23:59. Enrolment window for admitted candidates: 5 May 2026 to 15 January 2027 at 23:59.",
+  "application_deadline_non_eu": "Admission application window for non-EU applicants requiring a visa: 22 January 2026 to 30 April 2026 at 23:59. Universitaly pre-enrolment must be submitted by 31 July 2026. Enrolment window for admitted candidates: 5 May 2026 to 15 January 2027 at 23:59.",
+  "required_documents": [
+    "For applicants with an Italian qualification at admission stage: self-certification of degree or enrolment with exams. For graduates or graduating students from other Italian universities, this must include the list of exams taken, grades, CFU, and Scientific Disciplinary Sectors.",
+    "For graduating applicants with an Italian qualification: indication of credits already earned, exams taken but not yet registered, exams still to be taken, and expected graduation date.",
+    "For admission-stage English verification, when applicable: a B1-or-higher English certificate recognized by UniMi and issued no more than 3 years earlier, uploaded with the online application.",
+    "For applicants with a foreign qualification at admission stage: Bachelor's degree or equivalent degree certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with a foreign qualification at admission stage: Diploma Supplement, or equivalent university certificate(s) showing the degree obtained or to be obtained, exams passed, grades, credits, and the grading system used.",
+    "For applicants with a foreign qualification at admission stage: passport personal-data page or another valid identity document.",
+    "For applicants with a foreign qualification to complete enrolment: legalized or apostilled Bachelor's degree or equivalent, unless exempt under applicable rules.",
+    "For applicants with a foreign qualification to complete enrolment: high school diploma.",
+    "For applicants with a foreign qualification to complete enrolment: official Italian translations of the study titles, unless the originals are in French, English, German, or Spanish.",
+    "For applicants with a foreign qualification to complete enrolment: CIMEA Statement of Comparability and Statement of Verification, or a Declaration of Value; for Lisbon Recognition Convention cases, ARDI Statement of Correspondence or Diploma Supplement where officially accepted.",
+    "For applicants with a foreign qualification to complete enrolment: Italian tax code.",
+    "For non-EU applicants: receipt of the residence-permit request or a valid residence permit, where applicable under the official procedure.",
+    "For non-EU applicants residing abroad: Universitaly pre-enrolment receipt, study visa, and any certificate of Italian-language competence required by the ministerial rules.",
+    "For Master's enrolment with a foreign qualification under UniMi's international-enrolment procedure: receipt of the admission fee payment, identity document, and, for non-EU citizens already in Italy, copy of a valid residence permit."
+  ],
+  "entry_exam_or_test": "Admission assessment is programme-specific but not a separate written entrance exam. After curricular screening, eligible applicants must attend an interview to verify the adequacy of their personal preparation. For A.Y. 2026/2027, the official page lists interviews on 17 September 2026 at 2:00 pm and 7 January 2027 at 2:00 pm; the interviews are held by videoconference and connection details are communicated within one week of the interview date. Separately, applicants who do not document the required English level through accepted proof may be required to take the SLAM English entry test.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/crops-and-plant-sciences",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-crops-and-plant-sciences-%28classe-lm-69-r%29.pdf?30-MAR-26",
+  "source_quotes": [
+    {
+      "quote": "Language: Italian, English.",
+      "url": "https://www.unimi.it/en/education/master-programme/crops-and-plant-sciences",
+      "field_refs": [
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "LM-69 R - Scienze e tecnologie agrarie",
+      "url": "https://www.unimi.it/en/education/master-programme/crops-and-plant-sciences",
+      "field_refs": [
+        "degree_class"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "After a common first year, the degree program offers the possibility to choose between two curricula, delivered in English in the second year.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_GBAof2_2027.pdf",
+      "field_refs": [
+        "teaching_language",
+        "language_requirements",
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Access is free but a B1 knowledge of the English language is required for admission to the first year.",
+      "url": "https://www.unimi.it/en/education/master-programme/crops-and-plant-sciences",
+      "field_refs": [
+        "admission_type",
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "In order to take the second year exams, a B2 knowledge of the English language is required.",
+      "url": "https://www.unimi.it/en/education/master-programme/crops-and-plant-sciences",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Candidates who have satisfied the curricular entry requirements will have to undergo an interview",
+      "url": "https://www.unimi.it/en/education/master-programme/crops-and-plant-sciences",
+      "field_refs": [
+        "academic_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Application for admission: from 22/01/2026 to 30/10/2026",
+      "url": "https://www.unimi.it/en/education/master-programme/crops-and-plant-sciences",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Non-EU students visa applicants are required to apply for admission no later than 30 April 2026.",
+      "url": "https://www.unimi.it/en/education/master-programme/crops-and-plant-sciences",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "must be presented on the Universitaly website within 31 July 2026",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "application_deadline_non_eu",
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Degree (Bachelor Sc. or equivalent), with translation in Italian by an official translator",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "receipt of the Universitaly pre-application; ... study Visa;",
+      "url": "https://www.unimi.it/en/international/coming-abroad/enrol-programme/international-enrolment-degree-programmes",
+      "field_refs": [
+        "required_documents",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Italian language assessment with MANDATORY credits A2",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_GBAof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "The programme is not a fully English master's from year 1. The official programme page lists the language as Italian and English, and the 2026/2027 manifesto states that students follow a common first year before choosing between two second-year curricula delivered in English. The 2026/2027 course tables on the official programme page also show some first-year, common, and concluding activities in Italian.",
+    "The programme-specific admission notice PDF used for document extraction is published in Italian. The document names and rules taken from that PDF were translated into English in this JSON."
+  ],
+  "uncertain": []
+}

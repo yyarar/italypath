@@ -1,0 +1,279 @@
+{
+  "program_name": "Materials Engineering for Industry 4.0",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale / 2nd cycle)",
+  "teaching_language": "Italian, English",
+  "is_fully_english_programme": false,
+  "has_complete_english_track": true,
+  "english_track_name": "Materials Engineering for Advanced Manufacturing",
+  "campus": "Torino (Main Campus)",
+  "degree_class": "LM-53 (Materials Engineering)",
+  "double_degree_or_erasmus_mundus": "The programme pages highlight the Erasmus Mundus Joint Master META 4.0, a separate fully English joint programme offered with partner universities. The standard Materials Engineering for Industry 4.0 degree itself is presented on the main catalogue page as the ordinary PoliTo master's programme, not as an Erasmus Mundus or double degree. [uncertain]",
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40/programme-curriculum",
+  "admission_type": "evaluation/CV",
+  "admission_test_type": "Standard admission is by evaluation of curricular requirements, academic background, and language requirements. The latest programme regulations publicly linked from the current programme page also allow a merit-based oral admission interview for some applicants with an Italian qualification who do not meet the direct-admission grade thresholds. [uncertain]",
+  "applicant_route": [
+    "Applicants with an Italian qualification from Politecnico di Torino",
+    "Applicants with an Italian qualification from another Italian university",
+    "EU / equivalent applicants with a non-Italian qualification",
+    "Non-EU applicants legally residing in Italy",
+    "Non-EU applicants residing abroad and requiring a study visa"
+  ],
+  "admission_call_round": [
+    "Applicants with a non-Italian qualification follow the standard 1st call for A.Y. 2026/2027: opening 19 December 2025; closing 13 February 2026 at 2:00 p.m. Italian time; results 15 April 2026.",
+    "Applicants with a non-Italian qualification may also use the standard 2nd call: opening 18 March 2026; closing 20 April 2026 at 2:00 p.m. Italian time; results 22 June 2026.",
+    "Applicants with an Italian qualification follow the Engineering Area A.Y. 2026/2027 rolling admission timetable rather than a programme-specific ranked call."
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito for admission and enrolment; UNIVERSITALY is additionally required for non-EU applicants residing abroad who need a study visa.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "qualification": "Applicants must hold a Bachelor's degree (EQF level 6) or an equivalent qualification giving access to second-cycle studies.",
+    "non_italian_general_rule": "For a non-Italian qualification, PoliTo requires an academic qualification awarded by an accredited or recognized foreign university. Applicants who have not yet completed a five- or six-year university programme must still meet the minimum of 15 years of total education, with at least 3 years at university level and at least 180 ECTS credits or equivalent.",
+    "recommended_background_2026_2027": "The A.Y. 2026/2027 course-specific requirements sheet lists the English programme Materials Engineering for Industry 4.0 with recommended background: Any field of Engineering.",
+    "curricular_thresholds_from_latest_programme_regulations": "The latest programme regulations publicly linked from the current catalogue page (A.Y. 2025/2026) require minimum 40 credits in CHIM/07, FIS/01, FIS/03, ING-INF/05, MAT/02, MAT/03, MAT/05, MAT/06, SECS-S/02 and minimum 60 credits in CHIM/02, CHIM/05, CHIM/06, CHIM/07, FIS/03, ICAR/08, ING-IND/04, ING-IND/06, ING-IND/08, ING-IND/09, ING-IND/10, ING-IND/13, ING-IND/14, ING-IND/15, ING-IND/21, ING-IND/22, ING-IND/23, ING-IND/24, ING-IND/27, ING-IND/31, ING-IND/32, ING-IND/34, ING-IND/35, SECS-P/06. [uncertain]",
+    "shortfall_handling": "According to the latest programme regulations publicly found, applicants lacking fewer than 10 credits may be admitted by the Academic Advisor; applicants lacking more than 10 credits are evaluated by the Coordinator or Vice-coordinator. Missing credits must be completed before enrolment through single courses or, if the gap is larger, by enrolling in the relevant Bachelor's degree programme. [uncertain]",
+    "evaluation": "For applicants with a non-Italian qualification, the applicant's academic performance and the consistency between the chosen programme and the previous academic background are assessed on the Apply@polito platform by professors designated by the Collegio coordinator."
+  },
+  "country_specific_eligibility": "No Turkey-specific official country sheet or programme-specific rule was found on PoliTo sources checked for this degree. Turkish applicants should therefore follow the standard non-EU, non-Italian-qualification route: a recognized degree giving access to second-cycle studies, at least 15 years of total education, and the required recognition documentation for enrolment. [uncertain]",
+  "minimum_background_or_credits": "For A.Y. 2026/2027, the course-specific requirements sheet lists the English programme Materials Engineering for Industry 4.0 with recommended background 'Any field of Engineering'. The latest programme regulations publicly linked from the current programme page (A.Y. 2025/2026) add minimum curricular thresholds of 40 credits in the basic-science group and 60 credits in the discipline-specific group listed in the regulations. [uncertain]",
+  "language_requirements": {
+    "english_track": "For the English-taught programme row 'Materials Engineering for Industry 4.0', PoliTo requires English level B2 or higher; the A.Y. 2026/2027 course-specific requirements sheet gives IELTS 5.5 as the reference minimum score.",
+    "bilingual_italian_track": "For the Italian-titled bilingual row 'Ingegneria dei materiali per l'industria 4.0', PoliTo requires Italian B2 and IELTS 5.5.",
+    "accepted_certificates": "Accepted English certificates are the ones published by the PoliTo Language Centre. The current official B2 table includes IELTS Academic and General Training 5.5, Pearson PTE Academic 59, TOEFL iBT 72 if obtained before 21 January 2026 or Total 4 if obtained after 21 January 2026, TOEIC Listening 400 / Reading 385 / Speaking 160 / Writing 150, and Cambridge certificates with Cambridge English Scale 160.",
+    "exemptions": "PoliTo publishes standard English and Italian exemption cases on the non-Italian qualification admissions page and in the CLA certificate tables; no programme-specific exemption was found for this degree. [uncertain]"
+  },
+  "english_certificate_codes": "For TOEFL/TOEIC, PoliTo requires institution code C285. For Cambridge certificates, applicants must share the result with Politecnico di Torino and provide the Candidate ID number.",
+  "language_submission_timing": "For applicants with a non-Italian qualification, the language certificate is uploaded during the Apply@polito application. For applicants with an Italian qualification, PoliTo states that the application may be submitted without the English certificate, but the certificate must be uploaded by the enrolment deadline.",
+  "application_deadline_eu": {
+    "italian_qualification_first_semester": "Engineering Area route: application opening 4 June 2026; online enrolment opening 13 July 2026; application deadline for first-semester admission 15 October 2026; enrolment deadline 12 November 2026.",
+    "italian_qualification_second_semester": "Engineering Area route: online application opening 13 December 2026; application deadline for second-semester admission 24 February 2027; enrolment deadline 24 March 2027.",
+    "non_italian_qualification_no_visa_route": "EU applicants and other no-visa applicants with a non-Italian qualification follow the standard foreign-qualification calls: 1st call closes 13 February 2026 at 2:00 p.m. Italian time; 2nd call closes 20 April 2026 at 2:00 p.m. Italian time. Online enrolment for the first semester closes 5 October 2026; second-semester enrolment is available from 13 November 2026 to 24 March 2027 for EU and non-EU applicants residing in Italy."
+  },
+  "application_deadline_non_eu": {
+    "first_call": "Opening 19 December 2025; closing 13 February 2026 at 2:00 p.m. Italian time; results 15 April 2026.",
+    "second_call": "Opening 18 March 2026; closing 20 April 2026 at 2:00 p.m. Italian time; results 22 June 2026.",
+    "study_visa_preenrolment_note": "The same official page gives two different first-call study-visa pre-enrolment dates: 15 May 2026 in the deadlines table and 30 May 2026 in the Universitaly instructions section. The second-call pre-enrolment date is 15 July 2026 in both places. [uncertain]",
+    "enrolment": "Online enrolment for the first semester closes 5 October 2026. Mandatory enrolment documents must be uploaded by 5 October 2026, and the deadline to upload the type-D study visa is 30 November 2026."
+  },
+  "universitaly_preenrolment_deadline": "The official A.Y. 2026/2027 non-Italian-qualification page is internally inconsistent for the first call: the extended-deadlines table shows 15 May 2026, while the visa instructions section says 30 May 2026. For the second call, the page states 15 July 2026. [uncertain]",
+  "application_fee": "€50 non-refundable application fee for applicants with a non-Italian qualification, payable online by credit card through PagoPA. The Engineering Area page for applicants with an Italian qualification also says payment is required for applicants from other Italian universities, but the amount is not specified on the checked page. [uncertain]",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport (or another ID only for EU nationals).",
+    "Residence permit, only for non-EU citizens already living in Italy.",
+    "Curriculum Vitae.",
+    "Bachelor's degree (EQF Level 6) or an official university document stating the provisional graduation date if not yet graduated.",
+    "Official Transcript of Records.",
+    "English and, where applicable, Italian language certificate.",
+    "Dichiarazione di valore of the Bachelor's degree or CIMEA Statement of Comparability, if available at application stage and compulsory for enrolment.",
+    "Self-certificate of enrolment in another Italian university including passed exams, if currently enrolled.",
+    "For this specific programme in the A.Y. 2026/2027 course-specific requirements sheet, syllabus is marked 'Not Required', portfolio/summary is marked 'Not Required', and no additional programme-specific requirement is listed."
+  ],
+  "document_translation_authentication": "Documents must be issued on letterheaded paper, stamped and signed by the issuing institution. Digitally signed documents are accepted only if they can be verified online through a QR code or verification link. Documents issued in Italian, English, French, or Spanish are accepted; documents in other languages must be uploaded together with an official English or Italian translation in a single merged file. For enrolment, PoliTo requires the foreign-qualification recognition documentation stated on its admissions page, such as a Dichiarazione di valore or a CIMEA Statement of Comparability.",
+  "entry_exam_or_test": {
+    "standard_route": "No written entrance exam is published for the standard non-Italian-qualification route; admission is based on document evaluation of curricular requirements, academic performance, and language requirements.",
+    "italian_qualification_exception": "The latest programme regulations publicly linked from the current programme page state that some applicants from Politecnico di Torino or other Italian universities who do not meet the direct-admission grade thresholds may take a merit-based evaluation. [uncertain]",
+    "format": "The merit-based evaluation consists of an oral interview. [uncertain]",
+    "subjects": [
+      "Science and Technology of Metallic Materials [uncertain]",
+      "Science and Technology of Polymeric Materials [uncertain]",
+      "Science and Technology of Ceramic Materials [uncertain]"
+    ]
+  },
+  "test_score_or_threshold": "No entrance-test score threshold is published for the standard non-Italian-qualification route. The latest programme regulations publicly linked from the current programme page state the following grade thresholds for applicants with an Italian qualification: Politecnico applicants are directly admitted with no average threshold if the Bachelor's degree is completed in 4 years or less, with at least 21/30 if completed between 4 and 5 years, and with at least 24/30 if completed in more than 5 years; applicants from other Italian universities need at least 24/30 for direct admission, while those above 21/30 and below 24/30 may take the oral interview. [uncertain]",
+  "source_quotes": [
+    {
+      "quote": "Italian, English",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40",
+      "supports_fields": [
+        "teaching_language",
+        "is_fully_english_programme"
+      ]
+    },
+    {
+      "quote": "Uncapped number of students, evaluation of the admission requirements",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40",
+      "supports_fields": [
+        "admission_type"
+      ]
+    },
+    {
+      "quote": "LM-53.: MATERIALS ENGINEERING",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40",
+      "supports_fields": [
+        "degree_class"
+      ]
+    },
+    {
+      "quote": "Materials Engineering for Advanced Manufacturing (English-taught)",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40/programme-details",
+      "supports_fields": [
+        "english_track_name",
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "Mainly Italian-taught.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40/specialist-tracks",
+      "supports_fields": [
+        "has_complete_english_track",
+        "uncertainty_notes"
+      ]
+    },
+    {
+      "quote": "English-taught.",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40/specialist-tracks",
+      "supports_fields": [
+        "english_track_name",
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "Materials Engineering for Advanced Manufacturing",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40/programme-curriculum",
+      "supports_fields": [
+        "english_track_name",
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "Thesis",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40/programme-curriculum",
+      "supports_fields": [
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "MATERIALS ENGINEERING FOR INDUSTRY 4.0 English IELTS 5.5",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": [
+        "language_requirements",
+        "admission_test_type"
+      ]
+    },
+    {
+      "quote": "Any field of Engineering",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": [
+        "academic_requirements",
+        "minimum_background_or_credits"
+      ]
+    },
+    {
+      "quote": "one entirely taught in English",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20DEI%20MATERIALI%20PER%20L%27INDUSTRIA%204.0_25_26.pdf",
+      "supports_fields": [
+        "has_complete_english_track"
+      ]
+    },
+    {
+      "quote": "minimum 40 credits",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20DEI%20MATERIALI%20PER%20L%27INDUSTRIA%204.0_25_26.pdf",
+      "supports_fields": [
+        "academic_requirements",
+        "minimum_background_or_credits"
+      ]
+    },
+    {
+      "quote": "minimum 60 credits",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20DEI%20MATERIALI%20PER%20L%27INDUSTRIA%204.0_25_26.pdf",
+      "supports_fields": [
+        "academic_requirements",
+        "minimum_background_or_credits"
+      ]
+    },
+    {
+      "quote": "English language certificate (B2 level or above)",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20DEI%20MATERIALI%20PER%20L%27INDUSTRIA%204.0_25_26.pdf",
+      "supports_fields": [
+        "language_requirements"
+      ]
+    },
+    {
+      "quote": "oral interview",
+      "source_url": "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20DEI%20MATERIALI%20PER%20L%27INDUSTRIA%204.0_25_26.pdf",
+      "supports_fields": [
+        "entry_exam_or_test",
+        "admission_test_type",
+        "test_score_or_threshold"
+      ]
+    },
+    {
+      "quote": "Pay the non-refundable application fee (€50)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_fee"
+      ]
+    },
+    {
+      "quote": "Please upload the documents listed below:",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "required_documents"
+      ]
+    },
+    {
+      "quote": "May 30, 2026",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": [
+        "application_deadline_non_eu",
+        "universitaly_preenrolment_deadline"
+      ]
+    },
+    {
+      "quote": "You can submit your application even if you don’t have an English language certificate yet.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+      "supports_fields": [
+        "language_submission_timing",
+        "application_deadline_eu"
+      ]
+    },
+    {
+      "quote": "IELTS Academic and General Training 5.5",
+      "source_url": "https://www.polito.it/sites/default/files/2026-01/Tabella_23_09_2019_agg_gen26_eng_0.pdf",
+      "supports_fields": [
+        "language_requirements"
+      ]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40",
+    "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40/programme-details",
+    "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40/specialist-tracks",
+    "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40/programme-curriculum",
+    "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40/erasmus-master-meta-40",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027/applicants-from-politecnico-di-torino-ay-202627",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/engineering-area-ay-20262027/applicants-from-other-universities-ay-202627",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://www.polito.it/sites/default/files/2025-07/Academic%20Regulations_MA_ING%20DEI%20MATERIALI%20PER%20L%27INDUSTRIA%204.0_25_26.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/polito-language-centre-cla/certificates",
+    "https://www.polito.it/sites/default/files/2026-01/Tabella_23_09_2019_agg_gen26_eng_0.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "The programme is listed in the current catalogue as bilingual ('Italian, English'), so is_fully_english_programme is false even though a complete English pathway exists.",
+    "The current curriculum page and the latest programme regulations publicly linked from the catalogue page both support the conclusion that 'Materials Engineering for Advanced Manufacturing' is a complete English pathway: the curriculum page shows Year 1, Year 2, and thesis in English, and the regulations explicitly describe this track as 'one entirely taught in English'.",
+    "The most detailed curriculum-credit thresholds and oral-interview rules found publicly are in the latest programme regulations PDF linked from the current catalogue page, but that PDF is for A.Y. 2025/2026 rather than a separate 2026/2027 regulations PDF.",
+    "The official non-Italian-qualification page is internally inconsistent on the first-call Universitaly pre-enrolment deadline: the deadlines table says 15 May 2026, while the visa instructions section says 30 May 2026. The second-call date is consistently 15 July 2026.",
+    "The programme pages also highlight the Erasmus Mundus Joint Master META 4.0. It is clearly a fully English joint programme with partner universities, but the exact administrative relationship between that joint master and the ordinary Materials Engineering for Industry 4.0 admission route is not spelled out on the checked sources.",
+    "No Turkey-specific or country-specific eligibility sheet was found for this degree, so the country-specific field applies PoliTo's general non-Italian-qualification rules."
+  ],
+  "uncertain": [
+    "double_degree_or_erasmus_mundus",
+    "admission_test_type",
+    "country_specific_eligibility",
+    "minimum_background_or_credits",
+    "language_requirements.exemptions",
+    "application_deadline_non_eu",
+    "universitaly_preenrolment_deadline",
+    "application_fee",
+    "entry_exam_or_test",
+    "test_score_or_threshold"
+  ]
+}

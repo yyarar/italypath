@@ -1,0 +1,158 @@
+{
+  "program_name": "Mechanical Engineering",
+  "level": "bachelor",
+  "official_level_type": "Bachelor's degree programme (Laurea, 1st cycle)",
+  "teaching_language": "Italian, English",
+  "is_fully_english_programme": false,
+  "has_complete_english_track": true,
+  "english_track_name": "Percorso in lingua inglese (English-language track)",
+  "campus": "Torino main campus",
+  "degree_class": "L-9 (Industrial Engineering / Ingegneria industriale)",
+  "double_degree_or_erasmus_mundus": null,
+  "official_program_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/mechanical-engineering",
+  "curriculum_page_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/mechanical-engineering/programme-curriculum",
+  "admission_type": "TIL",
+  "admission_test_type": "TIL-I (Test In Laib for the Engineering area); SAT General Test accepted as an alternative",
+  "applicant_route": [
+    "Italian qualification",
+    "EU and equivalent applicants",
+    "non-EU residing in Italy with a valid residence permit",
+    "non-EU residing abroad and requiring a visa (the route for Turkish applicants)"
+  ],
+  "admission_call_round": "Single Call for Applications for admission to Engineering Bachelor's degree programmes A.Y. 2026/27. Admission is by TIL-I (five test sessions Feb-Jul 2026) or by a valid SAT score; ranking lists are published and updated rather than separate numbered application rounds. Non-EU visa applicants follow a distinct enrolment calendar with earlier deadlines than EU/equivalent applicants.",
+  "special_call_flag": false,
+  "application_platform": "Apply@polito (https://didattica.polito.it/pls/portal30/sviluppo.pkg_apply.registrazione) for registration, TIL-I/SAT submission, programme choice and student-place reservation/enrolment; UNIVERSITALY portal for the visa pre-enrolment of non-EU applicants residing abroad.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/calls-for-application-regulations-and-ranking-lists/calls-regulations-26-27",
+  "academic_requirements": {
+    "secondary_school_diploma": "A secondary high-school diploma (EQF level 4) awarded after at least 12 years of school attendance. For diplomas awarded after fewer than 12 years, completion of one or two years of university exams, a related post-secondary qualification, or an approved Foundation Course is required to reach the equivalent of 12 years.",
+    "national_admission_test_certificate": "Applicants from countries where a national admission test is mandatory (e.g. Turkey's YKS, China's Gao Kao, Brazil's Vestibular) must upload a certificate attesting they have passed that national admission test.",
+    "admission_threshold": "Minimum threshold for inclusion in the Engineering ranking lists via TIL-I is 30/100; the guaranteed admission threshold (automatic admission to the first-preference programme) is 60/100. Mechanical Engineering is a capped-number programme with a mandatory admission test.",
+    "qualification_recognition": "Foreign qualification assessed via a Dichiarazione di valore or a CIMEA/ENIC-NARIC Statement of Comparability."
+  },
+  "country_specific_eligibility": "Turkish applicants hold a non-Italian qualification and are treated as non-EU. Because Turkey has a mandatory national university entrance examination, applicants must upload a certificate attesting that the national admission test (YKS) has been passed, in addition to the high-school diploma. The Turkish diploma must be accompanied by a Dichiarazione di valore or a CIMEA/ENIC-NARIC Statement of Comparability (the ARDI Attestato di Corrispondenza can substitute the CIMEA Statement of Comparability), and PoliTo may request an Attestato di Verifica CIMEA.",
+  "minimum_background_or_credits": null,
+  "language_requirements": {
+    "english_level": "English certificate at CEFR level B2 or above is required for enrolment in the English-taught track of this Bachelor's programme.",
+    "accepted_certificates": "Certificates accepted by PoliTo are listed in the official table of the PoliTo Language Centre (CLA), 'Table adopted on 23/09/2019 - updated on 22/12/2022' (includes IELTS, TOEFL, TOEIC, Cambridge and others).",
+    "exemptions": "Exemptions apply for, e.g., an IB Diploma taught in English, European School diplomas (L1 English), and qualifications taught in English from institutions in the USA, UK, Canada, Ireland, Australia and New Zealand.",
+    "italian_requirement": "An Italian B2 certificate is required only for enrolment in an Italian-taught Bachelor's programme; it is not required to enrol in the English-taught track of Mechanical Engineering."
+  },
+  "english_certificate_codes": "For TOEFL/TOEIC, applicants must indicate institution code C285 when requesting that their results be shared with Politecnico di Torino.",
+  "language_submission_timing": "The language certificate must be uploaded via the specific Apply@polito procedure before the deadlines set in the Call (art. 17). For non-EU applicants residing abroad and requiring a visa, the language-requirement deadline is Friday 22nd May 2026. Failure to upload by the deadline entails permanent exclusion from enrolment.",
+  "application_deadline_eu": {
+    "summary": "EU and equivalent applicants: the deadline to add/change programme choices and to register for the last TIL-I session is Monday 20th July 2026. TIL-I sessions run from February to July 2026 (registration opens Tuesday 27th January 2026). SAT scores can be submitted as an alternative per the Call. Enrolment follows the published and updated ranking lists.",
+    "programme_choice_deadline": "Monday 20th July 2026",
+    "source": "Call for applications for admissions Engineering & LP 2026-27 (art. 4 par. 2)"
+  },
+  "application_deadline_non_eu": {
+    "summary": "Non-EU applicants residing abroad and requiring a visa: deadline to add/change programme choices and to register for the last TIL-I session is Friday 22nd May 2026; English/Italian language certificate must also be uploaded by Friday 22nd May 2026. Merit-based ranking lists are published Thursday 28th May 2026. Student-place reservation/early enrolment for applicants reaching the guaranteed admission threshold runs from Tuesday 14th April 2026 until Thursday 4th June 2026 at 2.00 p.m.; further reservation/enrolment windows follow each ranking-list update (e.g. first update Friday 5th June 2026, second update Tuesday 9th June 2026).",
+    "programme_choice_and_last_TIL_session_deadline": "Friday 22nd May 2026",
+    "language_certificate_deadline": "Friday 22nd May 2026",
+    "ranking_list_publication": "Thursday 28th May 2026",
+    "reservation_enrolment_deadline_guaranteed_group": "Thursday 4th June 2026 at 2.00 p.m.",
+    "source": "Call for applications for admissions Engineering & LP 2026-27 (art. 4 par. 2; art. 13)"
+  },
+  "universitaly_preenrolment_deadline": "Non-EU applicants living abroad and applying for a study visa must submit the visa pre-enrolment application exclusively through the UNIVERSITALY portal by 30th June 2026. This is separate from and additional to the Apply@polito procedure; the PoliTo eligibility confirmation does not replace the UNIVERSITALY pre-enrolment, and pre-enrolment is validated only after the applicant has passed TIL-I/met requirements, enrolled, attached school and language documents, and paid the first tuition instalment.",
+  "application_fee": "TIL-I registration fee is EUR 50.00 (non-refundable). The standard first tuition instalment due at enrolment is EUR 161 (subject to revision under the 2026/2027 Tuition Fee Regulations). No separate application fee beyond the TIL-I registration fee is stated for the TIL route.",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport (or EU ID card for EU nationals); residence permit for non-EU citizens residing in Italy",
+    "Secondary high-school diploma (with official translation into Italian/English where applicable)",
+    "Certificate attesting the national admission test has been passed (e.g. Turkey YKS) where the home country requires it",
+    "English language certificate at CEFR B2 or above (per the PoliTo CLA accepted list)",
+    "Dichiarazione di valore or CIMEA/ENIC-NARIC Statement of Comparability of the high-school diploma (ARDI Attestato di Corrispondenza may substitute; Attestato di Verifica CIMEA encouraged)",
+    "Student Visa type D ('Immatricolazione Universita' tipo D 'nazionale') for non-EU applicants not residing in Italy, at enrolment",
+    "Italian fiscal code (Codice fiscale)",
+    "University transcript of records or post-secondary/Foundation Course evidence for diplomas awarded after fewer than 12 years of schooling",
+    "Supplementary certificates for UK, Scottish, US high-school diplomas and the IB Diploma (Annex C requirements)"
+  ],
+  "document_translation_authentication": "Documents issued in Italian, English, French or Spanish are accepted as-is; documents in other languages require an official translation (bearing the stamp and original signature of an officially recognised translator). Italian translations must be certified by the Italian Embassy in the issuing country or sworn by the translator before an Italian Court. The diploma must be accompanied by a Dichiarazione di valore or a CIMEA/ENIC-NARIC Statement of Comparability; the ARDI Attestato di Corrispondenza can substitute the CIMEA Statement of Comparability, and PoliTo may request the Attestato di Verifica CIMEA.",
+  "entry_exam_or_test": {
+    "test": "TIL-I (Test In Laib) for the Engineering area, taken in person for A.Y. 2026/27",
+    "format": "90 minutes, 42 questions: 16 Mathematics, 10 Reading Comprehension/Logical Reasoning, 10 Physics, 6 Basic technical knowledge; +1 per correct answer, -0.25 per incorrect answer, 0 for unanswered; score converted to /100.",
+    "sessions": "Five sessions February-July 2026; registration opens Tuesday 27th January 2026. Last TIL-I session deadline for non-EU visa applicants is 22nd May 2026.",
+    "registration_fee": "EUR 50.00 (non-refundable), paid on Apply@polito",
+    "alternative": "SAT General Test accepted as an alternative to TIL-I: minimum 650 in each of the 'Evidence-Based Reading and Writing' and 'Math' sections; the SAT-based ranking is drawn on the sum of the two section scores. SAT inclusion does not guarantee an admission offer (and SAT is not valid for Architecture).",
+    "mode": "In person"
+  },
+  "test_score_or_threshold": "TIL-I: minimum threshold for inclusion in the Engineering ranking lists is 30/100; guaranteed admission threshold (automatic admission to the first-preference programme) is 60/100. OFA (additional learning requirements / Obblighi Formativi Aggiuntivi) are assigned to any applicant, including admitted ones, scoring less than 4.8/16 (under 30% of the maximum) in the Mathematics section. SAT: no guaranteed admission threshold; minimum 650 in each section to be included in the ranking list.",
+  "source_quotes": [
+    {
+      "quote": "Percorso in lingua inglese",
+      "source_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/mechanical-engineering/programme-curriculum",
+      "supports_fields": ["has_complete_english_track", "english_track_name", "is_fully_english_programme"]
+    },
+    {
+      "quote": "L-9: INDUSTRIAL ENGINEERING ... Capped number of students, mandatory admission test",
+      "source_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/mechanical-engineering",
+      "supports_fields": ["degree_class", "admission_type", "teaching_language", "campus"]
+    },
+    {
+      "quote": "the minimum thresholds for being included in the ranking lists ... 30/100 for admission to the Bachelor's degree programmes of the Engineering area ... the guaranteed admission threshold is 60/100",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+      "supports_fields": ["test_score_or_threshold", "academic_requirements"]
+    },
+    {
+      "quote": "Applicants must have a minimum score of 650 points in each of the two test sections",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+      "supports_fields": ["entry_exam_or_test", "admission_test_type"]
+    },
+    {
+      "quote": "The TIL-I registration fee is € 50.00. The amount paid cannot be reimbursed under any circumstances",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+      "supports_fields": ["application_fee", "entry_exam_or_test"]
+    },
+    {
+      "quote": "applicants ... who scored less than 4,8/16 in the Mathematics section (which corresponds to less than 30% of the maximum score for the section) will have to fulfil some supplementary academic obligations (in Italian, Obblighi Formativi Aggiuntivi - OFA)",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+      "supports_fields": ["test_score_or_threshold"]
+    },
+    {
+      "quote": "Friday 22nd May 2026 for non-EU applicants residing abroad and requiring visa; Monday 20th July 2026 for EU applicants and Equivalent applicants",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+      "supports_fields": ["application_deadline_non_eu", "application_deadline_eu"]
+    },
+    {
+      "quote": "You must submit your application by 30th June 2026 ... exclusively through the UNIVERSITALY portal",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["universitaly_preenrolment_deadline"]
+    },
+    {
+      "quote": "English Level B2 or above ... For TOEFL/TOEIC, applicants must indicate the code C285 to share the results",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["language_requirements", "english_certificate_codes"]
+    },
+    {
+      "quote": "Dichiarazione di valore (Statement of Validity) of the high school diploma or Attestato di Comparabilità (Statement of Comparability) issued by CIMEA or by other ENIC-NARIC centres",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+      "supports_fields": ["document_translation_authentication", "required_documents", "country_specific_eligibility"]
+    },
+    {
+      "quote": "secondary high school diploma (level 4 EQF) earned after at least 12 years of school attendance",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["academic_requirements"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/bachelor-s-degree-programmes/mechanical-engineering",
+    "https://www.polito.it/en/education/bachelor-s-degree-programmes/mechanical-engineering/programme-curriculum",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/admission-test",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/calls-for-application-regulations-and-ranking-lists/calls-regulations-26-27",
+    "https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/polito-language-centre-cla/certificates"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "The complete fully-English track ('Percorso in lingua inglese') is confirmed on the official /programme-curriculum page as covering all three years (Year 1: 7 English courses; Year 2: 8; Year 3: 8), so a student can complete the 3-year degree 100% in English. The exact English-track course-by-course plan should be re-checked on the curriculum page at enrolment time, since the catalogue label alone is 'Italian, English'.",
+    "degree_class L-9 is taken from the official programme page label 'INDUSTRIAL ENGINEERING'; the precise classe code is standard for Mechanical Engineering but was inferred from the page label rather than an explicit 'L-9' string.",
+    "Deadlines and thresholds are taken from the official 2026/27 Engineering Call for Applications PDF; the standard first-instalment amount (EUR 161) is explicitly stated as subject to revision under the 2026/2027 Tuition Fee Regulations not yet approved at the time of the Call.",
+    "Per-programme number of student places / non-EU contingent for Mechanical Engineering is set in Annex A of the Call and was not extracted for this specific programme."
+  ],
+  "uncertain": [
+    "degree_class",
+    "application_fee"
+  ]
+}

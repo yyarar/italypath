@@ -1,0 +1,100 @@
+{
+  "program_name": "Business Management",
+  "level": "master",
+  "official_level_type": "Laurea Magistrale",
+  "teaching_language": "Italian, English",
+  "partially_english_flag": true,
+  "campus": "Rome (Faculty of Economics)",
+  "degree_class": "LM-77",
+  "course_code": "33447",
+  "faculty": "Economia (Economics)",
+  "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33447",
+  "admission_type": "restricted access – verification of requirements and personal preparation",
+  "movein_preselection_required": true,
+  "admission_test_type": "Verification of curricular requirements and personal preparation; separate Italian and English curriculum tracks",
+  "applicant_route": [
+    "Italian qualification",
+    "EU qualification",
+    "non-EU residing in Italy",
+    "non-EU residing abroad (MoveIN route, visa-required)"
+  ],
+  "application_platform": "MoveIN platform for non-EU pre-selection; Infostud for admission",
+  "access_quota_non_eu": "[uncertain] – programme-specific non-EU quota not extracted",
+  "application_round": "September intake; also potentially February intake [uncertain]",
+  "intake_semester_availability": "[uncertain] – second semester February intake referenced in search results",
+  "places_and_foreign_contingent": "[uncertain]",
+  "official_call_url": null,
+  "faculty_call_pdf_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33447_e.pdf",
+  "academic_requirements": {
+    "prior_degree": "A three-year bachelor's degree, preferably in Economics, Management, Business Administration, or related field",
+    "curricular_requirements": "[uncertain] – specific ECTS/SSD requirements not extracted"
+  },
+  "country_specific_eligibility": "[uncertain] – see MoveIN academic requirements PDF 2026-2027",
+  "curricular_integration_policy": "[uncertain]",
+  "conditional_enrolment_policy": "[uncertain]",
+  "language_requirements": {
+    "level": "B2 CEFR in English (for English curriculum track)",
+    "note": "Programme has separate Italian and English curriculum tracks. Applicants to the English track must demonstrate B2 English. Double-degree option with Hochschule der Wirtschaft für Management – Mannheim (Germany) is available."
+  },
+  "language_submission_timing": "[uncertain]",
+  "italian_language_requirement": "Programme is bilingual; Italian curriculum available alongside English curriculum. Students in the English track may still encounter Italian in university administration.",
+  "application_deadline_eu": "31 July 2026 for EU and EU-equivalent candidates [uncertain]; second semester (February) applications may have different deadlines",
+  "application_deadline_non_eu": "MoveIN pre-selection window 22 December 2025 – 15 May 2026 for non-EU candidates residing abroad (September intake)",
+  "application_fee": "€30 per application via MoveIN (max 2 per candidate)",
+  "visa_preenrolment_deadline": "MoveIN pre-selection by 15 May 2026",
+  "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+  "academic_year": "2025-2026",
+  "required_documents": [
+    "Bachelor's degree certificate or enrolment certificate",
+    "Academic transcript",
+    "Passport / ID",
+    "English language certificate (B2)",
+    "For foreign qualifications: Declaration of Value (DoV) or CIMEA statement"
+  ],
+  "document_translation_authentication": "Foreign documents require official translation and legalization/apostille plus Declaration of Value (DoV) or CIMEA statement.",
+  "entry_exam_or_test": {
+    "test": "No standardized written entrance test",
+    "selection": "Verification of curricular requirements and personal preparation"
+  },
+  "test_variant_and_session": null,
+  "test_score_conversion_or_threshold": "[uncertain]",
+  "source_quotes": [
+    {
+      "quote": "Business Management; Degree Class: LM-77; Course Code: 33447; Faculty: Economia; Language: Italian, English",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33447",
+      "supports_fields": ["program_name", "degree_class", "course_code", "faculty", "teaching_language", "partially_english_flag"]
+    },
+    {
+      "quote": "Double degree programme between Sapienza University Faculty of Economics and Hochschule der Wirtschaft für Management – Mannheim Germany",
+      "source_url": "https://corsidilaurea.uniroma1.it/en/course/33447",
+      "supports_fields": ["language_requirements"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://corsidilaurea.uniroma1.it/en/course/33447",
+    "https://corsidilaurea.uniroma1.it/en/corso/2024/31834/home",
+    "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33447_e.pdf",
+    "https://www.uniroma1.it/en/admissions"
+  ],
+  "source_year": "2025-2026",
+  "uncertainty_notes": [
+    "PROGRAMME NAME CORRECTION: Original outline item 'Management (English track)' at Sapienza corresponds to 'Business Management' (Gestione aziendale - Business Management), code 33447, LM-77.",
+    "This programme was also initially listed in outline.yaml as a 'bachelor' — Agent 2 confirmed it is a MASTER (Laurea Magistrale). Level corrected to 'master'.",
+    "Programme is bilingual Italian/English; partially_english_flag set to true.",
+    "Second semester (February) course start referenced in search results — verify intake availability.",
+    "Specific curricular ECTS requirements not extracted.",
+    "Per-programme non-EU quota and places not extracted."
+  ],
+  "uncertain": [
+    "access_quota_non_eu",
+    "places_and_foreign_contingent",
+    "official_call_url",
+    "country_specific_eligibility",
+    "curricular_integration_policy",
+    "conditional_enrolment_policy",
+    "language_submission_timing",
+    "application_deadline_eu",
+    "intake_semester_availability",
+    "test_score_conversion_or_threshold"
+  ]
+}

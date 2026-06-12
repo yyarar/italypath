@@ -1,0 +1,145 @@
+{
+  "program_name": "Law and Sustainable Development",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM/SC-GIUR R - Scienze Giuridiche",
+  "admission_type": "open admission master programme with entry requirements examination",
+  "academic_requirements": "Applicants must hold, or obtain by 30 October 2026, a first-cycle degree of at least 180 ECTS. The standard background routes are Law, Economics, Political Science, or International Relations; for Italian degrees, the notice/programme page lists classes L-14, L-33, L-36, L-37, L-16, and L-18. Applicants from other disciplines may also apply if they have at least 18 ECTS in law subjects and 12 ECTS in economics subjects. The Admission Board must also verify adequate personal preparation and the coherence of the applicant's previous studies, work experience, and career plans with the programme. The official degree-course enrolment page adds benchmark guidance used by the Board: for Italian qualifications, applicants below 95/110, or below 25/30 if not yet graduated, are in principle not considered to meet the requirement, while applicants above 105/110, or above 27.5/30 if not yet graduated, are in principle considered to meet it; for foreign qualifications, applicants outside the top 20% of their class are in principle not considered to meet the requirement, while those in the top 5% are in principle considered to meet it.",
+  "language_requirements": "English is the teaching language and applicants must prove English at CEFR C1 or higher by the admission deadline. Officially accepted routes are: completion of a previous academic programme fully taught in English, or submission of an accepted UniMi English-language certificate. UniMi states that the certificate must show the required level in each competence (Reading, Writing, Listening, Speaking). On the official accepted-certificates page, certificates are generally valid only if earned within 3 years of submission, except TOEFL, which is valid for 2 years. Examples on UniMi's official list include IELTS Academic 7.0-8.0, Cambridge C1 Advanced/CAE, TOEFL iBT 95-113, PTE Academic 76-84, LanguageCert Expert C1, and Trinity ISE III. The degree-course enrolment page also says applicants may upload either the certificate or a statement explaining why they are exempt from the certificate requirement. In addition, the 2026/2027 manifesto states that students who do not hold an Italian upper-secondary diploma or an Italian university degree must demonstrate Italian language proficiency at A2 or higher before graduation, either through a valid certificate or through the SLAM test/course route.",
+  "application_deadline_eu": "EU and equivalent applicants: admission application window from 22 January 2026 to 20 July 2026. Enrolment window for admitted applicants: from 5 May 2026 to 15 January 2027.",
+  "application_deadline_non_eu": "Non-EU applicants requiring a visa: admission application window from 22 January 2026 to 30 April 2026. After admission, pre-enrolment through Universitaly must be completed by 31 July 2026. Enrolment window for admitted applicants: from 5 May 2026 to 15 January 2027.",
+  "required_documents": [
+    "Detailed curriculum vitae/resume in English.",
+    "Short letter in English of no more than 500 words, attached to the CV in a single file.",
+    "Proof of English proficiency: either an accepted C1-or-higher English certificate or a statement explaining the exemption basis (for example, a previous degree fully taught in English).",
+    "For applicants with non-Italian university qualifications at application stage: copy of each university degree with English translation, plus transcript and diploma supplement or equivalent record showing degree type, duration, courses/learning activities, grades, GPA, final grade, and class/rank if available.",
+    "Passport or other valid identity document.",
+    "For applicants with Italian qualifications applying through the university portal: self-certification of the degree already obtained, or self-certification of enrolment with exams passed, grades, ECTS credits, and scientific-disciplinary sectors; for current students from other Italian universities, the self-certification must also list passed exams not yet registered, exams still to be taken, and the expected graduation date.",
+    "For applicants with foreign qualifications applying through apply.unimi.it: bachelor's degree or degree-awarding certificate.",
+    "For applicants with foreign qualifications applying through apply.unimi.it: diploma supplement or transcript including courses, marks, ECTS credits when available, academic field, and grading system.",
+    "For enrolment with a foreign qualification: legalized or apostilled bachelor's degree or equivalent qualification.",
+    "For enrolment with a foreign qualification: upper-secondary school diploma.",
+    "For enrolment with a foreign qualification: official Italian translation of the academic qualification documents unless the originals are issued in English, French, German, or Spanish.",
+    "For enrolment with a foreign qualification: Statement of Comparability issued by CIMEA, or Statement of Verification/Declaration of Value, or Diploma Supplement/ARDI correspondence statement when accepted under the Lisbon Recognition Convention.",
+    "For enrolment in Italy: Italian tax code.",
+    "For non-EU applicants already in Italy at enrolment stage: receipt of residence-permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "No standard entrance exam date is published. Admission is officially described as 'open with entry requirements examination'. The Admission Board verifies degree/background requirements and personal preparation. The 2026/2027 admission notice states that the Board may request an interview and/or a written test, either in person or remotely. The official degree-course enrolment page explains the interview route in more detail: interviews, when required, are held exclusively online and may cover basic legal and economic concepts, the candidate's opinion on selected issues, and summaries or explanations of short texts.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/law-and-sustainable-development",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-law-and-sustainable-development-%28classe-lm-sc_giur-r%29.pdf?30-MAR-26",
+  "source_quotes": [
+    {
+      "quote": "Access Open with entry requirements examination.",
+      "url": "https://www.unimi.it/en/education/master-programme/law-and-sustainable-development",
+      "field_refs": [
+        "program_name",
+        "level",
+        "academic_year",
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Course location Milan. Language English.",
+      "url": "https://www.unimi.it/en/education/master-programme/law-and-sustainable-development",
+      "field_refs": [
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "LM/SC-GIUR R Law.",
+      "url": "https://www.unimi.it/en/education/master-programme/law-and-sustainable-development",
+      "field_refs": [
+        "degree_class"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "from 22 January to 20 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-law-and-sustainable-development-%28classe-lm-sc_giur-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "application_deadline_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "from 22 January to 30 April 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-law-and-sustainable-development-%28classe-lm-sc_giur-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-law-and-sustainable-development-%28classe-lm-sc_giur-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "18 ECTS in Law and 12 ECTS in Economics.",
+      "url": "https://llmsd.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "curriculum vitae et studiorum and a short letter.",
+      "url": "https://llmsd.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "copy of each University degree, with English translation.",
+      "url": "https://llmsd.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "earned for no more than 3 years",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "IELTS Academic 7.0 - 8.0",
+      "url": "https://www.unimi.it/sites/default/files/2025-09/Accepted%20language%20certificates_1.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "Italian language (level A2).",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_ABAof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-11"
+    },
+    {
+      "quote": "The first instalment is 156 euros.",
+      "url": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+      "field_refs": [
+        "tuition_or_fees_link"
+      ],
+      "retrieved_at": "2026-06-11"
+    }
+  ],
+  "uncertainty_notes": [],
+  "uncertain": []
+}

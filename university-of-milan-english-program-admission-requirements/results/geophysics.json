@@ -1,0 +1,113 @@
+{
+  "program_name": "Geophysics",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-79 R - Scienze geofisiche",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": "Applicants must hold a scientific or engineering bachelor's degree under DM 270/04 or DM 509/99, or a suitable foreign qualification, and satisfy the entry requirements by 31 December 2026. The curricular requirement is at least 60 ECTS overall in the following scientific-disciplinary sectors: physics (FIS/01-08), mathematics (MAT/01-09), statistics (SECS-S/01-02), computer science (INF/01), information engineering (ING-INF/01-05, 07), chemistry (CHIM/01-07, 12), geosciences (GEO/01-12), civil engineering (ICAR/01-03, 06-09), and industrial engineering (ING-IND/01-07, 09-12, 18-20, 28-30). Within those credits, applicants need at least 15 ECTS in physics and geosciences and at least 15 ECTS in mathematics, statistics, and computer science. The admission commission verifies Italian qualifications directly, maps foreign coursework to these minimum requirements, evaluates the applicant's previous studies and personal preparation, and decides whether an in-depth interview is needed. The official sources note that graduates from class L-30 and many class L-34 bachelor's programmes normally meet the curricular criteria.",
+  "language_requirements": "[uncertain] English at CEFR B2 is required. The programme page and manifesto state that applicants must have an adequate level of English comparable with B2, and that the admission commission verifies the ability to communicate effectively in English, normally through the interview when deemed necessary. English is not assessed if the applicant holds an official certificate issued no more than three years before the application and proving at least B2 CEFR, or if the applicant holds a bachelor's or equivalent degree from a programme taught in English. The programme-specific official sources reviewed do not publish a narrower list of accepted English certificates or a separate upload deadline beyond submitting the admission application.",
+  "application_deadline_eu": "EU and equivalent candidates: admission application from 22 January 2026 to 30 October 2026; admitted students enrol from 5 May 2026 to 15 January 2027; the degree and entry requirements must be completed by 31 December 2026.",
+  "application_deadline_non_eu": "Non-EU candidates applying for a visa: admission application from 22 January 2026 to 30 April 2026; Universitaly pre-enrolment by 31 July 2026; admitted students enrol from 5 May 2026 to 15 January 2027; the degree and entry requirements must be completed by 31 December 2026; final enrolment documents on apply.unimi.it must be completed by 30 November 2026.",
+  "required_documents": [
+    "For applicants with an Italian qualification: self-certification of degree or enrolment with exam records; for graduates or graduating students from universities other than the University of Milan, the document must include exams taken, grades, ECTS credits, and scientific-disciplinary sectors.",
+    "For applicants with a foreign qualification: bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with a foreign qualification: Diploma Supplement or transcript of records including courses, marks, ECTS, academic field, and the grading system used by the university, in English, Italian, French, German, or Spanish.",
+    "Passport or other valid ID.",
+    "To finalize enrolment with a foreign qualification: legalized or apostilled bachelor's degree (or equivalent), unless legalization or Hague Apostille is not required by law.",
+    "High school diploma.",
+    "Official Italian translation of academic qualifications, unless the original documents are in French, English, German, or Spanish.",
+    "Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore in loco (DOV); for Lisbon Convention countries, the Diploma Supplement or ARDI Correspondence Statement may replace the DOV and Statement of Comparability.",
+    "Italian tax code (codice fiscale).",
+    "For non-EU citizens: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "There is no fixed national entrance test. Admission is officially described as open access with entry requirements examination. The Admission Board verifies curricular requirements and prior preparation and may request an interview and/or a written test, either in person or remotely. The interview can also be used to assess English when necessary. The assessment outcome is communicated by email or published on the degree programme website. The programme also publishes a syllabus of the physics, mathematics, and computer science knowledge expected for admission.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/geophysics",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-geophysics-%28classe-lm-79-r%29.pdf?30-MAR-26",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027. Master programme. LM-79 R - Scienze geofisiche. Access: Open with entry requirements examination. Course location: Milan. Language: English.",
+      "url": "https://www.unimi.it/en/education/master-programme/geophysics",
+      "field_refs": [
+        "academic_year",
+        "level",
+        "degree_class",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "The student must hold a scientific or engineering degree ... which satisfies the following minimum curricular requirements: at least 60 credits in total ... of which at least 15 credits in ... physics and geosciences ... 15 credits in ... mathematics and computer science.",
+      "url": "https://geophysics.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "The applicant must also have an adequate level of knowledge of the English language, comparable with the B2 level ... Knowledge of the English language is not assessed if the student holds an official certification, dating back no more than three years before the application.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBKof2_2027.pdf",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Online admission application for EU candidates and equivalents from 22 January to 30 October 2026 ... Online admission application for non EU candidates applying for a visa from 22 January to 30 April 2026 ... Enrolment of admitted students from 5 May 2026 to 15 January 2027.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-geophysics-%28classe-lm-79-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "The online admission service requires the following documents to be uploaded ... Self-certification of degree/enrolment with exam records ... Bachelor’s Degree (B.Sc. or equivalent) ... Diploma supplement or, alternatively, a transcript ... Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-geophysics-%28classe-lm-79-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Applicants with foreign qualifications must submit ... legalized or apostilled ... Bachelor’s degree ... High school diploma ... Official Italian translation ... Statement of Comparability ... or a Dichiarazione di Valore ... Italian tax code ... Receipt of the residence permit application or a valid residence permit ... completed by 30 November 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-geophysics-%28classe-lm-79-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "required_documents",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "All students falling under this category are required to submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-geophysics-%28classe-lm-79-r%29.pdf?30-MAR-26",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "The admission commission is entrusted with ... evaluation of the previous study curriculum ... decision on the need for an in-depth interview ... evaluation of the student's personal preparation and adequate knowledge of the English language, through the interview, when deemed necessary.",
+      "url": "https://geophysics.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements",
+        "language_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-06"
+    }
+  ],
+  "uncertainty_notes": [
+    "The 2026/27 programme page and 2026/27 admission notice both give the EU admission deadline as 30 October 2026, but the 2026/27 manifesto says 'by October 31, 2026'. The JSON uses 30 October 2026 because the programme page and the admission notice agree and the admission notice is the governing admissions document.",
+    "The official programme page says 'Language: English' and the manifesto says 'The MS program is delivered in English, with a single curriculum', but the 2026/27 published course list also includes some optional activities taught in Italian. The teaching_language field therefore keeps the official programme label 'English', with this caveat noted here.",
+    "The programme-specific official sources clearly state the B2 level, the three-year validity rule for an English certificate, and the exemption for a previous degree taught in English, but they do not publish a programme-specific list of accepted certificate types or a separate upload deadline for the certificate. For that reason, language_requirements is marked uncertain.",
+    "For non-EU visa applicants, the admission notice says that any additional language requirements will be published on a dedicated webpage in line with ministerial provisions for 2026/27; no separate dedicated page was visible among the official programme sources reviewed."
+  ],
+  "uncertain": [
+    "language_requirements"
+  ]
+}

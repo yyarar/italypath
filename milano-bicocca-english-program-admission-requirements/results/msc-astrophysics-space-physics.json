@@ -1,0 +1,146 @@
+{
+  "program_name": "Astrophysics and Space Physics",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Milan",
+  "degree_class": "LM-58 (Physical Sciences)",
+  "admission_type": "open access with entry requirements examination",
+  "academic_requirements": {
+    "summary": "Two-year MSc (LM-58, course code F5803Q) delivered entirely in English. 'Open access with entry requirements examination': admission requires specific curricular requirements plus an assessment of the adequacy of personal preparation by an Evaluation Committee, carried out through an admission interview (with exemptions).",
+    "prior_degree_or_diploma": "A bachelor's degree (or three-year university diploma), or an equivalent recognised foreign qualification.",
+    "subject_requirements": "Possession of a degree in the L-30 class satisfies the curricular requirement. Candidates from other degree classes must hold at least 18 CFU in the scientific sectors MAT/01 to MAT/09 (new codes MATH-(01-06)/A and MATH-(01-03)/B) and at least 18 CFU in FIS/01 to FIS/08 (new codes PHYS-(01-06)/A and PHYS-(05,06)/B). Basic knowledge is expected in Mathematics (differential calculus, analytical mechanics, geometry), Classical Physics and Quantum Mechanics.",
+    "interview_exemption": "Candidates with a degree in Physics, Astrophysics or Astronomy (class L-30) and a graduation mark of 90/110 or higher are exempt from the admission interview.",
+    "international_qualification": "Foreign-qualification candidates (EU, equivalent, or non-EU residing in Italy) and non-EU visa candidates must apply exclusively via apply.unimib.it; the Evaluation Committee maps foreign credits to the MAT/FIS sectors.",
+    "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf"
+  },
+  "language_requirements": {
+    "required_level": "English at CEFR B2 level is required for admission; the requirement must be met by the application deadline.",
+    "accepted_proofs": [
+      "University English-language exams totalling at least 5 CFU at B2 level passed during the university career (Italian-qualification candidates).",
+      "A UNIMIB-recognised English certification at B2 or higher obtained no more than 5 years ago (listed in Certificazioni_INGLESE_nov2025_UNIMIB.pdf).",
+      "UNIMIB 'Bbetween Languages' Open Badge - English at B2 or higher (University of Milano-Bicocca candidates only).",
+      "A first-level (Bachelor's) degree delivered entirely in English.",
+      "A passport from Antigua and Barbuda, Australia, Bahamas, Barbados, Belize, Canada, Dominica, Grenada, Guyana, Ireland, Jamaica, Malta, New Zealand, St Kitts and Nevis, St Lucia, St Vincent and the Grenadines, Trinidad and Tobago, United Kingdom, or USA."
+    ],
+    "in_house_test": "Italian-qualification candidates without proof may sit an in-person UNIMIB English test, summoned in one of two 2026 windows: 22 June - 3 July 2026 (request by 16 June) or 2-7 September 2026 (request by 26 August). Request sent to the Admission office with subject 'English test for ASTROPHYSICS AND SPACE PHYSICS' and the SegreterieOnLine username.",
+    "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Admission interview (assessment of personal preparation) by an Evaluation Committee. No external standardised test (no TOLC/GRE/GMAT).",
+    "mandatory": true,
+    "is_selective": false,
+    "applies_to": "Candidates who meet the curricular requirements but are not exempt; the committee verifies preparation in Mathematics, Classical Physics and Quantum Mechanics, and in particular Quantum Mechanics and Atomic Physics where the curriculum is weak.",
+    "exemption": "Candidates with a Physics/Astrophysics/Astronomy degree (class L-30) and graduation mark >= 90/110 are exempt from the interview.",
+    "format": "Interviews are scheduled per application window; place and procedure published on the e-learning admissions course (https://elearning.unimib.it/course/view.php?id=39343&lang=en).",
+    "fee": "EUR 30 career-evaluation fee paid via Segreterie OnLine by the application deadline (failure to pay results in exclusion).",
+    "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "First application period (Italian-qualification candidates, via Segreterie OnLine 'career evaluation'): 13 April to 19 June 2026 - interview 1 July 2026, 10:00 a.m.",
+      "Second window: 22 June to 11 September 2026 - interview 22 September 2026, 10:00 a.m.",
+      "Foreign-qualification candidates (EU + non-EU residing in Italy) apply via apply.unimib.it (Dream Apply) in the 2026/27 Master calls: 1st CALL 10 February - 31 March 2026; 2nd CALL 15 April - 6 July 2026; 3rd CALL 7 July - 7 September 2026 (3rd CALL: EU + non-EU residing in Italy only)."
+    ],
+    "eligibility_window": "Candidates achieving their Italian academic title by 31 December 2026 may apply for career evaluation in the windows above.",
+    "notes": "EUR 30 career-evaluation fee due by each window's deadline. Italian-qualification candidates use Segreterie OnLine; foreign-qualification candidates use apply.unimib.it.",
+    "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Non-EU citizens requiring a student visa must apply exclusively via apply.unimib.it (Dream Apply) within the earlier 2026/27 Master calls: 1st CALL 10 February - 31 March 2026; 2nd CALL 15 April - 6 July 2026.",
+      "The 3rd CALL (7 July - 7 September 2026) is reserved for EU citizens and non-EU citizens already residing in Italy."
+    ],
+    "visa_or_pre_enrolment_deadline": "After eligibility on apply.unimib.it, non-EU visa applicants complete UNIVERSITALY pre-enrolment and obtain a Type D study visa.",
+    "key_deadlines": "Per the unified apply.unimib.it 2026/27 calendar: English-language certification deadline 31 July 2026; arrival in Italy for visa applicants by 31 January 2027; verification of original documents by 28 February 2027.",
+    "notes": "The earlier calls are recommended/required for visa candidates to allow time for visa formalities.",
+    "source_url": "https://apply.unimib.it/en_GB/news/new/39-apply-202627-admission-calls-and-deadlines"
+  },
+  "required_documents": [
+    {
+      "document_name": "Valid ID document (identity card or passport)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Uploaded on Segreterie OnLine (Italian qualification) or apply.unimib.it (foreign qualification).",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf"
+    },
+    {
+      "document_name": "Digital ID photo (bitmap/JPEG, min 300x400 px)",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Only the candidate's face on a light background; printed on the university badge at enrolment.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf"
+    },
+    {
+      "document_name": "Self-certification (Dichiarazione Sostitutiva di Certificazione) of qualification, graduation mark, exams, CFU and SSD",
+      "stage": "application",
+      "required_for": "italian_qualification",
+      "notes": "Mandatory for graduates/graduands of other Italian universities (form 'Autocertificazione titoli e/o esami'); UNIMIB students need not self-certify their qualification.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf"
+    },
+    {
+      "document_name": "Proof of B2 English language knowledge",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Per the accepted proofs in language_requirements (or the in-person UNIMIB English test).",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf"
+    },
+    {
+      "document_name": "Academic transcript / detailed course syllabi (foreign qualifications)",
+      "stage": "application",
+      "required_for": "international_qualification",
+      "notes": "Foreign-qualification candidates submit transcripts and syllabi on apply.unimib.it for credit/SSD mapping.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf"
+    },
+    {
+      "document_name": "Declaration of Value / CIMEA statement, legalised degree (non-EU visa)",
+      "stage": "enrolment/visa",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU visa applicants to complete enrolment; originals verified by 28 February 2027.",
+      "source_url": "https://apply.unimib.it/en_GB/news/new/39-apply-202627-admission-calls-and-deadlines"
+    }
+  ],
+  "tuition_or_fees_link": "https://en.unimib.it/services/fees-and-funding",
+  "official_program_url": "https://en.unimib.it/international/international-students/international-programmes/astrophysics-and-space-physics",
+  "official_call_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf",
+  "source_quotes": [
+    {
+      "quote": "ADMISSION TO THE MASTER'S DEGREE PROGRAMME IN ASTROPHYSICS AND SPACE PHYSICS - F5803Q, A.Y. 2026-2027. Degree programme language: English. Open access with entry requirements examination.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf",
+      "field_supported": "program_name, level, teaching_language, degree_class, admission_type"
+    },
+    {
+      "quote": "Possession of a degree in the L-30 class satisfies the curricular requirement. Candidates from other degree classes are required to possess at least 18 CFUs in the scientific areas MAT/01 to MAT/09... and at least 18 CFUs in the scientific areas FIS/01 to FIS/08.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Candidates with a degree in Physics, Astrophysics or Astronomy (class L-30) with a graduation mark of 90/110 or higher are exempt from the admission interview.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "A B2 level knowledge of the English language... is also required.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Application deadlines / Interview dates: From 13 April to 19 June 2026 - 1 July 2026 10:00 a.m.; From 22 June to 11 September 2026 - 22 September 2026 10:00 a.m.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "Extra-EU citizens requiring a student visa and other candidates with foreign qualifications... must apply exclusively via https://apply.unimib.it/.",
+      "source_url": "https://www.unimib.it/sites/default/files/2026-04/Astro_ENG_26_27.pdf",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": [
+    "Teaching language confirmed FULLY English (official call: 'Degree programme language: English'; department page: 'a 2-year study program entirely taught in English'). This differs from the LM-17 Physics master, which is mostly Italian.",
+    "Confirmed physics/maths CFU prerequisite: L-30 class OR at least 18 CFU MAT/01-09 and at least 18 CFU FIS/01-08; B2 English required; interview-based assessment with exemption for L-30 graduates with mark >= 90/110.",
+    "The Italian-qualification application windows (13 Apr-19 Jun 2026 and 22 Jun-11 Sep 2026) come from the dedicated Astro_ENG_26_27 call; foreign-qualification / non-EU calls map to the unified apply.unimib.it 2026/27 Master's calendar (the dedicated PDF directs foreign-qualification candidates to apply.unimib.it rather than listing separate dates).",
+    "Specific numeric IELTS/TOEFL B2 thresholds are not in the call; they are defined in UNIMIB's Certificazioni_INGLESE_nov2025_UNIMIB.pdf.",
+    "tuition_or_fees_link points to the central UNIMIB fees-and-funding page; no programme-specific fee table is published separately.",
+    "Deadlines re-verified 2026-06-11 against apply.unimib.it 2026/27 calendar (Master track: 1st CALL 10 Feb - 31 Mar 2026; 2nd CALL 15 Apr - 6 Jul 2026 [EU + non-EU in Italy]; 3rd CALL 7 Jul - 7 Sep 2026 [EU + non-EU in Italy]). The previously inserted 4-call Nov 2025 - Sep 2026 schedule is the Bachelor/single-cycle calendar and was incorrect for this Master."
+  ],
+  "uncertain": []
+}

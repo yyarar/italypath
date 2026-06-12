@@ -1,0 +1,159 @@
+{
+  "program_name": "Environmental Change and Global Sustainability (ECGS)",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "English",
+  "campus": "Milan (Citta Studi campus)",
+  "degree_class": "LM-75 R",
+  "admission_type": "open with entry requirements examination",
+  "academic_requirements": "Applicants need a bachelor's degree or equivalent foreign qualification, and the 2026/2027 manifesto states that 180 credits are required for admission. ECGS directly admits graduates from the Italian classes L-32 Environmental and nature sciences and L-27 Environmental sciences and technologies. Graduates from other degree classes may also apply if they have at least 45 ECTS across courses belonging to at least two of these sets: 1) computer science, mathematics, and statistics; 2) chemistry, physics, and Earth sciences; 3) life sciences; 4) economic and social sciences. Within those 45 ECTS, applicants must have at least 12 ECTS in set 1 and at least 12 ECTS in either set 2 or set 3. The same criteria apply to foreign qualifications when the subject areas and credits can be identified; otherwise a dedicated ECGS committee evaluates the record. Applicants must already hold the qualifying degree or obtain it by 31 December 2026. If prerequisites are not fully met, admitted students may make them up through non-compulsory crash courses starting at the end of August.",
+  "language_requirements": "English at CEFR B2 or higher is required. ECGS states that native English speakers and graduates from first-level university programmes taught entirely in English are exempt from submitting a language qualification. ECGS also states that applicants without a documented B2 level may still be accepted if the interview shows evidently good English proficiency. UniMi's accepted-certificate rules add that accepted certificates must certify Reading, Writing, Listening, and Speaking, and must have been earned no more than 3 years before submission (2 years for TOEFL).",
+  "application_deadline_eu": "EU candidates and equivalents: admission application from 22 January 2026 to 30 October 2026. Enrolment for admitted candidates: from 5 May 2026 to 15 January 2027. The qualifying degree and entry requirements must be completed by 31 December 2026.",
+  "application_deadline_non_eu": "Non-EU candidates requiring a visa: admission application from 22 January 2026 to 30 April 2026. Visa applicants must also submit the Universitaly pre-enrolment application by 31 July 2026. For admitted applicants with foreign qualifications, the enrolment-completion documents must be finalized by 30 November 2026. Enrolment for admitted candidates runs from 5 May 2026 to 15 January 2027.",
+  "required_documents": [
+    "For applicants with an Italian qualification: self-certification of degree or current enrolment with exam records; for graduates or graduands from other Italian universities, this must include exams taken, grades, ECTS credits, and scientific-disciplinary sectors.",
+    "If using a certificate to prove English: an accepted English certificate at B2 or higher, unless exempt or assessed through the interview route allowed by ECGS.",
+    "For applicants with foreign qualifications at admission stage: bachelor's degree (or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with foreign qualifications at admission stage: diploma supplement or transcript including courses, marks, ECTS, academic field, and the grading system used by the awarding university.",
+    "For applicants with foreign qualifications at admission stage: passport or other valid identity document.",
+    "For final enrolment with a foreign qualification: legalized or apostilled bachelor's degree (or equivalent), unless legalization or apostille is officially exempt.",
+    "For final enrolment with a foreign qualification: high school diploma.",
+    "For final enrolment with a foreign qualification: official Italian translation of academic qualifications, unless the originals are in English, French, German, or Spanish.",
+    "For final enrolment with a foreign qualification: Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore in loco (DOV) issued by the Italian Embassy; for Lisbon Convention countries, a Diploma Supplement or ARDI Correspondence Statement may replace the DOV and Statement of Comparability where officially allowed.",
+    "For final enrolment with a foreign qualification: Italian tax code (codice fiscale).",
+    "For non-EU students at final enrolment: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "[uncertain] No fixed standardized entrance exam date or syllabus is published for ECGS. Official sources agree on document-based verification of curricular requirements and personal preparation. The ECGS application page says candidates may be invited to an online interview in English if doubts remain about their preparation or English level, while the 2026/2027 admission notice uses broader wording that the Admission Board may request an interview and/or a written test, in person or remotely.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/environmental-change-and-global-sustainability-ecgs",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-change-and-global-sustainability-%28classe-lm-75-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... Access ... Open with entry requirements examination ... Course location Milan ... Language English.",
+      "url": "https://www.unimi.it/en/education/master-programme/environmental-change-and-global-sustainability-ecgs",
+      "field_refs": [
+        "academic_year",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Application for admission: from 22/01/2026 to 30/10/2026 ... Non-EU students visa applicants are required to apply ... no later than 30 April 2026.",
+      "url": "https://ecgs.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "provided they have earned at least 45 ECTS ... at least 12 in the first set and at least 12 in the second set or the third set.",
+      "url": "https://ecgs.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "knowledge of the English language is required at level B2 or higher ... Native English speakers ... are exempted.",
+      "url": "https://ecgs.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Students without a documented B2 level may be accepted ... assessed during the interview ... evidently good.",
+      "url": "https://ecgs.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements",
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Credits required for admission: 180 ... Access procedures: open, subject to entry requirements.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBOof2_2027.pdf",
+      "field_refs": [
+        "degree_class",
+        "academic_requirements",
+        "admission_type"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Lecture rooms and laboratories are located in the 'Citta Studi' campus.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBOof2_2027.pdf",
+      "field_refs": [
+        "campus"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Self-certification of degree/enrolment with exam records ... list of exams taken, with grades, ECTS credits, and disciplinary scientific sectors.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-change-and-global-sustainability-%28classe-lm-75-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Bachelor's Degree ... Diploma supplement ... transcript ... Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-change-and-global-sustainability-%28classe-lm-75-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "legalized or apostilled ... High school diploma ... Statement of Comparability ... Italian tax code ... residence permit.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-change-and-global-sustainability-%28classe-lm-75-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "submit an application for pre-enrolment through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-change-and-global-sustainability-%28classe-lm-75-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "may request an interview and/or a written test in person or from remote",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-change-and-global-sustainability-%28classe-lm-75-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "entry_exam_or_test"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "Certificates must have been earned for no more than 3 years ... (2 years for TOEFL) ... certify 4 language skills.",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-05"
+    },
+    {
+      "quote": "All information on university tuition fees ... is available on the pages: https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-change-and-global-sustainability-%28classe-lm-75-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "tuition_or_fees_link"
+      ],
+      "retrieved_at": "2026-06-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "The only substantive ambiguity in the 2026/2027 official sources concerns the assessment format for personal preparation. The ECGS application page specifies an online interview in English if needed, while the admission notice keeps broader University wording about an interview and/or a written test; therefore entry_exam_or_test is marked uncertain.",
+    "The required_documents array intentionally combines documents required at the admission-application stage and, where officially separated, the later enrolment-finalization stage for applicants with foreign qualifications and for non-EU citizens. This follows the field definition, which asks for application, selection, enrolment, or visa-relevant documents.",
+    "UniMi's accepted-certificates page provides University-wide certificate validity rules. The ECGS-specific sources do not publish a separate programme-only certificate-upload deadline beyond the admission procedure."
+  ],
+  "uncertain": [
+    "entry_exam_or_test"
+  ]
+}

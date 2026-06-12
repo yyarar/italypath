@@ -1,0 +1,167 @@
+{
+  "program_name": "Earth and Climate Dynamics",
+  "level": "bachelor",
+  "teaching_language": "English",
+  "campus": "Padua",
+  "degree_class": "L-34 R",
+  "admission_type": "open access",
+  "academic_requirements": {
+    "summary": "Applicants need a secondary school diploma suitable for university access, must meet country-specific entry-title rules, and must complete the CEnT-S process required by the programme.",
+    "prior_degree_or_diploma": "Secondary Studies diploma (or equivalent) with at least 12 years of schooling suitable for access to higher education.",
+    "subject_requirements": "No specific school-subject prerequisites were stated on the international admissions page; applicants must instead complete the CISIA CEnT-S process and upload the weighted score. [uncertain]",
+    "gpa_or_country_requirements": "Country-based specific entry title requirements apply. Non-EU candidates residing outside Italy must sit the CEnT-S by 12 March 2026. If the school record is shorter than 12 years, additional post-secondary study or foundation-course proof is required.",
+    "source_url": "https://apply.unipd.it/courses/course/220-earth-and-climate-dynamics?search=1663405"
+  },
+  "language_requirements": {
+    "required_level": "B2 English (CEFR).",
+    "accepted_proofs": [
+      "A recognised English certificate meeting the University minimum scores, such as TOEFL iBT 80, IELTS 6.0, Cambridge B2 First 173, or PTE Academic 65.",
+      "A previous qualification completed entirely in English, documented through self-certification or an official statement showing the language of instruction.",
+      "A provisional statement of results from the certifying body is accepted while waiting for the final certificate."
+    ],
+    "exemption_rules": [
+      "Applicants whose entry qualification was completed entirely in English are exempt from submitting a separate English certificate.",
+      "Native English speakers from recognised countries, including the United States, are exempt from submitting a separate English certificate."
+    ],
+    "deadline": "[uncertain] The common 2026/27 English-language admissions page says English proof is due by 31 August for open-access degree programmes, while the Earth and Climate Dynamics Italian-title admission notice requires the language requirement by 30 September 2026.",
+    "source_url": "https://www.unipd.it/en/english-language-admission"
+  },
+  "application_deadline_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "[uncertain] 2 June 2026 - 2 August 2026 (the official programme listing and University timeline show 2026, while the apply page appears to contain a 2025 typo).",
+    "notes": "The third call is only for EU students and non-EU students residing in Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/220-earth-and-climate-dynamics?search=1663405"
+  },
+  "application_deadline_non_eu": {
+    "call_one": "2 November 2025 - 2 February 2026",
+    "call_two": "2 March 2026 - 2 May 2026",
+    "call_three": "Not applicable for non-EU applicants residing outside Italy.",
+    "notes": "The third call is restricted to EU students and non-EU students residing in Italy.",
+    "source_url": "https://apply.unipd.it/courses/course/220-earth-and-climate-dynamics?search=1663405"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum Vitae (Resume) in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught bachelor's applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Motivational letter in English",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Required for English-taught bachelor's applications.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Proof of registration to and results of the CEnT-S test",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Upload the weighted score as soon as it is issued; non-EU applicants residing outside Italy must sit the test by 12 March 2026.",
+      "source_url": "https://apply.unipd.it/courses/course/220-earth-and-climate-dynamics?search=1663405"
+    },
+    {
+      "document_name": "Transcript of records",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "Upload a colour scanned PDF.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Upper secondary school certificate or provisional/enrolment certificate",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "The qualification must reflect at least 12 years of schooling; if not yet awarded, a provisional certificate is accepted.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Proof of additional post-secondary study or foundation course",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only if the applicant does not have a minimum 12-year school record.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Certificate of entrance examination to access university",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required only if the law of the country where the upper secondary certificate was awarded requires such an examination for university access.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Valid ID card or passport",
+      "stage": "application",
+      "required_for": "all",
+      "notes": "EU citizens and non-EU citizens residing in Italy may use an ID card; other applicants use a passport.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Residence permit",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required only for non-EU citizens residing in Italy.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "English language certificate or other accepted proof",
+      "stage": "application",
+      "required_for": "conditional",
+      "notes": "Required unless the applicant qualifies for an official exemption.",
+      "source_url": "https://www.unipd.it/en/studying-padova/admission/how-apply/study-english-how-apply"
+    },
+    {
+      "document_name": "Original and legalised previous qualifications with English or Italian translations",
+      "stage": "enrolment",
+      "required_for": "all",
+      "notes": "No legalised documents are required at application stage, but successful applicants must later present original and legalised documents for enrolment.",
+      "source_url": "https://www.unipd.it/en/study-english-how-enrol"
+    }
+  ],
+  "entry_exam_or_test": {
+    "test_name": "CISIA CEnT-S",
+    "mandatory": true,
+    "applies_to": "All applicants; non-EU applicants residing outside Italy must sit the test by 12 March 2026.",
+    "dates": "[uncertain] The international apply page lists 27 November 2025, 16 December 2025, 15 January 2026, 19 February 2026, 26 February 2026, and 12 March 2026; the Italian-title admission notice also describes a third April-June macro-period.",
+    "scoring_or_threshold": "A weighted CEnT-S score must be uploaded. The programme's admission notice states that students with fewer than 5 correct answers in Mathematics receive an OFA in Mathematics.",
+    "source_url": "https://apply.unipd.it/courses/course/220-earth-and-climate-dynamics?search=1663405"
+  },
+  "tuition_or_fees_link": "https://www.unipd.it/en/tuition-fees",
+  "official_program_url": "https://www.unipd.it/en/corsi-di-laurea/earth-and-climate-dynamics",
+  "official_call_url": "https://apply.unipd.it/courses/course/220-earth-and-climate-dynamics?search=1663405",
+  "source_quotes": [
+    {
+      "quote": "Open access with assessment test",
+      "source_url": "https://www.unipd.it/en/corsi-di-laurea/earth-and-climate-dynamics",
+      "field_supported": "admission_type"
+    },
+    {
+      "quote": "English language: B2 level CEFR",
+      "source_url": "https://apply.unipd.it/courses/course/220-earth-and-climate-dynamics?search=1663405",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Call One: 2 November 2025 – 2 February 2026",
+      "source_url": "https://apply.unipd.it/courses/course/220-earth-and-climate-dynamics?search=1663405",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "take at least one CEnT-S test",
+      "source_url": "https://www.unipd.it/sites/unipd.it/files/2026/2026_EN_Avviso_L_EarthClimate.pdf",
+      "field_supported": "entry_exam_or_test"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official international apply page for 2026/27 shows 'Call Three: 2 June 2025 – 2 August 2026', but the official programme listing and the University Study in English timeline show 2 June 2026 – 2 August 2026. This JSON records the 2026 date.",
+    "No separate 2026/27 foreign-qualification PDF call was found for Earth and Climate Dynamics; the official apply page and common University admissions pages were used for international-admissions details.",
+    "The common 2026/27 English-language admissions page gives a 31 August deadline for open-access programmes, while the Earth and Climate Dynamics call for Italian entry titles gives 30 September 2026 for the language requirement.",
+    "The international admissions page does not list school-subject prerequisites beyond the general diploma requirement and the CEnT-S process."
+  ],
+  "uncertain": [
+    "academic_requirements",
+    "language_requirements",
+    "application_deadline_eu",
+    "entry_exam_or_test"
+  ]
+}

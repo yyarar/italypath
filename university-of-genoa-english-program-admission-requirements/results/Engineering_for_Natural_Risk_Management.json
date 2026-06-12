@@ -1,0 +1,148 @@
+{
+  "program_name": "Engineering for Natural Risk Management",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Savona",
+  "degree_class": "LM-26 R (Safety Engineering)",
+  "admission_type": "open access with mandatory admission test (free access, but requires passing a verification of personal readiness)",
+  "academic_requirements": {
+    "summary": "Free-access (non-restricted) master's programme that requires meeting curricular credit requirements and passing a verification of the graduate's personal readiness unless exempt. Admission requires a bachelor's degree (or equivalent) of at least 180 CFU/ECTS, minimum credits in specified scientific sectors of engineering classes L-7, L-8, L-9, and English at B2 level.",
+    "prior_degree_or_diploma": "A Bachelor's degree (Laurea) or an equivalent qualification with at least 180 CFU/ECTS.",
+    "curricular_credit_requirements": "At least 36 CFU acquired at any university in scientific areas related to classes L-7 (Civil and Environmental Engineering), L-8 (Information Engineering) and L-9 (Industrial Engineering) in the groups MAT*, FIS*, CHIM*, ING-INF/05, INF/01 and SECS-S/02, of which no fewer than 30 CFU in the basic teaching activities of MAT*, FIS*, CHIM*; AND at least 45 CFU acquired at any university in scientific areas related to classes L-7, L-8, L-9 with specified SSD codes (e.g. ICAR/01, ING-IND/11, ING-INF/01).",
+    "minimum_grade_or_gpa": "No minimum grade is required to apply, but a bachelor's degree final grade of at least 9/10 of the maximum (i.e. about 99/110) or an ECTS classification of 'A' or 'B' exempts the candidate from the admission test.",
+    "international_qualification": "Holders of a non-Italian degree must submit their credentials/documentation by 31 May annually; non-EU candidates residing abroad apply through UniGeApply for pre-evaluation.",
+    "source_url": "https://corsi.unige.it/en/corsi/11921/prospective-students-admission-criteria-procedure"
+  },
+  "language_requirements": {
+    "required_level": "English at CEFR B2 level or higher.",
+    "accepted_proofs": [
+      "An official English certificate at B2 level or higher (recognised by the University, CLAT list).",
+      "Passing the University's B2 English test (University Language Centre / CLAT).",
+      "Holding a degree conducted entirely in English."
+    ],
+    "exemption_rules": [
+      "A degree taught entirely in English satisfies the requirement.",
+      "Where no certificate is held, English may be assessed during the personal-readiness verification."
+    ],
+    "assessment_or_upload_stage": "Verified at the admission/pre-evaluation stage, via certificate, the University B2 test, English-medium degree, or during the readiness examination.",
+    "source_url": "https://corsi.unige.it/en/corsi/11921/prospective-students-requisites-assessment"
+  },
+  "entry_exam_or_test": {
+    "test_name": "Verification of Adequacy of the Graduate's Personal Readiness (admission test). NOT a TOLC.",
+    "mandatory": true,
+    "is_selective": true,
+    "applies_to": "All applicants who do not qualify for an automatic exemption.",
+    "format": "Conducted as a public interview, a written test, or a video-interview by teleconference, assessing fundamentals of engineering and applied/professional aspects in hydraulics, hydrology, signal processing, mechanics, thermodynamics or chemistry.",
+    "dates": "A.Y. 2026/27 sessions: 8 September 2026, 28 September 2026, 18 November 2026, 18 January 2027 and 26 February 2027.",
+    "scoring_or_threshold": "[uncertain] No explicit numerical passing score is published; the committee judges adequacy of preparation.",
+    "exemption": "Candidates with a bachelor's degree final grade of at least 9/10 of the maximum, or an ECTS 'A' (or 'A'/'B') classification, are automatically exempt.",
+    "source_url": "https://corsi.unige.it/en/corsi/11921/prospective-students-requisites-assessment"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      "Spring session for EU citizens and non-EU residents in Italy (UniGeApply): opens 9 April 2026; master's degrees close 28 August 2026.",
+      "Holders of a non-Italian degree must submit credentials by 31 May (annual deadline stated on the admission-criteria page)."
+    ],
+    "enrolment_deadline": "[uncertain] Programme-specific first-year enrolment dates for A.Y. 2026/27 follow the central UniGe enrolment calendar; a programme-specific date was not separately published.",
+    "notes": "This is a free-access programme; EU/resident applicants are not ranked, but must satisfy the curricular requirements and pass the admission test unless exempt.",
+    "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      "Fall session for non-EU candidates requiring a visa (UniGeApply): opens 26 November 2025; institution-wide close 20 March 2026; pre-evaluation results by 22 May 2026.",
+      "Engineering for Natural Risk Management is listed among the English-taught master's degrees in the UniGeApply non-EU pre-evaluation selection."
+    ],
+    "visa_or_pre_enrolment_deadline": "After receiving eligibility via UniGeApply, visa applicants complete the Universitaly pre-enrolment and then apply for the study visa.",
+    "early_closure": "None published. This programme is not among the three with a known fall-session early closure (Medical-Pharmaceutical Biotechnology, Maritime Science and Technology, Computer Engineering bachelor).",
+    "notes": "Non-EU visa applicants must use the fall session; the A.Y. 2026/27 fall window closed 20 March 2026.",
+    "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+  },
+  "required_documents": [
+    {
+      "document_name": "Curriculum vitae et studiorum",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Uploaded on UniGeApply for non-EU pre-evaluation.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Bachelor's degree certificate (final or provisional)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Evidence of the first-cycle qualification (180 CFU minimum).",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Transcript of records (list of exams with credits and grades)",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "Used to verify the curricular credit requirements (36 + 45 CFU across L-7/L-8/L-9 sectors).",
+      "source_url": "https://corsi.unige.it/en/corsi/11921/prospective-students-admission-criteria-procedure"
+    },
+    {
+      "document_name": "English language proficiency certificate (B2) or proof of English-medium instruction",
+      "stage": "application/pre-evaluation",
+      "required_for": "all",
+      "notes": "B2 certificate, University B2 test, or a degree taught entirely in English.",
+      "source_url": "https://corsi.unige.it/en/corsi/11921/prospective-students-requisites-assessment"
+    },
+    {
+      "document_name": "Passport / identity document",
+      "stage": "application",
+      "required_for": "non_eu",
+      "notes": "Required for non-EU applicants on UniGeApply.",
+      "source_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all"
+    },
+    {
+      "document_name": "Universitaly pre-enrolment submission and study-visa evidence",
+      "stage": "visa/pre-enrolment",
+      "required_for": "non_eu",
+      "notes": "Completed after UniGeApply eligibility, before applying for the study visa.",
+      "source_url": "https://unige.it/en/internazionale/iscrizioni-internazionali/unigeapply"
+    }
+  ],
+  "tuition_or_fees_link": "https://corsi.unige.it/en/corsi/11921/prospective-students-fees-taxes",
+  "official_program_url": "https://corsi.unige.it/en/corsi/11921",
+  "official_call_url": "https://unige.it/en/internazionale/procedura-prevalutazione-lauree-magistrali-inglese-solo-studenti-non-eu-residenti-all",
+  "source_quotes": [
+    {
+      "quote": "Class: LM-26 R SAFETY ENGINEERING",
+      "source_url": "https://corsi.unige.it/en/corsi/11921",
+      "field_supported": "degree_class, level"
+    },
+    {
+      "quote": "The classes are fully taught in English.",
+      "source_url": "https://corsi.unige.it/en/corsi/11921",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "Warning! This degree course is free access, but requires passing a test.",
+      "source_url": "https://corsi.unige.it/en/corsi/11921",
+      "field_supported": "admission_type, entry_exam_or_test"
+    },
+    {
+      "quote": "at least 36 credits ... in the scientific areas related to the classes L-7 Civil and Environmental Engineering, L-8 Information Engineering, L-9 Industrial Engineering in the group's MAT *, FIS *, CHIM *, ING-INF / 05, INF / 01 and SECS-S / 02 of which no less than 30 CFU in the basic didactic activities of the group MAT *, FIS *, CHIM*",
+      "source_url": "https://corsi.unige.it/en/corsi/11921/prospective-students-admission-criteria-procedure",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Candidates must demonstrate B2 level English proficiency or higher through official certificates; passing the University's B2 test; holding a degree conducted entirely in English; or assessment during the personal readiness examination.",
+      "source_url": "https://corsi.unige.it/en/corsi/11921/prospective-students-requisites-assessment",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Test dates: 08 September 2026, 28 September 2026, 18 November 2026, 18 January 2027, 26 February 2027.",
+      "source_url": "https://corsi.unige.it/en/corsi/11921/prospective-students-requisites-assessment",
+      "field_supported": "entry_exam_or_test"
+    }
+  ],
+  "uncertainty_notes": [
+    "No explicit numerical passing score for the personal-readiness test is published; the committee assesses adequacy of preparation.",
+    "Programme-specific first-year EU enrolment dates were not separately published; the institution-wide UniGeApply spring window and the central enrolment calendar apply.",
+    "No programme-specific non-EU early closure is published; the programme follows the institution-wide fall close of 20 March 2026."
+  ],
+  "uncertain": [
+    "entry_exam_or_test",
+    "application_deadline_eu"
+  ]
+}

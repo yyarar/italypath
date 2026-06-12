@@ -1,0 +1,158 @@
+{
+  "program_name": "Earth Sciences",
+  "level": "master",
+  "academic_year": "A.Y. 2026/2027",
+  "teaching_language": "Italian, English; [uncertain] official 2026/2027 sources indicate a bilingual programme structure, and they do not support calling this a full English curriculum.",
+  "campus": "Milan",
+  "degree_class": "LM-74 R - Scienze e tecnologie geologiche",
+  "admission_type": "open with entry requirements examination",
+  "academic_requirements": "Applicants need a bachelor's degree in Geological Sciences (L-34) or the corresponding class under Ministerial Decree 509/99, or another bachelor's degree / suitable foreign qualification with adequate preparation in Earth Sciences. For other degree classes and foreign degrees, the programme requires at least 44 CFU/ECTS in the core Earth-science sectors listed on the official application page. The Admission Board verifies curricular requirements, checks the correspondence of foreign coursework, and assesses personal preparation in geology, especially fundamentals of geology, geomorphology, petrology, and geophysics. Candidates may apply before graduating, but to enrol they must complete the qualifying degree and the entry requirements by 31 December 2026.",
+  "language_requirements": "English at CEFR B2 or higher is required for admission. UniMi states that the requirement is checked by SLAM through one of these routes: an accepted B2-or-higher certificate issued no more than three years before the application date and uploaded with the admission application; a SLAM-certified English level obtained during a University of Milan degree no more than four years before the application date, checked automatically; or the SLAM entry test according to the official calendar. Earth Sciences also states that English will not be reassessed if the applicant already holds a qualifying certificate or a bachelor's degree, or equivalent foreign qualification, from a programme taught in English. UniMi's accepted-certificates page adds that accepted certificates must certify Reading, Writing, Listening, and Speaking, and must have been earned no more than three years before submission (two years for TOEFL). [uncertain] The general 2026/2027 SLAM page publishes programme-specific fallback certificate deadlines after a failed or missed SLAM test, but Earth Sciences is not visibly listed in the table section available on 2026-06-06.",
+  "application_deadline_eu": "EU candidates and equivalents: admission application from 22 January 2026 to 25 August 2026. Enrolment for admitted candidates: from 5 May 2026 to 15 January 2027. The qualifying degree and entry requirements must be completed by 31 December 2026.",
+  "application_deadline_non_eu": "Non-EU candidates requiring a visa: admission application from 22 January 2026 to 30 April 2026. UniMi also requires Universitaly pre-enrolment by 31 July 2026. Enrolment for admitted candidates runs from 5 May 2026 to 15 January 2027. For admitted applicants with foreign qualifications, the enrolment-completion documents must be finalized by 30 November 2026.",
+  "required_documents": [
+    "For applicants with an Italian qualification at admission stage: self-certification of degree or enrolment with exam records; for graduates or graduands from other Italian universities, it must include exams taken, grades, ECTS credits, and scientific-disciplinary sectors.",
+    "If using a certificate to prove English at admission stage: an accepted English certificate at B2 or higher, uploaded with the admission application.",
+    "For applicants with foreign qualifications at admission stage: bachelor's degree (B.Sc. or equivalent) or degree-awarding certificate, in Italian, English, French, German, or Spanish.",
+    "For applicants with foreign qualifications at admission stage: diploma supplement or transcript including courses, marks, ECTS, academic field, and the grading system used by the awarding university.",
+    "For applicants with foreign qualifications at admission stage: passport or other valid identity document.",
+    "If called to an interview: a valid identity document and a copy of the same for the Admission Board.",
+    "For final enrolment with a foreign qualification: legalized or apostilled bachelor's degree (or equivalent), unless legalization or apostille is officially exempt.",
+    "For final enrolment with a foreign qualification: high school diploma.",
+    "For final enrolment with a foreign qualification: official Italian translation of academic qualifications, unless the originals are in English, French, German, or Spanish.",
+    "For final enrolment with a foreign qualification: Statement of Comparability from an ENIC-NARIC centre such as CIMEA, or a Dichiarazione di Valore in loco issued by the Italian Embassy; for Lisbon Convention countries, a Diploma Supplement or ARDI Correspondence Statement may replace them where UniMi allows this.",
+    "For final enrolment with a foreign qualification: Italian tax code (codice fiscale).",
+    "For non-EU students at final enrolment: receipt of the residence permit application or a valid residence permit."
+  ],
+  "entry_exam_or_test": "[uncertain] There is no fixed standardized entrance exam published for Earth Sciences in the visible 2026/2027 official sources. The programme page says personal preparation is assessed by the Admissions Committee and that an in-depth interview is used if deemed necessary, focusing on geology, geomorphology, petrology, and geophysics. The 2026/2027 admission notice uses broader wording and says the Admission Board may request an interview and/or a written test, in person or remotely. The visible English sources checked on 2026-06-06 do not publish a fixed interview calendar.",
+  "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+  "official_program_url": "https://www.unimi.it/en/education/master-programme/earth-sciences",
+  "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-earth-sciences-%28classe-lm-74-r%29.pdf?30-MAR-26=",
+  "source_quotes": [
+    {
+      "quote": "A.Y. 2026/2027 ... LM-74 R - Scienze e tecnologie geologiche ... Access ... Open with entry requirements examination ... Course location Milan ... Language Italian, English.",
+      "url": "https://www.unimi.it/en/education/master-programme/earth-sciences",
+      "field_refs": [
+        "program_name",
+        "level",
+        "academic_year",
+        "degree_class",
+        "admission_type",
+        "campus",
+        "teaching_language"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Curricula currently available: ENVIRONMENTAL AND ENGINEERING GEOSCIENCES / EARTH PROCESSES AND RESOURCES ... Access procedures: Open, subject to entry requirements.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBLof2_2027.pdf",
+      "field_refs": [
+        "admission_type",
+        "academic_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "The Master's Degree Course ... will be taught both in Italian and English. Specifically, the courses taught in English will be both characterizing and related and integrative.",
+      "url": "https://apps.unimi.it/files/manifesti/eng_manifesto_FBLof2_2027.pdf",
+      "field_refs": [
+        "teaching_language",
+        "uncertainty_notes"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Application for admission: from 22/01/2026 to 25/08/2026 ... Non-EU students visa applicants are required to apply for admission no later than 30 April 2026.",
+      "url": "https://scienzeterra.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Bachelor's graduates of other degree programmes ... have earned at least 44 CFU/ECTS credits ... Proficiency in English at level B2 or higher ...",
+      "url": "https://scienzeterra.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "academic_requirements",
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "English language proficiency will not be assessed if the student holds an official certification ... or if the student holds a bachelor's degree ... in a program taught in English.",
+      "url": "https://scienzeterra.cdl.unimi.it/en/enrolment",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "from 22 January to 25 August 2026 ... from 22 January to 30 April 2026 ... from 5 May 2026 to 15 January 2027 ... within 31 December 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-earth-sciences-%28classe-lm-74-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_eu",
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Self-certification of degree/enrolment with exam records ... list of exams taken, with grades, ECTS credits, and disciplinary scientific sectors.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-earth-sciences-%28classe-lm-74-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Bachelor's Degree ... Diploma supplement ... transcript ... Passport (or other valid ID).",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-earth-sciences-%28classe-lm-74-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "legalized or apostilled ... High school diploma ... Statement of Comparability ... Italian tax code ... residence permit.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-earth-sciences-%28classe-lm-74-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "required_documents"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "submit a pre-enrolment application through Universitaly platform by 31 July 2026.",
+      "url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-earth-sciences-%28classe-lm-74-r%29.pdf?30-MAR-26=",
+      "field_refs": [
+        "application_deadline_non_eu"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "Certificates must have been earned for no more than 3 years at the time of submission (2 years for TOEFL) and they must certify 4 language skills.",
+      "url": "https://www.unimi.it/en/study/language-proficiency/placement-tests-and-english-courses/accepted-language-certificates",
+      "field_refs": [
+        "language_requirements"
+      ],
+      "retrieved_at": "2026-06-06"
+    },
+    {
+      "quote": "The tuition fees for students enrolled in Bachelor's, Master's and single-cycle degree programmes are divided into two instalments ...",
+      "url": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-2026/2027",
+      "field_refs": [
+        "tuition_or_fees_link"
+      ],
+      "retrieved_at": "2026-06-06"
+    }
+  ],
+  "uncertainty_notes": [
+    "The official 2026/2027 sources do not support calling Earth Sciences a full English programme. UniMi labels the programme language as 'Italian, English', and the 2026/2027 manifesto says the programme 'will be taught both in Italian and English' with English-taught courses among the characterizing and related/integrative activities.",
+    "The exact format of the personal-preparation assessment is not fully aligned across visible official 2026/2027 sources. The programme page emphasizes committee assessment and an interview if needed, while the admission notice states that the Admission Board may require an interview and/or a written test, in person or remotely. No fixed interview dates are visible in the English sources checked on 2026-06-06.",
+    "UniMi's 2026/2027 SLAM page publishes programme-specific fallback deadlines for submitting a language certificate after a failed or missed SLAM test, but Earth Sciences is not visibly listed in the table section available on 2026-06-06. For that reason, no programme-specific fallback certificate deadline is stated here beyond the official general rule."
+  ],
+  "uncertain": [
+    "teaching_language",
+    "language_requirements",
+    "entry_exam_or_test"
+  ]
+}

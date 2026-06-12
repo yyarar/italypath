@@ -1,0 +1,175 @@
+{
+  "program_name": "Digital Skills for Sustainable Societal Transitions",
+  "level": "master",
+  "official_level_type": "Master's degree programme (Laurea Magistrale, 2nd cycle)",
+  "teaching_language": "English",
+  "is_fully_english_programme": true,
+  "has_complete_english_track": true,
+  "english_track_name": null,
+  "campus": "Castello del Valentino (Torino)",
+  "degree_class": "LM-91: METHODS AND TECHNIQUES FOR THE INFORMATION SOCIETY",
+  "double_degree_or_erasmus_mundus": null,
+  "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/digital-skills-for-sustainable-societal-transitions",
+  "curriculum_page_url": "https://www.polito.it/en/education/master-s-degree-programmes/digital-skills-for-sustainable-societal-transitions/programme-curriculum",
+  "admission_type": "evaluation/CV + programme-specific admission process (uncapped number of students; evaluation of admission requirements, with an admission test published for the Italian-qualification Architecture Area route)",
+  "admission_test_type": "Italian-qualification Architecture Area route: in-person programme admission test at Castello del Valentino (8 September 2026 for first-semester admission; 27 January 2027 for second-semester admission). Non-Italian-qualification route: qualification/curricular evaluation by the Academic Committee; no GRE or interview requirement is published for this programme.",
+  "applicant_route": [
+    "Italian qualification (PoliTo or other Italian university bachelor) — Architecture Area route",
+    "EU qualification with a non-Italian degree",
+    "non-EU applicants legally residing in Italy with a non-Italian degree and valid residence permit",
+    "non-EU applicants residing abroad and requiring a visa (the relevant route for Turkish applicants with a non-Italian qualification)"
+  ],
+  "admission_call_round": [
+    "Italian qualification / Architecture Area: first-semester application 4 June 2026 to 27 August 2026; second-semester application 11 December 2026 to 18 January 2027.",
+    "Non-Italian qualification: 1st call 19 December 2025 to 13 February 2026, 2:00 p.m. (Italian time); 2nd call 18 March 2026 to 20 April 2026, 2:00 p.m. (Italian time).",
+    "No separate special call for this programme; the 24 April 2026 to 18 May 2026 special call is for Physics of Complex Systems International Track and MNIS, not for Digital Skills for Sustainable Societal Transitions."
+  ],
+  "special_call_flag": false,
+  "application_platform": "Apply@polito for the application and evaluation; UNIVERSITALY for non-EU applicants who need a study visa after admission.",
+  "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+  "academic_requirements": {
+    "italian_qualification_route": "You can apply even if you have not yet graduated, provided that you have already earned at least 140 ECTS credits required by your Bachelor's degree study plan.",
+    "foreign_qualification_route": "Applicants must hold a Bachelor's degree (EQF level 6) or equivalent academic qualification awarded by an accredited foreign university and giving access to second-cycle studies. Applicants in a 5 or 6-year single-cycle foreign degree who have not graduated yet may apply only if they meet the minimum requirement of 15 years of global schooling, including at least 3 years at university level, and have earned at least 180 ECTS credits or equivalent.",
+    "curricular_evaluation": "Applicants must meet the specific curricular requirements and have an academic performance considered suitable for admission; the Academic Committee / Academic Advisor verifies whether the educational background is adequate and consistent with the chosen programme.",
+    "programme_background": "Recommended background to apply: Information Technology and Computer Sciences, Architecture, Landscape Architecture, Architectural Engineering, Urban Engineering, Urban Planning, Civil Engineering, Building Engineering, Environmental Engineering, Electrical and Electronics Engineering, Industrial Engineering, Economics and Accounting, Public Policy and Public Management, Media and Arts, Geography."
+  },
+  "country_specific_eligibility": "No Turkey-specific programme page was published among the official PoliTo sources checked. Applicants with a Turkish degree should therefore follow the general non-Italian qualification rules: a valid foreign degree giving access to second-cycle study, the 15-years-schooling / minimum-3-years-university / 180-ECTS framework where applicable, and enrolment documentation such as a Declaration of Value, CIMEA Statement of Comparability, or Diploma Supplement. [uncertain]",
+  "minimum_background_or_credits": "Italian-qualification route: at least 140 ECTS credits to apply before graduation. Foreign-qualification route: at least 180 ECTS credits or equivalent and 15 years of global schooling where the applicant relies on an equivalent single-cycle foreign qualification. Recommended background is broad and multidisciplinary, but PoliTo does not publish a fixed programme-specific GPA cutoff or subject-by-subject minimum credit table for this master's. [uncertain]",
+  "language_requirements": {
+    "english_level": "English level B2 or higher is required. The 2026/2027 course-specific requirements table gives a minimum of IELTS 5.5 for this programme.",
+    "italian_requirement": "No Italian certificate is required for this programme because it is fully taught in English.",
+    "accepted_certificates": "The official CLA certificate chart lists accepted English certificates including IELTS, Pearson PTE Academic, TOEFL iBT, TOEIC, and Cambridge certificates, with programme-wide B2 minimum thresholds.",
+    "exemptions": "Official exemption cases include certain English-medium qualifications such as the IB Diploma completed in English, European Schools diplomas with English as L1, and recognised qualifications awarded in English in the countries listed by PoliTo on the non-Italian qualification page.",
+    "programme_specific_note": "The course-specific table for Digital Skills for Sustainable Societal Transitions states: English, IELTS 5.5."
+  },
+  "english_certificate_codes": "TOEFL/TOEIC applicants must use Politecnico di Torino code C285 when sharing results. Cambridge applicants must share results with Politecnico di Torino and provide the Candidate ID number.",
+  "language_submission_timing": "Italian-qualification route: you may apply without the English certificate, but it must be uploaded by the enrolment deadline; if it is still missing, you may enroll in single courses and present it by 22 February 2027. Non-Italian-qualification route: the English certificate or a valid exemption document is uploaded during the Apply@polito application.",
+  "application_deadline_eu": {
+    "italian_qualification_route_first_semester": "Apply@polito opens 4 June 2026; application deadline 27 August 2026; admission test 8 September 2026 at 2:00 p.m. (Aula Astengo, Castello del Valentino); results 10 September 2026; enrolment deadline 2 November 2026.",
+    "italian_qualification_route_second_semester": "Apply@polito opens 11 December 2026; application deadline 18 January 2027; admission test 27 January 2027 at 2:00 p.m. (Aula Astengo, Castello del Valentino); results 29 January 2027; enrolment deadline 22 February 2027.",
+    "eu_with_non_italian_qualification_no_visa": "1st call: 19 December 2025 to 13 February 2026, 2:00 p.m. (Italian time). 2nd call: 18 March 2026 to 20 April 2026, 2:00 p.m. (Italian time). EU applicants do not use the UNIVERSITALY visa pre-enrolment route.",
+    "verification_deadlines": "Recognition and verification of personal data for candidates from other universities: 3 December 2026 for first-semester enrolment and 8 April 2027 for second-semester enrolment."
+  },
+  "application_deadline_non_eu": {
+    "first_call": "Application opening 19 December 2025; closing 13 February 2026, 2:00 p.m. (Italian time); results 15 April 2026.",
+    "second_call": "Application opening 18 March 2026; closing 20 April 2026, 2:00 p.m. (Italian time) after a technical-issue postponement; results 22 June 2026.",
+    "online_enrolment": "For admitted applicants, first-semester online enrolment closes 5 October 2026; second-semester online enrolment is available only for EU applicants and non-EU applicants already residing in Italy, from 13 November 2026 to 24 March 2027.",
+    "visa_document_deadline": "Deadline to upload the Study visa - type D: 30 November 2026."
+  },
+  "universitaly_preenrolment_deadline": "Non-EU applicants residing abroad and requiring a study visa must complete UNIVERSITALY pre-enrolment by 30 May 2026 if they applied in the first call, or by 15 July 2026 if they applied in the second call. This is separate from the Apply@polito application and remains mandatory even after receiving the confirmation of eligibility.",
+  "application_fee": "€50 non-refundable application fee paid online by credit card via PagoPA is explicitly stated for the non-Italian qualification route; the Architecture Area Italian-qualification pages checked do not publish a different programme-specific fee. [uncertain]",
+  "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+  "academic_year": "2026/2027",
+  "required_documents": [
+    "Passport (EU nationals may use another ID document)",
+    "Residence permit (only for non-EU citizens already living in Italy)",
+    "Curriculum Vitae",
+    "Bachelor's degree (EQF level 6) or an official university document stating the provisional graduation date if not yet graduated",
+    "Official Transcript of Records including grading system and credit system",
+    "English language certificate or valid exemption document",
+    "For enrolment: Declaration of Value, or CIMEA Statement of Comparability, or Diploma Supplement",
+    "For enrolment: Study visa type D for non-EU applicants residing abroad, plus fiscal code and any residence-status documents required by PoliTo"
+  ],
+  "document_translation_authentication": "Documents in Italian, English, French, or Spanish are accepted without translation. Documents in other languages must be uploaded together with an official translation into English or Italian in a single merged file. For enrolment, official translations into Italian must be certified by the Italian Embassy in the issuing country or sworn before an Italian court translator (asseverazione). PoliTo also accepts digitally signed documents only if they can be verified online through a QR code or verification link.",
+  "entry_exam_or_test": {
+    "italian_qualification_route": "An in-person admission test is published for this programme in the Architecture Area deadlines page: 8 September 2026 for first-semester admission and 27 January 2027 for second-semester admission, both at 2:00 p.m. in Aula Astengo, Castello del Valentino.",
+    "non_italian_qualification_route": "No separate entrance test is published for the non-Italian qualification route; admission is based on the evaluation of academic background, curricular fit, and language requirements by the Academic Committee.",
+    "other_requirements": "The 2026/2027 course-specific requirements table marks Syllabus as optional and does not list a portfolio, GRE, or interview requirement for this programme."
+  },
+  "test_score_or_threshold": "Published threshold: English B2 or higher, with IELTS 5.5 as the course-specific minimum. PoliTo does not publish a programme-specific passing score, ranking rubric, or GPA threshold for the Digital Skills admission test/evaluation. [uncertain]",
+  "source_quotes": [
+    {
+      "quote": "The Master's degree programme, entirely taught in English, is characterized by a strong multi-disciplinary approach",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/digital-skills-for-sustainable-societal-transitions",
+      "supports_fields": ["teaching_language", "is_fully_english_programme", "has_complete_english_track"]
+    },
+    {
+      "quote": "Admissions: Uncapped number of students, evaluation of the admission requirements",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/digital-skills-for-sustainable-societal-transitions",
+      "supports_fields": ["admission_type"]
+    },
+    {
+      "quote": "Degree code: LM-91: METHODS AND TECHNIQUES FOR THE INFORMATION SOCIETY",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/digital-skills-for-sustainable-societal-transitions",
+      "supports_fields": ["degree_class"]
+    },
+    {
+      "quote": "Campus: Castello del Valentino",
+      "source_url": "https://www.polito.it/en/education/master-s-degree-programmes/digital-skills-for-sustainable-societal-transitions",
+      "supports_fields": ["campus"]
+    },
+    {
+      "quote": "DIGITAL SKILLS FOR SUSTAINABLE SOCIETAL TRANSITIONS English IELTS 5.5 ... Information Technology and Computer Sciences, Architecture ... Syllabus Optional",
+      "source_url": "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+      "supports_fields": ["language_requirements", "academic_requirements", "minimum_background_or_credits", "entry_exam_or_test"]
+    },
+    {
+      "quote": "Bachelor's degree (level 6 EQF) or an equivalent academic qualification ... 15 years of global schooling ... at least 180 ECTS credits or equivalent",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["academic_requirements", "minimum_background_or_credits", "country_specific_eligibility"]
+    },
+    {
+      "quote": "English-taught programmes: English level B2 or higher",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["language_requirements"]
+    },
+    {
+      "quote": "For TOEFL/TOEIC certificates, you must indicate the code C285 ... For Cambridge certificates, you need to select the option to share the results",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["english_certificate_codes"]
+    },
+    {
+      "quote": "Please upload the documents listed below: Passport ... Curriculum Vitae ... Bachelor's degree ... Official Transcript of Records ... English/Italian Language Certificate",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["required_documents"]
+    },
+    {
+      "quote": "Opening 19 December 2025 ... Closing 13 February 2026, 2:00 p.m. ... Results 15 April 2026 ... Opening 18 March 2026 ... postponed to 20 April 2026, 2:00 p.m.",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_deadline_non_eu", "admission_call_round", "application_deadline_eu"]
+    },
+    {
+      "quote": "You must submit your application by: May 30, 2026 ... July 15, 2026 ... Pre-enrolment is mandatory to obtain a type D study visa",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["universitaly_preenrolment_deadline", "application_deadline_non_eu"]
+    },
+    {
+      "quote": "Pay the non-refundable application fee (€50) online by credit card (VISA or MasterCard)",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "supports_fields": ["application_fee"]
+    },
+    {
+      "quote": "Digital Skills for sustainable societal transitions ... Application deadline ... 27 August 2026 ... Admission test ... 8 September 2026 ... Application deadline ... 18 January 2027 ... Admission test ... 27 January 2027",
+      "source_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/scadenze-area-architettura-aa-202627",
+      "supports_fields": ["application_deadline_eu", "entry_exam_or_test", "admission_test_type"]
+    }
+  ],
+  "source_urls_checked": [
+    "https://www.polito.it/en/education/master-s-degree-programmes/digital-skills-for-sustainable-societal-transitions",
+    "https://www.polito.it/en/education/master-s-degree-programmes/digital-skills-for-sustainable-societal-transitions/programme-curriculum",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/architecture-area-ay-20262027",
+    "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-an-italian-qualification/scadenze-area-architettura-aa-202627",
+    "https://www.polito.it/sites/default/files/2025-12/A.%20Y.%2020262027%20COURSE%20SPECIFIC%20REQUIREMENTS.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/polito-language-centre-cla/certificates",
+    "https://www.polito.it/sites/default/files/2026-01/Tabella_23_09_2019_agg_gen26_eng_0.pdf",
+    "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees"
+  ],
+  "source_year": "2026/2027",
+  "uncertainty_notes": [
+    "Fully-English status is confirmed: the official programme page states that the master's is 'entirely taught in English', and the curriculum page shows Year 1 and Year 2 courses in English; therefore is_fully_english_programme = true and has_complete_english_track = true.",
+    "Degree class has been confirmed from the official programme page as LM-91: METHODS AND TECHNIQUES FOR THE INFORMATION SOCIETY.",
+    "This programme uses different admission mechanics depending on the route checked: the programme page describes uncapped admission by evaluation of requirements, the Architecture Area page publishes an in-person admission test for the Italian-qualification route, and the non-Italian qualification route is governed by qualification review plus language/document checks.",
+    "No separate special call was found for this programme. The only 2026 special call published on the master's admissions hub is for Physics of Complex Systems International Track and MNIS.",
+    "No Turkey-specific exception or programme-specific recognition rule was found on official PoliTo sources, so country_specific_eligibility relies on the general non-Italian qualification rules.",
+    "PoliTo publishes the English threshold as B2 or higher and the programme-specific minimum as IELTS 5.5; however, it does not publish a programme-specific passing score or ranking rubric for the Digital Skills admission test/evaluation.",
+    "The application fee is explicitly stated for the non-Italian qualification route; the Italian-qualification Architecture Area pages checked do not restate a different fee for this programme."
+  ],
+  "uncertain": [
+    "country_specific_eligibility",
+    "minimum_background_or_credits",
+    "application_fee",
+    "test_score_or_threshold"
+  ]
+}
