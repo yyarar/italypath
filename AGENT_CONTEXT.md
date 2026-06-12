@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur. Degisiklik gecmisi icin `AGENT_COMMITS.md`, son audit notlari icin `AGENT_CONTEXT_FIX_REPORT.md` okunabilir; bu dosya ise guncel mimari ve calisma kurallarinin kaynak dokumanidir.
 
-Son guncelleme: 2026-06-11
+Son guncelleme: 2026-06-12
 
 ---
 
@@ -63,6 +63,7 @@ italypath-main/
 │   ├── cities/page.tsx
 │   ├── communities/page.tsx
 │   ├── topluluklar/page.tsx        # redirect -> /communities
+│   ├── yasal/[slug]/page.tsx       # Public legal pages (gizlilik/kullanim/cerez)
 │   ├── scholarships/page.tsx
 │   ├── isee/page.tsx
 │   ├── favorites/page.tsx
@@ -85,6 +86,7 @@ italypath-main/
 │   ├── universities/              # Filter bar, hero, states, row renderers
 │   ├── university-details/         # Portrait headers, program directory, admission panel
 │   ├── mentor/                     # Mentor hub/chat room/topbar/entry/locked notice
+│   ├── legal/                      # LegalDocument.tsx (yasal belge sunum bileseni)
 │   ├── hub/                        # Dossier components
 │   └── ui/                         # Small reusable UI/motion helpers; bento-grid/scroll velocity are legacy unless imported
 ├── context/LanguageContext.tsx
@@ -100,6 +102,7 @@ italypath-main/
 │   ├── cities/data.ts
 │   ├── communities/chapters.ts
 │   ├── community-links.ts
+│   ├── legal/documents.ts          # Yasal sayfa metinleri (TR) + footer/sitemap linkleri
 │   ├── hub/
 │   ├── mentor/channels.ts
 │   └── scholarships/regions.ts
@@ -240,6 +243,7 @@ Public route pattern'leri:
 - `/scholarships(.*)`
 - `/communities(.*)`
 - `/topluluklar(.*)`
+- `/yasal(.*)`
 - `/sitemap.xml`
 - `/robots.txt`
 
@@ -373,6 +377,19 @@ Resmi topluluk iddiasi, fake uye sayisi veya social proof ekleme.
 
 `app/isee/page.tsx` ve `lib/iseeCalculator.ts` scala equivalente formulunu kullanir. Dogrulama: `npm run check:isee`.
 
+### Yasal sayfalar
+
+`/yasal/[slug]` dinamik route'u uc statik yasal sayfayi besler: `gizlilik` (Gizlilik Politikasi ve KVKK Aydinlatma Metni), `kullanim-kosullari`, `cerez-politikasi`.
+
+- Icerik: `lib/legal/documents.ts` (yapilandirilmis Turkce metin; `CONTACT_EMAIL_PLACEHOLDER` lansman oncesi gercek e-posta ile doldurulacak)
+- Sunum: `components/legal/LegalDocument.tsx` (saf Server Component, editorial stil)
+- Route: `app/yasal/[slug]/page.tsx` (`generateStaticParams` + `generateMetadata`, server)
+- Footer'da "Yasal" linkleri `LEGAL_LINKS` ile uretilir
+- `proxy.ts` public route: `/yasal(.*)`
+- Su an sadece Turkce; Ingilizce ileride ayni yapilandirilmis modele eklenebilir.
+
+Tasarim notu: `docs/superpowers/specs/2026-06-12-yasal-sayfalar-design.md`.
+
 ---
 
 ## Supabase Yuzeyleri
@@ -452,6 +469,7 @@ node scripts/check-universities-server-compose.mjs
 3. Universite karsilastirma ozelligi yok; mevcut favori + university data modeliyle yapilabilir.
 4. Cities kaynak satiri UI'da gorunmuyor; `costSourceName`, `costSourceUrl`, `costSourceLastUpdated` data layer'da var.
 5. AI Mentor system prompt'u canli program sayisi arttikca buyuyor; prompt boyutu, latency ve maliyet izlenmeli.
+6. Yasal sayfalardaki iletisim e-postasi yer tutucusu (`[iletişim e-postası eklenecek]`, `lib/legal/documents.ts` icindeki `CONTACT_EMAIL_PLACEHOLDER`) lansman oncesi gercek adresle doldurulmali.
 
 ### Repo hijyeni
 
