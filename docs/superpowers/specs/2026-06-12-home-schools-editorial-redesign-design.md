@@ -50,17 +50,17 @@ ItalyPath iOS uygulamasını "premium dark utility" tonundan, **Modern Editorial
 
 ### 2.2 Tipografi Rolleri
 
-Aile seçimi:
+Aile seçimi (sistem font'ları — bundle yok):
 
-- **Serif:** Cormorant Garamond (Google Fonts, SIL OFL, Türkçe glyph tam)
-- **San-serif:** Inter (Google Fonts, SIL OFL, sistem font benzeri okunabilirlik)
-- Yedek: SF Pro fallback (font bundle yüklenemediğinde)
+- **Serif:** New York (iOS 17+ sistem serif, `Font.system(size:, weight:, design: .serif)`). Apple tarafından editoryal kullanım için tasarlanmıştır. Türkçe glyph tam, italik/bold varyantları var. Cormorant Garamond yerine seçildi — pbxproj font bundling riski, bundle boyutu artışı ve lisanslama yükü olmadan editoryal his korunur.
+- **San-serif:** SF Pro (iOS sistem default), `Font.system(size:, weight:, design: .default)`. Inter ile aynı tasarım hedefi (system-like, AA okunabilirlik), sistem renderlama avantajı.
 
-Bundle yöntemi:
+Bağlama:
 
-- `.ttf` dosyaları app bundle'a eklenir (`Cormorant-Regular`, `Cormorant-SemiBold`, `Cormorant-SemiBoldItalic`, `Cormorant-Bold`, `Cormorant-BoldItalic`; `Inter-Regular`, `Inter-Medium`, `Inter-SemiBold`)
-- `Info.plist` içine `UIAppFonts` array'i eklenir
-- `AppTheme.Typography` rolleri `Font.custom(...).relativeTo(.title)` ile dynamic type desteğiyle bağlanır
+- `AppTheme.Typography` rolleri `Font.system(size:, weight:, design:)` ile bağlanır
+- Dynamic Type desteği `Font.system(.title, design: .serif).weight(.bold)` gibi `relativeTo` benzeri pattern ile sağlanır (iOS 17+ doğal davranış)
+- Font dosyası bundle'a eklenmez; `UIAppFonts` Info.plist anahtarı eklenmez
+- Cormorant Garamond geleceğe dönük "marka fontu" olarak Faz 3'te değerlendirilebilir (Faz 2 kapsamında değil)
 
 Roller:
 
