@@ -76,6 +76,7 @@ export const translations = {
       mentorTitle: "Bu okulu mentor masasına taşı",
       mentorBody: "Bölüm seçimi, belgeler veya başvuru akışı için sorunu masaya bırak.",
       openingProgram: "Program açılıyor...",
+      detailComingSoon: "Detay yakında",
     },
     list: {
       backHome: "Ana Sayfaya Dön",
@@ -435,6 +436,9 @@ export const translations = {
       mentorEyebrow: "Danışma Masası",
       mentorTitle: "Bu programı mentor masasına taşı",
       mentorBody: "Program uyumu, belgeler veya başvuru adımlarını birlikte netleştir.",
+      detailsComingSoonTitle: "Kabul detayları yakında",
+      detailsComingSoonBody:
+        "Bu programın resmi başvuru bilgileri eklendikçe burada görünecek. Şimdilik üstteki temel bilgileri kullanabilirsin.",
     },
     aiMentor: {
       backHome: "Ana sayfaya dön",
@@ -601,6 +605,7 @@ export const translations = {
       mentorTitle: "Take this school to a mentor desk",
       mentorBody: "Bring your program choice, documents, or application flow to the desk.",
       openingProgram: "Opening program...",
+      detailComingSoon: "Details coming soon",
     },
     list: {
       backHome: "Back to Home",
@@ -960,6 +965,9 @@ export const translations = {
       mentorEyebrow: "Consultation Desk",
       mentorTitle: "Take this program to a mentor desk",
       mentorBody: "Clarify fit, documents, and application steps around this program.",
+      detailsComingSoonTitle: "Admission details coming soon",
+      detailsComingSoonBody:
+        "Official admission information for this program will appear here as it is added. For now, you can rely on the basics above.",
     },
     aiMentor: {
       backHome: "Back to home",
