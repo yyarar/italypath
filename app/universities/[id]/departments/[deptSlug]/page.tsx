@@ -185,6 +185,7 @@ export default function DepartmentDetailPage() {
           masterPrograms={t.detail.masterPrograms}
           singleCyclePrograms={t.detail.singleCyclePrograms}
           openingLabel={t.detail.openingProgram}
+          comingSoonLabel={t.detail.detailComingSoon}
           expandingSlug={expandingDeptSlug}
           onSelect={(slug) => {
             if (!expandingDeptSlug) setExpandingDeptSlug(slug);

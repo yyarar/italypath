@@ -12,6 +12,7 @@ interface ProgramDirectoryProps {
   masterPrograms: string;
   singleCyclePrograms: string;
   openingLabel: string;
+  comingSoonLabel: string;
   expandingSlug: string | null;
   onSelect: (slug: string) => void;
 }
@@ -21,6 +22,7 @@ function ProgramGroup({
   departments,
   label,
   openingLabel,
+  comingSoonLabel,
   expandingSlug,
   onSelect,
 }: {
@@ -28,6 +30,7 @@ function ProgramGroup({
   departments: Department[];
   label: string;
   openingLabel: string;
+  comingSoonLabel: string;
   expandingSlug: string | null;
   onSelect: (slug: string) => void;
 }) {
@@ -50,6 +53,7 @@ function ProgramGroup({
             university={university}
             department={department}
             openingLabel={openingLabel}
+            comingSoonLabel={comingSoonLabel}
             expanding={expandingSlug === department.slug}
             onSelect={onSelect}
           />
@@ -68,6 +72,7 @@ export function ProgramDirectory({
   masterPrograms,
   singleCyclePrograms,
   openingLabel,
+  comingSoonLabel,
   expandingSlug,
   onSelect,
 }: ProgramDirectoryProps) {
@@ -117,6 +122,7 @@ export function ProgramDirectory({
           departments={bachelorDepartments}
           label={bachelorPrograms}
           openingLabel={openingLabel}
+          comingSoonLabel={comingSoonLabel}
           expandingSlug={expandingSlug}
           onSelect={onSelect}
         />
@@ -125,6 +131,7 @@ export function ProgramDirectory({
           departments={masterDepartments}
           label={masterPrograms}
           openingLabel={openingLabel}
+          comingSoonLabel={comingSoonLabel}
           expandingSlug={expandingSlug}
           onSelect={onSelect}
         />
@@ -133,6 +140,7 @@ export function ProgramDirectory({
           departments={singleCycleDepartments}
           label={singleCyclePrograms}
           openingLabel={openingLabel}
+          comingSoonLabel={comingSoonLabel}
           expandingSlug={expandingSlug}
           onSelect={onSelect}
         />

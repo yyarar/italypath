@@ -15,6 +15,7 @@ interface ProgramTransitionEntryProps {
   university: University;
   department: Department;
   openingLabel: string;
+  comingSoonLabel: string;
   expanding: boolean;
   onSelect: (slug: string) => void;
 }
@@ -23,6 +24,7 @@ export function ProgramTransitionEntry({
   university,
   department,
   openingLabel,
+  comingSoonLabel,
   expanding,
   onSelect,
 }: ProgramTransitionEntryProps) {
@@ -51,7 +53,13 @@ export function ProgramTransitionEntry({
           >
             {department.name}
           </motion.span>
-          <ArrowRight className="h-4 w-4 shrink-0 text-[var(--editorial-terracotta)]" />
+          {department.admissionDetails ? (
+            <ArrowRight className="h-4 w-4 shrink-0 text-[var(--editorial-terracotta)]" />
+          ) : (
+            <span className="shrink-0 rounded-full border border-[var(--editorial-border)] bg-[var(--editorial-paper)] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
+              {comingSoonLabel}
+            </span>
+          )}
         </button>
       </ExpandableScreenTrigger>
 
