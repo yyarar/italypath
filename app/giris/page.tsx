@@ -6,6 +6,7 @@ import { AuthShell } from "@/components/auth/AuthShell";
 import { AuthCard } from "@/components/auth/AuthCard";
 import { AuthTabs, type AuthTab } from "@/components/auth/AuthTabs";
 import { SignInForm } from "@/components/auth/SignInForm";
+import { SignUpForm } from "@/components/auth/SignUpForm";
 
 export default function GirisPage() {
   const [tab, setTab] = useState<AuthTab>("signIn");
@@ -18,10 +19,14 @@ export default function GirisPage() {
           onChange={setTab}
           signInContent={
             <Suspense fallback={null}>
-              <SignInForm onForgotPassword={() => alert("forgot password flow comes in later task")} />
+              <SignInForm onForgotPassword={() => alert("forgot password flow comes in Task 10")} />
             </Suspense>
           }
-          signUpContent={<p className="text-sm text-[var(--editorial-muted)]">Kayıt formu sonraki task&apos;ta</p>}
+          signUpContent={
+            <Suspense fallback={null}>
+              <SignUpForm onSwitchToSignIn={() => setTab("signIn")} />
+            </Suspense>
+          }
         />
       </AuthCard>
     </AuthShell>
