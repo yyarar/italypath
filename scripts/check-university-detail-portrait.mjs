@@ -40,6 +40,7 @@ const portraitFiles = [
   "components/university-details/UniversityHighlights.tsx",
   "components/university-details/ProgramMetaStrip.tsx",
   "components/university-details/ProgramPortraitHeader.tsx",
+  "components/university-details/ComingSoonNotice.tsx",
 ];
 
 const portraitSource = portraitFiles.map(read).join("\n");
@@ -55,6 +56,7 @@ requireTokens("university detail", universityPage, [
   "isFavorite",
   "toggleFavorite",
   "singleCyclePrograms={t.detail.singleCyclePrograms}",
+  "comingSoonLabel={t.detail.detailComingSoon}",
 ]);
 
 requireTokens("program detail", programPage, [
@@ -73,6 +75,9 @@ requireTokens("program detail", programPage, [
   "description",
   "department.durationYears",
   "department.languages",
+  "ComingSoonNotice",
+  "detailsComingSoonTitle",
+  "detailsComingSoonBody",
 ]);
 
 requireTokens("portrait components", portraitSource, [
