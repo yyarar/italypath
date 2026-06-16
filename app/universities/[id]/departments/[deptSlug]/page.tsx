@@ -6,6 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useAuth } from "@clerk/nextjs";
 
 import ScrollProgress from "@/components/ScrollProgress";
+import { ComingSoonNotice } from "@/components/university-details/ComingSoonNotice";
 import { DetailMentorPrompt } from "@/components/university-details/DetailMentorPrompt";
 import { ProgramAdmissionDetailsPanel } from "@/components/university-details/ProgramAdmissionDetailsPanel";
 import { ProgramDirectory } from "@/components/university-details/ProgramDirectory";
@@ -174,7 +175,12 @@ export default function DepartmentDetailPage() {
               officialSource: t.department.officialSource,
             }}
           />
-        ) : null}
+        ) : (
+          <ComingSoonNotice
+            title={t.department.detailsComingSoonTitle}
+            body={t.department.detailsComingSoonBody}
+          />
+        )}
 
         <ProgramDirectory
           university={university}
