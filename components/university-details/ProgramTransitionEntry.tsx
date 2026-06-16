@@ -44,6 +44,11 @@ export function ProgramTransitionEntry({
           type="button"
           onClick={() => onSelect(department.slug)}
           disabled={expanding}
+          aria-label={
+            department.admissionDetails
+              ? undefined
+              : `${department.name} — ${comingSoonLabel}`
+          }
           className="flex min-h-16 w-full items-center justify-between gap-4 px-4 py-3 text-left sm:px-5"
         >
           <motion.span
