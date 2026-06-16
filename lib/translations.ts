@@ -562,7 +562,7 @@ export const translations = {
       },
       verification: {
         title: "E-postana 6 haneli kod gönderdik",
-        subtitle: "Kodu",
+        subtitle: "Kodu gir",
         resend: "Tekrar gönder",
         resendIn: "Tekrar gönder ({seconds}s)",
       },
