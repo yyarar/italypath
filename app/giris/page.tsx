@@ -1,13 +1,13 @@
 "use client";
 
+import { AuthShell } from "@/components/auth/AuthShell";
+
 export default function GirisPage() {
   return (
-    <main className="min-h-dvh bg-[var(--editorial-paper)]">
-      <div className="mx-auto max-w-md px-4 py-16">
-        <p className="font-serif text-2xl text-[var(--editorial-ink)]">
-          ItalyPath / Giriş (iskelet)
-        </p>
+    <AuthShell>
+      <div className="rounded-lg border border-[var(--editorial-border)] bg-[var(--editorial-cream)] p-8 text-center text-sm text-[var(--editorial-muted)]">
+        Kart slotu (henüz boş)
       </div>
-    </main>
+    </AuthShell>
   );
 }
