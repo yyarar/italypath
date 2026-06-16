@@ -35,6 +35,7 @@ export function AuthTabs({ active, onChange, signInContent, signUpContent }: Aut
       <div role="tablist" aria-label={t.auth.pageTitle} className="mb-6 grid grid-cols-2 gap-0 border-b border-[var(--editorial-border)]">
         <button
           ref={signInRef}
+          id="auth-tab-signIn"
           role="tab"
           type="button"
           aria-selected={active === "signIn"}
@@ -52,6 +53,7 @@ export function AuthTabs({ active, onChange, signInContent, signUpContent }: Aut
         </button>
         <button
           ref={signUpRef}
+          id="auth-tab-signUp"
           role="tab"
           type="button"
           aria-selected={active === "signUp"}
