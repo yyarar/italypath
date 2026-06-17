@@ -422,6 +422,91 @@ const UNIVERSITY_CHECKS = [
       },
     ],
   },
+  {
+    universityId: 7,
+    label: "Bocconi",
+    expectedDetailCount: 34,
+    criticalPrograms: [
+      {
+        name: "Economics",
+        level: "bachelor",
+        missingProgramMessage: "Missing expected Bocconi program: Economics (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Finance",
+        level: "bachelor",
+        missingProgramMessage: "Missing expected Bocconi program: Finance (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "World Bachelor in Business",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Bocconi program: World Bachelor in Business (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+        expectedUncertainField: "language_requirements",
+      },
+      {
+        name: "HEC-Bocconi Double Program in Data, Society and Organizations",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Bocconi program: HEC-Bocconi Double Program in Data, Society and Organizations (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Accounting and Financial Management",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Bocconi program: Accounting and Financial Management (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Finance",
+        level: "master",
+        missingProgramMessage: "Missing expected Bocconi program: Finance (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "IM CEMS MIM",
+        level: "master",
+        missingProgramMessage: "Missing expected Bocconi program: IM CEMS MIM (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+        expectedUncertainField: "degree_class",
+      },
+      {
+        name: "LSE-Bocconi Double Degree",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Bocconi program: LSE-Bocconi Double Degree (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Transformative Sustainability",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Bocconi program: Transformative Sustainability (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Master of Arts in Global Law for Organizations, Business Enterprises and Institutions",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Bocconi program: Master of Arts in Global Law for Organizations, Business Enterprises and Institutions (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+    ],
+  },
 ];
 const failures = [];
 
