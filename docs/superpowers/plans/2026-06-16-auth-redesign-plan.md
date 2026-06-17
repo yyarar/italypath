@@ -50,7 +50,7 @@
 
 - **Test approach:** This project has no Jest/Vitest. Verification is done via (a) Node smoke checks under `scripts/check-*.mjs`, (b) `npm run dev` + browser observation, (c) `npm run lint` + `npm run build` for compile-time correctness. Each task ends by running the right verification for what changed.
 - **Server vs client:** Auth forms use Clerk Elements hooks → all new components under `components/auth/` start with `"use client"`. The page `app/giris/page.tsx` is also client (uses tab state).
-- **Styling tokens:** Reuse existing CSS variables from `app/globals.css`: `--editorial-paper`, `--editorial-ink`, `--editorial-muted`, `--editorial-border`, `--editorial-sage`, `--editorial-terracotta`, `--editorial-cream`. No new tokens.
+- **Styling tokens:** Reuse existing CSS variables from `app/globals.css`: `--editorial-paper`, `--editorial-surface`, `--editorial-ink`, `--editorial-muted`, `--editorial-border`, `--editorial-sage`, `--editorial-sage-soft`, `--editorial-terracotta`, `--editorial-band`. No new tokens.
 - **Commit cadence:** One commit per task at the end. Commit messages in English, Conventional Commits style (`feat:`, `chore:`, `refactor:`), no Claude footer (project convention — check `git log` to confirm; ItalyPath commits don't use Co-Authored-By).
 - **Worktree:** Project's existing dirty worktree contains unrelated Bocconi/Parma/Tor Vergata/Univpm import scripts and a modified `scripts/check-program-details.mjs`. **Do not touch any of those.** Only stage files this plan explicitly modifies.
 
@@ -371,7 +371,7 @@ import { AuthShell } from "@/components/auth/AuthShell";
 export default function GirisPage() {
   return (
     <AuthShell>
-      <div className="rounded-lg border border-[var(--editorial-border)] bg-[var(--editorial-cream)] p-8 text-center text-sm text-[var(--editorial-muted)]">
+      <div className="rounded-lg border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-8 text-center text-sm text-[var(--editorial-muted)]">
         Kart slotu (henüz boş)
       </div>
     </AuthShell>
@@ -432,7 +432,7 @@ interface AuthCardProps {
 
 export function AuthCard({ children }: AuthCardProps) {
   return (
-    <div className="rounded-lg border border-[var(--editorial-border)] bg-[var(--editorial-cream)] p-6 shadow-sm sm:p-8">
+    <div className="rounded-lg border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-6 shadow-sm sm:p-8">
       {children}
     </div>
   );

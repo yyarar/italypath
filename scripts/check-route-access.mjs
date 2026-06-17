@@ -47,6 +47,7 @@ const publicChecks = [
   "/data/italy-regions.geojson",
   "/sign-in",
   "/sign-up",
+  "/giris",
   "/sitemap.xml",
   "/robots.txt",
 ];
@@ -109,6 +110,10 @@ if (!publicPatterns.includes("/topluluklar(.*)")) {
 
 if (!publicPatterns.includes("/cities(.*)")) {
   failures.push("Public list is missing /cities(.*)");
+}
+
+if (!publicPatterns.includes("/giris(.*)")) {
+  failures.push("Public list is missing /giris(.*)");
 }
 
 if (failures.length > 0) {

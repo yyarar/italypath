@@ -70,7 +70,7 @@ export default function HubPage() {
             {t.hub.signedOutDesc}
           </p>
           <Link
-            href="/sign-in?redirect_url=%2Fhub"
+            href="/giris?redirect_url=%2Fhub"
             className="mt-6 inline-flex items-center gap-2 border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-5 py-3 text-[12px] font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#173d36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] active:translate-y-[1px]"
           >
             {t.hub.signInCta}

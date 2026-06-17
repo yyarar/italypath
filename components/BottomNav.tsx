@@ -13,8 +13,8 @@ export default function BottomNav() {
   const { isSignedIn } = useAuth();
   const { t } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
-  const aiMentorHref = isSignedIn ? "/ai-mentor" : "/sign-in?redirect_url=%2Fai-mentor";
-  const hubHref = isSignedIn ? "/hub" : "/sign-in?redirect_url=%2Fhub";
+  const aiMentorHref = isSignedIn ? "/ai-mentor" : "/giris?redirect_url=%2Fai-mentor";
+  const hubHref = isSignedIn ? "/hub" : "/giris?redirect_url=%2Fhub";
 
   const navItems = [
     { href: "/", match: "/", icon: Home, label: t.bottomNav.home },

@@ -21,11 +21,13 @@
     "check:scholarships-ui": "node scripts/check-scholarships-editorial-atlas.mjs",
     "check:editorial-ui": "node scripts/check-editorial-ui.mjs",
     "check:documents-ui": "node scripts/check-documents-ui.mjs",
+    "check:auth-ui": "node scripts/check-auth-ui.mjs",
     "clean:med": "node --no-warnings scripts/clean-med-data.mjs"
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.23",
     "@ai-sdk/react": "^3.0.80",
+    "@clerk/elements": "^0.24.18",
     "@clerk/nextjs": "^6.37.3",
     "@google/generative-ai": "^0.24.1",
     "@supabase/supabase-js": "^2.95.3",

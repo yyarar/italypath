@@ -15,8 +15,8 @@ interface FeaturesSectionProps {
 export default function FeaturesSection({ stats }: FeaturesSectionProps) {
   const { t, language } = useLanguage();
   const { isSignedIn } = useAuth();
-  const aiMentorHref = isSignedIn ? "/ai-mentor" : "/sign-in?redirect_url=%2Fai-mentor";
-  const documentsHref = isSignedIn ? "/documents" : "/sign-in?redirect_url=%2Fdocuments";
+  const aiMentorHref = isSignedIn ? "/ai-mentor" : "/giris?redirect_url=%2Fai-mentor";
+  const documentsHref = isSignedIn ? "/documents" : "/giris?redirect_url=%2Fdocuments";
   const ctaText = language === "tr" ? "İncele" : "Open";
   const universitiesMeta =
     stats.universitiesCount === null || stats.programsCount === null

@@ -25,7 +25,7 @@ export default function UniversityDetailPage() {
 
   const aiMentorHref = isLoggedIn
     ? "/ai-mentor"
-    : "/sign-in?redirect_url=%2Fai-mentor";
+    : "/giris?redirect_url=%2Fai-mentor";
   const idFromUrl = Array.isArray(params?.id) ? params.id[0] : params?.id;
 
   const university = useMemo(

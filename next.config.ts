@@ -17,6 +17,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/sign-in',
+        destination: '/giris',
+        permanent: true,
+      },
+      {
+        source: '/sign-up',
+        destination: '/giris?mode=kayit',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
