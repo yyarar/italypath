@@ -7,6 +7,7 @@ import { useState } from "react";
 
 import { useLanguage } from "@/context/LanguageContext";
 import { OAuthButtons } from "./OAuthButtons";
+import { VerificationStep } from "./VerificationStep";
 
 interface SignUpFormProps {
   onSwitchToSignIn: () => void;
@@ -127,6 +128,7 @@ export function SignUpForm({ onSwitchToSignIn }: SignUpFormProps) {
           <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
         </div>
       </SignUp.Step>
+        <VerificationStep />
     </SignUp.Root>
   );
 }
