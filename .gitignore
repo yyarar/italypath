@@ -48,3 +48,9 @@ yedek
 
 # Deadline scrape artifacts
 tmp/
+
+# Program-details import artifacts (raw scrape + import reports)
+# Eski commit'lenmis (-admission-requirements/) dizinleri repo'da kaliyor,
+# bundan sonraki yeni import'lar tracking disinda.
+*-admission-requirements/
+output/*-program-details-import-report.json
