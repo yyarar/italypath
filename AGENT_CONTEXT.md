@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur. Degisiklik gecmisi icin `AGENT_COMMITS.md`, son audit notlari icin `AGENT_CONTEXT_FIX_REPORT.md` okunabilir; bu dosya ise guncel mimari ve calisma kurallarinin kaynak dokumanidir.
 
-Son guncelleme: 2026-06-12
+Son guncelleme: 2026-06-17
 
 ---
 
@@ -49,8 +49,7 @@ italypath-main/
 │   ├── api/
 │   │   ├── universities/route.ts   # force-dynamic, no-store, Supabase-backed public API
 │   │   └── chat/route.ts           # Protected Gemini streaming endpoint
-│   ├── sign-in/[[...sign-in]]/page.tsx
-│   ├── sign-up/[[...sign-up]]/page.tsx
+│   ├── giris/page.tsx              # Tek sayfa giris+kayit (Clerk Elements); /sign-in ve /sign-up next.config redirects
 │   ├── ai-mentor/page.tsx          # Protected consultation desks UI
 │   ├── universities/
 │   │   ├── page.tsx                # Search/filter/favorites/view-mode list
@@ -87,6 +86,7 @@ italypath-main/
 │   ├── university-details/         # Portrait headers, program directory, admission panel
 │   ├── mentor/                     # Mentor hub/chat room/topbar/entry/locked notice
 │   ├── legal/                      # LegalDocument.tsx (yasal belge sunum bileseni)
+│   ├── auth/                       # /giris parcalari: AuthShell, AuthCard, AuthTabs, OAuthButtons, SignInForm, SignUpForm, VerificationStep, PasswordResetFlow
 │   ├── hub/                        # Dossier components
 │   └── ui/                         # Small reusable UI/motion helpers; bento-grid/scroll velocity are legacy unless imported
 ├── context/LanguageContext.tsx
@@ -114,6 +114,7 @@ italypath-main/
 ├── public/data/italy-regions.geojson
 ├── scripts/
 │   ├── check-route-access.mjs
+│   ├── check-auth-ui.mjs            # /giris ve auth migration butunlugu smoke check
 │   ├── check-cities-data.mjs
 │   ├── check-program-details.mjs
 │   ├── check-deadlines.mjs
@@ -262,8 +263,8 @@ Public route pattern'leri:
 - `/`
 - `/api/universities(.*)`
 - `/data(.*)`
-- `/sign-in(.*)`
-- `/sign-up(.*)`
+- `/sign-in(.*)`     # eski URL, `next.config.ts` 308 ile `/giris`'e yonlendirir
+- `/sign-up(.*)`     # eski URL, `next.config.ts` 308 ile `/giris?mode=kayit`'e yonlendirir
 - `/universities(.*)`
 - `/cities(.*)`
 - `/isee(.*)`
@@ -271,6 +272,7 @@ Public route pattern'leri:
 - `/communities(.*)`
 - `/topluluklar(.*)`
 - `/yasal(.*)`
+- `/giris(.*)`       # yeni tek sayfa giris+kayit
 - `/sitemap.xml`
 - `/robots.txt`
 
@@ -283,13 +285,43 @@ Protected ornekler:
 - `/api/chat`
 - `/profile`
 
-Navbar signed-out durumda `SignInButton mode="modal"` kullanir. BottomNav ve protected CTA linkleri signed-out durumda `/sign-in?redirect_url=...` adresine gider.
+Navbar artik signed-out durumda **modal acmaz**; `<Link href="/giris">` ile tam sayfa `/giris`'e gider. BottomNav ve protected CTA linkleri signed-out durumda `/giris?redirect_url=...` adresine gider (`/sign-in?redirect_url=...` referanslari kalmadi).
 
-`npm run check:routes`, public/protected matrix'i ve scholarship GeoJSON fetch kurallarini smoke-test eder.
+`npm run check:routes`, public/protected matrix'i ve scholarship GeoJSON fetch kurallarini smoke-test eder. `npm run check:auth-ui`, `/giris` sayfasinin ve auth migration'inin butunlugunu dogrular.
 
 ---
 
 ## Ozellik Mimarileri
+
+### Auth (Giris/Kayit)
+
+`/giris` tek sayfa giris+kayit deneyimidir. Clerk altyapisi korunur; UI tamamen `@clerk/elements` (Level 2 - headless primitives) ile bizim tarafimizda.
+
+- Sekme toggle: "Giris Yap" / "Kayit Ol"; `?mode=kayit` URL parametresi acilis sekmesini belirler
+- OAuth: Google + Apple (her iki sekmede de gosterilir; ilk OAuth dokunusunda Clerk otomatik hesap yaratir)
+- E-posta yolu: Kayit'ta Ad + Soyad + E-posta + Sifre; Giris'te E-posta + Sifre; her ikisi de Sifre goster/gizle toggle'i ile
+- E-posta dogrulama: 6 haneli OTP, otomatik submit, Clerk'in native `resendableAfter` ile geri sayim
+- "Sifremi unuttum": 2 adimli (e-posta -> kod + yeni sifre); inline akis, ayri sayfa degil
+- Yonlendirme: `?redirect_url=...` varsa oraya, yoksa `/hub`'a (ClerkProvider `signInFallbackRedirectUrl="/hub"` / `signUpFallbackRedirectUrl="/hub"`)
+- Eski URL'ler: `/sign-in` ve `/sign-up` `next.config.ts` `redirects()` ile 308 yonlendirilir; sorgu parametreleri korunur
+
+Bilesenler `components/auth/` altinda:
+
+- `AuthShell.tsx`: paper bg + wordmark + ortali kart + yasal alt metin
+- `AuthCard.tsx`: surface bg + ince border kart konteyneri
+- `AuthTabs.tsx`: ARIA tablist + ok tuslari ile gecis + roving tabIndex
+- `OAuthButtons.tsx`: `Clerk.Connection` (Google + Apple) + "veya" ayirici
+- `SignInForm.tsx`, `SignUpForm.tsx`: form akislari
+- `VerificationStep.tsx`: 6 haneli kod adimi
+- `PasswordResetFlow.tsx`: 2 adimli sifremi unuttum akisi
+
+Tum metinler `lib/translations.ts` `auth.*` namespace altinda (TR + EN paralel). Tasarim notu: `docs/superpowers/specs/2026-06-16-auth-redesign-design.md`. Uygulama plani: `docs/superpowers/plans/2026-06-16-auth-redesign-plan.md`.
+
+Clerk Elements v0.24.18 ile bilinen sapmalar (gelecek auth degisikliklerinde dikkat):
+
+- OAuth butonu icin `Clerk.Connection` (NOT eski `SignIn.SocialProvider`)
+- `Clerk.FieldError` ve `Clerk.Loading` children-as-function pattern
+- `SignUp.Action resend` `fallback` callback'i `({ resendableAfter }) => ...` imzasiyla cagrilir
 
 ### Dil sistemi
 
@@ -465,6 +497,7 @@ npm run dev
 npm run build
 npm run lint
 npm run check:routes
+npm run check:auth-ui
 npm run check:cities
 npm run check:program-details
 npm run check:deadlines
