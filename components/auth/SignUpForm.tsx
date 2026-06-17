@@ -128,7 +128,8 @@ export function SignUpForm({ onSwitchToSignIn }: SignUpFormProps) {
           <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
         </div>
       </SignUp.Step>
-        <VerificationStep />
+
+      <VerificationStep />
     </SignUp.Root>
   );
 }
