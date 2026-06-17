@@ -35,7 +35,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      signInUrl="/giris"
+      signUpUrl="/giris?mode=kayit"
+      signInFallbackRedirectUrl="/hub"
+      signUpFallbackRedirectUrl="/hub"
+    >
       <html lang="tr" suppressHydrationWarning>
         <body
           suppressHydrationWarning

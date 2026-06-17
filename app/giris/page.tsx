@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 import { AuthShell } from "@/components/auth/AuthShell";
 import { AuthCard } from "@/components/auth/AuthCard";
@@ -9,8 +10,10 @@ import { SignInForm } from "@/components/auth/SignInForm";
 import { SignUpForm } from "@/components/auth/SignUpForm";
 import { PasswordResetFlow } from "@/components/auth/PasswordResetFlow";
 
-export default function GirisPage() {
-  const [tab, setTab] = useState<AuthTab>("signIn");
+function GirisInner() {
+  const params = useSearchParams();
+  const initialTab: AuthTab = params.get("mode") === "kayit" ? "signUp" : "signIn";
+  const [tab, setTab] = useState<AuthTab>(initialTab);
   const [mode, setMode] = useState<"auth" | "reset">("auth");
 
   if (mode === "reset") {
@@ -44,5 +47,21 @@ export default function GirisPage() {
         />
       </AuthCard>
     </AuthShell>
+  );
+}
+
+export default function GirisPage() {
+  return (
+    <Suspense
+      fallback={
+        <AuthShell>
+          <AuthCard>
+            <div className="h-64" />
+          </AuthCard>
+        </AuthShell>
+      }
+    >
+      <GirisInner />
+    </Suspense>
   );
 }
