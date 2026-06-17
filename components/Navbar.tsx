@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { SignInButton, SignedIn, SignedOut, UserButton, useAuth } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton, useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import { Globe2 } from "lucide-react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
@@ -13,7 +13,7 @@ export default function Navbar() {
   const { isSignedIn } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
-  const aiMentorHref = isSignedIn ? "/ai-mentor" : "/sign-in?redirect_url=%2Fai-mentor";
+  const aiMentorHref = isSignedIn ? "/ai-mentor" : "/giris?redirect_url=%2Fai-mentor";
   const desktopItems = [
     { href: "/universities", label: t.navbar.universities },
     { href: "/cities", label: t.navbar.cities },
@@ -69,7 +69,7 @@ export default function Navbar() {
             </button>
 
             <SignedOut>
-              <SignInButton mode="modal">
+              <Link href="/giris">
                 <motion.span
                   whileHover={{ y: -1 }}
                   whileTap={{ y: 0 }}
@@ -78,7 +78,7 @@ export default function Navbar() {
                 >
                   {t.navbar.login}
                 </motion.span>
-              </SignInButton>
+              </Link>
             </SignedOut>
 
             <SignedIn>
@@ -100,11 +100,12 @@ export default function Navbar() {
             </button>
 
             <SignedOut>
-              <SignInButton mode="modal">
-                <span className="inline-flex border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-3 py-1.5 text-[11px] font-semibold text-white">
-                  {t.navbar.login}
-                </span>
-              </SignInButton>
+              <Link
+                href="/giris"
+                className="inline-flex border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-3 py-1.5 text-[11px] font-semibold text-white"
+              >
+                {t.navbar.login}
+              </Link>
             </SignedOut>
             <SignedIn>
               <Link
