@@ -26,7 +26,7 @@ export default function DepartmentDetailPage() {
 
   const aiMentorHref = isSignedIn
     ? "/ai-mentor"
-    : "/sign-in?redirect_url=%2Fai-mentor";
+    : "/giris?redirect_url=%2Fai-mentor";
   const idFromUrl = Array.isArray(params?.id) ? params.id[0] : params?.id;
   const deptSlugFromUrl = Array.isArray(params?.deptSlug)
     ? params.deptSlug[0]
