@@ -142,7 +142,7 @@ export function PasswordResetFlow({ onBack }: PasswordResetFlowProps) {
               <Clerk.Loading>
                 {(isLoading) =>
                   isLoading
-                    ? t.auth.actions.signInLoading
+                    ? t.auth.actions.resetPasswordLoading
                     : t.auth.actions.resetPassword
                 }
               </Clerk.Loading>
