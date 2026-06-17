@@ -7,9 +7,23 @@ import { AuthCard } from "@/components/auth/AuthCard";
 import { AuthTabs, type AuthTab } from "@/components/auth/AuthTabs";
 import { SignInForm } from "@/components/auth/SignInForm";
 import { SignUpForm } from "@/components/auth/SignUpForm";
+import { PasswordResetFlow } from "@/components/auth/PasswordResetFlow";
 
 export default function GirisPage() {
   const [tab, setTab] = useState<AuthTab>("signIn");
+  const [mode, setMode] = useState<"auth" | "reset">("auth");
+
+  if (mode === "reset") {
+    return (
+      <AuthShell>
+        <AuthCard>
+          <Suspense fallback={null}>
+            <PasswordResetFlow onBack={() => setMode("auth")} />
+          </Suspense>
+        </AuthCard>
+      </AuthShell>
+    );
+  }
 
   return (
     <AuthShell>
@@ -19,7 +33,7 @@ export default function GirisPage() {
           onChange={setTab}
           signInContent={
             <Suspense fallback={null}>
-              <SignInForm onForgotPassword={() => alert("forgot password flow comes in Task 10")} />
+              <SignInForm onForgotPassword={() => setMode("reset")} />
             </Suspense>
           }
           signUpContent={
