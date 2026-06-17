@@ -21,6 +21,7 @@
     "check:scholarships-ui": "node scripts/check-scholarships-editorial-atlas.mjs",
     "check:editorial-ui": "node scripts/check-editorial-ui.mjs",
     "check:documents-ui": "node scripts/check-documents-ui.mjs",
+    "check:auth-ui": "node scripts/check-auth-ui.mjs",
     "clean:med": "node --no-warnings scripts/clean-med-data.mjs"
   },
   "dependencies": {
