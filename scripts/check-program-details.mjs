@@ -507,6 +507,176 @@ const UNIVERSITY_CHECKS = [
       },
     ],
   },
+  {
+    universityId: 63,
+    label: "Florence",
+    expectedDetailCount: 18,
+    criticalPrograms: [
+      {
+        name: "Sustainable Business for Societal Challenges",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Florence program: Sustainable Business for Societal Challenges (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+        expectedSourceFile: "Sustainable_Business_for_Societal_Challenges.json",
+      },
+      {
+        name: "Advanced Molecular Sciences",
+        level: "master",
+        missingProgramMessage: "Missing expected Florence program: Advanced Molecular Sciences (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+        expectedSourceFile: "Advanced_Molecular_Sciences.json",
+      },
+      {
+        name: "Energy Engineering",
+        level: "master",
+        missingProgramMessage: "Missing expected Florence program: Energy Engineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+        expectedSourceFile: "Energy_Engineering.json",
+      },
+      {
+        name: "Finance and Risk Management",
+        level: "master",
+        missingProgramMessage: "Missing expected Florence program: Finance and Risk Management (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+        expectedSourceFile: "Finance_and_Risk_Management.json",
+      },
+      {
+        name: "Geoengineering",
+        level: "master",
+        missingProgramMessage: "Missing expected Florence program: Geoengineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+        expectedSourceFile: "Geoengineering.json",
+      },
+      {
+        name: "Robotics, Automation and Electrical Engineering",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Florence program: Robotics, Automation and Electrical Engineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+        expectedSourceFile: "Robotics_Automation_and_Electrical_Engineering.json",
+      },
+    ],
+  },
+  {
+    universityId: 42,
+    label: "Link Campus",
+    expectedDetailCount: 6,
+    criticalPrograms: [
+      {
+        name: "Business and Institutional Economics and Management",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Link Campus program: Business and Institutional Economics and Management (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+        expectedSourceFile: "Business_and_Institutional_Economics_and_Management.json",
+      },
+      {
+        name: "Communication Sciences, Media and Digital Technologies",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Link Campus program: Communication Sciences, Media and Digital Technologies (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+        expectedSourceFile: "Communication_Sciences_Media_and_Digital_Technologies.json",
+      },
+      {
+        name: "Finance and Artificial Intelligence",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Link Campus program: Finance and Artificial Intelligence (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+        expectedSourceFile: "Corporate_Management_and_Public_Administration.json",
+      },
+      {
+        name: "Digital Communication Strategies for Media Industries",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Link Campus program: Digital Communication Strategies for Media Industries (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+        expectedSourceFile: "Media_and_Cultural_Industries.json",
+      },
+      {
+        name: "Political Science, Diplomacy and Government of Administration",
+        level: "bachelor",
+        missingProgramMessage:
+          "Missing expected Link Campus program: Political Science, Diplomacy and Government of Administration (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+        expectedSourceFile: "Political_Science_Diplomacy_and_Government_of_Administration.json",
+      },
+      {
+        name: "Global Affairs and International Relations",
+        level: "master",
+        missingProgramMessage:
+          "Missing expected Link Campus program: Global Affairs and International Relations (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+        expectedSourceFile: "Strategic_Studies_and_Security_Policies.json",
+      },
+    ],
+  },
+  {
+    universityId: 19,
+    label: "Pisa",
+    expectedDetailCount: 18,
+    criticalPrograms: [
+      {
+        name: "International Programme in Humanities (IPH)",
+        level: "bachelor",
+        missingProgramMessage: "Missing expected Pisa program: International Programme in Humanities (IPH) (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Management for Business and Economics",
+        level: "bachelor",
+        missingProgramMessage: "Missing expected Pisa program: Management for Business and Economics (bachelor)",
+        requiresDetails: true,
+        expectedDurationYears: 3,
+      },
+      {
+        name: "Aerospace Engineering",
+        level: "master",
+        missingProgramMessage: "Missing expected Pisa program: Aerospace Engineering (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+      },
+      {
+        name: "Cybersecurity",
+        level: "master",
+        missingProgramMessage: "Missing expected Pisa program: Cybersecurity (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+        expectedApplicationDeadlineEu: "2026-02-25",
+      },
+      {
+        name: "Engineering of Paper and Cardboard",
+        level: "master",
+        missingProgramMessage: "Missing expected Pisa program: Engineering of Paper and Cardboard (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+        expectedCampus: "Lucca (Campus San Micheletto)",
+      },
+      {
+        name: "Materials and Nanotechnology",
+        level: "master",
+        missingProgramMessage: "Missing expected Pisa program: Materials and Nanotechnology (master)",
+        requiresDetails: true,
+        expectedDurationYears: 2,
+        expectedUncertainField: "lead_department_resolution_among_four_joint_departments",
+      },
+    ],
+  },
 ];
 const failures = [];
 
@@ -568,7 +738,7 @@ if (supabase) {
     const { data: details, error: detailsError } = await supabase
       .from("program_admission_details")
       .select(
-        "department_id,university_id,raw_level,official_program_url,required_documents,source_quotes,uncertain,uncertainty_notes,source_file"
+        "department_id,university_id,raw_level,campus,application_deadline_eu,official_program_url,required_documents,source_quotes,uncertain,uncertainty_notes,source_file"
       )
       .eq("university_id", universityCheck.universityId);
 
@@ -665,10 +835,16 @@ if (supabase) {
       expectedDurationYears,
       expectedRawLevel,
       expectedUncertainField,
+      expectedApplicationDeadlineEu,
+      expectedCampus,
+      expectedSourceFile,
     } of universityCheck.criticalPrograms) {
-      const department = (departments ?? []).find(
+      const matchingDepartments = (departments ?? []).filter(
         (candidate) => candidate.name === name && candidate.level === level
       );
+      const department =
+        matchingDepartments.find((candidate) => detailByDepartmentId.has(candidate.id)) ??
+        matchingDepartments[0];
 
       if (!department) {
         fail(missingProgramMessage);
@@ -695,6 +871,22 @@ if (supabase) {
       if (expectedUncertainField && !detail?.uncertain?.includes(expectedUncertainField)) {
         fail(
           `Expected ${universityCheck.label} ${name} uncertain to include ${expectedUncertainField}`
+        );
+      }
+
+      if (expectedApplicationDeadlineEu && detail?.application_deadline_eu !== expectedApplicationDeadlineEu) {
+        fail(
+          `Expected ${universityCheck.label} ${name} application_deadline_eu ${expectedApplicationDeadlineEu}, got ${detail?.application_deadline_eu}`
+        );
+      }
+
+      if (expectedCampus && detail?.campus !== expectedCampus) {
+        fail(`Expected ${universityCheck.label} ${name} campus ${expectedCampus}, got ${detail?.campus}`);
+      }
+
+      if (expectedSourceFile && detail?.source_file !== expectedSourceFile) {
+        fail(
+          `Expected ${universityCheck.label} ${name} source_file ${expectedSourceFile}, got ${detail?.source_file}`
         );
       }
     }

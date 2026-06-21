@@ -4,10 +4,14 @@ import { resolve } from "node:path";
 import ts from "typescript";
 
 function importTsModule(path) {
-  const source = readFileSync(resolve(process.cwd(), path), "utf8").replace(
-    'import { createClient } from "@supabase/supabase-js";',
-    ""
-  );
+  const source = readFileSync(resolve(process.cwd(), path), "utf8")
+    .replace('import { createClient } from "@supabase/supabase-js";', "")
+    .replace(
+      /import\s*\{\s*DEPARTMENT_DEADLINE_OVERRIDES,\s*createDepartmentKey,\s*\}\s*from\s*"@\/app\/data";/,
+      'const DEPARTMENT_DEADLINE_OVERRIDES = {};\nfunction createDepartmentKey(universityId, slug) { return `${universityId}:${slug}`; }'
+    )
+    .replace(/import type\s*\{[\s\S]*?\}\s*from\s*"@\/app\/data";/g, "")
+    .replace(/import type\s*\{[\s\S]*?\}\s*from\s*"@\/types";/g, "");
   const transpiled = ts.transpileModule(source, {
     compilerOptions: {
       module: ts.ModuleKind.ES2022,

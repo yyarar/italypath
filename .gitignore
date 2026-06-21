@@ -53,4 +53,5 @@ tmp/
 # Eski commit'lenmis (-admission-requirements/) dizinleri repo'da kaliyor,
 # bundan sonraki yeni import'lar tracking disinda.
 *-admission-requirements/
+*-english-programmes/
 output/*-program-details-import-report.json
