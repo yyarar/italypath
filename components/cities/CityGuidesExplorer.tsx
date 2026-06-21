@@ -353,6 +353,34 @@ export default function CityGuidesExplorer() {
                     </p>
                   </div>
                 </div>
+                {activeCity.costSourceName && (
+                  <div className="mt-4 border-t border-[var(--editorial-border)] pt-3 text-xs leading-5 text-[var(--editorial-muted)]">
+                    <span className="font-semibold text-[var(--editorial-ink)]">
+                      {copy.costSourceLabel}:{" "}
+                    </span>
+                    {activeCity.costSourceUrl ? (
+                      <a
+                        href={activeCity.costSourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 font-semibold text-[var(--editorial-terracotta)] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-terracotta)]"
+                      >
+                        {activeCity.costSourceName}
+                        <ExternalLink className="h-3 w-3 shrink-0" />
+                      </a>
+                    ) : (
+                      <span className="font-semibold text-[var(--editorial-ink)]">
+                        {activeCity.costSourceName}
+                      </span>
+                    )}
+                    {activeCity.costSourceLastUpdated && (
+                      <span>
+                        {" "}
+                        · {copy.costSourceUpdated}: {activeCity.costSourceLastUpdated}
+                      </span>
+                    )}
+                  </div>
+                )}
               </section>
 
               {/* Regional Scholarship Card */}
