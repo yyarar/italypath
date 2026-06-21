@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Curated Student Communities | ItalyPath",
     description:
       "Official community listesi değil: editoryal olarak seçilmiş dış öğrenci toplulukları rehberi.",
-    url: "https://italypath.com/communities",
+    url: "https://italypath.app/communities",
     type: "website",
   },
 };

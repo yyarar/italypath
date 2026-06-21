@@ -8,8 +8,10 @@ import RouteTransition from '@/components/RouteTransition';
 import MobileZoomLock from '@/components/MobileZoomLock';
 
 export const metadata: Metadata = {
-  title: "ItalyPath",
-  description: "İtalya Eğitim Rehberi",
+  metadataBase: new URL("https://italypath.app"),
+  title: "ItalyPath | İtalya’da Üniversite, Burs ve Başvuru Rehberi",
+  description:
+    "İtalya’da üniversite okumak isteyen öğrenciler için İngilizce programlar, burslar, ISEE hesaplayıcı, şehir rehberleri ve başvuru araçları.",
   // PWA ve mobil cihazlarda uygulamanın adını ve ikon ayarlarını destekler
   appleWebApp: {
     capable: true,

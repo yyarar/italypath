@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'Bölgesel Burs Haritası | ItalyPath',
     description:
       'İtalya bölgelerinde burs süreçlerini tek ekranda inceleyin. Başvuru öncesi resmi kaynakları tekrar doğrulayın.',
-    url: 'https://italypath.com/scholarships',
+    url: 'https://italypath.app/scholarships',
     type: 'website',
   },
 };

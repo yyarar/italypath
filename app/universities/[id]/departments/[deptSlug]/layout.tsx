@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { DEFAULT_UNIVERSITY_IMAGE } from '@/lib/universityDefaults';
 import { getUniversityById } from '@/lib/universities.server';
 
+const BASE_URL = 'https://italypath.app';
+
 export async function generateMetadata({ params }: { params: Promise<{ id: string; deptSlug: string }> }): Promise<Metadata> {
     const resolvedParams = await params;
     const university = await getUniversityById(resolvedParams.id);
@@ -17,9 +19,13 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     return {
         title: `${department.name} — ${university.name} | ItalyPath`,
         description: `Study ${department.name} at ${university.name} in ${university.city}, Italy. Tuition: ${university.fee}. Explore program details, requirements, and more.`,
+        alternates: {
+            canonical: `/universities/${resolvedParams.id}/departments/${resolvedParams.deptSlug}`,
+        },
         openGraph: {
             title: `${department.name} — ${university.name}`,
             description: `Study ${department.name} at ${university.name} in ${university.city}, Italy.`,
+            url: `${BASE_URL}/universities/${resolvedParams.id}/departments/${resolvedParams.deptSlug}`,
             images: [university.image || DEFAULT_UNIVERSITY_IMAGE],
         },
     };

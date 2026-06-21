@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "İtalya Şehir Rehberleri | ItalyPath",
     description:
       "İtalya'nın en popüler öğrenci şehirlerine ait oda fiyatları, ulaşım imkanları, iklim ve editoryal tüyolar tek ekranda.",
-    url: "https://italypath.com/cities",
+    url: "https://italypath.app/cities",
     type: "website",
   },
 };
