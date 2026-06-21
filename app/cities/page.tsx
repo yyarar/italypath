@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 
-import CityGuidesExplorer from "@/components/cities/CityGuidesExplorer";
+import CityGuidesExplorer, {
+  type CityGuideOption,
+  type CityGuideUniversitySummary,
+} from "@/components/cities/CityGuidesExplorer";
+import { getUniversitiesData } from "@/lib/universities.server";
 
 export const metadata: Metadata = {
   title: "İtalya Şehir Rehberleri | ItalyPath",
@@ -19,38 +22,100 @@ export const metadata: Metadata = {
   },
 };
 
-function CityGuidesFallback() {
+type SearchParamValue = string | string[] | undefined;
+type CityGuidesPageProps = {
+  searchParams?: Promise<Record<string, SearchParamValue>>;
+};
+
+function getSingleParam(value: SearchParamValue) {
+  if (Array.isArray(value)) return value[0] ?? "";
+  return value ?? "";
+}
+
+function createCitySlug(name: string) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}
+
+function createCityOptions(universities: Awaited<ReturnType<typeof getUniversitiesData>>) {
+  const counts: Record<string, number> = {};
+  universities.forEach((university) => {
+    if (university.city) {
+      counts[university.city] = (counts[university.city] || 0) + 1;
+    }
+  });
+
+  return Object.entries(counts)
+    .map(([name, count]) => ({
+      name,
+      count,
+      slug: createCitySlug(name),
+    }))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+}
+
+function resolveSelectedCity(rawCity: string, cityOptions: CityGuideOption[]) {
+  const normalizedRawCity = rawCity.toLowerCase();
+  const match = cityOptions.find(
+    (city) =>
+      city.slug === normalizedRawCity ||
+      city.name.toLowerCase() === normalizedRawCity
+  );
+
+  return match?.name ?? "Milano";
+}
+
+function createCityUniversitySummaries(
+  universities: Awaited<ReturnType<typeof getUniversitiesData>>,
+  cityName: string
+): CityGuideUniversitySummary[] {
+  return universities
+    .filter((university) => university.city?.toLowerCase() === cityName.toLowerCase())
+    .map((university) => ({
+      id: university.id,
+      name: university.name,
+      type: university.type,
+      departmentCount: university.departments.length,
+    }));
+}
+
+function CityGuidesDataUnavailable() {
   return (
-    <div className="min-h-screen bg-[var(--editorial-paper)] pb-24 text-[var(--editorial-ink)] md:pb-12">
-      <div className="mx-auto w-full max-w-7xl px-4 pt-5 sm:px-6 lg:px-8">
-        {/* Skeleton Header */}
-        <div className="flex items-center justify-between border-b border-[var(--editorial-border)] pb-4">
-          <div className="h-5 w-24 bg-[#e7ded1] rounded animate-pulse" />
-          <div className="h-5 w-40 bg-[#e7ded1] rounded animate-pulse" />
-          <div className="h-8 w-16 bg-[#e7ded1] rounded animate-pulse" />
-        </div>
-
-        {/* Skeleton Title Section */}
-        <div className="mt-10 max-w-3xl">
-          <div className="h-16 w-3/4 bg-[#e7ded1] rounded animate-pulse" />
-          <div className="mt-4 h-6 w-full bg-[#e7ded1] rounded animate-pulse" />
-          <div className="mt-2 h-6 w-5/6 bg-[#e7ded1] rounded animate-pulse" />
-        </div>
-
-        {/* Skeleton Grid */}
-        <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(380px,0.85fr)]">
-          <div className="h-[500px] border border-[var(--editorial-border)] bg-[var(--editorial-surface)] rounded animate-pulse" />
-          <div className="h-[500px] border border-[var(--editorial-border)] bg-[var(--editorial-surface)] rounded animate-pulse" />
-        </div>
-      </div>
+    <div className="min-h-screen bg-[var(--editorial-paper)] px-4 py-24 text-[var(--editorial-ink)] sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-3xl border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-8 sm:p-10">
+        <p className="text-xs font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+          ItalyPath şehir rehberleri
+        </p>
+        <h1 className="mt-4 font-serif text-4xl font-semibold tracking-[-0.03em]">
+          Şehir rehberi verisi yüklenemedi
+        </h1>
+        <p className="mt-4 text-sm leading-6 text-[var(--editorial-muted)] sm:text-base">
+          Canlı üniversite ve şehir eşleşmelerine şu anda ulaşılamıyor. Lütfen birkaç dakika sonra tekrar deneyin.
+        </p>
+      </main>
     </div>
   );
 }
 
-export default function CityGuidesPage() {
+export default async function CityGuidesPage({ searchParams }: CityGuidesPageProps) {
+  const resolvedSearchParams = searchParams ? await searchParams : {};
+  let universities: Awaited<ReturnType<typeof getUniversitiesData>>;
+
+  try {
+    universities = await getUniversitiesData();
+  } catch (error) {
+    console.error("Failed to load city guides data:", error);
+    return <CityGuidesDataUnavailable />;
+  }
+
+  const cityOptions = createCityOptions(universities);
+  const rawSelectedCity = getSingleParam(resolvedSearchParams.city) || "Milano";
+  const selectedCity = resolveSelectedCity(rawSelectedCity, cityOptions);
+
   return (
-    <Suspense fallback={<CityGuidesFallback />}>
-      <CityGuidesExplorer />
-    </Suspense>
+    <CityGuidesExplorer
+      initialSelectedCity={rawSelectedCity}
+      initialCitiesWithCounts={cityOptions}
+      initialCityUniversities={createCityUniversitySummaries(universities, selectedCity)}
+    />
   );
 }

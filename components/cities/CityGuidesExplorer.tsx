@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   AlertTriangle,
   ArrowLeft,
@@ -25,6 +25,19 @@ import { getCityDetailBySlug, getFallbackCityDetail } from "@/lib/cities/data";
 import { getScholarshipRegionBySlug } from "@/lib/scholarships/regions";
 import type { CityDetail } from "@/types/cities";
 import type { RegionSlug } from "@/types/scholarships";
+
+export type CityGuideOption = {
+  name: string;
+  count: number;
+  slug: string;
+};
+
+export type CityGuideUniversitySummary = {
+  id: number;
+  name: string;
+  type: string;
+  departmentCount: number;
+};
 
 // All 46 unique cities mapped to their Italian regions for fallback precision
 const CITY_TO_REGION_MAP: Record<string, string> = {
@@ -101,19 +114,30 @@ function getRegionSlugByName(regionName: string): RegionSlug | null {
   return null;
 }
 
-export default function CityGuidesExplorer() {
+interface CityGuidesExplorerProps {
+  initialSelectedCity: string;
+  initialCitiesWithCounts: CityGuideOption[];
+  initialCityUniversities: CityGuideUniversitySummary[];
+}
+
+export default function CityGuidesExplorer({
+  initialSelectedCity,
+  initialCitiesWithCounts,
+  initialCityUniversities,
+}: CityGuidesExplorerProps) {
   const { t, language, toggleLanguage } = useLanguage();
-  const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
+  const [selectedQueryCity, setSelectedQueryCity] = useState(initialSelectedCity || "Milano");
 
   const { universities, loading: universitiesLoading } = useUniversitiesData();
 
-  // Get active city from URL
-  const selectedQueryCity = searchParams.get("city") || "Milano";
-
   // Calculate unique list of cities and their university counts from Supabase database
   const citiesWithCounts = useMemo(() => {
+    if (universities.length === 0) {
+      return initialCitiesWithCounts;
+    }
+
     const counts: Record<string, number> = {};
     universities.forEach((u) => {
       if (u.city) {
@@ -128,7 +152,7 @@ export default function CityGuidesExplorer() {
         slug: name.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
       }))
       .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
-  }, [universities]);
+  }, [initialCitiesWithCounts, universities]);
 
   // Find the selected city details
   const activeCity = useMemo<CityDetail>(() => {
@@ -158,19 +182,29 @@ export default function CityGuidesExplorer() {
   // Handle city selection
   const handleSelectCity = useCallback(
     (citySlug: string) => {
-      const params = new URLSearchParams(searchParams.toString());
+      setSelectedQueryCity(citySlug);
+      const params = new URLSearchParams();
       params.set("city", citySlug);
       router.replace(`${pathname}?${params.toString()}`, { scroll: false });
     },
-    [searchParams, router, pathname]
+    [router, pathname]
   );
 
   // Filter universities in this city
-  const cityUniversities = useMemo(() => {
-    return universities.filter(
-      (u) => u.city.toLowerCase() === activeCity.name.toLowerCase()
-    );
-  }, [universities, activeCity]);
+  const cityUniversities = useMemo<CityGuideUniversitySummary[]>(() => {
+    if (universities.length === 0) {
+      return initialCityUniversities;
+    }
+
+    return universities
+      .filter((u) => u.city?.toLowerCase() === activeCity.name.toLowerCase())
+      .map((university) => ({
+        id: university.id,
+        name: university.name,
+        type: university.type,
+        departmentCount: university.departments.length,
+      }));
+  }, [activeCity, initialCityUniversities, universities]);
 
   const copy = t.citiesGuide;
 
@@ -217,7 +251,7 @@ export default function CityGuidesExplorer() {
         </section>
 
         {/* Explorer Container */}
-        {universitiesLoading ? (
+        {universitiesLoading && citiesWithCounts.length === 0 ? (
           <div className="mt-10 flex h-[400px] items-center justify-center border border-[var(--editorial-border)] bg-[var(--editorial-surface)] text-sm font-semibold text-[var(--editorial-muted)]">
             {language === "tr" ? "Şehir rehberi yükleniyor..." : "Loading city atlas..."}
           </div>
@@ -502,7 +536,7 @@ export default function CityGuidesExplorer() {
                             {uni.name}
                           </span>
                           <span className="mt-0.5 block text-xs text-[var(--editorial-muted)] font-medium">
-                            {uni.type} · {uni.departments.length} {t.detail.programCount}
+                            {uni.type} · {uni.departmentCount} {t.detail.programCount}
                           </span>
                         </div>
                         <ExternalLink className="h-3.5 w-3.5 shrink-0 text-[var(--editorial-terracotta)]" />

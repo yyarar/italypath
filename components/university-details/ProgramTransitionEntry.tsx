@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -30,6 +31,7 @@ export function ProgramTransitionEntry({
 }: ProgramTransitionEntryProps) {
   const cardLayoutId = `dept-card-${university.id}-${department.slug}`;
   const titleLayoutId = `dept-title-${university.id}-${department.slug}`;
+  const departmentHref = `/universities/${university.id}/departments/${department.slug}`;
 
   return (
     <ExpandableScreen
@@ -40,10 +42,16 @@ export function ProgramTransitionEntry({
       defaultExpanded={expanding}
     >
       <ExpandableScreenTrigger className="group border-b border-[var(--editorial-border)] bg-[var(--editorial-surface)] transition hover:bg-[var(--editorial-paper)]">
-        <button
-          type="button"
-          onClick={() => onSelect(department.slug)}
-          disabled={expanding}
+        <Link
+          href={departmentHref}
+          onClick={(event) => {
+            if (expanding) {
+              event.preventDefault();
+              return;
+            }
+            event.preventDefault();
+            onSelect(department.slug);
+          }}
           aria-label={
             department.admissionDetails
               ? undefined
@@ -65,7 +73,7 @@ export function ProgramTransitionEntry({
               {comingSoonLabel}
             </span>
           )}
-        </button>
+        </Link>
       </ExpandableScreenTrigger>
 
       <ExpandableScreenContent

@@ -13,6 +13,7 @@ import {
 
 export interface UniversityRowProps {
   university: University;
+  departmentCount?: number;
   language: UniversityLanguage;
   reviewLabel: string;
   departmentsLabel: string;
@@ -35,13 +36,16 @@ function favoriteLabel(universityName: string, language: UniversityLanguage, isF
 
 function DepartmentTags({
   university,
+  departmentCount,
   moreLabel,
 }: {
   university: University;
+  departmentCount?: number;
   moreLabel: string;
 }) {
   const visibleDepartments = university.departments.slice(0, 3);
-  const hiddenCount = Math.max(university.departments.length - visibleDepartments.length, 0);
+  const totalDepartmentCount = departmentCount ?? university.departments.length;
+  const hiddenCount = Math.max(totalDepartmentCount - visibleDepartments.length, 0);
 
   return (
     <div className="mt-4 flex min-w-0 flex-wrap gap-2">
@@ -92,6 +96,7 @@ function FavoriteButton({
 
 export function UniversityGuideRow({
   university,
+  departmentCount,
   language,
   reviewLabel,
   departmentsLabel,
@@ -101,6 +106,7 @@ export function UniversityGuideRow({
 }: UniversityRowProps) {
   const typeLabel = getTypeLabel(university.type, language);
   const description = getUniversityDescription(university, language);
+  const displayedDepartmentCount = departmentCount ?? university.departments.length;
 
   return (
     <article className="grid gap-4 p-4 transition hover:bg-[var(--editorial-paper)] sm:grid-cols-[112px_minmax(0,1fr)_auto] sm:p-5">
@@ -142,11 +148,15 @@ export function UniversityGuideRow({
           <span>{typeLabel}</span>
           <span className="truncate">{university.fee}</span>
           <span>
-            {university.departments.length} {departmentsLabel}
+            {displayedDepartmentCount} {departmentsLabel}
           </span>
         </div>
 
-        <DepartmentTags university={university} moreLabel={moreLabel} />
+        <DepartmentTags
+          university={university}
+          departmentCount={displayedDepartmentCount}
+          moreLabel={moreLabel}
+        />
       </div>
 
       <div className="flex items-center justify-between gap-3 border-t border-[var(--editorial-border)] pt-4 sm:min-w-[112px] sm:flex-col sm:items-end sm:justify-between sm:border-t-0 sm:pt-0">
@@ -170,6 +180,7 @@ export function UniversityGuideRow({
 
 export function UniversityCompactRow({
   university,
+  departmentCount,
   language,
   reviewLabel,
   departmentsLabel,
@@ -177,6 +188,7 @@ export function UniversityCompactRow({
   onToggleFavorite,
 }: UniversityRowProps) {
   const typeLabel = getTypeLabel(university.type, language);
+  const displayedDepartmentCount = departmentCount ?? university.departments.length;
 
   return (
     <article className="grid gap-3 p-3 transition hover:bg-[var(--editorial-paper)] sm:grid-cols-[72px_minmax(0,1fr)_auto] sm:items-center sm:p-4">
@@ -206,7 +218,7 @@ export function UniversityCompactRow({
           <span>{typeLabel}</span>
           <span className="truncate">{university.fee}</span>
           <span>
-            {university.departments.length} {departmentsLabel}
+            {displayedDepartmentCount} {departmentsLabel}
           </span>
         </div>
       </Link>

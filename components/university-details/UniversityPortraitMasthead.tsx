@@ -13,6 +13,7 @@ interface UniversityPortraitMastheadProps {
   websiteLabel: string;
   officialSourceLabel: string;
   programCountLabel: string;
+  feeLabel: string;
   favoriteLabel: string;
   favorite: boolean;
   favoriteLoading: boolean;
@@ -27,6 +28,7 @@ export function UniversityPortraitMasthead({
   websiteLabel,
   officialSourceLabel,
   programCountLabel,
+  feeLabel,
   favoriteLabel,
   favorite,
   favoriteLoading,
@@ -93,13 +95,21 @@ export function UniversityPortraitMasthead({
               </div>
             </div>
 
-            <dl className="mt-8 grid gap-3 border-t border-[var(--editorial-border)] pt-4 sm:grid-cols-2">
+            <dl className="mt-8 grid gap-3 border-t border-[var(--editorial-border)] pt-4 sm:grid-cols-3">
               <div>
                 <dt className="text-[10px] font-black uppercase tracking-[0.16em] text-[var(--editorial-muted)]">
                   {programCountLabel}
                 </dt>
                 <dd className="mt-1 font-serif text-3xl font-semibold text-[var(--editorial-ink)]">
                   {university.departments.length}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[10px] font-black uppercase tracking-[0.16em] text-[var(--editorial-muted)]">
+                  {feeLabel}
+                </dt>
+                <dd className="mt-1 font-serif text-2xl font-semibold text-[var(--editorial-ink)]">
+                  {university.fee}
                 </dd>
               </div>
               <div>
