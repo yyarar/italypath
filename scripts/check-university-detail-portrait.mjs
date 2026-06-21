@@ -30,6 +30,8 @@ function forbidTokens(label, source, tokens) {
 
 const universityPage = read("app/universities/[id]/page.tsx");
 const programPage = read("app/universities/[id]/departments/[deptSlug]/page.tsx");
+const universityDetailClient = read("components/university-details/UniversityDetailClient.tsx");
+const departmentDetailClient = read("components/university-details/DepartmentDetailClient.tsx");
 
 const portraitFiles = [
   "components/university-details/DetailMentorPrompt.tsx",
@@ -44,9 +46,22 @@ const portraitFiles = [
 ];
 
 const portraitSource = portraitFiles.map(read).join("\n");
-const allDetailSource = [universityPage, programPage, portraitSource].join("\n");
+const allDetailSource = [
+  universityPage,
+  programPage,
+  universityDetailClient,
+  departmentDetailClient,
+  portraitSource,
+].join("\n");
 
-requireTokens("university detail", universityPage, [
+requireTokens("university detail wrapper", universityPage, [
+  "getUniversityById",
+  "UniversityDetailClient",
+  "initialUniversity",
+  "cameFromList",
+]);
+
+requireTokens("university detail client", universityDetailClient, [
   "UniversityPortraitMasthead",
   "UniversityHighlights",
   "ProgramDirectory",
@@ -55,11 +70,19 @@ requireTokens("university detail", universityPage, [
   "features",
   "isFavorite",
   "toggleFavorite",
+  "feeLabel={t.detail.fee}",
   "singleCyclePrograms={t.detail.singleCyclePrograms}",
   "comingSoonLabel={t.detail.detailComingSoon}",
 ]);
 
-requireTokens("program detail", programPage, [
+requireTokens("program detail wrapper", programPage, [
+  "getUniversityById",
+  "DepartmentDetailClient",
+  "initialUniversity",
+  "initialDepartmentSlug",
+]);
+
+requireTokens("program detail client", departmentDetailClient, [
   "ProgramPortraitHeader",
   "ProgramAdmissionDetailsPanel",
   "ProgramDirectory",
@@ -78,6 +101,12 @@ requireTokens("program detail", programPage, [
   "ComingSoonNotice",
   "detailsComingSoonTitle",
   "detailsComingSoonBody",
+]);
+
+requireTokens("university detail fee", allDetailSource, [
+  "feeLabel",
+  "university.fee",
+  "t.detail.fee",
 ]);
 
 requireTokens("portrait components", portraitSource, [
@@ -104,9 +133,6 @@ requireTokens("portrait components", portraitSource, [
 ]);
 
 forbidTokens("detail redesign", allDetailSource, [
-  "university.fee",
-  "t.detail.fee",
-  "t.department.fee",
   "Sparkles",
   "glass-dark",
   "glass ",

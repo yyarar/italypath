@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import {
   useCallback,
   useEffect,
@@ -26,7 +26,6 @@ import {
 import { useLanguage } from '@/context/LanguageContext';
 import {
   getScholarshipRegionBySlug,
-  isRegionSlug,
   SCHOLARSHIP_DEFAULT_REGION,
   SCHOLARSHIP_REGIONS,
 } from '@/lib/scholarships/regions';
@@ -771,25 +770,28 @@ function RegionRail({
   );
 }
 
-export default function ScholarshipsExplorer() {
+interface ScholarshipsExplorerProps {
+  initialSelectedRegion: RegionSlug;
+}
+
+export default function ScholarshipsExplorer({
+  initialSelectedRegion,
+}: ScholarshipsExplorerProps) {
   const { t, language, toggleLanguage } = useLanguage();
-  const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
   const [regionShapes, setRegionShapes] = useState<RegionShape[]>([]);
   const [mapStatus, setMapStatus] = useState<MapStatus>('loading');
+  const [selectedSlug, setSelectedSlug] = useState<RegionSlug>(initialSelectedRegion);
 
-  const rawRegion = searchParams.get('region');
-  const selectedSlug: RegionSlug = isRegionSlug(rawRegion)
-    ? rawRegion
-    : SCHOLARSHIP_DEFAULT_REGION;
   const selectedRegion = getScholarshipRegionBySlug(selectedSlug);
   const copy = t.scholarships;
 
   const handleRegionSelect = useCallback(
     (slug: RegionSlug) => {
-      const params = new URLSearchParams(searchParams.toString());
+      setSelectedSlug(slug);
+      const params = new URLSearchParams();
       if (slug === SCHOLARSHIP_DEFAULT_REGION) {
         params.delete('region');
       } else {
@@ -799,7 +801,7 @@ export default function ScholarshipsExplorer() {
       const query = params.toString();
       router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
     },
-    [pathname, router, searchParams]
+    [pathname, router]
   );
 
   const handleMapKeyDown = useCallback(

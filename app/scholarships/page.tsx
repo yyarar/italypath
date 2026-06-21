@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
 
 import ScholarshipsExplorer from '@/components/scholarships/ScholarshipsExplorer';
+import {
+  isRegionSlug,
+  SCHOLARSHIP_DEFAULT_REGION,
+} from '@/lib/scholarships/regions';
 
 export const metadata: Metadata = {
   title: 'Bölgesel Burs Haritası | ItalyPath',
@@ -19,25 +22,22 @@ export const metadata: Metadata = {
   },
 };
 
-function ScholarshipsPageFallback() {
-  return (
-    <div className="min-h-screen bg-[var(--editorial-paper)]">
-      <div className="mx-auto w-full max-w-7xl px-4 pb-12 pt-5 sm:px-6 lg:px-8">
-        <div className="h-10 w-56 rounded-md bg-[#e7ded1]" />
-        <div className="mt-10 h-24 max-w-3xl rounded-md bg-[#e7ded1]" />
-        <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.12fr)_minmax(360px,0.88fr)]">
-          <div className="h-[640px] rounded-lg border border-[var(--editorial-border)] bg-[var(--editorial-surface)]" />
-          <div className="h-[640px] rounded-lg border border-[var(--editorial-border)] bg-[var(--editorial-surface)]" />
-        </div>
-      </div>
-    </div>
-  );
+type SearchParamValue = string | string[] | undefined;
+type ScholarshipsPageProps = {
+  searchParams?: Promise<Record<string, SearchParamValue>>;
+};
+
+function getSingleParam(value: SearchParamValue) {
+  if (Array.isArray(value)) return value[0] ?? '';
+  return value ?? '';
 }
 
-export default function ScholarshipsPage() {
-  return (
-    <Suspense fallback={<ScholarshipsPageFallback />}>
-      <ScholarshipsExplorer />
-    </Suspense>
-  );
+export default async function ScholarshipsPage({ searchParams }: ScholarshipsPageProps) {
+  const resolvedSearchParams = searchParams ? await searchParams : {};
+  const rawRegion = getSingleParam(resolvedSearchParams.region);
+  const initialSelectedRegion = isRegionSlug(rawRegion)
+    ? rawRegion
+    : SCHOLARSHIP_DEFAULT_REGION;
+
+  return <ScholarshipsExplorer initialSelectedRegion={initialSelectedRegion} />;
 }

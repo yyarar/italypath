@@ -27,9 +27,12 @@ async function fetchUniversities(): Promise<University[]> {
   return universitiesRequest;
 }
 
-export function useUniversitiesData() {
-  const [universities, setUniversities] = useState<University[]>(() => universitiesCache ?? []);
-  const [loading, setLoading] = useState(!universitiesCache);
+export function useUniversitiesData(initialUniversities?: University[]) {
+  const hasInitialUniversities = Boolean(initialUniversities?.length);
+  const [universities, setUniversities] = useState<University[]>(
+    () => universitiesCache ?? initialUniversities ?? []
+  );
+  const [loading, setLoading] = useState(!universitiesCache && !hasInitialUniversities);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
