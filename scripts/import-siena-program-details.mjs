@@ -14,6 +14,7 @@ const REPORT_PATH = resolve(OUTPUT_DIR, "siena-program-details-import-report.jso
 const PAGE_SIZE = 1000;
 const VALID_LEVELS = new Set(["bachelor", "master", "single-cycle"]);
 const VALID_LANGUAGES = new Set(["en", "it"]);
+const OPTIONAL_TEXT_METADATA_KEYS = new Set(["sources", "source_url", "source_urls"]);
 const ADMISSION_DETAIL_COLUMNS =
   "department_id,university_id,raw_program_name,raw_level,raw_teaching_language,campus,degree_class,admission_type,academic_requirements,language_requirements,application_deadline_eu,application_deadline_non_eu,required_documents,entry_exam_or_test,tuition_or_fees_link,official_program_url,official_call_url,source_quotes,uncertain,uncertainty_notes,source_file";
 
@@ -173,7 +174,7 @@ function optionalText(value) {
     }
 
     const entries = Object.entries(value)
-      .filter(([key]) => !["sources", "source_url"].includes(key))
+      .filter(([key]) => !OPTIONAL_TEXT_METADATA_KEYS.has(key))
       .map(([key, itemValue]) => {
         const normalized = optionalText(itemValue);
         return normalized ? `${humanizeKey(key)}: ${normalized}` : null;
@@ -231,11 +232,13 @@ function normalizeDocumentArray(value) {
   });
 }
 
-function normalizeSourceQuotes(value) {
+function normalizeSourceQuotes(value, file = "source_quotes") {
   if (!Array.isArray(value)) return [];
 
-  return value.flatMap((item) => {
-    if (!item || typeof item !== "object") return [];
+  return value.map((item, index) => {
+    if (!item || typeof item !== "object" || Array.isArray(item)) {
+      throw new Error(`${file} has malformed source_quotes[${index}]`);
+    }
 
     const quote = typeof item.quote === "string" ? item.quote.trim() : "";
     const url =
@@ -256,16 +259,19 @@ function normalizeSourceQuotes(value) {
         ? item.retrieved_at.trim()
         : SOURCE_GENERATED_AT;
 
-    if (!quote || !url) return [];
+    if (!quote) {
+      throw new Error(`${file} has source_quotes[${index}] missing quote`);
+    }
+    if (!url) {
+      throw new Error(`${file} has source_quotes[${index}] missing url or source_url`);
+    }
 
-    return [
-      {
-        url,
-        quote,
-        field_refs: normalizeStringArray(fieldRefs),
-        retrieved_at: retrievedAt,
-      },
-    ];
+    return {
+      url,
+      quote,
+      field_refs: normalizeStringArray(fieldRefs),
+      retrieved_at: retrievedAt,
+    };
   });
 }
 
@@ -298,6 +304,9 @@ function loadSourcePrograms() {
     }
     assertNonEmptyArray(record, "required_documents", file);
     assertNonEmptyArray(record, "source_quotes", file);
+    if (normalizeSourceQuotes(record.source_quotes, file).length === 0) {
+      throw new Error(`${file} has empty normalized source_quotes`);
+    }
 
     const level = normalizeLevel(record.level);
     const rawProgramName = record.program_name;
@@ -649,7 +658,7 @@ function toDetailPayload(source, departmentId) {
     tuition_or_fees_link: optionalText(source.raw.tuition_or_fees_link),
     official_program_url: source.raw.official_program_url.trim(),
     official_call_url: optionalText(source.raw.official_call_url),
-    source_quotes: normalizeSourceQuotes(source.raw.source_quotes),
+    source_quotes: normalizeSourceQuotes(source.raw.source_quotes, source.file),
     uncertain: normalizeStringArray(source.raw.uncertain),
     uncertainty_notes: normalizeStringArray(source.raw.uncertainty_notes),
     source_file: source.file,
@@ -685,6 +694,10 @@ function validateDetailPayload(detail) {
     if (!Array.isArray(detail[field])) {
       throw new Error(`Detail payload for department ${detail.department_id} has non-array ${field}`);
     }
+  }
+
+  if (detail.source_quotes.length === 0) {
+    throw new Error(`Detail payload for department ${detail.department_id} has empty source_quotes`);
   }
 }
 
