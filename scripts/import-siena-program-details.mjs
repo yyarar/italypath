@@ -325,8 +325,8 @@ function loadSourcePrograms() {
     }
 
     const languages = normalizeLanguages(record.teaching_language);
-    if (record.teaching_language.trim() === "English" && JSON.stringify(languages) !== "[\"en\"]") {
-      throw new Error(`${file} has English teaching language but did not normalize to [\"en\"]`);
+    if (!languages.includes("en")) {
+      throw new Error(`${file} must include English in teaching_language: ${record.teaching_language}`);
     }
 
     return {
@@ -727,7 +727,8 @@ async function applyPlan(supabase, plan) {
       const { error } = await supabase
         .from("university_departments")
         .update(correction.to)
-        .eq("id", correction.id);
+        .eq("id", correction.id)
+        .eq("university_id", SIENA_UNIVERSITY_ID);
       if (error) {
         throw new Error(`Failed to update department ${correction.id}: ${error.message}`);
       }
@@ -832,7 +833,8 @@ async function rollbackPlan(supabase, plan) {
     const { error } = await supabase
       .from("university_departments")
       .update(correction.from)
-      .eq("id", correction.id);
+      .eq("id", correction.id)
+      .eq("university_id", SIENA_UNIVERSITY_ID);
     if (error) failures.push(`${correction.id}: ${error.message}`);
   }
 
