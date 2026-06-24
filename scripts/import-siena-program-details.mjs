@@ -274,6 +274,12 @@ function loadSourcePrograms() {
     .filter((file) => file.endsWith(".json"))
     .sort((a, b) => a.localeCompare(b));
 
+  if (files.length !== EXPECTED_SOURCE_FILE_COUNT) {
+    throw new Error(
+      `Expected ${EXPECTED_SOURCE_FILE_COUNT} Siena source files, found ${files.length}`
+    );
+  }
+
   return files.map((file) => {
     const absolutePath = join(RESULTS_DIR, file);
     const record = JSON.parse(readFileSync(absolutePath, "utf8"));
