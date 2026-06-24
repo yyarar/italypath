@@ -18,7 +18,15 @@ const OPTIONAL_TEXT_METADATA_KEYS = new Set(["sources", "source_url", "source_ur
 const ADMISSION_DETAIL_COLUMNS =
   "department_id,university_id,raw_program_name,raw_level,raw_teaching_language,campus,degree_class,admission_type,academic_requirements,language_requirements,application_deadline_eu,application_deadline_non_eu,required_documents,entry_exam_or_test,tuition_or_fees_link,official_program_url,official_call_url,source_quotes,uncertain,uncertainty_notes,source_file";
 
-const SOURCE_TO_EXISTING_SLUG_ALIASES = new Map([]);
+const SOURCE_TO_EXISTING_SLUG_ALIASES = new Map([
+  ["dentistry and dental prosthodontics", "dentistry-and-dental-prosthodontics"],
+  ["international studies", "international-studies-curriculum-european-studies"],
+  ["language and mind linguistics and cognitive studies", "language-and-mind"],
+  [
+    "public and cultural diplomacy",
+    "public-and-cultural-diplomacy-curriculum-public-diplomacy-curriculum-cultural-diplomacy",
+  ],
+]);
 
 const mode = parseMode(process.argv.slice(2));
 
