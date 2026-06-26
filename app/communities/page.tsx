@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 import CommunityAtlas from "@/components/communities/CommunityAtlas";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Öğrenci Toplulukları | ItalyPath",
   description:
