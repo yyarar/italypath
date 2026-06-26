@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur. Degisiklik gecmisi icin `AGENT_COMMITS.md`, son audit notlari icin `AGENT_CONTEXT_FIX_REPORT.md` okunabilir; bu dosya ise guncel mimari ve calisma kurallarinin kaynak dokumanidir.
 
-Son guncelleme: 2026-06-17
+Son guncelleme: 2026-06-26
 
 ---
 
@@ -52,19 +52,22 @@ italypath-main/
 │   ├── giris/page.tsx              # Tek sayfa giris+kayit (Clerk Elements); /sign-in ve /sign-up next.config redirects
 │   ├── ai-mentor/page.tsx          # Protected consultation desks UI
 │   ├── universities/
-│   │   ├── page.tsx                # Search/filter/favorites/view-mode list
+│   │   ├── layout.tsx              # /universities SEO metadata
+│   │   ├── page.tsx                # Server SEO wrapper + crawlable preview + client explorer
 │   │   └── [id]/
 │   │       ├── layout.tsx          # Server generateMetadata
-│   │       ├── page.tsx            # Client university portrait
+│   │       ├── page.tsx            # Server SEO wrapper + client university portrait
 │   │       └── departments/[deptSlug]/
 │   │           ├── layout.tsx      # Server generateMetadata
-│   │           └── page.tsx        # Client program portrait + admission details
+│   │           └── page.tsx        # Server SEO wrapper + client program portrait
 │   ├── cities/page.tsx
 │   ├── communities/page.tsx
 │   ├── topluluklar/page.tsx        # redirect -> /communities
 │   ├── yasal/[slug]/page.tsx       # Public legal pages (gizlilik/kullanim/cerez)
 │   ├── scholarships/page.tsx
-│   ├── isee/page.tsx
+│   ├── isee/
+│   │   ├── layout.tsx              # /isee SEO metadata
+│   │   └── page.tsx
 │   ├── favorites/page.tsx
 │   ├── documents/page.tsx
 │   └── hub/page.tsx
@@ -82,8 +85,8 @@ italypath-main/
 │   ├── cities/CityGuidesExplorer.tsx
 │   ├── communities/CommunityAtlas.tsx
 │   ├── scholarships/ScholarshipsExplorer.tsx
-│   ├── universities/              # Filter bar, hero, states, row renderers
-│   ├── university-details/         # Portrait headers, program directory, admission panel
+│   ├── universities/              # Server-safe rows + UniversitiesExplorer client leaf
+│   ├── university-details/         # Detail client leaves, portrait headers, program directory, admission panel
 │   ├── mentor/                     # Mentor hub/chat room/topbar/entry/locked notice
 │   ├── legal/                      # LegalDocument.tsx (yasal belge sunum bileseni)
 │   ├── auth/                       # /giris parcalari: AuthShell, AuthCard, AuthTabs, OAuthButtons, SignInForm, SignUpForm, VerificationStep, PasswordResetFlow
@@ -134,7 +137,9 @@ italypath-main/
 ├── docs/
 │   ├── CAMPAIGN_PLAN_LAUNCH.md
 │   ├── LAUNCH_STRATEGY_INSTAGRAM_TIKTOK.md
-│   └── superpowers/specs/           # tasarim + plan belgeleri (deadline, yasal sayfalar)
+│   └── superpowers/
+│       ├── specs/                  # tasarim belgeleri; SEO server HTML spec dahil
+│       └── plans/                  # uygulama planlari; SEO server HTML plan dahil
 ├── DATA_ENTRY_GUIDE.md
 ├── SUPABASE_SECURITY_RUNBOOK.md
 ├── AGENT_COMMITS.md
@@ -327,21 +332,60 @@ Clerk Elements v0.24.18 ile bilinen sapmalar (gelecek auth degisikliklerinde dik
 
 `context/LanguageContext.tsx`, TR/EN dil tercihini React Context + `localStorage` ile saklar ve `document.documentElement.lang` ile senkronlar. UI metinleri `lib/translations.ts` icindedir. Yeni metinler hard-code edilmemeli; TR/EN paralel eklenmeli.
 
+### SEO ve domain durumu
+
+Canonical marka/domain karari: **ItalyPath** ile devam ediliyor; canonical domain **`https://italypath.app`**.
+
+SEO Adim 1 (`SEO 1` commit'i):
+
+- `app/layout.tsx` icinde `metadataBase: new URL("https://italypath.app")`
+- `app/robots.ts` ve `app/sitemap.ts` `https://italypath.app` uretir
+- `/universities` ve `/isee` icin server `layout.tsx` metadata eklendi
+- cities/scholarships/communities Open Graph URL'leri `.app` oldu
+- dynamic university/program layout'larinda canonical + Open Graph URL var
+
+SEO Adim 2 (`SEO 2` merge'i):
+
+- `/universities`, `/universities/[id]`, `/universities/[id]/departments/[deptSlug]`, `/cities`, `/scholarships` icin ilk production HTML guclendirildi
+- Target SEO sayfalarinda `BAILOUT_TO_CLIENT_SIDE_RENDERING` temizlendi
+- `/universities` server HTML'i sinirli preview tasir: 12 okul + okul basi 3 program etiketi; tam veri client tarafinda `/api/universities` ile gelir
+- `components/universities/UniversitiesExplorer.tsx`, `components/university-details/UniversityDetailClient.tsx` ve `DepartmentDetailClient.tsx` client leaf pattern'ini tasir
+- `lib/useUniversitiesData.ts` initial data alabilir; initial data varsa skeleton/loading ile baslamaz
+- Server fetch hata durumlari route-level editorial error block'a duser; global `app/error.tsx`'e dusmemesi hedeflenir
+- Tasarim/spec: `docs/superpowers/specs/2026-06-21-seo-server-html-design.md`
+- Plan: `docs/superpowers/plans/2026-06-21-seo-server-html-plan.md`
+
+Son canli SEO curl audit notlari:
+
+- `robots.txt` ve `sitemap.xml` `.app` icin PASS; sitemap yaklasik 1064 URL tasiyor ve `.com` URL kalmadi
+- `/universities`, university detail, program detail, `/cities`, `/scholarships` canli HTML'de gercek icerik tasiyor ve bailout yok
+- `/`, `/isee`, `/communities` canli HTML'de halen `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi tasiyor; sonraki teknik is **SEO 2.5** olarak bu uc sayfayi temizlemek
+- `https://www.italypath.app` SSL sertifikasi gecersiz; bu Vercel/DNS hijyeni olarak ileri asamaya birakildi. Tum linklerde apex `https://italypath.app` kullan
+- Google Search Console henuz kurulmus/gonderilmis kabul edilmemeli; Search Console'a temiz SEO 2.5 deploy ve curl audit sonrasi gecilecek
+- JSON-LD/schema/breadcrumb calismasi henuz yapilmadi; SEO 3 olarak planlanacak
+
 ### Home
 
-`app/page.tsx`, `Navbar`, `HeroSection`, `FeaturesSection`, `VelocityBridge`, `ScholarshipsSection`, `IseeSection`, `Footer` bileşenlerini birlestirir. University/program stat'leri `useUniversitiesData()` ile canli veriden gelir; `64/240` gibi hard-code sayilar kullanma.
+`app/page.tsx`, `Navbar`, `HeroSection`, `FeaturesSection`, `VelocityBridge`, `ScholarshipsSection`, `IseeSection`, `Footer` bileşenlerini birlestirir. University/program stat'leri canli university API/data akisi ile gelmelidir; `64/240` gibi hard-code sayilar kullanma.
+
+SEO notu: Son canli audit'te `/` sayfasinda `BAILOUT_TO_CLIENT_SIDE_RENDERING` gorundu. SEO 2.5 isinde ana sayfa server wrapper/client leaf veya daha dar client adalari ile ilk HTML'de gercek H1/CTA/internal link tasiyacak sekilde duzeltilmeli. Hidden SEO text ekleme.
 
 ### Universities list ve detail
 
 `app/universities/page.tsx`:
 
+- async Server Component wrapper'dir; `getUniversitiesData()` ile canli veri alir
+- ilk HTML icin sinirli crawlable preview uretir (12 okul, okul basi 3 program etiketi)
+- `components/universities/UniversitiesExplorer.tsx` client leaf'ine `initialUniversities`, initial filters ve stats gecer
 - URL sync search/filter: `q`, `city`, `type`, `fav`
 - view mode: `grid | compact`
 - localStorage key: `italyPathUniversitiesViewMode`
 - helper'lar: `lib/universitiesFilters.ts`
 - UI parcalari: `components/universities/*`
 
-`app/universities/[id]/page.tsx` ve department detail sayfasi client leaf'tir. SEO `layout.tsx` Server Component'lerinde `generateMetadata()` ile uretilir. `generateMetadata()` hicbir zaman `"use client"` dosyasina konmamalidir.
+`app/universities/[id]/page.tsx` ve department detail page artik server wrapper + client leaf pattern'i kullanir. Server wrapper `getUniversityById()` ile ilk HTML'e okul/program adi, aciklama, fee, sehir, program linkleri ve admission details gibi gorunur icerikleri koyar; client leaf favori, dil, route animation ve program transition davranisini korur.
+
+SEO `layout.tsx` Server Component'lerinde `generateMetadata()` ile uretilir. `generateMetadata()` hicbir zaman `"use client"` dosyasina konmamalidir.
 
 `components/university-details/ProgramDirectory.tsx`, programlari bachelor/master/single-cycle gruplarina ayirir. Department detail sayfasi admission details panelini varsa gosterir.
 
@@ -401,6 +445,8 @@ Yeni Supabase tablosu yoktur.
 
 `/cities` public editorial atlas'tir. `components/cities/CityGuidesExplorer.tsx`, `types/cities.ts`, `lib/cities/data.ts` kullanir.
 
+SEO Adim 2 sonrasi `app/cities/page.tsx` server-rendered gorunur intro/city nav tasir; explorer client davranisi korunur. Son canli audit'te `/cities` bailout temizdir.
+
 Curated data su anda Milano, Roma, Bologna, Torino, Floransa, Venedik, Verona, Padova, Parma, Pisa, Siena, Pavia, Trento, Trieste, Bari, Ancona, Napoli icin tutulur. Bunlarin cogunda Numbeo kaynak metadata'si vardir:
 
 - `costSourceName`
@@ -417,6 +463,8 @@ Dogrulama: `npm run check:cities`.
 
 GeoJSON lokal `/data/italy-regions.geojson` uzerinden fetch edilir; `/data(.*)` public olmalidir.
 
+SEO Adim 2 sonrasi `app/scholarships/page.tsx` server-rendered gorunur intro/region nav tasir; map/GeoJSON client deneyimi korunur. Son canli audit'te `/scholarships` bailout temizdir.
+
 ### Communities
 
 `/communities` public editorial atlas'tir. `/topluluklar` redirect route'udur.
@@ -432,9 +480,13 @@ UI:
 
 Resmi topluluk iddiasi, fake uye sayisi veya social proof ekleme.
 
+SEO notu: Son canli audit'te `/communities` sayfasinda `BAILOUT_TO_CLIENT_SIDE_RENDERING` gorundu. SEO 2.5 isinde gercek H1/intro/topluluk icerigi ilk HTML'de kalacak sekilde page-level CSR bailout temizlenmeli. Topluluk verisi yine resmi iddia/fake social proof olmadan kullanilmali.
+
 ### ISEE
 
 `app/isee/page.tsx` ve `lib/iseeCalculator.ts` scala equivalente formulunu kullanir. Dogrulama: `npm run check:isee`.
+
+`app/isee/layout.tsx` SEO metadata tasir. Son canli audit'te `/isee` sayfasinda `BAILOUT_TO_CLIENT_SIDE_RENDERING` gorundu. SEO 2.5 isinde hesaplayici client interaktivitesi korunurken ilk HTML'de gercek H1, aciklama ve temel ISEE bilgi metni gorunur olmalidir.
 
 ### Yasal sayfalar
 
@@ -529,9 +581,12 @@ node scripts/check-universities-server-compose.mjs
 1. PWA paketi eksik: `public/manifest.webmanifest` ve ikon setleri (`192x192`, `512x512`) yok.
 2. Local seed `app/data.ts` icindeki bazi universite gorselleri tekrarli/placeholder kalitesinde.
 3. Universite karsilastirma ozelligi yok; mevcut favori + university data modeliyle yapilabilir.
-4. Cities kaynak satiri UI'da gorunmuyor; `costSourceName`, `costSourceUrl`, `costSourceLastUpdated` data layer'da var.
-5. AI Mentor system prompt'u canli program sayisi arttikca buyuyor; prompt boyutu, latency ve maliyet izlenmeli.
-6. Yasal sayfalardaki iletisim e-postasi yer tutucusu (`[iletişim e-postası eklenecek]`, `lib/legal/documents.ts` icindeki `CONTACT_EMAIL_PLACEHOLDER`) lansman oncesi gercek adresle doldurulmali.
+4. SEO 2.5: `/`, `/isee`, `/communities` canli HTML'deki `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizlenmeli. Hedef: gercek H1/intro/internal linkler ilk HTML'de gorunsun, client UX bozulmasin.
+5. `www.italypath.app` SSL/redirect hijyeni Vercel/DNS tarafinda duzeltilmeli. Simdilik tum launch/link/paylasimlarda apex `https://italypath.app` kullan.
+6. Google Search Console kurulumu henuz yapilmadi; SEO 2.5 + canli curl audit temizlendikten sonra domain property, sitemap submit ve URL inspection yapilacak.
+7. SEO 3: JSON-LD/schema/breadcrumb henuz eklenmedi. Hidden/uydurma schema yok; sadece sayfada gorunen gercek bilgiye dayali structured data eklenmeli.
+8. AI Mentor system prompt'u canli program sayisi arttikca buyuyor; prompt boyutu, latency ve maliyet izlenmeli.
+9. Yasal sayfalardaki iletisim e-postasi yer tutucusu (`[iletişim e-postası eklenecek]`, `lib/legal/documents.ts` icindeki `CONTACT_EMAIL_PLACEHOLDER`) lansman oncesi gercek adresle doldurulmali.
 
 ### Repo hijyeni
 
@@ -551,5 +606,7 @@ node scripts/check-universities-server-compose.mjs
 6. Live university/program data icin client veya server yuzeylerde dogrudan `app/data.ts` seed'ine donme. `getUniversitiesData()` veya `/api/universities` kullan.
 7. UI metinleri `lib/translations.ts` icinde TR/EN paralel tutulur.
 8. Supabase generated types yok; yeni DB row ihtiyacinda `types/index.ts` icine explicit interface ekle.
-9. Existing dirty worktree varsay; kullanici degisikliklerini revert etme.
-10. Yeni agent, once bu dosyayi, sonra ilgili feature dosyalarini, sonra dogrulama scriptlerini okumali.
+9. SEO icin hidden keyword block, `display:none` SEO metni veya botlara farkli icerik ekleme. Kullaniciya gorunmeyen SEO text yasak.
+10. Public SEO sayfalarinda page-level CSR bailout riskine dikkat et. `useSearchParams`/Suspense kullanimi kritik ilk HTML'i skeleton'a dusuruyorsa server wrapper + client leaf pattern'ini tercih et.
+11. Existing dirty worktree varsay; kullanici degisikliklerini revert etme.
+12. Yeni agent, once bu dosyayi, sonra ilgili feature dosyalarini, sonra dogrulama scriptlerini okumali.
