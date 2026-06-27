@@ -7,11 +7,35 @@ import BottomNav from '@/components/BottomNav';
 import RouteTransition from '@/components/RouteTransition';
 import MobileZoomLock from '@/components/MobileZoomLock';
 
+const SITE_URL = "https://italypath.app";
+const SITE_DESCRIPTION =
+  "İtalya’da üniversite okumak isteyen öğrenciler için İngilizce programlar, burslar, ISEE hesaplayıcı, şehir rehberleri ve başvuru araçları.";
+
+// Site geneli structured data: Organization + WebSite (yalnızca gerçek bilgi).
+// Logo: public/ içinde gerçek bir ItalyPath logosu olmadığı için eklenmedi.
+// sameAs: doğrulanmış resmi sosyal hesap olmadığı için eklenmedi.
+// WebSite SearchAction (sitelinks searchbox) Google tarafından kullanımdan kaldırıldığı için eklenmedi.
+const siteJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "ItalyPath",
+    url: SITE_URL,
+    description: SITE_DESCRIPTION,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "ItalyPath",
+    url: SITE_URL,
+    inLanguage: "tr",
+  },
+];
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://italypath.app"),
+  metadataBase: new URL(SITE_URL),
   title: "ItalyPath | İtalya’da Üniversite, Burs ve Başvuru Rehberi",
-  description:
-    "İtalya’da üniversite okumak isteyen öğrenciler için İngilizce programlar, burslar, ISEE hesaplayıcı, şehir rehberleri ve başvuru araçları.",
+  description: SITE_DESCRIPTION,
   // PWA ve mobil cihazlarda uygulamanın adını ve ikon ayarlarını destekler
   appleWebApp: {
     capable: true,
@@ -48,6 +72,10 @@ export default function RootLayout({
           suppressHydrationWarning
           className={`bg-[var(--editorial-paper)] font-sans text-[var(--editorial-ink)] antialiased`}
         >
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+          />
           <MobileZoomLock />
           <LanguageProvider>
             <main className="min-h-screen overflow-x-hidden pb-[calc(7.5rem+env(safe-area-inset-bottom))] md:pb-24">

@@ -1,6 +1,8 @@
 import { DepartmentDetailClient } from "@/components/university-details/DepartmentDetailClient";
 import { getUniversityById } from "@/lib/universities.server";
 
+const BASE_URL = "https://italypath.app";
+
 type DepartmentDetailPageProps = {
   params: Promise<{ id: string; deptSlug: string }>;
 };
@@ -34,11 +36,54 @@ export default async function DepartmentDetailPage({ params }: DepartmentDetailP
     return <DepartmentDetailDataUnavailable />;
   }
 
+  // Program adını layout'taki ile aynı şekilde slug üzerinden çöz.
+  const department = university?.departments.find(
+    (d) => d.slug === resolvedParams.deptSlug
+  );
+
+  // Breadcrumb yalnızca üniversite ve program verisi gerçekten yüklendiğinde basılır.
+  const breadcrumbJsonLd =
+    university && department
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Anasayfa", item: `${BASE_URL}/` },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Üniversiteler",
+              item: `${BASE_URL}/universities`,
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: university.name,
+              item: `${BASE_URL}/universities/${resolvedParams.id}`,
+            },
+            {
+              "@type": "ListItem",
+              position: 4,
+              name: department.name,
+              item: `${BASE_URL}/universities/${resolvedParams.id}/departments/${resolvedParams.deptSlug}`,
+            },
+          ],
+        }
+      : null;
+
   return (
-    <DepartmentDetailClient
-      initialUniversity={university ?? null}
-      initialDepartmentSlug={resolvedParams.deptSlug}
-      idFromUrl={resolvedParams.id}
-    />
+    <>
+      {breadcrumbJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
+      ) : null}
+      <DepartmentDetailClient
+        initialUniversity={university ?? null}
+        initialDepartmentSlug={resolvedParams.deptSlug}
+        idFromUrl={resolvedParams.id}
+      />
+    </>
   );
 }

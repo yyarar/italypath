@@ -1,6 +1,8 @@
 import { UniversityDetailClient } from "@/components/university-details/UniversityDetailClient";
 import { getUniversityById } from "@/lib/universities.server";
 
+const BASE_URL = "https://italypath.app";
+
 type SearchParamValue = string | string[] | undefined;
 type UniversityDetailPageProps = {
   params: Promise<{ id: string }>;
@@ -45,11 +47,42 @@ export default async function UniversityDetailPage({
     return <UniversityDetailDataUnavailable />;
   }
 
+  // Breadcrumb yalnızca üniversite verisi gerçekten yüklendiğinde basılır.
+  const breadcrumbJsonLd = university
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Anasayfa", item: `${BASE_URL}/` },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Üniversiteler",
+            item: `${BASE_URL}/universities`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: university.name,
+            item: `${BASE_URL}/universities/${resolvedParams.id}`,
+          },
+        ],
+      }
+    : null;
+
   return (
-    <UniversityDetailClient
-      initialUniversity={university ?? null}
-      idFromUrl={resolvedParams.id}
-      cameFromList={getSingleParam(resolvedSearchParams.from) === "list"}
-    />
+    <>
+      {breadcrumbJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
+      ) : null}
+      <UniversityDetailClient
+        initialUniversity={university ?? null}
+        idFromUrl={resolvedParams.id}
+        cameFromList={getSingleParam(resolvedSearchParams.from) === "list"}
+      />
+    </>
   );
 }

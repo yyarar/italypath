@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur. Degisiklik gecmisi icin `AGENT_COMMITS.md`, son audit notlari icin `AGENT_CONTEXT_FIX_REPORT.md` okunabilir; bu dosya ise guncel mimari ve calisma kurallarinin kaynak dokumanidir.
 
-Son guncelleme: 2026-06-26
+Son guncelleme: 2026-06-27
 
 ---
 
@@ -42,7 +42,7 @@ Bu agac tam envanter degil; mimariyi anlamak icin aktif yuzeyleri ozetler.
 italypath-main/
 ├── app/
 │   ├── layout.tsx                  # ClerkProvider, LanguageProvider, MobileZoomLock, RouteTransition, BottomNav
-│   ├── page.tsx                    # Home orchestrator; stats /api/universities kaynakli
+│   ├── page.tsx                    # Home server wrapper; stats getUniversitiesData() kaynakli
 │   ├── sitemap.ts                  # getUniversitiesData() ile dinamik sitemap
 │   ├── robots.ts                   # Public/protected indexleme kurallari
 │   ├── data.ts                     # Local seed + paylasilan University/Department/Program tipleri
@@ -61,18 +61,19 @@ italypath-main/
 │   │           ├── layout.tsx      # Server generateMetadata
 │   │           └── page.tsx        # Server SEO wrapper + client program portrait
 │   ├── cities/page.tsx
-│   ├── communities/page.tsx
+│   ├── communities/page.tsx        # Public atlas; force-dynamic SEO 2.5 wrapper
 │   ├── topluluklar/page.tsx        # redirect -> /communities
 │   ├── yasal/[slug]/page.tsx       # Public legal pages (gizlilik/kullanim/cerez)
 │   ├── scholarships/page.tsx
 │   ├── isee/
 │   │   ├── layout.tsx              # /isee SEO metadata
-│   │   └── page.tsx
+│   │   └── page.tsx                # Server wrapper -> components/isee/IseeCalculatorClient.tsx
 │   ├── favorites/page.tsx
 │   ├── documents/page.tsx
 │   └── hub/page.tsx
 ├── components/
 │   ├── Navbar.tsx
+│   ├── HomePageClient.tsx          # Home client leaf; Navbar/Hero/sections/Footer composition
 │   ├── BottomNav.tsx
 │   ├── MobileZoomLock.tsx          # Coarse pointer pinch/double-tap/edge-swipe guard
 │   ├── RouteTransition.tsx
@@ -81,6 +82,7 @@ italypath-main/
 │   ├── VelocityBridge.tsx
 │   ├── ScholarshipsSection.tsx
 │   ├── IseeSection.tsx
+│   ├── isee/IseeCalculatorClient.tsx
 │   ├── Footer.tsx
 │   ├── cities/CityGuidesExplorer.tsx
 │   ├── communities/CommunityAtlas.tsx
@@ -172,12 +174,12 @@ Canli veri `lib/universities.server.ts` icinde Supabase'den compose edilir:
 
 `getUniversitiesData()` bu uc tabloyu sayfali sekilde ceker, normalize eder, `Department.admissionDetails` alanini ilgili department'a ekler ve `University[]` dondurur.
 
-Son Supabase dogrulamasinda:
+Son canli API dogrulamasinda (`https://italypath.app/api/universities`, 2026-06-27):
 
 - `64` university
-- `972` department
-- level dagilimi: `243 bachelor`, `721 master`, `8 single-cycle`
-- language dagilimi: `972 en`, `50 it`
+- `1005` department
+- level dagilimi: `247 bachelor`, `743 master`, `15 single-cycle`
+- language dagilimi: `1005 en`, `71 it`
 
 ### API ve cache kurali
 
@@ -355,20 +357,31 @@ SEO Adim 2 (`SEO 2` merge'i):
 - Tasarim/spec: `docs/superpowers/specs/2026-06-21-seo-server-html-design.md`
 - Plan: `docs/superpowers/plans/2026-06-21-seo-server-html-plan.md`
 
-Son canli SEO curl audit notlari:
+SEO Adim 2.5 (`SEO 2.5` deploy'u):
 
-- `robots.txt` ve `sitemap.xml` `.app` icin PASS; sitemap yaklasik 1064 URL tasiyor ve `.com` URL kalmadi
-- `/universities`, university detail, program detail, `/cities`, `/scholarships` canli HTML'de gercek icerik tasiyor ve bailout yok
-- `/`, `/isee`, `/communities` canli HTML'de halen `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi tasiyor; sonraki teknik is **SEO 2.5** olarak bu uc sayfayi temizlemek
-- `https://www.italypath.app` SSL sertifikasi gecersiz; bu Vercel/DNS hijyeni olarak ileri asamaya birakildi. Tum linklerde apex `https://italypath.app` kullan
-- Google Search Console henuz kurulmus/gonderilmis kabul edilmemeli; Search Console'a temiz SEO 2.5 deploy ve curl audit sonrasi gecilecek
+- `/`, `/isee`, `/communities` canli HTML'deki `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizlendi
+- `/` server wrapper oldu; `getUniversitiesData()` ile server'da canli stats hesaplar, hata durumunda stats `null` doner ve sayfa patlamaz
+- Home UI `components/HomePageClient.tsx` client leaf'ine tasindi
+- `/isee` server wrapper oldu; hesaplayici `components/isee/IseeCalculatorClient.tsx` client leaf'ine tasindi
+- `/communities` `force-dynamic` ile static prerender + analytics kaynakli marker'dan cikarildi; atlas HTML'de gercek H1/chapter/topluluk satirlari tasimaya devam eder
+
+Son canli SEO curl audit notlari (SEO 2.5 deploy sonrasi):
+
+- `robots.txt` ve `sitemap.xml` `.app` icin PASS; sitemap yaklasik `1075` URL tasiyor ve `.com` URL kalmadi
+- `/`, `/isee`, `/communities`, `/universities`, university detail, program detail, `/cities`, `/scholarships` canli HTML'de gercek gorunen icerik tasiyor ve bailout yok
+- `www.italypath.app` SSL/redirect hijyeni duzeltildi: `https://www.italypath.app` artik `308` ile `https://italypath.app/` adresine gider
+- Name.com DNS Vercel'in yeni onerilerine guncellendi: apex `A -> 216.198.79.1`, `www` CNAME Vercel'in project-specific `vercel-dns-017.com` hedefine gider
+- Google Search Console domain property `italypath.app` dogrulandi; `https://italypath.app/sitemap.xml` gonderildi; kritik URL'ler icin URL Inspection + Request Indexing yapildi (`/`, `/universities`, `/isee`, `/scholarships`, `/cities`, `/communities`)
 - JSON-LD/schema/breadcrumb calismasi henuz yapilmadi; SEO 3 olarak planlanacak
+- Canli auditte ana sayfada explicit canonical link gorunmedi; metadataBase/sitemap/redirect apex ile uyumlu, ancak ana sayfa canonical'i kucuk hijyen isi olarak SEO 3 oncesi veya SEO 3 icinde eklenebilir
 
 ### Home
 
-`app/page.tsx`, `Navbar`, `HeroSection`, `FeaturesSection`, `VelocityBridge`, `ScholarshipsSection`, `IseeSection`, `Footer` bileşenlerini birlestirir. University/program stat'leri canli university API/data akisi ile gelmelidir; `64/240` gibi hard-code sayilar kullanma.
+`app/page.tsx` async Server Component wrapper'dir ve `components/HomePageClient.tsx` client leaf'ini render eder. Server wrapper `getUniversitiesData()` ile canli university/program stat'lerini hesaplar; hata durumunda `{ universitiesCount: null, programsCount: null }` doner.
 
-SEO notu: Son canli audit'te `/` sayfasinda `BAILOUT_TO_CLIENT_SIDE_RENDERING` gorundu. SEO 2.5 isinde ana sayfa server wrapper/client leaf veya daha dar client adalari ile ilk HTML'de gercek H1/CTA/internal link tasiyacak sekilde duzeltilmeli. Hidden SEO text ekleme.
+`components/HomePageClient.tsx`, `Navbar`, `HeroSection`, `FeaturesSection`, `VelocityBridge`, `ScholarshipsSection`, `IseeSection`, `Footer` bilesenlerini birlestirir. University/program stat'leri canli university data akisi ile gelmelidir; `64/240` gibi local seed sayilari hard-code edilmemeli.
+
+SEO 2.5 sonrasi canli audit'te `/` sayfasi gercek H1, CTA/internal link ve canli stats tasir; `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizdir. Hidden SEO text ekleme.
 
 ### Universities list ve detail
 
@@ -480,13 +493,13 @@ UI:
 
 Resmi topluluk iddiasi, fake uye sayisi veya social proof ekleme.
 
-SEO notu: Son canli audit'te `/communities` sayfasinda `BAILOUT_TO_CLIENT_SIDE_RENDERING` gorundu. SEO 2.5 isinde gercek H1/intro/topluluk icerigi ilk HTML'de kalacak sekilde page-level CSR bailout temizlenmeli. Topluluk verisi yine resmi iddia/fake social proof olmadan kullanilmali.
+SEO 2.5 sonrasi `/communities` `force-dynamic` route'tur. Canli HTML'de gercek H1, intro, chapter nav ve topluluk satirlari bulunur; `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizdir. Topluluk verisi yine resmi iddia/fake social proof olmadan kullanilmali.
 
 ### ISEE
 
-`app/isee/page.tsx` ve `lib/iseeCalculator.ts` scala equivalente formulunu kullanir. Dogrulama: `npm run check:isee`.
+`app/isee/page.tsx` server wrapper'dir ve `components/isee/IseeCalculatorClient.tsx` client leaf'ini render eder. Hesaplama `lib/iseeCalculator.ts` scala equivalente formulunu kullanir. Dogrulama: `npm run check:isee`.
 
-`app/isee/layout.tsx` SEO metadata tasir. Son canli audit'te `/isee` sayfasinda `BAILOUT_TO_CLIENT_SIDE_RENDERING` gorundu. SEO 2.5 isinde hesaplayici client interaktivitesi korunurken ilk HTML'de gercek H1, aciklama ve temel ISEE bilgi metni gorunur olmalidir.
+`app/isee/layout.tsx` SEO metadata tasir. SEO 2.5 sonrasi hesaplayici client interaktivitesi korunur; canli HTML'de gercek H1, aciklama, ISEE formulu ve form alanlari gorunur; `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizdir.
 
 ### Yasal sayfalar
 
@@ -581,12 +594,11 @@ node scripts/check-universities-server-compose.mjs
 1. PWA paketi eksik: `public/manifest.webmanifest` ve ikon setleri (`192x192`, `512x512`) yok.
 2. Local seed `app/data.ts` icindeki bazi universite gorselleri tekrarli/placeholder kalitesinde.
 3. Universite karsilastirma ozelligi yok; mevcut favori + university data modeliyle yapilabilir.
-4. SEO 2.5: `/`, `/isee`, `/communities` canli HTML'deki `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizlenmeli. Hedef: gercek H1/intro/internal linkler ilk HTML'de gorunsun, client UX bozulmasin.
-5. `www.italypath.app` SSL/redirect hijyeni Vercel/DNS tarafinda duzeltilmeli. Simdilik tum launch/link/paylasimlarda apex `https://italypath.app` kullan.
-6. Google Search Console kurulumu henuz yapilmadi; SEO 2.5 + canli curl audit temizlendikten sonra domain property, sitemap submit ve URL inspection yapilacak.
-7. SEO 3: JSON-LD/schema/breadcrumb henuz eklenmedi. Hidden/uydurma schema yok; sadece sayfada gorunen gercek bilgiye dayali structured data eklenmeli.
-8. AI Mentor system prompt'u canli program sayisi arttikca buyuyor; prompt boyutu, latency ve maliyet izlenmeli.
-9. Yasal sayfalardaki iletisim e-postasi yer tutucusu (`[iletişim e-postası eklenecek]`, `lib/legal/documents.ts` icindeki `CONTACT_EMAIL_PLACEHOLDER`) lansman oncesi gercek adresle doldurulmali.
+4. Ana sayfada explicit canonical link canli HTML'de gorunmedi; apex domain/sitemap/redirect dogru, ama kucuk SEO hijyeni olarak `/` canonical'i eklenebilir.
+5. Search Console yeni kuruldu; ilk 1-2 hafta `Sitemaps`, `Pages` ve `URL Inspection` durumlari izlenmeli. Baslangicta performans/veri gecikmesi normaldir.
+6. SEO 3: JSON-LD/schema/breadcrumb henuz eklenmedi. Hidden/uydurma schema yok; sadece sayfada gorunen gercek bilgiye dayali structured data eklenmeli.
+7. AI Mentor system prompt'u canli program sayisi arttikca buyuyor; prompt boyutu, latency ve maliyet izlenmeli.
+8. Yasal sayfalardaki iletisim e-postasi yer tutucusu (`[iletişim e-postası eklenecek]`, `lib/legal/documents.ts` icindeki `CONTACT_EMAIL_PLACEHOLDER`) lansman oncesi gercek adresle doldurulmali.
 
 ### Repo hijyeni
 

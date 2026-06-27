@@ -1,9 +1,18 @@
+import type { Metadata } from "next";
 import HomePageClient from "@/components/HomePageClient";
 import { getUniversitiesData } from "@/lib/universities.server";
 import { getTotalDepartments } from "@/lib/universitiesFilters";
 import type { UniversityStats } from "@/lib/universityStats";
 
 export const dynamic = "force-dynamic";
+
+// Ana sayfaya özel canonical. Global olarak root layout'a koymuyoruz; aksi halde
+// tüm sayfaların canonical'ı yanlışlıkla "/" adresine kilitlenir.
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 async function getHomeStats(): Promise<UniversityStats> {
   try {
