@@ -62,6 +62,7 @@ Program detay sayfalari `ProgramAdmissionDetailsPanel` ile resmi program linkler
 npm run build
 npm run lint
 npm run check:routes
+npm run check:auth-production
 npm run check:cities
 npm run check:program-details
 npm run check:data
@@ -78,7 +79,7 @@ node scripts/check-universities-server-compose.mjs
 
 ## Auth Matrix
 
-Public: `/`, `/api/universities`, `/data/*`, `/sign-in`, `/sign-up`, `/universities`, `/cities`, `/isee`, `/scholarships`, `/communities`, `/topluluklar`, `/sitemap.xml`, `/robots.txt`.
+Public: `/`, `/api/universities`, `/data/*`, `/sign-in`, `/sign-up`, `/universities`, `/cities`, `/isee`, `/scholarships`, `/communities`, `/topluluklar`, `/yasal/*`, `/giris`, `/sitemap.xml`, `/robots.txt`.
 
 Protected: `/ai-mentor`, `/documents`, `/favorites`, `/hub`, `/profile`,
 `/api/chat`.
