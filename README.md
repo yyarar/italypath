@@ -31,10 +31,20 @@ Dev server varsayilan olarak `http://localhost:3000` adresinde calisir.
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
 GEMINI_API_KEY=
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/giris
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/giris?mode=kayit
+NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/hub
+NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/hub
 ```
+
+Canlı Vercel Production ortamında Clerk anahtarları `pk_live_` ve `sk_live_`
+olmalıdır. `pk_test_` / `sk_test_` anahtarları canlı sitede development-mode
+uyarısı üretir ve protected route akışlarını Clerk hosted development ekranına
+taşıyabilir.
 
 Supabase verisi olmayan ortamda university API ve ilgili dogrulama scriptleri hata verebilir.
 
@@ -70,7 +80,12 @@ node scripts/check-universities-server-compose.mjs
 
 Public: `/`, `/api/universities`, `/data/*`, `/sign-in`, `/sign-up`, `/universities`, `/cities`, `/isee`, `/scholarships`, `/communities`, `/topluluklar`, `/sitemap.xml`, `/robots.txt`.
 
-Protected: `/ai-mentor`, `/documents`, `/favorites`, `/hub`, `/api/chat`.
+Protected: `/ai-mentor`, `/documents`, `/favorites`, `/hub`, `/profile`,
+`/api/chat`.
+
+Signed-out kullanıcı protected page route açarsa `proxy.ts` onu
+`/giris?redirect_url=<istenen-route>` adresine yönlendirir. Protected API route
+olan `/api/chat` HTML login sayfasına yönlendirilmez; API gibi korumalı kalır.
 
 Route guvenligi `proxy.ts` ile yonetilir; `middleware.ts` olusturulmaz.
 
