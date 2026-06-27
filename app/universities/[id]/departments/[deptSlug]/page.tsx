@@ -48,7 +48,7 @@ export default async function DepartmentDetailPage({ params }: DepartmentDetailP
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Anasayfa", item: `${BASE_URL}/` },
+            { "@type": "ListItem", position: 1, name: "Anasayfa", item: BASE_URL },
             {
               "@type": "ListItem",
               position: 2,

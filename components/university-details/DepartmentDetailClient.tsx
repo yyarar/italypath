@@ -153,9 +153,17 @@ export function DepartmentDetailClient({
           <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
             {t.department.schoolContext}
           </p>
-          <p className="max-w-4xl font-serif text-xl leading-8 text-[var(--editorial-ink)] sm:text-2xl sm:leading-9">
-            {description}
-          </p>
+          <div className="max-w-4xl space-y-4">
+            <Link
+              href={`/universities/${university.id}`}
+              className="inline-flex w-fit items-center font-serif text-xl font-semibold text-[var(--editorial-ink)] underline decoration-[var(--editorial-sage)] decoration-2 underline-offset-4 transition hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)] sm:text-2xl"
+            >
+              {university.name}
+            </Link>
+            <p className="font-serif text-xl leading-8 text-[var(--editorial-ink)] sm:text-2xl sm:leading-9">
+              {description}
+            </p>
+          </div>
         </section>
 
         {department.admissionDetails ? (
