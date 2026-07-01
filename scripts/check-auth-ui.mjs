@@ -46,8 +46,12 @@ const signUpForm = read("components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "useSignUp", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "signUp.create", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "prepareVerification", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "shouldPrepareEmailVerification", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "isLegalAcceptanceMissing", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "legalAccepted: true", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "attemptVerification", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "onVerificationStateChange", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, 'id="clerk-captcha"', "components/auth/SignUpForm.tsx");
 
 const verificationStep = read("components/auth/VerificationStep.tsx");
 mustContain(verificationStep, "verifyAccount", "components/auth/VerificationStep.tsx");

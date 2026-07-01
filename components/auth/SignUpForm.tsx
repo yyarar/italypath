@@ -25,6 +25,18 @@ type ClerkErrorLike = {
     paramName?: unknown;
   };
 };
+type EmailVerificationState = {
+  status?: string | null;
+  missingFields?: string[];
+  createdSessionId?: string | null;
+  verifications?: {
+    emailAddress?: {
+      nextAction?: string | null;
+      status?: string | null;
+      strategy?: string | null;
+    } | null;
+  } | null;
+};
 
 const RESEND_COOLDOWN_SECONDS = 30;
 
@@ -50,6 +62,24 @@ function getErrorParamName(error: ClerkErrorLike | null) {
   const paramName = error?.meta?.paramName;
 
   return typeof paramName === "string" ? paramName : "";
+}
+
+function shouldPrepareEmailVerification(signUpAttempt: EmailVerificationState) {
+  const emailVerification = signUpAttempt.verifications?.emailAddress;
+
+  if (!emailVerification) {
+    return true;
+  }
+
+  return emailVerification.nextAction === "needs_prepare";
+}
+
+function isLegalAcceptanceMissing(signUpAttempt: EmailVerificationState) {
+  return (
+    signUpAttempt.missingFields?.some(
+      (field) => field === "legal_accepted" || field === "legalAccepted",
+    ) ?? false
+  );
 }
 
 export function SignUpForm({
@@ -169,14 +199,17 @@ export function SignUpForm({
     const trimmedLastName = lastName.trim();
 
     try {
-      await signUp.create({
+      const signUpAttempt = await signUp.create({
         emailAddress: trimmedEmail,
         password,
         firstName: trimmedFirstName,
         lastName: trimmedLastName,
+        legalAccepted: true,
       });
 
-      await signUp.prepareVerification({ strategy: "email_code" });
+      if (shouldPrepareEmailVerification(signUpAttempt)) {
+        await signUp.prepareVerification({ strategy: "email_code" });
+      }
 
       setSubmittedEmail(trimmedEmail);
       setCode("");
@@ -207,10 +240,14 @@ export function SignUpForm({
     setIsSubmitting(true);
 
     try {
-      const result = await signUp.attemptVerification({
+      let result = await signUp.attemptVerification({
         strategy: "email_code",
         code: cleanCode,
       });
+
+      if (result.status !== "complete" && isLegalAcceptanceMissing(result)) {
+        result = await signUp.update({ legalAccepted: true });
+      }
 
       if (result.status !== "complete") {
         setFormError(t.auth.errors.generic);
@@ -243,6 +280,7 @@ export function SignUpForm({
     setCodeError("");
     setFormError("");
     setNotice("");
+    setCode("");
     setIsResending(true);
 
     try {
@@ -388,6 +426,8 @@ export function SignUpForm({
             {formError}
           </p>
         )}
+
+        <div id="clerk-captcha" />
 
         <button
           type="submit"
