@@ -11,14 +11,35 @@ interface AuthTabsProps {
   onChange: (tab: AuthTab) => void;
   signInContent: ReactNode;
   signUpContent: ReactNode;
+  lockedTab?: AuthTab | null;
 }
 
-export function AuthTabs({ active, onChange, signInContent, signUpContent }: AuthTabsProps) {
+export function AuthTabs({
+  active,
+  onChange,
+  signInContent,
+  signUpContent,
+  lockedTab = null,
+}: AuthTabsProps) {
   const { t } = useLanguage();
   const signInRef = useRef<HTMLButtonElement>(null);
   const signUpRef = useRef<HTMLButtonElement>(null);
+  const signInDisabled = lockedTab !== null && lockedTab !== "signIn";
+  const signUpDisabled = lockedTab !== null && lockedTab !== "signUp";
+
+  function requestTabChange(next: AuthTab) {
+    if (lockedTab !== null && next !== lockedTab) {
+      return;
+    }
+
+    onChange(next);
+  }
 
   function handleKey(event: KeyboardEvent<HTMLButtonElement>) {
+    if (lockedTab !== null) {
+      return;
+    }
+
     if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
       event.preventDefault();
       const next: AuthTab = active === "signIn" ? "signUp" : "signIn";
@@ -41,9 +62,11 @@ export function AuthTabs({ active, onChange, signInContent, signUpContent }: Aut
           aria-selected={active === "signIn"}
           aria-controls="auth-panel-signIn"
           tabIndex={active === "signIn" ? 0 : -1}
-          onClick={() => onChange("signIn")}
+          aria-disabled={signInDisabled}
+          disabled={signInDisabled}
+          onClick={() => requestTabChange("signIn")}
           onKeyDown={handleKey}
-          className={`-mb-px border-b-2 px-4 py-3 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] ${
+          className={`-mb-px border-b-2 px-4 py-3 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] ${
             active === "signIn"
               ? "border-[var(--editorial-ink)] text-[var(--editorial-ink)]"
               : "border-transparent text-[var(--editorial-muted)] hover:text-[var(--editorial-ink)]"
@@ -59,9 +82,11 @@ export function AuthTabs({ active, onChange, signInContent, signUpContent }: Aut
           aria-selected={active === "signUp"}
           aria-controls="auth-panel-signUp"
           tabIndex={active === "signUp" ? 0 : -1}
-          onClick={() => onChange("signUp")}
+          aria-disabled={signUpDisabled}
+          disabled={signUpDisabled}
+          onClick={() => requestTabChange("signUp")}
           onKeyDown={handleKey}
-          className={`-mb-px border-b-2 px-4 py-3 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] ${
+          className={`-mb-px border-b-2 px-4 py-3 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-45 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] ${
             active === "signUp"
               ? "border-[var(--editorial-ink)] text-[var(--editorial-ink)]"
               : "border-transparent text-[var(--editorial-muted)] hover:text-[var(--editorial-ink)]"

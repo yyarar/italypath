@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useCallback, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { AuthShell } from "@/components/auth/AuthShell";
@@ -15,6 +15,16 @@ function GirisInner() {
   const initialTab: AuthTab = params.get("mode") === "kayit" ? "signUp" : "signIn";
   const [tab, setTab] = useState<AuthTab>(initialTab);
   const [mode, setMode] = useState<"auth" | "reset">("auth");
+  const [isSignUpVerification, setIsSignUpVerification] = useState(false);
+
+  const handleSignUpVerificationChange = useCallback((isVerifying: boolean) => {
+    setIsSignUpVerification(isVerifying);
+
+    if (isVerifying) {
+      setMode("auth");
+      setTab("signUp");
+    }
+  }, []);
 
   if (mode === "reset") {
     return (
@@ -34,6 +44,7 @@ function GirisInner() {
         <AuthTabs
           active={tab}
           onChange={setTab}
+          lockedTab={isSignUpVerification ? "signUp" : null}
           signInContent={
             <Suspense fallback={null}>
               <SignInForm onForgotPassword={() => setMode("reset")} />
@@ -41,7 +52,13 @@ function GirisInner() {
           }
           signUpContent={
             <Suspense fallback={null}>
-              <SignUpForm onSwitchToSignIn={() => setTab("signIn")} />
+              <SignUpForm
+                onSwitchToSignIn={() => {
+                  setIsSignUpVerification(false);
+                  setTab("signIn");
+                }}
+                onVerificationStateChange={handleSignUpVerificationChange}
+              />
             </Suspense>
           }
         />

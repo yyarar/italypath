@@ -42,6 +42,21 @@ for (const file of [
   read(file);
 }
 
+const signUpForm = read("components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "useSignUp", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "signUp.create", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "prepareVerification", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "attemptVerification", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "onVerificationStateChange", "components/auth/SignUpForm.tsx");
+
+const verificationStep = read("components/auth/VerificationStep.tsx");
+mustContain(verificationStep, "verifyAccount", "components/auth/VerificationStep.tsx");
+mustContain(verificationStep, "changeEmail", "components/auth/VerificationStep.tsx");
+mustContain(verificationStep, "sentTo", "components/auth/VerificationStep.tsx");
+
+const authTabs = read("components/auth/AuthTabs.tsx");
+mustContain(authTabs, "lockedTab", "components/auth/AuthTabs.tsx");
+
 // Translations
 const translations = read("lib/translations.ts");
 mustContain(translations, "auth:", "lib/translations.ts");
@@ -50,6 +65,9 @@ mustContain(translations, '"Giriş Yap"', "lib/translations.ts");
 mustContain(translations, '"Kayıt Ol"', "lib/translations.ts");
 mustContain(translations, '"Google ile devam et"', "lib/translations.ts");
 mustContain(translations, '"Apple ile devam et"', "lib/translations.ts");
+mustContain(translations, '"Hesabımı doğrula"', "lib/translations.ts");
+mustContain(translations, '"Kayıt bilgilerine dön"', "lib/translations.ts");
+mustContain(translations, '"Kod gönderilen adres: {email}"', "lib/translations.ts");
 
 // next.config.ts redirects
 const nextConfig = read("next.config.ts");
