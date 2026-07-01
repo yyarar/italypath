@@ -56,7 +56,7 @@ function GirisInner() {
           active={tab}
           onChange={setTab}
           signInContent={<SignInForm onForgotPassword={() => setMode("reset")} />}
-          signUpContent={<SignUpForm onSwitchToSignIn={() => setTab("signIn")} />}
+          signUpContent={<SignUpForm />}
         />
       </AuthCard>
     </AuthShell>
