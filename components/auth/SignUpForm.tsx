@@ -28,6 +28,19 @@ export function SignUpForm() {
             <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
           </Clerk.Field>
 
+          <Clerk.Field name="username" className="grid gap-1.5">
+            <Clerk.Label className="text-xs font-medium uppercase tracking-wide text-[var(--editorial-muted)]">
+              {t.auth.fields.username}
+            </Clerk.Label>
+            <Clerk.Input
+              type="text"
+              required
+              autoComplete="username"
+              className="h-11 border border-[var(--editorial-border)] bg-white px-3 text-sm text-[var(--editorial-ink)] focus:border-[var(--editorial-sage)] focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-[var(--editorial-sage)]"
+            />
+            <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
+          </Clerk.Field>
+
           <Clerk.Field name="password" className="grid gap-1.5">
             <Clerk.Label className="text-xs font-medium uppercase tracking-wide text-[var(--editorial-muted)]">
               {t.auth.fields.password}

@@ -2,14 +2,42 @@
 
 import * as Clerk from "@clerk/elements/common";
 import * as SignIn from "@clerk/elements/sign-in";
+import { useSignIn } from "@clerk/nextjs";
 import { Eye, EyeOff } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useLanguage } from "@/context/LanguageContext";
 import {
   PasswordResetFlow,
   PasswordResetVerification,
 } from "@/components/auth/PasswordResetFlow";
+
+function EmailCodeSecondFactorPreparation() {
+  const { isLoaded, signIn } = useSignIn();
+  const hasPrepared = useRef(false);
+
+  useEffect(() => {
+    if (!isLoaded || !signIn || hasPrepared.current) {
+      return;
+    }
+
+    const hasEmailCodeSecondFactor = signIn.supportedSecondFactors?.some(
+      (factor) => factor.strategy === "email_code",
+    );
+
+    if (signIn.status !== "needs_second_factor" || !hasEmailCodeSecondFactor) {
+      return;
+    }
+
+    hasPrepared.current = true;
+
+    void signIn.prepareSecondFactor({ strategy: "email_code" }).catch(() => {
+      hasPrepared.current = false;
+    });
+  }, [isLoaded, signIn]);
+
+  return null;
+}
 
 export function SignInForm() {
   const { t } = useLanguage();
@@ -98,6 +126,82 @@ export function SignInForm() {
                   isLoading
                     ? t.auth.actions.signInLoading
                     : t.auth.actions.signIn
+                }
+              </Clerk.Loading>
+            </SignIn.Action>
+
+            <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
+          </div>
+        </SignIn.Strategy>
+
+        <SignIn.Strategy name="email_code">
+          <EmailCodeSecondFactorPreparation />
+
+          <div className="grid gap-4">
+            <div className="grid gap-2 text-center">
+              <h2 className="font-serif text-xl text-[var(--editorial-ink)]">
+                {t.auth.verification.title}
+              </h2>
+              <p className="text-sm leading-relaxed text-[var(--editorial-muted)]">
+                {t.auth.verification.body}
+              </p>
+            </div>
+
+            <Clerk.Field name="code" className="grid gap-1.5">
+              <Clerk.Label className="text-xs font-medium uppercase tracking-wide text-[var(--editorial-muted)]">
+                {t.auth.fields.verificationCode}
+              </Clerk.Label>
+              <Clerk.Input
+                type="otp"
+                autoSubmit
+                autoComplete="one-time-code"
+                className="flex justify-center gap-2"
+                render={({ value, status }) => (
+                  <div
+                    data-status={status}
+                    className={`flex h-12 w-10 items-center justify-center border text-lg font-medium ${
+                      status === "cursor" || status === "selected"
+                        ? "border-[var(--editorial-sage)] bg-white text-[var(--editorial-ink)]"
+                        : "border-[var(--editorial-border)] bg-white text-[var(--editorial-ink)]"
+                    }`}
+                  >
+                    {value}
+                  </div>
+                )}
+              />
+              <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
+            </Clerk.Field>
+
+            <SignIn.Action
+              submit
+              className="inline-flex h-11 items-center justify-center bg-[var(--editorial-terracotta)] px-4 text-sm font-semibold text-white transition hover:opacity-90 disabled:opacity-50"
+            >
+              <Clerk.Loading>
+                {(isLoading) =>
+                  isLoading
+                    ? t.auth.actions.verifyAccountLoading
+                    : t.auth.actions.verifyAccount
+                }
+              </Clerk.Loading>
+            </SignIn.Action>
+
+            <SignIn.Action
+              resend
+              fallback={({ resendableAfter }) => (
+                <span className="justify-self-start text-xs text-[var(--editorial-muted)]">
+                  {t.auth.verification.resendIn.replace(
+                    "{seconds}",
+                    String(resendableAfter),
+                  )}
+                </span>
+              )}
+              className="justify-self-start text-xs text-[var(--editorial-muted)] underline underline-offset-2 hover:text-[var(--editorial-ink)] disabled:no-underline disabled:opacity-50"
+            >
+              <Clerk.Loading>
+                {(isLoading) =>
+                  isLoading
+                    ? t.auth.actions.resendCodeLoading
+                    : t.auth.verification.resend
                 }
               </Clerk.Loading>
             </SignIn.Action>

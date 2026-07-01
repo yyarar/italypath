@@ -12,22 +12,26 @@ manual resend timers, manual `setActive`, and several follow-up patches for edge
 cases.
 
 The immediate goal is not a polished auth redesign. The goal is a small,
-reliable Clerk Elements flow where users can register with email and password,
-verify their email code, sign in, and reset a forgotten password.
+reliable Clerk Elements flow where users can register with email, username, and
+password, verify their email code, sign in, and reset a forgotten password.
 
 ## Goals
 
 - Keep `/giris` as the single full-page auth entry.
-- Support email/password sign-up.
+- Support email/password sign-up with the current Clerk instance's required
+  `username` field.
 - Require and complete email code verification during sign-up.
 - Support email/password sign-in.
+- Support the current Clerk instance's sign-in email-code second factor when
+  Clerk returns `needs_second_factor`.
 - Support forgot-password by email code and new password.
 - Preserve `redirect_url` behavior: return to the requested protected page when
   present, otherwise go to `/hub`.
 - Remove OAuth from this phase. Google/Apple will be added later as a separate
   feature.
 - Remove first name and last name from this phase. Account creation only needs
-  email and password.
+  email, username, and password because the current Clerk development instance
+  requires `username`.
 - Prefer Clerk Elements state machines over custom auth state.
 - Keep the implementation small enough to test and reason about.
 
@@ -67,7 +71,7 @@ Existing route decisions remain valid:
 
 Use Clerk Elements as the source of truth for auth state.
 
-`/giris` should only orchestrate the page shell, tabs, and reset mode. It should
+`/giris` should only orchestrate the page shell, tabs, and redirect cleanup. It should
 not manually create sign-up attempts, prepare email verification, attempt email
 verification, set the active session, or maintain resend cooldown state.
 
@@ -117,10 +121,11 @@ The sign-up form does not ask for first name or last name in this phase.
 ### Forgot Password
 
 1. User clicks "Şifremi unuttum" from the sign-in form.
-2. The same card switches to reset mode.
-3. User enters email and submits.
-4. Clerk sends a reset password email code.
-5. User enters code and new password.
+2. Clerk Elements navigates the same sign-in state machine to
+   `forgot-password`.
+3. User requests a reset password email code.
+4. User enters the reset code.
+5. User enters a new password.
 6. Clerk completes the reset, activates the session, and redirects to the safe
    `redirect_url` or `/hub`.
 
@@ -157,9 +162,8 @@ Responsibilities:
 
 - Read `mode=kayit` from the query string for the initial tab.
 - Read no secrets and call no Clerk mutation APIs directly.
-- Own only UI state: active tab and whether the card is in password reset mode.
-- Render `AuthShell`, `AuthCard`, `AuthTabs`, `SignInForm`, `SignUpForm`, and
-  `PasswordResetFlow`.
+- Own only UI state: active tab.
+- Render `AuthShell`, `AuthCard`, `AuthTabs`, `SignInForm`, and `SignUpForm`.
 
 ### `components/auth/SignInForm.tsx`
 
@@ -167,7 +171,10 @@ Responsibilities:
 
 - Render a Clerk Elements sign-in root and start step.
 - Render `identifier` and `password` fields.
-- Render a forgot-password button that switches the page to reset mode.
+- Render `email_code` verification for sign-in second factor when Clerk requires it.
+- Render forgot-password and reset-password steps inside the same
+  `SignIn.Root`.
+- Render a forgot-password button with `SignIn.Action navigate="forgot-password"`.
 - Render `Clerk.FieldError` and `Clerk.GlobalError`.
 - Use `SignIn.Action submit` for submission.
 
@@ -176,7 +183,7 @@ Responsibilities:
 Responsibilities:
 
 - Render a Clerk Elements sign-up root.
-- Render `emailAddress` and `password` fields in the `start` step.
+- Render `emailAddress`, `username`, and `password` fields in the `start` step.
 - Render `SignUp.Captcha` in the `start` step.
 - Render the email code field inside `verifications` with
   `SignUp.Strategy name="email_code"`.

@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Rebuild `/giris` as a reliable Clerk Elements email/password auth flow with sign-up, email code verification, sign-in, and forgot-password reset.
+**Goal:** Rebuild `/giris` as a reliable Clerk Elements email/password auth flow with sign-up, the current Clerk instance's required username field, email code verification, sign-in second-factor email code when Clerk requires it, and forgot-password reset.
 
-**Architecture:** Keep `/giris`, `proxy.ts`, `next.config.ts`, and `ClerkProvider` route settings intact. Move sign-up back to Clerk Elements primitives so Clerk owns sign-up state, verification, resend cooldown, session activation, and redirects; the page only owns tab/reset UI state and redirect parameter sanitization.
+**Architecture:** Keep `/giris`, `proxy.ts`, `next.config.ts`, and `ClerkProvider` route settings intact. Move sign-up back to Clerk Elements primitives so Clerk owns sign-up state, verification, resend cooldown, session activation, and redirects; the page only owns tab UI state and redirect parameter sanitization. Password reset stays inside the sign-in Clerk state machine rather than a separate local page mode.
 
 **Tech Stack:** Next.js 16 App Router, React 19, TypeScript, Clerk Core 2 via `@clerk/nextjs` 6.37.3, `@clerk/elements` 0.24.18, Tailwind v4 classes, existing `LanguageContext` translations.
 
@@ -17,10 +17,10 @@ This plan covers one subsystem: the `/giris` auth flow. It does not change Supab
 ## File Structure
 
 - Modify `scripts/check-auth-ui.mjs`: make the smoke check enforce the new Clerk Elements contract and reject the old manual sign-up flow.
-- Modify `app/giris/page.tsx`: keep the shell/tabs/reset orchestration, remove sign-up verification lock state, and sanitize unsafe `redirect_url` values before Clerk consumes them.
-- Modify `components/auth/SignInForm.tsx`: remove OAuth rendering and make the root use virtual routing on `/giris`.
-- Replace `components/auth/SignUpForm.tsx`: rebuild sign-up using `SignUp.Root`, `SignUp.Step`, `SignUp.Strategy`, `SignUp.Action`, and `SignUp.Captcha`; remove `useSignUp` and manual verification.
-- Modify `components/auth/PasswordResetFlow.tsx`: keep the existing Elements reset flow and pin it to `/giris` virtual routing.
+- Modify `app/giris/page.tsx`: keep the shell/tabs orchestration, remove sign-up verification lock/reset local state, and sanitize unsafe `redirect_url` values before Clerk consumes them.
+- Modify `components/auth/SignInForm.tsx`: remove OAuth rendering, make the root use virtual routing on `/giris`, render password/email-code verification strategies, and bridge Clerk Elements Core 2 second-factor email-code preparation when needed.
+- Replace `components/auth/SignUpForm.tsx`: rebuild sign-up using `SignUp.Root`, `SignUp.Step`, `SignUp.Strategy`, `SignUp.Action`, and `SignUp.Captcha`; include the Clerk-required `username` field; remove `useSignUp` and manual verification.
+- Modify `components/auth/PasswordResetFlow.tsx`: render forgot-password, reset-code, and new-password pieces under the single `SignIn.Root` owned by `SignInForm`.
 - Delete `components/auth/VerificationStep.tsx`: email verification moves into `SignUpForm`.
 - Leave `components/auth/OAuthButtons.tsx` unused in this implementation; Google/Apple are out of scope for this plan.
 
@@ -107,6 +107,7 @@ mustContain(signUpForm, "SignUp.Action", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "resend", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "fallback={({ resendableAfter })", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, 'name="emailAddress"', "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, 'name="username"', "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, 'name="password"', "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, 'name="code"', "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, 'name="legalAccepted"', "components/auth/SignUpForm.tsx");
@@ -886,4 +887,4 @@ Expected: all commands pass.
 
 - Spec coverage: sign-up, email verification, sign-in, forgot-password, OAuth removal, first/last name removal, redirect sanitization, and smoke/manual verification are covered by Tasks 1-8.
 - Placeholder scan: this plan contains no unresolved placeholders.
-- Type consistency: Clerk Elements primitive names match the installed type definitions: `SignUp.Step name="verifications"`, `SignUp.Strategy name="email_code"`, `SignUp.Action resend`, `SignUp.Captcha`, and `Clerk.Field` names `emailAddress`, `password`, `code`, and `legalAccepted`.
+- Type consistency: Clerk Elements primitive names match the installed type definitions: `SignIn.Strategy name="password"`, `SignIn.Strategy name="email_code"`, `SignUp.Step name="verifications"`, `SignUp.Strategy name="email_code"`, `SignUp.Action resend`, `SignUp.Captcha`, and `Clerk.Field` names `emailAddress`, `username`, `password`, `code`, and `legalAccepted`.

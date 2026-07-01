@@ -63,11 +63,14 @@ mustMatch(signInForm, /\bpath\s*=\s*["']\/giris["']/, "components/auth/SignInFor
 mustMatch(signInForm, /<SignIn\.Step\b[^>]*\bname\s*=\s*["']start["'][^>]*>/, "components/auth/SignInForm.tsx", '<SignIn.Step name="start">');
 mustMatch(signInForm, /<SignIn\.Step\b[^>]*\bname\s*=\s*["']verifications["'][^>]*>/, "components/auth/SignInForm.tsx", '<SignIn.Step name="verifications">');
 mustMatch(signInForm, /<SignIn\.Strategy\b[^>]*\bname\s*=\s*["']password["'][^>]*>/, "components/auth/SignInForm.tsx", '<SignIn.Strategy name="password">');
+mustMatch(signInForm, /<SignIn\.Strategy\b[^>]*\bname\s*=\s*["']email_code["'][^>]*>/, "components/auth/SignInForm.tsx", '<SignIn.Strategy name="email_code">');
 mustMatch(signInForm, /<SignIn\.Action\b[^>]*\bnavigate\s*=\s*["']forgot-password["'][^>]*>/, "components/auth/SignInForm.tsx", '<SignIn.Action navigate="forgot-password">');
 mustMatch(signInForm, /\bname\s*=\s*["']identifier["']/, "components/auth/SignInForm.tsx", 'name="identifier"');
 mustMatch(signInForm, /\bname\s*=\s*["']password["']/, "components/auth/SignInForm.tsx", 'name="password"');
+mustMatch(signInForm, /\bname\s*=\s*["']code["']/, "components/auth/SignInForm.tsx", 'name="code"');
 mustContain(signInForm, "PasswordResetFlow", "components/auth/SignInForm.tsx");
 mustContain(signInForm, "PasswordResetVerification", "components/auth/SignInForm.tsx");
+mustContain(signInForm, "prepareSecondFactor", "components/auth/SignInForm.tsx");
 mustNotContain(signInForm, "onForgotPassword", "components/auth/SignInForm.tsx");
 mustNotContain(signInForm, "OAuthButtons", "components/auth/SignInForm.tsx");
 
@@ -85,6 +88,7 @@ mustContain(signUpForm, "SignUp.Action", "components/auth/SignUpForm.tsx");
 mustMatch(signUpForm, /<SignUp\.Action\b[^>]*\bresend\b[^>]*>/, "components/auth/SignUpForm.tsx", "<SignUp.Action ... resend>");
 mustMatch(signUpForm, /\bfallback\s*=\s*\{\s*\(\s*\{\s*resendableAfter\s*\}\s*\)\s*=>/, "components/auth/SignUpForm.tsx", "fallback={({ resendableAfter }) =>");
 mustMatch(signUpForm, /\bname\s*=\s*["']emailAddress["']/, "components/auth/SignUpForm.tsx", 'name="emailAddress"');
+mustMatch(signUpForm, /\bname\s*=\s*["']username["']/, "components/auth/SignUpForm.tsx", 'name="username"');
 mustMatch(signUpForm, /\bname\s*=\s*["']password["']/, "components/auth/SignUpForm.tsx", 'name="password"');
 mustMatch(signUpForm, /\bname\s*=\s*["']code["']/, "components/auth/SignUpForm.tsx", 'name="code"');
 mustMatch(signUpForm, /\bname\s*=\s*["']legalAccepted["']/, "components/auth/SignUpForm.tsx", 'name="legalAccepted"');
