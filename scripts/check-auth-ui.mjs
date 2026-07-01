@@ -76,7 +76,7 @@ mustContain(signUpForm, '<SignUp.Step name="verifications">', "components/auth/S
 mustContain(signUpForm, '<SignUp.Strategy name="email_code">', "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "SignUp.Captcha", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "SignUp.Action", "components/auth/SignUpForm.tsx");
-mustMatch(signUpForm, /<SignUp\.Action[\s\S]*?\bresend\b/, "components/auth/SignUpForm.tsx", "SignUp.Action resend prop");
+mustMatch(signUpForm, /<SignUp\.Action\b[^>]*\bresend\b[^>]*>/, "components/auth/SignUpForm.tsx", "<SignUp.Action ... resend>");
 mustContain(signUpForm, "fallback={({ resendableAfter })", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, 'name="emailAddress"', "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, 'name="password"', "components/auth/SignUpForm.tsx");
