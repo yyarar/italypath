@@ -1,7 +1,7 @@
 "use client";
 
-import { Suspense, useCallback, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { AuthShell } from "@/components/auth/AuthShell";
 import { AuthCard } from "@/components/auth/AuthCard";
@@ -10,29 +10,36 @@ import { SignInForm } from "@/components/auth/SignInForm";
 import { SignUpForm } from "@/components/auth/SignUpForm";
 import { PasswordResetFlow } from "@/components/auth/PasswordResetFlow";
 
+function isSafeRelativeRedirect(value: string) {
+  return value.startsWith("/") && !value.startsWith("//");
+}
+
 function GirisInner() {
+  const router = useRouter();
   const params = useSearchParams();
   const initialTab: AuthTab = params.get("mode") === "kayit" ? "signUp" : "signIn";
   const [tab, setTab] = useState<AuthTab>(initialTab);
   const [mode, setMode] = useState<"auth" | "reset">("auth");
-  const [isSignUpVerification, setIsSignUpVerification] = useState(false);
 
-  const handleSignUpVerificationChange = useCallback((isVerifying: boolean) => {
-    setIsSignUpVerification(isVerifying);
+  useEffect(() => {
+    const redirectUrl = params.get("redirect_url");
 
-    if (isVerifying) {
-      setMode("auth");
-      setTab("signUp");
+    if (!redirectUrl || isSafeRelativeRedirect(redirectUrl)) {
+      return;
     }
-  }, []);
+
+    const cleanParams = new URLSearchParams(params.toString());
+    cleanParams.delete("redirect_url");
+    const query = cleanParams.toString();
+
+    router.replace(query ? `/giris?${query}` : "/giris", { scroll: false });
+  }, [params, router]);
 
   if (mode === "reset") {
     return (
       <AuthShell>
         <AuthCard>
-          <Suspense fallback={null}>
-            <PasswordResetFlow onBack={() => setMode("auth")} />
-          </Suspense>
+          <PasswordResetFlow onBack={() => setMode("auth")} />
         </AuthCard>
       </AuthShell>
     );
@@ -44,23 +51,8 @@ function GirisInner() {
         <AuthTabs
           active={tab}
           onChange={setTab}
-          lockedTab={isSignUpVerification ? "signUp" : null}
-          signInContent={
-            <Suspense fallback={null}>
-              <SignInForm onForgotPassword={() => setMode("reset")} />
-            </Suspense>
-          }
-          signUpContent={
-            <Suspense fallback={null}>
-              <SignUpForm
-                onSwitchToSignIn={() => {
-                  setIsSignUpVerification(false);
-                  setTab("signIn");
-                }}
-                onVerificationStateChange={handleSignUpVerificationChange}
-              />
-            </Suspense>
-          }
+          signInContent={<SignInForm onForgotPassword={() => setMode("reset")} />}
+          signUpContent={<SignUpForm />}
         />
       </AuthCard>
     </AuthShell>
