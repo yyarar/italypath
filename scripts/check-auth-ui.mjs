@@ -36,7 +36,6 @@ mustContain(pageSource, "AuthCard", "app/giris/page.tsx");
 mustContain(pageSource, "AuthTabs", "app/giris/page.tsx");
 mustContain(pageSource, "SignInForm", "app/giris/page.tsx");
 mustContain(pageSource, "SignUpForm", "app/giris/page.tsx");
-mustContain(pageSource, "PasswordResetFlow", "app/giris/page.tsx");
 mustContain(pageSource, "useSearchParams", "app/giris/page.tsx");
 mustContain(pageSource, "useRouter", "app/giris/page.tsx");
 mustContain(pageSource, "redirect_url", "app/giris/page.tsx");
@@ -45,6 +44,7 @@ mustContain(pageSource, "router.replace", "app/giris/page.tsx");
 mustNotContain(pageSource, "OAuthButtons", "app/giris/page.tsx");
 mustNotContain(pageSource, "VerificationStep", "app/giris/page.tsx");
 mustNotContain(pageSource, "onVerificationStateChange", "app/giris/page.tsx");
+mustNotContain(pageSource, "setMode", "app/giris/page.tsx");
 
 for (const file of [
   "components/auth/AuthShell.tsx",
@@ -61,8 +61,14 @@ const signInForm = read("components/auth/SignInForm.tsx");
 mustMatch(signInForm, /\brouting\s*=\s*["']virtual["']/, "components/auth/SignInForm.tsx", 'routing="virtual"');
 mustMatch(signInForm, /\bpath\s*=\s*["']\/giris["']/, "components/auth/SignInForm.tsx", 'path="/giris"');
 mustMatch(signInForm, /<SignIn\.Step\b[^>]*\bname\s*=\s*["']start["'][^>]*>/, "components/auth/SignInForm.tsx", '<SignIn.Step name="start">');
+mustMatch(signInForm, /<SignIn\.Step\b[^>]*\bname\s*=\s*["']verifications["'][^>]*>/, "components/auth/SignInForm.tsx", '<SignIn.Step name="verifications">');
+mustMatch(signInForm, /<SignIn\.Strategy\b[^>]*\bname\s*=\s*["']password["'][^>]*>/, "components/auth/SignInForm.tsx", '<SignIn.Strategy name="password">');
+mustMatch(signInForm, /<SignIn\.Action\b[^>]*\bnavigate\s*=\s*["']forgot-password["'][^>]*>/, "components/auth/SignInForm.tsx", '<SignIn.Action navigate="forgot-password">');
 mustMatch(signInForm, /\bname\s*=\s*["']identifier["']/, "components/auth/SignInForm.tsx", 'name="identifier"');
 mustMatch(signInForm, /\bname\s*=\s*["']password["']/, "components/auth/SignInForm.tsx", 'name="password"');
+mustContain(signInForm, "PasswordResetFlow", "components/auth/SignInForm.tsx");
+mustContain(signInForm, "PasswordResetVerification", "components/auth/SignInForm.tsx");
+mustNotContain(signInForm, "onForgotPassword", "components/auth/SignInForm.tsx");
 mustNotContain(signInForm, "OAuthButtons", "components/auth/SignInForm.tsx");
 
 const signUpForm = read("components/auth/SignUpForm.tsx");
@@ -94,11 +100,12 @@ mustNotContain(signUpForm, "firstName", "components/auth/SignUpForm.tsx");
 mustNotContain(signUpForm, "lastName", "components/auth/SignUpForm.tsx");
 
 const passwordReset = read("components/auth/PasswordResetFlow.tsx");
-mustMatch(passwordReset, /\brouting\s*=\s*["']virtual["']/, "components/auth/PasswordResetFlow.tsx", 'routing="virtual"');
-mustMatch(passwordReset, /\bpath\s*=\s*["']\/giris["']/, "components/auth/PasswordResetFlow.tsx", 'path="/giris"');
+mustNotContain(passwordReset, "<SignIn.Root", "components/auth/PasswordResetFlow.tsx");
 mustMatch(passwordReset, /<SignIn\.Step\b[^>]*\bname\s*=\s*["']forgot-password["'][^>]*>/, "components/auth/PasswordResetFlow.tsx", '<SignIn.Step name="forgot-password">');
 mustMatch(passwordReset, /<SignIn\.Step\b[^>]*\bname\s*=\s*["']reset-password["'][^>]*>/, "components/auth/PasswordResetFlow.tsx", '<SignIn.Step name="reset-password">');
+mustMatch(passwordReset, /<SignIn\.SupportedStrategy\b[^>]*\bname\s*=\s*["']reset_password_email_code["'][^>]*>/, "components/auth/PasswordResetFlow.tsx", '<SignIn.SupportedStrategy name="reset_password_email_code">');
 mustMatch(passwordReset, /<SignIn\.Strategy\b[^>]*\bname\s*=\s*["']reset_password_email_code["'][^>]*>/, "components/auth/PasswordResetFlow.tsx", '<SignIn.Strategy name="reset_password_email_code">');
+mustMatch(passwordReset, /<SignIn\.Action\b[^>]*\bresend\b[^>]*>/, "components/auth/PasswordResetFlow.tsx", "<SignIn.Action ... resend>");
 
 if (existsSync(resolve(process.cwd(), "components/auth/VerificationStep.tsx"))) {
   failures.push("components/auth/VerificationStep.tsx should be removed; sign-up verification belongs in SignUpForm.tsx");

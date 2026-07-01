@@ -8,7 +8,6 @@ import { AuthCard } from "@/components/auth/AuthCard";
 import { AuthTabs, type AuthTab } from "@/components/auth/AuthTabs";
 import { SignInForm } from "@/components/auth/SignInForm";
 import { SignUpForm } from "@/components/auth/SignUpForm";
-import { PasswordResetFlow } from "@/components/auth/PasswordResetFlow";
 
 function isSafeRelativeRedirect(value: string) {
   return (
@@ -21,9 +20,9 @@ function isSafeRelativeRedirect(value: string) {
 function GirisInner() {
   const router = useRouter();
   const params = useSearchParams();
-  const initialTab: AuthTab = params.get("mode") === "kayit" ? "signUp" : "signIn";
+  const initialTab: AuthTab =
+    params.get("mode") === "kayit" ? "signUp" : "signIn";
   const [tab, setTab] = useState<AuthTab>(initialTab);
-  const [mode, setMode] = useState<"auth" | "reset">("auth");
 
   useEffect(() => {
     const redirectUrl = params.get("redirect_url");
@@ -39,23 +38,13 @@ function GirisInner() {
     router.replace(query ? `/giris?${query}` : "/giris", { scroll: false });
   }, [params, router]);
 
-  if (mode === "reset") {
-    return (
-      <AuthShell>
-        <AuthCard>
-          <PasswordResetFlow onBack={() => setMode("auth")} />
-        </AuthCard>
-      </AuthShell>
-    );
-  }
-
   return (
     <AuthShell>
       <AuthCard>
         <AuthTabs
           active={tab}
           onChange={setTab}
-          signInContent={<SignInForm onForgotPassword={() => setMode("reset")} />}
+          signInContent={<SignInForm />}
           signUpContent={<SignUpForm />}
         />
       </AuthCard>

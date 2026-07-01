@@ -7,37 +7,42 @@ import { useState } from "react";
 
 import { useLanguage } from "@/context/LanguageContext";
 
-interface PasswordResetFlowProps {
-  onBack: () => void;
-}
-
-export function PasswordResetFlow({ onBack }: PasswordResetFlowProps) {
+export function PasswordResetVerification() {
   const { t } = useLanguage();
-  const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <SignIn.Root path="/giris" routing="virtual">
-      {/* Step 1: email entry */}
-      <SignIn.Step name="forgot-password">
+    <SignIn.Strategy name="reset_password_email_code">
+      <div className="grid gap-4">
         <div className="grid gap-4">
           <div className="grid gap-1">
             <h2 className="font-serif text-xl text-[var(--editorial-ink)]">
-              {t.auth.passwordReset.step1Title}
+              {t.auth.passwordReset.step2Title}
             </h2>
             <p className="text-xs text-[var(--editorial-muted)]">
-              {t.auth.passwordReset.step1Body}
+              {t.auth.passwordReset.step2Body}
             </p>
           </div>
 
-          <Clerk.Field name="identifier" className="grid gap-1.5">
+          <Clerk.Field name="code" className="grid gap-1.5">
             <Clerk.Label className="text-xs font-medium uppercase tracking-wide text-[var(--editorial-muted)]">
-              {t.auth.fields.email}
+              {t.auth.fields.verificationCode}
             </Clerk.Label>
             <Clerk.Input
-              type="email"
-              required
-              autoComplete="email"
-              className="h-11 border border-[var(--editorial-border)] bg-white px-3 text-sm text-[var(--editorial-ink)] focus:border-[var(--editorial-sage)] focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-[var(--editorial-sage)]"
+              type="otp"
+              autoComplete="one-time-code"
+              className="flex justify-center gap-2"
+              render={({ value, status }) => (
+                <div
+                  data-status={status}
+                  className={`flex h-12 w-10 items-center justify-center border text-lg font-medium ${
+                    status === "cursor" || status === "selected"
+                      ? "border-[var(--editorial-sage)] bg-white text-[var(--editorial-ink)]"
+                      : "border-[var(--editorial-border)] bg-white text-[var(--editorial-ink)]"
+                  }`}
+                >
+                  {value}
+                </div>
+              )}
             />
             <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
           </Clerk.Field>
@@ -49,60 +54,94 @@ export function PasswordResetFlow({ onBack }: PasswordResetFlowProps) {
             <Clerk.Loading>
               {(isLoading) =>
                 isLoading
-                  ? t.auth.actions.sendCodeLoading
-                  : t.auth.actions.sendCode
+                  ? t.auth.actions.verifyAccountLoading
+                  : t.auth.actions.verifyAccount
               }
             </Clerk.Loading>
           </SignIn.Action>
 
-          <button
-            type="button"
-            onClick={onBack}
-            className="justify-self-start text-xs text-[var(--editorial-muted)] underline underline-offset-2 hover:text-[var(--editorial-ink)]"
+          <SignIn.Action
+            resend
+            fallback={({ resendableAfter }) => (
+              <span className="justify-self-start text-xs text-[var(--editorial-muted)]">
+                {t.auth.verification.resendIn.replace(
+                  "{seconds}",
+                  String(resendableAfter),
+                )}
+              </span>
+            )}
+            className="justify-self-start text-xs text-[var(--editorial-muted)] underline underline-offset-2 hover:text-[var(--editorial-ink)] disabled:no-underline disabled:opacity-50"
           >
-            {t.auth.actions.backToSignIn}
-          </button>
+            <Clerk.Loading>
+              {(isLoading) =>
+                isLoading
+                  ? t.auth.actions.resendCodeLoading
+                  : t.auth.verification.resend
+              }
+            </Clerk.Loading>
+          </SignIn.Action>
 
           <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
         </div>
-      </SignIn.Step>
+      </div>
+    </SignIn.Strategy>
+  );
+}
 
-      {/* Step 2: code + new password */}
-      <SignIn.Step name="reset-password">
-        <SignIn.Strategy name="reset_password_email_code">
+export function PasswordResetFlow() {
+  const { t } = useLanguage();
+  const [showPassword, setShowPassword] = useState(false);
+
+  return (
+    <>
+      <SignIn.Step name="forgot-password">
+        <div className="grid gap-4">
           <div className="grid gap-4">
             <div className="grid gap-1">
               <h2 className="font-serif text-xl text-[var(--editorial-ink)]">
-                {t.auth.passwordReset.step2Title}
+                {t.auth.passwordReset.step1Title}
               </h2>
               <p className="text-xs text-[var(--editorial-muted)]">
-                {t.auth.passwordReset.step2Body}
+                {t.auth.passwordReset.step1Body}
               </p>
             </div>
 
-            <Clerk.Field name="code" className="grid gap-1.5">
-              <Clerk.Label className="text-xs font-medium uppercase tracking-wide text-[var(--editorial-muted)]">
-                {t.auth.fields.verificationCode}
-              </Clerk.Label>
-              <Clerk.Input
-                type="otp"
-                className="flex justify-center gap-2"
-                render={({ value, status }) => (
-                  <div
-                    data-status={status}
-                    className={`flex h-12 w-10 items-center justify-center border text-lg font-medium ${
-                      status === "cursor" || status === "selected"
-                        ? "border-[var(--editorial-sage)] bg-white text-[var(--editorial-ink)]"
-                        : "border-[var(--editorial-border)] bg-white text-[var(--editorial-ink)]"
-                    }`}
-                  >
-                    {value}
-                  </div>
-                )}
-              />
-              <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
-            </Clerk.Field>
+            <SignIn.SupportedStrategy
+              name="reset_password_email_code"
+              asChild
+            >
+              <button
+                type="button"
+                className="mt-2 inline-flex h-11 items-center justify-center bg-[var(--editorial-terracotta)] px-4 text-sm font-semibold text-white transition hover:opacity-90 disabled:opacity-50"
+              >
+                {t.auth.actions.sendCode}
+              </button>
+            </SignIn.SupportedStrategy>
 
+            <SignIn.Action
+              navigate="previous"
+              className="justify-self-start text-xs text-[var(--editorial-muted)] underline underline-offset-2 hover:text-[var(--editorial-ink)]"
+            >
+              {t.auth.actions.backToSignIn}
+            </SignIn.Action>
+
+            <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
+          </div>
+        </div>
+      </SignIn.Step>
+
+      <SignIn.Step name="reset-password">
+        <div className="grid gap-4">
+          <div className="grid gap-1">
+            <h2 className="font-serif text-xl text-[var(--editorial-ink)]">
+              {t.auth.passwordReset.step2Title}
+            </h2>
+            <p className="text-xs text-[var(--editorial-muted)]">
+              {t.auth.passwordReset.step2Body}
+            </p>
+          </div>
+
+          <div className="grid gap-4">
             <Clerk.Field name="password" className="grid gap-1.5">
               <Clerk.Label className="text-xs font-medium uppercase tracking-wide text-[var(--editorial-muted)]">
                 {t.auth.fields.newPassword}
@@ -148,18 +187,17 @@ export function PasswordResetFlow({ onBack }: PasswordResetFlowProps) {
               </Clerk.Loading>
             </SignIn.Action>
 
-            <button
-              type="button"
-              onClick={onBack}
+            <SignIn.Action
+              navigate="start"
               className="justify-self-start text-xs text-[var(--editorial-muted)] underline underline-offset-2 hover:text-[var(--editorial-ink)]"
             >
               {t.auth.actions.backToSignIn}
-            </button>
+            </SignIn.Action>
 
             <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
           </div>
-        </SignIn.Strategy>
+        </div>
       </SignIn.Step>
-    </SignIn.Root>
+    </>
   );
 }
