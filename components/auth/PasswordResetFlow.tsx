@@ -16,7 +16,7 @@ export function PasswordResetFlow({ onBack }: PasswordResetFlowProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <SignIn.Root>
+    <SignIn.Root path="/giris" routing="virtual">
       {/* Step 1: email entry */}
       <SignIn.Step name="forgot-password">
         <div className="grid gap-4">
