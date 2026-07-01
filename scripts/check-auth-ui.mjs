@@ -58,30 +58,30 @@ for (const file of [
 }
 
 const signInForm = read("components/auth/SignInForm.tsx");
-mustContain(signInForm, 'routing="virtual"', "components/auth/SignInForm.tsx");
-mustContain(signInForm, 'path="/giris"', "components/auth/SignInForm.tsx");
-mustContain(signInForm, '<SignIn.Step name="start">', "components/auth/SignInForm.tsx");
-mustContain(signInForm, 'name="identifier"', "components/auth/SignInForm.tsx");
-mustContain(signInForm, 'name="password"', "components/auth/SignInForm.tsx");
+mustMatch(signInForm, /\brouting=["']virtual["']/, "components/auth/SignInForm.tsx", 'routing="virtual"');
+mustMatch(signInForm, /\bpath=["']\/giris["']/, "components/auth/SignInForm.tsx", 'path="/giris"');
+mustMatch(signInForm, /<SignIn\.Step\b[^>]*\bname=["']start["'][^>]*>/, "components/auth/SignInForm.tsx", '<SignIn.Step name="start">');
+mustMatch(signInForm, /\bname=["']identifier["']/, "components/auth/SignInForm.tsx", 'name="identifier"');
+mustMatch(signInForm, /\bname=["']password["']/, "components/auth/SignInForm.tsx", 'name="password"');
 mustNotContain(signInForm, "OAuthButtons", "components/auth/SignInForm.tsx");
 
 const signUpForm = read("components/auth/SignUpForm.tsx");
 mustContain(signUpForm, 'import * as Clerk from "@clerk/elements/common"', "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, 'import * as SignUp from "@clerk/elements/sign-up"', "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "<SignUp.Root", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, 'routing="virtual"', "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, 'path="/giris"', "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, '<SignUp.Step name="start">', "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, '<SignUp.Step name="verifications">', "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, '<SignUp.Strategy name="email_code">', "components/auth/SignUpForm.tsx");
+mustMatch(signUpForm, /\brouting=["']virtual["']/, "components/auth/SignUpForm.tsx", 'routing="virtual"');
+mustMatch(signUpForm, /\bpath=["']\/giris["']/, "components/auth/SignUpForm.tsx", 'path="/giris"');
+mustMatch(signUpForm, /<SignUp\.Step\b[^>]*\bname=["']start["'][^>]*>/, "components/auth/SignUpForm.tsx", '<SignUp.Step name="start">');
+mustMatch(signUpForm, /<SignUp\.Step\b[^>]*\bname=["']verifications["'][^>]*>/, "components/auth/SignUpForm.tsx", '<SignUp.Step name="verifications">');
+mustMatch(signUpForm, /<SignUp\.Strategy\b[^>]*\bname=["']email_code["'][^>]*>/, "components/auth/SignUpForm.tsx", '<SignUp.Strategy name="email_code">');
 mustContain(signUpForm, "SignUp.Captcha", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "SignUp.Action", "components/auth/SignUpForm.tsx");
 mustMatch(signUpForm, /<SignUp\.Action\b[^>]*\bresend\b[^>]*>/, "components/auth/SignUpForm.tsx", "<SignUp.Action ... resend>");
 mustContain(signUpForm, "fallback={({ resendableAfter })", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, 'name="emailAddress"', "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, 'name="password"', "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, 'name="code"', "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, 'name="legalAccepted"', "components/auth/SignUpForm.tsx");
+mustMatch(signUpForm, /\bname=["']emailAddress["']/, "components/auth/SignUpForm.tsx", 'name="emailAddress"');
+mustMatch(signUpForm, /\bname=["']password["']/, "components/auth/SignUpForm.tsx", 'name="password"');
+mustMatch(signUpForm, /\bname=["']code["']/, "components/auth/SignUpForm.tsx", 'name="code"');
+mustMatch(signUpForm, /\bname=["']legalAccepted["']/, "components/auth/SignUpForm.tsx", 'name="legalAccepted"');
 mustNotContain(signUpForm, "useSignUp", "components/auth/SignUpForm.tsx");
 mustNotContain(signUpForm, "signUp.create", "components/auth/SignUpForm.tsx");
 mustNotContain(signUpForm, "prepareVerification", "components/auth/SignUpForm.tsx");
@@ -94,11 +94,11 @@ mustNotContain(signUpForm, "firstName", "components/auth/SignUpForm.tsx");
 mustNotContain(signUpForm, "lastName", "components/auth/SignUpForm.tsx");
 
 const passwordReset = read("components/auth/PasswordResetFlow.tsx");
-mustContain(passwordReset, 'routing="virtual"', "components/auth/PasswordResetFlow.tsx");
-mustContain(passwordReset, 'path="/giris"', "components/auth/PasswordResetFlow.tsx");
-mustContain(passwordReset, '<SignIn.Step name="forgot-password">', "components/auth/PasswordResetFlow.tsx");
-mustContain(passwordReset, '<SignIn.Step name="reset-password">', "components/auth/PasswordResetFlow.tsx");
-mustContain(passwordReset, '<SignIn.Strategy name="reset_password_email_code">', "components/auth/PasswordResetFlow.tsx");
+mustMatch(passwordReset, /\brouting=["']virtual["']/, "components/auth/PasswordResetFlow.tsx", 'routing="virtual"');
+mustMatch(passwordReset, /\bpath=["']\/giris["']/, "components/auth/PasswordResetFlow.tsx", 'path="/giris"');
+mustMatch(passwordReset, /<SignIn\.Step\b[^>]*\bname=["']forgot-password["'][^>]*>/, "components/auth/PasswordResetFlow.tsx", '<SignIn.Step name="forgot-password">');
+mustMatch(passwordReset, /<SignIn\.Step\b[^>]*\bname=["']reset-password["'][^>]*>/, "components/auth/PasswordResetFlow.tsx", '<SignIn.Step name="reset-password">');
+mustMatch(passwordReset, /<SignIn\.Strategy\b[^>]*\bname=["']reset_password_email_code["'][^>]*>/, "components/auth/PasswordResetFlow.tsx", '<SignIn.Strategy name="reset_password_email_code">');
 
 if (existsSync(resolve(process.cwd(), "components/auth/VerificationStep.tsx"))) {
   failures.push("components/auth/VerificationStep.tsx should be removed; sign-up verification belongs in SignUpForm.tsx");
