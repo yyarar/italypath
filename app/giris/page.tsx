@@ -11,7 +11,11 @@ import { SignUpForm } from "@/components/auth/SignUpForm";
 import { PasswordResetFlow } from "@/components/auth/PasswordResetFlow";
 
 function isSafeRelativeRedirect(value: string) {
-  return value.startsWith("/") && !value.startsWith("//");
+  return (
+    value.startsWith("/") &&
+    !value.startsWith("//") &&
+    !value.includes("\\")
+  );
 }
 
 function GirisInner() {
@@ -52,7 +56,7 @@ function GirisInner() {
           active={tab}
           onChange={setTab}
           signInContent={<SignInForm onForgotPassword={() => setMode("reset")} />}
-          signUpContent={<SignUpForm />}
+          signUpContent={<SignUpForm onSwitchToSignIn={() => setTab("signIn")} />}
         />
       </AuthCard>
     </AuthShell>
