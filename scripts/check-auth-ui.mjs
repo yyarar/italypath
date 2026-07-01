@@ -24,6 +24,12 @@ function mustNotContain(content, needle, label) {
   }
 }
 
+function mustMatch(content, pattern, label, description) {
+  if (!pattern.test(content)) {
+    failures.push(`${label}: missing ${description}`);
+  }
+}
+
 const pageSource = read("app/giris/page.tsx");
 mustContain(pageSource, "AuthShell", "app/giris/page.tsx");
 mustContain(pageSource, "AuthCard", "app/giris/page.tsx");
@@ -70,7 +76,7 @@ mustContain(signUpForm, '<SignUp.Step name="verifications">', "components/auth/S
 mustContain(signUpForm, '<SignUp.Strategy name="email_code">', "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "SignUp.Captcha", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "SignUp.Action", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, "resend", "components/auth/SignUpForm.tsx");
+mustMatch(signUpForm, /<SignUp\.Action[\s\S]*?\bresend\b/, "components/auth/SignUpForm.tsx", "SignUp.Action resend prop");
 mustContain(signUpForm, "fallback={({ resendableAfter })", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, 'name="emailAddress"', "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, 'name="password"', "components/auth/SignUpForm.tsx");
@@ -122,7 +128,7 @@ for (const path of [
   "app/hub/page.tsx",
 ]) {
   const content = read(path);
-  if (content.includes('\"/sign-in?redirect_url')) {
+  if (content.includes("/sign-in?redirect_url")) {
     failures.push(`${path}: still contains legacy "/sign-in?redirect_url" reference`);
   }
 }
