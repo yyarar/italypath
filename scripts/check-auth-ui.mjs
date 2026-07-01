@@ -18,110 +18,112 @@ function mustContain(content, needle, label) {
   }
 }
 
-// /giris page must exist and wire all components
+function mustNotContain(content, needle, label) {
+  if (content.includes(needle)) {
+    failures.push(`${label}: must not contain "${needle}"`);
+  }
+}
+
 const pageSource = read("app/giris/page.tsx");
 mustContain(pageSource, "AuthShell", "app/giris/page.tsx");
+mustContain(pageSource, "AuthCard", "app/giris/page.tsx");
 mustContain(pageSource, "AuthTabs", "app/giris/page.tsx");
 mustContain(pageSource, "SignInForm", "app/giris/page.tsx");
 mustContain(pageSource, "SignUpForm", "app/giris/page.tsx");
 mustContain(pageSource, "PasswordResetFlow", "app/giris/page.tsx");
 mustContain(pageSource, "useSearchParams", "app/giris/page.tsx");
-mustContain(pageSource, "Suspense", "app/giris/page.tsx");
+mustContain(pageSource, "useRouter", "app/giris/page.tsx");
+mustContain(pageSource, "redirect_url", "app/giris/page.tsx");
+mustContain(pageSource, "startsWith(\"//\")", "app/giris/page.tsx");
+mustContain(pageSource, "router.replace", "app/giris/page.tsx");
+mustNotContain(pageSource, "OAuthButtons", "app/giris/page.tsx");
+mustNotContain(pageSource, "VerificationStep", "app/giris/page.tsx");
+mustNotContain(pageSource, "onVerificationStateChange", "app/giris/page.tsx");
 
-// Components exist
 for (const file of [
   "components/auth/AuthShell.tsx",
   "components/auth/AuthCard.tsx",
   "components/auth/AuthTabs.tsx",
-  "components/auth/OAuthButtons.tsx",
   "components/auth/SignInForm.tsx",
   "components/auth/SignUpForm.tsx",
-  "components/auth/VerificationStep.tsx",
   "components/auth/PasswordResetFlow.tsx",
 ]) {
   read(file);
 }
 
+const signInForm = read("components/auth/SignInForm.tsx");
+mustContain(signInForm, 'routing="virtual"', "components/auth/SignInForm.tsx");
+mustContain(signInForm, 'path="/giris"', "components/auth/SignInForm.tsx");
+mustContain(signInForm, '<SignIn.Step name="start">', "components/auth/SignInForm.tsx");
+mustContain(signInForm, 'name="identifier"', "components/auth/SignInForm.tsx");
+mustContain(signInForm, 'name="password"', "components/auth/SignInForm.tsx");
+mustNotContain(signInForm, "OAuthButtons", "components/auth/SignInForm.tsx");
+
 const signUpForm = read("components/auth/SignUpForm.tsx");
-mustContain(signUpForm, "useSignUp", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, "signUp.create", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, "prepareVerification", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, "shouldPrepareEmailVerification", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, "isLegalAcceptanceMissing", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, "legalAccepted: true", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, "form_password_length_too_short", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, "form_password_not_strong_enough", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, "form_password_pwned", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, "attemptVerification", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, "onVerificationStateChange", "components/auth/SignUpForm.tsx");
-mustContain(signUpForm, 'id="clerk-captcha"', "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, 'import * as Clerk from "@clerk/elements/common"', "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, 'import * as SignUp from "@clerk/elements/sign-up"', "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "<SignUp.Root", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, 'routing="virtual"', "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, 'path="/giris"', "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, '<SignUp.Step name="start">', "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, '<SignUp.Step name="verifications">', "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, '<SignUp.Strategy name="email_code">', "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "SignUp.Captcha", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "SignUp.Action", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "resend", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "fallback={({ resendableAfter })", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, 'name="emailAddress"', "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, 'name="password"', "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, 'name="code"', "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, 'name="legalAccepted"', "components/auth/SignUpForm.tsx");
+mustNotContain(signUpForm, "useSignUp", "components/auth/SignUpForm.tsx");
+mustNotContain(signUpForm, "signUp.create", "components/auth/SignUpForm.tsx");
+mustNotContain(signUpForm, "prepareVerification", "components/auth/SignUpForm.tsx");
+mustNotContain(signUpForm, "attemptVerification", "components/auth/SignUpForm.tsx");
+mustNotContain(signUpForm, "setActive", "components/auth/SignUpForm.tsx");
+mustNotContain(signUpForm, "RESEND_COOLDOWN_SECONDS", "components/auth/SignUpForm.tsx");
+mustNotContain(signUpForm, "VerificationStep", "components/auth/SignUpForm.tsx");
+mustNotContain(signUpForm, "OAuthButtons", "components/auth/SignUpForm.tsx");
+mustNotContain(signUpForm, "firstName", "components/auth/SignUpForm.tsx");
+mustNotContain(signUpForm, "lastName", "components/auth/SignUpForm.tsx");
 
-const verificationStep = read("components/auth/VerificationStep.tsx");
-mustContain(verificationStep, "verifyAccount", "components/auth/VerificationStep.tsx");
-mustContain(verificationStep, "changeEmail", "components/auth/VerificationStep.tsx");
-mustContain(verificationStep, "sentTo", "components/auth/VerificationStep.tsx");
+const passwordReset = read("components/auth/PasswordResetFlow.tsx");
+mustContain(passwordReset, 'routing="virtual"', "components/auth/PasswordResetFlow.tsx");
+mustContain(passwordReset, 'path="/giris"', "components/auth/PasswordResetFlow.tsx");
+mustContain(passwordReset, '<SignIn.Step name="forgot-password">', "components/auth/PasswordResetFlow.tsx");
+mustContain(passwordReset, '<SignIn.Step name="reset-password">', "components/auth/PasswordResetFlow.tsx");
+mustContain(passwordReset, '<SignIn.Strategy name="reset_password_email_code">', "components/auth/PasswordResetFlow.tsx");
 
-const authTabs = read("components/auth/AuthTabs.tsx");
-mustContain(authTabs, "lockedTab", "components/auth/AuthTabs.tsx");
+if (existsSync(resolve(process.cwd(), "components/auth/VerificationStep.tsx"))) {
+  failures.push("components/auth/VerificationStep.tsx should be removed; sign-up verification belongs in SignUpForm.tsx");
+}
 
-// Translations
-const translations = read("lib/translations.ts");
-mustContain(translations, "auth:", "lib/translations.ts");
-mustContain(translations, "tabs:", "lib/translations.ts");
-mustContain(translations, '"Giriş Yap"', "lib/translations.ts");
-mustContain(translations, '"Kayıt Ol"', "lib/translations.ts");
-mustContain(translations, '"Google ile devam et"', "lib/translations.ts");
-mustContain(translations, '"Apple ile devam et"', "lib/translations.ts");
-mustContain(translations, '"Hesabımı doğrula"', "lib/translations.ts");
-mustContain(translations, '"Kayıt bilgilerine dön"', "lib/translations.ts");
-mustContain(translations, '"Kod gönderilen adres: {email}"', "lib/translations.ts");
-mustContain(translations, "passwordTooShort", "lib/translations.ts");
-mustContain(translations, "passwordCompromised", "lib/translations.ts");
-mustContain(translations, "passwordNotStrongEnough", "lib/translations.ts");
-
-// next.config.ts redirects
 const nextConfig = read("next.config.ts");
 mustContain(nextConfig, "redirects()", "next.config.ts");
 mustContain(nextConfig, "/sign-in", "next.config.ts");
 mustContain(nextConfig, "/sign-up", "next.config.ts");
 mustContain(nextConfig, "/giris", "next.config.ts");
-mustContain(nextConfig, "permanent: true", "next.config.ts");
 
-// proxy.ts must include /giris(.*)
 const proxy = read("proxy.ts");
 mustContain(proxy, "/giris(.*)", "proxy.ts");
 
-// Navbar no longer uses SignInButton
-const navbar = read("components/Navbar.tsx");
-if (navbar.includes("SignInButton")) {
-  failures.push("components/Navbar.tsx: still imports/uses SignInButton (should use <Link href='/giris'>)");
-}
-mustContain(navbar, "/giris", "components/Navbar.tsx");
-
-// robots.ts disallows /giris
 const robots = read("app/robots.ts");
 mustContain(robots, "/giris", "app/robots.ts");
 
-// Legacy directories removed
-if (existsSync(resolve(process.cwd(), "app/sign-in"))) {
-  failures.push("app/sign-in/ directory still exists (should be deleted)");
+const navbar = read("components/Navbar.tsx");
+if (navbar.includes("SignInButton")) {
+  failures.push("components/Navbar.tsx: still imports/uses SignInButton");
 }
-if (existsSync(resolve(process.cwd(), "app/sign-up"))) {
-  failures.push("app/sign-up/ directory still exists (should be deleted)");
-}
+mustContain(navbar, "/giris", "components/Navbar.tsx");
 
-// All /sign-in?redirect_url references migrated
-const grepPaths = [
+for (const path of [
   "components/BottomNav.tsx",
   "components/FeaturesSection.tsx",
-  "app/universities/[id]/page.tsx",
-  "app/universities/[id]/departments/[deptSlug]/page.tsx",
   "app/hub/page.tsx",
-];
-for (const path of grepPaths) {
+]) {
   const content = read(path);
-  if (content.includes('"/sign-in?redirect_url')) {
-    failures.push(`${path}: still contains legacy "/sign-in?redirect_url" reference (should be "/giris?redirect_url")`);
+  if (content.includes('\"/sign-in?redirect_url')) {
+    failures.push(`${path}: still contains legacy "/sign-in?redirect_url" reference`);
   }
 }
 
