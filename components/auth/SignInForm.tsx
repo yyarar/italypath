@@ -6,7 +6,6 @@ import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { OAuthButtons } from "./OAuthButtons";
 
 interface SignInFormProps {
   onForgotPassword: () => void;
@@ -17,10 +16,8 @@ export function SignInForm({ onForgotPassword }: SignInFormProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <SignIn.Root>
+    <SignIn.Root path="/giris" routing="virtual">
       <SignIn.Step name="start">
-        <OAuthButtons />
-
         <div className="grid gap-4">
           <Clerk.Field name="identifier" className="grid gap-1.5">
             <Clerk.Label className="text-xs font-medium uppercase tracking-wide text-[var(--editorial-muted)]">
@@ -54,8 +51,8 @@ export function SignInForm({ onForgotPassword }: SignInFormProps) {
                     ? t.auth.fields.hidePassword
                     : t.auth.fields.showPassword
                 }
-                onClick={() => setShowPassword((v) => !v)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 inline-flex h-7 w-7 items-center justify-center text-[var(--editorial-muted)] hover:text-[var(--editorial-ink)]"
+                onClick={() => setShowPassword((value) => !value)}
+                className="absolute right-2 top-1/2 inline-flex h-7 w-7 -translate-y-1/2 items-center justify-center text-[var(--editorial-muted)] hover:text-[var(--editorial-ink)]"
               >
                 {showPassword ? (
                   <EyeOff className="h-4 w-4" />
