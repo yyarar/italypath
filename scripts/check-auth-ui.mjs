@@ -49,6 +49,9 @@ mustContain(signUpForm, "prepareVerification", "components/auth/SignUpForm.tsx")
 mustContain(signUpForm, "shouldPrepareEmailVerification", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "isLegalAcceptanceMissing", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "legalAccepted: true", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "form_password_length_too_short", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "form_password_not_strong_enough", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "form_password_pwned", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "attemptVerification", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, "onVerificationStateChange", "components/auth/SignUpForm.tsx");
 mustContain(signUpForm, 'id="clerk-captcha"', "components/auth/SignUpForm.tsx");
@@ -72,6 +75,9 @@ mustContain(translations, '"Apple ile devam et"', "lib/translations.ts");
 mustContain(translations, '"Hesabımı doğrula"', "lib/translations.ts");
 mustContain(translations, '"Kayıt bilgilerine dön"', "lib/translations.ts");
 mustContain(translations, '"Kod gönderilen adres: {email}"', "lib/translations.ts");
+mustContain(translations, "passwordTooShort", "lib/translations.ts");
+mustContain(translations, "passwordCompromised", "lib/translations.ts");
+mustContain(translations, "passwordNotStrongEnough", "lib/translations.ts");
 
 // next.config.ts redirects
 const nextConfig = read("next.config.ts");

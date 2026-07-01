@@ -64,6 +64,10 @@ function getErrorParamName(error: ClerkErrorLike | null) {
   return typeof paramName === "string" ? paramName : "";
 }
 
+function getClerkErrorText(error: ClerkErrorLike | null) {
+  return error?.longMessage || error?.message || "";
+}
+
 function shouldPrepareEmailVerification(signUpAttempt: EmailVerificationState) {
   const emailVerification = signUpAttempt.verifications?.emailAddress;
 
@@ -143,8 +147,30 @@ export function SignUpForm({
       return t.auth.errors.emailExists;
     }
 
+    if (error.code === "form_password_length_too_short") {
+      return t.auth.errors.passwordTooShort;
+    }
+
+    if (
+      error.code === "form_password_pwned" ||
+      error.code === "form_password_compromised"
+    ) {
+      return t.auth.errors.passwordCompromised;
+    }
+
+    if (error.code === "form_password_not_strong_enough") {
+      return t.auth.errors.passwordNotStrongEnough;
+    }
+
+    if (
+      error.code === "form_password_validation_failed" ||
+      error.code === "form_password_size_in_bytes_exceeded"
+    ) {
+      return t.auth.errors.passwordInvalid;
+    }
+
     if (error.code?.includes("password")) {
-      return t.auth.errors.weakPassword;
+      return getClerkErrorText(error) || t.auth.errors.passwordInvalid;
     }
 
     if (error.code?.includes("code") || error.code?.includes("verification")) {

@@ -589,7 +589,13 @@ export const translations = {
         oauthFailed: "Giriş başarısız oldu. Tekrar dene veya başka bir yöntemle giriş yap.",
         invalidCode: "Kod hatalı veya süresi doldu.",
         codeExpired: "Kodun süresi doldu, yeni kod isteyebilirsin.",
-        weakPassword: "Şifre çok zayıf. En az 8 karakter olmalı.",
+        weakPassword: "Şifre güvenlik kurallarını karşılamıyor.",
+        passwordTooShort: "Şifre en az 8 karakter olmalı.",
+        passwordCompromised:
+          "Bu şifre çok yaygın veya daha önce veri ihlallerinde görülmüş. Daha benzersiz bir şifre seç.",
+        passwordNotStrongEnough:
+          "Bu şifre kolay tahmin edilebilir. Büyük/küçük harf, sayı ve özel karakter karışımıyla daha güçlü bir şifre seç.",
+        passwordInvalid: "Şifre güvenlik kurallarını karşılamıyor. Daha güçlü ve benzersiz bir şifre dene.",
         generic: "Bir şeyler ters gitti, tekrar dener misin?",
       },
       legal: {
@@ -1189,7 +1195,14 @@ export const translations = {
         oauthFailed: "Sign-in failed. Try again or use another method.",
         invalidCode: "Code is wrong or expired.",
         codeExpired: "The code has expired. Request a new one.",
-        weakPassword: "Password too weak. Must be at least 8 characters.",
+        weakPassword: "Password does not meet the security requirements.",
+        passwordTooShort: "Password must be at least 8 characters.",
+        passwordCompromised:
+          "This password is too common or has appeared in a data breach. Choose a more unique password.",
+        passwordNotStrongEnough:
+          "This password is easy to guess. Use a stronger mix of uppercase, lowercase, numbers, and symbols.",
+        passwordInvalid:
+          "Password does not meet the security requirements. Try a stronger, more unique password.",
         generic: "Something went wrong, please try again.",
       },
       legal: {
