@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur. Degisiklik gecmisi icin `AGENT_COMMITS.md`, son audit notlari icin `AGENT_CONTEXT_FIX_REPORT.md` okunabilir; bu dosya ise guncel mimari ve calisma kurallarinin kaynak dokumanidir.
 
-Son guncelleme: 2026-06-27
+Son guncelleme: 2026-07-02
 
 ---
 
@@ -50,6 +50,7 @@ italypath-main/
 │   │   ├── universities/route.ts   # force-dynamic, no-store, Supabase-backed public API
 │   │   └── chat/route.ts           # Protected Gemini streaming endpoint
 │   ├── giris/page.tsx              # Tek sayfa giris+kayit (Clerk Elements); /sign-in ve /sign-up next.config redirects
+│   ├── hosgeldin/page.tsx          # Protected 4 adimli onboarding sihirbazi
 │   ├── ai-mentor/page.tsx          # Protected consultation desks UI
 │   ├── universities/
 │   │   ├── layout.tsx              # /universities SEO metadata
@@ -70,7 +71,7 @@ italypath-main/
 │   │   └── page.tsx                # Server wrapper -> components/isee/IseeCalculatorClient.tsx
 │   ├── favorites/page.tsx
 │   ├── documents/page.tsx
-│   └── hub/page.tsx
+│   └── hub/page.tsx                # Protected profil bazli oneri merkezi
 ├── components/
 │   ├── Navbar.tsx
 │   ├── HomePageClient.tsx          # Home client leaf; Navbar/Hero/sections/Footer composition
@@ -92,8 +93,9 @@ italypath-main/
 │   ├── mentor/                     # Mentor hub/chat room/topbar/entry/locked notice
 │   ├── legal/                      # LegalDocument.tsx (yasal belge sunum bileseni)
 │   ├── auth/                       # /giris parcalari: AuthShell, AuthCard, AuthTabs, OAuthButtons, SignInForm, SignUpForm, VerificationStep, PasswordResetFlow
-│   ├── hub/                        # Dossier components
-│   └── ui/                         # Small reusable UI/motion helpers; bento-grid/scroll velocity are legacy unless imported
+│   ├── onboarding/                 # /hosgeldin wizard kartlari, progress ve finale
+│   ├── hub/                        # Profil seridi, program/burs/sehir oneri bloklari, kompakt kartlar
+│   └── ui/                         # Small reusable UI/motion helpers; scroll velocity legacy unless imported
 ├── context/LanguageContext.tsx
 ├── lib/
 │   ├── supabaseClient.ts           # Browser anon client + Clerk JWT client helper
@@ -109,7 +111,7 @@ italypath-main/
 │   ├── community-links.ts
 │   ├── legal/documents.ts          # Yasal sayfa metinleri (TR) + footer/sitemap linkleri
 │   ├── deadlines/targets.ts         # Deadline scrape hedefleri (universite + admission URL)
-│   ├── hub/
+│   ├── hub/                        # profile.ts, useUserProfile.ts, recommendations.ts, useDocumentsCount.ts
 │   ├── mentor/channels.ts
 │   └── scholarships/regions.ts
 ├── types/
@@ -120,6 +122,7 @@ italypath-main/
 ├── scripts/
 │   ├── check-route-access.mjs
 │   ├── check-auth-ui.mjs            # /giris ve auth migration butunlugu smoke check
+│   ├── check-hub-onboarding.mjs     # /hosgeldin + yeni hub smoke/kapsama check
 │   ├── check-cities-data.mjs
 │   ├── check-program-details.mjs
 │   ├── check-deadlines.mjs
@@ -135,7 +138,8 @@ italypath-main/
 │   └── clean-med-data.mjs
 ├── supabase/
 │   ├── rls_hardening.sql
-│   └── program_admission_details.sql
+│   ├── program_admission_details.sql
+│   └── user_profiles.sql
 ├── docs/
 │   ├── CAMPAIGN_PLAN_LAUNCH.md
 │   ├── LAUNCH_STRATEGY_INSTAGRAM_TIKTOK.md
@@ -288,6 +292,7 @@ Protected ornekler:
 - `/ai-mentor`
 - `/documents`
 - `/favorites`
+- `/hosgeldin`
 - `/hub`
 - `/api/chat`
 - `/profile`
@@ -309,7 +314,7 @@ Navbar artik signed-out durumda **modal acmaz**; `<Link href="/giris">` ile tam 
 - E-posta yolu: Kayit'ta Ad + Soyad + E-posta + Sifre; Giris'te E-posta + Sifre; her ikisi de Sifre goster/gizle toggle'i ile
 - E-posta dogrulama: 6 haneli OTP, otomatik submit, Clerk'in native `resendableAfter` ile geri sayim
 - "Sifremi unuttum": 2 adimli (e-posta -> kod + yeni sifre); inline akis, ayri sayfa degil
-- Yonlendirme: `?redirect_url=...` varsa oraya, yoksa `/hub`'a (ClerkProvider `signInFallbackRedirectUrl="/hub"` / `signUpFallbackRedirectUrl="/hub"`)
+- Yonlendirme: `?redirect_url=...` varsa oraya; yoksa sign-in `/hub`'a, sign-up `/hosgeldin`'e gider (ClerkProvider `signInFallbackRedirectUrl="/hub"` / `signUpFallbackRedirectUrl="/hosgeldin"`)
 - Eski URL'ler: `/sign-in` ve `/sign-up` `next.config.ts` `redirects()` ile 308 yonlendirilir; sorgu parametreleri korunur
 
 Bilesenler `components/auth/` altinda:
@@ -440,19 +445,40 @@ Risk: Supabase department sayisi buyudukce chat system prompt'u da buyur. Latenc
 
 ### Hub
 
-`/hub` protected editorial "calisma dosyasi" deneyimidir. Ana component `app/hub/page.tsx`, gorsel parcalar `components/hub/*`.
+`/hub` protected editorial "akilli oneri merkezi" deneyimidir. Ana component `app/hub/page.tsx`, gorsel parcalar `components/hub/*`.
 
 Veri kaynaklari:
 
 - Clerk user profile
 - `useFavorites`
-- `useUniversitiesData`
+- `useUniversitiesData` (`/api/universities`; `app/data.ts` seed'ine donme yok)
+- Supabase `user_profiles` (`lib/hub/useUserProfile.ts`)
 - Supabase `user_documents` count (`lib/hub/useDocumentsCount.ts`)
-- localStorage `italyPathStage`
 - localStorage `italyPathUniversitiesViewMode`
 - forward-compat `italyPathLastMentorDesk`
 
-Yeni Supabase tablosu yoktur.
+`/hosgeldin` protected 4 adimli onboarding sihirbazidir. Kayit sonrasi fallback hedefi burasidir; "Simdilik gec" kullaniciyi `/hub`'a yollar. Profil dolu kullanici bu sayfayi tekrar actiginda cevaplarini duzenler.
+
+Profil modeli:
+
+- `lib/hub/profile.ts`: level/field/budget/city enum'lari, `UserProfile`, bos profil guard'i
+- `types/index.ts`: explicit `UserProfileRow` interface'i
+- Supabase tablo setup'i: `supabase/user_profiles.sql` (`user_id` Clerk id primary key, RLS `requesting_user_id()`)
+
+Oneri motoru:
+
+- `lib/hub/recommendations.ts` saf fonksiyonlardan olusur; AI cagrisi yoktur
+- `matchPrograms(profile, universities)`: seviye sert filtre, alan sert filtre, sehir bonus, admissionDetails bonus, zayif sonuc guard'i
+- `pickScholarshipRegion(matches)`: en iyi eslesme sehirlerinden bolge burs kaydi secer
+- `pickCities(matches, cityPref)`: curated sehir rehberlerinden 2-3 kart secer
+
+Yeni Hub layout'u profil varsa: `DossierTopStrip` -> `ProfileStrip` -> `RecommendationHero` -> `ProgramMatchList` -> `ScholarshipBlock` -> `CityPicksBlock` -> kompakt favori/belge kartlari -> `PreferencesStrip` -> `AccountFooter`.
+
+Profil yoksa onerilerin yerinde `ProfileInviteCard` gosterilir; kompakt favori/belge kartlari ve footer yine kalir. Dort sorunun hepsi bossa kullanici profilsiz sayilir; en az bir cevap varsa guard'li oneriler uretilir.
+
+Emekli edilenler: `StageStrip`, `DossierHero`, Hub `BentoGrid`, `KisaListeCell`, `BelgeCell`, `BursNotuCell`, `ToplulukNotuCell`, `lib/hub/stages.ts`, `lib/hub/useHubStage.ts`. `italyPathStage` localStorage anahtari artik okunmaz; `/hub` ilk yuklemede sessizce siler.
+
+Dogrulama: `npm run check:hub-onboarding` ve `npm run check:university-data-source`.
 
 ### Cities
 
@@ -524,6 +550,7 @@ Kodun bekledigi ana tablolar:
 
 - `favorites`: Clerk user id + university id favorileri
 - `user_documents`: belge metadata'si ve storage path
+- `user_profiles`: onboarding cevaplari ve hub oneri profili
 - `universities`: university base rows
 - `university_departments`: program rows, languages/duration/level/sort
 - `program_admission_details`: program admission metadata ve source/uncertainty modeli
@@ -532,6 +559,7 @@ SQL/runbook dosyalari:
 
 - `supabase/rls_hardening.sql`: favorites, user_documents ve storage RLS hardening
 - `supabase/program_admission_details.sql`: program admission details tablo/policy/grant setup
+- `supabase/user_profiles.sql`: onboarding profil tablo/policy/grant setup
 - `SUPABASE_SECURITY_RUNBOOK.md`: Clerk + Supabase operasyon rehberi
 
 Gercek production schema dashboard'dan dogrulanmalidir.
@@ -563,6 +591,7 @@ npm run build
 npm run lint
 npm run check:routes
 npm run check:auth-ui
+npm run check:hub-onboarding
 npm run check:cities
 npm run check:program-details
 npm run check:deadlines
@@ -603,7 +632,7 @@ node scripts/check-universities-server-compose.mjs
 ### Repo hijyeni
 
 1. Research/import artifact klasorleri (`output/*`, `*-admission-requirements/`, scrape JSON/PNG ciktilari) repoya commitlenmis ve son birlesmeyle hacmi buyumus durumda; dis storage'a mi yoksa `.gitignore`'a mi alinacagi netlestirilmeli.
-2. Legacy UI dosyalari (`components/ui/bento-grid.tsx`, `components/ui/scroll-based-velocity.tsx`) aktif import edilmiyorsa silinmeli veya "kullanma" diye isaretlenmeli.
+2. Legacy UI dosyalari (`components/ui/scroll-based-velocity.tsx` gibi) aktif import edilmiyorsa silinmeli veya "kullanma" diye isaretlenmeli.
 3. `.DS_Store`, `.swp`, editor artifact'leri repo'ya girmemeli.
 
 ---
