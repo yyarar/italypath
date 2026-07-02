@@ -38,7 +38,10 @@ const PROGRAM_LANGUAGES = new Set<ProgramLanguage>(["en", "it"]);
 const PROGRAM_LEVELS = new Set<ProgramLevel>(["bachelor", "master", "single-cycle"]);
 const PROGRAM_DURATIONS = new Set<ProgramDurationYears>([1, 2, 3, 4, 5, 6]);
 
+// Not: cachedUniversities.data tum istekler arasinda PAYLASILIR; caller'lar bu
+// listeyi/objeleri yerinde mutate etmemeli (sort/push gerekiyorsa once kopyala).
 let cachedUniversities: { data: University[]; expiresAt: number } | null = null;
+let inFlightRefresh: Promise<University[]> | null = null;
 
 function createReadOnlySupabaseClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -320,29 +323,48 @@ export function composeUniversitiesFromSupabaseRows(
 }
 
 export async function getUniversitiesData(): Promise<University[]> {
-  const now = Date.now();
-  if (cachedUniversities && cachedUniversities.expiresAt > now) {
+  if (cachedUniversities && cachedUniversities.expiresAt > Date.now()) {
     return cachedUniversities.data;
   }
 
+  // Single-flight: es zamanli cache miss'lerde tek compose calisir, digerleri
+  // ayni sonucu bekler (crawler salvolari 5 ayri Supabase cekisi yapmasin).
+  if (!inFlightRefresh) {
+    const refresh = (async () => {
+      const [universityRows, departmentRows, admissionDetailRows] = await Promise.all([
+        fetchUniversityRows(),
+        fetchUniversityDepartmentRows(),
+        fetchProgramAdmissionDetailRows(),
+      ]);
+      const universities = composeUniversitiesFromSupabaseRows(
+        universityRows,
+        departmentRows,
+        admissionDetailRows
+      );
+
+      cachedUniversities = {
+        data: universities,
+        expiresAt: Date.now() + SERVER_CACHE_TTL_MS,
+      };
+
+      return universities;
+    })();
+
+    inFlightRefresh = refresh;
+    refresh
+      .catch(() => {
+        // Rejection her caller'in kendi await'inde ele alinir; bu zincir sadece
+        // unhandled-rejection uyarisini engeller.
+      })
+      .finally(() => {
+        if (inFlightRefresh === refresh) {
+          inFlightRefresh = null;
+        }
+      });
+  }
+
   try {
-    const [universityRows, departmentRows, admissionDetailRows] = await Promise.all([
-      fetchUniversityRows(),
-      fetchUniversityDepartmentRows(),
-      fetchProgramAdmissionDetailRows(),
-    ]);
-    const universities = composeUniversitiesFromSupabaseRows(
-      universityRows,
-      departmentRows,
-      admissionDetailRows
-    );
-
-    cachedUniversities = {
-      data: universities,
-      expiresAt: now + SERVER_CACHE_TTL_MS,
-    };
-
-    return universities;
+    return await inFlightRefresh;
   } catch (error) {
     if (cachedUniversities) {
       console.error("University fetch failed; serving stale cached data:", error);
