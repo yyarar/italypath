@@ -31,6 +31,7 @@ export function useUserProfile(): {
 } {
   const { user, isLoaded } = useUser();
   const { getToken } = useAuth();
+  const userId = user?.id;
   const [profile, setProfile] = useState<UserProfile>(EMPTY_PROFILE);
   const [loading, setLoading] = useState(true);
   const [unavailable, setUnavailable] = useState(false);
@@ -52,7 +53,7 @@ export function useUserProfile(): {
     let isActive = true;
 
     async function load() {
-      if (!user?.id) {
+      if (!userId) {
         if (!isActive) return;
         setProfile(EMPTY_PROFILE);
         setLoading(false);
@@ -66,7 +67,7 @@ export function useUserProfile(): {
       const { data, error } = await supabase
         .from("user_profiles")
         .select("user_id, level, fields, budget, city_pref")
-        .eq("user_id", user.id)
+        .eq("user_id", userId)
         .maybeSingle();
 
       if (!isActive) return;
@@ -85,18 +86,18 @@ export function useUserProfile(): {
     return () => {
       isActive = false;
     };
-  }, [supabase, user?.id, isLoaded]);
+  }, [supabase, userId, isLoaded]);
 
   const saveProfile = useCallback(
     async (next: UserProfile): Promise<boolean> => {
-      if (!user?.id) return false;
+      if (!userId) return false;
 
       const previous = profile;
       setProfile(next);
 
       const { error } = await supabase.from("user_profiles").upsert(
         {
-          user_id: user.id,
+          user_id: userId,
           level: next.level,
           fields: next.fields,
           budget: next.budget,
@@ -113,7 +114,7 @@ export function useUserProfile(): {
       }
       return true;
     },
-    [profile, supabase, user?.id],
+    [profile, supabase, userId],
   );
 
   return { profile, loading, unavailable, saveProfile };
