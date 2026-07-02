@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useAuth, useUser } from "@clerk/nextjs";
 import { createClerkSupabaseClient } from "@/lib/supabaseClient";
-import { advanceStageIfBefore } from "@/lib/hub/useHubStage";
 import {
   DOCUMENT_CATEGORY_ORDER,
   resolveCategoryKey,
@@ -108,7 +107,6 @@ export function useUserDocuments(): UseUserDocuments {
         });
         if (dbError) throw dbError;
         rowCreated = true;
-        advanceStageIfBefore("documents");
         await fetchDocs();
       } catch (err) {
         if (inStorage && !rowCreated) {
