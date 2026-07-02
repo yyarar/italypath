@@ -102,10 +102,11 @@ Hedef:
 
 ### 3.3 Dosya yapısı
 
-- `app/hosgeldin/page.tsx` — client page (SEO gereksiz, korumalı sayfa).
-- `components/onboarding/` — `WizardShell.tsx` (paper zemin + wordmark + ilerleme +
-  "Şimdilik geç"), `WizardStep.tsx` / soru bileşenleri, `WizardOptionCard.tsx`,
-  `WizardFinale.tsx` ("Dosyan hazırlanıyor" geçişi).
+- `app/hosgeldin/page.tsx` — client page (SEO gereksiz, korumalı sayfa); kabuk
+  (paper zemin + wordmark + "Şimdilik geç") ve adım durumu sayfanın içindedir.
+- `components/onboarding/` — `WizardProgress.tsx` (adım göstergesi),
+  `WizardOptionCard.tsx` (seçenek kartı), `WizardFinale.tsx`
+  ("Dosyan hazırlanıyor" geçişi).
 - Metinler `lib/translations.ts` → `onboarding.*` namespace, TR/EN paralel.
 - Tasarım dili: mevcut editorial sistem (paper/sage/terracotta, serif başlık, keskin
   border, `--editorial-*` CSS değişkenleri). Gradient/sparkle yok. Mobil öncelikli.
@@ -162,8 +163,9 @@ Saf, test edilebilir fonksiyonlar; veri `useUniversitiesData()` üzerinden gelir
   - Şehir tercihi **bonus**tur, eleme değildir ("farketmez" ve zayıf sonuç durumları
     için).
   - Çıktı: skor sıralı `{ university, department, reasons }` listesi.
-- `pickScholarships(matches, budget)`: en iyi eşleşmelerin şehirlerini
-  `lib/scholarships/regions.ts` bölgelerine eşler; 1 bölge kartı döner.
+- `pickScholarshipRegion(matches)`: en iyi eşleşmelerin şehirlerini
+  `lib/scholarships/regions.ts` bölgelerine eşler; 1 bölge kaydı döner. Bütçe
+  cevabına göre blok görünürlüğü (tam boy / kompakt) UI katmanında uygulanır.
 - `pickCities(matches, cityPref)`: curated şehir rehberlerinden 2-3 kart;
   önce eşleşme şehirleri, sonra grup üyeleri.
 - **Zayıf sonuç guard'ı**: eşleşme < 3 ise kademeli gevşet: önce alan eşleşmesi
