@@ -336,7 +336,7 @@ export const translations = {
       signedOutDesc: "Hesabına giriş yaparak kişisel merkezine erişebilirsin.",
       signInCta: "Giriş Yap ve Devam Et",
       loading: "Hub yükleniyor...",
-      topStripEyebrow: "ITALYPATH · ÇALIŞMA DOSYASI",
+      topStripEyebrow: "ÇALIŞMA DOSYAN",
       profileStrip: {
         edit: "Düzenle",
         complete: "Tamamla",
@@ -1044,7 +1044,7 @@ export const translations = {
       signedOutDesc: "Sign in to access your personal hub.",
       signInCta: "Sign In to Continue",
       loading: "Loading hub...",
-      topStripEyebrow: "ITALYPATH · STUDY DOSSIER",
+      topStripEyebrow: "STUDY DOSSIER",
       profileStrip: {
         edit: "Edit",
         complete: "Complete",
