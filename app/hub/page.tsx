@@ -1,39 +1,105 @@
 "use client";
 
+import { useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useAuth, useUser } from "@clerk/nextjs";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FolderOpen, Heart } from "lucide-react";
 
+import AccountFooter from "@/components/hub/AccountFooter";
+import CityPicksBlock from "@/components/hub/CityPicksBlock";
+import CompactStatCard from "@/components/hub/CompactStatCard";
+import DossierTopStrip from "@/components/hub/DossierTopStrip";
+import PreferencesStrip from "@/components/hub/PreferencesStrip";
+import ProfileInviteCard from "@/components/hub/ProfileInviteCard";
+import ProfileStrip from "@/components/hub/ProfileStrip";
+import ProgramMatchList from "@/components/hub/ProgramMatchList";
+import RecommendationHero from "@/components/hub/RecommendationHero";
+import ScholarshipBlock from "@/components/hub/ScholarshipBlock";
 import { useLanguage } from "@/context/LanguageContext";
+import { isProfileEmpty } from "@/lib/hub/profile";
+import {
+  matchPrograms,
+  pickCities,
+  pickScholarshipRegion,
+} from "@/lib/hub/recommendations";
+import { useDocumentsCount } from "@/lib/hub/useDocumentsCount";
+import { useUserProfile } from "@/lib/hub/useUserProfile";
 import { useFavorites } from "@/lib/useFavorites";
 import { useUniversitiesData } from "@/lib/useUniversitiesData";
-import { useHubStage } from "@/lib/hub/useHubStage";
-import { useDocumentsCount } from "@/lib/hub/useDocumentsCount";
-
-import DossierTopStrip from "@/components/hub/DossierTopStrip";
-import DossierHero from "@/components/hub/DossierHero";
-import StageStrip from "@/components/hub/StageStrip";
-import BentoGrid from "@/components/hub/BentoGrid";
-import KisaListeCell from "@/components/hub/KisaListeCell";
-import BelgeCell from "@/components/hub/BelgeCell";
-import BursNotuCell from "@/components/hub/BursNotuCell";
-import ToplulukNotuCell from "@/components/hub/ToplulukNotuCell";
-import PreferencesStrip from "@/components/hub/PreferencesStrip";
-import AccountFooter from "@/components/hub/AccountFooter";
 
 export default function HubPage() {
   const { t } = useLanguage();
   const { isLoaded: userLoaded } = useUser();
   const { isSignedIn } = useAuth();
   const { favorites, loading: favoritesLoading } = useFavorites();
-  const { count: documentsCount, loading: documentsCountLoading, unavailable: documentsUnavailable } = useDocumentsCount();
-  const { stage } = useHubStage();
-  const { universities, loading: universitiesLoading } = useUniversitiesData();
+  const {
+    count: documentsCount,
+    loading: documentsCountLoading,
+    unavailable: documentsUnavailable,
+  } = useDocumentsCount();
+  const {
+    profile,
+    loading: profileLoading,
+    unavailable: profileUnavailable,
+  } = useUserProfile();
+  const {
+    universities,
+    loading: universitiesLoading,
+    error: universitiesErrorMessage,
+  } = useUniversitiesData();
 
-  // useFavorites returns number[]; KisaListeCell expects readonly string[]
-  const favoritesAsStrings: readonly string[] = favorites.map(String);
+  useEffect(() => {
+    try {
+      window.localStorage.removeItem("italyPathStage");
+    } catch {
+      /* ignore */
+    }
+  }, []);
 
-  const loading = !userLoaded || favoritesLoading || documentsCountLoading || universitiesLoading;
+  const universitiesError =
+    Boolean(universitiesErrorMessage) ||
+    (!universitiesLoading && universities.length === 0);
+  const hasProfile = !profileUnavailable && !isProfileEmpty(profile);
+
+  const recommendation = useMemo(
+    () =>
+      hasProfile && !universitiesError
+        ? matchPrograms(profile, universities)
+        : null,
+    [hasProfile, profile, universities, universitiesError],
+  );
+  const scholarshipRegion = useMemo(
+    () => (recommendation ? pickScholarshipRegion(recommendation.matches) : null),
+    [recommendation],
+  );
+  const cityPicks = useMemo(
+    () =>
+      recommendation ? pickCities(recommendation.matches, profile.cityPref) : [],
+    [recommendation, profile.cityPref],
+  );
+
+  const lede = useMemo(() => {
+    if (!hasProfile) return "";
+    const parts: string[] = [];
+    for (const field of profile.fields) {
+      parts.push(t.onboarding.steps.fields.options[field]);
+    }
+    if (profile.level) parts.push(t.onboarding.steps.level.options[profile.level]);
+    if (profile.cityPref && profile.cityPref !== "any") {
+      parts.push(t.onboarding.steps.city.options[profile.cityPref]);
+    }
+    if (profile.budget && parts.length === 0) {
+      parts.push(t.onboarding.steps.budget.options[profile.budget]);
+    }
+    return parts.join(" · ");
+  }, [hasProfile, profile, t]);
+
+  const loading =
+    !userLoaded ||
+    favoritesLoading ||
+    documentsCountLoading ||
+    profileLoading ||
+    universitiesLoading;
 
   if (loading) {
     return (
@@ -42,12 +108,8 @@ export default function HubPage() {
           <div className="h-10 bg-[var(--editorial-surface)] shimmer" />
           <div className="h-24 bg-[var(--editorial-surface)] shimmer" />
           <div className="h-32 bg-[var(--editorial-surface)] shimmer" />
-          <div className="grid grid-cols-1 gap-0 sm:grid-cols-2">
-            <div className="h-60 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] shimmer" />
-            <div className="h-60 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] shimmer" />
-            <div className="h-60 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] shimmer" />
-            <div className="h-60 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] shimmer" />
-          </div>
+          <div className="h-32 bg-[var(--editorial-surface)] shimmer" />
+          <div className="h-32 bg-[var(--editorial-surface)] shimmer" />
           <p className="text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--editorial-muted)]">
             {t.hub.loading}
           </p>
@@ -85,22 +147,63 @@ export default function HubPage() {
     <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
       <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
         <DossierTopStrip />
-        <DossierHero
-          stage={stage}
-          favoritesCount={favorites.length}
-          documentsCount={documentsCount}
-          documentsUnavailable={documentsUnavailable}
-        />
-        <StageStrip />
-        <BentoGrid>
-          <KisaListeCell favorites={favoritesAsStrings} universities={universities} />
-          <BelgeCell
-            documentsCount={documentsCount}
-            documentsUnavailable={documentsUnavailable}
+
+        {hasProfile ? (
+          <>
+            <ProfileStrip profile={profile} />
+            {universitiesError || !recommendation ? (
+              <div className="mt-8 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-6">
+                <p className="text-sm text-[var(--editorial-muted)]">
+                  {t.hub.loadError}
+                </p>
+              </div>
+            ) : (
+              <>
+                <RecommendationHero
+                  count={recommendation.matches.length}
+                  lede={lede}
+                  relaxed={recommendation.relaxed !== "none"}
+                />
+                <ProgramMatchList matches={recommendation.matches} />
+                <ScholarshipBlock
+                  region={scholarshipRegion}
+                  budget={profile.budget}
+                />
+                <CityPicksBlock cities={cityPicks} />
+              </>
+            )}
+          </>
+        ) : (
+          <ProfileInviteCard />
+        )}
+
+        <div className="mt-10 grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <CompactStatCard
+            href="/favorites"
+            label={t.hub.compact.shortlist}
+            value={t.hub.compact.shortlistUnit.replace(
+              "{count}",
+              String(favorites.length),
+            )}
+            icon={Heart}
+            iconClassName="text-[var(--editorial-terracotta)]"
           />
-          <BursNotuCell />
-          <ToplulukNotuCell />
-        </BentoGrid>
+          <CompactStatCard
+            href="/documents"
+            label={t.hub.compact.documents}
+            value={
+              documentsUnavailable
+                ? "—"
+                : t.hub.compact.documentsUnit.replace(
+                    "{count}",
+                    String(documentsCount),
+                  )
+            }
+            icon={FolderOpen}
+            iconClassName="text-[var(--editorial-sage)]"
+          />
+        </div>
+
         <PreferencesStrip />
         <AccountFooter />
       </main>

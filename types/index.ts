@@ -65,3 +65,13 @@ export interface SupabaseUniversityRow {
   features_en: string[] | null;
   sort_order: number | null;
 }
+
+export interface UserProfileRow {
+  user_id: string;
+  level: string | null;
+  fields: string[] | null;
+  budget: string | null;
+  city_pref: string | null;
+  created_at?: string;
+  updated_at?: string;
+}

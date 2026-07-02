@@ -22,6 +22,7 @@
     "check:editorial-ui": "node scripts/check-editorial-ui.mjs",
     "check:documents-ui": "node scripts/check-documents-ui.mjs",
     "check:auth-ui": "node scripts/check-auth-ui.mjs",
+    "check:hub-onboarding": "node scripts/check-hub-onboarding.mjs",
     "check:auth-production": "node scripts/check-auth-production-redirects.mjs",
     "clean:med": "node --no-warnings scripts/clean-med-data.mjs"
   },

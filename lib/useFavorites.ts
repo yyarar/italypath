@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useAuth, useUser } from '@clerk/nextjs';
 import { createClerkSupabaseClient } from '@/lib/supabaseClient';
-import { advanceStageIfBefore } from "@/lib/hub/useHubStage";
 
 /**
  * Birleşik Favori Hook'u
@@ -105,10 +104,6 @@ export function useFavorites() {
                 ? favorites.filter((id) => id !== universityId)
                 : [...favorites, universityId];
             setFavorites(newFavorites);
-
-            if (!alreadyFavorite) {
-                advanceStageIfBefore("shortlist");
-            }
 
             if (user) {
                 // Supabase'e yaz

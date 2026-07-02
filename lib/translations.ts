@@ -260,6 +260,62 @@ export const translations = {
         categoriesHint: "Kimlik · Akademik · Dil · Mektuplar · Mali · Diğer",
       },
     },
+    onboarding: {
+      skip: "Şimdilik geç",
+      back: "Geri",
+      next: "Devam et",
+      finish: "Dosyamı hazırla",
+      stepLabel: "Adım {current} / {total}",
+      saveError: "Cevapların kaydedilemedi. Tekrar dener misin?",
+      retry: "Tekrar dene",
+      steps: {
+        level: {
+          title: "Hangi seviyede okumak istiyorsun?",
+          subtitle: "Önerileri bu seviyeye göre süzeceğiz.",
+          options: {
+            bachelor: "Lisans",
+            master: "Yüksek lisans",
+          },
+        },
+        fields: {
+          title: "Hangi alan seni çekiyor?",
+          subtitle: "En fazla iki alan seçebilirsin.",
+          options: {
+            "engineering-tech": "Mühendislik ve teknoloji",
+            "medicine-health": "Tıp ve sağlık",
+            "business-economics": "İşletme ve ekonomi",
+            "design-architecture": "Tasarım ve mimarlık",
+            "natural-sciences": "Fen bilimleri",
+            "social-humanities": "Sosyal ve beşeri bilimler",
+            "arts-fashion": "Sanat ve moda",
+            "law-politics": "Hukuk ve siyaset",
+          },
+        },
+        budget: {
+          title: "Eğitim bütçen için hangisi sana yakın?",
+          subtitle: "Burs ve ISEE önerilerini buna göre ayarlayacağız.",
+          options: {
+            "scholarship-required": "Burssuz okuyamam",
+            "support-helpful": "Maddi destek iyi olur",
+            flexible: "Esneğim",
+          },
+        },
+        city: {
+          title: "Nasıl bir şehirde yaşamak istersin?",
+          subtitle: "Şehir ve program önerilerini buna göre sıralayacağız.",
+          options: {
+            "big-city": "Olabildiğince büyük bir şehir",
+            "student-city": "Çok büyük olmasın, öğrenci şehri olsun",
+            any: "Farketmez, program önemli",
+          },
+        },
+      },
+      finale: {
+        eyebrow: "ITALYPATH",
+        title: "Dosyan hazırlanıyor",
+        subtitle: "Profiline uyan programları seçiyoruz.",
+      },
+    },
     bottomNav: {
       home: "Ana Sayfa",
       unis: "Okullar",
@@ -280,99 +336,53 @@ export const translations = {
       signedOutDesc: "Hesabına giriş yaparak kişisel merkezine erişebilirsin.",
       signInCta: "Giriş Yap ve Devam Et",
       loading: "Hub yükleniyor...",
-      topStripEyebrow: "ITALYPATH · ÇALIŞMA DOSYASI",
-      dossierEyebrow: "Senin Başvuru Yolun",
-      dossierHeadline: {
-        discovery: { lead: "Keşfe", italic: "yeni başladın." },
-        shortlist: { lead: "Kısa listeyi", italic: "şekillendiriyorsun." },
-        documents: { lead: "Belge toplama", italic: "aşamasındasın." },
-        application: { lead: "Başvuruları", italic: "gönderiyorsun." },
-        result: { lead: "Sonuçlara", italic: "odaklandın." },
+      topStripEyebrow: "ÇALIŞMA DOSYAN",
+      profileStrip: {
+        edit: "Düzenle",
+        complete: "Tamamla",
       },
-      dossierLede: {
-        newUser:
-          "Henüz yolun başındasın. İlk üniversiteyi favoriler'e ekle, dossier canlansın.",
-        earlyUser:
-          "{favorites} favori üniversite kaydettin. Şimdi ilk belgeni cüzdana ekle, momentum yakala.",
-        midUser:
-          "{favorites} favori · {documents} belge · şu an {stage} aşamasındasın.",
-        closingUser:
-          "{favorites} favori · belgeler tam. Sırada sonuçlar var.",
+      recoHero: {
+        titleStart: "Profiline uyan",
+        titleHighlight: "{count} program",
+        titleEnd: "bulduk.",
+        relaxedNote: "Alanını biraz genişlettik — birebir eşleşme azdı.",
       },
-      stageStripLabel: "01",
-      bentoStripLabel: "02",
+      recoSections: {
+        programs: "Sana özel programlar",
+        seeAll: "Tüm {count} programı gör",
+        collapse: "Daha az göster",
+        scholarship: "Bursun için",
+        cities: "Sana göre şehirler",
+      },
+      scholarshipCards: {
+        regionTitle: "{region} bölge bursu",
+        regionDesc: "Önerilerindeki şehirlerle eşleşen DSU bursu",
+        iseeTitle: "ISEE değerini hesapla",
+        iseeDesc: "Burs başvurusunun ilk adımı — 5 dakika sürer",
+      },
+      compact: {
+        shortlist: "Kısa listem",
+        shortlistUnit: "{count} okul",
+        documents: "Belgelerim",
+        documentsUnit: "{count} belge",
+      },
+      invite: {
+        title: "2 dakikada profilini oluştur",
+        desc: "Dört kısa soruyu cevapla; bu sayfa sana uyan program, burs ve şehir önerileriyle dolsun.",
+        cta: "Profili oluştur",
+        explore: "Ya da keşfetmeye başla:",
+        exploreUniversities: "Üniversiteler",
+        exploreCities: "Şehirler",
+        exploreScholarships: "Burslar",
+      },
+      levelShort: {
+        bachelor: "L",
+        master: "YL",
+        "single-cycle": "TD",
+      },
+      loadError: "Program verisi şu anda yüklenemiyor. Sayfayı yenilemeyi dene.",
+      greeting: "Merhaba, {name}",
       preferencesStripLabel: "03",
-      stages: {
-        discovery: {
-          label: "Keşif",
-          number: "I.",
-          state: { done: "Tamamlandı", active: "Şu an", upcoming: "Sırada" },
-        },
-        shortlist: {
-          label: "Kısa Liste",
-          number: "II.",
-          state: { done: "Tamamlandı", active: "Şu an", upcoming: "Sırada" },
-        },
-        documents: {
-          label: "Belge",
-          number: "III.",
-          state: { done: "Tamamlandı", active: "Şu an", upcoming: "Sırada" },
-        },
-        application: {
-          label: "Başvuru",
-          number: "IV.",
-          state: { done: "Tamamlandı", active: "Şu an", upcoming: "Sırada" },
-        },
-        result: {
-          label: "Sonuç",
-          number: "V.",
-          state: { done: "Tamamlandı", active: "Şu an", upcoming: "Sırada" },
-        },
-      },
-      heroStats: {
-        favorites: { label: "Favori", sub: "olası okuldan" },
-        documents: { label: "Belge", sub: "çekirdek kit" },
-      },
-      bento: {
-        kisaListe: {
-          title: "Kısa Liste",
-          slashTotal: "/ 12",
-          empty: "Henüz favori eklemedin. İlk üniversiteyi seç, dossierin canlansın.",
-          emptyCta: "Üniversiteleri keşfet",
-          cta: "Tüm favoriler",
-        },
-        belge: {
-          title: "Belge Kontrolü",
-          slashTotal: "/ 8",
-          items: [
-            "Pasaport",
-            "Transkript",
-            "Dil belgesi",
-            "Diploma",
-            "Motivasyon",
-            "CV",
-            "Tavsiye",
-            "İSEE",
-          ],
-          empty: "Cüzdanını oluştur. Pasaportla başla.",
-          unavailable: "Belge sayısı şu an alınamadı. Cüzdana git, durumu kontrol et.",
-          cta: "Belge cüzdanı",
-        },
-        burs: {
-          title: "Burs Notu",
-          quote:
-            "Bölgesel kurum, İSEE eşiği ve başvuru takvimi birlikte kontrol edilmeli.",
-          cta: "Burs haritası",
-        },
-        topluluk: {
-          title: "Topluluk Notu",
-          thisWeek: "Bu hafta",
-          body:
-            "Bologna housing ve Sapienza yenilenler kanalları aktif. Politecnico hangouts'a yeni üyeler ekleniyor.",
-          tags: ["Bologna housing", "Sapienza yenilenler", "Politecnico"],
-          cta: "Listeyi gör",
-        },
-      },
       preferences: {
         language: { label: "Dil", toggleLabel: "EN'e Geç" },
         viewMode: { label: "Liste Görünümü" },
@@ -867,6 +877,62 @@ export const translations = {
         categoriesHint: "Identity · Academic · Language · Letters · Financial · Other",
       },
     },
+    onboarding: {
+      skip: "Skip for now",
+      back: "Back",
+      next: "Continue",
+      finish: "Build my dossier",
+      stepLabel: "Step {current} / {total}",
+      saveError: "We couldn't save your answers. Try again?",
+      retry: "Try again",
+      steps: {
+        level: {
+          title: "What level do you want to study at?",
+          subtitle: "We'll filter recommendations by this level.",
+          options: {
+            bachelor: "Bachelor's",
+            master: "Master's",
+          },
+        },
+        fields: {
+          title: "Which field draws you in?",
+          subtitle: "You can pick up to two fields.",
+          options: {
+            "engineering-tech": "Engineering & technology",
+            "medicine-health": "Medicine & health",
+            "business-economics": "Business & economics",
+            "design-architecture": "Design & architecture",
+            "natural-sciences": "Natural sciences",
+            "social-humanities": "Social sciences & humanities",
+            "arts-fashion": "Arts & fashion",
+            "law-politics": "Law & politics",
+          },
+        },
+        budget: {
+          title: "Which best describes your budget?",
+          subtitle: "We'll tailor scholarship and ISEE guidance to this.",
+          options: {
+            "scholarship-required": "I can't study without a scholarship",
+            "support-helpful": "Financial support would help",
+            flexible: "I'm flexible",
+          },
+        },
+        city: {
+          title: "What kind of city do you want to live in?",
+          subtitle: "We'll rank city and program suggestions accordingly.",
+          options: {
+            "big-city": "As big a city as possible",
+            "student-city": "Not too big — a student city",
+            any: "Doesn't matter, the program comes first",
+          },
+        },
+      },
+      finale: {
+        eyebrow: "ITALYPATH",
+        title: "Preparing your dossier",
+        subtitle: "Picking the programs that match your profile.",
+      },
+    },
     bottomNav: {
       home: "Home",
       unis: "Unis",
@@ -887,99 +953,53 @@ export const translations = {
       signedOutDesc: "Sign in to access your personal hub.",
       signInCta: "Sign In to Continue",
       loading: "Loading hub...",
-      topStripEyebrow: "ITALYPATH · STUDY DOSSIER",
-      dossierEyebrow: "Your application journey",
-      dossierHeadline: {
-        discovery: { lead: "Just starting", italic: "to explore." },
-        shortlist: { lead: "Building", italic: "your shortlist." },
-        documents: { lead: "Gathering", italic: "your documents." },
-        application: { lead: "Submitting", italic: "your applications." },
-        result: { lead: "Focused on", italic: "the results." },
+      topStripEyebrow: "STUDY DOSSIER",
+      profileStrip: {
+        edit: "Edit",
+        complete: "Complete",
       },
-      dossierLede: {
-        newUser:
-          "You're just starting out. Save your first university and the dossier will come alive.",
-        earlyUser:
-          "{favorites} favorite saved. Upload your first document to keep momentum.",
-        midUser:
-          "{favorites} favorites · {documents} documents · currently in the {stage} stage.",
-        closingUser:
-          "{favorites} favorites · all documents in. Now waiting on results.",
+      recoHero: {
+        titleStart: "We found",
+        titleHighlight: "{count} programs",
+        titleEnd: "matching your profile.",
+        relaxedNote: "We widened your field a little — exact matches were scarce.",
       },
-      stageStripLabel: "01",
-      bentoStripLabel: "02",
+      recoSections: {
+        programs: "Programs picked for you",
+        seeAll: "See all {count} programs",
+        collapse: "Show fewer",
+        scholarship: "For your scholarship",
+        cities: "Cities that fit you",
+      },
+      scholarshipCards: {
+        regionTitle: "{region} regional scholarship",
+        regionDesc: "DSU scholarship matching your recommended cities",
+        iseeTitle: "Calculate your ISEE",
+        iseeDesc: "The first step of a scholarship application — takes 5 minutes",
+      },
+      compact: {
+        shortlist: "My shortlist",
+        shortlistUnit: "{count} schools",
+        documents: "My documents",
+        documentsUnit: "{count} files",
+      },
+      invite: {
+        title: "Build your profile in 2 minutes",
+        desc: "Answer four short questions and this page fills with programs, scholarships and cities that fit you.",
+        cta: "Build profile",
+        explore: "Or start exploring:",
+        exploreUniversities: "Universities",
+        exploreCities: "Cities",
+        exploreScholarships: "Scholarships",
+      },
+      levelShort: {
+        bachelor: "B",
+        master: "M",
+        "single-cycle": "SC",
+      },
+      loadError: "Program data can't be loaded right now. Try refreshing the page.",
+      greeting: "Hi, {name}",
       preferencesStripLabel: "03",
-      stages: {
-        discovery: {
-          label: "Discovery",
-          number: "I.",
-          state: { done: "Completed", active: "Current", upcoming: "Upcoming" },
-        },
-        shortlist: {
-          label: "Shortlist",
-          number: "II.",
-          state: { done: "Completed", active: "Current", upcoming: "Upcoming" },
-        },
-        documents: {
-          label: "Documents",
-          number: "III.",
-          state: { done: "Completed", active: "Current", upcoming: "Upcoming" },
-        },
-        application: {
-          label: "Application",
-          number: "IV.",
-          state: { done: "Completed", active: "Current", upcoming: "Upcoming" },
-        },
-        result: {
-          label: "Result",
-          number: "V.",
-          state: { done: "Completed", active: "Current", upcoming: "Upcoming" },
-        },
-      },
-      heroStats: {
-        favorites: { label: "Favorites", sub: "of 12 candidates" },
-        documents: { label: "Documents", sub: "core kit" },
-      },
-      bento: {
-        kisaListe: {
-          title: "Shortlist",
-          slashTotal: "/ 12",
-          empty: "No favorites yet. Pick your first — your dossier will fill out.",
-          emptyCta: "Explore universities",
-          cta: "All favorites",
-        },
-        belge: {
-          title: "Document check",
-          slashTotal: "/ 8",
-          items: [
-            "Passport",
-            "Transcript",
-            "Language cert.",
-            "Diploma",
-            "Motivation letter",
-            "CV",
-            "Recommendation",
-            "ISEE",
-          ],
-          empty: "Start your wallet — passport first.",
-          unavailable: "Document count unavailable. Open the wallet to verify.",
-          cta: "Document wallet",
-        },
-        burs: {
-          title: "Scholarship note",
-          quote:
-            "Regional body, ISEE threshold, and application calendar must be checked together.",
-          cta: "Scholarship map",
-        },
-        topluluk: {
-          title: "Community note",
-          thisWeek: "This week",
-          body:
-            "Bologna housing and Sapienza freshers channels are active. Politecnico hangouts is growing.",
-          tags: ["Bologna housing", "Sapienza freshers", "Politecnico"],
-          cta: "Open the list",
-        },
-      },
       preferences: {
         language: { label: "Language", toggleLabel: "Switch to TR" },
         viewMode: { label: "List view" },
