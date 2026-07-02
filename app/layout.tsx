@@ -65,7 +65,7 @@ export default function RootLayout({
       signInUrl="/giris"
       signUpUrl="/giris?mode=kayit"
       signInFallbackRedirectUrl="/hub"
-      signUpFallbackRedirectUrl="/hub"
+      signUpFallbackRedirectUrl="/hosgeldin"
     >
       <html lang="tr" suppressHydrationWarning>
         <body

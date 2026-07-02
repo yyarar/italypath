@@ -27,6 +27,7 @@ const PROTECTED_PAGE_ROUTES = [
   "/ai-mentor",
   "/documents",
   "/favorites",
+  "/hosgeldin",
   "/hub",
   "/profile",
 ];
