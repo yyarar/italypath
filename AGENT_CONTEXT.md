@@ -198,6 +198,13 @@ Son canli API dogrulamasinda (`https://italypath.app/api/universities`, 2026-06-
 - browser fetch icin `cache: "no-store"`
 - client process icinde in-memory cache + request dedupe yapar
 
+`lib/universities.server.ts` (2026-07-02 Supabase egress kota asimi sonrasi):
+
+- `getUniversitiesData()` compose sonucunu **3 saatlik in-memory memo**da tutar (`SERVER_CACHE_TTL_MS`). Tam veri seti ~4.5 MB'dir ve memo'suz her sayfa/crawl compose'u Supabase egress'ini tuketiyordu (ayda 32+ GB, kota %650 asildi).
+- Supabase fetch hata verirse eldeki bayat memo sunulur (stale-on-error); memo yoksa hata firlatilir ve mevcut route-level error davranisi calisir.
+- Her deploy memo'yu sifirlar; yeni program importlari en gec TTL kadar gecikmeyle canliya yansir.
+- `scripts/check-university-data-source.mjs` bu politikayi zorunlu kilar: TTL 1-6 saat araliginda olmali, stale-on-error mevcut olmali. Memo'yu kapatmak (`= 0`) artik fail'dir.
+
 `scripts/check-university-data-source.mjs`, live data surfaces icinde `universitiesData`/`app/data.ts` kullanilmasini yasaklar. `/api/universities`, sitemap, university metadata layout'lari ve chat context `getUniversitiesData()` uzerinden calismalidir.
 
 ---

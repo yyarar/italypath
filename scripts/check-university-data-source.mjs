@@ -67,13 +67,27 @@ if (!universitiesApiRoute.includes("no-store")) {
   fail("app/api/universities/route.ts must mark university API responses as no-store");
 }
 
+// Egress guard (2026-07-02 Supabase kota asimi): server-side memo ZORUNLU.
+// TTL 1-6 saat araliginda tutulur; kapatmak (0) veya asiri uzatmak fail'dir.
 const universitiesServerData = read("lib/universities.server.ts");
-if (/60\s*\*\s*60\s*\*\s*1000/.test(universitiesServerData)) {
-  fail("lib/universities.server.ts must not keep live university data stale for one hour");
+const ttlMatch = universitiesServerData.match(
+  /const SERVER_CACHE_TTL_MS = (\d+) \* 60 \* 60 \* 1000;/
+);
+if (!ttlMatch) {
+  fail(
+    "lib/universities.server.ts must define SERVER_CACHE_TTL_MS as `N * 60 * 60 * 1000` (in-memory egress guard)"
+  );
+} else {
+  const ttlHours = Number(ttlMatch[1]);
+  if (ttlHours < 1 || ttlHours > 6) {
+    fail("lib/universities.server.ts SERVER_CACHE_TTL_MS must stay between 1 and 6 hours");
+  }
 }
 
-if (!universitiesServerData.includes("const SERVER_CACHE_TTL_MS = 0;")) {
-  fail("lib/universities.server.ts must disable the in-memory university data cache");
+if (!universitiesServerData.includes("serving stale cached data")) {
+  fail(
+    "lib/universities.server.ts must serve stale cached data when the Supabase fetch fails"
+  );
 }
 
 if (failures.length > 0) {

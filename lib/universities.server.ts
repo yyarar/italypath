@@ -28,7 +28,11 @@ const PROGRAM_ADMISSION_DETAIL_COLUMNS =
 const UNIVERSITY_PAGE_SIZE = 1000;
 const UNIVERSITY_DEPARTMENT_PAGE_SIZE = 1000;
 const PROGRAM_ADMISSION_DETAIL_PAGE_SIZE = 1000;
-const SERVER_CACHE_TTL_MS = 0;
+// Supabase egress guard (2026-07-02 kota asimi sonrasi): canli veri seti ~4.5 MB
+// ve her compose Supabase'ten tam cekis yapar. 3 saatlik in-memory memo, crawler
+// trafiginin egress maliyetini keser. Veri sadece manuel importlarla degisir ve
+// her deploy memo'yu zaten sifirlar. Client tarafi `no-store` sozlesmesi degismez.
+const SERVER_CACHE_TTL_MS = 3 * 60 * 60 * 1000;
 
 const PROGRAM_LANGUAGES = new Set<ProgramLanguage>(["en", "it"]);
 const PROGRAM_LEVELS = new Set<ProgramLevel>(["bachelor", "master", "single-cycle"]);
@@ -321,23 +325,31 @@ export async function getUniversitiesData(): Promise<University[]> {
     return cachedUniversities.data;
   }
 
-  const [universityRows, departmentRows, admissionDetailRows] = await Promise.all([
-    fetchUniversityRows(),
-    fetchUniversityDepartmentRows(),
-    fetchProgramAdmissionDetailRows(),
-  ]);
-  const universities = composeUniversitiesFromSupabaseRows(
-    universityRows,
-    departmentRows,
-    admissionDetailRows
-  );
+  try {
+    const [universityRows, departmentRows, admissionDetailRows] = await Promise.all([
+      fetchUniversityRows(),
+      fetchUniversityDepartmentRows(),
+      fetchProgramAdmissionDetailRows(),
+    ]);
+    const universities = composeUniversitiesFromSupabaseRows(
+      universityRows,
+      departmentRows,
+      admissionDetailRows
+    );
 
-  cachedUniversities = {
-    data: universities,
-    expiresAt: now + SERVER_CACHE_TTL_MS,
-  };
+    cachedUniversities = {
+      data: universities,
+      expiresAt: now + SERVER_CACHE_TTL_MS,
+    };
 
-  return universities;
+    return universities;
+  } catch (error) {
+    if (cachedUniversities) {
+      console.error("University fetch failed; serving stale cached data:", error);
+      return cachedUniversities.data;
+    }
+    throw error;
+  }
 }
 
 export async function getUniversityById(id: string | number): Promise<University | undefined> {
