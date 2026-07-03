@@ -680,6 +680,7 @@ for (const q of all) {
   if (q.question_type === "mcq") {
     const keys = Object.keys(q.choices ?? {});
     if (keys.sort().join("") !== "ABCD") failures.push(`${q.id}: mcq ama 4 sik yok`);
+    else if (Object.values(q.choices).some((c) => !String(c).trim())) failures.push(`${q.id}: bos sik metni`);
   } else if (q.question_type === "spr") {
     if (q.choices) failures.push(`${q.id}: spr ama choices dolu`);
   } else {
@@ -700,6 +701,14 @@ for (const q of all) {
     failures.push(`${q.id}: spr ama anahtar sayisal degil (${key.answer.join(",")})`);
     continue;
   }
+  // Para isaretleri \$ ile kacisli olmali; kacissiz $ sayisi cift degilse LaTeX bozuk demektir
+  const texts = [q.prompt, ...(q.choices ? Object.values(q.choices) : [])];
+  for (const t of texts) {
+    if (((String(t).replaceAll("\\$", "").match(/\$/g) ?? []).length % 2) !== 0) {
+      failures.push(`${q.id}: dengesiz $ (para icin \\$ kullanilmali)`);
+    }
+  }
+
   if (q.figure && !q.figure_path) warnings.push(`${q.id}: figure var ama kirpilmamis (once crop-figures calistir)`);
   if (q.figure_path && !existsSync(join(OUT_ROOT, q.figure_path))) failures.push(`${q.id}: figure_path dosyasi yok`);
 
@@ -1310,24 +1319,32 @@ import "katex/dist/katex.min.css";
 import { useMemo } from "react";
 
 // prompt/choices metinlerindeki $...$ bolumlerini KaTeX ile render eder.
+// Veri sozlesmesi: para tutarlari `\$` ile kacislidir (or. \$2.00); kacisli
+// dolar metin olarak basilir, ciplak $ ciftleri matematik sinirlayicidir.
 // Metin pipeline'imizdan gelir (guvenilir kaynak); yine de metin kisimlari
 // React text node olarak basilir, yalnizca KaTeX HTML'i dangerouslySetInnerHTML alir.
+const ESCAPED_DOLLAR = " ";
+
 export default function MathText({ text, className }: { text: string; className?: string }) {
-  const segments = useMemo(() => text.split(/(\$[^$]+\$)/g), [text]);
+  const segments = useMemo(
+    () => text.replaceAll("\\$", ESCAPED_DOLLAR).split(/(\$[^$]+\$)/g),
+    [text]
+  );
 
   return (
     <span className={className}>
       {segments.map((segment, index) => {
         if (segment.startsWith("$") && segment.endsWith("$") && segment.length > 2) {
+          const tex = segment.slice(1, -1).replaceAll(ESCAPED_DOLLAR, "\\$");
           let html: string;
           try {
-            html = katex.renderToString(segment.slice(1, -1), { throwOnError: true });
+            html = katex.renderToString(tex, { throwOnError: true });
           } catch {
-            return <span key={index}>{segment.slice(1, -1)}</span>;
+            return <span key={index}>{tex}</span>;
           }
           return <span key={index} dangerouslySetInnerHTML={{ __html: html }} />;
         }
-        return <span key={index}>{segment}</span>;
+        return <span key={index}>{segment.replaceAll(ESCAPED_DOLLAR, "$")}</span>;
       })}
     </span>
   );

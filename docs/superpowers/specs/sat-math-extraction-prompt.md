@@ -34,6 +34,17 @@ Soru listesinin tek doğru kaynağı `tmp/sat-bank/math-manifest.json` dosyasıd
 - `needs_review`: Görüntü bulanık, ifade belirsiz veya LaTeX'e çevrilemeyen
   bir öğe varsa true + `review_note` alanına tek cümle neden.
 
+## Pilot sonrası eklenen kurallar (2026-07-03; toplu işte zorunlu)
+
+- **Para tutarları `\$` ile yazılır** (ör. `\$2.00`, `\$1,576`). Çıplak `$`
+  yalnızca matematik sınırlayıcıdır; para için kullanılırsa render bozulur.
+- **Şıkları görsel olan sorular** (ör. "Which of the following is the graph
+  of ..."): `choices` değerleri `"Graph A"`..`"Graph D"` olur; `figure.bbox`
+  A./B./C./D. etiketleri DAHİL dört görseli birden kapsar (soru metni hariç);
+  bu desen needs_review gerektirmez.
+- **mcq şık metinleri asla boş bırakılmaz** — boş şık, uygulama katmanında
+  sorunun sessizce elenmesine yol açar.
+
 ## Yasaklar
 
 - CEVAP ÜRETME. Doğru cevap anahtardan gelir; senin işin yalnızca soruyu
