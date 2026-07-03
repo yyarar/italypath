@@ -584,7 +584,13 @@ const questionsDir = join(OUT_ROOT, "math-questions");
 const problems = [];
 let cropped = 0;
 
+// Istege bagli argv filtresi: dosya adlari verilirse yalnizca onlari isler.
+// Paralel extraction surerken cakismayi onlemek icin kullanilir:
+//   node scripts/sat/crop-figures.mjs linear-functions-1.json percentages-3.json
+const only = new Set(process.argv.slice(2));
+
 for (const file of readdirSync(questionsDir).filter((f) => f.endsWith(".json"))) {
+  if (only.size > 0 && !only.has(file)) continue;
   const questions = readJson(join(questionsDir, file));
   let changed = false;
 
@@ -653,7 +659,9 @@ const failures = [];
 const warnings = [];
 
 const { answers, missingKeys } = readJson(join(OUT_ROOT, "answers.json"));
-const rw = readJson(join(OUT_ROOT, "rw-questions.json")).questions;
+// RW cikarma ertelendi (Kerem 2026-07-03); dosya yoksa bos kabul et
+const rwPath = join(OUT_ROOT, "rw-questions.json");
+const rw = existsSync(rwPath) ? readJson(rwPath).questions : [];
 const mathManifest = readJson(join(OUT_ROOT, "math-manifest.json")).manifest;
 
 const mathDir = join(OUT_ROOT, "math-questions");
