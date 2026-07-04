@@ -20,6 +20,7 @@ export default function Navbar() {
     { href: "/scholarships", label: language === "tr" ? "Burslar" : "Scholarships" },
     { href: "/communities", label: t.navbar.communities },
     ...(isSignedIn ? [{ href: "/hub", label: t.navbar.hub }] : []),
+    ...(isSignedIn ? [{ href: "/sat", label: t.navbar.sat }] : []),
     { href: aiMentorHref, label: t.navbar.mentor },
   ];
 
@@ -113,6 +114,12 @@ export default function Navbar() {
                 className="border border-[var(--editorial-border)] px-3 py-1.5 text-[11px] font-semibold text-[var(--editorial-ink)]"
               >
                 {t.navbar.hub}
+              </Link>
+              <Link
+                href="/sat"
+                className="border border-[var(--editorial-border)] px-3 py-1.5 text-[11px] font-semibold text-[var(--editorial-ink)]"
+              >
+                {t.navbar.sat}
               </Link>
               <UserButton afterSignOutUrl="/" />
             </SignedIn>

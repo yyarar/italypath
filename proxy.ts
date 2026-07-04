@@ -30,6 +30,7 @@ const PROTECTED_PAGE_ROUTES = [
   "/hosgeldin",
   "/hub",
   "/profile",
+  "/sat",
 ];
 
 function isProtectedPageRoute(pathname: string) {

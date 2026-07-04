@@ -3,7 +3,7 @@
 import { useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useAuth, useUser } from "@clerk/nextjs";
-import { ArrowRight, FolderOpen, Heart } from "lucide-react";
+import { ArrowRight, BookOpen, FolderOpen, Heart } from "lucide-react";
 
 import AccountFooter from "@/components/hub/AccountFooter";
 import CityPicksBlock from "@/components/hub/CityPicksBlock";
@@ -177,7 +177,7 @@ export default function HubPage() {
           <ProfileInviteCard />
         )}
 
-        <div className="mt-10 grid grid-cols-1 gap-2 sm:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-2 sm:grid-cols-3">
           <CompactStatCard
             href="/favorites"
             label={t.hub.compact.shortlist}
@@ -201,6 +201,13 @@ export default function HubPage() {
             }
             icon={FolderOpen}
             iconClassName="text-[var(--editorial-sage)]"
+          />
+          <CompactStatCard
+            href="/sat"
+            label={t.sat.title}
+            value={t.sat.subtitle}
+            icon={BookOpen}
+            iconClassName="text-[var(--editorial-terracotta)]"
           />
         </div>
 
