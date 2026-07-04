@@ -14,6 +14,13 @@ interface TopicRowProps {
 export default function TopicRow({ topic, solvedCount, correctCount, wrongCount, onSelect }: TopicRowProps) {
   const { t } = useLanguage();
   const started = solvedCount > 0;
+  const remaining = Math.max(topic.questionCount - solvedCount, 0);
+  const actionLabel =
+    solvedCount === 0
+      ? t.sat.startTopic
+      : remaining > 0
+        ? `${t.sat.continueTopic} · ${remaining} ${t.sat.remainingLabel}`
+        : t.sat.topicCompletedLabel;
 
   return (
     <button
@@ -30,7 +37,7 @@ export default function TopicRow({ topic, solvedCount, correctCount, wrongCount,
         </p>
       </div>
       <span className="shrink-0 border-b border-[var(--editorial-sage)] pb-px text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--editorial-sage)]">
-        {started ? t.sat.continueTopic : t.sat.startTopic}
+        {actionLabel}
       </span>
     </button>
   );

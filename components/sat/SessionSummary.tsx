@@ -5,21 +5,38 @@ import { useLanguage } from "@/context/LanguageContext";
 interface SessionSummaryProps {
   total: number;
   correct: number;
+  overallCorrect?: number;
+  overallSolved?: number;
   onBack: () => void;
   onRetry: () => void;
 }
 
-export default function SessionSummary({ total, correct, onBack, onRetry }: SessionSummaryProps) {
+export default function SessionSummary({
+  total,
+  correct,
+  overallCorrect,
+  overallSolved,
+  onBack,
+  onRetry,
+}: SessionSummaryProps) {
   const { t } = useLanguage();
+  const showOverallMastery = typeof overallSolved === "number" && overallSolved > 0;
 
   return (
     <section className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-6 text-center">
       <h2 className="mb-2 font-serif text-2xl font-normal text-[var(--editorial-ink)]">
         {t.sat.summaryTitle}
       </h2>
-      <p className="mb-6 text-sm text-[var(--editorial-muted)]">
-        {total} {t.sat.summaryBody} {correct} {t.sat.summaryCorrect}
-      </p>
+      <div className="mb-6 space-y-2 text-sm text-[var(--editorial-muted)]">
+        <p>
+          {total} {t.sat.summaryBody} {correct} {t.sat.summaryCorrect}
+        </p>
+        {showOverallMastery ? (
+          <p>
+            {t.sat.overallMasteryLabel} {overallCorrect ?? 0}/{overallSolved} {t.sat.summaryCorrect}
+          </p>
+        ) : null}
+      </div>
       <div className="flex flex-wrap justify-center gap-3">
         <button
           type="button"

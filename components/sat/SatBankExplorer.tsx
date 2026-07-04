@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 
 import QuestionCard from "@/components/sat/QuestionCard";
 import SessionSummary from "@/components/sat/SessionSummary";
+import TopicCompleted from "@/components/sat/TopicCompleted";
 import TopicRow from "@/components/sat/TopicRow";
 import TopicReportCard from "@/components/sat/TopicReportCard";
 import { useLanguage } from "@/context/LanguageContext";
@@ -15,7 +16,8 @@ type View =
   | { mode: "topics" }
   | { mode: "report" }
   | { mode: "session"; topic: SatTopic; questions: SatQuestion[]; index: number; correctInSession: number }
-  | { mode: "summary"; topic: SatTopic; total: number; correct: number };
+  | { mode: "summary"; topic: SatTopic; total: number; correct: number }
+  | { mode: "completed"; topic: SatTopic; wrongQuestionIds: string[] };
 
 interface TopicProgress {
   topic: SatTopic;
@@ -92,6 +94,27 @@ export default function SatBankExplorer() {
     setSessionError(null);
     try {
       const questions = await fetchSatQuestions(topic.section, topic.skillSlug);
+      const unanswered = questions.filter((question) => !attempts.has(question.id));
+
+      if (unanswered.length > 0) {
+        setView({ mode: "session", topic, questions: unanswered, index: 0, correctInSession: 0 });
+        return;
+      }
+
+      setView({
+        mode: "completed",
+        topic,
+        wrongQuestionIds: topicProgress.get(topicKey(topic))?.wrongQuestionIds ?? [],
+      });
+    } catch {
+      setSessionError(t.sat.loadError);
+    }
+  }
+
+  async function restartTopic(topic: SatTopic) {
+    setSessionError(null);
+    try {
+      const questions = await fetchSatQuestions(topic.section, topic.skillSlug);
       setView({ mode: "session", topic, questions, index: 0, correctInSession: 0 });
     } catch {
       setSessionError(t.sat.loadError);
@@ -146,14 +169,34 @@ export default function SatBankExplorer() {
   }
 
   if (view.mode === "summary") {
+    const overallProgress = topicProgress.get(topicKey(view.topic));
+
     return (
       <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
         <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12">
           <SessionSummary
             total={view.total}
             correct={view.correct}
+            overallCorrect={overallProgress?.correctCount}
+            overallSolved={overallProgress?.solvedCount}
             onBack={() => setView({ mode: "topics" })}
-            onRetry={() => void openTopic(view.topic)}
+            onRetry={() => void restartTopic(view.topic)}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  if (view.mode === "completed") {
+    return (
+      <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
+        <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12">
+          <TopicCompleted
+            topic={view.topic}
+            wrongQuestionIds={view.wrongQuestionIds}
+            onRestart={() => void restartTopic(view.topic)}
+            onOpenMistakes={() => void openMistakes(view.topic, view.wrongQuestionIds)}
+            onBack={() => setView({ mode: "topics" })}
           />
         </div>
       </div>
