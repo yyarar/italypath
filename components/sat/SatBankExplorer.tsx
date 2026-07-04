@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import QuestionCard from "@/components/sat/QuestionCard";
 import SessionSummary from "@/components/sat/SessionSummary";
 import TopicRow from "@/components/sat/TopicRow";
+import TopicReportCard from "@/components/sat/TopicReportCard";
 import { useLanguage } from "@/context/LanguageContext";
 import type { SatQuestion, SatSection, SatTopic } from "@/lib/sat/types";
 import { fetchSatQuestions, useSatTopics } from "@/lib/sat/useSatBank";
@@ -12,6 +13,7 @@ import { useSatAttempts } from "@/lib/sat/useSatAttempts";
 
 type View =
   | { mode: "topics" }
+  | { mode: "report" }
   | { mode: "session"; topic: SatTopic; questions: SatQuestion[]; index: number; correctInSession: number }
   | { mode: "summary"; topic: SatTopic; total: number; correct: number };
 
@@ -73,6 +75,11 @@ export default function SatBankExplorer() {
 
   const mistakeTopics = useMemo(
     () => Array.from(topicProgress.values()).filter((progress) => progress.wrongCount > 0),
+    [topicProgress]
+  );
+
+  const attemptedProgress = useMemo(
+    () => Array.from(topicProgress.values()).filter((progress) => progress.solvedCount > 0),
     [topicProgress]
   );
 
@@ -153,6 +160,18 @@ export default function SatBankExplorer() {
     );
   }
 
+  if (view.mode === "report") {
+    return (
+      <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
+        <TopicReportCard
+          progress={attemptedProgress}
+          onBack={() => setView({ mode: "topics" })}
+          onSelectTopic={(topic) => void openTopic(topic)}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
       <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
@@ -160,9 +179,20 @@ export default function SatBankExplorer() {
           <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
             ITALYPATH
           </p>
-          <h1 className="mt-3 font-serif text-3xl font-normal leading-tight text-[var(--editorial-ink)] sm:text-4xl">
-            {t.sat.title}
-          </h1>
+          <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <h1 className="font-serif text-3xl font-normal leading-tight text-[var(--editorial-ink)] sm:text-4xl">
+              {t.sat.title}
+            </h1>
+            {attemptedProgress.length > 0 ? (
+              <button
+                type="button"
+                onClick={() => setView({ mode: "report" })}
+                className="w-fit border border-[var(--editorial-sage)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-sage)] transition-colors hover:bg-[var(--editorial-sage)] hover:text-white active:translate-y-[1px]"
+              >
+                {t.sat.reportCardButton}
+              </button>
+            ) : null}
+          </div>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--editorial-muted)]">{t.sat.subtitle}</p>
         </header>
 
