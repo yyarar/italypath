@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import QuestionCard from "@/components/sat/QuestionCard";
 import SessionSummary from "@/components/sat/SessionSummary";
@@ -15,6 +15,18 @@ type View =
   | { mode: "session"; topic: SatTopic; questions: SatQuestion[]; index: number; correctInSession: number }
   | { mode: "summary"; topic: SatTopic; total: number; correct: number };
 
+interface TopicProgress {
+  topic: SatTopic;
+  solvedCount: number;
+  correctCount: number;
+  wrongQuestionIds: string[];
+  wrongCount: number;
+}
+
+function topicKey(topic: SatTopic) {
+  return `${topic.section}-${topic.skillSlug}`;
+}
+
 export default function SatBankExplorer() {
   const { t } = useLanguage();
   const { topics, loading, error } = useSatTopics();
@@ -27,10 +39,69 @@ export default function SatBankExplorer() {
     { key: "reading-writing", label: t.sat.rwSection },
   ];
 
+  const topicProgress = useMemo(() => {
+    const progress = new Map<string, TopicProgress>();
+
+    for (const topic of topics) {
+      let solvedCount = 0;
+      let correctCount = 0;
+      const wrongQuestionIds: string[] = [];
+
+      for (const questionId of topic.questionIds) {
+        const attempt = attempts.get(questionId);
+        if (!attempt) continue;
+
+        solvedCount += 1;
+        if (attempt.isCorrect) {
+          correctCount += 1;
+        } else {
+          wrongQuestionIds.push(questionId);
+        }
+      }
+
+      progress.set(topicKey(topic), {
+        topic,
+        solvedCount,
+        correctCount,
+        wrongQuestionIds,
+        wrongCount: wrongQuestionIds.length,
+      });
+    }
+
+    return progress;
+  }, [attempts, topics]);
+
+  const mistakeTopics = useMemo(
+    () => Array.from(topicProgress.values()).filter((progress) => progress.wrongCount > 0),
+    [topicProgress]
+  );
+
+  const totalWrongCount = useMemo(
+    () => mistakeTopics.reduce((total, progress) => total + progress.wrongCount, 0),
+    [mistakeTopics]
+  );
+
   async function openTopic(topic: SatTopic) {
     setSessionError(null);
     try {
       const questions = await fetchSatQuestions(topic.section, topic.skillSlug);
+      setView({ mode: "session", topic, questions, index: 0, correctInSession: 0 });
+    } catch {
+      setSessionError(t.sat.loadError);
+    }
+  }
+
+  async function openMistakes(topic: SatTopic, wrongQuestionIds: string[]) {
+    setSessionError(null);
+    try {
+      const wrongIds = new Set(wrongQuestionIds);
+      const questions = (await fetchSatQuestions(topic.section, topic.skillSlug)).filter((question) =>
+        wrongIds.has(question.id)
+      );
+      if (questions.length === 0) {
+        setSessionError(t.sat.mistakesCleared);
+        return;
+      }
       setView({ mode: "session", topic, questions, index: 0, correctInSession: 0 });
     } catch {
       setSessionError(t.sat.loadError);
@@ -115,6 +186,39 @@ export default function SatBankExplorer() {
           </div>
         ) : null}
 
+        {totalWrongCount > 0 ? (
+          <section className="mb-8">
+            <div className="mb-3 flex items-end justify-between gap-4">
+              <h2 className="font-serif text-2xl font-normal text-[var(--editorial-ink)]">
+                {t.sat.mistakesTitle}
+              </h2>
+              <p className="text-[12px] text-[var(--editorial-muted)]">
+                {t.sat.mistakesTotalPrefix} {totalWrongCount} {t.sat.wrongLabel}
+              </p>
+            </div>
+            <div className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
+              {mistakeTopics.map((progress) => (
+                <button
+                  key={topicKey(progress.topic)}
+                  type="button"
+                  onClick={() => void openMistakes(progress.topic, progress.wrongQuestionIds)}
+                  className="flex w-full items-center justify-between gap-4 border-b border-[var(--editorial-border)] bg-[var(--editorial-surface)] px-4 py-3 text-left transition-colors last:border-b-0 hover:bg-[rgba(216,222,217,0.25)]"
+                >
+                  <div>
+                    <p className="font-serif text-lg text-[var(--editorial-ink)]">{progress.topic.skill}</p>
+                    <p className="mt-1 text-[12px] text-[var(--editorial-muted)]">
+                      {progress.wrongCount} {t.sat.wrongLabel}
+                    </p>
+                  </div>
+                  <span className="shrink-0 border-b border-[var(--editorial-sage)] pb-px text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--editorial-sage)]">
+                    {t.sat.retryMistakes}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
         {sections.map((section) => {
           const sectionTopics = topics.filter((topic) => topic.section === section.key);
           if (sectionTopics.length === 0) return null;
@@ -123,14 +227,14 @@ export default function SatBankExplorer() {
               <h2 className="mb-3 font-serif text-2xl font-normal text-[var(--editorial-ink)]">{section.label}</h2>
               <div className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
                 {sectionTopics.map((topic) => {
-                  const solved = topic.questionIds.filter((id) => attempts.has(id)).length;
-                  const correct = topic.questionIds.filter((id) => attempts.get(id)?.isCorrect).length;
+                  const progress = topicProgress.get(topicKey(topic));
                   return (
                     <TopicRow
                       key={`${topic.section}-${topic.skillSlug}`}
                       topic={topic}
-                      solvedCount={solved}
-                      correctCount={correct}
+                      solvedCount={progress?.solvedCount ?? 0}
+                      correctCount={progress?.correctCount ?? 0}
+                      wrongCount={progress?.wrongCount ?? 0}
                       onSelect={() => void openTopic(topic)}
                     />
                   );

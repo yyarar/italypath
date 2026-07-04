@@ -505,6 +505,8 @@ Server katmani `lib/sat/questions.server.ts`: service role client, 3 saatlik in-
 
 Client yuzeyi `app/sat/page.tsx` ve `components/sat/*` altindadir. `MathText` KaTeX ile `$...$` ifadelerini render eder; `lib/sat/answers.ts` SPR sayi/kesir cevap eslestirmesini yapar. Soru fetch ve attempt yazimi `lib/sat/useSatBank.ts` / `lib/sat/useSatAttempts.ts` hook'larindadir.
 
+Yanlislarim v1 tamamen client-side turetilir: `sat_attempts` son denemesinde `is_correct=false` olan soru id'leri konu satirinda sayilir ve `/sat` topics gorunumunde mevcut soru fetch'i istemcide filtrelenerek tekrar oturumu baslatir; yeni tablo/API/route yoktur.
+
 Pipeline `scripts/sat/` altindadir: mekanik PDF/answer/RW/math slice adimlari, ayri LLM extract runbook'u, validate/import adimlari. Ara ciktular `tmp/sat-bank/` altinda kalir ve commit edilmez. Dogrulama: `npm run check:sat-bank`.
 
 ### Cities

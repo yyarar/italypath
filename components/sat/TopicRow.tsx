@@ -7,10 +7,11 @@ interface TopicRowProps {
   topic: SatTopic;
   solvedCount: number;
   correctCount: number;
+  wrongCount: number;
   onSelect: () => void;
 }
 
-export default function TopicRow({ topic, solvedCount, correctCount, onSelect }: TopicRowProps) {
+export default function TopicRow({ topic, solvedCount, correctCount, wrongCount, onSelect }: TopicRowProps) {
   const { t } = useLanguage();
   const started = solvedCount > 0;
 
@@ -25,6 +26,7 @@ export default function TopicRow({ topic, solvedCount, correctCount, onSelect }:
         <p className="mt-1 text-[12px] text-[var(--editorial-muted)]">
           {topic.questionCount} {t.sat.questionsLabel}
           {started ? ` · ${solvedCount} ${t.sat.solvedLabel} · ${correctCount} ${t.sat.correctLabel}` : ""}
+          {wrongCount > 0 ? ` · ${wrongCount} ${t.sat.wrongLabel}` : ""}
         </p>
       </div>
       <span className="shrink-0 border-b border-[var(--editorial-sage)] pb-px text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--editorial-sage)]">
