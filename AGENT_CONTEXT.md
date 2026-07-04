@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur. Degisiklik gecmisi icin `AGENT_COMMITS.md`, son audit notlari icin `AGENT_CONTEXT_FIX_REPORT.md` okunabilir; bu dosya ise guncel mimari ve calisma kurallarinin kaynak dokumanidir.
 
-Son guncelleme: 2026-07-02
+Son guncelleme: 2026-07-04
 
 ---
 
@@ -48,6 +48,7 @@ italypath-main/
 │   ├── data.ts                     # Local seed + paylasilan University/Department/Program tipleri
 │   ├── api/
 │   │   ├── universities/route.ts   # force-dynamic, no-store, Supabase-backed public API
+│   │   ├── sat/questions/route.ts  # Protected SAT question API; service-role-backed, no-store
 │   │   └── chat/route.ts           # Protected Gemini streaming endpoint
 │   ├── giris/page.tsx              # Tek sayfa giris+kayit (Clerk Elements); /sign-in ve /sign-up next.config redirects
 │   ├── hosgeldin/page.tsx          # Protected 4 adimli onboarding sihirbazi
@@ -71,7 +72,8 @@ italypath-main/
 │   │   └── page.tsx                # Server wrapper -> components/isee/IseeCalculatorClient.tsx
 │   ├── favorites/page.tsx
 │   ├── documents/page.tsx
-│   └── hub/page.tsx                # Protected profil bazli oneri merkezi
+│   ├── hub/page.tsx                # Protected profil bazli oneri merkezi
+│   └── sat/page.tsx                # Protected SAT soru bankasi client deneyimi
 ├── components/
 │   ├── Navbar.tsx
 │   ├── HomePageClient.tsx          # Home client leaf; Navbar/Hero/sections/Footer composition
@@ -88,6 +90,7 @@ italypath-main/
 │   ├── cities/CityGuidesExplorer.tsx
 │   ├── communities/CommunityAtlas.tsx
 │   ├── scholarships/ScholarshipsExplorer.tsx
+│   ├── sat/                        # SAT konu listesi, soru karti, KaTeX MathText, oturum ozeti
 │   ├── universities/              # Server-safe rows + UniversitiesExplorer client leaf
 │   ├── university-details/         # Detail client leaves, portrait headers, program directory, admission panel
 │   ├── mentor/                     # Mentor hub/chat room/topbar/entry/locked notice
@@ -113,6 +116,7 @@ italypath-main/
 │   ├── deadlines/targets.ts         # Deadline scrape hedefleri (universite + admission URL)
 │   ├── hub/                        # profile.ts, useUserProfile.ts, recommendations.ts, useDocumentsCount.ts
 │   ├── mentor/channels.ts
+│   ├── sat/                        # SAT types, SPR answer matching, server memo, client hooks
 │   └── scholarships/regions.ts
 ├── types/
 │   ├── index.ts                    # Shared app types + Supabase row interfaces
@@ -121,6 +125,7 @@ italypath-main/
 ├── public/data/italy-regions.geojson
 ├── scripts/
 │   ├── check-route-access.mjs
+│   ├── check-sat-bank.mjs
 │   ├── check-auth-ui.mjs            # /giris ve auth migration butunlugu smoke check
 │   ├── check-hub-onboarding.mjs     # /hosgeldin + yeni hub smoke/kapsama check
 │   ├── check-cities-data.mjs
@@ -135,11 +140,13 @@ italypath-main/
 │   ├── save-scraped.mjs             # deadline scrape kaydetme yardimcisi
 │   ├── scrape-deadlines-runbook.md  # Claude scrape runbook (LLM extract icermez)
 │   ├── import-*-program-details.mjs # Bologna/Ca'Foscari/Genoa/Milan/Milano-Bicocca/Padua/Polimi/Polito/Sapienza
+│   ├── sat/                        # PDF -> JSON pipeline ve import scriptleri
 │   └── clean-med-data.mjs
 ├── supabase/
 │   ├── rls_hardening.sql
 │   ├── program_admission_details.sql
-│   └── user_profiles.sql
+│   ├── user_profiles.sql
+│   └── sat_bank.sql                # sat_questions service-role-only + sat_attempts RLS
 ├── docs/
 │   ├── CAMPAIGN_PLAN_LAUNCH.md
 │   ├── LAUNCH_STRATEGY_INSTAGRAM_TIKTOK.md
@@ -301,6 +308,7 @@ Protected ornekler:
 - `/favorites`
 - `/hosgeldin`
 - `/hub`
+- `/sat`
 - `/api/chat`
 - `/profile`
 
@@ -487,6 +495,18 @@ Emekli edilenler: `StageStrip`, `DossierHero`, Hub `BentoGrid`, `KisaListeCell`,
 
 Dogrulama: `npm run check:hub-onboarding` ve `npm run check:university-data-source`.
 
+### SAT Soru Bankasi
+
+`/sat` protected soru cozme deneyimidir. Public route listesine eklenmez; `PROTECTED_PAGE_ROUTES` icinde acikca yer alir ve signed-out kullanici `/giris?redirect_url=/sat` adresine yonlenir. Robots disallow listesinde tutulur.
+
+Veri modeli `supabase/sat_bank.sql` icindedir: `sat_questions` dogrudan anon/authenticated okumaya kapali, yalnizca server API tarafindan `SUPABASE_SERVICE_ROLE_KEY` ile okunur; `sat_attempts` Clerk user id uzerinden `requesting_user_id()` RLS ile kullanicinin kendi denemelerine aciktir.
+
+Server katmani `lib/sat/questions.server.ts`: service role client, 3 saatlik in-memory memo, single-flight refresh ve stale-on-error davranisi kullanir. API route `app/api/sat/questions/route.ts` `force-dynamic` ve `Cache-Control: no-store` dondurur.
+
+Client yuzeyi `app/sat/page.tsx` ve `components/sat/*` altindadir. `MathText` KaTeX ile `$...$` ifadelerini render eder; `lib/sat/answers.ts` SPR sayi/kesir cevap eslestirmesini yapar. Soru fetch ve attempt yazimi `lib/sat/useSatBank.ts` / `lib/sat/useSatAttempts.ts` hook'larindadir.
+
+Pipeline `scripts/sat/` altindadir: mekanik PDF/answer/RW/math slice adimlari, ayri LLM extract runbook'u, validate/import adimlari. Ara ciktular `tmp/sat-bank/` altinda kalir ve commit edilmez. Dogrulama: `npm run check:sat-bank`.
+
 ### Cities
 
 `/cities` public editorial atlas'tir. `components/cities/CityGuidesExplorer.tsx`, `types/cities.ts`, `lib/cities/data.ts` kullanir.
@@ -581,6 +601,7 @@ Gercek production schema dashboard'dan dogrulanmalidir.
 | --- | --- |
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server-only SAT soru okuma/import islemleri; client bundle'a girmemeli |
 | `GEMINI_API_KEY` | Gemini chat endpoint |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk frontend |
 | `CLERK_SECRET_KEY` | Clerk server |
@@ -597,6 +618,7 @@ npm run dev
 npm run build
 npm run lint
 npm run check:routes
+npm run check:sat-bank
 npm run check:auth-ui
 npm run check:hub-onboarding
 npm run check:cities

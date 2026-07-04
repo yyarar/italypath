@@ -518,3 +518,5 @@
 | `lib/translations.ts` | ➕ `tr` ve `en` dillerinde `citiesGuide` ve `navbar.cities` çeviri anahtarları eklendi |
 | `AGENT_CONTEXT.md` | 📝 Şehir Rehberleri dosyaları, public rotaları ve mimari kararları eklendi |
 | `AGENT_COMMITS.md` | 📝 Commit 55 entry'si eklendi |
+
+### Commit 56 (SAT Soru Bankasi): Protected `/sat` soru cozme yuzeyi, service-role soru API'si, KaTeX render, nav/hub girisleri, robots/proxy guard'i ve `npm run check:sat-bank` eklendi.
