@@ -75,3 +75,28 @@ export interface UserProfileRow {
   created_at?: string;
   updated_at?: string;
 }
+
+export interface SatQuestionRow {
+  id: string;
+  section: string;
+  domain: string;
+  skill: string;
+  skill_slug: string;
+  difficulty: number;
+  question_type: string;
+  prompt: string;
+  choices: Record<string, string> | null;
+  correct_answer: string[] | null;
+  figure_path: string | null;
+  explanation_tr: string | null;
+  needs_review: boolean | null;
+}
+
+export interface SatAttemptRow {
+  id?: string;
+  user_id: string;
+  question_id: string;
+  selected_answer: string;
+  is_correct: boolean;
+  answered_at?: string;
+}
