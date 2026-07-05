@@ -11,6 +11,8 @@ export interface SatAttemptState {
   isCorrect: boolean;
 }
 
+const DAY = 86400000;
+
 type SatAttemptRawRow = Pick<SatAttemptRow, "question_id" | "selected_answer" | "is_correct"> & {
   answered_at: string;
 };
@@ -113,6 +115,30 @@ export function useSatAttempts() {
     return count;
   }, [attemptRows]);
 
+  const longestStreak = useMemo(() => {
+    const dayStarts = [
+      ...new Set(
+        attemptRows.map((row) => {
+          const date = new Date(row.answered_at);
+          date.setHours(0, 0, 0, 0);
+          return date.getTime();
+        })
+      ),
+    ].sort((a, b) => a - b);
+
+    let longest = 0;
+    let run = 0;
+    let prev: number | null = null;
+
+    for (const time of dayStarts) {
+      run = prev !== null && time - prev === DAY ? run + 1 : 1;
+      if (run > longest) longest = run;
+      prev = time;
+    }
+
+    return longest;
+  }, [attemptRows]);
+
   const recordAttempt = useCallback(
     async (questionId: string, selectedAnswer: string, isCorrect: boolean) => {
       if (!user) return;
@@ -143,5 +169,5 @@ export function useSatAttempts() {
     [user, supabase]
   );
 
-  return { attempts, recordAttempt, loading, streak, todayCount };
+  return { attempts, recordAttempt, loading, streak, todayCount, longestStreak };
 }

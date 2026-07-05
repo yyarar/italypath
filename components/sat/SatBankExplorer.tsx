@@ -1,7 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
+import BadgesView from "@/components/sat/BadgesView";
+import LevelUpCelebration from "@/components/sat/LevelUpCelebration";
 import QuestionCard from "@/components/sat/QuestionCard";
 import SatDashboardHeader, { type SatFocusRecommendation } from "@/components/sat/SatDashboardHeader";
 import SessionSummary from "@/components/sat/SessionSummary";
@@ -9,7 +11,9 @@ import TopicCompleted from "@/components/sat/TopicCompleted";
 import TopicRow from "@/components/sat/TopicRow";
 import TopicReportCard from "@/components/sat/TopicReportCard";
 import { useLanguage } from "@/context/LanguageContext";
-import { accuracyPct, readinessPct as calculateReadinessPct } from "@/lib/sat/mastery";
+import { evaluateBadges } from "@/lib/sat/badges";
+import { computeXp, levelProgress as calculateLevelProgress } from "@/lib/sat/levels";
+import { accuracyPct, masteryTier, readinessPct as calculateReadinessPct } from "@/lib/sat/mastery";
 import type { SatQuestion, SatSection, SatTopic } from "@/lib/sat/types";
 import { fetchSatQuestions, useSatTopics } from "@/lib/sat/useSatBank";
 import { useSatAttempts } from "@/lib/sat/useSatAttempts";
@@ -17,6 +21,7 @@ import { useSatAttempts } from "@/lib/sat/useSatAttempts";
 type View =
   | { mode: "topics" }
   | { mode: "report" }
+  | { mode: "badges" }
   | { mode: "session"; topic: SatTopic; questions: SatQuestion[]; index: number; correctInSession: number }
   | { mode: "summary"; topic: SatTopic; total: number; correct: number }
   | { mode: "completed"; topic: SatTopic; wrongQuestionIds: string[] };
@@ -36,9 +41,10 @@ function topicKey(topic: SatTopic) {
 export default function SatBankExplorer() {
   const { t } = useLanguage();
   const { topics, loading: topicsLoading, error } = useSatTopics();
-  const { attempts, recordAttempt, loading: attemptsLoading, streak, todayCount } = useSatAttempts();
+  const { attempts, recordAttempt, loading: attemptsLoading, streak, todayCount, longestStreak } = useSatAttempts();
   const [view, setView] = useState<View>({ mode: "topics" });
   const [sessionError, setSessionError] = useState<string | null>(null);
+  const [celebrationLevel, setCelebrationLevel] = useState<number | null>(null);
   const loading = topicsLoading || attemptsLoading;
 
   const sections: { key: SatSection; label: string }[] = [
@@ -93,6 +99,25 @@ export default function SatBankExplorer() {
     [mistakeTopics]
   );
 
+  const progressTotals = useMemo(
+    () =>
+      Array.from(topicProgress.values()).reduce(
+        (totals, progress) => ({
+          totalSolved: totals.totalSolved + progress.solvedCount,
+          totalCorrect: totals.totalCorrect + progress.correctCount,
+        }),
+        { totalSolved: 0, totalCorrect: 0 }
+      ),
+    [topicProgress]
+  );
+
+  const xp = useMemo(
+    () => computeXp(progressTotals.totalCorrect, progressTotals.totalSolved),
+    [progressTotals.totalCorrect, progressTotals.totalSolved]
+  );
+
+  const dashboardLevelProgress = useMemo(() => calculateLevelProgress(xp), [xp]);
+
   const readiness = useMemo(
     () =>
       calculateReadinessPct(
@@ -103,6 +128,36 @@ export default function SatBankExplorer() {
       ),
     [topicProgress, topics]
   );
+
+  const badges = useMemo(() => {
+    const domainProgress = new Map<string, { gold: number; total: number }>();
+    let goldCount = 0;
+
+    for (const topic of topics) {
+      const progress = topicProgress.get(topicKey(topic));
+      const isGold =
+        masteryTier(progress?.solvedCount ?? 0, progress?.correctCount ?? 0, topic.questionCount) === "gold";
+
+      if (isGold) goldCount += 1;
+
+      const domain = domainProgress.get(topic.domain) ?? { gold: 0, total: 0 };
+      domain.total += 1;
+      if (isGold) domain.gold += 1;
+      domainProgress.set(topic.domain, domain);
+    }
+
+    const domainFullyGold = Array.from(domainProgress.values()).some(
+      (domain) => domain.total >= 1 && domain.gold === domain.total
+    );
+
+    return evaluateBadges({
+      totalSolved: progressTotals.totalSolved,
+      totalCorrect: progressTotals.totalCorrect,
+      goldCount,
+      domainFullyGold,
+      longestStreak,
+    });
+  }, [longestStreak, progressTotals.totalCorrect, progressTotals.totalSolved, topicProgress, topics]);
 
   const focusRecommendation = useMemo<SatFocusRecommendation | null>(() => {
     const progressList = topics.map((topic) => {
@@ -154,6 +209,33 @@ export default function SatBankExplorer() {
     return { topic: firstTopic.topic, kind: "start", accuracyPct: accuracyPct(firstTopic.correctCount, firstTopic.solvedCount) };
   }, [topicProgress, topics]);
 
+  useEffect(() => {
+    if (loading) return;
+    let celebrationTimer: number | null = null;
+
+    try {
+      const storedRaw = window.localStorage.getItem("satCelebratedLevel");
+      const storedLevel = storedRaw === null ? Number.NaN : Number(storedRaw);
+      const nextLevel = dashboardLevelProgress.level;
+
+      if (!Number.isFinite(storedLevel)) {
+        window.localStorage.setItem("satCelebratedLevel", String(nextLevel));
+        return;
+      }
+
+      if (nextLevel > storedLevel) {
+        window.localStorage.setItem("satCelebratedLevel", String(nextLevel));
+        celebrationTimer = window.setTimeout(() => setCelebrationLevel(nextLevel), 0);
+      }
+    } catch {
+      // localStorage can fail in private browsing; skip the celebration instead of breaking the dashboard.
+    }
+
+    return () => {
+      if (celebrationTimer !== null) window.clearTimeout(celebrationTimer);
+    };
+  }, [dashboardLevelProgress.level, loading]);
+
   async function openTopic(topic: SatTopic) {
     setSessionError(null);
     try {
@@ -202,6 +284,10 @@ export default function SatBankExplorer() {
     }
   }
 
+  const celebration = celebrationLevel ? (
+    <LevelUpCelebration level={celebrationLevel} onDismiss={() => setCelebrationLevel(null)} />
+  ) : null;
+
   if (view.mode === "session") {
     const question = view.questions[view.index];
     const isLast = view.index === view.questions.length - 1;
@@ -228,6 +314,7 @@ export default function SatBankExplorer() {
             }}
           />
         </div>
+        {celebration}
       </div>
     );
   }
@@ -247,6 +334,7 @@ export default function SatBankExplorer() {
             onRetry={() => void restartTopic(view.topic)}
           />
         </div>
+        {celebration}
       </div>
     );
   }
@@ -263,6 +351,16 @@ export default function SatBankExplorer() {
             onBack={() => setView({ mode: "topics" })}
           />
         </div>
+        {celebration}
+      </div>
+    );
+  }
+
+  if (view.mode === "badges") {
+    return (
+      <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
+        <BadgesView badges={badges} onBack={() => setView({ mode: "topics" })} />
+        {celebration}
       </div>
     );
   }
@@ -275,6 +373,7 @@ export default function SatBankExplorer() {
           onBack={() => setView({ mode: "topics" })}
           onSelectTopic={(topic) => void openTopic(topic)}
         />
+        {celebration}
       </div>
     );
   }
@@ -287,6 +386,7 @@ export default function SatBankExplorer() {
             readinessPct={readiness}
             streak={streak}
             todayCount={todayCount}
+            levelProgress={dashboardLevelProgress}
             focusRecommendation={focusRecommendation}
             onFocus={() => void openTopic(focusRecommendation.topic)}
           />
@@ -302,14 +402,23 @@ export default function SatBankExplorer() {
           </header>
         )}
 
-        {attemptedProgress.length > 0 ? (
-          <div className="mb-6 flex justify-end">
+        {!loading ? (
+          <div className="mb-6 flex flex-wrap justify-end gap-2">
+            {attemptedProgress.length > 0 ? (
+              <button
+                type="button"
+                onClick={() => setView({ mode: "report" })}
+                className="w-fit border border-[var(--editorial-sage)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-sage)] transition-colors hover:bg-[var(--editorial-sage)] hover:text-white active:translate-y-[1px]"
+              >
+                {t.sat.reportCardButton}
+              </button>
+            ) : null}
             <button
               type="button"
-              onClick={() => setView({ mode: "report" })}
-              className="w-fit border border-[var(--editorial-sage)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-sage)] transition-colors hover:bg-[var(--editorial-sage)] hover:text-white active:translate-y-[1px]"
+              onClick={() => setView({ mode: "badges" })}
+              className="w-fit border border-[#b8872f] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8d6828] transition-colors hover:bg-[#b8872f] hover:text-white active:translate-y-[1px]"
             >
-              {t.sat.reportCardButton}
+              {t.sat.badgesButton}
             </button>
           </div>
         ) : null}
@@ -392,6 +501,7 @@ export default function SatBankExplorer() {
           );
         })}
       </main>
+      {celebration}
     </div>
   );
 }

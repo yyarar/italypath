@@ -3,6 +3,7 @@
 import { Check, Flame, Zap } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
+import type { LevelProgress } from "@/lib/sat/levels";
 import { DAILY_GOAL } from "@/lib/sat/mastery";
 import type { SatTopic } from "@/lib/sat/types";
 
@@ -16,6 +17,7 @@ interface SatDashboardHeaderProps {
   readinessPct: number;
   streak: number;
   todayCount: number;
+  levelProgress: LevelProgress;
   focusRecommendation: SatFocusRecommendation;
   onFocus: () => void;
 }
@@ -28,12 +30,14 @@ export default function SatDashboardHeader({
   readinessPct,
   streak,
   todayCount,
+  levelProgress,
   focusRecommendation,
   onFocus,
 }: SatDashboardHeaderProps) {
   const { t } = useLanguage();
   const readiness = clampPercent(readinessPct);
   const dailyProgress = clampPercent((todayCount / DAILY_GOAL) * 100);
+  const xpProgress = clampPercent(levelProgress.progressPct);
   const dailyDone = todayCount >= DAILY_GOAL;
   const radius = 44;
   const circumference = 2 * Math.PI * radius;
@@ -101,7 +105,7 @@ export default function SatDashboardHeader({
         </article>
 
         <div className="grid gap-3">
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-3">
             <article className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-4">
               <div className="flex items-start justify-between gap-4">
                 <div>
@@ -137,6 +141,29 @@ export default function SatDashboardHeader({
                   style={{ width: `${dailyProgress}%` }}
                 />
               </div>
+            </article>
+
+            <article className="border border-[#b8872f] bg-[var(--editorial-surface)] p-4">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="font-serif text-4xl leading-none text-[var(--editorial-ink)]">
+                    {levelProgress.level}
+                  </p>
+                  <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-muted)]">
+                    {t.sat.levelLabel} {levelProgress.level}
+                  </p>
+                </div>
+                <span className="flex h-7 w-7 items-center justify-center border border-[#b8872f] text-[12px] font-bold text-[#b8872f]">
+                  XP
+                </span>
+              </div>
+              <div className="mt-4 h-1.5 overflow-hidden bg-[var(--editorial-border)]">
+                <div className="h-full bg-[#b8872f] transition-[width] duration-500" style={{ width: `${xpProgress}%` }} />
+              </div>
+              <p className="mt-2 text-[11px] text-[var(--editorial-muted)]">
+                {levelProgress.xpIntoLevel}/{levelProgress.xpForNext} XP ·{" "}
+                {t.sat.levelXpToNext.replace("{n}", String(levelProgress.xpToNext))}
+              </p>
             </article>
           </div>
 
