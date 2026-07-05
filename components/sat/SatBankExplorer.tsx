@@ -3,11 +3,13 @@
 import { useMemo, useState } from "react";
 
 import QuestionCard from "@/components/sat/QuestionCard";
+import SatDashboardHeader, { type SatFocusRecommendation } from "@/components/sat/SatDashboardHeader";
 import SessionSummary from "@/components/sat/SessionSummary";
 import TopicCompleted from "@/components/sat/TopicCompleted";
 import TopicRow from "@/components/sat/TopicRow";
 import TopicReportCard from "@/components/sat/TopicReportCard";
 import { useLanguage } from "@/context/LanguageContext";
+import { accuracyPct, readinessPct as calculateReadinessPct } from "@/lib/sat/mastery";
 import type { SatQuestion, SatSection, SatTopic } from "@/lib/sat/types";
 import { fetchSatQuestions, useSatTopics } from "@/lib/sat/useSatBank";
 import { useSatAttempts } from "@/lib/sat/useSatAttempts";
@@ -33,10 +35,11 @@ function topicKey(topic: SatTopic) {
 
 export default function SatBankExplorer() {
   const { t } = useLanguage();
-  const { topics, loading, error } = useSatTopics();
-  const { attempts, recordAttempt } = useSatAttempts();
+  const { topics, loading: topicsLoading, error } = useSatTopics();
+  const { attempts, recordAttempt, loading: attemptsLoading, streak, todayCount } = useSatAttempts();
   const [view, setView] = useState<View>({ mode: "topics" });
   const [sessionError, setSessionError] = useState<string | null>(null);
+  const loading = topicsLoading || attemptsLoading;
 
   const sections: { key: SatSection; label: string }[] = [
     { key: "math", label: t.sat.mathSection },
@@ -89,6 +92,67 @@ export default function SatBankExplorer() {
     () => mistakeTopics.reduce((total, progress) => total + progress.wrongCount, 0),
     [mistakeTopics]
   );
+
+  const readiness = useMemo(
+    () =>
+      calculateReadinessPct(
+        topics.map((topic) => ({
+          correctCount: topicProgress.get(topicKey(topic))?.correctCount ?? 0,
+          questionCount: topic.questionCount,
+        }))
+      ),
+    [topicProgress, topics]
+  );
+
+  const focusRecommendation = useMemo<SatFocusRecommendation | null>(() => {
+    const progressList = topics.map((topic) => {
+      const progress = topicProgress.get(topicKey(topic));
+      return (
+        progress ?? {
+          topic,
+          solvedCount: 0,
+          correctCount: 0,
+          wrongQuestionIds: [],
+          wrongCount: 0,
+        }
+      );
+    });
+
+    const startedTopics = progressList.filter((progress) => progress.solvedCount > 0);
+    const weakestStarted = startedTopics.reduce<TopicProgress | null>((weakest, progress) => {
+      if (!weakest) return progress;
+      const progressAccuracy = accuracyPct(progress.correctCount, progress.solvedCount);
+      const weakestAccuracy = accuracyPct(weakest.correctCount, weakest.solvedCount);
+      return progressAccuracy < weakestAccuracy ? progress : weakest;
+    }, null);
+
+    if (weakestStarted) {
+      const weakestAccuracy = accuracyPct(weakestStarted.correctCount, weakestStarted.solvedCount);
+      if (weakestAccuracy < 70) {
+        return { topic: weakestStarted.topic, kind: "weak", accuracyPct: weakestAccuracy };
+      }
+    }
+
+    const notStarted = progressList.find((progress) => progress.solvedCount === 0);
+    if (notStarted) {
+      return { topic: notStarted.topic, kind: "start", accuracyPct: 0 };
+    }
+
+    const incompleteStarted = progressList.find(
+      (progress) => progress.solvedCount > 0 && progress.solvedCount < progress.topic.questionCount
+    );
+    if (incompleteStarted) {
+      return {
+        topic: incompleteStarted.topic,
+        kind: "continue",
+        accuracyPct: accuracyPct(incompleteStarted.correctCount, incompleteStarted.solvedCount),
+      };
+    }
+
+    const firstTopic = progressList[0];
+    if (!firstTopic) return null;
+    return { topic: firstTopic.topic, kind: "start", accuracyPct: accuracyPct(firstTopic.correctCount, firstTopic.solvedCount) };
+  }, [topicProgress, topics]);
 
   async function openTopic(topic: SatTopic) {
     setSessionError(null);
@@ -218,26 +282,37 @@ export default function SatBankExplorer() {
   return (
     <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
       <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
-        <header className="mb-8 border-b border-[var(--editorial-border)] pb-6">
-          <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
-            ITALYPATH
-          </p>
-          <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h1 className="font-serif text-3xl font-normal leading-tight text-[var(--editorial-ink)] sm:text-4xl">
+        {!loading && focusRecommendation ? (
+          <SatDashboardHeader
+            readinessPct={readiness}
+            streak={streak}
+            todayCount={todayCount}
+            focusRecommendation={focusRecommendation}
+            onFocus={() => void openTopic(focusRecommendation.topic)}
+          />
+        ) : (
+          <header className="mb-8 border-b border-[var(--editorial-border)] pb-6">
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
+              ITALYPATH
+            </p>
+            <h1 className="mt-3 font-serif text-3xl font-normal leading-tight text-[var(--editorial-ink)] sm:text-4xl">
               {t.sat.title}
             </h1>
-            {attemptedProgress.length > 0 ? (
-              <button
-                type="button"
-                onClick={() => setView({ mode: "report" })}
-                className="w-fit border border-[var(--editorial-sage)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-sage)] transition-colors hover:bg-[var(--editorial-sage)] hover:text-white active:translate-y-[1px]"
-              >
-                {t.sat.reportCardButton}
-              </button>
-            ) : null}
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--editorial-muted)]">{t.sat.subtitle}</p>
+          </header>
+        )}
+
+        {attemptedProgress.length > 0 ? (
+          <div className="mb-6 flex justify-end">
+            <button
+              type="button"
+              onClick={() => setView({ mode: "report" })}
+              className="w-fit border border-[var(--editorial-sage)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-sage)] transition-colors hover:bg-[var(--editorial-sage)] hover:text-white active:translate-y-[1px]"
+            >
+              {t.sat.reportCardButton}
+            </button>
           </div>
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--editorial-muted)]">{t.sat.subtitle}</p>
-        </header>
+        ) : null}
 
         {error ? (
           <p className="mb-4 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-4 text-sm text-[var(--editorial-muted)]">
@@ -298,7 +373,7 @@ export default function SatBankExplorer() {
           return (
             <section key={section.key} className="mb-10">
               <h2 className="mb-3 font-serif text-2xl font-normal text-[var(--editorial-ink)]">{section.label}</h2>
-              <div className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
+              <div className="grid gap-3">
                 {sectionTopics.map((topic) => {
                   const progress = topicProgress.get(topicKey(topic));
                   return (

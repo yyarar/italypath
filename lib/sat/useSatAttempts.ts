@@ -11,11 +11,23 @@ export interface SatAttemptState {
   isCorrect: boolean;
 }
 
+type SatAttemptRawRow = Pick<SatAttemptRow, "question_id" | "selected_answer" | "is_correct"> & {
+  answered_at: string;
+};
+
+function keyFromDate(date: Date): string {
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+}
+
+function dayKey(iso: string): string {
+  return keyFromDate(new Date(iso));
+}
+
 // question_id -> son deneme
 export function useSatAttempts() {
   const { user, isLoaded } = useUser();
   const { getToken } = useAuth();
-  const [attempts, setAttempts] = useState<Map<string, SatAttemptState>>(new Map());
+  const [attemptRows, setAttemptRows] = useState<SatAttemptRawRow[]>([]);
   const [loading, setLoading] = useState(true);
 
   const supabase = useMemo(
@@ -38,7 +50,7 @@ export function useSatAttempts() {
       setLoading(true);
       try {
         if (!user) {
-          if (active) setAttempts(new Map());
+          if (active) setAttemptRows([]);
           return;
         }
         const { data, error } = await supabase
@@ -46,19 +58,15 @@ export function useSatAttempts() {
           .select("question_id,selected_answer,is_correct,answered_at")
           .eq("user_id", user.id)
           .order("answered_at", { ascending: true })
-          .returns<SatAttemptRow[]>();
+          .returns<SatAttemptRawRow[]>();
         if (error) throw error;
 
         if (active) {
-          const map = new Map<string, SatAttemptState>();
-          for (const row of data ?? []) {
-            map.set(row.question_id, { selectedAnswer: row.selected_answer, isCorrect: row.is_correct });
-          }
-          setAttempts(map);
+          setAttemptRows(data ?? []);
         }
       } catch (err) {
         console.error("SAT attempts yukleme hatasi:", err);
-        if (active) setAttempts(new Map());
+        if (active) setAttemptRows([]);
       } finally {
         if (active) setLoading(false);
       }
@@ -70,25 +78,70 @@ export function useSatAttempts() {
     };
   }, [user, isLoaded, supabase]);
 
+  const attempts = useMemo(() => {
+    const map = new Map<string, SatAttemptState>();
+    const sortedRows = [...attemptRows].sort(
+      (a, b) => new Date(a.answered_at).getTime() - new Date(b.answered_at).getTime()
+    );
+
+    for (const row of sortedRows) {
+      map.set(row.question_id, { selectedAnswer: row.selected_answer, isCorrect: row.is_correct });
+    }
+
+    return map;
+  }, [attemptRows]);
+
+  const todayCount = useMemo(() => {
+    const today = keyFromDate(new Date());
+    return attemptRows.filter((row) => dayKey(row.answered_at) === today).length;
+  }, [attemptRows]);
+
+  const streak = useMemo(() => {
+    const days = new Set(attemptRows.map((row) => dayKey(row.answered_at)));
+    const cursor = new Date();
+
+    if (!days.has(keyFromDate(cursor))) {
+      cursor.setDate(cursor.getDate() - 1);
+    }
+
+    let count = 0;
+    while (days.has(keyFromDate(cursor))) {
+      count += 1;
+      cursor.setDate(cursor.getDate() - 1);
+    }
+
+    return count;
+  }, [attemptRows]);
+
   const recordAttempt = useCallback(
     async (questionId: string, selectedAnswer: string, isCorrect: boolean) => {
       if (!user) return;
-      const previous = attempts;
 
-      const next = new Map(previous);
-      next.set(questionId, { selectedAnswer, isCorrect });
-      setAttempts(next);
+      const optimisticRow: SatAttemptRawRow = {
+        question_id: questionId,
+        selected_answer: selectedAnswer,
+        is_correct: isCorrect,
+        answered_at: new Date().toISOString(),
+      };
+
+      setAttemptRows((current) => [...current, optimisticRow]);
 
       const { error } = await supabase.from("sat_attempts").insert([
-        { user_id: user.id, question_id: questionId, selected_answer: selectedAnswer, is_correct: isCorrect },
+        {
+          user_id: user.id,
+          question_id: questionId,
+          selected_answer: selectedAnswer,
+          is_correct: isCorrect,
+          answered_at: optimisticRow.answered_at,
+        },
       ]);
       if (error) {
         console.error("SAT attempt kayit hatasi:", error);
-        setAttempts(previous);
+        setAttemptRows((current) => current.filter((row) => row !== optimisticRow));
       }
     },
-    [attempts, user, supabase]
+    [user, supabase]
   );
 
-  return { attempts, recordAttempt, loading };
+  return { attempts, recordAttempt, loading, streak, todayCount };
 }
