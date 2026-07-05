@@ -6,6 +6,7 @@ import { ArrowLeft } from "lucide-react";
 
 import BadgesView from "@/components/sat/BadgesView";
 import LevelUpCelebration from "@/components/sat/LevelUpCelebration";
+import MistakesView from "@/components/sat/MistakesView";
 import QuestionCard from "@/components/sat/QuestionCard";
 import SatDashboardHeader, { type SatFocusRecommendation } from "@/components/sat/SatDashboardHeader";
 import SatDomainGroup from "@/components/sat/SatDomainGroup";
@@ -31,6 +32,7 @@ type View =
   | { mode: "topics" }
   | { mode: "report" }
   | { mode: "badges" }
+  | { mode: "mistakes" }
   | {
       mode: "session";
       topic: SatTopic;
@@ -471,6 +473,19 @@ export default function SatBankExplorer() {
     );
   }
 
+  if (view.mode === "mistakes") {
+    return (
+      <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
+        <MistakesView
+          mistakeTopics={mistakeTopics}
+          onSelect={(topic, ids) => void openMistakes(topic, ids)}
+          onBack={() => setView({ mode: "topics" })}
+        />
+        {celebration}
+      </div>
+    );
+  }
+
   if (view.mode === "report") {
     return (
       <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
@@ -512,6 +527,15 @@ export default function SatBankExplorer() {
 
         {!loading ? (
           <div className="mb-6 flex flex-wrap justify-end gap-2">
+            {totalWrongCount > 0 ? (
+              <button
+                type="button"
+                onClick={() => setView({ mode: "mistakes" })}
+                className="w-fit border border-[var(--editorial-terracotta)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)] transition-colors hover:bg-[var(--editorial-terracotta)] hover:text-white active:translate-y-[1px]"
+              >
+                {t.sat.mistakesTitle} · {totalWrongCount}
+              </button>
+            ) : null}
             {attemptedProgress.length > 0 ? (
               <button
                 type="button"
@@ -549,39 +573,6 @@ export default function SatBankExplorer() {
               {t.hub.loading}
             </p>
           </div>
-        ) : null}
-
-        {totalWrongCount > 0 ? (
-          <section className="mb-8">
-            <div className="mb-3 flex items-end justify-between gap-4">
-              <h2 className="font-serif text-2xl font-normal text-[var(--editorial-ink)]">
-                {t.sat.mistakesTitle}
-              </h2>
-              <p className="text-[12px] text-[var(--editorial-muted)]">
-                {t.sat.mistakesTotalPrefix} {totalWrongCount} {t.sat.wrongLabel}
-              </p>
-            </div>
-            <div className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
-              {mistakeTopics.map((progress) => (
-                <button
-                  key={topicKey(progress.topic)}
-                  type="button"
-                  onClick={() => void openMistakes(progress.topic, progress.wrongQuestionIds)}
-                  className="flex w-full items-center justify-between gap-4 border-b border-[var(--editorial-border)] bg-[var(--editorial-surface)] px-4 py-3 text-left transition-colors last:border-b-0 hover:bg-[rgba(216,222,217,0.25)]"
-                >
-                  <div>
-                    <p className="font-serif text-lg text-[var(--editorial-ink)]">{progress.topic.skill}</p>
-                    <p className="mt-1 text-[12px] text-[var(--editorial-muted)]">
-                      {progress.wrongCount} {t.sat.wrongLabel}
-                    </p>
-                  </div>
-                  <span className="shrink-0 border-b border-[var(--editorial-sage)] pb-px text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--editorial-sage)]">
-                    {t.sat.retryMistakes}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </section>
         ) : null}
 
         {sections.map((section) => {
