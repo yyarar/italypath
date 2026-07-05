@@ -6,12 +6,19 @@ import BadgesView from "@/components/sat/BadgesView";
 import LevelUpCelebration from "@/components/sat/LevelUpCelebration";
 import QuestionCard from "@/components/sat/QuestionCard";
 import SatDashboardHeader, { type SatFocusRecommendation } from "@/components/sat/SatDashboardHeader";
+import SatDomainGroup from "@/components/sat/SatDomainGroup";
 import SessionSummary from "@/components/sat/SessionSummary";
 import TopicCompleted from "@/components/sat/TopicCompleted";
 import TopicRow from "@/components/sat/TopicRow";
 import TopicReportCard from "@/components/sat/TopicReportCard";
 import { useLanguage } from "@/context/LanguageContext";
 import { evaluateBadges } from "@/lib/sat/badges";
+import {
+  domainLabelKey,
+  domainOrderIndex,
+  filterQuestionsByDifficulty,
+  type SatDifficultyFilter,
+} from "@/lib/sat/domains";
 import { computeXp, levelProgress as calculateLevelProgress } from "@/lib/sat/levels";
 import { accuracyPct, masteryTier, readinessPct as calculateReadinessPct } from "@/lib/sat/mastery";
 import type { SatQuestion, SatSection, SatTopic } from "@/lib/sat/types";
@@ -22,9 +29,16 @@ type View =
   | { mode: "topics" }
   | { mode: "report" }
   | { mode: "badges" }
-  | { mode: "session"; topic: SatTopic; questions: SatQuestion[]; index: number; correctInSession: number }
-  | { mode: "summary"; topic: SatTopic; total: number; correct: number }
-  | { mode: "completed"; topic: SatTopic; wrongQuestionIds: string[] };
+  | {
+      mode: "session";
+      topic: SatTopic;
+      questions: SatQuestion[];
+      difficulty: SatDifficultyFilter;
+      index: number;
+      correctInSession: number;
+    }
+  | { mode: "summary"; topic: SatTopic; difficulty: SatDifficultyFilter; total: number; correct: number }
+  | { mode: "completed"; topic: SatTopic; difficulty: SatDifficultyFilter; wrongQuestionIds: string[] };
 
 interface TopicProgress {
   topic: SatTopic;
@@ -45,6 +59,8 @@ export default function SatBankExplorer() {
   const [view, setView] = useState<View>({ mode: "topics" });
   const [sessionError, setSessionError] = useState<string | null>(null);
   const [celebrationLevel, setCelebrationLevel] = useState<number | null>(null);
+  const [userExpandedDomains, setUserExpandedDomains] = useState<Set<string> | null>(null);
+  const [armedTopicKey, setArmedTopicKey] = useState<string | null>(null);
   const loading = topicsLoading || attemptsLoading;
 
   const sections: { key: SatSection; label: string }[] = [
@@ -209,6 +225,39 @@ export default function SatBankExplorer() {
     return { topic: firstTopic.topic, kind: "start", accuracyPct: accuracyPct(firstTopic.correctCount, firstTopic.solvedCount) };
   }, [topicProgress, topics]);
 
+  const mathDomainGroups = useMemo(() => {
+    const groups = new Map<string, SatTopic[]>();
+
+    for (const topic of topics) {
+      if (topic.section !== "math") continue;
+      const groupTopics = groups.get(topic.domain) ?? [];
+      groupTopics.push(topic);
+      groups.set(topic.domain, groupTopics);
+    }
+
+    return Array.from(groups.entries())
+      .sort(([domainA], [domainB]) => domainOrderIndex(domainA) - domainOrderIndex(domainB))
+      .map(([domain, domainTopics]) => ({
+        domain,
+        topics: domainTopics,
+        topicCount: domainTopics.length,
+        startedCount: domainTopics.filter((topic) => (topicProgress.get(topicKey(topic))?.solvedCount ?? 0) > 0).length,
+        masteryPct: calculateReadinessPct(
+          domainTopics.map((topic) => ({
+            correctCount: topicProgress.get(topicKey(topic))?.correctCount ?? 0,
+            questionCount: topic.questionCount,
+          }))
+        ),
+      }));
+  }, [topicProgress, topics]);
+
+  const initialExpandedDomain = focusRecommendation?.topic.domain ?? mathDomainGroups[0]?.domain ?? null;
+
+  // Kullanici bir domain'e dokunana kadar odak domain acik gelir; dokununca
+  // kullanicinin secimi gecerli olur. Efekt icinde senkron setState yok.
+  const expandedDomains =
+    userExpandedDomains ?? new Set(initialExpandedDomain ? [initialExpandedDomain] : []);
+
   useEffect(() => {
     if (loading) return;
     let celebrationTimer: number | null = null;
@@ -236,38 +285,72 @@ export default function SatBankExplorer() {
     };
   }, [dashboardLevelProgress.level, loading]);
 
-  async function openTopic(topic: SatTopic) {
+  function toggleDomain(domain: string) {
+    const next = new Set(expandedDomains);
+    if (next.has(domain)) {
+      next.delete(domain);
+    } else {
+      next.add(domain);
+    }
+    setUserExpandedDomains(next);
+  }
+
+  function armTopic(topic: SatTopic) {
+    setSessionError(null);
+    const key = topicKey(topic);
+    setArmedTopicKey((current) => (current === key ? null : key));
+  }
+
+  async function openTopic(topic: SatTopic, difficulty: SatDifficultyFilter) {
+    setArmedTopicKey(null);
     setSessionError(null);
     try {
       const questions = await fetchSatQuestions(topic.section, topic.skillSlug);
-      const unanswered = questions.filter((question) => !attempts.has(question.id));
-
-      if (unanswered.length > 0) {
-        setView({ mode: "session", topic, questions: unanswered, index: 0, correctInSession: 0 });
+      const pool = filterQuestionsByDifficulty(questions, difficulty);
+      if (pool.length === 0) {
+        setSessionError(t.sat.noQuestionsAtDifficulty);
         return;
       }
 
+      const unanswered = pool.filter((question) => !attempts.has(question.id));
+
+      if (unanswered.length > 0) {
+        setView({ mode: "session", topic, questions: unanswered, difficulty, index: 0, correctInSession: 0 });
+        return;
+      }
+
+      const poolQuestionIds = new Set(pool.map((question) => question.id));
       setView({
         mode: "completed",
         topic,
-        wrongQuestionIds: topicProgress.get(topicKey(topic))?.wrongQuestionIds ?? [],
+        difficulty,
+        wrongQuestionIds: (topicProgress.get(topicKey(topic))?.wrongQuestionIds ?? []).filter((questionId) =>
+          poolQuestionIds.has(questionId)
+        ),
       });
     } catch {
       setSessionError(t.sat.loadError);
     }
   }
 
-  async function restartTopic(topic: SatTopic) {
+  async function restartTopic(topic: SatTopic, difficulty: SatDifficultyFilter) {
+    setArmedTopicKey(null);
     setSessionError(null);
     try {
       const questions = await fetchSatQuestions(topic.section, topic.skillSlug);
-      setView({ mode: "session", topic, questions, index: 0, correctInSession: 0 });
+      const pool = filterQuestionsByDifficulty(questions, difficulty);
+      if (pool.length === 0) {
+        setSessionError(t.sat.noQuestionsAtDifficulty);
+        return;
+      }
+      setView({ mode: "session", topic, questions: pool, difficulty, index: 0, correctInSession: 0 });
     } catch {
       setSessionError(t.sat.loadError);
     }
   }
 
   async function openMistakes(topic: SatTopic, wrongQuestionIds: string[]) {
+    setArmedTopicKey(null);
     setSessionError(null);
     try {
       const wrongIds = new Set(wrongQuestionIds);
@@ -278,7 +361,7 @@ export default function SatBankExplorer() {
         setSessionError(t.sat.mistakesCleared);
         return;
       }
-      setView({ mode: "session", topic, questions, index: 0, correctInSession: 0 });
+      setView({ mode: "session", topic, questions, difficulty: "mixed", index: 0, correctInSession: 0 });
     } catch {
       setSessionError(t.sat.loadError);
     }
@@ -307,7 +390,13 @@ export default function SatBankExplorer() {
             }}
             onNext={() => {
               if (isLast) {
-                setView({ mode: "summary", topic: view.topic, total: view.questions.length, correct: view.correctInSession });
+                setView({
+                  mode: "summary",
+                  topic: view.topic,
+                  difficulty: view.difficulty,
+                  total: view.questions.length,
+                  correct: view.correctInSession,
+                });
               } else {
                 setView({ ...view, index: view.index + 1 });
               }
@@ -331,7 +420,7 @@ export default function SatBankExplorer() {
             overallCorrect={overallProgress?.correctCount}
             overallSolved={overallProgress?.solvedCount}
             onBack={() => setView({ mode: "topics" })}
-            onRetry={() => void restartTopic(view.topic)}
+            onRetry={() => void restartTopic(view.topic, view.difficulty)}
           />
         </div>
         {celebration}
@@ -346,7 +435,7 @@ export default function SatBankExplorer() {
           <TopicCompleted
             topic={view.topic}
             wrongQuestionIds={view.wrongQuestionIds}
-            onRestart={() => void restartTopic(view.topic)}
+            onRestart={() => void restartTopic(view.topic, view.difficulty)}
             onOpenMistakes={() => void openMistakes(view.topic, view.wrongQuestionIds)}
             onBack={() => setView({ mode: "topics" })}
           />
@@ -371,7 +460,7 @@ export default function SatBankExplorer() {
         <TopicReportCard
           progress={attemptedProgress}
           onBack={() => setView({ mode: "topics" })}
-          onSelectTopic={(topic) => void openTopic(topic)}
+          onSelectTopic={(topic) => void openTopic(topic, "mixed")}
         />
         {celebration}
       </div>
@@ -388,7 +477,7 @@ export default function SatBankExplorer() {
             todayCount={todayCount}
             levelProgress={dashboardLevelProgress}
             focusRecommendation={focusRecommendation}
-            onFocus={() => void openTopic(focusRecommendation.topic)}
+            onFocus={() => void openTopic(focusRecommendation.topic, "mixed")}
           />
         ) : (
           <header className="mb-8 border-b border-[var(--editorial-border)] pb-6">
@@ -482,21 +571,60 @@ export default function SatBankExplorer() {
           return (
             <section key={section.key} className="mb-10">
               <h2 className="mb-3 font-serif text-2xl font-normal text-[var(--editorial-ink)]">{section.label}</h2>
-              <div className="grid gap-3">
-                {sectionTopics.map((topic) => {
-                  const progress = topicProgress.get(topicKey(topic));
-                  return (
-                    <TopicRow
-                      key={`${topic.section}-${topic.skillSlug}`}
-                      topic={topic}
-                      solvedCount={progress?.solvedCount ?? 0}
-                      correctCount={progress?.correctCount ?? 0}
-                      wrongCount={progress?.wrongCount ?? 0}
-                      onSelect={() => void openTopic(topic)}
-                    />
-                  );
-                })}
-              </div>
+              {section.key === "math" ? (
+                <div className="grid gap-3">
+                  {mathDomainGroups.map((group) => {
+                    const labelKey = domainLabelKey(group.domain) as keyof typeof t.sat;
+                    return (
+                      <SatDomainGroup
+                        key={group.domain}
+                        label={t.sat[labelKey] ?? group.domain}
+                        topicCount={group.topicCount}
+                        startedCount={group.startedCount}
+                        masteryPct={group.masteryPct}
+                        expanded={expandedDomains.has(group.domain)}
+                        onToggle={() => toggleDomain(group.domain)}
+                      >
+                        {group.topics.map((topic) => {
+                          const progress = topicProgress.get(topicKey(topic));
+                          const key = topicKey(topic);
+                          return (
+                            <TopicRow
+                              key={key}
+                              topic={topic}
+                              solvedCount={progress?.solvedCount ?? 0}
+                              correctCount={progress?.correctCount ?? 0}
+                              wrongCount={progress?.wrongCount ?? 0}
+                              armed={armedTopicKey === key}
+                              onSelect={() => armTopic(topic)}
+                              onSelectDifficulty={(difficulty) => void openTopic(topic, difficulty)}
+                            />
+                          );
+                        })}
+                      </SatDomainGroup>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="grid gap-3">
+                  {sectionTopics.map((topic) => {
+                    const progress = topicProgress.get(topicKey(topic));
+                    const key = topicKey(topic);
+                    return (
+                      <TopicRow
+                        key={key}
+                        topic={topic}
+                        solvedCount={progress?.solvedCount ?? 0}
+                        correctCount={progress?.correctCount ?? 0}
+                        wrongCount={progress?.wrongCount ?? 0}
+                        armed={armedTopicKey === key}
+                        onSelect={() => armTopic(topic)}
+                        onSelectDifficulty={(difficulty) => void openTopic(topic, difficulty)}
+                      />
+                    );
+                  })}
+                </div>
+              )}
             </section>
           );
         })}
