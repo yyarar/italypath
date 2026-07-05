@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 import BadgesView from "@/components/sat/BadgesView";
 import LevelUpCelebration from "@/components/sat/LevelUpCelebration";
@@ -50,6 +52,18 @@ interface TopicProgress {
 
 function topicKey(topic: SatTopic) {
   return `${topic.section}-${topic.skillSlug}`;
+}
+
+function BackHomeLink({ label, className = "" }: { label: string; className?: string }) {
+  return (
+    <Link
+      href="/"
+      className={`inline-flex items-center gap-2 text-sm font-semibold text-[var(--editorial-muted)] transition hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)] ${className}`}
+    >
+      <ArrowLeft className="h-4 w-4" />
+      {label}
+    </Link>
+  );
 }
 
 export default function SatBankExplorer() {
@@ -377,6 +391,7 @@ export default function SatBankExplorer() {
     return (
       <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
         <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12">
+          <BackHomeLink label={t.list.backHome} className="mb-5" />
           <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--editorial-muted)]">
             {view.topic.skill} · {view.index + 1}/{view.questions.length}
           </p>
@@ -414,6 +429,7 @@ export default function SatBankExplorer() {
     return (
       <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
         <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12">
+          <BackHomeLink label={t.list.backHome} className="mb-5" />
           <SessionSummary
             total={view.total}
             correct={view.correct}
@@ -432,6 +448,7 @@ export default function SatBankExplorer() {
     return (
       <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
         <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12">
+          <BackHomeLink label={t.list.backHome} className="mb-5" />
           <TopicCompleted
             topic={view.topic}
             wrongQuestionIds={view.wrongQuestionIds}
@@ -470,6 +487,8 @@ export default function SatBankExplorer() {
   return (
     <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
       <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
+        <BackHomeLink label={t.list.backHome} className="mb-7" />
+
         {!loading && focusRecommendation ? (
           <SatDashboardHeader
             readinessPct={readiness}

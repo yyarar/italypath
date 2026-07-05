@@ -1,6 +1,7 @@
 "use client";
 
-import { Award, CheckCircle2, Flame, Lock, Medal, Star, Target, Trophy, Zap } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, Award, CheckCircle2, Flame, Lock, Medal, Star, Target, Trophy, Zap } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
 import type { Badge, BadgeTrack } from "@/lib/sat/badges";
@@ -45,13 +46,22 @@ export default function BadgesView({ badges, onBack }: BadgesViewProps) {
   return (
     <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
       <header className="mb-8 border-b border-[var(--editorial-border)] pb-6">
-        <button
-          type="button"
-          onClick={onBack}
-          className="border-b border-[var(--editorial-sage)] pb-px text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--editorial-sage)] transition-colors hover:text-[var(--editorial-ink)]"
-        >
-          {t.sat.backToTopics}
-        </button>
+        <div className="flex flex-wrap items-center gap-4">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--editorial-muted)] transition hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            {t.list.backHome}
+          </Link>
+          <button
+            type="button"
+            onClick={onBack}
+            className="border-b border-[var(--editorial-sage)] pb-px text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--editorial-sage)] transition-colors hover:text-[var(--editorial-ink)]"
+          >
+            {t.sat.backToTopics}
+          </button>
+        </div>
         <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
           ITALYPATH
         </p>
