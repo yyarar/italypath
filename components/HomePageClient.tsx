@@ -7,6 +7,7 @@ import FeaturesSection from "@/components/FeaturesSection";
 import VelocityBridge from "@/components/VelocityBridge";
 import IseeSection from "@/components/IseeSection";
 import ScholarshipsSection from "@/components/ScholarshipsSection";
+import HomeClosingCta from "@/components/HomeClosingCta";
 import Footer from "@/components/Footer";
 import type { UniversityStats } from "@/lib/universityStats";
 
@@ -24,6 +25,7 @@ export default function HomePageClient({ stats }: HomePageClientProps) {
       <VelocityBridge stats={stats} />
       <ScholarshipsSection />
       <IseeSection />
+      <HomeClosingCta />
       <Footer />
     </div>
   );
