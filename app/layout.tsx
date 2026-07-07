@@ -1,7 +1,23 @@
 import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata, Viewport } from "next";
+import { Spectral, Hanken_Grotesk } from "next/font/google";
 import { Analytics } from '@vercel/analytics/next';
 import "./globals.css";
+
+// Editoryal başlık serifi (Times/Georgia varsayılanı yerine gerçek marka fontu).
+const spectral = Spectral({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-spectral",
+  display: "swap",
+});
+
+// Sıcak, okunur grotesk gövde fontu.
+const hankenGrotesk = Hanken_Grotesk({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-hanken",
+  display: "swap",
+});
 import { LanguageProvider } from '@/context/LanguageContext';
 import BottomNav from '@/components/BottomNav';
 import RouteTransition from '@/components/RouteTransition';
@@ -67,7 +83,7 @@ export default function RootLayout({
       signInFallbackRedirectUrl="/hub"
       signUpFallbackRedirectUrl="/hosgeldin"
     >
-      <html lang="tr" suppressHydrationWarning>
+      <html lang="tr" suppressHydrationWarning className={`${spectral.variable} ${hankenGrotesk.variable}`}>
         <body
           suppressHydrationWarning
           className={`bg-[var(--editorial-paper)] font-sans text-[var(--editorial-ink)] antialiased`}

@@ -164,8 +164,11 @@ export default function HeroSection({ stats }: HeroSectionProps) {
         className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8"
       >
         <div className="max-w-3xl">
-          <motion.p variants={itemVariants} className="mb-6 text-sm font-medium text-[var(--editorial-muted)]">
-            ItalyPath
+          <motion.p
+            variants={itemVariants}
+            className="mb-6 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]"
+          >
+            {language === "tr" ? "İtalya eğitim rehberi" : "Your guide to studying in Italy"}
           </motion.p>
 
           <motion.h1

@@ -32,6 +32,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-spectral), ui-serif, Georgia, Cambria, "Times New Roman", serif;
   --animate-pulsating-button: pulsating-button var(--duration, 1.5s) ease-out infinite;
   --animate-hub-stage-pulse: hub-stage-pulse 2.4s ease-out infinite;
 }

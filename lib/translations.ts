@@ -21,6 +21,13 @@ export const translations = {
       btnPrimary: "Üniversiteleri İncele",
       btnSecondary: "Burs Haritası",
     },
+    homeStory: {
+      eyebrow: "Bologna, İtalya",
+      title: "İtalya’yı yakından tanı.",
+      description: "Şehirleri, kampüsleri ve günlük hayatı gör; kararını uzaktan değil yerinde ver.",
+      cta: "Şehir rehberleri",
+      imageAlt: "Bologna’nın kızıl kiremitli çatıları, gün batımına doğru şehir üzerinden panoramik görünüm",
+    },
     features: {
       title: "Neden ItalyPath?",
       subtitle: "Sadece bir danışmanlık değil, dijital yol arkadaşın.",
@@ -740,6 +747,13 @@ export const translations = {
       subtitle: "Track universities, scholarships, documents, and communities in one reliable guide flow.",
       btnPrimary: "Explore Universities",
       btnSecondary: "Scholarship Map",
+    },
+    homeStory: {
+      eyebrow: "Bologna, Italy",
+      title: "See Italy up close.",
+      description: "Explore the cities, campuses, and daily life, then decide with your eyes open.",
+      cta: "City guides",
+      imageAlt: "Panorama over Bologna’s red terracotta rooftops stretching toward the horizon at dusk",
     },
     features: {
       title: "Why ItalyPath?",
