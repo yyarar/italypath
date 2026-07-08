@@ -3,9 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
+import Reveal from "@/components/ui/Reveal";
 
 // Bologna'nin kizil catili panoramasi. Kaynak: Pexels (ucretsiz lisans), foto id 1541363.
 export default function HomeStoryBand() {
@@ -13,17 +13,11 @@ export default function HomeStoryBand() {
 
   return (
     <section className="bg-[var(--editorial-paper)] pb-16 lg:pb-24">
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ type: "spring", stiffness: 110, damping: 22 }}
-        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
-      >
+      <Reveal className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Link
           href="/cities"
           aria-label={`${t.homeStory.title} ${t.homeStory.cta}`}
-          className="group relative block overflow-hidden border border-[var(--editorial-border)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+          className="group relative block overflow-hidden border border-[var(--editorial-border)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
         >
           <div className="relative aspect-[3/2] w-full sm:aspect-[16/9] lg:aspect-[24/9]">
             <Image
@@ -38,7 +32,8 @@ export default function HomeStoryBand() {
 
             <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-10">
               <div className="max-w-2xl">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#e7c9b8]">
+                <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#e7c9b8]">
+                  <span className="h-px w-7 bg-[#e7c9b8]" aria-hidden="true" />
                   {t.homeStory.eyebrow}
                 </p>
                 <h2 className="mt-3 font-serif text-3xl font-normal leading-[1.05] tracking-[-0.02em] text-[#faf7f0] sm:text-4xl lg:text-5xl">
@@ -55,7 +50,7 @@ export default function HomeStoryBand() {
             </div>
           </div>
         </Link>
-      </motion.div>
+      </Reveal>
     </section>
   );
 }

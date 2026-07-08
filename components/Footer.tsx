@@ -4,13 +4,14 @@ import Link from "next/link";
 
 import { useLanguage } from "@/context/LanguageContext";
 import { LEGAL_LINKS } from "@/lib/legal/documents";
+import Reveal from "@/components/ui/Reveal";
 
 export default function Footer() {
   const { language } = useLanguage();
 
   return (
     <footer className="border-t border-[var(--editorial-border)] bg-[var(--editorial-paper)] py-12">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <Reveal className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <span className="font-serif text-2xl font-medium tracking-[-0.02em] text-[var(--editorial-ink)]">ItalyPath</span>
         <p className="mt-2 max-w-md text-sm leading-6 text-[var(--editorial-muted)]">
           {language === "tr"
@@ -26,7 +27,7 @@ export default function Footer() {
             <Link
               key={link.slug}
               href={link.href}
-              className="text-sm text-[var(--editorial-muted)] underline-offset-4 transition hover:text-[var(--editorial-ink)] hover:underline"
+              className="text-sm text-[var(--editorial-muted)] underline-offset-4 transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:text-[var(--editorial-ink)] hover:underline"
             >
               {link.title}
             </Link>
@@ -34,7 +35,7 @@ export default function Footer() {
         </nav>
 
         <p className="mt-6 text-xs text-[var(--editorial-muted)]">© 2026 ItalyPath</p>
-      </div>
+      </Reveal>
     </footer>
   );
 }

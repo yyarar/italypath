@@ -3,9 +3,9 @@
 import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import { ArrowRight, FileText, GraduationCap, MessageCircle } from "lucide-react";
-import { motion } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
+import Reveal from "@/components/ui/Reveal";
 import { formatStatValue, type UniversityStats } from "@/lib/universityStats";
 
 interface FeaturesSectionProps {
@@ -54,24 +54,19 @@ export default function FeaturesSection({ stats }: FeaturesSectionProps) {
   return (
     <section className="bg-[var(--editorial-paper)] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 110, damping: 22 }}
-          className="grid gap-8 border-t border-[var(--editorial-border)] pt-10 lg:grid-cols-[0.8fr_1.2fr]"
-        >
-          <div>
-            <p className="text-sm font-medium text-[var(--editorial-muted)]">
+        <div className="grid gap-8 border-t border-[var(--editorial-border)] pt-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <Reveal>
+            <p className="flex items-center gap-3 text-sm font-medium text-[var(--editorial-muted)]">
+              <span className="h-px w-7 bg-[var(--editorial-terracotta)]" aria-hidden="true" />
               {language === "tr" ? "Rehber akışı" : "Guide flow"}
             </p>
             <h2 className="mt-4 max-w-md font-serif text-4xl font-normal leading-tight tracking-[-0.02em] text-[var(--editorial-ink)] sm:text-5xl">
               {t.features.title}
             </h2>
             <p className="mt-5 max-w-md text-base leading-7 text-[var(--editorial-muted)]">{t.features.subtitle}</p>
-          </div>
+          </Reveal>
 
-          <div className="divide-y divide-[var(--editorial-border)] border-y border-[var(--editorial-border)]">
+          <Reveal delay={0.12} className="divide-y divide-[var(--editorial-border)] border-y border-[var(--editorial-border)]">
             {features.map((feature) => {
               const Icon = feature.icon;
 
@@ -79,14 +74,14 @@ export default function FeaturesSection({ stats }: FeaturesSectionProps) {
                 <Link
                   key={feature.title}
                   href={feature.href}
-                  className="group grid gap-5 py-6 transition hover:bg-white/55 sm:grid-cols-[3rem_1fr_auto]"
+                  className="group grid gap-5 py-6 transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-[var(--editorial-band)] sm:grid-cols-[3rem_1fr_auto]"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center border border-[var(--editorial-border)] bg-[var(--editorial-surface)] text-[var(--editorial-sage)]">
+                  <div className="flex h-12 w-12 items-center justify-center border border-[var(--editorial-border)] bg-[var(--editorial-surface)] text-[var(--editorial-sage)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:border-[var(--editorial-sage)] group-hover:-translate-y-0.5">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <div className="min-w-0">
+                  <div className="min-w-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
                     <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
-                      <h3 className="text-xl font-semibold tracking-[-0.015em] text-[var(--editorial-ink)]">
+                      <h3 className="text-xl font-semibold tracking-[-0.015em] text-[var(--editorial-ink)] transition-colors duration-500 group-hover:text-[var(--editorial-sage)]">
                         {feature.title}
                       </h3>
                       <span className="text-xs text-[var(--editorial-terracotta)]">{feature.meta}</span>
@@ -95,13 +90,13 @@ export default function FeaturesSection({ stats }: FeaturesSectionProps) {
                   </div>
                   <span className="inline-flex items-center self-center text-sm font-semibold text-[var(--editorial-sage)]">
                     {ctaText}
-                    <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1" />
                   </span>
                 </Link>
               );
             })}
-          </div>
-        </motion.div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

@@ -26,7 +26,8 @@ export default function SatHeroPanel() {
     >
       <div className="mb-5 -mx-2 -mt-2 flex items-start justify-between gap-4 border-b border-[var(--editorial-border)] px-2 pb-4 pt-2">
         <div className="min-w-0">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
+          <p className="flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
+            <span className="h-px w-6 bg-[var(--editorial-terracotta)]" aria-hidden="true" />
             {s.eyebrow}
           </p>
           <h2 className="mt-2 font-serif text-2xl font-normal leading-tight tracking-[-0.01em] text-[var(--editorial-ink)]">
@@ -70,10 +71,10 @@ export default function SatHeroPanel() {
       <Link
         href={href}
         aria-label={s.ariaOpen}
-        className="mt-6 inline-flex w-full items-center justify-center border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#173d36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+        className="group mt-6 inline-flex w-full items-center justify-center border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-5 py-3 text-sm font-semibold text-white transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-[#173d36] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
       >
         {s.cta}
-        <ArrowRight className="ml-2 h-4 w-4" />
+        <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1" />
       </Link>
     </aside>
   );

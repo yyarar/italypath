@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 import { useAuth } from "@clerk/nextjs";
 
 import { useLanguage } from "@/context/LanguageContext";
+import Reveal from "@/components/ui/Reveal";
 
 // Sayfa sonu kapanis cagrisi. Koyu ink bant; hero'daki sage/paper ile kontrast.
 export default function HomeClosingCta() {
@@ -18,14 +18,11 @@ export default function HomeClosingCta() {
   return (
     <section className="bg-[var(--editorial-paper)] pb-16 lg:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 110, damping: 22 }}
-          className="border border-[#0f1712] bg-[#15201c] px-6 py-14 text-center sm:px-10 lg:px-16 lg:py-20"
-        >
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#e7c9b8]">{c.eyebrow}</p>
+        <Reveal className="border border-[#0f1712] bg-[#15201c] px-6 py-14 text-center sm:px-10 lg:px-16 lg:py-20">
+          <p className="flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#e7c9b8]">
+            <span className="h-px w-7 bg-[#e7c9b8]" aria-hidden="true" />
+            {c.eyebrow}
+          </p>
           <h2 className="mx-auto mt-4 max-w-2xl font-serif text-3xl font-normal leading-[1.05] tracking-[-0.02em] text-[#faf7f0] sm:text-4xl lg:text-5xl">
             {c.title}
           </h2>
@@ -34,19 +31,20 @@ export default function HomeClosingCta() {
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href={primaryHref}
-              className="inline-flex items-center justify-center bg-[#faf7f0] px-6 py-3 text-sm font-semibold text-[#15201c] transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7c9b8]"
+              className="group inline-flex items-center justify-center bg-[#faf7f0] px-6 py-3 text-sm font-semibold text-[#15201c] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7c9b8]"
             >
               {primaryLabel}
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1" />
             </Link>
             <Link
               href="/universities"
-              className="inline-flex items-center justify-center border border-white/30 px-6 py-3 text-sm font-semibold text-[#faf7f0] transition hover:border-[#e7c9b8] hover:text-[#e7c9b8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7c9b8]"
+              className="group inline-flex items-center justify-center border border-white/30 px-6 py-3 text-sm font-semibold text-[#faf7f0] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-[#e7c9b8] hover:text-[#e7c9b8] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7c9b8]"
             >
               {c.secondaryCta}
+              <ArrowRight className="ml-2 h-4 w-4 opacity-0 -translate-x-1 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:translate-x-0" />
             </Link>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );
