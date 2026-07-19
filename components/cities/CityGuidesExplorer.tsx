@@ -7,6 +7,7 @@ import {
   AlertTriangle,
   ArrowLeft,
   Building2,
+  ChevronDown,
   Coins,
   Compass,
   ExternalLink,
@@ -172,6 +173,14 @@ export default function CityGuidesExplorer({
     return getFallbackCityDetail(name, count, region);
   }, [selectedQueryCity, citiesWithCounts]);
 
+  const activeCitySlug = useMemo(
+    () =>
+      citiesWithCounts.find(
+        (city) => city.name.toLowerCase() === activeCity.name.toLowerCase()
+      )?.slug ?? "",
+    [activeCity.name, citiesWithCounts]
+  );
+
   // Dynamic regional scholarship lookup
   const scholarshipRegion = useMemo(() => {
     const slug = getRegionSlugByName(activeCity.region);
@@ -257,9 +266,40 @@ export default function CityGuidesExplorer({
           </div>
         ) : (
           <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(380px,0.85fr)]">
-            
+            {/* Mobile City Selector */}
+            <section className="min-w-0 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-4 shadow-[0_24px_70px_rgba(21,32,28,0.08)] lg:hidden">
+              <label
+                htmlFor="mobile-city-selector"
+                className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]"
+              >
+                <MapPin className="h-4 w-4 text-[var(--editorial-sage)]" />
+                {copy.citySelectorLabel}
+              </label>
+              <div className="relative mt-3">
+                <select
+                  id="mobile-city-selector"
+                  value={activeCitySlug}
+                  onChange={(event) => handleSelectCity(event.target.value)}
+                  className="min-h-11 w-full appearance-none border border-[var(--editorial-border)] bg-[var(--editorial-paper)] px-3 pr-10 text-sm font-bold text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+                >
+                  {citiesWithCounts.map((city) => (
+                    <option key={city.name} value={city.slug}>
+                      {language === "tr"
+                        ? city.name
+                        : getCityDetailBySlug(city.name)?.nameEn || city.name}
+                      {` · ${city.count} ${t.detail.programCount}`}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--editorial-sage)]"
+                />
+              </div>
+            </section>
+
             {/* Left Column: Cities Directory */}
-            <section className="min-w-0 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-4 shadow-[0_24px_70px_rgba(21,32,28,0.08)] sm:p-5">
+            <section className="hidden min-w-0 lg:block border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-4 shadow-[0_24px_70px_rgba(21,32,28,0.08)] sm:p-5">
               <div className="mb-4 flex items-center gap-2">
                 <span className="grid h-9 w-9 place-items-center rounded-md border border-[var(--editorial-border)] bg-[#f1eadf] text-[var(--editorial-sage)]">
                   <MapPin className="h-4 w-4" />

@@ -1,7 +1,15 @@
 import { readFileSync } from "node:fs";
 
 const cityDataPath = new URL("../lib/cities/data.ts", import.meta.url);
+const cityExplorerPath = new URL(
+  "../components/cities/CityGuidesExplorer.tsx",
+  import.meta.url
+);
+const translationsPath = new URL("../lib/translations.ts", import.meta.url);
+
 const source = readFileSync(cityDataPath, "utf8");
+const cityExplorerSource = readFileSync(cityExplorerPath, "utf8");
+const translationsSource = readFileSync(translationsPath, "utf8");
 
 function assertIncludes(haystack, needle, message) {
   if (!haystack.includes(needle)) {
@@ -301,5 +309,46 @@ assertIncludes(napoli, "85 m² temel faturalar: ~188,48€", "Napoli livingExpen
 assertIncludes(napoli, "Tek yön şehir içi bilet: ~1,50€", "Napoli transportCost must include one-way ticket data.");
 assertIncludes(napoli, "1 odalı daire: merkezde ~966€", "Napoli rentAverage must include centre 1BR rent.");
 assertIncludes(napoli, "merkez dışında ~612,20€", "Napoli rentAverage must include outside-centre 1BR rent.");
+
+assertIncludes(
+  cityExplorerSource,
+  'htmlFor="mobile-city-selector"',
+  "Mobile city selector must have a programmatically associated label."
+);
+assertIncludes(
+  cityExplorerSource,
+  'id="mobile-city-selector"',
+  "Mobile city selector must expose a stable control id."
+);
+assertIncludes(
+  cityExplorerSource,
+  "value={activeCitySlug}",
+  "Mobile city selector must reflect the active city slug."
+);
+assertIncludes(
+  cityExplorerSource,
+  "handleSelectCity(event.target.value)",
+  "Mobile city selector must reuse the existing city selection flow."
+);
+assertIncludes(
+  cityExplorerSource,
+  "lg:hidden",
+  "Mobile city selector must be hidden at the desktop breakpoint."
+);
+assertIncludes(
+  cityExplorerSource,
+  "hidden min-w-0 lg:block",
+  "The long city directory must be hidden below the desktop breakpoint."
+);
+assertIncludes(
+  translationsSource,
+  'citySelectorLabel: "Şehir seç"',
+  "Turkish mobile city selector copy is required."
+);
+assertIncludes(
+  translationsSource,
+  'citySelectorLabel: "Choose a city"',
+  "English mobile city selector copy is required."
+);
 
 console.log("[OK] City data source checks passed.");

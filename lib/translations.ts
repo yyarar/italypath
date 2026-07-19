@@ -647,6 +647,7 @@ export const translations = {
     },
     citiesGuide: {
       pageIdentity: "İtalya Şehir Rehberleri · Atlas",
+      citySelectorLabel: "Şehir seç",
       title: "Şehirlerin editoryal atlası.",
       intro: "İtalya'da okuyacağınız şehri yaşam maliyetleri, ulaşım imkanları ve öğrenci hayatı atmosferiyle keşfedin.",
       costLevel: "Yaşam Maliyeti",
@@ -1398,6 +1399,7 @@ export const translations = {
     },
     citiesGuide: {
       pageIdentity: "Italy City Guides · Atlas",
+      citySelectorLabel: "Choose a city",
       title: "An atlas of student cities.",
       intro: "Discover your future Italian university city by exploring living costs, transportation, climate, and student vibe.",
       costLevel: "Living Costs",
