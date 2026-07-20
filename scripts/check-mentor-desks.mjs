@@ -38,6 +38,7 @@ const volunteerMessage = read("components/mentor/volunteer/VolunteerMessage.tsx"
 const volunteerStatus = read("components/mentor/volunteer/VolunteerConversationStatus.tsx");
 const volunteerThread = read("components/mentor/volunteer/VolunteerThread.tsx");
 const translations = read("lib/translations.ts");
+const mentorHub = read("components/mentor/MentorHub.tsx");
 
 mustInclude(channels, '"ai-chat"', "AI experience eksik");
 mustInclude(channels, '"volunteer-inbox"', "Volunteer experience eksik");
@@ -142,6 +143,44 @@ mustInclude(volunteerStatus, 'role="status"', "Conversation status live region e
 mustInclude(volunteerThread, 'role="status"', "Message loading live region eksik");
 mustNotInclude(translations, "240 bölümün", "Eski canlı program sayısı kaldı");
 mustNotInclude(translations, "240 programs", "Stale live program count remains");
+mustInclude(
+  translations,
+  'hubActiveBadge: "AKTİF · ANINDA"',
+  "AI anında rozeti eksik",
+);
+mustInclude(
+  translations,
+  'hubActiveBadge: "ACTIVE · INSTANT"',
+  "AI instant badge missing",
+);
+mustInclude(
+  translations,
+  'hubVolunteerActiveBadge: "AKTİF · ASENKRON"',
+  "Volunteer asenkron rozeti eksik",
+);
+mustInclude(
+  translations,
+  'hubVolunteerActiveBadge: "ACTIVE · ASYNC"',
+  "Volunteer async badge missing",
+);
+mustInclude(
+  mentorHub,
+  "t.aiMentor.hubVolunteerActiveBadge",
+  "Volunteer active badge route edilmemiş",
+);
+mustInclude(
+  mentorHub,
+  "t.aiMentor.hubActiveBadge",
+  "AI active badge route edilmemiş",
+);
+[
+  "Pratik soruna pratik yanıt — birkaç saatte bir cevap.",
+  "Birkaç saat içinde · Hafta içi · Ücretsiz / sınırlı",
+  "usually within a few hours.",
+  "Within a few hours · Weekdays · Free / limited",
+].forEach((needle) =>
+  mustNotInclude(translations, needle, "Volunteer SLA kopyası kaldı"),
+);
 if (translations.split("volunteerDesk:").length - 1 < 2) {
   failures.push("volunteerDesk TR+EN çevirileri eksik");
 }

@@ -593,6 +593,7 @@ export const translations = {
       hubIntro:
         "Üç farklı kanaldan İtalya yolculuğu hakkında danışabilirsin: hızlı bir cevap için yapay zekâ; aynı yoldan geçmiş öğrenciler için gönüllü ekip; derin bir konu için uzman.",
       hubActiveBadge: "AKTİF · ANINDA",
+      hubVolunteerActiveBadge: "AKTİF · ASENKRON",
       hubLockedBadgeFree: "YAKINDA · ÜCRETSİZ",
       hubLockedBadgePaid: "YAKINDA · ÜCRETLİ",
       hubOpenCta: "SOHBETE BAŞLA",
@@ -669,8 +670,8 @@ export const translations = {
         volunteer: {
           name: "ItalyPath Gönüllü Ekip",
           tagline:
-            "Aynı yoldan geçmiş, halen İtalya'da yaşayan öğrenciler. Pratik soruna pratik yanıt — birkaç saatte bir cevap.",
-          meta: "Birkaç saat içinde · Hafta içi · Ücretsiz / sınırlı",
+            "Aynı yoldan geçmiş, halen İtalya'da yaşayan öğrenciler. Sorunu bırak; ekip uygun olduğunda bu sayfadan yanıtlasın.",
+          meta: "Asenkron · Gönüllü ekip · Ücretsiz / sınırlı",
           lockedBody:
             "Yakında: aynı yoldan geçmiş öğrencilerden bire-bir, gerçek deneyime dayalı yanıtlar.",
         },
@@ -1384,6 +1385,7 @@ export const translations = {
       hubIntro:
         "Three channels for your Italy journey: an AI for a fast first answer, a volunteer team of students who've walked the same path, and an expert for deep one-on-one consultations.",
       hubActiveBadge: "ACTIVE · INSTANT",
+      hubVolunteerActiveBadge: "ACTIVE · ASYNC",
       hubLockedBadgeFree: "SOON · FREE",
       hubLockedBadgePaid: "SOON · PAID",
       hubOpenCta: "START A CHAT",
@@ -1460,8 +1462,8 @@ export const translations = {
         volunteer: {
           name: "ItalyPath Volunteer Team",
           tagline:
-            "Students who've walked the same path and live in Italy now. Practical answers to practical questions — usually within a few hours.",
-          meta: "Within a few hours · Weekdays · Free / limited",
+            "Students who've walked the same path and now live in Italy. Leave your question; the team will reply here when available.",
+          meta: "Asynchronous · Volunteer team · Free / limited",
           lockedBody:
             "Coming soon: one-on-one answers from students with first-hand experience of the same journey.",
         },
