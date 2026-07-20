@@ -77,9 +77,14 @@ mustInclude(studentHook, 'rpc("start_volunteer_conversation"', "Start RPC eksik"
 mustInclude(studentHook, 'rpc("send_student_mentor_message"', "Student send RPC eksik");
 mustInclude(studentHook, 'rpc("close_volunteer_conversation"', "Close RPC eksik");
 mustInclude(studentHook, "realtime.setAuth()", "Realtime auth eksik");
+mustInclude(studentHook, 'filter: `user_id=eq.${userId}`', "Conversation subscription filtresi eksik");
 mustInclude(studentHook, 'table: "mentor_messages"', "Message subscription eksik");
+mustInclude(studentHook, 'filter: `conversation_id=eq.${conversationId}`', "Message subscription filtresi eksik");
 mustInclude(studentHook, "mergeMentorMessages", "Realtime dedupe eksik");
 mustNotInclude(studentHook, "SUPABASE_SERVICE_ROLE_KEY", "Student hook service role içeriyor");
+[".insert(", ".update(", ".upsert("].forEach((needle) =>
+  mustNotInclude(studentHook, needle, "Student hook doğrudan tablo mutation içeriyor"),
+);
 
 if (failures.length) {
   for (const failure of failures) console.error(`HATA: ${failure}`);
