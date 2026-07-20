@@ -107,6 +107,64 @@ export function createSerializedReconciliationQueue(): SerializedReconciliationQ
   };
 }
 
+export interface OwnerScopedNonceOperation {
+  nonce: string;
+  promise?: Promise<void>;
+}
+
+export interface OwnerScopedNonceRegistry {
+  get(ownerId: string, key: string): OwnerScopedNonceOperation | undefined;
+  getOrCreate(
+    ownerId: string,
+    key: string,
+    createNonce: () => string,
+  ): OwnerScopedNonceOperation;
+  deleteIfSame(ownerId: string, key: string, operation: OwnerScopedNonceOperation): void;
+  releasePromiseIfSame(
+    ownerId: string,
+    key: string,
+    operation: OwnerScopedNonceOperation,
+  ): void;
+}
+
+export function createOwnerScopedNonceRegistry(): OwnerScopedNonceRegistry {
+  const owners = new Map<string, Map<string, OwnerScopedNonceOperation>>();
+
+  function entries(ownerId: string): Map<string, OwnerScopedNonceOperation> {
+    let ownerEntries = owners.get(ownerId);
+    if (!ownerEntries) {
+      ownerEntries = new Map();
+      owners.set(ownerId, ownerEntries);
+    }
+    return ownerEntries;
+  }
+
+  return {
+    get(ownerId, key) {
+      return owners.get(ownerId)?.get(key);
+    },
+    getOrCreate(ownerId, key, createNonce) {
+      const ownerEntries = entries(ownerId);
+      const existing = ownerEntries.get(key);
+      if (existing) return existing;
+      const operation = { nonce: createNonce() };
+      ownerEntries.set(key, operation);
+      return operation;
+    },
+    deleteIfSame(ownerId, key, operation) {
+      const ownerEntries = owners.get(ownerId);
+      if (ownerEntries?.get(key) !== operation) return;
+      ownerEntries.delete(key);
+      if (ownerEntries.size === 0) owners.delete(ownerId);
+    },
+    releasePromiseIfSame(ownerId, key, operation) {
+      if (owners.get(ownerId)?.get(key) === operation) {
+        operation.promise = undefined;
+      }
+    },
+  };
+}
+
 export function deriveMentorRealtimeState(
   hasAuthenticatedUser: boolean,
   hasSelectedConversation: boolean,

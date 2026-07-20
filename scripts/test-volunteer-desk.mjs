@@ -31,6 +31,7 @@ const {
   applyAuthoritativeMessageSnapshot,
   coalesceOperation,
   createSerializedReconciliationQueue,
+  createOwnerScopedNonceRegistry,
   deriveMentorRealtimeState,
   transitionMessageScope,
 } = await importStateHelpers();
@@ -184,6 +185,32 @@ assert.equal(
   await reconciliationQueue.enqueue(async () => "retry-authoritative"),
   "retry-authoritative",
   "a failed queued read must not poison a later forced reconciliation",
+);
+
+const ownerOperations = createOwnerScopedNonceRegistry();
+const ownerAStart = ownerOperations.getOrCreate("owner-a", "topic\u0000body", () => "nonce-a");
+ownerAStart.promise = Promise.resolve();
+ownerOperations.releasePromiseIfSame("owner-a", "topic\u0000body", ownerAStart);
+assert.equal(
+  ownerOperations.getOrCreate("owner-a", "topic\u0000body", () => "unexpected").nonce,
+  "nonce-a",
+  "a stale generation release must preserve owner A's retry nonce",
+);
+assert.equal(
+  ownerOperations.getOrCreate("owner-b", "topic\u0000body", () => "nonce-b").nonce,
+  "nonce-b",
+  "owner B must receive an independent nonce for the same draft key",
+);
+ownerOperations.deleteIfSame("owner-a", "topic\u0000body", ownerAStart);
+assert.equal(
+  ownerOperations.get("owner-a", "topic\u0000body"),
+  undefined,
+  "only owner A's successful reconciliation may remove owner A's entry",
+);
+assert.equal(
+  ownerOperations.get("owner-b", "topic\u0000body")?.nonce,
+  "nonce-b",
+  "removing owner A's entry must not affect owner B",
 );
 
 assert.equal(

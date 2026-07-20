@@ -12,6 +12,7 @@ import {
   applyAuthoritativeConversationSnapshot,
   applyAuthoritativeMessageSnapshot,
   coalesceOperation,
+  createOwnerScopedNonceRegistry,
   createSerializedReconciliationQueue,
   deriveMentorRealtimeState,
   transitionMessageScope,
@@ -20,11 +21,6 @@ import {
 } from "@/lib/mentor/volunteerDeskState";
 import { useMentorSupabaseClient } from "@/lib/mentor/useMentorSupabaseClient";
 import type { MentorConversationRow, MentorMessageRow } from "@/types";
-
-interface PendingOperation {
-  nonce: string;
-  promise?: Promise<void>;
-}
 
 interface MessageScope {
   conversationId: string | null;
@@ -65,10 +61,11 @@ function staleLifecycleError(): Error {
 
 export function useVolunteerDesk(): UseVolunteerDeskResult {
   const { user, isLoaded } = useUser();
-  const userId = isLoaded ? user?.id ?? null : null;
+  const resolvedUserId = isLoaded ? user?.id ?? null : undefined;
   const supabase = useMentorSupabaseClient();
   const mountedRef = useRef(false);
   const identityRef = useRef<string | null>(null);
+  const hasCommittedIdentityRef = useRef(false);
   const generationRef = useRef(0);
   const conversationsRef = useRef<MentorConversationRow[]>([]);
   const conversationEventsRef = useRef<ConversationEvent<MentorConversationRow>[]>([]);
@@ -86,8 +83,8 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
   const messageRefreshesRef = useRef(new Map<string, Promise<void>>());
   const conversationQueueRef = useRef(createSerializedReconciliationQueue());
   const messageQueueRef = useRef(createSerializedReconciliationQueue());
-  const pendingStartRef = useRef(new Map<string, PendingOperation>());
-  const pendingSendRef = useRef(new Map<string, PendingOperation>());
+  const pendingStartRef = useRef(createOwnerScopedNonceRegistry());
+  const pendingSendRef = useRef(createOwnerScopedNonceRegistry());
   const pendingCloseRef = useRef(new Map<string, Promise<void>>());
   const activeSendingRef = useRef(0);
   const activeClosingRef = useRef(0);
@@ -108,7 +105,8 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
   const [messageChannelConversationId, setMessageChannelConversationId] =
     useState<string | null>(null);
 
-  const identityReady = stateUserId === userId;
+  const identityReady =
+    resolvedUserId !== undefined && stateUserId === resolvedUserId;
   const visibleConversations = identityReady ? conversations : [];
   const visibleSelectedConversationId = identityReady ? selectedConversationId : null;
   const visibleMessages =
@@ -125,7 +123,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
       (conversation) => conversation.id === visibleSelectedConversationId,
     ) ?? null;
   const realtimeState = deriveMentorRealtimeState(
-    Boolean(userId && identityReady),
+    Boolean(resolvedUserId && identityReady),
     Boolean(visibleSelectedConversationId),
     conversationChannelState,
     messageChannelConversationId === visibleSelectedConversationId
@@ -204,8 +202,16 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
   }, []);
 
   useLayoutEffect(() => {
+    if (resolvedUserId === undefined) return;
+    if (
+      hasCommittedIdentityRef.current &&
+      identityRef.current === resolvedUserId
+    ) {
+      return;
+    }
+    hasCommittedIdentityRef.current = true;
     generationRef.current += 1;
-    identityRef.current = userId;
+    identityRef.current = resolvedUserId;
     conversationsRef.current = [];
     conversationEventsRef.current = [];
     conversationEventVersionRef.current = 0;
@@ -222,24 +228,22 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     messageRefreshesRef.current.clear();
     conversationQueueRef.current = createSerializedReconciliationQueue();
     messageQueueRef.current = createSerializedReconciliationQueue();
-    pendingStartRef.current.clear();
-    pendingSendRef.current.clear();
     pendingCloseRef.current.clear();
     activeSendingRef.current = 0;
     activeClosingRef.current = 0;
     setConversations([]);
     setSelectedConversationId(null);
     setMessages([]);
-    setLoading(Boolean(userId));
+    setLoading(Boolean(resolvedUserId));
     setMessagesLoading(false);
     setSending(false);
     setClosing(false);
     setError(null);
-    setConversationChannelState(userId ? "connecting" : "idle");
+    setConversationChannelState(resolvedUserId ? "connecting" : "idle");
     setMessageChannelState("idle");
     setMessageChannelConversationId(null);
-    setStateUserId(userId);
-  }, [userId]);
+    setStateUserId(resolvedUserId);
+  }, [resolvedUserId]);
 
   const refreshConversations = useCallback(
     (showLoading = true, force = false): Promise<void> => {
@@ -488,7 +492,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
       active = false;
       if (channel) void supabase.removeChannel(channel);
     };
-  }, [commitConversations, isCurrent, refreshConversations, supabase, userId]);
+  }, [commitConversations, isCurrent, refreshConversations, supabase, stateUserId]);
 
   useEffect(() => {
     const generation = generationRef.current;
@@ -569,7 +573,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     isCurrent,
     refreshMessages,
     supabase,
-    userId,
+    stateUserId,
     visibleSelectedConversationId,
   ]);
 
@@ -582,9 +586,12 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
       }
       const displayName = user?.fullName?.trim() || user?.firstName?.trim() || "Öğrenci";
       const key = `${topic}\u0000${body}`;
-      const existing = pendingStartRef.current.get(key);
-      if (existing?.promise) return existing.promise;
-      const operation = existing ?? { nonce: crypto.randomUUID() };
+      const operation = pendingStartRef.current.getOrCreate(
+        ownerId,
+        key,
+        () => crypto.randomUUID(),
+      );
+      if (operation.promise) return operation.promise;
       const promise = Promise.resolve().then(async () => {
         activeSendingRef.current += 1;
         if (isCurrent(generation, ownerId)) {
@@ -606,16 +613,12 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
           transitionSelection(conversationId);
           await refreshMessages(conversationId, true);
           assertCurrent(generation, ownerId);
-          if (pendingStartRef.current.get(key) === operation) {
-            pendingStartRef.current.delete(key);
-          }
+          pendingStartRef.current.deleteIfSame(ownerId, key, operation);
         } catch (actionError) {
           if (isCurrent(generation, ownerId)) setError("send_failed");
           throw actionError;
         } finally {
-          if (pendingStartRef.current.get(key) === operation) {
-            operation.promise = undefined;
-          }
+          pendingStartRef.current.releasePromiseIfSame(ownerId, key, operation);
           if (isCurrent(generation, ownerId)) {
             activeSendingRef.current -= 1;
             setSending(activeSendingRef.current > 0);
@@ -623,7 +626,6 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
         }
       });
       operation.promise = promise;
-      pendingStartRef.current.set(key, operation);
       return promise;
     },
     [
@@ -650,9 +652,12 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
         throw new Error("conversation_closed");
       }
       const key = `${conversation.id}\u0000${body}`;
-      const existing = pendingSendRef.current.get(key);
-      if (existing?.promise) return existing.promise;
-      const operation = existing ?? { nonce: crypto.randomUUID() };
+      const operation = pendingSendRef.current.getOrCreate(
+        ownerId,
+        key,
+        () => crypto.randomUUID(),
+      );
+      if (operation.promise) return operation.promise;
       const promise = Promise.resolve().then(async () => {
         activeSendingRef.current += 1;
         if (isCurrent(generation, ownerId)) {
@@ -672,16 +677,12 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
             refreshMessages(conversation.id, true),
           ]);
           assertCurrent(generation, ownerId);
-          if (pendingSendRef.current.get(key) === operation) {
-            pendingSendRef.current.delete(key);
-          }
+          pendingSendRef.current.deleteIfSame(ownerId, key, operation);
         } catch (actionError) {
           if (isCurrent(generation, ownerId)) setError("send_failed");
           throw actionError;
         } finally {
-          if (pendingSendRef.current.get(key) === operation) {
-            operation.promise = undefined;
-          }
+          pendingSendRef.current.releasePromiseIfSame(ownerId, key, operation);
           if (isCurrent(generation, ownerId)) {
             activeSendingRef.current -= 1;
             setSending(activeSendingRef.current > 0);
@@ -689,7 +690,6 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
         }
       });
       operation.promise = promise;
-      pendingSendRef.current.set(key, operation);
       return promise;
     },
     [
@@ -760,7 +760,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     closedConversations,
     selectedConversation,
     messages: visibleMessages,
-    loading: identityReady ? loading : Boolean(userId),
+    loading: identityReady ? loading : Boolean(resolvedUserId),
     messagesLoading: identityReady ? messagesLoading : false,
     sending: identityReady ? sending : false,
     closing: identityReady ? closing : false,

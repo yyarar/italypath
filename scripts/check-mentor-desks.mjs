@@ -83,6 +83,10 @@ mustInclude(studentHook, 'rpc("close_volunteer_conversation"', "Close RPC eksik"
 mustInclude(studentHook, "realtime.setAuth()", "Realtime auth eksik");
 mustInclude(studentHook, "useLayoutEffect", "Identity commit boundary eksik");
 mustNotInclude(studentHook, "if (identityRef.current !== userId)", "Render sırasında identity mutation kaldı");
+mustInclude(studentHook, "resolvedUserId === undefined", "Unresolved Clerk auth boundary eksik");
+mustInclude(studentHook, "createOwnerScopedNonceRegistry", "Owner scoped nonce registry eksik");
+mustNotInclude(studentHook, "pendingStartRef.current.clear()", "Start nonce registry identity resetinde siliniyor");
+mustNotInclude(studentHook, "pendingSendRef.current.clear()", "Send nonce registry identity resetinde siliniyor");
 mustInclude(studentHook, 'filter: `user_id=eq.${ownerId}`', "Conversation subscription filtresi eksik");
 mustInclude(studentHook, 'table: "mentor_messages"', "Message subscription eksik");
 mustInclude(studentHook, 'filter: `conversation_id=eq.${conversationId}`', "Message subscription filtresi eksik");
