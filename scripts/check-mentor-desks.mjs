@@ -24,6 +24,7 @@ const types = read("types/index.ts");
 const sql = read("supabase/volunteer_mentor.sql");
 const mentorDbTest = read("scripts/test-mentor-db.mjs");
 const packageJson = read("package.json");
+const securityRunbook = read("SUPABASE_SECURITY_RUNBOOK.md");
 
 mustInclude(channels, '"ai-chat"', "AI experience eksik");
 mustInclude(channels, '"volunteer-inbox"', "Volunteer experience eksik");
@@ -46,6 +47,7 @@ mustInclude(types, "MentorMessageRow", "Message row tipi eksik");
   "enable row level security",
   "pg_advisory_xact_lock",
   "idempotency_conflict",
+  "legacy_mentor_idempotency_migration_required",
   "p_topic is null",
   "v_body is null",
   "is_active_mentor_staff",
@@ -62,6 +64,11 @@ mustNotInclude(sql, "client_nonce uuid not null unique", "Global nonce unique ka
 mustInclude(packageJson, '"test:mentor-db"', "PostgreSQL mentor test komutu eksik");
 mustInclude(mentorDbTest, "runConcurrentBehindGate", "Concurrency DB testi eksik");
 mustInclude(mentorDbTest, "owner and active staff RLS reads", "RLS DB testi eksik");
+mustInclude(mentorDbTest, "data-bearing legacy upgrade", "Legacy migration DB testi eksik");
+mustInclude(mentorDbTest, "POSTGRES_BIN", "Portable PostgreSQL keşfi eksik");
+mustInclude(mentorDbTest, "pg_config", "pg_config keşfi eksik");
+mustInclude(securityRunbook, "legacy_mentor_idempotency_migration_required", "Legacy safe-stop runbook eksik");
+mustInclude(securityRunbook, "private_idempotency_realtime_rows", "Private Realtime kontrolü eksik");
 
 if (failures.length) {
   for (const failure of failures) console.error(`HATA: ${failure}`);

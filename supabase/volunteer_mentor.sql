@@ -1,5 +1,99 @@
 begin;
 
+do $mentor_upgrade_preflight$
+declare
+  v_has_legacy_nonce_constraint boolean := false;
+  v_has_legacy_messages boolean := false;
+  v_has_unmapped_messages boolean := true;
+begin
+  if to_regclass('public.mentor_messages') is null then
+    return;
+  end if;
+
+  select exists (
+    select 1
+    from pg_constraint
+    where conrelid = 'public.mentor_messages'::regclass
+      and conname = 'mentor_messages_client_nonce_key'
+  ) into v_has_legacy_nonce_constraint;
+
+  if not v_has_legacy_nonce_constraint then
+    return;
+  end if;
+
+  execute 'lock table public.mentor_messages in access exclusive mode';
+
+  select exists (
+    select 1
+    from pg_constraint
+    where conrelid = 'public.mentor_messages'::regclass
+      and conname = 'mentor_messages_client_nonce_key'
+  ) into v_has_legacy_nonce_constraint;
+
+  if not v_has_legacy_nonce_constraint then
+    return;
+  end if;
+
+  execute 'select exists (select 1 from public.mentor_messages)'
+    into v_has_legacy_messages;
+
+  if not v_has_legacy_messages then
+    return;
+  end if;
+
+  if to_regclass('public.mentor_rpc_idempotency') is not null then
+    execute 'lock table public.mentor_rpc_idempotency in access exclusive mode';
+
+    begin
+      execute $coverage$
+        select exists (
+          select 1
+          from public.mentor_messages message
+          join public.mentor_conversations conversation
+            on conversation.id = message.conversation_id
+          where not exists (
+            select 1
+            from public.mentor_rpc_idempotency request
+            where request.conversation_id = message.conversation_id
+              and request.client_nonce = message.client_nonce
+              and (
+                (
+                  request.operation = 'start'
+                  and request.message_id is null
+                  and message.sender_kind = 'student'
+                  and request.caller_user_id = conversation.user_id
+                )
+                or
+                (
+                  request.operation = 'send_student'
+                  and request.message_id = message.id
+                  and message.sender_kind = 'student'
+                  and request.caller_user_id = conversation.user_id
+                )
+                or
+                (
+                  request.operation = 'send_staff'
+                  and request.message_id = message.id
+                  and message.sender_kind = 'staff'
+                )
+              )
+          )
+        )
+      $coverage$ into v_has_unmapped_messages;
+    exception when undefined_column then
+      v_has_unmapped_messages := true;
+    end;
+  end if;
+
+  if v_has_unmapped_messages then
+    raise exception 'legacy_mentor_idempotency_migration_required'
+      using errcode = 'P0001',
+            detail = 'Legacy mentor messages exist without verifiable caller and operation mappings.',
+            hint = 'Stop deployment. A database owner must review and explicitly migrate or archive the experimental legacy data before rerunning this artifact.';
+  end if;
+end
+$mentor_upgrade_preflight$;
+
 create extension if not exists pgcrypto;
 
 create or replace function public.requesting_user_id()

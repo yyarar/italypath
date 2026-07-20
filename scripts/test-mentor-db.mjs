@@ -4,10 +4,59 @@ import { join, resolve } from "node:path";
 import { spawn, spawnSync } from "node:child_process";
 import { createServer } from "node:net";
 
-const pgBin = process.env.POSTGRES_BIN ?? "/opt/homebrew/opt/postgresql@16/bin";
-const initdb = join(pgBin, "initdb");
-const pgCtl = join(pgBin, "pg_ctl");
-const psql = join(pgBin, "psql");
+const postgresToolNames = ["initdb", "pg_ctl", "psql"];
+
+function toolsFromDirectory(directory) {
+  return {
+    initdb: join(directory, "initdb"),
+    pgCtl: join(directory, "pg_ctl"),
+    psql: join(directory, "psql"),
+    source: directory,
+  };
+}
+
+function toolsAreRunnable(tools) {
+  return [tools.initdb, tools.pgCtl, tools.psql].every((tool) => {
+    const result = spawnSync(tool, ["--version"], { encoding: "utf8" });
+    return !result.error && result.status === 0;
+  });
+}
+
+function resolvePostgresTools() {
+  if (process.env.POSTGRES_BIN) {
+    const explicit = toolsFromDirectory(process.env.POSTGRES_BIN);
+    if (!toolsAreRunnable(explicit)) {
+      throw new Error(
+        `POSTGRES_BIN=${process.env.POSTGRES_BIN} must contain runnable ${postgresToolNames.join(", ")}`,
+      );
+    }
+    return explicit;
+  }
+
+  const pgConfig = spawnSync("pg_config", ["--bindir"], { encoding: "utf8" });
+  if (!pgConfig.error && pgConfig.status === 0 && pgConfig.stdout.trim()) {
+    const configured = toolsFromDirectory(pgConfig.stdout.trim());
+    if (toolsAreRunnable(configured)) return configured;
+  }
+
+  const pathTools = {
+    initdb: "initdb",
+    pgCtl: "pg_ctl",
+    psql: "psql",
+    source: "PATH",
+  };
+  if (toolsAreRunnable(pathTools)) return pathTools;
+
+  const homebrewFallback = toolsFromDirectory("/opt/homebrew/opt/postgresql@16/bin");
+  if (toolsAreRunnable(homebrewFallback)) return homebrewFallback;
+
+  throw new Error(
+    `PostgreSQL tools not found (${postgresToolNames.join(", ")}). Set POSTGRES_BIN to the PostgreSQL bin directory.`,
+  );
+}
+
+const postgresTools = resolvePostgresTools();
+const { initdb, pgCtl, psql } = postgresTools;
 const clusterRoot = mkdtempSync(join(tmpdir(), "italypath-mentor-pg-"));
 const dataDir = join(clusterRoot, "data");
 const socketDir = join(clusterRoot, "socket");
@@ -34,7 +83,7 @@ function command(commandPath, args, options = {}) {
   return result;
 }
 
-function psqlArgs() {
+function psqlArgs(database = "postgres") {
   return [
     "-X",
     "-qAt",
@@ -47,15 +96,144 @@ function psqlArgs() {
     "-U",
     "postgres",
     "-d",
-    "postgres",
+    database,
   ];
 }
 
-function runSql(sql, { allowFailure = false } = {}) {
-  return command(psql, psqlArgs(), {
+function runSql(sql, { allowFailure = false, database = "postgres" } = {}) {
+  return command(psql, psqlArgs(database), {
     input: sql,
     allowFailure,
   });
+}
+
+function loadProductionSql(database = "postgres", { allowFailure = false } = {}) {
+  return command(psql, [...psqlArgs(database), "-f", productionSql], { allowFailure });
+}
+
+function installSupabaseStubs(database) {
+  runSql(`
+    create schema auth;
+    create function auth.jwt()
+    returns jsonb
+    language sql
+    stable
+    as $$
+      select coalesce(nullif(current_setting('request.jwt.claims', true), ''), '{}')::jsonb;
+    $$;
+    grant usage on schema auth to anon, authenticated;
+    grant execute on function auth.jwt() to anon, authenticated;
+    create publication supabase_realtime;
+  `, { database });
+}
+
+function legacySchemaSql({ withData }) {
+  return `
+    create extension if not exists pgcrypto;
+
+    create table public.mentor_staff (
+      user_id text primary key,
+      display_name text not null,
+      active boolean not null default true,
+      created_at timestamptz not null default timezone('utc', now()),
+      constraint mentor_staff_display_name_length
+        check (char_length(btrim(display_name)) between 1 and 120)
+    );
+
+    create table public.mentor_conversations (
+      id uuid primary key default gen_random_uuid(),
+      user_id text not null,
+      student_display_name text not null,
+      topic text not null,
+      status text not null default 'waiting_for_team',
+      last_sender_kind text not null default 'student',
+      last_message_preview text not null,
+      created_at timestamptz not null default timezone('utc', now()),
+      updated_at timestamptz not null default timezone('utc', now()),
+      last_message_at timestamptz not null default timezone('utc', now()),
+      closed_at timestamptz,
+      closed_by text,
+      constraint mentor_conversations_student_name_length
+        check (char_length(btrim(student_display_name)) between 1 and 120),
+      constraint mentor_conversations_topic_check
+        check (topic in (
+          'university-program',
+          'application-documents',
+          'scholarship-isee',
+          'visa-residence',
+          'student-life',
+          'other'
+        )),
+      constraint mentor_conversations_status_check
+        check (status in ('waiting_for_team', 'waiting_for_student', 'closed')),
+      constraint mentor_conversations_sender_check
+        check (last_sender_kind in ('student', 'staff')),
+      constraint mentor_conversations_preview_length
+        check (char_length(last_message_preview) between 1 and 160),
+      constraint mentor_conversations_closed_by_check
+        check (closed_by is null or closed_by in ('student', 'staff')),
+      constraint mentor_conversations_closed_state_check
+        check (
+          (status = 'closed' and closed_at is not null and closed_by is not null)
+          or
+          (status <> 'closed' and closed_at is null and closed_by is null)
+        )
+    );
+
+    create unique index mentor_conversations_one_open_per_user
+      on public.mentor_conversations (user_id)
+      where status <> 'closed';
+
+    create table public.mentor_messages (
+      id uuid primary key default gen_random_uuid(),
+      conversation_id uuid not null
+        references public.mentor_conversations(id) on delete cascade,
+      sender_kind text not null,
+      body text not null,
+      client_nonce uuid not null unique,
+      created_at timestamptz not null default timezone('utc', now()),
+      constraint mentor_messages_sender_check
+        check (sender_kind in ('student', 'staff')),
+      constraint mentor_messages_body_length
+        check (char_length(body) between 1 and 4000),
+      constraint mentor_messages_body_trimmed
+        check (body = btrim(body))
+    );
+
+    ${withData ? `
+      insert into public.mentor_conversations (
+        id,
+        user_id,
+        student_display_name,
+        topic,
+        status,
+        last_sender_kind,
+        last_message_preview
+      ) values (
+        'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
+        'legacy-student',
+        'Legacy Student',
+        'other',
+        'waiting_for_team',
+        'student',
+        'Legacy message'
+      );
+
+      insert into public.mentor_messages (
+        id,
+        conversation_id,
+        sender_kind,
+        body,
+        client_nonce
+      ) values (
+        'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
+        'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
+        'student',
+        'Legacy message',
+        'cccccccc-cccc-4ccc-8ccc-cccccccccccc'
+      );
+    ` : ""}
+  `;
 }
 
 function runSqlAsync(sql) {
@@ -222,6 +400,7 @@ function functionCall(name, args) {
 }
 
 async function main() {
+  console.log(`mentor-db: using PostgreSQL tools from ${postgresTools.source}`);
   port = await freePort();
   command(initdb, ["-D", dataDir, "-A", "trust", "-U", "postgres", "--no-locale"]);
   console.log("mentor-db: initialized temporary cluster");
@@ -242,20 +421,54 @@ async function main() {
   runSql(`
     create role anon nologin;
     create role authenticated nologin;
-    create schema auth;
-    create function auth.jwt()
-    returns jsonb
-    language sql
-    stable
-    as $$
-      select coalesce(nullif(current_setting('request.jwt.claims', true), ''), '{}')::jsonb;
-    $$;
-    grant usage on schema auth to anon, authenticated;
-    grant execute on function auth.jwt() to anon, authenticated;
-    create publication supabase_realtime;
+    create database mentor_legacy_data;
+    create database mentor_legacy_empty;
   `);
+  installSupabaseStubs("mentor_legacy_data");
+  installSupabaseStubs("mentor_legacy_empty");
+  runSql(legacySchemaSql({ withData: true }), { database: "mentor_legacy_data" });
+  runSql(legacySchemaSql({ withData: false }), { database: "mentor_legacy_empty" });
+
+  await test("data-bearing legacy upgrade stops without mutating legacy state", async () => {
+    const deployment = loadProductionSql("mentor_legacy_data", { allowFailure: true });
+    assertFailure(
+      deployment,
+      "legacy_mentor_idempotency_migration_required",
+      "data-bearing legacy upgrade",
+    );
+    const state = scalar(runSql(`
+      select concat_ws(':',
+        (select count(*) from public.mentor_messages),
+        exists (
+          select 1 from pg_constraint
+          where conrelid = 'public.mentor_messages'::regclass
+            and conname = 'mentor_messages_client_nonce_key'
+        ),
+        to_regclass('public.mentor_rpc_idempotency') is null
+      );
+    `, { database: "mentor_legacy_data" }));
+    assert(state === "1:t:t", `legacy failure changed data/constraint/ledger state: ${state}`);
+  });
+
+  await test("empty legacy schema upgrades automatically", async () => {
+    loadProductionSql("mentor_legacy_empty");
+    const state = scalar(runSql(`
+      select concat_ws(':',
+        (select count(*) from public.mentor_messages),
+        exists (
+          select 1 from pg_constraint
+          where conrelid = 'public.mentor_messages'::regclass
+            and conname = 'mentor_messages_client_nonce_key'
+        ),
+        to_regclass('public.mentor_rpc_idempotency') is not null
+      );
+    `, { database: "mentor_legacy_empty" }));
+    assert(state === "0:f:t", `empty legacy upgrade state mismatch: ${state}`);
+  });
+
+  installSupabaseStubs("postgres");
   console.log("mentor-db: installed Supabase test stubs");
-  command(psql, [...psqlArgs(), "-f", productionSql]);
+  loadProductionSql();
   console.log("mentor-db: loaded production SQL artifact");
   runSql(`
     create function public.mentor_test_gate()
@@ -553,7 +766,7 @@ async function main() {
   });
 
   await test("production SQL artifact is rerunnable", async () => {
-    command(psql, [...psqlArgs(), "-f", productionSql]);
+    loadProductionSql();
     const activeCount = scalar(runSql("select count(*) from public.mentor_staff where active = true;"));
     assert(activeCount === "1", `SQL rerun changed the active staff invariant: ${activeCount}`);
   });

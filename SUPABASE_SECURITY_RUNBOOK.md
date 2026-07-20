@@ -82,6 +82,12 @@ Kod tarafında şu güvenlik iyileştirmeleri zaten uygulandı:
 5. For account/data deletion, delete the user's `mentor_conversations` rows; verify `mentor_messages` and private `mentor_rpc_idempotency` rows disappear through `on delete cascade`.
 6. Never put the operator ID or a service-role key in client source.
 
+### Legacy upgrade safe stop
+
+If step 3 raises `legacy_mentor_idempotency_migration_required`, stop the deployment. The transaction has rolled back: the legacy messages and `mentor_messages_client_nonce_key` constraint remain unchanged, and the hardened schema has not been partially applied.
+
+This means the experimental legacy schema contains messages whose nonce cannot prove whether the original operation was conversation start, student send, or staff send, and staff messages do not contain the real staff caller ID. Do not guess, drop the constraint manually, or rerun after an automatic backfill. A database owner must review the legacy rows and approve an explicit migration or archival/deletion plan that preserves the required caller, operation, nonce, target, and result mapping. An empty legacy mentor schema upgrades automatically.
+
 V1 enforces at most one `active=true` operator in the database. To rotate the operator safely, replace the placeholder values and run the whole transaction together. If the new row cannot be activated, the transaction rolls back and preserves the previous operator:
 
 ```sql
@@ -124,7 +130,15 @@ where pubname = 'supabase_realtime'
   and tablename in ('mentor_conversations', 'mentor_messages')
 order by tablename;
 
+select count(*) as private_idempotency_realtime_rows
+from pg_publication_tables
+where pubname = 'supabase_realtime'
+  and schemaname = 'public'
+  and tablename = 'mentor_rpc_idempotency';
+
 select count(*) as active_operator_count
 from public.mentor_staff
 where active = true;
 ```
+
+`private_idempotency_realtime_rows` must be `0`. Any non-zero result is a deployment failure: remove `mentor_rpc_idempotency` from `supabase_realtime` before client traffic.
