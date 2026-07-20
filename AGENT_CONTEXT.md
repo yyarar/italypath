@@ -50,7 +50,9 @@ italypath-main/
 │   │   ├── universities/route.ts   # force-dynamic, no-store, Supabase-backed public API
 │   │   ├── sat/questions/route.ts  # Protected SAT question API; service-role-backed, no-store
 │   │   └── chat/route.ts           # Protected Gemini streaming endpoint
-│   ├── giris/page.tsx              # Tek sayfa giris+kayit (Clerk Elements); /sign-in ve /sign-up next.config redirects
+│   ├── giris/
+│   │   ├── page.tsx                # Tek sayfa giris+kayit (Clerk Elements); /sign-in ve /sign-up next.config redirects
+│   │   └── sso-callback/page.tsx   # Google OAuth donus rotasi; /giris sayfasini yeniden kullanir
 │   ├── hosgeldin/page.tsx          # Protected 4 adimli onboarding sihirbazi
 │   ├── ai-mentor/page.tsx          # Protected consultation desks UI
 │   ├── universities/
@@ -325,8 +327,8 @@ Navbar artik signed-out durumda **modal acmaz**; `<Link href="/giris">` ile tam 
 `/giris` tek sayfa giris+kayit deneyimidir. Clerk altyapisi korunur; UI tamamen `@clerk/elements` (Level 2 - headless primitives) ile bizim tarafimizda.
 
 - Sekme toggle: "Giris Yap" / "Kayit Ol"; `?mode=kayit` URL parametresi acilis sekmesini belirler
-- OAuth: Google + Apple (her iki sekmede de gosterilir; ilk OAuth dokunusunda Clerk otomatik hesap yaratir)
-- E-posta yolu: Kayit'ta Ad + Soyad + E-posta + Sifre; Giris'te E-posta + Sifre; her ikisi de Sifre goster/gizle toggle'i ile
+- OAuth: Google, giris sekmesinde gosterilir; ilk Google girisi Clerk tarafinda hesap da olusturabilir
+- E-posta yolu: Kayit'ta Kullanici Adi + E-posta + Sifre; Giris'te E-posta + Sifre; her ikisi de Sifre goster/gizle toggle'i ile
 - E-posta dogrulama: 6 haneli OTP, otomatik submit, Clerk'in native `resendableAfter` ile geri sayim
 - "Sifremi unuttum": 2 adimli (e-posta -> kod + yeni sifre); inline akis, ayri sayfa degil
 - Yonlendirme: `?redirect_url=...` varsa oraya; yoksa sign-in `/hub`'a, sign-up `/hosgeldin`'e gider (ClerkProvider `signInFallbackRedirectUrl="/hub"` / `signUpFallbackRedirectUrl="/hosgeldin"`)
@@ -337,9 +339,9 @@ Bilesenler `components/auth/` altinda:
 - `AuthShell.tsx`: paper bg + wordmark + ortali kart + yasal alt metin
 - `AuthCard.tsx`: surface bg + ince border kart konteyneri
 - `AuthTabs.tsx`: ARIA tablist + ok tuslari ile gecis + roving tabIndex
-- `OAuthButtons.tsx`: `Clerk.Connection` (Google + Apple) + "veya" ayirici
+- `OAuthButtons.tsx`: `Clerk.Connection name="google"` + "veya" ayirici
 - `SignInForm.tsx`, `SignUpForm.tsx`: form akislari
-- `VerificationStep.tsx`: 6 haneli kod adimi
+- 6 haneli dogrulama adimi `SignUpForm.tsx` icindeki Clerk Elements strategy'sinde render edilir
 - `PasswordResetFlow.tsx`: 2 adimli sifremi unuttum akisi
 
 Tum metinler `lib/translations.ts` `auth.*` namespace altinda (TR + EN paralel). Tasarim notu: `docs/superpowers/specs/2026-06-16-auth-redesign-design.md`. Uygulama plani: `docs/superpowers/plans/2026-06-16-auth-redesign-plan.md`.
@@ -347,6 +349,7 @@ Tum metinler `lib/translations.ts` `auth.*` namespace altinda (TR + EN paralel).
 Clerk Elements v0.24.18 ile bilinen sapmalar (gelecek auth degisikliklerinde dikkat):
 
 - OAuth butonu icin `Clerk.Connection` (NOT eski `SignIn.SocialProvider`)
+- Virtual routing OAuth donusu icin `/giris/sso-callback` sayfasi korunmali; kaldirilirsa Google donusu 404'e duser
 - `Clerk.FieldError` ve `Clerk.Loading` children-as-function pattern
 - `SignUp.Action resend` `fallback` callback'i `({ resendableAfter }) => ...` imzasiyla cagrilir
 

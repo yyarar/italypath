@@ -53,6 +53,7 @@ for (const file of [
   "components/auth/SignInForm.tsx",
   "components/auth/SignUpForm.tsx",
   "components/auth/PasswordResetFlow.tsx",
+  "app/giris/sso-callback/page.tsx",
 ]) {
   read(file);
 }
@@ -72,7 +73,7 @@ mustContain(signInForm, "PasswordResetFlow", "components/auth/SignInForm.tsx");
 mustContain(signInForm, "PasswordResetVerification", "components/auth/SignInForm.tsx");
 mustContain(signInForm, "prepareSecondFactor", "components/auth/SignInForm.tsx");
 mustNotContain(signInForm, "onForgotPassword", "components/auth/SignInForm.tsx");
-mustNotContain(signInForm, "OAuthButtons", "components/auth/SignInForm.tsx");
+mustContain(signInForm, "OAuthButtons", "components/auth/SignInForm.tsx");
 
 const signUpForm = read("components/auth/SignUpForm.tsx");
 mustMatch(signUpForm, /import\s+\*\s+as\s+Clerk\s+from\s+["']@clerk\/elements\/common["']/, "components/auth/SignUpForm.tsx", 'import * as Clerk from "@clerk/elements/common"');
@@ -102,6 +103,10 @@ mustNotContain(signUpForm, "VerificationStep", "components/auth/SignUpForm.tsx")
 mustNotContain(signUpForm, "OAuthButtons", "components/auth/SignUpForm.tsx");
 mustNotContain(signUpForm, "firstName", "components/auth/SignUpForm.tsx");
 mustNotContain(signUpForm, "lastName", "components/auth/SignUpForm.tsx");
+
+const oauthButtons = read("components/auth/OAuthButtons.tsx");
+mustMatch(oauthButtons, /<Clerk\.Connection\b[^>]*\bname\s*=\s*["']google["'][^>]*>/, "components/auth/OAuthButtons.tsx", '<Clerk.Connection name="google">');
+mustNotContain(oauthButtons, 'name="apple"', "components/auth/OAuthButtons.tsx");
 
 const passwordReset = read("components/auth/PasswordResetFlow.tsx");
 mustNotContain(passwordReset, "<SignIn.Root", "components/auth/PasswordResetFlow.tsx");

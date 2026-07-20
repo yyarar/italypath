@@ -11,6 +11,7 @@ import {
   PasswordResetFlow,
   PasswordResetVerification,
 } from "@/components/auth/PasswordResetFlow";
+import { OAuthButtons } from "@/components/auth/OAuthButtons";
 
 function EmailCodeSecondFactorPreparation() {
   const { isLoaded, signIn } = useSignIn();
@@ -46,6 +47,8 @@ export function SignInForm() {
   return (
     <SignIn.Root path="/giris" routing="virtual">
       <SignIn.Step name="start">
+        <OAuthButtons />
+
         <div className="grid gap-4">
           <Clerk.Field name="identifier" className="grid gap-1.5">
             <Clerk.Label className="text-xs font-medium uppercase tracking-wide text-[var(--editorial-muted)]">
