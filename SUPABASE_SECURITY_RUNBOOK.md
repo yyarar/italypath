@@ -72,3 +72,32 @@ Kod tarafında şu güvenlik iyileştirmeleri zaten uygulandı:
 3. Supabase Third-Party Auth içinde Clerk aktif mi?
 4. SQL script hata vermeden tamamlandı mı?
 5. `documents` bucket kesinlikle `public = false` mı?
+
+## Volunteer Mentor
+
+1. Enable Clerk under Supabase Dashboard → Authentication → Third-Party Auth.
+2. Confirm a normal Clerk session token has `role=authenticated` and that `sub` exactly matches the signed-in user's Clerk Dashboard user ID.
+3. Run `supabase/volunteer_mentor.sql` in Supabase SQL Editor.
+4. In Clerk Dashboard copy Kerem's exact user ID; in Supabase Table Editor insert one `mentor_staff` row with that ID, display name `Kerem`, and `active=true`.
+5. For account/data deletion, delete the user's `mentor_conversations` rows; verify `mentor_messages` rows disappear through `on delete cascade`.
+6. Never put the operator ID or a service-role key in client source.
+
+```sql
+select tablename, rowsecurity
+from pg_tables
+where schemaname = 'public'
+  and tablename in ('mentor_staff', 'mentor_conversations', 'mentor_messages')
+order by tablename;
+
+select policyname, tablename, roles, cmd
+from pg_policies
+where schemaname = 'public'
+  and tablename in ('mentor_conversations', 'mentor_messages')
+order by tablename, policyname;
+
+select tablename
+from pg_publication_tables
+where pubname = 'supabase_realtime'
+  and tablename in ('mentor_conversations', 'mentor_messages')
+order by tablename;
+```
