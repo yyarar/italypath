@@ -31,6 +31,9 @@ const packageJson = read("package.json");
 const securityRunbook = read("SUPABASE_SECURITY_RUNBOOK.md");
 const mentorClient = read("lib/mentor/useMentorSupabaseClient.ts");
 const studentHook = read("lib/mentor/useVolunteerDesk.ts");
+const volunteerDesk = read("components/mentor/volunteer/VolunteerDesk.tsx");
+const volunteerMessage = read("components/mentor/volunteer/VolunteerMessage.tsx");
+const translations = read("lib/translations.ts");
 
 mustInclude(channels, '"ai-chat"', "AI experience eksik");
 mustInclude(channels, '"volunteer-inbox"', "Volunteer experience eksik");
@@ -101,6 +104,25 @@ mustNotMatch(
   /\.from\([^)]*\)[\s\S]{0,160}\.(?:insert|update|upsert|delete)\(/,
   "Student hook doğrudan tablo mutation içeriyor",
 );
+
+[
+  "VolunteerConversationStart.tsx",
+  "VolunteerThread.tsx",
+  "VolunteerMessage.tsx",
+  "VolunteerComposer.tsx",
+  "VolunteerConversationStatus.tsx",
+  "VolunteerConversationHistory.tsx",
+].forEach((file) => read(`components/mentor/volunteer/${file}`));
+
+mustInclude(volunteerDesk, "useVolunteerDesk", "VolunteerDesk hook kullanmıyor");
+mustInclude(volunteerDesk, "MentorTopBar", "VolunteerDesk topbar eksik");
+mustInclude(volunteerMessage, "whitespace-pre-wrap", "Düz metin newline sunumu eksik");
+mustNotInclude(volunteerMessage, "ReactMarkdown", "İnsan mesajında Markdown yasak");
+mustNotInclude(translations, "240 bölümün", "Eski canlı program sayısı kaldı");
+mustNotInclude(translations, "240 programs", "Stale live program count remains");
+if (translations.split("volunteerDesk:").length - 1 < 2) {
+  failures.push("volunteerDesk TR+EN çevirileri eksik");
+}
 
 if (failures.length) {
   for (const failure of failures) console.error(`HATA: ${failure}`);
