@@ -19,6 +19,10 @@ create table if not exists public.mentor_staff (
     check (char_length(btrim(display_name)) between 1 and 120)
 );
 
+create unique index if not exists mentor_staff_one_active_operator
+  on public.mentor_staff (active)
+  where active = true;
+
 create table if not exists public.mentor_conversations (
   id uuid primary key default gen_random_uuid(),
   user_id text not null,
@@ -72,7 +76,7 @@ create table if not exists public.mentor_messages (
     references public.mentor_conversations(id) on delete cascade,
   sender_kind text not null,
   body text not null,
-  client_nonce uuid not null unique,
+  client_nonce uuid not null,
   created_at timestamptz not null default timezone('utc', now()),
   constraint mentor_messages_sender_check
     check (sender_kind in ('student', 'staff')),
@@ -82,12 +86,43 @@ create table if not exists public.mentor_messages (
     check (body = btrim(body))
 );
 
+alter table public.mentor_messages
+  drop constraint if exists mentor_messages_client_nonce_key;
+
 create index if not exists mentor_messages_conversation_created_idx
   on public.mentor_messages (conversation_id, created_at, id);
+
+create table if not exists public.mentor_rpc_idempotency (
+  caller_user_id text not null,
+  operation text not null,
+  client_nonce uuid not null,
+  conversation_id uuid not null
+    references public.mentor_conversations(id) on delete cascade,
+  message_id uuid
+    references public.mentor_messages(id) on delete cascade,
+  created_at timestamptz not null default timezone('utc', now()),
+  primary key (caller_user_id, operation, client_nonce),
+  constraint mentor_rpc_idempotency_operation_check
+    check (operation in ('start', 'send_student', 'send_staff')),
+  constraint mentor_rpc_idempotency_result_check
+    check (
+      (operation = 'start' and message_id is null)
+      or
+      (operation in ('send_student', 'send_staff') and message_id is not null)
+    )
+);
+
+create index if not exists mentor_rpc_idempotency_conversation_idx
+  on public.mentor_rpc_idempotency (conversation_id);
+
+create unique index if not exists mentor_rpc_idempotency_message_idx
+  on public.mentor_rpc_idempotency (message_id)
+  where message_id is not null;
 
 alter table public.mentor_staff enable row level security;
 alter table public.mentor_conversations enable row level security;
 alter table public.mentor_messages enable row level security;
+alter table public.mentor_rpc_idempotency enable row level security;
 
 create or replace function public.is_active_mentor_staff()
 returns boolean
@@ -152,7 +187,7 @@ begin
   if v_user_id is null then
     raise exception 'authentication_required' using errcode = '42501';
   end if;
-  if not (p_topic = any (array[
+  if p_topic is null or not (p_topic = any (array[
     'university-program',
     'application-documents',
     'scholarship-isee',
@@ -162,20 +197,23 @@ begin
   ]::text[])) then
     raise exception 'invalid_topic' using errcode = '22023';
   end if;
-  if char_length(v_body) < 1 or char_length(v_body) > 4000 then
+  if v_body is null or char_length(v_body) < 1 or char_length(v_body) > 4000 then
     raise exception 'invalid_message_length' using errcode = '22023';
   end if;
   if p_client_nonce is null then
     raise exception 'client_nonce_required' using errcode = '22023';
   end if;
 
-  select message.conversation_id
+  perform pg_catalog.pg_advisory_xact_lock(
+    pg_catalog.hashtextextended('mentor:start:' || v_user_id, 0)
+  );
+
+  select request.conversation_id
   into v_conversation_id
-  from public.mentor_messages message
-  join public.mentor_conversations conversation
-    on conversation.id = message.conversation_id
-  where message.client_nonce = p_client_nonce
-    and conversation.user_id = v_user_id;
+  from public.mentor_rpc_idempotency request
+  where request.caller_user_id = v_user_id
+    and request.operation = 'start'
+    and request.client_nonce = p_client_nonce;
   if found then return v_conversation_id; end if;
 
   select id
@@ -187,32 +225,22 @@ begin
     raise exception 'open_conversation_exists' using errcode = 'P0001';
   end if;
 
-  begin
-    insert into public.mentor_conversations (
-      user_id,
-      student_display_name,
-      topic,
-      status,
-      last_sender_kind,
-      last_message_preview
-    ) values (
-      v_user_id,
-      v_display_name,
-      p_topic,
-      'waiting_for_team',
-      'student',
-      left(v_body, 160)
-    )
-    returning id into v_conversation_id;
-  exception when unique_violation then
-    select id
-    into v_conversation_id
-    from public.mentor_conversations
-    where user_id = v_user_id and status <> 'closed'
-    limit 1;
-    if v_conversation_id is null then raise; end if;
-    return v_conversation_id;
-  end;
+  insert into public.mentor_conversations (
+    user_id,
+    student_display_name,
+    topic,
+    status,
+    last_sender_kind,
+    last_message_preview
+  ) values (
+    v_user_id,
+    v_display_name,
+    p_topic,
+    'waiting_for_team',
+    'student',
+    left(v_body, 160)
+  )
+  returning id into v_conversation_id;
 
   insert into public.mentor_messages (
     conversation_id,
@@ -224,6 +252,20 @@ begin
     'student',
     v_body,
     p_client_nonce
+  );
+
+  insert into public.mentor_rpc_idempotency (
+    caller_user_id,
+    operation,
+    client_nonce,
+    conversation_id,
+    message_id
+  ) values (
+    v_user_id,
+    'start',
+    p_client_nonce,
+    v_conversation_id,
+    null
   );
 
   return v_conversation_id;
@@ -244,26 +286,25 @@ declare
   v_user_id text := public.requesting_user_id();
   v_body text := btrim(p_body);
   v_conversation public.mentor_conversations%rowtype;
+  v_idempotency_conversation_id uuid;
   v_message_id uuid;
 begin
   if v_user_id is null then
     raise exception 'authentication_required' using errcode = '42501';
   end if;
-  if char_length(v_body) < 1 or char_length(v_body) > 4000 then
+  if v_body is null or char_length(v_body) < 1 or char_length(v_body) > 4000 then
     raise exception 'invalid_message_length' using errcode = '22023';
   end if;
   if p_client_nonce is null then
     raise exception 'client_nonce_required' using errcode = '22023';
   end if;
 
-  select message.id into v_message_id
-  from public.mentor_messages message
-  join public.mentor_conversations conversation
-    on conversation.id = message.conversation_id
-  where message.client_nonce = p_client_nonce
-    and message.conversation_id = p_conversation_id
-    and conversation.user_id = v_user_id;
-  if found then return v_message_id; end if;
+  perform pg_catalog.pg_advisory_xact_lock(
+    pg_catalog.hashtextextended(
+      'mentor:send_student:' || v_user_id || ':' || p_client_nonce::text,
+      0
+    )
+  );
 
   select * into v_conversation
   from public.mentor_conversations
@@ -273,6 +314,20 @@ begin
   if not found or v_conversation.user_id <> v_user_id then
     raise exception 'conversation_not_found' using errcode = '42501';
   end if;
+
+  select request.conversation_id, request.message_id
+  into v_idempotency_conversation_id, v_message_id
+  from public.mentor_rpc_idempotency request
+  where request.caller_user_id = v_user_id
+    and request.operation = 'send_student'
+    and request.client_nonce = p_client_nonce;
+  if found then
+    if v_idempotency_conversation_id <> p_conversation_id then
+      raise exception 'idempotency_conflict' using errcode = '22023';
+    end if;
+    return v_message_id;
+  end if;
+
   if v_conversation.status = 'closed' then
     raise exception 'conversation_closed' using errcode = 'P0001';
   end if;
@@ -288,6 +343,20 @@ begin
     v_body,
     p_client_nonce
   ) returning id into v_message_id;
+
+  insert into public.mentor_rpc_idempotency (
+    caller_user_id,
+    operation,
+    client_nonce,
+    conversation_id,
+    message_id
+  ) values (
+    v_user_id,
+    'send_student',
+    p_client_nonce,
+    p_conversation_id,
+    v_message_id
+  );
 
   update public.mentor_conversations
   set status = 'waiting_for_team',
@@ -312,24 +381,28 @@ security definer
 set search_path = public, pg_temp
 as $$
 declare
+  v_user_id text := public.requesting_user_id();
   v_body text := btrim(p_body);
   v_conversation public.mentor_conversations%rowtype;
+  v_idempotency_conversation_id uuid;
   v_message_id uuid;
 begin
   if not public.is_active_mentor_staff() then
     raise exception 'staff_access_required' using errcode = '42501';
   end if;
-  if char_length(v_body) < 1 or char_length(v_body) > 4000 then
+  if v_body is null or char_length(v_body) < 1 or char_length(v_body) > 4000 then
     raise exception 'invalid_message_length' using errcode = '22023';
   end if;
   if p_client_nonce is null then
     raise exception 'client_nonce_required' using errcode = '22023';
   end if;
 
-  select id into v_message_id
-  from public.mentor_messages
-  where client_nonce = p_client_nonce;
-  if found then return v_message_id; end if;
+  perform pg_catalog.pg_advisory_xact_lock(
+    pg_catalog.hashtextextended(
+      'mentor:send_staff:' || v_user_id || ':' || p_client_nonce::text,
+      0
+    )
+  );
 
   select * into v_conversation
   from public.mentor_conversations
@@ -339,6 +412,20 @@ begin
   if not found then
     raise exception 'conversation_not_found' using errcode = 'P0002';
   end if;
+
+  select request.conversation_id, request.message_id
+  into v_idempotency_conversation_id, v_message_id
+  from public.mentor_rpc_idempotency request
+  where request.caller_user_id = v_user_id
+    and request.operation = 'send_staff'
+    and request.client_nonce = p_client_nonce;
+  if found then
+    if v_idempotency_conversation_id <> p_conversation_id then
+      raise exception 'idempotency_conflict' using errcode = '22023';
+    end if;
+    return v_message_id;
+  end if;
+
   if v_conversation.status = 'closed' then
     raise exception 'conversation_closed' using errcode = 'P0001';
   end if;
@@ -354,6 +441,20 @@ begin
     v_body,
     p_client_nonce
   ) returning id into v_message_id;
+
+  insert into public.mentor_rpc_idempotency (
+    caller_user_id,
+    operation,
+    client_nonce,
+    conversation_id,
+    message_id
+  ) values (
+    v_user_id,
+    'send_staff',
+    p_client_nonce,
+    p_conversation_id,
+    v_message_id
+  );
 
   update public.mentor_conversations
   set status = 'waiting_for_student',
@@ -413,6 +514,7 @@ $$;
 revoke all on public.mentor_staff from anon, authenticated;
 revoke all on public.mentor_conversations from anon, authenticated;
 revoke all on public.mentor_messages from anon, authenticated;
+revoke all on public.mentor_rpc_idempotency from public, anon, authenticated;
 grant select on public.mentor_conversations to authenticated;
 grant select on public.mentor_messages to authenticated;
 

@@ -22,6 +22,8 @@ const channels = read("lib/mentor/channels.ts");
 const volunteer = read("lib/mentor/volunteer.ts");
 const types = read("types/index.ts");
 const sql = read("supabase/volunteer_mentor.sql");
+const mentorDbTest = read("scripts/test-mentor-db.mjs");
+const packageJson = read("package.json");
 
 mustInclude(channels, '"ai-chat"', "AI experience eksik");
 mustInclude(channels, '"volunteer-inbox"', "Volunteer experience eksik");
@@ -38,8 +40,14 @@ mustInclude(types, "MentorMessageRow", "Message row tipi eksik");
   "create table if not exists public.mentor_staff",
   "create table if not exists public.mentor_conversations",
   "create table if not exists public.mentor_messages",
+  "create table if not exists public.mentor_rpc_idempotency",
+  "mentor_staff_one_active_operator",
   "mentor_conversations_one_open_per_user",
   "enable row level security",
+  "pg_advisory_xact_lock",
+  "idempotency_conflict",
+  "p_topic is null",
+  "v_body is null",
   "is_active_mentor_staff",
   "start_volunteer_conversation",
   "send_student_mentor_message",
@@ -50,6 +58,10 @@ mustInclude(types, "MentorMessageRow", "Message row tipi eksik");
 ].forEach((needle) => mustInclude(sql, needle, "Mentor SQL eksik"));
 
 mustNotInclude(sql, "SUPABASE_SERVICE_ROLE_KEY", "SQL dosyasında client secret referansı");
+mustNotInclude(sql, "client_nonce uuid not null unique", "Global nonce unique kaldı");
+mustInclude(packageJson, '"test:mentor-db"', "PostgreSQL mentor test komutu eksik");
+mustInclude(mentorDbTest, "runConcurrentBehindGate", "Concurrency DB testi eksik");
+mustInclude(mentorDbTest, "owner and active staff RLS reads", "RLS DB testi eksik");
 
 if (failures.length) {
   for (const failure of failures) console.error(`HATA: ${failure}`);

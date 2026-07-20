@@ -79,14 +79,37 @@ Kod tarafında şu güvenlik iyileştirmeleri zaten uygulandı:
 2. Confirm a normal Clerk session token has `role=authenticated` and that `sub` exactly matches the signed-in user's Clerk Dashboard user ID.
 3. Run `supabase/volunteer_mentor.sql` in Supabase SQL Editor.
 4. In Clerk Dashboard copy Kerem's exact user ID; in Supabase Table Editor insert one `mentor_staff` row with that ID, display name `Kerem`, and `active=true`.
-5. For account/data deletion, delete the user's `mentor_conversations` rows; verify `mentor_messages` rows disappear through `on delete cascade`.
+5. For account/data deletion, delete the user's `mentor_conversations` rows; verify `mentor_messages` and private `mentor_rpc_idempotency` rows disappear through `on delete cascade`.
 6. Never put the operator ID or a service-role key in client source.
+
+V1 enforces at most one `active=true` operator in the database. To rotate the operator safely, replace the placeholder values and run the whole transaction together. If the new row cannot be activated, the transaction rolls back and preserves the previous operator:
+
+```sql
+begin;
+
+update public.mentor_staff
+set active = false
+where active = true;
+
+insert into public.mentor_staff (user_id, display_name, active)
+values ('NEW_CLERK_USER_ID', 'New operator display name', true)
+on conflict (user_id) do update
+set display_name = excluded.display_name,
+    active = true;
+
+commit;
+```
 
 ```sql
 select tablename, rowsecurity
 from pg_tables
 where schemaname = 'public'
-  and tablename in ('mentor_staff', 'mentor_conversations', 'mentor_messages')
+  and tablename in (
+    'mentor_staff',
+    'mentor_conversations',
+    'mentor_messages',
+    'mentor_rpc_idempotency'
+  )
 order by tablename;
 
 select policyname, tablename, roles, cmd
@@ -100,4 +123,8 @@ from pg_publication_tables
 where pubname = 'supabase_realtime'
   and tablename in ('mentor_conversations', 'mentor_messages')
 order by tablename;
+
+select count(*) as active_operator_count
+from public.mentor_staff
+where active = true;
 ```
