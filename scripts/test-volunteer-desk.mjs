@@ -6,6 +6,7 @@ import ts from "typescript";
 
 const root = process.cwd();
 const sourcePath = path.join(root, "lib", "mentor", "volunteerDeskState.ts");
+const hookSourcePath = path.join(root, "lib", "mentor", "useVolunteerDesk.ts");
 
 async function importStateHelpers() {
   const source = await readFile(sourcePath, "utf8").catch((error) => {
@@ -32,7 +33,9 @@ const {
   coalesceOperation,
   createSerializedReconciliationQueue,
   createOwnerScopedNonceRegistry,
+  clearMentorMessageLoadError,
   deriveMentorRealtimeState,
+  resolveConversationSelection,
   transitionCommittedAuth,
   transitionMessageScope,
 } = await importStateHelpers();
@@ -249,6 +252,79 @@ assert.equal(
   deriveMentorRealtimeState(true, true, "connected", "disconnected"),
   "disconnected",
   "a connected conversation channel must not mask a disconnected selected-message channel",
+);
+
+assert.equal(
+  resolveConversationSelection([realtimeConversation], null, true),
+  null,
+  "a pending start must suspend fallback selection after a Realtime/snapshot insert",
+);
+assert.equal(
+  resolveConversationSelection([realtimeConversation], null, false),
+  realtimeConversation.id,
+  "a normal existing open conversation must still auto-select outside a pending start",
+);
+assert.equal(
+  resolveConversationSelection([realtimeConversation], realtimeConversation.id, true),
+  realtimeConversation.id,
+  "start suspension must not disturb an existing valid selection",
+);
+
+assert.equal(
+  clearMentorMessageLoadError("messages_load_failed"),
+  null,
+  "selection or successful current-scope message refresh must clear a stale message-load error",
+);
+for (const error of ["load_failed", "send_failed", "close_failed", null]) {
+  assert.equal(
+    clearMentorMessageLoadError(error),
+    error,
+    `message lifecycle cleanup must preserve ${error ?? "no error"}`,
+  );
+}
+
+const hookSource = await readFile(hookSourcePath, "utf8");
+const transitionBlockStart = hookSource.indexOf("const transitionSelection");
+const transitionBlockEnd = hookSource.indexOf("const commitConversations", transitionBlockStart);
+const transitionBlock = hookSource.slice(transitionBlockStart, transitionBlockEnd);
+assert.match(
+  transitionBlock,
+  /setError\(clearMentorMessageLoadError\)/,
+  "an actual selection change must clear only a stale message-load error",
+);
+const messageRefreshBlockStart = hookSource.indexOf("const refreshMessages");
+const messageRefreshBlockEnd = hookSource.indexOf("useEffect", messageRefreshBlockStart);
+const messageRefreshBlock = hookSource.slice(messageRefreshBlockStart, messageRefreshBlockEnd);
+assert.match(
+  messageRefreshBlock,
+  /commitMessages[\s\S]*setError\(clearMentorMessageLoadError\)/,
+  "a successful current-scope message refresh must clear only a stale message-load error",
+);
+const startBlockStart = hookSource.indexOf("const startConversation");
+const startBlockEnd = hookSource.indexOf("const sendMessage", startBlockStart);
+assert.ok(startBlockStart >= 0 && startBlockEnd > startBlockStart, "start action block must exist");
+const startBlock = hookSource.slice(startBlockStart, startBlockEnd);
+const suspendIndex = startBlock.indexOf("startSelectionSuspendedRef.current = true");
+const rpcIndex = startBlock.indexOf('rpc("start_volunteer_conversation"');
+const reconciliationIndex = startBlock.indexOf("await refreshConversations(false, true)");
+const selectionIndex = startBlock.indexOf("transitionSelection(conversationId)");
+const nonceDeleteIndex = startBlock.indexOf("pendingStartRef.current.deleteIfSame");
+assert.ok(
+  suspendIndex >= 0 && suspendIndex < rpcIndex,
+  "start must suspend fallback auto-selection before the RPC can publish Realtime events",
+);
+assert.ok(
+  rpcIndex < reconciliationIndex && reconciliationIndex < selectionIndex,
+  "durable start must reconcile conversations before publishing the returned selection",
+);
+assert.ok(
+  selectionIndex < nonceDeleteIndex,
+  "successful start must publish selection before clearing the matching retry nonce and resolving",
+);
+assert.doesNotMatch(
+  startBlock,
+  /refreshMessages/,
+  "durable start resolution must not wait for independent selected-thread message loading",
 );
 
 console.log("volunteer desk lifecycle checks passed");

@@ -45,5 +45,9 @@ export default function VolunteerConversationStatus({
     );
   }
 
-  return <p className={className}>{label}</p>;
+  return (
+    <p role="status" className={className}>
+      {label}
+    </p>
+  );
 }

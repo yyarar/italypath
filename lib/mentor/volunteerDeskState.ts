@@ -16,6 +16,25 @@ export interface MessageScope<T> {
   messages: T[];
 }
 
+export function resolveConversationSelection<T extends MentorConversationRow>(
+  rows: T[],
+  currentConversationId: string | null,
+  suspendAutoSelection: boolean,
+): string | null {
+  if (
+    currentConversationId &&
+    rows.some((conversation) => conversation.id === currentConversationId)
+  ) {
+    return currentConversationId;
+  }
+  if (suspendAutoSelection && currentConversationId === null) return null;
+  return rows.find((conversation) => conversation.status !== "closed")?.id ?? null;
+}
+
+export function clearMentorMessageLoadError(error: string | null): string | null {
+  return error === "messages_load_failed" ? null : error;
+}
+
 function sortConversations<T extends MentorConversationRow>(rows: T[]): T[] {
   return [...rows].sort((left, right) => {
     const lastMessageDelta = Date.parse(right.last_message_at) - Date.parse(left.last_message_at);

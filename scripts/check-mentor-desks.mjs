@@ -31,8 +31,11 @@ const packageJson = read("package.json");
 const securityRunbook = read("SUPABASE_SECURITY_RUNBOOK.md");
 const mentorClient = read("lib/mentor/useMentorSupabaseClient.ts");
 const studentHook = read("lib/mentor/useVolunteerDesk.ts");
+const studentState = read("lib/mentor/volunteerDeskState.ts");
 const volunteerDesk = read("components/mentor/volunteer/VolunteerDesk.tsx");
 const volunteerMessage = read("components/mentor/volunteer/VolunteerMessage.tsx");
+const volunteerStatus = read("components/mentor/volunteer/VolunteerConversationStatus.tsx");
+const volunteerThread = read("components/mentor/volunteer/VolunteerThread.tsx");
 const translations = read("lib/translations.ts");
 
 mustInclude(channels, '"ai-chat"', "AI experience eksik");
@@ -92,6 +95,9 @@ mustInclude(studentHook, "authReadyRef.current && isCommittedOwner", "isCurrent 
 mustInclude(studentHook, "if (!identityReady || !ownerId)", "Realtime unresolved auth gate eksik");
 mustInclude(studentHook, "resolvedUserId === undefined ? true", "Unresolved auth loading contract eksik");
 mustInclude(studentHook, "createOwnerScopedNonceRegistry", "Owner scoped nonce registry eksik");
+mustInclude(studentHook, "startSelectionSuspendedRef", "Start selection suspension eksik");
+mustInclude(studentState, "resolveConversationSelection", "Pending start selection helper eksik");
+mustInclude(studentState, "clearMentorMessageLoadError", "Message load error cleanup helper eksik");
 mustNotInclude(studentHook, "pendingStartRef.current.clear()", "Start nonce registry identity resetinde siliniyor");
 mustNotInclude(studentHook, "pendingSendRef.current.clear()", "Send nonce registry identity resetinde siliniyor");
 mustInclude(studentHook, 'filter: `user_id=eq.${ownerId}`', "Conversation subscription filtresi eksik");
@@ -118,6 +124,8 @@ mustInclude(volunteerDesk, "useVolunteerDesk", "VolunteerDesk hook kullanmıyor"
 mustInclude(volunteerDesk, "MentorTopBar", "VolunteerDesk topbar eksik");
 mustInclude(volunteerMessage, "whitespace-pre-wrap", "Düz metin newline sunumu eksik");
 mustNotInclude(volunteerMessage, "ReactMarkdown", "İnsan mesajında Markdown yasak");
+mustInclude(volunteerStatus, 'role="status"', "Conversation status live region eksik");
+mustInclude(volunteerThread, 'role="status"', "Message loading live region eksik");
 mustNotInclude(translations, "240 bölümün", "Eski canlı program sayısı kaldı");
 mustNotInclude(translations, "240 programs", "Stale live program count remains");
 if (translations.split("volunteerDesk:").length - 1 < 2) {

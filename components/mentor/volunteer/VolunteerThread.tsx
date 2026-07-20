@@ -33,7 +33,10 @@ export default function VolunteerThread({
 
   if (loading) {
     return (
-      <p className="py-10 font-serif text-base italic text-[var(--editorial-muted)]">
+      <p
+        role="status"
+        className="py-10 font-serif text-base italic text-[var(--editorial-muted)]"
+      >
         {t.aiMentor.volunteerDesk.messagesLoading}
       </p>
     );

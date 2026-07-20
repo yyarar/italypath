@@ -11,10 +11,12 @@ import {
 import {
   applyAuthoritativeConversationSnapshot,
   applyAuthoritativeMessageSnapshot,
+  clearMentorMessageLoadError,
   coalesceOperation,
   createOwnerScopedNonceRegistry,
   createSerializedReconciliationQueue,
   deriveMentorRealtimeState,
+  resolveConversationSelection,
   transitionCommittedAuth,
   transitionMessageScope,
   type ConversationEvent,
@@ -86,6 +88,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
   const conversationQueueRef = useRef(createSerializedReconciliationQueue());
   const messageQueueRef = useRef(createSerializedReconciliationQueue());
   const pendingStartRef = useRef(createOwnerScopedNonceRegistry());
+  const startSelectionSuspendedRef = useRef(false);
   const pendingSendRef = useRef(createOwnerScopedNonceRegistry());
   const pendingCloseRef = useRef(new Map<string, Promise<void>>());
   const activeSendingRef = useRef(0);
@@ -174,6 +177,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     setMessagesLoading(false);
     setMessageChannelConversationId(null);
     setMessageChannelState("idle");
+    setError(clearMentorMessageLoadError);
     return true;
   }, []);
 
@@ -181,11 +185,11 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     (rows: MentorConversationRow[]) => {
       conversationsRef.current = rows;
       setConversations(rows);
-      const current = selectedConversationIdRef.current;
-      const selectedId =
-        current && rows.some((conversation) => conversation.id === current)
-          ? current
-          : rows.find((conversation) => conversation.status !== "closed")?.id ?? null;
+      const selectedId = resolveConversationSelection(
+        rows,
+        selectedConversationIdRef.current,
+        startSelectionSuspendedRef.current,
+      );
       transitionSelection(selectedId);
     },
     [transitionSelection],
@@ -248,6 +252,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     messageRefreshesRef.current.clear();
     conversationQueueRef.current = createSerializedReconciliationQueue();
     messageQueueRef.current = createSerializedReconciliationQueue();
+    startSelectionSuspendedRef.current = false;
     pendingCloseRef.current.clear();
     activeSendingRef.current = 0;
     activeClosingRef.current = 0;
@@ -386,6 +391,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
           currentScope.events = [];
           commitMessages(conversationId, epoch, rows);
           setMessagesLoading(false);
+          setError(clearMentorMessageLoadError);
         });
 
       if (!force) return runAuthoritativeRead();
@@ -619,6 +625,9 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
         key,
         () => crypto.randomUUID(),
       );
+      if (selectedConversationIdRef.current === null) {
+        startSelectionSuspendedRef.current = true;
+      }
       if (operation.promise) return operation.promise;
       const promise = Promise.resolve().then(async () => {
         activeSendingRef.current += 1;
@@ -638,9 +647,11 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
           const conversationId = rpcUuid(data);
           await refreshConversations(false, true);
           assertCurrent(generation, ownerId);
+          if (!conversationsRef.current.some((conversation) => conversation.id === conversationId)) {
+            throw new Error("mentor_start_not_reconciled");
+          }
+          startSelectionSuspendedRef.current = false;
           transitionSelection(conversationId);
-          await refreshMessages(conversationId, true);
-          assertCurrent(generation, ownerId);
           pendingStartRef.current.deleteIfSame(ownerId, key, operation);
         } catch (actionError) {
           if (isCurrent(generation, ownerId)) setError("send_failed");
@@ -661,7 +672,6 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
       isCommittedOwner,
       isCurrent,
       refreshConversations,
-      refreshMessages,
       supabase,
       transitionSelection,
       user?.firstName,
