@@ -15,6 +15,7 @@ import {
   createOwnerScopedNonceRegistry,
   createSerializedReconciliationQueue,
   deriveMentorRealtimeState,
+  transitionCommittedAuth,
   transitionMessageScope,
   type ConversationEvent,
   type MentorChannelState,
@@ -66,6 +67,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
   const mountedRef = useRef(false);
   const identityRef = useRef<string | null>(null);
   const hasCommittedIdentityRef = useRef(false);
+  const authReadyRef = useRef(false);
   const generationRef = useRef(0);
   const conversationsRef = useRef<MentorConversationRow[]>([]);
   const conversationEventsRef = useRef<ConversationEvent<MentorConversationRow>[]>([]);
@@ -90,6 +92,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
   const activeClosingRef = useRef(0);
 
   const [stateUserId, setStateUserId] = useState<string | null>(null);
+  const [authReady, setAuthReady] = useState(false);
   const [conversations, setConversations] = useState<MentorConversationRow[]>([]);
   const [selectedConversationId, setSelectedConversationId] = useState<string | null>(null);
   const [messages, setMessages] = useState<MentorMessageRow[]>([]);
@@ -106,7 +109,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     useState<string | null>(null);
 
   const identityReady =
-    resolvedUserId !== undefined && stateUserId === resolvedUserId;
+    authReady && resolvedUserId !== undefined && stateUserId === resolvedUserId;
   const visibleConversations = identityReady ? conversations : [];
   const visibleSelectedConversationId = identityReady ? selectedConversationId : null;
   const visibleMessages =
@@ -131,13 +134,20 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
       : "connecting",
   );
 
-  const isCurrent = useCallback((generation: number, ownerId: string | null) => {
+  const isCommittedOwner = useCallback((generation: number, ownerId: string | null) => {
     return (
       mountedRef.current &&
       generation === generationRef.current &&
       ownerId === identityRef.current
     );
   }, []);
+
+  const isCurrent = useCallback(
+    (generation: number, ownerId: string | null) => {
+      return authReadyRef.current && isCommittedOwner(generation, ownerId);
+    },
+    [isCommittedOwner],
+  );
 
   const assertCurrent = useCallback(
     (generation: number, ownerId: string | null) => {
@@ -202,16 +212,26 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
   }, []);
 
   useLayoutEffect(() => {
-    if (resolvedUserId === undefined) return;
-    if (
-      hasCommittedIdentityRef.current &&
-      identityRef.current === resolvedUserId
-    ) {
+    const authTransition = transitionCommittedAuth(
+      {
+        hasCommittedOwner: hasCommittedIdentityRef.current,
+        ownerId: identityRef.current,
+        ready: authReadyRef.current,
+      },
+      resolvedUserId,
+    );
+    authReadyRef.current = authTransition.ready;
+    setAuthReady(authTransition.ready);
+    if (!authTransition.commitOwner) {
+      if (authTransition.ready) {
+        setSending(activeSendingRef.current > 0);
+        setClosing(activeClosingRef.current > 0);
+      }
       return;
     }
     hasCommittedIdentityRef.current = true;
     generationRef.current += 1;
-    identityRef.current = resolvedUserId;
+    identityRef.current = authTransition.ownerId;
     conversationsRef.current = [];
     conversationEventsRef.current = [];
     conversationEventVersionRef.current = 0;
@@ -234,15 +254,15 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     setConversations([]);
     setSelectedConversationId(null);
     setMessages([]);
-    setLoading(Boolean(resolvedUserId));
+    setLoading(Boolean(authTransition.ownerId));
     setMessagesLoading(false);
     setSending(false);
     setClosing(false);
     setError(null);
-    setConversationChannelState(resolvedUserId ? "connecting" : "idle");
+    setConversationChannelState(authTransition.ownerId ? "connecting" : "idle");
     setMessageChannelState("idle");
     setMessageChannelConversationId(null);
-    setStateUserId(resolvedUserId);
+    setStateUserId(authTransition.ownerId);
   }, [resolvedUserId]);
 
   const refreshConversations = useCallback(
@@ -415,7 +435,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
   useEffect(() => {
     const generation = generationRef.current;
     const ownerId = identityRef.current;
-    if (!ownerId) {
+    if (!identityReady || !ownerId) {
       setConversationChannelState("idle");
       return;
     }
@@ -492,13 +512,20 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
       active = false;
       if (channel) void supabase.removeChannel(channel);
     };
-  }, [commitConversations, isCurrent, refreshConversations, supabase, stateUserId]);
+  }, [
+    commitConversations,
+    identityReady,
+    isCurrent,
+    refreshConversations,
+    supabase,
+    stateUserId,
+  ]);
 
   useEffect(() => {
     const generation = generationRef.current;
     const ownerId = identityRef.current;
     const conversationId = visibleSelectedConversationId;
-    if (!ownerId || !conversationId) {
+    if (!identityReady || !ownerId || !conversationId) {
       setMessageChannelConversationId(null);
       setMessageChannelState("idle");
       return;
@@ -570,6 +597,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     };
   }, [
     commitMessages,
+    identityReady,
     isCurrent,
     refreshMessages,
     supabase,
@@ -619,9 +647,9 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
           throw actionError;
         } finally {
           pendingStartRef.current.releasePromiseIfSame(ownerId, key, operation);
-          if (isCurrent(generation, ownerId)) {
+          if (isCommittedOwner(generation, ownerId)) {
             activeSendingRef.current -= 1;
-            setSending(activeSendingRef.current > 0);
+            if (authReadyRef.current) setSending(activeSendingRef.current > 0);
           }
         }
       });
@@ -630,6 +658,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     },
     [
       assertCurrent,
+      isCommittedOwner,
       isCurrent,
       refreshConversations,
       refreshMessages,
@@ -683,9 +712,9 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
           throw actionError;
         } finally {
           pendingSendRef.current.releasePromiseIfSame(ownerId, key, operation);
-          if (isCurrent(generation, ownerId)) {
+          if (isCommittedOwner(generation, ownerId)) {
             activeSendingRef.current -= 1;
-            setSending(activeSendingRef.current > 0);
+            if (authReadyRef.current) setSending(activeSendingRef.current > 0);
           }
         }
       });
@@ -694,6 +723,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     },
     [
       assertCurrent,
+      isCommittedOwner,
       isCurrent,
       refreshConversations,
       refreshMessages,
@@ -733,16 +763,23 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
           if (pendingCloseRef.current.get(conversationId) === promise) {
             pendingCloseRef.current.delete(conversationId);
           }
-          if (isCurrent(generation, ownerId)) {
+          if (isCommittedOwner(generation, ownerId)) {
             activeClosingRef.current -= 1;
-            setClosing(activeClosingRef.current > 0);
+            if (authReadyRef.current) setClosing(activeClosingRef.current > 0);
           }
         }
       });
       pendingCloseRef.current.set(conversationId, promise);
       return promise;
     },
-    [assertCurrent, isCurrent, refreshConversations, supabase, transitionSelection],
+    [
+      assertCurrent,
+      isCommittedOwner,
+      isCurrent,
+      refreshConversations,
+      supabase,
+      transitionSelection,
+    ],
   );
 
   const reload = useCallback(async () => {
@@ -760,7 +797,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     closedConversations,
     selectedConversation,
     messages: visibleMessages,
-    loading: identityReady ? loading : Boolean(resolvedUserId),
+    loading: resolvedUserId === undefined ? true : identityReady ? loading : Boolean(resolvedUserId),
     messagesLoading: identityReady ? messagesLoading : false,
     sending: identityReady ? sending : false,
     closing: identityReady ? closing : false,

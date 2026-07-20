@@ -165,6 +165,30 @@ export function createOwnerScopedNonceRegistry(): OwnerScopedNonceRegistry {
   };
 }
 
+export interface CommittedAuthState {
+  hasCommittedOwner: boolean;
+  ownerId: string | null;
+  ready: boolean;
+}
+
+export function transitionCommittedAuth(
+  current: CommittedAuthState,
+  resolvedOwnerId: string | null | undefined,
+): CommittedAuthState & { commitOwner: boolean } {
+  if (resolvedOwnerId === undefined) {
+    return { ...current, ready: false, commitOwner: false };
+  }
+  if (current.hasCommittedOwner && current.ownerId === resolvedOwnerId) {
+    return { ...current, ready: true, commitOwner: false };
+  }
+  return {
+    hasCommittedOwner: true,
+    ownerId: resolvedOwnerId,
+    ready: true,
+    commitOwner: true,
+  };
+}
+
 export function deriveMentorRealtimeState(
   hasAuthenticatedUser: boolean,
   hasSelectedConversation: boolean,

@@ -33,6 +33,7 @@ const {
   createSerializedReconciliationQueue,
   createOwnerScopedNonceRegistry,
   deriveMentorRealtimeState,
+  transitionCommittedAuth,
   transitionMessageScope,
 } = await importStateHelpers();
 
@@ -211,6 +212,37 @@ assert.equal(
   ownerOperations.get("owner-b", "topic\u0000body")?.nonce,
   "nonce-b",
   "removing owner A's entry must not affect owner B",
+);
+
+const ownerAReady = { hasCommittedOwner: true, ownerId: "owner-a", ready: true };
+const unresolvedAuth = transitionCommittedAuth(ownerAReady, undefined);
+assert.deepEqual(
+  unresolvedAuth,
+  { hasCommittedOwner: true, ownerId: "owner-a", ready: false, commitOwner: false },
+  "owner A to unresolved Clerk state must close the auth gate without changing owner",
+);
+assert.deepEqual(
+  transitionCommittedAuth(unresolvedAuth, "owner-a"),
+  { hasCommittedOwner: true, ownerId: "owner-a", ready: true, commitOwner: false },
+  "same-owner Clerk resolution must restore readiness without a new identity generation",
+);
+assert.equal(
+  transitionCommittedAuth(unresolvedAuth, "owner-b").commitOwner,
+  true,
+  "a different resolved owner must still commit a new isolated identity",
+);
+const unresolvedRegistry = createOwnerScopedNonceRegistry();
+const unresolvedOwnerOperation = unresolvedRegistry.getOrCreate(
+  "owner-a",
+  "retry-key",
+  () => "nonce-survives-unresolved",
+);
+transitionCommittedAuth(ownerAReady, undefined);
+transitionCommittedAuth(unresolvedAuth, "owner-a");
+assert.equal(
+  unresolvedRegistry.getOrCreate("owner-a", "retry-key", () => "unexpected").nonce,
+  unresolvedOwnerOperation.nonce,
+  "unresolved auth must not discard owner A's pending retry nonce",
 );
 
 assert.equal(
