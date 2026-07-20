@@ -12,6 +12,7 @@ import {
   applyAuthoritativeConversationSnapshot,
   applyAuthoritativeMessageSnapshot,
   coalesceOperation,
+  createSerializedReconciliationQueue,
   deriveMentorRealtimeState,
   transitionMessageScope,
   type ConversationEvent,
@@ -28,7 +29,6 @@ interface PendingOperation {
 interface MessageScope {
   conversationId: string | null;
   epoch: number;
-  refreshEpoch: number;
   messages: MentorMessageRow[];
   eventVersion: number;
   events: Array<{ version: number; row: MentorMessageRow }>;
@@ -73,19 +73,19 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
   const conversationsRef = useRef<MentorConversationRow[]>([]);
   const conversationEventsRef = useRef<ConversationEvent<MentorConversationRow>[]>([]);
   const conversationEventVersionRef = useRef(0);
-  const conversationRefreshEpochRef = useRef(0);
   const selectedConversationIdRef = useRef<string | null>(null);
   const messagesRef = useRef<MentorMessageRow[]>([]);
   const messageScopeRef = useRef<MessageScope>({
     conversationId: null,
     epoch: 0,
-    refreshEpoch: 0,
     messages: [],
     eventVersion: 0,
     events: [],
   });
   const conversationRefreshesRef = useRef(new Map<string, Promise<void>>());
   const messageRefreshesRef = useRef(new Map<string, Promise<void>>());
+  const conversationQueueRef = useRef(createSerializedReconciliationQueue());
+  const messageQueueRef = useRef(createSerializedReconciliationQueue());
   const pendingStartRef = useRef(new Map<string, PendingOperation>());
   const pendingSendRef = useRef(new Map<string, PendingOperation>());
   const pendingCloseRef = useRef(new Map<string, Promise<void>>());
@@ -155,12 +155,12 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     selectedConversationIdRef.current = conversationId;
     messageScopeRef.current = {
       ...nextScope,
-      refreshEpoch: 0,
       eventVersion: 0,
       events: [],
     };
     messagesRef.current = [];
     messageRefreshesRef.current.clear();
+    messageQueueRef.current = createSerializedReconciliationQueue();
     setSelectedConversationId(conversationId);
     setMessages([]);
     setMessagesLoading(false);
@@ -209,19 +209,19 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     conversationsRef.current = [];
     conversationEventsRef.current = [];
     conversationEventVersionRef.current = 0;
-    conversationRefreshEpochRef.current = 0;
     selectedConversationIdRef.current = null;
     messagesRef.current = [];
     messageScopeRef.current = {
       conversationId: null,
       epoch: messageScopeRef.current.epoch + 1,
-      refreshEpoch: 0,
       messages: [],
       eventVersion: 0,
       events: [],
     };
     conversationRefreshesRef.current.clear();
     messageRefreshesRef.current.clear();
+    conversationQueueRef.current = createSerializedReconciliationQueue();
+    messageQueueRef.current = createSerializedReconciliationQueue();
     pendingStartRef.current.clear();
     pendingSendRef.current.clear();
     pendingCloseRef.current.clear();
@@ -251,41 +251,53 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
         setLoading(false);
         return Promise.resolve();
       }
-      if (force) conversationRefreshEpochRef.current += 1;
-      const refreshEpoch = conversationRefreshEpochRef.current;
-      const key = `${generation}\u0000${ownerId}\u0000${refreshEpoch}`;
-      return coalesceOperation(conversationRefreshesRef.current, key, async () => {
-        assertCurrent(generation, ownerId);
-        if (refreshEpoch !== conversationRefreshEpochRef.current) {
-          throw staleLifecycleError();
-        }
-        if (showLoading) setLoading(true);
-        const startEventVersion = conversationEventVersionRef.current;
-        const { data, error: queryError } = await supabase
-          .from("mentor_conversations")
-          .select("*")
-          .eq("user_id", ownerId)
-          .order("last_message_at", { ascending: false });
-        assertCurrent(generation, ownerId);
-        if (refreshEpoch !== conversationRefreshEpochRef.current) {
-          throw staleLifecycleError();
-        }
-        if (queryError) {
-          setError("load_failed");
+      const key = `${generation}\u0000${ownerId}`;
+      const runAuthoritativeRead = () =>
+        coalesceOperation(conversationRefreshesRef.current, key, async () => {
+          assertCurrent(generation, ownerId);
+          if (showLoading) setLoading(true);
+          const startEventVersion = conversationEventVersionRef.current;
+          const { data, error: queryError } = await supabase
+            .from("mentor_conversations")
+            .select("*")
+            .eq("user_id", ownerId)
+            .order("last_message_at", { ascending: false });
+          assertCurrent(generation, ownerId);
+          if (queryError) {
+            setError("load_failed");
+            setLoading(false);
+            throw queryError;
+          }
+          const postStartEvents = conversationEventsRef.current.filter(
+            (event) => event.version > startEventVersion,
+          );
+          const rows = applyAuthoritativeConversationSnapshot(
+            (data ?? []) as MentorConversationRow[],
+            postStartEvents,
+          );
+          conversationEventsRef.current = [];
+          commitConversations(rows);
+          setError(null);
           setLoading(false);
-          throw queryError;
+        });
+
+      if (!force) return runAuthoritativeRead();
+      const queue = conversationQueueRef.current;
+      return queue.enqueue(async () => {
+        assertCurrent(generation, ownerId);
+        const predecessor = conversationRefreshesRef.current.get(key);
+        if (predecessor) {
+          try {
+            await predecessor;
+          } catch {
+            // A forced read is the successor reconciliation after a prior failure.
+          }
+          assertCurrent(generation, ownerId);
+          if (conversationRefreshesRef.current.get(key) === predecessor) {
+            conversationRefreshesRef.current.delete(key);
+          }
         }
-        const postStartEvents = conversationEventsRef.current.filter(
-          (event) => event.version > startEventVersion,
-        );
-        const rows = applyAuthoritativeConversationSnapshot(
-          (data ?? []) as MentorConversationRow[],
-          postStartEvents,
-        );
-        conversationEventsRef.current = postStartEvents;
-        commitConversations(rows);
-        setError(null);
-        setLoading(false);
+        return runAuthoritativeRead();
       });
     },
     [assertCurrent, commitConversations, isCurrent, supabase],
@@ -305,54 +317,82 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
       if (!ownerId || scope.conversationId !== conversationId) {
         return Promise.reject(staleLifecycleError());
       }
-      if (force) scope.refreshEpoch += 1;
       const epoch = scope.epoch;
-      const refreshEpoch = scope.refreshEpoch;
-      const key = `${generation}\u0000${ownerId}\u0000${conversationId}\u0000${epoch}\u0000${refreshEpoch}`;
-      return coalesceOperation(messageRefreshesRef.current, key, async () => {
+      const key = `${generation}\u0000${ownerId}\u0000${conversationId}\u0000${epoch}`;
+      const runAuthoritativeRead = () =>
+        coalesceOperation(messageRefreshesRef.current, key, async () => {
+          assertCurrent(generation, ownerId);
+          if (
+            messageScopeRef.current.conversationId !== conversationId ||
+            messageScopeRef.current.epoch !== epoch
+          ) {
+            throw staleLifecycleError();
+          }
+          setMessagesLoading(true);
+          const startEventVersion = messageScopeRef.current.eventVersion;
+          const { data, error: queryError } = await supabase
+            .from("mentor_messages")
+            .select("*")
+            .eq("conversation_id", conversationId)
+            .order("created_at", { ascending: true })
+            .order("id", { ascending: true });
+          assertCurrent(generation, ownerId);
+          const currentScope = messageScopeRef.current;
+          if (
+            currentScope.conversationId !== conversationId ||
+            currentScope.epoch !== epoch
+          ) {
+            throw staleLifecycleError();
+          }
+          if (queryError) {
+            setError("messages_load_failed");
+            setMessagesLoading(false);
+            throw queryError;
+          }
+          const postStartEvents = currentScope.events.filter(
+            (event) => event.version > startEventVersion,
+          );
+          const rows = applyAuthoritativeMessageSnapshot(
+            ((data ?? []) as MentorMessageRow[]).filter(
+              (row) => row.conversation_id === conversationId,
+            ),
+            postStartEvents,
+            mergeMentorMessages,
+          );
+          currentScope.events = [];
+          commitMessages(conversationId, epoch, rows);
+          setMessagesLoading(false);
+        });
+
+      if (!force) return runAuthoritativeRead();
+      const queue = messageQueueRef.current;
+      return queue.enqueue(async () => {
         assertCurrent(generation, ownerId);
         if (
           messageScopeRef.current.conversationId !== conversationId ||
-          messageScopeRef.current.epoch !== epoch ||
-          messageScopeRef.current.refreshEpoch !== refreshEpoch
+          messageScopeRef.current.epoch !== epoch
         ) {
           throw staleLifecycleError();
         }
-        setMessagesLoading(true);
-        const startEventVersion = messageScopeRef.current.eventVersion;
-        const { data, error: queryError } = await supabase
-          .from("mentor_messages")
-          .select("*")
-          .eq("conversation_id", conversationId)
-          .order("created_at", { ascending: true })
-          .order("id", { ascending: true });
-        assertCurrent(generation, ownerId);
-        const currentScope = messageScopeRef.current;
-        if (
-          currentScope.conversationId !== conversationId ||
-          currentScope.epoch !== epoch ||
-          currentScope.refreshEpoch !== refreshEpoch
-        ) {
-          throw staleLifecycleError();
+        const predecessor = messageRefreshesRef.current.get(key);
+        if (predecessor) {
+          try {
+            await predecessor;
+          } catch {
+            // The queued forced read retries after a failed predecessor.
+          }
+          assertCurrent(generation, ownerId);
+          if (
+            messageScopeRef.current.conversationId !== conversationId ||
+            messageScopeRef.current.epoch !== epoch
+          ) {
+            throw staleLifecycleError();
+          }
+          if (messageRefreshesRef.current.get(key) === predecessor) {
+            messageRefreshesRef.current.delete(key);
+          }
         }
-        if (queryError) {
-          setError("messages_load_failed");
-          setMessagesLoading(false);
-          throw queryError;
-        }
-        const postStartEvents = currentScope.events.filter(
-          (event) => event.version > startEventVersion,
-        );
-        const rows = applyAuthoritativeMessageSnapshot(
-          ((data ?? []) as MentorMessageRow[]).filter(
-            (row) => row.conversation_id === conversationId,
-          ),
-          postStartEvents,
-          mergeMentorMessages,
-        );
-        currentScope.events = postStartEvents;
-        commitMessages(conversationId, epoch, rows);
-        setMessagesLoading(false);
+        return runAuthoritativeRead();
       });
     },
     [assertCurrent, commitMessages, isCurrent, supabase],

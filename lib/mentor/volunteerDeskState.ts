@@ -88,6 +88,25 @@ export function coalesceOperation<K, T>(
   return promise;
 }
 
+export interface SerializedReconciliationQueue {
+  enqueue<T>(run: () => Promise<T>): Promise<T>;
+}
+
+export function createSerializedReconciliationQueue(): SerializedReconciliationQueue {
+  let tail: Promise<void> = Promise.resolve();
+
+  return {
+    enqueue<T>(run: () => Promise<T>): Promise<T> {
+      const task = tail.then(run, run);
+      tail = task.then(
+        () => undefined,
+        () => undefined,
+      );
+      return task;
+    },
+  };
+}
+
 export function deriveMentorRealtimeState(
   hasAuthenticatedUser: boolean,
   hasSelectedConversation: boolean,

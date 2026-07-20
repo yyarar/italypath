@@ -30,6 +30,7 @@ const {
   applyAuthoritativeConversationSnapshot,
   applyAuthoritativeMessageSnapshot,
   coalesceOperation,
+  createSerializedReconciliationQueue,
   deriveMentorRealtimeState,
   transitionMessageScope,
 } = await importStateHelpers();
@@ -145,6 +146,45 @@ const rejected = coalesceOperation(registry, "failed", async () => {
 });
 await assert.rejects(rejected, /query_failed/);
 assert.equal(registry.size, 0, "a failed reconciliation must reject and allow a retry");
+
+const reconciliationQueue = createSerializedReconciliationQueue();
+const queueOrder = [];
+let releaseFirst;
+const firstGate = new Promise((resolve) => {
+  releaseFirst = resolve;
+});
+const firstForcedRead = reconciliationQueue.enqueue(async () => {
+  queueOrder.push("first-start");
+  await firstGate;
+  queueOrder.push("first-finish");
+  return "first-authoritative";
+});
+const secondForcedRead = reconciliationQueue.enqueue(async () => {
+  queueOrder.push("second-start");
+  queueOrder.push("second-finish");
+  return "second-authoritative";
+});
+await Promise.resolve();
+assert.deepEqual(queueOrder, ["first-start"], "overlapping forced reads must serialize");
+releaseFirst();
+assert.equal(await firstForcedRead, "first-authoritative");
+assert.equal(await secondForcedRead, "second-authoritative");
+assert.deepEqual(
+  queueOrder,
+  ["first-start", "first-finish", "second-start", "second-finish"],
+  "two successful forced reconciliation callers must both finish without invalidating each other",
+);
+await assert.rejects(
+  reconciliationQueue.enqueue(async () => {
+    throw new Error("authoritative_query_failed");
+  }),
+  /authoritative_query_failed/,
+);
+assert.equal(
+  await reconciliationQueue.enqueue(async () => "retry-authoritative"),
+  "retry-authoritative",
+  "a failed queued read must not poison a later forced reconciliation",
+);
 
 assert.equal(
   deriveMentorRealtimeState(true, true, "connected", "disconnected"),
