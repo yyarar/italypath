@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 
 import {
@@ -9,10 +9,12 @@ import {
   type VolunteerTopicId,
 } from "@/lib/mentor/volunteer";
 import {
+  applyAuthoritativeConversationSnapshot,
+  applyAuthoritativeMessageSnapshot,
+  coalesceOperation,
   deriveMentorRealtimeState,
-  mergeConversationRealtime,
-  mergeConversationSnapshot,
-  mergeMessageSnapshot,
+  transitionMessageScope,
+  type ConversationEvent,
   type MentorChannelState,
 } from "@/lib/mentor/volunteerDeskState";
 import { useMentorSupabaseClient } from "@/lib/mentor/useMentorSupabaseClient";
@@ -21,6 +23,15 @@ import type { MentorConversationRow, MentorMessageRow } from "@/types";
 interface PendingOperation {
   nonce: string;
   promise?: Promise<void>;
+}
+
+interface MessageScope {
+  conversationId: string | null;
+  epoch: number;
+  refreshEpoch: number;
+  messages: MentorMessageRow[];
+  eventVersion: number;
+  events: Array<{ version: number; row: MentorMessageRow }>;
 }
 
 export interface UseVolunteerDeskResult {
@@ -48,30 +59,40 @@ function rpcUuid(value: unknown): string {
   return value;
 }
 
+function staleLifecycleError(): Error {
+  return new Error("mentor_lifecycle_stale");
+}
+
 export function useVolunteerDesk(): UseVolunteerDeskResult {
   const { user, isLoaded } = useUser();
   const userId = isLoaded ? user?.id ?? null : null;
   const supabase = useMentorSupabaseClient();
-  const identityRef = useRef<string | null>(userId);
+  const mountedRef = useRef(false);
+  const identityRef = useRef<string | null>(null);
   const generationRef = useRef(0);
-  const mountedRef = useRef(true);
   const conversationsRef = useRef<MentorConversationRow[]>([]);
-  const messagesRef = useRef<MentorMessageRow[]>([]);
+  const conversationEventsRef = useRef<ConversationEvent<MentorConversationRow>[]>([]);
+  const conversationEventVersionRef = useRef(0);
+  const conversationRefreshEpochRef = useRef(0);
   const selectedConversationIdRef = useRef<string | null>(null);
-  const conversationRequestRef = useRef(0);
-  const messageRequestRef = useRef(0);
+  const messagesRef = useRef<MentorMessageRow[]>([]);
+  const messageScopeRef = useRef<MessageScope>({
+    conversationId: null,
+    epoch: 0,
+    refreshEpoch: 0,
+    messages: [],
+    eventVersion: 0,
+    events: [],
+  });
+  const conversationRefreshesRef = useRef(new Map<string, Promise<void>>());
+  const messageRefreshesRef = useRef(new Map<string, Promise<void>>());
   const pendingStartRef = useRef(new Map<string, PendingOperation>());
   const pendingSendRef = useRef(new Map<string, PendingOperation>());
   const pendingCloseRef = useRef(new Map<string, Promise<void>>());
   const activeSendingRef = useRef(0);
   const activeClosingRef = useRef(0);
 
-  if (identityRef.current !== userId) {
-    identityRef.current = userId;
-    generationRef.current += 1;
-  }
-
-  const [stateUserId, setStateUserId] = useState<string | null>(userId);
+  const [stateUserId, setStateUserId] = useState<string | null>(null);
   const [conversations, setConversations] = useState<MentorConversationRow[]>([]);
   const [selectedConversationId, setSelectedConversationId] = useState<string | null>(null);
   const [messages, setMessages] = useState<MentorMessageRow[]>([]);
@@ -84,11 +105,16 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     useState<MentorChannelState>("idle");
   const [messageChannelState, setMessageChannelState] =
     useState<MentorChannelState>("idle");
+  const [messageChannelConversationId, setMessageChannelConversationId] =
+    useState<string | null>(null);
 
   const identityReady = stateUserId === userId;
   const visibleConversations = identityReady ? conversations : [];
-  const visibleMessages = identityReady ? messages : [];
   const visibleSelectedConversationId = identityReady ? selectedConversationId : null;
+  const visibleMessages =
+    identityReady && messageScopeRef.current.conversationId === visibleSelectedConversationId
+      ? messages
+      : [];
   const openConversation =
     visibleConversations.find((conversation) => conversation.status !== "closed") ?? null;
   const closedConversations = visibleConversations.filter(
@@ -102,7 +128,9 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     Boolean(userId && identityReady),
     Boolean(visibleSelectedConversationId),
     conversationChannelState,
-    messageChannelState,
+    messageChannelConversationId === visibleSelectedConversationId
+      ? messageChannelState
+      : "connecting",
   );
 
   const isCurrent = useCallback((generation: number, ownerId: string | null) => {
@@ -113,48 +141,61 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     );
   }, []);
 
-  const selectConversation = useCallback((conversationId: string | null) => {
+  const assertCurrent = useCallback(
+    (generation: number, ownerId: string | null) => {
+      if (!isCurrent(generation, ownerId)) throw staleLifecycleError();
+    },
+    [isCurrent],
+  );
+
+  const transitionSelection = useCallback((conversationId: string | null) => {
+    if (selectedConversationIdRef.current === conversationId) return false;
+
+    const nextScope = transitionMessageScope(messageScopeRef.current, conversationId);
     selectedConversationIdRef.current = conversationId;
+    messageScopeRef.current = {
+      ...nextScope,
+      refreshEpoch: 0,
+      eventVersion: 0,
+      events: [],
+    };
+    messagesRef.current = [];
+    messageRefreshesRef.current.clear();
     setSelectedConversationId(conversationId);
+    setMessages([]);
+    setMessagesLoading(false);
+    setMessageChannelConversationId(null);
+    setMessageChannelState("idle");
+    return true;
   }, []);
 
-  const applyConversationSnapshot = useCallback((rows: MentorConversationRow[]) => {
-    const next = mergeConversationSnapshot(conversationsRef.current, rows);
-    conversationsRef.current = next;
-    setConversations(next);
+  const commitConversations = useCallback(
+    (rows: MentorConversationRow[]) => {
+      conversationsRef.current = rows;
+      setConversations(rows);
+      const current = selectedConversationIdRef.current;
+      const selectedId =
+        current && rows.some((conversation) => conversation.id === current)
+          ? current
+          : rows.find((conversation) => conversation.status !== "closed")?.id ?? null;
+      transitionSelection(selectedId);
+    },
+    [transitionSelection],
+  );
 
-    const current = selectedConversationIdRef.current;
-    const selectedId =
-      current && next.some((conversation) => conversation.id === current)
-        ? current
-        : next.find((conversation) => conversation.status !== "closed")?.id ?? null;
-    selectedConversationIdRef.current = selectedId;
-    setSelectedConversationId(selectedId);
-  }, []);
+  const commitMessages = useCallback(
+    (conversationId: string, epoch: number, rows: MentorMessageRow[]) => {
+      const scope = messageScopeRef.current;
+      if (scope.conversationId !== conversationId || scope.epoch !== epoch) return;
+      const matchingRows = rows.filter((row) => row.conversation_id === conversationId);
+      scope.messages = matchingRows;
+      messagesRef.current = matchingRows;
+      setMessages(matchingRows);
+    },
+    [],
+  );
 
-  const applyConversationRealtime = useCallback((row: MentorConversationRow) => {
-    const next = mergeConversationRealtime(conversationsRef.current, row);
-    conversationsRef.current = next;
-    setConversations(next);
-  }, []);
-
-  const applyMessageSnapshot = useCallback((rows: MentorMessageRow[]) => {
-    const next = mergeMessageSnapshot(
-      messagesRef.current,
-      rows,
-      mergeMentorMessages,
-    );
-    messagesRef.current = next;
-    setMessages(next);
-  }, []);
-
-  const applyMessageRealtime = useCallback((row: MentorMessageRow) => {
-    const next = mergeMentorMessages(messagesRef.current, [row]);
-    messagesRef.current = next;
-    setMessages(next);
-  }, []);
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     mountedRef.current = true;
     return () => {
       mountedRef.current = false;
@@ -162,148 +203,231 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     };
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    generationRef.current += 1;
+    identityRef.current = userId;
     conversationsRef.current = [];
-    messagesRef.current = [];
+    conversationEventsRef.current = [];
+    conversationEventVersionRef.current = 0;
+    conversationRefreshEpochRef.current = 0;
     selectedConversationIdRef.current = null;
+    messagesRef.current = [];
+    messageScopeRef.current = {
+      conversationId: null,
+      epoch: messageScopeRef.current.epoch + 1,
+      refreshEpoch: 0,
+      messages: [],
+      eventVersion: 0,
+      events: [],
+    };
+    conversationRefreshesRef.current.clear();
+    messageRefreshesRef.current.clear();
     pendingStartRef.current.clear();
     pendingSendRef.current.clear();
     pendingCloseRef.current.clear();
     activeSendingRef.current = 0;
     activeClosingRef.current = 0;
     setConversations([]);
-    setMessages([]);
     setSelectedConversationId(null);
-    setError(null);
+    setMessages([]);
+    setLoading(Boolean(userId));
+    setMessagesLoading(false);
     setSending(false);
     setClosing(false);
-    setMessagesLoading(false);
+    setError(null);
     setConversationChannelState(userId ? "connecting" : "idle");
     setMessageChannelState("idle");
-    setLoading(Boolean(userId));
+    setMessageChannelConversationId(null);
     setStateUserId(userId);
   }, [userId]);
 
   const refreshConversations = useCallback(
-    async (showLoading = true) => {
+    (showLoading = true, force = false): Promise<void> => {
       const generation = generationRef.current;
-      const ownerId = userId;
-      const requestId = ++conversationRequestRef.current;
+      const ownerId = identityRef.current;
       if (!ownerId) {
-        if (!isCurrent(generation, ownerId)) return;
-        conversationsRef.current = [];
-        selectedConversationIdRef.current = null;
-        setConversations([]);
-        setSelectedConversationId(null);
+        if (!isCurrent(generation, ownerId)) return Promise.reject(staleLifecycleError());
+        commitConversations([]);
         setLoading(false);
-        return;
+        return Promise.resolve();
       }
-      if (showLoading && isCurrent(generation, ownerId)) setLoading(true);
-      const { data, error: queryError } = await supabase
-        .from("mentor_conversations")
-        .select("*")
-        .eq("user_id", ownerId)
-        .order("last_message_at", { ascending: false });
-      if (
-        !isCurrent(generation, ownerId) ||
-        requestId !== conversationRequestRef.current
-      ) {
-        return;
-      }
-      if (queryError) {
-        setError("load_failed");
+      if (force) conversationRefreshEpochRef.current += 1;
+      const refreshEpoch = conversationRefreshEpochRef.current;
+      const key = `${generation}\u0000${ownerId}\u0000${refreshEpoch}`;
+      return coalesceOperation(conversationRefreshesRef.current, key, async () => {
+        assertCurrent(generation, ownerId);
+        if (refreshEpoch !== conversationRefreshEpochRef.current) {
+          throw staleLifecycleError();
+        }
+        if (showLoading) setLoading(true);
+        const startEventVersion = conversationEventVersionRef.current;
+        const { data, error: queryError } = await supabase
+          .from("mentor_conversations")
+          .select("*")
+          .eq("user_id", ownerId)
+          .order("last_message_at", { ascending: false });
+        assertCurrent(generation, ownerId);
+        if (refreshEpoch !== conversationRefreshEpochRef.current) {
+          throw staleLifecycleError();
+        }
+        if (queryError) {
+          setError("load_failed");
+          setLoading(false);
+          throw queryError;
+        }
+        const postStartEvents = conversationEventsRef.current.filter(
+          (event) => event.version > startEventVersion,
+        );
+        const rows = applyAuthoritativeConversationSnapshot(
+          (data ?? []) as MentorConversationRow[],
+          postStartEvents,
+        );
+        conversationEventsRef.current = postStartEvents;
+        commitConversations(rows);
+        setError(null);
         setLoading(false);
-        throw queryError;
-      }
-      applyConversationSnapshot((data ?? []) as MentorConversationRow[]);
-      setError(null);
-      setLoading(false);
+      });
     },
-    [applyConversationSnapshot, isCurrent, supabase, userId],
+    [assertCurrent, commitConversations, isCurrent, supabase],
   );
 
   const refreshMessages = useCallback(
-    async (conversationId: string | null) => {
+    (conversationId: string | null, force = false): Promise<void> => {
       const generation = generationRef.current;
-      const ownerId = userId;
-      const requestId = ++messageRequestRef.current;
+      const ownerId = identityRef.current;
+      const scope = messageScopeRef.current;
       if (!conversationId) {
-        if (!isCurrent(generation, ownerId)) return;
-        messagesRef.current = [];
-        setMessages([]);
+        if (!isCurrent(generation, ownerId)) return Promise.reject(staleLifecycleError());
+        if (scope.conversationId !== null) return Promise.reject(staleLifecycleError());
         setMessagesLoading(false);
-        return;
+        return Promise.resolve();
       }
-      if (!ownerId || selectedConversationIdRef.current !== conversationId) return;
-      if (isCurrent(generation, ownerId)) setMessagesLoading(true);
-      const { data, error: queryError } = await supabase
-        .from("mentor_messages")
-        .select("*")
-        .eq("conversation_id", conversationId)
-        .order("created_at", { ascending: true })
-        .order("id", { ascending: true });
-      if (
-        !isCurrent(generation, ownerId) ||
-        requestId !== messageRequestRef.current ||
-        selectedConversationIdRef.current !== conversationId
-      ) {
-        return;
+      if (!ownerId || scope.conversationId !== conversationId) {
+        return Promise.reject(staleLifecycleError());
       }
-      if (queryError) {
-        setError("messages_load_failed");
+      if (force) scope.refreshEpoch += 1;
+      const epoch = scope.epoch;
+      const refreshEpoch = scope.refreshEpoch;
+      const key = `${generation}\u0000${ownerId}\u0000${conversationId}\u0000${epoch}\u0000${refreshEpoch}`;
+      return coalesceOperation(messageRefreshesRef.current, key, async () => {
+        assertCurrent(generation, ownerId);
+        if (
+          messageScopeRef.current.conversationId !== conversationId ||
+          messageScopeRef.current.epoch !== epoch ||
+          messageScopeRef.current.refreshEpoch !== refreshEpoch
+        ) {
+          throw staleLifecycleError();
+        }
+        setMessagesLoading(true);
+        const startEventVersion = messageScopeRef.current.eventVersion;
+        const { data, error: queryError } = await supabase
+          .from("mentor_messages")
+          .select("*")
+          .eq("conversation_id", conversationId)
+          .order("created_at", { ascending: true })
+          .order("id", { ascending: true });
+        assertCurrent(generation, ownerId);
+        const currentScope = messageScopeRef.current;
+        if (
+          currentScope.conversationId !== conversationId ||
+          currentScope.epoch !== epoch ||
+          currentScope.refreshEpoch !== refreshEpoch
+        ) {
+          throw staleLifecycleError();
+        }
+        if (queryError) {
+          setError("messages_load_failed");
+          setMessagesLoading(false);
+          throw queryError;
+        }
+        const postStartEvents = currentScope.events.filter(
+          (event) => event.version > startEventVersion,
+        );
+        const rows = applyAuthoritativeMessageSnapshot(
+          ((data ?? []) as MentorMessageRow[]).filter(
+            (row) => row.conversation_id === conversationId,
+          ),
+          postStartEvents,
+          mergeMentorMessages,
+        );
+        currentScope.events = postStartEvents;
+        commitMessages(conversationId, epoch, rows);
         setMessagesLoading(false);
-        throw queryError;
-      }
-      applyMessageSnapshot((data ?? []) as MentorMessageRow[]);
-      setMessagesLoading(false);
+      });
     },
-    [applyMessageSnapshot, isCurrent, supabase, userId],
+    [assertCurrent, commitMessages, isCurrent, supabase],
   );
 
   useEffect(() => {
-    if (!isLoaded) return;
+    if (!isLoaded || !identityReady) return;
     void refreshConversations().catch(() => undefined);
-  }, [isLoaded, refreshConversations]);
+  }, [identityReady, isLoaded, refreshConversations]);
 
   useEffect(() => {
+    if (!identityReady) return;
     void refreshMessages(visibleSelectedConversationId).catch(() => undefined);
-  }, [refreshMessages, visibleSelectedConversationId]);
+  }, [identityReady, refreshMessages, visibleSelectedConversationId]);
 
   useEffect(() => {
-    if (!userId) {
+    const generation = generationRef.current;
+    const ownerId = identityRef.current;
+    if (!ownerId) {
       setConversationChannelState("idle");
       return;
     }
-
-    const generation = generationRef.current;
     let active = true;
     let channel: ReturnType<typeof supabase.channel> | null = null;
 
     const subscribe = async () => {
-      if (isCurrent(generation, userId)) setConversationChannelState("connecting");
+      if (isCurrent(generation, ownerId)) setConversationChannelState("connecting");
       try {
         await supabase.realtime.setAuth();
-        if (!active || !isCurrent(generation, userId)) return;
+        if (!active || !isCurrent(generation, ownerId)) return;
         channel = supabase
-          .channel(`mentor-conversations:${userId}`)
+          .channel(`mentor-conversations:${ownerId}`)
           .on(
             "postgres_changes",
             {
               event: "*",
               schema: "public",
               table: "mentor_conversations",
-              filter: `user_id=eq.${userId}`,
+              filter: `user_id=eq.${ownerId}`,
             },
             (payload) => {
-              if (!active || !isCurrent(generation, userId)) return;
-              if (payload.eventType === "INSERT" || payload.eventType === "UPDATE") {
-                applyConversationRealtime(payload.new as MentorConversationRow);
+              if (!active || !isCurrent(generation, ownerId)) return;
+              const version = ++conversationEventVersionRef.current;
+              if (payload.eventType === "DELETE") {
+                const id = (payload.old as { id?: string }).id;
+                if (id) {
+                  conversationEventsRef.current.push({ version, type: "DELETE", id });
+                  commitConversations(
+                    applyAuthoritativeConversationSnapshot(conversationsRef.current, [
+                      { version, type: "DELETE", id },
+                    ]),
+                  );
+                }
+              } else {
+                const row = payload.new as MentorConversationRow;
+                conversationEventsRef.current.push({
+                  version,
+                  type: payload.eventType === "INSERT" ? "INSERT" : "UPDATE",
+                  row,
+                });
+                commitConversations(
+                  applyAuthoritativeConversationSnapshot(conversationsRef.current, [
+                    {
+                      version,
+                      type: payload.eventType === "INSERT" ? "INSERT" : "UPDATE",
+                      row,
+                    },
+                  ]),
+                );
               }
               void refreshConversations(false).catch(() => undefined);
             },
           )
           .subscribe((status) => {
-            if (!active || !isCurrent(generation, userId)) return;
+            if (!active || !isCurrent(generation, ownerId)) return;
             if (status === "SUBSCRIBED") {
               setConversationChannelState("connected");
               void refreshConversations(false).catch(() => undefined);
@@ -313,7 +437,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
             }
           });
       } catch {
-        if (active && isCurrent(generation, userId)) {
+        if (active && isCurrent(generation, ownerId)) {
           setConversationChannelState("disconnected");
         }
       }
@@ -324,24 +448,29 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
       active = false;
       if (channel) void supabase.removeChannel(channel);
     };
-  }, [applyConversationRealtime, isCurrent, refreshConversations, supabase, userId]);
+  }, [commitConversations, isCurrent, refreshConversations, supabase, userId]);
 
   useEffect(() => {
-    if (!userId || !visibleSelectedConversationId) {
+    const generation = generationRef.current;
+    const ownerId = identityRef.current;
+    const conversationId = visibleSelectedConversationId;
+    if (!ownerId || !conversationId) {
+      setMessageChannelConversationId(null);
       setMessageChannelState("idle");
       return;
     }
-
-    const conversationId = visibleSelectedConversationId;
-    const generation = generationRef.current;
+    const epoch = messageScopeRef.current.epoch;
     let active = true;
     let channel: ReturnType<typeof supabase.channel> | null = null;
 
     const subscribe = async () => {
-      if (isCurrent(generation, userId)) setMessageChannelState("connecting");
+      if (isCurrent(generation, ownerId)) {
+        setMessageChannelConversationId(conversationId);
+        setMessageChannelState("connecting");
+      }
       try {
         await supabase.realtime.setAuth();
-        if (!active || !isCurrent(generation, userId)) return;
+        if (!active || !isCurrent(generation, ownerId)) return;
         channel = supabase
           .channel(`mentor-messages:${conversationId}`)
           .on(
@@ -353,19 +482,29 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
               filter: `conversation_id=eq.${conversationId}`,
             },
             (payload) => {
+              const scope = messageScopeRef.current;
               if (
                 !active ||
-                !isCurrent(generation, userId) ||
-                selectedConversationIdRef.current !== conversationId
+                !isCurrent(generation, ownerId) ||
+                scope.conversationId !== conversationId ||
+                scope.epoch !== epoch
               ) {
                 return;
               }
-              applyMessageRealtime(payload.new as MentorMessageRow);
+              const row = payload.new as MentorMessageRow;
+              const version = ++scope.eventVersion;
+              scope.events.push({ version, row });
+              commitMessages(
+                conversationId,
+                epoch,
+                mergeMentorMessages(scope.messages, [row]),
+              );
             },
           )
           .subscribe((status) => {
-            if (!active || !isCurrent(generation, userId)) return;
+            if (!active || !isCurrent(generation, ownerId)) return;
             if (status === "SUBSCRIBED") {
+              setMessageChannelConversationId(conversationId);
               setMessageChannelState("connected");
               void refreshMessages(conversationId).catch(() => undefined);
             }
@@ -374,7 +513,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
             }
           });
       } catch {
-        if (active && isCurrent(generation, userId)) {
+        if (active && isCurrent(generation, ownerId)) {
           setMessageChannelState("disconnected");
         }
       }
@@ -386,7 +525,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
       if (channel) void supabase.removeChannel(channel);
     };
   }, [
-    applyMessageRealtime,
+    commitMessages,
     isCurrent,
     refreshMessages,
     supabase,
@@ -397,7 +536,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
   const startConversation = useCallback(
     async (topic: VolunteerTopicId, body: string) => {
       const generation = generationRef.current;
-      const ownerId = userId;
+      const ownerId = identityRef.current;
       if (!ownerId || !isCurrent(generation, ownerId)) {
         throw new Error("authentication_required");
       }
@@ -406,7 +545,6 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
       const existing = pendingStartRef.current.get(key);
       if (existing?.promise) return existing.promise;
       const operation = existing ?? { nonce: crypto.randomUUID() };
-
       const promise = Promise.resolve().then(async () => {
         activeSendingRef.current += 1;
         if (isCurrent(generation, ownerId)) {
@@ -421,13 +559,13 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
             p_client_nonce: operation.nonce,
           });
           if (rpcError) throw rpcError;
-          if (!isCurrent(generation, ownerId)) return;
+          assertCurrent(generation, ownerId);
           const conversationId = rpcUuid(data);
-          await refreshConversations(false);
-          if (!isCurrent(generation, ownerId)) return;
-          selectConversation(conversationId);
-          await refreshMessages(conversationId);
-          if (!isCurrent(generation, ownerId)) return;
+          await refreshConversations(false, true);
+          assertCurrent(generation, ownerId);
+          transitionSelection(conversationId);
+          await refreshMessages(conversationId, true);
+          assertCurrent(generation, ownerId);
           if (pendingStartRef.current.get(key) === operation) {
             pendingStartRef.current.delete(key);
           }
@@ -444,27 +582,26 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
           }
         }
       });
-
       operation.promise = promise;
       pendingStartRef.current.set(key, operation);
       return promise;
     },
     [
+      assertCurrent,
       isCurrent,
       refreshConversations,
       refreshMessages,
-      selectConversation,
       supabase,
+      transitionSelection,
       user?.firstName,
       user?.fullName,
-      userId,
     ],
   );
 
   const sendMessage = useCallback(
     async (body: string) => {
       const generation = generationRef.current;
-      const ownerId = userId;
+      const ownerId = identityRef.current;
       const conversation = selectedConversation;
       if (!ownerId || !isCurrent(generation, ownerId)) {
         throw new Error("authentication_required");
@@ -476,7 +613,6 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
       const existing = pendingSendRef.current.get(key);
       if (existing?.promise) return existing.promise;
       const operation = existing ?? { nonce: crypto.randomUUID() };
-
       const promise = Promise.resolve().then(async () => {
         activeSendingRef.current += 1;
         if (isCurrent(generation, ownerId)) {
@@ -490,12 +626,12 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
             p_client_nonce: operation.nonce,
           });
           if (rpcError) throw rpcError;
-          if (!isCurrent(generation, ownerId)) return;
+          assertCurrent(generation, ownerId);
           await Promise.all([
-            refreshConversations(false),
-            refreshMessages(conversation.id),
+            refreshConversations(false, true),
+            refreshMessages(conversation.id, true),
           ]);
-          if (!isCurrent(generation, ownerId)) return;
+          assertCurrent(generation, ownerId);
           if (pendingSendRef.current.get(key) === operation) {
             pendingSendRef.current.delete(key);
           }
@@ -512,31 +648,29 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
           }
         }
       });
-
       operation.promise = promise;
       pendingSendRef.current.set(key, operation);
       return promise;
     },
     [
+      assertCurrent,
       isCurrent,
       refreshConversations,
       refreshMessages,
       selectedConversation,
       supabase,
-      userId,
     ],
   );
 
   const closeConversation = useCallback(
     async (conversationId: string) => {
       const generation = generationRef.current;
-      const ownerId = userId;
+      const ownerId = identityRef.current;
       if (!ownerId || !isCurrent(generation, ownerId)) {
         throw new Error("authentication_required");
       }
       const existing = pendingCloseRef.current.get(conversationId);
       if (existing) return existing;
-
       const promise = Promise.resolve().then(async () => {
         activeClosingRef.current += 1;
         if (isCurrent(generation, ownerId)) {
@@ -548,10 +682,10 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
             p_conversation_id: conversationId,
           });
           if (rpcError) throw rpcError;
-          if (!isCurrent(generation, ownerId)) return;
-          await refreshConversations(false);
-          if (!isCurrent(generation, ownerId)) return;
-          selectConversation(conversationId);
+          assertCurrent(generation, ownerId);
+          await refreshConversations(false, true);
+          assertCurrent(generation, ownerId);
+          transitionSelection(conversationId);
         } catch (actionError) {
           if (isCurrent(generation, ownerId)) setError("close_failed");
           throw actionError;
@@ -565,22 +699,21 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
           }
         }
       });
-
       pendingCloseRef.current.set(conversationId, promise);
       return promise;
     },
-    [isCurrent, refreshConversations, selectConversation, supabase, userId],
+    [assertCurrent, isCurrent, refreshConversations, supabase, transitionSelection],
   );
 
   const reload = useCallback(async () => {
     const generation = generationRef.current;
-    const ownerId = userId;
-    if (!isCurrent(generation, ownerId)) return;
+    const ownerId = identityRef.current;
+    assertCurrent(generation, ownerId);
     setError(null);
-    await refreshConversations();
-    if (!isCurrent(generation, ownerId)) return;
-    await refreshMessages(selectedConversationIdRef.current);
-  }, [isCurrent, refreshConversations, refreshMessages, userId]);
+    await refreshConversations(true, true);
+    assertCurrent(generation, ownerId);
+    await refreshMessages(selectedConversationIdRef.current, true);
+  }, [assertCurrent, refreshConversations, refreshMessages]);
 
   return {
     openConversation,
@@ -593,7 +726,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
     closing: identityReady ? closing : false,
     error: identityReady ? error : null,
     realtimeState,
-    selectConversation,
+    selectConversation: transitionSelection,
     startConversation,
     sendMessage,
     closeConversation,

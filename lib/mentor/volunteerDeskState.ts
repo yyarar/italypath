@@ -6,44 +6,86 @@ export type MentorChannelState =
   | "connected"
   | "disconnected";
 
-export function mergeConversationSnapshot<T extends MentorConversationRow>(
-  current: T[],
-  snapshot: T[],
-): T[] {
-  const byId = new Map(current.map((conversation) => [conversation.id, conversation]));
+export type ConversationEvent<T extends MentorConversationRow> =
+  | { version: number; type: "INSERT" | "UPDATE"; row: T }
+  | { version: number; type: "DELETE"; id: string };
 
-  for (const conversation of snapshot) {
-    const existing = byId.get(conversation.id);
-    if (
-      !existing ||
-      Date.parse(conversation.updated_at) > Date.parse(existing.updated_at)
-    ) {
-      byId.set(conversation.id, conversation);
-    }
-  }
+export interface MessageScope<T> {
+  conversationId: string | null;
+  epoch: number;
+  messages: T[];
+}
 
-  return [...byId.values()].sort((left, right) => {
+function sortConversations<T extends MentorConversationRow>(rows: T[]): T[] {
+  return [...rows].sort((left, right) => {
     const lastMessageDelta = Date.parse(right.last_message_at) - Date.parse(left.last_message_at);
     return lastMessageDelta || right.id.localeCompare(left.id);
   });
 }
 
-export function mergeConversationRealtime<T extends MentorConversationRow>(
-  current: T[],
-  incoming: T,
+export function applyAuthoritativeConversationSnapshot<T extends MentorConversationRow>(
+  snapshot: T[],
+  postStartEvents: ConversationEvent<T>[],
 ): T[] {
-  return mergeConversationSnapshot(
-    current.filter((conversation) => conversation.id !== incoming.id),
-    [incoming],
-  );
+  const byId = new Map(snapshot.map((conversation) => [conversation.id, conversation]));
+
+  for (const event of postStartEvents) {
+    if (event.type === "DELETE") {
+      byId.delete(event.id);
+      continue;
+    }
+
+    const existing = byId.get(event.row.id);
+    if (
+      !existing ||
+      Date.parse(event.row.updated_at) >= Date.parse(existing.updated_at)
+    ) {
+      byId.set(event.row.id, event.row);
+    }
+  }
+
+  return sortConversations([...byId.values()]);
 }
 
-export function mergeMessageSnapshot<T>(
-  realtimeRows: T[],
-  snapshotRows: T[],
+export function transitionMessageScope<T>(
+  current: MessageScope<T>,
+  conversationId: string | null,
+): MessageScope<T> {
+  if (current.conversationId === conversationId) return current;
+  return {
+    conversationId,
+    epoch: current.epoch + 1,
+    messages: [],
+  };
+}
+
+export function applyAuthoritativeMessageSnapshot<T>(
+  snapshot: T[],
+  postStartEvents: Array<{ version: number; row: T }>,
   merge: (current: T[], incoming: T[]) => T[],
 ): T[] {
-  return merge(snapshotRows, realtimeRows);
+  return merge(snapshot, postStartEvents.map((event) => event.row));
+}
+
+export function coalesceOperation<K, T>(
+  registry: Map<K, Promise<T>>,
+  key: K,
+  run: () => Promise<T>,
+): Promise<T> {
+  const existing = registry.get(key);
+  if (existing) return existing;
+
+  const promise = Promise.resolve().then(run);
+  registry.set(key, promise);
+  void promise.then(
+    () => {
+      if (registry.get(key) === promise) registry.delete(key);
+    },
+    () => {
+      if (registry.get(key) === promise) registry.delete(key);
+    },
+  );
+  return promise;
 }
 
 export function deriveMentorRealtimeState(

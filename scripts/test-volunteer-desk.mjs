@@ -27,9 +27,11 @@ async function importStateHelpers() {
 }
 
 const {
+  applyAuthoritativeConversationSnapshot,
+  applyAuthoritativeMessageSnapshot,
+  coalesceOperation,
   deriveMentorRealtimeState,
-  mergeConversationSnapshot,
-  mergeMessageSnapshot,
+  transitionMessageScope,
 } = await importStateHelpers();
 
 const oldConversation = {
@@ -46,9 +48,12 @@ const realtimeConversation = {
 };
 
 assert.deepEqual(
-  mergeConversationSnapshot([realtimeConversation], [oldConversation]),
+  applyAuthoritativeConversationSnapshot(
+    [oldConversation],
+    [{ version: 2, type: "UPDATE", row: realtimeConversation }],
+  ),
   [realtimeConversation],
-  "a late conversation snapshot must not overwrite a newer Realtime update",
+  "a post-query Realtime update must overlay the authoritative conversation snapshot",
 );
 
 const queryMessage = {
@@ -63,14 +68,83 @@ const realtimeMessage = {
 };
 
 assert.deepEqual(
-  mergeMessageSnapshot(
-    [realtimeMessage],
+  applyAuthoritativeMessageSnapshot(
     [queryMessage],
+    [{ version: 2, row: realtimeMessage }],
     (left, right) => [...left, ...right].sort((a, b) => a.id.localeCompare(b.id)),
   ),
   [queryMessage, realtimeMessage],
   "a late message query must merge rows received from Realtime after the request started",
 );
+
+assert.deepEqual(
+  applyAuthoritativeConversationSnapshot(
+    [oldConversation],
+    [{ version: 2, type: "DELETE", id: oldConversation.id }],
+  ),
+  [],
+  "a post-query delete must remove a row from the authoritative snapshot",
+);
+
+assert.deepEqual(
+  applyAuthoritativeConversationSnapshot([], []),
+  [],
+  "rows absent from an authoritative conversation snapshot must disappear",
+);
+
+const newerSnapshotConversation = {
+  ...realtimeConversation,
+  updated_at: "2026-07-20T10:02:00.000Z",
+  last_message_at: "2026-07-20T10:02:00.000Z",
+};
+assert.deepEqual(
+  applyAuthoritativeConversationSnapshot(
+    [newerSnapshotConversation],
+    [{ version: 3, type: "UPDATE", row: realtimeConversation }],
+  ),
+  [newerSnapshotConversation],
+  "a queued older Realtime update must not regress a newer server snapshot",
+);
+assert.deepEqual(
+  applyAuthoritativeConversationSnapshot([], [{ version: 4, type: "INSERT", row: realtimeConversation }]),
+  [realtimeConversation],
+  "a post-start insert must reintroduce a row absent from the query snapshot",
+);
+
+const threadA = transitionMessageScope(
+  { conversationId: null, epoch: 0, messages: [] },
+  "conversation-a",
+);
+const threadB = transitionMessageScope(
+  { ...threadA, messages: [queryMessage] },
+  "conversation-b",
+);
+assert.deepEqual(
+  threadB,
+  { conversationId: "conversation-b", epoch: 2, messages: [] },
+  "switching A to B must clear the message buffer instead of mixing threads",
+);
+
+const registry = new Map();
+let attempts = 0;
+const shared = coalesceOperation(registry, "conversation", async () => {
+  attempts += 1;
+  return "ok";
+});
+assert.equal(
+  coalesceOperation(registry, "conversation", async () => "unexpected"),
+  shared,
+  "same-scope reconciliation must share one in-flight promise",
+);
+assert.equal(await shared, "ok");
+assert.equal(attempts, 1);
+assert.equal(registry.size, 0, "a completed reconciliation must leave the registry clear");
+
+const rejected = coalesceOperation(registry, "failed", async () => {
+  throw new Error("query_failed");
+});
+await assert.rejects(rejected, /query_failed/);
+assert.equal(registry.size, 0, "a failed reconciliation must reject and allow a retry");
 
 assert.equal(
   deriveMentorRealtimeState(true, true, "connected", "disconnected"),

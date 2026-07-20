@@ -18,6 +18,10 @@ function mustNotInclude(source, needle, label) {
   if (source.includes(needle)) failures.push(`${label}: ${needle}`);
 }
 
+function mustNotMatch(source, pattern, label) {
+  if (pattern.test(source)) failures.push(label);
+}
+
 const channels = read("lib/mentor/channels.ts");
 const volunteer = read("lib/mentor/volunteer.ts");
 const types = read("types/index.ts");
@@ -77,13 +81,17 @@ mustInclude(studentHook, 'rpc("start_volunteer_conversation"', "Start RPC eksik"
 mustInclude(studentHook, 'rpc("send_student_mentor_message"', "Student send RPC eksik");
 mustInclude(studentHook, 'rpc("close_volunteer_conversation"', "Close RPC eksik");
 mustInclude(studentHook, "realtime.setAuth()", "Realtime auth eksik");
-mustInclude(studentHook, 'filter: `user_id=eq.${userId}`', "Conversation subscription filtresi eksik");
+mustInclude(studentHook, "useLayoutEffect", "Identity commit boundary eksik");
+mustNotInclude(studentHook, "if (identityRef.current !== userId)", "Render sırasında identity mutation kaldı");
+mustInclude(studentHook, 'filter: `user_id=eq.${ownerId}`', "Conversation subscription filtresi eksik");
 mustInclude(studentHook, 'table: "mentor_messages"', "Message subscription eksik");
 mustInclude(studentHook, 'filter: `conversation_id=eq.${conversationId}`', "Message subscription filtresi eksik");
 mustInclude(studentHook, "mergeMentorMessages", "Realtime dedupe eksik");
 mustNotInclude(studentHook, "SUPABASE_SERVICE_ROLE_KEY", "Student hook service role içeriyor");
-[".insert(", ".update(", ".upsert("].forEach((needle) =>
-  mustNotInclude(studentHook, needle, "Student hook doğrudan tablo mutation içeriyor"),
+mustNotMatch(
+  studentHook,
+  /\.from\([^)]*\)[\s\S]{0,160}\.(?:insert|update|upsert|delete)\(/,
+  "Student hook doğrudan tablo mutation içeriyor",
 );
 
 if (failures.length) {
