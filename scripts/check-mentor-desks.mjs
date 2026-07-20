@@ -39,6 +39,9 @@ const volunteerStatus = read("components/mentor/volunteer/VolunteerConversationS
 const volunteerThread = read("components/mentor/volunteer/VolunteerThread.tsx");
 const translations = read("lib/translations.ts");
 const mentorHub = read("components/mentor/MentorHub.tsx");
+const operatorPage = read("app/ekip/mentor/page.tsx");
+const operatorHook = read("lib/mentor/useMentorOperatorInbox.ts");
+const operatorInbox = read("components/mentor/operator/MentorOperatorInbox.tsx");
 
 mustInclude(channels, '"ai-chat"', "AI experience eksik");
 mustInclude(channels, '"volunteer-inbox"', "Volunteer experience eksik");
@@ -183,6 +186,34 @@ mustInclude(
 );
 if (translations.split("volunteerDesk:").length - 1 < 2) {
   failures.push("volunteerDesk TR+EN çevirileri eksik");
+}
+
+[
+  "MentorOperatorGate.tsx",
+  "MentorOperatorInbox.tsx",
+  "OperatorConversationList.tsx",
+  "OperatorConversationThread.tsx",
+  "OperatorReplyComposer.tsx",
+].forEach((file) => read(`components/mentor/operator/${file}`));
+
+mustInclude(operatorPage, "MentorOperatorInbox", "Operator route inbox render etmiyor");
+mustInclude(operatorHook, 'rpc("is_active_mentor_staff"', "Staff gate RPC eksik");
+mustInclude(operatorHook, 'rpc("send_staff_mentor_message"', "Staff reply RPC eksik");
+mustInclude(operatorHook, 'rpc("close_volunteer_conversation"', "Staff close RPC eksik");
+mustInclude(operatorHook, "realtime.setAuth()", "Operator Realtime auth eksik");
+mustInclude(operatorHook, "operatorCanAccess", "Operator yetki-sırası guard eksik");
+mustInclude(operatorHook, "createOwnerScopedNonceRegistry", "Owner scoped reply nonce eksik");
+mustInclude(operatorHook, 'filter: `conversation_id=eq.${conversationId}`', "Operator message scope filtresi eksik");
+mustInclude(operatorInbox, "OperatorConversationList", "Operator liste eksik");
+mustInclude(operatorInbox, "OperatorConversationThread", "Operator thread eksik");
+mustNotInclude(operatorHook, "SUPABASE_SERVICE_ROLE_KEY", "Operator hook service role içeriyor");
+mustNotMatch(
+  operatorHook,
+  /\.from\([^)]*\)[\s\S]{0,160}\.(?:insert|update|upsert|delete)\(/,
+  "Operator hook doğrudan tablo mutation içeriyor",
+);
+if (translations.split("mentorOperator:").length - 1 < 2) {
+  failures.push("mentorOperator TR+EN çevirileri eksik");
 }
 
 if (failures.length) {
