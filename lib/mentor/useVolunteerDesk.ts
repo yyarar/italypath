@@ -33,6 +33,11 @@ interface MessageScope {
   events: Array<{ version: number; row: MentorMessageRow }>;
 }
 
+const STUDENT_RETRY_REGISTRY_OPTIONS = {
+  maxEntriesPerOwner: 32,
+  ttlMs: 7 * 24 * 60 * 60 * 1000,
+} as const;
+
 export interface UseVolunteerDeskResult {
   openConversation: MentorConversationRow | null;
   closedConversations: MentorConversationRow[];
@@ -87,9 +92,13 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
   const messageRefreshesRef = useRef(new Map<string, Promise<void>>());
   const conversationQueueRef = useRef(createSerializedReconciliationQueue());
   const messageQueueRef = useRef(createSerializedReconciliationQueue());
-  const pendingStartRef = useRef(createOwnerScopedNonceRegistry());
+  const pendingStartRef = useRef(
+    createOwnerScopedNonceRegistry(STUDENT_RETRY_REGISTRY_OPTIONS),
+  );
   const startSelectionSuspendedRef = useRef(false);
-  const pendingSendRef = useRef(createOwnerScopedNonceRegistry());
+  const pendingSendRef = useRef(
+    createOwnerScopedNonceRegistry(STUDENT_RETRY_REGISTRY_OPTIONS),
+  );
   const pendingCloseRef = useRef(new Map<string, Promise<void>>());
   const activeSendingRef = useRef(0);
   const activeClosingRef = useRef(0);
