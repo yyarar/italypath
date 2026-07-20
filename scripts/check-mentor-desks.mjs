@@ -42,6 +42,57 @@ const mentorHub = read("components/mentor/MentorHub.tsx");
 const operatorPage = read("app/ekip/mentor/page.tsx");
 const operatorHook = read("lib/mentor/useMentorOperatorInbox.ts");
 const operatorInbox = read("components/mentor/operator/MentorOperatorInbox.tsx");
+const proxySource = read("proxy.ts");
+const robotsSource = read("app/robots.ts");
+const legalSource = read("lib/legal/documents.ts");
+const mentorRoom = read("components/mentor/MentorChatRoom.tsx");
+const operatorController = read("lib/mentor/operatorInboxController.ts");
+const operatorBehaviorTest = read("scripts/test-mentor-operator-inbox.mjs");
+const agentContext = read("AGENT_CONTEXT.md");
+
+function sectionBetween(source, heading, nextHeading) {
+  const start = source.indexOf(`heading: "${heading}"`);
+  if (start < 0) return "";
+  if (!nextHeading) return source.slice(start);
+  const end = source.indexOf(`heading: "${nextHeading}"`, start + 1);
+  return end < 0 ? source.slice(start) : source.slice(start, end);
+}
+
+const robotsDisallowSource =
+  robotsSource.match(/disallow:\s*\[([\s\S]*?)\]/m)?.[1] ?? "";
+const privacySource =
+  legalSource.match(/const privacy:[\s\S]*?(?=const terms:)/m)?.[0] ?? "";
+const termsSource = legalSource.match(/const terms:[\s\S]*/m)?.[0] ?? "";
+const privacyDataSection = sectionBetween(
+  privacySource,
+  "2. Hangi Kişisel Verileri Topluyoruz?",
+  "3. Kişisel Verileri Hangi Amaçlarla İşliyoruz?",
+);
+const privacyPurposeSection = sectionBetween(
+  privacySource,
+  "3. Kişisel Verileri Hangi Amaçlarla İşliyoruz?",
+  "4. Verilerin Üçüncü Taraflarla Paylaşımı ve Yurt Dışına Aktarım",
+);
+const privacySharingSection = sectionBetween(
+  privacySource,
+  "4. Verilerin Üçüncü Taraflarla Paylaşımı ve Yurt Dışına Aktarım",
+  "5. Verilerin Saklanma Süresi",
+);
+const privacyRetentionSection = sectionBetween(
+  privacySource,
+  "5. Verilerin Saklanma Süresi",
+  "6. Veri Güvenliği",
+);
+const termsServiceSection = sectionBetween(
+  termsSource,
+  "1. Hizmetin Tanımı",
+  "2. Bilgilerin Doğruluğu ve Sorumluluk Reddi",
+);
+const termsMentorSection = sectionBetween(
+  termsSource,
+  "3. Mentor Masaları Hakkında",
+  "4. Kullanıcı Yükümlülükleri",
+);
 
 mustInclude(channels, '"ai-chat"', "AI experience eksik");
 mustInclude(channels, '"volunteer-inbox"', "Volunteer experience eksik");
@@ -215,6 +266,123 @@ mustNotMatch(
 if (translations.split("mentorOperator:").length - 1 < 2) {
   failures.push("mentorOperator TR+EN çevirileri eksik");
 }
+
+mustInclude(proxySource, '"/ekip"', "/ekip protected redirect listesinde değil");
+mustInclude(robotsDisallowSource, "'/ekip'", "/ekip robots disallow eksik");
+mustInclude(
+  privacyDataSection,
+  "Gönüllü mentor görüşmeleri",
+  "Gizlilik veri listesi gönüllü mesajlarını açıklamıyor",
+);
+mustInclude(
+  privacyDataSection,
+  "mesajlarla belge veya dosya eki alınmaz",
+  "Gizlilik V1 ek alınmadığını açıklamıyor",
+);
+mustInclude(
+  privacyPurposeSection,
+  "Site içindeki insan gönüllü görüşmesini yürütmek",
+  "Gizlilik gönüllü işleme amacını açıklamıyor",
+);
+mustInclude(
+  privacyPurposeSection,
+  "yetkilendirilmiş ItalyPath operatörünün okuyup yanıtlayabildiği",
+  "Gizlilik yetkili insan erişimini açıklamıyor",
+);
+mustInclude(
+  privacySharingSection,
+  "Bulut veri saklama hizmeti: favorileriniz, yüklediğiniz belgeler ve gönüllü mentor görüşmeleriniz için",
+  "Gizlilik bulut saklamayı açıklamıyor",
+);
+mustNotInclude(
+  privacySharingSection,
+  "ItalyPath operatör",
+  "İç operatör üçüncü taraf sağlayıcı olarak listelenmiş",
+);
+mustInclude(
+  privacyRetentionSection,
+  "Gönüllü mentor görüşmeleri, görüşme kapandıktan sonra da hesabınız aktif olduğu sürece",
+  "Mentor saklama süresi eksik",
+);
+mustInclude(
+  termsServiceSection,
+  "site içi insan gönüllü yazışması sunar",
+  "Kullanım koşulları insan gönüllü hizmetini tanımlamıyor",
+);
+mustInclude(
+  termsMentorSection,
+  "öğrenci deneyimine dayalı genel rehberlik",
+  "Kullanım koşullarında insan mentor sınırı eksik",
+);
+mustInclude(
+  termsMentorSection,
+  "kişiye özel mali değerlendirme",
+  "Mentor kişiselleştirilmiş mali danışmanlık sınırı eksik",
+);
+mustInclude(
+  legalSource,
+  'export const LEGAL_LAST_UPDATED = "20 Temmuz 2026"',
+  "Yasal metin güncelleme tarihi eksik",
+);
+const mentorTermsParagraphCount =
+  termsMentorSection.match(/^\s{8}"/gm)?.length ?? 0;
+if (mentorTermsParagraphCount !== 3) {
+  failures.push(
+    `Mentor kullanım koşulları onaylı üç paragrafı korumuyor: ${mentorTermsParagraphCount}`,
+  );
+}
+
+mustInclude(packageJson, '"check:mentor-desks"', "Package mentor check script eksik");
+mustInclude(channels, 'experience: "volunteer-inbox"', "Volunteer experience kaydı eksik");
+mustInclude(channels, 'experience: "expert-lead"', "Expert experience kaydı eksik");
+mustInclude(mentorRoom, "LockedDeskNotice", "Expert locked branch kaldırılmış");
+mustNotInclude(sql, "sender_user_id", "Student-readable message row staff ID taşıyor");
+mustNotInclude(
+  volunteerMessage,
+  "dangerouslySetInnerHTML",
+  "İnsan mesajında raw HTML yasak",
+);
+mustNotInclude(
+  operatorHook,
+  'template: "supabase"',
+  "Operator deprecated JWT template kullanıyor",
+);
+mustInclude(
+  operatorHook,
+  "runOperatorInboxReload",
+  "Operator Realtime reconnect orkestrasyonu eksik",
+);
+mustInclude(
+  operatorController,
+  "handleOperatorMutationFailure",
+  "Operator kesin/belirsiz hata ayrımı eksik",
+);
+mustInclude(
+  operatorBehaviorTest,
+  'onStatus("CLOSED")',
+  "Operator CLOSED reconnect davranış testi eksik",
+);
+mustInclude(
+  agentContext,
+  "mentor_conversations",
+  "Agent context mentor tablolarını açıklamıyor",
+);
+mustInclude(
+  agentContext,
+  "check:mentor-desks",
+  "Agent context mentor doğrulamasını açıklamıyor",
+);
+
+const volunteerRecord =
+  channels.match(/\{\s*id: "volunteer"[\s\S]*?\n\s*\}/)?.[0] ?? "";
+const expertRecord =
+  channels.match(/\{\s*id: "expert"[\s\S]*?\n\s*\}/)?.[0] ?? "";
+mustInclude(volunteerRecord, 'availability: "active"', "Volunteer masa aktif değil");
+mustInclude(
+  expertRecord,
+  'availability: "coming-soon"',
+  "Expert masa erken açılmış",
+);
 
 if (failures.length) {
   for (const failure of failures) console.error(`HATA: ${failure}`);

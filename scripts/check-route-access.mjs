@@ -56,12 +56,42 @@ const protectedChecks = [
   "/ai-mentor",
   "/ai-mentor/session",
   "/documents",
+  "/ekip/mentor",
   "/favorites",
   "/hosgeldin",
   "/hub",
   "/api/chat",
   "/profile",
 ];
+
+const protectedRoutesMatch = source.match(
+  /const PROTECTED_PAGE_ROUTES = \[([\s\S]*?)\];/m,
+);
+if (!protectedRoutesMatch) {
+  console.error("[FAIL] PROTECTED_PAGE_ROUTES could not be parsed from proxy.ts");
+  process.exit(1);
+}
+const protectedPageRoutes = [
+  ...protectedRoutesMatch[1].matchAll(/["']([^"']+)["']/g),
+].map((match) => match[1]);
+
+function isExplicitlyProtectedPage(pathname) {
+  return protectedPageRoutes.some(
+    (route) => pathname === route || pathname.startsWith(`${route}/`),
+  );
+}
+
+const redirectBuilderMatch = source.match(
+  /function buildSignInRedirectUrl\(request: NextRequest\) \{([\s\S]*?)\n\}/m,
+);
+let buildSignInRedirectUrl = null;
+if (redirectBuilderMatch) {
+  try {
+    buildSignInRedirectUrl = new Function("request", redirectBuilderMatch[1]);
+  } catch {
+    buildSignInRedirectUrl = null;
+  }
+}
 
 const failures = [];
 
@@ -75,6 +105,32 @@ for (const route of protectedChecks) {
   if (isPublic(route)) {
     failures.push(`Expected protected but matched public: ${route}`);
   }
+}
+
+if (!isExplicitlyProtectedPage("/ekip/mentor")) {
+  failures.push("Expected /ekip/mentor to use the explicit signed-out page redirect policy");
+}
+
+if (!buildSignInRedirectUrl) {
+  failures.push("Could not execute the signed-out redirect builder from proxy.ts");
+} else {
+  const redirect = buildSignInRedirectUrl({
+    url: "https://italypath.app/ekip/mentor?queue=closed",
+    nextUrl: { pathname: "/ekip/mentor", search: "?queue=closed" },
+  });
+  const expectedRedirect =
+    "https://italypath.app/giris?redirect_url=%2Fekip%2Fmentor%3Fqueue%3Dclosed";
+  if (redirect !== expectedRedirect) {
+    failures.push(`Unexpected /ekip/mentor signed-out redirect: ${redirect}`);
+  }
+}
+
+if (
+  !/if \(isProtectedPageRoute\(request\.nextUrl\.pathname\)\)[\s\S]{0,240}unauthenticatedUrl: buildSignInRedirectUrl\(request\)/m.test(
+    source,
+  )
+) {
+  failures.push("Protected page middleware branch no longer uses the custom /giris redirect");
 }
 
 if (publicPatterns.includes("/ai-mentor(.*)")) {
