@@ -53,7 +53,7 @@ export default function MentorHub({
         >
           {MENTOR_CHANNELS.map((channel) => {
             const copy = t.aiMentor.channels[channel.id];
-            const isActive = channel.status === "active";
+            const isActive = channel.availability === "active";
             const badgeText = isActive
               ? t.aiMentor.hubActiveBadge
               : channel.id === "volunteer"

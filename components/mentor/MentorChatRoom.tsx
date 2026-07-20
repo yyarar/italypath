@@ -69,7 +69,7 @@ export default function MentorChatRoom({
   const [input, setInput] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
   const lastMessageIdRef = useRef<string | null>(null);
-  const isLocked = channel.status === "coming-soon";
+  const isLocked = channel.availability !== "active";
 
   useEffect(() => {
     if (isLocked) return;
