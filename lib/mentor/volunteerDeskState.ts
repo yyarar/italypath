@@ -146,8 +146,63 @@ export interface OwnerScopedNonceRegistry {
   ): void;
 }
 
-export function createOwnerScopedNonceRegistry(): OwnerScopedNonceRegistry {
+export interface OwnerScopedNonceRegistryOptions {
+  maxEntriesPerOwner?: number;
+  ttlMs?: number;
+  now?: () => number;
+}
+
+export function createOwnerScopedNonceRegistry(
+  options: OwnerScopedNonceRegistryOptions = {},
+): OwnerScopedNonceRegistry {
   const owners = new Map<string, Map<string, OwnerScopedNonceOperation>>();
+  const metadata = new WeakMap<
+    OwnerScopedNonceOperation,
+    { lastTouchedAt: number }
+  >();
+  const maxEntriesPerOwner = Math.max(1, options.maxEntriesPerOwner ?? Infinity);
+  const ttlMs = Math.max(1, options.ttlMs ?? Infinity);
+  const now = options.now ?? Date.now;
+
+  function touch(operation: OwnerScopedNonceOperation): void {
+    metadata.set(operation, { lastTouchedAt: now() });
+  }
+
+  function prune(ownerId: string, keep?: OwnerScopedNonceOperation): void {
+    const ownerEntries = owners.get(ownerId);
+    if (!ownerEntries) return;
+    const currentTime = now();
+
+    for (const [key, operation] of ownerEntries) {
+      const lastTouchedAt = metadata.get(operation)?.lastTouchedAt ?? currentTime;
+      if (
+        operation !== keep &&
+        !operation.promise &&
+        currentTime - lastTouchedAt >= ttlMs
+      ) {
+        ownerEntries.delete(key);
+      }
+    }
+
+    if (ownerEntries.size > maxEntriesPerOwner) {
+      const evictionCandidates = [...ownerEntries.entries()]
+        .filter(([, operation]) => operation !== keep && !operation.promise)
+        .sort(
+          (left, right) =>
+            (metadata.get(left[1])?.lastTouchedAt ?? 0) -
+            (metadata.get(right[1])?.lastTouchedAt ?? 0),
+        );
+      while (
+        ownerEntries.size > maxEntriesPerOwner &&
+        evictionCandidates.length > 0
+      ) {
+        const [key] = evictionCandidates.shift()!;
+        ownerEntries.delete(key);
+      }
+    }
+
+    if (ownerEntries.size === 0) owners.delete(ownerId);
+  }
 
   function entries(ownerId: string): Map<string, OwnerScopedNonceOperation> {
     let ownerEntries = owners.get(ownerId);
@@ -160,14 +215,23 @@ export function createOwnerScopedNonceRegistry(): OwnerScopedNonceRegistry {
 
   return {
     get(ownerId, key) {
-      return owners.get(ownerId)?.get(key);
+      prune(ownerId);
+      const operation = owners.get(ownerId)?.get(key);
+      if (operation) touch(operation);
+      return operation;
     },
     getOrCreate(ownerId, key, createNonce) {
+      prune(ownerId);
       const ownerEntries = entries(ownerId);
       const existing = ownerEntries.get(key);
-      if (existing) return existing;
+      if (existing) {
+        touch(existing);
+        return existing;
+      }
       const operation = { nonce: createNonce() };
       ownerEntries.set(key, operation);
+      touch(operation);
+      prune(ownerId, operation);
       return operation;
     },
     deleteIfSame(ownerId, key, operation) {
@@ -179,6 +243,8 @@ export function createOwnerScopedNonceRegistry(): OwnerScopedNonceRegistry {
     releasePromiseIfSame(ownerId, key, operation) {
       if (owners.get(ownerId)?.get(key) === operation) {
         operation.promise = undefined;
+        touch(operation);
+        prune(ownerId, operation);
       }
     },
   };

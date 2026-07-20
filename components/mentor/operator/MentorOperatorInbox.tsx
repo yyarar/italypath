@@ -24,6 +24,7 @@ export default function MentorOperatorInbox() {
     messagesLoading,
     sending,
     closing,
+    actionLocked,
     error,
     realtimeState,
     setFilter,
@@ -106,6 +107,7 @@ export default function MentorOperatorInbox() {
               conversations={conversations}
               selectedConversationId={selectedConversation?.id ?? null}
               filter={filter}
+              disabled={actionLocked}
               onFilterChange={setFilter}
               onSelect={handleSelect}
             />

@@ -13,6 +13,7 @@ export interface OperatorConversationListProps {
   conversations: MentorConversationRow[];
   selectedConversationId: string | null;
   filter: MentorConversationStatus;
+  disabled?: boolean;
   onFilterChange: (filter: MentorConversationStatus) => void;
   onSelect: (conversationId: string) => void;
 }
@@ -21,6 +22,7 @@ export default function OperatorConversationList({
   conversations,
   selectedConversationId,
   filter,
+  disabled = false,
   onFilterChange,
   onSelect,
 }: OperatorConversationListProps) {
@@ -44,9 +46,11 @@ export default function OperatorConversationList({
             <button
               key={status}
               type="button"
+              disabled={disabled}
+              aria-disabled={disabled}
               aria-pressed={selected}
               onClick={() => onFilterChange(status)}
-              className={`min-h-12 border border-r-0 border-[var(--editorial-border)] px-2 py-3 text-[9px] font-bold uppercase tracking-[0.1em] transition-colors duration-200 ease-out last:border-r sm:text-[10px] ${
+              className={`min-h-12 border border-r-0 border-[var(--editorial-border)] px-2 py-3 text-[9px] font-bold uppercase tracking-[0.1em] transition-colors duration-200 ease-out last:border-r disabled:cursor-not-allowed disabled:opacity-50 sm:text-[10px] ${
                 selected
                   ? "bg-[var(--editorial-ink)] text-[var(--editorial-paper)]"
                   : "bg-[var(--editorial-paper)] text-[var(--editorial-muted)] hover:bg-[var(--editorial-surface)] hover:text-[var(--editorial-ink)]"
@@ -70,9 +74,11 @@ export default function OperatorConversationList({
               <button
                 key={conversation.id}
                 type="button"
+                disabled={disabled}
+                aria-disabled={disabled}
                 aria-pressed={selected}
                 onClick={() => onSelect(conversation.id)}
-                className={`w-full border-b border-[var(--editorial-border)] px-3 py-4 text-left transition-colors duration-200 ease-out last:border-b-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--editorial-sage)] ${
+                className={`w-full border-b border-[var(--editorial-border)] px-3 py-4 text-left transition-colors duration-200 ease-out last:border-b-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--editorial-sage)] disabled:cursor-not-allowed disabled:opacity-60 ${
                   selected
                     ? "bg-[var(--editorial-sage-soft)]"
                     : "bg-[var(--editorial-paper)] hover:bg-[var(--editorial-surface)]"

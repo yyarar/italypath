@@ -119,11 +119,11 @@ export function preservePinnedOperatorConversation<
   pinnedConversation: T,
   filter: MentorConversationStatus,
 ): T[] {
+  if (rows.some((conversation) => conversation.id === pinnedConversation.id)) {
+    return applyOperatorConversationSnapshot(rows, [], filter);
+  }
   return applyOperatorConversationSnapshot(
-    [
-      ...rows.filter((conversation) => conversation.id !== pinnedConversation.id),
-      pinnedConversation,
-    ],
+    [...rows, pinnedConversation],
     [],
     filter,
   );

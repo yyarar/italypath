@@ -5,6 +5,7 @@ import { useUser } from "@clerk/nextjs";
 
 import {
   applyOperatorConversationSnapshot,
+  commitOperatorAuthorization,
   isOperatorQueueScopeCurrent,
   operatorCanAccess,
   preservePinnedOperatorConversation,
@@ -12,6 +13,14 @@ import {
   transitionOperatorLifecycle,
   type OperatorQueueScope,
 } from "@/lib/mentor/operatorInboxState";
+import {
+  handleOperatorMutationFailure,
+  operatorBackendDeniedAccess,
+  runAuthorizedOperatorRefresh,
+  runOperatorInboxReload,
+  startOperatorRealtimeSubscription,
+  type OperatorRealtimeStatus,
+} from "@/lib/mentor/operatorInboxController";
 import {
   applyAuthoritativeMessageSnapshot,
   clearMentorMessageLoadError,
@@ -59,6 +68,7 @@ export interface UseMentorOperatorInboxResult {
   messagesLoading: boolean;
   sending: boolean;
   closing: boolean;
+  actionLocked: boolean;
   error: string | null;
   realtimeState: MentorRealtimeState;
   setFilter: (filter: MentorConversationStatus) => void;
@@ -70,22 +80,6 @@ export interface UseMentorOperatorInboxResult {
 
 function staleLifecycleError(): Error {
   return new Error("mentor_operator_lifecycle_stale");
-}
-
-function backendDeniedAccess(error: unknown): boolean {
-  if (!error || typeof error !== "object") return false;
-  const candidate = error as { code?: unknown; message?: unknown };
-  const code = typeof candidate.code === "string" ? candidate.code : "";
-  const message =
-    typeof candidate.message === "string" ? candidate.message.toLowerCase() : "";
-  return (
-    code === "42501" ||
-    code === "PGRST301" ||
-    message.includes("staff_access_required") ||
-    message.includes("permission denied") ||
-    message.includes("row-level security") ||
-    message.includes("jwt expired")
-  );
 }
 
 export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
@@ -119,7 +113,12 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
   const conversationQueueRef = useRef(createSerializedReconciliationQueue());
   const messageQueueRef = useRef(createSerializedReconciliationQueue());
   const accessChecksRef = useRef(new Map<string, Promise<boolean>>());
-  const pendingReplyRef = useRef(createOwnerScopedNonceRegistry());
+  const pendingReplyRef = useRef(
+    createOwnerScopedNonceRegistry({
+      maxEntriesPerOwner: 32,
+      ttlMs: 7 * 24 * 60 * 60 * 1000,
+    }),
+  );
   const pendingCloseRef = useRef(new Map<string, Promise<void>>());
   const actionPinRef = useRef<OperatorActionPin | null>(null);
   const activeSendingRef = useRef(0);
@@ -137,6 +136,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
   const [messagesLoading, setMessagesLoading] = useState(false);
   const [sending, setSending] = useState(false);
   const [closing, setClosing] = useState(false);
+  const [actionLocked, setActionLocked] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [conversationChannelState, setConversationChannelState] =
     useState<MentorChannelState>("idle");
@@ -144,6 +144,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
     useState<MentorChannelState>("idle");
   const [messageChannelConversationId, setMessageChannelConversationId] =
     useState<string | null>(null);
+  const [realtimeGeneration, setRealtimeGeneration] = useState(0);
 
   const identityReady =
     authReady && resolvedUserId !== undefined && stateUserId === resolvedUserId;
@@ -308,6 +309,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
     conversationEventVersionRef.current = 0;
     commitConversations([]);
     setMessagesLoading(false);
+    setActionLocked(false);
     setConversationChannelState("idle");
     setMessageChannelState("idle");
     setMessageChannelConversationId(null);
@@ -393,6 +395,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
     setMessagesLoading(false);
     setSending(false);
     setClosing(false);
+    setActionLocked(false);
     setError(null);
     setConversationChannelState("idle");
     setMessageChannelState("idle");
@@ -415,7 +418,19 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
         throw accessError;
       }
       const allowed = data === true;
-      authorizedRef.current = allowed;
+      const committed = commitOperatorAuthorization(
+        {
+          hasCommittedOwner: hasCommittedIdentityRef.current,
+          ownerId: identityRef.current,
+          authReady: authReadyRef.current,
+          authorized: authorizedRef.current,
+          generation: generationRef.current,
+        },
+        generation,
+        ownerId,
+        allowed,
+      );
+      authorizedRef.current = committed.authorized;
       setAuthorized(allowed && !hasLoadedQueueRef.current ? null : allowed);
       setError((current) => (current === "access_check_failed" ? null : current));
       if (!allowed) {
@@ -450,7 +465,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
           if (!isQueueScopeCurrent(scope)) throw staleLifecycleError();
           if (queryError) {
             setLoading(false);
-            if (backendDeniedAccess(queryError)) {
+            if (operatorBackendDeniedAccess(queryError)) {
               invalidateAccess("access_check_failed");
             } else {
               setError("load_failed");
@@ -550,7 +565,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
           }
           if (queryError) {
             setMessagesLoading(false);
-            if (backendDeniedAccess(queryError)) {
+            if (operatorBackendDeniedAccess(queryError)) {
               invalidateAccess("access_check_failed");
             } else {
               setError("messages_load_failed");
@@ -612,6 +627,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
 
   useEffect(() => {
     if (!identityReady) return;
+    const generation = generationRef.current;
     const ownerId = identityRef.current;
     if (!ownerId) {
       authorizedRef.current = false;
@@ -622,14 +638,16 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
     void (async () => {
       try {
         setLoading(true);
-        const allowed = await checkAccess();
-        if (!allowed) return;
-        await refreshConversations(true, true);
+        await runAuthorizedOperatorRefresh({
+          checkAccess,
+          assertCurrent: () => assertCurrent(generation, ownerId),
+          refreshConversations: () => refreshConversations(true, true),
+        });
       } catch {
         // Stable UI state is set at the failing boundary.
       }
     })();
-  }, [checkAccess, identityReady, refreshConversations, stateUserId]);
+  }, [assertCurrent, checkAccess, identityReady, refreshConversations, stateUserId]);
 
   useEffect(() => {
     if (!accessReady) return;
@@ -643,16 +661,13 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
       return;
     }
     let active = true;
-    let channel: ReturnType<typeof supabase.channel> | null = null;
-
-    const subscribe = async () => {
-      if (isQueueScopeCurrent(scope)) setConversationChannelState("connecting");
-      try {
-        await supabase.realtime.setAuth();
-        if (!active || !isQueueScopeCurrent(scope)) return;
-        channel = supabase
+    const stop = startOperatorRealtimeSubscription({
+      setAuth: () => supabase.realtime.setAuth(),
+      isCurrent: () => active && isQueueScopeCurrent(scope),
+      createChannel: () =>
+        supabase
           .channel(
-            `mentor-operator-conversations:${scope.ownerId}:${scope.filter}:${scope.epoch}`,
+            `mentor-operator-conversations:${scope.ownerId}:${scope.filter}:${scope.epoch}:${realtimeGeneration}`,
           )
           .on(
             "postgres_changes",
@@ -683,32 +698,18 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
               );
               void refreshConversations(false).catch(() => undefined);
             },
-          )
-          .subscribe((status) => {
-            if (!active || !isQueueScopeCurrent(scope)) return;
-            if (status === "SUBSCRIBED") {
-              setConversationChannelState("connected");
-              void refreshConversations(false, true).catch(() => undefined);
-            }
-            if (
-              status === "CHANNEL_ERROR" ||
-              status === "TIMED_OUT" ||
-              status === "CLOSED"
-            ) {
-              setConversationChannelState("disconnected");
-            }
-          });
-      } catch {
-        if (active && isQueueScopeCurrent(scope)) {
-          setConversationChannelState("disconnected");
-        }
-      }
-    };
+          ),
+      subscribe: (channel, onStatus) => {
+        channel.subscribe((status) => onStatus(status as OperatorRealtimeStatus));
+      },
+      removeChannel: (channel) => supabase.removeChannel(channel),
+      setState: setConversationChannelState,
+      reconcileAfterSubscribed: () => refreshConversations(false, true),
+    });
 
-    void subscribe();
     return () => {
       active = false;
-      if (channel) void supabase.removeChannel(channel);
+      stop();
     };
   }, [
     accessReady,
@@ -716,6 +717,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
     currentQueueScope,
     filter,
     isQueueScopeCurrent,
+    realtimeGeneration,
     refreshConversations,
     stateUserId,
     supabase,
@@ -732,18 +734,15 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
     }
     const epoch = messageScopeRef.current.epoch;
     let active = true;
-    let channel: ReturnType<typeof supabase.channel> | null = null;
-
-    const subscribe = async () => {
-      if (isAuthorizedCurrent(generation, ownerId)) {
-        setMessageChannelConversationId(conversationId);
-        setMessageChannelState("connecting");
-      }
-      try {
-        await supabase.realtime.setAuth();
-        if (!active || !isAuthorizedCurrent(generation, ownerId)) return;
-        channel = supabase
-          .channel(`mentor-operator-messages:${ownerId}:${conversationId}:${epoch}`)
+    setMessageChannelConversationId(conversationId);
+    const stop = startOperatorRealtimeSubscription({
+      setAuth: () => supabase.realtime.setAuth(),
+      isCurrent: () => active && isAuthorizedCurrent(generation, ownerId),
+      createChannel: () =>
+        supabase
+          .channel(
+            `mentor-operator-messages:${ownerId}:${conversationId}:${epoch}:${realtimeGeneration}`,
+          )
           .on(
             "postgres_changes",
             {
@@ -771,38 +770,27 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
                 mergeMentorMessages(scope.messages, [row]),
               );
             },
-          )
-          .subscribe((status) => {
-            if (!active || !isAuthorizedCurrent(generation, ownerId)) return;
-            if (status === "SUBSCRIBED") {
-              setMessageChannelConversationId(conversationId);
-              setMessageChannelState("connected");
-              void refreshMessages(conversationId, true).catch(() => undefined);
-            }
-            if (
-              status === "CHANNEL_ERROR" ||
-              status === "TIMED_OUT" ||
-              status === "CLOSED"
-            ) {
-              setMessageChannelState("disconnected");
-            }
-          });
-      } catch {
-        if (active && isAuthorizedCurrent(generation, ownerId)) {
-          setMessageChannelState("disconnected");
-        }
-      }
-    };
+          ),
+      subscribe: (channel, onStatus) => {
+        channel.subscribe((status) => onStatus(status as OperatorRealtimeStatus));
+      },
+      removeChannel: (channel) => supabase.removeChannel(channel),
+      setState: (nextState) => {
+        setMessageChannelConversationId(conversationId);
+        setMessageChannelState(nextState);
+      },
+      reconcileAfterSubscribed: () => refreshMessages(conversationId, true),
+    });
 
-    void subscribe();
     return () => {
       active = false;
-      if (channel) void supabase.removeChannel(channel);
+      stop();
     };
   }, [
     accessReady,
     commitMessages,
     isAuthorizedCurrent,
+    realtimeGeneration,
     refreshMessages,
     stateUserId,
     supabase,
@@ -854,6 +842,38 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
     [refreshConversations, transitionSelection],
   );
 
+  const releaseDefinitiveActionPin = useCallback(
+    async (pin: OperatorActionPin) => {
+      pin.inFlight = false;
+      if (actionPinRef.current !== pin) return;
+      actionPinRef.current = null;
+      if (
+        !pinMatchesCurrentScope(pin) ||
+        !isAuthorizedCurrent(pin.generation, pin.ownerId)
+      ) {
+        return;
+      }
+      commitConversations(
+        applyOperatorConversationSnapshot(
+          conversationsRef.current,
+          conversationEventsRef.current,
+          filterRef.current,
+        ),
+      );
+      try {
+        await refreshConversations(false, true);
+      } catch {
+        // The domain rejection is still definitive; a later retry can refresh the queue.
+      }
+    },
+    [
+      commitConversations,
+      isAuthorizedCurrent,
+      pinMatchesCurrentScope,
+      refreshConversations,
+    ],
+  );
+
   const sendReply = useCallback(
     async (body: string) => {
       const generation = generationRef.current;
@@ -888,6 +908,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
         inFlight: true,
       };
       actionPinRef.current = pin;
+      setActionLocked(true);
 
       const promise = Promise.resolve().then(async () => {
         activeSendingRef.current += 1;
@@ -911,9 +932,16 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
           setError((current) => (current === "send_failed" ? null : current));
         } catch (actionError) {
           pin.inFlight = false;
-          if (backendDeniedAccess(actionError)) {
-            invalidateAccess("access_check_failed");
-          } else if (isAuthorizedCurrent(generation, ownerId)) {
+          const resolution = await handleOperatorMutationFailure(actionError, {
+            discardRetryNonce: () =>
+              pendingReplyRef.current.deleteIfSame(ownerId, key, operation),
+            releasePinAndReconcile: () => releaseDefinitiveActionPin(pin),
+            invalidateAccess: () => invalidateAccess("access_check_failed"),
+          });
+          if (
+            resolution.kind !== "access_denied" &&
+            isAuthorizedCurrent(generation, ownerId)
+          ) {
             setError("send_failed");
           }
           throw actionError;
@@ -922,6 +950,8 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
           if (isCommittedOwner(generation, ownerId)) {
             activeSendingRef.current -= 1;
             if (authReadyRef.current) setSending(activeSendingRef.current > 0);
+            if (actionPinRef.current === pin) pin.inFlight = false;
+            setActionLocked(Boolean(actionPinRef.current?.inFlight));
           }
         }
       });
@@ -933,6 +963,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
       invalidateAccess,
       isAuthorizedCurrent,
       isCommittedOwner,
+      releaseDefinitiveActionPin,
       refreshConversations,
       refreshMessages,
       selectedConversation,
@@ -966,6 +997,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
       inFlight: true,
     };
     actionPinRef.current = pin;
+    setActionLocked(true);
 
     const promise = Promise.resolve().then(async () => {
       activeClosingRef.current += 1;
@@ -984,9 +1016,14 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
         setError((current) => (current === "close_failed" ? null : current));
       } catch (actionError) {
         pin.inFlight = false;
-        if (backendDeniedAccess(actionError)) {
-          invalidateAccess("access_check_failed");
-        } else if (isAuthorizedCurrent(generation, ownerId)) {
+        const resolution = await handleOperatorMutationFailure(actionError, {
+          releasePinAndReconcile: () => releaseDefinitiveActionPin(pin),
+          invalidateAccess: () => invalidateAccess("access_check_failed"),
+        });
+        if (
+          resolution.kind !== "access_denied" &&
+          isAuthorizedCurrent(generation, ownerId)
+        ) {
           setError("close_failed");
         }
         throw actionError;
@@ -997,6 +1034,8 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
         if (isCommittedOwner(generation, ownerId)) {
           activeClosingRef.current -= 1;
           if (authReadyRef.current) setClosing(activeClosingRef.current > 0);
+          if (actionPinRef.current === pin) pin.inFlight = false;
+          setActionLocked(Boolean(actionPinRef.current?.inFlight));
         }
       }
     });
@@ -1007,6 +1046,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
     invalidateAccess,
     isAuthorizedCurrent,
     isCommittedOwner,
+    releaseDefinitiveActionPin,
     refreshConversations,
     selectedConversation,
     supabase,
@@ -1019,14 +1059,16 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
     if (!ownerId) throw new Error("staff_access_required");
     setError(null);
     setLoading(true);
-    const allowed = await checkAccess();
-    assertCurrent(generation, ownerId);
-    if (!allowed) return;
-    await refreshConversations(true, true);
-    assertAuthorizedCurrent(generation, ownerId);
-    await refreshMessages(selectedConversationIdRef.current, true);
+    await runOperatorInboxReload({
+      checkAccess,
+      assertCurrent: () => assertCurrent(generation, ownerId),
+      refreshConversations: () => refreshConversations(true, true),
+      requestRealtimeReconnect: () =>
+        setRealtimeGeneration((current) => current + 1),
+      refreshMessages: () =>
+        refreshMessages(selectedConversationIdRef.current, true),
+    });
   }, [
-    assertAuthorizedCurrent,
     assertCurrent,
     checkAccess,
     refreshConversations,
@@ -1043,6 +1085,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
     messagesLoading: accessReady ? messagesLoading : false,
     sending: accessReady ? sending : false,
     closing: accessReady ? closing : false,
+    actionLocked: accessReady ? actionLocked : false,
     error: identityReady ? error : null,
     realtimeState,
     setFilter,
