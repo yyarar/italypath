@@ -23,6 +23,7 @@ function mustNotMatch(source, pattern, label) {
 }
 
 const channels = read("lib/mentor/channels.ts");
+const mentorPage = read("app/ai-mentor/page.tsx");
 const volunteer = read("lib/mentor/volunteer.ts");
 const types = read("types/index.ts");
 const sql = read("supabase/volunteer_mentor.sql");
@@ -43,6 +44,19 @@ mustInclude(channels, '"volunteer-inbox"', "Volunteer experience eksik");
 mustInclude(channels, '"expert-lead"', "Expert experience eksik");
 mustInclude(channels, "availability", "Availability modeli eksik");
 mustNotInclude(channels, "MentorChannelStatus", "Eski status tipi kaldı");
+mustInclude(
+  channels,
+  'id: "volunteer"',
+  "Volunteer channel eksik",
+);
+mustInclude(mentorPage, "<VolunteerDesk", "Volunteer desk route edilmemiş");
+mustInclude(
+  mentorPage,
+  'activeChannel.experience === "volunteer-inbox"',
+  "Experience branch eksik",
+);
+mustInclude(mentorPage, "aiMessages", "AI state ayrıştırılmamış");
+mustNotInclude(mentorPage, "MessagesByChannel", "Eski kanal-bazlı AI state kaldı");
 mustInclude(volunteer, "VOLUNTEER_TOPIC_IDS", "Konu ID'leri eksik");
 mustInclude(volunteer, "MENTOR_CONVERSATION_STATUSES", "Durum ID'leri eksik");
 mustInclude(volunteer, "mergeMentorMessages", "Mesaj dedupe helper eksik");

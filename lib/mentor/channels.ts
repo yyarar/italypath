@@ -28,7 +28,7 @@ export const MENTOR_CHANNELS: MentorChannel[] = [
     numberLabel: "02",
     monogram: "GE",
     experience: "volunteer-inbox",
-    availability: "coming-soon",
+    availability: "active",
   },
   {
     id: "expert",
