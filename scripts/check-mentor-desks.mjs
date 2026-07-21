@@ -337,6 +337,21 @@ mustInclude(
   'export const LEGAL_LAST_UPDATED = "20 Temmuz 2026"',
   "Yasal metin güncelleme tarihi eksik",
 );
+mustInclude(
+  legalSource,
+  'export const CONTACT_EMAIL = "contact@italypath.com"',
+  "Yasal iletişim e-postası production adresiyle eşleşmiyor",
+);
+mustNotInclude(
+  legalSource,
+  "CONTACT_EMAIL_PLACEHOLDER",
+  "Yasal iletişim e-postası placeholder olarak bırakılamaz",
+);
+mustNotInclude(
+  legalSource,
+  "[iletişim e-postası eklenecek]",
+  "Yasal metin kullanıcıya iletişim placeholder'ı gösteriyor",
+);
 const mentorTermsParagraphCount =
   termsMentorSection.match(/^\s{8}"/gm)?.length ?? 0;
 if (mentorTermsParagraphCount !== 3) {

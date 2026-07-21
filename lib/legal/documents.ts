@@ -1,8 +1,6 @@
 // ItalyPath yasal belgeleri (Türkçe).
 // Metinler yapılandırılmış tutulur ki ileride İngilizce çeviri aynı şekle eklenebilsin.
-// İletişim e-postası henüz yok; lansman öncesi CONTACT_EMAIL doldurulacak.
-
-export const CONTACT_EMAIL_PLACEHOLDER = "[iletişim e-postası eklenecek]";
+export const CONTACT_EMAIL = "contact@italypath.com";
 export const LEGAL_LAST_UPDATED = "20 Temmuz 2026";
 
 export type LegalSection = {
@@ -36,7 +34,7 @@ const privacy: LegalDocument = {
       heading: "1. Veri Sorumlusu",
       paragraphs: [
         "Kişisel verileriniz, veri sorumlusu sıfatıyla Kerem Yarar tarafından işlenmektedir. ItalyPath bir bilgilendirme ve rehberlik platformudur; bağlı olduğu bir şirket bulunmamaktadır.",
-        `Her türlü soru ve başvurunuz için iletişim adresi: ${CONTACT_EMAIL_PLACEHOLDER}.`,
+        `Her türlü soru ve başvurunuz için iletişim adresi: ${CONTACT_EMAIL}.`,
       ],
     },
     {
@@ -116,7 +114,7 @@ const privacy: LegalDocument = {
     {
       heading: "8. Haklarınızı Nasıl Kullanabilirsiniz?",
       paragraphs: [
-        `Yukarıdaki haklarınıza ilişkin taleplerinizi ${CONTACT_EMAIL_PLACEHOLDER} adresine iletebilirsiniz. Talebiniz, KVKK’da öngörülen süre içinde ücretsiz olarak sonuçlandırılır.`,
+        `Yukarıdaki haklarınıza ilişkin taleplerinizi ${CONTACT_EMAIL} adresine iletebilirsiniz. Talebiniz, KVKK’da öngörülen süre içinde ücretsiz olarak sonuçlandırılır.`,
       ],
     },
     {
@@ -203,7 +201,7 @@ const terms: LegalDocument = {
     {
       heading: "10. İletişim",
       paragraphs: [
-        `Bu koşullarla ilgili sorularınız için ${CONTACT_EMAIL_PLACEHOLDER} adresine yazabilirsiniz.`,
+        `Bu koşullarla ilgili sorularınız için ${CONTACT_EMAIL} adresine yazabilirsiniz.`,
       ],
     },
   ],
@@ -254,7 +252,7 @@ const cookies: LegalDocument = {
     {
       heading: "5. İletişim",
       paragraphs: [
-        `Çerezlerle ilgili sorularınız için ${CONTACT_EMAIL_PLACEHOLDER} adresine yazabilirsiniz.`,
+        `Çerezlerle ilgili sorularınız için ${CONTACT_EMAIL} adresine yazabilirsiniz.`,
       ],
     },
   ],

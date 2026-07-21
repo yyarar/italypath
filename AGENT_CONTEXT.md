@@ -582,7 +582,7 @@ SEO 2.5 sonrasi `/communities` `force-dynamic` route'tur. Canli HTML'de gercek H
 
 `/yasal/[slug]` dinamik route'u uc statik yasal sayfayi besler: `gizlilik` (Gizlilik Politikasi ve KVKK Aydinlatma Metni), `kullanim-kosullari`, `cerez-politikasi`.
 
-- Icerik: `lib/legal/documents.ts` (yapilandirilmis Turkce metin; `CONTACT_EMAIL_PLACEHOLDER` lansman oncesi gercek e-posta ile doldurulacak)
+- Icerik: `lib/legal/documents.ts` (yapilandirilmis Turkce metin; yasal iletisim adresi `contact@italypath.com`)
 - Sunum: `components/legal/LegalDocument.tsx` (saf Server Component, editorial stil)
 - Route: `app/yasal/[slug]/page.tsx` (`generateStaticParams` + `generateMetadata`, server)
 - Footer'da "Yasal" linkleri `LEGAL_LINKS` ile uretilir
@@ -688,7 +688,6 @@ node scripts/check-universities-server-compose.mjs
 5. Search Console yeni kuruldu; ilk 1-2 hafta `Sitemaps`, `Pages` ve `URL Inspection` durumlari izlenmeli. Baslangicta performans/veri gecikmesi normaldir.
 6. SEO 3: JSON-LD/schema/breadcrumb henuz eklenmedi. Hidden/uydurma schema yok; sadece sayfada gorunen gercek bilgiye dayali structured data eklenmeli.
 7. AI Mentor system prompt'u canli program sayisi arttikca buyuyor; prompt boyutu, latency ve maliyet izlenmeli.
-8. Yasal sayfalardaki iletisim e-postasi yer tutucusu (`[iletişim e-postası eklenecek]`, `lib/legal/documents.ts` icindeki `CONTACT_EMAIL_PLACEHOLDER`) lansman oncesi gercek adresle doldurulmali.
 
 ### Repo hijyeni
 
