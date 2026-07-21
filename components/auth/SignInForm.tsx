@@ -12,6 +12,7 @@ import {
   PasswordResetVerification,
 } from "@/components/auth/PasswordResetFlow";
 import { OAuthButtons } from "@/components/auth/OAuthButtons";
+import { AuthLoadingFallback } from "@/components/auth/AuthAvailability";
 
 function EmailCodeSecondFactorPreparation() {
   const { isLoaded, signIn } = useSignIn();
@@ -45,7 +46,11 @@ export function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <SignIn.Root path="/giris" routing="virtual">
+    <SignIn.Root
+      path="/giris"
+      routing="virtual"
+      fallback={<AuthLoadingFallback />}
+    >
       <SignIn.Step name="start">
         <OAuthButtons />
 

@@ -13,21 +13,7 @@ import MentorChatRoom, {
   type ChatMessage,
 } from "@/components/mentor/MentorChatRoom";
 import MentorHub from "@/components/mentor/MentorHub";
-
-type MessagesByChannel = Record<MentorChannelId, ChatMessage[]>;
-type ErrorByChannel = Record<MentorChannelId, boolean>;
-
-const EMPTY_MESSAGES: MessagesByChannel = {
-  ai: [],
-  volunteer: [],
-  expert: [],
-};
-
-const EMPTY_ERRORS: ErrorByChannel = {
-  ai: false,
-  volunteer: false,
-  expert: false,
-};
+import VolunteerDesk from "@/components/mentor/volunteer/VolunteerDesk";
 
 const VIEW_TRANSITION = {
   duration: 0.22,
@@ -39,12 +25,13 @@ export default function AIMentorPage() {
   const [activeChannelId, setActiveChannelId] = useState<MentorChannelId | null>(
     null,
   );
-  const [messagesByChannel, setMessagesByChannel] =
-    useState<MessagesByChannel>(EMPTY_MESSAGES);
-  const [errorByChannel, setErrorByChannel] =
-    useState<ErrorByChannel>(EMPTY_ERRORS);
+  const [aiMessages, setAiMessages] = useState<ChatMessage[]>([]);
+  const [aiHasError, setAiHasError] = useState(false);
   const [isStreaming, setIsStreaming] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
+  const activeChannel = activeChannelId
+    ? getMentorChannel(activeChannelId)
+    : null;
 
   const abortInflightStream = useCallback(() => {
     if (abortRef.current) {
@@ -76,20 +63,19 @@ export default function AIMentorPage() {
   }, [abortInflightStream]);
 
   const handleReset = useCallback(() => {
-    if (!activeChannelId) return;
+    if (activeChannel?.experience !== "ai-chat") return;
     abortInflightStream();
     setIsStreaming(false);
-    setMessagesByChannel((prev) => ({ ...prev, [activeChannelId]: [] }));
-    setErrorByChannel((prev) => ({ ...prev, [activeChannelId]: false }));
-  }, [abortInflightStream, activeChannelId]);
+    setAiMessages([]);
+    setAiHasError(false);
+  }, [abortInflightStream, activeChannel]);
 
   const handleSend = useCallback(
     async (text: string) => {
-      if (!activeChannelId || activeChannelId !== "ai") return;
+      if (activeChannel?.experience !== "ai-chat") return;
       const trimmed = text.trim();
       if (!trimmed || isStreaming) return;
 
-      const channelId: MentorChannelId = activeChannelId;
       const userMessage: ChatMessage = {
         id: `${Date.now()}-u`,
         role: "user",
@@ -102,13 +88,10 @@ export default function AIMentorPage() {
         content: "",
       };
 
-      const priorMessages = messagesByChannel[channelId];
+      const priorMessages = aiMessages;
 
-      setMessagesByChannel((prev) => ({
-        ...prev,
-        [channelId]: [...prev[channelId], userMessage, assistantPlaceholder],
-      }));
-      setErrorByChannel((prev) => ({ ...prev, [channelId]: false }));
+      setAiMessages((prev) => [...prev, userMessage, assistantPlaceholder]);
+      setAiHasError(false);
       setIsStreaming(true);
 
       const controller = new AbortController();
@@ -146,39 +129,33 @@ export default function AIMentorPage() {
           const { done, value } = await reader.read();
           if (done) break;
           const chunk = decoder.decode(value, { stream: true });
-          setMessagesByChannel((prev) => ({
-            ...prev,
-            [channelId]: prev[channelId].map((m) =>
+          setAiMessages((prev) =>
+            prev.map((m) =>
               m.id === assistantId ? { ...m, content: m.content + chunk } : m,
             ),
-          }));
+          );
         }
       } catch (err: unknown) {
         if (err instanceof Error && err.name === "AbortError") {
           // user-initiated abort — keep partial content
         } else {
           const message = err instanceof Error ? err.message : t.aiMentor.error;
-          setMessagesByChannel((prev) => ({
-            ...prev,
-            [channelId]: prev[channelId].map((m) =>
+          setAiMessages((prev) =>
+            prev.map((m) =>
               m.id === assistantId
                 ? { ...m, content: m.content || message }
                 : m,
             ),
-          }));
-          setErrorByChannel((prev) => ({ ...prev, [channelId]: true }));
+          );
+          setAiHasError(true);
         }
       } finally {
         setIsStreaming(false);
         abortRef.current = null;
       }
     },
-    [activeChannelId, isStreaming, messagesByChannel, t.aiMentor.error],
+    [activeChannel, aiMessages, isStreaming, t.aiMentor.error],
   );
-
-  const activeChannel = activeChannelId
-    ? getMentorChannel(activeChannelId)
-    : null;
 
   return (
     <AnimatePresence mode="wait" initial={false}>
@@ -190,16 +167,20 @@ export default function AIMentorPage() {
           exit={{ opacity: 0 }}
           transition={VIEW_TRANSITION}
         >
-          <MentorChatRoom
-            channel={activeChannel}
-            messages={messagesByChannel[activeChannel.id]}
-            isStreaming={isStreaming}
-            hasError={errorByChannel[activeChannel.id]}
-            onSend={handleSend}
-            onStop={handleStop}
-            onReset={handleReset}
-            onBackToHub={handleBackToHub}
-          />
+          {activeChannel.experience === "volunteer-inbox" ? (
+            <VolunteerDesk channel={activeChannel} onBackToHub={handleBackToHub} />
+          ) : (
+            <MentorChatRoom
+              channel={activeChannel}
+              messages={activeChannel.experience === "ai-chat" ? aiMessages : []}
+              isStreaming={activeChannel.experience === "ai-chat" && isStreaming}
+              hasError={activeChannel.experience === "ai-chat" && aiHasError}
+              onSend={handleSend}
+              onStop={handleStop}
+              onReset={handleReset}
+              onBackToHub={handleBackToHub}
+            />
+          )}
         </motion.div>
       ) : (
         <motion.div

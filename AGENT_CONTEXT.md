@@ -2,13 +2,13 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur. Degisiklik gecmisi icin `AGENT_COMMITS.md`, son audit notlari icin `AGENT_CONTEXT_FIX_REPORT.md` okunabilir; bu dosya ise guncel mimari ve calisma kurallarinin kaynak dokumanidir.
 
-Son guncelleme: 2026-07-04
+Son guncelleme: 2026-07-20
 
 ---
 
 ## Proje Tanimi
 
-ItalyPath, Italya'da egitim almak isteyen Turk ogrenciler icin Next.js tabanli rehber uygulamasidir. Public tarafta universite/program arama, sehir rehberleri, bolgesel burs haritasi, ISEE hesaplayici ve kurate edilmis topluluk rehberi vardir. Giris gerektiren tarafta AI mentor, favoriler, belge cuzdani ve kisisel calisma dosyasi (`/hub`) bulunur.
+ItalyPath, Italya'da egitim almak isteyen Turk ogrenciler icin Next.js tabanli rehber uygulamasidir. Public tarafta universite/program arama, sehir rehberleri, bolgesel burs haritasi, ISEE hesaplayici ve kurate edilmis topluluk rehberi vardir. Giris gerektiren tarafta AI mentor, kalici gonullu ekip yazismasi, favoriler, belge cuzdani ve kisisel calisma dosyasi (`/hub`) bulunur.
 
 Uygulamanin ana tasarim dili editorial paper/sage/terracotta paleti, serif basliklar, keskin border'lar ve mobil oncelikli layout'lardir. Gradient/sparkle/indigo SaaS kalibi yeni islerde genellikle tercih edilmez.
 
@@ -55,6 +55,7 @@ italypath-main/
 │   │   └── sso-callback/page.tsx   # Google OAuth donus rotasi; /giris sayfasini yeniden kullanir
 │   ├── hosgeldin/page.tsx          # Protected 4 adimli onboarding sihirbazi
 │   ├── ai-mentor/page.tsx          # Protected consultation desks UI
+│   ├── ekip/mentor/page.tsx        # Protected, staff-allowlisted gonullu operator inbox
 │   ├── universities/
 │   │   ├── layout.tsx              # /universities SEO metadata
 │   │   ├── page.tsx                # Server SEO wrapper + crawlable preview + client explorer
@@ -95,7 +96,7 @@ italypath-main/
 │   ├── sat/                        # SAT konu listesi, soru karti, KaTeX MathText, oturum ozeti
 │   ├── universities/              # Server-safe rows + UniversitiesExplorer client leaf
 │   ├── university-details/         # Detail client leaves, portrait headers, program directory, admission panel
-│   ├── mentor/                     # Mentor hub/chat room/topbar/entry/locked notice
+│   ├── mentor/                     # Mentor hub + AI, gonullu ogrenci ve operator yuzeyleri
 │   ├── legal/                      # LegalDocument.tsx (yasal belge sunum bileseni)
 │   ├── auth/                       # /giris parcalari: AuthShell, AuthCard, AuthTabs, OAuthButtons, SignInForm, SignUpForm, VerificationStep, PasswordResetFlow
 │   ├── onboarding/                 # /hosgeldin wizard kartlari, progress ve finale
@@ -117,7 +118,7 @@ italypath-main/
 │   ├── legal/documents.ts          # Yasal sayfa metinleri (TR) + footer/sitemap linkleri
 │   ├── deadlines/targets.ts         # Deadline scrape hedefleri (universite + admission URL)
 │   ├── hub/                        # profile.ts, useUserProfile.ts, recommendations.ts, useDocumentsCount.ts
-│   ├── mentor/channels.ts
+│   ├── mentor/                     # Channel registry, native Clerk/Supabase hooks ve state/controller helper'lari
 │   ├── sat/                        # SAT types, SPR answer matching, server memo, client hooks
 │   └── scholarships/regions.ts
 ├── types/
@@ -127,6 +128,10 @@ italypath-main/
 ├── public/data/italy-regions.geojson
 ├── scripts/
 │   ├── check-route-access.mjs
+│   ├── check-mentor-desks.mjs       # Mentor channel/DB/RLS/UI/legal kalici guard'i
+│   ├── test-volunteer-desk.mjs      # Ogrenci lifecycle/race davranis testleri
+│   ├── test-mentor-operator-inbox.mjs # Operator auth/action/Realtime davranis testleri
+│   ├── test-mentor-db.mjs           # Gercek PostgreSQL RLS/RPC/concurrency testleri
 │   ├── check-sat-bank.mjs
 │   ├── check-auth-ui.mjs            # /giris ve auth migration butunlugu smoke check
 │   ├── check-hub-onboarding.mjs     # /hosgeldin + yeni hub smoke/kapsama check
@@ -148,6 +153,7 @@ italypath-main/
 │   ├── rls_hardening.sql
 │   ├── program_admission_details.sql
 │   ├── user_profiles.sql
+│   ├── volunteer_mentor.sql        # Gonullu mentor tablolar/RLS/RPC/Realtime kontrati
 │   └── sat_bank.sql                # sat_questions service-role-only + sat_attempts RLS
 ├── docs/
 │   ├── CAMPAIGN_PLAN_LAUNCH.md
@@ -307,6 +313,7 @@ Protected ornekler:
 
 - `/ai-mentor`
 - `/documents`
+- `/ekip/mentor`
 - `/favorites`
 - `/hosgeldin`
 - `/hub`
@@ -425,15 +432,15 @@ SEO `layout.tsx` Server Component'lerinde `generateMetadata()` ile uretilir. `ge
 
 `components/university-details/ProgramDirectory.tsx`, programlari bachelor/master/single-cycle gruplarina ayirir. Department detail sayfasi admission details panelini varsa gosterir.
 
-### AI Mentor
+### Mentor Masalari (AI + Gonullu)
 
 `/ai-mentor` protected route'tur. UI uc masali consultation desk modelidir:
 
-- ItalyPath AI: aktif, Gemini
-- ItalyPath Gonullu Ekip: locked/yakinda
-- ItalyPath Uzman: locked/yakinda
+- ItalyPath AI: aktif; native Gemini streaming masasi.
+- ItalyPath Gonullu Ekip: aktif; Supabase uzerinde kalici, site ici insan yazismasi.
+- ItalyPath Uzman: ayri uzman lead-form projesi tamamlanana kadar `coming-soon`.
 
-Backend: `app/api/chat/route.ts`.
+AI backend'i `app/api/chat/route.ts` icindedir.
 
 - `GEMINI_API_KEY` yoksa `503`
 - malformed body veya gecersiz messages icin `400`
@@ -442,6 +449,18 @@ Backend: `app/api/chat/route.ts`.
 - sistem promptu `getUniversitiesData()` ile canli university/program listesinden uretilir
 
 Risk: Supabase department sayisi buyudukce chat system prompt'u da buyur. Latency/cost ve token boyutu izlenmeli.
+
+Gonullu masa mimarisi:
+
+- Ogrenci yuzeyi `components/mentor/volunteer/VolunteerDesk.tsx`; veri hook'u `lib/mentor/useVolunteerDesk.ts`.
+- `/ekip/mentor`, tek aktif operator icin staff-allowlist ile korunan inbox'tir. Kullaniciya gorunen gonderen markasi `ItalyPath Gonullu Ekip`tir.
+- Tablolar: `mentor_staff`, `mentor_conversations`, `mentor_messages`. RPC idempotency kayitlari ogrenci tarafindan okunamayan ayri private tabloda tutulur.
+- Yazmalar yalnizca `start_volunteer_conversation`, `send_student_mentor_message`, `send_staff_mentor_message` ve `close_volunteer_conversation` RPC'leriyle yapilir. Operator girisi `is_active_mentor_staff` RPC'siyle ayrica dogrulanir.
+- Okumalar ve canli olaylar Clerk'in native session token'i ile Supabase RLS + Realtime kullanir; mentor kodunda deprecated Clerk `supabase` JWT template'i veya service-role key yoktur.
+- V1: bir operator, ogrenci basina tek acik gorusme, yalnizca duz metin, ek/atama/not/typing/read receipt/otomatik bildirim yok. Her iki taraf gorusmeyi kapatabilir; kapali gecmis hesap silinene kadar salt okunur tutulur.
+- Kalici kontrol: `npm run check:mentor-desks`, `npm run test:volunteer-desk`, `npm run test:mentor-operator` ve `npm run test:mentor-db`. Production kabulunde ayrica normal ogrenci + operator hesaplariyla iki-hesap RLS/Realtime matrisi uygulanir.
+
+Production acilisi Clerk third-party auth, SQL kurulumu ve `mentor_staff` provision adimlari tamamlanmadan yapilmaz; ayrintilar `SUPABASE_SECURITY_RUNBOOK.md` icindedir.
 
 ### Favorites
 
@@ -563,7 +582,7 @@ SEO 2.5 sonrasi `/communities` `force-dynamic` route'tur. Canli HTML'de gercek H
 
 `/yasal/[slug]` dinamik route'u uc statik yasal sayfayi besler: `gizlilik` (Gizlilik Politikasi ve KVKK Aydinlatma Metni), `kullanim-kosullari`, `cerez-politikasi`.
 
-- Icerik: `lib/legal/documents.ts` (yapilandirilmis Turkce metin; `CONTACT_EMAIL_PLACEHOLDER` lansman oncesi gercek e-posta ile doldurulacak)
+- Icerik: `lib/legal/documents.ts` (yapilandirilmis Turkce metin; yasal iletisim adresi `contact@italypath.com`)
 - Sunum: `components/legal/LegalDocument.tsx` (saf Server Component, editorial stil)
 - Route: `app/yasal/[slug]/page.tsx` (`generateStaticParams` + `generateMetadata`, server)
 - Footer'da "Yasal" linkleri `LEGAL_LINKS` ile uretilir
@@ -583,6 +602,9 @@ Kodun bekledigi ana tablolar:
 - `favorites`: Clerk user id + university id favorileri
 - `user_documents`: belge metadata'si ve storage path
 - `user_profiles`: onboarding cevaplari ve hub oneri profili
+- `mentor_staff`: aktif gonullu operator allowlist'i (V1'de tek aktif satir)
+- `mentor_conversations`: ogrenciye ait kalici gorusme, konu ve durum kaydi
+- `mentor_messages`: ogrenci/gonullu duz metin mesajlari; staff kullanici kimligi tasimaz
 - `universities`: university base rows
 - `university_departments`: program rows, languages/duration/level/sort
 - `program_admission_details`: program admission metadata ve source/uncertainty modeli
@@ -592,6 +614,7 @@ SQL/runbook dosyalari:
 - `supabase/rls_hardening.sql`: favorites, user_documents ve storage RLS hardening
 - `supabase/program_admission_details.sql`: program admission details tablo/policy/grant setup
 - `supabase/user_profiles.sql`: onboarding profil tablo/policy/grant setup
+- `supabase/volunteer_mentor.sql`: mentor tablolar, private idempotency, RLS, RPC ve Realtime setup
 - `SUPABASE_SECURITY_RUNBOOK.md`: Clerk + Supabase operasyon rehberi
 
 Gercek production schema dashboard'dan dogrulanmalidir.
@@ -626,6 +649,10 @@ npm run check:routes
 npm run check:sat-bank
 npm run check:auth-ui
 npm run check:hub-onboarding
+npm run check:mentor-desks
+npm run test:volunteer-desk
+npm run test:mentor-operator
+npm run test:mentor-db
 npm run check:cities
 npm run check:program-details
 npm run check:deadlines
@@ -661,7 +688,6 @@ node scripts/check-universities-server-compose.mjs
 5. Search Console yeni kuruldu; ilk 1-2 hafta `Sitemaps`, `Pages` ve `URL Inspection` durumlari izlenmeli. Baslangicta performans/veri gecikmesi normaldir.
 6. SEO 3: JSON-LD/schema/breadcrumb henuz eklenmedi. Hidden/uydurma schema yok; sadece sayfada gorunen gercek bilgiye dayali structured data eklenmeli.
 7. AI Mentor system prompt'u canli program sayisi arttikca buyuyor; prompt boyutu, latency ve maliyet izlenmeli.
-8. Yasal sayfalardaki iletisim e-postasi yer tutucusu (`[iletişim e-postası eklenecek]`, `lib/legal/documents.ts` icindeki `CONTACT_EMAIL_PLACEHOLDER`) lansman oncesi gercek adresle doldurulmali.
 
 ### Repo hijyeni
 

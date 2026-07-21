@@ -36,6 +36,12 @@ mustContain(pageSource, "AuthCard", "app/giris/page.tsx");
 mustContain(pageSource, "AuthTabs", "app/giris/page.tsx");
 mustContain(pageSource, "SignInForm", "app/giris/page.tsx");
 mustContain(pageSource, "SignUpForm", "app/giris/page.tsx");
+mustContain(pageSource, "ClerkLoading", "app/giris/page.tsx");
+mustContain(pageSource, "ClerkLoaded", "app/giris/page.tsx");
+mustContain(pageSource, "ClerkFailed", "app/giris/page.tsx");
+mustContain(pageSource, "ClerkDegraded", "app/giris/page.tsx");
+mustContain(pageSource, "AuthLoadingFallback", "app/giris/page.tsx");
+mustContain(pageSource, "AuthFailedFallback", "app/giris/page.tsx");
 mustContain(pageSource, "useSearchParams", "app/giris/page.tsx");
 mustContain(pageSource, "useRouter", "app/giris/page.tsx");
 mustContain(pageSource, "redirect_url", "app/giris/page.tsx");
@@ -49,6 +55,7 @@ mustNotContain(pageSource, "setMode", "app/giris/page.tsx");
 for (const file of [
   "components/auth/AuthShell.tsx",
   "components/auth/AuthCard.tsx",
+  "components/auth/AuthAvailability.tsx",
   "components/auth/AuthTabs.tsx",
   "components/auth/SignInForm.tsx",
   "components/auth/SignUpForm.tsx",
@@ -74,6 +81,7 @@ mustContain(signInForm, "PasswordResetVerification", "components/auth/SignInForm
 mustContain(signInForm, "prepareSecondFactor", "components/auth/SignInForm.tsx");
 mustNotContain(signInForm, "onForgotPassword", "components/auth/SignInForm.tsx");
 mustContain(signInForm, "OAuthButtons", "components/auth/SignInForm.tsx");
+mustContain(signInForm, "fallback={<AuthLoadingFallback />}", "components/auth/SignInForm.tsx");
 
 const signUpForm = read("components/auth/SignUpForm.tsx");
 mustMatch(signUpForm, /import\s+\*\s+as\s+Clerk\s+from\s+["']@clerk\/elements\/common["']/, "components/auth/SignUpForm.tsx", 'import * as Clerk from "@clerk/elements/common"');
@@ -103,6 +111,13 @@ mustNotContain(signUpForm, "VerificationStep", "components/auth/SignUpForm.tsx")
 mustNotContain(signUpForm, "OAuthButtons", "components/auth/SignUpForm.tsx");
 mustNotContain(signUpForm, "firstName", "components/auth/SignUpForm.tsx");
 mustNotContain(signUpForm, "lastName", "components/auth/SignUpForm.tsx");
+mustContain(signUpForm, "fallback={<AuthLoadingFallback />}", "components/auth/SignUpForm.tsx");
+
+const authAvailability = read("components/auth/AuthAvailability.tsx");
+mustContain(authAvailability, "SLOW_LOADING_DELAY_MS", "components/auth/AuthAvailability.tsx");
+mustContain(authAvailability, 'role="status"', "components/auth/AuthAvailability.tsx");
+mustContain(authAvailability, 'role="alert"', "components/auth/AuthAvailability.tsx");
+mustContain(authAvailability, "window.location.reload()", "components/auth/AuthAvailability.tsx");
 
 const oauthButtons = read("components/auth/OAuthButtons.tsx");
 mustMatch(oauthButtons, /<Clerk\.Connection\b[^>]*\bname\s*=\s*["']google["'][^>]*>/, "components/auth/OAuthButtons.tsx", '<Clerk.Connection name="google">');

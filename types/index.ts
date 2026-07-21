@@ -100,3 +100,40 @@ export interface SatAttemptRow {
   is_correct: boolean;
   answered_at?: string;
 }
+
+export interface MentorStaffRow {
+  user_id: string;
+  display_name: string;
+  active: boolean;
+  created_at: string;
+}
+
+export interface MentorConversationRow {
+  id: string;
+  user_id: string;
+  student_display_name: string;
+  topic:
+    | "university-program"
+    | "application-documents"
+    | "scholarship-isee"
+    | "visa-residence"
+    | "student-life"
+    | "other";
+  status: "waiting_for_team" | "waiting_for_student" | "closed";
+  last_sender_kind: "student" | "staff";
+  last_message_preview: string;
+  created_at: string;
+  updated_at: string;
+  last_message_at: string;
+  closed_at: string | null;
+  closed_by: "student" | "staff" | null;
+}
+
+export interface MentorMessageRow {
+  id: string;
+  conversation_id: string;
+  sender_kind: "student" | "staff";
+  body: string;
+  client_nonce: string;
+  created_at: string;
+}

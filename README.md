@@ -38,13 +38,18 @@ CLERK_SECRET_KEY=
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/giris
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/giris?mode=kayit
 NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/hub
-NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/hub
+NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/hosgeldin
 ```
 
 Canlı Vercel Production ortamında Clerk anahtarları `pk_live_` ve `sk_live_`
 olmalıdır. `pk_test_` / `sk_test_` anahtarları canlı sitede development-mode
 uyarısı üretir ve protected route akışlarını Clerk hosted development ekranına
 taşıyabilir.
+
+Vercel'in `*.vercel.app` Preview deployment'larında Clerk production anahtarları
+kullanılmaz. Preview scope'unda Clerk development anahtarlarını kullanın; aynı
+production Clerk instance'ını test etmek gerekiyorsa preview URL'lerini ItalyPath
+root domain'i altında bir Preview Deployment Suffix ile yayınlayın.
 
 Supabase verisi olmayan ortamda university API ve ilgili dogrulama scriptleri hata verebilir.
 

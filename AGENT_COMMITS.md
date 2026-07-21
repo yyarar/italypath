@@ -520,3 +520,12 @@
 | `AGENT_COMMITS.md` | 📝 Commit 55 entry'si eklendi |
 
 ### Commit 56 (SAT Soru Bankasi): Protected `/sat` soru cozme yuzeyi, service-role soru API'si, KaTeX render, nav/hub girisleri, robots/proxy guard'i ve `npm run check:sat-bank` eklendi.
+
+### Commit 57 (Gonullu Mentor Yazismasi V1):
+| Dosya / Yuzey | Degisiklik |
+|----------------|-----------|
+| `supabase/volunteer_mentor.sql`, `types/index.ts` | 🆕 Tek acik gorusme, private idempotency, staff allowlist, RLS, RPC ve Realtime kontrati eklendi |
+| `lib/mentor/useVolunteerDesk.ts`, `components/mentor/volunteer/*` | 🆕 Kalici ogrenci-gonullu gorusmesi, duz metin thread, durum/gecmis ve iki tarafli kapatma akisi eklendi |
+| `/ekip/mentor`, `lib/mentor/useMentorOperatorInbox.ts`, `components/mentor/operator/*` | 🆕 Tek operator inbox'i; auth fencing, status kuyruklari, reply/close, action pin ve Realtime recovery eklendi |
+| `proxy.ts`, `app/robots.ts`, `lib/legal/documents.ts` | 🔒 Operator route korumasi, crawl dislama ve insan yazismasi veri/retention/hizmet siniri aciklamalari eklendi |
+| `scripts/check-mentor-desks.mjs`, `scripts/test-mentor-*.mjs`, `SUPABASE_SECURITY_RUNBOOK.md` | ✅ Kalici mentor guard'i, davranis/PostgreSQL testleri ve production iki-hesap kurulum-kabul runbook'u eklendi |

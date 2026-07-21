@@ -1,9 +1,7 @@
 // ItalyPath yasal belgeleri (Türkçe).
 // Metinler yapılandırılmış tutulur ki ileride İngilizce çeviri aynı şekle eklenebilsin.
-// İletişim e-postası henüz yok; lansman öncesi CONTACT_EMAIL doldurulacak.
-
-export const CONTACT_EMAIL_PLACEHOLDER = "[iletişim e-postası eklenecek]";
-export const LEGAL_LAST_UPDATED = "12 Haziran 2026";
+export const CONTACT_EMAIL = "contact@italypath.com";
+export const LEGAL_LAST_UPDATED = "20 Temmuz 2026";
 
 export type LegalSection = {
   heading: string;
@@ -36,19 +34,21 @@ const privacy: LegalDocument = {
       heading: "1. Veri Sorumlusu",
       paragraphs: [
         "Kişisel verileriniz, veri sorumlusu sıfatıyla Kerem Yarar tarafından işlenmektedir. ItalyPath bir bilgilendirme ve rehberlik platformudur; bağlı olduğu bir şirket bulunmamaktadır.",
-        `Her türlü soru ve başvurunuz için iletişim adresi: ${CONTACT_EMAIL_PLACEHOLDER}.`,
+        `Her türlü soru ve başvurunuz için iletişim adresi: ${CONTACT_EMAIL}.`,
       ],
     },
     {
       heading: "2. Hangi Kişisel Verileri Topluyoruz?",
       paragraphs: [
         "Platform’u nasıl kullandığınıza bağlı olarak aşağıdaki verileri işleriz:",
+        "Gönüllü mentor görüşmelerinin bu sürümünde mesajlarla belge veya dosya eki alınmaz.",
       ],
       list: [
         "Hesap bilgileri: Üye olduğunuzda kimlik doğrulama hizmetimiz aracılığıyla e-posta adresiniz ve adınız.",
         "Favorileriniz: İşaretlediğiniz üniversite ve programlar.",
         "Yüklediğiniz belgeler: Belge cüzdanına yüklediğiniz dosyalar ve bunlara ait bilgiler.",
         "Yapay zeka mentor mesajları: AI mentora yazdığınız sorular ve mesaj içerikleri.",
+        "Gönüllü mentor görüşmeleri: Gönüllü masaya yazdığınız mesajlar, görüşme konusu, görüşme durumu ve ItalyPath Gönüllü Ekibinin yanıtları.",
         "Tarayıcı tercihleri: Dil seçiminiz, görünüm tercihiniz gibi ayarlar cihazınızın tarayıcı hafızasında (localStorage) saklanır.",
       ],
     },
@@ -58,6 +58,8 @@ const privacy: LegalDocument = {
         "Üyelik hesabınızı oluşturmak ve güvenli girişi sağlamak,",
         "Favorilerinizi ve yüklediğiniz belgeleri size sunmak ve saklamak,",
         "Yapay zeka mentor üzerinden sorularınıza yanıt üretmek,",
+        "Site içindeki insan gönüllü görüşmesini yürütmek ve görüşme geçmişini hesabınıza sunmak,",
+        "Gönüllü mentor görüşmelerini yetkilendirilmiş ItalyPath operatörünün okuyup yanıtlayabildiği site içi akışla yürütmek,",
         "Dil ve görünüm gibi tercihlerinizi hatırlamak,",
         "Platform’un güvenliğini sağlamak ve hizmeti geliştirmek.",
       ],
@@ -69,7 +71,7 @@ const privacy: LegalDocument = {
       ],
       list: [
         "Kimlik doğrulama hizmeti: üyelik ve güvenli giriş için,",
-        "Bulut veri saklama hizmeti: favorileriniz ve yüklediğiniz belgeler için,",
+        "Bulut veri saklama hizmeti: favorileriniz, yüklediğiniz belgeler ve gönüllü mentor görüşmeleriniz için,",
         "Yapay zeka hizmeti: AI mentora yazdığınız mesajlar, yanıt üretilmesi amacıyla bu hizmete iletilir.",
       ],
     },
@@ -83,6 +85,7 @@ const privacy: LegalDocument = {
       heading: "5. Verilerin Saklanma Süresi",
       paragraphs: [
         "Kişisel verilerinizi, hesabınız aktif olduğu ve işleme amaçları için gerekli olduğu sürece saklarız. Hesabınızı veya yüklediğiniz belgeleri sildiğinizde ilgili veriler kaldırılır. Yasal saklama yükümlülükleri olması hâlinde veriler ilgili süre boyunca saklanabilir.",
+        "Gönüllü mentor görüşmeleri, görüşme kapandıktan sonra da hesabınız aktif olduğu sürece geçmişinizde tutulur. Hesap veya veri silme talebiniz uygulandığında bu görüşmeler ve bağlı mesajlar da kaldırılır.",
       ],
     },
     {
@@ -111,7 +114,7 @@ const privacy: LegalDocument = {
     {
       heading: "8. Haklarınızı Nasıl Kullanabilirsiniz?",
       paragraphs: [
-        `Yukarıdaki haklarınıza ilişkin taleplerinizi ${CONTACT_EMAIL_PLACEHOLDER} adresine iletebilirsiniz. Talebiniz, KVKK’da öngörülen süre içinde ücretsiz olarak sonuçlandırılır.`,
+        `Yukarıdaki haklarınıza ilişkin taleplerinizi ${CONTACT_EMAIL} adresine iletebilirsiniz. Talebiniz, KVKK’da öngörülen süre içinde ücretsiz olarak sonuçlandırılır.`,
       ],
     },
     {
@@ -127,7 +130,7 @@ const terms: LegalDocument = {
   slug: "kullanim-kosullari",
   title: "Kullanım Koşulları",
   description:
-    "ItalyPath’i kullanırken geçerli olan koşullar, sorumluluk reddi ve yapay zeka mentor hakkında bilmeniz gerekenler.",
+    "ItalyPath’i kullanırken geçerli olan koşullar, sorumluluk reddi ve mentor masaları hakkında bilmeniz gerekenler.",
   lastUpdated: LEGAL_LAST_UPDATED,
   intro: [
     "Bu Kullanım Koşulları, ItalyPath’i (“Platform”) kullanımınızı düzenler. Platform’u kullanarak bu koşulları kabul etmiş sayılırsınız.",
@@ -136,7 +139,7 @@ const terms: LegalDocument = {
     {
       heading: "1. Hizmetin Tanımı",
       paragraphs: [
-        "ItalyPath, İtalya’da eğitim almak isteyen öğrencilere yönelik bir bilgilendirme ve rehberlik platformudur. Üniversite ve program bilgileri, şehir rehberleri, burs bilgileri, hesaplama araçları ve yapay zeka destekli bir mentor sunar.",
+        "ItalyPath, İtalya’da eğitim almak isteyen öğrencilere yönelik bir bilgilendirme ve rehberlik platformudur. Üniversite ve program bilgileri, şehir rehberleri, burs bilgileri, hesaplama araçları, yapay zeka destekli bir mentor ve site içi insan gönüllü yazışması sunar.",
       ],
     },
     {
@@ -147,10 +150,11 @@ const terms: LegalDocument = {
       ],
     },
     {
-      heading: "3. Yapay Zeka Mentor Hakkında",
+      heading: "3. Mentor Masaları Hakkında",
       paragraphs: [
         "Yapay zeka mentor, otomatik olarak yanıt üreten bir yardımcıdır. Verdiği yanıtlar hatalı, eksik veya güncel olmayan bilgiler içerebilir.",
-        "Yapay zeka mentor profesyonel danışmanlık, hukuki görüş veya resmî başvuru rehberliği yerine geçmez. Vereceği bilgileri her zaman resmî kaynaklardan doğrulayın.",
+        "Gönüllü mentor masası, öğrenci deneyimine dayalı genel rehberlik sunan site içi bir insan yazışmasıdır. Yanıtların anlık, eksiksiz veya resmî olduğu garanti edilmez.",
+        "Yapay zeka ve insan gönüllü mentor profesyonel danışmanlık, hukuki görüş, kişiye özel mali değerlendirme veya resmî başvuru rehberliği yerine geçmez. Önemli bilgileri her zaman resmî kaynaklardan doğrulayın.",
       ],
     },
     {
@@ -167,6 +171,7 @@ const terms: LegalDocument = {
       heading: "5. Hesap ve Yüklediğiniz İçerik",
       paragraphs: [
         "Belge cüzdanına yüklediğiniz dosyalardan ve içeriklerden tamamen siz sorumlusunuz. Hukuka aykırı, başkasının haklarını ihlal eden veya zararlı içerik yüklemeniz yasaktır.",
+        "Kapattığınız gönüllü mentor görüşmeleri, hesabınız aktif olduğu sürece salt okunur geçmişinizde tutulur; hesap veya veri silme talebiniz uygulandığında kaldırılır.",
       ],
     },
     {
@@ -196,7 +201,7 @@ const terms: LegalDocument = {
     {
       heading: "10. İletişim",
       paragraphs: [
-        `Bu koşullarla ilgili sorularınız için ${CONTACT_EMAIL_PLACEHOLDER} adresine yazabilirsiniz.`,
+        `Bu koşullarla ilgili sorularınız için ${CONTACT_EMAIL} adresine yazabilirsiniz.`,
       ],
     },
   ],
@@ -247,7 +252,7 @@ const cookies: LegalDocument = {
     {
       heading: "5. İletişim",
       paragraphs: [
-        `Çerezlerle ilgili sorularınız için ${CONTACT_EMAIL_PLACEHOLDER} adresine yazabilirsiniz.`,
+        `Çerezlerle ilgili sorularınız için ${CONTACT_EMAIL} adresine yazabilirsiniz.`,
       ],
     },
   ],

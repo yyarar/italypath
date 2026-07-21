@@ -43,7 +43,7 @@ const envExample = read(".env.example");
 mustContain(envExample, "NEXT_PUBLIC_CLERK_SIGN_IN_URL=/giris", ".env.example");
 mustContain(envExample, "NEXT_PUBLIC_CLERK_SIGN_UP_URL=/giris?mode=kayit", ".env.example");
 mustContain(envExample, "NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/hub", ".env.example");
-mustContain(envExample, "NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/hub", ".env.example");
+mustContain(envExample, "NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/hosgeldin", ".env.example");
 mustNotContain(envExample, "pk_test_", ".env.example");
 mustNotContain(envExample, "sk_test_", ".env.example");
 mustNotContain(envExample, "NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in", ".env.example");

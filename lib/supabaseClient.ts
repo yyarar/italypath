@@ -8,8 +8,9 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 type AccessTokenProvider = () => Promise<string | null>;
 
 /**
- * Clerk token'ı ile RLS uyumlu Supabase client üretir.
- * Not: Bunun çalışması için Clerk Dashboard'da "supabase" JWT template'i tanımlı olmalıdır.
+ * Clerk access tokenıyla RLS uyumlu Supabase client üretir.
+ * Tokenın kabul edilmesi için Clerk, Supabase third-party auth provider olarak
+ * yapılandırılmış olmalıdır.
  */
 export function createClerkSupabaseClient(getAccessToken: AccessTokenProvider) {
   return createClient(supabaseUrl, supabaseAnonKey, {

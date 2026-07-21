@@ -26,6 +26,7 @@ const isPublicRoute = createRouteMatcher([
 const PROTECTED_PAGE_ROUTES = [
   "/ai-mentor",
   "/documents",
+  "/ekip",
   "/favorites",
   "/hosgeldin",
   "/hub",
