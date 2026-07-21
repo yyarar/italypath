@@ -698,6 +698,22 @@ async function main() {
     assert(scalar(runSql(`select status || ':' || closed_by from public.mentor_conversations where id = ${quote(studentClose)};`)) === "closed:student", "student close mismatch");
   });
 
+  await test("students cannot close another student's conversation", async () => {
+    const conversation = scalar(runSql(asUser("student-close-owner", functionCall(
+      "start_volunteer_conversation",
+      [quote("other"), quote("Close Owner"), quote("Owner only"), quote("85000000-0000-4000-8000-000000000001")],
+    ))));
+    const denied = runSql(asUser("student-close-attacker", functionCall(
+      "close_volunteer_conversation",
+      [quote(conversation)],
+    )), { allowFailure: true });
+    assertFailure(denied, "conversation_not_found", "cross-owner close");
+    assert(
+      scalar(runSql(`select status from public.mentor_conversations where id = ${quote(conversation)};`)) === "waiting_for_team",
+      "cross-owner close changed conversation state",
+    );
+  });
+
   await test("NULL topic and body inputs return domain errors", async () => {
     const nullTopic = runSql(asUser("student-null", functionCall(
       "start_volunteer_conversation",

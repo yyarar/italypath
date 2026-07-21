@@ -100,6 +100,7 @@ create or replace function public.requesting_user_id()
 returns text
 language sql
 stable
+set search_path = ''
 as $$
   select auth.jwt() ->> 'sub';
 $$;
@@ -164,6 +165,9 @@ create unique index if not exists mentor_conversations_one_open_per_user
 create index if not exists mentor_conversations_queue_idx
   on public.mentor_conversations (status, last_message_at desc);
 
+create index if not exists mentor_conversations_user_last_message_idx
+  on public.mentor_conversations (user_id, last_message_at desc);
+
 create table if not exists public.mentor_messages (
   id uuid primary key default gen_random_uuid(),
   conversation_id uuid not null
@@ -223,7 +227,7 @@ returns boolean
 language sql
 stable
 security definer
-set search_path = public, pg_temp
+set search_path = ''
 as $$
   select exists (
     select 1
@@ -239,8 +243,8 @@ on public.mentor_conversations
 for select
 to authenticated
 using (
-  user_id = public.requesting_user_id()
-  or public.is_active_mentor_staff()
+  user_id = (select public.requesting_user_id())
+  or (select public.is_active_mentor_staff())
 );
 
 drop policy if exists "mentor_messages_select_allowed" on public.mentor_messages;
@@ -249,12 +253,12 @@ on public.mentor_messages
 for select
 to authenticated
 using (
-  public.is_active_mentor_staff()
+  (select public.is_active_mentor_staff())
   or exists (
     select 1
     from public.mentor_conversations conversation
     where conversation.id = mentor_messages.conversation_id
-      and conversation.user_id = public.requesting_user_id()
+      and conversation.user_id = (select public.requesting_user_id())
   )
 );
 
@@ -267,7 +271,7 @@ create or replace function public.start_volunteer_conversation(
 returns uuid
 language plpgsql
 security definer
-set search_path = public, pg_temp
+set search_path = ''
 as $$
 declare
   v_user_id text := public.requesting_user_id();
@@ -374,7 +378,7 @@ create or replace function public.send_student_mentor_message(
 returns uuid
 language plpgsql
 security definer
-set search_path = public, pg_temp
+set search_path = ''
 as $$
 declare
   v_user_id text := public.requesting_user_id();
@@ -403,9 +407,10 @@ begin
   select * into v_conversation
   from public.mentor_conversations
   where id = p_conversation_id
+    and user_id = v_user_id
   for update;
 
-  if not found or v_conversation.user_id <> v_user_id then
+  if not found then
     raise exception 'conversation_not_found' using errcode = '42501';
   end if;
 
@@ -472,7 +477,7 @@ create or replace function public.send_staff_mentor_message(
 returns uuid
 language plpgsql
 security definer
-set search_path = public, pg_temp
+set search_path = ''
 as $$
 declare
   v_user_id text := public.requesting_user_id();
@@ -568,7 +573,7 @@ create or replace function public.close_volunteer_conversation(
 returns uuid
 language plpgsql
 security definer
-set search_path = public, pg_temp
+set search_path = ''
 as $$
 declare
   v_user_id text := public.requesting_user_id();
@@ -583,13 +588,11 @@ begin
   select * into v_conversation
   from public.mentor_conversations
   where id = p_conversation_id
+    and (user_id = v_user_id or v_is_staff)
   for update;
 
   if not found then
-    raise exception 'conversation_not_found' using errcode = 'P0002';
-  end if;
-  if v_conversation.user_id <> v_user_id and not v_is_staff then
-    raise exception 'conversation_access_denied' using errcode = '42501';
+    raise exception 'conversation_not_found' using errcode = '42501';
   end if;
   if v_conversation.status = 'closed' then return v_conversation.id; end if;
 
@@ -619,6 +622,7 @@ revoke all on function public.send_staff_mentor_message(uuid, text, uuid) from p
 revoke all on function public.close_volunteer_conversation(uuid) from public, anon;
 
 grant execute on function public.is_active_mentor_staff() to authenticated;
+grant execute on function public.requesting_user_id() to authenticated;
 grant execute on function public.start_volunteer_conversation(text, text, text, uuid) to authenticated;
 grant execute on function public.send_student_mentor_message(uuid, text, uuid) to authenticated;
 grant execute on function public.send_staff_mentor_message(uuid, text, uuid) to authenticated;

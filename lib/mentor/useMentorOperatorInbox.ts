@@ -664,41 +664,43 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
     const stop = startOperatorRealtimeSubscription({
       setAuth: () => supabase.realtime.setAuth(),
       isCurrent: () => active && isQueueScopeCurrent(scope),
-      createChannel: () =>
-        supabase
+      createChannel: () => {
+        const handleConversationChange = (
+          type: "INSERT" | "UPDATE",
+          row: MentorConversationRow,
+        ) => {
+          if (!active || !isQueueScopeCurrent(scope)) return;
+          const version = ++conversationEventVersionRef.current;
+          const event: ConversationEvent<MentorConversationRow> = { version, type, row };
+          conversationEventsRef.current.push(event);
+          commitConversations(
+            applyOperatorConversationSnapshot(
+              conversationsRef.current,
+              [event],
+              scope.filter,
+            ),
+          );
+          void refreshConversations(false).catch(() => undefined);
+        };
+        return supabase
           .channel(
             `mentor-operator-conversations:${scope.ownerId}:${scope.filter}:${scope.epoch}:${realtimeGeneration}`,
           )
           .on(
             "postgres_changes",
-            { event: "*", schema: "public", table: "mentor_conversations" },
+            { event: "INSERT", schema: "public", table: "mentor_conversations" },
             (payload) => {
-              if (!active || !isQueueScopeCurrent(scope)) return;
-              const version = ++conversationEventVersionRef.current;
-              const event: ConversationEvent<MentorConversationRow> =
-                payload.eventType === "DELETE"
-                  ? {
-                      version,
-                      type: "DELETE",
-                      id: (payload.old as { id: string }).id,
-                    }
-                  : {
-                      version,
-                      type: payload.eventType === "INSERT" ? "INSERT" : "UPDATE",
-                      row: payload.new as MentorConversationRow,
-                    };
-              if (event.type === "DELETE" && !event.id) return;
-              conversationEventsRef.current.push(event);
-              commitConversations(
-                applyOperatorConversationSnapshot(
-                  conversationsRef.current,
-                  [event],
-                  scope.filter,
-                ),
-              );
-              void refreshConversations(false).catch(() => undefined);
+              handleConversationChange("INSERT", payload.new as MentorConversationRow);
             },
-          ),
+          )
+          .on(
+            "postgres_changes",
+            { event: "UPDATE", schema: "public", table: "mentor_conversations" },
+            (payload) => {
+              handleConversationChange("UPDATE", payload.new as MentorConversationRow);
+            },
+          );
+      },
       subscribe: (channel, onStatus) => {
         channel.subscribe((status) => onStatus(status as OperatorRealtimeStatus));
       },

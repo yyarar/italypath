@@ -462,47 +462,43 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
       try {
         await supabase.realtime.setAuth();
         if (!active || !isCurrent(generation, ownerId)) return;
+        const handleConversationChange = (
+          type: "INSERT" | "UPDATE",
+          row: MentorConversationRow,
+        ) => {
+          if (!active || !isCurrent(generation, ownerId)) return;
+          const version = ++conversationEventVersionRef.current;
+          const event: ConversationEvent<MentorConversationRow> = { version, type, row };
+          conversationEventsRef.current.push(event);
+          commitConversations(
+            applyAuthoritativeConversationSnapshot(conversationsRef.current, [event]),
+          );
+          void refreshConversations(false).catch(() => undefined);
+        };
         channel = supabase
           .channel(`mentor-conversations:${ownerId}`)
           .on(
             "postgres_changes",
             {
-              event: "*",
+              event: "INSERT",
               schema: "public",
               table: "mentor_conversations",
               filter: `user_id=eq.${ownerId}`,
             },
             (payload) => {
-              if (!active || !isCurrent(generation, ownerId)) return;
-              const version = ++conversationEventVersionRef.current;
-              if (payload.eventType === "DELETE") {
-                const id = (payload.old as { id?: string }).id;
-                if (id) {
-                  conversationEventsRef.current.push({ version, type: "DELETE", id });
-                  commitConversations(
-                    applyAuthoritativeConversationSnapshot(conversationsRef.current, [
-                      { version, type: "DELETE", id },
-                    ]),
-                  );
-                }
-              } else {
-                const row = payload.new as MentorConversationRow;
-                conversationEventsRef.current.push({
-                  version,
-                  type: payload.eventType === "INSERT" ? "INSERT" : "UPDATE",
-                  row,
-                });
-                commitConversations(
-                  applyAuthoritativeConversationSnapshot(conversationsRef.current, [
-                    {
-                      version,
-                      type: payload.eventType === "INSERT" ? "INSERT" : "UPDATE",
-                      row,
-                    },
-                  ]),
-                );
-              }
-              void refreshConversations(false).catch(() => undefined);
+              handleConversationChange("INSERT", payload.new as MentorConversationRow);
+            },
+          )
+          .on(
+            "postgres_changes",
+            {
+              event: "UPDATE",
+              schema: "public",
+              table: "mentor_conversations",
+              filter: `user_id=eq.${ownerId}`,
+            },
+            (payload) => {
+              handleConversationChange("UPDATE", payload.new as MentorConversationRow);
             },
           )
           .subscribe((status) => {

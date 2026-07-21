@@ -2,25 +2,15 @@
 
 Bu doküman teknik olmayan kullanım için hazırlanmıştır. Sırayla uygula.
 
-## 1) Clerk tarafı (JWT template)
+## 1) Clerk tarafı (mevcut legacy istemciler)
 
-1. Clerk Dashboard'a gir.
-2. `JWT Templates` bölümüne git.
-3. Yeni template oluştur: adı `supabase`.
-4. Payload içine şunları koy:
+Favoriler, belgeler, profil ve SAT akışları geçici olarak mevcut `supabase`
+JWT template'ini kullanmaya devam eder. Mentor kurulumu için yeni template oluşturma;
+mevcut template'i silme, yeniden adlandırma veya payload/secret ayarlarını değiştirme.
 
-```json
-{
-  "role": "authenticated",
-  "email": "{{user.primary_email_address.email_address}}"
-}
-```
-
-Bu template, uygulamanın Supabase'e güvenli kimlik ile bağlanması için gerekli.
-
-Not:
-- `sub` claim'ini elle ekleme. Clerk bunu otomatik üretir (reserved claim).
-- `aud` bazı ortamlarda reserved olabilir. Hata alırsan ekleme.
+Yeni mentor akışı deprecated JWT template kullanmaz. Clerk'in native Supabase
+entegrasyonundan gelen normal session token'ını kullanır. Legacy istemcilerin native
+token'a taşınması ayrı bir migrasyon ve regresyon testi olarak yapılmalıdır.
 
 ## 2) Supabase tarafı (Clerk provider)
 
@@ -34,8 +24,8 @@ Not: Bu adım olmadan RLS politikaları "kim kullanıcı?" bilgisini doğru okuy
 ## 3) SQL güvenlik scriptini çalıştır
 
 1. Supabase -> `SQL Editor` aç.
-2. Bu dosyanın içeriğini çalıştır:
-   - `/Users/keremyarar/italypath-main/supabase/rls_hardening.sql`
+2. Bu dosyanın commitlenmiş içeriğini çalıştır:
+   - `supabase/rls_hardening.sql`
 3. Script şunları yapar:
    - `favorites` ve `user_documents` için RLS açar.
    - Her kullanıcının sadece kendi satırlarını görmesini/yazmasını sağlar.
@@ -67,20 +57,23 @@ Kod tarafında şu güvenlik iyileştirmeleri zaten uygulandı:
 
 ## 6) Sorun olursa hızlı kontrol
 
-1. Clerk template adı gerçekten `supabase` mı?
-2. Template içinde `sub` elle yazılmış mı? (yazılmamalı)
-3. Supabase Third-Party Auth içinde Clerk aktif mi?
+1. Legacy özelliklerde hata varsa mevcut Clerk template adı gerçekten `supabase` mı?
+2. Mentor akışında hata varsa native session token yenilendi mi (çıkış/giriş)?
+3. Supabase Third-Party Auth içinde doğru Clerk domain'i aktif mi?
 4. SQL script hata vermeden tamamlandı mı?
 5. `documents` bucket kesinlikle `public = false` mı?
 
 ## Volunteer Mentor
 
-1. Enable Clerk under Supabase Dashboard → Authentication → Third-Party Auth.
-2. Confirm a normal Clerk session token has `role=authenticated` and that `sub` exactly matches the signed-in user's Clerk Dashboard user ID.
-3. Run `supabase/volunteer_mentor.sql` in Supabase SQL Editor.
-4. In Clerk Dashboard copy Kerem's exact user ID; in Supabase Table Editor insert one `mentor_staff` row with that ID, display name `Kerem`, and `active=true`.
-5. For account/data deletion, delete the user's `mentor_conversations` rows; verify `mentor_messages` and private `mentor_rpc_idempotency` rows disappear through `on delete cascade`.
-6. Never put the operator ID or a service-role key in client source.
+1. In Clerk's Supabase setup, activate the matching instance and confirm the domain.
+2. Under Supabase Dashboard → Authentication → Third-Party Auth, confirm that exact Clerk domain is enabled. Do not add a duplicate provider.
+3. Sign out and back in so the browser receives a fresh native session token. Confirm it has `role=authenticated`; `sub` must exactly match the signed-in Clerk user ID.
+4. Run the exact committed `supabase/volunteer_mentor.sql` artifact in Supabase SQL Editor (or apply it once through the approved migration workflow).
+5. Run the verification queries below and review Supabase Security Advisor before deploying client traffic.
+6. In Clerk Dashboard copy Kerem's exact user ID; insert one `mentor_staff` row with that ID, display name `Kerem`, and `active=true`.
+7. Complete a two-account RLS and Realtime test: each student sees only their own thread; the active operator sees both and can reply.
+8. For account/data deletion, delete the user's `mentor_conversations` rows; verify `mentor_messages` and private `mentor_rpc_idempotency` rows disappear through `on delete cascade`.
+9. Never put the operator ID or a service-role key in client source.
 
 ### Legacy upgrade safe stop
 

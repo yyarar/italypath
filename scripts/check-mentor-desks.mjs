@@ -125,7 +125,9 @@ mustInclude(types, "MentorMessageRow", "Message row tipi eksik");
   "create table if not exists public.mentor_rpc_idempotency",
   "mentor_staff_one_active_operator",
   "mentor_conversations_one_open_per_user",
+  "mentor_conversations_user_last_message_idx",
   "enable row level security",
+  "set search_path = ''",
   "pg_advisory_xact_lock",
   "idempotency_conflict",
   "legacy_mentor_idempotency_migration_required",
@@ -142,6 +144,11 @@ mustInclude(types, "MentorMessageRow", "Message row tipi eksik");
 
 mustNotInclude(sql, "SUPABASE_SERVICE_ROLE_KEY", "SQL dosyasında client secret referansı");
 mustNotInclude(sql, "client_nonce uuid not null unique", "Global nonce unique kaldı");
+mustInclude(
+  sql,
+  "grant execute on function public.requesting_user_id() to authenticated",
+  "Shared Clerk claim helper explicit grant eksik",
+);
 mustInclude(packageJson, '"test:mentor-db"', "PostgreSQL mentor test komutu eksik");
 mustInclude(mentorDbTest, "runConcurrentBehindGate", "Concurrency DB testi eksik");
 mustInclude(mentorDbTest, "owner and active staff RLS reads", "RLS DB testi eksik");
@@ -170,6 +177,9 @@ mustInclude(studentState, "clearMentorMessageLoadError", "Message load error cle
 mustNotInclude(studentHook, "pendingStartRef.current.clear()", "Start nonce registry identity resetinde siliniyor");
 mustNotInclude(studentHook, "pendingSendRef.current.clear()", "Send nonce registry identity resetinde siliniyor");
 mustInclude(studentHook, 'filter: `user_id=eq.${ownerId}`', "Conversation subscription filtresi eksik");
+mustInclude(studentHook, 'event: "INSERT"', "Conversation INSERT subscription eksik");
+mustInclude(studentHook, 'event: "UPDATE"', "Conversation UPDATE subscription eksik");
+mustNotInclude(studentHook, 'event: "*"', "RLS uygulanmayan DELETE subscription kaldı");
 mustInclude(studentHook, 'table: "mentor_messages"', "Message subscription eksik");
 mustInclude(studentHook, 'filter: `conversation_id=eq.${conversationId}`', "Message subscription filtresi eksik");
 mustInclude(studentHook, "mergeMentorMessages", "Realtime dedupe eksik");
@@ -254,6 +264,9 @@ mustInclude(operatorHook, 'rpc("close_volunteer_conversation"', "Staff close RPC
 mustInclude(operatorHook, "realtime.setAuth()", "Operator Realtime auth eksik");
 mustInclude(operatorHook, "operatorCanAccess", "Operator yetki-sırası guard eksik");
 mustInclude(operatorHook, "createOwnerScopedNonceRegistry", "Owner scoped reply nonce eksik");
+mustInclude(operatorHook, 'event: "INSERT"', "Operator conversation INSERT subscription eksik");
+mustInclude(operatorHook, 'event: "UPDATE"', "Operator conversation UPDATE subscription eksik");
+mustNotInclude(operatorHook, 'event: "*"', "Operator RLS uygulanmayan DELETE subscription kaldı");
 mustInclude(operatorHook, 'filter: `conversation_id=eq.${conversationId}`', "Operator message scope filtresi eksik");
 mustInclude(operatorInbox, "OperatorConversationList", "Operator liste eksik");
 mustInclude(operatorInbox, "OperatorConversationThread", "Operator thread eksik");
