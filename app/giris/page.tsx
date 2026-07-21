@@ -1,8 +1,19 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
+import {
+  ClerkDegraded,
+  ClerkFailed,
+  ClerkLoaded,
+  ClerkLoading,
+} from "@clerk/nextjs";
 import { useRouter, useSearchParams } from "next/navigation";
 
+import {
+  AuthDegradedNotice,
+  AuthFailedFallback,
+  AuthLoadingFallback,
+} from "@/components/auth/AuthAvailability";
 import { AuthShell } from "@/components/auth/AuthShell";
 import { AuthCard } from "@/components/auth/AuthCard";
 import { AuthTabs, type AuthTab } from "@/components/auth/AuthTabs";
@@ -41,12 +52,23 @@ function GirisInner() {
   return (
     <AuthShell>
       <AuthCard>
-        <AuthTabs
-          active={tab}
-          onChange={setTab}
-          signInContent={<SignInForm />}
-          signUpContent={<SignUpForm />}
-        />
+        <ClerkLoading>
+          <AuthLoadingFallback />
+        </ClerkLoading>
+        <ClerkFailed>
+          <AuthFailedFallback />
+        </ClerkFailed>
+        <ClerkDegraded>
+          <AuthDegradedNotice />
+        </ClerkDegraded>
+        <ClerkLoaded>
+          <AuthTabs
+            active={tab}
+            onChange={setTab}
+            signInContent={<SignInForm />}
+            signUpContent={<SignUpForm />}
+          />
+        </ClerkLoaded>
       </AuthCard>
     </AuthShell>
   );
@@ -58,7 +80,7 @@ export default function GirisPage() {
       fallback={
         <AuthShell>
           <AuthCard>
-            <div className="h-64" />
+            <AuthLoadingFallback />
           </AuthCard>
         </AuthShell>
       }

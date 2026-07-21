@@ -6,13 +6,18 @@ import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { AuthLoadingFallback } from "@/components/auth/AuthAvailability";
 
 export function SignUpForm() {
   const { t } = useLanguage();
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <SignUp.Root path="/giris" routing="virtual">
+    <SignUp.Root
+      path="/giris"
+      routing="virtual"
+      fallback={<AuthLoadingFallback />}
+    >
       <SignUp.Step name="start">
         <div className="grid gap-4">
           <Clerk.Field name="emailAddress" className="grid gap-1.5">

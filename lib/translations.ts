@@ -780,6 +780,18 @@ export const translations = {
         backToSignIn: "Giriş sayfasına dön",
         switchToSignIn: "Giriş sekmesine geç",
       },
+      availability: {
+        loadingTitle: "Güvenli giriş hazırlanıyor",
+        loadingBody: "Bu işlem birkaç saniye sürebilir.",
+        loadingSlowBody:
+          "Beklenenden uzun sürüyor. Bağlantını kontrol edip sayfayı yeniden deneyebilirsin.",
+        failedTitle: "Giriş sistemi yüklenemedi",
+        failedBody:
+          "Bağlantı veya bir tarayıcı eklentisi güvenli giriş hizmetini engelliyor olabilir. Sayfayı yenileyip tekrar dene.",
+        degradedBody:
+          "Giriş hizmeti şu anda yavaş çalışıyor. İşlemlerin tamamlanması normalden uzun sürebilir.",
+        retry: "Sayfayı yenile",
+      },
       verification: {
         title: "E-postana doğrulama kodu gönderdik.",
         body: "ItalyPath hesabını tamamlamak için e-postana gelen 6 haneli kodu gir.",
@@ -1598,6 +1610,18 @@ export const translations = {
         resetPasswordLoading: "Resetting password...",
         backToSignIn: "Back to sign in",
         switchToSignIn: "Switch to sign in",
+      },
+      availability: {
+        loadingTitle: "Preparing secure sign-in",
+        loadingBody: "This can take a few seconds.",
+        loadingSlowBody:
+          "This is taking longer than expected. Check your connection and try reloading the page.",
+        failedTitle: "Sign-in could not be loaded",
+        failedBody:
+          "Your connection or a browser extension may be blocking the secure sign-in service. Reload the page and try again.",
+        degradedBody:
+          "The sign-in service is currently responding slowly. Actions may take longer than usual.",
+        retry: "Reload page",
       },
       verification: {
         title: "We sent a verification code to your email.",
