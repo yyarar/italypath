@@ -1,4 +1,4 @@
-import type { University } from "../app/data";
+import type { University } from "@/types/universities";
 
 export const UNIVERSITIES_VIEW_MODE_STORAGE_KEY = "italyPathUniversitiesViewMode";
 export const UNIVERSITIES_VIEW_MODE_EVENT = "italypath-universities-view-mode-change";

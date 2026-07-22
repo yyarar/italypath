@@ -1,64 +1,39 @@
 # Data Entry Guide
 
-Bu projede bolum metadata'si tek merkezden yonetilir.
+Supabase; universite, program ve admission verisinin tek dogru kaynagidir.
+`app/data.ts` legacy local seed/yedektir; canli urun verisi eklemek veya duzeltmek
+icin kullanilmaz.
 
-## Mevcut varsayilanlar
+## Veri tablolari
 
-Tum bolumler varsayilan olarak:
-- `languages: ["en"]`
-- `durationYears: 3`
-- `level: "bachelor"`
+- `universities`: universite temel bilgileri
+- `university_departments`: program adi, slug, dil, sure, seviye ve siralama
+- `program_admission_details`: resmi linkler, gereksinimler, EU/non-EU deadline,
+  belgeler, sinavlar, kaynaklar ve belirsizlik notlari
 
-Bu varsayilanlar `app/data.ts` icinde uygulanir.
+Yeni veya guncellenen program verisi once bu tablolara yazilir. Uygulama
+`lib/universities.server.ts` ile bu uc tabloyu tek `University[]` modelinde
+birlesitirir.
 
-## Yeni bolum ekleme
+## Tip ve local yedek siniri
 
-1. Universiteyi bul (`universitiesBaseData`).
-2. `departments` listesine sadece su formatta ekle:
+- Paylasilan uygulama tipleri: `types/universities.ts`
+- Supabase row tipleri: `types/index.ts`
+- Legacy local seed: `app/data.ts`
 
-```ts
-{ name: "Medicine", slug: "medicine" }
-```
+Runtime kodu `app/data.ts` import edemez. Bu kural
+`npm run check:university-data-source` ile korunur.
 
-3. Sonra gerekiyorsa override ekle.
+## Kontrol komutlari
 
-## Override kullanimi
-
-Anahtar formati: `universityId:departmentSlug`
-
-Ornek:
-
-```ts
-DEPARTMENT_LANGUAGE_OVERRIDES[createDepartmentKey(10, "medicine")] = ["it"];
-DEPARTMENT_DURATION_OVERRIDES[createDepartmentKey(10, "medicine")] = 6;
-DEPARTMENT_LEVEL_OVERRIDES[createDepartmentKey(10, "medicine")] = "master";
-```
-
-## Senaryolar
-
-- Italyanca 3 yillik lisans:
-  - language override: `["it"]`
-- Ingilizce 6 yillik lisans:
-  - duration override: `6`
-- Italyanca 6 yillik lisans:
-  - language override: `["it"]`
-  - duration override: `6`
-- 5 yillik program:
-  - duration override: `5`
-- Master program:
-  - level override: `"master"` (gerekiyorsa dil/sure de override edilir)
-
-## Kontrol komutu
-
-Data girisinden sonra mutlaka calistir:
+Canli veri degisikliginden sonra:
 
 ```bash
 npm run check:data
+npm run check:program-details
+node scripts/check-universities-server-compose.mjs
+npm run check:university-data-source
 ```
 
-Bu komut su kontrolleri yapar:
-- duplicate universite id/adi
-- universite icinde duplicate department slug
-- override anahtarlari gecerli mi
-- dil/sure/seviye degerleri gecerli mi
-- dagilim ozeti (language/duration/level)
+`npm run check:local-data` yalnizca legacy yedegin kendi butunlugunu kontrol
+eder; canli verinin dogrulama sonucu olarak kabul edilmez.

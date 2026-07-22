@@ -4,7 +4,7 @@ import React, { useCallback, useMemo, useState, useSyncExternalStore } from "rea
 import { motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
 
-import type { University } from "@/app/data";
+import type { University } from "@/types/universities";
 import { useLanguage } from "@/context/LanguageContext";
 import { useFavorites } from "@/lib/useFavorites";
 import { useUniversitiesData } from "@/lib/useUniversitiesData";

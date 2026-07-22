@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { University } from "@/app/data";
+import type { University } from "@/types/universities";
 
 let universitiesCache: University[] | null = null;
 let universitiesRequest: Promise<University[]> | null = null;

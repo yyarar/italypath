@@ -5,7 +5,8 @@ import Link from "next/link";
 import { ArrowLeft, ExternalLink, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
-import { DEFAULT_IMAGE, type Department, type University } from "@/app/data";
+import { DEFAULT_UNIVERSITY_IMAGE } from "@/lib/universityDefaults";
+import type { Department, University } from "@/types/universities";
 
 interface ProgramPortraitHeaderProps {
   university: University;
@@ -36,7 +37,7 @@ export function ProgramPortraitHeader({
         <div className="mt-6 grid gap-5 lg:grid-cols-[minmax(360px,0.95fr)_minmax(0,1.05fr)] lg:items-stretch">
           <div className="relative aspect-[16/11] min-h-64 overflow-hidden border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
             <Image
-              src={university.image || DEFAULT_IMAGE}
+              src={university.image || DEFAULT_UNIVERSITY_IMAGE}
               alt={`${department.name} - ${university.name}`}
               fill
               priority

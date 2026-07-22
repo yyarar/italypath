@@ -1,4 +1,4 @@
-import type { Department, University } from "@/app/data";
+import type { Department, University } from "@/types/universities";
 import { CURATED_CITIES } from "@/lib/cities/data";
 import type { ProfileCityPref, ProfileField, UserProfile } from "@/lib/hub/profile";
 import { SCHOLARSHIP_REGION_MAP } from "@/lib/scholarships/regions";

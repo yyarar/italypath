@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import type { University } from "@/app/data";
+import type { University } from "@/types/universities";
 import ScrollProgress from "@/components/ScrollProgress";
 import { useLanguage } from "@/context/LanguageContext";
 import { useFavorites } from "@/lib/useFavorites";

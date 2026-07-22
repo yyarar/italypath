@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 
 const failures = [];
@@ -9,6 +9,25 @@ function fail(message) {
 
 function read(path) {
   return readFileSync(resolve(process.cwd(), path), "utf8");
+}
+
+function collectSourceFiles(directory) {
+  return readdirSync(resolve(process.cwd(), directory), { withFileTypes: true }).flatMap(
+    (entry) => {
+      const path = `${directory}/${entry.name}`;
+      if (entry.isDirectory()) return collectSourceFiles(path);
+      return /\.(ts|tsx)$/.test(entry.name) ? [path] : [];
+    }
+  );
+}
+
+for (const path of ["app", "components", "lib"].flatMap(collectSourceFiles)) {
+  if (path === "app/data.ts") continue;
+
+  const source = read(path);
+  if (/from\s+["'][^"']*app\/data["']/.test(source)) {
+    fail(`${path} must not import the legacy local seed in app/data.ts`);
+  }
 }
 
 const liveDataSurfaces = [

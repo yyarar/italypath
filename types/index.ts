@@ -1,7 +1,7 @@
 // types/index.ts
 
-// University tipi artık app/data.ts'te tanımlı (tek kaynak)
-// Bu dosya sadece paylaşılan genel tipler için kullanılır.
+// University domain tipleri types/universities.ts icindedir.
+// Bu dosya genel uygulama ve Supabase row tiplerini tasir.
 
 export type Language = 'tr' | 'en';
 

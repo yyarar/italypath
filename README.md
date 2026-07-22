@@ -55,7 +55,7 @@ Supabase verisi olmayan ortamda university API ve ilgili dogrulama scriptleri ha
 
 ## Veri Mimarisi
 
-`app/data.ts`, local seed ve paylasilan TypeScript tiplerini tasir. Canli university/program verisi `lib/universities.server.ts` uzerinden Supabase `universities`, `university_departments` ve `program_admission_details` tablolarindan compose edilir.
+Supabase; university, program ve admission verisinin tek dogru kaynagidir. Canli veri `lib/universities.server.ts` uzerinden Supabase `universities`, `university_departments` ve `program_admission_details` tablolarindan compose edilir. Paylasilan domain tipleri `types/universities.ts` icindedir. `app/data.ts` yalnizca legacy local seed/yedek olarak tutulur ve runtime tarafindan import edilmez.
 
 `/api/universities` route'u `force-dynamic` ve `no-store` calisir. Client tarafinda `lib/useUniversitiesData.ts` request dedupe ve process-ici cache yapar, fakat browser fetch `cache: "no-store"` kullanir.
 
@@ -74,7 +74,6 @@ npm run check:data
 npm run check:local-data
 npm run check:university-data-source
 npm run check:isee
-npm run check:university-department-merge
 npm run check:universities-ui
 npm run check:university-details-ui
 npm run check:scholarships-ui

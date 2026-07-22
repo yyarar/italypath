@@ -5,12 +5,13 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-import { DEFAULT_IMAGE, type Department, type University } from "@/app/data";
 import {
   ExpandableScreen,
   ExpandableScreenContent,
   ExpandableScreenTrigger,
 } from "@/components/ui/expandable-screen";
+import { DEFAULT_UNIVERSITY_IMAGE } from "@/lib/universityDefaults";
+import type { Department, University } from "@/types/universities";
 
 interface ProgramTransitionEntryProps {
   university: University;
@@ -83,7 +84,7 @@ export function ProgramTransitionEntry({
         <div className="grid h-full grid-rows-[minmax(180px,42vh)_1fr] bg-[var(--editorial-paper)]">
           <div className="relative min-h-0">
             <Image
-              src={university.image || DEFAULT_IMAGE}
+              src={university.image || DEFAULT_UNIVERSITY_IMAGE}
               alt={`${department.name} - ${university.name}`}
               fill
               sizes="100vw"

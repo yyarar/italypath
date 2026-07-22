@@ -1,4 +1,4 @@
-import type { Department } from "@/app/data";
+import type { Department } from "@/types/universities";
 
 interface ProgramMetaStripProps {
   department: Department;

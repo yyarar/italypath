@@ -4,12 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Heart, MapPin } from "lucide-react";
 
-import { DEFAULT_IMAGE, type University } from "@/app/data";
+import { DEFAULT_UNIVERSITY_IMAGE } from "@/lib/universityDefaults";
 import {
   getTypeLabel,
   getUniversityDescription,
   type UniversityLanguage,
 } from "@/lib/universitiesFilters";
+import type { University } from "@/types/universities";
 
 export interface UniversityRowProps {
   university: University;
@@ -116,7 +117,7 @@ export function UniversityGuideRow({
         aria-label={university.name}
       >
         <Image
-          src={university.image || DEFAULT_IMAGE}
+          src={university.image || DEFAULT_UNIVERSITY_IMAGE}
           alt={university.name}
           fill
           sizes="112px"
@@ -198,7 +199,7 @@ export function UniversityCompactRow({
         aria-label={university.name}
       >
         <Image
-          src={university.image || DEFAULT_IMAGE}
+          src={university.image || DEFAULT_UNIVERSITY_IMAGE}
           alt={university.name}
           fill
           sizes="72px"

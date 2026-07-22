@@ -1,6 +1,6 @@
 "use client";
 
-import type { Department, University } from "@/app/data";
+import type { Department, University } from "@/types/universities";
 import { ProgramTransitionEntry } from "./ProgramTransitionEntry";
 
 interface ProgramDirectoryProps {

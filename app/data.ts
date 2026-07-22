@@ -1,43 +1,14 @@
-// src/app/data.ts
+// Legacy local seed only. Live application data comes from Supabase.
 
-export type ProgramLanguage = "en" | "it";
-export type ProgramLevel = "bachelor" | "master" | "single-cycle";
-export type ProgramDurationYears = 1 | 2 | 3 | 4 | 5 | 6;
+import type {
+  Department,
+  ProgramDurationYears,
+  ProgramLanguage,
+  ProgramLevel,
+  University,
+} from "@/types/universities";
+
 export type DepartmentKey = `${number}:${string}`;
-
-export interface ProgramSourceQuote {
-  url: string;
-  quote: string;
-  field_refs: string[];
-  retrieved_at: string;
-}
-
-export interface ProgramAdmissionDetails {
-  officialProgramUrl: string;
-  officialCallUrl?: string;
-  tuitionOrFeesLink?: string;
-  campus?: string;
-  degreeClass?: string;
-  admissionType?: string;
-  academicRequirements?: string;
-  languageRequirements?: string;
-  applicationDeadlineEu?: string;
-  applicationDeadlineNonEu?: string;
-  requiredDocuments: string[];
-  entryExamOrTest?: string;
-  sourceQuotes: ProgramSourceQuote[];
-  uncertain: string[];
-  uncertaintyNotes: string[];
-  rawTeachingLanguage: string;
-}
-
-export interface ProgramDeadline {
-  date: string;       // ISO "YYYY-MM-DD" | "rolling" | "TBA"
-  note?: string;      // free-form, e.g. "Early round 11 Jun; regular 15 May"
-  sourceUrl: string;  // page the data was extracted from
-}
-
-export const DEPARTMENT_DEADLINES_LAST_CHECKED_AT = "2026-05-28" as const;
 
 export interface DepartmentSeed {
   name: string;
@@ -47,38 +18,11 @@ export interface DepartmentSeed {
   level?: ProgramLevel;
 }
 
-export interface Department {
-  id?: number;
-  name: string;
-  slug: string;
-  languages: ProgramLanguage[];
-  durationYears: ProgramDurationYears;
-  level: ProgramLevel;
-  admissionDetails?: ProgramAdmissionDetails;
-  deadline?: ProgramDeadline;
-}
-
-export interface University {
-  id: number;
-  name: string;
-  city: string;
-  type: string;
-  departments: Department[];
-  fee: string;
-  image: string;
-  description: string;
-  // 👇 Yeni Eklenen İngilizce Alanlar (Opsiyonel yaptım, hata vermesin diye)
-  description_en?: string;
-  website: string;
-  features: string[];
-  features_en?: string[];
-}
-
 export type UniversitySeed = Omit<University, "departments"> & {
   departments: DepartmentSeed[];
 };
 
-export const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80";
+const LOCAL_SEED_DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80";
 
 export const DEFAULT_DEPARTMENT_LANGUAGES: readonly ProgramLanguage[] = ["en"];
 export const DEFAULT_DEPARTMENT_DURATION_YEARS: ProgramDurationYears = 3;
@@ -140,10 +84,6 @@ export const DEPARTMENT_DURATION_OVERRIDES: Partial<Record<DepartmentKey, Progra
 export const DEPARTMENT_LEVEL_OVERRIDES: Partial<Record<DepartmentKey, ProgramLevel>> = {
   // "10:medicine": "master",
 };
-export const DEPARTMENT_DEADLINE_OVERRIDES: Partial<Record<DepartmentKey, ProgramDeadline>> = {
-  // Populated by scripts/apply-deadlines.mjs after LLM extraction.
-};
-
 export function createDepartmentKey(universityId: number, departmentSlug: string): DepartmentKey {
   return `${universityId}:${departmentSlug}`;
 }
@@ -1294,7 +1234,7 @@ export const universitiesBaseData: UniversitySeed[] = [
       { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "Bilgi için üniversite sitesini kontrol et",
-    image: DEFAULT_IMAGE,
+    image: LOCAL_SEED_DEFAULT_IMAGE,
     description: `Milano merkezli, sağlık ve tıp alanına odaklanan özel bir üniversite.`,
     description_en: `A private university based in Milan, focused on medicine and health sciences.`,
     website: "https://www.hunimed.eu",
@@ -1343,7 +1283,7 @@ export const universitiesBaseData: UniversitySeed[] = [
       { name: "Medicine and Surgery", slug: "medicine-and-surgery" }
     ],
     fee: "Bilgi için üniversite sitesini kontrol et",
-    image: DEFAULT_IMAGE,
+    image: LOCAL_SEED_DEFAULT_IMAGE,
     description: `Milano'da yer alan, sağlık bilimleri ve tıp odaklı özel üniversite.`,
     description_en: `A private university in Milan focused on medicine and health sciences.`,
     website: "https://www.unisr.it",
@@ -1375,7 +1315,6 @@ function withDepartmentMetadata(
       department.level ??
       DEPARTMENT_LEVEL_OVERRIDES[departmentKey] ??
       DEFAULT_DEPARTMENT_LEVEL,
-    deadline: DEPARTMENT_DEADLINE_OVERRIDES[departmentKey],
   };
 }
 

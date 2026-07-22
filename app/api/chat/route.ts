@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { getUniversitiesData } from "@/lib/universities.server";
-import type { University } from "@/app/data";
+import type { University } from "@/types/universities";
 
 type ChatRole = "user" | "assistant";
 

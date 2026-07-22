@@ -1,6 +1,6 @@
 import { ExternalLink } from "lucide-react";
 
-import type { ProgramAdmissionDetails } from "@/app/data";
+import type { ProgramAdmissionDetails } from "@/types/universities";
 
 interface ProgramAdmissionDetailsLabels {
   title: string;

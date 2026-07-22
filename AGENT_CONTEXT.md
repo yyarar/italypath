@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur. Degisiklik gecmisi icin `AGENT_COMMITS.md`, son audit notlari icin `AGENT_CONTEXT_FIX_REPORT.md` okunabilir; bu dosya ise guncel mimari ve calisma kurallarinin kaynak dokumanidir.
 
-Son guncelleme: 2026-07-20
+Son guncelleme: 2026-07-22
 
 ---
 
@@ -45,7 +45,7 @@ italypath-main/
 │   ├── page.tsx                    # Home server wrapper; stats getUniversitiesData() kaynakli
 │   ├── sitemap.ts                  # getUniversitiesData() ile dinamik sitemap
 │   ├── robots.ts                   # Public/protected indexleme kurallari
-│   ├── data.ts                     # Local seed + paylasilan University/Department/Program tipleri
+│   ├── data.ts                     # Legacy local seed/yedek; runtime tarafindan import edilmez
 │   ├── api/
 │   │   ├── universities/route.ts   # force-dynamic, no-store, Supabase-backed public API
 │   │   ├── sat/questions/route.ts  # Protected SAT question API; service-role-backed, no-store
@@ -116,13 +116,13 @@ italypath-main/
 │   ├── communities/chapters.ts
 │   ├── community-links.ts
 │   ├── legal/documents.ts          # Yasal sayfa metinleri (TR) + footer/sitemap linkleri
-│   ├── deadlines/targets.ts         # Deadline scrape hedefleri (universite + admission URL)
 │   ├── hub/                        # profile.ts, useUserProfile.ts, recommendations.ts, useDocumentsCount.ts
 │   ├── mentor/                     # Channel registry, native Clerk/Supabase hooks ve state/controller helper'lari
 │   ├── sat/                        # SAT types, SPR answer matching, server memo, client hooks
 │   └── scholarships/regions.ts
 ├── types/
 │   ├── index.ts                    # Shared app types + Supabase row interfaces
+│   ├── universities.ts             # University/Department/admission domain tipleri
 │   ├── cities.ts
 │   └── scholarships.ts
 ├── public/data/italy-regions.geojson
@@ -137,13 +137,11 @@ italypath-main/
 │   ├── check-hub-onboarding.mjs     # /hosgeldin + yeni hub smoke/kapsama check
 │   ├── check-cities-data.mjs
 │   ├── check-program-details.mjs
-│   ├── check-deadlines.mjs
 │   ├── check-university-data-source.mjs
 │   ├── check-university-detail-portrait.mjs
 │   ├── check-universities-server-compose.mjs
 │   ├── validate-supabase-university-data.mjs
 │   ├── validate-data-integrity.mjs
-│   ├── apply-deadlines.mjs          # cikarilan deadline JSON -> app/data.ts override map
 │   ├── save-scraped.mjs             # deadline scrape kaydetme yardimcisi
 │   ├── scrape-deadlines-runbook.md  # Claude scrape runbook (LLM extract icermez)
 │   ├── import-*-program-details.mjs # Bologna/Ca'Foscari/Genoa/Milan/Milano-Bicocca/Padua/Polimi/Polito/Sapienza
@@ -171,9 +169,9 @@ italypath-main/
 
 ## Veri Katmani: Mutlaka Dogru Anla
 
-### Local seed ve tip kaynagi
+### Local seed/yedek
 
-`app/data.ts` halen `University`, `Department`, `ProgramAdmissionDetails` gibi uygulama tiplerinin ana kaynagidir ve local seed verisini tasir.
+`app/data.ts` ilk universite listesinden kalan legacy local seed/yedektir. Canli uygulama runtime'i bu dosyayi import etmez. Paylasilan `University`, `Department` ve `ProgramAdmissionDetails` domain tipleri `types/universities.ts` icindedir.
 
 Son local integrity kontrolunde:
 
@@ -193,12 +191,12 @@ Canli veri `lib/universities.server.ts` icinde Supabase'den compose edilir:
 
 `getUniversitiesData()` bu uc tabloyu sayfali sekilde ceker, normalize eder, `Department.admissionDetails` alanini ilgili department'a ekler ve `University[]` dondurur.
 
-Son canli API dogrulamasinda (`https://italypath.app/api/universities`, 2026-06-27):
+Son canli Supabase dogrulamasinda (2026-07-22):
 
 - `64` university
-- `1005` department
-- level dagilimi: `247 bachelor`, `743 master`, `15 single-cycle`
-- language dagilimi: `1005 en`, `71 it`
+- `1017` department
+- level dagilimi: `247 bachelor`, `753 master`, `17 single-cycle`
+- language dagilimi: `1017 en`, `81 it`
 
 ### API ve cache kurali
 
@@ -220,18 +218,18 @@ Son canli API dogrulamasinda (`https://italypath.app/api/universities`, 2026-06-
 - Her deploy memo'yu sifirlar; yeni program importlari en gec TTL kadar gecikmeyle canliya yansir.
 - `scripts/check-university-data-source.mjs` bu politikayi zorunlu kilar: TTL 1-6 saat araliginda olmali, stale-on-error mevcut olmali. Memo'yu kapatmak (`= 0`) artik fail'dir.
 
-`scripts/check-university-data-source.mjs`, live data surfaces icinde `universitiesData`/`app/data.ts` kullanilmasini yasaklar. `/api/universities`, sitemap, university metadata layout'lari ve chat context `getUniversitiesData()` uzerinden calismalidir.
+`scripts/check-university-data-source.mjs`, `app/`, `components/` ve `lib/` runtime kaynaklarinin `app/data.ts` import etmesini yasaklar. `/api/universities`, sitemap, university metadata layout'lari ve chat context `getUniversitiesData()` uzerinden calismalidir.
 
 ---
 
 ## Program Modeli ve Admission Details
 
-`app/data.ts` program tipleri:
+`types/universities.ts` program tipleri:
 
 - `ProgramLanguage`: `"en" | "it"`
 - `ProgramDurationYears`: `1 | 2 | 3 | 4 | 5 | 6`
 - `ProgramLevel`: `"bachelor" | "master" | "single-cycle"`
-- `Department`: `id?`, `name`, `slug`, `languages`, `durationYears`, `level`, `admissionDetails?`, `deadline?`
+- `Department`: `id?`, `name`, `slug`, `languages`, `durationYears`, `level`, `admissionDetails?`
 
 Local seed default'lari:
 
@@ -267,23 +265,9 @@ DB setup/policy: `supabase/program_admission_details.sql`.
 
 Dogrulama: `npm run check:program-details` ve `node scripts/check-universities-server-compose.mjs`.
 
-### Program deadline modeli ve scrape akisi
+### Program deadline kaynagi
 
-`Department.deadline?` alani `ProgramDeadline` tipindedir (`app/data.ts`):
-
-- `date`: ISO `YYYY-MM-DD` veya `"rolling"` / `"TBA"`
-- `note?`: serbest metin (orn. "Early round 11 Jun; regular 15 May")
-- `sourceUrl`: verinin cekildigi sayfa
-
-Deadline override'lari `app/data.ts` icindeki `DEPARTMENT_DEADLINE_OVERRIDES` map'inde tutulur ve hem local seed hem Supabase compose yolunda ilgili Department'a baglanir. Son toplu kontrol tarihi `DEPARTMENT_DEADLINES_LAST_CHECKED_AT` sabitindedir.
-
-Scrape -> extract -> apply boru hatti (Kerem'in "scrape ile LLM extract ayri" kuralina uygun):
-
-1. `lib/deadlines/targets.ts`: kazinacak universite + admission URL listesi (`DEADLINE_TARGETS`).
-2. `scripts/scrape-deadlines-runbook.md` + `scripts/save-scraped.mjs`: her URL'in temiz icerigini `tmp/scraped/`'e markdown olarak kaydeder. Bu adimda LLM extract YOK. `tmp/` gitignore'dadir.
-3. LLM extraction ayri, manuel adimda Kerem tarafindan yapilir (`docs/superpowers/specs/extraction-prompt-template.md`).
-4. `scripts/apply-deadlines.mjs`: cikarilan JSON'u `DEPARTMENT_DEADLINE_OVERRIDES`'a isler.
-5. `npm run check:deadlines`: deadline veri butunlugu guard'i.
+Gercek EU/non-EU basvuru tarihleri Supabase `program_admission_details` tablosundaki `application_deadline_eu` ve `application_deadline_non_eu` alanlarindan gelir. Bos kalan local `Department.deadline`/override altyapisi 2026-07-22'de kaldirildi. Tarihsel scrape tasarim/plan belgeleri `docs/superpowers/` altinda yalnizca arsiv niteligindedir.
 
 ---
 
@@ -655,12 +639,10 @@ npm run test:mentor-operator
 npm run test:mentor-db
 npm run check:cities
 npm run check:program-details
-npm run check:deadlines
 npm run check:data
 npm run check:local-data
 npm run check:university-data-source
 npm run check:isee
-npm run check:university-department-merge
 npm run check:universities-ui
 npm run check:university-details-ui
 npm run check:scholarships-ui
@@ -682,7 +664,7 @@ node scripts/check-universities-server-compose.mjs
 ### Orta oncelik
 
 1. PWA paketi eksik: `public/manifest.webmanifest` ve ikon setleri (`192x192`, `512x512`) yok.
-2. Local seed `app/data.ts` icindeki bazi universite gorselleri tekrarli/placeholder kalitesinde.
+2. Legacy local seed `app/data.ts` icindeki bazi universite gorselleri tekrarli/placeholder kalitesinde; runtime bu veriyi kullanmaz.
 3. Universite karsilastirma ozelligi yok; mevcut favori + university data modeliyle yapilabilir.
 4. Ana sayfada explicit canonical link canli HTML'de gorunmedi; apex domain/sitemap/redirect dogru, ama kucuk SEO hijyeni olarak `/` canonical'i eklenebilir.
 5. Search Console yeni kuruldu; ilk 1-2 hafta `Sitemaps`, `Pages` ve `URL Inspection` durumlari izlenmeli. Baslangicta performans/veri gecikmesi normaldir.
@@ -704,7 +686,7 @@ node scripts/check-universities-server-compose.mjs
 3. Hook'lar mevcut pattern geregi `lib/` altinda tutulur.
 4. SEO gereken dinamik route'larda `generateMetadata()` Server Component `layout.tsx` dosyasinda kalir; client page'e tasima.
 5. Route guvenligi `proxy.ts` uzerinden yonetilir; `middleware.ts` olusturma.
-6. Live university/program data icin client veya server yuzeylerde dogrudan `app/data.ts` seed'ine donme. `getUniversitiesData()` veya `/api/universities` kullan.
+6. Runtime kodunda `app/data.ts` import etme. Live university/program data icin `getUniversitiesData()` veya `/api/universities`, domain tipleri icin `types/universities.ts` kullan.
 7. UI metinleri `lib/translations.ts` icinde TR/EN paralel tutulur.
 8. Supabase generated types yok; yeni DB row ihtiyacinda `types/index.ts` icine explicit interface ekle.
 9. SEO icin hidden keyword block, `display:none` SEO metni veya botlara farkli icerik ekleme. Kullaniciya gorunmeyen SEO text yasak.

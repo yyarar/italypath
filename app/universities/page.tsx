@@ -1,4 +1,4 @@
-import type { Department, University } from "@/app/data";
+import type { Department, University } from "@/types/universities";
 import {
   UniversitiesExplorer,
   type UniversitiesExplorerFilters,

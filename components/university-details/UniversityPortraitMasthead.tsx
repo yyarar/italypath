@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Heart, MapPin } from "lucide-react";
 
-import { DEFAULT_IMAGE, type University } from "@/app/data";
+import { DEFAULT_UNIVERSITY_IMAGE } from "@/lib/universityDefaults";
+import type { University } from "@/types/universities";
 
 interface UniversityPortraitMastheadProps {
   university: University;
@@ -66,7 +67,7 @@ export function UniversityPortraitMasthead({
         <div className="mt-6 grid gap-5 lg:grid-cols-[minmax(360px,1.02fr)_minmax(0,0.98fr)] lg:items-stretch">
           <div className="relative aspect-[16/11] min-h-64 overflow-hidden border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
             <Image
-              src={university.image || DEFAULT_IMAGE}
+              src={university.image || DEFAULT_UNIVERSITY_IMAGE}
               alt={university.name}
               fill
               priority

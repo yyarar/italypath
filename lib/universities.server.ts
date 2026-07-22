@@ -1,9 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
 
-import {
-  DEPARTMENT_DEADLINE_OVERRIDES,
-  createDepartmentKey,
-} from "@/app/data";
 import type {
   Department,
   ProgramAdmissionDetails,
@@ -12,7 +8,7 @@ import type {
   ProgramLevel,
   ProgramSourceQuote,
   University,
-} from "@/app/data";
+} from "@/types/universities";
 import type {
   SupabaseProgramAdmissionDetailsRow,
   SupabaseUniversityDepartmentRow,
@@ -134,7 +130,6 @@ function createDepartment(row: SupabaseUniversityDepartmentRow): Department | nu
     languages: normalizeLanguages(row.languages),
     durationYears: normalizeDurationYears(row.duration_years),
     level: normalizeLevel(row.level),
-    deadline: DEPARTMENT_DEADLINE_OVERRIDES[createDepartmentKey(row.university_id, slug)],
   };
 }
 

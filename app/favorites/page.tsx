@@ -8,8 +8,7 @@ import { useFavorites } from '@/lib/useFavorites';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion } from 'framer-motion';
 import { useUniversitiesData } from '@/lib/useUniversitiesData';
-
-const DEFAULT_IMAGE = "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80";
+import { DEFAULT_UNIVERSITY_IMAGE } from '@/lib/universityDefaults';
 
 // Popüler öneri üniversiteleri (PoliMi, Bologna, Bocconi)
 const RECOMMENDED_IDS = [1, 3, 7];
@@ -19,7 +18,7 @@ export default function FavoritesPage() {
   const { t } = useLanguage();
   const { universities, loading: universitiesLoading, error: universitiesError } = useUniversitiesData();
 
-  // Favori üniversiteleri data.ts'ten filtrele
+  // Favori üniversiteleri canlı Supabase sonucundan filtrele.
   const favoriteUnis = universities.filter((u) => favorites.includes(u.id));
   const recommendedUnis = universities.filter((u) => RECOMMENDED_IDS.includes(u.id));
 
@@ -94,7 +93,7 @@ export default function FavoritesPage() {
                   <Link href={`/universities/${uni.id}`}>
                     <div className="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-100 flex items-center gap-3.5 hover:shadow-md hover:border-slate-200 active:scale-[0.98] transition-all">
                       <Image
-                        src={uni.image || DEFAULT_IMAGE}
+                        src={uni.image || DEFAULT_UNIVERSITY_IMAGE}
                         alt={uni.name}
                         width={56}
                         height={56}
@@ -125,7 +124,7 @@ export default function FavoritesPage() {
             <Link key={uni.id} href={`/universities/${uni.id}`}>
               <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex items-center gap-4 active:scale-[0.98] transition-transform mb-4">
                 <Image
-                  src={uni.image || DEFAULT_IMAGE}
+                  src={uni.image || DEFAULT_UNIVERSITY_IMAGE}
                   alt={uni.name}
                   width={80}
                   height={80}
