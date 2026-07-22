@@ -113,6 +113,7 @@ export function UniversityGuideRow({
     <article className="grid gap-4 p-4 transition hover:bg-[var(--editorial-paper)] sm:grid-cols-[112px_minmax(0,1fr)_auto] sm:p-5">
       <Link
         href={{ pathname: `/universities/${university.id}`, query: { from: "list" } }}
+        prefetch={false}
         className="relative h-24 overflow-hidden border border-[var(--editorial-border)] bg-[var(--editorial-paper)] sm:h-28"
         aria-label={university.name}
       >
@@ -128,6 +129,7 @@ export function UniversityGuideRow({
       <div className="min-w-0">
         <Link
           href={{ pathname: `/universities/${university.id}`, query: { from: "list" } }}
+          prefetch={false}
           className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
         >
           <h2 className="font-serif text-2xl font-semibold leading-tight tracking-[-0.02em] text-[var(--editorial-ink)] transition group-hover:text-[var(--editorial-sage)]">
@@ -141,6 +143,7 @@ export function UniversityGuideRow({
         <div className="mt-4 grid gap-2 text-xs font-bold text-[var(--editorial-muted)] sm:grid-cols-2 lg:grid-cols-4">
           <Link
             href={`/cities?city=${encodeURIComponent(university.city)}`}
+            prefetch={false}
             className="inline-flex min-w-0 items-center gap-1.5 hover:text-[var(--editorial-terracotta)] transition"
           >
             <MapPin className="h-3.5 w-3.5 shrink-0 text-[var(--editorial-terracotta)]" />
@@ -169,6 +172,7 @@ export function UniversityGuideRow({
         />
         <Link
           href={{ pathname: `/universities/${university.id}`, query: { from: "list" } }}
+          prefetch={false}
           className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.08em] text-[var(--editorial-sage)] transition hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
         >
           {reviewLabel}
@@ -195,6 +199,7 @@ export function UniversityCompactRow({
     <article className="grid gap-3 p-3 transition hover:bg-[var(--editorial-paper)] sm:grid-cols-[72px_minmax(0,1fr)_auto] sm:items-center sm:p-4">
       <Link
         href={{ pathname: `/universities/${university.id}`, query: { from: "list" } }}
+        prefetch={false}
         className="relative h-18 min-h-18 overflow-hidden border border-[var(--editorial-border)] bg-[var(--editorial-paper)]"
         aria-label={university.name}
       >
@@ -209,6 +214,7 @@ export function UniversityCompactRow({
 
       <Link
         href={{ pathname: `/universities/${university.id}`, query: { from: "list" } }}
+        prefetch={false}
         className="min-w-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
       >
         <h2 className="truncate font-serif text-xl font-semibold tracking-[-0.015em] text-[var(--editorial-ink)]">
@@ -233,6 +239,7 @@ export function UniversityCompactRow({
         />
         <Link
           href={{ pathname: `/universities/${university.id}`, query: { from: "list" } }}
+          prefetch={false}
           className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-[0.08em] text-[var(--editorial-sage)] transition hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
         >
           {reviewLabel}

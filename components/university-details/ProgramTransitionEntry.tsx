@@ -45,6 +45,7 @@ export function ProgramTransitionEntry({
       <ExpandableScreenTrigger className="group border-b border-[var(--editorial-border)] bg-[var(--editorial-surface)] transition hover:bg-[var(--editorial-paper)]">
         <Link
           href={departmentHref}
+          prefetch={false}
           onClick={(event) => {
             if (expanding) {
               event.preventDefault();
