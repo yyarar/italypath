@@ -287,7 +287,7 @@ export default function CityGuidesExplorer({
                       {language === "tr"
                         ? city.name
                         : getCityDetailBySlug(city.name)?.nameEn || city.name}
-                      {` · ${city.count} ${t.detail.programCount}`}
+                      {` · ${city.count} ${copy.universityCount[city.count === 1 ? "one" : "other"]}`}
                     </option>
                   ))}
                 </select>
@@ -332,7 +332,7 @@ export default function CityGuidesExplorer({
                           active ? "text-white/80" : "text-[var(--editorial-muted)]"
                         }`}
                       >
-                        {city.count} {t.detail.programCount}
+                        {city.count} {copy.universityCount[city.count === 1 ? "one" : "other"]}
                       </span>
                     </button>
                   );

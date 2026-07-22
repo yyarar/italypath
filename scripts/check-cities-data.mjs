@@ -351,4 +351,24 @@ assertIncludes(
   "English mobile city selector copy is required."
 );
 
+const universityCountExpression = 'copy.universityCount[city.count === 1 ? "one" : "other"]';
+const universityCountLabelUses = cityExplorerSource.split(universityCountExpression).length - 1;
+
+if (universityCountLabelUses !== 2) {
+  throw new Error(
+    "City cards and the mobile selector must label city counts as universities."
+  );
+}
+
+assertIncludes(
+  translationsSource,
+  'universityCount: { one: "üniversite", other: "üniversite" }',
+  "Turkish city university count copy is required."
+);
+assertIncludes(
+  translationsSource,
+  'universityCount: { one: "university", other: "universities" }',
+  "English city university count copy must support singular and plural labels."
+);
+
 console.log("[OK] City data source checks passed.");
