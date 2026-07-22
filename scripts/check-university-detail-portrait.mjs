@@ -56,6 +56,8 @@ const allDetailSource = [
 
 requireTokens("university detail wrapper", universityPage, [
   "getUniversityById",
+  'import { notFound } from "next/navigation"',
+  "if (!university) notFound();",
   "UniversityDetailClient",
   "initialUniversity",
   "cameFromList",
@@ -77,6 +79,9 @@ requireTokens("university detail client", universityDetailClient, [
 
 requireTokens("program detail wrapper", programPage, [
   "getUniversityById",
+  'import { notFound } from "next/navigation"',
+  "if (!university) notFound();",
+  "if (!department) notFound();",
   "DepartmentDetailClient",
   "initialUniversity",
   "initialDepartmentSlug",

@@ -1,5 +1,6 @@
 import { DepartmentDetailClient } from "@/components/university-details/DepartmentDetailClient";
 import { getUniversityById } from "@/lib/universities.server";
+import { notFound } from "next/navigation";
 
 const BASE_URL = "https://italypath.app";
 
@@ -36,51 +37,49 @@ export default async function DepartmentDetailPage({ params }: DepartmentDetailP
     return <DepartmentDetailDataUnavailable />;
   }
 
+  if (!university) notFound();
+
   // Program adını layout'taki ile aynı şekilde slug üzerinden çöz.
-  const department = university?.departments.find(
+  const department = university.departments.find(
     (d) => d.slug === resolvedParams.deptSlug
   );
 
-  // Breadcrumb yalnızca üniversite ve program verisi gerçekten yüklendiğinde basılır.
-  const breadcrumbJsonLd =
-    university && department
-      ? {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Anasayfa", item: BASE_URL },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: "Üniversiteler",
-              item: `${BASE_URL}/universities`,
-            },
-            {
-              "@type": "ListItem",
-              position: 3,
-              name: university.name,
-              item: `${BASE_URL}/universities/${resolvedParams.id}`,
-            },
-            {
-              "@type": "ListItem",
-              position: 4,
-              name: department.name,
-              item: `${BASE_URL}/universities/${resolvedParams.id}/departments/${resolvedParams.deptSlug}`,
-            },
-          ],
-        }
-      : null;
+  if (!department) notFound();
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Anasayfa", item: BASE_URL },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Üniversiteler",
+        item: `${BASE_URL}/universities`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: university.name,
+        item: `${BASE_URL}/universities/${resolvedParams.id}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: department.name,
+        item: `${BASE_URL}/universities/${resolvedParams.id}/departments/${resolvedParams.deptSlug}`,
+      },
+    ],
+  };
 
   return (
     <>
-      {breadcrumbJsonLd ? (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-        />
-      ) : null}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <DepartmentDetailClient
-        initialUniversity={university ?? null}
+        initialUniversity={university}
         initialDepartmentSlug={resolvedParams.deptSlug}
         idFromUrl={resolvedParams.id}
       />

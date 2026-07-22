@@ -1,5 +1,6 @@
 import { UniversityDetailClient } from "@/components/university-details/UniversityDetailClient";
 import { getUniversityById } from "@/lib/universities.server";
+import { notFound } from "next/navigation";
 
 const BASE_URL = "https://italypath.app";
 
@@ -47,39 +48,36 @@ export default async function UniversityDetailPage({
     return <UniversityDetailDataUnavailable />;
   }
 
-  // Breadcrumb yalnızca üniversite verisi gerçekten yüklendiğinde basılır.
-  const breadcrumbJsonLd = university
-    ? {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Anasayfa", item: BASE_URL },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Üniversiteler",
-            item: `${BASE_URL}/universities`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: university.name,
-            item: `${BASE_URL}/universities/${resolvedParams.id}`,
-          },
-        ],
-      }
-    : null;
+  if (!university) notFound();
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Anasayfa", item: BASE_URL },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Üniversiteler",
+        item: `${BASE_URL}/universities`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: university.name,
+        item: `${BASE_URL}/universities/${resolvedParams.id}`,
+      },
+    ],
+  };
 
   return (
     <>
-      {breadcrumbJsonLd ? (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-        />
-      ) : null}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <UniversityDetailClient
-        initialUniversity={university ?? null}
+        initialUniversity={university}
         idFromUrl={resolvedParams.id}
         cameFromList={getSingleParam(resolvedSearchParams.from) === "list"}
       />

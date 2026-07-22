@@ -379,15 +379,22 @@ SEO Adim 2.5 (`SEO 2.5` deploy'u):
 - `/isee` server wrapper oldu; hesaplayici `components/isee/IseeCalculatorClient.tsx` client leaf'ine tasindi
 - `/communities` `force-dynamic` ile static prerender + analytics kaynakli marker'dan cikarildi; atlas HTML'de gercek H1/chapter/topluluk satirlari tasimaya devam eder
 
-Son canli SEO curl audit notlari (SEO 2.5 deploy sonrasi):
+SEO Adim 3 Part 1 (`288dd5d`, breadcrumb polish `b1fd488`):
 
-- `robots.txt` ve `sitemap.xml` `.app` icin PASS; sitemap yaklasik `1075` URL tasiyor ve `.com` URL kalmadi
-- `/`, `/isee`, `/communities`, `/universities`, university detail, program detail, `/cities`, `/scholarships` canli HTML'de gercek gorunen icerik tasiyor ve bailout yok
+- Ana sayfaya explicit `alternates.canonical: "/"` eklendi
+- `app/layout.tsx` site geneli gercek bilgiye dayali `Organization` + `WebSite` JSON-LD tasir; dogrulanmamis logo/sosyal hesap/SearchAction eklenmez
+- University detail sayfalari 3 seviyeli, program detail sayfalari 4 seviyeli `BreadcrumbList` JSON-LD tasir
+- University/program kaydi bulunamazsa route `notFound()` ile gercek HTTP 404 dondurur; veri kaynagi hata verirse editorial "veri yuklenemedi" govdesi korunur
+
+Son canli SEO kabul audit notlari (2026-07-22):
+
+- `robots.txt` ve `sitemap.xml` `.app` icin PASS; sitemap `1087` URL tasiyor (`6` statik + `64` university + `1017` program) ve `.com` URL kalmadi
+- Sitemap'teki `1087/1087` URL HTTP 200, tekil self-canonical, title, description, gorunur H1, server HTML ve parse edilebilir JSON-LD kontrollerinden gecti; bailout/noindex/server hata govdesi yok
+- `64/64` university breadcrumb'i ve `1017/1017` program breadcrumb'i canonical/H1/sira sozlesmesini gecti
 - `www.italypath.app` SSL/redirect hijyeni duzeltildi: `https://www.italypath.app` artik `308` ile `https://italypath.app/` adresine gider
 - Name.com DNS Vercel'in yeni onerilerine guncellendi: apex `A -> 216.198.79.1`, `www` CNAME Vercel'in project-specific `vercel-dns-017.com` hedefine gider
 - Google Search Console domain property `italypath.app` dogrulandi; `https://italypath.app/sitemap.xml` gonderildi; kritik URL'ler icin URL Inspection + Request Indexing yapildi (`/`, `/universities`, `/isee`, `/scholarships`, `/cities`, `/communities`)
-- JSON-LD/schema/breadcrumb calismasi henuz yapilmadi; SEO 3 olarak planlanacak
-- Canli auditte ana sayfada explicit canonical link gorunmedi; metadataBase/sitemap/redirect apex ile uyumlu, ancak ana sayfa canonical'i kucuk hijyen isi olarak SEO 3 oncesi veya SEO 3 icinde eklenebilir
+- SEO 3 Part 2 icin henuz ayri spec/plan yoktur. Yeni schema yalnizca sayfada gorunen, dogrulanmis bilgiye dayanmali; Rich Results Test ve Search Console URL Inspection ile deploy sonrasi kontrol edilmelidir
 
 ### Home
 
@@ -666,9 +673,9 @@ node scripts/check-universities-server-compose.mjs
 1. PWA paketi eksik: `public/manifest.webmanifest` ve ikon setleri (`192x192`, `512x512`) yok.
 2. Legacy local seed `app/data.ts` icindeki bazi universite gorselleri tekrarli/placeholder kalitesinde; runtime bu veriyi kullanmaz.
 3. Universite karsilastirma ozelligi yok; mevcut favori + university data modeliyle yapilabilir.
-4. Ana sayfada explicit canonical link canli HTML'de gorunmedi; apex domain/sitemap/redirect dogru, ama kucuk SEO hijyeni olarak `/` canonical'i eklenebilir.
-5. Search Console yeni kuruldu; ilk 1-2 hafta `Sitemaps`, `Pages` ve `URL Inspection` durumlari izlenmeli. Baslangicta performans/veri gecikmesi normaldir.
-6. SEO 3: JSON-LD/schema/breadcrumb henuz eklenmedi. Hidden/uydurma schema yok; sadece sayfada gorunen gercek bilgiye dayali structured data eklenmeli.
+4. Search Console `Sitemaps`, `Pages`, Core Web Vitals ve URL Inspection durumlari izlenmeli; bu production verisine repo icinden erisilemez.
+5. SEO 3 Part 1 tamamlandi; Part 2 icin ayri spec/plan henuz yazilmadi. Hidden/uydurma schema yok; sadece sayfada gorunen gercek bilgiye dayali structured data eklenmeli.
+6. `Organization` + `WebSite` JSON-LD root layout nedeniyle her sayfada tekrar eder. Bu gecersiz degildir; Google ana sayfa veya tek bir kurumsal sayfanin yeterli oldugunu belirttigi icin ileride dusuk oncelikli sadeleştirme olarak degerlendirilebilir.
 7. AI Mentor system prompt'u canli program sayisi arttikca buyuyor; prompt boyutu, latency ve maliyet izlenmeli.
 
 ### Repo hijyeni
