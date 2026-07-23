@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="tr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Spectral";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("assets/fonts/spectral-600-latin-ext.woff2") format("woff2");
+        unicode-range: U+0100-024F, U+1E00-1EFF;
+      }
+      @font-face {
+        font-family: "Spectral";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("assets/fonts/spectral-600-latin.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Spectral";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url("assets/fonts/spectral-700-latin-ext.woff2") format("woff2");
+        unicode-range: U+0100-024F, U+1E00-1EFF;
+      }
+      @font-face {
+        font-family: "Spectral";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url("assets/fonts/spectral-700-latin.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Hanken Grotesk";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("assets/fonts/hanken-latin-ext.woff2") format("woff2");
+        unicode-range: U+0100-024F, U+1E00-1EFF;
+      }
+      @font-face {
+        font-family: "Hanken Grotesk";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("assets/fonts/hanken-latin.woff2") format("woff2");
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #15201c;
+      }
+
+      body {
+        font-family: "Hanken Grotesk", sans-serif;
+      }
+
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+      }
+
+      #root > [data-composition-src] {
+        position: absolute;
+        inset: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        pointer-events: none;
+        will-change: opacity;
+      }
+
+      #scene01-slot {
+        z-index: 1;
+        opacity: 1;
+      }
+
+      #scene02-slot {
+        z-index: 2;
+        opacity: 0;
+      }
+
+      #scene03-slot {
+        z-index: 3;
+        opacity: 0;
+      }
+
+      #scene04-slot {
+        z-index: 4;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="12"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div
+        id="scene01-slot"
+        class="clip"
+        data-composition-id="scene01"
+        data-composition-src="compositions/scene-01.html"
+        data-start="0"
+        data-duration="4.3"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+
+      <div
+        id="scene02-slot"
+        class="clip"
+        data-composition-id="scene02"
+        data-composition-src="compositions/scene-02.html"
+        data-start="3.7"
+        data-duration="4.6"
+        data-track-index="2"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+
+      <div
+        id="scene03-slot"
+        class="clip"
+        data-composition-id="scene03"
+        data-composition-src="compositions/scene-03.html"
+        data-start="7.7"
+        data-duration="2.6"
+        data-track-index="3"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+
+      <div
+        id="scene04-slot"
+        class="clip"
+        data-composition-id="scene04"
+        data-composition-src="compositions/scene-04.html"
+        data-start="9.7"
+        data-duration="2.3"
+        data-track-index="4"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      tl.to(
+        "#scene01-slot",
+        { opacity: 0, duration: 0.6, ease: "power1.inOut" },
+        3.7,
+      );
+      tl.fromTo(
+        "#scene02-slot",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.6, ease: "power1.inOut" },
+        3.7,
+      );
+
+      tl.to(
+        "#scene02-slot",
+        { opacity: 0, duration: 0.6, ease: "power1.inOut" },
+        7.7,
+      );
+      tl.fromTo(
+        "#scene03-slot",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.6, ease: "power1.inOut" },
+        7.7,
+      );
+
+      tl.to(
+        "#scene03-slot",
+        { opacity: 0, duration: 0.6, ease: "power1.inOut" },
+        9.7,
+      );
+      tl.fromTo(
+        "#scene04-slot",
+        { opacity: 0 },
+        { opacity: 1, duration: 0.6, ease: "power1.inOut" },
+        9.7,
+      );
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

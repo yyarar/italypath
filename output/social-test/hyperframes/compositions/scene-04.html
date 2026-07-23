@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face {
+          font-family: "Spectral";
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("assets/fonts/spectral-700-latin-ext.woff2") format("woff2");
+          unicode-range: U+0100-024F, U+1E00-1EFF;
+        }
+        @font-face {
+          font-family: "Spectral";
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url("assets/fonts/spectral-700-latin.woff2") format("woff2");
+        }
+        @font-face {
+          font-family: "Hanken Grotesk";
+          font-style: normal;
+          font-weight: 100 900;
+          font-display: swap;
+          src: url("assets/fonts/hanken-latin-ext.woff2") format("woff2");
+          unicode-range: U+0100-024F, U+1E00-1EFF;
+        }
+        @font-face {
+          font-family: "Hanken Grotesk";
+          font-style: normal;
+          font-weight: 100 900;
+          font-display: swap;
+          src: url("assets/fonts/hanken-latin.woff2") format("woff2");
+        }
+
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1080px;
+          height: 1920px;
+          overflow: hidden;
+          color: #f8f7f1;
+        }
+
+        .fill,
+        .glow,
+        .grain {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .fill {
+          background: #1f4f46;
+        }
+
+        .glow {
+          background:
+            radial-gradient(circle at 50% 45%, rgba(248, 247, 241, 0.14), rgba(248, 247, 241, 0) 38%),
+            radial-gradient(circle at 86% 12%, rgba(183, 91, 56, 0.18), rgba(183, 91, 56, 0) 30%);
+        }
+
+        .grain {
+          opacity: 0.2;
+          mix-blend-mode: soft-light;
+          background-image:
+            repeating-radial-gradient(circle at 50% 50%, rgba(248, 247, 241, 0.26) 0 0.7px, rgba(21, 32, 28, 0) 0.9px 3px);
+          background-size: 7px 7px;
+        }
+
+        .card {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 250px 96px 340px;
+          gap: 34px;
+          text-align: center;
+        }
+
+        .wordmark {
+          font-family: "Spectral", serif;
+          font-size: 126px;
+          font-weight: 700;
+          line-height: 0.95;
+          letter-spacing: -0.05em;
+          color: #f8f7f1;
+          text-shadow: 0 8px 30px rgba(21, 32, 28, 0.22);
+        }
+
+        .accent-rule {
+          width: 132px;
+          height: 4px;
+          background: #b75b38;
+          transform-origin: center;
+        }
+
+        .index {
+          position: absolute;
+          top: 302px;
+          right: 96px;
+          font-family: "Hanken Grotesk", sans-serif;
+          font-size: 22px;
+          font-weight: 650;
+          line-height: 1;
+          letter-spacing: 0.22em;
+          color: #e7c9b8;
+          font-variant-numeric: tabular-nums;
+        }
+
+        .corner {
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          opacity: 0.78;
+        }
+
+        .corner.tl { top: 270px; left: 72px; border-top: 2px solid #e7c9b8; border-left: 2px solid #e7c9b8; }
+        .corner.tr { top: 270px; right: 72px; border-top: 2px solid #e7c9b8; border-right: 2px solid #e7c9b8; }
+        .corner.bl { bottom: 334px; left: 72px; border-bottom: 2px solid #e7c9b8; border-left: 2px solid #e7c9b8; }
+        .corner.br { bottom: 334px; right: 72px; border-bottom: 2px solid #e7c9b8; border-right: 2px solid #e7c9b8; }
+      </style>
+
+      <div id="root" data-composition-id="scene04" data-width="1080" data-height="1920" data-duration="2.3">
+        <div class="fill"></div>
+        <div id="scene04-glow" class="glow" data-layout-allow-overflow></div>
+        <div id="scene04-grain" class="grain" data-layout-allow-overflow></div>
+
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <div id="scene04-index" class="index" data-layout-allow-overlap>04 / 04</div>
+
+        <div id="scene04-card" class="card">
+          <div id="scene04-wordmark" class="wordmark" data-layout-allow-overlap>ItalyPath</div>
+          <div id="scene04-rule" class="accent-rule"></div>
+        </div>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+        const scene04 = gsap.timeline({ paused: true });
+
+        scene04.fromTo(
+          "#scene04-wordmark",
+          { y: 24, opacity: 0, scale: 0.975 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.82, ease: "power2.out" },
+          0.3,
+        );
+        scene04.fromTo(
+          "#scene04-rule",
+          { scaleX: 0, opacity: 0 },
+          { scaleX: 1, opacity: 1, duration: 0.64, ease: "power3.out" },
+          0.52,
+        );
+        scene04.fromTo(
+          "#scene04-index",
+          { y: -10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.62, ease: "sine.out" },
+          0.48,
+        );
+        scene04.fromTo(
+          "#scene04-glow",
+          { scale: 0.98, opacity: 0.78 },
+          { scale: 1.04, opacity: 1, duration: 2.3, ease: "none" },
+          0,
+        );
+        scene04.fromTo(
+          "#scene04-grain",
+          { opacity: 0.16, x: 0 },
+          { opacity: 0.22, x: 3, duration: 2.3, ease: "none" },
+          0,
+        );
+
+        window.__timelines["scene04"] = scene04;
+      </script>
+    </template>
+  </body>
+</html>
