@@ -47,7 +47,7 @@ export default function FeaturesSection({ stats }: FeaturesSectionProps) {
       title: t.features.card2Title,
       description: t.features.card2Desc,
       href: aiMentorHref,
-      meta: language === "tr" ? "Girişli mentor alanı" : "Signed-in mentor area",
+      meta: language === "tr" ? "AI · Gönüllü ekip · Uzman" : "AI · Volunteer team · Expert",
     },
   ];
 
