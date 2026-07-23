@@ -54,10 +54,16 @@ export default function MentorHub({
           {MENTOR_CHANNELS.map((channel) => {
             const copy = t.aiMentor.channels[channel.id];
             const isActive = channel.availability === "active";
+            const isPaused = channel.availability === "paused";
             const badgeText =
               channel.id === "volunteer"
                 ? t.aiMentor.hubVolunteerActiveBadge
                 : null;
+            const ctaText = isActive
+              ? `${t.aiMentor.hubOpenCta} ↗`
+              : isPaused
+                ? t.aiMentor.hubPausedCta
+                : t.aiMentor.hubLockedCta;
 
             return (
               <motion.li
@@ -75,10 +81,13 @@ export default function MentorHub({
                 <button
                   type="button"
                   onClick={() => onSelectChannel(channel.id)}
+                  disabled={isPaused}
                   aria-label={
-                    badgeText ? `${copy.name}, ${badgeText}` : copy.name
+                    badgeText
+                      ? `${copy.name}, ${badgeText}`
+                      : `${copy.name}, ${ctaText}`
                   }
-                  className="grid w-full grid-cols-[40px_minmax(0,1fr)_auto] gap-x-5 gap-y-2 py-6 text-left transition-colors duration-200 ease-out hover:bg-[#f6f0e7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] active:scale-[0.995] sm:gap-x-6"
+                  className="grid w-full grid-cols-[40px_minmax(0,1fr)_auto] gap-x-5 gap-y-2 py-6 text-left transition-colors duration-200 ease-out hover:bg-[#f6f0e7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] active:scale-[0.995] disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:bg-transparent disabled:active:scale-100 sm:gap-x-6"
                 >
                   <span className="pt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
                     {channel.numberLabel}
@@ -110,9 +119,7 @@ export default function MentorHub({
                         : "border border-[var(--editorial-border)] px-3 py-1.5 text-[var(--editorial-muted)]"
                     }`}
                   >
-                    {isActive
-                      ? `${t.aiMentor.hubOpenCta} ↗`
-                      : t.aiMentor.hubLockedCta}
+                    {ctaText}
                   </span>
                 </button>
               </motion.li>

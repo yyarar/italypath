@@ -110,6 +110,16 @@ mustInclude(
   'activeChannel.experience === "volunteer-inbox"',
   "Experience branch eksik",
 );
+mustInclude(
+  mentorPage,
+  'aiChannel.availability !== "active"',
+  "Program bağlamı AI duraklatmasını aşabiliyor",
+);
+mustInclude(
+  mentorPage,
+  'getMentorChannel(id).availability === "paused"',
+  "Duraklatılmış masa seçim guard'ı eksik",
+);
 mustInclude(mentorPage, "aiMessages", "AI state ayrıştırılmamış");
 mustNotInclude(mentorPage, "MessagesByChannel", "Eski kanal-bazlı AI state kaldı");
 mustInclude(volunteer, "VOLUNTEER_TOPIC_IDS", "Konu ID'leri eksik");
@@ -236,6 +246,17 @@ mustInclude(
   'meta: "Completely Free · Experience Sharing"',
   "Volunteer meta copy missing",
 );
+mustInclude(
+  translations,
+  'hubPausedCta: "GEÇİCİ DEVRE DIŞI"',
+  "AI geçici devre dışı CTA metni eksik",
+);
+mustInclude(
+  translations,
+  'hubPausedCta: "TEMPORARILY UNAVAILABLE"',
+  "AI temporarily unavailable CTA copy missing",
+);
+mustInclude(mentorHub, "disabled={isPaused}", "Duraklatılmış masa arayüzde kilitli değil");
 [
   "Pratik soruna pratik yanıt — birkaç saatte bir cevap.",
   "Birkaç saat içinde · Hafta içi · Ücretsiz / sınırlı",
@@ -400,10 +421,13 @@ mustInclude(
   "Agent context mentor doğrulamasını açıklamıyor",
 );
 
+const aiRecord =
+  channels.match(/\{\s*id: "ai"[\s\S]*?\n\s*\}/)?.[0] ?? "";
 const volunteerRecord =
   channels.match(/\{\s*id: "volunteer"[\s\S]*?\n\s*\}/)?.[0] ?? "";
 const expertRecord =
   channels.match(/\{\s*id: "expert"[\s\S]*?\n\s*\}/)?.[0] ?? "";
+mustInclude(aiRecord, 'availability: "paused"', "AI masa geçici olarak duraklatılmamış");
 mustInclude(volunteerRecord, 'availability: "active"', "Volunteer masa aktif değil");
 mustInclude(
   expertRecord,

@@ -426,7 +426,7 @@ SEO `layout.tsx` Server Component'lerinde `generateMetadata()` ile uretilir. `ge
 
 `/ai-mentor` protected route'tur. UI uc masali consultation desk modelidir:
 
-- ItalyPath AI: aktif; native Gemini streaming masasi.
+- ItalyPath AI: backend/native Gemini streaming akisi korunur; masa 2026-07-23 itibariyla arayuzde gecici olarak `paused` ve secilemez.
 - ItalyPath Gonullu Ekip: aktif; Supabase uzerinde kalici, site ici insan yazismasi.
 - ItalyPath Uzman: ayri uzman lead-form projesi tamamlanana kadar `coming-soon`.
 

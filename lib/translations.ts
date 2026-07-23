@@ -617,6 +617,7 @@ export const translations = {
         " Özellikle şu noktaları netleştirmek istiyorum: {focus}.",
       hubVolunteerActiveBadge: "AKTİF · YOĞUNLUĞA BAĞLI",
       hubOpenCta: "SOHBETE BAŞLA",
+      hubPausedCta: "GEÇİCİ DEVRE DIŞI",
       hubLockedCta: "YAKINDA",
       statusReady: "HAZIR",
       statusWriting: "YAZIYOR…",
@@ -684,7 +685,7 @@ export const translations = {
           name: "ItalyPath AI",
           tagline:
             "Canlı üniversite ve program verisine bağlı yapay zekâ. İlk eşikte hızlı oryantasyon için.",
-          meta: "Anında · 7/24 · Ücretsiz",
+          meta: "Geçici olarak devre dışı",
           lockedBody: "",
         },
         volunteer: {
@@ -1469,6 +1470,7 @@ export const translations = {
         " I especially want to clarify these points: {focus}.",
       hubVolunteerActiveBadge: "ACTIVE · SUBJECT TO AVAILABILITY",
       hubOpenCta: "START A CHAT",
+      hubPausedCta: "TEMPORARILY UNAVAILABLE",
       hubLockedCta: "SOON",
       statusReady: "READY",
       statusWriting: "WRITING…",
@@ -1536,7 +1538,7 @@ export const translations = {
           name: "ItalyPath AI",
           tagline:
             "AI connected to live university and program data. For fast orientation on the first step.",
-          meta: "Instant · 24/7 · Free",
+          meta: "Temporarily unavailable",
           lockedBody: "",
         },
         volunteer: {

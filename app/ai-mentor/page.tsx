@@ -60,6 +60,8 @@ export default function AIMentorPage() {
     hasAppliedProgramContextRef.current = true;
     const params = new URLSearchParams(window.location.search);
     if (params.get("desk") !== "ai") return;
+    const aiChannel = getMentorChannel("ai");
+    if (aiChannel.availability !== "active") return;
 
     const program = cleanContextParam(params.get("program"), 180);
     const university = cleanContextParam(params.get("university"), 140);
@@ -92,6 +94,7 @@ export default function AIMentorPage() {
 
   const handleSelectChannel = useCallback(
     (id: MentorChannelId) => {
+      if (getMentorChannel(id).availability === "paused") return;
       abortInflightStream();
       setIsStreaming(false);
       setActiveChannelId(id);
