@@ -11,6 +11,7 @@
     "check:sat-bank": "node scripts/check-sat-bank.mjs",
     "check:cities": "node scripts/check-cities-data.mjs",
     "check:program-details": "node scripts/check-program-details.mjs",
+    "check:admission-dossier": "node scripts/check-program-admission-dossier.mjs",
     "check:data": "node --no-warnings scripts/validate-supabase-university-data.mjs",
     "check:local-data": "node --no-warnings scripts/validate-data-integrity.mjs",
     "check:university-data-source": "node scripts/check-university-data-source.mjs",

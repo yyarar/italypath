@@ -1,6 +1,11 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useSyncExternalStore,
+} from 'react';
 import { translations } from '@/lib/translations';
 
 // Dil tipi (Sadece tr veya en olabilir)
@@ -13,20 +18,42 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LANGUAGE_STORAGE_KEY = 'italyPathLang';
+const LANGUAGE_CHANGE_EVENT = 'italyPathLanguageChange';
+
+function getStoredLanguage(): Language {
+  try {
+    const savedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    return savedLang === 'tr' || savedLang === 'en' ? savedLang : 'tr';
+  } catch {
+    return 'tr';
+  }
+}
+
+function getServerLanguage(): Language {
+  return 'tr';
+}
+
+function subscribeToLanguage(onStoreChange: () => void) {
+  window.addEventListener('storage', onStoreChange);
+  window.addEventListener(LANGUAGE_CHANGE_EVENT, onStoreChange);
+  return () => {
+    window.removeEventListener('storage', onStoreChange);
+    window.removeEventListener(LANGUAGE_CHANGE_EVENT, onStoreChange);
+  };
+}
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>(() => {
-    if (typeof window === 'undefined') return 'tr';
-    const savedLang = localStorage.getItem('italyPathLang');
-    return savedLang === 'tr' || savedLang === 'en' ? savedLang : 'tr';
-  });
+  const language = useSyncExternalStore(
+    subscribeToLanguage,
+    getStoredLanguage,
+    getServerLanguage,
+  );
 
   const toggleLanguage = () => {
-    setLanguage((prevLang) => {
-      const newLang = prevLang === 'tr' ? 'en' : 'tr';
-      localStorage.setItem('italyPathLang', newLang); // Seçimi kaydet
-      return newLang;
-    });
+    const newLang = language === 'tr' ? 'en' : 'tr';
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, newLang);
+    window.dispatchEvent(new Event(LANGUAGE_CHANGE_EVENT));
   };
 
   useEffect(() => {

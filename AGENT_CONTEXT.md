@@ -259,11 +259,11 @@ Supabase canli veri master ve single-cycle satirlarini da tasir. Yeni program im
 - uncertain fields
 - uncertainty notes
 
-UI paneli: `components/university-details/ProgramAdmissionDetailsPanel.tsx`.
+UI paneli: `components/university-details/ProgramAdmissionDetailsPanel.tsx`. Panel, ham alanlari alt alta basmak yerine kaynakli kabul dosyasi olarak sunar: program ozeti, basvuru takvimi, kabul kosullari, belgeler, acik belirsizlikler ve URL bazinda gruplanmis kaynak izi. `field_refs`, `sources`, `retrieved_at` ve `[uncertain]` isaretlerinin sunum eslemesi `components/university-details/programAdmissionPresentation.ts` icindedir; kaynak alintilari birlestirilmez veya kaybedilmez. Dossier'daki ItalyPath AI aksiyonu `/ai-mentor?desk=ai&program=...&university=...&focus=...` ile baglami tasir ve mesaji otomatik gondermeden taslak olarak acar.
 
 DB setup/policy: `supabase/program_admission_details.sql`.
 
-Dogrulama: `npm run check:program-details` ve `node scripts/check-universities-server-compose.mjs`.
+Dogrulama: `npm run check:program-details`, `npm run check:admission-dossier` ve `node scripts/check-universities-server-compose.mjs`.
 
 ### Program deadline kaynagi
 
@@ -646,6 +646,7 @@ npm run test:mentor-operator
 npm run test:mentor-db
 npm run check:cities
 npm run check:program-details
+npm run check:admission-dossier
 npm run check:data
 npm run check:local-data
 npm run check:university-data-source

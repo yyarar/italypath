@@ -10,7 +10,6 @@ import ScrollProgress from "@/components/ScrollProgress";
 import { useLanguage } from "@/context/LanguageContext";
 import { useUniversitiesData } from "@/lib/useUniversitiesData";
 import { ComingSoonNotice } from "./ComingSoonNotice";
-import { DetailMentorPrompt } from "./DetailMentorPrompt";
 import { ProgramAdmissionDetailsPanel } from "./ProgramAdmissionDetailsPanel";
 import { ProgramDirectory } from "./ProgramDirectory";
 import { ProgramMetaStrip } from "./ProgramMetaStrip";
@@ -33,10 +32,6 @@ export function DepartmentDetailClient({
   const { universities, loading: universitiesLoading, error: universitiesError } =
     useUniversitiesData(initialUniversity ? [initialUniversity] : undefined);
   const [expandingDeptSlug, setExpandingDeptSlug] = useState<string | null>(null);
-
-  const aiMentorHref = isSignedIn
-    ? "/ai-mentor"
-    : "/giris?redirect_url=%2Fai-mentor";
 
   const university = useMemo(
     () =>
@@ -169,8 +164,15 @@ export function DepartmentDetailClient({
         {department.admissionDetails ? (
           <ProgramAdmissionDetailsPanel
             details={department.admissionDetails}
+            language={language}
+            programName={department.name}
+            universityName={university.name}
+            isSignedIn={isSignedIn}
             labels={{
               title: t.department.admissionDetails,
+              sourceCount: t.department.sourceCount,
+              sourceCountSingle: t.department.sourceCountSingle,
+              lastChecked: t.department.lastChecked,
               officialProgramPage: t.department.officialProgramPage,
               officialCall: t.department.officialCall,
               tuitionFees: t.department.tuitionFees,
@@ -178,17 +180,40 @@ export function DepartmentDetailClient({
               degreeClass: t.department.degreeClass,
               admissionType: t.department.admissionType,
               teachingLanguage: t.department.teachingLanguage,
+              applicationTimeline: t.department.applicationTimeline,
               euDeadline: t.department.euDeadline,
               nonEuDeadline: t.department.nonEuDeadline,
+              notSpecifiedInSources: t.department.notSpecifiedInSources,
+              verifyInOfficialCall: t.department.verifyInOfficialCall,
+              admissionRequirements: t.department.admissionRequirements,
               academicRequirements: t.department.academicRequirements,
               languageRequirements: t.department.languageRequirements,
               requiredDocuments: t.department.requiredDocuments,
               entryExamOrTest: t.department.entryExamOrTest,
+              viewSource: t.department.viewSource,
+              readFull: t.department.readFull,
+              collapseText: t.department.collapseText,
+              moreDocuments: t.department.moreDocuments,
+              moreDocumentsSingle: t.department.moreDocumentsSingle,
+              sourceLabel: t.department.sourceLabel,
+              uncertaintyTitle: t.department.uncertaintyTitle,
               uncertaintyNote: t.department.uncertaintyNote,
-              uncertainFields: t.department.uncertainFields,
-              uncertaintyNotes: t.department.uncertaintyNotes,
-              officialSources: t.department.officialSources,
+              additionalDocumentsMayApply:
+                t.department.additionalDocumentsMayApply,
+              sourceTrail: t.department.sourceTrail,
+              programSourcePurpose: t.department.programSourcePurpose,
+              callSourcePurpose: t.department.callSourcePurpose,
+              feesSourcePurpose: t.department.feesSourcePurpose,
+              additionalSourcePurpose: t.department.additionalSourcePurpose,
               officialSource: t.department.officialSource,
+              sourceExcerptCount: t.department.sourceExcerptCount,
+              sourceExcerptSingle: t.department.sourceExcerptSingle,
+              nextStep: t.department.nextStep,
+              openOfficialSource: t.department.openOfficialSource,
+              askAi: t.department.askAi,
+              aiContextNote: t.department.aiContextNote,
+              otherAdmissionInformation:
+                t.department.otherAdmissionInformation,
             }}
           />
         ) : (
@@ -214,13 +239,6 @@ export function DepartmentDetailClient({
           }}
         />
 
-        <DetailMentorPrompt
-          href={aiMentorHref}
-          eyebrow={t.department.mentorEyebrow}
-          title={t.department.mentorTitle}
-          body={t.department.mentorBody}
-          cta={t.department.askAi}
-        />
       </main>
     </div>
   );

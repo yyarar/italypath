@@ -36,6 +36,7 @@ const departmentDetailClient = read("components/university-details/DepartmentDet
 const portraitFiles = [
   "components/university-details/DetailMentorPrompt.tsx",
   "components/university-details/ProgramAdmissionDetailsPanel.tsx",
+  "components/university-details/programAdmissionPresentation.ts",
   "components/university-details/ProgramTransitionEntry.tsx",
   "components/university-details/ProgramDirectory.tsx",
   "components/university-details/UniversityPortraitMasthead.tsx",
@@ -91,7 +92,6 @@ requireTokens("program detail client", departmentDetailClient, [
   "ProgramPortraitHeader",
   "ProgramAdmissionDetailsPanel",
   "ProgramDirectory",
-  "DetailMentorPrompt",
   "safeLanguages",
   "safeDurationYears",
   "safeLevel",
@@ -103,6 +103,9 @@ requireTokens("program detail client", departmentDetailClient, [
   "description",
   "department.durationYears",
   "department.languages",
+  "language={language}",
+  "programName={department.name}",
+  "isSignedIn={isSignedIn}",
   "ComingSoonNotice",
   "detailsComingSoonTitle",
   "detailsComingSoonBody",
@@ -129,10 +132,15 @@ requireTokens("portrait components", portraitSource, [
   "officialProgramUrl",
   "rawTeachingLanguage",
   "teachingLanguage",
+  "sourceCount",
+  "lastChecked",
+  "sourceTrail",
+  "sourceExcerptCount",
+  "buildAdmissionEvidence",
+  "canonicalizeAdmissionFieldRefs",
+  "field_refs",
+  "retrieved_at",
   "uncertaintyNote",
-  "uncertainFields",
-  "uncertaintyNotes",
-  "details.uncertain.map",
   "details.uncertaintyNotes.map",
   "break-words",
 ]);
@@ -147,6 +155,7 @@ forbidTokens("detail redesign", allDetailSource, [
   "radial-gradient",
   "rounded-3xl",
   "bg-slate-950",
+  'replaceAll("_", " ")',
 ]);
 
 if (failures.length > 0) {

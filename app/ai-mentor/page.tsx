@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
@@ -20,6 +20,20 @@ const VIEW_TRANSITION = {
   ease: [0.32, 0.72, 0, 1] as const,
 };
 
+function cleanContextParam(value: string | null, maxLength: number) {
+  return value?.replace(/\s+/g, " ").trim().slice(0, maxLength) ?? "";
+}
+
+function fillContextTemplate(
+  template: string,
+  replacements: Record<string, string>,
+) {
+  return Object.entries(replacements).reduce(
+    (result, [key, value]) => result.replaceAll(`{${key}}`, value),
+    template,
+  );
+}
+
 export default function AIMentorPage() {
   const { t } = useLanguage();
   const [activeChannelId, setActiveChannelId] = useState<MentorChannelId | null>(
@@ -28,10 +42,46 @@ export default function AIMentorPage() {
   const [aiMessages, setAiMessages] = useState<ChatMessage[]>([]);
   const [aiHasError, setAiHasError] = useState(false);
   const [isStreaming, setIsStreaming] = useState(false);
+  const [programContextDraft, setProgramContextDraft] = useState("");
   const abortRef = useRef<AbortController | null>(null);
+  const hasAppliedProgramContextRef = useRef(false);
   const activeChannel = activeChannelId
     ? getMentorChannel(activeChannelId)
     : null;
+
+  useEffect(() => {
+    if (
+      hasAppliedProgramContextRef.current ||
+      typeof window === "undefined"
+    ) {
+      return;
+    }
+
+    hasAppliedProgramContextRef.current = true;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("desk") !== "ai") return;
+
+    const program = cleanContextParam(params.get("program"), 180);
+    const university = cleanContextParam(params.get("university"), 140);
+    const focus = cleanContextParam(params.get("focus"), 360);
+    if (!program || !university) return;
+
+    const focusCopy = focus
+      ? fillContextTemplate(t.aiMentor.programContextFocus, { focus })
+      : "";
+    setProgramContextDraft(
+      fillContextTemplate(t.aiMentor.programContextDraft, {
+        program,
+        university,
+        focus: focusCopy,
+      }),
+    );
+    setActiveChannelId("ai");
+    window.localStorage.setItem("italyPathLastMentorDesk", "ai");
+  }, [
+    t.aiMentor.programContextDraft,
+    t.aiMentor.programContextFocus,
+  ]);
 
   const abortInflightStream = useCallback(() => {
     if (abortRef.current) {
@@ -173,6 +223,12 @@ export default function AIMentorPage() {
             <MentorChatRoom
               channel={activeChannel}
               messages={activeChannel.experience === "ai-chat" ? aiMessages : []}
+              initialInput={
+                activeChannel.experience === "ai-chat" &&
+                aiMessages.length === 0
+                  ? programContextDraft
+                  : ""
+              }
               isStreaming={activeChannel.experience === "ai-chat" && isStreaming}
               hasError={activeChannel.experience === "ai-chat" && aiHasError}
               onSend={handleSend}

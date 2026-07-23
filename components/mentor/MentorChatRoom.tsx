@@ -49,6 +49,7 @@ function buildEntryPairs(messages: ChatMessage[], isStreaming: boolean): EntryPa
 export default function MentorChatRoom({
   channel,
   messages,
+  initialInput,
   isStreaming,
   hasError,
   onSend,
@@ -58,6 +59,7 @@ export default function MentorChatRoom({
 }: {
   channel: MentorChannel;
   messages: ChatMessage[];
+  initialInput?: string;
   isStreaming: boolean;
   hasError: boolean;
   onSend: (text: string) => void;
@@ -66,7 +68,7 @@ export default function MentorChatRoom({
   onBackToHub: () => void;
 }) {
   const { t } = useLanguage();
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(initialInput ?? "");
   const scrollRef = useRef<HTMLDivElement>(null);
   const lastMessageIdRef = useRef<string | null>(null);
   const isLocked = channel.availability !== "active";
