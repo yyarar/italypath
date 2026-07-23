@@ -348,13 +348,6 @@ export const translations = {
         subtitle: "Profiline uyan programları seçiyoruz.",
       },
     },
-    bottomNav: {
-      home: "Ana Sayfa",
-      unis: "Okullar",
-      communities: "Topluluk",
-      ai: "AI",
-      profile: "Profil"
-    },
     sat: {
       title: "SAT Soru Bankası",
       subtitle: "1400+ resmi soruyla konu konu pratik yap; ilerlemen kaydedilsin.",
@@ -1209,13 +1202,6 @@ export const translations = {
         title: "Preparing your dossier",
         subtitle: "Picking the programs that match your profile.",
       },
-    },
-    bottomNav: {
-      home: "Home",
-      unis: "Unis",
-      communities: "Groups",
-      ai: "AI",
-      profile: "Profile"
     },
     sat: {
       title: "SAT Question Bank",

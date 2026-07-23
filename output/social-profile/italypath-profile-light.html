@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, initial-scale=1" />
+    <style>
+      @font-face {
+        font-family: "Spectral";
+        font-style: normal;
+        font-weight: 500;
+        font-display: block;
+        src: url("fonts/spectral-500-latin-ext.woff2") format("woff2");
+        unicode-range: U+0100-024F, U+1E00-1EFF;
+      }
+
+      @font-face {
+        font-family: "Spectral";
+        font-style: normal;
+        font-weight: 500;
+        font-display: block;
+        src: url("fonts/spectral-500-latin.woff2") format("woff2");
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f8f7f1;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+      }
+
+      .wordmark {
+        color: #15201c;
+        font-family: "Spectral", serif;
+        font-size: 184px;
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: -0.032em;
+        white-space: nowrap;
+        font-kerning: normal;
+        text-rendering: geometricPrecision;
+        transform: translateY(-8px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wordmark">ItalyPath</div>
+  </body>
+</html>

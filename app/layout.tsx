@@ -19,7 +19,6 @@ const hankenGrotesk = Hanken_Grotesk({
   display: "swap",
 });
 import { LanguageProvider } from '@/context/LanguageContext';
-import BottomNav from '@/components/BottomNav';
 import RouteTransition from '@/components/RouteTransition';
 import MobileZoomLock from '@/components/MobileZoomLock';
 
@@ -94,10 +93,9 @@ export default function RootLayout({
           />
           <MobileZoomLock />
           <LanguageProvider>
-            <main className="min-h-screen overflow-x-hidden pb-[calc(7.5rem+env(safe-area-inset-bottom))] md:pb-24">
+            <main className="min-h-screen overflow-x-hidden pb-24">
               <RouteTransition>{children}</RouteTransition>
             </main>
-            <BottomNav />
           </LanguageProvider>
           <Analytics />
         </body>

@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur. Degisiklik gecmisi icin `AGENT_COMMITS.md`, son audit notlari icin `AGENT_CONTEXT_FIX_REPORT.md` okunabilir; bu dosya ise guncel mimari ve calisma kurallarinin kaynak dokumanidir.
 
-Son guncelleme: 2026-07-22
+Son guncelleme: 2026-07-23
 
 ---
 
@@ -41,7 +41,7 @@ Bu agac tam envanter degil; mimariyi anlamak icin aktif yuzeyleri ozetler.
 ```text
 italypath-main/
 ├── app/
-│   ├── layout.tsx                  # ClerkProvider, LanguageProvider, MobileZoomLock, RouteTransition, BottomNav
+│   ├── layout.tsx                  # ClerkProvider, LanguageProvider, MobileZoomLock, RouteTransition
 │   ├── page.tsx                    # Home server wrapper; stats getUniversitiesData() kaynakli
 │   ├── sitemap.ts                  # getUniversitiesData() ile dinamik sitemap
 │   ├── robots.ts                   # Public/protected indexleme kurallari
@@ -80,7 +80,6 @@ italypath-main/
 ├── components/
 │   ├── Navbar.tsx
 │   ├── HomePageClient.tsx          # Home client leaf; Navbar/Hero/sections/Footer composition
-│   ├── BottomNav.tsx
 │   ├── MobileZoomLock.tsx          # Coarse pointer pinch/double-tap/edge-swipe guard
 │   ├── RouteTransition.tsx
 │   ├── HeroSection.tsx
@@ -305,7 +304,7 @@ Protected ornekler:
 - `/api/chat`
 - `/profile`
 
-Navbar artik signed-out durumda **modal acmaz**; `<Link href="/giris">` ile tam sayfa `/giris`'e gider. BottomNav ve protected CTA linkleri signed-out durumda `/giris?redirect_url=...` adresine gider (`/sign-in?redirect_url=...` referanslari kalmadi).
+Navbar artik signed-out durumda **modal acmaz**; `<Link href="/giris">` ile tam sayfa `/giris`'e gider. Protected CTA linkleri signed-out durumda `/giris?redirect_url=...` adresine gider (`/sign-in?redirect_url=...` referanslari kalmadi). Mobil BottomNav 2026-07-23 tarihinde uygulama genelinden kaldirildi.
 
 `npm run check:routes`, public/protected matrix'i ve scholarship GeoJSON fetch kurallarini smoke-test eder. `npm run check:auth-ui`, `/giris` sayfasinin ve auth migration'inin butunlugunu dogrular.
 
