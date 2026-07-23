@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ItalyPath — Gönüllü Ekibe Ücretsiz Sor</title>
+    <style>
+      @font-face {
+        font-family: "ItalyPath Sans";
+        src: url("hanken.woff2") format("woff2");
+        font-weight: 100 900;
+      }
+
+      @font-face {
+        font-family: "ItalyPath Serif";
+        src: url("spectral-700.woff2") format("woff2");
+        font-weight: 700;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        background: #f8f7f1;
+      }
+
+      .page {
+        position: relative;
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        background: #f8f7f1;
+        color: #15201c;
+        font-family: "ItalyPath Sans", Arial, sans-serif;
+      }
+
+      .photo {
+        position: absolute;
+        inset: 0 0 auto 0;
+        width: 1080px;
+        height: 720px;
+        object-fit: cover;
+        object-position: center 42%;
+      }
+
+      .photo-shade {
+        position: absolute;
+        inset: 0 0 auto 0;
+        width: 1080px;
+        height: 720px;
+        background:
+          linear-gradient(180deg, rgba(21, 32, 28, 0.34) 0%, rgba(21, 32, 28, 0.02) 40%, rgba(21, 32, 28, 0.16) 100%),
+          linear-gradient(90deg, rgba(21, 32, 28, 0.22) 0%, transparent 60%);
+      }
+
+      .brand-mark {
+        position: absolute;
+        top: 56px;
+        left: 68px;
+        width: 154px;
+        height: 154px;
+        overflow: hidden;
+        border: 2px solid rgba(248, 247, 241, 0.56);
+        border-radius: 77px;
+        box-shadow: 0 12px 32px rgba(21, 32, 28, 0.24);
+      }
+
+      .brand-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .series {
+        position: absolute;
+        top: 71px;
+        right: 70px;
+        color: #f8f7f1;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 3.7px;
+        text-transform: uppercase;
+        text-shadow: 0 2px 12px rgba(21, 32, 28, 0.34);
+      }
+
+      .human-badge {
+        position: absolute;
+        left: 68px;
+        top: 466px;
+        padding: 18px 25px 16px;
+        border: 1px solid rgba(248, 247, 241, 0.62);
+        background: rgba(183, 91, 56, 0.93);
+        color: #f8f7f1;
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 2.6px;
+        text-transform: uppercase;
+      }
+
+      .card {
+        position: absolute;
+        left: 0;
+        top: 610px;
+        width: 1080px;
+        height: 740px;
+        border-radius: 54px 54px 0 0;
+        background: #f8f7f1;
+      }
+
+      .accent-line {
+        position: absolute;
+        left: 76px;
+        top: 664px;
+        width: 72px;
+        height: 7px;
+        border-radius: 4px;
+        background: #b75b38;
+      }
+
+      .eyebrow {
+        position: absolute;
+        left: 76px;
+        top: 704px;
+        color: #1f4f46;
+        font-size: 21px;
+        font-weight: 800;
+        letter-spacing: 4.4px;
+        text-transform: uppercase;
+      }
+
+      .title {
+        position: absolute;
+        left: 70px;
+        top: 747px;
+        width: 935px;
+        margin: 0;
+        color: #15201c;
+        font-family: "ItalyPath Serif", Georgia, serif;
+        font-size: 74px;
+        font-weight: 700;
+        line-height: 0.98;
+        letter-spacing: -3px;
+      }
+
+      .title .accent {
+        color: #1f4f46;
+      }
+
+      .body-copy {
+        position: absolute;
+        left: 76px;
+        top: 932px;
+        width: 915px;
+        margin: 0;
+        color: #4e5a55;
+        font-size: 28px;
+        font-weight: 500;
+        line-height: 1.4;
+        letter-spacing: -0.4px;
+      }
+
+      .features {
+        position: absolute;
+        left: 76px;
+        top: 1083px;
+        width: 928px;
+        height: 68px;
+        border-top: 1px solid #cbd4ce;
+        border-bottom: 1px solid #cbd4ce;
+      }
+
+      .feature {
+        position: absolute;
+        top: 0;
+        height: 67px;
+        color: #1f4f46;
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 67px;
+      }
+
+      .feature.one {
+        left: 0;
+      }
+
+      .feature.two {
+        left: 265px;
+      }
+
+      .feature.three {
+        left: 610px;
+      }
+
+      .dot {
+        padding-right: 10px;
+        color: #b75b38;
+      }
+
+      .cta {
+        position: absolute;
+        left: 76px;
+        bottom: 70px;
+        width: 620px;
+        height: 82px;
+        background: #15201c;
+        color: #f8f7f1;
+        font-size: 24px;
+        font-weight: 800;
+        line-height: 82px;
+        text-align: center;
+      }
+
+      .footer-note {
+        position: absolute;
+        right: 76px;
+        bottom: 80px;
+        width: 250px;
+        color: #59645f;
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.35;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page" data-document-role="page" data-label="Gönüllü Ekibe Ücretsiz Sor">
+      <img class="photo" src="volunteer-students.png" alt="İtalya'da konuşan iki öğrenci" />
+      <div class="photo-shade"></div>
+
+      <div class="brand-mark">
+        <img src="italypath-logo.png" alt="ItalyPath" />
+      </div>
+      <div class="series">Ücretsiz araçlar · 02</div>
+      <div class="human-badge">Gerçek öğrenciler · Gerçek deneyim</div>
+
+      <div class="card"></div>
+      <div class="accent-line"></div>
+      <div class="eyebrow">ItalyPath Gönüllü Ekip</div>
+
+      <h1 class="title">
+        Sorunu bırak.<br /><span class="accent">Gönüllüler yanıtlasın.</span>
+      </h1>
+
+      <p class="body-copy">
+        Aynı yoldan geçmiş, İtalya’da yaşayan öğrencilere ücretsiz yaz.
+        Görüşmen hesabında kalsın.
+      </p>
+
+      <div class="features">
+        <div class="feature one"><span class="dot">●</span>Ücretsiz</div>
+        <div class="feature two"><span class="dot">●</span>Öğrenci deneyimi</div>
+        <div class="feature three"><span class="dot">●</span>6 farklı konu</div>
+      </div>
+
+      <div class="cta">Ücretsiz görüşme başlat →</div>
+      <div class="footer-note">Asenkron · Yanıt anlık olmayabilir · Sınırlı</div>
+    </main>
+  </body>
+</html>

@@ -54,16 +54,10 @@ export default function MentorHub({
           {MENTOR_CHANNELS.map((channel) => {
             const copy = t.aiMentor.channels[channel.id];
             const isActive = channel.availability === "active";
-            const badgeText = isActive
-              ? channel.id === "volunteer"
+            const badgeText =
+              channel.id === "volunteer"
                 ? t.aiMentor.hubVolunteerActiveBadge
-                : t.aiMentor.hubActiveBadge
-              : channel.id === "volunteer"
-                ? t.aiMentor.hubLockedBadgeFree
-                : t.aiMentor.hubLockedBadgePaid;
-            const badgeColor = isActive
-              ? "text-[var(--editorial-sage)]"
-              : "text-[var(--editorial-muted)]";
+                : null;
 
             return (
               <motion.li
@@ -81,7 +75,9 @@ export default function MentorHub({
                 <button
                   type="button"
                   onClick={() => onSelectChannel(channel.id)}
-                  aria-label={`${copy.name}, ${badgeText}`}
+                  aria-label={
+                    badgeText ? `${copy.name}, ${badgeText}` : copy.name
+                  }
                   className="grid w-full grid-cols-[40px_minmax(0,1fr)_auto] gap-x-5 gap-y-2 py-6 text-left transition-colors duration-200 ease-out hover:bg-[#f6f0e7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] active:scale-[0.995] sm:gap-x-6"
                 >
                   <span className="pt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
@@ -93,11 +89,11 @@ export default function MentorHub({
                       <h2 className="font-serif text-2xl font-normal tracking-[-0.018em] text-[var(--editorial-ink)] sm:text-3xl">
                         {copy.name}
                       </h2>
-                      <span
-                        className={`whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.14em] ${badgeColor}`}
-                      >
-                        {badgeText}
-                      </span>
+                      {badgeText && (
+                        <span className="whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-sage)]">
+                          {badgeText}
+                        </span>
+                      )}
                     </div>
                     <p className="mt-2 max-w-2xl font-serif text-sm italic leading-relaxed text-[var(--editorial-muted)] sm:text-base">
                       {copy.tagline}

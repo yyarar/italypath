@@ -615,10 +615,7 @@ export const translations = {
         "{university} bünyesindeki {program} programının başvuru koşullarını değerlendirmeme yardım et.{focus}",
       programContextFocus:
         " Özellikle şu noktaları netleştirmek istiyorum: {focus}.",
-      hubActiveBadge: "AKTİF · ANINDA",
-      hubVolunteerActiveBadge: "AKTİF · ASENKRON",
-      hubLockedBadgeFree: "YAKINDA · ÜCRETSİZ",
-      hubLockedBadgePaid: "YAKINDA · ÜCRETLİ",
+      hubVolunteerActiveBadge: "AKTİF · YOĞUNLUĞA BAĞLI",
       hubOpenCta: "SOHBETE BAŞLA",
       hubLockedCta: "YAKINDA",
       statusReady: "HAZIR",
@@ -694,14 +691,14 @@ export const translations = {
           name: "ItalyPath Gönüllü Ekip",
           tagline:
             "Aynı yoldan geçmiş, halen İtalya'da yaşayan öğrenciler. Sorunu bırak; ekip uygun olduğunda bu sayfadan yanıtlasın.",
-          meta: "Asenkron · Gönüllü ekip · Ücretsiz / sınırlı",
+          meta: "Tamamen Ücretsiz · Deneyim Paylaşımı",
           lockedBody:
             "Yakında: aynı yoldan geçmiş öğrencilerden bire-bir, gerçek deneyime dayalı yanıtlar.",
         },
         expert: {
           name: "ItalyPath Uzman",
           tagline:
-            "Vize itirazı, ISEE doğrulaması, transkript denkliği gibi konularda derin danışmanlık. Randevulu, ücretli.",
+            "Doğru üniversite/bölüm seçimi, karmaşık başvuru adımları ve burs stratejilerinde uçtan uca profesyonel rehberlik. Hedefinize ulaşmak için uzmanlarla birebir çalışın.",
           meta: "Randevulu · Ücretli paket",
           lockedBody:
             "Yakında: vize itirazı, ISEE doğrulaması ve transkript denkliği gibi konularda derin danışmanlık.",
@@ -1470,10 +1467,7 @@ export const translations = {
         "Help me evaluate the admission requirements for {program} at {university}.{focus}",
       programContextFocus:
         " I especially want to clarify these points: {focus}.",
-      hubActiveBadge: "ACTIVE · INSTANT",
-      hubVolunteerActiveBadge: "ACTIVE · ASYNC",
-      hubLockedBadgeFree: "SOON · FREE",
-      hubLockedBadgePaid: "SOON · PAID",
+      hubVolunteerActiveBadge: "ACTIVE · SUBJECT TO AVAILABILITY",
       hubOpenCta: "START A CHAT",
       hubLockedCta: "SOON",
       statusReady: "READY",
@@ -1549,14 +1543,14 @@ export const translations = {
           name: "ItalyPath Volunteer Team",
           tagline:
             "Students who've walked the same path and now live in Italy. Leave your question; the team will reply here when available.",
-          meta: "Asynchronous · Volunteer team · Free / limited",
+          meta: "Completely Free · Experience Sharing",
           lockedBody:
             "Coming soon: one-on-one answers from students with first-hand experience of the same journey.",
         },
         expert: {
           name: "ItalyPath Expert",
           tagline:
-            "Deep consulting on visa appeals, ISEE verification, transcript equivalency. By appointment, paid.",
+            "End-to-end professional guidance on choosing the right university or program, navigating complex application steps, and building scholarship strategies. Work one-on-one with experts to reach your goal.",
           meta: "By appointment · Paid package",
           lockedBody:
             "Coming soon: deep consulting on visa appeals, ISEE verification, and transcript equivalency.",

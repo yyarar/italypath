@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ItalyPath — Ücretsiz SAT Soru Bankası</title>
+    <style>
+      @font-face {
+        font-family: "ItalyPath Sans";
+        src: url("hanken.woff2") format("woff2");
+        font-weight: 100 900;
+      }
+
+      @font-face {
+        font-family: "ItalyPath Serif";
+        src: url("spectral-700.woff2") format("woff2");
+        font-weight: 700;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        background: #f8f7f1;
+      }
+
+      .page {
+        position: relative;
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        background: #f8f7f1;
+        color: #15201c;
+        font-family: "ItalyPath Sans", Arial, sans-serif;
+      }
+
+      .photo {
+        position: absolute;
+        inset: 0 0 auto 0;
+        width: 1080px;
+        height: 710px;
+        object-fit: cover;
+        object-position: center 39%;
+      }
+
+      .photo-shade {
+        position: absolute;
+        inset: 0 0 auto 0;
+        width: 1080px;
+        height: 710px;
+        background:
+          linear-gradient(180deg, rgba(21, 32, 28, 0.37) 0%, rgba(21, 32, 28, 0.04) 42%, rgba(21, 32, 28, 0.16) 100%),
+          linear-gradient(90deg, rgba(21, 32, 28, 0.12) 0%, transparent 54%);
+      }
+
+      .brand-mark {
+        position: absolute;
+        top: 56px;
+        left: 68px;
+        width: 154px;
+        height: 154px;
+        overflow: hidden;
+        border: 2px solid rgba(248, 247, 241, 0.56);
+        border-radius: 77px;
+        box-shadow: 0 12px 32px rgba(21, 32, 28, 0.24);
+      }
+
+      .brand-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .series {
+        position: absolute;
+        top: 71px;
+        right: 70px;
+        color: #f8f7f1;
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 3.7px;
+        text-transform: uppercase;
+        text-shadow: 0 2px 12px rgba(21, 32, 28, 0.34);
+      }
+
+      .free-badge {
+        position: absolute;
+        right: 70px;
+        top: 475px;
+        padding: 18px 25px 16px;
+        border: 1px solid rgba(248, 247, 241, 0.62);
+        background: rgba(31, 79, 70, 0.92);
+        color: #f8f7f1;
+        font-size: 23px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+
+      .card {
+        position: absolute;
+        left: 0;
+        top: 604px;
+        width: 1080px;
+        height: 746px;
+        border-radius: 54px 54px 0 0;
+        background: #f8f7f1;
+      }
+
+      .accent-line {
+        position: absolute;
+        left: 76px;
+        top: 660px;
+        width: 72px;
+        height: 7px;
+        border-radius: 4px;
+        background: #b75b38;
+      }
+
+      .eyebrow {
+        position: absolute;
+        left: 76px;
+        top: 699px;
+        color: #1f4f46;
+        font-size: 21px;
+        font-weight: 800;
+        letter-spacing: 4.7px;
+        text-transform: uppercase;
+      }
+
+      .number {
+        position: absolute;
+        left: 68px;
+        top: 727px;
+        margin: 0;
+        color: #1f4f46;
+        font-family: "ItalyPath Serif", Georgia, serif;
+        font-size: 158px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -7px;
+      }
+
+      .title {
+        position: absolute;
+        left: 76px;
+        top: 891px;
+        width: 920px;
+        margin: 0;
+        color: #15201c;
+        font-family: "ItalyPath Serif", Georgia, serif;
+        font-size: 58px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -2.4px;
+      }
+
+      .body-copy {
+        position: absolute;
+        left: 76px;
+        top: 983px;
+        width: 918px;
+        margin: 0;
+        color: #4e5a55;
+        font-size: 27px;
+        font-weight: 500;
+        line-height: 1.38;
+        letter-spacing: -0.4px;
+      }
+
+      .features {
+        position: absolute;
+        left: 76px;
+        top: 1098px;
+        width: 928px;
+        height: 64px;
+        border-top: 1px solid #cbd4ce;
+        border-bottom: 1px solid #cbd4ce;
+      }
+
+      .feature {
+        position: absolute;
+        top: 0;
+        height: 63px;
+        color: #1f4f46;
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 63px;
+      }
+
+      .feature.one {
+        left: 0;
+      }
+
+      .feature.two {
+        left: 313px;
+      }
+
+      .feature.three {
+        left: 650px;
+      }
+
+      .dot {
+        padding-right: 10px;
+        color: #b75b38;
+      }
+
+      .cta {
+        position: absolute;
+        left: 76px;
+        bottom: 70px;
+        width: 610px;
+        height: 82px;
+        background: #15201c;
+        color: #f8f7f1;
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: 0.1px;
+        line-height: 82px;
+        text-align: center;
+      }
+
+      .footer-brand {
+        position: absolute;
+        right: 76px;
+        bottom: 92px;
+        color: #15201c;
+        font-family: "ItalyPath Serif", Georgia, serif;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: -1.2px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page" data-document-role="page" data-label="Ücretsiz SAT Soru Bankası">
+      <img class="photo" src="sat-study.png" alt="SAT çalışan bir öğrenci" />
+      <div class="photo-shade"></div>
+
+      <div class="brand-mark">
+        <img src="italypath-logo.png" alt="ItalyPath" />
+      </div>
+      <div class="series">Ücretsiz araçlar · 01</div>
+      <div class="free-badge">Tamamen ücretsiz</div>
+
+      <div class="card"></div>
+      <div class="accent-line"></div>
+      <div class="eyebrow">SAT Soru Bankası</div>
+
+      <div class="number">1.400+</div>
+      <h1 class="title">resmî SAT sorusu.</h1>
+
+      <p class="body-copy">
+        Matematik ve Okuma–Yazma sorularını konu konu çöz.
+        İlerlemen, karnen ve yanlışların kaydolur.
+      </p>
+
+      <div class="features">
+        <div class="feature one"><span class="dot">●</span>Konu konu pratik</div>
+        <div class="feature two"><span class="dot">●</span>Karne ve rozetler</div>
+        <div class="feature three"><span class="dot">●</span>Yanlışlara dön</div>
+      </div>
+
+      <div class="cta">Soru çözmeye başla →</div>
+      <div class="footer-brand">ItalyPath</div>
+    </main>
+  </body>
+</html>

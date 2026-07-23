@@ -209,33 +209,32 @@ mustNotInclude(translations, "240 bölümün", "Eski canlı program sayısı kal
 mustNotInclude(translations, "240 programs", "Stale live program count remains");
 mustInclude(
   translations,
-  'hubActiveBadge: "AKTİF · ANINDA"',
-  "AI anında rozeti eksik",
+  'hubVolunteerActiveBadge: "AKTİF · YOĞUNLUĞA BAĞLI"',
+  "Gönüllü yoğunluk rozeti eksik",
 );
 mustInclude(
   translations,
-  'hubActiveBadge: "ACTIVE · INSTANT"',
-  "AI instant badge missing",
-);
-mustInclude(
-  translations,
-  'hubVolunteerActiveBadge: "AKTİF · ASENKRON"',
-  "Volunteer asenkron rozeti eksik",
-);
-mustInclude(
-  translations,
-  'hubVolunteerActiveBadge: "ACTIVE · ASYNC"',
-  "Volunteer async badge missing",
+  'hubVolunteerActiveBadge: "ACTIVE · SUBJECT TO AVAILABILITY"',
+  "Volunteer availability badge missing",
 );
 mustInclude(
   mentorHub,
   "t.aiMentor.hubVolunteerActiveBadge",
   "Volunteer active badge route edilmemiş",
 );
+mustNotInclude(translations, "hubActiveBadge", "AI aktif rozeti kaldırılmamış");
+mustNotInclude(translations, "hubLockedBadge", "Kilitli masa rozeti kaldırılmamış");
+mustNotInclude(mentorHub, "t.aiMentor.hubActiveBadge", "AI aktif rozeti hâlâ render ediliyor");
+mustNotInclude(mentorHub, "t.aiMentor.hubLockedBadge", "Kilitli masa rozeti hâlâ render ediliyor");
 mustInclude(
-  mentorHub,
-  "t.aiMentor.hubActiveBadge",
-  "AI active badge route edilmemiş",
+  translations,
+  'meta: "Tamamen Ücretsiz · Deneyim Paylaşımı"',
+  "Gönüllü meta metni eksik",
+);
+mustInclude(
+  translations,
+  'meta: "Completely Free · Experience Sharing"',
+  "Volunteer meta copy missing",
 );
 [
   "Pratik soruna pratik yanıt — birkaç saatte bir cevap.",
