@@ -2,7 +2,10 @@
 
 Tarih: 2026-07-24
 
-Durum: Tasarım kullanıcı tarafından onaylandı; yazılı spec kullanıcı incelemesinde
+Durum: Tasarım kullanıcı tarafından onaylandı; yürütme planı hazır
+
+Yürütme planı:
+`docs/superpowers/plans/2026-07-24-sat-english-rationale-extraction.md`
 
 ## Amaç
 
@@ -195,6 +198,7 @@ Teslim paketi şunları içerir:
 - `reviews.json`
 - `run-manifest.json`
 - `qa-report.json`
+- `gap-report.json`
 - `SHA256SUMS`
 
 `run-manifest.json`, dondurulmuş hedef ID listesinin checksum'ını, kaynak PDF
@@ -256,7 +260,12 @@ Seçim deterministiktir:
 4. Bir skill'de iki hedef yoksa mevcut hedeflerin tamamı alınır. Eksik yerler,
    henüz seçilmemiş hedefler arasından `figure_path`, `spr`, yüksek zorluk,
    alfabetik skill slug ve düşük ID sırasıyla doldurulur.
-5. İlk ek kayıt, henüz seçilmemiş SPR hedefleri arasından yüksek zorluk ve düşük
+5. İlk 38 kayıtta eksik zorluk seviyesi varsa eksik seviyeler küçükten büyüğe
+   işlenir. İlgili zorluktaki henüz seçilmemiş adaylar alfabetik skill slug ve
+   düşük ID ile sıralanır. Aday, aynı skill'in ikinci kaydının yerine geçirilir;
+   ancak bu takas mevcut başka bir zorluk seviyesinin son örneğini kaldıramaz.
+   Uygun aday yoksa seçim bloklanır.
+6. İlk ek kayıt, henüz seçilmemiş SPR hedefleri arasından yüksek zorluk ve düşük
    ID ile seçilir. İkinci ek kayıt, ilk ek kayıttan farklı olmak şartıyla henüz
    seçilmemiş `figure_path` hedefleri arasından yüksek zorluk ve düşük ID ile
    seçilir.
