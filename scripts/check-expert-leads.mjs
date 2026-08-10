@@ -44,6 +44,9 @@ const channels = read("lib/mentor/channels.ts");
 const mentorHub = read("components/mentor/MentorHub.tsx");
 const proxySource = read("proxy.ts");
 const robotsSource = read("app/robots.ts");
+const expertInboxState = read("lib/mentor/expertLeadInboxState.ts");
+const expertInboxHook = read("lib/mentor/useExpertLeadInbox.ts");
+const expertLeadTests = read("scripts/test-expert-leads.mjs");
 
 mustInclude(route, "export async function POST", "Public expert POST eksik");
 mustNotInclude(route, "export async function GET", "Lead GET public olamaz");
@@ -83,6 +86,20 @@ mustInclude(channels, 'availability: "active"', "Expert active status eksik");
 mustInclude(mentorHub, "hubExpertCta", "Expert CTA route edilmemis");
 mustInclude(translations, "hubExpertCta", "Expert CTA copy eksik");
 mustInclude(robotsSource, "'/ai-mentor'", "Mentor robots disallow kaldirilmamalı");
+mustInclude(expertInboxState, "transitionExpertLeadIdentity", "Expert identity state eksik");
+mustInclude(expertLeadTests, "expertLeadInboxState.ts", "State saf test importu eksik");
+mustInclude(expertInboxHook, "is_active_mentor_staff", "Staff access RPC eksik");
+mustInclude(expertInboxHook, "purgeExpertLeadState", "Identity degisiminde state temizligi eksik");
+mustInclude(expertInboxHook, "useLayoutEffect", "Identity commit boundary eksik");
+mustNotInclude(expertInboxHook, ".channel(", "Expert hook Realtime channel aciyor");
+mustNotInclude(expertInboxHook, "postgres_changes", "Expert hook Realtime degisikligi dinliyor");
+mustNotInclude(expertInboxHook.toLowerCase(), "service_role", "Expert hook service role iceriyor");
+if (
+  expertInboxHook.indexOf('rpc(\n      "is_active_mentor_staff"') >
+  expertInboxHook.indexOf('.from("expert_leads")')
+) {
+  failures.push("Expert lead query positive staff RPC kontrolunden once geliyor");
+}
 
 [
   "fullName",

@@ -12,14 +12,21 @@ const validationPath = path.join(
   "mentor",
   "expertLeadValidation.ts",
 );
+const inboxStatePath = path.join(
+  root,
+  "lib",
+  "mentor",
+  "expertLeadInboxState.ts",
+);
 
 async function importHelpers() {
   const tempDir = await mkdtemp(path.join(tmpdir(), "expert-leads-"));
 
   try {
-    const [expertLeadsSource, validationSource] = await Promise.all([
+    const [expertLeadsSource, validationSource, inboxStateSource] = await Promise.all([
       readFile(expertLeadsPath, "utf8"),
       readFile(validationPath, "utf8"),
+      readFile(inboxStatePath, "utf8"),
     ]);
     const compilerOptions = {
       module: ts.ModuleKind.ES2022,
@@ -34,6 +41,9 @@ async function importHelpers() {
         'from "@/lib/mentor/expertLeads"',
         'from "./expertLeads.mjs"',
       );
+    const compiledInboxState = ts.transpileModule(inboxStateSource, {
+      compilerOptions,
+    }).outputText;
 
     await Promise.all([
       writeFile(
@@ -46,13 +56,19 @@ async function importHelpers() {
         compiledValidation,
         "utf8",
       ),
+      writeFile(
+        path.join(tempDir, "expertLeadInboxState.mjs"),
+        compiledInboxState,
+        "utf8",
+      ),
     ]);
 
-    const [expertLeads, validation] = await Promise.all([
+    const [expertLeads, validation, inboxState] = await Promise.all([
       import(`file://${tempDir}/expertLeads.mjs`),
       import(`file://${tempDir}/expertLeadValidation.mjs`),
+      import(`file://${tempDir}/expertLeadInboxState.mjs`),
     ]);
-    return { ...expertLeads, ...validation };
+    return { ...expertLeads, ...validation, ...inboxState };
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }
@@ -65,6 +81,11 @@ const {
   buildTargetIntakeOptions,
   buildWhatsAppHref,
   normalizeWhatsAppPhone,
+  filterExpertLeads,
+  removeExpertLead,
+  replaceExpertLead,
+  resolveExpertLeadSelection,
+  transitionExpertLeadIdentity,
   validateExpertLeadPayload,
 } = await importHelpers();
 
@@ -136,5 +157,75 @@ for (const [field, changes] of invalidCases) {
   }
   assert.ok(field in result.errors, `${field} error key is missing`);
 }
+
+const rows = [
+  {
+    id: "lead-new",
+    submission_id: "10000000-0000-4000-8000-000000000010",
+    full_name: "New Lead",
+    whatsapp_phone: "+905321234560",
+    study_level: "bachelor",
+    field_of_interest: "engineering-tech",
+    target_intake: "2027-2028",
+    help_request: "I need a clear application roadmap.",
+    status: "new",
+    internal_note: "",
+    created_at: "2026-08-10T12:00:00.000Z",
+    updated_at: "2026-08-10T12:00:00.000Z",
+  },
+  {
+    id: "lead-completed-a",
+    submission_id: "10000000-0000-4000-8000-000000000011",
+    full_name: "Completed Lead A",
+    whatsapp_phone: "+905321234561",
+    study_level: "master",
+    field_of_interest: "business-economics",
+    target_intake: "undecided",
+    help_request: "I need help choosing a suitable program.",
+    status: "completed",
+    internal_note: "Done",
+    created_at: "2026-08-10T11:00:00.000Z",
+    updated_at: "2026-08-10T11:00:00.000Z",
+  },
+  {
+    id: "lead-completed-b",
+    submission_id: "10000000-0000-4000-8000-000000000012",
+    full_name: "Completed Lead B",
+    whatsapp_phone: "+905321234562",
+    study_level: "undecided",
+    field_of_interest: "undecided",
+    target_intake: "2028-2029",
+    help_request: "I need support deciding how to begin.",
+    status: "completed",
+    internal_note: "",
+    created_at: "2026-08-10T10:00:00.000Z",
+    updated_at: "2026-08-10T10:00:00.000Z",
+  },
+];
+const contactedRow = {
+  ...rows[0],
+  status: "contacted",
+  updated_at: "2026-08-10T12:05:00.000Z",
+};
+
+assert.deepEqual(filterExpertLeads(rows, "new").map((row) => row.id), ["lead-new"]);
+assert.equal(replaceExpertLead(rows, contactedRow)[0].status, "contacted");
+assert.equal(removeExpertLead(rows, "lead-new").some((row) => row.id === "lead-new"), false);
+assert.equal(resolveExpertLeadSelection(rows, "missing", "all"), rows[0].id);
+assert.equal(resolveExpertLeadSelection(rows, "lead-new", "contacted"), null);
+
+const initial = {
+  ownerId: "owner-a",
+  generation: 4,
+  authorized: true,
+};
+assert.deepEqual(transitionExpertLeadIdentity(initial, undefined), {
+  ownerId: "owner-a",
+  generation: 5,
+  authorized: null,
+  ready: false,
+  changed: true,
+});
+assert.equal(transitionExpertLeadIdentity(initial, "owner-b").ownerId, "owner-b");
 
 console.log("Expert lead domain validation tests passed.");
