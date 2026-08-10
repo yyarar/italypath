@@ -58,12 +58,16 @@ export default function MentorHub({
             const badgeText =
               channel.id === "volunteer"
                 ? t.aiMentor.hubVolunteerActiveBadge
-                : null;
-            const ctaText = isActive
-              ? `${t.aiMentor.hubOpenCta} ↗`
-              : isPaused
-                ? t.aiMentor.hubPausedCta
-                : t.aiMentor.hubLockedCta;
+                : channel.id === "expert"
+                  ? t.aiMentor.hubExpertActiveBadge
+                  : null;
+            const ctaText = isPaused
+              ? t.aiMentor.hubPausedCta
+              : channel.id === "expert"
+                ? `${t.aiMentor.hubExpertCta} ↗`
+                : isActive
+                  ? `${t.aiMentor.hubOpenCta} ↗`
+                  : t.aiMentor.hubLockedCta;
 
             return (
               <motion.li

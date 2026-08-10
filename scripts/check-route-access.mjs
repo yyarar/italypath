@@ -43,7 +43,10 @@ const publicChecks = [
   "/scholarships",
   "/communities",
   "/topluluklar",
+  "/ai-mentor",
+  "/ai-mentor/session",
   "/api/universities",
+  "/api/expert-leads",
   "/data/italy-regions.geojson",
   "/sign-in",
   "/sign-up",
@@ -53,10 +56,9 @@ const publicChecks = [
 ];
 
 const protectedChecks = [
-  "/ai-mentor",
-  "/ai-mentor/session",
   "/documents",
   "/ekip/mentor",
+  "/ekip/uzman",
   "/favorites",
   "/hosgeldin",
   "/hub",
@@ -133,8 +135,12 @@ if (
   failures.push("Protected page middleware branch no longer uses the custom /giris redirect");
 }
 
-if (publicPatterns.includes("/ai-mentor(.*)")) {
-  failures.push("Public list still contains /ai-mentor(.*)");
+if (!publicPatterns.includes("/ai-mentor(.*)")) {
+  failures.push("Public list is missing /ai-mentor(.*)");
+}
+
+if (!publicPatterns.includes("/api/expert-leads(.*)")) {
+  failures.push("Public list is missing /api/expert-leads(.*)");
 }
 
 if (!publicPatterns.includes("/api/universities(.*)")) {

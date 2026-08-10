@@ -7,6 +7,8 @@ import type { NextRequest } from "next/server";
  */
 const isPublicRoute = createRouteMatcher([
   '/',
+  '/ai-mentor(.*)',
+  '/api/expert-leads(.*)',
   '/api/universities(.*)',
   '/data(.*)',        // Public static datasets: scholarship map GeoJSON
   '/sign-in(.*)',
@@ -24,7 +26,6 @@ const isPublicRoute = createRouteMatcher([
 ]);
 
 const PROTECTED_PAGE_ROUTES = [
-  "/ai-mentor",
   "/documents",
   "/ekip",
   "/favorites",

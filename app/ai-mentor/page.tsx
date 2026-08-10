@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useAuth } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 import { useLanguage } from "@/context/LanguageContext";
 import {
@@ -12,6 +14,7 @@ import {
 import MentorChatRoom, {
   type ChatMessage,
 } from "@/components/mentor/MentorChatRoom";
+import ExpertLeadDesk from "@/components/mentor/expert/ExpertLeadDesk";
 import MentorHub from "@/components/mentor/MentorHub";
 import VolunteerDesk from "@/components/mentor/volunteer/VolunteerDesk";
 
@@ -34,8 +37,14 @@ function fillContextTemplate(
   );
 }
 
+function volunteerSignInHref() {
+  return `/giris?redirect_url=${encodeURIComponent("/ai-mentor?desk=volunteer")}`;
+}
+
 export default function AIMentorPage() {
   const { t } = useLanguage();
+  const { isLoaded, isSignedIn } = useAuth();
+  const router = useRouter();
   const [activeChannelId, setActiveChannelId] = useState<MentorChannelId | null>(
     null,
   );
@@ -44,10 +53,36 @@ export default function AIMentorPage() {
   const [isStreaming, setIsStreaming] = useState(false);
   const [programContextDraft, setProgramContextDraft] = useState("");
   const abortRef = useRef<AbortController | null>(null);
+  const hasAppliedDeskParamRef = useRef(false);
   const hasAppliedProgramContextRef = useRef(false);
   const activeChannel = activeChannelId
     ? getMentorChannel(activeChannelId)
     : null;
+
+  useEffect(() => {
+    if (hasAppliedDeskParamRef.current || typeof window === "undefined") {
+      return;
+    }
+
+    const desk = new URLSearchParams(window.location.search).get("desk");
+    if (desk === "volunteer" && !isLoaded) return;
+
+    hasAppliedDeskParamRef.current = true;
+    if (desk === "volunteer") {
+      if (!isSignedIn) {
+        router.push(volunteerSignInHref());
+        return;
+      }
+      setActiveChannelId("volunteer");
+      window.localStorage.setItem("italyPathLastMentorDesk", "volunteer");
+      return;
+    }
+
+    if (desk === "expert") {
+      setActiveChannelId("expert");
+      window.localStorage.setItem("italyPathLastMentorDesk", "expert");
+    }
+  }, [isLoaded, isSignedIn, router]);
 
   useEffect(() => {
     if (
@@ -94,7 +129,13 @@ export default function AIMentorPage() {
 
   const handleSelectChannel = useCallback(
     (id: MentorChannelId) => {
-      if (getMentorChannel(id).availability === "paused") return;
+      const channel = getMentorChannel(id);
+      if (channel.experience === "volunteer-inbox" && !isLoaded) return;
+      if (channel.experience === "volunteer-inbox" && !isSignedIn) {
+        router.push(volunteerSignInHref());
+        return;
+      }
+      if (channel.availability === "paused") return;
       abortInflightStream();
       setIsStreaming(false);
       setActiveChannelId(id);
@@ -102,7 +143,7 @@ export default function AIMentorPage() {
         window.localStorage.setItem("italyPathLastMentorDesk", id);
       }
     },
-    [abortInflightStream],
+    [abortInflightStream, isLoaded, isSignedIn, router],
   );
 
   const handleBackToHub = useCallback(() => {
@@ -222,6 +263,8 @@ export default function AIMentorPage() {
         >
           {activeChannel.experience === "volunteer-inbox" ? (
             <VolunteerDesk channel={activeChannel} onBackToHub={handleBackToHub} />
+          ) : activeChannel.experience === "expert-lead" ? (
+            <ExpertLeadDesk channel={activeChannel} onBackToHub={handleBackToHub} />
           ) : (
             <MentorChatRoom
               channel={activeChannel}

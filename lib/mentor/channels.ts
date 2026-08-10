@@ -36,7 +36,7 @@ export const MENTOR_CHANNELS: MentorChannel[] = [
     numberLabel: "03",
     monogram: "UZ",
     experience: "expert-lead",
-    availability: "coming-soon",
+    availability: "active",
   },
 ];
 

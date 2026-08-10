@@ -39,6 +39,11 @@ const expertDesk = read("components/mentor/expert/ExpertLeadDesk.tsx");
 const expertForm = read("components/mentor/expert/ExpertLeadForm.tsx");
 const expertSuccess = read("components/mentor/expert/ExpertLeadSuccess.tsx");
 const translations = read("lib/translations.ts");
+const mentorPage = read("app/ai-mentor/page.tsx");
+const channels = read("lib/mentor/channels.ts");
+const mentorHub = read("components/mentor/MentorHub.tsx");
+const proxySource = read("proxy.ts");
+const robotsSource = read("app/robots.ts");
 
 mustInclude(route, "export async function POST", "Public expert POST eksik");
 mustNotInclude(route, "export async function GET", "Lead GET public olamaz");
@@ -64,6 +69,20 @@ mustInclude(
   "Turkce basari metni eksik",
 );
 mustInclude(expertSuccess, "aria-live", "Expert success live region eksik");
+mustInclude(proxySource, "'/ai-mentor(.*)'", "Public mentor hub matcher eksik");
+mustInclude(proxySource, "'/api/expert-leads(.*)'", "Public expert POST matcher eksik");
+mustInclude(mentorPage, "useAuth", "Volunteer auth gate eksik");
+mustInclude(
+  mentorPage,
+  'encodeURIComponent("/ai-mentor?desk=volunteer")',
+  "Volunteer login redirect eksik",
+);
+mustInclude(mentorPage, "desk=volunteer", "Volunteer deep link eksik");
+mustInclude(mentorPage, 'desk === "expert"', "Expert deep link eksik");
+mustInclude(channels, 'availability: "active"', "Expert active status eksik");
+mustInclude(mentorHub, "hubExpertCta", "Expert CTA route edilmemis");
+mustInclude(translations, "hubExpertCta", "Expert CTA copy eksik");
+mustInclude(robotsSource, "'/ai-mentor'", "Mentor robots disallow kaldirilmamalı");
 
 [
   "fullName",

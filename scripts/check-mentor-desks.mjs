@@ -117,7 +117,7 @@ mustInclude(
 );
 mustInclude(
   mentorPage,
-  'getMentorChannel(id).availability === "paused"',
+  'channel.availability === "paused"',
   "Duraklatılmış masa seçim guard'ı eksik",
 );
 mustInclude(mentorPage, "aiMessages", "AI state ayrıştırılmamış");
@@ -431,8 +431,14 @@ mustInclude(aiRecord, 'availability: "paused"', "AI masa geçici olarak duraklat
 mustInclude(volunteerRecord, 'availability: "active"', "Volunteer masa aktif değil");
 mustInclude(
   expertRecord,
-  'availability: "coming-soon"',
-  "Expert masa erken açılmış",
+  'availability: "active"',
+  "Expert masa aktif degil",
+);
+mustInclude(mentorPage, "<ExpertLeadDesk", "Expert lead deneyimi route edilmemis");
+mustInclude(
+  mentorPage,
+  'activeChannel.experience === "expert-lead"',
+  "Expert branch eksik",
 );
 
 if (failures.length) {

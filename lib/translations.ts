@@ -616,7 +616,9 @@ export const translations = {
       programContextFocus:
         " Özellikle şu noktaları netleştirmek istiyorum: {focus}.",
       hubVolunteerActiveBadge: "AKTİF · YOĞUNLUĞA BAĞLI",
+      hubExpertActiveBadge: "AKTİF · ÜCRETSİZ ÖN GÖRÜŞME",
       hubOpenCta: "SOHBETE BAŞLA",
+      hubExpertCta: "ÜCRETSİZ ÖN GÖRÜŞME",
       hubPausedCta: "GEÇİCİ DEVRE DIŞI",
       hubLockedCta: "YAKINDA",
       statusReady: "HAZIR",
@@ -751,9 +753,8 @@ export const translations = {
           name: "ItalyPath Uzman",
           tagline:
             "Doğru üniversite/bölüm seçimi, karmaşık başvuru adımları ve burs stratejilerinde uçtan uca profesyonel rehberlik. Hedefinize ulaşmak için uzmanlarla birebir çalışın.",
-          meta: "Randevulu · Ücretli paket",
-          lockedBody:
-            "Yakında: vize itirazı, ISEE doğrulaması ve transkript denkliği gibi konularda derin danışmanlık.",
+          meta: "Ön görüşme ücretsiz · WhatsApp",
+          lockedBody: "",
         },
       },
     },
@@ -1520,7 +1521,9 @@ export const translations = {
       programContextFocus:
         " I especially want to clarify these points: {focus}.",
       hubVolunteerActiveBadge: "ACTIVE · SUBJECT TO AVAILABILITY",
+      hubExpertActiveBadge: "ACTIVE · FREE PRE-CONSULTATION",
       hubOpenCta: "START A CHAT",
+      hubExpertCta: "FREE PRE-CONSULTATION",
       hubPausedCta: "TEMPORARILY UNAVAILABLE",
       hubLockedCta: "SOON",
       statusReady: "READY",
@@ -1655,9 +1658,8 @@ export const translations = {
           name: "ItalyPath Expert",
           tagline:
             "End-to-end professional guidance on choosing the right university or program, navigating complex application steps, and building scholarship strategies. Work one-on-one with experts to reach your goal.",
-          meta: "By appointment · Paid package",
-          lockedBody:
-            "Coming soon: deep consulting on visa appeals, ISEE verification, and transcript equivalency.",
+          meta: "Free pre-consultation · WhatsApp",
+          lockedBody: "",
         },
       },
     },
