@@ -35,6 +35,10 @@ const routePath = "app/api/expert-leads/route.ts";
 const route = read(routePath);
 const server = read("lib/mentor/expertLeads.server.ts");
 const sql = read("supabase/expert_leads.sql");
+const expertDesk = read("components/mentor/expert/ExpertLeadDesk.tsx");
+const expertForm = read("components/mentor/expert/ExpertLeadForm.tsx");
+const expertSuccess = read("components/mentor/expert/ExpertLeadSuccess.tsx");
+const translations = read("lib/translations.ts");
 
 mustInclude(route, "export async function POST", "Public expert POST eksik");
 mustNotInclude(route, "export async function GET", "Lead GET public olamaz");
@@ -45,6 +49,51 @@ mustInclude(server, 'import "server-only"', "Service role modulu server-only deg
 mustInclude(server, "SUPABASE_SERVICE_ROLE_KEY", "Service role insert eksik");
 mustInclude(server, "expert_leads_submission_id_key", "Idempotent conflict guard eksik");
 mustInclude(sql, "enable row level security", "Expert lead RLS eksik");
+
+[
+  [expertDesk, "ExpertLeadForm", "Expert desk form orkestrasyonu eksik"],
+  [expertDesk, "ExpertLeadSuccess", "Expert desk success orkestrasyonu eksik"],
+  [expertForm, 'fetch("/api/expert-leads"', "Expert form POST etmiyor"],
+  [expertForm, "crypto.randomUUID", "Submission id uretilmiyor"],
+  [expertForm, "website", "Honeypot alan eksik"],
+].forEach(([source, needle, label]) => mustInclude(source, needle, label));
+
+mustInclude(
+  translations,
+  "Talebini aldık. Ekibimiz WhatsApp üzerinden en kısa sürede sana ulaşacak.",
+  "Turkce basari metni eksik",
+);
+mustInclude(expertSuccess, "aria-live", "Expert success live region eksik");
+
+[
+  "fullName",
+  "whatsappPhone",
+  "studyLevel",
+  "fieldOfInterest",
+  "targetIntake",
+  "helpRequest",
+].forEach((field) => mustInclude(expertForm, field, `Expert form alani eksik (${field})`));
+
+if (translations.split("expertDesk:").length - 1 < 2) {
+  failures.push("expertDesk TR+EN cevirileri eksik");
+}
+[
+  "firstConsultationFree",
+  "paidContinuation",
+  "submit",
+  "submitting",
+  "submitError",
+  "success",
+  "backToDesks",
+  "fields",
+  "studyLevels",
+  "fieldsOfInterest",
+  "undecided",
+].forEach((key) => {
+  if (translations.split(key).length - 1 < 2) {
+    failures.push(`expertDesk ceviri anahtari eksik: ${key}`);
+  }
+});
 
 for (const filePath of [
   ...sourceFiles("components"),
