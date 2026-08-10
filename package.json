@@ -24,6 +24,7 @@
     "check:auth-ui": "node scripts/check-auth-ui.mjs",
     "check:hub-onboarding": "node scripts/check-hub-onboarding.mjs",
     "check:mentor-desks": "node scripts/check-mentor-desks.mjs",
+    "check:expert-leads": "node scripts/check-expert-leads.mjs",
     "test:volunteer-desk": "node scripts/test-volunteer-desk.mjs",
     "test:mentor-operator": "node scripts/test-mentor-operator-inbox.mjs",
     "test:mentor-db": "node scripts/test-mentor-db.mjs",
