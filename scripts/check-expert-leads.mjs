@@ -47,6 +47,12 @@ const robotsSource = read("app/robots.ts");
 const expertInboxState = read("lib/mentor/expertLeadInboxState.ts");
 const expertInboxHook = read("lib/mentor/useExpertLeadInbox.ts");
 const expertLeadTests = read("scripts/test-expert-leads.mjs");
+const expertOperatorPage = read("app/ekip/uzman/page.tsx");
+const expertOperatorGate = read("components/mentor/expert/operator/ExpertLeadGate.tsx");
+const expertOperatorInbox = read("components/mentor/expert/operator/ExpertLeadInbox.tsx");
+const expertOperatorList = read("components/mentor/expert/operator/ExpertLeadList.tsx");
+const expertOperatorDetail = read("components/mentor/expert/operator/ExpertLeadDetail.tsx");
+const volunteerOperatorInbox = read("components/mentor/operator/MentorOperatorInbox.tsx");
 
 mustInclude(route, "export async function POST", "Public expert POST eksik");
 mustNotInclude(route, "export async function GET", "Lead GET public olamaz");
@@ -100,6 +106,52 @@ if (
 ) {
   failures.push("Expert lead query positive staff RPC kontrolunden once geliyor");
 }
+mustInclude(expertOperatorPage, "<ExpertLeadInbox />", "Expert operator route inbox render etmiyor");
+mustInclude(expertOperatorInbox, "useExpertLeadInbox", "Expert operator hook kullanmiyor");
+mustInclude(expertOperatorList, "all", "Tum expert filter eksik");
+mustInclude(expertOperatorList, "new", "Yeni expert filter eksik");
+mustInclude(expertOperatorList, "contacted", "Contacted expert filter eksik");
+mustInclude(expertOperatorList, "completed", "Completed expert filter eksik");
+mustInclude(expertOperatorDetail, "buildWhatsAppHref", "WhatsApp link helper eksik");
+mustInclude(expertOperatorDetail, 'target="_blank"', "WhatsApp yeni sekmede acilmiyor");
+mustInclude(expertOperatorDetail, 'rel="noreferrer"', "WhatsApp noreferrer eksik");
+mustInclude(expertOperatorDetail, "window.confirm", "Lead silme ikinci onay eksik");
+mustInclude(translations, 'refresh: "YENİLE"', "Yenile eylemi copy eksik");
+mustInclude(volunteerOperatorInbox, 'href="/ekip/uzman"', "Volunteer -> expert nav eksik");
+mustInclude(expertOperatorInbox, 'href="/ekip/mentor"', "Expert -> volunteer nav eksik");
+mustInclude(expertOperatorGate, "authorized === true", "Expert gate fail-closed degil");
+if (translations.split("expertOperator:").length - 1 < 2) {
+  failures.push("expertOperator TR+EN cevirileri eksik");
+}
+[
+  "eyebrow",
+  "title",
+  "backHome",
+  "volunteerInbox",
+  "refresh",
+  "newCount",
+  "filters",
+  "empty",
+  "selectLead",
+  "whatsapp",
+  "statusLabel",
+  "noteLabel",
+  "saveNote",
+  "deleteLead",
+  "deleteConfirm",
+  "loading",
+  "unauthorizedTitle",
+  "unauthorizedBody",
+  "loadError",
+  "retry",
+  "statusError",
+  "noteError",
+  "deleteError",
+].forEach((key) => {
+  if (translations.split(key).length - 1 < 2) {
+    failures.push(`expertOperator ceviri anahtari eksik: ${key}`);
+  }
+});
 
 [
   "fullName",

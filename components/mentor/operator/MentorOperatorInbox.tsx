@@ -60,12 +60,20 @@ export default function MentorOperatorInbox() {
       <main className="min-h-[100dvh] bg-[var(--editorial-paper)]">
         <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
           <header className="border-b border-[var(--editorial-border)] pb-5">
-            <Link
-              href="/"
-              className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)] transition-colors duration-200 ease-out hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
-            >
-              ← {copy.backHome}
-            </Link>
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <Link
+                href="/"
+                className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)] transition-colors duration-200 ease-out hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+              >
+                ← {copy.backHome}
+              </Link>
+              <Link
+                href="/ekip/uzman"
+                className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)] transition-colors duration-200 ease-out hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+              >
+                {copy.expertLeads} →
+              </Link>
+            </div>
             <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
               {copy.eyebrow}
             </p>
