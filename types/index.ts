@@ -137,3 +137,27 @@ export interface MentorMessageRow {
   client_nonce: string;
   created_at: string;
 }
+
+export interface ExpertLeadRow {
+  id: string;
+  submission_id: string;
+  full_name: string;
+  whatsapp_phone: string;
+  study_level: "bachelor" | "master" | "undecided";
+  field_of_interest:
+    | "engineering-tech"
+    | "medicine-health"
+    | "business-economics"
+    | "design-architecture"
+    | "natural-sciences"
+    | "social-humanities"
+    | "arts-fashion"
+    | "law-politics"
+    | "undecided";
+  target_intake: string;
+  help_request: string;
+  status: "new" | "contacted" | "completed";
+  internal_note: string;
+  created_at: string;
+  updated_at: string;
+}

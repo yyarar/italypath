@@ -62,6 +62,7 @@ const dataDir = join(clusterRoot, "data");
 const socketDir = join(clusterRoot, "socket");
 const serverLog = join(clusterRoot, "postgres.log");
 const productionSql = resolve("supabase/volunteer_mentor.sql");
+const expertLeadsSql = resolve("supabase/expert_leads.sql");
 const conversationGate = 731002001;
 const messageGate = 731002002;
 let port;
@@ -109,6 +110,12 @@ function runSql(sql, { allowFailure = false, database = "postgres" } = {}) {
 
 function loadProductionSql(database = "postgres", { allowFailure = false } = {}) {
   return command(psql, [...psqlArgs(database), "-f", productionSql], { allowFailure });
+}
+
+function loadExpertLeadsSql(database = "postgres", { allowFailure = false } = {}) {
+  return command(psql, [...psqlArgs(database), "-f", expertLeadsSql], {
+    allowFailure,
+  });
 }
 
 function installSupabaseStubs(database) {
@@ -489,7 +496,162 @@ async function main() {
     insert into public.mentor_staff (user_id, display_name, active)
     values ('staff-primary', 'Primary Staff', true);
   `);
+  loadExpertLeadsSql();
   console.log(`mentor-db: PostgreSQL 16 temporary cluster ready on port ${port}`);
+
+  await test("expert leads enforce staff-only RLS and admin mutations", async () => {
+    runSql(`
+      insert into public.expert_leads (
+        submission_id, full_name, whatsapp_phone, study_level,
+        field_of_interest, target_intake, help_request
+      ) values (
+        '11111111-1111-4111-8111-111111111111',
+        'Expert Student', '+905321234567', 'bachelor',
+        'engineering-tech', '2027-2028', 'Need an application roadmap.'
+      );
+    `);
+
+    const anonRead = runSql(
+      "set role anon; select * from public.expert_leads;",
+      { allowFailure: true },
+    );
+    assertFailure(anonRead, "permission denied", "anonymous expert lead read");
+
+    const studentCount = scalar(runSql(asUser(
+      "ordinary-student",
+      "select count(*) from public.expert_leads;",
+    )));
+    assert(studentCount === "0", `ordinary student saw ${studentCount} expert leads`);
+
+    const staffCount = scalar(runSql(asUser(
+      "staff-primary",
+      "select count(*) from public.expert_leads;",
+    )));
+    assert(staffCount === "1", `active staff saw ${staffCount} expert leads`);
+
+    const grants = scalar(runSql(`
+      select concat_ws(':',
+        has_table_privilege('authenticated', 'public.expert_leads', 'insert'),
+        has_table_privilege('anon', 'public.expert_leads', 'insert')
+      );
+    `));
+    assert(grants === "f:f", `unexpected expert lead insert grants: ${grants}`);
+
+    const invalidPhone = runSql(`
+      insert into public.expert_leads (
+        submission_id, full_name, whatsapp_phone, study_level,
+        field_of_interest, target_intake, help_request
+      ) values (
+        '11111111-1111-4111-8111-111111111112',
+        'Invalid Phone', '05321234567', 'bachelor',
+        'engineering-tech', '2027-2028', 'Need an application roadmap.'
+      );
+    `, { allowFailure: true });
+    assertFailure(invalidPhone, "expert_leads_phone_check", "invalid expert phone");
+
+    const invalidEnum = runSql(`
+      insert into public.expert_leads (
+        submission_id, full_name, whatsapp_phone, study_level,
+        field_of_interest, target_intake, help_request
+      ) values (
+        '11111111-1111-4111-8111-111111111113',
+        'Invalid Level', '+905321234567', 'doctorate',
+        'engineering-tech', '2027-2028', 'Need an application roadmap.'
+      );
+    `, { allowFailure: true });
+    assertFailure(invalidEnum, "expert_leads_study_level_check", "invalid expert level");
+
+    const invalidIntake = runSql(`
+      insert into public.expert_leads (
+        submission_id, full_name, whatsapp_phone, study_level,
+        field_of_interest, target_intake, help_request
+      ) values (
+        '11111111-1111-4111-8111-111111111114',
+        'Invalid Intake', '+905321234567', 'bachelor',
+        'engineering-tech', '2027-2029', 'Need an application roadmap.'
+      );
+    `, { allowFailure: true });
+    assertFailure(
+      invalidIntake,
+      "expert_leads_target_intake_check",
+      "non-consecutive expert intake",
+    );
+
+    const duplicateSubmission = runSql(`
+      insert into public.expert_leads (
+        submission_id, full_name, whatsapp_phone, study_level,
+        field_of_interest, target_intake, help_request
+      ) values (
+        '11111111-1111-4111-8111-111111111111',
+        'Duplicate Student', '+905321234567', 'bachelor',
+        'engineering-tech', '2027-2028', 'Need an application roadmap.'
+      );
+    `, { allowFailure: true });
+    assertFailure(
+      duplicateSubmission,
+      "expert_leads_submission_id_key",
+      "duplicate expert submission",
+    );
+
+    const updatedAtBefore = scalar(runSql(`
+      select updated_at
+      from public.expert_leads
+      where submission_id = '11111111-1111-4111-8111-111111111111';
+    `));
+    runSql("select pg_sleep(0.01);");
+    runSql(asUser("staff-primary", `
+      update public.expert_leads
+      set status = 'contacted', internal_note = 'WhatsApp message sent.'
+      where submission_id = '11111111-1111-4111-8111-111111111111';
+    `));
+    const state = scalar(runSql(`
+      select status || ':' || internal_note
+      from public.expert_leads
+      where submission_id = '11111111-1111-4111-8111-111111111111';
+    `));
+    assert(
+      state === "contacted:WhatsApp message sent.",
+      `unexpected expert lead state: ${state}`,
+    );
+    const updatedAtAdvanced = scalar(runSql(`
+      select updated_at > ${quote(updatedAtBefore)}::timestamptz
+      from public.expert_leads
+      where submission_id = '11111111-1111-4111-8111-111111111111';
+    `));
+    assert(updatedAtAdvanced === "t", "expert updated_at did not advance");
+
+    runSql(`
+      insert into public.mentor_staff (user_id, display_name, active)
+      values ('staff-inactive', 'Inactive Staff', false);
+    `);
+    const inactiveCount = scalar(runSql(asUser(
+      "staff-inactive",
+      "select count(*) from public.expert_leads;",
+    )));
+    assert(inactiveCount === "0", `inactive staff saw ${inactiveCount} expert leads`);
+    const inactiveUpdate = scalar(runSql(asUser("staff-inactive", `
+      update public.expert_leads
+      set status = 'completed'
+      where submission_id = '11111111-1111-4111-8111-111111111111'
+      returning id;
+    `)));
+    assert(inactiveUpdate === "", "inactive staff updated an expert lead");
+    const inactiveDelete = scalar(runSql(asUser("staff-inactive", `
+      delete from public.expert_leads
+      where submission_id = '11111111-1111-4111-8111-111111111111'
+      returning id;
+    `)));
+    assert(inactiveDelete === "", "inactive staff deleted an expert lead");
+
+    const activeDelete = scalar(runSql(asUser("staff-primary", `
+      delete from public.expert_leads
+      where submission_id = '11111111-1111-4111-8111-111111111111'
+      returning id;
+    `)));
+    assert(activeDelete !== "", "active staff could not delete an expert lead");
+
+    loadExpertLeadsSql();
+  });
 
   await test("different-nonce concurrent starts reject the losing request", async () => {
     const results = await runConcurrentBehindGate(conversationGate, [
@@ -783,6 +945,7 @@ async function main() {
 
   await test("production SQL artifact is rerunnable", async () => {
     loadProductionSql();
+    loadExpertLeadsSql();
     const activeCount = scalar(runSql("select count(*) from public.mentor_staff where active = true;"));
     assert(activeCount === "1", `SQL rerun changed the active staff invariant: ${activeCount}`);
   });
