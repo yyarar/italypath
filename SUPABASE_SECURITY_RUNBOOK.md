@@ -135,3 +135,17 @@ where active = true;
 ```
 
 `private_idempotency_realtime_rows` must be `0`. Any non-zero result is a deployment failure: remove `mentor_rpc_idempotency` from `supabase_realtime` before client traffic.
+
+## Expert Lead Desk
+
+Bu masa gönüllü görüşmelerinden ayrı bir `expert_leads` tablosu ve public form
+endpoint'i kullanır. Kurulumu yalnızca production deploy yetkisi olan kişi yapar:
+
+1. `supabase/volunteer_mentor.sql` artefact'ının uygulandığını ve tam olarak bir aktif `mentor_staff` satırı olduğunu doğrula.
+2. Supabase SQL Editor'da `supabase/expert_leads.sql` artefact'ını uygula.
+3. RLS matrisini doğrula: anon erişim reddedilmeli, normal authenticated kullanıcı satır okuyamamalı/değiştirememeli/silememeli, aktif staff ise select/update/delete yapabilmelidir. `is_active_mentor_staff()` kontrolünü staff tokenıyla ayrıca doğrula.
+4. Uygulamayı yalnızca server-only `SUPABASE_SERVICE_ROLE_KEY` ile deploy et; bu key hiçbir client dosyasına veya `NEXT_PUBLIC_*` değişkenine konulamaz.
+5. Signed-out durumda public form ile bir guest lead gönder ve `/ekip/uzman` panelinden listeleme, filtre, WhatsApp bağlantısı, durum ve ekip notu işlemlerini doğrula.
+6. Manuel test sonunda test lead kaydını `/ekip/uzman` panelinden sil.
+
+`supabase/expert_leads.sql` kurulmamışsa public endpoint kontrollü `503` döner; RLS'yi gevşetmek veya service-role key'i client'a vermek kabul edilebilir bir fallback değildir.

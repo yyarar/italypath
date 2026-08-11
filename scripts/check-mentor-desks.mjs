@@ -324,12 +324,17 @@ mustInclude(
 );
 mustInclude(
   privacySharingSection,
-  "Bulut veri saklama hizmeti: favorileriniz, yüklediğiniz belgeler ve gönüllü mentor görüşmeleriniz için",
+  "Bulut veri saklama hizmeti (Supabase): favorileriniz, yüklediğiniz belgeler, gönüllü mentor görüşmeleriniz ve uzman ön görüşme talepleriniz için",
   "Gizlilik bulut saklamayı açıklamıyor",
 );
-mustNotInclude(
+mustNotMatch(
   privacySharingSection,
-  "ItalyPath operatör",
+  /(?:yetkilendirilmiş\s+)?ItalyPath operatörü[^"\n]{0,120}(?:üçüncü taraf|hizmet sağlayıcı)/i,
+  "İç operatör üçüncü taraf sağlayıcı olarak listelenmiş",
+);
+mustNotMatch(
+  privacySharingSection,
+  /(?:üçüncü taraf|hizmet sağlayıcı)[^"\n]{0,120}(?:yetkilendirilmiş\s+)?ItalyPath operatörü/i,
   "İç operatör üçüncü taraf sağlayıcı olarak listelenmiş",
 );
 mustInclude(
@@ -354,7 +359,7 @@ mustInclude(
 );
 mustInclude(
   legalSource,
-  'export const LEGAL_LAST_UPDATED = "20 Temmuz 2026"',
+  'export const LEGAL_LAST_UPDATED = "11 Ağustos 2026"',
   "Yasal metin güncelleme tarihi eksik",
 );
 mustInclude(
@@ -374,9 +379,9 @@ mustNotInclude(
 );
 const mentorTermsParagraphCount =
   termsMentorSection.match(/^\s{8}"/gm)?.length ?? 0;
-if (mentorTermsParagraphCount !== 3) {
+if (mentorTermsParagraphCount !== 4) {
   failures.push(
-    `Mentor kullanım koşulları onaylı üç paragrafı korumuyor: ${mentorTermsParagraphCount}`,
+    `Mentor kullanım koşulları onaylı dört paragrafı korumuyor: ${mentorTermsParagraphCount}`,
   );
 }
 

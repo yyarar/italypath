@@ -1,7 +1,7 @@
 // ItalyPath yasal belgeleri (Türkçe).
 // Metinler yapılandırılmış tutulur ki ileride İngilizce çeviri aynı şekle eklenebilsin.
 export const CONTACT_EMAIL = "contact@italypath.com";
-export const LEGAL_LAST_UPDATED = "20 Temmuz 2026";
+export const LEGAL_LAST_UPDATED = "11 Ağustos 2026";
 
 export type LegalSection = {
   heading: string;
@@ -49,6 +49,7 @@ const privacy: LegalDocument = {
         "Yüklediğiniz belgeler: Belge cüzdanına yüklediğiniz dosyalar ve bunlara ait bilgiler.",
         "Yapay zeka mentor mesajları: AI mentora yazdığınız sorular ve mesaj içerikleri.",
         "Gönüllü mentor görüşmeleri: Gönüllü masaya yazdığınız mesajlar, görüşme konusu, görüşme durumu ve ItalyPath Gönüllü Ekibinin yanıtları.",
+        "Uzman ön görüşme talepleri: Ad soyadınız, WhatsApp numaranız, hedef eğitim seviyeniz, ilgilendiğiniz alan, hedef başlangıç döneminiz ve destek talebiniz.",
         "Tarayıcı tercihleri: Dil seçiminiz, görünüm tercihiniz gibi ayarlar cihazınızın tarayıcı hafızasında (localStorage) saklanır.",
       ],
     },
@@ -60,6 +61,7 @@ const privacy: LegalDocument = {
         "Yapay zeka mentor üzerinden sorularınıza yanıt üretmek,",
         "Site içindeki insan gönüllü görüşmesini yürütmek ve görüşme geçmişini hesabınıza sunmak,",
         "Gönüllü mentor görüşmelerini yetkilendirilmiş ItalyPath operatörünün okuyup yanıtlayabildiği site içi akışla yürütmek,",
+        "Uzman ön görüşme talebinizi değerlendirmek ve verdiğiniz numara üzerinden WhatsApp ile sizinle iletişime geçmek.",
         "Dil ve görünüm gibi tercihlerinizi hatırlamak,",
         "Platform’un güvenliğini sağlamak ve hizmeti geliştirmek.",
       ],
@@ -71,8 +73,9 @@ const privacy: LegalDocument = {
       ],
       list: [
         "Kimlik doğrulama hizmeti: üyelik ve güvenli giriş için,",
-        "Bulut veri saklama hizmeti: favorileriniz, yüklediğiniz belgeler ve gönüllü mentor görüşmeleriniz için,",
+        "Bulut veri saklama hizmeti (Supabase): favorileriniz, yüklediğiniz belgeler, gönüllü mentor görüşmeleriniz ve uzman ön görüşme talepleriniz için,",
         "Yapay zeka hizmeti: AI mentora yazdığınız mesajlar, yanıt üretilmesi amacıyla bu hizmete iletilir.",
+        "Uzman ön görüşme taleplerine yalnızca yetkilendirilmiş ItalyPath operatörü erişebilir.",
       ],
     },
     {
@@ -86,6 +89,7 @@ const privacy: LegalDocument = {
       paragraphs: [
         "Kişisel verilerinizi, hesabınız aktif olduğu ve işleme amaçları için gerekli olduğu sürece saklarız. Hesabınızı veya yüklediğiniz belgeleri sildiğinizde ilgili veriler kaldırılır. Yasal saklama yükümlülükleri olması hâlinde veriler ilgili süre boyunca saklanabilir.",
         "Gönüllü mentor görüşmeleri, görüşme kapandıktan sonra da hesabınız aktif olduğu sürece geçmişinizde tutulur. Hesap veya veri silme talebiniz uygulandığında bu görüşmeler ve bağlı mesajlar da kaldırılır.",
+        "Uzman ön görüşme talebiniz, talebi yönetmek için gerekli olduğu sürece saklanır; artık ihtiyaç kalmadığında yetkili operatör tarafından panelden manuel olarak silinir.",
       ],
     },
     {
@@ -140,6 +144,7 @@ const terms: LegalDocument = {
       heading: "1. Hizmetin Tanımı",
       paragraphs: [
         "ItalyPath, İtalya’da eğitim almak isteyen öğrencilere yönelik bir bilgilendirme ve rehberlik platformudur. Üniversite ve program bilgileri, şehir rehberleri, burs bilgileri, hesaplama araçları, yapay zeka destekli bir mentor ve site içi insan gönüllü yazışması sunar.",
+        "ItalyPath Uzman masasında ilk ön görüşme ücretsizdir. Kullanıcı daha sonra profesyonel destek almak isterse ücretli hizmet ayrıca sunulabilir; ön görüşme formunu göndermek bir satın alma veya ödeme taahhüdü oluşturmaz.",
       ],
     },
     {
@@ -154,6 +159,7 @@ const terms: LegalDocument = {
       paragraphs: [
         "Yapay zeka mentor, otomatik olarak yanıt üreten bir yardımcıdır. Verdiği yanıtlar hatalı, eksik veya güncel olmayan bilgiler içerebilir.",
         "Gönüllü mentor masası, öğrenci deneyimine dayalı genel rehberlik sunan site içi bir insan yazışmasıdır. Yanıtların anlık, eksiksiz veya resmî olduğu garanti edilmez.",
+        "ItalyPath Uzman masasında ilk ön görüşme ücretsizdir. Kullanıcı daha sonra profesyonel destek almak isterse ücretli hizmet ayrıca sunulabilir; ön görüşme formunu göndermek bir satın alma veya ödeme taahhüdü oluşturmaz.",
         "Yapay zeka ve insan gönüllü mentor profesyonel danışmanlık, hukuki görüş, kişiye özel mali değerlendirme veya resmî başvuru rehberliği yerine geçmez. Önemli bilgileri her zaman resmî kaynaklardan doğrulayın.",
       ],
     },

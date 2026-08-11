@@ -53,6 +53,11 @@ const expertOperatorInbox = read("components/mentor/expert/operator/ExpertLeadIn
 const expertOperatorList = read("components/mentor/expert/operator/ExpertLeadList.tsx");
 const expertOperatorDetail = read("components/mentor/expert/operator/ExpertLeadDetail.tsx");
 const volunteerOperatorInbox = read("components/mentor/operator/MentorOperatorInbox.tsx");
+const legalSource = read("lib/legal/documents.ts");
+const securityRunbook = read("SUPABASE_SECURITY_RUNBOOK.md");
+const agentContext = read("AGENT_CONTEXT.md");
+const sitemapSource = read("app/sitemap.ts");
+const packageJson = read("package.json");
 
 mustInclude(route, "export async function POST", "Public expert POST eksik");
 mustNotInclude(route, "export async function GET", "Lead GET public olamaz");
@@ -152,6 +157,46 @@ if (translations.split("expertOperator:").length - 1 < 2) {
     failures.push(`expertOperator ceviri anahtari eksik: ${key}`);
   }
 });
+
+[
+  "Uzman ön görüşme talepleri",
+  "WhatsApp numaranız",
+  "hedef eğitim seviyeniz",
+  "ilgilendiğiniz alan",
+  "hedef başlangıç dönemi",
+  "ilk ön görüşme ücretsizdir",
+  "ücretli",
+  "yetkilendirilmiş ItalyPath operatörü",
+  "manuel olarak silinir",
+].forEach((needle) => mustInclude(legalSource, needle, "Yasal uzman lead aciklamasi eksik"));
+
+[
+  "supabase/expert_leads.sql",
+  "/ekip/uzman",
+  "is_active_mentor_staff",
+  "guest lead",
+  "test lead",
+].forEach((needle) => mustInclude(securityRunbook, needle, "Expert lead runbook eksik"));
+
+[
+  "expert_leads",
+  "`/ai-mentor` public",
+  "`/ekip/uzman` protected",
+  "check:expert-leads",
+  "test:expert-leads",
+].forEach((needle) => mustInclude(agentContext, needle, "Agent context expert lead bilgisi eksik"));
+
+mustNotInclude(expertInboxHook, ".channel(", "Expert hook Realtime kullanamaz");
+mustNotInclude(expertInboxHook, "postgres_changes", "Expert hook Realtime dinleyemez");
+mustNotInclude(expertForm, "useUser", "Expert form profil prefill kullanamaz");
+mustNotInclude(expertForm.toLowerCase(), "email", "Expert form email alani tasiyamaz");
+mustNotInclude(expertForm.toLowerCase(), "consent", "Expert form onay kutusu tasiyamaz");
+mustNotInclude(packageJson.toLowerCase(), "captcha", "CAPTCHA dependency eklenemez");
+mustNotInclude(packageJson.toLowerCase(), "turnstile", "Turnstile dependency eklenemez");
+mustNotInclude(packageJson.toLowerCase(), "notification", "Bildirim dependency eklenemez");
+mustNotInclude(sql, "pg_cron", "Expert lead otomatik silme eklenemez");
+mustInclude(robotsSource, "'/ai-mentor'", "Mentor robots disallow kaldirilmamalı");
+mustNotInclude(sitemapSource, "/ai-mentor", "Mentor sitemap'e eklenemez");
 
 [
   "fullName",

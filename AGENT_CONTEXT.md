@@ -277,6 +277,8 @@ Route guvenligi sadece `proxy.ts` ile saglanir. `middleware.ts` olusturma.
 Public route pattern'leri:
 
 - `/`
+- `/ai-mentor(.*)`  # public consultation hub; robots disallow/sitemap exclusion sürer
+- `/api/expert-leads(.*)` # public, yalnızca POST expert lead gönderimi
 - `/api/universities(.*)`
 - `/data(.*)`
 - `/sign-in(.*)`     # eski URL, `next.config.ts` 308 ile `/giris`'e yonlendirir
@@ -294,9 +296,9 @@ Public route pattern'leri:
 
 Protected ornekler:
 
-- `/ai-mentor`
 - `/documents`
 - `/ekip/mentor`
+- `/ekip/uzman`
 - `/favorites`
 - `/hosgeldin`
 - `/hub`
@@ -422,13 +424,13 @@ SEO `layout.tsx` Server Component'lerinde `generateMetadata()` ile uretilir. `ge
 
 `components/university-details/ProgramDirectory.tsx`, programlari bachelor/master/single-cycle gruplarina ayirir. Department detail sayfasi admission details panelini varsa gosterir.
 
-### Mentor Masalari (AI + Gonullu)
+### Mentor Masalari (AI + Gonullu + Uzman)
 
-`/ai-mentor` protected route'tur. UI uc masali consultation desk modelidir:
+`/ai-mentor` public route'tur; SEO karari değişmediği için `robots.ts` içinde disallow kalır ve sitemap'e eklenmez. UI üç masalı consultation desk modelidir:
 
-- ItalyPath AI: backend/native Gemini streaming akisi korunur; masa 2026-07-23 itibariyla arayuzde gecici olarak `paused` ve secilemez.
-- ItalyPath Gonullu Ekip: aktif; Supabase uzerinde kalici, site ici insan yazismasi.
-- ItalyPath Uzman: ayri uzman lead-form projesi tamamlanana kadar `coming-soon`.
+- ItalyPath AI: backend/native Gemini streaming akışı korunur; masa 2026-07-23 itibarıyla arayüzde geçici olarak `paused` ve seçilemez.
+- ItalyPath Gönüllü Ekip: aktif, giriş gerektiren Supabase üzerinde kalıcı site içi insan yazışmasıdır. Misafir `desk=volunteer` seçerse `/giris?redirect_url=/ai-mentor?desk=volunteer` akışına gider.
+- ItalyPath Uzman: aktif public `expert-lead` formudur. Form altı zorunlu alanla ücretsiz WhatsApp ön görüşme talebi toplar; e-posta, onay kutusu, CAPTCHA, IP saklama, telefon bazlı dedupe veya otomatik silme yoktur. `submission_id` yalnızca retry/double-click idempotency'si içindir.
 
 AI backend'i `app/api/chat/route.ts` icindedir.
 
@@ -449,6 +451,13 @@ Gonullu masa mimarisi:
 - Okumalar ve canli olaylar Clerk'in native session token'i ile Supabase RLS + Realtime kullanir; mentor kodunda deprecated Clerk `supabase` JWT template'i veya service-role key yoktur.
 - V1: bir operator, ogrenci basina tek acik gorusme, yalnizca duz metin, ek/atama/not/typing/read receipt/otomatik bildirim yok. Her iki taraf gorusmeyi kapatabilir; kapali gecmis hesap silinene kadar salt okunur tutulur.
 - Kalici kontrol: `npm run check:mentor-desks`, `npm run test:volunteer-desk`, `npm run test:mentor-operator` ve `npm run test:mentor-db`. Production kabulunde ayrica normal ogrenci + operator hesaplariyla iki-hesap RLS/Realtime matrisi uygulanir.
+
+Uzman lead mimarisi gönüllü konuşma tablolarını, hook'larını veya Realtime state machine'ini yeniden kullanmaz:
+
+- Public form `components/mentor/expert/ExpertLeadDesk.tsx` içindedir; `POST /api/expert-leads` server-side doğrulama ve server-only service-role insert sınırıdır.
+- `expert_leads` ayrı tablo, constraint ve RLS yüzeyidir. Anon/normal authenticated kullanıcı okuyamaz veya mutate edemez; insert yalnızca server route ile olur.
+- `/ekip/uzman` protected route'tur ve mevcut tek aktif `mentor_staff` operatörü için `is_active_mentor_staff()` + RLS doğrulamasını kullanır. `useExpertLeadInbox` Realtime/polling/notification kullanmaz; yetki veya kullanıcı değişiminde lead state'ini fail-closed temizler.
+- Kalıcı kontroller: `npm run check:expert-leads` ve `npm run test:expert-leads`; DB/RLS matrisi `npm run test:mentor-db` içindedir.
 
 Production acilisi Clerk third-party auth, SQL kurulumu ve `mentor_staff` provision adimlari tamamlanmadan yapilmaz; ayrintilar `SUPABASE_SECURITY_RUNBOOK.md` icindedir.
 
@@ -595,6 +604,7 @@ Kodun bekledigi ana tablolar:
 - `mentor_staff`: aktif gonullu operator allowlist'i (V1'de tek aktif satir)
 - `mentor_conversations`: ogrenciye ait kalici gorusme, konu ve durum kaydi
 - `mentor_messages`: ogrenci/gonullu duz metin mesajlari; staff kullanici kimligi tasimaz
+- `expert_leads`: public uzman ön görüşme formu satırları; yalnızca aktif staff select/update/delete yapabilir
 - `universities`: university base rows
 - `university_departments`: program rows, languages/duration/level/sort
 - `program_admission_details`: program admission metadata ve source/uncertainty modeli
@@ -605,6 +615,7 @@ SQL/runbook dosyalari:
 - `supabase/program_admission_details.sql`: program admission details tablo/policy/grant setup
 - `supabase/user_profiles.sql`: onboarding profil tablo/policy/grant setup
 - `supabase/volunteer_mentor.sql`: mentor tablolar, private idempotency, RLS, RPC ve Realtime setup
+- `supabase/expert_leads.sql`: uzman lead tablo, constraint, `updated_at` trigger, index, grant ve staff-only RLS setup
 - `SUPABASE_SECURITY_RUNBOOK.md`: Clerk + Supabase operasyon rehberi
 
 Gercek production schema dashboard'dan dogrulanmalidir.
@@ -619,7 +630,7 @@ Gercek production schema dashboard'dan dogrulanmalidir.
 | --- | --- |
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Server-only SAT soru okuma/import islemleri; client bundle'a girmemeli |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server-only SAT soru okuma/import ve expert lead insert işlemleri; client bundle'a girmemeli |
 | `GEMINI_API_KEY` | Gemini chat endpoint |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk frontend |
 | `CLERK_SECRET_KEY` | Clerk server |
@@ -640,9 +651,11 @@ npm run check:sat-bank
 npm run check:auth-ui
 npm run check:hub-onboarding
 npm run check:mentor-desks
+npm run check:expert-leads
 npm run test:volunteer-desk
 npm run test:mentor-operator
 npm run test:mentor-db
+npm run test:expert-leads
 npm run check:cities
 npm run check:program-details
 npm run check:admission-dossier
@@ -700,3 +713,4 @@ node scripts/check-universities-server-compose.mjs
 10. Public SEO sayfalarinda page-level CSR bailout riskine dikkat et. `useSearchParams`/Suspense kullanimi kritik ilk HTML'i skeleton'a dusuruyorsa server wrapper + client leaf pattern'ini tercih et.
 11. Existing dirty worktree varsay; kullanici degisikliklerini revert etme.
 12. Yeni agent, once bu dosyayi, sonra ilgili feature dosyalarini, sonra dogrulama scriptlerini okumali.
+13. Expert lead client dosyalari veya `NEXT_PUBLIC_*` değişkenleri hiçbir zaman `SUPABASE_SERVICE_ROLE_KEY` alamaz; public form insert'i yalnızca server-only `app/api/expert-leads` sınırından geçer.
