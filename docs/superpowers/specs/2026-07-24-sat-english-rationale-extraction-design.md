@@ -154,6 +154,19 @@ Alan kuralları:
   kontrolünden geçer; form feed'e dönüşmüş `\f` veya geçersiz escape kabul
   edilmez.
 
+### Onaylı tek kayıt istisnası — 2026-08-01
+
+Ürün sahibi, `20722644` için kaynak PDF'nin 11. sayfasındaki görünür
+fonksiyon-gösterimi parantez eksikliğinin (`f(x)` / `f(2)` biçimine
+normalizasyon) okuyucu için sorun olmadığını açıkça kabul etti. Bu nedenle
+çıkarılmış okunabilir gösterim korunur ve üçüncü review turu açılmaz.
+
+Bu bir genel kaynak-sadakati gevşetmesi değildir: yalnız bu ID'nin ikinci tur
+ret olayına bağlıdır, önceki iki ret kaydı silinmez, cevap tutarlılığı ve
+açıklamanın eksiksizliği yine zorunludur. Kapsamı aşan başka hiçbir parantez,
+gruplama veya matematik değişikliği bu istisnayla kabul edilemez. Git dışı
+`policy-exceptions.json` kaydı ve checkpoint checksum'ı bu kararı bağlar.
+
 ## Çıktı Yerleşimi
 
 Çalışma shard'ları mevcut pipeline kuralına uyar:
@@ -196,6 +209,7 @@ Teslim paketi şunları içerir:
 - `target-ids.json`
 - `explanations-en.json`
 - `reviews.json`
+- `policy-exceptions.json` (varsa, açıkça kabul edilen dar istisnaların izi)
 - `run-manifest.json`
 - `qa-report.json`
 - `gap-report.json`

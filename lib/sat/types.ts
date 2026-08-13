@@ -15,6 +15,7 @@ export interface SatQuestion {
   choices: Record<SatChoiceKey, string> | null;
   correctAnswer: string[];
   figureUrl: string | null;
+  explanationEn: string | null;
 }
 
 export interface SatTopic {

@@ -28,6 +28,10 @@
 - Her pilot/wave bariyerinde yapısal doğrulama ve SHA-256 checkpoint geçmeden sonraki wave başlamaz.
 - Pilot 40/40 kabul edildikten sonra kullanıcıya raporlanır; kullanıcı açıkça onaylamadan kalan 766 kayda geçilmez.
 - Git'e commit yerine korumalı operasyon çıktıları için checksum checkpoint kullanılır. Yalnız bu plan/spec belgeleri planlama turunda commit edilir.
+- **2026-08-01 dar kullanıcı istisnası:** `20722644` ID'sinin ikinci turdaki yalnız
+  fonksiyon-gösterimi parantez ret olayı, `policy-exceptions.json` ile etkin kabul
+  sayılabilir. Önceki retler silinmez; cevap/açıklama kontrolleri yanlışsa veya
+  başka bir parantez/gruplama farkı varsa istisna uygulanmaz.
 
 ---
 
@@ -63,6 +67,7 @@ tmp/sat-bank/explanations-en/
   pilot-source-index.json           # pilot metadata + kaynak izi
   wave-plan.json                    # 19 wave ve A/B/C ownership/review rotasyonu
   agent-registry.json               # logical A/B/C -> canonical agent task adı
+  policy-exceptions.json            # açık ürün-sahibi istisnaları; varsayılan boş
   checkpoint-targets/
     PILOT.json                      # ilk 40
     W01.json ... W19.json           # kabul kapısındaki kümülatif hedefler
@@ -84,6 +89,7 @@ tmp/sat-bank/explanations-en/
     target-ids.json
     explanations-en.json
     reviews.json
+    policy-exceptions.json
     run-manifest.json
     qa-report.json
     gap-report.json

@@ -4,7 +4,7 @@ import type { SatDifficulty, SatQuestion, SatSection, SatTopic } from "@/lib/sat
 import type { SatQuestionRow } from "@/types";
 
 const SAT_QUESTION_COLUMNS =
-  "id,section,domain,skill,skill_slug,difficulty,question_type,prompt,choices,correct_answer,figure_path,explanation_tr,needs_review";
+  "id,section,domain,skill,skill_slug,difficulty,question_type,prompt,choices,correct_answer,figure_path,explanation_tr,explanation_en,needs_review";
 const PAGE_SIZE = 1000;
 // Egress guard: soru seti yalnizca manuel importla degisir; universities.server.ts
 // ile ayni politika (3 saat memo + stale-on-error + single-flight).
@@ -62,6 +62,7 @@ function createQuestion(row: SatQuestionRow): SatQuestion | null {
     choices,
     correctAnswer: row.correct_answer.map(String),
     figureUrl: figurePublicUrl(row.figure_path),
+    explanationEn: row.explanation_en,
   };
 }
 

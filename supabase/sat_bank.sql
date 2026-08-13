@@ -16,6 +16,7 @@ create table if not exists public.sat_questions (
   correct_answer jsonb not null,
   figure_path text,
   explanation_tr text,
+  explanation_en text,
   source_file text not null,
   needs_review boolean not null default false,
   created_at timestamptz not null default timezone('utc', now())

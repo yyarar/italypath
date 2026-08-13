@@ -117,29 +117,41 @@ export default function QuestionCard({ question, onAnswered, onNext, isLast }: Q
       )}
 
       {answered ? (
-        <footer className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--editorial-border)] pt-4">
-          <p
-            className={
-              result === "correct"
-                ? "text-[13px] font-semibold text-[var(--editorial-sage)]"
-                : "text-[13px] font-semibold text-[var(--editorial-terracotta)]"
-            }
-          >
-            {result === "correct" ? (
-              t.sat.correctFeedback
-            ) : (
-              <>
-                {t.sat.wrongFeedback} <MathText text={question.correctAnswer.join(", ")} />
-              </>
-            )}
-          </p>
-          <button
-            type="button"
-            onClick={onNext}
-            className="border border-[var(--editorial-sage)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-sage)] transition-colors hover:bg-[rgba(216,222,217,0.25)] active:translate-y-[1px]"
-          >
-            {isLast ? t.sat.finishTopic : t.sat.nextQuestion}
-          </button>
+        <footer className="mt-5 border-t border-[var(--editorial-border)] pt-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p
+              className={
+                result === "correct"
+                  ? "text-[13px] font-semibold text-[var(--editorial-sage)]"
+                  : "text-[13px] font-semibold text-[var(--editorial-terracotta)]"
+              }
+            >
+              {result === "correct" ? (
+                t.sat.correctFeedback
+              ) : (
+                <>
+                  {t.sat.wrongFeedback} <MathText text={question.correctAnswer.join(", ")} />
+                </>
+              )}
+            </p>
+            <button
+              type="button"
+              onClick={onNext}
+              className="border border-[var(--editorial-sage)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-sage)] transition-colors hover:bg-[rgba(216,222,217,0.25)] active:translate-y-[1px]"
+            >
+              {isLast ? t.sat.finishTopic : t.sat.nextQuestion}
+            </button>
+          </div>
+          {question.explanationEn ? (
+            <section className="mt-4 border border-[var(--editorial-border)] bg-[var(--editorial-paper)] p-4 text-[14px] leading-7 text-[var(--editorial-ink)]">
+              <h3 className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-sage)]">
+                {t.sat.explanationTitle}
+              </h3>
+              <div className="whitespace-pre-line">
+                <MathText text={question.explanationEn} />
+              </div>
+            </section>
+          ) : null}
         </footer>
       ) : null}
     </article>

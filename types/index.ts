@@ -89,6 +89,7 @@ export interface SatQuestionRow {
   correct_answer: string[] | null;
   figure_path: string | null;
   explanation_tr: string | null;
+  explanation_en: string | null;
   needs_review: boolean | null;
 }
 
