@@ -11,26 +11,33 @@ interface CountUpStatProps {
   durationMs?: number;
 }
 
-// Sayilari gorunur olunca 0'dan hedefe ease-out-quart ile sayar.
+// Sayilar ilk HTML'de gercek hedef degeriyle sunulur; boylece JavaScript
+// calismayan istemciler ve arama motorlari yanlislikla "0" gormez. Kart
+// gorunur oldugunda istemci tarafinda 0'dan hedefe ease-out-quart ile sayar.
 // value null ise (canli veri gelmediyse) sessizce "…" gosterir, animasyon yok.
 export default function CountUpStat({ value, className, durationMs = 1200 }: CountUpStatProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
   const reduceMotion = useReducedMotion();
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState(() => value ?? 0);
 
   useEffect(() => {
     if (value === null || !inView || reduceMotion) return;
 
     let raf = 0;
-    const start = performance.now();
+    let start = 0;
     const tick = (now: number) => {
       const progress = Math.min(1, (now - start) / durationMs);
       const eased = 1 - Math.pow(1 - progress, 4);
       setDisplay(Math.round(value * eased));
       if (progress < 1) raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
+    raf = requestAnimationFrame(() => {
+      setDisplay(0);
+      start = performance.now();
+      raf = requestAnimationFrame(tick);
+    });
+
     return () => cancelAnimationFrame(raf);
   }, [inView, value, reduceMotion, durationMs]);
 

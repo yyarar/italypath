@@ -21,6 +21,7 @@
     "check:scholarships-ui": "node scripts/check-scholarships-editorial-atlas.mjs",
     "check:editorial-ui": "node scripts/check-editorial-ui.mjs",
     "check:documents-ui": "node scripts/check-documents-ui.mjs",
+    "check:ai-search": "node scripts/check-ai-search-readiness.mjs",
     "check:auth-ui": "node scripts/check-auth-ui.mjs",
     "check:hub-onboarding": "node scripts/check-hub-onboarding.mjs",
     "check:mentor-desks": "node scripts/check-mentor-desks.mjs",
