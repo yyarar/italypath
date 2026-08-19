@@ -16,9 +16,9 @@ export default function IseeSection() {
   return (
     <section className="bg-[var(--editorial-paper)] pb-20 lg:pb-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 border-t border-[var(--editorial-border)] pt-10 lg:grid-cols-[0.75fr_1.25fr]">
+        <div className="grid gap-8 rounded-[2rem] border border-white/75 bg-[#f3ece6] p-6 shadow-[0_18px_55px_rgba(21,32,28,0.06)] sm:rounded-[2.5rem] sm:p-8 lg:grid-cols-[0.75fr_1.25fr] lg:p-10">
           <Reveal>
-            <div className="mb-5 flex h-12 w-12 items-center justify-center border border-[var(--editorial-border)] bg-[var(--editorial-surface)] text-[var(--editorial-sage)]">
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--editorial-surface)] text-[var(--editorial-sage)] shadow-[0_6px_18px_rgba(21,32,28,0.08)]">
               <Calculator className="h-5 w-5" />
             </div>
             <h2 className="max-w-lg font-serif text-3xl font-normal leading-tight tracking-[-0.015em] text-[var(--editorial-ink)] sm:text-4xl">
@@ -32,7 +32,7 @@ export default function IseeSection() {
               {items.map((item, index) => (
                 <div
                   key={item}
-                  className="group border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-4 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-[var(--editorial-sage)]"
+                  className="group rounded-2xl border border-white/80 bg-[rgba(255,254,250,0.72)] p-4 shadow-[0_7px_22px_rgba(21,32,28,0.04)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1"
                 >
                   <div className="mb-3 flex items-center justify-between">
                     <CheckCircle2 className="h-4 w-4 text-[var(--editorial-sage)]" />
@@ -46,7 +46,7 @@ export default function IseeSection() {
             </div>
             <Link
               href="/isee"
-              className="group mt-7 inline-flex items-center border border-[var(--editorial-sage)] px-5 py-3 text-sm font-semibold text-[var(--editorial-sage)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-[var(--editorial-sage)] hover:text-white active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+              className="home-pressable group mt-7 inline-flex items-center rounded-full border border-[var(--editorial-sage)] bg-white/35 px-5 py-3 text-sm font-semibold text-[var(--editorial-sage)] hover:bg-[var(--editorial-sage)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
             >
               {t.isee.homeCardBtn}
               <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1" />

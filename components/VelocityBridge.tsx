@@ -29,8 +29,8 @@ export default function VelocityBridge({ stats }: VelocityBridgeProps) {
         ];
 
   return (
-    <section className="bg-[var(--editorial-sage)] py-14 text-[#faf7f0] lg:py-20">
-      <Reveal className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-[var(--editorial-paper)] pb-20 text-[#faf7f0] lg:pb-28">
+      <Reveal className="mx-4 max-w-7xl rounded-[2rem] bg-[var(--editorial-sage)] px-5 py-10 shadow-[0_22px_60px_rgba(31,79,70,0.16)] sm:mx-6 sm:rounded-[2.5rem] sm:px-8 lg:mx-8 lg:px-12 lg:py-14 xl:mx-auto">
         <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#9fc3b6]">
           <span className="h-px w-7 bg-[#9fc3b6]" aria-hidden="true" />
           {language === "tr" ? "Rakamlarla ItalyPath" : "ItalyPath in numbers"}

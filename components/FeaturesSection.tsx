@@ -2,7 +2,8 @@
 
 import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
-import { ArrowRight, FileText, GraduationCap, MessageCircle } from "lucide-react";
+import { ArrowUpRight, FileText, GraduationCap, MessageCircle } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
 import Reveal from "@/components/ui/Reveal";
@@ -15,9 +16,9 @@ interface FeaturesSectionProps {
 export default function FeaturesSection({ stats }: FeaturesSectionProps) {
   const { t, language } = useLanguage();
   const { isSignedIn } = useAuth();
+  const reduceMotion = useReducedMotion();
   const aiMentorHref = isSignedIn ? "/ai-mentor" : "/giris?redirect_url=%2Fai-mentor";
   const documentsHref = isSignedIn ? "/documents" : "/giris?redirect_url=%2Fdocuments";
-  const ctaText = language === "tr" ? "İncele" : "Open";
   const universitiesMeta =
     stats.universitiesCount === null || stats.programsCount === null
       ? language === "tr"
@@ -34,13 +35,8 @@ export default function FeaturesSection({ stats }: FeaturesSectionProps) {
       description: t.features.card1Desc,
       href: "/universities",
       meta: universitiesMeta,
-    },
-    {
-      icon: FileText,
-      title: t.features.card3Title,
-      description: t.features.card3Desc,
-      href: documentsHref,
-      meta: language === "tr" ? "Başvuru evrakları" : "Application documents",
+      surface: "bg-[#e7efe9]",
+      iconSurface: "bg-[var(--editorial-sage)] text-white",
     },
     {
       icon: MessageCircle,
@@ -48,54 +44,70 @@ export default function FeaturesSection({ stats }: FeaturesSectionProps) {
       description: t.features.card2Desc,
       href: aiMentorHref,
       meta: language === "tr" ? "AI · Gönüllü ekip · Uzman" : "AI · Volunteer team · Expert",
+      surface: "bg-[#f2e8e0]",
+      iconSurface: "bg-[var(--editorial-terracotta)] text-white",
+    },
+    {
+      icon: FileText,
+      title: t.features.card3Title,
+      description: t.features.card3Desc,
+      href: documentsHref,
+      meta: language === "tr" ? "Başvuru evrakları" : "Application documents",
+      surface: "bg-[#eceee5]",
+      iconSurface: "bg-[var(--editorial-ink)] text-white",
     },
   ];
 
   return (
-    <section className="bg-[var(--editorial-paper)] py-16 lg:py-24">
+    <section className="bg-[var(--editorial-paper)] py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 border-t border-[var(--editorial-border)] pt-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <Reveal>
-            <p className="flex items-center gap-3 text-sm font-medium text-[var(--editorial-muted)]">
-              <span className="h-px w-7 bg-[var(--editorial-terracotta)]" aria-hidden="true" />
-              {language === "tr" ? "Rehber akışı" : "Guide flow"}
+        <Reveal className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+              {t.homeApple.featuresEyebrow}
             </p>
-            <h2 className="mt-4 max-w-md font-serif text-4xl font-normal leading-tight tracking-[-0.02em] text-[var(--editorial-ink)] sm:text-5xl">
+            <h2 className="mt-4 max-w-2xl font-serif text-4xl font-normal leading-[1.02] tracking-[-0.035em] text-[var(--editorial-ink)] sm:text-5xl lg:text-6xl">
               {t.features.title}
             </h2>
-            <p className="mt-5 max-w-md text-base leading-7 text-[var(--editorial-muted)]">{t.features.subtitle}</p>
-          </Reveal>
+          </div>
+          <p className="max-w-md text-base leading-7 text-[var(--editorial-muted)]">{t.features.subtitle}</p>
+        </Reveal>
 
-          <Reveal delay={0.12} className="divide-y divide-[var(--editorial-border)] border-y border-[var(--editorial-border)]">
-            {features.map((feature) => {
-              const Icon = feature.icon;
+        <div className="mt-10 grid gap-4 lg:grid-cols-3">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
 
-              return (
+            return (
+              <Reveal key={feature.title} delay={index * 0.07}>
                 <Link
-                  key={feature.title}
                   href={feature.href}
-                  className="group grid gap-5 py-6 transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-[var(--editorial-band)] sm:grid-cols-[3rem_1fr_auto]"
+                  className="block rounded-[2rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center border border-[var(--editorial-border)] bg-[var(--editorial-surface)] text-[var(--editorial-sage)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:border-[var(--editorial-sage)] group-hover:-translate-y-0.5">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div className="min-w-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
-                    <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
-                      <h3 className="text-xl font-semibold tracking-[-0.015em] text-[var(--editorial-ink)] transition-colors duration-500 group-hover:text-[var(--editorial-sage)]">
-                        {feature.title}
-                      </h3>
-                      <span className="text-xs text-[var(--editorial-terracotta)]">{feature.meta}</span>
+                  <motion.article
+                    whileHover={reduceMotion ? undefined : { y: -6 }}
+                    whileTap={reduceMotion ? undefined : { scale: 0.985 }}
+                    transition={{ type: "spring", bounce: 0, duration: 0.35 }}
+                    className={`group flex min-h-[22rem] flex-col rounded-[2rem] border border-white/70 p-6 shadow-[0_14px_45px_rgba(21,32,28,0.06)] sm:p-7 ${feature.surface}`}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div className={`flex h-12 w-12 items-center justify-center rounded-2xl shadow-[0_6px_18px_rgba(21,32,28,0.12)] ${feature.iconSurface}`}>
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/55 text-[var(--editorial-ink)] transition-transform duration-300 group-hover:rotate-6">
+                        <ArrowUpRight className="h-4 w-4" />
+                      </span>
                     </div>
-                    <p className="max-w-2xl text-sm leading-6 text-[var(--editorial-muted)]">{feature.description}</p>
-                  </div>
-                  <span className="inline-flex items-center self-center text-sm font-semibold text-[var(--editorial-sage)]">
-                    {ctaText}
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1" />
-                  </span>
+
+                    <div className="mt-auto pt-12">
+                      <p className="text-xs font-semibold text-[var(--editorial-terracotta)]">{feature.meta}</p>
+                      <h3 className="mt-3 text-2xl font-semibold tracking-[-0.035em] text-[var(--editorial-ink)]">{feature.title}</h3>
+                      <p className="mt-3 text-sm leading-6 text-[var(--editorial-muted)]">{feature.description}</p>
+                    </div>
+                  </motion.article>
                 </Link>
-              );
-            })}
-          </Reveal>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

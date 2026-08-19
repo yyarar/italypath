@@ -8,7 +8,11 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
 
-export default function Navbar() {
+interface NavbarProps {
+  homeFloating?: boolean;
+}
+
+export default function Navbar({ homeFloating = false }: NavbarProps) {
   const { t, toggleLanguage, language } = useLanguage();
   const { isSignedIn } = useAuth();
   const [scrolled, setScrolled] = useState(false);
@@ -31,14 +35,26 @@ export default function Navbar() {
   return (
     <motion.nav
       aria-label="Ana Navigasyon"
-      className="fixed inset-x-0 top-0 z-50 border-b border-[var(--editorial-border)] bg-[rgba(248,247,241,0.92)] transition-shadow duration-300"
+      className={`fixed inset-x-0 top-0 z-50 transition-shadow duration-300 ${
+        homeFloating
+          ? "px-2 pt-2 sm:px-4 sm:pt-3"
+          : "border-b border-[var(--editorial-border)] bg-[rgba(248,247,241,0.92)]"
+      }`}
       style={{
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        boxShadow: scrolled ? "0 10px 28px rgba(21,32,28,0.06)" : "none",
+        backdropFilter: homeFloating ? undefined : "blur(12px)",
+        WebkitBackdropFilter: homeFloating ? undefined : "blur(12px)",
+        boxShadow: !homeFloating && scrolled ? "0 10px 28px rgba(21,32,28,0.06)" : "none",
       }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div
+        className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${
+          homeFloating
+            ? `home-material rounded-[1.35rem] transition-shadow duration-300 ${
+                scrolled ? "shadow-[0_14px_42px_rgba(21,32,28,0.12)]" : "shadow-[0_8px_30px_rgba(21,32,28,0.07)]"
+              }`
+            : ""
+        }`}
+      >
         <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
@@ -52,7 +68,7 @@ export default function Navbar() {
               <Link
                 key={`${item.href}-${item.label}`}
                 href={item.href}
-                className="px-3 py-2 text-sm font-medium text-[var(--editorial-muted)] transition hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+                className="home-pressable rounded-full px-3 py-2 text-sm font-medium text-[var(--editorial-muted)] transition hover:bg-white/55 hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
               >
                 {item.label}
               </Link>
@@ -63,7 +79,7 @@ export default function Navbar() {
             <button
               onClick={toggleLanguage}
               aria-label={language === "tr" ? "Switch to English" : "Türkçeye Geç"}
-              className="inline-flex items-center gap-1.5 border border-[var(--editorial-border)] bg-transparent px-3 py-2 text-xs font-semibold text-[var(--editorial-ink)] transition hover:border-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+              className="home-pressable inline-flex items-center gap-1.5 rounded-full border border-[var(--editorial-border)] bg-white/45 px-3 py-2 text-xs font-semibold text-[var(--editorial-ink)] transition hover:border-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
             >
               <Globe2 className="h-3.5 w-3.5" />
               {language === "tr" ? "EN" : "TR"}
@@ -75,7 +91,7 @@ export default function Navbar() {
                   whileHover={{ y: -1 }}
                   whileTap={{ y: 0 }}
                   transition={{ type: "spring", stiffness: 420, damping: 28 }}
-                  className="ml-2 inline-flex cursor-pointer items-center border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#173d36]"
+                  className="ml-2 inline-flex cursor-pointer items-center rounded-full border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-4 py-2 text-sm font-semibold text-white shadow-[0_5px_16px_rgba(31,79,70,0.2)] transition hover:bg-[#173d36]"
                 >
                   {t.navbar.login}
                 </motion.span>
@@ -94,7 +110,7 @@ export default function Navbar() {
             <button
               onClick={toggleLanguage}
               aria-label={language === "tr" ? "Switch to English" : "Türkçeye Geç"}
-              className="inline-flex items-center gap-1 border border-[var(--editorial-border)] px-2.5 py-1.5 text-[11px] font-semibold text-[var(--editorial-ink)]"
+              className="home-pressable inline-flex items-center gap-1 rounded-full border border-[var(--editorial-border)] bg-white/45 px-2.5 py-1.5 text-[11px] font-semibold text-[var(--editorial-ink)]"
             >
               <Globe2 className="h-3 w-3" />
               {language === "tr" ? "EN" : "TR"}
@@ -103,7 +119,7 @@ export default function Navbar() {
             <SignedOut>
               <Link
                 href="/giris"
-                className="inline-flex border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-3 py-1.5 text-[11px] font-semibold text-white"
+                className="home-pressable inline-flex rounded-full border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-3 py-1.5 text-[11px] font-semibold text-white"
               >
                 {t.navbar.login}
               </Link>

@@ -236,6 +236,52 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Home page material system: translucent where supported, solid when requested. */
+.home-material {
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  backdrop-filter: blur(24px) saturate(150%);
+}
+
+.home-pressable {
+  touch-action: manipulation;
+  transition: transform 140ms ease-out, background-color 220ms ease, border-color 220ms ease, color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.home-pressable:active {
+  transform: scale(0.97);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .home-material {
+    background: #fffefa;
+    border-color: var(--editorial-border);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .home-material {
+    background: #fffefa;
+    border: 2px solid var(--editorial-ink);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-pressable {
+    transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+  }
+
+  .home-pressable:active {
+    transform: none;
+  }
+}
+
 /* Border Beam wrapper */
 .border-beam-wrapper {
   position: relative;

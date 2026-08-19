@@ -17,8 +17,8 @@ interface HomePageClientProps {
 
 export default function HomePageClient({ stats }: HomePageClientProps) {
   return (
-    <div className="min-h-screen bg-[var(--editorial-paper)] font-sans text-[var(--editorial-ink)]">
-      <Navbar />
+    <div className="min-h-screen overflow-hidden bg-[var(--editorial-paper)] font-sans text-[var(--editorial-ink)]">
+      <Navbar homeFloating />
       <HeroSection stats={stats} />
       <HomeStoryBand />
       <FeaturesSection stats={stats} />
