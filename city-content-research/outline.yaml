@@ -1,0 +1,64 @@
+topic: "ItalyPath eksik şehir rehberi içerikleri"
+scope:
+  visible_city_count: 25
+  include_existing_curated_cities: false
+  time_range: "unlimited"
+  history_source_policy: "Her görünür şehir için uygun Wikipedia maddesi; metin kopyalanmadan TR/EN kısa özet"
+  pricing_policy: "Şehir başına Numbeo araştırması yerine merkezi ItalyPath fiyat tier modeli"
+
+items:
+  - name: "Perugia"
+  - name: "Aosta"
+    research_context: "Kaynak aramasında resmî İtalyanca ve Fransızca ad varyantlarını dikkate al."
+  - name: "Bergamo"
+  - name: "Bolzano"
+    research_context: "Kaynak aramasında Bolzano/Bozen iki dilli adını dikkate al."
+  - name: "Brescia"
+  - name: "Cagliari"
+  - name: "Camerino"
+  - name: "Casamassima"
+    research_context: "Kampüs belediyesi ile öğrencinin günlük yaşam üssünü birbirinden ayır."
+  - name: "Cassino"
+  - name: "Castellanza"
+    research_context: "LIUC kampüs ve yurt modelini şehir geneline mal etme."
+  - name: "Catania"
+  - name: "Cenova"
+    canonical_name_it: "Genova"
+    research_context: "Cenova kullanıcıya gösterilen Türkçe addır; kaynak eşlemesinde Genova kullan."
+  - name: "Ferrara"
+  - name: "Lecce"
+  - name: "Macerata"
+  - name: "Messina"
+  - name: "Palermo"
+  - name: "Pescara"
+    research_context: "Üniversitenin Chieti-Pescara çift şehirli yapısını ulaşım ve şehir karakterinde açıkla; Chieti bu aşamada ayrı görünür rehber değildir."
+  - name: "Pollenzo"
+    research_context: "Pollenzo resmî kampüs yerleşimidir; Bra öğrencilerin başlıca günlük yaşam üssü olarak ayrıca kaydedilir, fakat ayrı görünür rehber olmaz."
+  - name: "Reggio Calabria"
+  - name: "Sassari"
+  - name: "Teramo"
+  - name: "Udine"
+  - name: "Urbino"
+  - name: "Viterbo"
+
+supporting_places:
+  - name: "Chieti"
+    purpose: "Pescara çift şehir üniversite bağlamı"
+    visible_guide: false
+  - name: "Bra"
+    purpose: "Pollenzo için birincil öğrenci yaşam üssü"
+    visible_guide: false
+
+excluded_items:
+  - name: "Piemonte"
+    reason: "Bir şehir değil; Università del Piemonte Orientale'nin Alessandria, Novara ve Vercelli ayaklarını tek şehir gibi gösteriyor."
+    action: "Yalnız şehir rehberi seçeneklerinden çıkar; üniversite ve program verilerini koru."
+
+execution:
+  batch_size: 3
+  items_per_agent: 3
+  output_dir: "./city-content-research/results"
+  preflight:
+    - "Canlı Supabase şehir listesini yeniden al ve 25 görünür araştırma nesnesinin hâlâ geçerli olduğunu doğrula."
+    - "Piemonte değerini şehir rehberi normalizasyonunda hariç tut; UPO üniversite/program verisini değiştirme."
+    - "Her araştırma paketinde en fazla üç görünür şehir işle."

@@ -1,0 +1,121 @@
+topic: "ItalyPath eksik şehir rehberi içerikleri"
+existing_contract: "types/cities.ts::CityDetail"
+
+categories:
+  identity:
+    description: "Şehri UI, kaynaklar ve canlı üniversite verisi arasında güvenli biçimde eşler."
+    fields:
+      - name: "slug"
+        description: "ItalyPath URL anahtarı; Türkçe uygulama adından üretilir."
+        detail_level: "brief"
+      - name: "name"
+        description: "Kullanıcıya gösterilen Türkçe şehir adı."
+        detail_level: "brief"
+      - name: "nameEn"
+        description: "Kullanıcıya gösterilen İngilizce şehir adı."
+        detail_level: "brief"
+      - name: "cityNameIt"
+        description: "Wikipedia ve resmî kaynak eşlemesi için İtalyanca belediye adı."
+        detail_level: "brief"
+      - name: "altNames"
+        description: "Türkçe, İngilizce, İtalyanca ve resmî iki dilli ad varyantları."
+        detail_level: "brief"
+      - name: "region"
+        description: "İtalya bölgesi; mevcut burs eşlemesiyle uyumlu yazım."
+        detail_level: "brief"
+      - name: "placeHierarchy"
+        description: "city, hamlet, satellite-town, dual-city veya multi-city-network sınıfı."
+        detail_level: "brief"
+      - name: "primaryStudentBase"
+        description: "Kampüs belediyesinden farklıysa öğrencilerin başlıca günlük yaşam üssü."
+        detail_level: "brief"
+
+  history:
+    description: "Wikipedia kaynaklı, kopyalanmamış kısa tarihçe."
+    fields:
+      - name: "historyShort"
+        description: "Şehrin oluşumu veya başlıca tarihsel dönüm noktasını anlatan 2-3 cümlelik Türkçe paraphrase."
+        detail_level: "moderate"
+      - name: "historyShortEn"
+        description: "Türkçe özetle aynı olguları taşıyan 2-3 cümlelik İngilizce metin."
+        detail_level: "moderate"
+      - name: "historySourceTitle"
+        description: "Kullanılan Wikipedia maddesinin başlığı ve dil sürümü."
+        detail_level: "brief"
+      - name: "historySourceUrl"
+        description: "Doğrudan Wikipedia madde URL'si."
+        detail_level: "brief"
+
+  cost:
+    description: "Şehir başına fiyat toplamadan merkezi ItalyPath yaklaşık bütçe modeline bağlanır."
+    fields:
+      - name: "costTier"
+        description: "Merkezi tier sözlüğünde tanımlanan 1-5 fiyat seviyesi."
+        detail_level: "brief"
+      - name: "costCluster"
+        description: "Tier seçiminin tekrar üretilebilir gerekçesi: major-metro, regional-capital, provincial-student-city, micro-campus-town veya island-premium."
+        detail_level: "brief"
+      - name: "costTierRationale"
+        description: "Şehir ölçeği, konum ve öğrenci yaşam üssüne dayanarak tier seçimini açıklayan tek cümlelik iç editör notu; UI'de gösterilmez."
+        detail_level: "brief"
+
+  transport:
+    description: "Öğrencinin şehir içi ve şehirler arası hareketini kısa biçimde açıklar."
+    fields:
+      - name: "transportDetails"
+        description: "Ana yerel ulaşım biçimleri, temel istasyon/bağlantı ve özel yerleşim ilişkisini içeren kısa Türkçe özet."
+        detail_level: "moderate"
+      - name: "transportDetailsEn"
+        description: "Türkçe özetle aynı olguları taşıyan kısa İngilizce metin."
+        detail_level: "moderate"
+      - name: "mobilityNodes"
+        description: "Özeti doğrulamak için istasyon, havalimanı, otobüs terminali ve yerel işletmeci adları."
+        detail_level: "brief"
+
+  city_character:
+    description: "Uzun yaşam rehberi yerine şehrin ölçeğini ve günlük ritmini özetler."
+    fields:
+      - name: "climateAndVibe"
+        description: "İklim, ölçek, kentsel biçim ve öğrenci açısından günlük ritmi anlatan kısa Türkçe paragraf."
+        detail_level: "moderate"
+      - name: "climateAndVibeEn"
+        description: "Türkçe paragrafla aynı olguları taşıyan kısa İngilizce metin."
+        detail_level: "moderate"
+      - name: "urbanForm"
+        description: "compact-center, hill-town, coastal, dispersed veya car-dependent-fringe gibi kısa sınıf."
+        detail_level: "brief"
+
+  sources_and_review:
+    description: "Kaynak izini ve editoryal kontrol durumunu korur."
+    fields:
+      - name: "transportSourceUrls"
+        description: "Resmî belediye, üniversite veya ulaşım işletmecisi sayfaları."
+        detail_level: "brief"
+      - name: "sourceRetrievedAt"
+        description: "Kaynakların kontrol edildiği ISO 8601 tarihi."
+        detail_level: "brief"
+      - name: "sourceConfidence"
+        description: "official, mixed veya wikipedia-only güven seviyesi."
+        detail_level: "brief"
+      - name: "reviewStatus"
+        description: "draft, source-checked veya editorial-approved durumu."
+        detail_level: "brief"
+      - name: "reviewPriority"
+        description: "multi-city, hamlet, bilingual-name veya weak-source gibi öncelikli QA etiketi."
+        detail_level: "brief"
+
+uncertain:
+  description: "Derin araştırma sırasında doğrulanamayan veya birden fazla yoruma açık alanlar otomatik olarak burada listelenir."
+  detail_level: "brief"
+  auto_fill: true
+
+derived_application_fields:
+  description: "Araştırmacı şehir başına fiyat yazmaz; uygulama bunları costTier sözlüğünden üretir."
+  fields:
+    - "rentAverage"
+    - "rentAverageEn"
+    - "livingExpenses"
+    - "livingExpensesEn"
+    - "transportCost"
+    - "transportCostEn"
+    - "costRating"
