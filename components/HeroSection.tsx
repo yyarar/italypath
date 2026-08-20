@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type KeyboardEvent } from "react";
 import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import {
@@ -18,6 +18,9 @@ import { formatStatValue, type UniversityStats } from "@/lib/universityStats";
 
 type FocusId = "programs" | "scholarships" | "application";
 
+const FOCUS_ORDER: FocusId[] = ["programs", "scholarships", "application"];
+const EASE_OUT = [0.23, 1, 0.32, 1] as const;
+
 interface HeroSectionProps {
   stats: UniversityStats;
 }
@@ -27,6 +30,7 @@ export default function HeroSection({ stats }: HeroSectionProps) {
   const { isSignedIn } = useAuth();
   const reduceMotion = useReducedMotion();
   const [focus, setFocus] = useState<FocusId>("programs");
+  const [animateFocusChange, setAnimateFocusChange] = useState(true);
   const copy = t.homeApple;
 
   const focuses = {
@@ -60,6 +64,25 @@ export default function HeroSection({ stats }: HeroSectionProps) {
     { value: "20", label: copy.statRegions },
   ];
 
+  function handleFocusKeyDown(event: KeyboardEvent<HTMLButtonElement>, currentId: FocusId) {
+    const currentIndex = FOCUS_ORDER.indexOf(currentId);
+    let nextIndex: number | null = null;
+
+    if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % FOCUS_ORDER.length;
+    if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + FOCUS_ORDER.length) % FOCUS_ORDER.length;
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = FOCUS_ORDER.length - 1;
+    if (nextIndex === null) return;
+
+    event.preventDefault();
+    const nextId = FOCUS_ORDER[nextIndex];
+    const buttons = event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>("[role='tab']");
+
+    setAnimateFocusChange(false);
+    setFocus(nextId);
+    buttons?.[nextIndex]?.focus();
+  }
+
   return (
     <section className="relative isolate overflow-hidden bg-[var(--editorial-paper)] pb-20 pt-32 sm:pt-36 lg:min-h-[92svh] lg:pb-24 lg:pt-40">
       <div className="pointer-events-none absolute -right-36 top-20 -z-10 h-[34rem] w-[34rem] rounded-full bg-[rgba(219,232,225,0.7)] blur-3xl" />
@@ -67,8 +90,8 @@ export default function HeroSection({ stats }: HeroSectionProps) {
 
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:px-8">
         <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={reduceMotion ? false : { opacity: 0, transform: "translateY(22px)" }}
+          animate={{ opacity: 1, transform: "translateY(0px)" }}
           transition={{ type: "spring", bounce: 0, duration: 0.45 }}
           className="max-w-3xl"
         >
@@ -90,7 +113,7 @@ export default function HeroSection({ stats }: HeroSectionProps) {
               className="home-pressable group inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--editorial-sage)] px-6 text-sm font-semibold text-white shadow-[0_10px_26px_rgba(31,79,70,0.22)] hover:bg-[#173d36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--editorial-sage)]"
             >
               {copy.primaryCta}
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="home-hover-arrow ml-2 h-4 w-4" />
             </Link>
             <Link
               href={isSignedIn ? "/hub" : "/giris?mode=kayit"}
@@ -100,9 +123,9 @@ export default function HeroSection({ stats }: HeroSectionProps) {
             </Link>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3">
-            {heroStats.map((item) => (
-              <div key={item.label} className="flex items-baseline gap-2">
+          <div className="mt-10 flex flex-wrap items-center gap-y-3 text-sm">
+            {heroStats.map((item, index) => (
+              <div key={item.label} className={`flex items-baseline gap-2 ${index > 0 ? "ml-4 border-l border-[var(--editorial-border)] pl-4 sm:ml-6 sm:pl-6" : ""}`}>
                 <span className="text-xl font-semibold tracking-[-0.035em] text-[var(--editorial-ink)]">{item.value}</span>
                 <span className="text-sm text-[var(--editorial-muted)]">{item.label}</span>
               </div>
@@ -111,8 +134,8 @@ export default function HeroSection({ stats }: HeroSectionProps) {
         </motion.div>
 
         <motion.aside
-          initial={reduceMotion ? false : { opacity: 0, scale: 0.97, y: 28 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
+          initial={reduceMotion ? false : { opacity: 0, transform: "translateY(28px) scale(0.97)" }}
+          animate={{ opacity: 1, transform: "translateY(0px) scale(1)" }}
           transition={{ type: "spring", bounce: 0, duration: 0.55, delay: 0.08 }}
           aria-label={copy.plannerLabel}
           className="home-material relative overflow-hidden rounded-[2rem] p-2 shadow-[0_28px_80px_rgba(21,32,28,0.14)] sm:rounded-[2.5rem] sm:p-3"
@@ -140,7 +163,14 @@ export default function HeroSection({ stats }: HeroSectionProps) {
                     type="button"
                     role="tab"
                     aria-selected={active}
-                    onClick={() => setFocus(id)}
+                    aria-controls="home-focus-panel"
+                    id={`home-focus-tab-${id}`}
+                    tabIndex={active ? 0 : -1}
+                    onClick={() => {
+                      setAnimateFocusChange(true);
+                      setFocus(id);
+                    }}
+                    onKeyDown={(event) => handleFocusKeyDown(event, id)}
                     className={`home-pressable relative flex min-h-10 items-center justify-center gap-1.5 rounded-full px-2 text-xs font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] sm:text-sm ${
                       active ? "text-[var(--editorial-ink)]" : "text-[var(--editorial-muted)] hover:text-[var(--editorial-ink)]"
                     }`}
@@ -149,7 +179,7 @@ export default function HeroSection({ stats }: HeroSectionProps) {
                       <motion.span
                         layoutId="home-focus-pill"
                         className="absolute inset-0 rounded-full bg-[var(--editorial-surface)] shadow-[0_3px_12px_rgba(21,32,28,0.09)]"
-                        transition={{ type: "spring", bounce: 0, duration: 0.35 }}
+                        transition={animateFocusChange ? { duration: 0.22, ease: EASE_OUT } : { duration: 0 }}
                       />
                     )}
                     <Icon className="relative h-3.5 w-3.5" aria-hidden="true" />
@@ -159,15 +189,29 @@ export default function HeroSection({ stats }: HeroSectionProps) {
               })}
             </div>
 
-            <div className="relative mt-4 min-h-[25rem] overflow-hidden rounded-[1.4rem] bg-[var(--editorial-ink)] p-5 text-[#faf7f0] sm:min-h-[26rem] sm:rounded-[1.75rem] sm:p-7">
+            <div
+              id="home-focus-panel"
+              role="tabpanel"
+              aria-labelledby={`home-focus-tab-${focus}`}
+              className="relative mt-4 min-h-[25rem] overflow-hidden rounded-[1.4rem] bg-[var(--editorial-ink)] p-5 text-[#faf7f0] sm:min-h-[26rem] sm:rounded-[1.75rem] sm:p-7"
+            >
               <div className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[rgba(219,232,225,0.12)] blur-2xl" />
-              <AnimatePresence mode="wait" initial={false}>
+              <AnimatePresence mode="popLayout" initial={false}>
                 <motion.div
                   key={focus}
-                  initial={reduceMotion ? { opacity: 0 } : { opacity: 0, x: 18 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={reduceMotion ? { opacity: 0 } : { opacity: 0, x: -18 }}
-                  transition={{ type: "spring", bounce: 0, duration: 0.32 }}
+                  initial={reduceMotion || !animateFocusChange ? { opacity: 1 } : { opacity: 0, transform: "translateX(16px)", filter: "blur(2px)" }}
+                  animate={{
+                    opacity: 1,
+                    transform: "translateX(0px)",
+                    filter: "blur(0px)",
+                    transition: reduceMotion || !animateFocusChange ? { duration: 0 } : { duration: 0.2, ease: EASE_OUT },
+                  }}
+                  exit={{
+                    opacity: reduceMotion || !animateFocusChange ? 1 : 0,
+                    transform: reduceMotion || !animateFocusChange ? "translateX(0px)" : "translateX(-10px)",
+                    filter: reduceMotion || !animateFocusChange ? "blur(0px)" : "blur(2px)",
+                    transition: reduceMotion || !animateFocusChange ? { duration: 0 } : { duration: 0.13, ease: EASE_OUT },
+                  }}
                   className="relative flex min-h-[21.5rem] flex-col"
                 >
                   <div className="flex items-center justify-between gap-5">
@@ -202,7 +246,7 @@ export default function HeroSection({ stats }: HeroSectionProps) {
                     className="home-pressable group mt-auto flex min-h-12 items-center justify-between rounded-full bg-[#faf7f0] px-5 text-sm font-semibold text-[var(--editorial-ink)] shadow-[0_8px_22px_rgba(0,0,0,0.16)] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#dbe8e1]"
                   >
                     {selected.cta}
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="home-hover-arrow h-4 w-4" />
                   </Link>
                 </motion.div>
               </AnimatePresence>

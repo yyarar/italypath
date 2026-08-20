@@ -597,7 +597,7 @@ export const universitiesBaseData: UniversitySeed[] = [
   {
     id: 24,
     name: "Vanvitelli University",
-    city: "Napoli / Caserta",
+    city: "Napoli",
     type: "Devlet",
     departments: [
       { name: "Data Analytics", slug: "data-analytics" },
@@ -1044,7 +1044,7 @@ export const universitiesBaseData: UniversitySeed[] = [
   {
     id: 50,
     name: "Università Telematica Internazionale UNINETTUNO",
-    city: "Uzaktan Eğitim / Roma",
+    city: "Roma",
     type: "Özel",
     departments: [
       { name: "Psycho-Social Disciplines", slug: "psycho-social-disciplines" },

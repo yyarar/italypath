@@ -39,14 +39,14 @@ export default function VelocityBridge({ stats }: VelocityBridgeProps) {
         <div className="mt-6 grid grid-cols-2 border-t border-white/15 lg:grid-cols-4">
           {items.map(({ value, animate, display, label, href, ariaLabel }, index) => {
             const numberClass =
-              "block font-serif text-5xl font-normal tracking-[-0.02em] text-[#faf7f0] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:text-[#e7c9b8] lg:text-6xl";
+              "block font-serif text-5xl font-normal tracking-[-0.035em] text-[#faf7f0] transition-colors duration-200 ease-out group-hover:text-[#e7c9b8] lg:text-6xl";
 
             return (
               <Link
                 key={label}
                 href={href}
                 aria-label={ariaLabel}
-                className={`group block border-b border-white/15 py-8 pl-3 transition-colors duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-white/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#e7c9b8] sm:pr-6 lg:border-b-0 ${
+                className={`home-pressable group block border-b border-white/15 py-8 pl-3 transition-colors duration-200 ease-out hover:bg-white/[0.06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#e7c9b8] sm:pr-6 lg:border-b-0 ${
                   index % 2 === 0 ? "border-r border-white/15" : ""
                 } lg:border-r lg:last:border-r-0`}
               >

@@ -44,7 +44,7 @@ export default function BadgesView({ badges, onBack }: BadgesViewProps) {
   };
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
+    <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
       <header className="mb-8 border-b border-[var(--editorial-border)] pb-6">
         <div className="flex flex-wrap items-center gap-4">
           <Link
@@ -62,10 +62,7 @@ export default function BadgesView({ badges, onBack }: BadgesViewProps) {
             {t.sat.backToTopics}
           </button>
         </div>
-        <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
-          ITALYPATH
-        </p>
-        <h1 className="mt-3 font-serif text-3xl font-normal leading-tight text-[var(--editorial-ink)] sm:text-4xl">
+        <h1 className="mt-7 font-serif text-4xl font-normal leading-tight tracking-[-0.035em] text-[var(--editorial-ink)] sm:text-6xl">
           {t.sat.badgesTitle}
         </h1>
       </header>
@@ -85,7 +82,7 @@ export default function BadgesView({ badges, onBack }: BadgesViewProps) {
                   return (
                     <article
                       key={badge.id}
-                      className={`min-h-44 border p-4 ${
+                      className={`min-h-44 rounded-2xl border p-5 shadow-[0_10px_30px_rgba(21,32,28,0.035)] ${
                         badge.unlocked
                           ? "border-[var(--editorial-sage)] bg-[var(--editorial-surface)]"
                           : "border-[var(--editorial-border)] bg-[var(--editorial-band)]"
@@ -93,7 +90,7 @@ export default function BadgesView({ badges, onBack }: BadgesViewProps) {
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div
-                          className={`flex h-11 w-11 items-center justify-center border ${
+                          className={`flex h-11 w-11 items-center justify-center rounded-xl border ${
                             badge.unlocked
                               ? "border-[#b8872f] bg-[var(--editorial-surface)]"
                               : "border-[var(--editorial-border)] bg-[var(--editorial-surface)] text-[var(--editorial-muted)]"

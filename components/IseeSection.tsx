@@ -32,11 +32,11 @@ export default function IseeSection() {
               {items.map((item, index) => (
                 <div
                   key={item}
-                  className="group rounded-2xl border border-white/80 bg-[rgba(255,254,250,0.72)] p-4 shadow-[0_7px_22px_rgba(21,32,28,0.04)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1"
+                  className="home-mini-card group rounded-2xl border border-white/80 bg-[rgba(255,254,250,0.72)] p-4 shadow-[0_7px_22px_rgba(21,32,28,0.04)]"
                 >
                   <div className="mb-3 flex items-center justify-between">
                     <CheckCircle2 className="h-4 w-4 text-[var(--editorial-sage)]" />
-                    <span className="font-serif text-sm text-[var(--editorial-border)] transition-colors duration-500 group-hover:text-[var(--editorial-terracotta)]">
+                    <span className="font-serif text-sm text-[var(--editorial-border)] transition-colors duration-200 group-hover:text-[var(--editorial-terracotta)]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
@@ -49,7 +49,7 @@ export default function IseeSection() {
               className="home-pressable group mt-7 inline-flex items-center rounded-full border border-[var(--editorial-sage)] bg-white/35 px-5 py-3 text-sm font-semibold text-[var(--editorial-sage)] hover:bg-[var(--editorial-sage)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
             >
               {t.isee.homeCardBtn}
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1" />
+              <ArrowRight className="home-hover-arrow ml-2 h-4 w-4" />
             </Link>
           </Reveal>
         </div>

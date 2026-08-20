@@ -4,7 +4,7 @@ import { useState } from "react";
 import { SignedIn, SignedOut, UserButton, useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import { Globe2 } from "lucide-react";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { useMotionValueEvent, useScroll } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -33,8 +33,8 @@ export default function Navbar({ homeFloating = false }: NavbarProps) {
   });
 
   return (
-    <motion.nav
-      aria-label="Ana Navigasyon"
+    <nav
+      aria-label={language === "tr" ? "Ana navigasyon" : "Main navigation"}
       className={`fixed inset-x-0 top-0 z-50 transition-shadow duration-300 ${
         homeFloating
           ? "px-2 pt-2 sm:px-4 sm:pt-3"
@@ -68,7 +68,7 @@ export default function Navbar({ homeFloating = false }: NavbarProps) {
               <Link
                 key={`${item.href}-${item.label}`}
                 href={item.href}
-                className="home-pressable rounded-full px-3 py-2 text-sm font-medium text-[var(--editorial-muted)] transition hover:bg-white/55 hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+                className="home-pressable inline-flex min-h-10 items-center rounded-full px-3 py-2 text-sm font-medium text-[var(--editorial-muted)] hover:bg-white/55 hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
               >
                 {item.label}
               </Link>
@@ -79,7 +79,7 @@ export default function Navbar({ homeFloating = false }: NavbarProps) {
             <button
               onClick={toggleLanguage}
               aria-label={language === "tr" ? "Switch to English" : "Türkçeye Geç"}
-              className="home-pressable inline-flex items-center gap-1.5 rounded-full border border-[var(--editorial-border)] bg-white/45 px-3 py-2 text-xs font-semibold text-[var(--editorial-ink)] transition hover:border-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+              className="home-pressable inline-flex min-h-10 items-center gap-1.5 rounded-full border border-[var(--editorial-border)] bg-white/45 px-3 py-2 text-xs font-semibold text-[var(--editorial-ink)] hover:border-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
             >
               <Globe2 className="h-3.5 w-3.5" />
               {language === "tr" ? "EN" : "TR"}
@@ -87,14 +87,11 @@ export default function Navbar({ homeFloating = false }: NavbarProps) {
 
             <SignedOut>
               <Link href="/giris">
-                <motion.span
-                  whileHover={{ y: -1 }}
-                  whileTap={{ y: 0 }}
-                  transition={{ type: "spring", stiffness: 420, damping: 28 }}
-                  className="ml-2 inline-flex cursor-pointer items-center rounded-full border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-4 py-2 text-sm font-semibold text-white shadow-[0_5px_16px_rgba(31,79,70,0.2)] transition hover:bg-[#173d36]"
+                <span
+                  className="home-pressable ml-2 inline-flex min-h-10 cursor-pointer items-center rounded-full border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-4 py-2 text-sm font-semibold text-white shadow-[0_5px_16px_rgba(31,79,70,0.2)] hover:bg-[#173d36]"
                 >
                   {t.navbar.login}
-                </motion.span>
+                </span>
               </Link>
             </SignedOut>
 
@@ -110,7 +107,7 @@ export default function Navbar({ homeFloating = false }: NavbarProps) {
             <button
               onClick={toggleLanguage}
               aria-label={language === "tr" ? "Switch to English" : "Türkçeye Geç"}
-              className="home-pressable inline-flex items-center gap-1 rounded-full border border-[var(--editorial-border)] bg-white/45 px-2.5 py-1.5 text-[11px] font-semibold text-[var(--editorial-ink)]"
+              className="home-pressable inline-flex min-h-10 items-center gap-1 rounded-full border border-[var(--editorial-border)] bg-white/45 px-3 py-1.5 text-xs font-semibold text-[var(--editorial-ink)]"
             >
               <Globe2 className="h-3 w-3" />
               {language === "tr" ? "EN" : "TR"}
@@ -119,7 +116,7 @@ export default function Navbar({ homeFloating = false }: NavbarProps) {
             <SignedOut>
               <Link
                 href="/giris"
-                className="home-pressable inline-flex rounded-full border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-3 py-1.5 text-[11px] font-semibold text-white"
+                className="home-pressable inline-flex min-h-10 items-center rounded-full border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-3 py-1.5 text-xs font-semibold text-white"
               >
                 {t.navbar.login}
               </Link>
@@ -127,13 +124,13 @@ export default function Navbar({ homeFloating = false }: NavbarProps) {
             <SignedIn>
               <Link
                 href="/hub"
-                className="border border-[var(--editorial-border)] px-3 py-1.5 text-[11px] font-semibold text-[var(--editorial-ink)]"
+                className="home-pressable inline-flex min-h-10 items-center rounded-full border border-[var(--editorial-border)] px-3 py-1.5 text-xs font-semibold text-[var(--editorial-ink)]"
               >
                 {t.navbar.hub}
               </Link>
               <Link
                 href="/sat"
-                className="border border-[var(--editorial-border)] px-3 py-1.5 text-[11px] font-semibold text-[var(--editorial-ink)]"
+                className="home-pressable inline-flex min-h-10 items-center rounded-full border border-[var(--editorial-border)] px-3 py-1.5 text-xs font-semibold text-[var(--editorial-ink)]"
               >
                 {t.navbar.sat}
               </Link>
@@ -142,6 +139,6 @@ export default function Navbar({ homeFloating = false }: NavbarProps) {
           </div>
         </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 }

@@ -35,10 +35,10 @@ export default function LevelUpCelebration({ level, onDismiss }: LevelUpCelebrat
       transition={{ duration: reduceMotion ? 0 : 0.22 }}
     >
       <motion.div
-        className="relative w-full max-w-sm overflow-hidden border border-[var(--editorial-border)] bg-[var(--editorial-surface)] px-6 py-8 text-center shadow-2xl"
+        className="relative w-full max-w-sm overflow-hidden rounded-[1.5rem] border border-white/70 bg-[rgba(255,254,250,0.9)] px-6 py-8 text-center shadow-2xl backdrop-blur-2xl"
         initial={reduceMotion ? false : { opacity: 0, y: 18, scale: 0.96 }}
         animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: reduceMotion ? 0 : 0.38, ease: "easeOut" }}
+        transition={reduceMotion ? { duration: 0 } : { type: "spring", bounce: 0.14, duration: 0.38 }}
       >
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
           {[...Array(14)].map((_, index) => (
@@ -68,7 +68,7 @@ export default function LevelUpCelebration({ level, onDismiss }: LevelUpCelebrat
           ))}
         </div>
 
-        <div className="relative mx-auto flex h-28 w-28 items-center justify-center border border-[#b8872f] bg-[var(--editorial-band)]">
+        <div className="relative mx-auto flex h-28 w-28 items-center justify-center rounded-[1.4rem] border border-[#b8872f] bg-[var(--editorial-band)]">
           <motion.span
             className="font-serif text-6xl leading-none text-[var(--editorial-sage)]"
             initial={reduceMotion ? false : { scale: 0.72 }}
@@ -90,7 +90,7 @@ export default function LevelUpCelebration({ level, onDismiss }: LevelUpCelebrat
         <button
           type="button"
           onClick={onDismiss}
-          className="mt-7 inline-flex min-h-11 w-full items-center justify-center border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-5 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#173d36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] active:translate-y-[1px]"
+          className="mt-7 inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-[var(--editorial-sage)] px-5 py-3 text-xs font-bold text-white transition-colors hover:bg-[#173d36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] active:scale-[0.98]"
         >
           {t.sat.levelUpDismiss}
         </button>

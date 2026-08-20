@@ -56,7 +56,7 @@ export default function TopicReportCard({ progress, onBack, onSelectTopic }: Top
   }, [progress]);
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
+    <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
       <header className="mb-8 border-b border-[var(--editorial-border)] pb-6">
         <div className="flex flex-wrap items-center gap-4">
           <Link
@@ -74,10 +74,7 @@ export default function TopicReportCard({ progress, onBack, onSelectTopic }: Top
             {t.sat.backToTopics}
           </button>
         </div>
-        <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
-          ITALYPATH
-        </p>
-        <h1 className="mt-3 font-serif text-3xl font-normal leading-tight text-[var(--editorial-ink)] sm:text-4xl">
+        <h1 className="mt-7 font-serif text-4xl font-normal leading-tight tracking-[-0.035em] text-[var(--editorial-ink)] sm:text-6xl">
           {t.sat.reportCardTitle}
         </h1>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--editorial-muted)]">
@@ -86,7 +83,7 @@ export default function TopicReportCard({ progress, onBack, onSelectTopic }: Top
       </header>
 
       {progress.length === 0 ? (
-        <section className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-6 text-center">
+        <section className="rounded-[1.4rem] border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-7 text-center shadow-[0_18px_50px_rgba(21,32,28,0.05)]">
           <h2 className="font-serif text-2xl font-normal text-[var(--editorial-ink)]">
             {t.sat.reportCardTitle}
           </h2>
@@ -96,7 +93,7 @@ export default function TopicReportCard({ progress, onBack, onSelectTopic }: Top
         </section>
       ) : (
         <>
-          <section className="mb-8 grid border border-[var(--editorial-border)] bg-[var(--editorial-surface)] sm:grid-cols-4">
+          <section className="mb-8 grid overflow-hidden rounded-2xl border border-[var(--editorial-border)] bg-[var(--editorial-surface)] shadow-[0_12px_36px_rgba(21,32,28,0.04)] sm:grid-cols-4">
             <div className="border-b border-[var(--editorial-border)] p-4 sm:border-b-0 sm:border-r">
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--editorial-muted)]">
                 {t.sat.solvedLabel}
@@ -149,7 +146,7 @@ export default function TopicReportCard({ progress, onBack, onSelectTopic }: Top
             </div>
           </section>
 
-          <section className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
+          <section className="overflow-hidden rounded-2xl border border-[var(--editorial-border)] bg-[var(--editorial-surface)] shadow-[0_12px_36px_rgba(21,32,28,0.04)]">
             {report.sorted.map((item) => {
               const itemAccuracy = accuracy(item);
               const roundedAccuracy = Math.round(itemAccuracy);

@@ -104,12 +104,14 @@ export default function HubPage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
-        <div className="mx-auto max-w-3xl space-y-6 px-4 py-8 sm:px-6 sm:py-12">
-          <div className="h-10 bg-[var(--editorial-surface)] shimmer" />
-          <div className="h-24 bg-[var(--editorial-surface)] shimmer" />
-          <div className="h-32 bg-[var(--editorial-surface)] shimmer" />
-          <div className="h-32 bg-[var(--editorial-surface)] shimmer" />
-          <div className="h-32 bg-[var(--editorial-surface)] shimmer" />
+        <div className="mx-auto max-w-6xl space-y-5 px-4 py-5 sm:px-6 sm:py-8 lg:px-8">
+          <div className="h-16 rounded-[1.5rem] bg-[var(--editorial-surface)] shimmer" />
+          <div className="h-12 rounded-full bg-[var(--editorial-surface)] shimmer" />
+          <div className="h-64 rounded-[2rem] bg-[var(--editorial-surface)] shimmer" />
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(18rem,0.7fr)]">
+            <div className="h-96 rounded-[2rem] bg-[var(--editorial-surface)] shimmer" />
+            <div className="h-72 rounded-[2rem] bg-[var(--editorial-surface)] shimmer" />
+          </div>
           <p className="text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--editorial-muted)]">
             {t.hub.loading}
           </p>
@@ -121,7 +123,7 @@ export default function HubPage() {
   if (userLoaded && !isSignedIn) {
     return (
       <div className="min-h-screen bg-[var(--editorial-paper)] px-4 py-12 sm:px-6">
-        <div className="mx-auto max-w-md border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-8 text-center">
+        <div className="hub-material mx-auto max-w-md rounded-[2rem] p-8 text-center shadow-[0_24px_70px_rgba(21,32,28,0.12)]">
           <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
             ITALYPATH
           </p>
@@ -133,7 +135,7 @@ export default function HubPage() {
           </p>
           <Link
             href="/giris?redirect_url=%2Fhub"
-            className="mt-6 inline-flex items-center gap-2 border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-5 py-3 text-[12px] font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#173d36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] active:translate-y-[1px]"
+            className="hub-pressable mt-6 inline-flex min-h-12 items-center gap-2 rounded-full border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-5 py-3 text-[12px] font-bold uppercase tracking-[0.16em] text-white shadow-[0_10px_25px_rgba(31,79,70,0.2)] hover:bg-[#173d36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
           >
             {t.hub.signInCta}
             <ArrowRight className="h-4 w-4" strokeWidth={2} />
@@ -144,15 +146,17 @@ export default function HubPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
-      <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
+    <div className="relative isolate min-h-screen overflow-hidden bg-[var(--editorial-paper)] pb-24">
+      <div className="pointer-events-none absolute -right-40 top-20 -z-10 h-[32rem] w-[32rem] rounded-full bg-[rgba(219,232,225,0.62)] blur-3xl" />
+      <div className="pointer-events-none absolute -left-48 top-[36rem] -z-10 h-[30rem] w-[30rem] rounded-full bg-[rgba(231,201,184,0.2)] blur-3xl" />
+      <main className="mx-auto max-w-6xl px-4 py-5 sm:px-6 sm:py-8 lg:px-8">
         <DossierTopStrip />
 
         {hasProfile ? (
           <>
             <ProfileStrip profile={profile} />
             {universitiesError || !recommendation ? (
-              <div className="mt-8 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-6">
+              <div className="hub-material mt-6 rounded-[1.5rem] p-6">
                 <p className="text-sm text-[var(--editorial-muted)]">
                   {t.hub.loadError}
                 </p>
@@ -164,12 +168,16 @@ export default function HubPage() {
                   lede={lede}
                   relaxed={recommendation.relaxed !== "none"}
                 />
-                <ProgramMatchList matches={recommendation.matches} />
-                <ScholarshipBlock
-                  region={scholarshipRegion}
-                  budget={profile.budget}
-                />
-                <CityPicksBlock cities={cityPicks} />
+                <div className="mt-5 grid items-start gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(18rem,0.7fr)]">
+                  <ProgramMatchList matches={recommendation.matches} />
+                  <aside className="grid gap-5 lg:sticky lg:top-24">
+                    <ScholarshipBlock
+                      region={scholarshipRegion}
+                      budget={profile.budget}
+                    />
+                    <CityPicksBlock cities={cityPicks} />
+                  </aside>
+                </div>
               </>
             )}
           </>
@@ -177,7 +185,7 @@ export default function HubPage() {
           <ProfileInviteCard />
         )}
 
-        <div className="mt-10 grid grid-cols-1 gap-2 sm:grid-cols-3">
+        <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
           <CompactStatCard
             href="/favorites"
             label={t.hub.compact.shortlist}

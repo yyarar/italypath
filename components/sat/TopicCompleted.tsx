@@ -21,7 +21,7 @@ export default function TopicCompleted({
   const { t } = useLanguage();
 
   return (
-    <section className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-6 text-center">
+    <section className="rounded-[1.4rem] border border-[rgba(31,79,70,0.16)] bg-[rgba(255,254,250,0.86)] p-7 text-center shadow-[0_18px_50px_rgba(21,32,28,0.06)] backdrop-blur-xl">
       <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
         {topic.skill}
       </p>
@@ -35,7 +35,7 @@ export default function TopicCompleted({
         <button
           type="button"
           onClick={onRestart}
-          className="border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#173d36] active:translate-y-[1px]"
+          className="min-h-11 rounded-xl bg-[var(--editorial-sage)] px-5 py-2.5 text-xs font-bold text-white shadow-[0_7px_18px_rgba(31,79,70,0.14)] transition-colors hover:bg-[#173d36] active:scale-[0.98]"
         >
           {t.sat.restartTopic}
         </button>
@@ -43,7 +43,7 @@ export default function TopicCompleted({
           <button
             type="button"
             onClick={onOpenMistakes}
-            className="border border-[var(--editorial-sage)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-sage)] transition-colors hover:bg-[rgba(216,222,217,0.25)] active:translate-y-[1px]"
+            className="min-h-11 rounded-xl border border-[var(--editorial-sage)] px-5 py-2.5 text-xs font-bold text-[var(--editorial-sage)] transition-colors hover:bg-[rgba(216,222,217,0.25)] active:scale-[0.98]"
           >
             {t.sat.retryMistakes} ({wrongQuestionIds.length} {t.sat.wrongLabel})
           </button>
@@ -51,7 +51,7 @@ export default function TopicCompleted({
         <button
           type="button"
           onClick={onBack}
-          className="border border-[var(--editorial-border)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-sage)] transition-colors hover:bg-[rgba(216,222,217,0.25)] active:translate-y-[1px]"
+          className="min-h-11 rounded-xl border border-[var(--editorial-border)] px-5 py-2.5 text-xs font-bold text-[var(--editorial-sage)] transition-colors hover:bg-[rgba(216,222,217,0.25)] active:scale-[0.98]"
         >
           {t.sat.backToTopics}
         </button>

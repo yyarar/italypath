@@ -19,7 +19,7 @@ interface RevealProps {
   blur?: number;
 }
 
-export default function Reveal({ children, className, delay = 0, y = 24, blur = 6 }: RevealProps) {
+export default function Reveal({ children, className, delay = 0, y = 18, blur = 3 }: RevealProps) {
   const reduceMotion = useReducedMotion();
 
   if (reduceMotion) {
@@ -29,10 +29,10 @@ export default function Reveal({ children, className, delay = 0, y = 24, blur = 
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y, filter: `blur(${blur}px)` }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={{ opacity: 0, transform: `translateY(${y}px)`, filter: `blur(${blur}px)` }}
+      whileInView={{ opacity: 1, transform: "translateY(0px)", filter: "blur(0px)" }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.85, ease: REVEAL_EASE, delay }}
+      transition={{ duration: 0.55, ease: REVEAL_EASE, delay }}
     >
       {children}
     </motion.div>

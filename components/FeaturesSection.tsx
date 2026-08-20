@@ -3,7 +3,6 @@
 import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import { ArrowUpRight, FileText, GraduationCap, MessageCircle } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
 import Reveal from "@/components/ui/Reveal";
@@ -16,7 +15,6 @@ interface FeaturesSectionProps {
 export default function FeaturesSection({ stats }: FeaturesSectionProps) {
   const { t, language } = useLanguage();
   const { isSignedIn } = useAuth();
-  const reduceMotion = useReducedMotion();
   const aiMentorHref = isSignedIn ? "/ai-mentor" : "/giris?redirect_url=%2Fai-mentor";
   const documentsHref = isSignedIn ? "/documents" : "/giris?redirect_url=%2Fdocuments";
   const universitiesMeta =
@@ -81,19 +79,14 @@ export default function FeaturesSection({ stats }: FeaturesSectionProps) {
               <Reveal key={feature.title} delay={index * 0.07}>
                 <Link
                   href={feature.href}
-                  className="block rounded-[2rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+                  className="home-feature-card home-pressable group block rounded-[2rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
                 >
-                  <motion.article
-                    whileHover={reduceMotion ? undefined : { y: -6 }}
-                    whileTap={reduceMotion ? undefined : { scale: 0.985 }}
-                    transition={{ type: "spring", bounce: 0, duration: 0.35 }}
-                    className={`group flex min-h-[22rem] flex-col rounded-[2rem] border border-white/70 p-6 shadow-[0_14px_45px_rgba(21,32,28,0.06)] sm:p-7 ${feature.surface}`}
-                  >
+                  <article className={`flex min-h-[22rem] flex-col rounded-[2rem] border border-white/70 p-6 shadow-[0_14px_45px_rgba(21,32,28,0.06)] sm:p-7 ${feature.surface}`}>
                     <div className="flex items-start justify-between gap-4">
                       <div className={`flex h-12 w-12 items-center justify-center rounded-2xl shadow-[0_6px_18px_rgba(21,32,28,0.12)] ${feature.iconSurface}`}>
                         <Icon className="h-5 w-5" />
                       </div>
-                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/55 text-[var(--editorial-ink)] transition-transform duration-300 group-hover:rotate-6">
+                      <span className="home-hover-rotate flex h-10 w-10 items-center justify-center rounded-full bg-white/55 text-[var(--editorial-ink)]">
                         <ArrowUpRight className="h-4 w-4" />
                       </span>
                     </div>
@@ -103,7 +96,7 @@ export default function FeaturesSection({ stats }: FeaturesSectionProps) {
                       <h3 className="mt-3 text-2xl font-semibold tracking-[-0.035em] text-[var(--editorial-ink)]">{feature.title}</h3>
                       <p className="mt-3 text-sm leading-6 text-[var(--editorial-muted)]">{feature.description}</p>
                     </div>
-                  </motion.article>
+                  </article>
                 </Link>
               </Reveal>
             );

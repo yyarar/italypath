@@ -2,7 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowLeft, Award, BarChart3, BookOpen, SquareRadical, XCircle } from "lucide-react";
 
 import BadgesView from "@/components/sat/BadgesView";
 import LevelUpCelebration from "@/components/sat/LevelUpCelebration";
@@ -60,9 +61,9 @@ function BackHomeLink({ label, className = "" }: { label: string; className?: st
   return (
     <Link
       href="/"
-      className={`inline-flex items-center gap-2 text-sm font-semibold text-[var(--editorial-muted)] transition hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)] ${className}`}
+      className={`inline-flex min-h-10 items-center gap-2 rounded-xl px-3 text-sm font-semibold text-[var(--editorial-muted)] outline-none transition-colors hover:bg-white/70 hover:text-[var(--editorial-sage)] focus-visible:ring-2 focus-visible:ring-[var(--editorial-sage)] ${className}`}
     >
-      <ArrowLeft className="h-4 w-4" />
+      <ArrowLeft className="h-4 w-4" strokeWidth={1.9} />
       {label}
     </Link>
   );
@@ -70,6 +71,7 @@ function BackHomeLink({ label, className = "" }: { label: string; className?: st
 
 export default function SatBankExplorer() {
   const { t } = useLanguage();
+  const reduceMotion = useReducedMotion();
   const { topics, loading: topicsLoading, error } = useSatTopics();
   const { attempts, recordAttempt, loading: attemptsLoading, streak, todayCount, longestStreak } = useSatAttempts();
   const [view, setView] = useState<View>({ mode: "topics" });
@@ -273,6 +275,12 @@ export default function SatBankExplorer() {
   // kullanicinin secimi gecerli olur. Efekt icinde senkron setState yok.
   const expandedDomains =
     userExpandedDomains ?? new Set(initialExpandedDomain ? [initialExpandedDomain] : []);
+
+  const viewPositionKey = view.mode === "session" ? `${view.mode}-${view.index}` : view.mode;
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  }, [reduceMotion, viewPositionKey]);
 
   useEffect(() => {
     if (loading) return;
@@ -501,8 +509,52 @@ export default function SatBankExplorer() {
 
   return (
     <div className="min-h-screen bg-[var(--editorial-paper)] pb-24">
-      <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
-        <BackHomeLink label={t.list.backHome} className="mb-7" />
+      <main className="mx-auto max-w-6xl px-4 py-5 sm:px-6 sm:py-8 lg:px-8">
+        <nav
+          aria-label={t.sat.title}
+          className="sticky top-3 z-30 mb-12 flex min-h-14 items-center justify-between gap-3 rounded-2xl border border-white/80 bg-[rgba(255,254,250,0.78)] px-2.5 py-2 shadow-[0_12px_38px_rgba(21,32,28,0.07)] backdrop-blur-xl backdrop-saturate-150 sm:px-3"
+        >
+          <BackHomeLink label={t.list.backHome} />
+          <span className="hidden font-serif text-lg tracking-[-0.025em] text-[var(--editorial-sage)] lg:block">ItalyPath</span>
+          {!loading ? (
+            <div className="flex min-w-0 items-center gap-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {totalWrongCount > 0 ? (
+                <motion.button
+                  type="button"
+                  aria-label={`${t.sat.mistakesTitle} · ${totalWrongCount}`}
+                  onClick={() => setView({ mode: "mistakes" })}
+                  whileTap={reduceMotion ? undefined : { scale: 0.96 }}
+                  className="inline-flex min-h-10 shrink-0 items-center gap-2 rounded-xl px-3 text-xs font-semibold text-[var(--editorial-terracotta)] outline-none transition-colors hover:bg-[rgba(183,91,56,0.08)] focus-visible:ring-2 focus-visible:ring-[var(--editorial-terracotta)]"
+                >
+                  <XCircle className="h-4 w-4" strokeWidth={1.8} />
+                  <span className="hidden sm:inline">{t.sat.mistakesTitle}</span> · {totalWrongCount}
+                </motion.button>
+              ) : null}
+              {attemptedProgress.length > 0 ? (
+                <motion.button
+                  type="button"
+                  aria-label={t.sat.reportCardButton}
+                  onClick={() => setView({ mode: "report" })}
+                  whileTap={reduceMotion ? undefined : { scale: 0.96 }}
+                  className="inline-flex min-h-10 shrink-0 items-center gap-2 rounded-xl px-3 text-xs font-semibold text-[var(--editorial-sage)] outline-none transition-colors hover:bg-[var(--editorial-sage-soft)] focus-visible:ring-2 focus-visible:ring-[var(--editorial-sage)]"
+                >
+                  <BarChart3 className="h-4 w-4" strokeWidth={1.8} />
+                  <span className="hidden sm:inline">{t.sat.reportCardButton}</span>
+                </motion.button>
+              ) : null}
+              <motion.button
+                type="button"
+                aria-label={t.sat.badgesButton}
+                onClick={() => setView({ mode: "badges" })}
+                whileTap={reduceMotion ? undefined : { scale: 0.96 }}
+                className="inline-flex min-h-10 shrink-0 items-center gap-2 rounded-xl px-3 text-xs font-semibold text-[#8d6828] outline-none transition-colors hover:bg-[rgba(184,135,47,0.1)] focus-visible:ring-2 focus-visible:ring-[#b8872f]"
+              >
+                <Award className="h-4 w-4" strokeWidth={1.8} />
+                <span className="hidden sm:inline">{t.sat.badgesButton}</span>
+              </motion.button>
+            </div>
+          ) : null}
+        </nav>
 
         {!loading && focusRecommendation ? (
           <SatDashboardHeader
@@ -514,46 +566,13 @@ export default function SatBankExplorer() {
             onFocus={() => void openTopic(focusRecommendation.topic, "mixed")}
           />
         ) : (
-          <header className="mb-8 border-b border-[var(--editorial-border)] pb-6">
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
-              ITALYPATH
-            </p>
-            <h1 className="mt-3 font-serif text-3xl font-normal leading-tight text-[var(--editorial-ink)] sm:text-4xl">
+          <header className="mb-10 max-w-3xl">
+            <h1 className="font-serif text-[clamp(2.75rem,7vw,5.25rem)] font-normal leading-[0.96] tracking-[-0.045em] text-[var(--editorial-ink)]">
               {t.sat.title}
             </h1>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--editorial-muted)]">{t.sat.subtitle}</p>
+            <p className="mt-5 max-w-2xl text-[15px] leading-7 text-[var(--editorial-muted)] sm:text-base">{t.sat.subtitle}</p>
           </header>
         )}
-
-        {!loading ? (
-          <div className="mb-6 flex flex-wrap justify-end gap-2">
-            {totalWrongCount > 0 ? (
-              <button
-                type="button"
-                onClick={() => setView({ mode: "mistakes" })}
-                className="w-fit border border-[var(--editorial-terracotta)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)] transition-colors hover:bg-[var(--editorial-terracotta)] hover:text-white active:translate-y-[1px]"
-              >
-                {t.sat.mistakesTitle} · {totalWrongCount}
-              </button>
-            ) : null}
-            {attemptedProgress.length > 0 ? (
-              <button
-                type="button"
-                onClick={() => setView({ mode: "report" })}
-                className="w-fit border border-[var(--editorial-sage)] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-sage)] transition-colors hover:bg-[var(--editorial-sage)] hover:text-white active:translate-y-[1px]"
-              >
-                {t.sat.reportCardButton}
-              </button>
-            ) : null}
-            <button
-              type="button"
-              onClick={() => setView({ mode: "badges" })}
-              className="w-fit border border-[#b8872f] px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#8d6828] transition-colors hover:bg-[#b8872f] hover:text-white active:translate-y-[1px]"
-            >
-              {t.sat.badgesButton}
-            </button>
-          </div>
-        ) : null}
 
         {error ? (
           <p className="mb-4 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-4 text-sm text-[var(--editorial-muted)]">
@@ -566,9 +585,9 @@ export default function SatBankExplorer() {
           </p>
         ) : null}
         {loading ? (
-          <div className="space-y-3">
-            <div className="h-16 bg-[var(--editorial-surface)] shimmer" />
-            <div className="h-16 bg-[var(--editorial-surface)] shimmer" />
+          <div className="space-y-4">
+            <div className="h-44 rounded-[1.4rem] bg-[var(--editorial-surface)] shimmer" />
+            <div className="h-20 rounded-2xl bg-[var(--editorial-surface)] shimmer" />
             <p className="text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--editorial-muted)]">
               {t.hub.loading}
             </p>
@@ -579,10 +598,15 @@ export default function SatBankExplorer() {
           const sectionTopics = topics.filter((topic) => topic.section === section.key);
           if (sectionTopics.length === 0) return null;
           return (
-            <section key={section.key} className="mb-10">
-              <h2 className="mb-3 font-serif text-2xl font-normal text-[var(--editorial-ink)]">{section.label}</h2>
+            <section key={section.key} className="mb-14">
+              <div className="mb-4 flex items-center gap-3 border-b border-[var(--editorial-border)] pb-3">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--editorial-sage-soft)] text-[var(--editorial-sage)]">
+                  {section.key === "math" ? <SquareRadical className="h-6 w-6" strokeWidth={1.7} /> : <BookOpen className="h-6 w-6" strokeWidth={1.7} />}
+                </span>
+                <h2 className="font-serif text-3xl font-normal tracking-[-0.03em] text-[var(--editorial-ink)] sm:text-4xl">{section.label}</h2>
+              </div>
               {section.key === "math" ? (
-                <div className="grid gap-3">
+                <div className="grid gap-3.5">
                   {mathDomainGroups.map((group) => {
                     const labelKey = domainLabelKey(group.domain) as keyof typeof t.sat;
                     return (
@@ -616,7 +640,7 @@ export default function SatBankExplorer() {
                   })}
                 </div>
               ) : (
-                <div className="grid gap-3">
+                <div className="overflow-hidden rounded-2xl border border-[rgba(31,79,70,0.16)] bg-[rgba(255,254,250,0.82)] shadow-[0_10px_35px_rgba(21,32,28,0.035)]">
                   {sectionTopics.map((topic) => {
                     const progress = topicProgress.get(topicKey(topic));
                     const key = topicKey(topic);

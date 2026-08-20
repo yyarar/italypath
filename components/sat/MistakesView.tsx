@@ -27,8 +27,8 @@ export default function MistakesView({ mistakeTopics, onSelect, onBack }: Mistak
   const totalWrongCount = mistakeTopics.reduce((total, progress) => total + progress.wrongCount, 0);
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
-      <header className="mb-8 border-b border-[var(--editorial-border)] pb-6">
+    <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
+      <header className="mb-10 border-b border-[var(--editorial-border)] pb-7">
         <div className="flex flex-wrap items-center gap-4">
           <Link
             href="/"
@@ -45,10 +45,7 @@ export default function MistakesView({ mistakeTopics, onSelect, onBack }: Mistak
             {t.sat.backToTopics}
           </button>
         </div>
-        <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
-          ITALYPATH
-        </p>
-        <h1 className="mt-3 font-serif text-3xl font-normal leading-tight text-[var(--editorial-ink)] sm:text-4xl">
+        <h1 className="mt-7 font-serif text-4xl font-normal leading-tight tracking-[-0.035em] text-[var(--editorial-ink)] sm:text-6xl">
           {t.sat.mistakesTitle}
         </h1>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--editorial-muted)]">
@@ -57,13 +54,13 @@ export default function MistakesView({ mistakeTopics, onSelect, onBack }: Mistak
       </header>
 
       <section className="mb-8">
-        <div className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
+        <div className="overflow-hidden rounded-2xl border border-[rgba(31,79,70,0.16)] bg-[rgba(255,254,250,0.82)] shadow-[0_14px_42px_rgba(21,32,28,0.05)]">
           {mistakeTopics.map((progress) => (
             <button
               key={topicKey(progress.topic)}
               type="button"
               onClick={() => onSelect(progress.topic, progress.wrongQuestionIds)}
-              className="flex w-full items-center justify-between gap-4 border-b border-[var(--editorial-border)] bg-[var(--editorial-surface)] px-4 py-3 text-left transition-colors last:border-b-0 hover:bg-[rgba(216,222,217,0.25)]"
+              className="flex min-h-20 w-full items-center justify-between gap-4 border-b border-[var(--editorial-border)] px-5 py-4 text-left outline-none transition-colors last:border-b-0 hover:bg-[rgba(216,222,217,0.25)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--editorial-sage)]"
             >
               <div>
                 <p className="font-serif text-lg text-[var(--editorial-ink)]">{progress.topic.skill}</p>

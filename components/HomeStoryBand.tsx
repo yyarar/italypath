@@ -25,7 +25,7 @@ export default function HomeStoryBand() {
               alt={t.homeStory.imageAlt}
               fill
               sizes="(min-width: 1280px) 1216px, 100vw"
-              className="object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.035]"
+              className="home-hover-image object-cover object-center"
             />
             {/* Metin okunurlugu icin alt karartma perdesi (dekoratif degil, legibility). */}
             <div className="absolute inset-0 bg-gradient-to-t from-[rgba(13,20,17,0.7)] via-[rgba(13,20,17,0.12)] to-transparent" />
@@ -44,7 +44,7 @@ export default function HomeStoryBand() {
                 </p>
                 <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-[#faf7f0]">
                   {t.homeStory.cta}
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight className="home-hover-arrow h-4 w-4" />
                 </span>
               </div>
             </div>

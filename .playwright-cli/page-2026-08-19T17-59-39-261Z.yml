@@ -1,0 +1,216 @@
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - link "Ana sayfaya dön" [ref=e7] [cursor=pointer]:
+          - /url: /
+        - button "Switch to English" [ref=e11]: EN
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - paragraph [ref=e17]: İtalya Şehir Rehberleri · Atlas
+          - heading "Şehirlerin editoryal atlası." [level=1] [ref=e18]
+          - paragraph [ref=e19]: İtalya'da okuyacağınız şehri yaşam maliyetleri, ulaşım imkanları ve öğrenci hayatı atmosferiyle keşfedin.
+        - generic [ref=e20]:
+          - generic [ref=e27]:
+            - strong [ref=e28]: "46"
+            - generic [ref=e29]: öğrenci şehri, tek atlas
+          - paragraph [ref=e30]: Güncel akademik verilere dayanmaktadır.
+      - generic [ref=e31]:
+        - generic [ref=e455]:
+          - generic [ref=e456]: Şehir seç
+          - generic [ref=e460]:
+            - button "Milano" [ref=e461]
+            - button "Roma" [active] [pressed] [ref=e462]
+            - button "Bari" [ref=e463]
+            - button "Napoli" [ref=e464]
+            - button "Perugia" [ref=e465]
+            - button "Torino" [ref=e466]
+            - button "Ancona" [ref=e467]
+            - button "Aosta" [ref=e468]
+            - button "Benevento / Online" [ref=e469]
+            - button "Bergamo" [ref=e470]
+            - button "Bologna" [ref=e471]
+            - button "Bolzano" [ref=e472]
+            - button "Brescia" [ref=e473]
+            - button "Cagliari" [ref=e474]
+            - button "Camerino" [ref=e475]
+            - button "Casamassima" [ref=e476]
+            - button "Cassino" [ref=e477]
+            - button "Castellanza" [ref=e478]
+            - button "Catania" [ref=e479]
+            - button "Cenova" [ref=e480]
+            - button "Ferrara" [ref=e481]
+            - button "Floransa" [ref=e482]
+            - button "Lecce" [ref=e483]
+            - button "Macerata" [ref=e484]
+            - button "Messina" [ref=e485]
+            - button "Napoli / Caserta" [ref=e486]
+            - button "Padova" [ref=e487]
+            - button "Palermo" [ref=e488]
+            - button "Parma" [ref=e489]
+            - button "Pavia" [ref=e490]
+            - button "Pescara" [ref=e491]
+            - button "Piemonte" [ref=e492]
+            - button "Pisa" [ref=e493]
+            - button "Pollenzo" [ref=e494]
+            - button "Reggio Calabria" [ref=e495]
+            - button "Sassari" [ref=e496]
+            - button "Siena" [ref=e497]
+            - button "Teramo" [ref=e498]
+            - button "Trento" [ref=e499]
+            - button "Trieste" [ref=e500]
+            - button "Udine" [ref=e501]
+            - button "Urbino" [ref=e502]
+            - button "Uzaktan Eğitim / Roma" [ref=e503]
+            - button "Venedik" [ref=e504]
+            - button "Verona" [ref=e505]
+            - button "Viterbo" [ref=e506]
+          - combobox "Şehir seç" [ref=e508]:
+            - option "Milano · 8 üniversite"
+            - option "Roma · 8 üniversite" [selected]
+            - option "Bari · 2 üniversite"
+            - option "Napoli · 2 üniversite"
+            - option "Perugia · 2 üniversite"
+            - option "Torino · 2 üniversite"
+            - option "Ancona · 1 üniversite"
+            - option "Aosta · 1 üniversite"
+            - option "Benevento / Online · 1 üniversite"
+            - option "Bergamo · 1 üniversite"
+            - option "Bologna · 1 üniversite"
+            - option "Bolzano · 1 üniversite"
+            - option "Brescia · 1 üniversite"
+            - option "Cagliari · 1 üniversite"
+            - option "Camerino · 1 üniversite"
+            - option "Casamassima · 1 üniversite"
+            - option "Cassino · 1 üniversite"
+            - option "Castellanza · 1 üniversite"
+            - option "Catania · 1 üniversite"
+            - option "Cenova · 1 üniversite"
+            - option "Ferrara · 1 üniversite"
+            - option "Floransa · 1 üniversite"
+            - option "Lecce · 1 üniversite"
+            - option "Macerata · 1 üniversite"
+            - option "Messina · 1 üniversite"
+            - option "Napoli / Caserta · 1 üniversite"
+            - option "Padova · 1 üniversite"
+            - option "Palermo · 1 üniversite"
+            - option "Parma · 1 üniversite"
+            - option "Pavia · 1 üniversite"
+            - option "Pescara · 1 üniversite"
+            - option "Piemonte · 1 üniversite"
+            - option "Pisa · 1 üniversite"
+            - option "Pollenzo · 1 üniversite"
+            - option "Reggio Calabria · 1 üniversite"
+            - option "Sassari · 1 üniversite"
+            - option "Siena · 1 üniversite"
+            - option "Teramo · 1 üniversite"
+            - option "Trento · 1 üniversite"
+            - option "Trieste · 1 üniversite"
+            - option "Udine · 1 üniversite"
+            - option "Urbino · 1 üniversite"
+            - option "Uzaktan Eğitim / Roma · 1 üniversite"
+            - option "Venedik · 1 üniversite"
+            - option "Verona · 1 üniversite"
+            - option "Viterbo · 1 üniversite"
+        - complementary [ref=e270]:
+          - generic [ref=e509]:
+            - generic [ref=e510]:
+              - paragraph [ref=e512]: Şehir Dosyası
+              - heading "Roma" [level=2] [ref=e513]
+              - generic [ref=e514]:
+                - generic [ref=e515]: Lazio Bölgesi
+                - generic [ref=e520]: "Öğrenci Nüfusu: Çok Yüksek (>90.000)"
+            - generic [ref=e527]:
+              - generic [ref=e528]:
+                - generic [ref=e529]: Yaşam Maliyeti
+                - 'generic "Cost rating: 4 of 5" [ref=e535]'
+              - paragraph [ref=e541]: Yaşam maliyeti endeksi en ucuz (1) ile en pahalı (5) arasında derecelendirilmiştir.
+            - generic [ref=e542]:
+              - generic [ref=e543]: Yaşam Maliyetleri
+              - generic [ref=e546]:
+                - generic [ref=e547]:
+                  - paragraph [ref=e548]: Ortalama Kira
+                  - paragraph [ref=e549]: "1 odalı daire: merkezde ~1.076,92€ | merkez dışında ~778,57€"
+                - generic [ref=e550]:
+                  - paragraph [ref=e551]: Mutfak & Sosyal
+                  - paragraph [ref=e552]: "Ucuz restoran: ~15€ | Cappuccino: ~1,94€ | 85 m² temel faturalar: ~183,63€"
+                - generic [ref=e553]:
+                  - paragraph [ref=e554]: Öğrenci Ulaşım
+                  - paragraph [ref=e555]: "Tek yön şehir içi bilet: ~1,50€"
+              - generic [ref=e556]:
+                - generic [ref=e557]: "Maliyet verisi kaynağı:"
+                - link "Numbeo" [ref=e558] [cursor=pointer]:
+                  - /url: https://www.numbeo.com/cost-of-living/in/Rome
+                - generic [ref=e563]: "· son güncelleme: 2026-05-21"
+            - generic [ref=e564]:
+              - generic [ref=e565]: Bölgesel Burs İmkanları
+              - paragraph [ref=e568]: Bu şehirdeki üniversiteler, Lazio bölgesinin resmi DSU burs kurallarına tabidir.
+              - generic [ref=e569]:
+                - generic [ref=e570]:
+                  - generic [ref=e571]: Yetkili Kurum
+                  - link "DiSCo Lazio" [ref=e573] [cursor=pointer]:
+                    - /url: https://laziodisco.it/
+                - generic [ref=e578]:
+                  - generic [ref=e579]: Burs ISEE Sınırı
+                  - generic [ref=e580]: €27.948,60
+              - link "Bölgesel Burs Haritasını Aç ↗" [ref=e581] [cursor=pointer]:
+                - /url: /scholarships?region=lazio
+            - generic [ref=e582]:
+              - generic [ref=e583]: Ulaşım ve Bağlantılar
+              - paragraph [ref=e586]: 3 aktif metro hattı (A, B, C) ve geniş otobüs ağları. Şehir içi otobüslerde trafik nedeniyle gecikmeler yaşanabilir. Fiumicino (FCO) ve Ciampino (CIA) havalimanlarına doğrudan tren/otobüs hatları bulunur.
+            - generic [ref=e587]:
+              - generic [ref=e588]: İklim ve Atmosfer
+              - paragraph [ref=e591]: Yumuşak Akdeniz iklimi. Kışlar ılık geçer, yazlar ise oldukça sıcaktır. 'Açık hava müzesi' olan şehir, binlerce yıllık tarihi dokusuyla öğrencilere büyüleyici bir hayat sunar. Hayat Milano'ya göre daha yavaş, daha rahat ve Akdeniz ruhuna uygundur.
+            - generic [ref=e592]:
+              - generic [ref=e593]: Ajanın Tüyosu
+              - paragraph [ref=e597]: 「 Otobüs gecikmelerine alışın ve kampüsünüze yakın veya metro hatlarına (A/B) yürüme mesafesinde ev kiralamaya özen gösterin. Yıllık abonman kartı almak aylık kartlara göre çok daha ekonomiktir. 」
+            - generic [ref=e602]:
+              - paragraph [ref=e603]: Başvuru ve yaşam maliyetleri hakkında not
+              - list [ref=e604]:
+                - listitem [ref=e605]: Kira fiyatları ve sosyal giderler enflasyona veya şehre göre değişkenlik gösterebilir.
+                - listitem [ref=e606]: Burada sunulan bilgiler tamamen editoryal tahmin ve araştırmalara dayanmaktadır.
+            - generic [ref=e607]:
+              - generic [ref=e608]: Şehirdeki Üniversiteler (8)
+              - generic [ref=e613]:
+                - link "Sapienza University of Rome Devlet · 59 program" [ref=e614] [cursor=pointer]:
+                  - /url: /universities/2
+                  - generic [ref=e615]:
+                    - generic [ref=e616]: Sapienza University of Rome
+                    - generic [ref=e617]: Devlet · 59 program
+                - link "Luiss Guido Carli Özel · 15 program" [ref=e622] [cursor=pointer]:
+                  - /url: /universities/12
+                  - generic [ref=e623]:
+                    - generic [ref=e624]: Luiss Guido Carli
+                    - generic [ref=e625]: Özel · 15 program
+                - link "University of Rome Tor Vergata Devlet · 23 program" [ref=e630] [cursor=pointer]:
+                  - /url: /universities/13
+                  - generic [ref=e631]:
+                    - generic [ref=e632]: University of Rome Tor Vergata
+                    - generic [ref=e633]: Devlet · 23 program
+                - link "UniCamillus Özel · 6 program" [ref=e638] [cursor=pointer]:
+                  - /url: /universities/41
+                  - generic [ref=e639]:
+                    - generic [ref=e640]: UniCamillus
+                    - generic [ref=e641]: Özel · 6 program
+                - link "Link Campus University Özel · 9 program" [ref=e646] [cursor=pointer]:
+                  - /url: /universities/42
+                  - generic [ref=e647]:
+                    - generic [ref=e648]: Link Campus University
+                    - generic [ref=e649]: Özel · 9 program
+                - link "European University of Rome Özel · 2 program" [ref=e654] [cursor=pointer]:
+                  - /url: /universities/43
+                  - generic [ref=e655]:
+                    - generic [ref=e656]: European University of Rome
+                    - generic [ref=e657]: Özel · 2 program
+                - link "Università Campus Bio-Medico di Roma Devlet · 3 program" [ref=e662] [cursor=pointer]:
+                  - /url: /universities/47
+                  - generic [ref=e663]:
+                    - generic [ref=e664]: Università Campus Bio-Medico di Roma
+                    - generic [ref=e665]: Devlet · 3 program
+                - link "Università degli Studi Guglielmo Marconi - Telematica Özel · 3 program" [ref=e670] [cursor=pointer]:
+                  - /url: /universities/52
+                  - generic [ref=e671]:
+                    - generic [ref=e672]: Università degli Studi Guglielmo Marconi - Telematica
+                    - generic [ref=e673]: Özel · 3 program
+  - button "Open Next.js Dev Tools" [ref=e450] [cursor=pointer]
+  - alert [ref=e454]

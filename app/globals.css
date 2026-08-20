@@ -246,12 +246,57 @@
 
 .home-pressable {
   touch-action: manipulation;
-  transition: transform 140ms ease-out, background-color 220ms ease, border-color 220ms ease, color 220ms ease,
-    box-shadow 220ms ease;
+  transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1), background-color 180ms ease, border-color 180ms ease,
+    color 180ms ease, box-shadow 220ms ease;
 }
 
 .home-pressable:active {
   transform: scale(0.97);
+}
+
+.home-feature-card {
+  transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 220ms ease;
+}
+
+.home-hover-arrow,
+.home-hover-rotate {
+  transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.home-hover-image {
+  transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.home-mini-card {
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 200ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 52px rgba(21, 32, 28, 0.09);
+  }
+
+  .group:hover .home-hover-arrow {
+    transform: translateX(4px);
+  }
+
+  .group:hover .home-hover-rotate {
+    transform: rotate(6deg);
+  }
+
+  .group:hover .home-hover-image {
+    transform: scale(1.035);
+  }
+
+  .home-mini-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(21, 32, 28, 0.08);
+  }
+}
+
+.home-feature-card:active {
+  transform: scale(0.985);
 }
 
 @media (prefers-reduced-transparency: reduce) {
@@ -278,6 +323,159 @@
   }
 
   .home-pressable:active {
+    transform: none;
+  }
+
+  .home-feature-card,
+  .home-hover-arrow,
+  .home-hover-rotate,
+  .home-hover-image,
+  .home-mini-card {
+    transition-duration: 0ms;
+  }
+}
+
+/* Hub material system: personal workspace surfaces with tactile press feedback. */
+.hub-material {
+  background: rgba(255, 254, 250, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: blur(24px) saturate(155%);
+  backdrop-filter: blur(24px) saturate(155%);
+  box-shadow: 0 18px 55px rgba(21, 32, 28, 0.07);
+}
+
+.hub-pressable {
+  touch-action: manipulation;
+  transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1), background-color 180ms ease, border-color 180ms ease,
+    color 180ms ease, box-shadow 220ms ease;
+}
+
+.hub-pressable:active {
+  transform: scale(0.98);
+}
+
+.hub-card-lift,
+.hub-arrow {
+  transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 220ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hub-card-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 42px rgba(21, 32, 28, 0.1);
+  }
+
+  .group:hover .hub-arrow {
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .hub-material {
+    background: var(--editorial-surface);
+    border-color: var(--editorial-border);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .hub-material {
+    background: var(--editorial-surface);
+    border: 2px solid var(--editorial-ink);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hub-pressable,
+  .hub-card-lift,
+  .hub-arrow {
+    transition-duration: 0ms;
+  }
+
+  .hub-pressable:active,
+  .hub-card-lift:hover,
+  .group:hover .hub-arrow {
+    transform: none;
+  }
+}
+
+/* City atlas material system: quiet depth, tactile selection and native momentum. */
+.city-material {
+  background: rgba(255, 254, 250, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.84);
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  backdrop-filter: blur(26px) saturate(150%);
+}
+
+.city-pressable {
+  touch-action: manipulation;
+  transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1), background-color 180ms ease,
+    border-color 180ms ease, color 180ms ease, box-shadow 220ms ease;
+}
+
+.city-pressable:active {
+  transform: scale(0.97);
+}
+
+.city-card-lift,
+.city-arrow {
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 200ms ease,
+    border-color 180ms ease;
+}
+
+.city-scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.city-scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .city-card-lift:hover {
+    transform: translateY(-2px);
+    border-color: rgba(31, 79, 70, 0.36);
+    box-shadow: 0 12px 28px rgba(21, 32, 28, 0.08);
+  }
+
+  .group:hover .city-arrow {
+    transform: translate(2px, -2px);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .city-material {
+    background: var(--editorial-surface);
+    border-color: var(--editorial-border);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .city-material {
+    background: var(--editorial-surface);
+    border: 2px solid var(--editorial-ink);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .city-pressable,
+  .city-card-lift,
+  .city-arrow {
+    transition-duration: 0ms;
+  }
+
+  .city-pressable:active,
+  .city-card-lift:hover,
+  .group:hover .city-arrow {
     transform: none;
   }
 }

@@ -4,6 +4,11 @@ import CityGuidesExplorer, {
   type CityGuideOption,
   type CityGuideUniversitySummary,
 } from "@/components/cities/CityGuidesExplorer";
+import {
+  createCityGuideSlug,
+  getCityGuideName,
+  resolveCityGuideSelection,
+} from "@/lib/cities/normalization";
 import { getUniversitiesData } from "@/lib/universities.server";
 
 export const metadata: Metadata = {
@@ -32,15 +37,12 @@ function getSingleParam(value: SearchParamValue) {
   return value ?? "";
 }
 
-function createCitySlug(name: string) {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-}
-
 function createCityOptions(universities: Awaited<ReturnType<typeof getUniversitiesData>>) {
   const counts: Record<string, number> = {};
   universities.forEach((university) => {
-    if (university.city) {
-      counts[university.city] = (counts[university.city] || 0) + 1;
+    const cityName = getCityGuideName(university.city);
+    if (cityName) {
+      counts[cityName] = (counts[cityName] || 0) + 1;
     }
   });
 
@@ -48,13 +50,13 @@ function createCityOptions(universities: Awaited<ReturnType<typeof getUniversiti
     .map(([name, count]) => ({
       name,
       count,
-      slug: createCitySlug(name),
+      slug: createCityGuideSlug(name),
     }))
     .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
 }
 
 function resolveSelectedCity(rawCity: string, cityOptions: CityGuideOption[]) {
-  const normalizedRawCity = rawCity.toLowerCase();
+  const normalizedRawCity = resolveCityGuideSelection(rawCity)?.toLowerCase() ?? "";
   const match = cityOptions.find(
     (city) =>
       city.slug === normalizedRawCity ||
@@ -69,7 +71,7 @@ function createCityUniversitySummaries(
   cityName: string
 ): CityGuideUniversitySummary[] {
   return universities
-    .filter((university) => university.city?.toLowerCase() === cityName.toLowerCase())
+    .filter((university) => getCityGuideName(university.city)?.toLowerCase() === cityName.toLowerCase())
     .map((university) => ({
       id: university.id,
       name: university.name,
@@ -113,7 +115,7 @@ export default async function CityGuidesPage({ searchParams }: CityGuidesPagePro
 
   return (
     <CityGuidesExplorer
-      initialSelectedCity={rawSelectedCity}
+      initialSelectedCity={selectedCity}
       initialCitiesWithCounts={cityOptions}
       initialCityUniversities={createCityUniversitySummaries(universities, selectedCity)}
     />

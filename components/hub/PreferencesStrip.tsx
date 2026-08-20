@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Settings2 } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import { useLanguage } from "@/context/LanguageContext";
@@ -26,6 +27,7 @@ function readMentorDesk(): string | null {
 
 export default function PreferencesStrip() {
   const { t, language, toggleLanguage } = useLanguage();
+  const reduceMotion = useReducedMotion();
   const [viewMode, setViewMode] = useState<UniversityViewMode>("grid");
   const [mentorDesk, setMentorDesk] = useState<string | null>(null);
 
@@ -54,25 +56,22 @@ export default function PreferencesStrip() {
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        type: "spring",
-        stiffness: 110,
-        damping: 22,
-        delay: 0.18,
-      }}
+      initial={reduceMotion ? false : { opacity: 0, transform: "translateY(14px)" }}
+      animate={{ opacity: 1, transform: "translateY(0px)" }}
+      transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.08 }}
       aria-labelledby="hub-prefs-label"
-      className="mt-12 grid grid-cols-[36px_minmax(0,1fr)] gap-7 sm:mt-16"
+      className="hub-material mt-5 rounded-[2rem] p-5 sm:p-6"
     >
-      <p
-        id="hub-prefs-label"
-        className="pt-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]"
-      >
-        {t.hub.preferencesStripLabel}
-      </p>
-      <div className="grid grid-cols-1 border-y border-[var(--editorial-border)] sm:grid-cols-3">
-        <div className="border-b border-[var(--editorial-border)] px-5 py-4 sm:border-b-0 sm:border-r sm:px-6">
+      <div className="flex items-center gap-3">
+        <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--editorial-sage-soft)] text-[var(--editorial-sage)]">
+          <Settings2 className="h-[18px] w-[18px]" aria-hidden="true" />
+        </span>
+        <p id="hub-prefs-label" className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+          {t.hub.preferencesTitle}
+        </p>
+      </div>
+      <div className="mt-4 grid grid-cols-1 overflow-hidden rounded-[1.3rem] border border-[var(--editorial-border)] bg-[rgba(248,247,241,0.62)] sm:grid-cols-3">
+        <div className="border-b border-[var(--editorial-border)] px-5 py-4 sm:border-b-0 sm:border-r">
           <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--editorial-muted)]">
             {t.hub.preferences.language.label}
           </p>
@@ -83,13 +82,13 @@ export default function PreferencesStrip() {
             <button
               type="button"
               onClick={toggleLanguage}
-              className="border border-[var(--editorial-sage)] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-sage)] transition-colors hover:bg-[var(--editorial-sage)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] active:translate-y-[1px]"
+              className="hub-pressable inline-flex min-h-8 items-center rounded-full border border-[var(--editorial-sage)] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-sage)] hover:bg-[var(--editorial-sage)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
             >
               {t.hub.preferences.language.toggleLabel}
             </button>
           </div>
         </div>
-        <div className="border-b border-[var(--editorial-border)] px-5 py-4 sm:border-b-0 sm:border-r sm:px-6">
+        <div className="border-b border-[var(--editorial-border)] px-5 py-4 sm:border-b-0 sm:border-r">
           <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--editorial-muted)]">
             {t.hub.preferences.viewMode.label}
           </p>
@@ -97,7 +96,7 @@ export default function PreferencesStrip() {
             {viewModeLabel}
           </p>
         </div>
-        <div className="px-5 py-4 sm:px-6">
+        <div className="px-5 py-4">
           <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--editorial-muted)]">
             {t.hub.preferences.mentor.label}
           </p>
