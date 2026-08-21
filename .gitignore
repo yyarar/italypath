@@ -56,3 +56,6 @@ tmp/
 *-admission-requirements/
 *-english-programmes/
 output/*-program-details-import-report.json
+
+# City-guide research working results
+city-content-research/results/

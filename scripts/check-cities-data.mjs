@@ -1,6 +1,8 @@
 import { readFileSync } from "node:fs";
 
 const cityDataPath = new URL("../lib/cities/data.ts", import.meta.url);
+const cityTypesPath = new URL("../types/cities.ts", import.meta.url);
+const cityCostTiersPath = new URL("../lib/cities/costTiers.ts", import.meta.url);
 const cityExplorerPath = new URL(
   "../components/cities/CityGuidesExplorer.tsx",
   import.meta.url
@@ -8,6 +10,8 @@ const cityExplorerPath = new URL(
 const translationsPath = new URL("../lib/translations.ts", import.meta.url);
 
 const source = readFileSync(cityDataPath, "utf8");
+const cityTypesSource = readFileSync(cityTypesPath, "utf8");
+const cityCostTiersSource = readFileSync(cityCostTiersPath, "utf8");
 const cityExplorerSource = readFileSync(cityExplorerPath, "utf8");
 const translationsSource = readFileSync(translationsPath, "utf8");
 
@@ -22,6 +26,17 @@ function assertNotIncludes(haystack, needle, message) {
     throw new Error(message);
   }
 }
+
+assertIncludes(cityTypesSource, 'export type CityCostTier = "budget" | "balanced" | "high"', "City cost tiers must stay closed to three values.");
+assertIncludes(cityTypesSource, "export interface TieredCityRecord", "Tiered city records need an explicit contract.");
+assertIncludes(cityCostTiersSource, 'export const CITY_COST_MODEL_VERSION = "2026-08"', "Tier budget copy must expose a version.");
+assertIncludes(cityCostTiersSource, 'budget: {', "Budget tier is missing.");
+assertIncludes(cityCostTiersSource, 'balanced: {', "Balanced tier is missing.");
+assertIncludes(cityCostTiersSource, 'high: {', "High tier is missing.");
+assertIncludes(cityCostTiersSource, "250€ - 400€", "Budget room range changed unexpectedly.");
+assertIncludes(cityCostTiersSource, "600€ - 850€", "Balanced studio range changed unexpectedly.");
+assertIncludes(cityCostTiersSource, "850€ - 1.250€", "High studio range changed unexpectedly.");
+assertIncludes(cityCostTiersSource, "materializeTieredCity", "Tiered records need one materializer.");
 
 function extractCityBlock(slug) {
   const marker = `slug: "${slug}"`;

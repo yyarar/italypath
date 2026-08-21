@@ -222,6 +222,8 @@ export default function CityGuidesExplorer({
   }, [activeCity, initialCityUniversities, universities]);
 
   const copy = t.citiesGuide;
+  const activePopulation = language === "tr" ? activeCity.studentPopulation : activeCity.studentPopulationEn;
+  const activeEditorialTip = language === "tr" ? activeCity.editorialTip : activeCity.editorialTipEn;
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[var(--editorial-paper)] pb-24 text-[var(--editorial-ink)] md:pb-16">
@@ -414,10 +416,12 @@ export default function CityGuidesExplorer({
                     <MapPin className="h-3.5 w-3.5 text-[#d9b39f]" />
                     <span>{activeCity.region} {copy.regionSuffix}</span>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="h-3.5 w-3.5 text-[#d9b39f]" />
-                    <span>{copy.population}: {language === "tr" ? activeCity.studentPopulation : activeCity.studentPopulationEn}</span>
-                  </div>
+                  {activePopulation && (
+                    <div className="flex items-center gap-1">
+                      <Users className="h-3.5 w-3.5 text-[#d9b39f]" />
+                      <span>{copy.population}: {activePopulation}</span>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -589,15 +593,17 @@ export default function CityGuidesExplorer({
               </section>
 
               {/* Editorial Tip */}
-              <section className="mt-5 rounded-[1.5rem] bg-[var(--editorial-sage-soft)] p-5 sm:p-6">
-                <div className="mb-1 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-sage)]">
-                  <Compass className="h-3.5 w-3.5" />
-                  {copy.tip}
-                </div>
-                <p className="font-serif text-lg italic leading-relaxed text-[var(--editorial-ink)]">
-                  「 {language === "tr" ? activeCity.editorialTip : activeCity.editorialTipEn} 」
-                </p>
-              </section>
+              {activeEditorialTip && (
+                <section className="mt-5 rounded-[1.5rem] bg-[var(--editorial-sage-soft)] p-5 sm:p-6">
+                  <div className="mb-1 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-sage)]">
+                    <Compass className="h-3.5 w-3.5" />
+                    {copy.tip}
+                  </div>
+                  <p className="font-serif text-lg italic leading-relaxed text-[var(--editorial-ink)]">
+                    「 {activeEditorialTip} 」
+                  </p>
+                </section>
+              )}
 
               {/* Warning Notice */}
               <section className="mt-3 rounded-[1.25rem] border border-[#e6cabb] bg-[#fff8f3] p-4">
