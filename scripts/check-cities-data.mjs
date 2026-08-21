@@ -63,6 +63,59 @@ for (const slug of expectedTieredSlugs) {
   assertIncludes(tieredCityDataSource, `slug: "${slug}"`, `Missing tiered city ${slug}.`);
 }
 
+assertNotIncludes(tieredCityDataSource, 'slug: "piemonte"', "Piemonte is not a city guide.");
+assertNotIncludes(tieredCityDataSource, "Numbeo", "Tiered records must not use city-by-city Numbeo data.");
+assertNotIncludes(tieredCityDataSource, 'reviewStatus: "draft"', "Draft research must not enter runtime.");
+assertNotIncludes(tieredCityDataSource, "studentPopulation:", "Tiered scope excludes student-population claims.");
+assertNotIncludes(tieredCityDataSource, "editorialTip:", "Tiered scope excludes long editorial tips.");
+assertIncludes(cityExplorerSource, 'activeCity.contentStatus === "unresearched"', "Unknown-city UI must remain honest.");
+
+function extractTieredCityBlock(slug) {
+  const marker = `slug: "${slug}"`;
+  const start = tieredCityDataSource.indexOf(marker);
+  if (start === -1) throw new Error(`Missing tiered city ${slug}.`);
+  const next = tieredCityDataSource.indexOf('\n    slug: "', start + marker.length);
+  return tieredCityDataSource.slice(start, next === -1 ? tieredCityDataSource.length : next);
+}
+
+const requiredTieredFields = [
+  "name",
+  "nameEn",
+  "cityNameIt",
+  "altNames",
+  "region",
+  "placeHierarchy",
+  "costTier",
+  "costCluster",
+  "costTierRationale",
+  "historyShort",
+  "historyShortEn",
+  "historySourceTitle",
+  "historySourceUrl",
+  "transportDetails",
+  "transportDetailsEn",
+  "climateAndVibe",
+  "climateAndVibeEn",
+  "transportSourceUrls",
+  "sourceRetrievedAt",
+  "sourceConfidence",
+  "reviewStatus",
+  "reviewPriority",
+  "uncertain",
+];
+
+for (const slug of expectedTieredSlugs) {
+  const block = extractTieredCityBlock(slug);
+  for (const field of requiredTieredFields) {
+    assertIncludes(block, `${field}:`, `${slug} is missing ${field}.`);
+  }
+  const transportSources = block.slice(
+    block.indexOf("transportSourceUrls:"),
+    block.indexOf("sourceRetrievedAt:")
+  );
+  assertIncludes(transportSources, "https://", `${slug} needs an official transport source.`);
+}
+
 const tieredSlugCount = (tieredCityDataSource.match(/\n\s+slug: "/g) || []).length;
 if (tieredSlugCount !== 25) {
   throw new Error(`Expected 25 tiered city records, found ${tieredSlugCount}.`);
