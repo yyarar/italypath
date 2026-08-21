@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 
 const cityDataPath = new URL("../lib/cities/data.ts", import.meta.url);
+const tieredCityDataPath = new URL("../lib/cities/tieredData.ts", import.meta.url);
 const cityTypesPath = new URL("../types/cities.ts", import.meta.url);
 const cityCostTiersPath = new URL("../lib/cities/costTiers.ts", import.meta.url);
 const cityExplorerPath = new URL(
@@ -11,6 +12,7 @@ const translationsPath = new URL("../lib/translations.ts", import.meta.url);
 const cityNormalizationPath = new URL("../lib/cities/normalization.ts", import.meta.url);
 
 const source = readFileSync(cityDataPath, "utf8");
+const tieredCityDataSource = readFileSync(tieredCityDataPath, "utf8");
 const cityTypesSource = readFileSync(cityTypesPath, "utf8");
 const cityCostTiersSource = readFileSync(cityCostTiersPath, "utf8");
 const cityExplorerSource = readFileSync(cityExplorerPath, "utf8");
@@ -28,6 +30,26 @@ function assertNotIncludes(haystack, needle, message) {
     throw new Error(message);
   }
 }
+
+const expectedTieredSlugs = [
+  "aosta",
+  "bergamo",
+  "brescia",
+  "bolzano",
+  "castellanza",
+  "udine",
+  "perugia",
+  "camerino",
+  "urbino",
+];
+
+for (const slug of expectedTieredSlugs) {
+  assertIncludes(tieredCityDataSource, `slug: "${slug}"`, `Missing tiered city ${slug}.`);
+}
+
+assertIncludes(tieredCityDataSource, 'reviewStatus: "source-checked"', "Runtime city data must be source checked.");
+assertIncludes(tieredCityDataSource, "wikipedia.org/wiki/", "Tiered city histories need Wikipedia attribution.");
+assertIncludes(tieredCityDataSource, "transportSourceUrls:", "Tiered city records need transport sources.");
 
 assertIncludes(cityTypesSource, 'export type CityCostTier = "budget" | "balanced" | "high"', "City cost tiers must stay closed to three values.");
 assertIncludes(cityTypesSource, "export interface TieredCityRecord", "Tiered city records need an explicit contract.");
