@@ -688,4 +688,278 @@ export const TIERED_CITY_RECORDS = [
       "The official university sources reviewed clearly confirm the two-campus Chieti-Pescara structure, but they do not provide one concise current roster page for every department split across the two cities in this research pass.",
     ],
   },
+  {
+    slug: "cassino",
+    name: "Cassino",
+    nameEn: "Cassino",
+    cityNameIt: "Cassino",
+    altNames: ["Cassino"],
+    region: "Lazio",
+    placeHierarchy: "city",
+    primaryStudentBase:
+      "Campus Folcara and the adjacent city-station corridor, since the main university campus sits just outside the center rather than in a separate satellite municipality.",
+    costTier: "budget",
+    costCluster: "provincial-student-city",
+    costTierRationale:
+      "Cassino is an inland southern Lazio university city on the Rome-Naples axis, but its secondary-market scale and edge-campus layout keep it in ItalyPath's lower student-cost band rather than the more pressured Lazio hubs.",
+    historyShort:
+      "Cassino'nun kökeni Monte Cairo yakınındaki antik Casinum yerleşimine uzanır ve kent daha sonra Roma denetimine giren stratejik bir iç geçit noktası oldu. Erken Orta Çağ'da Aziz Benedikt'in Montecassino'da manastırı kurması, çevredeki yerleşimin dinsel ve kültürel ağırlığını belirledi; kent uzun süre San Germano adıyla yaşadı. II. Dünya Savaşı'ndaki Monte Cassino muharebeleri şehri neredeyse tamamen yok etti ve bugünkü Cassino büyük ölçüde savaş sonrası yeniden inşanın ürünüdür.",
+    historyShortEn:
+      "Cassino's roots go back to ancient Casinum near Monte Cairo, and it later became a strategic inland passage point under Roman control. In the early Middle Ages, Saint Benedict's foundation of the monastery at Montecassino gave the surrounding settlement a lasting religious and cultural importance, and the town long lived under the name San Germano. The battles of Monte Cassino in the Second World War almost destroyed the city, so today's Cassino is largely the result of postwar reconstruction.",
+    historySourceTitle: "Cassino - Wikipedia (EN)",
+    historySourceUrl: "https://en.wikipedia.org/wiki/Cassino",
+    transportDetails:
+      "Cassino'da öğrenci hareketliliği esas olarak istasyon-merkez-Folcara kampüsü ekseninde kurulur. UNICAS'ın öğrenci bilgi sayfası, Campus Folcara'ya ulaşan 16 numaralı Autoservizi Magni hattını doğrudan işaret eder; üniversitenin Economics with Data Science kampüs sayfası ise kampüsün şehirle yerel otobüslerle bağlı olduğunu ve tren istasyonunun yaklaşık 20 dakikalık yürüme mesafesinde bulunduğunu söyler. Belediye de Magni ve Mastrantoni tarafından işletilen aktif yerel hatları resmî olarak yayımladığı için, günlük düzen büyük ölçüde yerel otobüsler ve Cassino istasyonu üzerinden çalışır.",
+    transportDetailsEn:
+      "Student mobility in Cassino is organized mainly around the station-center-Folcara campus axis. UNICAS points directly to the Line 16 Autoservizi Magni service reaching Campus Folcara, while the university's Economics with Data Science campus page says the campus is linked to the city by local bus services and that the railway station is about a twenty-minute walk away. The municipality also officially publishes the active local lines run by Magni and Mastrantoni, so day-to-day movement works largely through local buses and Cassino station.",
+    climateAndVibe:
+      "Cassino, güney Lazio'nun daha sıcak ve güneşli iç vadilerinden birinde yer alır; yazlar belirgin biçimde sıcak, kışlar ise kuzey iç kesim öğrenci şehirlerine göre daha yumuşaktır. Şehir devasa değildir ve tempo merkez, istasyon ve kampüs arasında pratik bir düzende akar. Montecassino ve savaş hafızası kente güçlü bir tarih katmanı verir, ama günlük öğrenci deneyimi daha çok ulaşılabilir ölçekte bir orta kent hissi taşır.",
+    climateAndVibeEn:
+      "Cassino sits in one of southern Lazio's warmer and sunnier inland valleys, with clearly hot summers and winters that are milder than in many northern inland student cities. It is not a huge city, and the rhythm of daily life moves in a practical loop between the center, the station, and the campus. Montecassino and the city's war memory add a strong historical layer, but the everyday student experience feels more like a manageable mid-sized town.",
+    transportSourceUrls: [
+      "https://www.unicas.it/cuori/studenti-iscritti/informazioni-utili/",
+      "https://eds.unicas.it/overview/campus",
+      "https://www.comune.cassino.fr.it/it-it/novita/avvisi/2025/viabilita-e-trasporti/trasporto-locale-gli-orari-e-le-linee-attive-in-citta-con-le-societa-magni-e-mastrantoni-342876-1-c463aa2dde7c5909d04705de06a35d09",
+    ],
+    sourceRetrievedAt: "2026-08-21",
+    sourceConfidence: "mixed",
+    reviewStatus: "source-checked",
+    reviewPriority: [],
+    uncertain: [
+      "Official sources confirm that Line 16 reaches Campus Folcara and that the municipality publishes active Magni and Mastrantoni local lines, but they do not provide one stable consolidated network map on the same student-facing page.",
+    ],
+  },
+  {
+    slug: "viterbo",
+    name: "Viterbo",
+    nameEn: "Viterbo",
+    cityNameIt: "Viterbo",
+    altNames: ["Viterbo", "Veterbe", "Viterbium"],
+    region: "Lazio",
+    placeHierarchy: "city",
+    costTier: "balanced",
+    costCluster: "provincial-student-city",
+    costTierRationale:
+      "Viterbo is a sizeable historic university city in Lazio with provincial-capital functions and steady Rome-facing connectivity, so it sits above smaller inland budget towns but below the premium pressure of the region's largest hubs.",
+    historyShort:
+      "Viterbo, 8. yüzyılda Castrum Viterbii olarak kayda geçer ve Lombard kralı Desiderius döneminde tahkim edilen bir yerleşim olarak görünür. 11. yüzyıl sonuna gelindiğinde özgür komün kimliği kazandı; 12. ve 13. yüzyıllarda papaların sık kullandığı bir ikamet ve siyaset merkezi haline gelerek Orta İtalya'nın başlıca kentlerinden biri oldu. Bugünkü surlu merkez ve papalık sarayı hissi, büyük ölçüde bu ortaçağ yükselişinin kalıcı izidir.",
+    historyShortEn:
+      "Viterbo first appears in the eighth century as Castrum Viterbii and is presented as a fortified settlement in the age of the Lombard king Desiderius. By the end of the eleventh century it had become a free commune, and in the twelfth and thirteenth centuries it grew into one of central Italy's main cities as a frequent papal residence and political center. The walled core and papal-palace identity that define the city today are largely the lasting imprint of that medieval rise.",
+    historySourceTitle: "Viterbo - Wikipedia (EN)",
+    historySourceUrl: "https://en.wikipedia.org/wiki/Viterbo",
+    transportDetails:
+      "Viterbo'da öğrenci hareketliliği istasyonlar ile Unitus durakları arasındaki tren-artı-otobüs kombinasyonuna dayanır. Unitus'un resmî ulaşım sayfası, Porta Romana ve Porta Fiorentina eksenindeki demiryolu erişimini, Cotral'ın Roma ve Orte bağlantılarını ve kentsel hareketliliğin Francigena tarafından yönetildiğini açıkça toplar. Trenitalia'nın UNITUS Link hizmeti de Viterbo P.F. istasyonundan üniversiteye doğrudan tren+otobüs bağlantısı sunduğu için, günlük düzende Porta Romana, Porta Fiorentina, Via San Camillo de Lellis ve Piazzale Gramsci gibi düğümler öne çıkar.",
+    transportDetailsEn:
+      "Student mobility in Viterbo relies on a train-and-bus combination between the stations and Unitus stops. The university's official access page explicitly groups rail access around Porta Romana and Porta Fiorentina, Cotral links toward Rome and Orte, and the fact that urban mobility is managed by Francigena. Trenitalia's UNITUS Link also provides a direct rail-plus-bus connection from Viterbo P.F. station to the university, so daily movement revolves around nodes such as Porta Romana, Porta Fiorentina, Via San Camillo de Lellis, and Piazzale Gramsci.",
+    climateAndVibe:
+      "Viterbo, Roma'ya göre daha serin kışları ve sıcak ama yüksekçe konumu sayesinde biraz daha dengelenen yazları olan iç kesim Lazio şehridir. Tarihi merkez surlu, taş dokulu ve belirgin biçimde ortaçağ karakterlidir; bu da öğrenci yaşamına güçlü bir mekansal kimlik verir. Günlük ritim büyükşehir kadar hızlı değildir, ama kampüs noktaları ile istasyonlar arasındaki hareketlilik şehri durağan da bırakmaz.",
+    climateAndVibeEn:
+      "Viterbo is an inland Lazio city with cooler winters than Rome and hot summers that are moderated somewhat by its elevation. The historic center is walled, stony, and strongly medieval in character, which gives student life a very specific spatial identity. The daily rhythm is not as fast as a major metro, yet the movement between university sites and stations keeps the city from feeling static.",
+    transportSourceUrls: [
+      "https://www.unitus.it/ateneo/strutture-e-servizi/sedi-e-poli/come-raggiungerci/",
+      "https://www.trenitalia.com/it/regionale/collegamenti-regionale/unitus-link.html",
+      "https://www.francigena.vt.it/it/linee",
+    ],
+    sourceRetrievedAt: "2026-08-21",
+    sourceConfidence: "mixed",
+    reviewStatus: "source-checked",
+    reviewPriority: [],
+    uncertain: [
+      "Official sources confirm multiple rail and bus access nodes for Unitus, but they do not provide one single current page that consolidates every student-facing teaching site in Viterbo into a single mobility map.",
+    ],
+  },
+  {
+    slug: "teramo",
+    name: "Teramo",
+    nameEn: "Teramo",
+    cityNameIt: "Teramo",
+    altNames: ["Teramo", "Tèreme", "Interamnia Praetuttiorum"],
+    region: "Abruzzo",
+    placeHierarchy: "city",
+    primaryStudentBase:
+      "The main student base is the Colleparco-Campus Aurelio Saliceti axis in Teramo city, even though UniTE also maintains additional sites within the wider municipal territory.",
+    costTier: "budget",
+    costCluster: "provincial-student-city",
+    costTierRationale:
+      "Teramo is an inland Abruzzo university city with provincial-capital functions, but without the coastal, metro, alpine, or heavy-tourism premium factors that usually push student costs into ItalyPath's higher bands.",
+    historyShort:
+      "Teramo'nun erken çekirdeği, Vezzola ve Tordino nehirleri arasındaki Praetutii yerleşiminden gelişti; Roma döneminde kent Interamnia Praetuttiorum adıyla önemli bir municipium haline geldi. Roma çağında tiyatro, hamam ve diğer kamusal yapılarla zenginleşen şehir, imparatorluk sonrasında Got, Bizans ve Lombard evrelerinden geçti. Norman dönemindeki yıkıma rağmen yeniden toparlandı ve bugünkü kentsel kimliğinin temelini antik kalıntılarla ortaçağ dokusunun birleşimi oluşturdu.",
+    historyShortEn:
+      "Teramo's early core grew from a Praetutii settlement between the Vezzola and Tordino rivers, and in the Roman age it became the important municipium of Interamnia Praetuttiorum. The city prospered in Roman times with a theater, baths, and other public structures, then passed through Gothic, Byzantine, and Lombard phases after the empire. Despite destruction in the Norman period, it recovered, and its present urban identity is built on the overlap between ancient remains and a medieval townscape.",
+    historySourceTitle: "Teramo - Wikipedia (EN)",
+    historySourceUrl: "https://en.wikipedia.org/wiki/Teramo",
+    transportDetails:
+      "Teramo'da öğrenci hareketliliği merkez, istasyon ve kampüs arasındaki otobüs omurgası üzerinden işler. UniTE'nin resmî ulaşım sayfası, yerel işletmeciyi STAUR olarak anarken Kampüs A. Saliceti'ye 6 ve 7 numaralı otobüslerle ulaşıldığını söyler; kentsel işletmecinin resmî hat sayfası da 7 numaralı hattın Piazza Garibaldi, Colleparco, Università, Mensa Università ve demiryolu istasyonu duraklarını aynı rota içinde birleştirdiğini gösterir. Üniversitenin aynı sayfası ayrıca kentin Roma, L'Aquila ve Pescara ile otobüs bağlantılarını ve Giulianova üzerinden bölgesel/daha uzun mesafeli demiryolu erişimini vurguladığı için, günlük düzen kampüs otobüsleriyle daha geniş bölgesel bağlantıların birleşimine dayanır.",
+    transportDetailsEn:
+      "In Teramo, student mobility works through the bus backbone linking the center, the station, and the campus. UniTE's official access page refers to the local operator as STAUR and says that Campus A. Saliceti is reached by Lines 6 and 7, while the urban operator's official route page shows Line 7 tying together Piazza Garibaldi, Colleparco, the university, the university canteen, and railway-station stops in one route. The same university page also emphasizes bus links toward Rome, L'Aquila, and Pescara together with rail access via Giulianova, so the daily pattern combines campus buses with wider regional connections.",
+    climateAndVibe:
+      "Teramo, Gran Sasso ile Adriyatik arasında kalan iç kesim Abruzzo karakterini taşır; yazlar sıcak olabilir ama kıyıdan biraz daha kara etkili, kışlar ise daha serin geçer ve zaman zaman kar görülür. Kent ölçek olarak yönetilebilir, tarihi merkez ile kampüs yamaçları arasında dağılmıştır. Bu yüzden öğrenci yaşamı ne sahil şehri kadar açık ne de izole bir dağ kasabası kadar kapalıdır; daha çok sakin ama bağlantılı bir orta kent ritmi sunar.",
+    climateAndVibeEn:
+      "Teramo carries the inland Abruzzo character of a city set between Gran Sasso and the Adriatic: summers can be hot but feel more continental than on the coast, while winters are cooler and can bring some snow. The scale is manageable, with student life spread between the historic center and the hillside campus areas. As a result, it feels neither as open as a seaside city nor as closed-in as an isolated mountain town, but rather like a calm, connected medium-sized student city.",
+    transportSourceUrls: [
+      "https://www.unite.it/UniTE/Futuri_studenti/Insegnamenti/Dove_siamo/Come_arrivare_a_Teramo",
+      "https://trasportourbanoteramo.it/orari-bus/",
+    ],
+    sourceRetrievedAt: "2026-08-21",
+    sourceConfidence: "mixed",
+    reviewStatus: "source-checked",
+    reviewPriority: [],
+    uncertain: [
+      "The official UniTE page refers to the local operator as STAUR, while the current official urban-lines page is branded through Baltour/Trasporto urbano Teramo; the campus-serving route structure is clear, but the operator naming has changed across official sources.",
+    ],
+  },
+  {
+    slug: "cenova",
+    name: "Cenova",
+    nameEn: "Genoa",
+    cityNameIt: "Genova",
+    altNames: ["Cenova", "Genova", "Genoa"],
+    region: "Liguria",
+    placeHierarchy: "city",
+    costTier: "high",
+    costCluster: "regional-capital",
+    costTierRationale:
+      "Liguria's regional capital combines big-city demand, constrained coastal housing stock, and a dense historic fabric, which places student costs in ItalyPath's high band.",
+    historyShort:
+      "Cenova'nın yerleşim çekirdeği, MÖ 5. yüzyılda Ligurların Castello tepesindeki oppidumuna kadar uzanır; kent, Kartacalılarca yıkıldıktan sonra Roma ile yeniden büyüdü ve belediye statüsü kazandı. Batı Roma'nın çöküşünden sonra küçük bir merkez olarak gerilese de ticaret filosunu yavaş yavaş kurdu. Bu denizcilik birikimi, sonraki yüzyıllarda Cenova'yı Akdeniz'in en güçlü ticaret cumhuriyetlerinden birine dönüştüren zemini hazırladı.",
+    historyShortEn:
+      "Genoa's earliest urban core goes back to a Ligurian oppidum on the Castello hill in the fifth century BC; after being destroyed by the Carthaginians, it grew again in alliance with Rome and gained municipal status. It shrank after the fall of the Western Roman Empire, but slowly rebuilt its merchant fleet as a modest centre. That maritime base helped prepare the rise of Genoa into one of the most powerful commercial republics of the Mediterranean in later centuries.",
+    historySourceTitle: "Genoa - Wikipedia (EN)",
+    historySourceUrl: "https://en.wikipedia.org/wiki/Genoa",
+    transportDetails:
+      "Genova'da öğrenci hareketliliği AMT'nin otobüs, metro, füniküler, asansör ve özel hatlarının birleştiği çok katmanlı ağ üzerinden yürür. UniGe, CityPass'ın tüm AMT ağı, il otobüsleri, Navebus, Volabus ve Genova-Casella demiryolunda geçerli olduğunu; AMT ise metronun Brin ile Brignole arasında sekiz istasyonla Principe ve Brignole tren garlarını, Darsena ve Sarzano üniversite kutuplarını ve şehir merkezini bağladığını belirtir. Yamaç mahallelerine çıkan fünikülerler ve kremayer hat da dik topoğrafyada günlük erişimin önemli parçasıdır.",
+    transportDetailsEn:
+      "Student mobility in Genoa runs through AMT's layered network of buses, metro, funiculars, lifts, and other urban services. UniGe states that the CityPass is valid across the full AMT network, provincial buses, Navebus, Volabus, and the Genoa-Casella railway, while AMT describes the metro as an eight-station link between Brin and Brignole that connects the Principe and Brignole rail hubs, the Darsena and Sarzano university areas, and the city centre. Funiculars and the rack railway are also an important everyday tool for reaching hillside districts in the city's steep terrain.",
+    climateAndVibe:
+      "Ligurya kıyısındaki konumu nedeniyle kışlar görece ılıman, yazlar ise sıcak ve nemlidir. Şehir düz değil, katmanlı ve dikey hissedilir; tarihi merkez, liman çevresi ve yamaç mahalleleri arasında sürekli iniş çıkış vardır. Öğrenci açısından tempo büyük şehir kadar yoğundur ama deniz, dar sokaklar ve kampüslerin şehir dokusuna dağılmış olması günlük yaşama belirgin karakter verir.",
+    climateAndVibeEn:
+      "Its Ligurian coastal setting brings relatively mild winters and warm, humid summers. Genoa feels vertical rather than flat, with constant movement between the old centre, the port, and hillside neighborhoods. For students, the pace is that of a large city, but the sea, narrow streets, and campus sites embedded in the urban fabric give daily life a very specific character.",
+    transportSourceUrls: [
+      "https://unige.it/en/services/transports",
+      "https://www.amt.genova.it/amt/trasporto-multimodale/metropolitana/",
+      "https://www.amt.genova.it/amt/trasporto-multimodale/funicolari/",
+    ],
+    sourceRetrievedAt: "2026-08-21",
+    sourceConfidence: "mixed",
+    reviewStatus: "source-checked",
+    reviewPriority: [],
+    uncertain: [],
+  },
+  {
+    slug: "ferrara",
+    name: "Ferrara",
+    nameEn: "Ferrara",
+    cityNameIt: "Ferrara",
+    altNames: ["Ferrara"],
+    region: "Emilia-Romagna",
+    placeHierarchy: "city",
+    costTier: "balanced",
+    costCluster: "provincial-student-city",
+    costTierRationale:
+      "Ferrara is a medium-sized university city with strong bike-based mobility and without the housing pressure of Italy's biggest metro or top tourism markets, so it fits the balanced band.",
+    historyShort:
+      "Ferrara'nın bugünkü konumundaki kökeni tartışmalı olsa da kaynaklar, geç Antikçağ ile erken Orta Çağ arasında Po kıyısındaki yerleşim çekirdeğinin geliştiğini ve kentin 753'te ilk kez belgelendiğini aktarır. 12. yüzyılda özgür komün haline gelen şehir, 1264'ten itibaren Este hanedanının yönetiminde siyasi ve kültürel ağırlık kazandı. Rönesans döneminde saraylar, geniş caddeler ve planlı genişleme ile biçimlenen kent dokusu bugün de Ferrara'nın temel kimliğini belirler.",
+    historyShortEn:
+      "Although the exact origin of Ferrara on its current site remains debated, the article describes an early settlement taking shape between late antiquity and the early Middle Ages and notes the city's first documentary appearance in 753. Ferrara became a free commune in the twelfth century and then gained political and cultural weight under the House of Este from 1264 onward. Its Renaissance identity, built through palaces, broad streets, and planned expansion, still defines the city today.",
+    historySourceTitle: "Ferrara - Wikipedia (EN)",
+    historySourceUrl: "https://en.wikipedia.org/wiki/Ferrara",
+    transportDetails:
+      "Ferrara'da günlük öğrenci hareketliliği büyük ölçüde bisiklet ve TPER/TPF otobüs ağı etrafında şekillenir. Unife, pek çok üniversite noktasına giden hatların Stazione Ferroviaria'dan geçtiğini; Cona öğretim alanına ise kentsel hatlar ve Ferrara-Codigoro demiryolu üzerinden erişilebildiğini belirtir. TPER'nin Ferrara havzası için yayımladığı hizmet bilgileri de 21 kentsel ve 41 kent dışı hattın aynı ağ içinde çalıştığını gösterir.",
+    transportDetailsEn:
+      "In Ferrara, day-to-day student mobility is shaped mainly by bicycles and the TPER/TPF bus network. The University of Ferrara states that many lines serving university locations pass through the railway station, and that the Cona teaching area can also be reached through urban lines and the Ferrara-Codigoro rail link. TPER's service information for the Ferrara basin also shows an integrated network with 21 urban and 41 extra-urban lines.",
+    climateAndVibe:
+      "Po Ovası'ndaki konumu yüzünden yazlar sıcak ve bunaltıcı, kışlar ise sisli ve nemli olabilir. Şehir düz, kompakt ve ritmi görece sakindir; tarihi merkez ile üniversite yaşamı birbirine yakın yürür. Ferrara'nın en belirgin öğrenci hissi, otomobilden çok bisikletle akan gündelik hayatıdır.",
+    climateAndVibeEn:
+      "Because it sits in the Po plain, Ferrara can feel hot and heavy in summer, while winters are often damp and foggy. The city is flat, compact, and comparatively calm, with university life closely woven into the historic core. Its clearest student character comes from a daily rhythm that moves more by bicycle than by car.",
+    transportSourceUrls: [
+      "https://www.unife.it/it/studiare/trasporti/come-muoversi-a-ferrara/muoversi-pubblico",
+      "https://www.unife.it/en/live/city-services/transport-services",
+      "https://www.tper.it/mappaferrara",
+      "https://www.tper.it/assistenza-clienti/carta-dei-servizi/ferrara",
+    ],
+    sourceRetrievedAt: "2026-08-21",
+    sourceConfidence: "mixed",
+    reviewStatus: "source-checked",
+    reviewPriority: [],
+    uncertain: [],
+  },
+  {
+    slug: "macerata",
+    name: "Macerata",
+    nameEn: "Macerata",
+    cityNameIt: "Macerata",
+    altNames: ["Macerata"],
+    region: "Marche",
+    placeHierarchy: "city",
+    costTier: "budget",
+    costCluster: "provincial-student-city",
+    costTierRationale:
+      "As a smaller inland provincial capital with a compact university-centered core and less housing pressure than Marche's bigger coastal or regional hubs, Macerata fits ItalyPath's budget band.",
+    historyShort:
+      "Macerata'nın tarihsel çekirdeği, Chienti ile Potenza nehirleri arasındaki tepede yer alan ve Picenler ile Roma dönemindeki Ricina/Helvia Recina yerleşimleriyle ilişkilendirilen daha eski bir merkeze bağlanır. Barbar akınlarından sonra nüfus tepelere çekildi ve yeniden kurulan yerleşim zamanla Macerata adıyla büyüdü. 1138'de komün statüsü kazanması ve 1320'de piskoposluk merkezinin buraya taşınması kentin kurumsal önemini belirgin biçimde artırdı.",
+    historyShortEn:
+      "Macerata's historical core is tied to an earlier centre on the hill between the Chienti and Potenza rivers, linked in the article to the Picene and Roman settlement of Ricina or Helvia Recina. After barbarian destruction, the population retreated to the hills and the rebuilt settlement gradually developed as Macerata. Its institutional weight increased notably when it became a commune in 1138 and when the episcopal seat was transferred there in 1320.",
+    historySourceTitle: "Macerata - Wikipedia (EN)",
+    historySourceUrl: "https://en.wikipedia.org/wiki/Macerata",
+    transportDetails:
+      "Macerata'da yerel hareketlilik APM'nin işlettiği kentsel otobüs ağıyla yürür; şirket resmî olarak şehir hizmetinin 12 hat ve 28 otobüslük filoyla çalıştığını belirtir. Üniversite, merkezdeki ana Macerata istasyonunun çoğu fakülteye yakın olduğunu, Macerata Universita istasyonunun ise Piazza della Liberta'ya yaklaşık 2,5 km mesafede bulunduğunu söylüyor. Bölgesel geliş-gidişlerde Piazza Pizzarello otobüs terminali ve tren bağlantıları, küçük ölçekli kent yaşamını dış bağlantılarla tamamlar.",
+    transportDetailsEn:
+      "Local mobility in Macerata depends on the urban bus network run by APM, which officially describes the city service as a 12-line system with a fleet of 28 buses. The university says the main Macerata rail station is close to most university facilities, while Macerata Universita station sits about 2.5 km from Piazza della Liberta. For regional movement, the Piazza Pizzarello bus terminal and rail connections complement the city's small-scale daily life.",
+    climateAndVibe:
+      "Macerata iç kesimdeki bir Marche tepe şehri olduğu için yazları sıcak ama akşamları daha ferah, kışları ise kıyıya göre daha serin geçer. Tarihi merkez küçük ve yürünebilir, üniversite yapıları şehir dokusuna yayılmıştır. Öğrenci hayatı burada büyük şehir çeşitliliğinden çok sakin, odaklı ve yerel ölçekte ilerler.",
+    climateAndVibeEn:
+      "As an inland hill town in Marche, Macerata has hot summers with somewhat cooler evenings and winters that feel cooler than on the coast. The historic centre is small and walkable, with university buildings spread through the town fabric. Student life here feels calmer, more focused, and more local in scale than in a larger city.",
+    transportSourceUrls: [
+      "https://www.unimc.it/en/services/useful-information/how-to-reach-macerata",
+      "https://www.apmgroup.it/servizi/trasporti/",
+      "https://www.apmgroup.it/servizi/trasporti/orario-bus/",
+    ],
+    sourceRetrievedAt: "2026-08-21",
+    sourceConfidence: "mixed",
+    reviewStatus: "source-checked",
+    reviewPriority: ["weak-source"],
+    uncertain: [
+      "The English Wikipedia history section for Macerata is marked as containing unsourced material (banner dated August 2024), so the summary is limited to broad chronology stated on that page.",
+    ],
+  },
+  {
+    slug: "pollenzo",
+    name: "Pollenzo",
+    nameEn: "Pollenzo",
+    cityNameIt: "Pollenzo",
+    altNames: ["Pollenzo", "Polèns", "Pollentia"],
+    region: "Piemonte",
+    placeHierarchy: "hamlet",
+    primaryStudentBase: "Bra",
+    costTier: "balanced",
+    costCluster: "provincial-student-city",
+    costTierRationale:
+      "Although the campus is in the hamlet of Pollenzo, everyday student life usually depends on nearby Bra for housing, errands, and rail access; that Bra-based provincial setup fits the balanced band, with some added pressure from the wider Langhe wine-tourism area but not a top-tier premium market.",
+    historyShort:
+      "Pollenzo, antik Roma kenti Pollentia'nın bulunduğu yerde gelişen bir yerleşimdir ve kaynaklarda MÖ 2. yüzyıla uzanan bir kuruluş anlatısı yer alır. 402 yılındaki Pollenzo Muharebesi burayı geç Roma döneminde yeniden öne çıkardı. 19. yüzyılda Carlo Alberto köyü ve kaleyi örnek bir tarım ve enoloji mülküne dönüştürdü; 2004'ten beri Agenzia di Pollenzo'da Gastronomi Bilimleri Üniversitesi bulunur.",
+    historyShortEn:
+      "Pollenzo developed on the site of the Roman city of Pollentia, which the article traces back to a foundation in the 2nd century BC. The Battle of Pollenzo in 402 brought the site back into prominence in the late Roman period. In the nineteenth century Carlo Alberto reshaped the village and castle into a model agricultural and wine estate, and since 2004 the Agenzia di Pollenzo has hosted the University of Gastronomic Sciences.",
+    historySourceTitle: "Pollenzo (Italian Wikipedia)",
+    historySourceUrl: "https://it.wikipedia.org/wiki/Pollenzo",
+    transportDetails:
+      "Pollenzo bir frazione olduğu için öğrencilerin günlük hareketliliği çoğunlukla Bra üzerinden kurulur. Bra Belediyesi, conurbation otobüs ağının Bra Movicentro'da demiryoluyla entegre olduğunu ve Bra ile Pollenzo'yu bağladığını belirtirken, UNISG de Bra istasyonu ve merkezinden kampüse otobüs erişimi olduğunu açıkça yazar. Pratikte Bra tren istasyonu ve Movicentro, Pollenzo kampüsüne giden son bölüm için ana aktarma düğümüdür.",
+    transportDetailsEn:
+      "Because Pollenzo is a frazione, students usually organize everyday mobility through Bra. The Municipality of Bra states that the conurbation bus network is integrated with rail at Bra's Movicentro and links Bra with Pollenzo, while UNISG explicitly says the campus can be reached by bus from Bra station and the town center. In practice, Bra railway station and the Movicentro act as the main interchange for the last stretch to the Pollenzo campus.",
+    climateAndVibe:
+      "Bra-Pollenzo çevresi Langhe eşiğinde yer aldığı için yazlar sıcak, kışlar ise serin ve zaman zaman sisli hissedebilir. Pollenzo'nun kendisi tarihi Agenzia çevresinde çok küçük ve sakin bir kampüs-hamlet atmosferi sunar; daha geniş gündelik ihtiyaçlar ve sosyal hayat ise genellikle Bra tarafında çözülür.",
+    climateAndVibeEn:
+      "On the edge of the Langhe area, Bra and Pollenzo usually feel warm in summer and cool, sometimes foggy, in winter. Pollenzo itself is a very small and quiet campus hamlet centered on the historic Agenzia complex, while broader everyday errands and social life are usually handled in Bra.",
+    transportSourceUrls: [
+      "https://www.unisg.it/info/",
+      "https://www.comune.bra.cn.it/it/page/trasporti-urbani-nuovi-percorsi",
+      "https://www.unisg.it/cheese/edizione-2023/visit-pollenzo/",
+    ],
+    sourceRetrievedAt: "2026-08-21",
+    sourceConfidence: "mixed",
+    reviewStatus: "source-checked",
+    reviewPriority: ["hamlet"],
+    uncertain: [
+      "Official UNISG pages do not describe the Bra-Pollenzo bus identically: one current page says buses from Bra station and center reach Pollenzo, while older or event-specific UNISG pages mention different line numbers. The exact current line numbering and stop labeling therefore remain uncertain.",
+    ],
+  },
 ] satisfies TieredCityRecord[];

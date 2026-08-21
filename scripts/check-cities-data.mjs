@@ -50,10 +50,22 @@ const expectedTieredSlugs = [
   "casamassima",
   "lecce",
   "pescara",
+  "cassino",
+  "viterbo",
+  "teramo",
+  "cenova",
+  "ferrara",
+  "macerata",
+  "pollenzo",
 ];
 
 for (const slug of expectedTieredSlugs) {
   assertIncludes(tieredCityDataSource, `slug: "${slug}"`, `Missing tiered city ${slug}.`);
+}
+
+const tieredSlugCount = (tieredCityDataSource.match(/\n\s+slug: "/g) || []).length;
+if (tieredSlugCount !== 25) {
+  throw new Error(`Expected 25 tiered city records, found ${tieredSlugCount}.`);
 }
 
 assertIncludes(tieredCityDataSource, 'reviewStatus: "source-checked"', "Runtime city data must be source checked.");
