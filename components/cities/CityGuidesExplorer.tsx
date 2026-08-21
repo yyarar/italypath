@@ -23,7 +23,11 @@ import {
 
 import { useLanguage } from "@/context/LanguageContext";
 import { useUniversitiesData } from "@/lib/useUniversitiesData";
-import { getCityDetailByName, getFallbackCityDetail } from "@/lib/cities/data";
+import {
+  getCanonicalCitySlug,
+  getCityDetailByName,
+  getFallbackCityDetail,
+} from "@/lib/cities/data";
 import {
   createCityGuideSlug,
   getCityGuideName,
@@ -143,36 +147,38 @@ export default function CityGuidesExplorer({
       return initialCitiesWithCounts;
     }
 
-    const counts: Record<string, number> = {};
+    const options = new Map<string, CityGuideOption>();
     universities.forEach((u) => {
       const cityName = getCityGuideName(u.city);
       if (cityName) {
-        counts[cityName] = (counts[cityName] || 0) + 1;
+        const resolved = getCityDetailByName(cityName);
+        const slug = resolved?.slug ?? createCityGuideSlug(cityName);
+        const existing = options.get(slug);
+        options.set(slug, {
+          name: existing?.name ?? cityName,
+          count: (existing?.count ?? 0) + 1,
+          slug,
+        });
       }
     });
 
-    return Object.entries(counts)
-      .map(([name, count]) => ({
-        name,
-        count,
-        slug: createCityGuideSlug(name),
-      }))
+    return Array.from(options.values())
       .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
   }, [initialCitiesWithCounts, universities]);
 
   // Find the selected city details
   const activeCity = useMemo<CityDetail>(() => {
     const canonicalSelection = resolveCityGuideSelection(selectedQueryCity) ?? "Milano";
+    const resolvedSelection = getCityDetailByName(canonicalSelection);
+    const selectedSlug = resolvedSelection?.slug ?? getCanonicalCitySlug(canonicalSelection);
     const match = citiesWithCounts.find(
-      (c) =>
-        c.slug === canonicalSelection.toLowerCase() ||
-        c.name.toLowerCase() === canonicalSelection.toLowerCase()
+      (city) => city.slug === selectedSlug
     );
 
     const name = match ? match.name : "Milano";
     const region = CITY_TO_REGION_MAP[name] || "İtalya";
 
-    const curated = getCityDetailByName(name) || getCityDetailByName(canonicalSelection);
+    const curated = resolvedSelection || getCityDetailByName(name);
     if (curated) return curated;
 
     return getFallbackCityDetail(name, region);
@@ -181,9 +187,9 @@ export default function CityGuidesExplorer({
   const activeCitySlug = useMemo(
     () =>
       citiesWithCounts.find(
-        (city) => city.name.toLowerCase() === activeCity.name.toLowerCase()
+        (city) => city.slug === activeCity.slug
       )?.slug ?? "",
-    [activeCity.name, citiesWithCounts]
+    [activeCity.slug, citiesWithCounts]
   );
 
   // Dynamic regional scholarship lookup
@@ -211,7 +217,10 @@ export default function CityGuidesExplorer({
     }
 
     return universities
-      .filter((u) => getCityGuideName(u.city)?.toLowerCase() === activeCity.name.toLowerCase())
+      .filter((u) => {
+        const cityName = getCityGuideName(u.city);
+        return cityName ? getCanonicalCitySlug(cityName) === activeCity.slug : false;
+      })
       .map((university) => ({
         id: university.id,
         name: university.name,
@@ -234,6 +243,9 @@ export default function CityGuidesExplorer({
   const hasCostDetails = Boolean(
     activeCity.costRating !== undefined && activeRent && activeExpenses && activeTransportCost
   );
+  const warningItems = activeCity.costModel === "italypath-tier"
+    ? [copy.tierWarningItem1, copy.tierWarningItem2]
+    : [copy.warningItem1, copy.warningItem2];
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[var(--editorial-paper)] pb-24 text-[var(--editorial-ink)] md:pb-16">
@@ -315,7 +327,7 @@ export default function CityGuidesExplorer({
               </label>
               <div className="city-scrollbar-hidden -mx-1 mt-3 flex snap-x snap-mandatory gap-2 overflow-x-auto px-1 pb-2">
                 {citiesWithCounts.map((city) => {
-                  const active = activeCity.name.toLowerCase() === city.name.toLowerCase();
+                  const active = activeCity.slug === city.slug;
                   return (
                     <button
                       key={city.name}
@@ -369,7 +381,7 @@ export default function CityGuidesExplorer({
 
               <div className="grid gap-1.5">
                 {citiesWithCounts.map((city) => {
-                  const active = activeCity.name.toLowerCase() === city.name.toLowerCase();
+                  const active = activeCity.slug === city.slug;
                   return (
                     <button
                       key={city.name}
@@ -405,7 +417,7 @@ export default function CityGuidesExplorer({
             <aside className="city-material min-w-0 overflow-hidden rounded-[2rem] p-5 shadow-[0_26px_80px_rgba(21,32,28,0.09)] sm:p-7 lg:rounded-[2.5rem] lg:p-9">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
-                  key={activeCity.name}
+                  key={activeCity.slug}
                   initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -6 }}
@@ -668,8 +680,7 @@ export default function CityGuidesExplorer({
                   <div className="min-w-0">
                     <p className="text-xs font-bold uppercase tracking-[0.1em]">{copy.warningTitle}</p>
                     <ul className="mt-2 list-disc pl-4 text-xs space-y-1 text-[var(--editorial-muted)] font-medium">
-                      <li>{copy.warningItem1}</li>
-                      <li>{copy.warningItem2}</li>
+                      {warningItems.map((item) => <li key={item}>{item}</li>)}
                     </ul>
                   </div>
                 </div>

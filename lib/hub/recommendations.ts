@@ -1,5 +1,5 @@
 import type { Department, University } from "@/types/universities";
-import { CURATED_CITIES } from "@/lib/cities/data";
+import { CURATED_CITIES, getCityDetailByName } from "@/lib/cities/data";
 import type { ProfileCityPref, ProfileField, UserProfile } from "@/lib/hub/profile";
 import { SCHOLARSHIP_REGION_MAP } from "@/lib/scholarships/regions";
 import type { CityDetail } from "@/types/cities";
@@ -394,12 +394,7 @@ export function pickCities(
   const seen = new Set<string>();
 
   const tryAdd = (cityName: string) => {
-    const normalizedCity = normalizeText(cityName);
-    const detail = CURATED_CITIES.find(
-      (city) =>
-        normalizeText(city.name) === normalizedCity ||
-        normalizeText(city.nameEn) === normalizedCity,
-    );
+    const detail = getCityDetailByName(cityName);
     if (detail && !seen.has(detail.slug)) {
       seen.add(detail.slug);
       picked.push(detail);

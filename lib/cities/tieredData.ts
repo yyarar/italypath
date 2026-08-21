@@ -20,9 +20,9 @@ export const TIERED_CITY_RECORDS = [
     historySourceTitle: "Aosta - Wikipedia (EN)",
     historySourceUrl: "https://en.wikipedia.org/wiki/Aosta",
     transportDetails:
-      "Aosta'da günlük hareketlilik kompakt merkez, şehir içi ve banliyö otobüsleri etrafında şekillenir; Arriva'nın 440 hattı ile SVAP'ın kentsel ve banliyö hatları şehir içi omurgayı destekler. Aosta tren istasyonu bölgesel demiryolu erişimi sağlar, Arriva da Aosta'dan Courmayeur, Pont-Saint-Martin ve diğer vadi yerleşimlerine düzenli hatlar işletir. Şehir ayrıca Arriva'nın resmi uzun mesafe otobüsleriyle Torino, Milano ve Malpensa yönüne bağlanır.",
+      "Aosta'da günlük hareketlilik kompakt merkez ile şehir içi ve banliyö otobüsleri etrafında şekillenir; Arriva ve SVAP hizmetleri yerel omurgayı destekler. 2026-08-21 tarihli kaynak kontrolünde Aosta–Ivrea demiryolu elektrifikasyon çalışmaları nedeniyle kapalıdır: Torino yönündeki bölgesel yolculuklar Aosta–Ivrea ikame otobüsü ve Ivrea'da tren aktarmasıyla sürer. Arriva'nın vadi içi ve uzun mesafe otobüsleri de seçenek sunar; demiryolu yeniden açılırken yolculuk öncesinde güncel bağlantıyı resmi planlayıcıdan doğrulayın.",
     transportDetailsEn:
-      "In Aosta, everyday mobility revolves around the compact center and a mix of urban and suburban buses, with Arriva's line 440 and SVAP's city-area services forming the local backbone. Aosta railway station provides regional rail access, while Arriva runs regular bus links from the city to Courmayeur, Pont-Saint-Martin, and other valley towns. The city also has official Arriva long-distance coach connections toward Turin, Milan, and Malpensa.",
+      "In Aosta, everyday mobility revolves around the compact center and urban or suburban buses, with Arriva and SVAP services forming the local backbone. At the 2026-08-21 source review, the Aosta–Ivrea railway is closed for electrification: regional journeys toward Turin use the Aosta–Ivrea replacement bus and interchange with trains at Ivrea. Arriva's valley and long-distance coaches provide additional options; as the railway reopens, verify the current connection in the official journey planner before travel.",
     climateAndVibe:
       "Alplerle çevrili küçük ve düzenli bir bölge başkentidir; kışlar belirgin biçimde soğuk, yazlar ise kuzey ovalarına göre daha kuru ama yine de sıcaktır. Merkez yürünebilir olduğu için günlük hayat pratiktir; tempo sessizdir ve doğa, sınır geçişleri ve açık hava sporları öğrenci yaşamını büyük şehirlerden farklılaştırır.",
     climateAndVibeEn:
@@ -31,13 +31,16 @@ export const TIERED_CITY_RECORDS = [
       "https://aosta.arriva.it/bigliettazione-elettronica/",
       "https://aosta.arriva.it/en/timetables-and-routes/",
       "https://aosta.arriva.it/en/commercial-lines/",
-      "https://www.trenitalia.com/it/regionale/valle-d-aosta/stazioni-servite-da-trenitalia-valle-d-aosta.html",
+      "https://pressevda.regione.vda.it/it/news/entrano-nella-fase-conclusiva-i-lavori-di-elettrificazione-della-linea-ferroviaria-aostaivrea-riapertura-progressiva-a-partire-da-gennaio-2027",
+      "https://www.trenitalia.com/content/dam/trenitalia/regionale/carte-dei-servizi/2026/Carta_Servizi_2026_VdA_ENG.pdf",
     ],
     sourceRetrievedAt: "2026-08-21",
     sourceConfidence: "mixed",
     reviewStatus: "source-checked",
-    reviewPriority: ["bilingual-name"],
-    uncertain: [],
+    reviewPriority: ["bilingual-name", "rail-closure-freshness"],
+    uncertain: [
+      "At the 2026-08-21 review date, the Aosta–Ivrea railway is closed and replacement buses operate. Official sources announce a staged reopening from 2027, so recheck the rail and replacement-bus status when passenger rail service resumes.",
+    ],
   },
   {
     slug: "bergamo",

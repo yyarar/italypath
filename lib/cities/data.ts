@@ -420,14 +420,33 @@ export function getCityDetailBySlug(slug: string): CityDetail | undefined {
   return CURATED_CITIES.find((c) => c.slug === normalized);
 }
 
+function createCityIdentitySlug(value: string): string {
+  return value
+    .toLowerCase()
+    .trim()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export function getCityDetailByName(name: string): CityDetail | undefined {
   const normalized = name.toLowerCase().trim();
+  const normalizedSlug = createCityIdentitySlug(name);
 
   return CURATED_CITIES.find((city) =>
     [city.slug, city.name, city.nameEn, city.cityNameIt, ...(city.altNames ?? [])]
       .filter((candidate): candidate is string => Boolean(candidate))
-      .some((candidate) => candidate.toLowerCase().trim() === normalized)
+      .some(
+        (candidate) =>
+          candidate.toLowerCase().trim() === normalized ||
+          createCityIdentitySlug(candidate) === normalizedSlug
+      )
   );
+}
+
+export function getCanonicalCitySlug(name: string): string {
+  return getCityDetailByName(name)?.slug ?? createCityIdentitySlug(name);
 }
 
 export function getFallbackCityDetail(cityName: string, regionName: string): CityDetail {

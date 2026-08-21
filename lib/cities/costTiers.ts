@@ -2,6 +2,12 @@ import type { CityCostTier, CityDetail, TieredCityRecord } from "@/types/cities"
 
 export const CITY_COST_MODEL_VERSION = "2026-08";
 
+type DeepReadonly<T> = {
+  readonly [Key in keyof T]: T[Key] extends object
+    ? DeepReadonly<T[Key]>
+    : T[Key];
+};
+
 type CityCostBand = Required<Pick<
   CityDetail,
   | "costRating"
@@ -13,8 +19,14 @@ type CityCostBand = Required<Pick<
   | "transportCostEn"
 >>;
 
-export const CITY_COST_TIERS: Record<CityCostTier, CityCostBand> = {
-  budget: {
+type CityCostTierCatalog = DeepReadonly<Record<CityCostTier, CityCostBand>>;
+
+function freezeCostBand(band: CityCostBand): DeepReadonly<CityCostBand> {
+  return Object.freeze(band);
+}
+
+export const CITY_COST_TIERS: CityCostTierCatalog = Object.freeze({
+  budget: freezeCostBand({
     costRating: 2,
     rentAverage: "Özel oda: 250€ - 400€ | Küçük stüdyo: 450€ - 650€",
     rentAverageEn: "Private room: €250 - €400 | Small studio: €450 - €650",
@@ -22,8 +34,8 @@ export const CITY_COST_TIERS: Record<CityCostTier, CityCostBand> = {
     livingExpensesEn: "Monthly essentials excluding rent: €220 - €300",
     transportCost: "Öğrenci ulaşımı aylık karşılık: 20€ - 30€",
     transportCostEn: "Monthly student transport equivalent: €20 - €30",
-  },
-  balanced: {
+  }),
+  balanced: freezeCostBand({
     costRating: 3,
     rentAverage: "Özel oda: 350€ - 550€ | Küçük stüdyo: 600€ - 850€",
     rentAverageEn: "Private room: €350 - €550 | Small studio: €600 - €850",
@@ -31,8 +43,8 @@ export const CITY_COST_TIERS: Record<CityCostTier, CityCostBand> = {
     livingExpensesEn: "Monthly essentials excluding rent: €260 - €360",
     transportCost: "Öğrenci ulaşımı aylık karşılık: 25€ - 40€",
     transportCostEn: "Monthly student transport equivalent: €25 - €40",
-  },
-  high: {
+  }),
+  high: freezeCostBand({
     costRating: 4,
     rentAverage: "Özel oda: 500€ - 750€ | Küçük stüdyo: 850€ - 1.250€",
     rentAverageEn: "Private room: €500 - €750 | Small studio: €850 - €1,250",
@@ -40,8 +52,8 @@ export const CITY_COST_TIERS: Record<CityCostTier, CityCostBand> = {
     livingExpensesEn: "Monthly essentials excluding rent: €320 - €450",
     transportCost: "Öğrenci ulaşımı aylık karşılık: 35€ - 55€",
     transportCostEn: "Monthly student transport equivalent: €35 - €55",
-  },
-};
+  }),
+});
 
 export function materializeTieredCity(record: TieredCityRecord): CityDetail {
   const cost = CITY_COST_TIERS[record.costTier];

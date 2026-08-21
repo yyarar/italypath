@@ -904,7 +904,9 @@ export const translations = {
       openOfficial: "Resmi site",
       warningTitle: "Başvuru ve yaşam maliyetleri hakkında not",
       warningItem1: "Kira fiyatları ve sosyal giderler enflasyona veya şehre göre değişkenlik gösterebilir.",
-      warningItem2: "Burada sunulan bilgiler tamamen editoryal tahmin ve araştırmalara dayanmaktadır."
+      warningItem2: "Burada sunulan bilgiler tamamen editoryal tahmin ve araştırmalara dayanmaktadır.",
+      tierWarningItem1: "Şehir ve ulaşım bilgileri, kaynakları kontrol edilmiş şehir araştırmasına dayanır; kaynak erişim tarihinden sonra değişebilir.",
+      tierWarningItem2: "Kira, temel gider ve ulaşım tutarları kesin piyasa fiyatları değil, ilk planlama için hazırlanmış yaklaşık ItalyPath editoryal bütçe bantlarıdır."
     },
     auth: {
       pageTitle: "ItalyPath'a Giriş",
@@ -1900,7 +1902,9 @@ export const translations = {
       openOfficial: "Official site",
       warningTitle: "Notes on application & living expenses",
       warningItem1: "Rent rates and monthly expenses fluctuate according to inflation or specific area.",
-      warningItem2: "All details are curated based on recent student testimonies and research estimates."
+      warningItem2: "All details are curated based on recent student testimonies and research estimates.",
+      tierWarningItem1: "City and transport information comes from source-checked city research and may change after the recorded access date.",
+      tierWarningItem2: "Rent, essentials, and transport amounts are approximate ItalyPath editorial budget bands for initial planning, not verified current market prices."
     },
     auth: {
       pageTitle: "Sign in to ItalyPath",
