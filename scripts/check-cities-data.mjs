@@ -41,6 +41,15 @@ const expectedTieredSlugs = [
   "perugia",
   "camerino",
   "urbino",
+  "cagliari",
+  "sassari",
+  "palermo",
+  "catania",
+  "messina",
+  "reggio-calabria",
+  "casamassima",
+  "lecce",
+  "pescara",
 ];
 
 for (const slug of expectedTieredSlugs) {
