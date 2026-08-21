@@ -167,9 +167,9 @@ export const TIERED_CITY_RECORDS = [
     historySourceTitle: "Castellanza (Italian Wikipedia)",
     historySourceUrl: "https://it.wikipedia.org/wiki/Castellanza",
     transportDetails:
-      "Castellanza'da günlük hareketlilik, via Morelli'deki Trenord istasyonu ile STIE ve FNMAutoservizi hatları etrafında şekillenir. Belediye, kentin Milano-Saronno-Novara ve Malpensa koridorundaki demiryolu bağlantılarına, Sempione eksenindeki otobüslere ve istasyonu LIUC ile başlıca kent noktalarına bağlayan yerel kentsel servise sahip olduğunu belirtir. Bu yüzden konaklama seçerken sadece kampüse değil, istasyon ve otobüs durağı erişimine de bakmak gerekir.",
+      "Castellanza'da günlük hareketlilik, via Morelli'deki Trenord istasyonu ile STIE ve FNMAutoservizi hatları etrafında şekillenir. Belediye, kentin Milano-Saronno-Novara ve Malpensa koridorundaki demiryolu bağlantılarına, Sempione eksenindeki otobüslere ve istasyonu LIUC ile başlıca kent noktalarına bağlayan yerel kentsel servise sahip olduğunu belirtir. Bu bağlantılar, istasyon ve otobüs duraklarının LIUC ile başlıca kent noktalarına erişimdeki rolünü belirginleştirir.",
     transportDetailsEn:
-      "Daily mobility in Castellanza revolves around the Trenord station on via Morelli together with STIE and FNMAutoservizi bus links. The municipality states that the town has rail connections on the Milan-Saronno-Novara and Malpensa corridors, buses along the Sempione axis, and a local urban service that links the station with LIUC and the city's main destinations. That makes station and bus-stop access just as important as campus proximity when evaluating housing.",
+      "Daily mobility in Castellanza revolves around the Trenord station on via Morelli together with STIE and FNMAutoservizi bus links. The municipality states that the town has rail connections on the Milan-Saronno-Novara and Malpensa corridors, buses along the Sempione axis, and a local urban service that links the station with LIUC and the city's main destinations. These links make the role of the station and bus stops in access to LIUC and the town's main destinations clear.",
     climateAndVibe:
       "Po Ovası'nın nemli iklimi nedeniyle yazlar sıcak ve bunaltıcı, kışlar ise sisli ve nemli hissedilebilir. Ölçek küçük ve pratiktir; günlük ritim büyük ölçüde tren, otobüs ve komşu merkezlere bağlantılar etrafında şekillendiği için daha sakin bir öğrenci üssü arayanlara uygundur.",
     climateAndVibeEn:
@@ -206,13 +206,13 @@ export const TIERED_CITY_RECORDS = [
     historySourceTitle: "Udine (English Wikipedia)",
     historySourceUrl: "https://en.wikipedia.org/wiki/Udine",
     transportDetails:
-      "Udine'de Arriva Udine/TPL FVG ağı, istasyondan geçen 12 kentsel hatla şehir ve yakın çevreyi birbirine bağlar; okul döneminde ek hatlar da devreye girer. Resmî ağda Linea 10 doğrudan 'Università-S. Domenico' koridorunu gösterdiği için üniversite odaklı günlük rotalar çoğunlukla otobüs ve yürüyüş kombinasyonuna dayanır. Ana istasyon ve otogar, hem şehir içi hareketin hem de Friuli geneline uzanan ekstraurbana çıkışın temel düğümüdür.",
+      "Udine'de Arriva Udine/TPL FVG ağı, istasyondan geçen 12 kentsel hatla şehir ve yakın çevreyi birbirine bağlar. Resmî ağda Linea 10 doğrudan 'Università-S. Domenico' koridorunu gösterdiği için üniversite odaklı günlük rotalar çoğunlukla otobüs ve yürüyüş kombinasyonuna dayanır. Ana istasyon ve otogar, hem şehir içi hareketin hem de Friuli geneline uzanan ekstraurbana çıkışın temel düğümüdür.",
     transportDetailsEn:
-      "In Udine, the Arriva Udine/TPL FVG network connects the city and nearby municipalities through 12 urban lines that pass through the railway station, with extra school-period lines added when needed. The official network explicitly lists Line 10 as the 'Università-S. Domenico' corridor, so university-focused daily routes usually rely on a bus-and-walk combination. The main station and bus terminal are the key nodes for both local mobility and extra-urban travel across Friuli.",
+      "In Udine, the Arriva Udine/TPL FVG network connects the city and nearby municipalities through 12 urban lines that pass through the railway station. The official network explicitly lists Line 10 as the 'Università-S. Domenico' corridor, so university-focused daily routes usually rely on a bus-and-walk combination. The main station and bus terminal are the key nodes for both local mobility and extra-urban travel across Friuli.",
     climateAndVibe:
-      "Kuzeydoğu ovasında olduğu için yazlar sıcak ve nemli, kışlar ise daha soğuk ve yağışlı geçebilir. Tarihi merkez yürünebilir ve şehir büyük metropollere göre daha sakin hissettirir; buna karşılık üniversite birimleri kentin farklı noktalarına yayıldığı için ev seçerken otobüs hattı ve istasyon erişimi önem kazanır.",
+      "Kuzeydoğu ovasında olduğu için yazlar sıcak ve nemli, kışlar ise daha soğuk ve yağışlı geçebilir. Tarihi merkez yürünebilir ve şehir büyük metropollere göre daha sakin hissettirir; üniversite birimleri kentin farklı noktalarına yayıldığı için otobüs hatları ve istasyon erişimi kampüs erişimini şekillendirir.",
     climateAndVibeEn:
-      "Its position on the northeastern plain brings hot, humid summers and colder, wetter winters. The historic centre is walkable and calmer than the biggest Italian metros, but university sites are spread across different parts of the city, so bus lines and station access matter when choosing housing.",
+      "Its position on the northeastern plain brings hot, humid summers and colder, wetter winters. The historic centre is walkable and calmer than the biggest Italian metros, while university sites are spread across different parts of the city, so bus lines and station access shape access between them.",
     transportSourceUrls: [
       "https://www.arrivaudine.it/en/urbani-extraurbani/",
       "https://www.uniud.it/en/education/information/contacts-details",
