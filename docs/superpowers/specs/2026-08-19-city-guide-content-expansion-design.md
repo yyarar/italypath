@@ -181,6 +181,8 @@ export interface TieredCityRecord {
 
 ```ts
 contentStatus?: "researched" | "unresearched";
+cityNameIt?: string;
+altNames?: string[];
 historyShort?: string;
 historyShortEn?: string;
 historySourceTitle?: string;
