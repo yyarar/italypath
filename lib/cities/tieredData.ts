@@ -827,7 +827,7 @@ export const TIERED_CITY_RECORDS = [
     historySourceTitle: "Genoa - Wikipedia (EN)",
     historySourceUrl: "https://en.wikipedia.org/wiki/Genoa",
     transportDetails:
-      "Genova'da öğrenci hareketliliği AMT'nin otobüs, metro, füniküler, asansör ve özel hatlarının birleştiği çok katmanlı ağ üzerinden yürür. UniGe, CityPass'ın tüm AMT ağı, il otobüsleri, Navebus, Volabus ve Genova-Casella demiryolunda geçerli olduğunu; AMT ise metronun Brin ile Brignole arasında sekiz istasyonla Principe ve Brignole tren garlarını, Darsena ve Sarzano üniversite kutuplarını ve şehir merkezini bağladığını belirtir. Yamaç mahallelerine çıkan fünikülerler ve kremayer hat da dik topoğrafyada günlük erişimin önemli parçasıdır.",
+      "Cenova'da öğrenci hareketliliği AMT'nin otobüs, metro, füniküler, asansör ve özel hatlarının birleştiği çok katmanlı ağ üzerinden yürür. UniGe, CityPass'ın tüm AMT ağı, il otobüsleri, Navebus, Volabus ve Cenova-Casella demiryolunda geçerli olduğunu; AMT ise metronun Brin ile Brignole arasında sekiz istasyonla Principe ve Brignole tren garlarını, Darsena ve Sarzano üniversite kutuplarını ve şehir merkezini bağladığını belirtir. Yamaç mahallelerine çıkan fünikülerler ve kremayer hat da dik topoğrafyada günlük erişimin önemli parçasıdır.",
     transportDetailsEn:
       "Student mobility in Genoa runs through AMT's layered network of buses, metro, funiculars, lifts, and other urban services. UniGe states that the CityPass is valid across the full AMT network, provincial buses, Navebus, Volabus, and the Genoa-Casella railway, while AMT describes the metro as an eight-station link between Brin and Brignole that connects the Principe and Brignole rail hubs, the Darsena and Sarzano university areas, and the city centre. Funiculars and the rack railway are also an important everyday tool for reaching hillside districts in the city's steep terrain.",
     climateAndVibe:
@@ -934,7 +934,7 @@ export const TIERED_CITY_RECORDS = [
     costTier: "balanced",
     costCluster: "provincial-student-city",
     costTierRationale:
-      "Although the campus is in the hamlet of Pollenzo, everyday student life usually depends on nearby Bra for housing, errands, and rail access; that Bra-based provincial setup fits the balanced band, with some added pressure from the wider Langhe wine-tourism area but not a top-tier premium market.",
+      "Although the campus is in the hamlet of Pollenzo, everyday student life usually depends on nearby Bra's provincial scale, daily services, and rail-bus interchange. That Bra-based provincial setup fits the balanced band rather than treating Pollenzo as an isolated hamlet.",
     historyShort:
       "Pollenzo, antik Roma kenti Pollentia'nın bulunduğu yerde gelişen bir yerleşimdir ve kaynaklarda MÖ 2. yüzyıla uzanan bir kuruluş anlatısı yer alır. 402 yılındaki Pollenzo Muharebesi burayı geç Roma döneminde yeniden öne çıkardı. 19. yüzyılda Carlo Alberto köyü ve kaleyi örnek bir tarım ve enoloji mülküne dönüştürdü; 2004'ten beri Agenzia di Pollenzo'da Gastronomi Bilimleri Üniversitesi bulunur.",
     historyShortEn:
