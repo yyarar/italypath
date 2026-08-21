@@ -1,6 +1,8 @@
 import type { CityDetail } from "@/types/cities";
+import { materializeTieredCity } from "@/lib/cities/costTiers";
+import { TIERED_CITY_RECORDS } from "@/lib/cities/tieredData";
 
-export const CURATED_CITIES: CityDetail[] = [
+const LEGACY_CURATED_CITIES: CityDetail[] = [
   {
     slug: "milano",
     name: "Milano",
@@ -408,6 +410,11 @@ export const CURATED_CITIES: CityDetail[] = [
   }
 ];
 
+export const CURATED_CITIES: CityDetail[] = [
+  ...LEGACY_CURATED_CITIES,
+  ...TIERED_CITY_RECORDS.map(materializeTieredCity),
+];
+
 export function getCityDetailBySlug(slug: string): CityDetail | undefined {
   const normalized = slug.toLowerCase().trim();
   return CURATED_CITIES.find((c) => c.slug === normalized);
@@ -415,11 +422,11 @@ export function getCityDetailBySlug(slug: string): CityDetail | undefined {
 
 export function getCityDetailByName(name: string): CityDetail | undefined {
   const normalized = name.toLowerCase().trim();
-  return CURATED_CITIES.find(
-    (c) =>
-      c.name.toLowerCase().trim() === normalized ||
-      c.nameEn.toLowerCase().trim() === normalized ||
-      c.slug === normalized
+
+  return CURATED_CITIES.find((city) =>
+    [city.slug, city.name, city.nameEn, city.cityNameIt, ...(city.altNames ?? [])]
+      .filter((candidate): candidate is string => Boolean(candidate))
+      .some((candidate) => candidate.toLowerCase().trim() === normalized)
   );
 }
 

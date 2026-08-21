@@ -23,7 +23,7 @@ import {
 
 import { useLanguage } from "@/context/LanguageContext";
 import { useUniversitiesData } from "@/lib/useUniversitiesData";
-import { getCityDetailBySlug, getFallbackCityDetail } from "@/lib/cities/data";
+import { getCityDetailByName, getFallbackCityDetail } from "@/lib/cities/data";
 import {
   createCityGuideSlug,
   getCityGuideName,
@@ -172,7 +172,7 @@ export default function CityGuidesExplorer({
     const name = match ? match.name : "Milano";
     const region = CITY_TO_REGION_MAP[name] || "İtalya";
 
-    const curated = getCityDetailBySlug(name) || getCityDetailBySlug(canonicalSelection);
+    const curated = getCityDetailByName(name) || getCityDetailByName(canonicalSelection);
     if (curated) return curated;
 
     return getFallbackCityDetail(name, region);
@@ -327,7 +327,7 @@ export default function CityGuidesExplorer({
                           : "border-[var(--editorial-border)] bg-white/70 text-[var(--editorial-ink)]"
                       }`}
                     >
-                      {language === "tr" ? city.name : (getCityDetailBySlug(city.name)?.nameEn || city.name)}
+                      {language === "tr" ? city.name : (getCityDetailByName(city.name)?.nameEn || city.name)}
                     </button>
                   );
                 })}
@@ -343,7 +343,7 @@ export default function CityGuidesExplorer({
                     <option key={city.name} value={city.slug}>
                       {language === "tr"
                         ? city.name
-                        : getCityDetailBySlug(city.name)?.nameEn || city.name}
+                        : getCityDetailByName(city.name)?.nameEn || city.name}
                       {` · ${city.count} ${copy.universityCount[city.count === 1 ? "one" : "other"]}`}
                     </option>
                   ))}
@@ -383,7 +383,7 @@ export default function CityGuidesExplorer({
                     >
                       <span className="min-w-0">
                         <span className="block truncate text-sm font-bold">
-                          {language === "tr" ? city.name : (getCityDetailBySlug(city.name)?.nameEn || city.name)}
+                          {language === "tr" ? city.name : (getCityDetailByName(city.name)?.nameEn || city.name)}
                         </span>
                         <span
                           className={`mt-0.5 block text-[0.7rem] font-semibold ${

@@ -82,6 +82,11 @@ assertIncludes(cityCostTiersSource, "250€ - 400€", "Budget room range change
 assertIncludes(cityCostTiersSource, "600€ - 850€", "Balanced studio range changed unexpectedly.");
 assertIncludes(cityCostTiersSource, "850€ - 1.250€", "High studio range changed unexpectedly.");
 assertIncludes(cityCostTiersSource, "materializeTieredCity", "Tiered records need one materializer.");
+assertIncludes(source, 'import { materializeTieredCity } from "@/lib/cities/costTiers"', "City data must use the tier materializer.");
+assertIncludes(source, 'import { TIERED_CITY_RECORDS } from "@/lib/cities/tieredData"', "City data must import researched records.");
+assertIncludes(source, "...TIERED_CITY_RECORDS.map(materializeTieredCity)", "Combined city catalog is incomplete.");
+assertIncludes(source, "...(city.altNames ?? [])", "City name resolution must include aliases.");
+assertNotIncludes(cityExplorerSource, "getCityDetailBySlug(city.name)", "City labels must resolve by name, not treat names as slugs.");
 assertIncludes(cityNormalizationSource, '"Piemonte"', "Piemonte must be excluded from city guides.");
 assertIncludes(source, 'contentStatus: "unresearched"', "Unknown cities need an honest status.");
 assertNotIncludes(source.slice(source.indexOf("export function getFallbackCityDetail")), "Tek kişilik oda: 300€ - 450€", "Fallback must not invent rent.");
