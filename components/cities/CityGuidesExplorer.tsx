@@ -170,13 +170,12 @@ export default function CityGuidesExplorer({
     );
 
     const name = match ? match.name : "Milano";
-    const count = match ? match.count : 0;
     const region = CITY_TO_REGION_MAP[name] || "İtalya";
 
     const curated = getCityDetailBySlug(name) || getCityDetailBySlug(canonicalSelection);
     if (curated) return curated;
 
-    return getFallbackCityDetail(name, count, region);
+    return getFallbackCityDetail(name, region);
   }, [selectedQueryCity, citiesWithCounts]);
 
   const activeCitySlug = useMemo(
@@ -224,6 +223,16 @@ export default function CityGuidesExplorer({
   const copy = t.citiesGuide;
   const activePopulation = language === "tr" ? activeCity.studentPopulation : activeCity.studentPopulationEn;
   const activeEditorialTip = language === "tr" ? activeCity.editorialTip : activeCity.editorialTipEn;
+  const isUnresearched = activeCity.contentStatus === "unresearched";
+  const activeRent = language === "tr" ? activeCity.rentAverage : activeCity.rentAverageEn;
+  const activeExpenses = language === "tr" ? activeCity.livingExpenses : activeCity.livingExpensesEn;
+  const activeTransportCost = language === "tr" ? activeCity.transportCost : activeCity.transportCostEn;
+  const activeTransportDetails = language === "tr" ? activeCity.transportDetails : activeCity.transportDetailsEn;
+  const activeCityCharacter = language === "tr" ? activeCity.climateAndVibe : activeCity.climateAndVibeEn;
+  const activeCostRating = activeCity.costRating ?? 0;
+  const hasCostDetails = Boolean(
+    activeCity.costRating !== undefined && activeRent && activeExpenses && activeTransportCost
+  );
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[var(--editorial-paper)] pb-24 text-[var(--editorial-ink)] md:pb-16">
@@ -425,19 +434,31 @@ export default function CityGuidesExplorer({
                 </div>
               </div>
 
+              {isUnresearched && (
+                <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/55 p-5 sm:p-6">
+                  <div className="flex items-start gap-3">
+                    <Info className="mt-0.5 h-4 w-4 shrink-0 text-[var(--editorial-terracotta)]" />
+                    <div>
+                      <h3 className="font-serif text-xl text-[var(--editorial-ink)]">{copy.guidePreparingTitle}</h3>
+                      <p className="mt-2 text-sm leading-6 text-[var(--editorial-muted)]">{copy.guidePreparingBody}</p>
+                    </div>
+                  </div>
+                </section>
+              )}
+
               {/* Stat Strip: Cost Rating */}
-              <section className="mt-5 rounded-[1.4rem] border border-[var(--editorial-border)] bg-white/55 p-5">
+              {hasCostDetails && <section className="mt-5 rounded-[1.4rem] border border-[var(--editorial-border)] bg-white/55 p-5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.12em] text-[var(--editorial-muted)]">
                     <Coins className="h-4 w-4 text-[var(--editorial-sage)]" />
                     {copy.costLevel}
                   </div>
-                  <div className="flex items-center gap-1" aria-label={`Cost rating: ${activeCity.costRating} of 5`}>
+                  <div className="flex items-center gap-1" aria-label={`Cost rating: ${activeCostRating} of 5`}>
                     {[1, 2, 3, 4, 5].map((i) => (
                       <span
                         key={i}
                         className={`block h-3.5 w-3.5 rounded-full border border-[var(--editorial-border)] ${
-                          i <= activeCity.costRating
+                          i <= activeCostRating
                             ? "bg-[var(--editorial-terracotta)]"
                             : "bg-[#e7ded1]"
                         }`}
@@ -449,9 +470,10 @@ export default function CityGuidesExplorer({
                   {copy.costExplanation}
                 </p>
               </section>
+              }
 
               {/* Living Costs Detailed Info */}
-              <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
+              {hasCostDetails && <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
                 <div className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
                   <Info className="h-3.5 w-3.5" />
                   {copy.livingExpensesTitle}
@@ -464,7 +486,7 @@ export default function CityGuidesExplorer({
                       {copy.rent}
                     </p>
                     <p className="mt-1 text-sm font-semibold leading-relaxed text-[var(--editorial-ink)]">
-                      {language === "tr" ? activeCity.rentAverage : activeCity.rentAverageEn}
+                      {activeRent}
                     </p>
                   </div>
 
@@ -474,7 +496,7 @@ export default function CityGuidesExplorer({
                       {copy.expenses}
                     </p>
                     <p className="mt-1 text-sm font-semibold leading-relaxed text-[var(--editorial-ink)]">
-                      {language === "tr" ? activeCity.livingExpenses : activeCity.livingExpensesEn}
+                      {activeExpenses}
                     </p>
                   </div>
 
@@ -484,7 +506,7 @@ export default function CityGuidesExplorer({
                       {copy.transport}
                     </p>
                     <p className="mt-1 text-sm font-semibold leading-relaxed text-[var(--editorial-ink)]">
-                      {language === "tr" ? activeCity.transportCost : activeCity.transportCostEn}
+                      {activeTransportCost}
                     </p>
                   </div>
                 </div>
@@ -517,6 +539,7 @@ export default function CityGuidesExplorer({
                   </div>
                 )}
               </section>
+              }
 
               {/* Regional Scholarship Card */}
               {scholarshipRegion && (
@@ -571,26 +594,28 @@ export default function CityGuidesExplorer({
               )}
 
               {/* Transit & Connections */}
-              <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
+              {activeTransportDetails && <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
                 <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
                   <Navigation className="h-3.5 w-3.5 text-[var(--editorial-sage)]" />
                   {copy.transportConnections}
                 </div>
                 <p className="text-sm leading-6 text-[var(--editorial-muted)] font-medium">
-                  {language === "tr" ? activeCity.transportDetails : activeCity.transportDetailsEn}
+                  {activeTransportDetails}
                 </p>
               </section>
+              }
 
               {/* Climate & Vibe */}
-              <section className="mt-3 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
+              {activeCityCharacter && <section className="mt-3 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
                 <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
                   <SunDim className="h-3.5 w-3.5 text-[var(--editorial-sage)]" />
                   {copy.vibe}
                 </div>
                 <p className="text-sm leading-6 text-[var(--editorial-muted)] font-medium">
-                  {language === "tr" ? activeCity.climateAndVibe : activeCity.climateAndVibeEn}
+                  {activeCityCharacter}
                 </p>
               </section>
+              }
 
               {/* Editorial Tip */}
               {activeEditorialTip && (
@@ -606,7 +631,7 @@ export default function CityGuidesExplorer({
               )}
 
               {/* Warning Notice */}
-              <section className="mt-3 rounded-[1.25rem] border border-[#e6cabb] bg-[#fff8f3] p-4">
+              {!isUnresearched && <section className="mt-3 rounded-[1.25rem] border border-[#e6cabb] bg-[#fff8f3] p-4">
                 <div className="flex items-start gap-2 text-[var(--editorial-terracotta)]">
                   <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
                   <div className="min-w-0">
@@ -618,6 +643,7 @@ export default function CityGuidesExplorer({
                   </div>
                 </div>
               </section>
+              }
 
               {/* Universities in this city */}
               <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">

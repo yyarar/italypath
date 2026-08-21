@@ -3,7 +3,7 @@ const CITY_GUIDE_ALIASES: Record<string, string> = {
   "Uzaktan Eğitim / Roma": "Roma",
 };
 
-const CITY_GUIDE_EXCLUSIONS = new Set(["Benevento / Online"]);
+const CITY_GUIDE_EXCLUSIONS = new Set(["Benevento / Online", "Piemonte"]);
 
 export function createCityGuideSlug(name: string) {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, "-");

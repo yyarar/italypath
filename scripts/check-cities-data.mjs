@@ -8,12 +8,14 @@ const cityExplorerPath = new URL(
   import.meta.url
 );
 const translationsPath = new URL("../lib/translations.ts", import.meta.url);
+const cityNormalizationPath = new URL("../lib/cities/normalization.ts", import.meta.url);
 
 const source = readFileSync(cityDataPath, "utf8");
 const cityTypesSource = readFileSync(cityTypesPath, "utf8");
 const cityCostTiersSource = readFileSync(cityCostTiersPath, "utf8");
 const cityExplorerSource = readFileSync(cityExplorerPath, "utf8");
 const translationsSource = readFileSync(translationsPath, "utf8");
+const cityNormalizationSource = readFileSync(cityNormalizationPath, "utf8");
 
 function assertIncludes(haystack, needle, message) {
   if (!haystack.includes(needle)) {
@@ -37,6 +39,13 @@ assertIncludes(cityCostTiersSource, "250€ - 400€", "Budget room range change
 assertIncludes(cityCostTiersSource, "600€ - 850€", "Balanced studio range changed unexpectedly.");
 assertIncludes(cityCostTiersSource, "850€ - 1.250€", "High studio range changed unexpectedly.");
 assertIncludes(cityCostTiersSource, "materializeTieredCity", "Tiered records need one materializer.");
+assertIncludes(cityNormalizationSource, '"Piemonte"', "Piemonte must be excluded from city guides.");
+assertIncludes(source, 'contentStatus: "unresearched"', "Unknown cities need an honest status.");
+assertNotIncludes(source.slice(source.indexOf("export function getFallbackCityDetail")), "Tek kişilik oda: 300€ - 450€", "Fallback must not invent rent.");
+assertNotIncludes(source.slice(source.indexOf("export function getFallbackCityDetail")), "Sakin, güvenli ve otantik", "Fallback must not invent city character.");
+assertIncludes(cityExplorerSource, "copy.guidePreparingTitle", "Unresearched cities need a visible honest state.");
+assertIncludes(translationsSource, 'guidePreparingTitle: "Bu şehir rehberi hazırlanıyor"', "Turkish fallback title is required.");
+assertIncludes(translationsSource, 'guidePreparingTitle: "This city guide is being prepared"', "English fallback title is required.");
 
 function extractCityBlock(slug) {
   const marker = `slug: "${slug}"`;

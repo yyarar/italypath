@@ -423,27 +423,12 @@ export function getCityDetailByName(name: string): CityDetail | undefined {
   );
 }
 
-export function getFallbackCityDetail(cityName: string, universityCount: number, regionName: string): CityDetail {
-  const slug = cityName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+export function getFallbackCityDetail(cityName: string, regionName: string): CityDetail {
   return {
-    slug,
+    slug: cityName.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
     name: cityName,
     nameEn: cityName,
     region: regionName,
-    costRating: 3,
-    studentPopulation: "Orta",
-    studentPopulationEn: "Medium",
-    rentAverage: "Tek kişilik oda: 300€ - 450€ | Stüdyo: 500€ - 750€",
-    rentAverageEn: "Single room: €300 - €450 | Studio: €500 - €750",
-    livingExpenses: "Aylık 220€ - 300€ (Sakin yerel mutfak alışverişi)",
-    livingExpensesEn: "€220 - €300 monthly (Local grocery and student dining)",
-    transportCost: "Aylık kart: 20€ - 30€",
-    transportCostEn: "Monthly pass: €20 - €30",
-    transportDetails: "Şehir içi otobüs hatları ve yerel banliyö trenleri mevcuttur.",
-    transportDetailsEn: "Local bus lines and regional train networks serve the city.",
-    climateAndVibe: `${cityName}, İtalya'nın ${regionName} bölgesinde yer alan, ${universityCount} üniversiteye ev sahipliği yapan tarihi bir şehirdir. Sakin, güvenli ve otantik bir İtalyan yaşam deneyimi sunar.`,
-    climateAndVibeEn: `${cityName} is a historic Italian city located in the ${regionName} region, hosting ${universityCount} university. It offers a peaceful, secure, and highly authentic Italian living experience.`,
-    editorialTip: "Bu şehir için editoryal detaylar henüz tasarım aşamasındadır. Şehirdeki üniversiteleri ve bölgeye ait resmi burs detaylarını haritamız üzerinden hemen inceleyebilirsiniz.",
-    editorialTipEn: "Editorial details for this city are currently under development. You can explore the active universities and check regional scholarship thresholds immediately."
+    contentStatus: "unresearched",
   };
 }
