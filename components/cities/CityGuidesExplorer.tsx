@@ -222,6 +222,7 @@ export default function CityGuidesExplorer({
 
   const copy = t.citiesGuide;
   const activePopulation = language === "tr" ? activeCity.studentPopulation : activeCity.studentPopulationEn;
+  const activeHistory = language === "tr" ? activeCity.historyShort : activeCity.historyShortEn;
   const activeEditorialTip = language === "tr" ? activeCity.editorialTip : activeCity.editorialTipEn;
   const isUnresearched = activeCity.contentStatus === "unresearched";
   const activeRent = language === "tr" ? activeCity.rentAverage : activeCity.rentAverageEn;
@@ -434,6 +435,30 @@ export default function CityGuidesExplorer({
                 </div>
               </div>
 
+              {activeHistory && (
+                <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
+                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
+                    <Landmark className="h-3.5 w-3.5 text-[var(--editorial-terracotta)]" />
+                    {copy.historyTitle}
+                  </div>
+                  <p className="text-sm font-medium leading-6 text-[var(--editorial-muted)]">{activeHistory}</p>
+                  {activeCity.historySourceUrl && activeCity.historySourceTitle && (
+                    <p className="mt-3 border-t border-[var(--editorial-border)] pt-3 text-xs text-[var(--editorial-muted)]">
+                      {copy.historySourceLabel}:{" "}
+                      <a
+                        href={activeCity.historySourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-[var(--editorial-terracotta)] underline-offset-4 hover:underline"
+                      >
+                        {activeCity.historySourceTitle}
+                      </a>
+                      {activeCity.sourceRetrievedAt && ` · ${copy.sourceAccessed}: ${activeCity.sourceRetrievedAt}`}
+                    </p>
+                  )}
+                </section>
+              )}
+
               {isUnresearched && (
                 <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/55 p-5 sm:p-6">
                   <div className="flex items-start gap-3">
@@ -510,7 +535,13 @@ export default function CityGuidesExplorer({
                     </p>
                   </div>
                 </div>
-                {activeCity.costSourceName && (
+                {activeCity.costModel === "italypath-tier" ? (
+                  <div className="mt-4 border-t border-[var(--editorial-border)] pt-3 text-xs leading-5 text-[var(--editorial-muted)]">
+                    <span className="font-semibold text-[var(--editorial-ink)]">{copy.costSourceLabel}: </span>
+                    <span className="font-semibold text-[var(--editorial-ink)]">{copy.tierCostSource}</span>
+                    {activeCity.costModelVersion && ` · ${copy.costModelVersion}: ${activeCity.costModelVersion}`}
+                  </div>
+                ) : activeCity.costSourceName ? (
                   <div className="mt-4 border-t border-[var(--editorial-border)] pt-3 text-xs leading-5 text-[var(--editorial-muted)]">
                     <span className="font-semibold text-[var(--editorial-ink)]">
                       {copy.costSourceLabel}:{" "}
@@ -537,7 +568,7 @@ export default function CityGuidesExplorer({
                       </span>
                     )}
                   </div>
-                )}
+                ) : null}
               </section>
               }
 

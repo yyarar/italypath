@@ -94,6 +94,13 @@ assertNotIncludes(source.slice(source.indexOf("export function getFallbackCityDe
 assertIncludes(cityExplorerSource, "copy.guidePreparingTitle", "Unresearched cities need a visible honest state.");
 assertIncludes(translationsSource, 'guidePreparingTitle: "Bu şehir rehberi hazırlanıyor"', "Turkish fallback title is required.");
 assertIncludes(translationsSource, 'guidePreparingTitle: "This city guide is being prepared"', "English fallback title is required.");
+assertIncludes(cityExplorerSource, "copy.historyTitle", "History panel heading is missing.");
+assertIncludes(cityExplorerSource, "activeCity.historySourceUrl", "History attribution link is missing.");
+assertIncludes(cityExplorerSource, 'activeCity.costModel === "italypath-tier"', "Tier cost provenance is missing.");
+assertIncludes(translationsSource, 'historyTitle: "Kısaca tarih"', "Turkish history heading is required.");
+assertIncludes(translationsSource, 'historyTitle: "A brief history"', "English history heading is required.");
+assertIncludes(translationsSource, 'tierCostSource: "ItalyPath yaklaşık öğrenci bütçesi"', "Turkish tier provenance is required.");
+assertIncludes(translationsSource, 'tierCostSource: "ItalyPath approximate student budget"', "English tier provenance is required.");
 
 function extractCityBlock(slug) {
   const marker = `slug: "${slug}"`;
