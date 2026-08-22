@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur. Degisiklik gecmisi icin `AGENT_COMMITS.md`, son audit notlari icin `AGENT_CONTEXT_FIX_REPORT.md` okunabilir; bu dosya ise guncel mimari ve calisma kurallarinin kaynak dokumanidir.
 
-Son guncelleme: 2026-07-23
+Son guncelleme: 2026-08-21
 
 ---
 
@@ -532,19 +532,23 @@ Pipeline `scripts/sat/` altindadir: mekanik PDF/answer/RW/math slice adimlari, a
 
 ### Cities
 
-`/cities` public editorial atlas'tir. `components/cities/CityGuidesExplorer.tsx`, `types/cities.ts`, `lib/cities/data.ts` kullanir.
+`/cities` public editorial atlas'tir. `components/cities/CityGuidesExplorer.tsx`, `types/cities.ts`, `lib/cities/data.ts` kullanir. Birlesik katalog 17 legacy exact/source kaydi ile 25 tiered, arastirilmis kayittan olusur.
 
 SEO Adim 2 sonrasi `app/cities/page.tsx` server-rendered gorunur intro/city nav tasir; explorer client davranisi korunur. Son canli audit'te `/cities` bailout temizdir.
 
-Curated data su anda Milano, Roma, Bologna, Torino, Floransa, Venedik, Verona, Padova, Parma, Pisa, Siena, Pavia, Trento, Trieste, Bari, Ancona, Napoli icin tutulur. Bunlarin cogunda Numbeo kaynak metadata'si vardir:
+Legacy exact/source verisi Milano, Roma, Bologna, Torino, Floransa, Venedik, Verona, Padova, Parma, Pisa, Siena, Pavia, Trento, Trieste, Bari, Ancona ve Napoli icin tutulur. Bunlarin cogunda Numbeo kaynak metadata'si vardir:
 
 - `costSourceName`
 - `costSourceUrl`
 - `costSourceLastUpdated`
 
+Tiered maliyetler `lib/cities/costTiers.ts` icindeki `2026-08` model surumunden gelir. `lib/cities/tieredData.ts`, kaynak kontrolu yapilmis TR/EN tarih, ulasim, sehir karakteri ve audit metadata'sini saklar. Ham arastirma ciktilari ignored `city-content-research/results/` altinda kalir ve runtime ya da commit kapsamına alinmaz.
+
+Katalogda bulunmayan sehirler uydurma generic bilgi yerine acik bir `unresearched` durumu gosterir. `Piemonte` yalnizca sehir rehberlerinden dislanir; Universita del Piemonte Orientale (UPO) universite ve program verisi kullanilabilir kalir.
+
 Slug kurali: app-facing Turkce sehir anahtarini koru (`floransa`, `venedik`, ileride `cenova`). Source-page slug'i (`firenze`, `venezia`, `genova`) app slug'i olarak kullanma.
 
-Dogrulama: `npm run check:cities`.
+Kalici dogrulama: `npm run check:cities`.
 
 ### Scholarships
 
@@ -714,3 +718,4 @@ node scripts/check-universities-server-compose.mjs
 11. Existing dirty worktree varsay; kullanici degisikliklerini revert etme.
 12. Yeni agent, once bu dosyayi, sonra ilgili feature dosyalarini, sonra dogrulama scriptlerini okumali.
 13. Expert lead client dosyalari veya `NEXT_PUBLIC_*` değişkenleri hiçbir zaman `SUPABASE_SERVICE_ROLE_KEY` alamaz; public form insert'i yalnızca server-only `app/api/expert-leads` sınırından geçer.
+14. Sehir rehberlerinde generic fallback iddialari uretme; arastirilmamis sehri acikca `unresearched` olarak goster. Tiered kayitlarda sehir bazinda fiyat/Numbeo verisi cogaltma; merkezi, surumlu tier maliyet modelini kullan.

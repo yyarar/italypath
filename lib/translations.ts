@@ -872,6 +872,11 @@ export const translations = {
       loading: "Şehir rehberi yükleniyor...",
       directoryTitle: "İtalya Öğrenci Şehirleri",
       profileLabel: "Şehir Dosyası",
+      guidePreparingTitle: "Bu şehir rehberi hazırlanıyor",
+      guidePreparingBody: "Üniversite ve bölgesel burs bağlantılarını inceleyebilirsiniz. Araştırılmamış fiyat veya yaşam iddiası göstermiyoruz.",
+      historyTitle: "Kısaca tarih",
+      historySourceLabel: "Wikipedia kaynağı",
+      sourceAccessed: "erişim",
       livingExpensesTitle: "Yaşam Maliyetleri",
       transportConnections: "Ulaşım ve Bağlantılar",
       regionSuffix: "Bölgesi",
@@ -888,6 +893,8 @@ export const translations = {
       costExplanation: "Yaşam maliyeti endeksi en ucuz (1) ile en pahalı (5) arasında derecelendirilmiştir.",
       costSourceLabel: "Maliyet verisi kaynağı",
       costSourceUpdated: "son güncelleme",
+      tierCostSource: "ItalyPath yaklaşık öğrenci bütçesi",
+      costModelVersion: "model sürümü",
       bursaryTitle: "Bölgesel Burs İmkanları",
       bursaryBody: "Bu şehirdeki üniversiteler, {region} bölgesinin resmi DSU burs kurallarına tabidir.",
       bursaryInstitution: "Yetkili Kurum",
@@ -897,7 +904,9 @@ export const translations = {
       openOfficial: "Resmi site",
       warningTitle: "Başvuru ve yaşam maliyetleri hakkında not",
       warningItem1: "Kira fiyatları ve sosyal giderler enflasyona veya şehre göre değişkenlik gösterebilir.",
-      warningItem2: "Burada sunulan bilgiler tamamen editoryal tahmin ve araştırmalara dayanmaktadır."
+      warningItem2: "Burada sunulan bilgiler tamamen editoryal tahmin ve araştırmalara dayanmaktadır.",
+      tierWarningItem1: "Şehir ve ulaşım bilgileri, kaynakları kontrol edilmiş şehir araştırmasına dayanır; kaynak erişim tarihinden sonra değişebilir.",
+      tierWarningItem2: "Kira, temel gider ve ulaşım tutarları kesin piyasa fiyatları değil, ilk planlama için hazırlanmış yaklaşık ItalyPath editoryal bütçe bantlarıdır."
     },
     auth: {
       pageTitle: "ItalyPath'a Giriş",
@@ -1861,6 +1870,11 @@ export const translations = {
       loading: "Loading city atlas...",
       directoryTitle: "Italian Student Cities",
       profileLabel: "City Profile",
+      guidePreparingTitle: "This city guide is being prepared",
+      guidePreparingBody: "You can still explore its universities and regional scholarship links. We do not show unresearched cost or lifestyle claims.",
+      historyTitle: "A brief history",
+      historySourceLabel: "Wikipedia source",
+      sourceAccessed: "accessed",
       livingExpensesTitle: "Living Expenses",
       transportConnections: "Transportation & Network",
       regionSuffix: "Region",
@@ -1877,6 +1891,8 @@ export const translations = {
       costExplanation: "Cost rating ranges from budget-friendly (1) to premium/expensive (5).",
       costSourceLabel: "Cost data source",
       costSourceUpdated: "last updated",
+      tierCostSource: "ItalyPath approximate student budget",
+      costModelVersion: "model version",
       bursaryTitle: "Regional Scholarship Details",
       bursaryBody: "Universities in this city are governed by the official DSU scholarship regulations of the {region} region.",
       bursaryInstitution: "Managing Institution",
@@ -1886,7 +1902,9 @@ export const translations = {
       openOfficial: "Official site",
       warningTitle: "Notes on application & living expenses",
       warningItem1: "Rent rates and monthly expenses fluctuate according to inflation or specific area.",
-      warningItem2: "All details are curated based on recent student testimonies and research estimates."
+      warningItem2: "All details are curated based on recent student testimonies and research estimates.",
+      tierWarningItem1: "City and transport information comes from source-checked city research and may change after the recorded access date.",
+      tierWarningItem2: "Rent, essentials, and transport amounts are approximate ItalyPath editorial budget bands for initial planning, not verified current market prices."
     },
     auth: {
       pageTitle: "Sign in to ItalyPath",

@@ -5,6 +5,10 @@ import CityGuidesExplorer, {
   type CityGuideUniversitySummary,
 } from "@/components/cities/CityGuidesExplorer";
 import {
+  getCanonicalCitySlug,
+  getCityDetailByName,
+} from "@/lib/cities/data";
+import {
   createCityGuideSlug,
   getCityGuideName,
   resolveCityGuideSelection,
@@ -38,40 +42,53 @@ function getSingleParam(value: SearchParamValue) {
 }
 
 function createCityOptions(universities: Awaited<ReturnType<typeof getUniversitiesData>>) {
-  const counts: Record<string, number> = {};
+  const options = new Map<string, CityGuideOption>();
   universities.forEach((university) => {
     const cityName = getCityGuideName(university.city);
     if (cityName) {
-      counts[cityName] = (counts[cityName] || 0) + 1;
+      const resolved = getCityDetailByName(cityName);
+      const slug = resolved?.slug ?? createCityGuideSlug(cityName);
+      const existing = options.get(slug);
+      options.set(slug, {
+        name: existing?.name ?? cityName,
+        count: (existing?.count ?? 0) + 1,
+        slug,
+      });
     }
   });
 
-  return Object.entries(counts)
-    .map(([name, count]) => ({
-      name,
-      count,
-      slug: createCityGuideSlug(name),
-    }))
+  return Array.from(options.values())
     .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
 }
 
 function resolveSelectedCity(rawCity: string, cityOptions: CityGuideOption[]) {
-  const normalizedRawCity = resolveCityGuideSelection(rawCity)?.toLowerCase() ?? "";
+  const resolvedSelection = resolveCityGuideSelection(rawCity);
+  const resolvedDetail = resolvedSelection
+    ? getCityDetailByName(resolvedSelection)
+    : undefined;
+  const selectedSlug = resolvedDetail?.slug ?? (
+    resolvedSelection ? getCanonicalCitySlug(resolvedSelection) : ""
+  );
   const match = cityOptions.find(
-    (city) =>
-      city.slug === normalizedRawCity ||
-      city.name.toLowerCase() === normalizedRawCity
+    (city) => city.slug === selectedSlug
   );
 
-  return match?.name ?? "Milano";
+  return match ?? cityOptions.find((city) => city.slug === "milano") ?? {
+    name: "Milano",
+    count: 0,
+    slug: "milano",
+  };
 }
 
 function createCityUniversitySummaries(
   universities: Awaited<ReturnType<typeof getUniversitiesData>>,
-  cityName: string
+  citySlug: string
 ): CityGuideUniversitySummary[] {
   return universities
-    .filter((university) => getCityGuideName(university.city)?.toLowerCase() === cityName.toLowerCase())
+    .filter((university) => {
+      const cityName = getCityGuideName(university.city);
+      return cityName ? getCanonicalCitySlug(cityName) === citySlug : false;
+    })
     .map((university) => ({
       id: university.id,
       name: university.name,
@@ -115,9 +132,9 @@ export default async function CityGuidesPage({ searchParams }: CityGuidesPagePro
 
   return (
     <CityGuidesExplorer
-      initialSelectedCity={selectedCity}
+      initialSelectedCity={selectedCity.slug}
       initialCitiesWithCounts={cityOptions}
-      initialCityUniversities={createCityUniversitySummaries(universities, selectedCity)}
+      initialCityUniversities={createCityUniversitySummaries(universities, selectedCity.slug)}
     />
   );
 }

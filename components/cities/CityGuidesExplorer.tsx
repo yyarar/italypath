@@ -23,7 +23,11 @@ import {
 
 import { useLanguage } from "@/context/LanguageContext";
 import { useUniversitiesData } from "@/lib/useUniversitiesData";
-import { getCityDetailBySlug, getFallbackCityDetail } from "@/lib/cities/data";
+import {
+  getCanonicalCitySlug,
+  getCityDetailByName,
+  getFallbackCityDetail,
+} from "@/lib/cities/data";
 import {
   createCityGuideSlug,
   getCityGuideName,
@@ -143,48 +147,49 @@ export default function CityGuidesExplorer({
       return initialCitiesWithCounts;
     }
 
-    const counts: Record<string, number> = {};
+    const options = new Map<string, CityGuideOption>();
     universities.forEach((u) => {
       const cityName = getCityGuideName(u.city);
       if (cityName) {
-        counts[cityName] = (counts[cityName] || 0) + 1;
+        const resolved = getCityDetailByName(cityName);
+        const slug = resolved?.slug ?? createCityGuideSlug(cityName);
+        const existing = options.get(slug);
+        options.set(slug, {
+          name: existing?.name ?? cityName,
+          count: (existing?.count ?? 0) + 1,
+          slug,
+        });
       }
     });
 
-    return Object.entries(counts)
-      .map(([name, count]) => ({
-        name,
-        count,
-        slug: createCityGuideSlug(name),
-      }))
+    return Array.from(options.values())
       .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
   }, [initialCitiesWithCounts, universities]);
 
   // Find the selected city details
   const activeCity = useMemo<CityDetail>(() => {
     const canonicalSelection = resolveCityGuideSelection(selectedQueryCity) ?? "Milano";
+    const resolvedSelection = getCityDetailByName(canonicalSelection);
+    const selectedSlug = resolvedSelection?.slug ?? getCanonicalCitySlug(canonicalSelection);
     const match = citiesWithCounts.find(
-      (c) =>
-        c.slug === canonicalSelection.toLowerCase() ||
-        c.name.toLowerCase() === canonicalSelection.toLowerCase()
+      (city) => city.slug === selectedSlug
     );
 
     const name = match ? match.name : "Milano";
-    const count = match ? match.count : 0;
     const region = CITY_TO_REGION_MAP[name] || "İtalya";
 
-    const curated = getCityDetailBySlug(name) || getCityDetailBySlug(canonicalSelection);
+    const curated = resolvedSelection || getCityDetailByName(name);
     if (curated) return curated;
 
-    return getFallbackCityDetail(name, count, region);
+    return getFallbackCityDetail(name, region);
   }, [selectedQueryCity, citiesWithCounts]);
 
   const activeCitySlug = useMemo(
     () =>
       citiesWithCounts.find(
-        (city) => city.name.toLowerCase() === activeCity.name.toLowerCase()
+        (city) => city.slug === activeCity.slug
       )?.slug ?? "",
-    [activeCity.name, citiesWithCounts]
+    [activeCity.slug, citiesWithCounts]
   );
 
   // Dynamic regional scholarship lookup
@@ -212,7 +217,10 @@ export default function CityGuidesExplorer({
     }
 
     return universities
-      .filter((u) => getCityGuideName(u.city)?.toLowerCase() === activeCity.name.toLowerCase())
+      .filter((u) => {
+        const cityName = getCityGuideName(u.city);
+        return cityName ? getCanonicalCitySlug(cityName) === activeCity.slug : false;
+      })
       .map((university) => ({
         id: university.id,
         name: university.name,
@@ -222,6 +230,22 @@ export default function CityGuidesExplorer({
   }, [activeCity, initialCityUniversities, universities]);
 
   const copy = t.citiesGuide;
+  const activePopulation = language === "tr" ? activeCity.studentPopulation : activeCity.studentPopulationEn;
+  const activeHistory = language === "tr" ? activeCity.historyShort : activeCity.historyShortEn;
+  const activeEditorialTip = language === "tr" ? activeCity.editorialTip : activeCity.editorialTipEn;
+  const isUnresearched = activeCity.contentStatus === "unresearched";
+  const activeRent = language === "tr" ? activeCity.rentAverage : activeCity.rentAverageEn;
+  const activeExpenses = language === "tr" ? activeCity.livingExpenses : activeCity.livingExpensesEn;
+  const activeTransportCost = language === "tr" ? activeCity.transportCost : activeCity.transportCostEn;
+  const activeTransportDetails = language === "tr" ? activeCity.transportDetails : activeCity.transportDetailsEn;
+  const activeCityCharacter = language === "tr" ? activeCity.climateAndVibe : activeCity.climateAndVibeEn;
+  const activeCostRating = activeCity.costRating ?? 0;
+  const hasCostDetails = Boolean(
+    activeCity.costRating !== undefined && activeRent && activeExpenses && activeTransportCost
+  );
+  const warningItems = activeCity.costModel === "italypath-tier"
+    ? [copy.tierWarningItem1, copy.tierWarningItem2]
+    : [copy.warningItem1, copy.warningItem2];
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[var(--editorial-paper)] pb-24 text-[var(--editorial-ink)] md:pb-16">
@@ -303,7 +327,7 @@ export default function CityGuidesExplorer({
               </label>
               <div className="city-scrollbar-hidden -mx-1 mt-3 flex snap-x snap-mandatory gap-2 overflow-x-auto px-1 pb-2">
                 {citiesWithCounts.map((city) => {
-                  const active = activeCity.name.toLowerCase() === city.name.toLowerCase();
+                  const active = activeCity.slug === city.slug;
                   return (
                     <button
                       key={city.name}
@@ -316,7 +340,7 @@ export default function CityGuidesExplorer({
                           : "border-[var(--editorial-border)] bg-white/70 text-[var(--editorial-ink)]"
                       }`}
                     >
-                      {language === "tr" ? city.name : (getCityDetailBySlug(city.name)?.nameEn || city.name)}
+                      {language === "tr" ? city.name : (getCityDetailByName(city.name)?.nameEn || city.name)}
                     </button>
                   );
                 })}
@@ -332,7 +356,7 @@ export default function CityGuidesExplorer({
                     <option key={city.name} value={city.slug}>
                       {language === "tr"
                         ? city.name
-                        : getCityDetailBySlug(city.name)?.nameEn || city.name}
+                        : getCityDetailByName(city.name)?.nameEn || city.name}
                       {` · ${city.count} ${copy.universityCount[city.count === 1 ? "one" : "other"]}`}
                     </option>
                   ))}
@@ -357,7 +381,7 @@ export default function CityGuidesExplorer({
 
               <div className="grid gap-1.5">
                 {citiesWithCounts.map((city) => {
-                  const active = activeCity.name.toLowerCase() === city.name.toLowerCase();
+                  const active = activeCity.slug === city.slug;
                   return (
                     <button
                       key={city.name}
@@ -372,7 +396,7 @@ export default function CityGuidesExplorer({
                     >
                       <span className="min-w-0">
                         <span className="block truncate text-sm font-bold">
-                          {language === "tr" ? city.name : (getCityDetailBySlug(city.name)?.nameEn || city.name)}
+                          {language === "tr" ? city.name : (getCityDetailByName(city.name)?.nameEn || city.name)}
                         </span>
                         <span
                           className={`mt-0.5 block text-[0.7rem] font-semibold ${
@@ -393,7 +417,7 @@ export default function CityGuidesExplorer({
             <aside className="city-material min-w-0 overflow-hidden rounded-[2rem] p-5 shadow-[0_26px_80px_rgba(21,32,28,0.09)] sm:p-7 lg:rounded-[2.5rem] lg:p-9">
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
-                  key={activeCity.name}
+                  key={activeCity.slug}
                   initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -6 }}
@@ -414,26 +438,64 @@ export default function CityGuidesExplorer({
                     <MapPin className="h-3.5 w-3.5 text-[#d9b39f]" />
                     <span>{activeCity.region} {copy.regionSuffix}</span>
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="h-3.5 w-3.5 text-[#d9b39f]" />
-                    <span>{copy.population}: {language === "tr" ? activeCity.studentPopulation : activeCity.studentPopulationEn}</span>
-                  </div>
+                  {activePopulation && (
+                    <div className="flex items-center gap-1">
+                      <Users className="h-3.5 w-3.5 text-[#d9b39f]" />
+                      <span>{copy.population}: {activePopulation}</span>
+                    </div>
+                  )}
                 </div>
               </div>
 
+              {activeHistory && (
+                <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
+                  <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
+                    <Landmark className="h-3.5 w-3.5 text-[var(--editorial-terracotta)]" />
+                    {copy.historyTitle}
+                  </div>
+                  <p className="text-sm font-medium leading-6 text-[var(--editorial-muted)]">{activeHistory}</p>
+                  {activeCity.historySourceUrl && activeCity.historySourceTitle && (
+                    <p className="mt-3 border-t border-[var(--editorial-border)] pt-3 text-xs text-[var(--editorial-muted)]">
+                      {copy.historySourceLabel}:{" "}
+                      <a
+                        href={activeCity.historySourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-[var(--editorial-terracotta)] underline-offset-4 hover:underline"
+                      >
+                        {activeCity.historySourceTitle}
+                      </a>
+                      {activeCity.sourceRetrievedAt && ` · ${copy.sourceAccessed}: ${activeCity.sourceRetrievedAt}`}
+                    </p>
+                  )}
+                </section>
+              )}
+
+              {isUnresearched && (
+                <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/55 p-5 sm:p-6">
+                  <div className="flex items-start gap-3">
+                    <Info className="mt-0.5 h-4 w-4 shrink-0 text-[var(--editorial-terracotta)]" />
+                    <div>
+                      <h3 className="font-serif text-xl text-[var(--editorial-ink)]">{copy.guidePreparingTitle}</h3>
+                      <p className="mt-2 text-sm leading-6 text-[var(--editorial-muted)]">{copy.guidePreparingBody}</p>
+                    </div>
+                  </div>
+                </section>
+              )}
+
               {/* Stat Strip: Cost Rating */}
-              <section className="mt-5 rounded-[1.4rem] border border-[var(--editorial-border)] bg-white/55 p-5">
+              {hasCostDetails && <section className="mt-5 rounded-[1.4rem] border border-[var(--editorial-border)] bg-white/55 p-5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.12em] text-[var(--editorial-muted)]">
                     <Coins className="h-4 w-4 text-[var(--editorial-sage)]" />
                     {copy.costLevel}
                   </div>
-                  <div className="flex items-center gap-1" aria-label={`Cost rating: ${activeCity.costRating} of 5`}>
+                  <div className="flex items-center gap-1" aria-label={`Cost rating: ${activeCostRating} of 5`}>
                     {[1, 2, 3, 4, 5].map((i) => (
                       <span
                         key={i}
                         className={`block h-3.5 w-3.5 rounded-full border border-[var(--editorial-border)] ${
-                          i <= activeCity.costRating
+                          i <= activeCostRating
                             ? "bg-[var(--editorial-terracotta)]"
                             : "bg-[#e7ded1]"
                         }`}
@@ -445,9 +507,10 @@ export default function CityGuidesExplorer({
                   {copy.costExplanation}
                 </p>
               </section>
+              }
 
               {/* Living Costs Detailed Info */}
-              <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
+              {hasCostDetails && <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
                 <div className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
                   <Info className="h-3.5 w-3.5" />
                   {copy.livingExpensesTitle}
@@ -460,7 +523,7 @@ export default function CityGuidesExplorer({
                       {copy.rent}
                     </p>
                     <p className="mt-1 text-sm font-semibold leading-relaxed text-[var(--editorial-ink)]">
-                      {language === "tr" ? activeCity.rentAverage : activeCity.rentAverageEn}
+                      {activeRent}
                     </p>
                   </div>
 
@@ -470,7 +533,7 @@ export default function CityGuidesExplorer({
                       {copy.expenses}
                     </p>
                     <p className="mt-1 text-sm font-semibold leading-relaxed text-[var(--editorial-ink)]">
-                      {language === "tr" ? activeCity.livingExpenses : activeCity.livingExpensesEn}
+                      {activeExpenses}
                     </p>
                   </div>
 
@@ -480,11 +543,17 @@ export default function CityGuidesExplorer({
                       {copy.transport}
                     </p>
                     <p className="mt-1 text-sm font-semibold leading-relaxed text-[var(--editorial-ink)]">
-                      {language === "tr" ? activeCity.transportCost : activeCity.transportCostEn}
+                      {activeTransportCost}
                     </p>
                   </div>
                 </div>
-                {activeCity.costSourceName && (
+                {activeCity.costModel === "italypath-tier" ? (
+                  <div className="mt-4 border-t border-[var(--editorial-border)] pt-3 text-xs leading-5 text-[var(--editorial-muted)]">
+                    <span className="font-semibold text-[var(--editorial-ink)]">{copy.costSourceLabel}: </span>
+                    <span className="font-semibold text-[var(--editorial-ink)]">{copy.tierCostSource}</span>
+                    {activeCity.costModelVersion && ` · ${copy.costModelVersion}: ${activeCity.costModelVersion}`}
+                  </div>
+                ) : activeCity.costSourceName ? (
                   <div className="mt-4 border-t border-[var(--editorial-border)] pt-3 text-xs leading-5 text-[var(--editorial-muted)]">
                     <span className="font-semibold text-[var(--editorial-ink)]">
                       {copy.costSourceLabel}:{" "}
@@ -511,8 +580,9 @@ export default function CityGuidesExplorer({
                       </span>
                     )}
                   </div>
-                )}
+                ) : null}
               </section>
+              }
 
               {/* Regional Scholarship Card */}
               {scholarshipRegion && (
@@ -567,51 +637,55 @@ export default function CityGuidesExplorer({
               )}
 
               {/* Transit & Connections */}
-              <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
+              {activeTransportDetails && <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
                 <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
                   <Navigation className="h-3.5 w-3.5 text-[var(--editorial-sage)]" />
                   {copy.transportConnections}
                 </div>
                 <p className="text-sm leading-6 text-[var(--editorial-muted)] font-medium">
-                  {language === "tr" ? activeCity.transportDetails : activeCity.transportDetailsEn}
+                  {activeTransportDetails}
                 </p>
               </section>
+              }
 
               {/* Climate & Vibe */}
-              <section className="mt-3 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
+              {activeCityCharacter && <section className="mt-3 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
                 <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
                   <SunDim className="h-3.5 w-3.5 text-[var(--editorial-sage)]" />
                   {copy.vibe}
                 </div>
                 <p className="text-sm leading-6 text-[var(--editorial-muted)] font-medium">
-                  {language === "tr" ? activeCity.climateAndVibe : activeCity.climateAndVibeEn}
+                  {activeCityCharacter}
                 </p>
               </section>
+              }
 
               {/* Editorial Tip */}
-              <section className="mt-5 rounded-[1.5rem] bg-[var(--editorial-sage-soft)] p-5 sm:p-6">
-                <div className="mb-1 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-sage)]">
-                  <Compass className="h-3.5 w-3.5" />
-                  {copy.tip}
-                </div>
-                <p className="font-serif text-lg italic leading-relaxed text-[var(--editorial-ink)]">
-                  「 {language === "tr" ? activeCity.editorialTip : activeCity.editorialTipEn} 」
-                </p>
-              </section>
+              {activeEditorialTip && (
+                <section className="mt-5 rounded-[1.5rem] bg-[var(--editorial-sage-soft)] p-5 sm:p-6">
+                  <div className="mb-1 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-sage)]">
+                    <Compass className="h-3.5 w-3.5" />
+                    {copy.tip}
+                  </div>
+                  <p className="font-serif text-lg italic leading-relaxed text-[var(--editorial-ink)]">
+                    「 {activeEditorialTip} 」
+                  </p>
+                </section>
+              )}
 
               {/* Warning Notice */}
-              <section className="mt-3 rounded-[1.25rem] border border-[#e6cabb] bg-[#fff8f3] p-4">
+              {!isUnresearched && <section className="mt-3 rounded-[1.25rem] border border-[#e6cabb] bg-[#fff8f3] p-4">
                 <div className="flex items-start gap-2 text-[var(--editorial-terracotta)]">
                   <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
                   <div className="min-w-0">
                     <p className="text-xs font-bold uppercase tracking-[0.1em]">{copy.warningTitle}</p>
                     <ul className="mt-2 list-disc pl-4 text-xs space-y-1 text-[var(--editorial-muted)] font-medium">
-                      <li>{copy.warningItem1}</li>
-                      <li>{copy.warningItem2}</li>
+                      {warningItems.map((item) => <li key={item}>{item}</li>)}
                     </ul>
                   </div>
                 </div>
               </section>
+              }
 
               {/* Universities in this city */}
               <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
