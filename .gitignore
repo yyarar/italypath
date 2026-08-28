@@ -59,3 +59,7 @@ output/*-program-details-import-report.json
 
 # City-guide research working results
 city-content-research/results/
+
+# Agent skill packs (npx skills) - calisma dizini artifaktlari, commit edilmez
+.agents/
+skills-lock.json
