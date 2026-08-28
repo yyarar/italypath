@@ -530,6 +530,8 @@ Yanlislarim v1 tamamen client-side turetilir: `sat_attempts` son denemesinde `is
 
 Pipeline `scripts/sat/` altindadir: mekanik PDF/answer/RW/math slice adimlari, ayri LLM extract runbook'u, validate/import adimlari. Ara ciktular `tmp/sat-bank/` altinda kalir ve commit edilmez. Dogrulama: `npm run check:sat-bank`.
 
+Remediation (2026-08-29 tamamlandi): Ilk extract'tan kalan erisilebilirlik-metni bozuklugu tasiyan 237 soru, kaynak goruntulerden yeniden yazilip kor-cozucu/KaTeX/marker kapilarindan gecirilerek duzeltildi; plan `docs/superpowers/plans/2026-08-28-sat-question-remediation-slim-plan.md`. Kalici guvenlik sozlesmeleri: `lib/sat/questions.server.ts` `needs_review=true` satirlari ASLA sunmaz; `scripts/sat/import-bank.mjs` insert-only'dir (var olan id'yi degistiremez, upsert yasak); var olan sorularin tek guncelleme yolu compare-and-swap + yedekli `scripts/sat/patch-sat-questions.mjs` aracidir; icerik taramasi `scripts/sat/audit-sat-content.mjs` ile yapilir. Bu sozlesmeler `npm run check:sat-bank` tarafindan zorlanir; ek testler `npm run test:sat-audit` ve `npm run test:sat-patch`. Yedekler/paketler `tmp/sat-bank/remediation/` altinda (Git disi); acik is: 2 kayitlik figur onarim backlog'u (`figure-repair-backlog.json`).
+
 ### Cities
 
 `/cities` public editorial atlas'tir. `components/cities/CityGuidesExplorer.tsx`, `types/cities.ts`, `lib/cities/data.ts` kullanir. Birlesik katalog 17 legacy exact/source kaydi ile 25 tiered, arastirilmis kayittan olusur.
