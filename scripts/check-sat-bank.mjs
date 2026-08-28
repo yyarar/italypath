@@ -93,6 +93,15 @@ for (const path of [
   if (!existsSync(resolve(process.cwd(), path))) fail(`${path} eksik`);
 }
 
+// 8) Insert-only import sozlesmesi
+const importBank = read("scripts/sat/import-bank.mjs");
+if (importBank.includes(".upsert(")) fail("import-bank.mjs: sat_questions upsert YASAK (insert-only sozlesme)");
+if (importBank.includes("upsert: true")) fail("import-bank.mjs: storage upsert YASAK");
+if (!importBank.includes("INSERT-ONLY FAIL")) fail("import-bank.mjs: var olan id fark kontrolu eksik");
+for (const toolPath of ["scripts/sat/patch-sat-questions.mjs", "scripts/sat/audit-sat-content.mjs"]) {
+  if (!existsSync(resolve(process.cwd(), toolPath))) fail(`${toolPath} eksik`);
+}
+
 if (failures.length > 0) {
   console.error("check:sat-bank FAIL");
   for (const f of failures) console.error(` - ${f}`);
