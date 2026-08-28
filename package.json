@@ -32,7 +32,9 @@
     "test:expert-leads": "node scripts/test-expert-leads.mjs",
     "check:auth-production": "node scripts/check-auth-production-redirects.mjs",
     "sat:audit": "node scripts/sat/audit-sat-content.mjs",
+    "sat:patch": "node scripts/sat/patch-sat-questions.mjs",
     "test:sat-audit": "node scripts/sat/test-content-audit.mjs",
+    "test:sat-patch": "node scripts/sat/test-question-patch.mjs",
     "clean:med": "node --no-warnings scripts/clean-med-data.mjs"
   },
   "dependencies": {
