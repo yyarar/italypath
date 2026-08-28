@@ -27,6 +27,9 @@ if (!ttlMatch || Number(ttlMatch[1]) < 1 || Number(ttlMatch[1]) > 6) {
 if (!server.includes("bayat memo") && !server.includes("cachedBank.data")) {
   fail("questions.server.ts: stale-on-error davranisi olmali");
 }
+if (!server.includes("if (row.needs_review) return null")) {
+  fail("questions.server.ts: needs_review karantina filtresi eksik (karantinali soru asla sunulmamali)");
+}
 
 // 3) API route
 const route = read("app/api/sat/questions/route.ts");

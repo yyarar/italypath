@@ -33,6 +33,7 @@ function figurePublicUrl(figurePath: string | null): string | null {
 }
 
 function createQuestion(row: SatQuestionRow): SatQuestion | null {
+  if (row.needs_review) return null;
   if (!row.id || !row.prompt) return null;
   if (row.section !== "math" && row.section !== "reading-writing") return null;
   if (row.question_type !== "mcq" && row.question_type !== "spr") return null;
