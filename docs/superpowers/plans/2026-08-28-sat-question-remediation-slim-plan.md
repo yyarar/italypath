@@ -1129,6 +1129,20 @@ Kerem `/sat` üzerinde pilot sorularının bulunduğu konuları açar; düzeltil
 
 **Files:** yeni kod yok; Task 8 süreci tekrar eder.
 
+**Figürlü soru kuralları (pilot bulgusu, 2026-08-28 — Fable denetim kararı):**
+
+1. Yazıcı, basılı soru metninde OLMAYAN hiçbir şeyi prompt'a eklemez — figür
+   üstündeki etiketler/degerler dahil. Figür bilgisi figürde kalır; uygulama
+   `figure_path` görselini zaten ayrı gösterir. (Pilot'ta `1429dcdf` bu kurala
+   aykırı uygulandı; dalga 1 öncesi Fable tarafından kaynağa sadık metne revize
+   edilir.)
+2. Bankada `figure_path` taşıyan sorularda kör çözücüye taslak metinle birlikte
+   `tmp/sat-bank/<figure_path>` görseli de verilir (öğrencinin gördüğü asset).
+   Tam soru görüntüsü (`math-images/<id>.png`), resmî cevap ve eski bozuk metin
+   çözücüye yine ASLA verilmez. Böylece figür sorularında da çözücü-anahtar
+   kapısı gerçek doğrulama yapar.
+3. Pilot'ta bloke edilen `02c67921`, dalga 1'de bu kuralla yeniden denenir.
+
 **Interfaces:**
 - Consumes/Produces: Task 8 ile aynı; her dalga kendi `<run>` klasörünü kullanır (`wave-1`, `wave-2`, ...).
 
