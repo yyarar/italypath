@@ -1133,15 +1133,28 @@ Kerem `/sat` üzerinde pilot sorularının bulunduğu konuları açar; düzeltil
 
 1. Yazıcı, basılı soru metninde OLMAYAN hiçbir şeyi prompt'a eklemez — figür
    üstündeki etiketler/degerler dahil. Figür bilgisi figürde kalır; uygulama
-   `figure_path` görselini zaten ayrı gösterir. (Pilot'ta `1429dcdf` bu kurala
-   aykırı uygulandı; dalga 1 öncesi Fable tarafından kaynağa sadık metne revize
-   edilir.)
+   `figure_path` görselini zaten ayrı gösterir.
 2. Bankada `figure_path` taşıyan sorularda kör çözücüye taslak metinle birlikte
    `tmp/sat-bank/<figure_path>` görseli de verilir (öğrencinin gördüğü asset).
    Tam soru görüntüsü (`math-images/<id>.png`), resmî cevap ve eski bozuk metin
    çözücüye yine ASLA verilmez. Böylece figür sorularında da çözücü-anahtar
-   kapısı gerçek doğrulama yapar.
-3. Pilot'ta bloke edilen `02c67921`, dalga 1'de bu kuralla yeniden denenir.
+   kapısı gerçek doğrulama yapar VE kusurlu figür kırpıntıları (etiketi kesilmiş
+   vb.) doğal olarak yakalanır: çözücü kusurlu kırpıntıyla çözemez, soru bloke
+   olur.
+3. Pilot'ta bloke edilen `02c67921`, dalga 1'de bu kuralla yeniden denenir
+   (figür kırpıntısı Fable denetiminde sağlam bulundu; (0,3) noktası okunuyor).
+4. **`1429dcdf` istisnası (Fable denetim kararı, 2026-08-28):** Bu sorunun
+   canlı figür kırpıntısında alt kenarın `16` etiketi kesiktir. Kaynağa sadık
+   metne dönüş, kusurlu kırpıntıyla soruyu çözülemez yapacağından pilot'taki
+   anlatımlı metin BİLİNÇLİ olarak canlıda bırakılmıştır. Kayıt, figür onarım
+   backlog'undadır.
+5. **Figür onarım backlog'u:** Çözücünün kusurlu kırpıntı nedeniyle bloke
+   ettiği kayıtlar + `1429dcdf`, `tmp/sat-bank/remediation/figure-repair-backlog.json`
+   dosyasında toplanır. Figür yeniden kırpma + Storage güncellemesi bu planın
+   kapsamı DIŞINDADIR (storage overwrite bilinçli kilitli); ayrı onaylı bir
+   mini-faz gerektirir. Backlog'daki sorular o faza kadar ya karantinada kalır
+   ya da (yalnız `1429dcdf` gibi metniyle çözülebilir durumdaysa) mevcut
+   haliyle yayında kalır.
 
 **Interfaces:**
 - Consumes/Produces: Task 8 ile aynı; her dalga kendi `<run>` klasörünü kullanır (`wave-1`, `wave-2`, ...).
