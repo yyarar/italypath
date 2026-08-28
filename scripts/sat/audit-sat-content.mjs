@@ -86,13 +86,16 @@ if (!options.local) {
   );
   if (existsSync(path.join(OUT_ROOT, "bank.json"))) {
     const localById = new Map(loadLocalBank().map((q) => [q.id, q]));
-    const compared = ["prompt", "question_type", "needs_review"];
+    const compared = ["prompt", "question_type"];
     localDiff = { missing_local: 0, field_diff: 0 };
     for (const row of rows) {
       const local = localById.get(row.id);
       if (!local) { localDiff.missing_local += 1; continue; }
       const choicesEqual = JSON.stringify(local.choices ?? null) === JSON.stringify(row.choices ?? null);
-      if (!choicesEqual || compared.some((f) => (local[f] ?? null) !== (row[f] ?? null))) localDiff.field_diff += 1;
+      // Eski yerel export'ta needs_review bazi satirlarda null kalmis; null ve
+      // false ayni anlami tasir ("karantinada degil"), boolean olarak kiyaslanir.
+      const flagEqual = Boolean(local.needs_review) === Boolean(row.needs_review);
+      if (!choicesEqual || !flagEqual || compared.some((f) => (local[f] ?? null) !== (row[f] ?? null))) localDiff.field_diff += 1;
     }
   }
 }
