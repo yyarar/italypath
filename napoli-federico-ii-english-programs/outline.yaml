@@ -1,0 +1,392 @@
+# Napoli Federico II Üniversitesi (University of Naples Federico II) — İngilizce eğitim veren
+# lisans ve yüksek lisans programlarının admission requirements araştırması
+# Oluşturulma: 2026-08-30 | Kaynak kısıtı: sadece resmi unina.it sayfaları
+
+topic: "Napoli Federico II Üniversitesi İngilizce eğitim veren lisans ve yüksek lisans programları — admission requirements"
+
+scope:
+  source_restriction: "Sadece unina.it resmi sayfaları (orientamento.unina.it, international.unina.it, departman/program alt siteleri unina.it altında veya UNINA tarafından resmi olarak işletiliyorsa dahil)"
+  academic_year: "2026/2027 öncelikli; bilgi yoksa en güncel resmi yıl kullanılır ve uncertainty_notes'ta belirtilir"
+  program_type_scope: >
+    3 tür 'İngilizce program' ayrımı yapıldı ve KARAR verildi:
+    (1) Baştan sona bağımsız İngilizce program — DAHİL
+    (2) İtalyanca isimli bir programın içindeki İngilizce curriculum/track (diploma İtalyanca
+        program adıyla çıkar) — DAHİL, ama program_name alanında hem İngilizce curriculum adı
+        hem de gerçek diploma adı (İtalyanca) açıkça belirtilir, uncertainty_notes'ta da tekrarlanır
+    (3) Ağırlıklı İtalyanca program içinde sadece birkaç İngilizce ders/elective — HARİÇ
+        (bkz. excluded_items)
+  note_program_specific_dates: "Programların kendine özel admission tarihleri olabiliyor; her programın kendi sayfası + varsa ayrı program web sitesi (örn. dieti.unina.it altındaki alt siteler) esas alınmalı"
+  catalogue_reliability_warning: >
+    international.unina.it/international-courses-catalogue TEK BAŞINA GÜVENİLİR DEĞİL: eksik
+    programlar var (örn. Hospitality Management EN, Aerospace Engineering), kapanmış bir program
+    hâlâ İngilizce etiketiyle sitede duruyor, ve bağımsız İngilizce dereceyle İtalyanca derece
+    içindeki İngilizce curriculum'u ayırt etmiyor. orientamento.unina.it'teki program bazlı
+    sayfalar (Language / Degree class / Admission alanları) birincil doğrulama kaynağı olmalı.
+
+research_guidelines:
+  cross_cutting_sources: >
+    Bunlar program SAYFALARINDA genelde YOK ama her programın application_deadline_*,
+    required_documents, entry_exam_or_test alanlarını doldurmak için mutlaka kontrol edilmeli:
+    - Universitaly ön kayıt (UNINA kendi son tarihi ayrı, ulusal vize son tarihi ayrı)
+    - "Semestre filtro / semestre aperto" hub'ı (unina.it/it/didattica/offerta-formativa/semestre-filtro)
+      — Legge 26/2025 sonrası eski ulusal tıp sınavının yerini aldı
+    - "Corsi a numero programmato" bandi + graduatorie sayfası — gerçek çağrı metinleri ve
+      AB dışı kontenjanları buradaki rektörlük kararnamelerinde (örn. DR/2026/2379) yayınlanıyor
+    - Guida all'iscrizione (harç rehberi) — non-EU öğrenciler harç katkısından tamamen muaf,
+      sadece bölgesel vergi + damga pulu ödüyor; bu bilgi tuition_or_fees_link alanına not düşülmeli
+    - SegrePass (segrepass1.unina.it) — yabancı uyruklu öğrenciler bu online sistemi
+      KULLANAMIYOR, Segreterie Studenti'ye şahsen kayıt olmaları gerekiyor
+    - CISIA / TOLC-I kayıt sistemi — yurt dışında ikamet eden AB dışı adaylar normal
+      telematik başvurudan MUAF, bunun yerine Universitaly üzerinden planlanan ayrı bir
+      sınava giriyor
+  open_question_flag: >
+    KRİTİK ÇÖZÜLMEMİŞ SORU: İngilizce Medicine and Surgery (ENG) ve Veterinary Medicine
+    programları "semestre filtro" ulusal sürecine mi giriyor yoksa ayrı bir uluslararası
+    başvuru yoluna mı sahip? Bu iki programın deep-research aşamasında bu çelişki AÇIKÇA
+    araştırılmalı ve çözülemezse uncertainty_notes'ta en görünür şekilde işaretlenmeli.
+  degree_awarded_vs_program_name: >
+    "Curriculum/track" olarak işaretli programlarda (bkz. items altında curriculum_of alanı)
+    mezuniyet diploması İtalyanca ana program adıyla çıkıyor. program_name alanına hem
+    İngilizce curriculum adı hem parantez içinde gerçek İtalyanca diploma adı yazılmalı.
+  date_format: "Tarihler ISO (YYYY-MM-DD) formatına normalize edilecek; kaynak sayfadaki orijinal format source_quotes içinde korunur."
+
+# ---------------------------------------------------------------
+# ITEMS — her İngilizce program/curriculum ayrı araştırma nesnesi
+# type: standalone = başlı başına İngilizce derece
+#       curriculum = İtalyanca ana programın İngilizce dalı (diploma İtalyanca isimle çıkar)
+# ---------------------------------------------------------------
+
+items:
+  # ---------- LİSANS (BACHELOR) ----------
+  - id: bsc-civil-environmental-engineering
+    name: "Civil and Environmental Engineering"
+    level: bachelor
+    type: standalone
+    degree_class: "L-7 R"
+    campus: "doğrulanacak"
+    notes: "Giriş: TOLC-I + OFA (20/20 üzerinden %20 altı veya Matematik <10/20 ya da genel <15/20 ise OFA)"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: bsc-electrical-engineering-it
+    name: "Electrical Engineering and Information Technology"
+    level: bachelor
+    type: standalone
+    degree_class: "L-8"
+    campus: "doğrulanacak"
+    notes: "'In fase di accreditamento' — 2026/27 için hâlâ akreditasyon sürecinde, açılması garanti değil. Giriş: TOLC-I + OFA"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: bsc-biology-one-health
+    name: "Biology for One Health"
+    level: bachelor
+    type: standalone
+    degree_class: "L-13"
+    campus: "doğrulanacak"
+    notes: "Numero Programmato Locale (yerel sınırlı kontenjan)"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: bsc-hospitality-management
+    name: "Hospitality Management (EN)"
+    level: bachelor
+    type: standalone
+    degree_class: "L-18"
+    campus: "Monte Sant'Angelo"
+    notes: "Numero Programmato Locale; professionalizzante (mesleğe yönelik) derece; İngilizce şartı sadece B1 — diğer programlardan farklı olarak B2 istemiyor"
+    url: "https://www.orientamento.unina.it/corsidistudio/hospitality-management-en/"
+
+  # ---------- TEK DÖNGÜLÜ (SINGLE-CYCLE) ----------
+  - id: sc-medicine-surgery-eng
+    name: "Medicine and Surgery (ENG)"
+    level: single-cycle
+    type: standalone
+    degree_class: "LM-41 / P11-DH6"
+    campus: "Policlinico"
+    notes: >
+      70 toplam kontenjan: 25 AB + İtalya'da ikamet eden AB dışı, 45 AB dışı (yurt dışında ikamet).
+      AÇIK SORU: semestre filtro (Legge 26/2025) sürecine mi giriyor yoksa ayrı uluslararası yol mu var —
+      sayfa hâlâ 'Numero Programmato Nazionale' diyor. Deep research bunu netleştirmeli.
+    url: "https://www.orientamento.unina.it/corsidistudio/medicina-e-chirurgia-eng/"
+
+  - id: sc-veterinary-medicine
+    name: "Veterinary Medicine"
+    level: single-cycle
+    type: standalone
+    degree_class: "LM-42"
+    campus: "Frullone"
+    notes: "20 kontenjan. 'In fase di accreditamento' — 2026/27 açılışı garanti değil. Semestre filtro ile ilişkisi Medicine ile aynı açık soru."
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  # ---------- YÜKSEK LİSANS (MASTER) — bağımsız İngilizce dereceler ----------
+  - id: msc-sustainable-food-systems
+    name: "Sustainable Food Systems"
+    level: master
+    type: standalone
+    degree_class: "LM-70"
+    campus: "Portici"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-architecture-heritage
+    name: "Architecture & Heritage"
+    level: master
+    type: standalone
+    degree_class: "LM-4"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-design-built-environment
+    name: "Design for the Built Environment"
+    level: master
+    type: standalone
+    degree_class: "LM-12"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-economics-finance-lmef
+    name: "Economics and Finance (LMEF)"
+    level: master
+    type: standalone
+    degree_class: "LM-56"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-autonomous-vehicle-engineering
+    name: "Autonomous Vehicle Engineering"
+    level: master
+    type: standalone
+    degree_class: "LM-33"
+    campus: "San Giovanni a Teduccio"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-data-science
+    name: "Data Science"
+    level: master
+    type: standalone
+    degree_class: "LM-91"
+    campus: "doğrulanacak"
+    notes: "4 curriculum (C1-C4) — hepsi İngilizce mi kontrol edilmeli"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-industrial-bioengineering
+    name: "Industrial Bioengineering"
+    level: master
+    type: standalone
+    degree_class: "LM-21"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-transportation-engineering-mobility
+    name: "Transportation Engineering and Mobility"
+    level: master
+    type: standalone
+    degree_class: "LM-23"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-precision-livestock-farming
+    name: "Precision Livestock Farming"
+    level: master
+    type: standalone
+    degree_class: "LM-86"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-biology-extreme-environments
+    name: "Biology of Extreme Environments"
+    level: master
+    type: standalone
+    degree_class: "LM-6"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-industrial-chemistry-circular-bioeconomy
+    name: "Industrial Chemistry for Circular and Bio Economy"
+    level: master
+    type: standalone
+    degree_class: "LM-71 R"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-marine-biology-aquaculture
+    name: "Marine Biology and Aquaculture"
+    level: master
+    type: standalone
+    degree_class: "LM-6"
+    campus: "doğrulanacak"
+    notes: "Kapanmış 'Biology and Ecology of the Marine Environment...' programının yerini alan güncel program (bkz. excluded_items)"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-mathematical-engineering
+    name: "Mathematical Engineering"
+    level: master
+    type: standalone
+    degree_class: "LM-44"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-quantum-science-engineering
+    name: "Quantum Science and Engineering"
+    level: master
+    type: standalone
+    degree_class: "LM-44"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-volcanology
+    name: "Volcanology"
+    level: master
+    type: standalone
+    degree_class: "LM-74"
+    campus: "doğrulanacak"
+    notes: "Kendi konu alanı sayfasından değil sadece doğrudan URL ile erişilebiliyor olabilir — deep research'te sayfa varlığı ilk doğrulanmalı"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-international-relations
+    name: "International Relations"
+    level: master
+    type: standalone
+    degree_class: "LM-52"
+    campus: "doğrulanacak"
+    notes: "DİKKAT: başvuru international-relations.net üzerinden yönlendiriliyor olabilir (unina.it dışı domain) — 'sadece unina.it' kısıtına aykırı olabilir, uncertainty_notes'ta açıkça belirtilmeli, official_call_url için unina.it üzerindeki resmi referans aranmalı"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-digisoc
+    name: "DIGISOC"
+    level: master
+    type: standalone
+    degree_class: "LM-92"
+    campus: "doğrulanacak"
+    notes: "Üniversitelerarası (interuniversity) program — UNINA'nın rolü ve unina.it üzerindeki resmi sayfası netleştirilmeli"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-languages-literatures-european-plurilingualism
+    name: "Languages and Literatures for European Plurilingualism"
+    level: master
+    type: standalone
+    degree_class: "LM-37"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-aerospace-engineering
+    name: "Aerospace Engineering"
+    level: master
+    type: standalone
+    degree_class: "LM-20"
+    campus: "doğrulanacak"
+    notes: "Sitede ENG/ITA etiketli; yıldızlı (*) dersler İngilizce anlatılıyor ve sınavları İngilizce. a.a. 2026/2027 için güncellenmiş. Uluslararası kataloğa dahil DEĞİL."
+    url: "https://www.orientamento.unina.it/corsidistudio/aerospace-engineering/"
+
+  # ---------- İTALYANCA PROGRAM İÇİNDE İNGİLİZCE CURRICULUM/TRACK ----------
+  # (diploma İtalyanca ana program adıyla çıkar — program_name'de ikisi de belirtilecek)
+  - id: msc-medical-biotechnology-curriculum
+    name: "Medical Biotechnology (curriculum içinde 'advanced technologies') — diploma adı: Biotecnologie Mediche"
+    level: master
+    type: curriculum
+    curriculum_of: "Biotecnologie Mediche"
+    degree_class: "LM-9R (İtalyanca sayfa) / LM-9 (İngilizce sayfa — çelişki, doğrulanacak)"
+    campus: "doğrulanacak"
+    notes: "Diploma seçilen curriculum'dan bağımsız olarak 'Biotecnologie Mediche' adıyla çıkıyor"
+    url: "https://www.orientamento.unina.it/corsidistudio/biotecnologie-mediche/"
+
+  - id: msc-chemical-sciences-curriculum
+    name: "Chemical Sciences (curriculum) — diploma adı: Scienze Chimiche"
+    level: master
+    type: curriculum
+    curriculum_of: "Scienze Chimiche"
+    degree_class: "LM-54"
+    campus: "doğrulanacak"
+    notes: "Dil eşiği curriculum'a göre değişiyor: İtalyanca curriculum B1 İngilizce, İngilizce curriculum B2 İngilizce ister"
+    url: "https://www.orientamento.unina.it/corsidistudio/scienze-chimiche/"
+
+  - id: msc-structural-geotechnical-engineering-strega
+    name: "Structural and Geotechnical Engineering (STReGA)"
+    level: master
+    type: curriculum
+    curriculum_of: "Ingegneria Strutturale e Geotecnica"
+    degree_class: "LM-23"
+    campus: "doğrulanacak"
+    notes: "Kendi tanımıyla 'corso di studi bilingue'; Instituto Superior Técnico Lisboa ile çift diploma (1. yıl UNINA, 2. yıl IST)"
+    url: "https://www.orientamento.unina.it/corsidistudio/ingegneria-strutturale-e-geotecnica/"
+
+  - id: msc-mechanical-engineering-design-manufacturing-curriculum
+    name: "Mechanical Engineering for Design and Manufacturing (curriculum: 'Sustainable Development') — diploma adı: Ingegneria Meccanica per la Progettazione e la Produzione"
+    level: master
+    type: curriculum
+    curriculum_of: "Ingegneria Meccanica per la Progettazione e la Produzione"
+    degree_class: "LM-33"
+    campus: "doğrulanacak"
+    notes: "Programın 5 curriculum'undan sadece 'Sustainable Development' İngilizce"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-mechanical-engineering-energy-environment-curriculum
+    name: "Mechanical Engineering for Energy and the Environment (İngilizce curriculum) — diploma adı: Ingegneria Meccanica per l'Energia e l'Ambiente"
+    level: master
+    type: curriculum
+    curriculum_of: "Ingegneria Meccanica per l'Energia e l'Ambiente"
+    degree_class: "LM-33"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-chemical-engineering-curriculum
+    name: "Chemical Engineering (İngilizce curriculum) — diploma adı: Ingegneria Chimica"
+    level: master
+    type: curriculum
+    curriculum_of: "Ingegneria Chimica"
+    degree_class: "LM-22"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-molecular-industrial-biotechnology-curriculum
+    name: "Molecular and Industrial Biotechnology (İngilizce curriculum) — diploma adı: Biotecnologie Molecolari e Industriali"
+    level: master
+    type: curriculum
+    curriculum_of: "Biotecnologie Molecolari e Industriali"
+    degree_class: "LM-8"
+    campus: "doğrulanacak"
+    url: "https://www.orientamento.unina.it/futuri-studenti/offerta-didattica/"
+
+  - id: msc-environmental-sustainability-curriculum
+    name: "Environmental Sustainability (curriculum) — diploma adı: Ingegneria per l'Ambiente e il Territorio"
+    level: master
+    type: curriculum
+    curriculum_of: "Ingegneria per l'Ambiente e il Territorio"
+    degree_class: "LM-35"
+    campus: "doğrulanacak"
+    notes: >
+      DİKKAT: Bu curriculum'un kendine ait bir İngilizce sayfası YOK — sadece İtalyanca ana
+      program sayfasında 'bu curriculum'un eğitimi tamamen İngilizce verilir' notu var.
+      Sofya (Bulgaristan) ortaklı çift diploma. Deep research bu bilgiyi ana (İtalyanca)
+      program sayfasından çekmek zorunda kalacak, bu uncertainty_notes'ta belirtilmeli.
+    url: "https://www.orientamento.unina.it/corsidistudio/ingegneria-per-lambiente-e-il-territorio-lm/"
+
+# ---------------------------------------------------------------
+# KAPSAM DIŞI BIRAKILANLAR (veri setinin eksiksizliği kanıtlansın diye kayıtlı)
+# ---------------------------------------------------------------
+excluded_items:
+  - name: "SEAS 4.0 — Sustainable Ship and Shipping 4.0"
+    reason: >
+      Derin araştırma sonucu çıkarıldı (Kerem onayı, 2026-08-30). İki sebep: (1) artık aktif
+      kabul almıyor — EACEA fonu 4 dönem için verilmişti (2021/22–2024/25), hepsi tükenmiş;
+      sitede "NO Applications for A.Y. 25/26" yazıyor, son kohort Mart 2026'da mezun oluyor.
+      (2) Laurea/Laurea Magistrale derece sınıfı sistemi dışında ("Master universitario di
+      II livello", 90 ECTS) — lisans/yüksek lisans ayrımına oturmuyor. Tam araştırma çıktısı
+      arşiv amaçlı excluded_results/other-seas40-erasmus-mundus.json içinde saklanıyor.
+  - name: "Biology and Ecology of the Marine Environment and Sustainable Use of Marine Resources (LM-6)"
+    reason: "Discontinued — sayfa hâlâ ENG etiketli ama başlıkta 'Corso attivo fino all'A.A. 2020/2021' yazıyor. Yerini Marine Biology and Aquaculture aldı (listede var)."
+  - name: "Innovation and International Management (LM-77 R)"
+    reason: "İsim İngilizce ama resmi dil etiketi 'Lingua ITA' — false positive"
+  - name: "Ingegneria dell'Automazione e Robotica"
+    reason: "İtalyanca program; sadece 2. yıl elective'lerin bir kısmı (18 CFU) İngilizce — 'sadece birkaç İngilizce ders' kategorisi, kapsam dışı"
+  - name: "Economia e Commercio"
+    reason: "İtalyanca lisans; opsiyonel İngilizce pathway var ama tam curriculum/track niteliğinde değil — kapsam dışı"
+  - name: "Giurisprudenza (LMG/01)"
+    reason: "İtalyanca; ~11 İngilizce elective + hukuk İngilizcesi zorunluluğu var ama program İtalyanca — kapsam dışı"
+  - name: "Nursing and Midwifery Sciences – Midwifery Track"
+    reason: "2026/27 için yeni ama eğitim dili İtalyanca; basında yanlışlıkla İngilizce programlarla birlikte anılmış"
+
+# ---------------------------------------------------------------
+# YÜRÜTME AYARLARI (/research-deep bunları okur)
+# ---------------------------------------------------------------
+execution:
+  batch_size: 5          # aynı anda en fazla 5 paralel agent (limit güvenliği)
+  items_per_agent: 1     # her agent tek programı derinlemesine araştırır
+  output_dir: "./results"

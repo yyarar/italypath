@@ -1,0 +1,213 @@
+topic: "University of Turin (UNITO) - İngilizce eğitim veren lisans ve yüksek lisans programları admission requirements"
+generated_date: "2026-09-01"
+
+scope:
+  official_sources_only: true
+  allowed_domains:
+    # www.unito.it, en.unito.it, apply.unito.it/courses/search Cloudflare arkasında (403).
+    # Deep research aşağıdaki bölüm/program mikrositelerini ve apply.unito.it/en_GB/courses/course/<id>
+    # sayfalarını kullanmalı; gerekirse arama motoru cache/snippet üzerinden dolaylı doğrula.
+    - international.unito.it   # resmi "English-Taught Programs" hub + kategori sayfaları
+    - apply.unito.it           # başvuru portalı: /en_GB/courses/course/<id>-<slug> sayfaları (deadline/requirements kaynağı)
+    - unito.it                 # bölüm/program mikrositeleri (*.unito.it, örn. business-management.unito.it, economics.unito.it)
+    - en.unito.it               # kurumsal İngilizce sayfalar (Cloudflare arkasında, dikkatli kullan)
+    - www.unito.it               # genel/offerta formativa sayfaları (Cloudflare arkasında, dikkatli kullan)
+    - digitalskills.polito.it   # İSTİSNA: Digital Skills for Sustainable Societal Transitions - UNITO+PoliTo ortak derecesi,
+                                 # kullanıcı kararıyla dahil edildi (bkz. items altında ilgili not)
+  excluded_domains:
+    - polito.it   # Politecnico di Torino - ayrı üniversite, kapsam dışı (digitalskills.polito.it istisnası hariç)
+  admission_year_priority: "2026/2027 varsa öncelik; yoksa UNITO'nun yayınladığı en güncel resmi yıl"
+  language_scope_note: >
+    UNITO'da üç farklı durum var: (1) tamamen İngilizce program, (2) İtalyanca isimli bir
+    derecenin içinde 1-2 dönemlik İngilizce "pathway/curriculum" (örn. Smart Agriculture,
+    Viticultural and Enological Sciences, Animal Nutrition and Feed Safety, Urban and
+    Political Geography, Philosophy/PIC), (3) UNITO+başka üniversite ortak (interuniversity)
+    dereceler. Pathway programlar kullanıcı kararıyla dahil edildi ancak uncertainty_notes'ta
+    "tam program değil, İngilizce pathway/curriculum" notu düşülmeli. Digital Skills for
+    Sustainable Societal Transitions (UNITO+PoliTo ortak, idari sayfası polito.it) kullanıcı
+    kararıyla dahil edildi. Geosciences for Global Changes and Sustainability ("mainly in
+    English", resmi listede yok) kullanıcı kararıyla kapsam dışı bırakıldı.
+
+items:
+  # ---- LİSANS (bachelor) ----
+  - id: business-and-management-bachelor
+    program_name: "Business and Management"
+    level: bachelor
+    official_program_url: "https://www.business-management.unito.it/do/home.pl"
+    notes: "Dept. of Management. Tamamen İngilizce."
+
+  - id: economics-finance-data-science-bachelor
+    program_name: "Economics and Finance with Data Science"
+    level: bachelor
+    degree_class_hint: "[2302L31]"
+    official_program_url: "https://www.efds.unito.it/"
+    notes: "ESOMAS Dept. Tamamen İngilizce."
+
+  - id: global-law-transnational-legal-studies-bachelor
+    program_name: "Global Law and Transnational Legal Studies"
+    level: bachelor
+    degree_class_hint: "[0707L32]"
+    official_program_url: "https://www.globallaw.unito.it/do/home.pl"
+    notes: "Tamamen İngilizce."
+
+  # ---- TEK AŞAMALI (single-cycle) ----
+  - id: medicine-surgery-medinto-single-cycle
+    program_name: "Medicine and Surgery (MedInTO)"
+    level: single-cycle
+    official_program_url: "https://www.medinto.unito.it/do/home.pl"
+    notes: "6 yıllık tek aşamalı. Restricted access, ulusal/IMAT-tipi giriş sınavı."
+
+  # ---- YÜKSEK LİSANS (master) ----
+  - id: business-administration-master
+    program_name: "Business Administration"
+    level: master
+    official_program_url: "https://www.business-administration.unito.it/do/home.pl"
+
+  - id: economics-master
+    program_name: "Economics"
+    level: master
+    official_program_url: "https://www.economics.unito.it/do/home.pl"
+
+  - id: quantitative-finance-insurance-master
+    program_name: "Quantitative Finance and Insurance"
+    level: master
+    official_program_url: "https://www.finance-insurance.unito.it/do/home.pl"
+    notes: "İlk taslakta 'Finance' olarak geçmişti; resmi adı bu."
+
+  - id: agic-master
+    program_name: "Area and Global Studies for International Cooperation (AGIC)"
+    level: master
+    official_program_url: "https://www.agic.unito.it/do/home.pl"
+
+  - id: economic-analysis-policy-master
+    program_name: "Economic Analysis and Policy"
+    level: master
+    official_program_url: "https://www.eap.unito.it/do/home.pl"
+
+  - id: european-legal-studies-master
+    program_name: "European Legal Studies"
+    level: master
+    official_program_url: "https://www.europeanlegalstudies.unito.it/do/home.pl"
+
+  - id: economics-innovation-sustainable-development-master
+    program_name: "Economics of Innovation for Sustainable Development"
+    level: master
+    official_program_url: "https://www.eisd.unito.it/do/home.pl"
+
+  - id: english-american-studies-master
+    program_name: "English and American Studies"
+    level: master
+    official_program_url: "https://www.lingue.unito.it/do/home.pl/View?doc=/Lauree_Magistrali/english_and_american_studies.html"
+
+  - id: philosophy-pic-master
+    program_name: "Philosophy (Philosophy International Curriculum)"
+    level: master
+    official_program_url: "https://www.pic.unito.it/do/home.pl"
+    notes: "PATHWAY: İtalyanca 'Filosofia' derecesi içinde İngilizce curriculum, tam program değil."
+
+  - id: cultural-heritage-tourism-master
+    program_name: "Cultural Heritage and Creativity for Tourism and Territorial Development"
+    level: master
+    official_program_url: "https://www.culturalheritage.unito.it/do/home.pl"
+
+  - id: language-technologies-digital-humanities-master
+    program_name: "Language Technologies and Digital Humanities"
+    level: master
+    official_program_url: "https://www.digitalhumanities.unito.it/do/home.pl"
+
+  - id: molecular-biotechnology-master
+    program_name: "Molecular Biotechnology"
+    level: master
+    official_program_url: "https://www.molecularbiotechnology.unito.it/do/home.pl"
+
+  - id: biotechnology-neuroscience-master
+    program_name: "Biotechnology for Neuroscience"
+    level: master
+    official_program_url: "https://www.biotechnologyneuroscience.unito.it/do/home.pl"
+    notes: "İlk taslaktaki belirsiz 'International Master in Neuroscience' maddesinin karşılığı."
+
+  - id: biotechnological-chemical-sciences-diagnostics-master
+    program_name: "Biotechnological and Chemical Sciences in Diagnostics"
+    level: master
+    official_program_url: "https://bcsd.campusnet.unito.it/"
+
+  - id: ai-biomedicine-healthcare-master
+    program_name: "Artificial Intelligence for Biomedicine and Healthcare"
+    level: master
+    official_program_url: "https://www.aibh.unito.it/do/home.pl"
+
+  - id: stochastics-data-science-master
+    program_name: "Stochastics and Data Science"
+    level: master
+    official_program_url: "https://www.master-sds.unito.it/do/home.pl"
+
+  - id: cellular-molecular-biology-master
+    program_name: "Cellular and Molecular Biology"
+    level: master
+    official_program_url: "https://cmb.campusnet.unito.it/do/home.pl"
+
+  - id: materials-science-master
+    program_name: "Materials Science"
+    level: master
+    official_program_url: "https://www.materials-science.unito.it/do/home.pl"
+    notes: "apply.unito.it'te 'Materials Science', international portalda 'Material Sciences' yazıyor - deep research'te resmi adı netleştir."
+
+  - id: smart-agriculture-master
+    program_name: "Smart Agriculture"
+    level: master
+    official_program_url: "https://www.sa.unito.it/do/home.pl/View?doc=agricultural_science.html"
+    notes: "PATHWAY: 'Agricultural Science' derecesi içinde curriculum. apply.unito.it: '2 dönem, 30 ECTS her biri İngilizce' - tam iki yıl değil, teaching_language'da netleştir."
+
+  - id: food-science-technology-master
+    program_name: "Food Science and Technology"
+    level: master
+    official_program_url: "https://www.mfs.unito.it/do/home.pl"
+
+  - id: viticultural-enological-sciences-master
+    program_name: "Viticultural and Enological Sciences"
+    level: master
+    official_program_url: "https://www.sve.unito.it/do/home.pl/View?doc=viticulture_and_enology_sciences.html"
+    notes: "PATHWAY: tam program değil, curriculum/pathway."
+
+  - id: animal-nutrition-feed-safety-master
+    program_name: "Animal Nutrition and Feed Safety"
+    level: master
+    official_program_url: "https://en.san.unito.it/do/home.pl"
+    notes: "PATHWAY: 'Animal Science' derecesi içinde curriculum."
+
+  - id: urban-political-geography-master
+    program_name: "Urban and Political Geography"
+    level: master
+    official_program_url: "https://www.geography.unito.it/do/home.pl/View?doc=study_plan.html"
+    notes: "PATHWAY: 'Geography and Territorial Sciences' derecesi içinde curriculum."
+
+  - id: ai-hpc-technologies-master
+    program_name: "Artificial Intelligence and High Performance Computing Technologies"
+    level: master
+    official_program_url: "https://www.aihpc.unito.it/"
+    notes: "2026/27 için yeni program, henüz international.unito.it kategori sayfalarında görünmüyor ama en.unito.it ve apply.unito.it listesinde var. Dept. of Computer Science, tamamen İngilizce."
+
+  - id: digital-skills-sustainable-societal-transitions-master
+    program_name: "Digital Skills for Sustainable Societal Transitions"
+    level: master
+    official_program_url: "https://digitalskills.polito.it/en"
+    notes: "UNITO+Politecnico di Torino ORTAK (interuniversity) derece. UNITO'nun resmi İngilizce program listesinde yer aldığı için kullanıcı kararıyla dahil edildi; idari/başvuru sayfası polito.it alan adında. official_call_url ve deadline bilgisi muhtemelen polito.it üzerinden."
+
+excluded_from_scope:
+  - name: "International Trade, Legality and Corporate Social Responsibility (ITCSR)"
+    reason: "Laurea magistrale olarak bulunamadı. UNITO'da benzer isimli sadece profesyonel 'Master in International Trade Law' var (1./2. seviye master, akademik derece değil) - kapsam dışı."
+  - name: "Data Science for Complex Economic Systems (DSCES / MADAS)"
+    reason: "Collegio Carlo Alberto'ya ait (carloalberto.org), UNITO değil; ayrıca program askıya alınmış."
+  - name: "Physics of Complex Systems"
+    reason: "UNITO'daki 'Fisica dei sistemi complessi' İtalyanca eğitim veriyor. İngilizce 'Physics of Complex Systems' aslında Politecnico di Torino'ya ait - kapsam dışı."
+  - name: "Corporate Communication"
+    reason: "Bu isimde UNITO programı bulunamadı. En yakın 'Communication and Media Cultures' İtalyanca eğitim veriyor."
+  - name: "Global Cultures"
+    reason: "UNITO'da bulunamadı; bu isim Bologna Üniversitesi'ne ait."
+  - name: "Geosciences for Global Changes and Sustainability"
+    reason: "apply.unito.it 'mainly in English' diyor (tam İngilizce değil) ve resmi İngilizce-program listesinde yok. Kullanıcı kararıyla kapsam dışı bırakıldı."
+
+execution:
+  batch_size: 5
+  items_per_agent: 1
+  output_dir: "./results"

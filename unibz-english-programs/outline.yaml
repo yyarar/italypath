@@ -1,0 +1,356 @@
+# UNIBZ (Free University of Bozen-Bolzano) — İngilizce eğitim veren lisans ve yüksek lisans
+# programlarının admission requirements araştırması
+# Oluşturulma: 2026-08-29 | Kaynak kısıtı: sadece resmi unibz.it sayfaları
+
+topic: "UNIBZ İngilizce eğitim veren lisans ve yüksek lisans programları — admission requirements (2026/2027)"
+
+scope:
+  source_restriction: "Sadece unibz.it resmi sayfaları ve unibz.it üzerindeki resmi PDF'ler"
+  academic_year: "2026/2027 öncelikli; bilgi yoksa en güncel resmi yıl kullanılır ve notlanır"
+  language_scope: "Tam İngilizce VE üç dilli (EN/DE/IT) programların tümü dahil; teaching_language alanında ayrım net yazılır"
+  note_program_specific_dates: "Programların kendine özel admission tarihleri olabilir; her programın kendi sayfası ve admission-information PDF'i esas alınır"
+
+research_guidelines:
+  primary_source: "Her programın /assets/CoursesPDF/<slug>_admission-information_en_GB.pdf dosyası HTML sayfadan daha zengin ve tutarlı — öncelikli kaynak bu PDF olmalı"
+  date_format: "unibz tarihleri GG/AA/YYYY yazar (02/03/2026 = 2 Mart). Çıktıda ISO (YYYY-MM-DD) formatına normalize edilecek"
+  session_model: "Başvuru döngüsü 3 kademeli: Early Bird, Late Application (sadece AB), Additional Session (sadece AB, yer kalırsa). AB dışı adayların (yurt dışında yaşayan) tek başvuru penceresi var"
+  parity_of_treatment: "Norveç, İzlanda, Lihtenştayn, İsviçre, San Marino, Vatikan + geçerli çalışma/aile/insani oturum iznine sahip AB dışı vatandaşlar AB gibi işlem görür (öğrenci/turist izni sayılmaz)"
+
+# ---------------------------------------------------------------
+# ITEMS — her İngilizce/üç dilli program ayrı araştırma nesnesi
+# status: active = 2026/27'de açık | suspended = sitede var ama 2026/27'de açılmıyor
+#         external-application = başvuru unibz'ye değil başka üniversiteye yapılıyor
+# ---------------------------------------------------------------
+
+items:
+  # ---------- LİSANS (BACHELOR) ----------
+  - id: bsc-computer-science
+    name: "Bachelor in Computer Science"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "NOI Techpark, Bolzano"
+    degree_class: "L-31"
+    status: active
+    url: "https://www.unibz.it/en/faculties/engineering/bachelor-computer-science"
+
+  - id: bsc-informatics-digital-business
+    name: "Bachelor in Informatics and Management of Digital Business"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "NOI Techpark, Bolzano"
+    degree_class: "L-31"
+    status: active
+    notes: "Yeni program — ilk alım 2026/27"
+    url: "https://www.unibz.it/en/faculties/engineering/bachelor-informatics-management-digital-business"
+
+  - id: bsc-electronic-information-engineering
+    name: "Bachelor in Electronic and Information Engineering"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "NOI Techpark, Bolzano"
+    degree_class: "L-8"
+    status: active
+    notes: "unibz sınavına alternatif olarak TOLC-I veya CENT-S kabul ediliyor"
+    url: "https://www.unibz.it/en/faculties/engineering/bachelor-electronic-information-engineering"
+
+  - id: bsc-industrial-mechanical-engineering
+    name: "Bachelor in Industrial and Mechanical Engineering"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "NOI Techpark, Bolzano"
+    degree_class: "L-9"
+    status: active
+    notes: "3 yıllık standart + 4 yıllık dual-study (işletmede çalışmalı) varyantı var"
+    url: "https://www.unibz.it/en/faculties/engineering/bachelor-industrial-mechanical-engineering"
+
+  - id: bsc-economics-management
+    name: "Bachelor in Economics and Management"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "Bolzano"
+    degree_class: "L-18 (doğrulanacak)"
+    status: active
+    url: "https://www.unibz.it/en/faculties/economics-management/bachelor-economics-management"
+
+  - id: bsc-economics-politics-ethics
+    name: "Bachelor in Economics, Politics and Ethics"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "Bolzano"
+    degree_class: "L-33"
+    status: active
+    url: "https://www.unibz.it/en/faculties/economics-management/bachelor-economics-politics-ethics"
+
+  - id: bsc-tourism-sport-event-management
+    name: "Bachelor in Tourism, Sport and Event Management"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "Bruneck-Brunico"
+    degree_class: "L-18 (doğrulanacak)"
+    status: active
+    url: "https://www.unibz.it/en/faculties/economics-management/bachelor-tourism-sport-event-management"
+
+  - id: bsc-food-enogastronomy
+    name: "Bachelor in Food and Enogastronomy Sciences"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "Bolzano"
+    degree_class: "L-26"
+    status: active
+    notes: "Meran-Merano Belediyesi'nin programa özel bursu var (2026/27: 5 x 1.000 €)"
+    url: "https://www.unibz.it/en/faculties/agricultural-environmental-food-sciences/bachelor-food-enogastronomy-sciences"
+
+  - id: bsc-sustainable-agriculture-forestry
+    name: "Bachelor in Sustainable Agriculture and Forestry in Mountain Environments"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "Bolzano"
+    degree_class: "L-25"
+    status: active
+    notes: "Eski 'Agricultural and Agro-Environmental Sciences' programının yeni adı"
+    url: "https://www.unibz.it/en/faculties/agricultural-environmental-food-sciences/bachelor-sustainable-agriculture-forestry-mountain-environments"
+
+  - id: bsc-design
+    name: "Bachelor in Design and Art — Major in Design"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "Bolzano"
+    degree_class: "L-4"
+    status: active
+    notes: "Major in Art'tan ayrı kontenjan ve ayrı admission (58 AB / 2 AB dışı)"
+    url: "https://www.unibz.it/en/faculties/design-art/bachelor-design"
+
+  - id: bsc-art
+    name: "Bachelor in Design and Art — Major in Art"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "Bolzano"
+    degree_class: "L-4"
+    status: active
+    notes: "Major in Design'dan ayrı kontenjan (38 AB / 2 AB dışı); video/pratik/mülakat 3 aşamalı seçim"
+    url: "https://www.unibz.it/en/faculties/design-art/bachelor-art"
+
+  - id: bsc-communication-sciences-culture
+    name: "Bachelor in Communication Sciences and Culture"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "Brixen-Bressanone"
+    degree_class: "L-20"
+    status: active
+    notes: "Admission: gazete makalesi üzerine mülakat"
+    url: "https://www.unibz.it/en/faculties/education/bachelor-communication-sciences-culture"
+
+  - id: bsc-social-education
+    name: "Bachelor in Social Education"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "Brixen-Bressanone"
+    degree_class: "L-19"
+    status: active
+    notes: "Admission: motivasyon mektubu (maks 6.000 karakter) + mülakat + iş deneyimi puanı"
+    url: "https://www.unibz.it/en/faculties/education/bachelor-social-education"
+
+  - id: bsc-social-work
+    name: "Bachelor in Social Work"
+    level: bachelor
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "Brixen-Bressanone"
+    degree_class: "L-39"
+    status: active
+    notes: "Regüle meslek (devlet sınavı gerekir); mülakat maks 80 + iş deneyimi maks 20 puan"
+    url: "https://www.unibz.it/en/faculties/education/bachelor-social-work"
+
+  - id: bsc-wood-technology
+    name: "Professional Bachelor in Wood Technology"
+    level: bachelor
+    teaching_language: "belirsiz (sayfa sadece Almanca)"
+    campus: "Bolzano (doğrulanacak)"
+    degree_class: "L-P03"
+    status: suspended
+    notes: "2026/27'de AÇILMIYOR — veri setinde 'mevcut değil' olarak yer almalı"
+    url: "https://www.unibz.it/en/faculties/engineering/bachelor-wood-technology"
+
+  # ---------- YÜKSEK LİSANS (MASTER) ----------
+  - id: msc-software-engineering
+    name: "Master in Software Engineering"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "NOI Techpark, Bolzano"
+    degree_class: "LM-18"
+    status: active
+    notes: "Eski 'Software Engineering for Information Systems'ın yeni adı; min not ort. 24/30; Webometrics sıralama bonusu var"
+    url: "https://www.unibz.it/en/faculties/engineering/master-software-engineering"
+
+  - id: msc-computing-data-science
+    name: "Master in Computing for Data Science"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "NOI Techpark, Bolzano"
+    degree_class: "LM-18"
+    status: active
+    notes: "Kapanan MSc Computer Science'ın yerine; AB dışı kontenjan alışılmadık yüksek (30)"
+    url: "https://www.unibz.it/en/faculties/engineering/master-computing-data-science"
+
+  - id: msc-smart-technologies-sports-health
+    name: "Master in Smart Technologies for Sports and Health"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "NOI Techpark, Bolzano"
+    degree_class: "LM-32"
+    status: active
+    notes: "36 ECTS bilgisayar/mühendislik + 18 ECTS matematik/fizik önkoşulu"
+    url: "https://www.unibz.it/en/faculties/engineering/master-smart-technologies-sports-health"
+
+  - id: msc-energy-engineering
+    name: "Master in Energy Engineering"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "NOI Techpark Bolzano + Trento"
+    degree_class: "LM-30"
+    status: active
+    notes: "Min not ort. 22/30; çift diploma: UPC Barcelona, IMT Atlantique"
+    url: "https://www.unibz.it/en/faculties/engineering/master-energy-engineering"
+
+  - id: msc-industrial-mechanical-engineering
+    name: "Master in Industrial Mechanical Engineering"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "NOI Techpark, Bolzano"
+    degree_class: "LM-33"
+    status: active
+    notes: "5 study plan; çift diploma: OvGU Magdeburg, TU Graz"
+    url: "https://www.unibz.it/en/faculties/engineering/master-industrial-mechanical-engineering"
+
+  - id: msc-accounting-finance
+    name: "Master in Accounting and Finance"
+    level: master
+    teaching_language: "üç dilli (IT/DE/EN) — giriş C1 + B2"
+    campus: "Bolzano"
+    degree_class: "LM-77"
+    status: active
+    notes: "Sadece İngilizce bilen aday için fiilen kapalı olabilir; çift diploma: Baruch College CUNY, NYU Stern; GMAT/GRE bonus puanı"
+    url: "https://www.unibz.it/en/faculties/economics-management/master-accounting-finance"
+
+  - id: msc-entrepreneurship-innovation
+    name: "Master in Entrepreneurship and Innovation"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Bolzano"
+    degree_class: "LM-77 (doğrulanacak)"
+    status: active
+    notes: "Startup proje sunumu 100 üzerinden 30 puan; eşik 70/100"
+    url: "https://www.unibz.it/en/faculties/economics-management/master-entrepreneurship-innovation"
+
+  - id: msc-data-analytics-economics-management
+    name: "Master in Data Analytics for Economics and Management"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Bolzano"
+    degree_class: "LM-Data (yeni degree class)"
+    status: active
+    notes: "Yeni 'EDUNEXT' eğitim modeli; koşullu kabulde 140 ECTS istiyor (standart 120 yerine)"
+    url: "https://www.unibz.it/en/faculties/economics-management/master-data-analytics-economics-management"
+
+  - id: msc-public-policy-innovative-governance
+    name: "Master in Public Policy and Innovative Governance"
+    level: master
+    teaching_language: "üç dilli (IT/DE/EN) — giriş C1/B2"
+    campus: "Bolzano"
+    degree_class: "LM-63"
+    status: active
+    notes: "Sadece İngilizce bilen aday için fiilen kapalı olabilir"
+    url: "https://www.unibz.it/en/faculties/economics-management/master-public-policy-innovative-governance"
+
+  - id: msc-environmental-management-mountain-areas
+    name: "Master in Environmental Management of Mountain Areas (EMMA)"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "1. yıl Bolzano, 2. yıl Innsbruck"
+    degree_class: "LM-73"
+    status: active
+    notes: "Innsbruck Üniversitesi ile çift diploma; eşik 55/95"
+    url: "https://www.unibz.it/en/faculties/agricultural-environmental-food-sciences/master-environmental-management-mountain-areas"
+
+  - id: msc-food-sciences-innovation-authenticity
+    name: "Master in Food Sciences for Innovation and Authenticity"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Bolzano"
+    degree_class: "LM-70 (doğrulanacak)"
+    status: active
+    url: "https://www.unibz.it/en/faculties/agricultural-environmental-food-sciences/master-food-sciences-innovation-authenticity"
+
+  - id: msc-smart-sustainable-agriculture
+    name: "Master in Smart Sustainable Agriculture Systems in Mountain Areas"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Bolzano"
+    degree_class: "LM-69"
+    status: active
+    notes: "3. dönem HSWT Weihenstephan-Triesdorf değişimi"
+    url: "https://www.unibz.it/en/faculties/agricultural-environmental-food-sciences/master-smart-sustainable-agriculture-systems-mountain-areas"
+
+  - id: msc-critical-creative-practices
+    name: "Master in Critical Creative Practices"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Bolzano"
+    degree_class: "LM-65"
+    status: active
+    notes: "2 aşamalı seçim: portfolyo + proje önerisi (60p), sonra 15 dk online mülakat (40p); eşik 60/100"
+    url: "https://www.unibz.it/en/faculties/design-art/master-critical-creative-practices"
+
+  - id: msc-eco-social-design
+    name: "Master in Eco-Social Design"
+    level: master
+    teaching_language: "İngilizce (sadece)"
+    campus: "Bolzano"
+    degree_class: "LM-12"
+    status: active
+    url: "https://www.unibz.it/en/faculties/design-art/master-eco-social-design"
+
+  - id: msc-social-work-social-policy
+    name: "Master in Social Work and Social Policy"
+    level: master
+    teaching_language: "üç dilli (IT/DE/EN)"
+    campus: "Brixen-Bressanone"
+    degree_class: "LM-87"
+    status: active
+    url: "https://www.unibz.it/en/faculties/education/master-social-work-social-policy"
+
+  - id: msc-tourism-management
+    name: "Master in Tourism Management"
+    level: master
+    teaching_language: "İngilizce (son açıldığı yılda)"
+    campus: "Bruneck-Brunico (doğrulanacak)"
+    degree_class: "doğrulanacak"
+    status: suspended
+    notes: "2026/27'de AÇILMIYOR — adaylar arayacağı için 'mevcut değil' kaydı önemli"
+    url: "https://www.unibz.it/en/faculties/economics-management/master-tourism-management"
+
+  - id: msc-horticultural-science
+    name: "International Master in Horticultural Science (IMaHS)"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "1.-2. dönem Bologna, 3. dönem Bolzano"
+    degree_class: "doğrulanacak"
+    status: external-application
+    notes: "Başvuru unibz'ye DEĞİL Bologna Üniversitesi'ne yapılıyor — ayrı işaretlenmeli"
+    url: "https://www.unibz.it/en/faculties/agricultural-environmental-food-sciences/master-horticultural-science"
+
+# ---------------------------------------------------------------
+# KAPSAM DIŞI BIRAKILANLAR (veri setinin eksiksizliği kanıtlansın diye kayıtlı)
+# ---------------------------------------------------------------
+excluded_items:
+  - name: "Master in Primary Education (tek döngü, 5 yıl, LM-85bis)"
+    reason: "Eğitim dili İtalyanca/Almanca/Ladince bölümler — İngilizce eğitim yok"
+  - name: "Executive/professional masterlar (7 adet: Fire Safety Engineering, Geo-hydrological Risk, FOAM, HR Management, European Public Administration, EDENSPACES, COST)"
+    reason: "Standart lisans/yüksek lisans admission döngüsünün dışında; kendi ücret/tarih yapıları var. İstenirse ayrı araştırma olarak eklenebilir"
+
+# ---------------------------------------------------------------
+# YÜRÜTME AYARLARI (/research-deep bunları okur)
+# ---------------------------------------------------------------
+execution:
+  batch_size: 5          # aynı anda en fazla 5 paralel agent (limit güvenliği)
+  items_per_agent: 1     # her agent tek programı derinlemesine araştırır
+  output_dir: "./results"

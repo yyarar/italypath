@@ -1,0 +1,79 @@
+# Napoli Federico II araştırması — alan tanımları
+# Kerem'in verdiği 17 alan + açıkça onaylanan 2 ek alan (seats_total, non_eu_reserved_seats).
+# BAŞKA ALAN EKLENMEDİ — Kerem'in talimatı: "Başka ekleme sakın."
+# Derin araştırma aşamasında her program için bu şemaya uygun JSON üretilecek.
+# NOT: validate_json.py `fields: {<category>: [...]}` şeklini zorunlu kılıyor — kategoriler
+# sadece yapısal gruplama, alan sayısını/isimlerini DEĞİŞTİRMEZ (toplam hâlâ 19 alan).
+
+fields:
+  identity:
+    - name: program_name
+      description: "Programın resmi tam adı. type: curriculum olan itemlarda hem İngilizce curriculum adı hem gerçek İtalyanca diploma adı belirtilir."
+      detail_level: brief
+    - name: level
+      description: "bachelor / master / single-cycle / other"
+      detail_level: brief
+    - name: teaching_language
+      description: "Eğitim dili. 'type: curriculum' itemlarda hangi curriculum'un İngilizce olduğu, diğerlerinin İtalyanca olduğu netleştirilir."
+      detail_level: moderate
+    - name: campus
+      description: "Kampüs/lokasyon (Napoli içinde birden fazla kampüs var: Monte Sant'Angelo, Policlinico, Portici, San Giovanni a Teduccio, Frullone vb.)"
+      detail_level: brief
+    - name: degree_class
+      description: "İtalyan degree class kodu (L-7, LM-91 vb.) varsa"
+      detail_level: brief
+
+  admission:
+    - name: admission_type
+      description: "open access / restricted access / TOLC / SAT / selection call / other — birden fazla olabilir"
+      detail_level: moderate
+    - name: academic_requirements
+      description: "Akademik önkoşullar: lise diploması şartları (lisans) veya lisans derecesi + zorunlu kredi/alan şartları (yüksek lisans)"
+      detail_level: detailed
+    - name: entry_exam_or_test
+      description: "Giriş sınavı/testi var mı, hangisi (unina kendi sınavı, TOLC-I, mülakat, portfolyo vb.)"
+      detail_level: detailed
+    - name: seats_total
+      description: "Toplam kontenjan sayısı (varsa). Kerem'in açıkça onayladığı ek alan — Medicine (70), Veterinary (20) gibi programlarda kritik bilgi."
+      detail_level: brief
+    - name: non_eu_reserved_seats
+      description: "AB dışı adaylara ayrılmış kontenjan sayısı (varsa, seats_total'ın alt kırılımı). Kerem'in açıkça onayladığı ek alan."
+      detail_level: brief
+
+  language:
+    - name: language_requirements
+      description: "İngilizce (ve varsa İtalyanca) dil yeterlilik şartları, kabul edilen sertifikalar, seviye eşikleri"
+      detail_level: detailed
+
+  deadlines:
+    - name: application_deadline_eu
+      description: "AB (ve AB muamelesi gören) adaylar için başvuru son tarihi/tarihleri (ISO formata normalize edilir)"
+      detail_level: detailed
+    - name: application_deadline_non_eu
+      description: "AB dışı adaylar için başvuru son tarihi/tarihleri (ISO formata normalize edilir)"
+      detail_level: detailed
+
+  documents_fees:
+    - name: required_documents
+      description: "Başvuru için gerekli belgeler listesi"
+      detail_level: detailed
+    - name: tuition_or_fees_link
+      description: "Harç/ücret bilgisi linki (ve kısa özet)"
+      detail_level: moderate
+
+  sources_meta:
+    - name: official_program_url
+      description: "Resmi program sayfası (unina.it)"
+      detail_level: brief
+    - name: official_call_url
+      description: "Resmi çağrı/bando/rektörlük kararnamesi linki varsa"
+      detail_level: brief
+    - name: source_quotes
+      description: "Kritik iddiaların doğrudan alıntıları (tarih, kontenjan, eşik gibi alanlar için zorunlu)"
+      detail_level: moderate
+    - name: uncertainty_notes
+      description: "Belirsizlikler: çelişen bilgi, eksik sayfa, hangi yılın verisi, diploma adı program adından farklıysa bu da burada tekrar belirtilir"
+      detail_level: moderate
+
+# Derin araştırma aşamasında otomatik doldurulacak belirsiz alanlar (rezerve)
+uncertain: []

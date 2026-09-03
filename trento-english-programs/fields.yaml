@@ -1,0 +1,88 @@
+topic: "University of Trento (UNITN) - İngilizce eğitim veren lisans ve yüksek lisans programları admission requirements"
+
+# Kullanıcı bu alan listesini sabit/kesin olarak verdi. Deep research aşaması
+# sadece bu alanları doldurmalı, yeni alan eklenmemeli.
+# Not: kategoriler (basic_info/admission_info/requirements/links_and_sources)
+# sadece validate_json.py'ın beklediği gruplama için var; program JSON
+# çıktısı düz (flat) alan yapısında kalmalı.
+
+fields:
+  basic_info:
+    - name: program_name
+      description: "Programın resmi (İngilizce) adı"
+      detail_level: brief
+
+    - name: level
+      description: "bachelor / master / single-cycle / other"
+      detail_level: brief
+
+    - name: teaching_language
+      description: >
+        Eğitim dili. Üç durumu ayırt et: (1) tamamen İngilizce, (2) İtalyanca
+        programın İngilizce percorso'su, (3) karma 'English and Italian'.
+        Belirsizse uncertainty_notes'a da yaz.
+      detail_level: moderate
+
+    - name: campus
+      description: "Kampüs (Trento, Rovereto, San Michele all'Adige, vb.)"
+      detail_level: brief
+
+    - name: degree_class
+      description: "İtalyan resmi derece sınıf kodu (L.. / LM..), varsa"
+      detail_level: brief
+
+  admission_info:
+    - name: admission_type
+      description: "open access / restricted access (numero programmato) / TOLC / SAT / selection call / other"
+      detail_level: moderate
+
+    - name: application_deadline_eu
+      description: "EU/eşdeğer başvuru son tarihi (2026/2027 varsa öncelikli, yoksa en güncel resmi yıl)"
+      detail_level: brief
+
+    - name: application_deadline_non_eu
+      description: "Non-EU başvuru son tarihi"
+      detail_level: brief
+
+    - name: entry_exam_or_test
+      description: "Giriş sınavı/testi (TOLC türü, UNITN'in kendi sınavı, mülakat vb.)"
+      detail_level: moderate
+
+  requirements:
+    - name: academic_requirements
+      description: "Akademik ön şartlar: lisans alanı/GPA eşiği, kontenjan sayısı, non-EU kotası vb."
+      detail_level: detailed
+
+    - name: language_requirements
+      description: "İngilizce (ve varsa İtalyanca) dil seviyesi şartları (B2/C1 vb.), muafiyet koşulları"
+      detail_level: detailed
+
+    - name: required_documents
+      description: "Başvuru için istenen belgeler listesi"
+      detail_level: detailed
+
+  links_and_sources:
+    - name: tuition_or_fees_link
+      description: "Ücret/harç bilgisinin bulunduğu resmi sayfa linki"
+      detail_level: brief
+
+    - name: official_program_url
+      description: "Resmi program tanıtım sayfası (orienta.unitn.it / corsi.unitn.it / bölüm sitesi)"
+      detail_level: brief
+
+    - name: official_call_url
+      description: "Resmi başvuru çağrısı (admission call) sayfası veya PDF linki"
+      detail_level: brief
+
+    - name: source_quotes
+      description: "Bulguları destekleyen birebir kaynak alıntıları"
+      detail_level: detailed
+
+    - name: uncertainty_notes
+      description: >
+        Belirsizlik notları: karma dil durumu, interateneo/çift diploma
+        ortaklıkları, resmi listede tutarsız İngilizce işaretleme, erişilemeyen
+        kaynak (WAF/Cloudflare) nedeniyle doğrulanamayan bilgiler vb.
+      detail_level: detailed
+
+uncertain: []

@@ -1,0 +1,134 @@
+{
+  "program_name": "Bachelor in Electronic and Information Engineering (Italian: Ingegneria elettronica e dell'informazione; German: Elektro- und Informationstechnik)",
+  "level": "bachelor",
+  "teaching_language": "Trilingual. The official teaching languages of the programme are German, Italian and English, and courses are taught in all three. unibz does not publish a fixed percentage weighting per language for this programme, and the language of individual courses can change from year to year, so the exact split between EN/IT/DE is not officially quantified. [uncertain] What is officially fixed instead is the position-based language rule: a candidate must hold B2 in whichever of the three is their strongest language and B1 in a second one, and must reach B1 in the third language to be allowed to sit curricular exams held in that language. The study plan additionally contains a 3 CP 'Specialized language (Italian, German or English)' course.",
+  "campus": "NOI Techpark, Bozen-Bolzano (Italy). The Faculty of Engineering is located at the NOI Techpark science and technology park in Bolzano, not at the main Universitatsplatz/piazza Universita campus.",
+  "degree_class": "L-8 (Ingegneria dell'informazione / Information Engineering). Confirmed in both the 2026/27 admission-information PDF and the 2026/27 brochure.",
+  "admission_type": "Restricted access (numerus clausus, fixed number of places) combined with a compulsory entry test. There is no open access, no interview, no portfolio and no motivation letter. Selection is purely test-based: applicants must pass through one of three accepted admission tests (unibz admission exam OR TOLC-I OR CENT-S), and are then ranked by normalised test score against the available places. Language requirements act as a hard pre-filter: applicants who cannot document the required levels are excluded from the procedure before ranking.",
+  "academic_requirements": "A secondary school leaving certificate from the Italian system, or an equivalent qualification obtained abroad. A foreign school leaving certificate is considered equivalent only if obtained after 12 years of education, and the applicant must have attended at least the final two years within that foreign school system (the PDF gives the Irish Leaving Certificate as an example: attending one year and obtaining the certificate is not sufficient). The Italian Ministry of Education, University and Research imposes additional specific requirements on holders of certain certificates, explicitly naming American high school diplomas and British and Greek certificates; such candidates are directed to apply@unibz.it (Advisory Service). No subject-specific prerequisites, no minimum grade average and no ECTS/SSD credit requirements apply (those are master-level concepts). Under national rules a student may be simultaneously enroled in a maximum of 2 study programmes, provided the two do not belong to the same degree class (e.g. not L-18 plus L-18) and differ in at least 2/3 of their course content. Language requirements must be met in addition to the academic qualification.",
+  "language_requirements": "The official teaching languages are German, Italian and English, and language proficiency is a hard admission filter - the PDF is explicit that failing it means 'you will be excluded from the admission procedure'. Requirements are defined by POSITION (first/second/third strongest language), not by which specific language it is. To gain admission: B2 in the first language and B1 in the second; no level is required in the third, though a B1 there is the minimum for sitting curricular exams held in that language. Preference is given to candidates with B2 in their second language. To graduate: C1 in the first language, B2 in the second and B2 in the third. CEFR levels apply throughout. The first language is defined as the one in which the candidate has the highest proficiency (B2 or C1); the third is the weakest, possibly absolute beginner. Certification is mandatory for the first and second language and recommended (from B1 up) for the third. Certificates from an Italian public institution require a self-declaration; those from a foreign public institution require an uploaded scan of the original. Candidates who cannot certify their third language and are admitted must take a placement test and are assigned a learning path; absolute beginners are advised to attend the three-week intensive course in September, because A1 beginner courses are offered ONLY in that pre-semester session and no longer during the academic year. Language Centre courses are free of charge, run as extensive courses (4 h/week) during semesters and intensive courses (8 h/week) between semesters, and target B1 by end of year 1 and B2 by end of year 2. Important caveat for the Additional Application Session: the Language Centre offers no language exams for that session, so applicants must arrive with an external certificate (unibz recommends LanguageCert, TOEFL or IELTS for speed) and cannot attend the September intensive courses.",
+  "application_deadline_eu": {
+    "early_bird": {
+      "start": "2026-03-02",
+      "end": "2026-04-28",
+      "note": "Closes at noon local time. Open to EU citizens and citizens given parity of treatment. Original wording: 'Application: 02/03 - 28/04/2026 (by noon local time)'."
+    },
+    "late_application": {
+      "start": "2026-05-28",
+      "end": "2026-07-08",
+      "note": "Closes at noon local time. EU citizens only. Candidates excluded in the first session may re-apply here, and a test score already obtained remains valid if they re-apply."
+    },
+    "additional_session": {
+      "start": "2026-08-18",
+      "end": "2026-09-04",
+      "note": "Closes at noon local time. EU citizens only, and offered only if places remain. CONFIRMED OPEN for this programme in 2026/27 - the official Additional Application Session page lists 'Bachelor in Electronic and Information Engineering (Application possible)'. Caveats specific to this session: no unibz Language Centre exams are offered, and admitted students cannot attend the September intensive language courses, so third-language beginners are strongly advised to acquire A1 before starting; A1 courses then restart mid-October 2026."
+    }
+  },
+  "application_deadline_non_eu": {
+    "single_window": {
+      "start": "2026-03-02",
+      "end": "2026-04-28",
+      "note": "Closes at noon local time. Non-EU citizens living outside Italy have ONE application window only, coinciding with the Early Bird window; after that deadline it is not possible to apply at all. They are excluded from both the Late Application and the Additional Application Session, both of which are EU-only. This makes the Early Bird window the single hard gate for applicants from outside the EU, including applicants from Turkey who do not hold an Italian residence permit."
+    }
+  },
+  "required_documents": [
+    "Valid ID card or passport, front and back - an invalid, incomplete or unreadable document causes exclusion from the admission procedure",
+    "Completed online application form submitted through the Application Portal (https://aws.unibz.it/exup) by the deadline; once sent it cannot be modified, and forms filled in but not correctly sent are disregarded",
+    "Language certificates or self-declarations proving the required levels, uploaded under 'upload language certificates' (mandatory for 1st and 2nd language, recommended from B1 for the 3rd); alternatively registration for unibz Language Centre exams under 'enrol for language exams'",
+    "Diploma of the qualification, if gained abroad - uploaded at application, or at enrolment if not yet in possession",
+    "For applicants claiming parity of treatment: a copy of the valid Italian permit to stay (or a renewal request if expired) - omitting this reclassifies the applicant as non-EU living abroad",
+    "At enrolment with a foreign secondary school qualification: the secondary school diploma, plus an official Italian translation (not required for diplomas issued in German or English), plus the applicable recognition statements (see credential_recognition)",
+    "For non-EU citizens living abroad: mandatory pre-enrolment on the Universitaly portal after paying the first instalment, and later the residence permit handed in at the Student Office"
+  ],
+  "entry_exam_or_test": {
+    "summary": "Three mutually alternative tests are accepted; the candidate takes ONE of them. All assess mathematics plus a physics/science component. New for a.y. 2026/27: the national CISIA tests TOLC-I and CENT-S became acceptable alongside the in-house unibz exam.",
+    "options": [
+      {
+        "name": "unibz admission exam",
+        "format": "Online, sat remotely on fixed dates set by unibz",
+        "sections_counted_for_ranking": "Mathematics and physics/chemistry",
+        "languages": "Available in German, Italian and English - the official mock test and the topic guidelines are published trilingually, so an English-speaking candidate can sit this test in English",
+        "dates": [
+          "2026-05-14 at 15:00 local time (Early Bird session)",
+          "2026-07-16 at 15:00 local time (Late Application session)",
+          "2026-09-14 at 15:00 local time (Additional Application session)"
+        ],
+        "preparation_materials": [
+          "Mock Admission Test (trilingual, shared with the Bachelor in Industrial and Mechanical Engineering): https://www.unibz.it/assets/Documents/Faculty-Engineering/Mock-Admission-Test-ENG.pdf",
+          "Topics Guidelines for the Admission Test: https://www.unibz.it/assets/Documents/Faculty-Engineering/Topics-Admission-ENG.pdf"
+        ],
+        "syllabus": "Mathematics (secondary-school algebra and geometry: operations with real numbers including logarithms and exponentials, literal calculus, polynomials, equations and inequalities, analytic geometry in the plane, properties of plane and solid figures, areas and volumes, basic set theory); elementary probability (random events, independent events, conditional probability); elementary combinatorics (factorials, permutations, combinations); Physics (mechanics, thermodynamics and electromagnetism: fundamental physical quantities, units, inertia, Newton's laws, action-reaction, ideal gas equation of state, basic electrostatics and magnetostatics, Ohm's law); Chemistry (qualitative knowledge of atoms and molecules, chemical notation, periodic table, ions, definition of pH, acids and bases, basic chemical equations, acid-base reactions, redox reactions)."
+      },
+      {
+        "name": "TOLC-I (CISIA)",
+        "format": "Can be taken at ANY Italian university that offers it; at unibz it is administered in person on published dates. Registration and calendar are handled by CISIA, not unibz.",
+        "sections_counted_for_ranking": "Mathematics and science only (the Logic, Verbal comprehension and English sections are not counted by unibz for this programme's ranking)",
+        "calendar": "https://testcisia.it/calendario.php?tolc=ingegneria",
+        "test_structure_reference": "Per CISIA, TOLC-I consists of 50 questions in 4 sections - Mathematics (20 questions, 50 min), Logic (10, 20 min), Science (10, 20 min), Verbal comprehension (10, 20 min) - totalling 110 minutes, plus a separate 30-question English section in 15 minutes. Scoring on the main sections is +1 correct, 0 blank, -0.25 wrong; the English section carries no penalty. [uncertain] - this structural detail comes from CISIA rather than from unibz.it, and unibz only specifies which sections it counts."
+      },
+      {
+        "name": "CENT-S (CISIA)",
+        "format": "Can be taken at any university offering it; at unibz administered in person on published dates. Registration via CISIA.",
+        "sections_counted_for_ranking": "Mathematics and physics",
+        "calendar": "https://testcisia.it/calendario.php?tolc=cents&l=it&lingua=inglese",
+        "relevance_for_english_speakers": "CENT-S is CISIA's English-language test for the scientific area, which makes it the natural route for a candidate who prefers to test in English. [uncertain] - the English-language framing and the 55-question / 110-minute five-section structure (Mathematics, Reasoning on texts and data, Biology, Chemistry, Physics) come from third-party CISIA-derived sources, not from unibz.it."
+      }
+    ],
+    "note": "unibz states only 'TOLC I / CENT-S admission exam: available deadlines' in each session block and links out to the CISIA calendars, so the CISIA test dates are not fixed by unibz and must be checked on testcisia.it. Candidates must ensure their CISIA result is available to unibz by the relevant application deadline."
+  },
+  "tuition_or_fees_link": "Total EUR 1,200 per academic year, paid in two instalments of EUR 600. The 1st instalment (EUR 600) includes the EUR 16 revenue stamp and is the payment that secures an admitted place by the session deadline. The 2nd instalment (EUR 600) must be paid by March of the following year; late payment incurs a fine, and unpaid fees block exam-taking and any transfer to another university or programme. No refund is due on dropping out, interrupting studies or being excluded - the only refund cases are failing the secondary school final exam or, for non-EU applicants abroad, failing to obtain enrolment documents from the Italian authorities. Full exemption is granted to students with a disability recognised under article 3, paragraph 1 of Law No 104/1992 or a disability of 66% or more (certificate to be handed in at the start of the academic year), and to foreign students holding an Italian government scholarship. Students receiving a scholarship from the Autonomous Province of Bozen-Bolzano are entitled to a refund of tuition fees. Official fees page: https://guide.unibz.it/en/study-career/general-information/fees/",
+  "official_program_url": "https://www.unibz.it/en/faculties/engineering/bachelor-electronic-information-engineering",
+  "official_call_url": "unibz does not publish a separate per-programme call/bando for bachelor admission. The functional equivalents are the admission-information PDF (the operative rules) and the digitally signed ranking-list decrees, which cite the university's Regolamento di ammissione (art. 14 on the formation of ranking lists) and are signed by the Admission Committee: Prof. Marco Frego (President), Prof. Giovanni Modanese and Dr. Manuela Ciocca. The Additional Application Session call is published at https://www.unibz.it/en/applicants/additional-application-session/ . [uncertain] - no standalone English-language admission regulation URL for the Faculty of Engineering could be located on unibz.it; the only admission regulation PDF found was an outdated 2018 Faculty of Education document, which is not applicable here.",
+  "source_quotes": [
+    "Available places - EU citizens and citizens given parity of treatment: 'Early Bird Application: 20 / Late Application: 8'; Non-EU citizens (living abroad): 'Early Bird Application: 2' (admission-information PDF 2026/27)",
+    "'Application: 02/03 - 28/04/2026 (by noon local time)' (Early Bird, admission-information PDF)",
+    "'Application: 28/05 - 08/07/2026 (by noon local time)' (Late Application, EU only)",
+    "'Application: 18/08 - 04/09/2026 (by noon local time)' (Additional Application Session, EU only)",
+    "'unibz admission exam: 14/05/2026 at 15:00 (local time)' / '16/07/2026 at 15:00' / '14/09/2026 at 15:00'",
+    "'Publication of ranking lists: by 27/05/2026' / 'by 30/07/2026' / 'by 18/09/2026'",
+    "'Payment of the 1st instalment of the tuition fees: by 05/06/2026 (by noon local time)' / 'by 06/08/2026' / 'by 25/09/2026'",
+    "'Enrolment: from 10/07 - 06/08/2026 (by noon local time)' (Early Bird)",
+    "'Entry level (to gain admission) 1st language: B2 / 2nd language: B1 / 3rd language: no level required. Preference will be given to candidates with a B2 level in their 2nd language.'",
+    "'Exit level (to graduate) 1st language: C1 / 2nd language: B2 / 3rd language: B2'",
+    "'A B1 level in the third language is the minimum requirement for taking curricular examinations in that specific language.'",
+    "'Applicants may demonstrate their knowledge in these areas through one of the following tests: unibz admission exam ... TOLC I / CENT-S admission exam: the TOLC I / CENT-S admission exam can be taken at any university; at unibz it will be held in person on the dates listed in the Deadlines and Important Dates section.'",
+    "'The ranking is determined based on the score obtained in the admission exam, appropriately normalized to the maximum score of each test, considering the following sections: unibz admission exam: mathematics and physics/chemistry; TOLC-I admission exam: mathematics and science; CENT-S admission exam: mathematics and physics.'",
+    "'Il punteggio e calcolato come segue: 1 punto per ciascuna risposta esatta, 0 punti per ciascuna risposta non data e -0,25 punti per ciascuna risposta errata.' (signed ranking-list decree - scoring rule)",
+    "'In caso di parita nel punteggio, si da priorita alla persona piu giovane.' (tie-break: younger candidate wins)",
+    "'A partire dall'a.a. 2026/2027 viene introdotta la possibilita di utilizzare ai fini dell'ammissione oltre al test di ingresso unibz anche il test nazionale TOLC-I/CENT-S.' (signed ranking-list decree - TOLC-I/CENT-S newly accepted from 2026/27)",
+    "'If the applicant obtains a percentage less than or equal to 30% of the maximum achievable score in the relevant sections of the admission exam, they will be assigned additional learning requirements (OFA) to be fulfilled during the first year of the programme.'",
+    "'If the applicant does not pass the OFA test, they will not be allowed to take the exams scheduled for the second and third year of the programme.'",
+    "'Foreign school leaving certificates are considered equivalent if obtained after 12 years of education. In this case, you furthermore must have attended at least the last two years in the foreign school system.'",
+    "'A permit to stay for study reasons or a visa for tourism is not sufficient.' and 'if you do not upload the permit in the application portal, you will be automatically considered a non-EU citizen living abroad' (parity of treatment)",
+    "'Only one application period is offered. After the deadline it is not possible to apply anymore. Application fee: EUR 50. The fee is an administration fee and is non-refundable.' (non-EU citizens living abroad)",
+    "'Fees amount to EUR 1200 - 1st instalment (EUR 600): includes the revenue stamp of EUR 16. 2nd instalment (EUR 600): must be paid by March of the following year'",
+    "'Sono ammesse e possono immatricolarsi le seguenti 20 persone' (Early Bird EU ranking list - 20 admitted) and 'Sono ammesse e possono immatricolarsi le seguenti 0 persone' (Early Bird non-EU ranking list - 0 admitted)",
+    "'Sono ammesse e possono immatricolarsi le seguenti 13 persone' / 'Non esiste una lista di attesa per questa sessione.' (Late session - 13 admitted, no waiting list)",
+    "'Bachelor in Electronic and Information Engineering (Application possible)' (Additional Application Session page, Faculty of Engineering list, checked 2026-08-29)",
+    "'the unibz Language Centre does not offer language exams for this application session. If you need to provide proof of your English language proficiency ... we recommend obtaining a LanguageCert, TOEFL or IELTS certificate' (Additional Application Session page)",
+    "'International language certificates must not be older than five years before the date of their submission.' and 'DAAD certificates are not recognised.' (University Council Resolution 16/2026)",
+    "'If no overall result and/or level is stated on the certificate, the lowest level reached in one of the subskills is decisive for determining the level' (Resolution 16/2026)",
+    "'Places available: 28 EU + 2 Non-EU' (2026/27 brochure, At a glance - equals 20 Early Bird + 8 Late)",
+    "'Students can apply for a scholarship to the Ufficio per il diritto allo studio universitario and they may be able to obtain - depending on their income - between EUR 1,680 and EUR 6,960 per year.'"
+  ],
+  "uncertainty_notes": [
+    "Data year: all figures are the 2026/27 cycle. The primary source PDF carries 'Latest update: 29.07.2026' and states 'Subject to change'. Verified 2026-08-29.",
+    "Timing caveat: at the verification date the Early Bird and Late sessions were already closed with signed ranking lists published, and only the Additional Application Session (EU citizens only, closing 2026-09-04) remained open. Any Turkish or other non-EU applicant living abroad has already missed the 2026/27 cycle entirely and must target 2027/28.",
+    "Apparent conflict resolved: the brochure headline '28 EU + 2 Non-EU' initially looks inconsistent with the PDF's '20 / 8 / 2', but 28 is simply the EU total (20 Early Bird + 8 Late). Both the admission PDF and the live programme page were checked against the raw HTML to confirm 20 / 8 / 2.",
+    "Teaching-language weighting: unibz publishes no percentage split of EN/IT/DE teaching for this programme, and course languages can vary by year and by lecturer, so 'trilingual' cannot be quantified from official sources.",
+    "No numeric admission cut-off exists in the public record: the signed ranking lists publish Applicant IDs only, never scores, so competitiveness can only be inferred from admitted-versus-waitlisted counts (Early Bird 20 admitted + 3 waitlisted; Late 13 admitted + no waitlist).",
+    "No minimum qualifying score is published for this programme. Scoring at or below 30% does not exclude a candidate; it triggers OFA. The inference that no exclusion threshold exists rests on the silence of both the admission PDF and the ranking decrees.",
+    "Additional Application Session place count is not published as a number - the Faculty opens it only where places remain, so the size of the remaining pool is unknown.",
+    "Shared faculty documents: the linked Mock Admission Test and Topics Guidelines PDFs are headed 'Bachelor in Industrial and Mechanical Engineering'. The mock test explicitly also names 'Bachelor in Electronic and Information Engineering' in its trilingual header, so it is genuinely shared; the Topics PDF names only Industrial and Mechanical Engineering in its heading despite being linked from this programme's page, so its syllabus is taken as applicable but the heading is a documentation inconsistency on unibz's side.",
+    "TOLC-I and CENT-S structural details (question counts, durations, section names, CENT-S being CISIA's English-language scientific test) come from CISIA and CISIA-derived third-party sources, not from unibz.it, which specifies only which sections it counts and links to the CISIA calendars. These fall outside the outline's unibz.it-only source restriction and are flagged inline.",
+    "Provincial study-grant amounts (EUR 1,680-6,960) are set annually by the Autonomous Province of Bozen-Bolzano; the figure is the one currently published by unibz but may be revised for 2026/27.",
+    "The 20 hours/week student work limit noted in the field brief is Italian national immigration law and was not restated on any unibz page consulted for this programme.",
+    "No official English-language Faculty of Engineering admission regulation URL could be located; the ranking decrees cite a 'Regolamento di ammissione' art. 14 without linking it.",
+    "Accessibility judgement: 'effectively-closed' for English-only candidates is a derived assessment, not an official unibz label. It follows from the binding B2+B1 two-language rule plus the observed 2026/27 outcome in which every non-EU applicant was excluded on language grounds."
+  ],
+  "uncertain": [
+    "teaching_language",
+    "entry_exam_or_test",
+    "official_call_url"
+  ]
+}

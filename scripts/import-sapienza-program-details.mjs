@@ -1,19 +1,47 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
-import { basename, join, resolve } from "node:path";
+import { basename, resolve, join } from "node:path";
 import { createClient } from "@supabase/supabase-js";
 
+// Sapienza VERIFICATION-round importer (September 2026). Replaces the June 2026
+// importer (see git history): the June research was judged unreliable, all 23
+// detailed programs were re-researched from scratch against a FIXED dept_id list
+// (no new departments, no renames, no level fixes). This script overwrites the
+// existing program_admission_details rows for exactly these 23 departments.
+// Old rows were exported to tmp/uni-research/sapienza-old-details/ beforehand
+// for the old-vs-new diff report.
 const SAPIENZA_UNIVERSITY_ID = 2;
 const EXPECTED_SOURCE_FILE_COUNT = 23;
-const SOURCE_GENERATED_AT = "2026-06-03";
-const RESULTS_DIR = resolve(
-  process.cwd(),
-  "sapienza-english-program-admission-requirements/results"
-);
+const SOURCE_GENERATED_AT = "2026-09-02";
+const RESULTS_DIR = resolve(process.cwd(), "sapienza-english-program-admission-requirements/results");
 const OUTPUT_DIR = resolve(process.cwd(), "output");
-const REPORT_PATH = resolve(OUTPUT_DIR, "sapienza-program-details-import-report.json");
-const PAGE_SIZE = 1000;
-const VALID_LEVELS = new Set(["bachelor", "master", "single-cycle"]);
-const VALID_LANGUAGES = new Set(["en", "it"]);
+const REPORT_PATH = resolve(OUTPUT_DIR, "sapienza-verification-import-report.json");
+
+// Fixed mapping: source JSON file -> existing university_departments row.
+const FILE_TO_DEPARTMENT = new Map([
+  ["Applied_Computer_Science_and_Artificial_Intelligence.json", { id: 249, level: "bachelor" }],
+  ["Bioinformatics.json", { id: 250, level: "bachelor" }],
+  ["Molecular_Biology_Medicinal_Chemistry_and_Computer_Science_for_Pharmaceutical_Applications.json", { id: 256, level: "bachelor" }],
+  ["Nursing.json", { id: 257, level: "bachelor" }],
+  ["Sustainable_Building_Engineering.json", { id: 259, level: "bachelor" }],
+  ["Astrophysics_and_Cosmology.json", { id: 538, level: "master" }],
+  ["Artificial_Intelligence_and_Robotics.json", { id: 541, level: "master" }],
+  ["Business_Management.json", { id: 543, level: "master" }],
+  ["Cognitive_Neuroscience.json", { id: 546, level: "master" }],
+  ["Computer_Science.json", { id: 547, level: "master" }],
+  ["Control_Engineering.json", { id: 548, level: "master" }],
+  ["Cybersecurity.json", { id: 550, level: "master" }],
+  ["Data_Science.json", { id: 551, level: "master" }],
+  ["Economics.json", { id: 554, level: "master" }],
+  ["European_Studies.json", { id: 563, level: "master" }],
+  ["Health_Economics.json", { id: 568, level: "master" }],
+  ["Physics.json", { id: 574, level: "master" }],
+  ["Product_and_Service_Design.json", { id: 575, level: "master" }],
+  ["Space_and_Astronautical_Engineering.json", { id: 578, level: "master" }],
+  ["Transport_Systems_Engineering.json", { id: 580, level: "master" }],
+  ["Statistical_Methods_and_Applications.json", { id: 581, level: "master" }],
+  ["Engineering_in_Computer_Science_and_Artificial_Intelligence.json", { id: 1182, level: "master" }],
+  ["Medicine_and_Surgery.json", { id: 1183, level: "single-cycle" }],
+]);
 
 const mode = parseMode(process.argv.slice(2));
 
@@ -23,613 +51,384 @@ function parseMode(args) {
   if (unknownArgs.length > 0) {
     throw new Error(`Unknown argument(s): ${unknownArgs.join(", ")}`);
   }
-
   const wantsDryRun = args.includes("--dry-run");
   const wantsApply = args.includes("--apply");
   if (wantsDryRun && wantsApply) {
     throw new Error("Use either --dry-run or --apply, not both.");
   }
-
   return wantsApply ? "apply" : "dry-run";
 }
 
 function loadDotenvLocal() {
   const envPath = resolve(process.cwd(), ".env.local");
   if (!existsSync(envPath)) return;
-
   const lines = readFileSync(envPath, "utf8").split(/\r?\n/);
   for (const line of lines) {
     const trimmed = line.trim();
     if (!trimmed || trimmed.startsWith("#")) continue;
-
     const separatorIndex = trimmed.indexOf("=");
     if (separatorIndex === -1) continue;
-
     const key = trimmed.slice(0, separatorIndex).trim();
     const value = trimmed.slice(separatorIndex + 1).trim().replace(/^['"]|['"]$/g, "");
-    if (key && !process.env[key]) {
-      process.env[key] = value;
-    }
+    if (key && !process.env[key]) process.env[key] = value;
   }
 }
 
 function createSupabaseClient() {
   loadDotenvLocal();
-
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey =
     mode === "apply"
-      ? process.env.SUPABASE_SERVICE_ROLE_KEY
+      ? process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY
       : process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
   if (!supabaseUrl || !supabaseKey) {
     throw new Error(
       mode === "apply"
-        ? "NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required for --apply."
+        ? "NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY or SUPABASE_SECRET_KEY are required for --apply."
         : "NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are required."
     );
   }
-
-  return createClient(supabaseUrl, supabaseKey, {
-    auth: {
-      persistSession: false,
-      autoRefreshToken: false,
-    },
-  });
+  return createClient(supabaseUrl, supabaseKey, { auth: { persistSession: false, autoRefreshToken: false } });
 }
 
-function normalizeName(value) {
+function humanizeKey(value) {
   return value
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/_/g, " ")
+    .replace(/\s+/g, " ")
     .trim()
-    .replace(/\s+/g, " ");
+    .replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
-function collapseWhitespace(value) {
-  return value.trim().replace(/\s+/g, " ");
-}
-
-function canonicalDepartmentName(value) {
-  return collapseWhitespace(value.replace(/\s*\[[^\]]+\]\s*$/, ""));
-}
-
-function createSlug(value) {
-  return normalizeName(value).replace(/\s+/g, "-");
-}
-
-function normalizeLevel(value) {
-  const trimmed = value.trim();
-  const withoutMarker = trimmed.replace(/\s*\[[^\]]+\]\s*$/g, "").trim();
-  if (VALID_LEVELS.has(withoutMarker)) return withoutMarker;
-  throw new Error(`Invalid level: ${value}`);
-}
-
-function normalizeLanguages(rawTeachingLanguage) {
-  const text = rawTeachingLanguage.toLowerCase();
-  const languages = [];
-
-  if (/\bita\b/.test(text) || text.includes("italian")) languages.push("it");
-  if (/\beng\b/.test(text) || text.includes("english")) languages.push("en");
-
-  return [...new Set(languages.filter((language) => VALID_LANGUAGES.has(language)))];
-}
-
-function durationForLevel(level) {
-  if (level === "single-cycle") return 6;
-  if (level === "master") return 2;
-  return 3;
-}
-
-function assertStringRecord(record, field, file) {
-  if (typeof record[field] !== "string" || record[field].trim().length === 0) {
-    throw new Error(`${file} has missing ${field}`);
-  }
-}
-
-function assertArray(record, field, file) {
-  if (!Array.isArray(record[field])) {
-    throw new Error(`${file} has non-array ${field}`);
-  }
-}
-
-function optionalText(value) {
+// This research round produced rich nested objects for the prose columns
+// (admission_type, academic_requirements, language_requirements, deadlines,
+// entry_exam_or_test). The DB columns are text and the dossier UI renders text,
+// so flatten the FULL object into "Key: value" lines — unlike the Genoa
+// importer's summary-only shortcut, nothing is dropped except source_url keys
+// (URLs live in the dedicated URL columns and in source_quotes).
+function flattenText(value) {
   if (value == null) return null;
-
   if (typeof value === "string") {
     const trimmed = value.trim();
     return trimmed || null;
   }
-
   if (Array.isArray(value)) {
-    const normalized = value.map(optionalText).filter(Boolean);
+    const normalized = value.map(flattenText).filter(Boolean);
     return normalized.length > 0 ? normalized.join("; ") : null;
   }
-
   if (typeof value === "object") {
-    if (typeof value.summary === "string") {
-      return optionalText(value.summary);
-    }
-
     const entries = Object.entries(value)
-      .filter(([key]) => key !== "sources")
+      .filter(([key]) => !["source_url", "sources"].includes(key))
       .map(([key, itemValue]) => {
-        const normalized = optionalText(itemValue);
-        return normalized ? `${key}: ${normalized}` : null;
+        const normalized = flattenText(itemValue);
+        return normalized ? `${humanizeKey(key)}: ${normalized}` : null;
       })
       .filter(Boolean);
-
-    return entries.length > 0 ? entries.join("; ") : null;
+    return entries.length > 0 ? entries.join("\n") : null;
   }
-
   return String(value);
 }
 
-function normalizeStringArray(value) {
-  if (!Array.isArray(value)) return [];
-
-  return value.flatMap((item) => {
-    const normalized = optionalText(item);
-    return normalized ? [normalized] : [];
-  });
+function requiredFlatText(value, field, file) {
+  const text = flattenText(value);
+  if (!text) throw new Error(`${file} is missing required field: ${field}`);
+  return text;
 }
 
-function normalizeSourceQuotes(value) {
-  if (!Array.isArray(value)) return [];
+function formatDocument(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return flattenText(value);
+  }
+  const documentName = flattenText(value.document_name);
+  const stage = flattenText(value.stage);
+  const requiredFor = flattenText(value.required_for);
+  const notes = flattenText(value.notes);
+  const context = [stage, requiredFor].filter(Boolean).join(" · ");
+  if (documentName && context && notes) return `${documentName} (${context}): ${notes}`;
+  if (documentName && context) return `${documentName} (${context})`;
+  if (documentName && notes) return `${documentName}: ${notes}`;
+  if (documentName) return documentName;
+  return flattenText(value);
+}
 
-  return value.flatMap((item) => {
+function normalizeDocumentArray(value, file) {
+  // Some agent runs wrote one long descriptive paragraph instead of a list;
+  // wrap it as a single-element array (full text preserved, no invented splits).
+  if (typeof value === "string" && value.trim()) return [value.trim()];
+  if (!Array.isArray(value) || value.length === 0) {
+    throw new Error(`${file} has empty/invalid required_documents`);
+  }
+  const items = value.map(formatDocument).filter(Boolean);
+  if (items.length === 0) throw new Error(`${file} required_documents normalized to empty`);
+  return items;
+}
+
+function normalizeSourceQuotes(value, officialProgramUrl, file) {
+  if (!Array.isArray(value) || value.length === 0) {
+    throw new Error(`${file} has empty/invalid source_quotes`);
+  }
+  const quotes = value.flatMap((item) => {
+    // Variant A: plain string with the source URL embedded inline
+    // ("'quote text' - https://..."). Keep the full text as the quote and
+    // attribute it to the first URL found in it (fallback: official page).
+    if (typeof item === "string") {
+      const text = item.trim();
+      if (!text) return [];
+      const urlMatch = text.match(/https?:\/\/[^\s)"'|]+/);
+      const url = urlMatch ? urlMatch[0].replace(/[.,;:)\]}]+$/, "") : officialProgramUrl;
+      return [{ url, quote: text, field_refs: [], retrieved_at: SOURCE_GENERATED_AT }];
+    }
     if (!item || typeof item !== "object") return [];
-
-    const quote = typeof item.quote === "string" ? item.quote.trim() : "";
+    // Variant B: object with quote / source_url (+ optional context, field_supported).
+    const baseQuote = typeof item.quote === "string" ? item.quote.trim() : "";
+    const context = typeof item.context === "string" ? item.context.trim() : "";
+    const quote = baseQuote && context ? `${baseQuote} [${context}]` : baseQuote;
     const url =
-      typeof item.url === "string"
+      typeof item.url === "string" && item.url.trim()
         ? item.url.trim()
-        : typeof item.source_url === "string"
+        : typeof item.source_url === "string" && item.source_url.trim()
           ? item.source_url.trim()
-          : "";
+          : officialProgramUrl;
     const fieldRefs = Array.isArray(item.field_refs)
       ? item.field_refs
-      : Array.isArray(item.supports_fields)
-        ? item.supports_fields
+      : typeof item.field_supported === "string"
+        ? item.field_supported.split(",").map((s) => s.trim())
         : [];
-    const retrievedAt =
-      typeof item.retrieved_at === "string" && item.retrieved_at.trim()
-        ? item.retrieved_at.trim()
-        : SOURCE_GENERATED_AT;
-
-    if (!quote || !url) return [];
-
+    if (!quote) return [];
     return [
       {
         url,
         quote,
-        field_refs: normalizeStringArray(fieldRefs),
-        retrieved_at: retrievedAt,
+        field_refs: fieldRefs.filter((ref) => typeof ref === "string" && ref.length > 0),
+        retrieved_at: SOURCE_GENERATED_AT,
       },
     ];
   });
+  if (quotes.length === 0) throw new Error(`${file} source_quotes normalized to empty`);
+  return quotes;
 }
 
-function loadSourcePrograms() {
+function normalizeStringArray(value, field, file) {
+  // uncertainty_notes came back as one long string in some agent runs.
+  if (typeof value === "string" && value.trim()) return [value.trim()];
+  if (!Array.isArray(value)) throw new Error(`${file} has non-array ${field}`);
+  return value.map(flattenText).filter(Boolean);
+}
+
+function deriveLevelCategory(value, file) {
+  const text = flattenText(value);
+  if (!text) throw new Error(`${file} is missing required field: level`);
+  const lower = text.toLowerCase();
+  if (lower.startsWith("single-cycle") || lower.startsWith("single cycle")) return "single-cycle";
+  if (lower.startsWith("master")) return "master";
+  if (lower.startsWith("bachelor")) return "bachelor";
+  throw new Error(`${file} has unrecognized level: ${text.slice(0, 80)}`);
+}
+
+function loadSourceFiles() {
   const files = readdirSync(RESULTS_DIR)
     .filter((file) => file.endsWith(".json"))
     .sort((a, b) => a.localeCompare(b));
-
+  if (files.length !== EXPECTED_SOURCE_FILE_COUNT) {
+    throw new Error(`Expected ${EXPECTED_SOURCE_FILE_COUNT} Sapienza source files, found ${files.length}`);
+  }
   return files.map((file) => {
-    const absolutePath = join(RESULTS_DIR, file);
-    const record = JSON.parse(readFileSync(absolutePath, "utf8"));
-
-    for (const field of ["program_name", "level", "teaching_language", "official_program_url"]) {
-      assertStringRecord(record, field, file);
+    const record = JSON.parse(readFileSync(join(RESULTS_DIR, file), "utf8"));
+    for (const field of ["program_name", "teaching_language", "official_program_url"]) {
+      if (typeof record[field] !== "string" || !record[field].trim()) {
+        throw new Error(`${file} is missing required field: ${field}`);
+      }
     }
-
-    for (const field of ["required_documents", "source_quotes", "uncertain", "uncertainty_notes"]) {
-      assertArray(record, field, file);
-    }
-
-    const level = normalizeLevel(record.level);
-    const rawProgramName = record.program_name;
-    const sourceProgramName = collapseWhitespace(rawProgramName);
-    const departmentName = canonicalDepartmentName(sourceProgramName);
-    if (!departmentName) {
-      throw new Error(`${file} has empty canonical department name`);
-    }
-
-    return {
-      file,
-      rawProgramName,
-      sourceProgramName,
-      departmentName,
-      normalizedSourceName: normalizeName(sourceProgramName),
-      normalizedName: normalizeName(departmentName),
-      level,
-      rawLevel: record.level.trim(),
-      teachingLanguage: record.teaching_language.trim(),
-      languages: normalizeLanguages(record.teaching_language),
-      durationYears: durationForLevel(level),
-      raw: record,
-    };
+    if (!Array.isArray(record.uncertain)) throw new Error(`${file} has non-array uncertain`);
+    return { file, record, level: deriveLevelCategory(record.level, file) };
   });
 }
 
-async function fetchAllRows(supabase, tableName, columns, buildQuery) {
-  const rows = [];
-
-  for (let from = 0; ; from += PAGE_SIZE) {
-    const to = from + PAGE_SIZE - 1;
-    let query = supabase.from(tableName).select(columns);
-    query = buildQuery ? buildQuery(query) : query;
-
-    const { data, error } = await query.range(from, to);
-    if (error) throw new Error(`Failed to fetch ${tableName}: ${error.message}`);
-
-    const page = data ?? [];
-    rows.push(...page);
-    if (page.length < PAGE_SIZE) return rows;
-  }
+async function fetchDepartments(supabase) {
+  const { data, error } = await supabase
+    .from("university_departments")
+    .select("id,name,level")
+    .eq("university_id", SAPIENZA_UNIVERSITY_ID);
+  if (error) throw new Error(`Failed to fetch Sapienza departments: ${error.message}`);
+  return data ?? [];
 }
 
-async function fetchSapienzaDepartments(supabase) {
-  return fetchAllRows(
-    supabase,
-    "university_departments",
-    "id,university_id,name,slug,languages,duration_years,level,sort_order",
-    (query) =>
-      query
-        .eq("university_id", SAPIENZA_UNIVERSITY_ID)
-        .order("sort_order", { ascending: true })
-        .order("name", { ascending: true })
-  );
-}
-
-function identityKey(name, level) {
-  return `${normalizeName(canonicalDepartmentName(name))}::${level}`;
-}
-
-function duplicateWarnings(records, describeRecord, groupByRecord, subject) {
-  const byKey = new Map();
-  const warnings = [];
-
-  for (const record of records) {
-    const key = groupByRecord(record);
-    const list = byKey.get(key) ?? [];
-    list.push(record);
-    byKey.set(key, list);
-  }
-
-  for (const [key, recordsForKey] of byKey) {
-    if (recordsForKey.length < 2) continue;
-
-    warnings.push(
-      `Duplicate ${subject} for ${key}: ${recordsForKey.map(describeRecord).join("; ")}`
-    );
-  }
-
-  return warnings;
-}
-
-function nextSlug(baseSlug, usedSlugs, level) {
-  if (!usedSlugs.has(baseSlug)) return baseSlug;
-
-  const levelSlug = `${baseSlug}-${level}`;
-  if (!usedSlugs.has(levelSlug)) return levelSlug;
-
-  for (let index = 2; ; index += 1) {
-    const candidate = `${levelSlug}-${index}`;
-    if (!usedSlugs.has(candidate)) return candidate;
-  }
-}
-
-function createPlan(sourcePrograms, dbDepartments) {
-  const byName = new Map();
-  const usedSlugs = new Set(dbDepartments.map((department) => department.slug));
-  const maxSortOrder = dbDepartments.reduce(
-    (max, department) =>
-      Number.isFinite(department.sort_order) ? Math.max(max, department.sort_order) : max,
-    0
-  );
-
-  for (const department of dbDepartments) {
-    const key = normalizeName(canonicalDepartmentName(department.name));
-    const list = byName.get(key) ?? [];
-    list.push(department);
-    byName.set(key, list);
-  }
-
-  const matchedExisting = [];
-  const newDepartments = [];
-  const detailRows = [];
-  const programPlans = [];
-  const duplicateNameDifferentLevel = [];
-  const warnings = [];
-
-  if (sourcePrograms.length !== EXPECTED_SOURCE_FILE_COUNT) {
-    warnings.push(
-      `Expected ${EXPECTED_SOURCE_FILE_COUNT} source JSON files but found ${sourcePrograms.length}.`
-    );
-  }
-  warnings.push(
-    ...duplicateWarnings(
-      sourcePrograms,
-      (source) => `${source.file} (${source.sourceProgramName}, ${source.level})`,
-      (source) => identityKey(source.departmentName, source.level),
-      "source program canonical name + level"
+async function fetchExistingAdmissionDetails(supabase, departmentIds) {
+  if (departmentIds.length === 0) return [];
+  const { data, error } = await supabase
+    .from("program_admission_details")
+    .select(
+      "department_id,university_id,raw_program_name,raw_level,raw_teaching_language,campus,degree_class,admission_type,academic_requirements,language_requirements,application_deadline_eu,application_deadline_non_eu,required_documents,entry_exam_or_test,tuition_or_fees_link,official_program_url,official_call_url,source_quotes,uncertain,uncertainty_notes,source_file"
     )
-  );
-  warnings.push(
-    ...duplicateWarnings(
-      dbDepartments,
-      (department) => `${department.id}:${department.name} (${department.slug}, ${department.level})`,
-      (department) => identityKey(department.name, department.level),
-      "existing department canonical name + level"
-    )
-  );
+    .eq("university_id", SAPIENZA_UNIVERSITY_ID)
+    .in("department_id", departmentIds);
+  if (error) throw new Error(`Failed to fetch existing admission details: ${error.message}`);
+  return data ?? [];
+}
 
-  for (const source of sourcePrograms) {
-    const candidates = byName.get(source.normalizedName) ?? [];
-    let department = candidates.find((candidate) => candidate.level === source.level);
-    let action = "matched-existing";
+function buildPlan(sourceFiles, departments) {
+  const warnings = [];
+  const departmentById = new Map(departments.map((d) => [d.id, d]));
+  const resolvedRows = [];
 
-    if (department) {
-      matchedExisting.push({
-        id: department.id,
-        name: department.name,
-        slug: department.slug,
-        level: source.level,
-        sourceFile: source.file,
-        rawProgramName: source.rawProgramName,
-        sourceProgramName: source.sourceProgramName,
-        canonicalDepartmentName: source.departmentName,
-      });
-    } else {
-      const baseSlug = createSlug(source.departmentName);
-      const slug = nextSlug(baseSlug, usedSlugs, source.level);
-      usedSlugs.add(slug);
-
-      const sortOrder = maxSortOrder + newDepartments.length + 1;
-      department = {
-        id: null,
-        university_id: SAPIENZA_UNIVERSITY_ID,
-        name: source.departmentName,
-        slug,
-        languages: source.languages.length > 0 ? source.languages : ["en"],
-        duration_years: source.durationYears,
-        level: source.level,
-        sort_order: sortOrder,
-      };
-      newDepartments.push({
-        ...department,
-        sourceFile: source.file,
-        rawProgramName: source.rawProgramName,
-        sourceProgramName: source.sourceProgramName,
-        canonicalDepartmentName: source.departmentName,
-      });
-      action = "new-department";
+  for (const { file, record, level } of sourceFiles) {
+    const mapping = FILE_TO_DEPARTMENT.get(file);
+    if (!mapping) {
+      warnings.push(`No department mapping defined for source file: ${file}`);
+      continue;
     }
-
-    if (candidates.length > 0 && !candidates.some((candidate) => candidate.level === source.level)) {
-      duplicateNameDifferentLevel.push({
-        name: source.departmentName,
-        rawProgramName: source.rawProgramName,
-        sourceProgramName: source.sourceProgramName,
-        sourceLevel: source.level,
-        existingLevels: candidates.map((candidate) => candidate.level),
-        sourceFile: source.file,
-      });
+    const department = departmentById.get(mapping.id);
+    if (!department) {
+      warnings.push(`${file}: expected department id=${mapping.id} not found in DB`);
+      continue;
     }
-
-    programPlans.push({
-      sourceFile: source.file,
-      rawProgramName: source.rawProgramName,
-      sourceProgramName: source.sourceProgramName,
-      canonicalDepartmentName: source.departmentName,
-      canonicalNameChanged: source.sourceProgramName !== source.departmentName,
-      normalizedName: source.normalizedName,
-      normalizedSourceName: source.normalizedSourceName,
-      level: source.level,
-      rawLevel: source.rawLevel,
-      rawLevelNormalized: source.rawLevel !== source.level,
-      action,
-      departmentId: department.id,
-      departmentName: department.name,
-      departmentSlug: department.slug,
-    });
-
-    detailRows.push({
-      source,
-      department,
-    });
+    if (department.level !== mapping.level) {
+      warnings.push(`${file}: DB department level "${department.level}" != expected "${mapping.level}"`);
+    }
+    if (level !== mapping.level) {
+      warnings.push(`${file}: source level "${level}" does not match department level "${mapping.level}"`);
+    }
+    resolvedRows.push({ file, record, departmentId: mapping.id, departmentName: department.name });
   }
 
-  const sourceIdentityKeys = new Set(
-    sourcePrograms.map((source) => identityKey(source.departmentName, source.level))
-  );
-  const existingWithoutSource = dbDepartments
-    .filter((department) => !sourceIdentityKeys.has(identityKey(department.name, department.level)))
-    .map((department) => ({
-      id: department.id,
-      name: department.name,
-      slug: department.slug,
-      level: department.level,
-    }));
+  const mappedFiles = new Set(FILE_TO_DEPARTMENT.keys());
+  for (const { file } of sourceFiles) {
+    if (!mappedFiles.has(file)) warnings.push(`Unexpected source file (not in fixed mapping): ${file}`);
+  }
 
   return {
     universityId: SAPIENZA_UNIVERSITY_ID,
-    sourceFiles: sourcePrograms.length,
-    existingDepartments: dbDepartments.length,
-    matchedExisting,
-    newDepartments,
-    duplicateNameDifferentLevel,
-    existingWithoutSource,
-    detailRows,
-    programPlans,
+    sourceFileCount: sourceFiles.length,
+    resolvedRows,
     warnings,
   };
 }
 
-function toDetailPayload(source, departmentId) {
+function toDetailPayload(record, departmentId, file) {
+  const officialProgramUrl = record.official_program_url.trim();
   return {
     department_id: departmentId,
     university_id: SAPIENZA_UNIVERSITY_ID,
-    raw_program_name: source.raw.program_name,
-    raw_level: source.raw.level,
-    raw_teaching_language: source.raw.teaching_language,
-    campus: optionalText(source.raw.campus),
-    degree_class: optionalText(source.raw.degree_class),
-    admission_type: optionalText(source.raw.admission_type),
-    academic_requirements: optionalText(source.raw.academic_requirements),
-    language_requirements: optionalText(source.raw.language_requirements),
-    application_deadline_eu: optionalText(source.raw.application_deadline_eu),
-    application_deadline_non_eu: optionalText(source.raw.application_deadline_non_eu),
-    required_documents: normalizeStringArray(source.raw.required_documents),
-    entry_exam_or_test: optionalText(source.raw.entry_exam_or_test),
-    tuition_or_fees_link: optionalText(source.raw.tuition_or_fees_link),
-    official_program_url: source.raw.official_program_url,
-    official_call_url: optionalText(source.raw.official_call_url),
-    source_quotes: normalizeSourceQuotes(source.raw.source_quotes),
-    uncertain: normalizeStringArray(source.raw.uncertain),
-    uncertainty_notes: normalizeStringArray(source.raw.uncertainty_notes),
-    source_file: source.file,
+    raw_program_name: record.program_name.trim(),
+    raw_level: requiredFlatText(record.level, "level", file),
+    raw_teaching_language: record.teaching_language.trim(),
+    campus: flattenText(record.campus),
+    degree_class: flattenText(record.degree_class),
+    admission_type: flattenText(record.admission_type),
+    academic_requirements: flattenText(record.academic_requirements),
+    language_requirements: flattenText(record.language_requirements),
+    application_deadline_eu: flattenText(record.application_deadline_eu),
+    application_deadline_non_eu: flattenText(record.application_deadline_non_eu),
+    required_documents: normalizeDocumentArray(record.required_documents, file),
+    entry_exam_or_test: flattenText(record.entry_exam_or_test),
+    tuition_or_fees_link: flattenText(record.tuition_or_fees_link),
+    official_program_url: officialProgramUrl,
+    official_call_url: flattenText(record.official_call_url),
+    source_quotes: normalizeSourceQuotes(record.source_quotes, officialProgramUrl, file),
+    uncertain: normalizeStringArray(record.uncertain, "uncertain", file),
+    uncertainty_notes: normalizeStringArray(record.uncertainty_notes, "uncertainty_notes", file),
+    source_file: file,
+    // Overwrite-imports must stamp these explicitly: the table has no trigger,
+    // so an upsert would otherwise leave the previous import's timestamps.
+    imported_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
   };
 }
 
-function toDepartmentPayload(department) {
-  return {
-    university_id: department.university_id,
-    name: department.name,
-    slug: department.slug,
-    languages: department.languages,
-    duration_years: department.duration_years,
-    level: department.level,
-    sort_order: department.sort_order,
-  };
+function buildPreview(plan) {
+  return plan.resolvedRows.map(({ file, record, departmentId, departmentName }) => {
+    try {
+      const payload = toDetailPayload(record, departmentId, file);
+      return {
+        file,
+        departmentId,
+        departmentName,
+        raw_program_name: payload.raw_program_name.slice(0, 80),
+        official_program_url: payload.official_program_url,
+        official_call_url: payload.official_call_url?.slice(0, 120) ?? null,
+        source_quotes_count: payload.source_quotes.length,
+        required_documents_count: payload.required_documents.length,
+        uncertain_count: payload.uncertain.length,
+      };
+    } catch (error) {
+      return { file, departmentId, error: error instanceof Error ? error.message : String(error) };
+    }
+  });
+}
+
+function validatePayloadsBuildCleanly(plan) {
+  const errors = [];
+  for (const { file, record, departmentId } of plan.resolvedRows) {
+    try {
+      toDetailPayload(record, departmentId, file);
+    } catch (error) {
+      errors.push(`${file}: payload build failed — ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+  return errors;
 }
 
 async function applyPlan(supabase, plan) {
-  let mutated = false;
+  const departmentIds = plan.resolvedRows.map((r) => r.departmentId);
+  const admissionSnapshot = await fetchExistingAdmissionDetails(supabase, departmentIds);
+  if (admissionSnapshot.length !== departmentIds.length) {
+    throw new Error(
+      `Expected ${departmentIds.length} existing admission rows to overwrite, found ${admissionSnapshot.length}. Aborting (this import only replaces existing rows).`
+    );
+  }
+
+  const detailPayloads = plan.resolvedRows.map(({ file, record, departmentId }) =>
+    toDetailPayload(record, departmentId, file)
+  );
 
   try {
-    if (plan.newDepartments.length > 0) {
-      const { error } = await supabase
-        .from("university_departments")
-        .insert(plan.newDepartments.map(toDepartmentPayload));
-      if (error) throw new Error(`Failed to insert departments: ${error.message}`);
-      mutated = true;
-    }
-
-    const refreshedDepartments = await fetchSapienzaDepartments(supabase);
-    const departmentByKey = new Map(
-      refreshedDepartments.map((department) => [
-        identityKey(department.name, department.level),
-        department,
-      ])
-    );
-
-    const detailPayloads = plan.detailRows.map(({ source }) => {
-      const department = departmentByKey.get(identityKey(source.departmentName, source.level));
-      if (!department?.id) {
-        throw new Error(`Cannot resolve department id for ${source.departmentName} (${source.level})`);
-      }
-      return toDetailPayload(source, department.id);
-    });
-
-    const { error } = await supabase
+    const { error: upsertError } = await supabase
       .from("program_admission_details")
       .upsert(detailPayloads, { onConflict: "department_id" });
-    if (error) throw new Error(`Failed to upsert admission details: ${error.message}`);
-
-    await verifyApplyResult(supabase, detailPayloads);
+    if (upsertError) throw new Error(`Failed to upsert admission details: ${upsertError.message}`);
+    return { detailUpserts: detailPayloads.length, overwrittenRows: admissionSnapshot.length };
   } catch (error) {
-    if (mutated) {
-      await rollbackPlan(supabase, plan);
-    }
+    await supabase.from("program_admission_details").upsert(admissionSnapshot, { onConflict: "department_id" });
     throw error;
   }
 }
 
-async function rollbackPlan(supabase, plan) {
-  if (plan.newDepartments.length === 0) return;
-
-  const slugs = plan.newDepartments.map((department) => department.slug);
-  const { error } = await supabase
-    .from("university_departments")
-    .delete()
-    .eq("university_id", SAPIENZA_UNIVERSITY_ID)
-    .in("slug", slugs);
-  if (error) {
-    throw new Error(`Apply failed, and rollback also failed for new departments: ${error.message}`);
-  }
-}
-
-async function verifyApplyResult(supabase, detailPayloads) {
-  const departmentIds = detailPayloads.map((detail) => detail.department_id);
-  const { data, error } = await supabase
-    .from("program_admission_details")
-    .select("department_id")
-    .eq("university_id", SAPIENZA_UNIVERSITY_ID)
-    .in("department_id", departmentIds);
-
-  if (error) {
-    throw new Error(`Failed to verify admission detail upsert: ${error.message}`);
-  }
-
-  const foundDepartmentIds = new Set((data ?? []).map((detail) => detail.department_id));
-  for (const departmentId of departmentIds) {
-    if (!foundDepartmentIds.has(departmentId)) {
-      throw new Error(`Missing admission details after apply for department ${departmentId}`);
-    }
-  }
-}
-
-function reportForOutput(plan) {
+function reportForOutput(plan, applyResult = null) {
   return {
-    universityId: plan.universityId,
     mode,
-    sourceFiles: plan.sourceFiles,
-    existingDepartments: plan.existingDepartments,
-    matchedExisting: plan.matchedExisting.length,
-    matchedExistingDetails: plan.matchedExisting,
-    newDepartments: plan.newDepartments.map(({ sourceFile, ...department }) => ({
-      ...department,
-      sourceFile,
-    })),
-    duplicateNameDifferentLevel: plan.duplicateNameDifferentLevel,
-    existingWithoutSource: plan.existingWithoutSource,
-    programPlans: plan.programPlans,
-    specialChecks: {
-      singleCycle: plan.programPlans.filter((programPlan) => programPlan.level === "single-cycle"),
-      newBachelorProgrammes: plan.programPlans.filter(
-        (programPlan) => programPlan.level === "bachelor" && programPlan.action === "new-department"
-      ),
-      rawLevelNormalized: plan.programPlans.filter((programPlan) => programPlan.rawLevelNormalized),
-    },
+    universityId: plan.universityId,
+    sourceFileCount: plan.sourceFileCount,
+    resolvedRowCount: plan.resolvedRows.length,
+    resolvedRows: plan.resolvedRows.map((r) => ({ file: r.file, departmentId: r.departmentId, departmentName: r.departmentName })),
     warnings: plan.warnings,
+    preview: plan.preview,
+    applied: applyResult,
   };
 }
 
 async function main() {
   mkdirSync(OUTPUT_DIR, { recursive: true });
-
   const supabase = createSupabaseClient();
-  const sourcePrograms = loadSourcePrograms();
-  const dbDepartments = await fetchSapienzaDepartments(supabase);
-  const plan = createPlan(sourcePrograms, dbDepartments);
-  const report = reportForOutput(plan);
+  const sourceFiles = loadSourceFiles();
+  const departments = await fetchDepartments(supabase);
+  const plan = buildPlan(sourceFiles, departments);
+  plan.warnings.push(...validatePayloadsBuildCleanly(plan));
+  plan.preview = buildPreview(plan);
+  let report = reportForOutput(plan);
 
   writeFileSync(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`);
   console.log(JSON.stringify(report, null, 2));
 
   if (mode === "apply") {
     if (plan.warnings.length > 0) {
-      throw new Error(
-        `Refusing --apply because the import plan has warnings: ${plan.warnings.join(" | ")}`
-      );
+      throw new Error(`Refusing --apply because the import plan has warnings: ${plan.warnings.join(" | ")}`);
     }
-    await applyPlan(supabase, plan);
-    console.log(`[OK] Applied ${sourcePrograms.length} Sapienza program details.`);
+    if (plan.resolvedRows.length !== EXPECTED_SOURCE_FILE_COUNT) {
+      throw new Error(`Refusing --apply: resolved ${plan.resolvedRows.length}/${EXPECTED_SOURCE_FILE_COUNT} rows.`);
+    }
+    const applyResult = await applyPlan(supabase, plan);
+    report = reportForOutput(plan, applyResult);
+    writeFileSync(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`);
+    console.log(`[OK] Overwrote ${applyResult.detailUpserts} Sapienza program details with verification data.`);
   } else {
     console.log(`[OK] Dry run complete. Review ${basename(REPORT_PATH)} before --apply.`);
   }

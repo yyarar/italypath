@@ -1,251 +1,109 @@
-schema_name: "sapienza_english_program_admission_requirements"
-schema_version: "1.0"
-generated_at: "2026-06-03"
-output_format:
-  type: "json_object_per_program"
-  required_fields:
-    - program_name
-    - level
-    - teaching_language
-    - campus
-    - degree_class
-    - admission_type
-    - academic_requirements
-    - language_requirements
-    - application_deadline_eu
-    - application_deadline_non_eu
-    - required_documents
-    - entry_exam_or_test
-    - tuition_or_fees_link
-    - official_program_url
-    - official_call_url
-    - source_quotes
-    - uncertainty_notes
-  empty_value_policy: "Use null only when an official Sapienza source was checked and the value is not found. Use uncertainty_notes to explain."
-  citation_policy:
-    - "Every populated requirement, deadline, test, document, and fee field should include official Sapienza source URLs (uniroma1.it or corsidilaurea.uniroma1.it)."
-    - "source_quotes must contain short quotes from official Sapienza sources only."
-    - "If a value is inferred from catalogue tags, source the catalogue and mark the inference."
+# Field definitions for the deep-research phase.
+# Each programme (item in outline.yaml) must be researched into one JSON object
+# carrying the fields below. Use ONLY official Sapienza University of Rome
+# sources (see outline.yaml source_policy).
+#
+# VERIFICATION ROUND: do not anchor on any prior/cached value for these fields
+# (June 2026 dataset, tmp/uni-research/db-snapshots, etc.) — re-derive each
+# one from the current official page. Leave a field empty ("") and add a note
+# in uncertainty_notes rather than guessing when official information cannot
+# be confirmed.
+#
+# Structure: field_categories is a LIST of { category, description, fields: [...] }
+# so it validates directly with ~/.claude/skills/research/validate_json.py.
+# Mirrors university-of-genoa-english-program-admission-requirements/fields.yaml
+# (the proven 17-field template used across this research project).
 
 field_categories:
-  - category: "Program Identity"
-    description: "Stable identity fields for matching each result to one official Sapienza degree programme."
-    fields:
-      - name: "program_name"
-        type: "string"
-        detail_level: "brief"
-        description: "Official programme name exactly as shown in the Sapienza corsidilaurea.uniroma1.it catalogue."
-      - name: "level"
-        type: "enum"
-        allowed_values: ["bachelor", "master", "single-cycle", "other"]
-        detail_level: "brief"
-        description: "Normalized degree level. Use bachelor for Laurea Triennale, master for Laurea Magistrale, single-cycle when the official source explicitly treats the programme as single-cycle (e.g. Medicine and Surgery)."
-      - name: "official_level_type"
-        type: "string"
-        detail_level: "moderate"
-        description: "Official Sapienza wording such as Laurea, Laurea Magistrale, Laurea Magistrale a ciclo unico."
-      - name: "teaching_language"
-        type: "string"
-        detail_level: "brief"
-        description: "Official language tag from the catalogue — 'English', 'Italian/English', or 'English/Italian'."
-      - name: "partially_english_flag"
-        type: "boolean"
-        detail_level: "brief"
-        description: "True if Sapienza categorizes this as 'partially English' (bilingual) rather than entirely English. Sapienza distinguishes ~51 fully English from ~10 partially English."
-      - name: "campus"
-        type: "string_or_array"
-        detail_level: "brief"
-        description: "Campus or location. Sapienza has multiple campuses in Rome (Città Universitaria, San Lorenzo, Policlinico, etc.)."
-      - name: "degree_class"
-        type: "string_or_null"
-        detail_level: "moderate"
-        description: "Italian degree class (classe di laurea) if available from the programme page or official call (e.g. L-31, LM-32, LM-41)."
-      - name: "course_code"
-        type: "string_or_null"
-        detail_level: "moderate"
-        description: "Sapienza internal numeric course code (e.g. 30893 for Medicine English). Useful for disambiguation since several programmes share names with Italian versions."
-      - name: "faculty"
-        type: "string_or_null"
-        detail_level: "brief"
-        description: "Official Sapienza faculty or department name."
-      - name: "official_program_url"
-        type: "url"
-        detail_level: "brief"
-        description: "Official Sapienza programme page URL on corsidilaurea.uniroma1.it or faculty subdomain."
 
-  - category: "Admission Classification"
-    description: "How admission works for the programme and applicant route."
+  - category: identity
+    description: "What the programme is and where it sits."
     fields:
-      - name: "admission_type"
-        type: "enum_or_string"
-        allowed_values: ["open access", "restricted access", "TOLC-I", "SAT", "IMAT", "selection call", "MoveIN pre-selection", "filter semester", "portfolio/evaluation", "oral exam", "other"]
-        detail_level: "moderate"
-        description: "Primary admission mechanism. If multiple mechanisms apply, list all and explain by applicant route. Sapienza distinguishes open-access, restricted-access (with TOLC-I or selection), and MoveIN pre-selection for non-EU applicants."
-      - name: "movein_preselection_required"
-        type: "boolean_or_null"
-        detail_level: "moderate"
-        description: "Whether the programme requires MoveIN online pre-selection for non-EU applicants residing abroad. This is the primary non-EU route for most Sapienza English programmes."
-      - name: "admission_test_type"
-        type: "string_or_null"
-        detail_level: "detailed"
-        description: "Specific test type: TOLC-I (CISIA), SAT General Test (College Board), IMAT, oral exam, portfolio, CV+motivation letter evaluation, or programme-specific test."
-      - name: "applicant_route"
-        type: "array"
-        detail_level: "detailed"
-        description: "Applicant routes covered: Italian qualification, EU qualification, non-EU residing in Italy, non-EU residing abroad (MoveIN route), visa-required."
-      - name: "application_platform"
-        type: "string_or_null"
-        detail_level: "moderate"
-        description: "Official application channel: Infostud (Sapienza student portal), MoveIN platform, Universitaly, or programme-specific portal."
-      - name: "access_quota_non_eu"
-        type: "string_or_null"
-        detail_level: "moderate"
-        description: "Reserved places quota for non-EU applicants residing abroad, as stated in the official Call for Applications. Sapienza sets per-programme non-EU quotas."
-      - name: "application_round"
-        type: "array_or_string_or_null"
-        detail_level: "moderate"
-        description: "Admission round or call name: September intake, February intake, 1st call, 2nd call, or MoveIN pre-selection window."
-      - name: "intake_semester_availability"
-        type: "string_or_null"
-        detail_level: "moderate"
-        description: "Whether the programme has September intake, February intake, or both."
-      - name: "places_and_foreign_contingent"
-        type: "string_or_null"
-        detail_level: "detailed"
-        description: "Total available places, international quota, and non-EU contingent as officially published in the Call."
-      - name: "official_call_url"
-        type: "url_or_null"
-        detail_level: "brief"
-        description: "Official Sapienza Call for Applications PDF or page URL governing this programme for 2026-2027."
-      - name: "faculty_call_pdf_url"
-        type: "url_or_null"
-        detail_level: "moderate"
-        description: "Faculty-specific Call PDF URL on corsidilaurea.uniroma1.it documenti_ufficiali — more specific than the central call page."
+      - name: program_name
+        required: true
+        description: "Exact official programme name as currently published by Sapienza."
+        detail_level: brief
+      - name: level
+        required: true
+        description: "One of: bachelor | master | single-cycle | other."
+        detail_level: brief
+      - name: teaching_language
+        required: true
+        description: "Language of instruction (e.g. English; English and Italian). State explicitly; this confirms in-scope status."
+        detail_level: brief
+      - name: campus
+        required: true
+        description: "City / campus where the programme is delivered (e.g. Roma, Latina, Rieti, Pomezia)."
+        detail_level: brief
+      - name: degree_class
+        required: true
+        description: "Italian degree class code if published (e.g. L-8, LM-32). Leave empty if not stated."
+        detail_level: brief
 
-  - category: "Academic Requirements"
-    description: "Prior qualification, curricular, and merit requirements."
+  - category: admission
+    description: "How a student gets in."
     fields:
-      - name: "academic_requirements"
-        type: "object_or_string"
-        detail_level: "detailed"
-        description: "Academic eligibility requirements: secondary-school diploma and years of schooling for Laurea, first-level university degree and ECTS/curricular rules for Laurea Magistrale, programme-specific prerequisites. Source primarily from MoveIN academic requirements PDF for non-EU applicants."
-      - name: "country_specific_eligibility"
-        type: "string_or_null"
-        detail_level: "detailed"
-        description: "Country-specific qualification, minimum GPA, statement, diploma, or validation requirements from the MoveIN academic requirements PDF."
-      - name: "curricular_integration_policy"
-        type: "string_or_null"
-        detail_level: "detailed"
-        description: "Policy for curricular gaps, integrations, or required credits before enrolment."
-      - name: "conditional_enrolment_policy"
-        type: "string_or_null"
-        detail_level: "moderate"
-        description: "Rules for applicants who have not yet completed their diploma/degree by enrolment date."
+      - name: admission_type
+        required: true
+        description: "One of: open access | restricted access | TOLC | SAT | selection call | other. Capture the actual access mechanism."
+        detail_level: moderate
+      - name: academic_requirements
+        required: true
+        description: "Required prior qualifications, minimum CGPA/grade thresholds, required prior credits (CFU) or subject background."
+        detail_level: detailed
+      - name: language_requirements
+        required: true
+        description: "Required English level (e.g. B2) and accepted proofs (IELTS/TOEFL scores, English-medium instruction certificate, exemptions)."
+        detail_level: detailed
+      - name: entry_exam_or_test
+        required: true
+        description: "Any required test/exam (TOLC, SAT, admission test, interview) with thresholds if stated."
+        detail_level: moderate
 
-  - category: "Language Requirements"
-    description: "English language obligations for admission."
+  - category: deadlines
+    description: "When to apply. Prioritise A.Y. 2026/2027. Programmes may publish their own programme-specific dates on their own pages — check there before falling back to the general Sapienza international admissions calendar."
     fields:
-      - name: "language_requirements"
-        type: "object_or_string"
-        detail_level: "detailed"
-        description: "English language level requirements (minimum B2 CEFR for most Sapienza English programmes), accepted certificates (IELTS, TOEFL, Cambridge, etc.), exemptions, minimum scores, and expiration rules."
-      - name: "language_submission_timing"
-        type: "string_or_null"
-        detail_level: "moderate"
-        description: "When language certification must be submitted — at MoveIN pre-selection, at application, or by enrolment."
-      - name: "italian_language_requirement"
-        type: "string_or_null"
-        detail_level: "moderate"
-        description: "Whether Italian language proficiency is required or recommended for students admitted to English-taught programmes (e.g. for daily life or optional Italian modules)."
+      - name: application_deadline_eu
+        required: true
+        description: "Application deadline(s) for EU / resident applicants. Note session/round if applicable."
+        detail_level: moderate
+      - name: application_deadline_non_eu
+        required: true
+        description: "Application deadline(s) for non-EU applicants requiring a visa, including any programme-specific early closure."
+        detail_level: moderate
 
-  - category: "Deadlines and Fees"
-    description: "Application and enrolment timing, separated by route wherever official pages distinguish them."
+  - category: documents_and_fees
+    description: "What to submit and what it costs."
     fields:
-      - name: "application_deadline_eu"
-        type: "object_or_string_or_null"
-        detail_level: "detailed"
-        description: "Application and/or enrolment deadlines for EU, EEA, or Italy-resident applicants. EU applicants without visa requirement can typically apply until 31 July 2026."
-      - name: "application_deadline_non_eu"
-        type: "object_or_string_or_null"
-        detail_level: "detailed"
-        description: "Application and/or enrolment deadlines for non-EU applicants residing abroad who need a visa. MoveIN pre-selection deadline is 15 May 2026 for 2026-2027."
-      - name: "application_fee"
-        type: "string_or_null"
-        detail_level: "moderate"
-        description: "Application fee as stated by official Sapienza sources. Standard fee is €30 per application, max 2 applications per candidate per intake."
-      - name: "visa_preenrolment_deadline"
-        type: "string_or_null"
-        detail_level: "moderate"
-        description: "MoveIN or Universitaly pre-enrolment deadline for non-EU applicants requiring a visa."
-      - name: "tuition_or_fees_link"
-        type: "url_or_null"
-        detail_level: "brief"
-        description: "Official Sapienza tuition fees, costs, or scholarship URL. General page: https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits"
-      - name: "academic_year"
-        type: "string_or_null"
-        detail_level: "brief"
-        description: "Academic year of the governing source (e.g. 2026-2027 or 2025-2026). Tag explicitly because deadlines and admission rules change year to year."
+      - name: required_documents
+        required: true
+        description: "List of documents needed for the application (transcripts, degree, CV, motivation letter, declaration of value, etc.)."
+        detail_level: detailed
+      - name: tuition_or_fees_link
+        required: true
+        description: "Official URL to tuition / fees information for the programme (link only; do not invent amounts)."
+        detail_level: brief
 
-  - category: "Documents"
-    description: "Documents required for application, admission, and enrolment."
+  - category: sourcing
+    description: "Provenance and confidence."
     fields:
-      - name: "required_documents"
-        type: "array_or_string"
-        detail_level: "detailed"
-        description: "Required documents: diploma, transcript, passport/ID, language certificate, CV, motivation letter, Declaration of Value (DoV), CIMEA statement, Diploma Supplement, translations, or programme-specific documents."
-      - name: "document_translation_authentication"
-        type: "string_or_null"
-        detail_level: "moderate"
-        description: "Official translation, legalized/apostilled document, CIMEA Statement, Declaration of Value, or authentication requirement for foreign documents."
+      - name: official_program_url
+        required: true
+        description: "Canonical CURRENT official programme page. May differ from the June 2026 seed URL in outline.yaml — confirm and use the current one."
+        detail_level: brief
+      - name: official_call_url
+        required: true
+        description: "URL of the official admission call / bando / selection page for this programme or its degree level."
+        detail_level: brief
+      - name: source_quotes
+        required: true
+        description: "Short verbatim quotes from official pages backing the key fields (especially requirements and deadlines), each with its source URL."
+        detail_level: detailed
+      - name: uncertainty_notes
+        required: true
+        description: "Anything unconfirmed, conflicting, or assumed — including if the programme appears discontinued, moved, or no longer English-taught. Cite evidence links, do not guess."
+        detail_level: moderate
 
-  - category: "Tests and Selection"
-    description: "Entrance exam, admission test, alternative test, interview, and selection mechanics."
-    fields:
-      - name: "entry_exam_or_test"
-        type: "object_or_string_or_null"
-        detail_level: "detailed"
-        description: "Required or accepted test: TOLC-I (CISIA), SAT General Test (College Board), IMAT (Medicine), oral exam, portfolio, CV+motivation letter review, or programme-specific selection test."
-      - name: "test_variant_and_session"
-        type: "string_or_null"
-        detail_level: "moderate"
-        description: "Specific test variant, session date/window, online/in-person mode, and registration window."
-      - name: "test_score_conversion_or_threshold"
-        type: "string_or_null"
-        detail_level: "detailed"
-        description: "Minimum score, score threshold, or ranking rule."
-
-  - category: "Evidence and Uncertainty"
-    description: "Traceability controls for deep research outputs."
-    fields:
-      - name: "source_quotes"
-        type: "array"
-        detail_level: "detailed"
-        description: "Short direct quotes from official Sapienza pages or PDFs, each with source URL and field(s) supported."
-        item_shape:
-          quote: "string"
-          source_url: "url"
-          supports_fields: "array"
-      - name: "source_urls_checked"
-        type: "array"
-        detail_level: "moderate"
-        description: "Official URLs checked for this programme, including pages that did not contain the target field."
-      - name: "source_year"
-        type: "string_or_null"
-        detail_level: "brief"
-        description: "Academic year of the governing source, prioritizing 2026/2027."
-      - name: "uncertainty_notes"
-        type: "array"
-        detail_level: "detailed"
-        description: "Reserved field for unresolved issues: English status unverified, name approximate, 2026-2027 page unavailable, Medicine admission reform unresolved, inferred values, or conflicting official sources."
-
-uncertain:
-  reserved_field: "uncertainty_notes"
-  common_uncertainties_to_check:
-    - "2026/2027 Call not yet published — latest available year used."
-    - "Programme is listed as partially English (bilingual); English teaching scope unclear."
-    - "Medicine and Surgery (Course F): IMAT vs. filter-semester reform status for 2026-2027 unresolved."
-    - "Programme URL not retrieved during preliminary research — must confirm on English-filtered catalogue."
-    - "Industrial Pharmacy: verify it is a Laurea Magistrale and not a Master universitario."
-    - "MoveIN pre-selection deadline (15 May 2026) is the non-EU binding deadline; EU deadline is 31 July 2026."
-    - "Non-EU quota per programme not yet extracted — must check each programme's Call PDF."
-    - "Programme may be Italian-only; English status must be confirmed on corsidilaurea.uniroma1.it with English filter applied."
+# Reserved field, auto-filled during deep research to flag which fields per item
+# could not be confirmed from official sources.
+uncertain: []

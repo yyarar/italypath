@@ -1,0 +1,247 @@
+topic: "University of Trento (UNITN) - İngilizce eğitim veren lisans ve yüksek lisans programları admission requirements"
+generated_date: "2026-08-31"
+
+scope:
+  official_sources_only: true
+  allowed_domains:
+    # www.unitn.it ve corsi.unitn.it doğrudan Cloudflare/AWS WAF arkasında (403/405).
+    # Deep research bu alt alan adlarını kullanmalı; corsi.unitn.it linkleri
+    # gerektiğinde arama motoru cache/snippet üzerinden veya orienta/webapps
+    # üzerinden dolaylı doğrulanmalı.
+    - orienta.unitn.it        # resmi 2026/2027 tam program listesi (L/LM kodları, numero programmato işareti)
+    - webapps.unitn.it        # Apply portalı: canlı başvuru pencereleri ve son tarihler
+    - disi.unitn.it           # Dip. Informatica: bachelor/master listeleri
+    - dii.unitn.it            # Dip. Ingegneria Industriale: master listesi
+    - dicam.unitn.it
+    - cibio.unitn.it
+    - economia.unitn.it
+    - giurisprudenza.unitn.it
+    - sociologia.unitn.it
+    - sis.unitn.it            # School of International Studies
+    - centro3a.unitn.it       # C3A - Agriculture, Food and Environment
+    - corsi.unitn.it          # program detay sayfaları (WAF arkasında, dikkatli kullan)
+    - www.unitn.it            # genel sayfalar (Cloudflare arkasında, dikkatli kullan)
+  admission_year_priority: "2026/2027 varsa öncelik; yoksa UNITN'in yayınladığı en güncel resmi yıl"
+  language_scope_note: >
+    UNITN'de üç farklı durum var: (1) tamamen İngilizce program, (2) İtalyanca
+    bir programın İngilizce "percorso"su (örn. 4 lisans programı), (3) resmi
+    listede İngilizce işaretli ama program sayfasında "English and Italian"
+    yazan karma programlar (Civil Engineering, Environmental and Land
+    Engineering, Global Affairs). Karma programlar item listesine dahil edildi
+    ancak uncertainty_notes'ta açıkça işaretlenmeli; nihai kapsam kararı
+    deep-research sonrası verilecek.
+
+items:
+  # ---- LİSANS (bachelor) ----
+  - id: economics-and-management-bachelor
+    program_name: "Economics and Management"
+    level: bachelor
+    degree_class_hint: "L18/L33"
+    notes: "İtalyanca programın İngilizce percorso'su. Giriş: English TOLC-E. 75 kontenjan, 5'i non-EU (yurtdışı ikamet)."
+
+  - id: ceils-bachelor
+    program_name: "Comparative, European and International Legal Studies (CEILS)"
+    level: bachelor
+    degree_class_hint: "L14"
+    notes: "Tamamen İngilizce. UNITN'in kendi giriş sınavı (Şubat ve Mayıs oturumları). B2 şart, mezuniyete kadar C1."
+
+  - id: computer-science-bachelor
+    program_name: "Computer Science"
+    level: bachelor
+    degree_class_hint: "L31"
+    notes: "2024/25'ten beri İngilizce percorso. Giriş: English TOLC-I (CISIA)."
+
+  - id: ice-bachelor
+    program_name: "Computer, Communications and Electronic Engineering (ICE)"
+    level: bachelor
+    degree_class_hint: "L8"
+    notes: "2024/25'ten beri İngilizce müfredat. Giriş: English TOLC-I."
+
+  # ---- YÜKSEK LİSANS (master) - doğrulanmış ----
+  - id: physics-master
+    program_name: "Physics"
+    level: master
+    degree_class_hint: "LM17"
+
+  - id: mathematics-master
+    program_name: "Mathematics"
+    level: master
+    degree_class_hint: "LM40"
+    notes: "Resmi listede İngilizce işareti tutarsız olabilir; program sayfası İngilizce diyor, teyit et."
+
+  - id: materials-engineering-master
+    program_name: "Materials Engineering"
+    level: master
+    degree_class_hint: "LM53"
+    notes: "Taslakta yanlışlıkla 'Materials Science and Technology' olarak geçmişti."
+
+  - id: information-engineering-master
+    program_name: "Information Engineering"
+    level: master
+    degree_class_hint: "LM27"
+    notes: "Taslakta yanlışlıkla 'Telecommunications Engineering/ICT' olarak geçmişti. Tamamen İngilizce."
+
+  - id: intelligent-mechatronics-engineering-master
+    program_name: "Intelligent Mechatronics Engineering"
+    level: master
+    degree_class_hint: "LM33"
+    notes: "2026/27 için güncel isim (eski: Mechatronics Engineering)."
+
+  - id: international-management-master
+    program_name: "International Management"
+    level: master
+    degree_class_hint: "LM77"
+
+  - id: cognitive-science-master
+    program_name: "Cognitive Science"
+    level: master
+    degree_class_hint: "LM55"
+    notes: "Rovereto. Numero programmato, B2 İngilizce şart."
+
+  - id: agrifood-innovation-management-master
+    program_name: "Agrifood Innovation Management"
+    level: master
+    degree_class_hint: "LM69"
+    notes: "C3A, San Michele all'Adige. L25/L26 lisans şartı, B2, mülakat, 30€ başvuru ücreti. 2026/27 EU başvuru son tarih: 30 Ekim 2026."
+
+  - id: environmental-meteorology-climate-physics-master
+    program_name: "Environmental Meteorology and Climate Physics"
+    level: master
+    degree_class_hint: "LM17"
+    notes: "Innsbruck Üniversitesi ile çift diploma. 2026/27 ikinci çağrı: 21 Nisan - 30 Haziran."
+
+  - id: cellular-molecular-biotechnology-master
+    program_name: "Cellular and Molecular Biotechnology"
+    level: master
+    degree_class_hint: "LM9"
+    notes: "CIBIO. Taslaktaki belirsiz 'Molecular/Biomolecular Sciences' maddesinin karşılığı."
+
+  - id: quantitative-computational-biology-master
+    program_name: "Quantitative and Computational Biology"
+    level: master
+    degree_class_hint: "LM8"
+    notes: "CIBIO+Fisica+Matematica+DISI. Serbest erişim (open access)."
+
+  - id: human-computer-interaction-master
+    program_name: "Human-Computer Interaction"
+    level: master
+    degree_class_hint: "LM55"
+    notes: "DISI + Psicologia e Scienze Cognitive."
+
+  - id: behavioural-applied-economics-master
+    program_name: "Behavioural and Applied Economics"
+    level: master
+    degree_class_hint: "LM56"
+
+  - id: embs-master
+    program_name: "European Master in Business Studies (EMBS)"
+    level: master
+    degree_class_hint: "LM77"
+    notes: "Kassel + León + Savoie ile ortak program; ayrı bir onay/confirmation prosedürü var."
+
+  - id: innovation-management-master
+    program_name: "Innovation Management"
+    level: master
+    degree_class_hint: "LM77"
+    notes: "Sant'Anna Pisa iş birliği."
+
+  - id: global-law-making-master
+    program_name: "Global Law Making"
+    level: master
+    notes: "L14 hukuk lisansı ya da min. 27 ECTS hukuk kredisi şart. B2 (İngilizce eğitimlilerden sertifika istenmiyor), program içi C1 (3 ECTS). 2026/27 başvuru: 15 Nisan - 30 Haziran 12:00 CET."
+
+  - id: energy-engineering-master
+    program_name: "Energy Engineering"
+    level: master
+    degree_class_hint: "LM30"
+    notes: "Libera Università di Bolzano ile ortak. 50 kontenjan (10 non-EU). Lisans ortalaması min 22/30, B2. Son başvuru: 27 Kasım 2026."
+
+  - id: management-industrial-systems-engineering-master
+    program_name: "Management and Industrial Systems Engineering"
+    level: master
+    degree_class_hint: "LM31"
+
+  - id: bioengineering-personalized-medicine-master
+    program_name: "Bioengineering for Personalized Medicine"
+    level: master
+    degree_class_hint: "LM21"
+    notes: "Verona ve Modena-Reggio Emilia ile ortak."
+
+  - id: global-affairs-geopolitics-sustainability-master
+    program_name: "Global Affairs: Geopolitics and Sustainability"
+    level: master
+    degree_class_hint: "LM62"
+    notes: "DİKKAT: Resmi listede İngilizce işaretli ama program sayfası 'English and Italian' diyor. teaching_language ve uncertainty_notes'ta netleştirilmeli."
+
+  - id: sociology-social-research-master
+    program_name: "Sociology and Social Research"
+    level: master
+    degree_class_hint: "LM88"
+    notes: "Tamamen İngilizce, serbest erişim. Son başvuru (GAGS/OST/SSR ortak): 11 Aralık 2026."
+
+  - id: miss-master
+    program_name: "International Security Studies (MISS)"
+    level: master
+    degree_class_hint: "LM52"
+    notes: "School of International Studies + Sant'Anna Pisa; 1. yıl Trento, 2. yıl Pisa."
+
+  - id: imsiss-master
+    program_name: "Security, Intelligence and Strategic Studies (IMSISS)"
+    level: master
+    degree_class_hint: "LM52"
+    notes: "Erasmus Mundus konsorsiyumu: Glasgow + Dublin City + Charles Prague + Belgrad."
+
+  - id: civil-engineering-master
+    program_name: "Civil Engineering"
+    level: master
+    degree_class_hint: "LM23"
+    notes: "DİKKAT: Resmi listede İtalyanca (Ingegneria civile) görünüyor ama corsi.unitn.it/en/civil-engineering-master sayfası var, dili 'English and Italian'. Kapsama dahil mi net değil - deep research netleştirsin."
+
+  - id: environmental-land-engineering-master
+    program_name: "Environmental and Land Engineering"
+    level: master
+    degree_class_hint: "LM35"
+    notes: "DİKKAT: Resmi listede İtalyanca (Ingegneria per l'ambiente e il territorio) görünüyor, karma dil ihtimali var - deep research netleştirsin."
+
+  # ---- YÜKSEK LİSANS - doğrulanmamış, deep research'te teyit edilmeli ----
+  - id: data-science-master
+    program_name: "Data Science"
+    level: master
+    notes: "İlk taslakta vardı ama web araştırmasında ayrıca teyit edilmedi. Var olup olmadığı ve İngilizce durumu deep research'te doğrulanmalı; yoksa listeden çıkarılacak."
+
+  - id: artificial-intelligence-systems-master
+    program_name: "Artificial Intelligence Systems"
+    level: master
+    notes: "İlk taslakta vardı ama web araştırmasında ayrıca teyit edilmedi. Var olup olmadığı ve İngilizce durumu deep research'te doğrulanmalı; yoksa listeden çıkarılacak."
+
+  # ---- İlk turda gözden kaçan, 2026-09-01 doğrulanan eksikler (Claude teyidi:
+  # ikisi de resmi sayfada canlı ve tamamen İngilizce; DB'de satırları var ama detayları yok) ----
+  - id: computer-science-master
+    program_name: "Computer Science"
+    level: master
+    degree_class_hint: "LM-18"
+    official_program_url: "https://offertaformativa.unitn.it/en/lm/computer-science"
+    notes: "DB dept_id 1056. Yalnızca MASTER programı; bachelor track (Computer_Science.json) zaten araştırıldı, karıştırma. Tamamen İngilizce, DISI ortak çağrısı üzerinden başvuru."
+
+  - id: european-and-international-studies-meis-master
+    program_name: "European and International Studies - MEIS"
+    level: master
+    degree_class_hint: "LM-52"
+    official_program_url: "https://offertaformativa.unitn.it/en/lm/master-european-and-international-studies"
+    notes: "DB dept_id 1060. İlk turda kapsam dışı kalmış; resmi sayfa 'tüm dersler İngilizce' diyor. international.unitn.it/meis sayfası da var."
+
+excluded_from_scope:
+  # Kullanıcı kararı için not: bunlar item listesine alınmadı, gerekirse /research-add-items ile eklenebilir.
+  - name: "Development Economics and International Cooperation"
+    reason: "UNITN'in 2026/2027 resmi listesinde bulunamadı."
+  - name: "Quaternary, Prehistory and Archaeology"
+    reason: "Resmi karşılığı (LM2, Ferrara/Verona/Modena-Reggio ile interateneo) tamamen İtalyanca."
+  - name: "Multifunctional, Metamaterials and Metastructures (M3)"
+    reason: "'Laurea magistrale' değil, II. seviye 'master universitario' (profesyonel/sürekli eğitim); kullanıcı kapsamı sadece lisans/yüksek lisans."
+  - name: "Medicina e chirurgia / Giurisprudenza (LMG/01) / Ingegneria edile-architettura"
+    reason: "Tek-aşamalı (single-cycle) programlar, hepsi İtalyanca; İngilizce single-cycle program yok."
+
+execution:
+  batch_size: 5
+  items_per_agent: 1
+  output_dir: "./results"

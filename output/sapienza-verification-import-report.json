@@ -1,0 +1,383 @@
+{
+  "mode": "apply",
+  "universityId": 2,
+  "sourceFileCount": 23,
+  "resolvedRowCount": 23,
+  "resolvedRows": [
+    {
+      "file": "Applied_Computer_Science_and_Artificial_Intelligence.json",
+      "departmentId": 249,
+      "departmentName": "Applied Computer Science and Artificial Intelligence"
+    },
+    {
+      "file": "Artificial_Intelligence_and_Robotics.json",
+      "departmentId": 541,
+      "departmentName": "Artificial Intelligence and Robotics"
+    },
+    {
+      "file": "Astrophysics_and_Cosmology.json",
+      "departmentId": 538,
+      "departmentName": "Astrophysics and Cosmology"
+    },
+    {
+      "file": "Bioinformatics.json",
+      "departmentId": 250,
+      "departmentName": "Bioinformatics"
+    },
+    {
+      "file": "Business_Management.json",
+      "departmentId": 543,
+      "departmentName": "Business Management"
+    },
+    {
+      "file": "Cognitive_Neuroscience.json",
+      "departmentId": 546,
+      "departmentName": "Cognitive Neuroscience"
+    },
+    {
+      "file": "Computer_Science.json",
+      "departmentId": 547,
+      "departmentName": "Computer Science"
+    },
+    {
+      "file": "Control_Engineering.json",
+      "departmentId": 548,
+      "departmentName": "Control Engineering"
+    },
+    {
+      "file": "Cybersecurity.json",
+      "departmentId": 550,
+      "departmentName": "Cybersecurity"
+    },
+    {
+      "file": "Data_Science.json",
+      "departmentId": 551,
+      "departmentName": "Data Science"
+    },
+    {
+      "file": "Economics.json",
+      "departmentId": 554,
+      "departmentName": "Economics"
+    },
+    {
+      "file": "Engineering_in_Computer_Science_and_Artificial_Intelligence.json",
+      "departmentId": 1182,
+      "departmentName": "Engineering in Computer Science and Artificial Intelligence"
+    },
+    {
+      "file": "European_Studies.json",
+      "departmentId": 563,
+      "departmentName": "European Studies"
+    },
+    {
+      "file": "Health_Economics.json",
+      "departmentId": 568,
+      "departmentName": "Health Economics"
+    },
+    {
+      "file": "Medicine_and_Surgery.json",
+      "departmentId": 1183,
+      "departmentName": "Medicine and Surgery"
+    },
+    {
+      "file": "Molecular_Biology_Medicinal_Chemistry_and_Computer_Science_for_Pharmaceutical_Applications.json",
+      "departmentId": 256,
+      "departmentName": "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications"
+    },
+    {
+      "file": "Nursing.json",
+      "departmentId": 257,
+      "departmentName": "Nursing"
+    },
+    {
+      "file": "Physics.json",
+      "departmentId": 574,
+      "departmentName": "Physics"
+    },
+    {
+      "file": "Product_and_Service_Design.json",
+      "departmentId": 575,
+      "departmentName": "Product and Service Design"
+    },
+    {
+      "file": "Space_and_Astronautical_Engineering.json",
+      "departmentId": 578,
+      "departmentName": "Space and Astronautical Engineering"
+    },
+    {
+      "file": "Statistical_Methods_and_Applications.json",
+      "departmentId": 581,
+      "departmentName": "Statistical Methods and Applications"
+    },
+    {
+      "file": "Sustainable_Building_Engineering.json",
+      "departmentId": 259,
+      "departmentName": "Sustainable Building Engineering"
+    },
+    {
+      "file": "Transport_Systems_Engineering.json",
+      "departmentId": 580,
+      "departmentName": "Transport Systems Engineering"
+    }
+  ],
+  "warnings": [],
+  "preview": [
+    {
+      "file": "Applied_Computer_Science_and_Artificial_Intelligence.json",
+      "departmentId": 249,
+      "departmentName": "Applied Computer Science and Artificial Intelligence",
+      "raw_program_name": "Applied Computer Science and Artificial Intelligence",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33502",
+      "official_call_url": "https://www.uniroma1.it/sites/default/files/field_file_allegati/14824_en_1.pdf",
+      "source_quotes_count": 17,
+      "required_documents_count": 1,
+      "uncertain_count": 0
+    },
+    {
+      "file": "Artificial_Intelligence_and_Robotics.json",
+      "departmentId": 541,
+      "departmentName": "Artificial Intelligence and Robotics",
+      "raw_program_name": "Artificial Intelligence and Robotics",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33514",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33514_e_0.pdf",
+      "source_quotes_count": 15,
+      "required_documents_count": 1,
+      "uncertain_count": 0
+    },
+    {
+      "file": "Astrophysics_and_Cosmology.json",
+      "departmentId": 538,
+      "departmentName": "Astrophysics and Cosmology",
+      "raw_program_name": "Astrophysics and Cosmology",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33607",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33607_e_0.pdf",
+      "source_quotes_count": 11,
+      "required_documents_count": 14,
+      "uncertain_count": 1
+    },
+    {
+      "file": "Bioinformatics.json",
+      "departmentId": 250,
+      "departmentName": "Bioinformatics",
+      "raw_program_name": "Bioinformatics",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33455",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/12952_bioinformatics_e.pd",
+      "source_quotes_count": 16,
+      "required_documents_count": 1,
+      "uncertain_count": 0
+    },
+    {
+      "file": "Business_Management.json",
+      "departmentId": 543,
+      "departmentName": "Business Management",
+      "raw_program_name": "Business Management (Italian official name: Management delle imprese)",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33447",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33447_e_0.pdf",
+      "source_quotes_count": 12,
+      "required_documents_count": 15,
+      "uncertain_count": 3
+    },
+    {
+      "file": "Cognitive_Neuroscience.json",
+      "departmentId": 546,
+      "departmentName": "Cognitive Neuroscience",
+      "raw_program_name": "Cognitive Neuroscience",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33574",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/12948_e_0.pdf",
+      "source_quotes_count": 15,
+      "required_documents_count": 11,
+      "uncertain_count": 0
+    },
+    {
+      "file": "Computer_Science.json",
+      "departmentId": 547,
+      "departmentName": "Computer Science",
+      "raw_program_name": "Computer Science",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33508",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33508_e_0.pdf",
+      "source_quotes_count": 15,
+      "required_documents_count": 6,
+      "uncertain_count": 1
+    },
+    {
+      "file": "Control_Engineering.json",
+      "departmentId": 548,
+      "departmentName": "Control Engineering",
+      "raw_program_name": "Control Engineering (Laurea Magistrale in Ingegneria Automatica)",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33509",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/en/course/33509/apply (enrolment tab) — official A.Y. 2026-2027 call for applications ",
+      "source_quotes_count": 17,
+      "required_documents_count": 1,
+      "uncertain_count": 2
+    },
+    {
+      "file": "Cybersecurity.json",
+      "departmentId": 550,
+      "departmentName": "Cybersecurity",
+      "raw_program_name": "Cybersecurity (Laurea Magistrale in Cybersecurity)",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33516",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/en/course/33516/apply (enrolment tab) — official A.Y. 2026-2027 call for applications ",
+      "source_quotes_count": 17,
+      "required_documents_count": 1,
+      "uncertain_count": 2
+    },
+    {
+      "file": "Data_Science.json",
+      "departmentId": 551,
+      "departmentName": "Data Science",
+      "raw_program_name": "Data Science",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33519",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33519_e_0.pdf",
+      "source_quotes_count": 16,
+      "required_documents_count": 7,
+      "uncertain_count": 1
+    },
+    {
+      "file": "Economics.json",
+      "departmentId": 554,
+      "departmentName": "Economics",
+      "raw_program_name": "Economics (English catalogue title). The Italian catalogue and the official call",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33440",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33440_e_0.pdf",
+      "source_quotes_count": 16,
+      "required_documents_count": 8,
+      "uncertain_count": 2
+    },
+    {
+      "file": "Engineering_in_Computer_Science_and_Artificial_Intelligence.json",
+      "departmentId": 1182,
+      "departmentName": "Engineering in Computer Science and Artificial Intelligence",
+      "raw_program_name": "Engineering in Computer Science and Artificial Intelligence (Italian title: Inge",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33515",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33515_e_1.pdf",
+      "source_quotes_count": 11,
+      "required_documents_count": 10,
+      "uncertain_count": 1
+    },
+    {
+      "file": "European_Studies.json",
+      "departmentId": 563,
+      "departmentName": "European Studies",
+      "raw_program_name": "European Studies (catalogue heading renders it as 'European studies'; Italian ti",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33468",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33468_e_0.pdf",
+      "source_quotes_count": 12,
+      "required_documents_count": 10,
+      "uncertain_count": 0
+    },
+    {
+      "file": "Health_Economics.json",
+      "departmentId": 568,
+      "departmentName": "Health Economics",
+      "raw_program_name": "Health Economics (Italian official title: Health Economics – Economia Sanitaria)",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33441",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/en/course/33441/apply (official call PDF, English: https://corsidilaurea.uniroma1.it/s",
+      "source_quotes_count": 15,
+      "required_documents_count": 1,
+      "uncertain_count": 3
+    },
+    {
+      "file": "Medicine_and_Surgery.json",
+      "departmentId": 1183,
+      "departmentName": "Medicine and Surgery",
+      "raw_program_name": "Medicine and Surgery \"F\"",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33454",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33454_e.pdf (official Eng",
+      "source_quotes_count": 27,
+      "required_documents_count": 1,
+      "uncertain_count": 1
+    },
+    {
+      "file": "Molecular_Biology_Medicinal_Chemistry_and_Computer_Science_for_Pharmaceutical_Applications.json",
+      "departmentId": 256,
+      "departmentName": "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical Applications",
+      "raw_program_name": "Molecular Biology, Medicinal Chemistry and Computer Science for Pharmaceutical A",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33457",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/14229_e_0.pdf",
+      "source_quotes_count": 21,
+      "required_documents_count": 1,
+      "uncertain_count": 0
+    },
+    {
+      "file": "Nursing.json",
+      "departmentId": 257,
+      "departmentName": "Nursing",
+      "raw_program_name": "Nursing - Roma Azienda Ospedaliera Sant'Andrea (as published in the Sapienza cou",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/28614",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/28614_e_0.pdf",
+      "source_quotes_count": 20,
+      "required_documents_count": 1,
+      "uncertain_count": 1
+    },
+    {
+      "file": "Physics.json",
+      "departmentId": 574,
+      "departmentName": "Physics",
+      "raw_program_name": "Physics (Italian official title: Physics - Fisica)",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33602",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/en/course/33602/apply (official call PDF, English: https://corsidilaurea.uniroma1.it/s",
+      "source_quotes_count": 16,
+      "required_documents_count": 1,
+      "uncertain_count": 4
+    },
+    {
+      "file": "Product_and_Service_Design.json",
+      "departmentId": 575,
+      "departmentName": "Product and Service Design",
+      "raw_program_name": "Product and Service Design",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33433",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/16249_e_0.pdf",
+      "source_quotes_count": 17,
+      "required_documents_count": 1,
+      "uncertain_count": 0
+    },
+    {
+      "file": "Space_and_Astronautical_Engineering.json",
+      "departmentId": 578,
+      "departmentName": "Space and Astronautical Engineering",
+      "raw_program_name": "Space and Astronautical Engineering",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33484",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33484_e_0.pdf",
+      "source_quotes_count": 15,
+      "required_documents_count": 1,
+      "uncertain_count": 0
+    },
+    {
+      "file": "Statistical_Methods_and_Applications.json",
+      "departmentId": 581,
+      "departmentName": "Statistical Methods and Applications",
+      "raw_program_name": "Statistical Methods and Applications",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33517",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33517_e_0.pdf (official E",
+      "source_quotes_count": 15,
+      "required_documents_count": 1,
+      "uncertain_count": 1
+    },
+    {
+      "file": "Sustainable_Building_Engineering.json",
+      "departmentId": 259,
+      "departmentName": "Sustainable Building Engineering",
+      "raw_program_name": "Sustainable Building Engineering (Rieti Campus)",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33482",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33482_e_0.pdf",
+      "source_quotes_count": 15,
+      "required_documents_count": 1,
+      "uncertain_count": 0
+    },
+    {
+      "file": "Transport_Systems_Engineering.json",
+      "departmentId": 580,
+      "departmentName": "Transport Systems Engineering",
+      "raw_program_name": "Transport Systems Engineering (Italian title on the Italian catalogue page: 'Tra",
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33488",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33488_e.pdf (official Eng",
+      "source_quotes_count": 14,
+      "required_documents_count": 1,
+      "uncertain_count": 3
+    }
+  ],
+  "applied": {
+    "detailUpserts": 23,
+    "overwrittenRows": 23
+  }
+}
