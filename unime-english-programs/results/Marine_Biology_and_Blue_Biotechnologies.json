@@ -1,0 +1,67 @@
+{
+  "research_id": "ba-marine-biology-blue-biotech",
+  "program_name": "Marine Biology and Blue Biotechnologies [uncertain] (the programme's own /en site header instead reads 'Corso di laurea in Marine Sciences and Blue Biotechnologies'; the profile block and page title use 'Marine Biology and Blue Biotechnologies' — the official site is internally inconsistent about the English name).",
+  "level": "bachelor",
+  "teaching_language": "English — confirmed both in the programme profile ('Language: English') and on the admission-requirements page ('Language(s) of instruction/examination: ENGLISH'). The programme is genuinely fully English-taught (an /en site exists and is functionally equivalent to the /it site's admission-page content, which is itself in Italian on both language versions of the site).",
+  "campus": "Messina",
+  "degree_class": "L-13-R (Scienze biologiche)",
+  "admission_type": "TOLC",
+  "academic_requirements": "Possession of a secondary-school diploma (or a foreign qualification deemed equivalent by competent university bodies) is required. Foreign-qualification pre-evaluation follows the guidelines of Rectoral Decree Prot. n. 25758 of 28 February 2024. General UNIME bachelor's rules also require: an official provisional Course Completion Certificate if the diploma is not yet issued; if the diploma reflects less than 12 years of schooling, either a certificate of passed first-year university exams or a Foundation Programme certificate; a University Entrance Exam Certificate if required by the candidate's home country; and a transcript of records.",
+  "language_requirements": "English is required either as a native language or via adequate certification/attestation at CEFR B2 level, issued by public bodies/private structures accredited per MUR guidelines. No separate Italian-language requirement is stated for enrolment (the course is delivered in English), though UNIME offers optional Italian courses for international students more broadly.",
+  "entry_exam_or_test": "A mandatory national CISIA TOLC-F test (Biology, Chemistry, Mathematics, Physics, Logic sections: F-1 through F-5) is administered to verify basic knowledge expected at the end of secondary school. The test is diagnostic, not exclusionary: enrolment is not conditional on passing it. Students must answer at least 15 of 50 questions correctly overall, with per-section minimums (3 Biology, 3 Chemistry, 4 Mathematics, 3 Physics, 2 Logic). Failing the threshold results in Obblighi Formativi Aggiuntivi (additional learning obligations, OFA) to be cleared during year 1 via CISIA recovery tests or by passing the corresponding first-year exam; unresolved OFA by year-end means repeating the first year.",
+  "required_documents": [
+    "High school diploma (12 years of education) or official provisional Course Completion Certificate",
+    "Academic certificate of passed first-year university exams OR Foundation Programme completion certificate (if diploma reflects less than 12 years of schooling)",
+    "University Entrance Exam Certificate, if required by the candidate's home country (per UniME Entry Criteria by Country)",
+    "Transcript of records",
+    "Copy of a valid passport",
+    "International English language certificate (CEFR B2) or proof of English as a native language, unless exempt"
+  ],
+  "application_deadline_eu": "6th Call – No-Visa Applicants (Italians with foreign qualification, EU and EU-equivalent candidates; non-EU candidates in the EU-equivalent group must hold an Italian residence permit): July 1, 2026 (00:01 CEST) to November 20, 2026 (23:59 CET), for English-taught and Italian-taught Bachelor's Degrees. A non-refundable EUR 30.00 application fee applies (covers up to two applications). Two-portal flow: pre-evaluation application on the UniME Application Portal; if admitted, confirmation on the Universitaly portal follows (Universitaly pre-enrolment deadline for A.Y. 2026/2027 is September 1, 2026).",
+  "application_deadline_non_eu": "1st Call – Early Bird (Non-EU Study-VISA applicants): November 24, 2025 (00:01 CET) to December 22, 2025 (23:59 CET). 2nd Call – Visa Applicants: February 1, 2026 (00:01 CET) to March 31, 2026 (23:59 CEST). 3rd Call – Visa Applicants: April 13, 2026 (00:01 CEST) to May 10, 2026 (23:59 CEST). All three calls cover English-taught and Italian-taught Bachelor's Degrees. A non-refundable EUR 30.00 application fee applies (covers up to two applications). Two-portal flow: pre-evaluation application on the UniME Application Portal; upon a positive evaluation, an admission letter enables registration/confirmation on the Universitaly portal to begin the visa process (Universitaly pre-enrolment deadline for A.Y. 2026/2027 is September 1, 2026).",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://marine-biology-and-blue-biotechnologies.cdl.unime.it/it",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "Language(s) of instruction/examination. ENGLISH",
+      "url": "https://marine-biology-and-blue-biotechnologies.cdl.unime.it/en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "il possesso del titolo di scuola secondaria di secondo grado o di altro titolo di studio conseguito all'estero, riconosciuto idoneo dagli organi competenti dell'Università",
+      "url": "https://marine-biology-and-blue-biotechnologies.cdl.unime.it/en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "la conoscenza della lingua Inglese come madre lingua o adeguata certificazione o attestazione della conoscenza della lingua inglese a livello almeno B2 ai sensi del CEFR",
+      "url": "https://marine-biology-and-blue-biotechnologies.cdl.unime.it/en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "verrà effettuata mediante somministrazione del test CISIA nazionale TOLC-F (F-1 (BIOLOGY) + F-2 (CHEMISTRY) + F-3 (MATHEMATICS) + F-4 (PHYSICS) + F-5 (LOGIC))",
+      "url": "https://marine-biology-and-blue-biotechnologies.cdl.unime.it/en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "Class L-13-R - Scienze biologiche / Access Free / Language English / Location MESSINA",
+      "url": "https://marine-biology-and-blue-biotechnologies.cdl.unime.it/en",
+      "field_supported": "campus"
+    },
+    {
+      "quote": "1st Call – Early Bird ... From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants ... Timeframe: From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": "The task's status_note flagged uncertainty over whether an /en page exists and whether the programme is truly fully English-taught; both are now resolved: an /en version does exist and the admission page explicitly states the language of instruction/examination is ENGLISH, and the profile block also lists 'Language: English'. However, the underlying admission-requirements page content itself is written in Italian even under the /en URL (only the site chrome/menus are translated) — this is normal for UNIME cdl sites and does not contradict the English-taught status. The programme's own English name is inconsistent across the official site: the page header/title reads 'Marine Sciences and Blue Biotechnologies' while the profile block, breadcrumb and admissions text use 'Marine Biology and Blue Biotechnologies' (matching the research task's given name and URL) — recorded as uncertain. Access route: both the cdl.unime.it subdomain and international.unime.it returned an AWS WAF CAPTCHA 'Human Verification' page (HTTP 405) on direct fetch; per the fallback order, content was retrieved via Wayback Machine snapshots of the official cdl.unime.it URLs (profile page: web.archive.org/web/20260518001252; admission-requirements page: web.archive.org/web/20260209081727) and of international.unime.it/study-us/application-and-admission (web.archive.org/web/20260517055155). Deadlines and application-fee/document rules come from the university-wide shared admission page for A.Y. 2026/2027 (no 2025/26 fallback was needed, since 2026/27 information was available). official_call_url is null — no programme-specific call/bando distinct from the university-wide six-call timeline was found. tuition_or_fees_link points to the general UNIME fees-and-fundings page since no programme-specific fee page was found.",
+  "uncertain": [
+    "program_name",
+    "official_call_url"
+  ]
+}

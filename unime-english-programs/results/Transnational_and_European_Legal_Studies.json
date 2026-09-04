@@ -1,0 +1,64 @@
+{
+  "program_name": "Transnational and European Legal Studies",
+  "level": "bachelor",
+  "teaching_language": "Fully English-taught bachelor's degree (Corso di laurea in L-14 Transnational and European Legal Studies; the Italian-language version of the site labels it 'L-14', course delivered in English)",
+  "campus": "Messina",
+  "degree_class": "L-14-R - Scienze dei servizi giuridici",
+  "admission_type": "open access",
+  "academic_requirements": "Secondary school diploma (or other qualification obtained abroad suitable for access to an equivalent university course), or enrolment in the final year of secondary school pending the final exam. Foreign qualifications are eligible if obtained after attendance of the last two years of the foreign education system, allow access to a similar course of study in the country of origin, and were obtained after 12 years of schooling. University-wide (international.unime.it) Bachelor's requirements also apply: high school diploma after 12 years of education (provisional certificate accepted if not yet issued; if diploma is under 12 years, an academic certificate of first-year university exams passed, or a Foundation Programme completion certificate, is required), plus a University Entrance Exam Certificate if required by the applicant's national education system.",
+  "language_requirements": "English knowledge at least CEFR B2 is required to enrol. Applicants may satisfy this via: (a) an international English certificate recognised by MIUR-accredited certifying bodies, (b) declaring themselves native English speakers, or (c) self-certifying citizenship/residence in a country where English is the official language. University-wide accepted certificates (international.unime.it): IELTS 5.5+, TOEFL iBT 72+, Cambridge English B2 First+, PTE General Level 3 (B2)+, PTE Academic 59+ (valid up to two years from test date). Exemptions apply for native speakers from listed English-speaking countries/territories, holders of a degree taught entirely in English from those countries, IB Diploma holders (English-medium), and takers of a standardised English-language admission test.",
+  "entry_exam_or_test": "Entrance skills/basic-knowledge test required of all first-time enrollees: administered via the CISIA TOLC system, specifically the English TOLC-E (TOLC-SU test guide also referenced), as UNIME is a member of the CISIA consortium. No further programme-specific selection test beyond this basic-knowledge check is described on the official pages.",
+  "required_documents": [
+    "High school diploma obtained after 12 years of education (or official provisional Course Completion Certificate if not yet issued)",
+    "If diploma is less than 12 years: academic certificate of passed first-year university exams, or Foundation Programme completion certificate",
+    "University Entrance Exam Certificate, if required by the national education system of the applicant's country",
+    "Transcript of records",
+    "Copy of a valid passport",
+    "English language certificate (CEFR B2) or equivalent exemption declaration",
+    "CISIA TOLC-E (English) test result / registration for the basic-knowledge test"
+  ],
+  "application_deadline_eu": "For EU / No-Visa applicants (Italians with foreign qualification, EU and EU-equivalent candidates), UNIME's 2026/2027 intake uses the 6th Call - No Visa Applicants: from 1 July 2026 (00:01 CEST) to 20 November 2026 (23:59 CET). This programme (English-taught bachelor's) is included in this call. [uncertain: whether TELS has any separate/earlier EU deadline of its own beyond the university-wide call]",
+  "application_deadline_non_eu": "Non-EU (Study VISA applicant) candidates may apply in any of three sequential rounds, each covering English-taught & Italian-taught Bachelor's and Master's Degrees: 1st Call – Early Bird: 24 November 2025 (00:01 CET) to 22 December 2025 (23:59 CET); 2nd Call - Visa Applicants: 1 February 2026 (00:01 CET) to 31 March 2026 (23:59 CEST); 3rd Call - Visa Applicants: 13 April 2026 (00:01 CEST) to 10 May 2026 (23:59 CEST). A non-refundable EUR 30.00 application fee is due (covers up to two applications). Applications for English-taught programmes go through the UniME Application Portal; visa applicants must also register on the Universitaly portal. For a.y. 2026/2027 the Universitaly pre-enrolment deadline is 1 September 2026.",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://transnational-european-legal-studies.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "Corso di laurea in L-14 Transnational and European Legal Studies ... Class L-14-R - Scienze dei servizi giuridici Access Free Language English",
+      "url": "https://transnational-european-legal-studies.cdl.unime.it/en (Wayback snapshot 2026-03-06)",
+      "field_supported": "program_name, level, teaching_language, admission_type, degree_class"
+    },
+    {
+      "quote": "To enroll, knowledge of the English language is required, at least level B2 (with reference to the Common European Framework - CEFR) is also required.",
+      "url": "https://transnational-european-legal-studies.cdl.unime.it/en/enrolment/admission-requirements (Wayback snapshot 2026-03-06)",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "the verification for students enrolling in the first year of the degree course in Transnational and European Legal Studies, will be carried out by means of the CISIA OnLine Test (TOLC), and in particular by means of English TOLC-E",
+      "url": "https://transnational-european-legal-studies.cdl.unime.it/en/enrolment/test-basic-knowledge (Wayback snapshot 2026-03-06)",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "1st Call – Early Bird Who: Non-EU candidates (Study VISA applicants) Programmes: English-taught & Italian-taught Bachelor's and Master's Degrees ... Timeframe: From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants ... Timeframe: From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "For the a.y. 2026/2027, an application fee of € 30.00 is due for the submission of a maximum of two applications ... The application fee is not refundable.",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "For the academic year 2026/2027, the application deadline on Universitaly is 1 September 2026.",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": "www.unime.it and international.unime.it are behind an AWS WAF interactive CAPTCHA and could not be fetched directly or via WebFetch; all data was retrieved from Wayback Machine snapshots of transnational-european-legal-studies.cdl.unime.it (snapshot dated 2026-03-06) and international.unime.it/study-us/application-and-admission (snapshot dated 2026-05-17), per the fallback order in the task instructions. Programme-level admission text found (course-specific page) does not explicitly restate 2026/2027-specific deadlines; the six-call calendar and application fee are sourced from the shared university-wide admission page and are stated to cover a.y. 2026/2027. It is unclear whether TELS, as an open-access programme, has any additional programme-specific deadline distinct from the university-wide calls — none was found on the cdl.unime.it site. No programme-specific official_call_url (bando) was located for TELS; left null. The CISIA TOLC-E test is described as a basic-knowledge assessment rather than a competitive selection instrument (admission_type marked 'open access' per the page's own 'Access: Free' label), though a test is still required post-enrolment eligibility check — flagged as [uncertain]. Degree class listed as L-14-R (with an 'R' suffix, likely denoting the English-taught/international variant of L-14) — flagged as [uncertain] whether 'R' has an official expansion.",
+  "uncertain": ["application_deadline_eu", "application_deadline_non_eu", "admission_type", "entry_exam_or_test", "degree_class", "official_call_url"]
+}

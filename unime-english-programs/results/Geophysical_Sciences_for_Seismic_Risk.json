@@ -1,0 +1,68 @@
+{
+  "program_name": "Geophysical Sciences for Seismic Risk",
+  "level": "master",
+  "teaching_language": "English (fully English-taught programme)",
+  "campus": "Messina",
+  "degree_class": "LM-79-R - Scienze geofisiche",
+  "admission_type": "open access",
+  "academic_requirements": "Access is free (no numerus clausus), but curricular requirements are verified. Admission requires a Bachelor's degree/3-year university diploma (or an equivalent foreign qualification recognised as suitable) plus a minimum of 60 CFU acquired in the following scientific-disciplinary sectors: IINF-01/A, IINF-03/A, IINF-05/A; PHYS-01/A, PHYS-02/A, PHYS-03/A, PHYS-04/A, PHYS-05/A, PHYS-05/B, PHYS-06/A; GEOS-02/A, GEOS-02/B, GEOS-02/C, GEOS-03/A, GEOS-03/B, GEOS-01/A, GEOS-01/B, GEOS-01/C, GEOS-01/D, GEOS-04/A, GEOS-04/B, GEOS-04/C; CEAR-04/A, CEAR-05/A, CEAR-06/A, CEAR-07/A. Preparation verification is considered passed for applicants with a Bachelor's degree final grade not lower than 81/110 (or equivalent for foreign qualifications). The programme's own Entry Requirements page states enrolment is allowed for candidates with a Bachelor's degree (or equivalent) in scientific courses with basic knowledge of Earth Sciences, and the Master's Degree Course Council evaluates each candidate's curriculum for enrolment. If preparation gaps are found, the council assigns supplementary learning activities leading to the standard 120-CFU degree with no extra required credits.",
+  "language_requirements": "English language B2-level (Common European Framework of Reference) is required, per the programme's Entry Requirements page. The programme Regolamento Didattico states the B2 level must be attested by passing university proficiency exams/tests or by internationally/European-recognised certificates. At UNIME university level, applicants must upload an international English certificate (CEFR B2) issued by a recognised institution to the application's language section, unless exempt under UNIME's exemption categories.",
+  "entry_exam_or_test": "No separate written entrance exam is specified; this is an open-access ('accesso libero') programme. The Master's Degree Course Council evaluates each candidate's curriculum/transcript for enrolment (curriculum-based selection rather than a formal test), combined with the CFU and prior-degree-grade checks described in academic_requirements.",
+  "required_documents": [
+    "High School Diploma (obtained after at least 12 years of education)",
+    "Bachelor's Degree diploma (or official provisional certificate issued by the university if not yet awarded); candidate must show at least 15 years of total education",
+    "Transcript of records (exams taken in the previous degree)",
+    "Copy of a valid passport",
+    "English language certificate (CEFR B2)",
+    "Universitaly pre-enrolment application (for visa-required non-EU applicants, after receiving the UniME admission letter)"
+  ],
+  "application_deadline_eu": "[uncertain] UNIME's 2026/27 application timeline for EU / EU-equivalent / Italians with a foreign qualification applicants is the '6th Call - No Visa Applicants': from 1 July 2026 (00:01 CEST) to 20 November 2026 (23:59 CET). A non-refundable EUR 30.00 application fee applies (covers up to two applications submitted across calls). Applications are submitted on the UniME Application Portal.",
+  "application_deadline_non_eu": "For non-EU (Study VISA) applicants, UNIME runs three sequential rounds for Bachelor's/Master's programmes in the 2026/27 intake: 1st Call - Early Bird, from 24 November 2025 (00:01 CET) to 22 December 2025 (23:59 CET); 2nd Call - Visa Applicants, from 1 February 2026 (00:01 CET) to 31 March 2026 (23:59 CEST); 3rd Call - Visa Applicants, from 13 April 2026 (00:01 CEST) to 10 May 2026 (23:59 CEST). A non-refundable EUR 30.00 application fee applies. After a positive evaluation, applicants receive an admission letter and must register on the Universitaly portal (the university confirms acceptance there) to proceed with the visa procedure; for a.y. 2026/2027 the Universitaly application deadline is stated as 1 September 2026 on UNIME's admission page. Two-portal flow: UniME Application Portal (pre-evaluation) then Universitaly (visa confirmation).",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://geophysical-sciences-for-seismic-risk.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "Class: LM-79-R - Scienze geofisiche / Access: Free / Language: English / Location: MESSINA",
+      "url": "https://geophysical-sciences-for-seismic-risk.cdl.unime.it/en",
+      "field_supported": "degree_class, admission_type, teaching_language, campus"
+    },
+    {
+      "quote": "Enrollment will be allowed to the candidates having a Bachelor degree (or equivalent) in scientific Courses, with basic knowledge of Earth Sciences. The Council of the Master Degree Course will evaluate for enrollment the curriculum of the candidates.",
+      "url": "https://geophysical-sciences-for-seismic-risk.cdl.unime.it/en/enrolling/entry-requirements",
+      "field_supported": "academic_requirements, entry_exam_or_test"
+    },
+    {
+      "quote": "English language B2-level based on the European Framework of Reference for Languages is required.",
+      "url": "https://geophysical-sciences-for-seismic-risk.cdl.unime.it/en/enrolling/entry-requirements",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "60 CFU acquisiti nei seguenti settori scientifico-disciplinari: IINF-01/A, IINF-03/A, IINF-05/A; PHYS-01/A, PHYS-02/A, PHYS-03/A...",
+      "url": "https://geophysical-sciences-for-seismic-risk.cdl.unime.it/sites/cdl39/files/2025-10/Regolamento%20didattico%20LM-79_Geophysical_Sciences_for%20Seismic_Risk_Versione%20dell%2701.08.2025.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "1st Call – Early Bird ... From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants ... From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "For the a. y. 2026/2027, an application fee of € 30.00 is due for the submission of a maximum of two applications ... The application fee is not refundable.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": "Both www.unime.it and international.unime.it are behind an AWS WAF CAPTCHA and the live geophysical-sciences-for-seismic-risk.cdl.unime.it page also returned a 'Human Verification' challenge on direct fetch, so all cdl.unime.it and international.unime.it content here was retrieved via Wayback Machine snapshots (program page: snapshot dated 2026-06-07; Entry Requirements sub-page: snapshot dated 2026-02-12; Regolamento Didattico PDF version of 01.08.2025: snapshot dated 2026-01-18; international.unime.it Application and Admission page: snapshot dated 2026-05-17) rather than live pages, per the required fallback order. The programme's own Entry Requirements page is high-level (curriculum-based evaluation by the Council) while the detailed CFU/grade thresholds come from the Regolamento Didattico PDF (dated 01.08.2025); both are consistent. Programme-level application deadlines are not published on the programme's own cdl.unime.it site; the six university-wide sequential admission calls (from international.unime.it) are used instead, per the shared task instructions, and are assumed to apply to this Master's programme as it falls under 'English-taught & Italian-taught Bachelor's and Master's Degrees' in each call's scope. No official_call_url (programme-specific bando) was found; only the general Application and Admission page and Regolamento Didattico were located. No admission interview, portfolio, or written entrance test beyond the curriculum evaluation and CFU/English-level checks was found for this open-access programme.",
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "official_call_url",
+    "entry_exam_or_test"
+  ]
+}

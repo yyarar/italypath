@@ -1,0 +1,80 @@
+{
+  "program_name": "Civil Engineering (Curriculum in Sustainable Engineering for Water-related Risks) (Ingegneria Civile)",
+  "level": "master",
+  "teaching_language": "Programme overall listed as Italian/English; the specific curriculum covered here, 'Sustainable Engineering for Water-Related Risks', is taught entirely in English. The other two curricula under the same degree class ('Transport Infrastructure' and 'Structures and Geotechnics') are taught in Italian.",
+  "campus": "Messina",
+  "degree_class": "LM-23-R - Ingegneria civile",
+  "admission_type": "open access",
+  "academic_requirements": "Access is free (no numerus clausus) but curricular preparation is verified before enrolment by the competent Master's Degree Committee (C.C.L.M.), per Art. 6(2) of DM 270/04. Admission requires either: (a) a Bachelor's degree in class L-7 or L-23 (DM 270/04), or classes 04 or 08 (DM 509/99), which grants direct access; OR (b) a 3-year Italian university degree/diploma or an equivalent foreign qualification recognised as suitable, PLUS a minimum of 42 CFU in base scientific-disciplinary sectors (MAT/03 Geometry, MAT/05 Mathematical Analysis, MAT/07 Mathematical Physics, FIS/01 Experimental Physics, CHIM/07 Chemical Foundations of Technology) AND a minimum of 54 CFU in characterising sectors (ICAR/01 Hydraulics, ICAR/04 Roads/Railways/Airports, ICAR/06 Surveying and Cartography, ICAR/07 Geotechnics, ICAR/08 Structural Mechanics, ICAR/09 Structural Engineering, ING-IND/11 Applied Physics, ICAR/10 Architectural Engineering, ICAR/20 Urban and Regional Planning). If credits fall short of these thresholds but reach at least 36 CFU (base) and 48 CFU (characterising) respectively, admission is subject to case-by-case evaluation by the C.C.L.M. Candidates must also show at least 15 years of total prior education (per the general UNIME Master's admission rule).",
+  "language_requirements": "A minimum B2-level English certification (CEFR or equivalent) is explicitly required for admission to the Civil Engineering Master's programme. At the university-wide (UniME) level, applicants to English-taught programmes must upload an International English Language Certificate (CEFR B2) to the language section of the application, unless exempt. Certificates accepted by UniME: IELTS 5.5+ (valid up to 2 years), TOEFL iBT 72+ (valid up to 2 years), Cambridge English B2 First or higher, PTE General Level 3 (B2 CEFR+), PTE Academic 59+. Exempt categories include native English speakers from a defined list of countries/territories, holders of a degree taught entirely in English from those countries/territories, IB Diploma holders (English-medium), and applicants taking a standardised English-medium admission test where compulsory. Italian is not required for the English-taught curriculum, though UNIME offers optional Italian-language courses (via DICAM) and free e-learning (UnimeStone) for international students.",
+  "entry_exam_or_test": "No separate written entrance exam or interview is specified for this open-access programme. Admission is via document-based curricular evaluation ('verifica della preparazione dello studente') carried out before enrolment by the programme's competent committee, per the procedures in the course's academic regulations (Regolamento Didattico). UNIME also runs periodic 'UnimeStone' English Proficiency Test sessions (noted in the programme's own notices, e.g. June 2026 and February 2026 sessions) that can be used to demonstrate the required English level.",
+  "required_documents": [
+    "High School Diploma (obtained after at least 12 years of education, or official provisional certificate if not yet issued)",
+    "Bachelor's Degree diploma or official provisional certificate issued by the university (candidate must show at least 15 years of total education)",
+    "Transcript of records (exams passed in the previous degree programme)",
+    "Copy of a valid passport",
+    "International English Language Certificate (CEFR B2) or proof of an exemption category",
+    "Universitaly pre-enrolment application (for visa-required non-EU applicants, submitted after receiving the UniME admission letter)"
+  ],
+  "application_deadline_eu": "[uncertain] Applicable university-wide 2026/2027 rounds relevant to EU/EU-equivalent/no-visa applicants: '6th Call - No Visa Applicants' (Italians with foreign qualification, EU and EU-equivalent candidates) - from 1 July 2026 (00:01 CEST) to 20 November 2026 (23:59 CET), covering English-taught & Italian-taught Bachelor's and Master's Degrees. A non-refundable EUR 30.00 application fee applies (covers up to two applications across calls). These are university-wide calls (from international.unime.it), not published separately on the programme's own cdl.unime.it site.",
+  "application_deadline_non_eu": "[uncertain] For non-EU (Study VISA) applicants, three sequential rounds apply to Master's programmes for the 2026/2027 intake: '1st Call - Early Bird' from 24 November 2025 (00:01 CET) to 22 December 2025 (23:59 CET); '2nd Call - Visa Applicants' from 1 February 2026 (00:01 CET) to 31 March 2026 (23:59 CEST); '3rd Call - Visa Applicants' from 13 April 2026 (00:01 CEST) to 10 May 2026 (23:59 CEST). Non-refundable EUR 30.00 application fee (covers up to two applications). After a positive evaluation, applicants receive an admission letter and must register on Universitaly (UNIME confirms acceptance there) to start the visa process; for a.y. 2026/2027 the Universitaly deadline is stated as 1 September 2026. Two-portal flow: UniME Application Portal (pre-evaluation) then Universitaly (visa confirmation).",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://lm-ingegneria-civile.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "Class: LM-23-R - Ingegneria civile / Access: Free / Language: English Italian / Location: MESSINA / Department: Department of Engineering",
+      "url": "https://lm-ingegneria-civile.cdl.unime.it/en",
+      "field_supported": "degree_class, admission_type, teaching_language, campus"
+    },
+    {
+      "quote": "Sustainable engineering for water-related risks (in inglese) / 1. Infrastrutture di trasporto (in italiano) / 2. Strutture e Geotecnica (in italiano)",
+      "url": "https://lm-ingegneria-civile.cdl.unime.it/it/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "il possesso di laurea triennale nelle classi L-7 oppure L-23 (DM 270/04) e 04 oppure 08 (DM 509/99) che garantisce accesso diretto al CdS magistrale... un numero minimo di CFU pari a 42... e un numero minimo di 54 CFU tra i seguenti settori scientifico-disciplinari",
+      "url": "https://lm-ingegneria-civile.cdl.unime.it/it/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Ai fini dell'ammissione al corso stesso è inoltre richiesto un livello di conoscenza della lingua inglese non inferiore al B2 del quadro comune europeo di riferimento o equivalente.",
+      "url": "https://lm-ingegneria-civile.cdl.unime.it/it/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "IELTS (5.5 or higher) - valid (up to two years from the date of the test) / TOEFL iBT (72 or higher) ... Cambridge English (B2 First or higher) / PTE...",
+      "url": "https://international.unime.it/study-us/application-and-admission/english-language-requirements",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "1st Call – Early Bird ... From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants ... From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "For the a. y. 2026/2027, an application fee of € 30.00 is due for the submission of a maximum of two applications ... The application fee is not refundable.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu"
+    },
+    {
+      "quote": "For the academic year 2026/2027, the application deadline on Universitaly is 1 September 2026.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": "Both www.unime.it and international.unime.it, and the live lm-ingegneria-civile.cdl.unime.it page, are behind an AWS WAF 'Human Verification' CAPTCHA on direct fetch; no CAPTCHA was solved. All cdl.unime.it and international.unime.it content was retrieved via Wayback Machine snapshots instead (programme homepage: snapshot dated 2026-06-12; programme 'Enrolling' page: snapshot dated 2026-06-12; programme 'Requisiti di accesso' page, English version: snapshot dated 2026-01-18 — this English version rendered with an empty 'Requirements' content block, so the parallel Italian-language version of the same page (also dated 2026-01-18, bilingual IT/EN text embedded in the page) was used instead and is cited above; international.unime.it Application and Admission page: snapshot dated 2026-05-17; English Language Requirements sub-page: snapshot dated 2026-05-17). Programme-level application deadlines specific to Civil Engineering are not published on the programme's own cdl.unime.it site; the six university-wide sequential admission calls (from international.unime.it) are used instead per the shared task instructions and are assumed to apply, since the programme falls under 'English-taught & Italian-taught Bachelor's and Master's Degrees' in each call's scope — this is why application_deadline_eu and application_deadline_non_eu are marked uncertain. No official_call_url (programme-specific bando) was found; only the general Application and Admission page was located, so official_call_url is left null. No admission interview, portfolio review, or entrance test beyond the standard curricular/CFU and English-level check was found for this open-access programme, so entry_exam_or_test could not be more precisely confirmed for the 2026/27 cycle specifically. The Regolamento Didattico PDF (dated 24 July 2025, filed 2025-10) was located via CDX listing but not opened in full; the CFU/SSD figures cited come from the official programme requirements page instead, which restates the same regulation content.",
+  "uncertain": [
+    "teaching_language",
+    "admission_type",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "official_call_url",
+    "entry_exam_or_test"
+  ]
+}

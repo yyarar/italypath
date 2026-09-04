@@ -1,0 +1,68 @@
+{
+  "program_name": "Engineering in Computer Science",
+  "level": "master",
+  "teaching_language": "English (fully English-taught programme)",
+  "campus": "Messina",
+  "degree_class": "LM-32 - Classes of Laurea Magistrale in Computer systems engineering",
+  "admission_type": "open access",
+  "academic_requirements": "Access is free (no numerus clausus), but curricular requirements are verified before enrolment. Admission requires either: (a) a Bachelor's degree in class L-8 or L-31 (Italian classes) or a 3-year university diploma obtained in Italy, or an equivalent foreign qualification recognised as suitable for direct access to a Master's programme; OR (b) a minimum of 30 CFU in the scientific-disciplinary sectors MATH-02/A, MATH-02/B, MATH-03/A, MATH-04/A, PHYS-03/A, plus a minimum of 40 CFU in IINF-01/A, IINF-04/A, IINF-05/A, INFO-01/A. Initial-preparation verification is considered passed for applicants with a Bachelor's degree final grade not lower than 85/110 (or equivalent for foreign qualifications). If gaps are found, the programme council assigns supplementary (integrative) learning activities that must still lead to the 120-CFU Master's degree with no additional required credits beyond the standard load.",
+  "language_requirements": "B2-level English is required for admission, attested by passing university proficiency exams/tests or by internationally/European-recognised certificates (per the Regolamento Didattico). At UNIME university level, applicants to English-taught programmes must upload an international English language certificate (CEFR B2) issued by a recognised institution and accepted by UniME to the application's language section, unless exempt under UNIME's exemption categories (details on UNIME's dedicated English Language Requirements page).",
+  "entry_exam_or_test": "No separate written entrance exam or interview is specified for this programme; it is an 'access libero' (open-access, non-restricted) programme. Applicants undergo 'verifica della preparazione iniziale' (initial-preparation check) based on curricular CFU requirements and prior degree grade (see academic_requirements); UNIME also runs periodic 'UnimeStone' English Proficiency Test sessions that can be used to prove the required English level.",
+  "required_documents": [
+    "High School Diploma (obtained after at least 12 years of education)",
+    "Bachelor's Degree diploma (or official provisional certificate issued by the university if not yet awarded); candidate must show at least 15 years of total education",
+    "Transcript of records (exams taken in the previous degree)",
+    "Copy of a valid passport",
+    "English language certificate (CEFR B2) for English-taught programmes",
+    "Universitaly pre-enrolment application (for visa-required non-EU applicants, after receiving the UniME admission letter)"
+  ],
+  "application_deadline_eu": "[uncertain] UNIME's 2026/27 application timeline for EU / EU-equivalent / Italians with a foreign qualification applicants is the '6th Call - No Visa Applicants': from 1 July 2026 (00:01 CEST) to 20 November 2026 (23:59 CET). A non-refundable EUR 30.00 application fee applies (covers up to two applications submitted across calls). Applications are submitted on the UniME Application Portal.",
+  "application_deadline_non_eu": "For non-EU (Study VISA) applicants, UNIME runs three sequential rounds for Bachelor's/Master's programmes in the 2026/27 intake: 1st Call - Early Bird, from 24 November 2025 (00:01 CET) to 22 December 2025 (23:59 CET); 2nd Call - Visa Applicants, from 1 February 2026 (00:01 CET) to 31 March 2026 (23:59 CEST); 3rd Call - Visa Applicants, from 13 April 2026 (00:01 CEST) to 10 May 2026 (23:59 CEST). A non-refundable EUR 30.00 application fee applies. After a positive evaluation, applicants receive an admission letter and must register on the Universitaly portal (the university confirms acceptance there) to proceed with the visa procedure; for a.y. 2026/2027 the Universitaly application deadline is stated as 1 September 2026 on UNIME's admission page. Two-portal flow: UniME Application Portal (pre-evaluation) then Universitaly (visa confirmation).",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://engineering-and-computer-science.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "Class: LM-32 - Classes of Laurea Magistrale in Computer systems engineering / Access: Free / Language: English / Location: MESSINA",
+      "url": "https://engineering-and-computer-science.cdl.unime.it/en",
+      "field_supported": "degree_class, admission_type, teaching_language, campus"
+    },
+    {
+      "quote": "laurea triennale nelle classi L-8 o L-31 ... oppure aver conseguito un numero minimo di CFU nei seguenti settori scientifico disciplinari - minimo 30 CFU ... minimo 40 CFU nei settori: IINF-01/A; IINF-04/A; IINF-05/A; INFO-01/A",
+      "url": "https://engineering-and-computer-science.cdl.unime.it/sites/cdl30/files/2025-07/28%20Definitivo_Regolamento_didattico_2025_ECS_LM_32.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "Ai fini dell'ammissione al Corso è richiesto il livello B2 di conoscenza della lingua inglese, attestato dal superamento di esami o di prove idoneative universitarie",
+      "url": "https://engineering-and-computer-science.cdl.unime.it/sites/cdl30/files/2025-07/28%20Definitivo_Regolamento_didattico_2025_ECS_LM_32.pdf",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "1st Call – Early Bird ... From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants ... From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "For the a. y. 2026/2027, an application fee of € 30.00 is due for the submission of a maximum of two applications ... The application fee is not refundable.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu"
+    },
+    {
+      "quote": "For the academic year 2026/2027, the application deadline on Universitaly is 1 September 2026.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": "Both www.unime.it and international.unime.it are behind an AWS WAF CAPTCHA and the live engineering-and-computer-science.cdl.unime.it page also returned a 'Human Verification' challenge on direct fetch, so all cdl.unime.it and international.unime.it content here was retrieved via Wayback Machine snapshots (program page: snapshot dated 2026-04-21; 'Basics'/enrolling page: snapshot dated 2025-12-15; Regolamento Didattico PDF: snapshot dated 2026-05-12; international.unime.it Application and Admission page: snapshot dated 2026-05-17) rather than live pages, per the required fallback order. The programme's own 'For admission' sub-page ('Basics') showed a Requirements block with empty/truncated title codes ([TSS], [L2], [L1], [TS], [LS]) with no descriptive text rendered in the static HTML (likely populated dynamically), so the detailed curricular requirement text was instead sourced from the official Regolamento Didattico PDF (dated 24 July 2025, published November 2025), which is authoritative and more detailed. Programme-level application deadlines are not published on the programme's own cdl.unime.it site; the six university-wide sequential admission calls (from international.unime.it) are used instead, per the shared task instructions, and are assumed to apply to this Master's programme as it falls under 'English-taught & Italian-taught Bachelor's and Master's Degrees' in each call's scope. No official_call_url (programme-specific bando) was found; only the general Application and Admission page and Regolamento Didattico were located. No admission interview, portfolio, or entrance test beyond the standard curricular/CFU and English-level check was found for this open-access programme. Could not confirm whether 2026/27-specific figures for CFU minimums or the 85/110 threshold changed from the 2025/26 Regolamento used (dated 24 July 2025 version, filed under a 2025-11 folder date) — this is presumed current for 2026/27 since no newer version was found in the site's archive listing.",
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "official_call_url",
+    "entry_exam_or_test"
+  ]
+}

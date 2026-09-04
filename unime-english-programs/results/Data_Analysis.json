@@ -1,0 +1,57 @@
+{
+  "program_name": "Computer Science - Data Analysis (Informatica, curriculum Data Analysis)",
+  "level": "bachelor",
+  "teaching_language": "Mixed programme: the course page lists 'Language: English Italian'. The degree is split into two curricula — 'Tecnologie Informatiche' and 'Data Analysis' — per the (Italian-language) admission page: 'Il Corso di Studi è suddiviso in due curricula... Il curriculum di Data Analysis ambisce a formare laureati capaci di affermarsi nel settore di Big Data...' [uncertain: the page's admission/requirements content is entirely in Italian even under the /en/ URL path, so it could not be confirmed whether the Data Analysis curriculum specifically is delivered fully in English or only partially]",
+  "campus": "Messina",
+  "degree_class": "L-31-R - Scienze e tecnologie informatiche",
+  "admission_type": "TOLC",
+  "academic_requirements": "Per l'ammissione al Corso di Laurea occorre essere in possesso di un diploma di scuola secondaria di secondo grado o di altro titolo di studio conseguito all'estero, riconosciuto idoneo. Le conoscenze richieste per l'accesso sono coerenti con il decreto della classe e sono verificate attraverso TOLC-CISIA o equivalenti. Nel caso di mancato superamento della verifica saranno assegnati degli obblighi formativi aggiuntivi (OFA) da soddisfare nel primo anno di corso. In caso di mancato assolvimento degli OFA, lo studente sarà iscritto al primo anno ripetente. [Translation: Admission requires a secondary school diploma (or a recognised equivalent foreign qualification). Required entry knowledge is verified through the TOLC-CISIA test or equivalent; if not passed, additional educational obligations (OFA) are assigned for the first year, and failure to fulfil them means repeating the first year.] University-wide bachelor's requirements also apply: transcript of records, valid passport, and any University Entrance Exam Certificate required by the applicant's national education system.",
+  "language_requirements": "È richiesta la verifica della conoscenza della lingua inglese ad un livello pari a B2 del Quadro Comune Europeo di riferimento per la conoscenza delle lingue. Studenti e studentesse con un livello di conoscenza della lingua inglese inferiore al B2 saranno tenuti a svolgere attività formative per l'acquisizione di competenze linguistiche. [Translation: English proficiency at CEFR B2 is required for verification; students below B2 must complete language-skill-acquisition activities.] This matches UniME's university-wide policy requiring an International English Language Certificate (CEFR B2) for English-taught programme applicants, unless exempt.",
+  "entry_exam_or_test": "TOLC-CISIA (Test OnLine CISIA) or equivalent test verifies the required entry knowledge; a related 'TOLC/OFA CISIA Test' resource is linked from the course's Enrollment menu. If the test is not passed, OFA (additional educational obligations) are assigned for the first year of study, to be resolved before progressing; failure results in repeating the first year.",
+  "required_documents": [
+    "High school diploma (diploma di scuola secondaria di secondo grado) or recognised equivalent foreign qualification",
+    "University Entrance Exam Certificate, if required by the applicant's national education system",
+    "Transcript of records",
+    "Copy of a valid passport",
+    "English language certificate (CEFR B2), or exemption documentation"
+  ],
+  "application_deadline_eu": "6th Call - No Visa Applicants (Italians with foreign qualification, EU and EU-equivalent candidates): from July 1, 2026 (00:01 am CEST) to November 20, 2026 (11:59 pm CET), for English-taught & Italian-taught Bachelor's and Master's Degrees.",
+  "application_deadline_non_eu": "Non-EU (Study VISA applicant) candidates apply across three sequential rounds: 1st Call – Early Bird: November 24, 2025 (00:01 am CET) to December 22, 2025 (11:59 pm CET); 2nd Call - Visa Applicants: February 1, 2026 (00:01 am CET) to March 31, 2026 (11:59 pm CEST); 3rd Call - Visa Applicants: April 13, 2026 (00:01 am CEST) to May 10, 2026 (11:59 pm CEST). A non-refundable EUR 30.00 application fee covers up to two applications. Applications go through the UniME Application Portal, and visa applicants must then register on the Universitaly portal (Universitaly pre-enrolment deadline for 2026/2027: September 1, 2026).",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://informatica.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "Class L-31-R - Scienze e tecnologie informatiche Access Free Language English Italian Coordinator GIACOMO FIUMARA Location MESSINA Department Department of Mathematics, Computer Science, Physics and Earth Science Duration 3 years Credits 180",
+      "url": "https://informatica.cdl.unime.it/en (Wayback snapshot 2026-05-16)",
+      "field_supported": "degree_class, admission_type, teaching_language, campus"
+    },
+    {
+      "quote": "Per l'ammissione al Corso di Laurea occorre essere in possesso di un diploma di scuola secondaria di secondo grado o di altro titolo di studio conseguito all'estero, riconosciuto idoneo. Le conoscenze richieste per l'accesso... sono verificate attraverso TOLC-CISIA o equivalenti.",
+      "url": "https://informatica.cdl.unime.it/en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi (Wayback snapshot 2026-06-11)",
+      "field_supported": "academic_requirements, entry_exam_or_test"
+    },
+    {
+      "quote": "È richiesta la verifica della conoscenza della lingua inglese ad un livello pari a B2 del Quadro Comune Europeo di riferimento per la conoscenza delle lingue.",
+      "url": "https://informatica.cdl.unime.it/en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi (Wayback snapshot 2026-06-11)",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Il curriculum di Data Analysis ambisce a formare laureati capaci di affermarsi nel settore di 'Big Data' che richiede l'elaborazione di grandi volumi di dati complessi utilizzando algoritmi di Machine Learning.",
+      "url": "https://informatica.cdl.unime.it/en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi (Wayback snapshot 2026-06-11)",
+      "field_supported": "program_name, teaching_language"
+    },
+    {
+      "quote": "1st Call – Early Bird... Timeframe: From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants... Timeframe: From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": "informatica.cdl.unime.it and international.unime.it are behind an AWS WAF interactive CAPTCHA; content was retrieved via Wayback Machine snapshots (informatica.cdl.unime.it/en and /en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi, snapshot 2026-06-11; international.unime.it/study-us/application-and-admission, snapshot 2026-05-17) since no CAPTCHA was solved. The course's admission/requirements subpage rendered entirely in Italian despite sitting under the /en/ URL path (no English translation appears to exist for this specific subpage), so academic_requirements and language_requirements are quoted verbatim in Italian per the source policy, with an English translation added for clarity; this is flagged rather than treated as a full English-taught confirmation. It could not be confirmed whether the Data Analysis curriculum is delivered fully in English or only in Italian with English used for select materials — the page states 'Language: English Italian' without a curriculum-level breakdown, and the request for a fully English-taught program page did not surface a distinct English source. No programme-specific official_call_url or admission fee/timeline distinct from the university-wide 2026/2027 six-call calendar was found.",
+  "uncertain": ["teaching_language", "program_name"]
+}

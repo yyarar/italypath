@@ -1,0 +1,68 @@
+{
+  "research_id": "ma-physics-material-physics-devices",
+  "program_name": "Physics: Material Physics and Devices",
+  "level": "master",
+  "teaching_language": "English (Materials Physics and Devices is one of three curricula in the LM-17-R Physics programme; the cdl.unime.it course page lists overall programme language as 'English Italian', i.e. the degree class offers both an English-taught curriculum, which is Materials Physics and Devices, and an Italian/English 'FISICA' curriculum)",
+  "campus": "Messina",
+  "degree_class": "LM-17-R - Fisica (Physics)",
+  "admission_type": "open access",
+  "academic_requirements": "Students should have a Bachelor's degree or equivalent three-year degree in Physics. No specific minimum CFU-per-SSD table is published on the official info sheet; the course commission evaluates the candidate's prior curriculum via UNIME's standard Master's-degree admission process. General UNIME Master's admission also requires demonstrating at least 15 years of total prior education (high-school diploma of at least 12 years plus the Bachelor's degree) and submission of transcript of records for foreign-qualification assessment against the 'UniME Entry Criteria by Country' document. No minimum CFU per SSD, GPA threshold, or admission interview/portfolio requirement is published beyond the qualitative 'Bachelor's degree in Physics' requirement. [uncertain: curricular detail]",
+  "language_requirements": "International English language certificate issued by an Institution recognized by the Italian Ministry of University and Research (MUR), B2 level of the Common European Framework of Reference (CEFR), unless the applicant is exempt under UNIME's general exemption categories. No separate Italian-language requirement is stated for this English-taught curriculum.",
+  "entry_exam_or_test": "No standardized national entry exam (e.g. TOLC) or interview is mentioned for this programme; admission is based on curriculum evaluation by the course/Departmental Commission against the Bachelor's-in-Physics requirement.",
+  "required_documents": [
+    "Bachelor's degree diploma in Physics or equivalent (or official provisional certificate if not yet issued)",
+    "High School Diploma (obtained after at least 12 years of study), combined with Bachelor's degree to total at least 15 years of education",
+    "Transcript of records (exams taken in the previous degree programme)",
+    "Copy of a valid passport",
+    "International English language certificate (CEFR B2), unless exempt",
+    "Admission letter (issued after positive pre-evaluation) required before Universitaly registration for visa applicants"
+  ],
+  "application_deadline_eu": "UNIME's A.Y. 2026/2027 admission runs through six sequential calls (Universitaly deadline 1 September 2026); the round applicable to EU / no-visa-required candidates (Italians with a foreign qualification, EU and EU-equivalent) is the 6th Call - No Visa Applicants, covering English-taught & Italian-taught Bachelor's and Master's Degrees, from 1 July 2026 (00:01 CEST) to 20 November 2026 (23:59 CET). A non-refundable application fee of EUR 30.00 applies (covers up to two applications).",
+  "application_deadline_non_eu": "Non-EU (Study VISA applicant) candidates for English-taught Bachelor's and Master's Degrees, including this programme, apply through three sequential rounds: 1st Call - Early Bird, from 24 November 2025 (00:01 CET) to 22 December 2025 (23:59 CET); 2nd Call - Visa Applicants, from 1 February 2026 (00:01 CET) to 31 March 2026 (23:59 CEST); 3rd Call - Visa Applicants, from 13 April 2026 (00:01 CEST) to 10 May 2026 (23:59 CEST). A non-refundable application fee of EUR 30.00 applies (covers up to two applications). Enrolment requires the UniME Application Portal pre-evaluation and admission letter, followed by Universitaly portal confirmation and visa procedure (Universitaly deadline 1 September 2026).",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://physics.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "The Master's degree programme in Physics offers three curricula: 1. Materials Physics and Devices 2. FISICA (Italian and English)",
+      "url": "https://international.unime.it/sites/sten/files/2025-04/EXE%20%5B%20Physics%20-%20Material%20Physics%20and%20Devices%5D%2025.pdf",
+      "field_supported": "program_name"
+    },
+    {
+      "quote": "Students should have a Bachelor's degree or equivalent three-year degree in Physics.",
+      "url": "https://international.unime.it/sites/sten/files/2025-04/EXE%20%5B%20Physics%20-%20Material%20Physics%20and%20Devices%5D%2025.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "International English language certificate issued by an Institution recognized by the Italian Ministry of University and Research (MUR), B2 level of the Common European Framework of Reference.",
+      "url": "https://international.unime.it/sites/sten/files/2025-04/EXE%20%5B%20Physics%20-%20Material%20Physics%20and%20Devices%5D%2025.pdf",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Class LM-17-R - Fisica / Access Free / Language English Italian / Location MESSINA",
+      "url": "https://physics.cdl.unime.it/en",
+      "field_supported": "degree_class/campus/teaching_language"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants ... Timeframe: From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "1st Call – Early Bird ... From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "For the a. y. 2026/2027, an application fee of € 30.00 is due for the submission of a maximum of two applications... The application fee is not refundable.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "deadlines"
+    }
+  ],
+  "uncertainty_notes": "www.unime.it and international.unime.it (and the physics.cdl.unime.it live site) are behind an AWS WAF CAPTCHA that could not be solved per policy; all data was retrieved via Wayback Machine snapshots (cdl page dated May 2026) and the official 2025-dated English-taught programme info-sheet PDF hosted on international.unime.it (no 2026 version of this specific info sheet was found in the archived listing, so the 2025 PDF was used for programme-content fields, while the shared A.Y. 2026/2027 admission-calls page was used for the deadline fields). The cdl.unime.it programme page is a generic landing page for the whole LM-17-R Physics course (labelled 'Language: English Italian') and does not separately break out the Materials Physics and Devices curriculum's own study plan/admission page in the retrieved snapshot; curriculum-specific admission/study-plan detail comes from the official info sheet only. No minimum CFU-per-SSD table or interview/portfolio requirement was found. No programme-specific admission call/bando URL (official_call_url) was found; general admission timeline is from the shared international.unime.it/study-us/application-and-admission page, listing all six UNIME-wide calls per instructions rather than a Physics-specific deadline.",
+  "uncertain": [
+    "academic_requirements (CFU/SSD detail)",
+    "official_call_url",
+    "info_sheet_year (2025 PDF used; not yet confirmed updated for 2026/27)"
+  ]
+}

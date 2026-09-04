@@ -1,0 +1,66 @@
+{
+  "program_name": "Global Security Studies",
+  "level": "master",
+  "teaching_language": "English (fully English-taught programme)",
+  "campus": "[uncertain] Messina (implied; not explicitly stated in the info-sheet PDF, which only names the department)",
+  "degree_class": "LM-52 - International Relations (\"falls under the Italian Master's Degree class in International Relations (LM-52)\")",
+  "admission_type": "[uncertain] other",
+  "academic_requirements": "The programme is accessible to students who possess a Bachelor's Degree in Humanities and Social Sciences, namely in the following disciplinary areas: International Relations, History and Philosophy, Economics, Law, Political Science, Sociology, Foreign Languages. No specific minimum CFU-per-SSD figures or minimum grade thresholds are published in the info-sheet PDF (unlike the detailed Regolamento Didattico documents available for other programmes); no such Regolamento was found for this new programme.",
+  "language_requirements": "An international English language certificate issued by an Institution recognised by the Italian Ministry of University and Research (MUR), B2 level of the Common European Framework of Reference, is required. The info-sheet directs applicants to scan a QR code for further information (destination URL not extractable from the static PDF text).",
+  "entry_exam_or_test": null,
+  "required_documents": [
+    "[uncertain] High School Diploma (obtained after at least 12 years of education) - inferred from UNIME's general Master's-Degree admission requirements, not confirmed on this programme's own materials",
+    "[uncertain] Bachelor's Degree diploma (or official provisional certificate) in one of the eligible disciplinary areas - inferred from UNIME's general Master's-Degree admission requirements",
+    "[uncertain] Transcript of records - inferred from UNIME's general Master's-Degree admission requirements",
+    "[uncertain] Copy of a valid passport - inferred from UNIME's general Master's-Degree admission requirements",
+    "English language certificate (CEFR B2) issued by an institution recognised by the Italian MUR"
+  ],
+  "application_deadline_eu": "[uncertain] Not published in the programme info-sheet PDF. As a new (A.Y. 2026/27) programme with no live cdl.unime.it site yet, no programme-specific deadlines were found. Falling back to UNIME's university-wide 2026/27 timeline (per shared task instructions), the relevant round for EU / EU-equivalent / Italians-with-foreign-qualification applicants is the '6th Call - No Visa Applicants': from 1 July 2026 (00:01 CEST) to 20 November 2026 (23:59 CET), covering 'English-taught & Italian-taught Bachelor's and Master's Degrees'. A non-refundable EUR 30.00 application fee applies. It could not be confirmed that Global Security Studies is included in this general call, since it is not yet listed on any live programme portal page found.",
+  "application_deadline_non_eu": "[uncertain] Not published in the programme info-sheet PDF. Falling back to UNIME's university-wide 2026/27 timeline for non-EU (Study VISA) applicants: 1st Call - Early Bird, 24 November 2025 (00:01 CET) to 22 December 2025 (23:59 CET); 2nd Call - Visa Applicants, 1 February 2026 (00:01 CET) to 31 March 2026 (23:59 CEST); 3rd Call - Visa Applicants, 13 April 2026 (00:01 CEST) to 10 May 2026 (23:59 CEST). A non-refundable EUR 30.00 application fee applies; two-portal flow (UniME Application Portal, then Universitaly, with the Universitaly deadline for a.y. 2026/2027 stated as 1 September 2026 on UNIME's general admission page). It could not be confirmed that Global Security Studies was open for application in these general calls at the time of this info-sheet's publication (dated 2026-03), since the programme has no live cdl.unime.it portal page yet.",
+  "tuition_or_fees_link": "[uncertain] Not given as a URL in the PDF; the info-sheet states 'UniME tuition fees for international students are calculated by country group. Scan the QR Code for further information' without a resolvable link in the extracted text. General UNIME fees page: https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://international.unime.it/sites/sten/files/2026-03/MA_Global_Security_Studies_2026.pdf",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "The two-year Master's Degree Course in Global Security Studies falls under the Italian Master's Degree class in International Relations (LM-52).",
+      "url": "https://international.unime.it/sites/sten/files/2026-03/MA_Global_Security_Studies_2026.pdf",
+      "field_supported": "degree_class"
+    },
+    {
+      "quote": "The programme is accessible to students who possess a Bachelor's Degree in Humanities and Social Sciences, namely in the following disciplinary areas: International Relations, History and Philosophy, Economics, Law, Political Science, Sociology, Foreign Languages.",
+      "url": "https://international.unime.it/sites/sten/files/2026-03/MA_Global_Security_Studies_2026.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "An international English language certificate issued by an Institution recognised by the Italian Ministry of University and Research (MUR), B2 level of the Common European Framework of Reference is required.",
+      "url": "https://international.unime.it/sites/sten/files/2026-03/MA_Global_Security_Studies_2026.pdf",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Department: Political and Legal Studies / Duration: 2 years",
+      "url": "https://international.unime.it/sites/sten/files/2026-03/MA_Global_Security_Studies_2026.pdf",
+      "field_supported": "program_name, level"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants ... From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "1st Call – Early Bird ... From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": "This is a new programme for A.Y. 2026/27 (Department of Political and Legal Sciences) with only an info-sheet PDF and no live cdl.unime.it programme site, as flagged in the task. The PDF (international.unime.it/sites/sten/files/2026-03/MA_Global_Security_Studies_2026.pdf) was fetched via a Wayback Machine snapshot dated 2026-05-17, since international.unime.it is behind an AWS WAF CAPTCHA on direct/live fetch. Many fields could not be confirmed from the PDF alone and were either left null (entry_exam_or_test - not mentioned at all, so left null rather than guessed) or filled with the university-wide general Master's-degree admission process/documents/deadlines from international.unime.it's Application and Admission page as the best available fallback, explicitly marked [uncertain] because it is not confirmed that this specific new programme is included in those general calls or uses the identical document checklist. admission_type is marked [uncertain]/'other' because the PDF gives no explicit statement of open vs restricted access (no 'Access: Free' field as seen on live cdl.unime.it programme sites); given it requires a specific set of eligible Bachelor's disciplinary areas, it is likely 'restricted' in the sense of curriculum-based eligibility, but this is not confirmed. campus is inferred as Messina (UNIME's only campus) but not explicitly stated in the PDF. tuition_or_fees_link could not be resolved to an exact URL because the PDF references a QR code rather than a hyperlink; the general UNIME fees page is given as the closest available official source. No official admission call/bando specific to this programme was found. Could not verify degree class or the entry-requirements list against a Regolamento Didattico PDF, since none appears to exist yet for this brand-new programme.",
+  "uncertain": [
+    "campus",
+    "admission_type",
+    "required_documents",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "tuition_or_fees_link",
+    "official_call_url",
+    "entry_exam_or_test"
+  ]
+}

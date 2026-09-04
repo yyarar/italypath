@@ -1,0 +1,137 @@
+# fields.yaml — University of Messina (UNIME) English-taught programmes
+# Research object = one degree programme. Deep-research phase emits one JSON per item.
+topic: "UNIME English-taught bachelor & master programmes — admission requirements"
+schema_version: 1
+generated_at: "2026-09-04"
+
+source_policy:
+  allowed_domains:
+    - "unime.it"
+    - "*.unime.it"
+  rule: >
+    Only official University of Messina pages may be used as the source of record.
+    Aggregator sites (mastersportal, studyinitaly, uniitalia, etc.) may be used to
+    locate a lead but MUST NOT be cited; every fact must resolve to a unime.it URL.
+  year_policy: >
+    Prioritise academic year 2026/2027. If 2026/27 information is not yet published
+    for a programme, use the most recent official year (2025/2026) and state this
+    explicitly in uncertainty_notes.
+  quoting_rule: >
+    Every non-trivial field must be backed by a short verbatim quote in source_quotes
+    (max ~30 words each) with the exact page URL it came from. Never paraphrase a
+    deadline or a fee as if it were quoted.
+
+fields:
+
+  identity:
+    - name: program_name
+      description: "Official programme name exactly as written on the unime.it page (English name; add Italian name in parentheses if the page shows both)."
+      detail_level: brief
+      type: string
+      required: true
+
+    - name: level
+      description: "Degree level."
+      detail_level: brief
+      type: enum
+      enum: [bachelor, master, single-cycle, other]
+      required: true
+
+    - name: teaching_language
+      description: "Language of instruction as stated officially. Distinguish fully English-taught from partially English / English curriculum inside an Italian course."
+      detail_level: moderate
+      type: string
+      required: true
+
+    - name: campus
+      description: "City / campus / teaching location (e.g. Messina, Papardo, Annunziata). Use the location named on the official page."
+      detail_level: brief
+      type: string
+      required: false
+
+    - name: degree_class
+      description: "Italian ministerial degree class code and label if shown (e.g. LM-6 Biologia, L-13). Null if not published."
+      detail_level: brief
+      type: string
+      required: false
+
+  admission:
+    - name: admission_type
+      description: "How access is regulated."
+      detail_level: moderate
+      type: enum
+      enum: [open access, restricted access, TOLC, SAT, selection call, other]
+      required: true
+
+    - name: academic_requirements
+      description: "Prior qualification required: high-school diploma / bachelor degree, required degree classes, minimum CFU per scientific-disciplinary sector (SSD), GPA or curricular prerequisites, and how foreign qualifications are assessed."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: language_requirements
+      description: "Required English level (e.g. B2) and accepted certificates (IELTS/TOEFL/Cambridge), score thresholds, exemptions, and whether an internal language test replaces a certificate. Note any Italian-language requirement too."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: entry_exam_or_test
+      description: "Any admission test: TOLC type, SAT, internal written test or interview, national medicine test, or CV/motivation-based selection. Include test dates and registration route if published."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: required_documents
+      description: "Documents to submit: transcript, diploma, Declaration of Value / CIMEA statement, Universitaly pre-enrolment, passport, CV, motivation letter, references, language certificate."
+      detail_level: detailed
+      type: array_of_strings
+      required: true
+
+  deadlines:
+    - name: application_deadline_eu
+      description: "Application window and deadline for EU / equivalent applicants for the covered academic year. Give exact dates as published; if multiple rounds exist, list each round."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: application_deadline_non_eu
+      description: "Application window and deadline for non-EU applicants residing abroad, including Universitaly pre-enrolment and visa-related cut-offs where the page states them."
+      detail_level: detailed
+      type: string
+      required: true
+
+  sources:
+    - name: tuition_or_fees_link
+      description: "Official unime.it URL for tuition fees / contribuzione studentesca (and scholarship or fee-waiver page if the programme page links one)."
+      detail_level: brief
+      type: url
+      required: false
+
+    - name: official_program_url
+      description: "Canonical unime.it programme page URL."
+      detail_level: brief
+      type: url
+      required: true
+
+    - name: official_call_url
+      description: "URL of the admission call / bando / avviso di ammissione (PDF or page) that governs the covered year. Null if no programme-specific call exists."
+      detail_level: brief
+      type: url
+      required: false
+
+    - name: source_quotes
+      description: "List of {quote, url, field_supported} objects. Short verbatim excerpts (<=30 words) from unime.it pages backing the extracted values, especially deadlines, language level and admission type."
+      detail_level: detailed
+      type: array_of_objects
+      required: true
+
+  reliability:
+    - name: uncertainty_notes
+      description: "What could not be confirmed and why: 2026/27 call not yet published (state which year was used instead), page contradicts another page, information only available in Italian, English-taught status ambiguous, dead links, or fields left null."
+      detail_level: detailed
+      type: string
+      required: true
+
+# Reserved — auto-filled during the deep-research phase with fields the agent could
+# not resolve from official sources for a given item.
+uncertain: []

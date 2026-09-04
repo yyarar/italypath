@@ -1,0 +1,75 @@
+{
+  "program_name": "Data Science",
+  "level": "master",
+  "teaching_language": "English (fully English-taught programme)",
+  "campus": "Messina",
+  "degree_class": "LM-Data - Data science",
+  "admission_type": "open access",
+  "academic_requirements": "Access is free (no numerus clausus), but curricular preparation is verified by an Enrolling Commission before enrolment. Requires either: (a) a three-year (Bachelor's) degree in class L-8 (Information Engineering) or L-31 (Computer Science and Technology) (DM 270/04), or another qualification obtained abroad recognised as suitable, which guarantees direct access; OR (b) a three-year degree, university diploma, equivalent qualification, or foreign qualification recognised as suitable, PLUS at least 24 CFU in scientific-disciplinary sectors INFO-01/A and/or IINF-05/A, AND at least 6 CFU in statistical-mathematical sectors (MATH-02/A, MATH-02/B, MATH-03/A, MATH-03/B, MATH-05/A, MATH-06/A, STAT-04/A, STAT-01/A or STAT-01/B). If the enrolling verification finds curricular prerequisites unmet, the Enrolling Commission identifies additional supplementary learning activities.",
+  "language_requirements": "Knowledge of English at a level equal to or greater than CEFR B2 is required and is evaluated by the enrolling committee as a necessary condition for successful attendance. In the absence of an English certification/attestation at B2 level, an interview is carried out to verify the applicant's English proficiency. Italian bachelor's-degree graduates finalising enrolment must also submit (by email to enrolling-lmdata@unime.it and protocollo@unime.it) any attestation/certification of English at B2+, alongside their degree certificate and exam list. At the general UniME level, applicants to English-taught programmes must otherwise upload an International English Language Certificate (CEFR B2: IELTS 5.5+, TOEFL iBT 72+, Cambridge English B2 First+, PTE General Level 3, or PTE Academic 59+), unless exempt. No Italian-language requirement applies to this English-taught programme.",
+  "entry_exam_or_test": "No formal written entrance exam is specified for the Master's programme itself (a 'TOLC/OFA CISIA Test' is listed in the programme's site navigation, but based on the available page content this appears tied to bachelor-level OFA/prerequisite obligations rather than a Master's admission test — could not be confirmed as applicable to this Master's programme). Admission is via document-based curricular evaluation by the Enrolling Commission; if no English certificate is submitted, an interview is held specifically to verify English-language knowledge (see language_requirements).",
+  "required_documents": [
+    "High School Diploma (obtained after at least 12 years of education, or official provisional certificate if not yet issued)",
+    "Bachelor's Degree diploma or official provisional certificate issued by the university (candidate must show at least 15 years of total education)",
+    "Transcript of records (exams passed in the previous degree programme)",
+    "Copy of a valid passport",
+    "English language certificate (CEFR B2) or, if unavailable, participation in an English-proficiency interview conducted by the Enrolling Commission",
+    "For Italian bachelor's-degree graduates finalising enrolment: degree certificate with list of exams passed, sent to enrolling-lmdata@unime.it and protocollo@unime.it",
+    "Universitaly pre-enrolment application (for visa-required non-EU applicants, submitted after receiving the UniME admission letter); for Movein pre-selection procedure, the Admission letter for enrolment must be attached to the Preventive Evaluation Request"
+  ],
+  "application_deadline_eu": "[uncertain] Applicable university-wide 2026/2027 rounds relevant to EU/EU-equivalent/no-visa applicants: '6th Call - No Visa Applicants' (Italians with foreign qualification, EU and EU-equivalent candidates) - from 1 July 2026 (00:01 CEST) to 20 November 2026 (23:59 CET), covering English-taught & Italian-taught Bachelor's and Master's Degrees. A non-refundable EUR 30.00 application fee applies (covers up to two applications across calls). These are university-wide calls (from international.unime.it), not published separately on the programme's own cdl.unime.it site.",
+  "application_deadline_non_eu": "[uncertain] For non-EU (Study VISA) applicants, three sequential rounds apply to Master's programmes for the 2026/2027 intake: '1st Call - Early Bird' from 24 November 2025 (00:01 CET) to 22 December 2025 (23:59 CET); '2nd Call - Visa Applicants' from 1 February 2026 (00:01 CET) to 31 March 2026 (23:59 CEST); '3rd Call - Visa Applicants' from 13 April 2026 (00:01 CEST) to 10 May 2026 (23:59 CEST). Non-refundable EUR 30.00 application fee (covers up to two applications). After a positive evaluation, applicants receive an admission letter and must register on Universitaly (UNIME confirms acceptance there) to start the visa process; for a.y. 2026/2027 the Universitaly deadline is stated as 1 September 2026. Two-portal flow: UniME Application Portal (pre-evaluation) then Universitaly (visa confirmation). Data Science also references a separate 'Movein' pre-selection procedure requiring the UniME Admission letter to be attached to the Movein Preventive Evaluation Request.",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://data-science.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "Class: LM-Data - Data science / Access: Free / Language: English / Location: MESSINA / Department: Department of Mathematics, Computer Science, Physics and Earth Science",
+      "url": "https://data-science.cdl.unime.it/en",
+      "field_supported": "degree_class, admission_type, teaching_language, campus"
+    },
+    {
+      "quote": "a three-year degree in classes L-8 or L-31 (DM 270/04)... alternatively a three-year degree or university diploma or equivalent three-year degree... at least 24 CFU in the SSD INFO-01/A and/or IINF-05/A, and 6 CFU in the statistical-mathematical sectors",
+      "url": "https://data-science.cdl.unime.it/en/enrolling/prerequisites",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "the enrolling committee evaluate the possession of knowledge of English certification at a level equal to or greater than B2... In the absence of attestation/certification of at least a B2 level English language knowledge, interviews will be carried out to verify knowledge of the English language.",
+      "url": "https://data-science.cdl.unime.it/en/enrolling",
+      "field_supported": "language_requirements, entry_exam_or_test"
+    },
+    {
+      "quote": "Those who have a bachelor's degree obtained in Italy have to finalize the enrollment in the Data Science master's degree by sending to the email enrolling-lmdata@unime.it and protocollo@unime.it the following documents",
+      "url": "https://data-science.cdl.unime.it/en/enrolling",
+      "field_supported": "required_documents"
+    },
+    {
+      "quote": "1st Call – Early Bird ... From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants ... From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "For the a. y. 2026/2027, an application fee of € 30.00 is due for the submission of a maximum of two applications ... The application fee is not refundable.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu"
+    },
+    {
+      "quote": "For the academic year 2026/2027, the application deadline on Universitaly is 1 September 2026.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": "Both www.unime.it and international.unime.it, and the live data-science.cdl.unime.it page, are behind an AWS WAF 'Human Verification' CAPTCHA on direct fetch; no CAPTCHA was solved. All content was retrieved via Wayback Machine snapshots instead (programme homepage: snapshot dated 2026-06-10; 'Enrolling' page: snapshot dated 2026-05-11; 'Prerequisites' sub-page: snapshot dated 2026-02-12; international.unime.it Application and Admission page: snapshot dated 2026-05-17). Programme-level application deadlines specific to Data Science are not published on the programme's own cdl.unime.it site; the six university-wide sequential admission calls (from international.unime.it) are used instead per the shared task instructions and are assumed to apply, since the programme falls under 'English-taught & Italian-taught Bachelor's and Master's Degrees' in each call's scope — this is why application_deadline_eu and application_deadline_non_eu are marked uncertain. No official_call_url (programme-specific bando) was found; only the general Application and Admission page was located, so official_call_url is left null. The programme's site navigation lists a 'TOLC/OFA CISIA Test' item, but its full page content was not captured/reviewed, so it is unclear whether it applies to Master's-level admission or only to undergraduate OFA obligations — entry_exam_or_test is therefore marked uncertain on this point. The 'LM-Data - Data science' degree-class label as shown on the programme page is a local site label rather than a standard Italian ministerial class code (e.g. LM-91), so degree_class is reported verbatim as displayed but its correspondence to the official ministerial class code could not be independently verified.",
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "official_call_url",
+    "entry_exam_or_test",
+    "degree_class"
+  ]
+}

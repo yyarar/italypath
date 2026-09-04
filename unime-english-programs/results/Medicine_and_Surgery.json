@@ -1,0 +1,54 @@
+{
+  "program_name": "Medicine and Surgery",
+  "level": "single-cycle",
+  "teaching_language": "Fully English-taught single-cycle degree (Corso di Laurea Magistrale a Ciclo Unico in Medicine and Surgery, delivered entirely in English; a separate Italian-taught 'Medicina e Chirurgia' programme exists in parallel as a different course)",
+  "campus": "Messina",
+  "degree_class": null,
+  "admission_type": "selection call",
+  "academic_requirements": "An Italian secondary school diploma or a foreign qualification certified as equivalent is required. Applicants must also demonstrate knowledge of the cultural prerequisites (Biology, Chemistry, Physics) defined by the annual Ministerial Decree governing the admission test; if the IMAT result shows deficiencies (score below 25% of the maximum in Biology, Chemistry or Physics for any discipline, or below the overall minimum threshold), the Degree Programme assigns Additional Learning Requirements (ALRs) to be satisfied in the first year. Students who are not native Italian speakers and lack basic Italian at admission must attend Italian-language courses (offered by CLAM or equivalent) to reach at least B1 CEFR during the course, needed for patient-facing clinical activities.",
+  "language_requirements": "[uncertain] Sources conflict. The university-wide international.unime.it admission page explicitly states: 'For the Single-Cycle Degree Programme in Medicine and Surgery (taught in English): the English Language Certificate is not mandatory.' It also lists standardised English-language admission tests such as the IMAT as grounds for exemption from the International English Certificate 'only if the test is a compulsory or preferential requirement for admission to the chosen degree programme.' However, the programme's own admission-requirements page (medicine-and-surgery.cdl.unime.it) states English knowledge must be certified at minimum CEFR B2 for non-native speakers, though it notes 'the scientific and technical terms used in the course access test (IMAT) are considered higher than the B2 level of knowledge required,' implying that passing the IMAT itself is treated as satisfying/exceeding the B2 requirement rather than requiring a separate certificate. Net practical reading: no separate English certificate is required as long as the applicant sits and passes IMAT (in English), consistent with the 'not mandatory' framing on the international admissions page, but this could not be fully reconciled between the two official sources.",
+  "entry_exam_or_test": "Admission is via IMAT (International Medical Admission Test) — a mandatory national entrance examination for all candidates, including international applicants, organised by the Italian Ministry of University and Research (MUR) under Law n. 264 of 2 August 1999 and subsequent amendments. Number of places, test date, content and selection procedure are set annually by MUR decree and published in the annual admission call. For the 2026/2027 cycle, UNIME's 5th Call - Medicine and Surgery (IMAT), open to all candidate groups, runs from 20 June 2026 (00:01 CEST) to 20 July 2026 (23:59 CEST), 'to be confirmed based on publication of the relevant Ministerial Decree'. An IMAT 2025/2026 information page referenced a test date of 17 September 2025 for the prior cycle; the exact 2026/2027 IMAT date was not found on official pages at the time of this research. [uncertain: exact IMAT 2026/2027 test date]",
+  "required_documents": [
+    "Italian secondary school diploma, or foreign qualification certified as equivalent (provisional Course Completion Certificate accepted if diploma not yet issued)",
+    "If diploma is less than 12 years: academic certificate of passed first-year exams, or a Foundation Programme completion certificate from an Italian University",
+    "University Entrance Exam Certificate, if required by the applicant's national education system",
+    "Transcript of records",
+    "Copy of a valid passport",
+    "IMAT registration / result (mandatory entrance examination)",
+    "English language certificate: NOT mandatory per international.unime.it (see language_requirements uncertainty)"
+  ],
+  "application_deadline_eu": "EU / No-Visa candidates: the university-wide 6th Call (No Visa Applicants) explicitly excludes Medicine and Surgery ('Italian-taught Single-Cycle Degrees (except Medicine and Surgery, Dentistry, Veterinary Medicine)' is the phrasing used for Calls 1 and 6, i.e. Medicine and Surgery is handled separately). Medicine and Surgery admission for all candidate groups (EU and non-EU alike) runs through the single 5th Call - Medicine and Surgery (IMAT): from 20 June 2026 (00:01 CEST) to 20 July 2026 (23:59 CEST), to be confirmed pending the Ministerial Decree. A non-refundable EUR 30.00 application fee applies (covers up to two applications).",
+  "application_deadline_non_eu": "Non-EU candidates also apply exclusively through the 5th Call - Medicine and Surgery (IMAT), open to 'All candidate groups': from 20 June 2026 (00:01 CEST) to 20 July 2026 (23:59 CEST), to be confirmed pending the Ministerial Decree — the programme is not part of the 1st/2nd/3rd 'Visa Applicant' calls (those explicitly exclude Medicine and Surgery). Applications for English-taught programmes go through the UniME Application Portal; visa applicants must also register on the Universitaly portal, with a 2026/2027 Universitaly pre-enrolment deadline of 1 September 2026 stated for the university generally.",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://medicine-and-surgery.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "The English-taught Single-Cycle Degree Programme in Medicine and Surgery requires participation in the IMAT (International Medical Admission Test). This is a mandatory entrance examination for all candidates, including international applicants.",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "For the Single-Cycle Degree Programme in Medicine and Surgery ( taught in English): the English Language Certificate is not mandatory.",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Non-native English students are required to have their knowledge of English language certified at least at level B2 of the CEFR. The scientific and technical terms used in the course access test (International Medical Admission Test - IMAT) are considered higher than the B2 level of knowledge required",
+      "url": "https://medicine-and-surgery.cdl.unime.it/en/enrolling/admission-requirements (Wayback snapshot 2026-05-20)",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "5th Call - Medicine and Surgery (IMAT) Who: All candidate groups Programmes: English-taught Single-Cycle Degree in Medicine and Surgery Timeframe: From June 20, 2026 (00:01 am CEST) to July 20, 2026 (11:59 pm CEST) , to be confirmed based on publication of the relevant Ministerial Decree.",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu"
+    },
+    {
+      "quote": "Admission to the Single Cycle Degree Course in Medicine and Surgery is defined at the national level by Law n. 264 of 2.8.1999, and subsequent amendments and integrations.",
+      "url": "https://medicine-and-surgery.cdl.unime.it/en/enrolling/admission-requirements (Wayback snapshot 2026-05-20)",
+      "field_supported": "entry_exam_or_test, academic_requirements"
+    }
+  ],
+  "uncertainty_notes": "www.unime.it and international.unime.it are behind an AWS WAF CAPTCHA and were retrieved via Wayback Machine snapshots (international.unime.it/study-us/application-and-admission, snapshot 2026-05-17; medicine-and-surgery.cdl.unime.it, snapshots 2026-01-21 and 2026-05-20). The two official sources genuinely conflict on whether an English certificate is mandatory: the university-wide admissions page says explicitly 'not mandatory,' while the programme's own admission-requirements page states B2-level English must be 'certified' for non-native speakers, then separately notes IMAT's language level exceeds B2 — this is recorded as-is in language_requirements per instructions rather than resolved by guessing. degree_class (Italian ministerial code, e.g. LM-41) was not found on the fetched pages and is left null. The exact IMAT 2026/2027 test date was not found (only the university's 5th Call submission window and a prior-cycle IMAT date of 17 September 2025); left as an open item in entry_exam_or_test. official_call_url (a program-specific bando PDF) was not located; left null. admission_type is marked 'selection call' reflecting the IMAT-gated national selection process.",
+  "uncertain": ["language_requirements", "degree_class", "entry_exam_or_test", "official_call_url"]
+}

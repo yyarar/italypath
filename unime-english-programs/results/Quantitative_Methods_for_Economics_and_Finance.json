@@ -1,0 +1,69 @@
+{
+  "research_id": "ma-quantitative-methods-econ-finance",
+  "program_name": "Quantitative Methods for Economics and Finance (Curriculum in Quantitative Methods for Finance)",
+  "level": "master",
+  "teaching_language": "English for the Quantitative Methods for Finance curriculum specifically; the overall LM-56-R programme page on cdl.unime.it lists the language as 'English Italian', and the same site's navigation includes a page titled 'Admission criteria: only for students holding an Italian bachelor's degree', indicating the programme also has an Italian-taught track/admission path alongside the English-taught Quantitative Methods for Finance curriculum aimed at international students. Only the Quantitative Methods for Finance curriculum is confirmed as English-taught per the official English-taught-programmes listing and info sheet. [uncertain]",
+  "campus": "Messina",
+  "degree_class": "LM-56-R - Scienze dell'economia",
+  "admission_type": "open access",
+  "academic_requirements": "Admission requires candidates to have a Bachelor's Degree that includes: 8 ECTS in the Business/Management area; 8 ECTS in the Economic area; 8 ECTS in the Juridical area; 8 ECTS in the Mathematics/Statistics area. The course commission evaluates the candidate's curriculum for admission against these minimum credit thresholds. General UNIME Master's admission also requires demonstrating at least 15 years of total prior education (12-year high-school diploma plus Bachelor's degree) and transcript-based assessment of foreign qualifications against the 'UniME Entry Criteria by Country' document.",
+  "language_requirements": "International English language certificate issued by an Institution recognised by the Italian Ministry of University and Research (MUR), B2 level of the Common European Framework of Reference (CEFR), unless the applicant is exempt under UNIME's general exemption categories. The cdl.unime.it site's own admission-criteria page is titled for students holding an Italian bachelor's degree, suggesting a separate Italian-language admission path may apply to that specific cohort; this was not independently verified. [uncertain]",
+  "entry_exam_or_test": "No standardized national entry exam (e.g. TOLC) or interview is mentioned; admission is based on curriculum/ECTS evaluation by the course commission against the four subject-area credit minimums (Business/Management, Economic, Juridical, Mathematics/Statistics, 8 ECTS each).",
+  "required_documents": [
+    "Bachelor's degree diploma meeting the ECTS distribution requirement (or official provisional certificate if not yet issued)",
+    "High School Diploma (obtained after at least 12 years of study), combined with Bachelor's degree to total at least 15 years of education",
+    "Transcript of records (exams taken in the previous degree programme, to verify the required ECTS per subject area)",
+    "Copy of a valid passport",
+    "International English language certificate (CEFR B2), unless exempt",
+    "Admission letter (issued after positive pre-evaluation) required before Universitaly registration for visa applicants"
+  ],
+  "application_deadline_eu": "UNIME's A.Y. 2026/2027 admission runs through six sequential calls (Universitaly deadline 1 September 2026); the round applicable to EU / no-visa-required candidates (Italians with a foreign qualification, EU and EU-equivalent) is the 6th Call - No Visa Applicants, covering English-taught & Italian-taught Bachelor's and Master's Degrees, from 1 July 2026 (00:01 CEST) to 20 November 2026 (23:59 CET). A non-refundable application fee of EUR 30.00 applies (covers up to two applications).",
+  "application_deadline_non_eu": "Non-EU (Study VISA applicant) candidates for English-taught Bachelor's and Master's Degrees, including this programme, apply through three sequential rounds: 1st Call - Early Bird, from 24 November 2025 (00:01 CET) to 22 December 2025 (23:59 CET); 2nd Call - Visa Applicants, from 1 February 2026 (00:01 CET) to 31 March 2026 (23:59 CEST); 3rd Call - Visa Applicants, from 13 April 2026 (00:01 CEST) to 10 May 2026 (23:59 CEST). A non-refundable application fee of EUR 30.00 applies (covers up to two applications). Enrolment requires the UniME Application Portal pre-evaluation and admission letter, followed by Universitaly portal confirmation and visa procedure (Universitaly deadline 1 September 2026).",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://metodi-quantitativi-economia-finanza.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "Admission requires candidates to have a Bachelor's Degree that includes the following: 8 ECTS in the Business/Management area, 8 ECTS in the Economic area, 8 ECTS in the Juridical area, 8 ECTS in the Mathematics/Statistics area.",
+      "url": "https://international.unime.it/sites/sten/files/2025-03/EXE_MA_Quantitative_Methods_for_Economics_and_Finance.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "International English language certificate issued by an Institution recognised by the Italian Ministry of University and Research (MUR), B2 level of the Common European Framework of Reference.",
+      "url": "https://international.unime.it/sites/sten/files/2025-03/EXE_MA_Quantitative_Methods_for_Economics_and_Finance.pdf",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "The Master's Degree Programme in Quantitative Methods for Economics and Finance belongs to the Degree Class LM-56R",
+      "url": "https://international.unime.it/sites/sten/files/2025-03/EXE_MA_Quantitative_Methods_for_Economics_and_Finance.pdf",
+      "field_supported": "degree_class"
+    },
+    {
+      "quote": "Class LM-56-R - Scienze dell'economia / Access Free / Language English Italian / Location MESSINA ... Admission criteria: only for students holding an Italian bachelor's degree",
+      "url": "https://metodi-quantitativi-economia-finanza.cdl.unime.it/en",
+      "field_supported": "teaching_language/degree_class/campus"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants ... Timeframe: From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "1st Call – Early Bird ... From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "For the a. y. 2026/2027, an application fee of € 30.00 is due for the submission of a maximum of two applications... The application fee is not refundable.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "deadlines"
+    }
+  ],
+  "uncertainty_notes": "www.unime.it and international.unime.it (and the metodi-quantitativi-economia-finanza.cdl.unime.it live site) are behind an AWS WAF CAPTCHA that could not be solved per policy; all data was retrieved via Wayback Machine snapshots (cdl page dated March 2026) and the official English-taught-programmes info sheet PDF hosted on international.unime.it, dated 2025-03 (no 2026-dated version of this specific info sheet was found in the archived listing; academic-year-specific admission timeline was instead taken from the shared A.Y. 2026/2027 application-and-admission page). Per the task's status_note, only the Quantitative Methods for Finance curriculum is confirmed English-taught: this is corroborated by its inclusion in the 'English-taught Programmes' list and its dedicated info sheet, but the underlying cdl.unime.it course page shows the whole LM-56-R degree class labelled 'Language: English Italian' and links a navigation item specifically for 'students holding an Italian bachelor's degree,' implying an additional Italian-track admission process exists in parallel that was not fully explored (out of scope: only the English-taught curriculum was researched, per the task). No minimum-CFU/interview information beyond the four 8-ECTS subject-area thresholds was found; no admission interview or portfolio review is mentioned anywhere in the located sources. No programme-specific admission call/bando URL (official_call_url) was found.",
+  "uncertain": [
+    "teaching_language",
+    "language_requirements",
+    "official_call_url",
+    "info_sheet_year (2025 PDF used; not yet confirmed updated for 2026/27)"
+  ]
+}

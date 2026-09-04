@@ -1,0 +1,57 @@
+{
+  "program_name": "Civil Engineering (Ingegneria Civile)",
+  "level": "bachelor",
+  "teaching_language": "The official course page lists 'Language: English Italian', indicating a mixed-language offering rather than a single fully English-taught track. [uncertain: no page was found stating the split between an English-medium curriculum versus individual English-taught courses inside an otherwise Italian programme; UniME's 'English Proficiency Test (UnimeStone)' notices recur on this course's notice board, suggesting an internal English-language competency requirement/verification for students rather than confirmation that the whole degree is English-delivered]",
+  "campus": "Messina",
+  "degree_class": "L-7-R - Ingegneria civile e ambientale",
+  "admission_type": "TOLC",
+  "academic_requirements": "The course page states: Access: Free (open access, subject to the TOLC-CISIA verification described below). University-wide bachelor's requirements apply (per international.unime.it/study-us/application-and-admission): high-school diploma obtained after 12 years of education (or an official provisional Course Completion Certificate; or, if fewer than 12 years, a certificate of passed first-year university exams or a Foundation Programme completion certificate), any University Entrance Exam Certificate required by the applicant's national education system, transcript of records, and a valid passport. [uncertain: no Civil-Engineering-specific CFU or curricular prerequisite beyond the university-wide list and the TOLC-CISIA test was found on the retrieved pages]",
+  "language_requirements": "University-wide English-taught programme policy applies: an International English Language Certificate at CEFR B2 level, issued by a recognised institution and accepted by UniME, is required unless the applicant is exempt. The course's own notice board repeatedly announces registration sessions for the 'English Proficiency Test (UnimeStone)' (e.g. June 2026, February 2026, November 2025, September 2025 sessions), which appears to be UniME's internal English-competency verification/course, separate from the admission-stage certificate requirement. [uncertain: whether UnimeStone is mandatory for admission itself or only for in-course language-skill fulfilment]",
+  "entry_exam_or_test": "Admission for the L-7-R class is regulated through the TOLC (Test OnLine CISIA) national online test, referenced as a related resource on the course's Enrolling page ('You might also be interested in: TOLC (Test OnLine CISIA)') and via a dedicated notice titled 'Test TOLC' on the course's notice board. The specific TOLC subtype (e.g. TOLC-I) and passing threshold/OFA policy were not confirmed in the retrieved pages. [uncertain: exact TOLC subtype and OFA remediation details not found in English on the retrieved snapshots]",
+  "required_documents": [
+    "High school diploma obtained after 12 years of education (or official provisional Course Completion Certificate; or, if fewer than 12 years, a certificate of passed first-year university exams or a Foundation Programme completion certificate)",
+    "University Entrance Exam Certificate, if required by the applicant's national education system",
+    "Transcript of records",
+    "Copy of a valid passport",
+    "English language certificate (CEFR B2), or exemption documentation"
+  ],
+  "application_deadline_eu": "6th Call - No Visa Applicants (Italians with foreign qualification, EU and EU-equivalent candidates): from July 1, 2026 (00:01 am CEST) to November 20, 2026 (11:59 pm CET), for English-taught & Italian-taught Bachelor's and Master's Degrees.",
+  "application_deadline_non_eu": "Non-EU (Study VISA applicant) candidates apply across three sequential rounds: 1st Call – Early Bird: November 24, 2025 (00:01 am CET) to December 22, 2025 (11:59 pm CET); 2nd Call - Visa Applicants: February 1, 2026 (00:01 am CET) to March 31, 2026 (11:59 pm CEST); 3rd Call - Visa Applicants: April 13, 2026 (00:01 am CEST) to May 10, 2026 (11:59 pm CEST). A non-refundable EUR 30.00 application fee covers up to two applications. Applications go through the UniME Application Portal, and visa applicants must then register on the Universitaly portal (Universitaly pre-enrolment deadline for 2026/2027: September 1, 2026).",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://ingegneria-civile.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "Class L-7-R - Ingegneria civile e ambientale Access Free Language English Italian Coordinator GIUSEPPE SOLLAZZO Location MESSINA Department Department of Engineering Duration 3 years Credits 180",
+      "url": "https://ingegneria-civile.cdl.unime.it/en (Wayback snapshot 2026-06-13)",
+      "field_supported": "degree_class, admission_type, teaching_language, campus, academic_requirements"
+    },
+    {
+      "quote": "Start the process by logging into Esse3 Required documents Browse the section For admission You might also be interested in TOLC (Test OnLine CISIA)",
+      "url": "https://ingegneria-civile.cdl.unime.it/en/enrolling (Wayback snapshot 2026-06-13)",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "English Proficiency Test (UnimeStone) – June 2026... It is possible to register for the June session of the English Proficiency Test (UnimeStone)",
+      "url": "https://ingegneria-civile.cdl.unime.it/en (Wayback snapshot 2026-06-13)",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Students are required to upload... an International English Language Certificate (CEFR - B2 level) issued by a recognised Institution and accepted by UniME, unless they belong to one of the categories exempt.",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "1st Call – Early Bird... Timeframe: From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants... Timeframe: From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": "ingegneria-civile.cdl.unime.it and international.unime.it are behind an AWS WAF interactive CAPTCHA; content was retrieved via Wayback Machine snapshots (ingegneria-civile.cdl.unime.it/en and /en/enrolling, snapshot 2026-06-13; international.unime.it/study-us/application-and-admission, snapshot 2026-05-17) since no CAPTCHA was solved. The 'For admission' submenu item under Enrolling resolved to a broken/mislabeled internal link in the archived snapshot (pointing to the generic 'course' page rather than a dedicated admissions page); a Wayback snapshot search for the course's Italian-language 'Enrolling' subpages ('come iscriversi'/'per l'ammissione') did not surface a distinct English admissions page beyond what is summarized here, so university-wide bachelor requirements were used to fill gaps. The exact TOLC subtype and OFA policy specific to Civil Engineering were not located in English; a course notice titled 'Test TOLC' exists but its content was not retrieved. Whether the degree is delivered with a genuinely separate English-medium curriculum (as with Business Management and Data Analysis) or only individual English-taught courses within an Italian-medium degree is not confirmed — flagged as uncertain given the page's plain 'Language: English Italian' label without curriculum breakdown.",
+  "uncertain": ["teaching_language", "language_requirements", "entry_exam_or_test", "official_call_url"]
+}

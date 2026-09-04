@@ -1,0 +1,68 @@
+{
+  "program_name": "Business Management (Management d'impresa)",
+  "level": "bachelor",
+  "teaching_language": "Mixed programme delivered in two curricula, per the course's own admission page: 'Language(s) of instruction/examination. ITALIAN, ENGLISH.' The course description confirms 'The Bachelor's degree program is structured into the following curricula: 1) curriculum in Italian language; 2) curriculum in English language.' Only the English-language curriculum is in scope for English-taught applicants. [uncertain: no page found stating which modules/exams of the English curriculum are 100% English-delivered versus mixed]",
+  "campus": "Messina",
+  "degree_class": "L-18 [uncertain] (inferred from the official regulation document title 'DEF Reg. L-18 Management d'Impresa' linked from the course page; the class code is not stated as running text elsewhere on the English page)",
+  "admission_type": "TOLC",
+  "academic_requirements": "For admission to the Bachelor's Degree in Business Management, the programme requires a secondary school diploma or another equivalent qualification obtained abroad, recognized as suitable by the competent University authorities. Personal preparation is verified through the CISIA test or equivalent tests, with the passing threshold published by the Study Programme Council. If the verification is not positive, additional educational obligations (OFA) are assigned and must be fulfilled in the first year; OFA topics include solution of equations/inequalities and elements of analytic geometry (from the Mathematics for Business course). Failure to fulfil the OFA means the student is enrolled in the first year as a repeater. University-wide bachelor's requirements also apply (per international.unime.it): high-school diploma after 12 years of education (or official provisional certificate / equivalent first-year exam certificate / Foundation Programme certificate if fewer than 12 years), plus any University Entrance Exam Certificate required by the applicant's national education system, transcript of records, and a valid passport.",
+  "language_requirements": "University-wide English-taught programme policy applies (course page does not restate a separate threshold): applicants must upload an International English Language Certificate at CEFR B2 level, issued by a recognised institution and accepted by UniME, unless exempt (e.g. native speakers, holders of an entirely English-taught prior degree, IB Diploma graduates in English, or takers of a standardised English-medium admission test). For the Italian-language curriculum, an Italian B2 certificate or the UniME ITA-Test is required instead, unless exempt. [uncertain: no Business-Management-specific English threshold distinct from the university-wide B2 policy was found]",
+  "entry_exam_or_test": "Verification of personal preparation via the CISIA test (TOLC) or equivalent test; the specific TOLC type and passing threshold are published on the Study Programme website. Detailed English-language information on TOLC/OFA is available at https://international.unime.it/study-us/tolc-test-online-cisia (per the course page: 'The information about TOLC/OFA in English is finally online at the link: https://international.unime.it/study-us/tolc-test-online-cisia'). No separate interview or CV-based selection is indicated for this open-access degree.",
+  "required_documents": [
+    "High school diploma obtained after 12 years of education (or official provisional Course Completion Certificate; or, if fewer than 12 years, a certificate of passed first-year university exams or a Foundation Programme completion certificate)",
+    "University Entrance Exam Certificate, if required by the applicant's national education system",
+    "Transcript of records",
+    "Copy of a valid passport",
+    "English language certificate (CEFR B2) for the English-taught curriculum, or exemption documentation",
+    "Italian language certificate (CEFR B2) or UniME ITA-Test result, for the Italian-taught curriculum"
+  ],
+  "application_deadline_eu": "6th Call - No Visa Applicants (Italians with foreign qualification, EU and EU-equivalent candidates): from July 1, 2026 (00:01 am CEST) to November 20, 2026 (11:59 pm CET), for English-taught & Italian-taught Bachelor's and Master's Degrees.",
+  "application_deadline_non_eu": "Non-EU (Study VISA applicant) candidates apply across three sequential rounds: 1st Call – Early Bird: November 24, 2025 (00:01 am CET) to December 22, 2025 (11:59 pm CET); 2nd Call - Visa Applicants: February 1, 2026 (00:01 am CET) to March 31, 2026 (11:59 pm CEST); 3rd Call - Visa Applicants: April 13, 2026 (00:01 am CEST) to May 10, 2026 (11:59 pm CEST). A non-refundable EUR 30.00 application fee covers up to two applications. Applications go through the UniME Application Portal, and visa applicants must then register on the Universitaly portal (Universitaly pre-enrolment deadline for 2026/2027: September 1, 2026).",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://management-impresa.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "For admission to the Bachelor's Degree in Business Management, the program require a secondary school diploma or another equivalent qualification obtained abroad, recognized as suitable... verification of personal preparation... is carried out through the CISIA test or equivalent tests.",
+      "url": "https://management-impresa.cdl.unime.it/en/course (Wayback snapshot 2026-01-14)",
+      "field_supported": "academic_requirements, entry_exam_or_test, admission_type"
+    },
+    {
+      "quote": "In case of failure to fulfill the OFAs, the student will be enrolled in the first year as a repeater. The information about TOLC/OFA in English is finally online at the link: https://international.unime.it/study-us/tolc-test-online-cisia",
+      "url": "https://management-impresa.cdl.unime.it/en/course (Wayback snapshot 2026-01-14)",
+      "field_supported": "academic_requirements, entry_exam_or_test"
+    },
+    {
+      "quote": "Language(s) of instruction/examination. ITALIAN, ENGLISH.",
+      "url": "https://management-impresa.cdl.unime.it/en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi (Wayback snapshot 2025-10-18)",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "The Bachelor's degree program is structured into the following curricula: 1) curriculum in Italian language; 2) curriculum in English language.",
+      "url": "https://management-impresa.cdl.unime.it/en/course (Wayback snapshot 2026-01-14)",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "Students are required to upload... an International English Language Certificate (CEFR - B2 level) issued by a recognised Institution and accepted by UniME, unless they belong to one of the categories exempt.",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "1st Call – Early Bird... Timeframe: From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants... Timeframe: From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "For the a. y. 2026/2027, an application fee of € 30.00 is due for the submission of a maximum of two applications.",
+      "url": "https://international.unime.it/study-us/application-and-admission (Wayback snapshot 2026-05-17)",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": "management-impresa.cdl.unime.it and international.unime.it are behind an AWS WAF interactive CAPTCHA; content was retrieved via Wayback Machine snapshots (management-impresa.cdl.unime.it/en/course, snapshot 2026-01-14; /en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi, snapshot 2025-10-18; international.unime.it/study-us/application-and-admission, snapshot 2026-05-17) since no CAPTCHA was solved. The 'Class' code (L-18) is not shown as explicit running text on the retrieved English pages; it was inferred from a linked regulation PDF's filename ('DEF Reg. L-18 Management d'Impresa') and is flagged uncertain. Whether the English curriculum's academic requirements or TOLC threshold differ from the Italian curriculum's was not confirmed — both curricula share one admission page. No programme-specific official_call_url or admission fee/timeline distinct from the university-wide 2026/2027 six-call calendar was found for this programme, so the shared calendar is used. Data reflects the most recently archived 2026/27-oriented snapshots; where a 2026/27-specific admission-requirements page was not separately dated, the general course/admission content (undated, evergreen) was used as the closest available official statement.",
+  "uncertain": ["teaching_language", "degree_class", "language_requirements", "official_call_url"]
+}

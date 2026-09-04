@@ -1,0 +1,73 @@
+{
+  "research_id": "ma-mechanical-engineering",
+  "program_name": "Mechanical Engineering (Curriculum in Mechanical Engineering and Innovation)",
+  "level": "master",
+  "teaching_language": "English (Curriculum in Mechanical Engineering and Innovation is delivered in English; the wider LM-33 Ingegneria Meccanica programme page on the cdl.unime.it site lists the primary language of instruction as Italian, so the English curriculum appears to be a distinct English-taught track within the same LM-33 degree class) [uncertain]",
+  "campus": "Messina",
+  "degree_class": "LM-33 - Classes of Laurea Magistrale in Mechanical Engineering",
+  "admission_type": "open access",
+  "academic_requirements": "Admission is granted to candidates holding a Bachelor's degree in Industrial Engineering (Mechanical, Industrial, Management, Electrical, Energy, Chemical, Biomedical, Nuclear, Automation, Aerospace, or Naval Engineering) or a related field, with a strong foundation in mathematics, chemistry, and physics. The course commission evaluates the candidate's curriculum (prior exams/CFU) for admission on a case-by-case basis; no fixed minimum CFU per SSD is published. For Bachelor's-level entry into the wider UNIME system, candidates need a high-school diploma obtained after 12 years of education (or a Foundation Programme certificate if fewer years), plus any University Entrance Exam Certificate required by their home country's education system. Foreign qualifications are assessed by UNIME's Departmental Commission against the 'UniME Entry Criteria by Country' document. No minimum CFU per scientific-disciplinary sector (SSD) table, GPA threshold, or admission interview/portfolio requirement is published beyond the qualitative Bachelor's-field requirement. [uncertain: curricular detail]",
+  "language_requirements": "International English Certificate accepted by UniME, B2 level of the Common European Framework of Reference (CEFR), unless the applicant belongs to a category exempt from the certificate requirement. No explicit Italian-language requirement is stated for this English-taught curriculum.",
+  "entry_exam_or_test": "No standardized national entry exam (e.g. TOLC) is mentioned for this programme; admission is based on curriculum evaluation by the course/Departmental Commission. No interview is mentioned on the info sheet.",
+  "required_documents": [
+    "Bachelor's degree diploma (or official provisional certificate if not yet issued)",
+    "High School Diploma (obtained after at least 12 years of study) demonstrating at least 15 years of total education combined with the Bachelor's degree",
+    "Transcript of records (exams taken in the previous degree programme)",
+    "Copy of a valid passport",
+    "International English language certificate (CEFR B2), unless exempt",
+    "Admission letter (issued after positive pre-evaluation) required before Universitaly registration for visa applicants"
+  ],
+  "application_deadline_eu": "UNIME's A.Y. 2026/2027 admission runs through six sequential calls (Universitaly deadline 1 September 2026); the round applicable to EU / no-visa-required candidates (Italians with a foreign qualification, EU and EU-equivalent) is the 6th Call - No Visa Applicants, covering English-taught & Italian-taught Bachelor's and Master's Degrees, from 1 July 2026 (00:01 CEST) to 20 November 2026 (23:59 CET). A non-refundable application fee of EUR 30.00 applies (covers up to two applications).",
+  "application_deadline_non_eu": "Non-EU (Study VISA applicant) candidates for English-taught Bachelor's and Master's Degrees, including this programme, apply through three sequential rounds: 1st Call - Early Bird, from 24 November 2025 (00:01 CET) to 22 December 2025 (23:59 CET); 2nd Call - Visa Applicants, from 1 February 2026 (00:01 CET) to 31 March 2026 (23:59 CEST); 3rd Call - Visa Applicants, from 13 April 2026 (00:01 CEST) to 10 May 2026 (23:59 CEST). A non-refundable application fee of EUR 30.00 applies (covers up to two applications). Enrolment requires the UniME Application Portal pre-evaluation and admission letter, followed by Universitaly portal confirmation and visa procedure (Universitaly deadline 1 September 2026).",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://ingegneria-meccanica.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "Admission will be granted to the candidates having a Bachelor's degree in Industrial Engineering (Mechanical, Industrial, Management, Electrical, Energy, Chemical, Biomedical, Nuclear, Automation, Aerospace, or Naval Engineering) or related field.",
+      "url": "https://international.unime.it/sites/sten/files/2026-01/MA_Mechanical%20Engineering_2026.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "International English Certificates accepted by UniME, B2 level of the Common European Framework of Reference.",
+      "url": "https://international.unime.it/sites/sten/files/2026-01/MA_Mechanical%20Engineering_2026.pdf",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "The Master's Degree in Mechanical Engineering (Curriculum in Mechanical Engineering and Innovation) belongs to the Degree Class LM-33.",
+      "url": "https://international.unime.it/sites/sten/files/2026-01/MA_Mechanical%20Engineering_2026.pdf",
+      "field_supported": "degree_class"
+    },
+    {
+      "quote": "Class LM-33 - Classes of Laurea Magistrale in Mechanical engineering / Access Free / Language Italian / Location MESSINA",
+      "url": "https://ingegneria-meccanica.cdl.unime.it/en",
+      "field_supported": "identity/campus/teaching_language"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants ... Timeframe: From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "1st Call – Early Bird ... From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "For the a. y. 2026/2027, an application fee of € 30.00 is due for the submission of a maximum of two applications... The application fee is not refundable.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "deadlines"
+    },
+    {
+      "quote": "For the academic year 2026/2027, the application deadline on Universitaly is 1 September 2026.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "deadlines"
+    }
+  ],
+  "uncertainty_notes": "www.unime.it and international.unime.it (and the ingegneria-meccanica.cdl.unime.it live site) are behind an AWS WAF CAPTCHA that could not be solved per policy; all data was retrieved via Wayback Machine snapshots of the official unime.it/cdl.unime.it URLs (dated Jan-May 2026) and the official 2026 English-taught programme info-sheet PDF hosted on international.unime.it. The cdl.unime.it programme landing page (LM-33 'Ingegneria Meccanica') itself displays 'Language: Italian' and shows only the Italian study plan for A.Y. 2024/2025; it does not separately surface the English-taught 'Mechanical Engineering and Innovation' curriculum content, which is documented instead in UNIME's official English-taught-programmes info sheet (international.unime.it, dated 2026-01, i.e. reflects A.Y. 2026/2027 intake). teaching_language is therefore marked uncertain: it is treated as English based on the info sheet and the programme's inclusion in the 'English-taught Programmes' list, but the underlying cdl.unime.it course page has not been confirmed to show an English-curriculum toggle/study plan separate from the Italian one. No minimum CFU-per-SSD table or admission interview/portfolio requirement was found; academic_requirements and entry_exam_or_test are based only on the qualitative info-sheet description. No programme-specific admission call/bando URL (official_call_url) was found; general admission-and-deadlines information comes from the shared international.unime.it/study-us/application-and-admission page. The application_deadline fields list the general six UNIME-wide calls (as instructed) rather than a Mechanical-Engineering-specific deadline, since no programme-specific deadline page was found. Tuition fee link is the general international student fees page (no programme-specific fee page found).",
+  "uncertain": [
+    "teaching_language",
+    "academic_requirements (CFU/SSD detail)",
+    "official_call_url"
+  ]
+}

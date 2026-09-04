@@ -1,0 +1,75 @@
+{
+  "research_id": "ba-heritage-innovation-engineering",
+  "program_name": "Heritage Innovation Engineering",
+  "level": "bachelor",
+  "teaching_language": "English [uncertain] — the info-sheet PDF does not carry an explicit 'Language: English' label (unlike the cdl.unime.it programme sites), but the programme is listed among UNIME's English-taught bachelor programmes and requires an International English Certificate at B2 level, implying instruction is in English.",
+  "campus": null,
+  "degree_class": "L-23",
+  "admission_type": "open access [uncertain]",
+  "academic_requirements": "A foreign certified qualification demonstrating 12 years of study equivalent to an Italian secondary school diploma is the minimal entry requirement stated on the programme info-sheet. General UNIME bachelor's admission rules (application-and-admission page) additionally require: a high-school diploma obtained after 12 years of education (or an official provisional Course Completion Certificate if not yet issued); if the diploma reflects less than 12 years of education, either an academic certificate showing all first-year university exams passed, or a Foundation Programme completion certificate; a University Entrance Exam Certificate if required by the candidate's national education system (per UniME Entry Criteria by Country); and a transcript of records. The full evaluation criteria are said to be detailed via a QR-linked page not captured in this PDF ('Scan the QR Code for further admission requirements criteria').",
+  "language_requirements": "International English Certificates accepted by UniME, at B2 level of the Common European Framework of Reference (CEFR), are required. The info-sheet directs students to scan a QR code for the full accepted-certificate list, which was not resolvable from the PDF text. No specific Italian-language requirement is mentioned for this English-taught programme.",
+  "entry_exam_or_test": null,
+  "required_documents": [
+    "High school diploma (12 years of education) or official provisional Course Completion Certificate",
+    "Academic certificate of passed first-year university exams OR Foundation Programme completion certificate (if diploma reflects less than 12 years of schooling)",
+    "University Entrance Exam Certificate, if required by the candidate's home country (per UniME Entry Criteria by Country)",
+    "Transcript of records",
+    "Copy of a valid passport",
+    "International English language certificate (CEFR B2), unless exempt"
+  ],
+  "application_deadline_eu": "6th Call – No-Visa Applicants (Italians with foreign qualification, EU and EU-equivalent candidates; non-EU candidates in the EU-equivalent group must hold an Italian residence permit): July 1, 2026 (00:01 CEST) to November 20, 2026 (23:59 CET), for English-taught and Italian-taught Bachelor's Degrees. A non-refundable EUR 30.00 application fee applies (covers up to two applications). Two-portal flow: pre-evaluation application on the UniME Application Portal; if admitted, confirmation on the Universitaly portal follows (Universitaly pre-enrolment deadline for A.Y. 2026/2027 is September 1, 2026).",
+  "application_deadline_non_eu": "1st Call – Early Bird (Non-EU Study-VISA applicants): November 24, 2025 (00:01 CET) to December 22, 2025 (23:59 CET). 2nd Call – Visa Applicants: February 1, 2026 (00:01 CET) to March 31, 2026 (23:59 CEST). 3rd Call – Visa Applicants: April 13, 2026 (00:01 CEST) to May 10, 2026 (23:59 CEST). All three calls cover English-taught and Italian-taught Bachelor's Degrees. A non-refundable EUR 30.00 application fee applies (covers up to two applications). Two-portal flow: pre-evaluation application on the UniME Application Portal; upon a positive evaluation, an admission letter enables registration/confirmation on the Universitaly portal to begin the visa process (Universitaly pre-enrolment deadline for A.Y. 2026/2027 is September 1, 2026).",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://international.unime.it/sites/sten/files/2026-02/BA_Heritage%20Innovation%20Engineering_2026.pdf",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "A foreign certified qualification demonstrating 12 years of study as equivalent to an Italian secondary school diploma.",
+      "url": "https://international.unime.it/sites/sten/files/2026-02/BA_Heritage%20Innovation%20Engineering_2026.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "International English Certificates accepted by UniME, B2 level of the Common European Framework of Reference.",
+      "url": "https://international.unime.it/sites/sten/files/2026-02/BA_Heritage%20Innovation%20Engineering_2026.pdf",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "The bachelor's degree in Heritage Innovation Engineering belongs to the Degree Class L-23",
+      "url": "https://international.unime.it/sites/sten/files/2026-02/BA_Heritage%20Innovation%20Engineering_2026.pdf",
+      "field_supported": "degree_class"
+    },
+    {
+      "quote": "UniME tuition fees for international students are calculated by country group.",
+      "url": "https://international.unime.it/sites/sten/files/2026-02/BA_Heritage%20Innovation%20Engineering_2026.pdf",
+      "field_supported": "tuition_or_fees_link"
+    },
+    {
+      "quote": "1st Call – Early Bird ... From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants ... Timeframe: From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "For the a. y. 2026/2027, an application fee of € 30.00 is due for the submission of a maximum of two applications.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "For the academic year 2026/2027, the application deadline on Universitaly is 1 September 2026.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": "This programme is new for A.Y. 2026/27 and only an info-sheet PDF exists (no live cdl.unime.it site yet), as flagged in the task's status_note — many fields could not be independently verified beyond that PDF. Access route: both www.unime.it and international.unime.it are behind an AWS WAF interactive CAPTCHA that blocked direct fetches (HTTP 405 'Human Verification' page); per the fallback order, the official PDF URL and the application-and-admission page were retrieved via Wayback Machine snapshots (PDF: web.archive.org/web/20260517054904; application-and-admission page: web.archive.org/web/20260517055155) rather than live unime.it. Campus/location is not stated in the info-sheet PDF (left null) — UNIME's Engineering department is generally based in Messina, but this was not explicitly confirmed for this programme. teaching_language is inferred, not explicitly labelled, in the source PDF. entry_exam_or_test is left null: the info-sheet does not mention a programme-specific entrance test, and the general application-and-admission page does not describe a mandatory test for L-23 bachelor's degrees generally (TOLC tests are described elsewhere at UNIME for science-class programmes, e.g. L-13, but no equivalent reference was found for L-23 Heritage Innovation Engineering); admission_type is therefore marked open access but uncertain. official_call_url is null — no programme-specific call/bando was found; only the university-wide six-call application timeline applies (A.Y. 2026/2027, as used throughout, since no 2025/26 equivalent exists for this brand-new programme). The 'UniME Entry Criteria by Country' PDF referenced in the shared context could not be retrieved via Wayback Machine (no snapshot available) and is only cited by title, without a verified verbatim quote from it.",
+  "uncertain": [
+    "teaching_language",
+    "campus",
+    "admission_type",
+    "entry_exam_or_test",
+    "official_call_url"
+  ]
+}

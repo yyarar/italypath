@@ -1,0 +1,78 @@
+{
+  "program_name": "Cognitive Science and Theory of Communication",
+  "level": "master",
+  "teaching_language": "English (fully English-taught programme)",
+  "campus": "Messina",
+  "degree_class": "LM-55-R - Scienze cognitive / LM-92-R - Teorie della comunicazione (interclass degree)",
+  "admission_type": "open access",
+  "academic_requirements": "Access is free (no numerus clausus), but curricular preparation is verified before enrolment by an evaluation committee, per the course regulations. Enrolment requires a three-year (Bachelor's) degree in one of the following classes: L-05 (Philosophy), L-19 (Education and training sciences), L-20 (Communication sciences), L-24 (Psychological sciences and techniques), L-15 (Cultural tourism), L-03 D.A.M.S. (Performing arts), L-39 (Social service sciences), L-31 (Computer sciences and technologies), or equivalent; OR another three-year Italian degree that guarantees at least 30 CFU in the following scientific-disciplinary sectors: Linguistics (L-LIN/01), Education Sciences (M-PED), Philosophy (M-FIL), Psychology and Neurosciences (M-PSI), Social Sciences (SPS), Computer Sciences and Computer Engineering (INF, ING-INF); OR a foreign degree recognised as suitable. Candidates are expected to have in-depth knowledge of cognitive processes, methodology of empirical sciences, and adequate notions of neuroscience, philosophy, semiotics, communication, pedagogy, anthropology, linguistics, IT and socio-political fields.",
+  "language_requirements": "As this is an international course taught in English, the programme's own admission page states a minimum English competence level of B1 (CEFR) is required as an entry qualification. This differs from the general UniME university-wide rule for English-taught programmes, which requires an International English Language Certificate at CEFR B2 level (IELTS 5.5+, TOEFL iBT 72+, Cambridge English B2 First+, PTE General Level 3, or PTE Academic 59+, unless exempt) uploaded to the language section of the UniME Application Portal. This B1-vs-B2 discrepancy between the programme page and the general portal rule could not be resolved from official sources and is flagged as uncertain. No specific Italian-language requirement applies to this English-taught programme.",
+  "entry_exam_or_test": "No formal written entrance exam is specified. 'The verification of the student's preparation is carried out prior to enrolment in accordance with the procedures indicated in the course regulations' — i.e., a document-based curricular evaluation by an evaluation committee, consistent with the general UNIME Master's admission process (preliminary evaluation application via Esse3/UniME Application Portal, assessed by a Departmental Commission).",
+  "required_documents": [
+    "High School Diploma (obtained after at least 12 years of education, or official provisional certificate if not yet issued)",
+    "Bachelor's Degree diploma or official provisional certificate issued by the university (candidate must show at least 15 years of total education)",
+    "Transcript of records (exams passed in the previous degree programme)",
+    "Copy of a valid passport",
+    "English language certificate (B1 per the programme page; B2 per the general UniME rule for English-taught programmes — see language_requirements) or proof of exemption",
+    "Universitaly pre-enrolment application (for visa-required non-EU applicants, submitted after receiving the UniME admission letter)"
+  ],
+  "application_deadline_eu": "[uncertain] Applicable university-wide 2026/2027 rounds relevant to EU/EU-equivalent/no-visa applicants: '6th Call - No Visa Applicants' (Italians with foreign qualification, EU and EU-equivalent candidates) - from 1 July 2026 (00:01 CEST) to 20 November 2026 (23:59 CET), covering English-taught & Italian-taught Bachelor's and Master's Degrees. A non-refundable EUR 30.00 application fee applies (covers up to two applications across calls). These are university-wide calls (from international.unime.it), not published separately on the programme's own cdl.unime.it site.",
+  "application_deadline_non_eu": "[uncertain] For non-EU (Study VISA) applicants, three sequential rounds apply to Master's programmes for the 2026/2027 intake: '1st Call - Early Bird' from 24 November 2025 (00:01 CET) to 22 December 2025 (23:59 CET); '2nd Call - Visa Applicants' from 1 February 2026 (00:01 CET) to 31 March 2026 (23:59 CEST); '3rd Call - Visa Applicants' from 13 April 2026 (00:01 CEST) to 10 May 2026 (23:59 CEST). Non-refundable EUR 30.00 application fee (covers up to two applications). After a positive evaluation, applicants receive an admission letter and must register on Universitaly (UNIME confirms acceptance there) to start the visa process; for a.y. 2026/2027 the Universitaly deadline is stated as 1 September 2026. Two-portal flow: UniME Application Portal (pre-evaluation) then Universitaly (visa confirmation).",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://cognitive-science-and-theory-of-communication.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "Class: LM-55-R - Scienze cognitive / LM-92-R - Teorie della comunicazione / Access: Free / Language: English / Location: MESSINA / Department: Department of Cognitive Science, Education and Cultural Studies",
+      "url": "https://cognitive-science-and-theory-of-communication.cdl.unime.it/en",
+      "field_supported": "degree_class, admission_type, teaching_language, campus"
+    },
+    {
+      "quote": "Enrolment in the course requires a three-year degree in the following classes: L-05 (Philosophy), L-19 (Education and training sciences), L-20 (Communication sciences), L-24 (Psychological sciences and techniques)... or another three-year degree obtained in Italy that ensures the acquisition of at least 30 CFU in the following scientific-disciplinary sectors",
+      "url": "https://cognitive-science-and-theory-of-communication.cdl.unime.it/en/enrolling/how-enroll",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "As this is an international course given in English, certification of a level of competence equal to at least B1 is required as an entry qualification.",
+      "url": "https://cognitive-science-and-theory-of-communication.cdl.unime.it/en/enrolling/how-enroll",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "The verification of the student's preparation is carried out prior to enrolment in accordance with the procedures indicated in the course regulations.",
+      "url": "https://cognitive-science-and-theory-of-communication.cdl.unime.it/en/enrolling/how-enroll",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "Students are required to upload an International English Language Certificate (CEFR - B2 level) issued by a recognised Institution and accepted by UniME, unless they belong to one of the categories exempt",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "1st Call – Early Bird ... From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants ... From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu"
+    },
+    {
+      "quote": "For the a. y. 2026/2027, an application fee of € 30.00 is due for the submission of a maximum of two applications ... The application fee is not refundable.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu"
+    },
+    {
+      "quote": "For the academic year 2026/2027, the application deadline on Universitaly is 1 September 2026.",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    }
+  ],
+  "uncertainty_notes": "Both www.unime.it and international.unime.it, and the live cognitive-science-and-theory-of-communication.cdl.unime.it page, are behind an AWS WAF 'Human Verification' CAPTCHA on direct fetch; no CAPTCHA was solved. All content was retrieved via Wayback Machine snapshots instead (programme homepage: snapshot dated 2025-12-07; 'Enrolling'/'Basics' page: snapshot dated 2025-12-07 — this page's 'Requirements'/'Objectives' content block rendered empty in the static capture; 'How to enroll' sub-page: snapshot dated 2025-12-07, which did contain the full academic and language requirement text used above; international.unime.it Application and Admission page: snapshot dated 2026-05-17). Programme-level application deadlines specific to this Master's are not published on the programme's own cdl.unime.it site; the six university-wide sequential admission calls (from international.unime.it) are used instead per the shared task instructions and are assumed to apply, since the programme falls under 'English-taught & Italian-taught Bachelor's and Master's Degrees' in each call's scope — this is why application_deadline_eu and application_deadline_non_eu are marked uncertain. No official_call_url (programme-specific bando) was found; only the general Application and Admission page was located, so official_call_url is left null. language_requirements is marked uncertain because the programme's own page states a B1 English threshold while the general UniME portal rule for English-taught programmes states B2 — this could not be reconciled from official sources within the CAPTCHA/Wayback constraints; the current snapshot dates (Dec 2025 for the programme page) may also predate any 2026/27-cycle update to this requirement.",
+  "uncertain": [
+    "language_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "official_call_url"
+  ]
+}

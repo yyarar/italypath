@@ -1,0 +1,68 @@
+{
+  "research_id": "ba-political-sciences-ir",
+  "program_name": "Political Sciences and International Relations (Scienze Politiche e delle Relazioni Internazionali)",
+  "level": "bachelor",
+  "teaching_language": "Partially English — this is primarily an Italian-taught bachelor's degree that offers an optional English-taught curriculum/track. The programme profile lists 'Language: English Italian' and the admission page states the official languages of instruction/assessment are 'ITALIANO, INGLESE', noting the course includes mandatory subjects delivered in English and that a B2 English certificate is required only for students who choose to enrol in the English-language curriculum ('Unicamente per gli studenti che intendono iscriversi al curriculum in lingua inglese...'). Full English-medium coverage across the whole degree is not confirmed.",
+  "campus": "Messina",
+  "degree_class": "L-36-R (Scienze politiche e delle relazioni internazionali)",
+  "admission_type": "TOLC",
+  "academic_requirements": "Possession of a secondary-school diploma (or another foreign qualification recognised as equivalent by competent bodies) is required. Knowledge requirements are checked via the TOLC-CISIA entrance test or equivalent; general UNIME bachelor's rules also require an official provisional Course Completion Certificate if the diploma is not yet issued, a University Entrance Exam Certificate if required by the candidate's home country, and a transcript of records.",
+  "language_requirements": "A B2-level English certificate, issued by a body accredited/recognised by the competent Ministries, is required only for students enrolling in the English-language curriculum track. Students enrolling in the standard (Italian-medium) curriculum are not stated to need an English certificate; UNIME's general Italian-language requirements (B2 certificate or UniME ITA-Test, with exemptions) apply to Italian-taught programmes university-wide, though this was not separately confirmed on this programme's own page.",
+  "entry_exam_or_test": "Entry knowledge is verified via the TOLC-CISIA test or equivalent. As with other UNIME bachelor's programmes, the test is not exclusionary: failing the check results in Obblighi Formativi Aggiuntivi (additional learning obligations, OFA) to be met during year 1; unresolved OFA by year-end means repeating the first year.",
+  "required_documents": [
+    "High school diploma (12 years of education) or official provisional Course Completion Certificate",
+    "Academic certificate of passed first-year university exams OR Foundation Programme completion certificate (if diploma reflects less than 12 years of schooling)",
+    "University Entrance Exam Certificate, if required by the candidate's home country (per UniME Entry Criteria by Country)",
+    "Transcript of records",
+    "Copy of a valid passport",
+    "International English language certificate (CEFR B2), required only for the English-curriculum track"
+  ],
+  "application_deadline_eu": "6th Call – No-Visa Applicants (Italians with foreign qualification, EU and EU-equivalent candidates; non-EU candidates in the EU-equivalent group must hold an Italian residence permit): July 1, 2026 (00:01 CEST) to November 20, 2026 (23:59 CET), for English-taught and Italian-taught Bachelor's Degrees. A non-refundable EUR 30.00 application fee applies (covers up to two applications). Two-portal flow: pre-evaluation application on the UniME Application Portal; if admitted, confirmation on the Universitaly portal follows (Universitaly pre-enrolment deadline for A.Y. 2026/2027 is September 1, 2026).",
+  "application_deadline_non_eu": "1st Call – Early Bird (Non-EU Study-VISA applicants): November 24, 2025 (00:01 CET) to December 22, 2025 (23:59 CET). 2nd Call – Visa Applicants: February 1, 2026 (00:01 CET) to March 31, 2026 (23:59 CEST). 3rd Call – Visa Applicants: April 13, 2026 (00:01 CEST) to May 10, 2026 (23:59 CEST). All three calls cover English-taught and Italian-taught Bachelor's Degrees. A non-refundable EUR 30.00 application fee applies (covers up to two applications). Two-portal flow: pre-evaluation application on the UniME Application Portal; upon a positive evaluation, an admission letter enables registration/confirmation on the Universitaly portal to begin the visa process (Universitaly pre-enrolment deadline for A.Y. 2026/2027 is September 1, 2026).",
+  "tuition_or_fees_link": "https://international.unime.it/study-us/fees-and-fundings",
+  "official_program_url": "https://scienze-politiche-e-delle-relazioni-internazionali.cdl.unime.it/en",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "quote": "Class L-36-R - Scienze politiche e delle relazioni internazionali / Access Free / Language English Italian / Location MESSINA",
+      "url": "https://scienze-politiche-e-delle-relazioni-internazionali.cdl.unime.it/en",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "Lingua/e ufficiali di insegnamento e di accertamento della preparazione ITALIANO, INGLESE",
+      "url": "https://scienze-politiche-e-delle-relazioni-internazionali.cdl.unime.it/en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi",
+      "field_supported": "teaching_language"
+    },
+    {
+      "quote": "Unicamente per gli studenti che intendono iscriversi al curriculum in lingua inglese è previsto il possesso di una certificazione almeno di livello B2 rilasciata da un ente accreditato",
+      "url": "https://scienze-politiche-e-delle-relazioni-internazionali.cdl.unime.it/en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "Le conoscenze richieste per l'accesso sono coerenti con il decreto della Classe e sono verificate attraverso test d'ingresso TOLC-CISIA o equivalenti.",
+      "url": "https://scienze-politiche-e-delle-relazioni-internazionali.cdl.unime.it/en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "Per essere ammessi al Corso di Laurea occorre essere in possesso di un diploma di scuola secondaria di secondo grado o di altro titolo di studio conseguito all'estero, riconosciuto idoneo.",
+      "url": "https://scienze-politiche-e-delle-relazioni-internazionali.cdl.unime.it/en/iscriversi/requisiti-di-accesso-obiettivi-e-sbocchi",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "1st Call – Early Bird ... From November 24, 2025 (00:01 am CET) To December 22, 2025 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_non_eu"
+    },
+    {
+      "quote": "6th Call - No Visa Applicants ... Timeframe: From July 1, 2026 (00:01 am CEST) To November 20, 2026 (11:59 pm CET)",
+      "url": "https://international.unime.it/study-us/application-and-admission",
+      "field_supported": "application_deadline_eu"
+    }
+  ],
+  "uncertainty_notes": "This programme is not fully English-taught: the official site lists 'Language English Italian' and the admission page confirms official instruction/examination languages are Italian and English, with an English B2 certificate required only for students who opt into the English curriculum track (details of exactly which courses make up that track were not found on this page). Because the task brief frames this as an 'English-taught bachelor programme,' this partial-English status is flagged as a key uncertainty — treat teaching_language and the overall English-taught classification as unconfirmed for full-programme purposes. Access route: both the cdl.unime.it subdomain and international.unime.it returned an AWS WAF CAPTCHA 'Human Verification' page (HTTP 405) on direct fetch; per the fallback order, content was retrieved via Wayback Machine snapshots of the official cdl.unime.it URLs (profile page: web.archive.org/web/20260519120952; admission-requirements page: same snapshot batch) and of international.unime.it/study-us/application-and-admission (web.archive.org/web/20260517055155). Deadlines, application-fee, and general document rules come from the university-wide shared admission page for A.Y. 2026/2027 (no 2025/26 fallback was needed). official_call_url is null — no programme-specific call/bando distinct from the university-wide six-call timeline was found. tuition_or_fees_link points to the general UNIME fees-and-fundings page since no programme-specific fee page was found. Whether Italian-track applicants must also submit an Italian-language certificate/UniME ITA-Test (per the university-wide Italian-taught-programme rule) was not explicitly restated on this programme's own page and is left unconfirmed.",
+  "uncertain": [
+    "teaching_language",
+    "language_requirements",
+    "official_call_url"
+  ]
+}

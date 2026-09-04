@@ -1,0 +1,160 @@
+# outline.yaml — research items + execution config
+topic: "UNIME English-taught bachelor & master programmes — admission requirements"
+topic_slug: "unime-english-programs"
+university: "Università degli Studi di Messina (UNIME)"
+academic_year_target: "2026/2027"
+academic_year_fallback: "2025/2026"
+generated_at: "2026-09-04"
+
+source_of_item_list:
+  page: "https://international.unime.it/study-us/english-taught-programmes"
+  pdf: "https://international.unime.it/sites/sten/files/2025-04/Degree_Programmes_EN_Contacts.pdf"
+  note: >
+    Official UNIME list of fully English-taught degree programmes, A.Y. 2026/2027.
+    18 programmes listed (7 bachelor, 1 single-cycle, 10 master). Two are newly accredited for 2026/27 and have no live
+    micro-site yet (info-sheet PDF only): Heritage Innovation Engineering, Global Security Studies.
+
+access_warning: >
+  www.unime.it and international.unime.it sit behind an AWS WAF interactive CAPTCHA that
+  blocks automated fetching. The item list above was recovered from Wayback Machine snapshots
+  of the official unime.it pages (May 2026). The individual *.cdl.unime.it programme sites
+  appear reachable. Deep-research agents MUST NOT solve the CAPTCHA; when a page is blocked,
+  they should try the *.cdl.unime.it site, the linked PDF, or a Wayback snapshot of the
+  official unime.it URL, and record the access route in uncertainty_notes.
+
+shared_reference_pages:
+  application_and_admission: "https://international.unime.it/study-us/application-and-admission"
+  entry_criteria_by_country_pdf: "https://www.unime.it/sites/default/files/2025-11/UniME%20Entry%20Criteria%20by%20Country.pdf"
+  note: >
+    UNIME's 2026/27 intake runs in six sequential calls (1st Early Bird, 2nd & 3rd Visa
+    Applicant calls, 4th Semestre Aperto, 5th Medicine/IMAT call, 6th No-Visa/EU call),
+    each with its own eligible group and date window, plus a non-refundable €30 application
+    fee. Deep-research agents must list EVERY applicable round inside
+    application_deadline_eu / application_deadline_non_eu rather than a single date, and
+    note the two-portal flow (UniME Application Portal, then Universitaly confirmation).
+
+items:
+
+  # ---------- BACHELOR (7) ----------
+  - id: ba-business-management
+    name: "Business Management"
+    level: bachelor
+    official_program_url: "https://management-impresa.cdl.unime.it/en"
+
+  - id: ba-civil-engineering
+    name: "Civil Engineering"
+    level: bachelor
+    official_program_url: "https://ingegneria-civile.cdl.unime.it/en"
+
+  - id: ba-data-analysis
+    name: "Data Analysis"
+    level: bachelor
+    official_program_url: "https://informatica.cdl.unime.it/en"
+
+  - id: ba-heritage-innovation-engineering
+    name: "Heritage Innovation Engineering"
+    level: bachelor
+    official_program_url: "https://international.unime.it/sites/sten/files/2026-02/BA_Heritage%20Innovation%20Engineering_2026.pdf"
+    status_note: "New for A.Y. 2026/27 — info-sheet PDF only, no live cdl.unime.it site yet."
+
+  - id: ba-marine-biology-blue-biotech
+    name: "Marine Biology and Blue Biotechnologies"
+    level: bachelor
+    official_program_url: "https://marine-biology-and-blue-biotechnologies.cdl.unime.it/it"
+    status_note: "Only the /it version of the site was confirmed reachable; check for an /en counterpart."
+
+  - id: ba-political-sciences-ir
+    name: "Political Sciences and International Relations"
+    level: bachelor
+    official_program_url: "https://scienze-politiche-e-delle-relazioni-internazionali.cdl.unime.it/en"
+
+  - id: ba-transnational-european-legal-studies
+    name: "Transnational and European Legal Studies"
+    level: bachelor
+    official_program_url: "https://transnational-european-legal-studies.cdl.unime.it/en"
+
+  # ---------- SINGLE-CYCLE (1) ----------
+  - id: sc-medicine-and-surgery
+    name: "Medicine and Surgery"
+    level: single-cycle
+    official_program_url: "https://medicine-and-surgery.cdl.unime.it/en"
+    status_note: >
+      6-year programme, admission via IMAT. UNIME states an English language certificate is
+      NOT mandatory here, unlike every other English-taught programme (which require CEFR B2) —
+      verify and capture this exception in language_requirements.
+
+  # ---------- MASTER (9) ----------
+  - id: ma-business-consulting-management
+    name: "Business Consulting and Management (Curriculum in International Management)"
+    level: master
+    official_program_url: "https://consulenza-e-gestione-di-impresa.cdl.unime.it/en"
+    status_note: "Only the International Management curriculum is English-taught — confirm scope."
+
+  - id: ma-civil-engineering-water-risks
+    name: "Civil Engineering (Curriculum in Sustainable Engineering for Water-related Risks)"
+    level: master
+    official_program_url: "https://lm-ingegneria-civile.cdl.unime.it/en"
+
+  - id: ma-cognitive-science
+    name: "Cognitive Science and Theory of Communication"
+    level: master
+    official_program_url: "https://cognitive-science-and-theory-of-communication.cdl.unime.it/en"
+
+  - id: ma-data-science
+    name: "Data Science"
+    level: master
+    official_program_url: "https://data-science.cdl.unime.it/en"
+
+  - id: ma-engineering-computer-science
+    name: "Engineering in Computer Science"
+    level: master
+    official_program_url: "https://engineering-and-computer-science.cdl.unime.it/en"
+
+  - id: ma-geophysical-sciences-seismic-risk
+    name: "Geophysical Sciences for Seismic Risk"
+    level: master
+    official_program_url: "https://geophysical-sciences-for-seismic-risk.cdl.unime.it/en"
+
+  - id: ma-global-security-studies
+    name: "Global Security Studies"
+    level: master
+    official_program_url: "https://international.unime.it/sites/sten/files/2026-03/MA_Global_Security_Studies_2026.pdf"
+    status_note: "New for A.Y. 2026/27 (Dept. of Political and Legal Sciences) — info-sheet PDF only."
+
+  - id: ma-mechanical-engineering
+    name: "Mechanical Engineering (Curriculum in Mechanical Engineering and Innovation)"
+    level: master
+    official_program_url: "https://ingegneria-meccanica.cdl.unime.it/en"
+
+  - id: ma-physics-material-physics-devices
+    name: "Physics: Material Physics and Devices"
+    level: master
+    official_program_url: "https://physics.cdl.unime.it/en"
+
+  - id: ma-quantitative-methods-econ-finance
+    name: "Quantitative Methods for Economics and Finance (Curriculum in Quantitative Methods for Finance)"
+    level: master
+    official_program_url: "https://metodi-quantitativi-economia-finanza.cdl.unime.it/en"
+
+excluded_candidates:
+  - name: "Biomedical Sciences / Biological Sciences (bachelor)"
+    reason: "Not on the official English-taught list; no English-taught equivalent at UNIME."
+  - name: "Chemical / Materials Science master in English"
+    reason: "Does not exist. Nearest is Physics: Material Physics and Devices."
+  - name: "Sustainable Agriculture / Food Science master"
+    reason: "No agriculture or food-science programme on the official English-taught list."
+  - name: "Marine Biology as a master's"
+    reason: "Wrong level — it is a bachelor's (Marine Biology and Blue Biotechnologies)."
+
+execution:
+  batch_size: 5          # parallel agents per wave
+  items_per_agent: 3     # 18 items -> 6 agents -> 2 waves (5 + 1) — COMPLETED 2026-09-04
+  output_dir: "./unime-english-programs/results"
+  output_format: "one JSON file per item, named {id}.json, fields exactly as fields.yaml"
+  agent_model: "sonnet"
+  rules:
+    - "Only unime.it and *.unime.it sources may be cited."
+    - "Never solve a CAPTCHA; fall back to cdl.unime.it site, PDF, or Wayback snapshot and log the route."
+    - "Prioritise A.Y. 2026/2027; if unavailable, use 2025/2026 and say so in uncertainty_notes."
+    - "Leave a field null rather than guessing; every null must be explained in uncertainty_notes."
+    - "Back deadlines, language level and admission type with verbatim quotes in source_quotes."
