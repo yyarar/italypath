@@ -641,3 +641,64 @@ Bir sonraki AI ajanı işe başlamadan önce:
 - Başka URL'lere toplu manuel indeks isteği gönderilmedi.
 - Repository kodunda SEO/performance düzeltmesi yapılmadı.
 
+## 18. İzleme kaydı — 6 Eylül 2026
+
+Bu kontrol production'ın yalnızca test amaçlı yayında olduğu, henüz PR/reklam yapılmadığı ve Instagram lansmanının yaklaşık bir ay sonra planlandığı bağlamında değerlendirilmelidir. Bu nedenle düşük hacimli sorgu ve tıklama verilerinden büyüme kararı çıkarılmamalıdır.
+
+### GSC indeksleme değişimi
+
+| Metrik | 28 Ağustos baz değeri | 6 Eylül ekranı | Değişim |
+|---|---:|---:|---:|
+| Dizine eklenen | 21 | 22 | +1 |
+| Dizine eklenmeyen | 866 | 864 | -2 |
+| `noindex` nedeniyle hariç | 857 | 854 | -3 |
+| Tarandı, şu anda dizine eklenmiş değil | 0 | 1 | +1 |
+
+- `noindex` doğrulaması hâlâ “Başladı” durumunda; başarısız değil.
+- Raporun son güncellemesi 28 Ağustos 2026 idi.
+- Görünen örnek URL'lerin son tarama tarihleri 13–19 Temmuz 2026; toplu yeniden tarama henüz gerçekleşmemiş görünüyor.
+- İkinci temsilci program URL'si 6 Eylül'de canlı URL testiyle kontrol edildi: `https://italypath.app/universities/10/departments/management-of-innovation-and-entrepreneurship-mie`.
+- Sonuç: URL Google tarafından kullanılabilir, sayfa dizine eklenebilir ve bir geçerli yapılandırılmış veri öğesi algılandı.
+
+### Sitemap
+
+- GSC gönderim tarihi: 28 Ağustos 2026.
+- GSC son okuma tarihi: 5 Eylül 2026.
+- Durum: Başarılı.
+- GSC'nin son okumada keşfettiği URL: 1.069.
+- 6 Eylül'de canlı sitemap sayımı: 1.078 URL.
+- Önceki canlı sayım 1.087 idi; veri/program ekleme-silme hareketleri nedeniyle sitemap dinamik olarak değişiyor.
+- Google dosyayı bir gün önce başarıyla okuduğu için yeniden gönderim yapılmamalı.
+
+### Clerk subdomain uyarısı
+
+GSC'deki “Sayfa içerik olmadan dizine eklendi” tek URL'si `https://clerk.italypath.app/` idi.
+
+Canlı doğrulama:
+
+- HTTP 200 ve boş JSON yanıtı.
+- `X-Robots-Tag: noindex, nofollow` mevcut.
+- Son GSC taraması 5 Ağustos 2026.
+- URL ana içerik sitemapinin parçası değil; Clerk kimlik doğrulama altyapısıdır.
+
+Sonuç: Ana sitenin SEO problemi değildir. İndeksleme isteği veya sitemap işlemi yapılmamalı; Google yeniden taradığında dizinden düşmesi beklenir.
+
+### Arama performansı
+
+Son 7 gün / önceki 7 gün karşılaştırması:
+
+| Metrik | Son 7 gün | Önceki 7 gün | Yorum |
+|---|---:|---:|---|
+| Tıklama | 1 | 1 | Değişmedi |
+| Gösterim | 152 | 59 | +93, yaklaşık %158 artış |
+| CTR | %0,7 | %1,7 | Gösterim büyürken tıklama aynı kaldığı için düştü |
+| Ortalama konum | 10,1 | 8,5 | Yeni/daha düşük sıralı gösterimler ortalamayı seyreltebilir |
+
+Bu veri istatistiksel karar için yetersizdir. Henüz pazarlama/lansman yapılmadığı için haftalık sorgu ve sayfa tablosu analizi ertelendi.
+
+### Bir sonraki anlamlı kontrol zamanı
+
+1. Instagram lansmanından yaklaşık bir hafta önce teknik SEO preflight yap.
+2. Lansman günü ölçüm başlangıç tarihini kaydet.
+3. Lansmandan 7 ve 28 gün sonra GSC performansını karşılaştır.
+4. Lansman öncesinde yalnız kritik regresyonları izle: sitemap başarısı, canlı URL indekslenebilirliği, robots/noindex, mobil PageSpeed ve analytics event'leri.
