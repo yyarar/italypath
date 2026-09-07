@@ -1,0 +1,251 @@
+{
+  "program_name": "Foundation Programme in Social Sciences (official Call for Applications and the pathwayprogrammes.luiss.it portal both use the wording \"Luiss Foundation Programme on Social Sciences\")",
+  "level": "other",
+  "teaching_language": {
+    "primary": "English",
+    "granularity": "fully_english",
+    "majors_language": "No majors/tracks. Single curriculum entirely in English. The Call for Applications states the Programme is \"totally held in English\". The curriculum includes an Italian Language course (9 FC) taught as a foreign-language subject, and a \"Language Empowerment and Academic Preparation\" course (6 FC) in English; neither changes the language of instruction."
+  },
+  "campus": "Rome - Luiss Guido Carli, Viale Romania, 32 - 00197 Rome (registered office of the Foundation Programme). Delivery is hybrid: classes are online from October 2026 to March 2027, with an on-campus period in Rome in March/April 2027. The application portal lists the study location as \"Online\".",
+  "degree_class": null,
+  "admission_type": [
+    {
+      "primary": "other",
+      "route_name": "Foundation Programme application and Admission Board evaluation (Call for applications for Luiss Foundation Programme on Social Sciences, 60 FC, dated Rome, March 16th, 2026). No entrance test. Applications are submitted through the separate pathway portal pathwayprogrammes.luiss.it and are assessed by an Admission Board at its discretion.",
+      "eligible_applicants": "EU-Schengen and non-EU applicants alike - a single route. The Call states: \"The admission procedure is open to students holding either EU or non-EU citizenship who by July 2026 will be awarded with a high school diploma deemed eligible for enrolling to the Foundation Programme.\" The Programme is aimed at international students who need an additional year of schooling (i.e. those with 11 instead of 12 years of secondary education) or who must fulfil other prerequisites for a Bachelor's or Single-Cycle degree in Italy.",
+      "test_or_certification": "No admission test (no Luiss Test, no SAT/GMAT/GRE/TOLC). Required certification is an English language certificate at CEFR B2 or above, not older than three years: TOEFL minimum 72, IELTS minimum 5.5, Cambridge minimum B2, Duolingo minimum 100.",
+      "number_of_choices_allowed": "Not applicable - a single programme with no programme-choice mechanism.",
+      "choice_is_binding": null,
+      "subject_area_group": "Not applicable - single interdisciplinary Social Sciences curriculum (Economics, Law, Socio-Political Studies).",
+      "application_fee": "[uncertain] No application fee is stated in the Call for Applications, the programme page, or the pathway portal listing. There is an early-bird incentive instead: \"Students submitting their application within 60 days from the publication of the call for applications will be granted a EUR 1,000 reduction on the first installment.\" (call published 16 March 2026, so the early-bird window ran to roughly mid-May 2026 and has already closed as of 4 September 2026)."
+    }
+  ],
+  "academic_requirements": {
+    "prior_qualification": "A valid secondary school diploma obtained after at least 11 years of secondary school studies, to be awarded by July 2026. Confirmed verbatim in the Call: \"open to international students who have obtained a valid diploma after at least 11 years of secondary school studies\". Applicants still in their final year of high school submit their most recent transcript of records instead. Diploma or transcript must not be older than three years.",
+    "minimum_curricular_requirements": "Not applicable - this is a pre-university pathway, not a degree programme, so there are no L-xx/LM-xx class or ECTS/SSD curricular requirements. The Programme itself awards 60 Foundation Credits (FC), and the Call is explicit that \"the Foundation Credits cannot be recognized as CFUs (Italian Crediti Formativi Universitari)\"; the programme page adds they \"cannot be converted into CFU or ECTS credits\".",
+    "minimum_grade_or_gpa": "[uncertain] No minimum grade or GPA is published. Admission is discretionary: \"Each application will be evaluated by the Admission board which - as its absolute discretion - will decide whether or not to admit each candidate taking into account the number of applications received and the quality of the application.\"",
+    "country_specific_rules": "No country-by-country grade table is published for the Foundation Programme itself. The Programme exists precisely to remedy country-specific shortfalls for later Bachelor's admission: Luiss requires international qualifications reflecting at least 12 years of schooling plus, for example, at least 3 Advanced Placement courses scored 3-5 (American diploma), at least 3 relevant A-Level exams at minimum grade pass (British diploma), or a full IB Diploma (IB courses, certificates and the IB Career Programme are not valid). Completing an accredited Foundation Programme aligned with the chosen field of study is one of the accepted compensatory measures.",
+    "document_recognition": "Required only at the enrolment-finalisation stage, not at application. Students must submit a CIMEA Verification Statement or CIMEA Comparability Statement no later than 27 November 2026; if these cannot be obtained, a Declaration of Value or Apostille issued by the competent authority of the country of the school system is accepted instead. Translations must be done by an official translator recognised by the Italian Embassy or Consulate in the country where the qualification was obtained. If documents are not yet available, temporary proof of having submitted the request must be provided. After 27 November 2026 all pending positions are automatically closed.",
+    "compensatory_measures": "This Programme IS the compensatory measure. Successful completion yields a certificate of completion which \"can be considered to enroll to the first cycle of Luiss Undergraduate Programs and Single-Cycle Degree Programs, upon successfully passing one of Luiss admission selection's procedures for the academic year 2027/2028\". Completion does not by itself grant admission - the student must still pass a standard Luiss admission selection. Attendance of at least 80% of classroom activities per course is compulsory to sit exams and receive the certificate. Minimum cohort size is 30 students; the course starts only if that minimum is reached."
+  },
+  "language_requirements": {
+    "required_level": "B2 (CEFR) in English. Confirmed by the Call for Applications, the luiss.it programme page and the pathway portal.",
+    "accepted_certificates": "An English language proficiency certificate equivalent to at least CEFR level B2, not older than three years, from one of: TOEFL minimum score 72; IELTS minimum score 5.5; Cambridge minimum B2; Duolingo minimum score 100. No other certificates are listed. Italian is not required for admission (basic Italian is taught inside the Programme, 9 FC).",
+    "assessed_in_test": "No. There is no admission test and no in-test language assessment; the B2 level is proved solely by uploading one of the accepted certificates.",
+    "exemptions": "[uncertain] No exemption (e.g. for prior English-medium secondary schooling or native-speaker status) is stated in any of the three official sources; the Call lists the certificate as an unconditional required document. Applicants in this situation should contact foundation@luiss.it."
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "round": "Single application window (2026/2027 intake)",
+        "application_opens": "March 2026 (the Call for Applications is dated Rome, March 16th, 2026)",
+        "application_closes": "11 September 2026, 23:59:59 Central European Time",
+        "test_date": "Not applicable - no admission test",
+        "results": "Notified individually by admission email; no fixed publication date is published",
+        "notes": "Early-bird incentive: applications submitted within 60 days of publication of the call received a EUR 1,000 reduction on the first instalment (window now closed)."
+      }
+    ],
+    "enrolment_deadline": "Admission must be accepted within 2 days of the outcome notification; the first instalment (EUR 4,500) must be paid within 7 days of the admission acceptance. Pre-enrolment stays on hold until original documentation on the validity/eligibility of the qualification is received - deadline 27 November 2026. Second instalment (EUR 3,000) due no later than 15 January 2027. Classes start 5 October 2026 (first semester); second semester starts 18 January 2027 (exact dates to be confirmed).",
+    "degree_completion_deadline": "Not applicable to a pathway programme. The equivalent milestone is the high school diploma: applicants must be awarded an eligible high school diploma by July 2026.",
+    "academic_year": "2026/2027",
+    "cycle_status": "open - the 2026/2027 cycle opened in March 2026 and closes on 11 September 2026 at 23:59:59 CET. [uncertain] As of the accessed date 4 September 2026 the window was still open (7 days remaining) and the pathway portal still displayed an active \"Apply now!\" button; it is effectively closed thereafter."
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "round": "Single application window (2026/2027 intake) - identical to EU applicants",
+        "application_opens": "March 2026",
+        "application_closes": "11 September 2026, 23:59:59 Central European Time",
+        "test_date": "Not applicable - no admission test",
+        "results": "Notified individually by admission email",
+        "notes": "The Call makes no EU / non-EU distinction: one procedure, one deadline, one document list for both citizenship groups."
+      }
+    ],
+    "enrolment_deadline": "Same as for EU applicants: admission accepted within 2 days of notification, first instalment paid within 7 days of acceptance, qualification-validity documents (CIMEA Verification/Comparability Statement, or Declaration of Value / Apostille) by 27 November 2026, second instalment by 15 January 2027.",
+    "visa_or_preenrolment_notes": "[uncertain] Neither the Call for Applications, the luiss.it programme page, nor the pathway portal mentions Universitaly pre-enrolment, study-visa procedures, or a visa timeline for this Programme. Because the first semester (October 2026 - March 2027) is delivered online and students only come to Rome for a period in March/April 2027, the visa/residence-permit pathway differs from a standard degree programme and is not documented on the official sources checked. Contact foundation@luiss.it or the Luiss Welcome Desk. Note the practical risk that the 11 September 2026 deadline leaves very little time for any visa process before the on-campus period.",
+    "academic_year": "2026/2027",
+    "cycle_status": "open - same single window as EU applicants, closing 11 September 2026. [uncertain] Still open as of the 4 September 2026 accessed date."
+  },
+  "required_documents": [
+    "Mandatory - Copy of High School Diploma or equivalent, not older than three years maximum",
+    "Mandatory (alternative to the diploma, for applicants still enrolled in their final year of high school) - Copy of the most recent transcript of records",
+    "Mandatory - Copy of the passport front page or ID document, indicating citizenship",
+    "Mandatory - English language proficiency certificate at CEFR level B2 or above, not older than three years (TOEFL 72 / IELTS 5.5 / Cambridge B2 / Duolingo 100)",
+    "Language rule - All documents must be transmitted in either Italian or English; otherwise official translations together with verified copies of the originals are required",
+    "Required later, at enrolment finalisation (not at application) - CIMEA Verification Statement or CIMEA Comparability Statement, by 27 November 2026",
+    "Required later, alternative if CIMEA statements cannot be obtained - Declaration of Value or Apostille issued by the competent authority of the country of the school system, by 27 November 2026",
+    "Not required - CV, motivation letter, reference letters, portfolio or admission test score: none of these is listed as a required document in the official Call for Applications"
+  ],
+  "entry_exam_or_test": {
+    "test_name": "None. There is no entrance examination for the Foundation Programme (neither the Luiss Test nor SAT/GMAT/GRE/TOLC). Admission is by document-based evaluation by an Admission Board.",
+    "content": "Not applicable. Note the distinction from in-programme assessment: once enrolled, students undergo \"continuous assessment based on closed-ended quizzes, open questions, interviews, or short essays\" plus a final test at the end of each course - these are course exams, not admission tests.",
+    "format": "Not applicable - online application review only, via pathwayprogrammes.luiss.it",
+    "dates": "Not applicable",
+    "fee": "Not applicable - no test and no stated application fee",
+    "language_of_test": "Not applicable. The English B2 certificate requirement replaces any language testing; the Programme is held entirely in English.",
+    "interview": "[uncertain] No admission interview is mentioned in the Call for Applications, the programme page or the pathway portal. (The word \"interviews\" appears in the Call only as one of the continuous-assessment methods used during the courses.)"
+  },
+  "tuition_or_fees_link": {
+    "url": "https://www.luiss.it/en/courses-and-masters/foundation-programme",
+    "annual_amount": "EUR 7,500 total for the one-year Programme (described on the programme page as the enrolment fee and in the Call as the tuition fee). Payable in two instalments: 1st instalment EUR 4,500, due within 7 days of admission acceptance / by the deadline indicated in the admission email; 2nd instalment EUR 3,000, due by 15 January 2027. Early-bird discount: EUR 1,000 reduction on the first instalment for applications submitted within 60 days of publication of the call (published 16 March 2026). Refunds: 50% of the registration fee refunded if cancellation reaches foundation@luiss.it at least 15 days before classes start; no refund of the first instalment after that.",
+    "scholarship_url": "[uncertain] No scholarship or financial-aid page specific to the Foundation Programme was found on any of the three official sources; the only fee reduction documented is the early-bird EUR 1,000 discount."
+  },
+  "official_program_url": "https://www.luiss.it/en/courses-and-masters/foundation-programme",
+  "official_call_url": [
+    "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+    "https://www.luiss.it/sites/default/files/media-documents/20260127_Regolamento_Foundation_Programme_26_27_0.pdf",
+    "https://www.luiss.it/sites/default/files/media-documents/Syllabus_Foundation_Course_2026_2027_0.pdf",
+    "https://pathwayprogrammes.luiss.it/en_GB/courses/course/14-foundation-programme-social-sciences",
+    "https://pathwayprogrammes.luiss.it/en_GB/"
+  ],
+  "source_quotes": [
+    {
+      "field": "admission_type",
+      "quote": "The admission procedure is open to students holding either EU or non-EU citizenship who by July 2026 will be awarded with a high school diploma deemed eligible for enrolling to the Foundation Programme.",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "Each application will be evaluated by the Admission board which - as its absolute discretion - will decide whether or not to admit each candidate taking into account the number of applications received and the quality of the application.",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "The Programme, totally held in English, is open to international students who have obtained a valid diploma after at least 11 years of secondary school studies and who need to acquire an additional year of schooling or to fulfill other prerequisites for enrolling in a Bachelor or a Single-Cycle Degree Program in Italy.",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "To enrol on the course, students must have completed at least 11 years of secondary education and hold a B2-level English language proficiency certificate (TOEFL, IELTS, Cambridge, Duolingo).",
+      "url": "https://www.luiss.it/en/courses-and-masters/foundation-programme",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "English language proficiency certificate equivalent at least to CEFR level B2, confirmed by an English language certificate not older than three years max. We accept one of the following certificates: TOEFL, with a minimum score of 72, IELTS, with a minimum score of 5.5, Cambridge, with a minimum score of B2, Duolingo, with a minimum score of 100",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "English language proficiency certificate equivalent at least to CEFR level B2, confirmed by an English language certificate not older than three years max.",
+      "url": "https://pathwayprogrammes.luiss.it/en_GB/courses/course/14-foundation-programme-social-sciences",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Students shall submit their application online via the website from March to September 11th, 2026.",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Students interested in enrolling in the Programme can submit their application online by clicking the \"Apply Now\" button from March until 11 September 2026.",
+      "url": "https://www.luiss.it/en/courses-and-masters/foundation-programme",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "Foundation Programme 2026/2027 Application deadline 11 Sept 2026, 23:59:59 Central European Time Studies commence 5 Oct 2026",
+      "url": "https://pathwayprogrammes.luiss.it/en_GB/courses/course/14-foundation-programme-social-sciences",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "The deadline to submit the documents specified below is 27th November 2026.",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "teaching_language",
+      "quote": "For the academic year 2026/2027, the Foundation Programme will be a blended course: the first semester will be delivered via online synchronous classes, while the second semester will be delivered mainly online and students will be invited on campus for a period to live a student life experience.",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "campus",
+      "quote": "The Luiss Foundation Programme offers a hybrid course delivery format: from October to March, courses are delivered online; in April, students are invited to come to campus to actively work on the programme, which also focuses on soft skills.",
+      "url": "https://www.luiss.it/en/courses-and-masters/foundation-programme",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "campus",
+      "quote": "In March/April 2027, students will come to Luiss campus in Rome to attend some classes and the soft skills training.",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "degree_class",
+      "quote": "In case of subsequent enrolment in the first cycle of Luiss Undergraduate and Single-Cycle Degree Programs, the Foundation Credits cannot be recognized as CFUs (Italian Crediti Formativi Universitari).",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "degree_class",
+      "quote": "Foundation Credits (FC) cannot be converted into CFU or ECTS credits.",
+      "url": "https://www.luiss.it/en/courses-and-masters/foundation-programme",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "Students who successfully complete Luiss Foundation Programme whose administrative position is in order will be awarded a certificate that can be considered to enroll to the first cycle of Luiss Undergraduate Programs and Single-Cycle Degree Programs, upon successfully passing one of Luiss admission selection's procedures for the academic year 2027/2028.",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "required_documents",
+      "quote": "Copy of High School Diploma or equivalent, not older than three years max; In case of students still enrolled in their last year of high school, a copy of the most recent transcript of records; Copy of passport front page or ID document, indicating the citizenship;",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "The tuition fee for the Luiss Foundation Programme amounts to 7500 EUR, to be paid in two installments.",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "Students submitting their application within 60 days from the publication of the call for applications will be granted a EUR 1,000 reduction on the first installment.",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "entry_exam_or_test",
+      "quote": "Attendance is compulsory for at least 80% of Classroom activities' for each course. For exams registration, students are allowed to have only 20% of absence for each course.",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/20260211_Call_for_applications_Foundation_Programme_2026-27.pdf",
+      "accessed_date": "2026-09-04"
+    }
+  ],
+  "uncertainty_notes": [
+    "SCHEMA FIT - This item is not a degree programme. fields.yaml was designed for Italian bachelor's/master's degrees, so several fields do not map cleanly: degree_class, the admission_type enum values, academic_requirements.minimum_curricular_requirements (ECTS/SSD), and application_deadline_eu.degree_completion_deadline all lack a real counterpart. Each is filled with the closest accurate equivalent and flagged here rather than left silently blank. admission_type primary is set to \"other\" because none of the enum routes (open access, restricted access, TOLC, SAT, selection call) describes a discretionary Admission Board review of uploaded documents with no test; \"selection call\" is a defensible alternative reading since the governing document is literally titled a Call for applications.",
+    "degree_class - Set to null. Not applicable: the Foundation Programme awards 60 Foundation Credits (FC) and a certificate of completion, not an Italian laurea, so no L-xx / LM-xx class code exists. The Call for Applications states explicitly that Foundation Credits cannot be recognised as CFUs, and the programme page adds they cannot be converted into CFU or ECTS credits. Do NOT convert 60 FC to 60 ECTS.",
+    "ACADEMIC YEAR - This item reports the 2026/2027 cycle, not 2027/2028. The luiss.it programme page carries the year badge 2026/2027 and the pathway portal lists Foundation Programme 2026/2027. This is deliberate and differs from the Luiss bachelor's degree items in this research set, which use the 2027/2028 cycle. The 2027/2028 Foundation call has not been published as of 4 September 2026. Note the chained timeline: a student completing the 2026/2027 Foundation Programme applies for a Luiss Bachelor's/Single-Cycle degree for a.y. 2027/2028.",
+    "VERIFIED - 11 years of schooling: CONFIRMED, wording matches on all three sources. Call for Applications: \"open to international students who have obtained a valid diploma after at least 11 years of secondary school studies\". Programme page: \"students must have completed at least 11 years of secondary education\". Portal overview repeats the same. Context: Italy requires 12 years for direct Bachelor's entry, which is exactly the gap this Programme fills.",
+    "VERIFIED - B2 English and accepted certificates: CONFIRMED, with exact minimum scores that appear only in the Call PDF and the portal listing (the luiss.it programme page names the four providers without scores). TOEFL 72, IELTS 5.5, Cambridge B2, Duolingo 100. Certificate must not be older than three years. No other providers accepted; no exemption route documented.",
+    "VERIFIED WITH A CORRECTION - Hybrid delivery: the online-then-campus structure is confirmed, but the two official sources word the on-campus timing differently and the exact campus period should be treated as approximate. The programme page says \"from October to March, courses are delivered online; in April, students are invited to come to campus\" and elsewhere \"April 2027 on-campus weeks\". The Call for Applications is looser: the second semester \"will be delivered mainly online and students will be invited on campus for a period\", and \"In March/April 2027, students will come to Luiss campus in Rome\". So the second semester is NOT fully on-campus - it stays mostly online with a March/April on-campus block. Semester dates: first semester starts 5 October 2026, second semester starts 18 January 2027, with the Call adding \"(exact dates to be confirmed)\".",
+    "VERIFIED - Deadline 11 September 2026: CONFIRMED by three independent official sources. Call for Applications: \"from March to September 11th, 2026\". Programme page: \"from March until 11 September 2026\". Pathway portal: \"11 Sept 2026, 23:59:59 Central European Time\". The precise cut-off time (23:59:59 CET) comes only from the portal.",
+    "EU / NON-EU DISTINCTION DOES NOT APPLY - The Call explicitly opens the procedure to EU and non-EU citizens under one identical procedure, one document list and one deadline. application_deadline_eu and application_deadline_non_eu therefore carry the same window (March 2026 to 11 September 2026); the non-EU object differs only in adding the qualification-recognition and visa notes.",
+    "VISA / PRE-ENROLMENT GAP - No Universitaly pre-enrolment, study visa, or residence permit guidance for this Programme was found on luiss.it, the Call PDF, or pathwayprogrammes.luiss.it. Because the first semester is fully online and the on-campus block is only in March/April 2027, the immigration pathway plausibly differs from a standard degree, but this is not documented. Flagged as a genuine information gap; foundation@luiss.it is the stated contact.",
+    "SEPARATE APPLICATION PORTAL - Applications go through pathwayprogrammes.luiss.it (a DreamApply instance), NOT apply.luiss.it used by the degree programmes. The portal's own \"More information\" link still points to the legacy luiss.edu/Foundation-Programme address; per the research scope this was not treated as canonical and the luiss.it equivalent is recorded instead.",
+    "NAMING INCONSISTENCY - luiss.it titles the programme \"Foundation Programme in Social Sciences\"; the Call for Applications PDF and the pathway portal both say \"on Social Sciences\"; the director's biography on the programme page calls it the \"Foundation Course on Social Sciences\". Same programme.",
+    "CONDITIONAL START - The Call states a minimum of 30 admitted students, and \"the course will start only if the minimum number is reached\". Admission is therefore not an absolute guarantee that the cohort runs.",
+    "COMPLETION DOES NOT EQUAL ADMISSION - Finishing the Foundation Programme yields a certificate that allows a student to apply for a Luiss Bachelor's or Single-Cycle degree, but only \"upon successfully passing one of Luiss admission selection's procedures\". Any bonus points tied to Foundation participation in the 2027/2028 undergraduate call are forfeited if the student fails one or more prescribed exams.",
+    "TIMING OF THIS SNAPSHOT - Accessed 2026-09-04, seven days before the stated closing date. cycle_status is recorded as open, but the window closes on 11 September 2026 and should be re-checked before any downstream use.",
+    "ACCESS NOTE - The pathway portal page returned HTTP 403 to the standard fetch tool and was retrieved with a browser user-agent; content quoted from it was read from the live server response on 2026-09-04. All other sources loaded normally; no 404 or unreachable official pages were encountered for this item.",
+    "Items in the fields.yaml must_cover list that are out of scope for this record: Global Law / PPE degree_class, the existence of \"Law for Global Challenges\", and English-labelled programmes with Italian majors - none of these apply to the Foundation Programme, which has a single all-English curriculum with no majors."
+  ],
+  "uncertain": [
+    "degree_class",
+    "admission_type",
+    "academic_requirements",
+    "language_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "entry_exam_or_test",
+    "tuition_or_fees_link"
+  ]
+}

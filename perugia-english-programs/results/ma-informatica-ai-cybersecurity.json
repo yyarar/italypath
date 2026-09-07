@@ -1,0 +1,39 @@
+{
+  "id": "ma-informatica-ai-cybersecurity",
+  "program_name": "Informatica — \"Artificial Intelligence\" and \"Cybersecurity\" curricula",
+  "level": "master",
+  "degree_code": "M0930",
+  "degree_class": "LM-18",
+  "teaching_language": "Effectively fully English at the specialisation level, even though NOT listed on UNIPG's own 'entirely taught in English' page. Official presentation: \"I CORSI DI BASE ED AVANZATI di entrambi i curricula sono tenuti in LINGUA INGLESE, alcuni insegnamenti opzionali sono tenuti in lingua italiana.\" Study plan count: Artificial Intelligence curriculum = 11 INGLESE / 0 ITALIANO; Cybersecurity curriculum = 12 INGLESE / 0 ITALIANO; shared modules = 5 INGLESE / 1 ITALIANO. Year 2 adds roughly 15 more English modules; only a small number of elective/careers modules remain Italian ('Attività a scelta dello studente', 'Analisi di metodi numerici', a careers module).",
+  "curriculum_name_en": "Two curricula, both effectively English: Artificial Intelligence; Cybersecurity.",
+  "campus": "Perugia",
+  "department": "DMI — Dipartimento di Matematica e Informatica",
+  "admission_type": "open access",
+  "places_available": "Not published for this programme in this research pass.",
+  "academic_requirements": "General Informatica LM-18 admission requirements apply (Italian laurea triennale in Informatica/Computer Science class L-31 or equivalent CFU distribution in mathematics/informatics subjects, assessed by the department). Full CFU breakdown not retrieved in this pass — recommend a dedicated check of the Regolamento didattico.",
+  "language_requirements": "Not explicitly confirmed in this pass; given the pattern across other verified English-curriculum UNIPG programmes, likely B1 at admission with B2 expected during or by the end of the programme, but this must be verified directly rather than assumed.",
+  "english_certificates_accepted": [
+    "IELTS 5.5-6.5", "TOEFL iBT 72-94", "Cambridge ESOL IGCSE",
+    "LanguageCert International ESOL B2 Communicator", "Gatehouse Awards GA Level 1 (Classic B2)",
+    "Pearson PTE General Level 3", "Trinity ISE II", "Oxford Test of English B2"
+  ],
+  "entry_exam_or_test": "Not confirmed in this pass — likely curriculum/CV review as with other UNIPG open-access master's programmes in the DMI department. Needs dedicated verification.",
+  "nulla_osta_required": "Not confirmed in this pass — recommend checking UNIPG's online nulla-osta list.",
+  "required_documents": [
+    "Passport", "Foreign educational qualification documentation", "English certificate (level TBC)",
+    "Universitaly pre-enrolment (non-EU)", "PICA application"
+  ],
+  "application_deadline_eu": "EU/legally-residing applicants: PICA pre-enrolment from 1 July 2026 (no published closing date); SOL enrolment for open-access master closes 1 March 2027.",
+  "application_deadline_non_eu": "IMPORTANT — do not confuse with the BSc Informatics deadline group: the UNIPG deadline table groups '...BSc Informatics...' under PICA 2026-visa-04 (closed 6 Aug 2026), but that explicitly refers to the BACHELOR's Informatics/Programmazione course, not this MASTER's Informatica (M0930, LM-18). This master's PICA group was not explicitly stated and most likely falls under the general window, PICA call 2026-visa-03, open 29 May-7 June 2026, 12:00 — CLOSED as of research date (2026-09-05) — but this is an inference and needs confirmation.",
+  "tuition_or_fees_link": "https://www.unipg.it/en/international-students/becoming-a-unipg-student/tuition-fees-and-scholarships",
+  "tuition_range": "EUR 150-2,200/year via a 17-band ISEE table. Non-EU/foreign-income students use a fixed Flat Tax by home-country UNDP Human Development bracket (Turkey = HIGH HD = EUR 800/year + EUR 16 stamp) or ISEEU Parificato via an affiliated CAF. Declaration window 3 Aug-20 Oct 2026 (late to 1 Mar 2027; missing 28 Feb defaults to the maximum band, ~EUR 2,096).",
+  "cimea_requirement": "Not specified at programme level; see university-wide study-documents page for CIMEA/blackout-date rules.",
+  "double_degree": "Not found for this programme in this research pass.",
+  "official_program_url": "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8647",
+  "official_call_url": null,
+  "source_quotes": [
+    {"quote": "I CORSI DI BASE ED AVANZATI di entrambi i curricula sono tenuti in LINGUA INGLESE, alcuni insegnamenti opzionali sono tenuti in lingua italiana. Il percorso formativo prevede due curricula: curriculum ARTIFICIAL INTELLIGENCE - curriculum CYBERSECURITY", "url": "https://www.unipg.it/didattica/corsi-di-laurea-e-laurea-magistrale/archivio/offerta-formativa-2026-27?view=elenco&idcorso=8647&annoregolamento=2026&tab=PRE", "field_supported": "teaching_language / curriculum_name_en"}
+  ],
+  "uncertainty_notes": "This programme does NOT appear on UNIPG's own 'entirely taught in English' or 'curriculum taught in English' classification pages at all — it was identified only by directly auditing the study plan. Language-requirement level (B1 vs B2), entry-exam process, places available, nulla-osta status, and the exact PICA deadline group are all unconfirmed and need dedicated follow-up — do not conflate the PICA deadline with the unrelated BSc Informatics group. Recommend independent verification with dmi.unipg.it before publishing this as a firm English-taught option. Data collected 2026-09-05, all sources unipg.it/*.unipg.it only.",
+  "research_date": "2026-09-05"
+}

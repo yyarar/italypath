@@ -1,0 +1,300 @@
+{
+  "program_name": "Economics, Institutions and Financial Markets (Italian: Economia, Istituzioni e Mercati Finanziari)",
+  "level": "master",
+  "teaching_language": {
+    "primary": "English and Italian (bilingual programme; language depends on chosen major)",
+    "granularity": "english_track_of_bilingual",
+    "majors_language": [
+      { "major": "RoME - Rome Master in Economics", "language": "English" },
+      { "major": "Economics, Data and Policy Analysis (official course-list label: 'Economics, Data and Policy')", "language": "English" },
+      { "major": "Banks and Financial Intermediaries (official course-list label: 'Banking and Financial Intermediaries')", "language": "Italian" }
+    ]
+  },
+  "campus": "Rome, Luiss Guido Carli University. [uncertain] No specific building (e.g. Viale Romania/Viale Pola) is named on the programme page for this degree; Viale Pola 12 is the university's registered legal address (footer of Luiss pages), not necessarily this programme's teaching building.",
+  "degree_class": "LM-56",
+  "admission_type": [
+    {
+      "route_name": "Luiss Test (EU/Schengen students)",
+      "eligible_applicants": "EU/Schengen citizens with a bachelor's degree, already obtained or to be obtained by 18 November 2027, that allows enrolment in a master's degree programme in Italy. CONFIRMED: this route covers the 'Banks and Financial Intermediaries' major (Italian-taught) and the 'Economics, Data and Policy Analysis' major (English-taught) of this programme, both explicitly listed by name under the 'Economics' subject area on the official Luiss Test page. The RoME major is NOT listed anywhere on that page and therefore is NOT covered by this route (see the dedicated RoME route below).",
+      "test_or_certification": "Luiss Test (written/computer-based admission test; candidate's choice of Italian or English)",
+      "number_of_choices_allowed": 2,
+      "choice_is_binding": false,
+      "subject_area_group": "Economics",
+      "application_fee": "EUR 150"
+    },
+    {
+      "route_name": "GMAT/GRE Direct Admission (EU/Schengen students)",
+      "eligible_applicants": "EU citizens with a completed (or about-to-be-completed) three-year degree qualifying for enrolment in an Italian master's programme. CONFIRMED: both 'Banks and Financial Intermediaries' and 'Economics, Data and Policy Analysis' majors are explicitly listed by name under 'Economics' on this route's official page; RoME is not listed here either, and has its own separate GRE/GMAT process (see below).",
+      "test_or_certification": "GMAT >=515/805 or GRE >=154/170 in both Verbal and Quantitative sections",
+      "number_of_choices_allowed": 1,
+      "choice_is_binding": true,
+      "subject_area_group": "Economics",
+      "application_fee": "EUR 150"
+    },
+    {
+      "route_name": "RoME - Rome Master in Economics dedicated admission process",
+      "eligible_applicants": "Applicants to the RoME major specifically; undergraduate degree, preferably in Economics, Business Administration, Engineering, Mathematics, or Physics, either already obtained or about to be obtained by the start of the programme.",
+      "test_or_certification": "GRE General Test (strongly encouraged); GMAT also accepted (no minimum score published); evaluated jointly with undergraduate grades, CV, reference letters from professors, statement of purpose, an English test score (TOEFL/IELTS) for non-native speakers, and a personal interview",
+      "number_of_choices_allowed": null,
+      "choice_is_binding": null,
+      "subject_area_group": "Economics",
+      "application_fee": "[uncertain] not stated on official Luiss pages (neither the programme sub-page nor the standalone https://www.luiss.it/en/rome-master-economics page discloses a RoME-specific application fee)"
+    },
+    {
+      "route_name": "Non-EU/Extra-EU admission (2027/2028 notice not yet published)",
+      "eligible_applicants": "Non-EU/non-Schengen students",
+      "test_or_certification": "Three pathways described for 2027/2028: (1) 'Admission Test for Non-EU Applicants' - dedicated Luiss Test process; (2) 'Finance and Management Selection' - certification-based, for the Finance and Management master's degrees only; (3) 'Admission with Qualifications' - certification-based for all other master's degrees including this one. Full requirements and scores pending publication.",
+      "number_of_choices_allowed": null,
+      "choice_is_binding": null,
+      "subject_area_group": "Economics",
+      "application_fee": null
+    }
+  ],
+  "academic_requirements": {
+    "prior_qualification": "Three-year bachelor's degree (or equivalent foreign qualification), already obtained or to be obtained by 18 November 2027",
+    "minimum_curricular_requirements": "Confirmed verbatim from the official 'Minimum curricular requirements' page, under the heading \"Master's Degree in Economia, Istituzioni e Mercati Finanziari\": direct admission for L-18 (DM 270/04) and 17 (DM 509/99) - Economics and Business Management; and L-33 (DM 270/04) and 28 (DM 509/99) - Economics. Students from other degree programmes may be admitted only if they have at least 24 university credits in total across at least three of: Business (ECON-06/A, ECON-07/A, ECON-08/A, ECON-09/A, ECON-09/B), Economics (ECON-01/A, ECON-04/A, ECON-05/A), Statistics (STAT-01/A, STAT-02/A, STAT-04/A, MATH-03/A, MATH-03/B), Law (GIUR-01/A, GIUR-02/A, GIUR-03/A, GIUR-05/A, GIUR-06/A, GIUR-10/A). RoME major additionally states a preference (not a formal SSD/ECTS rule) for degrees in Economics, Business Administration, Engineering, Mathematics, or Physics with a strong quantitative background.",
+    "minimum_grade_or_gpa": "[uncertain] No numeric minimum GPA/grade threshold is published on official pages for the standard route; the RoME page states 'undergraduate grades, particularly in relevant subjects' are considered in the holistic evaluation, without a stated numeric minimum.",
+    "country_specific_rules": "Non-EU/Extra-EU admission procedures for 2027/2028 are not yet published; Luiss states the full admission notices will be available from November 2026.",
+    "document_recognition": "[uncertain] Not specified on the programme-specific or minimum-curricular-requirements pages consulted; the general EU-route pages state only that foreign qualifications are 'subject to verification of validity by the Luiss Admissions Office' without naming CIMEA/Declaration of Value/apostille specifically for this master's programme.",
+    "compensatory_measures": "[uncertain] Not specified for this programme; the 24-ECTS-across-3-subject-areas rule (quoted above) is the only published fallback pathway for applicants from ineligible degree classes."
+  },
+  "language_requirements": {
+    "required_level": "B2",
+    "accepted_certificates": "[uncertain] No specific IELTS/TOEFL/Cambridge score table is published on the programme or minimum-curricular-requirements pages; the RoME page separately requires 'scores on a recognized English language test (TOEFL, IELTS...)' for non-native English speakers, without a stated minimum score. (Project background lists IELTS 6 / TOEFL iBT 78-80 / Cambridge FCE-B / CAE-C as the general Luiss master's admission standard, but this exact figure was not found verbatim on a page dedicated to this programme during this research pass.)",
+    "assessed_in_test": true,
+    "exemptions": "[uncertain] Not stated for this programme specifically; general Luiss practice generally exempts native English speakers or holders of a prior fully English-taught degree from certificate submission."
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "route": "Luiss Test",
+        "application_window": "December 2026 to 8 April 2027",
+        "test_dates": "19-22 April 2027"
+      },
+      {
+        "route": "GMAT/GRE Direct Admission",
+        "application_window": "December 2026 to 31 March 2027"
+      },
+      {
+        "route": "RoME - Rome Master in Economics",
+        "application_window": "Applications open 'starting from December of the year preceding the start of the program'; the page directs applicants to 'Consult the schedule for the deadlines' without giving exact 2027/2028 dates on luiss.it. [uncertain] Exact RoME round dates not published on an allowed-domain page; early application is explicitly encouraged since 'RoME is a small program.'"
+      }
+    ],
+    "enrolment_deadline": "22 June 2027 (Luiss Test route); 18 May 2027 (GMAT/GRE Direct Admission route)",
+    "degree_completion_deadline": "18 November 2027 (both routes)",
+    "academic_year": "2027/2028",
+    "cycle_status": "open (first 2027/2028 selection-calendar dates already published; full Admission Notice pending from November 2026)"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [],
+    "enrolment_deadline": null,
+    "visa_or_preenrolment_notes": "Luiss states that admission notices for non-EU/non-Schengen master's applicants for 2027/2028, 'detailing all requirements, participation procedures, and the full calendar,' will be available from November 2026. Three pathways are named for 2027/2028: an 'Admission Test' route (Luiss Test), a 'Finance and Management Selection' route (certification-based, Finance/Management degrees only), and an 'Admission with Qualifications' route (certification-based, all other degrees including this one). The prior (2026/2027) non-EU certification-based direct admission procedures are now closed.",
+    "academic_year": "2027/2028",
+    "cycle_status": "notice not yet published"
+  },
+  "required_documents": [
+    "Passport or identity card showing citizenship (required, Luiss Test/GMAT-GRE routes)",
+    "Certificate of enrolment or degree certificate/transcript of records showing exams, credits (CFU), field of study (SSD) and degree class (required, Luiss Test/GMAT-GRE routes)",
+    "Official GMAT or GRE certificate, with authorization for Luiss to receive the official score via gmac.com/mba.com (GMAT) or ets.org (GRE) (required for GMAT/GRE Direct Admission route; also used for RoME)",
+    "CV/resume (required for RoME major; [uncertain] whether required for the standard Luiss Test/GMAT-GRE routes)",
+    "Statement of purpose (required for RoME major)",
+    "Reference/recommendation letters from professors (required for RoME major)",
+    "English language certificate (TOEFL/IELTS) if native language is not English (required for RoME major; assessed within the test itself for the standard Luiss Test route)",
+    "Application fee payment receipt, EUR 150, non-refundable (required for Luiss Test and GMAT/GRE Direct Admission routes)"
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Luiss Test (standard EU/Schengen route); GMAT or GRE (Direct Admission route); GRE General Test strongly encouraged / GMAT accepted plus interview (RoME-specific route)",
+    "content": "[uncertain] Detailed content/syllabus of the standard Luiss Test is not published on the pages reviewed for this programme; the RoME route instead evaluates quantitative/economics aptitude via GRE/GMAT scores plus CV, statement of purpose, reference letters and a personal interview.",
+    "format": "Luiss Test: written/computer-based admission test taken in Italian or English. RoME: standardized GRE/GMAT test plus personal interview, no proctoring format specified on luiss.it.",
+    "dates": "Luiss Test: application window December 2026 - 8 April 2027, test 19-22 April 2027. GMAT/GRE Direct Admission: application window December 2026 - 31 March 2027. RoME: rolling from December, exact 2027/2028 dates not published on luiss.it [uncertain].",
+    "fee": "EUR 150 (Luiss Test and GMAT/GRE Direct Admission routes, explicitly confirmed on both official pages); RoME-specific fee not disclosed [uncertain]",
+    "language_of_test": "Italian or English, candidate's choice, for the Luiss Test. Confirmed: 'If you choose to take the Test in Italian, you will only be able to apply for courses taught in Italian. If you choose to take the Test in English, you will be able to apply for courses in both Italian and English.'",
+    "interview": "Not mentioned for the standard Luiss Test or GMAT/GRE Direct Admission routes; explicitly required ('Personal interviews') for the RoME major."
+  },
+  "tuition_or_fees_link": {
+    "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/economics-institutions-and-financial-markets",
+    "annual_amount": "EUR 15,000.00 per year, divided into 3 instalments, plus the regional student welfare tax (confirmed verbatim on the official programme page). Note: a separate, garbled FAQ block on the EU-route admission pages states 'The one-off annual fee is EUR16,000 for the first year and EUR18,000 for the Bachelor's degree programmes in Management and Finance' - this FAQ text conflates bachelor's Management/Finance tuition into a master's-admission FAQ and is treated as an unreliable secondary source per project guidance; the EUR 15,000 programme-page figure is authoritative. RoME-specific tuition is not separately disclosed; its own sub-page instead references 'the availability of scholarships and fee waivers' based on family income/residence, without stating an amount, implying RoME follows the same EUR 15,000 base fee unless a waiver applies.",
+    "scholarship_url": "https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027"
+  },
+  "official_program_url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/economics-institutions-and-financial-markets",
+  "official_call_url": [
+    "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/economics-institutions-and-financial-markets",
+    "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/economics-institutions-and-financial-markets/rome-master-economics",
+    "https://www.luiss.it/en/rome-master-economics",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+    "https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027"
+  ],
+  "source_quotes": [
+    {
+      "field": "degree_class",
+      "quote": "The degree class is LM-56",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/economics-institutions-and-financial-markets",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "teaching_language",
+      "quote": "Banking and Financial Intermediaries - taught in Italian; Economics, Data and Policy - taught in English; RoME - Rome Master in Economics - taught in English (developed in collaboration with the Einaudi Institute)",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/economics-institutions-and-financial-markets",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type",
+      "quote": "You can specify up to two master's degree courses within the same subject area (Economics or Law/Political Science), choosing from the following programmes",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type",
+      "quote": "Economics, Institutions, and Financial Markets - Banks and Financial Intermediaries [listed under 'Courses taught in Italian']; Economics, Institutions and Financial Markets - Economics, Data and Policy Analysis [listed under 'Courses taught in English']",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type",
+      "quote": "you hold one of the following international certifications: GMAT with a minimum score of 515 (out of 805); GRE with a minimum score of 154 (out of 170) in the Verbal and Quantitative sections",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type",
+      "quote": "your course choice is binding for admission, ranking, and subsequent enrolment",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type",
+      "quote": "scores on the Graduate Record Examination (GRE) General Test (strongly encouraged); the score on the GMAT is also accepted",
+      "url": "https://www.luiss.it/en/rome-master-economics",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type",
+      "quote": "A prerequisite for participating in the program is an undergraduate university degree, with preference for degrees in Economics, Business Administration, Engineering, Mathematics, or Physics.",
+      "url": "https://www.luiss.it/en/rome-master-economics",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type",
+      "quote": "Personal interviews",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/economics-institutions-and-financial-markets/rome-master-economics",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "Master's Degree in Economia, Istituzioni e Mercati Finanziari Admission is open to students enrolled in or graduates of one of the following degree programmes: L-18 (Ministerial Decree 270/04) and 17 (Ministerial Decree 509/99) - Economics and Business Management; L-33 (Ministerial Decree 270/04) and 28 (Ministerial Decree 509/99) - Economics",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "Students from degree programmes other than those listed above may only be admitted if they have at least 24 university credits in total (either already earned or still to be earned) in at least three of the following subject areas: Business (ECON-06/A; ECON-07/A; ECON-08/A; ECON-09/A; ECON-09/B) Economics (ECON-01/A; ECON-04/A; ECON-05/A) Statistics (STAT-01/A; STAT-02/A; STAT-04/A; MATH-03/A; MATH-03/B) Law (GIUR-01/A; GIUR-02/A; GIUR-03/A; GIUR-05/A; GIUR-06/A; GIUR-10/A)",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "In addition, students must have at least a B2 level of English, which will be assessed during the admission test.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "scores on a recognized English language test (TOEFL, IELTS...), for applicants whose native language is not English",
+      "url": "https://www.luiss.it/en/rome-master-economics",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "entry_exam_or_test",
+      "quote": "Luiss offers the option to take the Admission Test in either Italian or English, thereby promoting access to international and multilingual education. If you choose to take the Test in Italian, you will only be able to apply for courses taught in Italian. If you choose to take the Test in English, you will be able to apply for courses in both Italian and English.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Submission of applications From December 2026 to 8 April 2027; Test administration From 19 to 22 April 2027; Registration By 22 June 2027; Obtaining a Bachelor's degree By 18 November 2027. The participation fee is 150 euros.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Submission of applications From December 2026 to 31 March 2027; Enrollment By 18 May 2027; Completion of a Bachelor's degree By 18 November 2027. The participation fee is 150 euros.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Since RoME is a small program, early application is strongly encouraged.",
+      "url": "https://www.luiss.it/en/rome-master-economics",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "The admission notices, detailing all requirements, participation procedures, and the full calendar, will be available from November 2026.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "A dedicated admission procedure for non-EU/non-Schengen applicants who hold the international qualifications required for entry to Master's degree courses, with the exception of Finance and Management.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "The annual single tuition fee for enrolment in the Master's Degree Programme in Economics, Institutions and Financial Markets is € 15,000.00, divided into 3 instalments, plus the regional student welfare tax.",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/economics-institutions-and-financial-markets",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "The one-off annual fee is €16,000 for the first year and €18,000 for the Bachelor's degree programmes in Management and Finance.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "required_documents",
+      "quote": "Passport or identity card showing citizenship; a certificate of enrolment or a degree certificate (transcript of records) showing a list of exams, credits (CFU), the field of study (SSD), and the degree class.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "required_documents",
+      "quote": "attach the GMAT or GRE certificate with the corresponding score; authorise Luiss to receive the official score via the certifying body's platform: gmac.com / mba.com for the GMAT; ets.org for the GRE.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "academic_year: The main programme page and admission pages display the 2027/2028 academic year as primary; the 2026/2027 cycle is confirmed closed on the official pages ('The direct admission procedures with certifications for the 2026/2027 academic year have now closed.' / 'The admission procedures via test for the 2026/2027 academic year are now closed.'). All data recorded here is for 2027/2028.",
+    "RESOLVED (previously uncertain): the RoME major is confirmed NOT covered by the standard Luiss Test or GMAT/GRE Direct Admission routes. The raw HTML of both the Luiss Test page and the Direct Admission with Certifications page lists only 'Economics, Institutions, and Financial Markets - Banks and Financial Intermediaries' (Italian) and 'Economics, Institutions and Financial Markets - Economics, Data and Policy Analysis' (English) by name under the Economics subject area; RoME never appears on either page. RoME therefore uses exclusively its own dedicated GRE/GMAT-plus-interview process described on its own sub-page.",
+    "RoME-specific application fee, exact 2027/2028 deadline dates, and tuition amount are not published on any luiss.it page consulted (both https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/economics-institutions-and-financial-markets/rome-master-economics and the standalone https://www.luiss.it/en/rome-master-economics were fetched and neither discloses them); the RoME page only says to 'Consult the schedule for the deadlines,' which likely points to a non-luiss.it schedule (e.g. an EIEF-hosted page) outside the allowed citation domains for this project.",
+    "Tuition discrepancy confirmed as described in project background: the official programme page states EUR 15,000/year, while a garbled FAQ block on the EU admission-test page states 'EUR16,000 for the first year and EUR18,000 for the Bachelor's degree programmes in Management and Finance' - the latter figure incorrectly mixes bachelor's tuition into a master's-admission FAQ. Per project guidance, the EUR 15,000 programme-page figure is treated as authoritative.",
+    "language_requirements.accepted_certificates: no page dedicated to this programme states a specific IELTS/TOEFL/Cambridge score table; only the general B2 assessed-in-test rule and the RoME page's unscored 'recognized English language test' requirement were found verbatim.",
+    "academic_requirements.minimum_grade_or_gpa, document_recognition and compensatory_measures: not stated on the programme-specific or minimum-curricular-requirements pages; only the general EU-route 'subject to verification of validity by the Luiss Admissions Office' language exists for foreign qualifications.",
+    "Non-EU/Extra-EU admission notice for 2027/2028 is not yet published (expected from November 2026); non-EU deadlines, rounds, and visa/pre-enrolment notes are therefore incomplete pending that publication.",
+    "campus: no specific Luiss building is named on the programme page for this degree; only 'Rome and Milan' facilities are mentioned in general university material.",
+    "All official pages fetched (main programme page, RoME sub-page x2, Luiss Test page, GMAT/GRE direct admission page, minimum curricular requirements page, extra-EU page, scholarship page) were accessible and returned HTTP 200; apply.luiss.it was not directly tested in this pass and is therefore omitted from official_call_url."
+  ],
+  "uncertain": [
+    "campus",
+    "admission_type[2].application_fee (RoME)",
+    "admission_type[2].number_of_choices_allowed (RoME)",
+    "admission_type[2].choice_is_binding (RoME)",
+    "admission_type[3] (non-EU route details pending November 2026 notice)",
+    "academic_requirements.minimum_grade_or_gpa",
+    "academic_requirements.document_recognition",
+    "academic_requirements.compensatory_measures",
+    "language_requirements.accepted_certificates",
+    "language_requirements.exemptions",
+    "application_deadline_eu.rounds (RoME-specific exact dates)",
+    "application_deadline_non_eu.rounds",
+    "application_deadline_non_eu.enrolment_deadline",
+    "entry_exam_or_test.content",
+    "entry_exam_or_test.dates (RoME)",
+    "entry_exam_or_test.fee (RoME)",
+    "tuition_or_fees_link.annual_amount (RoME-specific figure, if different from EUR 15,000 base)"
+  ]
+}

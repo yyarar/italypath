@@ -1,0 +1,72 @@
+{
+  "program_name": "Data Science",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Catania — classes are held at the Department of Economics and Business (DEI), Corso Italia, and at the Department of Mathematics and Computer Science (DMI), Città Universitaria, Via Santa Sofia",
+  "degree_class": "LM-DATA",
+  "admission_type": "Open access/non-programmed with verification of curricular requirements and personal preparation. Non-EU applicants residing abroad who require a visa use a separate qualification-based public selection call, with a possible online interview or test.",
+  "admission_route": "Non-EU citizens residing abroad who require a visa: non_eu_public_selection_call through the UNICT Student Portal, followed by Universitaly pre-enrolment. Italian, EU/equated citizens and qualifying non-EU residents in Italy: the 2026/27 non-programmed master's admission procedure through Smart_Edu; applicants holding foreign qualifications must first use the UNICT pre-evaluation webform.",
+  "citizenship_track": "non_eu_resident_abroad / eu_and_equated / non_eu_resident_in_italy. Visa-requiring non-EU applicants residing abroad use D.R. 392/2026. Italian/EU/equated applicants and qualifying non-EU residents in Italy use D.R. 2233/2026; foreign qualifications require pre-evaluation.",
+  "academic_requirements": "Applicants need a bachelor's degree or other suitable first-cycle qualification. For the Italian/EU/equated route, direct curricular eligibility is given to degrees in L-7 Civil and Environmental Engineering, L-8 Information Engineering, L-9 Industrial Engineering, L-18 Economics and Business Management, L-30 Physical Sciences and Technologies, L-31 Computer Science and Technologies, L-33 Economics, L-35 Mathematics, or L-41 Statistics, including equivalent former D.M. 509/1999 classes. Applicants from other degree classes need at least 9 CFU in MAT-06 and/or SECS-S/01 plus at least 9 CFU in INF/01 and/or ING-INF/05. Foreign-course equivalence is assessed by the programme commission. Preparation is automatically considered adequate with an eligible listed degree and a final mark of at least 90/110, or for a not-yet-graduated applicant a career average of at least 24/30; other cases are assessed from the personal curriculum and/or by interview or test. Admission with curricular deficits is not allowed. For the non-EU-abroad call, the foreign bachelor's or higher degree must follow at least three years of study and qualify its holder for master's-level entry in the awarding country.",
+  "eligible_bachelor_backgrounds": "Computer Science; Economics and Management; Engineering; Mathematics; Physics; Statistics. Under the Italian degree-class rules: L-7, L-8, L-9, L-18, L-30, L-31, L-33, L-35 and L-41, or an equivalent former class. Other backgrounds may qualify if the specified statistics/probability and computer-science CFU requirements are met.",
+  "curricular_subject_prerequisites": "Adequate knowledge of computer science, mathematics, probability and statistics. For applicants outside the directly eligible Italian degree classes, at least 9 CFU total in MAT-06 and/or SECS-S/01 and at least 9 CFU total in INF/01 and/or ING-INF/05 are required. Knowledge is evaluated through ECTS/credit volume, course content and transcript marks; any required interview may cover INF/01, ING-INF/05, MAT-06 and SECS-S/01.",
+  "degree_recency_limit": "Knowledge acquired more than six years earlier is assessed for obsolescence; affected applicants must undergo an individual interview. This is not stated as an automatic degree-age exclusion.",
+  "undergraduate_in_progress_allowed": "Yes. Non-EU applicants residing abroad may apply before graduating if they obtain the bachelor's degree by 31 July 2026. Under the Italian/EU/equated procedure, graduating students may apply conditionally; at 1 October 2026 they must have no more than 30 CFU outstanding (including the final examination) and must have requested thesis assignment. Conditional enrolment must be regularized by obtaining the degree and all curricular requirements by 28 February 2027.",
+  "professional_experience_alternative": "No professional-experience substitute for the required bachelor's qualification and curricular preparation is stated.",
+  "language_requirements": "English proficiency at CEFR B2 or higher is required, with fluent written and spoken use including disciplinary terminology. For the non-EU-abroad selection this is documented through an accepted certificate or exemption. In the Italian/EU/equated route, B2 may be demonstrated by a passed university English course with suitable certification/attestation; otherwise it is checked by interview. Non-native Italian speakers must also reach Italian B2 before admission to the final degree examination.",
+  "english_certificate_thresholds": {
+    "ielts_min": "5.5 overall",
+    "toefl_ibt_min": "72 total",
+    "cambridge_min": "Cambridge First Certificate in English (FCE) or higher"
+  },
+  "english_certificate_exemptions": "For the non-EU-abroad call, native English-speaking applicants may submit a self-declaration, and applicants whose bachelor's or master's programme was officially taught in English may submit a declaration from the awarding university. For the Italian/EU/equated route, a passed university English course supported by B2-level certification or attestation is accepted; otherwise proficiency is assessed in an interview.",
+  "italian_language_requirement": "Non-native Italian speakers must attain Italian at CEFR B2 or higher before admission to the final master's degree examination. The 2026/27 non-EU public selection itself does not require an Italian-language test at application stage.",
+  "application_deadline_eu": "2 September 2026 for the Smart_Edu admission application (applications ran from 6 July to 2 September 2026). Applicants with a foreign qualification had to request pre-evaluation through the UNICT webform by 30 June 2026.",
+  "application_deadline_non_eu": "17 March 2026 at 23:59 GMT+1 for non-EU applicants residing abroad under the dedicated public selection (opened 10 February 2026 at 12:00 GMT+1). Admitted visa applicants then had to complete Universitaly pre-enrolment by 31 July 2026.",
+  "results_publication_date": "By 6 May 2026 for the non-EU-abroad public selection. For the Italian/EU/equated route: initial admitted/not-admitted/interview lists by 9 September 2026; interview outcomes by 24 September 2026.",
+  "required_documents": "Non-EU-abroad selection: passport personal-data pages; bachelor's degree certificate or enrolment certificate showing expected graduation date; official Italian/English translations where needed; transcript listing courses, exams, grades, grading range and preferably GPA; official syllabi on university letterhead or validated by university stamp; reference letter (preferably from a university lecturer); English Europass-format CV; English-language certificate or exemption evidence; statement of purpose in English (maximum 4,000 characters); summary sheet; and optional supporting documents. For the Italian/EU/equated Smart_Edu route, UNICT graduates attach their updated academic career; applicants graduating elsewhere submit the prescribed self-certification of studies plus valid identity document, or an updated academic record. Holders of foreign qualifications also use the pre-evaluation process and provide the foreign degree, transcript/course documentation and recognition evidence requested by UNICT.",
+  "entry_exam_or_test": "For the Italian/EU/equated route, curriculum review is the standard check. Applicants with an eligible degree and at least 90/110 (or not-yet-graduated applicants with at least 24/30 average) are considered adequately prepared. Applicants below 90/110, from another degree class, or whose knowledge is older than six years may be assessed by curriculum and/or an individual interview or test. The 2026/27 programme interview was scheduled for 17 September 2026 at 10:00 at DMI, Città Universitaria, covering INF/01, ING-INF/05, MAT-06 and SECS-S/01; the same session could verify B2 English where documentary proof was absent. For the non-EU-abroad selection, qualifications are scored out of 100 and the board may invite applicants to an online interview/test; 50/100 is the suitability threshold.",
+  "credential_recognition_documents": "For foreign qualifications, the programme commission determines correspondence between subjects in credit volume and content. UNICT may require a Declaration of Value or CIMEA/ENIC-NARIC comparability and verification documentation. At final enrolment, non-EU visa applicants must deliver a passport copy with study visa, Italian tax code, ENIC/NARIC Statement of Comparability and qualification verification or a Declaration of Value, and residence-permit request. Application documents not in Italian or English require an official translation.",
+  "tuition_or_fees_link": "https://www.unict.it/it/corsi-numero-programmato/2026-2027/public-selection-admission-non-eu-students-living-abroad-english (the linked call states a total 2026/27 tuition/enrolment charge of EUR 306 for non-EU students residing abroad: EUR 140 regional tax, EUR 16 stamp duty and EUR 150 annual comprehensive contribution; Italian/EU/equated fees follow the 2026/27 Manifesto degli Studi referenced in the general admission procedure).",
+  "application_fee": "EUR 10 per programme application for the 2026/27 non-EU-abroad selection. The Italian/EU/equated non-programmed route has no standard application fee; if an additional assessment is required, EUR 35 is charged with the second tuition instalment.",
+  "enrolment_confirmation_fee": "EUR 75, non-refundable, payable within 15 days of admission notification for admitted non-EU-abroad applicants; it is deducted from the EUR 150 annual comprehensive contribution. For the Italian/EU/equated route, enrolment requires the fixed EUR 156 payment (EUR 140 regional tax plus EUR 16 stamp duty), with other contributions governed by the 2026/27 fee regulation.",
+  "places_quota_non_eu": "[uncertain] No programme-specific non-EU seat quota is displayed in the public-facing 2026/27 international call table; the available-places cell is blank.",
+  "places_quota_total": "[uncertain] No total capacity is stated. The 2026/27 general procedure classifies Data Science as non-programmed/open access, despite the programme overview page still describing access as restricted.",
+  "official_program_url": "https://www.interdip.unict.it/corsi/lm-data",
+  "official_call_url": "Non-EU abroad: https://www.unict.it/it/corsi-numero-programmato/2026-2027/public-selection-admission-non-eu-students-living-abroad-english ; Italian/EU/equated non-programmed procedure: https://www.unict.it/it/corsi-numero-non-programmato/2026-2027/procedura-di-ammissione-al-1%C2%B0-anno-corsi-di-laurea-magistrale ; programme annex: https://www.unict.it/sites/default/files/ds_altri_documenti/0046_lm-data_data_science_2026-27.pdf",
+  "application_portal_url": "Admission applications: https://studenti.smartedu.unict.it/ ; foreign-qualification pre-evaluation: https://www.unict.it/it/didattica/iscriversi-un-corso-di-laurea-magistrale ; visa pre-enrolment: https://www.universitaly.it/",
+  "governing_decree_reference": "D.R. 392 of 4 February 2026 (non-EU students residing abroad); D.R. 2233 of 23 June 2026 (non-programmed two-year master's admission procedure).",
+  "source_quotes": [
+    {
+      "quote": "Application from 10 February 2026 12.00 (GMT +1) until 17 March 2026, 23.59 (GMT +1)",
+      "url": "https://www.unict.it/it/corsi-numero-programmato/2026-2027/public-selection-admission-non-eu-students-living-abroad-english"
+    },
+    {
+      "quote": "English is the official language of this programme.",
+      "url": "https://www.interdip.unict.it/corsi/lm-data"
+    },
+    {
+      "quote": "Terms of access: restricted.",
+      "url": "https://www.interdip.unict.it/corsi/lm-data/course-overview"
+    },
+    {
+      "quote": "La domanda di ammissione può essere effettuata dal 6 luglio al 2 settembre 2026.",
+      "url": "https://www.unict.it/sites/default/files/ds_bandi/326134_bando-lm_2233.pdf"
+    },
+    {
+      "quote": "Requisito richiesto è la conoscenza della lingua inglese di livello B2",
+      "url": "https://www.unict.it/sites/default/files/ds_altri_documenti/0046_lm-data_data_science_2026-27.pdf"
+    },
+    {
+      "quote": "almeno 9 CFU complessivamente nei settori: MAT-06, SECS-S/01 ed almeno 9 CFU complessivamente nei settori: INF/01, ING-INF/05",
+      "url": "https://www.unict.it/sites/default/files/ds_altri_documenti/0046_lm-data_data_science_2026-27.pdf"
+    }
+  ],
+  "uncertainty_notes": "The current programme overview says access is restricted, but the governing 2026/27 admission decree and programme annex explicitly place Data Science among non-programmed master's programmes. The cycle-specific decree is treated as authoritative; the overview appears stale. No seat number is visible in the official 2026/27 non-EU call table and no total capacity is published. The EUR 306 tuition figure applies specifically to non-EU students residing abroad; Italian/EU/equated contributions follow the general 2026/27 fee regulation. The international call requires English B2 but no Italian test at application; the programme annex separately requires non-native Italian speakers to acquire Italian B2 before the final degree examination.",
+  "data_academic_year": "2026/2027",
+  "verification_date": "2026-09-05",
+  "uncertain": [
+    "places_quota_non_eu",
+    "places_quota_total"
+  ]
+}

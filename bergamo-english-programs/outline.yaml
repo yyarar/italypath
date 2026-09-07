@@ -1,0 +1,210 @@
+# University of Bergamo (UNIBG) — İngilizce eğitim veren lisans ve yüksek lisans
+# programlarının admission requirements araştırması
+# Oluşturulma: 2026-09-05 | Kaynak kısıtı: sadece resmi unibg.it sayfaları (+ apply.unibg.it, discover.unibg.it)
+
+topic: "UNIBG İngilizce eğitim veren lisans ve yüksek lisans programları — admission requirements (2026/2027)"
+
+scope:
+  source_restriction: "Sadece unibg.it resmi sayfaları (apply.unibg.it, discover.unibg.it, en.unibg.it, www.unibg.it, ls-*.unibg.it program siteleri dahil)"
+  academic_year: "2026/2027 öncelikli; bilgi yoksa en güncel resmi yıl kullanılır ve notlanır. NOT: 5 Eylül 2026 itibarıyla 2026/27 başvuru dönemi kapanmış görünüyor — 2027/28 tarihleri henüz yayınlanmamış olabilir, doğrulanacak"
+  language_scope: "Sadece TAM İngilizce eğitim veren programlar dahil edilir. Kısmen İngilizce/İtalyanca karma programlar (aşağıda excluded_items) hariç tutulur"
+  note_program_specific_dates: "Programların kendine özel admission tarihleri olabiliyor; her programın kendi ls-*.unibg.it sayfası esas alınmalı"
+  bot_protection_warning: "Çoğu unibg.it alt alanı (en.unibg.it, www.unibg.it, ls-*.unibg.it) Cloudflare/AWS WAF insan doğrulaması arkasında olabilir. Derin araştırma agent'ları bu sayfalara erişemezse arama motoru önbelleği/snippet kullanmalı ve source_access_status alanına not düşmeli"
+
+research_guidelines:
+  primary_source: "Her programın apply.unibg.it/courses/course/<id> sayfası + kendi ls-*.unibg.it/en sitesi birlikte kontrol edilmeli; apply.unibg.it uluslararası başvuru kurallarını, ls-*.unibg.it akademik/müfredat detaylarını verir"
+  program_name_confusion_warning: "UNIBG program adları zaman içinde değişmiş (örn. IMM eski adı IMEF, daha eski MMF/MAFIB). DreamApply kaydı ile canlı program sitesi FARKLI isim/subdomain kullanabilir — ikisi de kontrol edilip alias olarak not düşülmeli"
+  access_type_distinction: "Programların çoğu open access (accesso libero); Clinical Psychology limited/selective access (accesso programmato) — admission kuralları yapısal olarak farklı, karıştırılmamalı"
+  application_rounds: "UNIBG uluslararası ön-değerlendirme genelde 2 turlu: 1. tur sadece open-access programlar, 2. tur open-access + limited-access. Tarihler yıldan yıla değişir, doğrulanacak"
+
+# ---------------------------------------------------------------
+# ITEMS — her tam İngilizce program ayrı araştırma nesnesi
+# access_type: open = accesso libero | limited = accesso programmato (selective)
+# status: active = güncel dönemde açık görünüyor | uncertain = uluslararası/İngilizce başvuruya açık olup olmadığı doğrulanacak
+# ---------------------------------------------------------------
+
+items:
+  # ---------- LİSANS (BACHELOR) ----------
+  # NOT: discover.unibg.it/bachelor listesindeki 21 lisans programının TAMAMI "Taught in Italian"
+  # olarak etiketli. UNIBG'de tam İngilizce bir lisans (laurea triennale) programı YOK.
+  # Bu, aktif bir araştırma bulgusu olarak kaydedilir; item listesine dahil edilecek bachelor yok.
+
+  # ---------- TEK DÖNGÜLÜ (SINGLE-CYCLE) ----------
+  - id: sc-medicine-surgery
+    name: "Medicine and Surgery"
+    level: single-cycle
+    teaching_language: "İngilizce (tamamen)"
+    campus: "Bergamo, Papa Giovanni XXIII Hastanesi"
+    degree_class: "LM-41"
+    access_type: limited
+    status: active
+    notes: "6 yıllık tek döngü; Milano-Bicocca Üniversitesi ile ORTAK diploma. Başvuru UNIBG'nin apply portalı üzerinden DEĞİL, ulusal IMAT sınavı ve Milano-Bicocca üzerinden yapılıyor — ayrı başvuru kanalı olarak işaretlenmeli. ~30 AB + 18 AB dışı kontenjan (doğrulanacak); B2 İngilizce koşullu kayıttan sonra sunulabilir"
+    url: "https://discover.unibg.it/master"
+    external_application_url: "https://www.unimib.it/single-cycle/medicine-and-surgery"
+
+  # ---------- YÜKSEK LİSANS (MASTER / LAUREA MAGISTRALE) ----------
+  - id: lm-planning-management-tourism-systems
+    name: "Planning and Management of Tourism Systems (PMTS)"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Bergamo"
+    degree_class: "LM-49"
+    access_type: open
+    status: active
+    notes: "Yabancı Diller, Edebiyatlar ve Kültürler Bölümü"
+    url: "https://ls-pgst.unibg.it/en"
+    apply_url: "https://apply.unibg.it/courses/course/14-ma-planning-and-management-tourism-systems"
+
+  - id: lm-international-management-marketing
+    name: "International Management and Marketing (IMM)"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Bergamo, Caniana kampüsü"
+    degree_class: "LM-77"
+    access_type: open
+    status: active
+    notes: "Taslakta 'International Management, Marketing and Sport' olarak yanlış geçmişti — DOĞRU AD budur, spor bileşeni yok. Eski adları: IMEF (International Management, Entrepreneurship and Finance), daha eski MMF/MAFIB. DreamApply kaydı hâlâ eski IMEF açıklamasını ve ls-imef.unibg.it linkini kullanıyor olabilir — alias olarak not düş"
+    url: "https://ls-imm.unibg.it/en"
+    apply_url: "https://apply.unibg.it/courses/course/18-ma-international-management-and-marketing"
+
+  - id: lm-accounting-governance-sustainability
+    name: "Accounting, Governance and Sustainability (AGS)"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Bergamo, Caniana kampüsü"
+    degree_class: "LM-77"
+    access_type: open
+    status: active
+    notes: "İki curriculum: Accounting for International Business (AIB) ve Accounting and Governance for Sustainability (AG4S). Taslaktaki belirsiz 'Economics and Business for Sustainability' tahmininin muhtemel kaynağı budur"
+    url: "https://ls-ags.unibg.it/en"
+    apply_url: "https://apply.unibg.it/courses/course/9-ma-accounting-governance-and-sustainability"
+
+  - id: lm-economics-data-analysis
+    name: "Economics and Data Analysis (EDA)"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Bergamo"
+    degree_class: "LM-56"
+    access_type: open
+    status: active
+    notes: "Ekonomi Bölümü. DreamApply kaydında ls-egm.unibg.it linki de görülüyor — doğrulanacak"
+    url: "https://ls-eda.unibg.it/en"
+    apply_url: "https://apply.unibg.it/courses/course/15-ma-economics-and-data-analysis"
+
+  - id: lm-economics-finance
+    name: "Economics & Finance"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Bergamo"
+    degree_class: "LM-16"
+    access_type: open
+    status: active
+    notes: "Economics and Data Analysis'ten AYRI bir programdır, karıştırılmamalı"
+    url: "https://ls-ef.unibg.it/en"
+    apply_url: "https://apply.unibg.it/courses/course/42-ma-economics-finance"
+
+  - id: lm-intercultural-studies-languages-literatures
+    name: "Intercultural Studies in Languages and Literatures (ISLL)"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Bergamo"
+    degree_class: "LM-37"
+    access_type: open
+    status: active
+    notes: "Taslakta tamamen eksikti"
+    url: "https://ls-llepa.unibg.it/en"
+    apply_url: "https://apply.unibg.it/courses/course/19-ma-intercultural-studies-languages-literatures"
+
+  - id: lm-clinical-psychology
+    name: "Clinical Psychology for Individuals, Families and Organizations"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Bergamo, Pignolo/Città Alta kampüsü"
+    degree_class: "LM-51"
+    access_type: limited
+    status: active
+    notes: "İngilizce eğitim veren programlar arasında TEK selective/limited-access olan. Başvuru anında lisans derecesi ELDE EDİLMİŞ olmalı (koşullu kabul yok). Psikoloji geçmişi olmayan adaylar başvurmamaya teşvik ediliyor. 5 bölümlü puanlı öz-beyan formu: derece uygunluğu, İngilizce, not ortalaması, stajlar, mesleki deneyim. Programa müfredat stajı ve İtalyan mesleki lisans sınavı dahil"
+    url: "https://ls-pc.unibg.it/en"
+    apply_url: "https://apply.unibg.it/courses/course/21-ma-clinical-psychology-individuals-families-and-organizations"
+
+  - id: lm-management-engineering
+    name: "Management Engineering"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Dalmine mühendislik kampüsü"
+    degree_class: "LM-31"
+    access_type: open
+    status: active
+    notes: "Yönetim, Bilişim ve Üretim Mühendisliği Bölümü. DreamApply kaydında ls-ig.unibg.it linki de görülüyor — doğrulanacak"
+    url: "https://ls-me.unibg.it/en"
+    apply_url: "https://apply.unibg.it/courses/course/20-ma-management-engineering"
+
+  - id: lm-mechatronics-smart-technology-engineering
+    name: "Mechatronics and Smart Technology Engineering"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Dalmine mühendislik kampüsü"
+    degree_class: "doğrulanacak"
+    access_type: open
+    status: active
+    notes: "Mühendislik ve Uygulamalı Bilimler Bölümü"
+    url: "https://ls-mec.unibg.it/en"
+    apply_url: "https://apply.unibg.it/courses/course/43-ma-mechatronics-and-smart-technology-engineering"
+
+  - id: lm-medical-engineering
+    name: "Medical Engineering"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Dalmine mühendislik kampüsü"
+    degree_class: "doğrulanacak"
+    access_type: open
+    status: active
+    notes: "İngilizce programlar arasında en ayrıntılı müfredat ön koşulu olan: ≥39 CFU temel faaliyet (bunun ≥21'i matematik/bilgisayar/istatistik, ≥15'i MAT/05), 18 CFU fizik/kimya, 6'şar CFU ING-IND/13, ING-INF/01, biyomedikal (ING-IND/34 veya ING-INF/06), biyoloji (BIO/09-10-16). ≤3 sınav / ≤24 CFU eksikle ön-kayıt mümkün"
+    url: "https://ls-mede.unibg.it/en"
+    apply_url: "https://apply.unibg.it/courses/course/48-lm-medical-engineering"
+
+  - id: lm-philosophical-knowledge
+    name: "Philosophical Knowledge: Foundations, Methods, Applications"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Bergamo"
+    degree_class: "doğrulanacak"
+    access_type: open
+    status: active
+    notes: "Mektuplar, Felsefe, İletişim Bölümü. Diğer open-access programlardan farklı olarak, CV incelemesi sonrası İNGİLİZCE UZAKTAN MÜLAKAT şartı var"
+    url: "https://ls-pfma.unibg.it/en"
+    apply_url: "https://apply.unibg.it/courses/course/44-lm-philosophical-knowledge-foundations-methods-applications"
+
+  - id: lm-engineering-management-health
+    name: "Engineering and Management for Health (EMH)"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Dalmine mühendislik kampüsü"
+    degree_class: "LM-31"
+    access_type: open
+    status: uncertain
+    notes: "DÜŞÜK GÜVEN: apply.unibg.it'teki DreamApply kurs ID'leri (13, 16) genel gözat sayfasına yönlendiriyor — yani 2026/27 uluslararası ön-değerlendirme turunda AÇIK OLMAYABİLİR. Programın kendi İngilizce sitesi ve admission-requirements sayfası var ama uluslararası öğrenci kabul edip etmediği, yoksa sadece İtalyan-track kaydı mı olduğu doğrulanmalı"
+    url: "https://ls-emh.unibg.it/en"
+    admission_page_url: "https://ls-emh.unibg.it/en/course/admission-requirements"
+
+# ---------------------------------------------------------------
+# KAPSAM DIŞI BIRAKILANLAR (veri setinin eksiksizliği kanıtlansın diye kayıtlı —
+# derin araştırmada tekrar "keşfedilip" yanlışlıkla eklenmesinler diye)
+# ---------------------------------------------------------------
+excluded_items:
+  - name: "Filosofia e storia delle scienze umane e sociali"
+    reason: "UNIBG portalında 'Study language: combined Italian/English' olarak listeleniyor — tam İngilizce değil"
+  - name: "Text Sciences and Culture Enhancement in the Digital Age (LM-43)"
+    reason: "Karma İtalyanca/İngilizce eğitim dili — tam İngilizce değil"
+  - name: "Tüm lisans (laurea triennale) programları (21 adet)"
+    reason: "discover.unibg.it/bachelor'a göre hepsi İtalyanca eğitim veriyor; tam İngilizce lisans programı UNIBG'de bulunmuyor"
+  - name: "\"Business Administration, Professional and Managerial Accounting\" ve \"Management, Marketing & Finance\" (arama snippet'lerinde İngilizce görünen isimler)"
+    reason: "Muhtemelen sırasıyla İtalyanca 'Economia aziendale...' programının çevirisi ve IMM'nin eski adı — doğrudan okunabilir resmi sayfada teyit edilmeden ayrı program olarak EKLENMEMELİ"
+
+# ---------------------------------------------------------------
+# YÜRÜTME AYARLARI (/research-deep bunları okur)
+# ---------------------------------------------------------------
+execution:
+  batch_size: 3          # aynı anda en fazla 3 paralel agent (kullanıcı tercihi)
+  items_per_agent: 1     # her agent tek programı derinlemesine araştırır
+  output_dir: "./results"

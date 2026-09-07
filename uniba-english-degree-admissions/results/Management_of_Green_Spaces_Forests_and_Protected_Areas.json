@@ -1,0 +1,116 @@
+{
+  "program_name": "Management of Green Spaces, Forests and Protected Areas",
+  "level": "bachelor",
+  "teaching_language": ["Italian", "English (selected modules only)"],
+  "delivery_scope": "bilingual",
+  "campus": "University Campus, Via G. Amendola 165/A, 70126 Bari",
+  "degree_class": "L-25 R",
+  "academic_year": "2026/2027",
+  "programme_status": "active",
+  "admission_type": "open access",
+  "academic_requirements": [
+    "An Italian upper-secondary school diploma or a foreign qualification recognized as equivalent is required.",
+    "Admission is open and does not depend on passing a selective entrance examination.",
+    "Students take a non-selective initial-knowledge multiple-choice assessment in biology, chemistry, physics and mathematics."
+  ],
+  "qualification_system_requirements": [
+    "The foreign school qualification must be recognized as equivalent and must grant university-entry entitlement.",
+    "[uncertain] Applicants from schooling systems shorter than 12 years may need supplementary post-secondary study or a foundation course under the central foreign-qualification rules; the precise case-specific rule was not stated on the programme page."
+  ],
+  "eligible_degree_classes": null,
+  "required_subject_credits": null,
+  "language_requirements": [
+    "The programme's canonical page and DreamApply record identify Italian as the programme language; no complete English curriculum is offered.",
+    "Non-EU applicants residing abroad who enrol in this Italian-taught programme must demonstrate Italian proficiency at B2 or pass the UNIBA Italian-language test, unless covered by a ministerial exemption.",
+    "During the degree, students must obtain English-language proficiency at CEFR B1 through an eligibility assessment or recognition of an accepted certificate."
+  ],
+  "language_level": "Italian B2 for applicable non-EU applicants residing abroad; English B1 is an in-programme learning requirement",
+  "accepted_language_evidence": [
+    "Italian B2 or higher certificate issued within the CLIQ quality system",
+    "UNIBA Italian-language proficiency test organized by the University Language Centre after Universitaly pre-enrolment",
+    "For the curricular English B1 requirement: an eligibility assessment or a certificate from an internationally recognized institute and/or one affiliated with UNIBA"
+  ],
+  "personal_preparation_assessment": "A programme-designed, non-selective multiple-choice assessment verifies school-level knowledge in mathematics, biology, physics and chemistry. It contains 10 questions per subject (40 total) and is passed with at least 15 correct answers.",
+  "ofa_or_remedial_obligations": [
+    "A negative result in all or some assessed subjects results in an Additional Educational Obligation (OFA), to be completed during the first year.",
+    "Students may use remedial materials on Agripodcast and retake an assessment on that platform; an OFA in biology, chemistry, physics or mathematics is also cleared by passing the corresponding course examination.",
+    "Failure to clear the OFA by the second sitting of the autumn examination session prevents the student from taking second-year examinations.",
+    "The Interclass Board may exempt holders of an academic qualification, students with foreign-university educational activities, and certain transfer/change-of-programme applicants."
+  ],
+  "entry_exam_or_test": {
+    "name": "Initial knowledge verification test",
+    "provider": "Management of Green Spaces, Forests and Protected Areas degree programme, UNIBA",
+    "format": "40 multiple-choice questions (10 per subject); non-selective",
+    "language": "[uncertain] Italian is strongly implied by the official programme language, but the test language is not explicitly stated in the located regulation",
+    "subjects": ["Mathematics", "Biology", "Physics", "Chemistry"],
+    "minimum_score": "15 correct answers out of 40",
+    "registration_url": "https://www.uniba.it/it/corsi/gestione-spazi-verdi-boschi-aree-protette/studiare/verifica-delle-conoscenze",
+    "test_dates": "[uncertain] No 2026/2027 programme test calendar was located",
+    "notes": "The test verifies preparation and may generate OFA; it is not an entrance examination and does not restrict admission."
+  },
+  "interview_details": null,
+  "admission_quota": {"total": null, "eu_or_equivalent": null, "non_eu_resident_abroad": 5, "other_reserves": "1 Marco Polo place", "source_year": "2026/2027"},
+  "selection_score_and_ranking": null,
+  "application_deadline_eu": [
+    {"stage": "DreamApply foreign-qualification pre-evaluation", "opens_at": "[uncertain] Not stated", "deadline": "2026-09-30", "timezone": "[uncertain] Not stated", "applicant_category": "EU and non-EU applicants not requiring a visa who hold foreign qualifications", "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"}
+  ],
+  "application_deadline_non_eu": [
+    {"stage": "DreamApply foreign-qualification pre-evaluation", "opens_at": "[uncertain] Not stated", "deadline": "2026-06-30", "timezone": "[uncertain] Not stated", "visa_required": true, "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"}
+  ],
+  "application_stages": [
+    {"sequence": 1, "stage": "Foreign-qualification pre-evaluation", "platform": "DreamApply", "applies_to": "Applicants holding a foreign qualification", "deadline": "2026-06-30 for visa applicants; 2026-09-30 for applicants not requiring a visa", "action": "Submit the application, academic documents and applicable pre-evaluation fee", "url": "https://apply.uniba.it/it_IT/courses/course/57-bachelors-degree-gestione-degli-spazi-verdi-dei-boschi-e-delle-aree-protette-l-25"},
+    {"sequence": 2, "stage": "Italian-language verification", "platform": "Universitaly and UNIBA CLA", "applies_to": "Non-EU applicants residing abroad who are not exempt and lack accepted B2 Italian evidence", "deadline": "[uncertain] Date communicated through Universitaly", "action": "Pre-enrol and take the UNIBA Italian-language test", "url": "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/intern-2.pdf"},
+    {"sequence": 3, "stage": "Pre-enrolment and study-visa procedure", "platform": "Universitaly", "applies_to": "Non-EU applicants requiring a visa", "deadline": "[uncertain] Follow the current ministerial and consular deadline", "action": "Submit pre-enrolment and complete the visa process", "url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"},
+    {"sequence": 4, "stage": "Final enrolment", "platform": "Esse3 / UNIBA", "applies_to": "Eligible applicants", "deadline": "[uncertain] Programme-specific 2026/2027 enrolment deadline not located", "action": "Present originals and recognition documents, pay required contributions and enrol", "url": "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/brochure-uniba-2026-2027.pdf"},
+    {"sequence": 5, "stage": "Initial knowledge verification", "platform": "UNIBA programme", "applies_to": "Newly enrolled students unless exempted", "deadline": "[uncertain] 2026/2027 date not located", "action": "Take the 40-question assessment and complete any assigned OFA", "url": "https://www.uniba.it/it/corsi/gestione-spazi-verdi-boschi-aree-protette/studiare/verifica-delle-conoscenze"}
+  ],
+  "applicant_categories": [
+    "Applicant not requiring a visa (Italian, EU, or non-EU with EU-equivalent status)",
+    "Applicant requiring a visa (non-EU resident abroad)",
+    "Marco Polo applicant",
+    "Applicant in a refugee-like situation already residing in Italy"
+  ],
+  "deadline_conflict_note": null,
+  "required_documents": [
+    {"document": "Passport or valid identity card", "required_for": "International applicants", "stage": "Application and enrolment", "translation_required": false, "authentication_required": false, "notes": "A valid identity document is required."},
+    {"document": "Upper-secondary diploma", "required_for": "All applicants", "stage": "DreamApply and final enrolment", "translation_required": "Required if not issued in an accepted language", "authentication_required": "Original and verified copy as applicable", "notes": "Must establish university-entry entitlement."},
+    {"document": "Transcript or final school records", "required_for": "Foreign-qualification applicants", "stage": "DreamApply", "translation_required": "Required if not issued in English or Italian", "authentication_required": "Verified copy as applicable", "notes": "Used for qualification pre-evaluation."},
+    {"document": "Italian B2 certificate", "required_for": "Non-EU residents abroad claiming exemption from the Italian test", "stage": "Language verification", "translation_required": false, "authentication_required": "[uncertain] Not stated", "notes": "Must satisfy the applicable CLIQ/ministerial rules."},
+    {"document": "Declaration of Value, ARDI or CIMEA comparability statement", "required_for": "Foreign-qualification holders, as applicable", "stage": "Qualification recognition and enrolment", "translation_required": "As applicable", "authentication_required": true, "notes": "The exact recognition document depends on the applicant's case."},
+    {"document": "Legalization or Apostille / verification statement", "required_for": "Foreign academic documents, as applicable", "stage": "Final enrolment", "translation_required": "As applicable", "authentication_required": true, "notes": "Country- and document-specific."},
+    {"document": "Study visa and residence permit or application receipt", "required_for": "Non-EU applicants requiring a visa", "stage": "Visa and final enrolment", "translation_required": false, "authentication_required": false, "notes": "Residence-permit application is required after arrival."}
+  ],
+  "document_translation_language": ["English", "Italian", "An official translation is required when the issuing institution does not provide the document in an accepted language"],
+  "document_authentication": ["Original entry-qualification documents must be presented at final enrolment.", "Depending on the qualification and issuing country, legalization or Apostille and a Declaration of Value, ARDI, CIMEA comparability statement or verification statement may be required."],
+  "application_fee": {"amount": "[uncertain] Amount not stated in the official 2026/2027 guide", "currency": "EUR", "stage": "DreamApply pre-evaluation of a foreign qualification", "payment_method": "Bank transfer through DreamApply", "refundable": "[uncertain] Not stated", "source_url": "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/brochure-uniba-2026-2027.pdf"},
+  "tuition_or_fees_link": "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/brochure-uniba-2026-2027.pdf",
+  "official_program_url": "https://www.uniba.it/it/corsi/gestione-spazi-verdi-boschi-aree-protette",
+  "official_call_url": null,
+  "requirements_source_url": [
+    "https://www.uniba.it/it/corsi/gestione-spazi-verdi-boschi-aree-protette",
+    "https://www.uniba.it/it/corsi/gestione-spazi-verdi-boschi-aree-protette/studiare/piano-di-studi/allegato-3a_-piano-di-studi_tempo-pieno_study-plan_full-timenest.pdf",
+    "https://www.uniba.it/it/corsi/gestione-spazi-verdi-boschi-aree-protette/studiare/regolamento-didattico-del-corso/regolamento-didattico-cds-l-25-nest_-aa_2024-2025.pdf",
+    "https://apply.uniba.it/it_IT/courses/course/57-bachelors-degree-gestione-degli-spazi-verdi-dei-boschi-e-delle-aree-protette-l-25",
+    "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students",
+    "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/contingenti-riservati-agli-studenti-extra-ue-residenti-allestero-e-richiedenti-visto-2026-2027_pdf.pdf"
+  ],
+  "source_quotes": [
+    {"field": "delivery_scope", "quote": "offering courses also in English", "source_url": "https://www.uniba.it/it/corsi/gestione-spazi-verdi-boschi-aree-protette", "page_or_section": "Programme presentation", "academic_year": "Current page checked for 2026/2027 intake", "accessed_at": "2026-09-06"},
+    {"field": "teaching_language", "quote": "Study language Italian", "source_url": "https://apply.uniba.it/it_IT/courses/course/57-bachelors-degree-gestione-degli-spazi-verdi-dei-boschi-e-delle-aree-protette-l-25", "page_or_section": "Course facts", "academic_year": "2025/2026 catalogue record", "accessed_at": "2026-09-06"},
+    {"field": "delivery_scope", "quote": "Urban Forestry ... eng", "source_url": "https://www.uniba.it/it/corsi/gestione-spazi-verdi-boschi-aree-protette/studiare/piano-di-studi/allegato-3a_-piano-di-studi_tempo-pieno_study-plan_full-timenest.pdf", "page_or_section": "Full-time study plan, Management of Green Spaces curriculum, third year", "academic_year": "2025/2026", "accessed_at": "2026-09-06"},
+    {"field": "delivery_scope", "quote": "Ecology of Ecosystems and Agroforestry Landscapes ... eng", "source_url": "https://www.uniba.it/it/corsi/gestione-spazi-verdi-boschi-aree-protette/studiare/piano-di-studi/allegato-3a_-piano-di-studi_tempo-pieno_study-plan_full-timenest.pdf", "page_or_section": "Full-time study plan, Management of Forests and Protected Areas curriculum, third year", "academic_year": "2025/2026", "accessed_at": "2026-09-06"},
+    {"field": "admission_type", "quote": "Admission to the degree programme is open and does not require an entrance test.", "source_url": "https://www.uniba.it/it/corsi/gestione-spazi-verdi-boschi-aree-protette/studiare/regolamento-didattico-del-corso/regolamento-didattico-cds-l-25-nest_-aa_2024-2025.pdf", "page_or_section": "Article 3, page 16", "academic_year": "2024/2025", "accessed_at": "2026-09-06"},
+    {"field": "entry_exam_or_test", "quote": "15/40 correct answers", "source_url": "https://www.uniba.it/it/corsi/gestione-spazi-verdi-boschi-aree-protette/studiare/regolamento-didattico-del-corso/regolamento-didattico-cds-l-25-nest_-aa_2024-2025.pdf", "page_or_section": "Article 3, page 16", "academic_year": "2024/2025", "accessed_at": "2026-09-06"},
+    {"field": "admission_quota", "quote": "Gestione degli spazi verdi, dei boschi e delle aree protette ... 5 ... 1", "source_url": "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/contingenti-riservati-agli-studenti-extra-ue-residenti-allestero-e-richiedenti-visto-2026-2027_pdf.pdf", "page_or_section": "Reserved quotas, Department of Soil, Plant and Food Sciences", "academic_year": "2026/2027", "accessed_at": "2026-09-06"}
+  ],
+  "source_year": ["Current programme page checked 2026-09-06", "2025/2026 study plan", "2024/2025 programme regulation", "2026/2027 international admission page", "2026/2027 reserved-place table", "2026/2027 international student guide"],
+  "source_last_checked": "2026-09-06",
+  "uncertainty_notes": [
+    {"field": "delivery_scope", "issue": "The central course catalogue labels the programme ENG, ITA, but the canonical page and DreamApply identify Italian while the study plan marks only selected modules as English.", "reason": "The 2025/2026 study plan shows Italian across the shared first two years and most curriculum modules, with only a few English modules in year three. No full English pathway exists in the located official curriculum.", "searched_sources": ["Current programme page", "English course catalogue", "DreamApply course record", "2025/2026 full-time study plan", "2024/2025 regulation"], "resolution_needed": "Treat as a mixed-language programme with selected English modules, not an English-completable degree; verify against a 2026/2027 study plan when published."},
+    {"field": "academic_year", "issue": "Detailed programme admission and OFA rules are drawn from the 2024/2025 regulation; language-of-delivery evidence is from the 2025/2026 study plan.", "reason": "No programme-specific 2026/2027 academic regulation or study plan was located.", "searched_sources": ["Programme regulations area", "Study-plan area", "Current catalogue"], "resolution_needed": "Replace fallback rules with the 2026/2027 regulation when available."},
+    {"field": "application_fee", "issue": "The fee amount and refundability are not published in the checked guide.", "reason": "The guide confirms a DreamApply bank-transfer fee but gives no amount.", "searched_sources": ["2026/2027 international guide", "DreamApply record"], "resolution_needed": "Confirm in the live DreamApply application or current fee notice."},
+    {"field": "application_stages", "issue": "The 2026/2027 initial-knowledge test and final-enrolment dates were not located.", "reason": "The regulation describes the process but does not supply the current annual calendar.", "searched_sources": ["Programme knowledge-verification area", "Programme regulation", "Central international admissions page"], "resolution_needed": "Obtain the annual schedule from the programme office."},
+    {"field": "official_call_url", "issue": "No programme-specific admission call was located.", "reason": "The programme has open admission and uses central enrolment procedures.", "searched_sources": ["Programme site", "International admissions site", "UNIBA calls search"], "resolution_needed": "Monitor for an annual enrolment notice."}
+  ],
+  "uncertain": ["teaching_language", "delivery_scope", "academic_year", "qualification_system_requirements", "entry_exam_or_test", "interview_details", "admission_quota", "selection_score_and_ranking", "application_deadline_eu", "application_deadline_non_eu", "application_stages", "required_documents", "application_fee", "official_call_url"]
+}

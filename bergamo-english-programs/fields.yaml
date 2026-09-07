@@ -1,0 +1,163 @@
+# UNIBG araştırması — alan tanımları
+# Çekirdek alanlar Kerem'in brief'inden; ek alanlar web doğrulama ajanının unibg.it bulgularından.
+# detail_level: brief -> moderate -> detailed
+# Derin araştırma aşamasında her program için bu şemaya uygun JSON üretilecek.
+
+fields:
+
+  # ---------- 1. KİMLİK VE ERİŞİLEBİLİRLİK ----------
+  identity:
+    - name: program_name
+      description: "Programın resmi tam adı (unibg.it/apply.unibg.it'teki İngilizce ad)"
+      detail_level: brief
+      core: true
+    - name: level
+      description: "bachelor / master / single-cycle / other"
+      detail_level: brief
+      core: true
+    - name: teaching_language
+      description: "Tam İngilizce mi; UNIBG'de karma İngilizce/İtalyanca programlar varsa (excluded_items) o oran belirtilir"
+      detail_level: brief
+      core: true
+    - name: campus
+      description: "Kampüs/lokasyon. UNIBG çok kampüslü: Caniana (Ekonomi/Yönetim), Dalmine (Mühendislik), Pignolo/Città Alta (Psikoloji/beşeri bilimler)"
+      detail_level: brief
+      core: true
+    - name: degree_class
+      description: "İtalyan degree class kodu (LM-77, LM-31 vb.)"
+      detail_level: brief
+      core: true
+    - name: access_type
+      description: "open access (accesso libero) / limited-selective access (accesso programmato). UNIBG'de İngilizce programların çoğu open, sadece Clinical Psychology limited"
+      detail_level: brief
+      core: true
+    - name: programme_name_history
+      description: "Program eski isimleri/subdomain alias'ları (örn. IMM ← IMEF ← MMF/MAFIB). DreamApply kaydı ile canlı site farklı isim kullanabiliyor — kayıt tekrarını önlemek için gerekli"
+      detail_level: moderate
+    - name: awarding_institution
+      description: "Diplomayı veren kurum(lar) — bazı programlar ortak diploma (örn. Medicine and Surgery: UNIBG + Milano-Bicocca)"
+      detail_level: brief
+
+  # ---------- 2. KABUL (ADMISSION) ----------
+  admission:
+    - name: admission_type
+      description: "open access / restricted access / TOLC / SAT / selection call / other (çekirdek alan)"
+      detail_level: moderate
+      core: true
+    - name: academic_requirements
+      description: "Akademik önkoşullar: lisans derecesi + zorunlu ECTS/SSD kredileri. Bazı programlarda çok ayrıntılı (örn. Medical Engineering'in CFU/SSD dökümü) — bu ayrıntı kaybedilmemeli"
+      detail_level: detailed
+      core: true
+    - name: curricular_requirements_cfu
+      description: "Önceki dereceden istenen spesifik CFU/SSD kredi dökümü (varsa) — 'academic_requirements' serbest metninde kaybolabilecek yapılandırılmış detay"
+      detail_level: detailed
+    - name: entry_exam_or_test
+      description: "Giriş sınavı var mı, hangi tür (çekirdek alan)"
+      detail_level: moderate
+      core: true
+    - name: interview_required
+      description: "Mülakat şartı var mı (örn. Philosophical Knowledge: CV sonrası İngilizce uzaktan mülakat)"
+      detail_level: moderate
+    - name: interview_language
+      description: "Mülakat hangi dilde yapılıyor"
+      detail_level: brief
+    - name: selection_scoring
+      description: "Puanlama rubriği ve eşik puan (varsa) — özellikle Clinical Psychology'nin 5 bölümlü öz-beyan formu için önemli"
+      detail_level: detailed
+    - name: degree_completion_deadline
+      description: "Başvuru sırasında derece henüz alınmamışsa (koşullu başvuru) hangi tarihe kadar tamamlanmalı. Limited-access (Clinical Psychology) için genelde İSTİSNA — derece başvuru anında elde edilmiş olmalı"
+      detail_level: moderate
+    - name: application_channel
+      description: "Başvuru kanalı: apply.unibg.it (DreamApply) / ulusal IMAT sınavı / sadece İtalyan-track kaydı. Medicine and Surgery ve muhtemelen EMH standart kanalın dışında"
+      detail_level: moderate
+      core: true
+
+  # ---------- 3. DİL ŞARTLARI ----------
+  language:
+    - name: language_requirements
+      description: "Genel İngilizce dil şartları özeti (çekirdek alan)"
+      detail_level: detailed
+      core: true
+    - name: accepted_english_certificates
+      description: "Kabul edilen İngilizce sertifikaları ve eşik puanları (yapılandırılmış liste): IELTS, TOEFL iBT/ITP/CBT, PTE Academic, Cambridge FCE, Trinity ISE II, Pearson, BEC Vantage, TIE, Cambridge ESOL, ESB ESOL, TOLIMO vb."
+      detail_level: detailed
+    - name: language_waiver_conditions
+      description: "Sertifika şartından muafiyet: Medium of Instruction sertifikası (önceki üniversitenin kayıt/uluslararası ofisinden), anadili İngilizce olanlar için otomatik muafiyet. Öz-beyan/gayriresmi sertifika kabul edilmiyor"
+      detail_level: moderate
+
+  # ---------- 4. TARİHLER VE BAŞVURU TURLARI ----------
+  deadlines:
+    - name: application_deadline_eu
+      description: "AB adayları için başvuru son tarihi (çekirdek alan, ISO formatına normalize edilecek)"
+      detail_level: detailed
+      core: true
+    - name: application_deadline_non_eu
+      description: "AB dışı adaylar için başvuru son tarihi (çekirdek alan, ISO formatına normalize edilecek)"
+      detail_level: detailed
+      core: true
+    - name: application_call_round
+      description: "UNIBG genelde 2 turlu: 1. tur SADECE open-access programlar, 2. tur open-access + limited-access. Tek bir deadline çifti bu yapıyı temsil edemez — her tur ayrı kaydedilmeli"
+      detail_level: detailed
+    - name: results_notification_date
+      description: "Sonuç/kabul bildirimi tarihi (tura göre değişebilir)"
+      detail_level: moderate
+    - name: max_programme_choices
+      description: "Tek ödemeli başvuruda en fazla kaç program seçilebilir (UNIBG'de tipik olarak 2)"
+      detail_level: brief
+
+  # ---------- 5. BELGELER, ÜCRETLER ----------
+  documents_fees:
+    - name: required_documents
+      description: "Gerekli belgeler listesi (çekirdek alan)"
+      detail_level: detailed
+      core: true
+    - name: references_required
+      description: "Kaç referans mektubu isteniyor (UNIBG İngilizce programlarında genelde en az 1)"
+      detail_level: brief
+    - name: course_descriptions_required
+      description: "Önceki derecedeki ana derslerin içerik/tema/amaç açıklaması isteniyor mu (sık gözden kaçan, ağır bir belge)"
+      detail_level: moderate
+    - name: application_fee
+      description: "Başvuru ücreti (DreamApply üzerinden, iade edilmez olabilir)"
+      detail_level: brief
+    - name: pre_enrolment_fee
+      description: "Ön kayıt ücreti (uygun bulunan adaylardan alınır)"
+      detail_level: brief
+    - name: enrolment_deposit
+      description: "İtalya'ya varışta ödenen kayıt/depozito ücreti"
+      detail_level: brief
+    - name: tuition_or_fees_link
+      description: "Harç sayfası linki + özet (çekirdek alan)"
+      detail_level: moderate
+      core: true
+    - name: tuition_income_linked
+      description: "Harç gelire (ISEE) bağlı mı — İtalyan devlet üniversitelerinde tipik, düz bir 'harç' rakamı yanıltıcı olabilir"
+      detail_level: moderate
+
+  # ---------- 6. KAYNAK VE META ----------
+  sources_meta:
+    - name: official_program_url
+      description: "Resmi program sayfası (ls-*.unibg.it/en) (çekirdek alan)"
+      detail_level: brief
+      core: true
+    - name: official_call_url
+      description: "Resmi çağrı/apply.unibg.it kurs sayfası linki (çekirdek alan)"
+      detail_level: brief
+      core: true
+    - name: source_quotes
+      description: "Kritik iddiaların doğrudan alıntıları — tarih, kontenjan, eşik puan gibi alanlar için zorunlu (çekirdek alan)"
+      detail_level: moderate
+      core: true
+    - name: uncertainty_notes
+      description: "Belirsizlikler: hangi yılın verisi, çelişen bilgi, sadece erişilemeyen sayfa vb. (çekirdek alan)"
+      detail_level: moderate
+      core: true
+    - name: source_access_status
+      description: "Sayfaya doğrudan mı erişildi, yoksa sadece arama motoru önbelleği/snippet üzerinden mi ulaşıldı. UNIBG'de çoğu alt alan Cloudflare/WAF korumalı olabildiği için gerekli — otomatik yeniden doğrulanabilirliği işaretler"
+      detail_level: brief
+    - name: last_verified_date
+      description: "Doğrulama tarihi — tarih ve kontenjanlar her döngüde değişir"
+      detail_level: brief
+
+# Derin araştırma aşamasında otomatik doldurulacak belirsiz alanlar (rezerve)
+uncertain: []

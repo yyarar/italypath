@@ -1,0 +1,179 @@
+{
+  "programme_name": "Master's degree in Viticulture, enology and wine marketing (interuniversity)",
+  "programme_code": null,
+  "level": "master",
+  "academic_year": "2026/2027",
+  "programme_status": "confirmed",
+  "duration_years": 2,
+  "teaching_language": "English",
+  "fully_english_taught": true,
+  "campus": "First year: Conegliano (University of Padua viticulture and enology campus); second year: Verona, Udine, or Conegliano depending on track. Administrative headquarters: Verona.",
+  "degree_class": "LM-69 R",
+  "interuniversity_programme": {
+    "is_interuniversity": true,
+    "coordinating_institution": "University of Verona",
+    "partner_institutions": ["University of Padua", "University of Udine"]
+  },
+  "admission_type": "open_access",
+  "admission_type_official_wording": "Subject to entry requirements",
+  "admission_routes": [
+    {
+      "applicant_category": "EU",
+      "route": "standard_enrolment",
+      "notes": "Register in ESSE3 for the Eligibility Check from 3 June to 15 October 2026; late registration remains possible through 12 November 2026, followed by enrolment by 21 December 2026 with a late fee.",
+      "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1362&lang=en&menu=iscriversi&tab=comeiscriversi"
+    },
+    {
+      "applicant_category": "non-EU_resident_in_Italy",
+      "route": "standard_enrolment",
+      "notes": "The ordinary ESSE3 Eligibility Check applies; applicants should verify residence-status documentation with the admissions office.",
+      "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1362&lang=en&menu=iscriversi&tab=comeiscriversi"
+    },
+    {
+      "applicant_category": "non-EU_abroad",
+      "route": "international_pre_admission_call",
+      "notes": "Foreign-degree holders of non-Italian citizenship who are not already resident in Italy apply through the 2026/27 International Master's pre-admission call, then complete Universitaly visa pre-enrolment if admitted.",
+      "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf"
+    }
+  ],
+  "academic_requirements": {
+    "summary": "A three-year university degree in viticulture and enology, or in agricultural sciences and/or food technology with appropriate preparation in plant production and protection, food technology, and economics. The ordinary programme requirement is met by an Italian L-25 or L-26 degree related to the wine sector, former class 20, or an old-system five-year Agricultural Sciences degree; otherwise at least 50 CFU in the specified subject groups are required. Curricular deficiencies must be remedied before enrolment. For the 2026/27 international pre-admission route, the qualifying degree must be awarded by 30 June 2026.",
+    "eligible_degree_classes": ["L-25", "L-26", "former class 20", "old-system five-year degree in Agricultural Sciences"],
+    "eligible_foreign_qualifications": "A foreign first-cycle or higher degree recognised as suitable after assessment of whether its curriculum matches the programme's curricular and preparation requirements.",
+    "minimum_credits_by_subject_area": [
+      {
+        "subject_area_or_ssd": "Economics, valuation and law: AGR/01, IUS/03, SECS-P/08",
+        "minimum_credits": 8,
+        "notes": "Part of the alternative 50-CFU curricular route."
+      },
+      {
+        "subject_area_or_ssd": "Plant production: AGR/02, AGR/03, AGR/07, AGR/13, AGR/16",
+        "minimum_credits": 24,
+        "notes": "Part of the alternative 50-CFU curricular route."
+      },
+      {
+        "subject_area_or_ssd": "Plant protection: AGR/11, AGR/12",
+        "minimum_credits": 6,
+        "notes": "Part of the alternative 50-CFU curricular route."
+      },
+      {
+        "subject_area_or_ssd": "Agricultural/forestry engineering, representation and food technology: AGR/09, AGR/10, AGR/15",
+        "minimum_credits": 12,
+        "notes": "Part of the alternative 50-CFU curricular route."
+      }
+    ],
+    "minimum_grade_or_gpa": "Ordinary entry: applicants with a graduation grade below 90/110 undergo a test or interview; those with 90/110 or higher are exempt. International scholarship/tuition-benefit eligibility requires CGPA or equivalent of at least 70/100.",
+    "curriculum_assessment": "The programme evaluates curricular requirements and personal preparation. For the international pre-admission call, academic background, relevant examination results, publications, extra-academic experience, institution profile, CGPA, English above B2, and an online interview are scored."
+  },
+  "curricula_tracks": [
+    {"name": "Economy and marketing in wine business", "differing_requirements": null, "source_url": "https://www.corsi.univr.it/?ent=cs&id=1362&lang=en"},
+    {"name": "Identity, tipicality, terroir", "differing_requirements": null, "source_url": "https://www.corsi.univr.it/?ent=cs&id=1362&lang=en"},
+    {"name": "New frontiers in viticulture enology", "differing_requirements": null, "source_url": "https://www.corsi.univr.it/?ent=cs&id=1362&lang=en"},
+    {"name": "Research and development for a sustainable viticulture", "differing_requirements": null, "source_url": "https://www.corsi.univr.it/?ent=cs&id=1362&lang=en"},
+    {"name": "Research and development in enology", "differing_requirements": null, "source_url": "https://www.corsi.univr.it/?ent=cs&id=1362&lang=en"},
+    {"name": "Sparkling wine production and marketing", "differing_requirements": null, "source_url": "https://www.corsi.univr.it/?ent=cs&id=1362&lang=en"}
+  ],
+  "ranking_and_quota": {
+    "total_places": null,
+    "reserved_non_eu_places": null,
+    "ranking_details": "The degree itself is not presented as limited-entry. Under the separate 2026/27 international pre-admission and benefits call, applicants need at least 60/100; the programme ranking was to be published by 15 May 2026. One €8,000 scholarship plus tuition exemption was assigned to this programme, while the call also offered university-wide reduced-fee awards."
+  },
+  "selection_components": [
+    {"component": "Curriculum Vitae and relevance of academic and extra-academic background", "weight_or_threshold": "0-55 points", "notes": "International pre-admission and benefits call."},
+    {"component": "English proficiency above B2 or previous degree taught in English", "weight_or_threshold": "0-5 points", "notes": "International pre-admission and benefits call."},
+    {"component": "Bachelor's CGPA", "weight_or_threshold": "0-10 points", "notes": "Foreign grading scale is normalised to 0-10."},
+    {"component": "Online interview", "weight_or_threshold": "0-30 points", "notes": "International pre-admission and benefits call; overall pass score is 60/100."}
+  ],
+  "language_requirements": {
+    "summary": "Certified English proficiency at CEFR B2 or higher is required; a previous degree taught in English is accepted as an alternative. In the ordinary eligibility route, applicants without a B2 certificate may have English assessed by interview.",
+    "english_level_cefr": "B2",
+    "accepted_language_certificates": ["Certificates recognised as equivalent to CEFR B2 or higher in the official University of Verona equivalence list", "Duolingo only for applicants from Iran or Afghanistan under the 2026/27 international call"],
+    "certificate_exemptions": ["Previous degree formally taught in English"],
+    "italian_language_test_required": false,
+    "notes": "Non-EU applicants abroad enrolling in this English-taught Master's degree are exempt from the University of Verona Italian-language test."
+  },
+  "application_deadline_eu": "2026-10-15",
+  "application_deadline_non_eu": "2026-03-31T15:00:00+02:00",
+  "application_windows": [
+    {"applicant_category": "EU and equivalent applicants using the ordinary ESSE3 route", "deadline_type": "programme_selection", "opens_at": "2026-06-03", "closes_at": "2026-10-15", "timezone": "Europe/Rome", "deadline_status": "upcoming", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1362&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"applicant_category": "EU and equivalent applicants using late ESSE3 eligibility check", "deadline_type": "programme_selection", "opens_at": "2026-10-16", "closes_at": "2026-11-12", "timezone": "Europe/Rome", "deadline_status": "upcoming", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1362&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"applicant_category": "Applicants admitted through the late ordinary eligibility check", "deadline_type": "enrolment", "opens_at": null, "closes_at": "2026-12-21", "timezone": "Europe/Rome", "deadline_status": "upcoming", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1362&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"applicant_category": "Non-Italian citizens with a foreign degree and not resident in Italy", "deadline_type": "pre_admission", "opens_at": "2026-02-02", "closes_at": "2026-03-31T15:00:00+02:00", "timezone": "Europe/Rome", "deadline_status": "closed", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf"},
+    {"applicant_category": "Non-EU applicants residing abroad", "deadline_type": "universitaly_pre_enrolment", "opens_at": null, "closes_at": "2026-06-30", "timezone": "Europe/Rome", "deadline_status": "closed", "source_url": "https://www.univr.it/en/our-services/international-degree-seeking-students"}
+  ],
+  "universitaly_deadline": "2026-06-30",
+  "visa_pre_enrolment_required": true,
+  "required_documents": [
+    {"document": "Identity document; passport personal-data pages for non-EU applicants", "applicant_categories": ["international_pre_admission_call"], "required": true, "condition": null, "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf"},
+    {"document": "Bachelor's degree certificate, or enrolment certificate and expected graduation-date evidence", "applicant_categories": ["international_pre_admission_call"], "required": true, "condition": "A two-year Bachelor's degree must be accompanied by the subsequent Master's degree.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf"},
+    {"document": "English-language transcript of records or Diploma Supplement", "applicant_categories": ["international_pre_admission_call"], "required": true, "condition": "Must list examinations and should, where possible, show ECTS credits, weighted average, and the grading-scale range.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf"},
+    {"document": "Curriculum vitae et studiorum in English", "applicant_categories": ["international_pre_admission_call"], "required": true, "condition": "Maximum two pages.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf"},
+    {"document": "English-language proficiency certificate or proof that the previous degree was taught in English", "applicant_categories": ["international_pre_admission_call"], "required": true, "condition": "CEFR B2 or higher; Duolingo accepted only for applicants from Iran or Afghanistan.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf"},
+    {"document": "Receipt for the €50 pre-admission contribution", "applicant_categories": ["international_pre_admission_call"], "required": true, "condition": null, "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf"},
+    {"document": "Self-certification listing completed examinations", "applicant_categories": ["ordinary_ESSE3 applicants whose Bachelor's degree is from another university"], "required": true, "condition": "Use the form published in the programme's Documents and notices section.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1362&lang=en&menu=iscriversi&tab=comeiscriversi"}
+  ],
+  "document_legalisation_translation_rules": "Internationally pre-admitted applicants must submit an official translation and legalisation of the Bachelor's diploma plus a Declaration of Value. A CIMEA Statement of Comparability may replace the Declaration of Value, and a CIMEA Statement of Verification may replace legalisation.",
+  "entry_exam_or_test": {
+    "required": "conditional",
+    "name": "Personal-preparation interview / online selection interview",
+    "provider": "Viticulture, Enology and Wine Marketing programme evaluation committee",
+    "mode": "Online for the international pre-admission call; ordinary-route mode is not fully specified for 2026/27 [uncertain]",
+    "language": "English [uncertain]",
+    "test_date": null,
+    "registration_deadline": "2026-03-31T15:00:00+02:00",
+    "minimum_score": "International call: overall 60/100; interview contributes up to 30 points. Ordinary route: applicants with degree grade below 90/110, or without B2 certification, undergo a test/interview.",
+    "alternatives": ["Ordinary-route applicants with a degree grade of 90/110 or higher are exempt from the personal-preparation test/interview", "B2 English may be assessed during an interview if certification is absent"],
+    "notes": "The international call states that applicants are informed of the pre-admission result within 45 days of application; its ranking was due by 15 May 2026. The programme page had not published 2026/27 ordinary interview dates in the material located."
+  },
+  "application_fee": {
+    "amount": 50,
+    "currency": "EUR",
+    "notes": "Applies to the 2026/27 international pre-admission call. It is deducted from student contributions for those who enrol, except scholarship recipients.",
+    "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf"
+  },
+  "tuition_or_fees_link": "https://www.univr.it/en/our-services/international-degree-seeking-students",
+  "tuition_amount_basis": "General annual tuition rules apply. International students with a study visa or study residence permit may qualify for differentiated flat rates of €500 for applicants from World Bank low/lower-middle-income countries or €1,000 for applicants from upper-middle-income countries. The 2026/27 international call separately offered a €1,000 two-year reduced flat rate to selected non-EU applicants.",
+  "double_degree_options": [
+    {
+      "partner": "Hochschule Geisenheim University (Germany)",
+      "separate_selection": true,
+      "notes": "Eligible enrolled VEM students may complete the second year in Geisenheim and obtain both the Italian degree and the German MSc in Viticulture and Enology VITIS-VINUM. This mobility selection is separate from initial admission.",
+      "official_url": "https://www.corsi.univr.it/?ent=cs&id=1362&lang=en&menu=iscriversi&tab=isc-doppio-titolo"
+    }
+  ],
+  "official_program_url": "https://www.corsi.univr.it/?ent=cs&id=1362&lang=en",
+  "entry_requirements_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1362&lang=en&menu=iscriversi&tab=requisiti",
+  "language_evidence_url": "https://www.corsi.univr.it/?ent=cs&id=1362&lang=en&menu=ilcorso&tab=presentazione",
+  "official_call_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf",
+  "call_metadata": {
+    "call_scope": "pre_admission_and_scholarship",
+    "publication_date": null,
+    "last_modified": null,
+    "supersedes_source_url": null
+  },
+  "source_quotes": [
+    {"fields_supported": ["academic_year", "duration_years", "admission_type_official_wording", "degree_class", "campus", "teaching_language"], "quote": "Duration 2 years ... Admissions Subject to entry requirements ... Degree class LM-69 R ... Administrative headquarters verona ... Language English", "source_url": "https://www.corsi.univr.it/?ent=cs&id=1362&lang=en", "page_or_section": "Information Sheet", "academic_year": "2026/2027"},
+    {"fields_supported": ["interuniversity_programme", "fully_english_taught", "campus"], "quote": "administrative headquarters at the University of Verona ... interuniversity program involving the Universities of Padua and Udine ... All courses are taught in English.", "source_url": "https://www.corsi.univr.it/?ent=cs&id=1362&lang=en&menu=ilcorso&tab=presentazione", "page_or_section": "Course of study in brief", "academic_year": "2026/2027"},
+    {"fields_supported": ["academic_requirements", "language_requirements"], "quote": "Three-year University Degree (Bachelor) in viticulture and enology, or agricultural sciences and/or food technology ... awarded or to be awarded within 30 June 2026.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf", "page_or_section": "Annex 1, Viticulture, Enology and Wine Marketing", "academic_year": "2026/2027"},
+    {"fields_supported": ["language_requirements"], "quote": "Certification of English language proficiency corresponding to B2 level or higher according to CEFR scale, or previous degree taught in English.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf", "page_or_section": "Annex 1, Language requirements", "academic_year": "2026/2027"},
+    {"fields_supported": ["application_deadline_non_eu", "application_fee", "required_documents"], "quote": "submit the request in the period 02.02.2026 – 31.03.2026 at 3.00 pm ... receipt of payment of the pre-admission fee of € 50", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf", "page_or_section": "Articles 3 and 5", "academic_year": "2026/2027"},
+    {"fields_supported": ["selection_components", "ranking_and_quota"], "quote": "Curriculum Vitae ... 0-55 ... Knowledge of the English language ... 0-5 ... CGPA ... 0-10 ... Online interview ... 0-30 ... Minimum score (pass) 60/100", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf", "page_or_section": "Annex 1, Evaluation criteria", "academic_year": "2026/2027"},
+    {"fields_supported": ["universitaly_deadline", "visa_pre_enrolment_required", "document_legalisation_translation_rules"], "quote": "non-EU candidates must ... by 30.06.2026 ... pre-enrol through the Universitaly portal ... official translation and legalisation ... and the Declaration of Value", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf", "page_or_section": "Article 10", "academic_year": "2026/2027"},
+    {"fields_supported": ["application_deadline_eu", "application_windows"], "quote": "register for the Eligibility Check ... from 3 June 2026 to 15 October 2026 ... no later than 12 November 2026 ... enrol ... no later than 21 December 2026", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1362&lang=en&menu=iscriversi&tab=comeiscriversi", "page_or_section": "How to enroll", "academic_year": "2026/2027"}
+  ],
+  "source_last_checked": "2026-09-05T00:00:00+03:00",
+  "applicant_category_notes": "The international pre-admission call is limited to non-Italian citizens (except dual-citizenship cases), holding a foreign degree and not already resident in Italy. EU/equivalent and non-EU applicants resident in Italy normally use the ordinary ESSE3 eligibility-check route. Universitaly is additionally mandatory for non-EU applicants abroad who need a study visa.",
+  "uncertainty_notes": [
+    {"field": "programme_code", "issue": "No stable programme code was visible in the official sources consulted; the public course identifier is id=1362.", "conflict_type": "other", "sources": ["https://www.corsi.univr.it/?ent=cs&id=1362&lang=en"], "resolution_needed": "Confirm any internal degree-programme code from the 2026/27 teaching regulations or ESSE3."},
+    {"field": "entry_exam_or_test.mode", "issue": "The 2026/27 international selection interview is explicitly online, but the ordinary programme page material located did not specify the mode or dates of its conditional personal-preparation interview.", "conflict_type": "other", "sources": ["https://cdn.docs.univr.it/documenti/Concorso/bando/bando170484.pdf", "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1362&lang=en&menu=iscriversi&tab=requisiti"], "resolution_needed": "Check the programme page for newly published 2026/27 interview dates."},
+    {"field": "entry_exam_or_test.language", "issue": "The programme is fully English-taught, but the language of the ordinary personal-preparation interview was not explicitly stated in the located 2026/27 text.", "conflict_type": "other", "sources": ["https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1362&lang=en&menu=iscriversi&tab=requisiti"], "resolution_needed": "Confirm with the programme admissions contact."},
+    {"field": "application_deadline_eu", "issue": "15 October is the principal on-time eligibility-check deadline, while a late-fee route remains available through 12 November 2026.", "conflict_type": "other", "sources": ["https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1362&lang=en&menu=iscriversi&tab=comeiscriversi"], "resolution_needed": null}
+  ],
+  "research_completeness": {
+    "status": "complete",
+    "verified_fields": ["programme_name", "level", "academic_year", "programme_status", "duration_years", "teaching_language", "fully_english_taught", "campus", "degree_class", "interuniversity_programme", "admission_type", "admission_routes", "academic_requirements", "curricula_tracks", "ranking_and_quota", "selection_components", "language_requirements", "application_deadline_eu", "application_deadline_non_eu", "application_windows", "universitaly_deadline", "visa_pre_enrolment_required", "required_documents", "document_legalisation_translation_rules", "entry_exam_or_test", "application_fee", "tuition_or_fees_link", "tuition_amount_basis", "double_degree_options", "official_program_url", "entry_requirements_url", "language_evidence_url", "official_call_url", "source_quotes"],
+    "missing_fields": ["programme_code", "call_metadata.publication_date", "call_metadata.last_modified"],
+    "notes": "Core 2026/27 programme requirements and both ordinary and international routes are covered from official UNIVR sources. Only non-essential metadata and ordinary interview logistics remain unresolved."
+  },
+  "uncertain": ["programme_code", "entry_exam_or_test.mode", "entry_exam_or_test.language", "application_deadline_eu", "call_metadata.publication_date", "call_metadata.last_modified"]
+}

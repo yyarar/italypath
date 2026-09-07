@@ -1,0 +1,120 @@
+topic: "Università degli Studi di Bari Aldo Moro (UNIBA) English-taught degree programmes and admission requirements"
+research_question: >-
+  Which bachelor, master, and single-cycle degree programmes at UNIBA are taught
+  fully or materially in English, and what are their programme-specific admission
+  requirements and deadlines for academic year 2026/2027, or the latest official
+  academic year available when 2026/2027 information has not been published?
+
+scope:
+  institution: "Università degli Studi di Bari Aldo Moro"
+  allowed_domains:
+    - "uniba.it"
+    - "www.uniba.it"
+  source_policy: >-
+    Use only official UNIBA webpages and files hosted on uniba.it. Do not use
+    aggregators, rankings, third-party course portals, or search-result snippets as
+    evidence. A search engine may be used for discovery, but every recorded claim
+    must be verified on an allowed UNIBA source.
+  academic_year_priority:
+    preferred: "2026/2027"
+    fallback: "latest official academic year available for the individual programme"
+  included_levels:
+    - bachelor
+    - master
+    - single-cycle
+  language_rule: >-
+    Include programmes officially described as fully taught in English. Retain
+    bilingual ENG/ITA programmes as provisional items until the deep phase confirms
+    that a complete English curriculum or degree pathway is available.
+  unit_of_analysis: "one degree programme per item"
+
+items:
+  - item_id: "earth-system-and-global-changes"
+    program_name: "Earth System and Global Changes"
+    level: "bachelor"
+    inclusion_status: "confirmed_fully_english"
+    discovery_note: "2026/2027 UNIBA international guide; current programme catalogue."
+
+  - item_id: "computer-science"
+    program_name: "Computer Science"
+    level: "master"
+    inclusion_status: "confirmed_fully_english"
+    discovery_note: "2026/2027 UNIBA international guide; current programme catalogue."
+
+  - item_id: "decision-science"
+    program_name: "Decision Science"
+    level: "master"
+    inclusion_status: "confirmed_fully_english"
+    discovery_note: "2026/2027 UNIBA international guide; current programme catalogue."
+
+  - item_id: "innovation-development-in-agri-food-systems"
+    program_name: "Innovation Development in Agri-Food Systems (IDEAS)"
+    level: "master"
+    inclusion_status: "confirmed_fully_english"
+    discovery_note: "2026/2027 UNIBA international guide; current programme catalogue."
+
+  - item_id: "materials-science-and-technology"
+    program_name: "Materials Science and Technology"
+    level: "master"
+    inclusion_status: "confirmed_fully_english"
+    discovery_note: "2026/2027 UNIBA international guide; current programme catalogue."
+
+  - item_id: "physics"
+    program_name: "Physics"
+    level: "master"
+    inclusion_status: "confirmed_fully_english"
+    discovery_note: "2026/2027 UNIBA international guide; current programme catalogue."
+
+  - item_id: "medicine-and-surgery-bemc"
+    program_name: "Medicine and Surgery – Bari English Medical Curriculum (BEMC)"
+    level: "single-cycle"
+    inclusion_status: "confirmed_fully_english"
+    discovery_note: "2026/2027 UNIBA international guide; programme-specific restricted-admission materials."
+
+  - item_id: "economics-and-strategies-for-international-markets"
+    program_name: "Economics and Strategies for International Markets"
+    level: "master"
+    inclusion_status: "provisional_bilingual"
+    discovery_note: >-
+      Current catalogue labels the programme ENG, ITA. Deep research must verify
+      whether applicants can complete a full English curriculum.
+
+  - item_id: "management-of-green-spaces-forests-and-protected-areas"
+    program_name: "Management of Green Spaces, Forests and Protected Areas"
+    level: "bachelor"
+    inclusion_status: "provisional_bilingual"
+    discovery_note: >-
+      Current catalogue labels the programme ENG, ITA. Deep research must verify
+      whether applicants can complete a full English curriculum.
+
+excluded_candidates:
+  - program_name: "Data Science"
+    reason: "Current UNIBA catalogue marks the teaching language as Italian (ITA)."
+  - program_name: "Medical Biotechnology and Molecular Medicine"
+    reason: "Current UNIBA catalogue marks the teaching language as Italian (ITA)."
+  - program_name: "Marketing / Marketing and Corporate Communication / Strategic Management and Digital Marketing"
+    reason: "No current English-taught degree was verified; the matching catalogue programmes are marked Italian."
+
+seed_sources:
+  - title: "UNIBA International Students Guide 2026/2027"
+    url: "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/brochure-uniba-2026-2027.pdf"
+  - title: "UNIBA current degree-course catalogue"
+    url: "https://www.uniba.it/en/courses/courses-1?tipo_di_corso=magistrale"
+  - title: "Admission of International Students 2026/27"
+    url: "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"
+
+execution:
+  batch_size: 4
+  items_per_agent: 2
+  output_dir: "./results"
+  output_format: "one JSON object per programme"
+  research_order:
+    - "Confirm programme identity, level, language scope, campus, and degree class."
+    - "Locate the programme page, admission/enrolment page, regulations, and programme-specific call."
+    - "Prefer 2026/2027 evidence; otherwise record the latest official year and explain the fallback."
+    - "Extract applicant-category-specific requirements, stages, documents, tests, fees, and deadlines."
+    - "Attach short verbatim evidence quotes and exact official URLs to every material claim."
+  completion_rule: >-
+    An item is complete only when all fields are populated or explicitly null with
+    an uncertainty note explaining what was searched and why no official value was found.
+

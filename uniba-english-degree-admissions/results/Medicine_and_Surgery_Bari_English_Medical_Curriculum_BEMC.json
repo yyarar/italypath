@@ -1,0 +1,96 @@
+{
+  "program_name": "Medicine and Surgery – Bari English Medical Curriculum (BEMC)",
+  "level": "single-cycle",
+  "teaching_language": "English",
+  "delivery_scope": "fully_english",
+  "campus": "Bari, School of Medicine",
+  "degree_class": "LM-41 R",
+  "academic_year": "[uncertain] 2025/2026 admission call; programme confirmed in the 2026/2027 international offer",
+  "programme_status": "active",
+  "admission_type": ["restricted access", "selection call", "other"],
+  "academic_requirements": [
+    "A secondary-school leaving diploma obtained in Italy, or a foreign qualification suitable for university entry in Italy.",
+    "Applicants with foreign qualifications must obtain a positive UNIBA qualification assessment through Apply online before the applicable international-student steps.",
+    "Admission is conditional on ranking within the available places after the national English-language medicine admission test (IMAT)."
+  ],
+  "qualification_system_requirements": [
+    "The foreign qualification must be based on at least 12 years of pre-university schooling.",
+    "Where the awarding country requires a separate academic-suitability or university-entry examination, evidence of passing that examination is required.",
+    "Qualifications obtained after fewer than 12 years require the compensatory conditions specified in the ministerial rules for international students."
+  ],
+  "eligible_degree_classes": null,
+  "required_subject_credits": null,
+  "language_requirements": [
+    "The degree and admission test are in English.",
+    "For 2025/2026, non-EU applicants resident abroad and requiring a visa had to pass an Italian-language test unless they held a recognized CEFR B2-or-higher Italian certificate."
+  ],
+  "language_level": "B2 (Italian, for the visa-applicant Italian-language condition or exemption in the 2025/2026 call)",
+  "accepted_language_evidence": [
+    "A recognized Italian-language certificate at CEFR B2 or above for exemption from the Italian test applicable to non-EU visa applicants",
+    "No separate English certificate is stated as a general admission prerequisite in the programme call; listed language certificates are used in ranking tie-breaks"
+  ],
+  "personal_preparation_assessment": "Performance in the national English-language medicine admission test determines suitability and ranking; there is no separate programme interview.",
+  "ofa_or_remedial_obligations": null,
+  "entry_exam_or_test": {
+    "name": "IMAT / national admission test for Medicine and Surgery taught in English",
+    "provider": "Italian Ministry of Universities and Research (MUR), administered through CINECA/Universitaly and participating universities",
+    "format": "60 multiple-choice questions with five answer options; 100 minutes; in person at an Italian or authorized foreign test centre",
+    "language": "English",
+    "subjects": ["Reading skills and knowledge acquired in studies (4 questions)", "Logical reasoning and problems (5)", "Biology (23)", "Chemistry (15)", "Physics and mathematics (13)"],
+    "minimum_score": "20/90 for EU and EU-equivalent candidates; more than 0 for non-EU candidates resident abroad competing in the reserved quota",
+    "registration_url": "https://www.uniba.it/it/didattica/numero-programmato/2025-2026/medicina-e-chirurgia-lingua-inglese",
+    "test_dates": ["2025-09-17 at 11:00 local test-centre time (2025/2026 call)"],
+    "notes": "Scoring: +1.5 correct, -0.4 incorrect, 0 omitted. [uncertain] The 2026/2027 test date and format were not located in a programme-specific call."
+  },
+  "interview_details": null,
+  "admission_quota": {"total": 80, "eu_or_equivalent": 69, "non_eu_resident_abroad": 11, "other_reserves": null, "source_year": "2025/2026"},
+  "selection_score_and_ranking": "Maximum 90 points: +1.5 for each correct answer, -0.4 for each incorrect answer and 0 for an omitted answer. CINECA produces the single national ranking for EU/EU-equivalent applicants; UNIBA produces the ranking for non-EU applicants resident abroad. Ties are resolved by descending subject-section scores (biology, chemistry, physics/mathematics, logical reasoning, reading/general knowledge), then qualifying language certification, specified disability preference where applicable, and finally younger age.",
+  "application_deadline_eu": [
+    {"stage": "IMAT registration", "opens_at": "2025-08-26", "deadline": "2025-09-09 15:00", "timezone": "GMT+2", "applicant_category": "EU and EU-equivalent candidates", "source_url": "https://www.uniba.it/it/didattica/numero-programmato/2025-2026/medicina-e-chirurgia-lingua-inglese/bando-di-concorso-ed-allegati/d-r-n-2539-del-08-08-2025-bando-c-l-m-medicine-and-surgery.pdf/@@download/file/D.R.%20n.%202539%20del%2008.08.2025%20Bando%20C.L.M.%20Medicine%20and%20Surgery.pdf"}
+  ],
+  "application_deadline_non_eu": [
+    {"stage": "Foreign-qualification assessment / DreamApply", "opens_at": "[uncertain] Not stated", "deadline": "[uncertain] 2026-06-30 central deadline for visa applicants; the 2026/2027 medicine call was not located", "timezone": "[uncertain] Not stated", "visa_required": true, "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"},
+    {"stage": "Universitaly pre-enrolment and IMAT registration", "opens_at": "2025-08-26", "deadline": "2025-09-09 15:00", "timezone": "GMT+2", "visa_required": true, "source_url": "https://www.uniba.it/it/didattica/numero-programmato/2025-2026/medicina-e-chirurgia-lingua-inglese/bando-di-concorso-ed-allegati/d-r-n-2539-del-08-08-2025-bando-c-l-m-medicine-and-surgery.pdf/@@download/file/D.R.%20n.%202539%20del%2008.08.2025%20Bando%20C.L.M.%20Medicine%20and%20Surgery.pdf"}
+  ],
+  "application_stages": [
+    {"sequence": 1, "stage": "Foreign-qualification assessment", "platform": "UNIBA Apply online / DreamApply", "applies_to": "Applicants holding a foreign qualification", "deadline": "[uncertain] 2026-06-30 central deadline for visa applicants; category-specific 2026/2027 programme timing not published", "action": "Submit the foreign qualification for eligibility assessment", "url": "https://apply.uniba.it"},
+    {"sequence": 2, "stage": "Pre-enrolment", "platform": "Universitaly", "applies_to": "Non-EU applicants resident abroad requiring a visa", "deadline": "[uncertain] Await the 2026/2027 programme call", "action": "After positive qualification assessment, submit pre-enrolment for visa purposes", "url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"},
+    {"sequence": 3, "stage": "Admission-test registration and university preferences", "platform": "Universitaly", "applies_to": "All applicants", "deadline": "[uncertain] Await the 2026/2027 call; 2025/2026 deadline was 2025-09-09 at 15:00 GMT+2", "action": "Register, choose test centre and university preferences, and pay the test contribution", "url": "https://www.uniba.it/it/didattica/numero-programmato/2025-2026/medicina-e-chirurgia-lingua-inglese"},
+    {"sequence": 4, "stage": "Admission test", "platform": "Authorized test centre", "applies_to": "Registered candidates", "deadline": "[uncertain] Await the 2026/2027 date; test held 2025-09-17 for 2025/2026", "action": "Sit the national English-language admission test", "url": "https://www.uniba.it/it/didattica/numero-programmato/2025-2026/medicina-e-chirurgia-lingua-inglese"},
+    {"sequence": 5, "stage": "Ranking and enrolment", "platform": "Universitaly and UNIBA", "applies_to": "Candidates ranked within quota", "deadline": "[uncertain] Set by ranking status and subsequent enrolment notices", "action": "Follow assignment/reservation rules and complete UNIBA enrolment with original documents", "url": "https://www.uniba.it/it/didattica/numero-programmato/2025-2026/medicina-e-chirurgia-lingua-inglese"}
+  ],
+  "applicant_categories": ["EU citizens and equivalent non-EU citizens", "Non-EU citizens resident abroad requiring a visa", "Applicants with Italian qualifications", "Applicants with foreign qualifications"],
+  "deadline_conflict_note": "The 2026/2027 central DreamApply deadline for visa applicants is available, but the programme-specific 2026/2027 IMAT call was not located. The 2025/2026 call dates are therefore retained as explicitly labelled historical evidence and must not be treated as 2026/2027 dates.",
+  "required_documents": [
+    {"document": "Valid passport or identity document", "required_for": "All applicants", "stage": "Test registration/test day/enrolment", "translation_required": false, "authentication_required": false, "notes": "Non-EU visa applicants must present a valid passport and visa/residence documentation at the Bari test centre."},
+    {"document": "Secondary-school diploma", "required_for": "All applicants", "stage": "Qualification assessment and enrolment", "translation_required": "If not in English or Italian", "authentication_required": "Verified/original documentation required; legalization or Apostille may apply", "notes": "Must qualify the holder for university admission and meet the 12-year schooling rule."},
+    {"document": "Academic transcript / school record", "required_for": "Applicants with foreign qualifications", "stage": "DreamApply qualification assessment", "translation_required": "If not in English or Italian", "authentication_required": "Verified copy where applicable", "notes": "Used to evaluate the foreign qualification."},
+    {"document": "Proof of the national university-entry or academic-suitability examination", "required_for": "Applicants from systems where such an examination is required", "stage": "Qualification assessment/enrolment", "translation_required": "If not in English or Italian", "authentication_required": "As required for the underlying foreign qualification", "notes": "Examples on the course page include YKS and Selectividad."},
+    {"document": "Universitaly test-registration receipt and payment receipt", "required_for": "All test candidates", "stage": "Test day", "translation_required": false, "authentication_required": false, "notes": "The Bari call requires proof of payment at identification."},
+    {"document": "Declaration of Value, ARDI or CIMEA documentation", "required_for": "Foreign-qualification holders, as applicable", "stage": "Enrolment/recognition", "translation_required": "As applicable", "authentication_required": true, "notes": "[uncertain] Exact document combination depends on the applicant's qualification and current UNIBA instructions."},
+    {"document": "Italian B2 certificate", "required_for": "Non-EU visa applicants claiming exemption from the Italian-language test", "stage": "International admission", "translation_required": false, "authentication_required": "[uncertain] Verification method not stated in the programme call", "notes": "Must be issued by a recognized certifying body."}
+  ],
+  "document_translation_language": ["English", "Italian", "Official translation required if the issuing institution cannot provide documents in English or Italian"],
+  "document_authentication": ["Original/verified foreign qualification documents must be produced at enrolment.", "Legalization or Apostille and a Declaration of Value, ARDI or CIMEA statement may be required depending on the country and document."],
+  "application_fee": {"amount": "[uncertain] Not stated in the UNIBA call", "currency": "EUR", "stage": "IMAT registration", "payment_method": "Payment instructions appear in Universitaly when registration opens", "refundable": "[uncertain] Not stated", "source_url": "https://www.uniba.it/it/didattica/numero-programmato/2025-2026/medicina-e-chirurgia-lingua-inglese/bando-di-concorso-ed-allegati/d-r-n-2539-del-08-08-2025-bando-c-l-m-medicine-and-surgery.pdf/@@download/file/D.R.%20n.%202539%20del%2008.08.2025%20Bando%20C.L.M.%20Medicine%20and%20Surgery.pdf"},
+  "tuition_or_fees_link": "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/brochure-uniba-2026-2027.pdf",
+  "official_program_url": "https://www.uniba.it/en/courses/medicina-chirurgia-bemc",
+  "official_call_url": "[uncertain] https://www.uniba.it/it/didattica/numero-programmato/2025-2026/medicina-e-chirurgia-lingua-inglese/bando-di-concorso-ed-allegati/d-r-n-2539-del-08-08-2025-bando-c-l-m-medicine-and-surgery.pdf/@@download/file/D.R.%20n.%202539%20del%2008.08.2025%20Bando%20C.L.M.%20Medicine%20and%20Surgery.pdf",
+  "requirements_source_url": ["https://apply.uniba.it/en_US/courses/course/144-single-cycle-degree-medicina-e-chirurgia-corso-inglese---bari-english-medical-curriculum-lm-41", "https://www.uniba.it/it/didattica/numero-programmato/2025-2026/medicina-e-chirurgia-lingua-inglese", "https://www.uniba.it/it/didattica/numero-programmato/2025-2026/medicina-e-chirurgia-lingua-inglese/bando-di-concorso-ed-allegati/d-r-n-2539-del-08-08-2025-bando-c-l-m-medicine-and-surgery.pdf/@@download/file/D.R.%20n.%202539%20del%2008.08.2025%20Bando%20C.L.M.%20Medicine%20and%20Surgery.pdf", "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"],
+  "source_quotes": [
+    {"field": "teaching_language", "quote": "Study language English", "source_url": "https://apply.uniba.it/en_US/courses/course/144-single-cycle-degree-medicina-e-chirurgia-corso-inglese---bari-english-medical-curriculum-lm-41", "page_or_section": "Course facts", "academic_year": "2025/2026", "accessed_at": "2026-09-05"},
+    {"field": "qualification_system_requirements", "quote": "High school diploma issued after at least 12 years of documented studies.", "source_url": "https://apply.uniba.it/en_US/courses/course/144-single-cycle-degree-medicina-e-chirurgia-corso-inglese---bari-english-medical-curriculum-lm-41", "page_or_section": "Entry qualification", "academic_year": "2025/2026", "accessed_at": "2026-09-05"},
+    {"field": "admission_quota", "quote": "Candidati comunitari e non comunitari di cui all’art. 26 L. 189/2002 69", "source_url": "https://www.uniba.it/it/didattica/numero-programmato/2025-2026/medicina-e-chirurgia-lingua-inglese/bando-di-concorso-ed-allegati/d-r-n-2539-del-08-08-2025-bando-c-l-m-medicine-and-surgery.pdf/@@download/file/D.R.%20n.%202539%20del%2008.08.2025%20Bando%20C.L.M.%20Medicine%20and%20Surgery.pdf", "page_or_section": "Article 2, page 3", "academic_year": "2025/2026", "accessed_at": "2026-09-05"},
+    {"field": "entry_exam_or_test", "quote": "La prova di ammissione consiste nella soluzione di 60 (sessanta) quesiti", "source_url": "https://www.uniba.it/it/didattica/numero-programmato/2025-2026/medicina-e-chirurgia-lingua-inglese/bando-di-concorso-ed-allegati/d-r-n-2539-del-08-08-2025-bando-c-l-m-medicine-and-surgery.pdf/@@download/file/D.R.%20n.%202539%20del%2008.08.2025%20Bando%20C.L.M.%20Medicine%20and%20Surgery.pdf", "page_or_section": "Article 5, page 6", "academic_year": "2025/2026", "accessed_at": "2026-09-05"},
+    {"field": "application_deadline_eu", "quote": "entro le ore 15:00 (GMT+2) del giorno 09 settembre 2025", "source_url": "https://www.uniba.it/it/didattica/numero-programmato/2025-2026/medicina-e-chirurgia-lingua-inglese/bando-di-concorso-ed-allegati/d-r-n-2539-del-08-08-2025-bando-c-l-m-medicine-and-surgery.pdf/@@download/file/D.R.%20n.%202539%20del%2008.08.2025%20Bando%20C.L.M.%20Medicine%20and%20Surgery.pdf", "page_or_section": "Article 3, page 4", "academic_year": "2025/2026", "accessed_at": "2026-09-05"}
+  ],
+  "source_year": ["2025/2026 programme course page", "2025/2026 admission call", "2026/2027 central international admission information"],
+  "source_last_checked": "2026-09-05",
+  "uncertainty_notes": [
+    {"field": "academic_year", "issue": "The latest programme-specific admission call located is 2025/2026.", "reason": "A 2026/2027 IMAT call was not found on the UNIBA restricted-admission pages at the time of research.", "searched_sources": ["UNIBA programme page", "UNIBA restricted-admission archive", "DreamApply", "2026/2027 international admission page"], "resolution_needed": "Replace all historical call dates, quotas and test details with the 2026/2027 call when published."},
+    {"field": "application_fee", "issue": "The amount and refund policy are not printed in the university call.", "reason": "The call delegates payment instructions to Universitaly at registration opening.", "searched_sources": ["2025/2026 UNIBA admission call", "UNIBA admission landing page"], "resolution_needed": "Check the live Universitaly registration workflow for the current amount."},
+    {"field": "required_documents", "issue": "The exact foreign-document recognition package varies by qualification.", "reason": "Central rules permit different recognition and authentication routes.", "searched_sources": ["DreamApply course page", "2026/2027 international guide", "2025/2026 call"], "resolution_needed": "Confirm the applicant-specific checklist in DreamApply and at the competent Italian mission."},
+    {"field": "official_call_url", "issue": "The linked call is for 2025/2026, not 2026/2027.", "reason": "No later programme call was located.", "searched_sources": ["UNIBA restricted-admission pages"], "resolution_needed": "Substitute the 2026/2027 call URL after publication."}
+  ],
+  "uncertain": ["academic_year", "language_requirements", "language_level", "accepted_language_evidence", "ofa_or_remedial_obligations", "entry_exam_or_test", "admission_quota", "application_deadline_eu", "application_deadline_non_eu", "application_stages", "deadline_conflict_note", "required_documents", "document_authentication", "application_fee", "official_call_url"]
+}

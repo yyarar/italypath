@@ -1,0 +1,39 @@
+{
+  "id": "ma-amministrazione-finanza-controllo-accounting-finance",
+  "program_name": "Amministrazione, finanza e controllo — \"Accounting & Finance\" curriculum",
+  "level": "master",
+  "degree_code": "M0205",
+  "degree_class": "LM-77 R",
+  "teaching_language": "This specific curriculum is fully English — study plan shows 10 INGLESE / 0 ITALIANO. Official presentation: \"il Corso di Laurea Magistrale è stato articolato in quattro indirizzi, di cui uno in lingua inglese: ... ACCOUNTING AND FINANCE (in lingua inglese)\". The other three curricula (Accounting & Business Administration, Accounting & Management Strategy, Accounting & Law) have English-sounding names but are Italian-taught (10-11 ITALIANO modules each) — do not confuse them with this curriculum.",
+  "curriculum_name_en": "Accounting & Finance",
+  "campus": "Perugia",
+  "department": "Dipartimento di Economia",
+  "admission_type": "open access",
+  "places_available": "Not published for this curriculum specifically.",
+  "academic_requirements": "General Amministrazione, finanza e controllo LM-77 admission requirements apply (Italian laurea triennale in an economics/business-related class or equivalent CFU distribution, assessed by the department); the Accounting & Finance curriculum choice is made at enrolment. Full CFU breakdown not retrieved in this pass — recommend a dedicated check of the Regolamento didattico.",
+  "language_requirements": "Admission requires only English B1.",
+  "english_certificates_accepted": [
+    "IELTS 5.5-6.5", "TOEFL iBT 72-94", "Cambridge ESOL IGCSE",
+    "LanguageCert International ESOL B2 Communicator", "Gatehouse Awards GA Level 1 (Classic B2)",
+    "Pearson PTE General Level 3", "Trinity ISE II", "Oxford Test of English B2"
+  ],
+  "entry_exam_or_test": "Not confirmed in this pass — no standardised written entrance test was found; likely curriculum/CV review as with other UNIPG open-access economics master's programmes. Needs dedicated verification.",
+  "nulla_osta_required": "Not confirmed in this pass — recommend checking UNIPG's online nulla-osta list.",
+  "required_documents": [
+    "Passport", "Foreign educational qualification documentation", "English B1 certificate",
+    "Universitaly pre-enrolment (non-EU)", "PICA application"
+  ],
+  "application_deadline_eu": "EU/legally-residing applicants: PICA pre-enrolment from 1 July 2026 (no published closing date); SOL enrolment for open-access master closes 1 March 2027.",
+  "application_deadline_non_eu": "Non-EU visa applicants: this programme was not explicitly named in the confirmed PICA groupings (Civil Engineering+Geology; Medicine/Vet/Dental+...; Engineering Management). It most likely falls under the general window, PICA call 2026-visa-03, open 29 May-7 June 2026, 12:00 — CLOSED as of research date (2026-09-05) — but this is an inference, not a confirmed programme-specific citation.",
+  "tuition_or_fees_link": "https://www.unipg.it/en/international-students/becoming-a-unipg-student/tuition-fees-and-scholarships",
+  "tuition_range": "EUR 150-2,200/year via a 17-band ISEE table. Non-EU/foreign-income students use a fixed Flat Tax by home-country UNDP Human Development bracket (Turkey = HIGH HD = EUR 800/year + EUR 16 stamp) or ISEEU Parificato via an affiliated CAF. Declaration window 3 Aug-20 Oct 2026 (late to 1 Mar 2027; missing 28 Feb defaults to the maximum band, ~EUR 2,096).",
+  "cimea_requirement": "Not specified at programme level; see university-wide study-documents page for CIMEA/blackout-date rules.",
+  "double_degree": "Not found for this curriculum in this research pass.",
+  "official_program_url": "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8029",
+  "official_call_url": null,
+  "source_quotes": [
+    {"quote": "il Corso di Laurea Magistrale è stato articolato in quattro indirizzi, di cui uno in lingua inglese: ... ACCOUNTING AND FINANCE (in lingua inglese)", "url": "https://www.unipg.it/didattica/corsi-di-laurea-e-laurea-magistrale/archivio/offerta-formativa-2026-27?view=elenco&idcorso=8029&annoregolamento=2026&tab=PRE", "field_supported": "teaching_language / curriculum_name_en"}
+  ],
+  "uncertainty_notes": "PICA deadline group is an inference (general window), not directly confirmed for this programme — needs a dedicated check. Academic requirements, entry-exam process, places available, and nulla-osta status were not retrieved and need dedicated follow-up. This curriculum sits inside the same degree (M0205) as three Italian-taught curricula with confusingly similar English-sounding names — always confirm 'Accounting & Finance' specifically when citing this item. Data collected 2026-09-05, all sources unipg.it/*.unipg.it only.",
+  "research_date": "2026-09-05"
+}

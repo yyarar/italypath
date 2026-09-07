@@ -1,0 +1,123 @@
+{
+  "program_name": "Earth System and Global Changes",
+  "level": "bachelor",
+  "teaching_language": "English",
+  "delivery_scope": "fully_english",
+  "campus": "Bari",
+  "degree_class": "L-34 R",
+  "academic_year": "2026/2027",
+  "programme_status": "active",
+  "admission_type": ["open access", "other"],
+  "academic_requirements": [
+    "A high school diploma is required.",
+    "For applicants with a foreign qualification, the diploma must normally follow at least 12 years of documented schooling.",
+    "If the awarding country requires a university-entry or academic-suitability examination, evidence of passing it is required."
+  ],
+  "qualification_system_requirements": [
+    "High school diploma issued after at least 12 years of documented studies.",
+    "Qualifications awarded after fewer than 12 years are assessed under the applicable ministerial provisions for international students.",
+    "The qualification must grant access to higher education in the system where it was awarded."
+  ],
+  "eligible_degree_classes": null,
+  "required_subject_credits": null,
+  "language_requirements": [
+    "The programme is taught in English.",
+    "Applicants must provide evidence of English proficiency accepted by the programme; the current programme listing names Cambridge English, IELTS, TOEFL, or an equivalent credential. [uncertain]"
+  ],
+  "language_level": "No explicit CEFR minimum was located in the current programme-specific sources. [uncertain]",
+  "accepted_language_evidence": ["Cambridge English", "IELTS", "TOEFL", "Other equivalent proof [uncertain]"],
+  "personal_preparation_assessment": "A non-selective multiple-choice initial-preparation test covers basic mathematics and Earth Sciences. The test does not prevent enrolment. These details come from the 2025/26 didactic regulations and remain to be confirmed for 2026/27. [uncertain]",
+  "ofa_or_remedial_obligations": [
+    "Under the 2025/26 rules, a student who does not take the initial-preparation test or receives an insufficient result must take Mathematics as the first examination. [uncertain]",
+    "If the additional educational obligation is not completed within the first year, the student may not take second-year examinations, although enrolment and attendance remain possible. [uncertain]"
+  ],
+  "entry_exam_or_test": {
+    "name": "Initial preparation assessment [uncertain]",
+    "provider": "University of Bari Aldo Moro",
+    "format": "Multiple-choice test; non-selective and non-binding for enrolment [uncertain]",
+    "language": "English [uncertain]",
+    "subjects": ["Basic mathematics", "Earth Sciences"],
+    "minimum_score": "Not published [uncertain]",
+    "registration_url": "https://www.uniba.it/en/courses/earth-system-and-global-changes/enrolment/regolamento-didattico-a-a-2025-26/earth-system-global-changes-rd-eng-25-26.pdf",
+    "test_dates": "Not yet published for 2026/27 [uncertain]",
+    "notes": "A mathematics preparatory course is organized in the week before the test under the 2025/26 rules; the programme council may repeat the test in November or December. [uncertain]"
+  },
+  "interview_details": null,
+  "admission_quota": {
+    "total": "The programme describes 60 as its sustainable-user capacity, not a selective quota. [uncertain]",
+    "eu_or_equivalent": "No capped allocation published [uncertain]",
+    "non_eu_resident_abroad": "Annual reserved contingent not located for 2026/27 [uncertain]",
+    "other_reserves": null,
+    "source_year": "2025/2026 programme regulation [uncertain]"
+  },
+  "selection_score_and_ranking": "No ranking applies because the programme is open access; the initial-preparation test is non-selective.",
+  "application_deadline_eu": [
+    {
+      "stage": "DreamApply preliminary qualification evaluation",
+      "opens_at": "Not stated [uncertain]",
+      "deadline": "2026-09-30",
+      "timezone": "Not stated [uncertain]",
+      "applicant_category": "EU students and non-EU students not requiring a visa who hold a foreign/international qualification",
+      "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"
+    }
+  ],
+  "application_deadline_non_eu": [
+    {
+      "stage": "DreamApply preliminary qualification evaluation",
+      "opens_at": "Not stated [uncertain]",
+      "deadline": "2026-06-30",
+      "timezone": "Not stated [uncertain]",
+      "visa_required": true,
+      "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"
+    },
+    {
+      "stage": "Universitaly pre-enrolment for an open-access programme",
+      "opens_at": "Not stated [uncertain]",
+      "deadline": "2026-09-30",
+      "timezone": "Not stated [uncertain]",
+      "visa_required": true,
+      "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"
+    }
+  ],
+  "application_stages": [
+    {"sequence": 1, "stage": "Programme choice and document preparation", "platform": "UNIBA / DreamApply", "applies_to": "Applicants with foreign/international qualifications", "deadline": "Before the applicable DreamApply deadline", "action": "Select the programme and prepare qualification and language evidence.", "url": "https://apply.uniba.it/en_US/courses/course/43-bachelors-degree-earth-system-and-global-changes-l-34"},
+    {"sequence": 2, "stage": "Preliminary qualification evaluation", "platform": "DreamApply", "applies_to": "Applicants with foreign/international qualifications", "deadline": "30 June 2026 if visa-required; 30 September 2026 if EU/equivalent or non-visa", "action": "Submit the online application and supporting documents.", "url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"},
+    {"sequence": 3, "stage": "Visa pre-enrolment", "platform": "Universitaly", "applies_to": "Non-EU applicants resident abroad requiring a study visa", "deadline": "30 September 2026", "action": "After a positive DreamApply evaluation, submit Universitaly pre-enrolment and the same access documents.", "url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"},
+    {"sequence": 4, "stage": "Matriculation", "platform": "ESSE3 / UNIBA", "applies_to": "Admitted applicants", "deadline": "Programme/university enrolment deadline not located [uncertain]", "action": "Complete enrolment, pay the first instalment, and provide original/verified documents when requested. [uncertain]", "url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"},
+    {"sequence": 5, "stage": "Initial preparation assessment", "platform": "Programme/department", "applies_to": "Enrolled students [uncertain]", "deadline": "2026/27 date not published [uncertain]", "action": "Take the non-selective mathematics and Earth Sciences assessment. [uncertain]", "url": "https://www.uniba.it/en/courses/earth-system-and-global-changes/enrolment/regolamento-didattico-a-a-2025-26/earth-system-global-changes-rd-eng-25-26.pdf"}
+  ],
+  "applicant_categories": ["EU applicants with a foreign qualification", "Non-EU applicants resident in Italy / with EU-equivalent status", "Non-EU applicants resident abroad requiring a visa", "Marco Polo applicants", "Applicants with refugee or migratory background in Italy"],
+  "deadline_conflict_note": "No conflict was found: the 30 June 2026 DreamApply deadline for visa-required applicants precedes the 30 September 2026 Universitaly pre-enrolment deadline. The separate final matriculation deadline was not located. [uncertain]",
+  "required_documents": [
+    {"document": "Valid passport or identity document", "required_for": "International applicants", "stage": "Application and enrolment", "translation_required": false, "authentication_required": false, "notes": "Exact 2026/27 DreamApply checklist was not fully visible. [uncertain]"},
+    {"document": "High school diploma", "required_for": "All applicants; foreign qualification holders for preliminary evaluation", "stage": "DreamApply, Universitaly if visa-required, and enrolment", "translation_required": "Yes, if not issued in English or Italian", "authentication_required": "Verified/certified copy; final legalization or verification conditions may be checked at enrolment [uncertain]", "notes": "Must normally document at least 12 years of schooling."},
+    {"document": "School transcript", "required_for": "Foreign qualification holders", "stage": "DreamApply", "translation_required": "Yes, if not issued in English or Italian", "authentication_required": "Verified/certified copy [uncertain]", "notes": "The programme listing refers to a suitable transcript."},
+    {"document": "Proof of passing the national university-entry or academic-suitability examination, where required", "required_for": "Applicants whose national system requires such an examination", "stage": "DreamApply / Universitaly", "translation_required": "Yes, if not issued in English or Italian", "authentication_required": "Verified/certified copy [uncertain]", "notes": "Examples on the official listing include YKS, Selectividad, and Portuguese access examinations."},
+    {"document": "English-language proficiency evidence", "required_for": "Applicants", "stage": "DreamApply", "translation_required": false, "authentication_required": "Not stated [uncertain]", "notes": "Cambridge English, IELTS, TOEFL, or equivalent are listed; no explicit CEFR threshold was located. [uncertain]"},
+    {"document": "Study visa and Universitaly pre-enrolment/acceptance documentation", "required_for": "Non-EU applicants resident abroad requiring a visa", "stage": "Enrolment", "translation_required": false, "authentication_required": false, "notes": "Visa issuance remains the responsibility of the diplomatic-consular authority."}
+  ],
+  "document_translation_language": ["English", "Italian", "Official translation required when qualification documents are in another language"],
+  "document_authentication": ["Official programme listing requires verified copies of originals when official translations are needed.", "Legalization/apostille, Declaration of Value, or CIMEA verification/comparability may be requested depending on the qualification and final administrative checks. [uncertain]"],
+  "application_fee": {"amount": 30, "currency": "EUR", "stage": "DreamApply preliminary evaluation", "payment_method": "Online method provided by DreamApply [uncertain]", "refundable": false, "source_url": "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/studenti-extracomunitari-residenti-allestero"},
+  "tuition_or_fees_link": "https://www.uniba.it/it/ateneo/statuto-regolamenti/studenti/regolamenti-sulla-contribuzione-studentesca",
+  "official_program_url": "https://www.uniba.it/en/courses/earth-system-and-global-changes",
+  "official_call_url": null,
+  "requirements_source_url": ["https://apply.uniba.it/en_US/courses/course/43-bachelors-degree-earth-system-and-global-changes-l-34", "https://www.uniba.it/en/courses/earth-system-and-global-changes/enrolment/regolamento-didattico-a-a-2025-26/earth-system-global-changes-rd-eng-25-26.pdf", "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"],
+  "source_quotes": [
+    {"field": "teaching_language", "quote": "Program language English", "source_url": "https://www.uniba.it/en/courses/earth-system-and-global-changes", "page_or_section": "Programme overview", "academic_year": "Current catalogue checked for 2026/27", "accessed_at": "2026-09-05"},
+    {"field": "admission_type", "quote": "Admission Open Access", "source_url": "https://www.uniba.it/en/courses/earth-system-and-global-changes", "page_or_section": "Programme overview", "academic_year": "Current catalogue checked for 2026/27", "accessed_at": "2026-09-05"},
+    {"field": "academic_requirements", "quote": "High school diploma issued after at least 12 years of documented studies.", "source_url": "https://apply.uniba.it/en_US/courses/course/43-bachelors-degree-earth-system-and-global-changes-l-34", "page_or_section": "Entry qualification", "academic_year": "Current listing; course code references 2024 [uncertain]", "accessed_at": "2026-09-05"},
+    {"field": "personal_preparation_assessment", "quote": "The test, and its outcomes, are not binding for the enrolment", "source_url": "https://www.uniba.it/en/courses/earth-system-and-global-changes/enrolment/regolamento-didattico-a-a-2025-26/earth-system-global-changes-rd-eng-25-26.pdf", "page_or_section": "Article 3, page 7", "academic_year": "2025/2026 [uncertain]", "accessed_at": "2026-09-05"},
+    {"field": "application_deadline_non_eu", "quote": "The application deadlines on the DreamApply platform are set at 30 June 2026 for non-EU students requiring a visa", "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students", "page_or_section": "Admission of International Students", "academic_year": "2026/2027", "accessed_at": "2026-09-05"}
+  ],
+  "source_year": ["2026/2027 central international admissions", "Current programme catalogue checked 2026-09-05", "2025/2026 programme didactic regulations [uncertain]", "DreamApply course listing carrying a 2024 course code [uncertain]"],
+  "source_last_checked": "2026-09-05",
+  "uncertainty_notes": [
+    {"field": "language_level", "issue": "No explicit CEFR minimum located.", "reason": "The listing names accepted tests but not a score or level.", "searched_sources": ["Official programme page", "DreamApply programme listing", "2025/26 didactic regulations"], "resolution_needed": "Confirm the 2026/27 programme-level English threshold with UNIBA."},
+    {"field": "entry_exam_or_test", "issue": "2026/27 date and final rules are unavailable.", "reason": "The latest accessible programme regulations are for 2025/26.", "searched_sources": ["Programme enrolment section", "2025/26 didactic regulations"], "resolution_needed": "Replace with the 2026/27 regulation or test notice when published."},
+    {"field": "admission_quota", "issue": "The non-EU reserved contingent was not located.", "reason": "The regulation states sustainable users, not an admissions cap.", "searched_sources": ["Programme page", "2025/26 regulations", "Central international admissions page"], "resolution_needed": "Check the 2026/27 foreign-student quota table."},
+    {"field": "required_documents", "issue": "The complete DreamApply task checklist is category-dependent and was not publicly exposed.", "reason": "The public central page describes the process but not every upload field.", "searched_sources": ["DreamApply listing", "Central international admissions page", "International-student instructions"], "resolution_needed": "Verify after selecting the applicant category in DreamApply."},
+    {"field": "official_call_url", "issue": "No programme-specific call was located.", "reason": "The programme is open access.", "searched_sources": ["Programme page", "Programme enrolment section", "Central calls pages"], "resolution_needed": "None unless UNIBA later publishes a 2026/27 notice."}
+  ],
+  "uncertain": ["language_requirements", "language_level", "accepted_language_evidence", "personal_preparation_assessment", "ofa_or_remedial_obligations", "entry_exam_or_test", "admission_quota", "application_deadline_eu", "application_deadline_non_eu", "application_stages", "deadline_conflict_note", "required_documents", "document_authentication", "application_fee", "official_call_url", "source_year"]
+}

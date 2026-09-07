@@ -1,0 +1,205 @@
+# fields.yaml — University of Perugia (UNIPG) English-taught programmes
+# Research object = one degree programme (or English curriculum within an Italian degree).
+# Deep-research phase emits one JSON per item, named {id}.json.
+topic: "University of Perugia (UNIPG) English-taught bachelor & master programmes — admission requirements"
+schema_version: 1
+generated_at: "2026-09-05"
+
+source_policy:
+  allowed_domains:
+    - "unipg.it"
+    - "*.unipg.it"
+  forbidden_domains:
+    - "unistrapg.it"
+    - "*.unistrapg.it"
+  rule: >
+    Only official University of Perugia pages (unipg.it and its department
+    subdomains: ing.unipg.it, econ.unipg.it, fisgeo.unipg.it, dsa3.unipg.it,
+    medvet.unipg.it, ginko.unipg.it, etc.) may be cited. University for Foreigners
+    of Perugia (unistrapg.it) is a different institution and must never be used.
+    Aggregator sites (mastersportal, studyinitaly, uniitalia, etc.) may be used to
+    locate a lead but must not be cited as the source of record.
+  year_policy: >
+    Prioritise academic year 2026/2027. If 2026/27 information is not yet published
+    for a field, use the most recent official year (2025/2026) and state this
+    explicitly in uncertainty_notes.
+  quoting_rule: >
+    Every non-trivial field (deadlines, language level, admission type, GPA
+    thresholds, CFU requirements) must be backed by a short verbatim quote in
+    source_quotes (max ~30 words each) with the exact page/PDF URL it came from.
+  verification_rule: >
+    UNIPG's own "courses taught in Italian with curriculum taught in English"
+    classification page has a high false-positive rate (verified: only 2 of 12
+    checked survive). Always cross-check teaching_language against the live ECTS
+    catalogue course page (idcorso=XXXX) and, where available, the Regolamento
+    didattico PDF — not just the classification list.
+
+fields:
+
+  identity:
+    - name: program_name
+      description: "Official programme name. Give both the official English name (as used in the ECTS catalogue / department English page) and the Italian name if it differs; note when the two diverge (e.g. degree title awarded uses different wording)."
+      detail_level: brief
+      type: string
+      required: true
+
+    - name: level
+      description: "Degree level."
+      detail_level: brief
+      type: enum
+      enum: [bachelor, master, single-cycle, other]
+      required: true
+
+    - name: degree_code
+      description: "UNIPG internal course code (e.g. M0622, L0615) — used to build ECTS catalogue and offerta-formativa URLs."
+      detail_level: brief
+      type: string
+      required: false
+
+    - name: degree_class
+      description: "Italian ministerial degree class code (e.g. LM-31, L-8 R). Note interclass codes (two classes) explicitly."
+      detail_level: brief
+      type: string
+      required: false
+
+    - name: teaching_language
+      description: "Confirmed language of instruction, re-verified against the live ECTS catalogue page — not just UNIPG's classification list. State whether it is entirely English (tier: fully_english) or an English curriculum inside a mostly-Italian degree (tier: english_curriculum), and name any modules that remain in Italian."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: curriculum_name_en
+      description: "If the programme has multiple curricula/tracks and only one is English-taught, name the specific English-taught curriculum (e.g. 'Structural Engineering' within Civil Engineering)."
+      detail_level: moderate
+      type: string
+      required: false
+
+    - name: campus
+      description: "City / campus / department location. Flag if sources conflict (e.g. Terni vs Perugia)."
+      detail_level: brief
+      type: string
+      required: false
+
+    - name: department
+      description: "UNIPG department running the programme (e.g. Dipartimento di Ingegneria, Dipartimento di Economia)."
+      detail_level: brief
+      type: string
+      required: false
+
+  admission:
+    - name: admission_type
+      description: "How access is regulated."
+      detail_level: moderate
+      type: enum
+      enum: [open access, restricted access, TOLC, SAT, selection call, other]
+      required: true
+
+    - name: places_available
+      description: "Number of places / 'utenza sostenibile' (sustainable capacity) if published, and whether a separate visa quota applies for non-EU applicants. Note if unpublished."
+      detail_level: brief
+      type: string
+      required: false
+
+    - name: academic_requirements
+      description: "Prior qualification required (bachelor degree / high-school diploma), direct-access degree classes, minimum CFU per scientific-disciplinary sector (SSD) group for non-direct-access applicants, minimum graduation grade/GPA thresholds, and how foreign qualifications and CVs are assessed (committee review, interview trigger)."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: language_requirements
+      description: "Required English level (typically B2; flag if a page states B1 instead) and accepted certificates with score thresholds. State explicitly if Duolingo or Medium-of-Instruction (MOI) letters are rejected. Note any Italian-language requirement or exemption."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: english_certificates_accepted
+      description: "List of accepted English certificates with score/level thresholds (e.g. IELTS 5.5-6.5, TOEFL iBT 72-94, Cambridge, LanguageCert, Gatehouse, PTE, Trinity ISE, Oxford Test of English)."
+      detail_level: moderate
+      type: array_of_strings
+      required: false
+
+    - name: entry_exam_or_test
+      description: "Any admission test or interview: TOLC-I, CEnT-S (CISIA English test), SAT/ACT (bachelor only, if accepted), internal interview/colloquio and its trigger condition (e.g. below a GPA threshold), or 'none — CV/curriculum review only'."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: nulla_osta_required
+      description: "Whether a nulla osta (admission clearance, requested via SOL) is required before enrolment, and any exception (e.g. automatically satisfied if curriculum + grade threshold met)."
+      detail_level: brief
+      type: string
+      required: false
+
+    - name: required_documents
+      description: "Documents to submit: passport, foreign qualification documentation, transcript, CIMEA statement/comparability, CV, language certificate, Universitaly/PICA pre-enrolment."
+      detail_level: detailed
+      type: array_of_strings
+      required: true
+
+  deadlines:
+    - name: application_deadline_eu
+      description: "Deadline for EU citizens / residents (typically via SOL/PICA from 1 July, open-access enrolment closing 20 Oct for bachelor/single-cycle or 1 March for master). Give exact published dates for the covered academic year."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: application_deadline_non_eu
+      description: "PICA pre-evaluation window for non-EU applicants residing abroad, INCLUDING the programme-specific PICA call code and URL (deadlines vary by programme, not university-wide). State clearly if the window has already closed as of the research date, and what happens next (2027/28 dates not yet published)."
+      detail_level: detailed
+      type: string
+      required: true
+
+  documents_fees:
+    - name: tuition_or_fees_link
+      description: "Official unipg.it tuition/fees page URL."
+      detail_level: brief
+      type: url
+      required: false
+
+    - name: tuition_range
+      description: "Tuition range and fee model (e.g. €150-2200/year, Flat Tax bands for family-abroad students vs ISEEU Parificato), and the income/asset self-declaration window."
+      detail_level: moderate
+      type: string
+      required: false
+
+    - name: cimea_requirement
+      description: "Whether CIMEA comparability/verification is required for the foreign qualification, and any blackout dates when CIMEA cannot process requests."
+      detail_level: brief
+      type: string
+      required: false
+
+    - name: double_degree
+      description: "Any double/joint degree partnership tied to this programme (partner university, country, curriculum it applies to). State 'none found' if none."
+      detail_level: brief
+      type: string
+      required: false
+
+  links_evidence:
+    - name: official_program_url
+      description: "Canonical unipg.it or department-subdomain programme page URL."
+      detail_level: brief
+      type: url
+      required: true
+
+    - name: official_call_url
+      description: "URL of the governing admission call/regolamento didattico/PICA call for the covered year. Null if none exists at programme level."
+      detail_level: brief
+      type: url
+      required: false
+
+    - name: source_quotes
+      description: "List of {quote, url, field_supported} objects. Short verbatim excerpts (<=30 words) from unipg.it pages/PDFs backing deadlines, language level, GPA thresholds, and admission type."
+      detail_level: detailed
+      type: array_of_objects
+      required: true
+
+  reliability:
+    - name: uncertainty_notes
+      description: "What could not be confirmed and why: conflicting information between pages (e.g. B1 vs B2, capacity figures, campus location, PICA call-code drift), 2026/27 info not yet published (state which year was used instead), stale/broken URLs, or fields left null."
+      detail_level: detailed
+      type: string
+      required: true
+
+# Reserved — auto-filled during the deep-research phase with fields the agent could
+# not resolve from official sources for a given item.
+uncertain: []

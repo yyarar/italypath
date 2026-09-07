@@ -1,0 +1,378 @@
+schema_version: "1.0"
+research_object: "University of Verona English-taught degree programme"
+output_format: json
+null_policy: "Use null when an official source does not provide a value; explain material gaps in uncertainty_notes. Never infer a requirement or deadline from another programme."
+enum_policy: "Use the normalized enum value where defined and preserve the official wording in source_quotes."
+
+fields:
+  programme_identity:
+      - name: programme_name
+        type: string
+        required: true
+        detail_level: brief
+        description: "Official English programme title."
+      - name: programme_code
+        type: [string, "null"]
+        required: false
+        detail_level: brief
+        description: "Stable UNIVR programme identifier or code shown on the official programme page."
+      - name: level
+        type: string
+        enum: [bachelor, master, single-cycle, other]
+        required: true
+        detail_level: brief
+        description: "Normalized degree level."
+      - name: academic_year
+        type: string
+        required: true
+        detail_level: brief
+        description: "Academic year to which the reported admission information applies; prefer 2026/2027."
+      - name: programme_status
+        type: string
+        enum: [confirmed, pending_ministerial_approval, discontinued, not_verified]
+        required: true
+        detail_level: brief
+        description: "Official or research status for the selected academic year."
+      - name: duration_years
+        type: [number, "null"]
+        required: false
+        detail_level: brief
+        description: "Nominal programme length in years."
+      - name: teaching_language
+        type: string
+        required: true
+        detail_level: brief
+        description: "Official teaching language label."
+      - name: fully_english_taught
+        type: [boolean, string]
+        enum: [true, false, uncertain]
+        required: true
+        detail_level: brief
+        description: "Whether the complete degree programme is officially taught in English."
+      - name: campus
+        type: [string, "null"]
+        required: false
+        detail_level: brief
+        description: "Official teaching location or campus, such as Verona or Vicenza."
+      - name: degree_class
+        type: [string, "null"]
+        required: false
+        detail_level: brief
+        description: "Italian degree class, including reform suffixes exactly as published."
+      - name: interuniversity_programme
+        type: object
+        required: false
+        detail_level: moderate
+        description: "Whether the programme is interuniversity, its partner institutions, and the coordinating/enrolling institution."
+        properties:
+          is_interuniversity: boolean
+          coordinating_institution: [string, "null"]
+          partner_institutions: {type: array, items: string}
+
+  admission_and_eligibility:
+      - name: admission_type
+        type: string
+        enum: [open_access, restricted_access, TOLC, SAT, selection_call, other]
+        required: true
+        detail_level: brief
+        description: "Primary normalized admission mechanism."
+      - name: admission_type_official_wording
+        type: [string, "null"]
+        required: false
+        detail_level: brief
+        description: "Admission mechanism exactly as stated by UNIVR."
+      - name: admission_routes
+        type: array
+        required: true
+        detail_level: detailed
+        description: "All applicable routes, separated by applicant category and process."
+        items:
+          type: object
+          properties:
+            applicant_category:
+              type: string
+              enum: [EU, non-EU_resident_in_Italy, non-EU_abroad, Italian, foreign_degree_holder, other]
+            route:
+              type: string
+              enum: [programme_page, international_pre_admission_call, limited_entry_call, standard_enrolment, universitaly, other]
+            notes: [string, "null"]
+            source_url: [string, "null"]
+      - name: academic_requirements
+        type: object
+        required: true
+        detail_level: detailed
+        description: "Programme-specific prior-degree, curriculum, credit, subject, grade, and equivalence requirements."
+        properties:
+          summary: string
+          eligible_degree_classes: {type: array, items: string}
+          eligible_foreign_qualifications: [string, "null"]
+          minimum_credits_by_subject_area:
+            type: array
+            items:
+              type: object
+              properties:
+                subject_area_or_ssd: string
+                minimum_credits: [number, "null"]
+                notes: [string, "null"]
+          minimum_grade_or_gpa: [string, "null"]
+          curriculum_assessment: [string, "null"]
+      - name: curricula_tracks
+        type: array
+        required: false
+        detail_level: moderate
+        description: "Curricula or tracks and any admission requirements that differ from the parent programme."
+        items:
+          type: object
+          properties:
+            name: string
+            differing_requirements: [string, "null"]
+            source_url: [string, "null"]
+      - name: ranking_and_quota
+        type: object
+        required: false
+        detail_level: detailed
+        description: "Places, reserved quotas, ranking publication, scrolling, and reallocation rules."
+        properties:
+          total_places: [integer, "null"]
+          reserved_non_eu_places: [integer, "null"]
+          ranking_details: [string, "null"]
+      - name: selection_components
+        type: array
+        required: false
+        detail_level: detailed
+        description: "Transcript, CV, motivation, interview, test, portfolio, and any published weighting or threshold."
+        items:
+          type: object
+          properties:
+            component: string
+            weight_or_threshold: [string, "null"]
+            notes: [string, "null"]
+
+  language_requirements:
+      - name: language_requirements
+        type: object
+        required: true
+        detail_level: detailed
+        description: "Official English proficiency requirement and acceptable evidence."
+        properties:
+          summary: string
+          english_level_cefr: [string, "null"]
+          accepted_language_certificates: {type: array, items: string}
+          certificate_exemptions: {type: array, items: string}
+          italian_language_test_required: [boolean, string, "null"]
+          notes: [string, "null"]
+
+  deadlines:
+      - name: application_deadline_eu
+        type: [string, "null"]
+        format: "ISO 8601 date or date-time where possible"
+        required: true
+        detail_level: brief
+        description: "Principal application closing deadline for EU-equivalent applicants; retain route detail in application_windows."
+      - name: application_deadline_non_eu
+        type: [string, "null"]
+        format: "ISO 8601 date or date-time where possible"
+        required: true
+        detail_level: brief
+        description: "Principal deadline for non-EU applicants residing abroad; retain route detail in application_windows."
+      - name: application_windows
+        type: array
+        required: true
+        detail_level: detailed
+        description: "Structured windows for pre-admission, programme selection, Universitaly, enrolment, and document completion."
+        items:
+          type: object
+          properties:
+            applicant_category: string
+            deadline_type:
+              type: string
+              enum: [pre_admission, programme_selection, universitaly_pre_enrolment, enrolment, document_completion, test_registration, other]
+            opens_at: [string, "null"]
+            closes_at: [string, "null"]
+            timezone: [string, "null"]
+            deadline_status:
+              type: string
+              enum: [upcoming, closed, provisional, not_published, unknown]
+            source_url: string
+      - name: universitaly_deadline
+        type: [string, "null"]
+        required: false
+        detail_level: brief
+        description: "Separate Universitaly pre-enrolment deadline for non-EU applicants abroad."
+      - name: visa_pre_enrolment_required
+        type: [boolean, "null"]
+        required: false
+        detail_level: brief
+        description: "Whether the applicant route requires Universitaly/visa pre-enrolment."
+
+  tests_and_documents:
+      - name: required_documents
+        type: array
+        required: true
+        detail_level: detailed
+        description: "Required application documents, with applicant category and conditionality."
+        items:
+          type: object
+          properties:
+            document: string
+            applicant_categories: {type: array, items: string}
+            required: boolean
+            condition: [string, "null"]
+            source_url: [string, "null"]
+      - name: document_legalisation_translation_rules
+        type: [string, "null"]
+        required: false
+        detail_level: moderate
+        description: "Official translation, apostille/legalisation, CIMEA, Declaration of Value, or Diploma Supplement rules."
+      - name: entry_exam_or_test
+        type: object
+        required: true
+        detail_level: detailed
+        description: "Any test, interview, or exam, including absence of one when explicitly stated."
+        properties:
+          required: [boolean, string]
+          name: [string, "null"]
+          provider: [string, "null"]
+          mode: [string, "null"]
+          language: [string, "null"]
+          test_date: [string, "null"]
+          registration_deadline: [string, "null"]
+          minimum_score: [string, "null"]
+          alternatives: {type: array, items: string}
+          notes: [string, "null"]
+
+  fees_and_options:
+      - name: application_fee
+        type: object
+        required: false
+        detail_level: moderate
+        description: "Application or selection fee, distinct from annual tuition."
+        properties:
+          amount: [number, "null"]
+          currency: [string, "null"]
+          notes: [string, "null"]
+          source_url: [string, "null"]
+      - name: tuition_or_fees_link
+        type: [string, "null"]
+        required: true
+        detail_level: brief
+        description: "Official UNIVR tuition and fees URL applicable to the programme/year."
+      - name: tuition_amount_basis
+        type: [string, "null"]
+        required: false
+        detail_level: moderate
+        description: "Whether fees use ISEE, a differentiated flat rate, scholarship reduction, or another official basis."
+      - name: double_degree_options
+        type: array
+        required: false
+        detail_level: moderate
+        description: "Partner institution, places, and separate mobility selection; do not mix these with initial admission."
+        items:
+          type: object
+          properties:
+            partner: string
+            separate_selection: [boolean, "null"]
+            notes: [string, "null"]
+            official_url: [string, "null"]
+
+  official_sources_and_evidence:
+      - name: official_program_url
+        type: string
+        required: true
+        detail_level: brief
+        description: "Canonical official programme page."
+      - name: entry_requirements_url
+        type: [string, "null"]
+        required: false
+        detail_level: brief
+        description: "Programme-specific entry requirements or How to Apply page."
+      - name: language_evidence_url
+        type: [string, "null"]
+        required: false
+        detail_level: brief
+        description: "Official page explicitly evidencing the teaching language."
+      - name: official_call_url
+        type: [string, "null"]
+        required: true
+        detail_level: brief
+        description: "Most applicable official admission/selection call; null if no programme-specific call is published."
+      - name: call_metadata
+        type: object
+        required: false
+        detail_level: moderate
+        description: "Scope, publication date, revision date, and supersession information for the call."
+        properties:
+          call_scope:
+            type: [string, "null"]
+            enum: [admission, pre_admission, pre_admission_and_scholarship, limited_entry_selection, double_degree_mobility, other, "null"]
+          publication_date: [string, "null"]
+          last_modified: [string, "null"]
+          supersedes_source_url: [string, "null"]
+      - name: source_quotes
+        type: array
+        required: true
+        detail_level: detailed
+        description: "Short verbatim official-source excerpts supporting extracted values."
+        items:
+          type: object
+          properties:
+            fields_supported: {type: array, items: string}
+            quote: string
+            source_url: string
+            page_or_section: [string, "null"]
+            academic_year: [string, "null"]
+      - name: source_last_checked
+        type: string
+        format: "ISO 8601 date-time"
+        required: true
+        detail_level: brief
+        description: "When the official sources were last checked."
+
+  quality_and_uncertainty:
+      - name: applicant_category_notes
+        type: [string, "null"]
+        required: false
+        detail_level: moderate
+        description: "Clarifies citizenship, residence, diploma-country, or visa distinctions that affect the route."
+      - name: uncertainty_notes
+        type: array
+        required: true
+        detail_level: detailed
+        description: "Unresolved gaps, ambiguous wording, year mismatches, and source conflicts. Empty array only when none remain."
+        items:
+          type: object
+          properties:
+            field: [string, "null"]
+            issue: string
+            conflict_type:
+              type: [string, "null"]
+              enum: [catalogue_vs_programme_page, general_call_vs_specific_call, language_label_conflict, year_mismatch, count_discrepancy, missing_2026_2027_source, other, "null"]
+            sources: {type: array, items: string}
+            resolution_needed: [string, "null"]
+      - name: research_completeness
+        type: object
+        required: true
+        detail_level: moderate
+        description: "Field-level completion summary for deep-research quality control."
+        properties:
+          status:
+            type: string
+            enum: [complete, partial, blocked]
+          verified_fields: {type: array, items: string}
+          missing_fields: {type: array, items: string}
+          notes: [string, "null"]
+
+uncertain:
+  description: "Reserved roll-up list auto-filled in the deep phase from uncertainty_notes."
+  type: array
+  items: string
+
+deep_research_rules:
+  - "Research every item independently and produce one JSON object per programme."
+  - "Use only official univr.it/corsi.univr.it sources; do not use search-result snippets as evidence."
+  - "Prefer programme-specific calls and pages over general university guidance, while recording conflicts."
+  - "Prefer 2026/2027; if unavailable, use the latest official year and state that year in academic_year and uncertainty_notes."
+  - "Separate EU, non-EU resident in Italy, and non-EU abroad routes whenever the official process differs."
+  - "Do not treat double-degree mobility calls as initial degree admission calls."
+  - "Keep quotations short and map each quote to the fields it supports."
+  - "Do not convert absent information into a negative claim; use null and document the gap."

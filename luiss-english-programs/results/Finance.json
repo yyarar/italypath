@@ -1,0 +1,294 @@
+{
+  "program_name": "Master's Degree Programme in Finance (successor to the former standalone \"Corporate Finance\" and \"Economics and Finance\" programmes) [uncertain: the successor/merger relationship is not stated explicitly on the Luiss programme page; the page does contain a leftover sentence \"Admission to the Degree Course in Corporate Finance\", which is consistent with, but not proof of, the rename]",
+  "level": "master",
+  "teaching_language": {
+    "primary": "English",
+    "granularity": "fully_english",
+    "majors_language": [
+      {
+        "major": "Corporate Finance",
+        "language": "English",
+        "note": "Luiss study-plan page flags the major with the UK flag icon: \"🇬🇧 Major: Corporate Finance\"."
+      },
+      {
+        "major": "Financial Markets",
+        "language": "English",
+        "note": "Luiss study-plan page flags the major with the UK flag icon: \"🇬🇧 Major: Financial Markets\"."
+      }
+    ],
+    "source_note": "The programme page header lists Language: English, and both majors are flagged English-only. No Italian track exists for this programme."
+  },
+  "campus": "Rome, Italy (Luiss Guido Carli; Economics/Graduate School teaching is based at the Viale Romania campus, with the Admissions Office at Viale Romania 32, 00197 Rome). The programme page also generically mentions Luiss facilities in Rome and Milan. [uncertain: the programme page does not name a specific building for the Finance programme]",
+  "degree_class": "LM-77",
+  "admission_type": [
+    {
+      "route_name": "Selection for the Master's Degree Programmes in Finance and Management — GMAT/GRE certification route (EU/Schengen applicants)",
+      "eligible_applicants": "EU/Schengen citizens who have completed, or are about to complete, a Bachelor's degree (Italian or foreign) that qualifies them to enrol in an Italian Master's degree in Management or Finance",
+      "test_or_certification": "GMAT with a minimum score of 555 (out of 805) OR GRE with a minimum score of 157 (out of 170) in BOTH the Quantitative and Verbal sections. These thresholds are specific to Finance and Management and are higher than the general Luiss certification route (GMAT >= 515 / GRE >= 154). The Luiss Test (Luiss EU Test) does NOT apply to this programme: Finance does not appear in the list of programmes selectable via the Luiss Test, nor in the list for the general GMAT/GRE certification route; Finance and Management have their own dedicated selection page.",
+      "number_of_choices_allowed": "1 [uncertain: the Finance/Management selection page does not state a number explicitly; the parallel EU and non-EU certification pages both state \"You can apply for only one of the available Master's degree courses\", and the Finance/Management page describes a single chosen degree programme that can be changed only by written request to ammissione@luiss.it]",
+      "choice_is_binding": "true [uncertain: the Finance/Management page does not repeat the binding wording, but the parallel certification pages state \"your course choice is binding for admission, ranking, and subsequent enrolment\"; the Finance/Management page allows change requests only within the timeframes set in the Admission Notice]",
+      "subject_area_group": "Economics",
+      "application_fee": "EUR 150 (mandatory, non-refundable participation fee)"
+    },
+    {
+      "route_name": "Selection for the Master's Degree Programmes in Finance and Management — GMAT/GRE certification route (non-EU/non-Schengen applicants)",
+      "eligible_applicants": "Non-EU/non-Schengen citizens with a Bachelor's degree (Italian or foreign) qualifying for enrolment in an Italian Master's degree. The Luiss extra-EU admissions hub lists a dedicated pathway \"Selection for Master's Degree Courses in Finance and Management\" and explicitly excludes Finance and Management from the general non-EU \"Admission with qualifications\" route.",
+      "test_or_certification": "GMAT >= 555 (out of 805) OR GRE >= 157 (out of 170) in both Quantitative and Verbal sections — same thresholds as the EU route. A separate application form exists for non-EU/non-Schengen applicants.",
+      "number_of_choices_allowed": "1 [uncertain — see EU route note]",
+      "choice_is_binding": "true [uncertain — the general non-EU certification page states the choice is binding]",
+      "subject_area_group": "Economics",
+      "application_fee": "EUR 150 (mandatory, non-refundable)"
+    },
+    {
+      "route_name": "Direct access for Luiss students (no test, no GMAT/GRE)",
+      "eligible_applicants": "Luiss Bachelor's graduates, and students enrolled on a Luiss Level 1 Master's degree who meet the entry requirements, regardless of their previous degree programme",
+      "test_or_certification": "No admission test and no GMAT/GRE required. Condition: weighted average mark, without rounding, of at least 28/30 at the end of the 2026/2027 winter session.",
+      "number_of_choices_allowed": null,
+      "choice_is_binding": null,
+      "subject_area_group": "Economics",
+      "application_fee": null
+    },
+    {
+      "route_name": "Luiss Test (Luiss EU Test) — NOT APPLICABLE to Finance",
+      "eligible_applicants": "Not applicable. Explicitly recorded here to make the exclusion unambiguous.",
+      "test_or_certification": "The Luiss Test is NOT an entry route to the Master's Degree in Finance. The Luiss Test page lists the selectable Economics-area programmes (Administration, Finance and Control; Economics, Institutions and Financial Markets; Marketing; Strategic Management; Data Science and Management; Global Management and Politics) — Finance and Management are absent. Finance and Management are handled exclusively through the dedicated GMAT/GRE selection page.",
+      "number_of_choices_allowed": "0 (route unavailable)",
+      "choice_is_binding": null,
+      "subject_area_group": "Economics",
+      "application_fee": null
+    }
+  ],
+  "academic_requirements": {
+    "prior_qualification": "A completed (or about to be completed) three-year Bachelor's degree, obtained in Italy or abroad, that qualifies the holder to enrol in a Master's degree in Management or Finance in Italy. The Bachelor's degree must be obtained by 18 November 2027 for the 2027/2028 cycle.",
+    "minimum_curricular_requirements": "Per the Luiss \"Minimum curricular requirements\" page for the 2027/2028 academic year, Finance is grouped with Management, Strategic Management, Marketing and Amministrazione, Finanza e Controllo. Admission is open to students enrolled in or graduates of: L-18 (D.M. 270/04) and 17 (D.M. 509/99) – Economics and Business Management; L-33 (D.M. 270/04) and 28 (D.M. 509/99) – Economics. Students from other degree programmes may only be admitted if they have at least 24 university credits (ECTS) in total, already earned or still to be earned, in at least three of the following subject areas: Business (ECON-06/A; ECON-07/A; ECON-08/A; ECON-09/A; ECON-09/B); Economics (ECON-01/A; ECON-04/A); Statistics (STAT-01/A; STAT-02/A; STAT-03/A; STAT-04/A; MATH-03/A; MATH-03/B); Law (GIUR-01/A; GIUR-02/A; GIUR-03/A; GIUR-05/A; GIUR-06/A; GIUR-09/A; GIUR-10/A).",
+    "minimum_grade_or_gpa": "No general minimum grade for the GMAT/GRE route (the GMAT/GRE score is the threshold). For the Luiss internal direct-access route: weighted average of at least 28/30, without rounding, at the end of the 2026/2027 winter session.",
+    "country_specific_rules": "No Finance-specific country list is published. General rules apply: foreign qualifications must have been awarded on completion of a first-level programme of at least 3 (or 4) academic years, must grant access to graduate programmes in the awarding country, must be issued by an officially recognised university, and must not be a professional/vocational qualification. Where a system distinguishes Ordinary from Honours Bachelor's degrees, only Honours Bachelor's degrees qualify for admission to Italian Master's degrees.",
+    "document_recognition": "Enrolment with a foreign qualification is subject to validation by the Luiss Admissions Office. Accepted documentation depends on the country: Diploma Supplement for Lisbon Recognition Convention signatory countries; CIMEA Statement of Verification or an Apostille of the Diploma for countries included in the Automatic Recognition Database – Italy (ARDI); CIMEA Statement of Comparability or a Declaration of Value (DoV) issued by the competent Italian Embassy/Consulate for countries not in ARDI or the Lisbon Convention.",
+    "compensatory_measures": "None published for this Master's programme. Candidates who do not meet the minimum curricular requirements are simply not admitted; there is no published foundation-year or additional-credits remedy for master's entry. [uncertain: not explicitly denied on any page — absence of a published remedy]"
+  },
+  "language_requirements": {
+    "required_level": "English B2 (minimum). The Minimum Curricular Requirements page states, for the Finance/Management group: \"In addition, students must have at least a B2 level of English, which will be assessed during the admission test.\"",
+    "accepted_certificates": "Not published for the 2027/2028 Finance/Management selection as of 2026-09-04. [uncertain] The dedicated Finance and Management selection page lists only GMAT and GRE as required international certifications and makes no mention of IELTS/TOEFL/Cambridge. The research brief's expected list (IELTS 6, TOEFL iBT 78-80, Cambridge FCE grade B / CAE grade C) could NOT be verified on any current luiss.it Master's admission page and should be treated as unverified until the admission notice appears from November 2026. Note also that GMAT and GRE are themselves English-language tests, which may in practice serve as the English evidence for this route.",
+    "assessed_in_test": "The Minimum Curricular Requirements page says B2 English \"will be assessed during the admission test\". However, Finance has no Luiss admission test — entry is via GMAT/GRE only — so how B2 is verified for Finance applicants is not specified. [uncertain: apparent inconsistency between the generic curricular-requirements wording and the Finance/Management test-free selection design; to be clarified in the admission notice published from November 2026]",
+    "exemptions": null
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "round_name": "Single selection window — GMAT/GRE certification route for Finance and Management",
+        "application_submission": "From December 2026 to 31 March 2027",
+        "test_date": "Not applicable — no Luiss test; GMAT/GRE must be taken independently before applying. An unofficial score may be attached at application, with the official score transmitted via gmac.com/mba.com (GMAT) or ets.org (GRE) by deadlines set in the Admission Notice.",
+        "results": "Published according to the schedule set for the admission session; the Committee reviews documentation and decides admission considering the requirements in the Admission Notice and the number of places available. [uncertain: exact result dates not yet published]"
+      }
+    ],
+    "enrolment_deadline": "By 18 May 2027",
+    "degree_completion_deadline": "By 18 November 2027 (Bachelor's degree must be obtained)",
+    "academic_year": "2027/2028",
+    "cycle_status": "notice not yet published — the calendar (Dec 2026 – 31 Mar 2027 applications; enrolment by 18 May 2027; degree by 18 Nov 2027), the GMAT/GRE thresholds, the 28/30 direct-access rule and the EUR 150 fee are already published, but the full admission notice with detailed procedures will be available from November 2026. The 2026/2027 cycle is closed: \"The direct admission procedures with certifications for the 2026/2027 academic year are now closed.\""
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "round_name": "Single selection window — GMAT/GRE certification route for Finance and Management (non-EU/non-Schengen form)",
+        "application_submission": "From December 2026 to 31 March 2027 [uncertain: this calendar is published on the shared Finance/Management selection page, which states it is \"open to students from both within and outside the EU\"; the extra-EU hub page itself still says the non-EU 2027/2028 procedures are \"coming soon\" with notices from November 2026]",
+        "test_date": "Not applicable — GMAT/GRE only",
+        "results": "Not yet published"
+      }
+    ],
+    "enrolment_deadline": "By 18 May 2027 [uncertain — shared calendar, non-EU-specific notice not yet published]",
+    "visa_or_preenrolment_notes": "For foreign qualifications, enrolment is subject to validation of the qualification by the Luiss Admissions Office, and \"It is the candidate's responsibility to check the validity of their qualification and any study visa procedures in advance.\" Separate application forms exist for EU/Schengen and non-EU/non-Schengen applicants, and the correct category must be selected before paying the EUR 150 fee. Luiss does not publish Universitaly pre-enrolment dates on these pages. [uncertain: Universitaly pre-enrolment / visa calendar not stated on the consulted pages]",
+    "academic_year": "2027/2028",
+    "cycle_status": "notice not yet published — the extra-EU admissions hub states: \"Admission procedures for Master's degree courses for non-EU/non-Schengen students for the 2027/2028 academic year are coming soon\" and that admission notices will be available from November 2026. The 2026/2027 non-EU cycle is closed."
+  },
+  "required_documents": [
+    "Passport or identity document showing citizenship — REQUIRED",
+    "Certificate of enrolment, or degree certificate, with a transcript of records showing exams, credits (CFU/ECTS), scientific subject area (SSD) and degree class — REQUIRED",
+    "Valid GMAT or GRE certificate with the corresponding score (unofficial score may be attached at the time of application) — REQUIRED for the GMAT/GRE route",
+    "Authorisation for Luiss to receive the OFFICIAL score directly via the certifying body's platform (gmac.com / mba.com for GMAT; ets.org for GRE) — REQUIRED for the GMAT/GRE route",
+    "Payment receipt of the EUR 150 non-refundable participation fee — REQUIRED",
+    "Foreign-qualification recognition documents (Diploma Supplement, CIMEA Statement of Verification/Comparability, Apostille, or Declaration of Value, depending on country) — REQUIRED for applicants with a foreign qualification, at enrolment",
+    "English language certificate — NOT LISTED as a required document on the Finance/Management selection page [uncertain]",
+    "CV, motivation letter and reference letters — NOT LISTED / apparently not required for this route [uncertain: absence of mention rather than explicit exclusion]"
+  ],
+  "entry_exam_or_test": {
+    "test_name": "GMAT or GRE (external standardised tests). There is NO Luiss admission test for the Master's Degree in Finance — the Luiss Test does not cover Finance or Management.",
+    "content": "GMAT: overall score on the 805-point scale (minimum 555). GRE: Quantitative and Verbal sections, minimum 157 out of 170 in EACH of the two sections. Luiss does not itself set the test content — it is defined by GMAC (GMAT) and ETS (GRE).",
+    "format": "Externally administered by GMAC/ETS (test-centre or at-home online options as offered by those providers). Luiss requires the certificate to be attached to the online application and the official score to be transmitted directly through the provider's platform. Applications are submitted through an online form; there are two separate forms, one for EU/Schengen and one for non-EU/non-Schengen applicants.",
+    "dates": "No Luiss-administered test date. The GMAT/GRE must be sat independently and the score submitted within the application window (December 2026 – 31 March 2027 for 2027/2028). Deadlines for uploading the unofficial score and transmitting the official score are set in the Admission Notice (available from November 2026).",
+    "fee": "Luiss participation fee: EUR 150 (mandatory, non-refundable). GMAT/GRE test fees are paid separately to GMAC/ETS and are not published by Luiss.",
+    "language_of_test": "English (GMAT and GRE are English-language tests). The Luiss Test rule that an Italian-language test restricts applicants to Italian-taught programmes is irrelevant here, since the Luiss Test does not apply to Finance.",
+    "interview": "No interview mentioned. Selection is documentary: \"Candidates who meet the requirements are admitted directly to the Master's Degree Courses based on the international certification they submit\" and a Committee reviews the documentation against the requirements and available places. [uncertain: wording quoted from the parallel EU certification page; the Finance/Management page does not describe an interview either]"
+  },
+  "tuition_or_fees_link": {
+    "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/finance",
+    "annual_amount": "CONFLICTING SOURCES [uncertain]. The official Finance programme page (2027/2028) states: \"The annual single tuition fee for enrolment in the Master's Degree Programme in Finance is € 17,000.00, divided into 3 instalments, plus the regional student welfare tax\" (the regional tax amount is set by the Lazio Region in June/July 2026). By contrast, the FAQ block repeated on the Luiss Master's admission pages (Luiss Test, EU certification, and Finance/Management selection pages) states: \"The one-off annual fee is €16,000 for the first year and €18,000 for the Bachelor's degree programmes in Management and Finance\" — a garbled English rendering that appears to mean EUR 16,000 for standard master's programmes and EUR 18,000 for the Management and Finance master's programmes. The research brief expected EUR 18,000. The programme-specific page (EUR 17,000) is the more specific and more recently year-badged source (2027/2028) and is recorded as the primary figure, with EUR 18,000 recorded as the conflicting admission-FAQ figure. To be resolved when the 2027/2028 admission notice / fee regulation is published from November 2026.",
+    "scholarship_url": "https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027 (2026/2027 page; the Finance programme page links generically to Luiss scholarships, partial or total tuition exemptions supported by public and private partners, and unsecured/flexible loans through agreements with Italian banks. A 2027/2028 scholarship page was not found as of 2026-09-04.) [uncertain]"
+  },
+  "official_program_url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/finance",
+  "official_call_url": [
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/students-foreign-qualifications-admission-requirements-masters-degrees",
+    "https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027",
+    "https://apply.luiss.it/"
+  ],
+  "source_quotes": [
+    {
+      "field": "admission_type",
+      "quote": "Candidates can apply for the selection process by submitting an international GMAT or GRE score certificate.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "GMAT with a minimum score of 555 (out of 805); GRE with a minimum score of 157 (out of 170) in both the Quantitative and Verbal sections.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "Luiss Bachelor's graduates, as well as those enrolled on a Luiss Level 1 Master's degree who meet the entry requirements, can directly enrol on the Master's degree courses in Management and Finance, regardless of their previous degree course, if they have a weighted average mark at the end of the 2026/2027 winter session, without rounding, of at least 28/30.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "A dedicated admission procedure for non-EU/non-Schengen applicants who hold the international qualifications required for entry to Master's degree courses, with the exception of Finance and Management.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "The selection process with certifications is aimed at candidates from outside the EU or the Schengen area who are interested in Master's degree programmes, with the exception of the Master's degree programmes in Finance and Management.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/certified-selection-students-outside-eu-and-schengen-area",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "You can specify up to two master's degree courses within the same subject area (Economics or Law/Political Science), choosing from the following programmes:",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "your course choice is binding for admission, ranking, and subsequent enrolment.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "In addition, students must have at least a B2 level of English, which will be assessed during the admission test.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "Passport or identity document showing citizenship. Certificate of enrolment or degree with a transcript of records (exams, credits, subject area). Valid GMAT or GRE certification.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Application submission — From December 2026 to 31 March 2027; Enrolment — By 18 May 2027; Obtaining a Bachelor's Degree — By 18 November 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Details on how to apply, the requirements, the necessary certifications, and the selection schedule for the 2027/2028 academic year will be published in the relevant admission notice, which will be available from November 2026.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "The direct admission procedures with certifications for the 2026/2027 academic year are now closed.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "Admission procedures for Master's degree courses for non-EU/non-Schengen students for the 2027/2028 academic year are coming soon.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "Check the key selection deadlines for the Master's Degrees in Management and Finance, open to students from both within and outside the EU.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "there are two separate forms, one for EU/Schengen applicants and one for non-EU/Schengen applicants. Before paying the participation fee, make sure you select the correct category.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "degree_class",
+      "quote": "The degree class is LM-77",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/finance",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "The annual single tuition fee for enrolment in the Master's Degree Programme in Finance is € 17,000.00, divided into 3 instalments, plus the regional student welfare tax.",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/finance",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "The one-off annual fee is €16,000 for the first year and €18,000 for the Bachelor's degree programmes in Management and Finance.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "Students from degree programmes other than those listed above may only be admitted if they have at least 24 university credits in total (either already earned or still to be earned) in at least three of the following subject areas:",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "entry_exam_or_test",
+      "quote": "authorise Luiss to receive the official score via the certifying body's platform: gmac.com / mba.com for the GMAT; ets.org for the GRE.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "teaching_language",
+      "quote": "the program is divided into two Majors: Corporate Finance / Financial Markets",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/finance",
+      "accessed_date": "2026-09-04"
+    }
+  ],
+  "uncertainty_notes": [
+    "ACADEMIC YEAR BADGE vs ACTUAL CYCLE: The Finance programme page carries a \"Year 2027/2028\" badge and the study plan is labelled Year I 2027/2028 / Year II 2028/2029, which matches the open forward-looking cycle. However, the admission section of the site is still shelved under URLs labelled \"20262027\" (e.g. .../admission-masters-degrees-20262027-eu-schengen-students, .../admission-masters-degrees-20262027-extra-eu) while their CONTENT is headed \"Admissions 2027/2028\". No \"20272028\" URL variants exist yet as of 2026-09-04. The 2026/2027 cycle is explicitly closed on every consulted page.",
+    "NOTICE NOT YET PUBLISHED: The full admission notice for 2027/2028 (Finance/Management selection) will only be available from November 2026. Only the headline calendar, GMAT/GRE thresholds, direct-access rule and EUR 150 fee are currently published. Detailed rules (number of choices, binding wording, English certificate list, official-score deadlines, result dates, places available) are therefore provisional.",
+    "SOURCE CONFLICT ON TUITION: The Finance programme page states EUR 17,000/year for 2027/2028, whereas the FAQ block repeated across Luiss master's admission pages states \"€16,000 for the first year and €18,000 for the ... programmes in Management and Finance\". The research brief expected EUR 18,000. The EUR 17,000 figure comes from the programme-specific 2027/2028 page and is recorded as primary; the EUR 18,000 figure is recorded as the conflicting admission-FAQ value. Unresolved.",
+    "GARBLED SOURCE TEXT: The same admission FAQ sentence says \"€18,000 for the Bachelor's degree programmes in Management and Finance\", but Management and Finance are MASTER'S programmes at Luiss — this is evidently a translation error in the English version of the site, which further undermines the reliability of the EUR 18,000 figure.",
+    "ENGLISH CERTIFICATES UNVERIFIED: The brief's expected list (IELTS 6, TOEFL iBT 78-80, Cambridge FCE grade B / CAE grade C) could NOT be found on any current luiss.it Master's-degree admission page. Only \"B2 level of English, which will be assessed during the admission test\" appears, on the Minimum Curricular Requirements page. Web search returned IELTS/TOEFL thresholds only for Luiss Business School and Luiss School of Government programmes, which are different institutions/programmes and must not be applied to this LM-77 degree.",
+    "ENGLISH ASSESSMENT MECHANISM CONTRADICTION: The B2 requirement is stated to be \"assessed during the admission test\", but Finance has NO Luiss admission test — the Luiss Test does not cover Finance or Management. How B2 English is verified for GMAT/GRE-route Finance applicants is unspecified on any consulted page.",
+    "NUMBER OF CHOICES / BINDING NATURE INFERRED: The Finance/Management selection page does not state how many programmes may be selected or that the choice is binding. Both values were inferred from the parallel EU and non-EU general certification pages, which state one choice only and that the choice is binding. Treat as inferred, not verified for Finance specifically.",
+    "NON-EU CALENDAR INFERRED: The Finance/Management selection page presents one calendar described as \"open to students from both within and outside the EU\", while the extra-EU hub page separately says non-EU 2027/2028 procedures are \"coming soon\". The non-EU dates recorded here are therefore taken from the shared calendar and are not confirmed by a non-EU-specific notice.",
+    "RENAME/SUCCESSION UNVERIFIED: The brief states Finance is the successor to the former \"Corporate Finance\" and \"Economics and Finance\" programmes. The programme page never says this, but it does contain a stale sentence, \"Admission to the Degree Course in Corporate Finance represents a unique opportunity...\", which is circumstantial support. Not confirmed.",
+    "SCHOLARSHIPS: Only a 2026/2027 scholarship/exemption landing page exists (https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027) with a \"Master's Degrees\" sub-link; no 2027/2028 equivalent was found as of 2026-09-04, and no Finance-specific scholarship amounts are published.",
+    "CAMPUS: The programme page does not name a building. Rome is certain; the Viale Romania attribution is based on the Admissions Office address (Viale Romania 32) and general Luiss Economics-department location, not on a Finance-specific statement.",
+    "404s / INACCESSIBLE PAGES: https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-master-s-degree-programs-2026-2027-luiss-students returned HTTP 404 (the Luiss-internal-students admission page was not reachable at the guessed URL, though it is listed in the site's side navigation as \"Admission to Master's Degree Programs 2026/2027 for Luiss Students\"). The Luiss site search endpoint (/en/search?q=...) returned HTTP 404. All other listed pages returned HTTP 200.",
+    "APPLICATION PORTAL: https://apply.luiss.it/ resolves (HTTP 200, a DreamApply-hosted portal titled \"Apply online!\"). No Finance-specific programme page inside the portal was identified; for 2027/2028 the application form is described as an online form published on the Finance/Management selection page itself.",
+    "REQUIRED DOCUMENTS: CV, motivation letter and reference letters are not mentioned anywhere for this route. Their absence is inferred as 'not required', not explicitly stated.",
+    "COMPENSATORY MEASURES: No foundation-year or additional-credit remedy is published for candidates failing the minimum curricular requirements; recorded as none, based on absence of any published measure."
+  ],
+  "uncertain": [
+    "program_name",
+    "campus",
+    "admission_type",
+    "academic_requirements",
+    "language_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "required_documents",
+    "entry_exam_or_test",
+    "tuition_or_fees_link"
+  ]
+}

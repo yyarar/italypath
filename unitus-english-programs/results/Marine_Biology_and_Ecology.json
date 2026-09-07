@@ -1,0 +1,63 @@
+{
+  "program_name": "Marine Biology and Ecology",
+  "level": "master",
+  "teaching_language": "fully English",
+  "campus": "Civitavecchia - Polo Universitario di Civitavecchia (Department of Ecological and Biological Sciences - DEB)",
+  "degree_class": "LM-6",
+  "admission_type": "open access",
+  "academic_requirements": "Open access (no numero chiuso, no TOLC), but subject to a mandatory academic-fit check ('nulla osta') via the GOMP portal plus a compulsory oral admission interview. Preferred entry: bachelor's degree in the Italian L-13 class (Biological Sciences) or a recognized equivalent foreign degree. Graduates of other bachelor's classes need at least 32 ECTS overall in: Botany (BIO/01, BIO/02, BIO/03), Zoology (BIO/05), Ecology (BIO/07), Microbiology (BIO/19), plus an adequate number of credits in other related basic disciplines (Chemistry, Mathematics, Physics). Graduates of the Italian L-32 class (Environmental Sciences) are only admitted if their L-32 degree is UNITUS's own 'Natural and Environmental Sciences' bachelor's. Applicants request the 'nulla osta' through GOMP by uploading their degree/transcript certificate (exams taken, credits, SSDs); the Study Programme Board reviews it, may require educational debts ('carenze') to be filled before enrolment, and then calls the applicant for the compulsory admission interview. Foreign qualifications require standard recognition (dichiarazione di valore / CIMEA statement) per the university-wide baseline.",
+  "language_requirements": "English proficiency at a level no lower than CEFR B2 is required for enrolment (stated directly on the DEB admission-requirements page). No specific certificate list is published for this programme; the university-wide baseline applies: accepted certificates are IELTS, TOEFL, TCL, Cambridge First, PTE Academic, Oxford Test of English, Aptis ESOL General/Advanced, or documented proof (EMI certificate) that the applicant's prior university education was delivered in English. No Italian-language exam is required since the programme is taught in English.",
+  "entry_exam_or_test": "No written entrance exam and no TOLC. Admission requires (1) an academic-fit ('nulla osta') review of the CV/transcript by the Study Programme Board, with any missing curricular credits to be made up before the course starts, and (2) a compulsory oral admission interview. For a.y. 2025/26 (the only published cycle at the time of this research; 2026/27 dates not yet released) interview dates were: 17 Sept 2025 (Open Day, moved up to 12 Sept 2025 10:30), 22 Sept 2025 10:00 (online), 26 Sept 2025 10:30, 20 Oct 2025 10:30, 21 Nov 2025 10:30, 19 Dec 2025 10:30, 20 Feb 2026 10:30. Interviews are held at the Civitavecchia University Campus (Piazza Verdi 1) for Italian students, and remotely for international students. International (EU and non-EU) applicants must also submit a pre-admission form (Google Form) available on the course webpage.",
+  "application_deadline_eu": "No programme-specific application deadline is published (admission is rolling via nulla-osta request + interview). University-wide enrolment window for 2026/2027: 2026-08-01 to 2026-12-29 for first-year Master's students, extended to 2027-02-28 for January/February graduates. Interview dates currently published on the DEB admission page are still labelled a.y. 2025/26 (last interview 2026-02-20); 2026/27 interview dates had not yet been published on unitus.it at the time of this research.",
+  "application_deadline_non_eu": "Same rolling process and same university-wide enrolment window as EU students (2026-08-01 to 2026-12-29, extension to 2027-02-28 for Jan/Feb graduates). Non-EU visa cutoff for consulate application: 2026-11-30. Non-EU students complete the same online pre-admission form and, per the DEB page, are interviewed remotely rather than in person at Civitavecchia. Universitaly pre-enrolment applies as per the university-wide baseline.",
+  "required_documents": [
+    "For the 'nulla osta' curricular check: degree certificate or self-certification listing exams taken, credits (CFU) acquired and the related scientific-disciplinary sectors (SSD) for each exam (undergraduates not yet graduated may flag 'undergraduate' status and later upload the diploma)",
+    "International pre-admission Google Form (both EU and non-EU applicants)",
+    "High-school diploma (certified copy + Apostille/legalization + certified Italian translation, OR CIMEA Statement of Verification) - university-wide baseline",
+    "Bachelor's degree of at least 3 years, with same legalization options - university-wide baseline",
+    "Transcript of Records",
+    "Declaration of Value (from an Italian consulate) OR CIMEA Statement of Comparability OR ARDI Statement of Correspondence",
+    "Diploma Supplement (can replace the Declaration of Value if legalized)",
+    "English-language certificate (B2) or EMI documentation",
+    "Admission letter (issued after the interview and nulla osta)",
+    "Passport (for identification, per interview-booking practice at DEB)"
+  ],
+  "tuition_or_fees_link": {
+    "url": "https://www.unitus.it/en/students/fees-and-contributions/",
+    "note": "ISEEUP income-based tiered fees for EU/eligible students; non-EU students who do not declare ISEEUP pay a flat fee based on country-of-origin band: EUR 600 / 1,050 / 1,500 / 1,950 per year (see Annex 1 country list). Full regulation: https://www.unitus.it/wp-content/uploads/2026/07/TUITION-FEES-AND-CONTRIBUTIONS-REGULATIONS_2026-2027.pdf ; fee simulator: https://www.unitus.it/en/students/fees-and-contributions/tuition-fee-simulator/"
+  },
+  "official_program_url": "https://www.unitus.it/en/courses/second-cycle-degree/marine-biology-and-ecology/",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "field": "teaching_language / campus / degree_class",
+      "quote": "LM-6 | Marine Biology and Ecology | Headquarter: Polo Universitario di Civitavecchia | Department: Ecological and Biological Sciences | Language: English | Course lenght: 2 years",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/marine-biology-and-ecology/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "admission_type / academic_requirements / language_requirements",
+      "quote": "A bachelor's degree in the Italian L-13 class or an equivalent degree in Biological Sciences. For graduates of other bachelor's degree classes, at least 32 ECTS ... are required in the scientific-disciplinary fields (SSD) indicated as below: Botany (Italian SSD: BIO/01, BIO/02, BIO/03), Zoology (BIO/05), Ecology (BIO/07), Microbiology (BIO/19). ... Enrollment in the course requires proficiency in English at a level no lower than B2.",
+      "url": "https://www.unitus.it/en/departments/deb/didactics/how-to-enroll-to-debs-courses/requirements-and-masters-degree-admission-interviews-deb/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "entry_exam_or_test",
+      "quote": "INTERVIEW DATES September 17th 2025, in conjunction with the Open Day Date moved up to September 12, 2025 at 10:30 AM September 22th 2025, h 10.00 AM (online) ... The admission interview will take place at the Civitavecchia University Campus, Piazza Verdi 1, Civitavecchia for Italian students, and remotely for finternational students.",
+      "url": "https://www.unitus.it/en/departments/deb/didactics/how-to-enroll-to-debs-courses/requirements-and-masters-degree-admission-interviews-deb/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_eu / application_deadline_non_eu",
+      "quote": "International students (both EU and non-EU students) who intend to enroll in the Master's Degree course in Marine Biology and Ecology (LM-6) for the academic year 2026/27 must fill out the form available on the course's webpage. CURRICULAR REQUIREMENTS AND ADMISSION INTERVIEW DATES A.Y. 2025/26",
+      "url": "https://www.unitus.it/en/departments/deb/didactics/how-to-enroll-to-debs-courses/requirements-and-masters-degree-admission-interviews-deb/",
+      "accessed": "2026-09-05"
+    }
+  ],
+  "uncertainty_notes": "The DEB admission page explicitly names academic year 2026/27 for the enrolment procedure, but the curricular-requirements/interview-dates block underneath it is still headed 'A.Y. 2025/26' and its most recent interview date is 2026-02-20 - i.e. 2026/27 interview dates have not yet been published on unitus.it; use the university-wide 2026/2027 enrolment calendar (2026-08-01 to 2026-12-29, extension 2027-02-28) as the operative deadline and flag the 2025/26 interview list as the latest published fallback. No GPA/minimum-grade threshold is published for this programme (unlike some other UNITUS LM courses). No programme-specific required_documents list beyond the nulla-osta transcript requirement is published on an official page; the rest is drawn from the university-wide baseline. No official_call_url exists because admission is open access with rolling nulla-osta + interview, not a published selection call; the didactic regulation PDF referenced on the DEB page was not independently re-downloaded in this pass (link is behind 'academic regulations' text without a stable direct URL captured here) so official_call_url is left null rather than guessed.",
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "official_call_url"
+  ]
+}

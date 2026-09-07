@@ -1,0 +1,189 @@
+# Luiss English programmes - alan tanimlari
+# Kerem'in belirledigi 16 alan birebir korunur. Yeni ust-duzey alan EKLENMEDI.
+# Ek boyutlar (majors, admission rounds, tuition tutari vb.) ilgili alanin icine
+# yapilandirilmis alt-anahtar olarak yazilir; boylece sema genislemez.
+
+schema_version: 1
+topic_slug: luiss-english-programs
+detail_level_legend: "brief -> moderate -> detailed"
+
+fields:
+
+  - name: program_name
+    detail_level: brief
+    description: "Programin resmi Ingilizce adi, Luiss sayfasinda yazildigi gibi."
+    type: string
+    rules:
+      - "Luiss'in kendi yazimi kullanilir, cevrilmez."
+      - "Eski ad varsa parantez icinde: 'Finance (eski: Corporate Finance / Economics and Finance)'."
+
+  - name: level
+    detail_level: brief
+    description: "Programin duzeyi."
+    type: enum
+    allowed: [bachelor, master, single-cycle, other]
+    rules:
+      - "Foundation Programme -> other."
+
+  - name: teaching_language
+    detail_level: moderate
+    description: "Ogretim dili ve dil granulerligi."
+    type: object
+    subkeys:
+      primary: "English | English + Italian | Italian"
+      granularity: "fully_english | english_track_of_bilingual | italian_only"
+      majors_language: "Her major icin dil etiketi listesi (Luiss sayfada bayrak ile gosteriyor)."
+    rules:
+      - "Bir program genel olarak 'English' olsa da bazi major'lari Italyanca olabilir; mutlaka major bazinda not dusulur."
+      - "italian_only cikarsa item kapsam disi isaretlenir, silinmez."
+
+  - name: campus
+    detail_level: brief
+    description: "Kampus / sehir ve varsa bina (Viale Romania, Viale Pola vb.)."
+    type: string
+
+  - name: degree_class
+    detail_level: brief
+    description: "Italyan derece sinifi kodu (L-18, L-33, L-36, LM-52, LM-56, LM-62, LM-77, LM-91, LMG-01)."
+    type: string
+    rules:
+      - "Kod formatinda normalize edilir."
+      - "Sayfada yoksa null + uncertainty_notes'a yazilir; tahmin edilmez."
+
+  - name: admission_type
+    detail_level: detailed
+    description: "Kabul yolu/yollari. Luiss'te tek yol yok; vatandaslik ve sertifikaya gore birden fazla rota var."
+    type: list_of_objects
+    allowed_primary: [open access, restricted access, TOLC, SAT, selection call, other]
+    subkeys:
+      route_name: "orn. 'Luiss Test', 'GMAT/GRE direct admission', 'SAT/LSAT/ACT/IB certification', 'Finance & Management selection'"
+      eligible_applicants: "EU-Schengen | non-EU | Luiss internal students"
+      test_or_certification: "kabul edilen test ve minimum skor (SAT >=1200/1600, GMAT >=515/805 vb.)"
+      number_of_choices_allowed: "kac program secilebilir"
+      choice_is_binding: "true/false"
+      subject_area_group: "Economics | Law-Political Science (ikinci tercih ayni alan icinden secilir)"
+      application_fee: "basvuru ucreti"
+    rules:
+      - "Finance ve Management icin Luiss Test GECERLI DEGIL - sadece GMAT/GRE. Bu istisna acikca yazilir."
+      - "Luiss Test'in Ingilizce alinmasi hem Ingilizce hem Italyanca programlara erisim verir; Italyanca alinmasi sadece Italyanca programlara."
+
+  - name: academic_requirements
+    detail_level: detailed
+    description: "Akademik on kosullar."
+    type: object
+    subkeys:
+      prior_qualification: "lise diplomasi / lisans derecesi"
+      minimum_curricular_requirements: "master icin kabul edilen L-xx siniflari + ECTS/SSD fallback kurallari"
+      minimum_grade_or_gpa: "orn. Luiss mezunu agirlikli ort. >=28/30 dogrudan erisim"
+      country_specific_rules: "ulke bazli diploma ve minimum not kosullari (Luiss ulke listesi yayinliyor)"
+      document_recognition: "CIMEA / Declaration of Value / apostil gerekiyor mu"
+      compensatory_measures: "diploma yetersizse kabul edilen telafi (1 yillik foundation, 1 universite yili)"
+
+  - name: language_requirements
+    detail_level: detailed
+    description: "Ingilizce (ve gerekiyorsa Italyanca) dil sartlari."
+    type: object
+    subkeys:
+      required_level: "orn. B2"
+      accepted_certificates: "IELTS / TOEFL iBT / Cambridge / Duolingo ve minimum skorlar"
+      assessed_in_test: "Dil seviyesi admission test icinde mi olculuyor (master'da boyle)"
+      exemptions: "muafiyet kosullari (Ingilizce ogretim gormus olmak vb.)"
+
+  - name: application_deadline_eu
+    detail_level: detailed
+    description: "EU/Schengen adaylari icin tarihler."
+    type: object
+    subkeys:
+      rounds: "Tur listesi: her tur icin basvuru acilis-kapanis, test tarihi, sonuc, kayit son tarihi"
+      enrolment_deadline: "kayit son tarihi"
+      degree_completion_deadline: "master icin lisans bitirme son tarihi"
+      academic_year: "hangi akademik yila ait (2027/2028 birincil)"
+      cycle_status: "open | closed | notice not yet published"
+
+  - name: application_deadline_non_eu
+    detail_level: detailed
+    description: "AB disi adaylar icin tarihler. Yapisi application_deadline_eu ile ayni."
+    type: object
+    subkeys:
+      rounds: "tur listesi"
+      enrolment_deadline: "kayit son tarihi"
+      visa_or_preenrolment_notes: "Universitaly on-kayit / vize takvimi notu"
+      academic_year: "hangi akademik yil"
+      cycle_status: "open | closed | notice not yet published"
+
+  - name: required_documents
+    detail_level: moderate
+    description: "Basvuruda yuklenmesi gereken belgeler listesi."
+    type: list
+    rules:
+      - "CV, motivation letter, transcript, diploma, pasaport, referans mektubu, test skoru vb. tek tek listelenir."
+      - "Zorunlu / opsiyonel ayrimi yapilir."
+
+  - name: entry_exam_or_test
+    detail_level: detailed
+    description: "Giris sinavi detaylari."
+    type: object
+    subkeys:
+      test_name: "Luiss Test / GMAT / GRE / SAT vb."
+      content: "olculen bolumler (logic, problem solving, math, English)"
+      format: "online canli gozetimli / kampuste"
+      dates: "sinav tarihleri"
+      fee: "sinav ucreti"
+      language_of_test: "sinav dili ve bunun program erisimine etkisi"
+      interview: "mulakat var mi"
+
+  - name: tuition_or_fees_link
+    detail_level: moderate
+    description: "Ucret bilgisi ve resmi ucret/burs sayfasi linki."
+    type: object
+    subkeys:
+      url: "resmi ucret sayfasi"
+      annual_amount: "yillik tutar (orn. lisans 15.000 EUR, master 16.000 EUR, Management & Finance 18.000 EUR)"
+      scholarship_url: "burs sayfasi (vatandasliga gore ayrisiyor)"
+
+  - name: official_program_url
+    detail_level: brief
+    description: "Programin luiss.it uzerindeki resmi sayfasi."
+    type: url
+    rules:
+      - "Sadece luiss.it. luiss.edu linki bulunursa luiss.it karsiligina cevrilir."
+
+  - name: official_call_url
+    detail_level: brief
+    description: "Bu programa uygulanan resmi admission notice / bando / secim cagrisi linki."
+    type: list_of_urls
+    rules:
+      - "Birden fazla olabilir (EU rotasi, non-EU rotasi, GMAT/GRE rotasi ayri sayfalar)."
+      - "Basvuru portali linki (apply.luiss.it program sayfasi) varsa buraya eklenir."
+
+  - name: source_quotes
+    detail_level: detailed
+    description: "Her kritik alan icin resmi sayfadan birebir alinti + kaynak URL."
+    type: list_of_objects
+    subkeys:
+      field: "alintinin destekledigi alan adi"
+      quote: "orijinal Ingilizce cumle (kisa, birebir)"
+      url: "alintinin alindigi tam URL"
+      accessed_date: "erisim tarihi"
+    rules:
+      - "En az su alanlar icin alinti zorunlu: admission_type, language_requirements, application_deadline_eu, application_deadline_non_eu."
+      - "Alinti uydurulmaz; bulunamazsa alan null + uncertainty_notes."
+
+  - name: uncertainty_notes
+    detail_level: detailed
+    description: "Belirsizlikler, celiskiler, bulunamayan bilgiler."
+    type: list
+    must_cover:
+      - "academic_year: sayfadaki yil rozeti ile gercek basvuru dongusu farkli mi (2027/2028 yayinda, 2026/2027 kapali)"
+      - "Global Law ve PPE icin degree_class dogrulanamadiysa"
+      - "'Law for Global Challenges' programinin varligi/durumu"
+      - "Ingilizce gorunup bazi major'lari Italyanca olan programlar"
+      - "Kaynaklar arasi celiski (program sayfasi vs admission notice)"
+      - "Erisilemeyen / 404 veren resmi sayfalar"
+
+output_contract:
+  format: json
+  file_pattern: "results/{item_id}.json"
+  rule: "Her programa bir JSON dosyasi. Yukaridaki 16 alan tam olarak bu isimlerle, eksiksiz anahtar setiyle yazilir; bilgi yoksa deger null olur, anahtar silinmez."
+
+uncertain: []   # derin arastirma asamasinda otomatik doldurulur

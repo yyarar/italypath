@@ -1,0 +1,92 @@
+{
+  "program_name": "Medicine and Surgery",
+  "level": "single-cycle",
+  "teaching_language": "English (fully taught in English)",
+  "campus": "Bergamo and Milan; the programme is run in collaboration with Papa Giovanni XXIII Hospital in Bergamo",
+  "degree_class": "LM-41 (Master's degree class in Medicine and Surgery)",
+  "access_type": "limited-selective access; nationally programmed, 48 places for academic year 2026/2027",
+  "programme_name_history": "Also styled 'Medicine & Surgery' on a UniBg departmental page; no substantive former programme name was identified.",
+  "awarding_institution": "Joint degree awarded by the University of Bergamo and the University of Milano-Bicocca",
+  "admission_type": "restricted access / national selection call",
+  "academic_requirements": "[uncertain] The programme is a six-year single-cycle degree with nationally programmed admission. The precise 2026/2027 qualifying school credential and any foreign-qualification equivalence rules are not stated on the accessible UniBg programme/admission pages; applicants are directed to the University of Milano-Bicocca for admission information.",
+  "curricular_requirements_cfu": "Not applicable to first-year entry to a single-cycle degree; no prior university CFU/SSD requirement is stated by the reviewed UniBg sources.",
+  "entry_exam_or_test": "A mandatory national selective admission procedure applies. The latest accessible programme-specific UniBg admission page (academic year 2025/2026) identifies the selective test as IMAT; [uncertain] UniBg had not published a programme-specific 2026/2027 test notice on the reviewed page.",
+  "interview_required": "[uncertain] No interview requirement is stated in the reviewed UniBg sources.",
+  "interview_language": "[uncertain] Not stated in the reviewed UniBg sources.",
+  "selection_scoring": "[uncertain] Not published in the reviewed UniBg sources; the programme is nationally programmed and applicants are directed to Milano-Bicocca for admission details.",
+  "degree_completion_deadline": "[uncertain] Not stated in the reviewed UniBg sources.",
+  "application_channel": "Apply through the admission channel administered by the University of Milano-Bicocca, not through the ordinary UniBg application route. UniBg's 2026/2027 student guide tells prospective applicants to contact Milano-Bicocca. [uncertain] The exact 2026/2027 portal workflow is not specified on UniBg pages.",
+  "language_requirements": "The programme is delivered in English. [uncertain] A specific English proficiency level, certificate requirement, or score threshold for 2026/2027 is not stated in the reviewed UniBg sources.",
+  "accepted_english_certificates": "[uncertain] No accepted-certificate list or score thresholds were found on the reviewed UniBg sources.",
+  "language_waiver_conditions": "[uncertain] No waiver conditions were found on the reviewed UniBg sources.",
+  "application_deadline_eu": "[uncertain] Not published on the reviewed UniBg pages for academic year 2026/2027; consult the administering University of Milano-Bicocca and the national admission notice.",
+  "application_deadline_non_eu": "[uncertain] Not published on the reviewed UniBg pages for academic year 2026/2027; consult the administering University of Milano-Bicocca and the national admission notice, including any visa/pre-enrolment timetable.",
+  "application_call_round": "[uncertain] No 2026/2027 programme-specific call round is provided by UniBg. This nationally programmed inter-university programme does not use UniBg's ordinary open-access/limited-master's application rounds.",
+  "results_notification_date": "[uncertain] Not published in the reviewed UniBg sources.",
+  "max_programme_choices": "[uncertain] Not stated by UniBg for this separately administered programme.",
+  "required_documents": "[uncertain] The programme-specific 2026/2027 document checklist is not published in the reviewed UniBg sources; applicants are referred to the University of Milano-Bicocca.",
+  "references_required": "[uncertain] Not stated in the reviewed UniBg sources.",
+  "course_descriptions_required": "[uncertain] Not stated in the reviewed UniBg sources.",
+  "application_fee": "[uncertain] Not stated in the reviewed UniBg sources for this programme's externally administered admission procedure.",
+  "pre_enrolment_fee": "[uncertain] Not stated in the reviewed UniBg sources.",
+  "enrolment_deposit": "[uncertain] Not stated in the reviewed UniBg sources.",
+  "tuition_or_fees_link": "https://www.unibg.it/studiare/iscriversi/tasse-e-agevolazioni/contribuzione-studentesca — UniBg's 2026/2027 page states that student contributions are income-linked and include a regional tax (€130–€190 according to ISEEU), a €16 stamp duty, and a comprehensive contribution varying by income band, course area, study progress, and full-/part-time status. [uncertain] Because Milano-Bicocca is the administrative seat, the applicability of UniBg's fee schedule to this programme must be confirmed with the administering university.",
+  "tuition_income_linked": "Yes for UniBg's general 2026/2027 contribution schedule: the comprehensive contribution is calculated by ISEEU and also varies by course area, year/status, and full-/part-time enrolment. [uncertain] Applicability to this Milano-Bicocca-administered joint programme is not confirmed by the reviewed UniBg pages.",
+  "official_program_url": "https://en.unibg.it/study/courses/undergraduate/medicine-and-surgery",
+  "official_call_url": "https://www.unibg.it/studiare/iscriversi/corsi-laurea-magistrale-ciclo-unico-ad-accesso-programmato",
+  "source_quotes": [
+    {
+      "source": "https://en.unibg.it/study/courses/undergraduate/medicine-and-surgery",
+      "quote": "Teaching venue: BERGAMO, MILANO; Duration: 6 years; Language: English; Access mode: National programmed (48 Places).",
+      "supports": ["campus", "level", "teaching_language", "access_type"]
+    },
+    {
+      "source": "https://digip.unibg.it/it/studiare/offerta-formativa/corsi-laurea-triennale-e-ciclo-unico",
+      "quote": "[English translation] The Medicine & Surgery programme is established as an inter-university programme and, at the end of the studies, the Master's Degree in Medicine and Surgery is awarded jointly by the University of Milano-Bicocca and the University of Bergamo. Administrative seat: Milano-Bicocca. Language of delivery: English.",
+      "supports": ["awarding_institution", "application_channel", "teaching_language"]
+    },
+    {
+      "source": "https://elearning15.unibg.it/mod/book/tool/print/index.php?chapterid=104&id=592",
+      "quote": "[English translation] If you are interested in the six-year, single-cycle, inter-university degree programme in Medicine and Surgery (nationally programmed access), delivered in English, contact the University of Milano-Bicocca.",
+      "supports": ["level", "admission_type", "application_channel"]
+    },
+    {
+      "source": "https://www.unibg.it/studiare/iscriversi/corsi-laurea-magistrale-ciclo-unico-ad-accesso-programmato",
+      "quote": "[English translation] Medicine and Surgery — inter-university programme with the University of Milan-Bicocca — information on the selective IMAT test is available on this page.",
+      "supports": ["entry_exam_or_test", "official_call_url"]
+    },
+    {
+      "source": "https://www.unibg.it/studiare/iscriversi/tasse-e-agevolazioni/contribuzione-studentesca",
+      "quote": "[English translation] The comprehensive contribution is calculated on the basis of the ISEEU value. The amount also varies according to the programme, year of enrolment and type of enrolment (full-time or part-time).",
+      "supports": ["tuition_or_fees_link", "tuition_income_linked"]
+    }
+  ],
+  "uncertainty_notes": "Priority was given to academic year 2026/2027. UniBg confirms that the programme is active, English-taught, six years, LM-41, jointly awarded, nationally programmed with 48 places, and administratively based at Milano-Bicocca. However, UniBg's 2026/2027 student guide delegates admission enquiries to Milano-Bicocca, while the accessible UniBg IMAT page is labelled 2025/2026. Under the research restriction to unibg.it sources only, no external Milano-Bicocca or national call was used to fill deadlines, document requirements, English-certificate thresholds, scoring, fee applicability, or EU/non-EU seat allocations.",
+  "source_access_status": "UniBg pages were accessed through current official-site search indexing and accessible official HTML pages. The main programme and admission pages returned HTTP 403 on direct open, so some facts were verified from current search-indexed page text; the DIGIP departmental page and the 2026/2027 UniBg e-learning student guide were directly accessible.",
+  "last_verified_date": "2026-09-05",
+  "uncertain": [
+    "academic_requirements",
+    "entry_exam_or_test",
+    "interview_required",
+    "interview_language",
+    "selection_scoring",
+    "degree_completion_deadline",
+    "application_channel",
+    "language_requirements",
+    "accepted_english_certificates",
+    "language_waiver_conditions",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "application_call_round",
+    "results_notification_date",
+    "max_programme_choices",
+    "required_documents",
+    "references_required",
+    "course_descriptions_required",
+    "application_fee",
+    "pre_enrolment_fee",
+    "enrolment_deposit",
+    "tuition_or_fees_link",
+    "tuition_income_linked"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "program_name": "Materials Science and Technology",
+  "level": "master",
+  "teaching_language": "English",
+  "delivery_scope": "fully_english",
+  "campus": "Bari",
+  "degree_class": "LM-Sc.Mat.",
+  "academic_year": "2026/2027; programme-specific academic regulation available for 2025/2026 [uncertain]",
+  "programme_status": "active",
+  "admission_type": "open access",
+  "academic_requirements": [
+    "An Italian bachelor's, specialist/master's, or old-system 4-, 5-, or 6-year degree, or an equivalent foreign qualification.",
+    "Graduates of the Materials Science degree class under DM 146 of 2 September 2021 automatically satisfy the curricular requirements.",
+    "Other applicants must document at least 10 ECTS in chemistry, 10 ECTS in physics, and 10 ECTS in mathematics.",
+    "Applicants must pass an assessment of curricular requirements and personal preparation."
+  ],
+  "qualification_system_requirements": [
+    "For a foreign master's-entry qualification: at least 15 total years of education, including at least three years at university level, and entitlement to enter a second-cycle degree in the country where the qualification was issued.",
+    "The Programme Committee or academic board determines whether a foreign qualification is suitable after the pre-enrolment request."
+  ],
+  "eligible_degree_classes": [
+    "Materials Science degree class established by DM 146 of 2 September 2021",
+    "Other Italian degrees or equivalent foreign qualifications meeting the specified chemistry, physics, and mathematics credit requirements"
+  ],
+  "required_subject_credits": [
+    {"subject_area": "Chemistry", "ssd_or_domain": "CHIM/##", "minimum_cfu_or_ects": 10, "notes": "Bachelor-level credit requirement."},
+    {"subject_area": "Physics", "ssd_or_domain": "FIS/##", "minimum_cfu_or_ects": 10, "notes": "Bachelor-level credit requirement."},
+    {"subject_area": "Mathematics", "ssd_or_domain": "MAT/##", "minimum_cfu_or_ects": 10, "notes": "Bachelor-level credit requirement."}
+  ],
+  "language_requirements": [
+    "English proficiency at CEFR B2 or equivalent is required.",
+    "Ability to understand and use English in scientific contexts is assessed in the preliminary interview."
+  ],
+  "language_level": "B2",
+  "accepted_language_evidence": [
+    "B2 English proficiency or equivalent",
+    "Preliminary interview assessment by the Programme Committee"
+  ],
+  "personal_preparation_assessment": "Applicants submit an interview request giving qualifications, chemistry/physics/mathematics credits, relevant experience, and English and Italian proficiency. The Programme Committee conducts an interview, which may be by teleconference; admission depends on its outcome.",
+  "ofa_or_remedial_obligations": [
+    "The committee may identify a need to supplement prior knowledge after the interview; precise conditions are not stated [uncertain]."
+  ],
+  "entry_exam_or_test": null,
+  "interview_details": {
+    "required": true,
+    "purpose": "Verification of admission requirements, scientific preparation, curricular fit, and English proficiency",
+    "language": "English",
+    "mode": "In person or teleconference",
+    "dates": "Scheduled by the examining committee and programme coordinator after the request [uncertain]",
+    "waivers": "No waiver stated [uncertain]"
+  },
+  "admission_quota": null,
+  "selection_score_and_ranking": null,
+  "application_deadline_eu": [
+    {"stage": "Foreign-qualification preliminary evaluation on DreamApply", "opens_at": null, "deadline": "2026-09-30", "timezone": "Europe/Rome [uncertain]", "applicant_category": "EU applicants and non-EU applicants not requiring a visa who hold a foreign/international qualification", "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"}
+  ],
+  "application_deadline_non_eu": [
+    {"stage": "Foreign-qualification preliminary evaluation on DreamApply", "opens_at": null, "deadline": "2026-06-30", "timezone": "Europe/Rome [uncertain]", "visa_required": true, "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"},
+    {"stage": "Universitaly pre-enrolment for an open-access programme", "opens_at": null, "deadline": "2026-09-30", "timezone": "Europe/Rome [uncertain]", "visa_required": true, "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"}
+  ],
+  "application_stages": [
+    {"sequence": 1, "stage": "Preliminary evaluation of foreign qualification", "platform": "DreamApply / Apply online!", "applies_to": "All applicants holding a foreign or international qualification", "deadline": "30 June 2026 if visa-required; 30 September 2026 if no visa is required", "action": "Upload the required qualification documentation, pay the application fee, and obtain a positive evaluation.", "url": "https://apply.uniba.it/"},
+    {"sequence": 2, "stage": "Programme admission interview request", "platform": "UNIBA online form or email to the programme coordinator", "applies_to": "All programme applicants", "deadline": "No programme-specific date published [uncertain]", "action": "Submit qualifications, subject-credit breakdown, relevant experience, language levels, and contact details; attend the scheduled interview.", "url": "https://www.uniba.it/en/courses/materials-science-and-technology/portlet/requisiti-di-accesso"},
+    {"sequence": 3, "stage": "Visa pre-enrolment", "platform": "Universitaly", "applies_to": "Non-EU applicants resident abroad requiring a study visa", "deadline": "30 September 2026", "action": "After a positive DreamApply evaluation, submit the Universitaly pre-enrolment request and the same qualification documents.", "url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"},
+    {"sequence": 4, "stage": "Online enrolment", "platform": "Esse3", "applies_to": "Admitted applicants", "deadline": "Programme/enrolment deadline not located [uncertain]", "action": "Complete the UNIBA online enrolment and provide original/verified documents as required.", "url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"}
+  ],
+  "applicant_categories": [
+    "EU applicants and non-EU applicants with EU-equivalent status",
+    "Non-EU applicants resident abroad requiring a visa",
+    "Marco Polo applicants",
+    "Applicants in a refugee-like situation already resident in Italy"
+  ],
+  "deadline_conflict_note": "The 2026/2027 central international-admission deadlines are current, but no programme-specific interview or Esse3 enrolment deadline was found [uncertain].",
+  "required_documents": [
+    {"document": "Bachelor's degree certificate or other qualifying university credential", "required_for": "Master's applicants with a foreign qualification", "stage": "DreamApply preliminary evaluation", "translation_required": "If not issued in English or Italian, an official translation is required.", "authentication_required": "Verified/certified copy requested; originals must be brought on arrival.", "notes": "Must support eligibility for second-cycle study."},
+    {"document": "Transcript of records showing subject credits", "required_for": "All applicants; especially holders of non-Materials-Science degrees", "stage": "DreamApply and programme interview assessment", "translation_required": "Official translation if not in English or Italian.", "authentication_required": "Verified/certified copy requested [uncertain].", "notes": "Must permit assessment of chemistry, physics, and mathematics credits."},
+    {"document": "Valid identity document or passport", "required_for": "International applicants", "stage": "Application and enrolment", "translation_required": false, "authentication_required": false, "notes": "Current validity required."},
+    {"document": "English B2 evidence", "required_for": "All applicants", "stage": "Admission assessment", "translation_required": "Not stated [uncertain]", "authentication_required": "Not stated [uncertain]", "notes": "Equivalent proficiency and interview assessment are recognized; no certificate list was located."},
+    {"document": "Universitaly pre-enrolment summary validated by UNIBA and type-D study visa", "required_for": "Non-EU applicants resident abroad requiring a visa", "stage": "Enrolment", "translation_required": false, "authentication_required": false, "notes": "Universitaly follows a positive DreamApply evaluation."}
+  ],
+  "document_translation_language": ["English", "Italian", "Official translation required when the institution does not issue documents in either accepted language"],
+  "document_authentication": ["Upload verified/certified copies of qualification documents and bring originals upon arrival.", "Additional legalization, apostille, Declaration of Value, CIMEA or ARDI rules were not confirmed on the programme page [uncertain]."],
+  "application_fee": {"amount": 30, "currency": "EUR", "stage": "DreamApply preliminary evaluation", "payment_method": "Through the online application procedure [uncertain]", "refundable": false, "source_url": "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/studenti-extracomunitari-residenti-allestero"},
+  "tuition_or_fees_link": "https://www.uniba.it/it/ateneo/statuto-regolamenti/studenti/regolamenti-sulla-contribuzione-studentesca",
+  "official_program_url": "https://www.uniba.it/en/courses/materials-science-and-technology",
+  "official_call_url": null,
+  "requirements_source_url": [
+    "https://www.uniba.it/it/corsi/materials-science-and-technology/portlet/corso-di-laurea/piani-di-studio-e-regolamenti/reg-lm_scmat_25-26_final-true_eng.pdf",
+    "https://www.uniba.it/en/courses/materials-science-and-technology/portlet/requisiti-di-accesso",
+    "https://apply.uniba.it/en_US/courses/course/6-masters-degree-materials-science-and-tecnology--lm---scmat",
+    "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"
+  ],
+  "source_quotes": [
+    {"field": "teaching_language", "quote": "The program is international and is entirely taught in English.", "source_url": "https://www.uniba.it/it/corsi/materials-science-and-technology/portlet/corso-di-laurea/piani-di-studio-e-regolamenti/reg-lm_scmat_25-26_final-true_eng.pdf", "page_or_section": "Art. 1, point 6, page 3", "academic_year": "2025/2026", "accessed_at": "2026-09-05"},
+    {"field": "required_subject_credits", "quote": "At least 10 ECTS credits in the disciplinary sector CHIM/##, 10 ECTS credits in the sector FIS/##, and 10 ECTS credits in the sector MAT/##.", "source_url": "https://www.uniba.it/it/corsi/materials-science-and-technology/portlet/corso-di-laurea/piani-di-studio-e-regolamenti/reg-lm_scmat_25-26_final-true_eng.pdf", "page_or_section": "Art. 3, page 6", "academic_year": "2025/2026", "accessed_at": "2026-09-05"},
+    {"field": "language_level", "quote": "Proficiency in English at a B2 level or equivalent.", "source_url": "https://www.uniba.it/it/corsi/materials-science-and-technology/portlet/corso-di-laurea/piani-di-studio-e-regolamenti/reg-lm_scmat_25-26_final-true_eng.pdf", "page_or_section": "Art. 3, page 6", "academic_year": "2025/2026", "accessed_at": "2026-09-05"},
+    {"field": "application_deadline_non_eu", "quote": "The application deadlines on the DreamApply platform are set at 30 June 2026 for non-EU students requiring a visa", "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students", "page_or_section": "Introductory section", "academic_year": "2026/2027", "accessed_at": "2026-09-05"},
+    {"field": "personal_preparation_assessment", "quote": "The evaluation interview to assess knowledge and adequacy of personal preparation is conducted by the Program Committee and may also be held via teleconference.", "source_url": "https://www.uniba.it/it/corsi/materials-science-and-technology/portlet/corso-di-laurea/piani-di-studio-e-regolamenti/reg-lm_scmat_25-26_final-true_eng.pdf", "page_or_section": "Art. 3, page 7", "academic_year": "2025/2026", "accessed_at": "2026-09-05"}
+  ],
+  "source_year": ["2026/2027", "2025/2026"],
+  "source_last_checked": "2026-09-05",
+  "uncertainty_notes": [
+    {"field": "academic_year", "issue": "Programme-specific requirements use a fallback regulation.", "reason": "The current 2026/2027 programme regulation was not located; the 2025/2026 regulation states an academic plan covering cohorts 2025/2026–2026/2027.", "searched_sources": ["Programme page", "academic regulations", "DreamApply", "central international admission page"], "resolution_needed": "Confirm against the final 2026/2027 programme regulation when published."},
+    {"field": "official_call_url", "issue": "No programme-specific call found.", "reason": "The programme is open access and uses an interview rather than a ranking call.", "searched_sources": ["Programme admission page", "academic regulation", "DreamApply"], "resolution_needed": "Confirm whether a separate 2026/2027 admission notice is issued."},
+    {"field": "admission_quota", "issue": "No programme-specific non-EU reserved-place number located.", "reason": "Open access does not necessarily mean an unlimited visa quota.", "searched_sources": ["Programme page", "international admissions page", "DreamApply"], "resolution_needed": "Check the annual foreign-student quota table."},
+    {"field": "accepted_language_evidence", "issue": "No named certificate list found.", "reason": "Sources state B2 or equivalent and interview assessment only.", "searched_sources": ["Academic regulation", "DreamApply"], "resolution_needed": "Ask the programme committee which certificates or MOI evidence are accepted."}
+  ],
+  "uncertain": ["academic_year", "ofa_or_remedial_obligations", "entry_exam_or_test", "interview_details", "admission_quota", "selection_score_and_ranking", "application_deadline_eu", "application_deadline_non_eu", "application_stages", "deadline_conflict_note", "required_documents", "document_authentication", "application_fee", "official_call_url", "accepted_language_evidence"]
+}

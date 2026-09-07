@@ -1,0 +1,289 @@
+{
+  "program_name": "Bachelor's Degree in Global Law",
+  "level": "bachelor",
+  "teaching_language": {
+    "primary": "English",
+    "granularity": "fully_english",
+    "majors_language": [
+      "Global Law, Business & Tech - English (marked with the UK flag on the Luiss study plan)",
+      "Global Law and International Organizations - English (marked with the UK flag on the Luiss study plan)",
+      "Italian Law - English (marked with the UK flag on the Luiss study plan; the track's subject matter is the Italian legal system, but the teaching language is English)"
+    ]
+  },
+  "campus": "Rome, Italy - Luiss Guido Carli, Undergraduate School. [uncertain] The programme page does not name a specific building; the Undergraduate School and the Admissions Office are based at the Viale Romania 32 campus (00197 Rome), and Luiss also operates the Via Parenzo 11 campus used for Law-area teaching.",
+  "degree_class": "L-14",
+  "admission_type": [
+    {
+      "route_name": "Luiss Test (Luiss EU Test)",
+      "eligible_applicants": "EU-Schengen citizens holding, or obtaining by the stated deadlines, an upper secondary school diploma granting access to Italian universities",
+      "test_or_certification": "Luiss Test - psycho-aptitude questions inspired by the SAT model, assessing logical reasoning, problem-solving and mathematical skills. No minimum external certification score required; ranking-based selection.",
+      "number_of_choices_allowed": "1 (one degree course)",
+      "choice_is_binding": "true",
+      "subject_area_group": "Law-Political Science (Global Law is listed among the Bachelor's and Single-Cycle Master's Degree programmes in Law, in the 'Courses taught in English' column together with Business Administration, Economics and Business, Management and Artificial Intelligence and Politics: Philosophy and Economics)",
+      "application_fee": "EUR 150 (participation fee)"
+    },
+    {
+      "route_name": "Direct Admission via Certifications - EU/Schengen students",
+      "eligible_applicants": "EU-Schengen citizens holding, or obtaining by the stated deadlines, a valid upper secondary school diploma granting access to Italian universities",
+      "test_or_certification": "SAT Total Score >= 1200/1600; LSAT Total Score >= 160/180; ACT Total Score >= 25/36; IB Diploma or Predicted Grade >= 36/45",
+      "number_of_choices_allowed": "1 (one degree course)",
+      "choice_is_binding": "[uncertain] The EU certification page does not restate the binding wording explicitly; the parallel non-EU certification page states the single choice is binding for admission and subsequent enrolment.",
+      "subject_area_group": "Law-Political Science (Global Law appears in the 'Courses taught in English' list for this route)",
+      "application_fee": "EUR 150 (participation fee)"
+    },
+    {
+      "route_name": "Direct Admission via Certifications - non-EU/non-Schengen students",
+      "eligible_applicants": "non-EU (students with non-EU or non-Schengen citizenship) holding, or obtaining by the stated deadlines, a secondary school diploma valid for admission to Italian universities",
+      "test_or_certification": "SAT Total Score >= 1200/1600; LSAT Total Score >= 160/180; ACT Total Score >= 25/36; IB Diploma or Predicted Grade >= 36/45. The Commission also weighs the attached documentation and any assessment interview.",
+      "number_of_choices_allowed": "1 (one degree course)",
+      "choice_is_binding": "true",
+      "subject_area_group": "Law-Political Science (Global Law appears in the 'Course taught in English' list for this route)",
+      "application_fee": "EUR 150 (non-refundable participation fee)"
+    }
+  ],
+  "academic_requirements": {
+    "prior_qualification": "Upper secondary school diploma (Italian diploma di scuola secondaria superiore, or a foreign qualification recognised as suitable under Italian legislation) granting access to Italian universities. Applicants who will graduate by the selection deadlines may also apply.",
+    "minimum_curricular_requirements": "Not applicable at bachelor level (no L-xx/ECTS curricular requirements; those apply to Luiss Master's admissions). The Luiss SUA-CdS states the student must have adequate initial preparation and English at least at B2 level.",
+    "minimum_grade_or_gpa": "No general minimum grade for the Luiss Test route. For the certification routes the thresholds are SAT >= 1200/1600, LSAT >= 160/180, ACT >= 25/36, IB >= 36/45. Country-specific minimum diploma averages apply for some foreign qualifications (e.g. Albania: State Matura Diploma with a minimum average grade of 6.5).",
+    "country_specific_rules": "Luiss publishes a country-by-country list of eligible qualifications and minimum grades on the 'Admission requirements for students with international qualifications' page. General rules: the qualification is accepted only if obtained after at least two years of attendance in the same school system; qualifications awarded within a mobility programme are not eligible; issuing and teaching institutions must both be accredited and recognised; professional/vocational qualifications are not eligible for Italian bachelor's degrees; where a national university entrance exam exists, the diploma must be accompanied by the certificate of successful completion of that exam.",
+    "document_recognition": "CIMEA statement of verification / statement of comparability, or apostille of the diploma issued by the competent Italian Embassy or Consulate. Where the final documents are not yet available, an attestation of qualification awarded may be submitted and enrolment remains pending until the documents are delivered. Qualification eligibility is verified only at the enrolment stage, not at admission.",
+    "compensatory_measures": "If the qualification does not meet the ministerial guidelines, the missing requirements can be made up with either (a) completion of a Foundation Programme consistent with the intended field of study, lasting at least one academic year, issued by an accredited and recognised university, or (b) one full year of university/college studies at an accredited and recognised institution with successful completion of all first-year exams. The compensatory qualification must be legalised and apostilled or accompanied by a CIMEA Statement of Comparability. Compensatory measures for learning difficulties or disabilities during the Luiss Test can be requested at application."
+  },
+  "language_requirements": {
+    "required_level": "B2 (English)",
+    "accepted_certificates": "[uncertain] No IELTS / TOEFL / Cambridge / Duolingo certificate list is published for bachelor admission on the Luiss bachelor admission pages. The Luiss SUA-CdS for Global Law states the B2 requirement is deemed satisfied by passing the admission test in English. SAT / LSAT / ACT / IB are used as academic-aptitude certifications for direct admission, not as English certificates.",
+    "assessed_in_test": "Yes - for programmes delivered in English the admission test is taken in English, and the SUA-CdS states the B2 English requirement 'si ritiene assolto con il superamento della prova in lingua inglese' (is deemed satisfied by passing the test in English).",
+    "exemptions": "[uncertain] No explicit exemption list published for bachelor level. Candidates admitted via the certification routes (SAT/LSAT/ACT/IB) do not sit the Luiss Test; how the B2 requirement is evidenced for them is not stated on the published pages. Note also that all enrolled international students are given an additional test to assess their level of Italian."
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "route": "Luiss Test - first session",
+        "submission_of_applications": "From October 2026 to 10 February 2027",
+        "test_administration": "From 22 to 26 February 2027",
+        "registration_enrolment": "By 4 May 2027"
+      },
+      {
+        "route": "Luiss Test - second session",
+        "submission_of_applications": "[uncertain] Not yet published. The page states that for 2027/2028 the Luiss Test will be held in two sessions, but only the first session calendar is available.",
+        "test_administration": "[uncertain] Not yet published",
+        "registration_enrolment": "[uncertain] Not yet published"
+      },
+      {
+        "route": "Direct Admission via Certifications (EU/Schengen)",
+        "submission_of_applications": "From October 2026 to 24 March 2027",
+        "test_administration": "Not applicable (certification-based, no test)",
+        "registration_enrolment": "Enrolment deadline by 4 May 2027"
+      }
+    ],
+    "enrolment_deadline": "By 4 May 2027 for the 2027/2028 academic year (both the first Luiss Test session and the EU certification session). For the closed 2026/2027 cycle the enrolment deadline was 22 July 2026.",
+    "degree_completion_deadline": null,
+    "academic_year": "2027/2028 (primary). 2026/2027 is secondary/archival.",
+    "cycle_status": "notice not yet published - initial calendar available; the full admission notice will be published from October 2026. The 2026/2027 cycle is closed (enrolment deadline 22 July 2026)."
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "route": "Direct Admission via Certifications (non-EU/non-Schengen) - first certification selection session",
+        "submission_of_applications": "From October 2026 to 10 February 2027",
+        "test_administration": "Not applicable (certification-based; the Commission may hold an assessment interview)",
+        "registration_enrolment": "By 4 May 2027"
+      }
+    ],
+    "enrolment_deadline": "By 4 May 2027 for the 2027/2028 academic year. For the closed 2026/2027 cycle the enrolment deadline was 22 July 2026.",
+    "visa_or_preenrolment_notes": "[uncertain] The Luiss non-EU certification page does not mention Universitaly pre-enrolment or a visa calendar. It states only that it is the candidate's responsibility to ensure the diploma is valid for admission to Italian universities and, if necessary, to obtain a study visa; if the documentation is not compliant or not submitted in time, enrolment cannot be finalised even if the candidate was previously admitted.",
+    "academic_year": "2027/2028 (primary). 2026/2027 is secondary/archival.",
+    "cycle_status": "notice not yet published - initial requirements and first-session calendar available; the full admission notice will be published from October 2026. The 2026/2027 cycle is closed (enrolment deadline 22 July 2026)."
+  },
+  "required_documents": [
+    "Mandatory - valid identity document or passport",
+    "Mandatory - documentation required to verify the educational qualification (upper secondary school diploma or foreign equivalent)",
+    "Mandatory - school report cards / transcripts",
+    "Mandatory (certification routes only) - one accepted certification: SAT, LSAT, ACT or IB Diploma / IB Predicted Grade, made verifiable via the procedures set by the certifying body",
+    "Mandatory (certification routes, IB Predicted Grade applicants) - the final IB diploma, submitted after it is obtained, per the procedures and deadlines set in the Admission Notice",
+    "Mandatory (foreign qualifications, at enrolment) - CIMEA statement of verification or statement of comparability, or apostille of the diploma issued by the competent Italian Embassy or Consulate",
+    "Conditional - attestation of qualification awarded, if the definitive documents are not yet available at the enrolment deadline",
+    "Conditional (compensatory measures) - Foundation Programme certificate of at least one academic year, or evidence of one full year of university studies with all first-year exams passed, legalised and apostilled or with a CIMEA Statement of Comparability",
+    "Mandatory - payment receipt for the EUR 150 participation fee",
+    "[uncertain] No CV, motivation letter or reference letters are listed for bachelor admission on the published Luiss pages; the full document list will appear in the admission notice from October 2026"
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Luiss Test (Luiss EU Test) for the EU/Schengen test route. Alternatively SAT / LSAT / ACT / IB certifications for the direct-admission routes (no Luiss Test required).",
+    "content": "Psycho-aptitude questions inspired by the SAT model, assessing logical reasoning, problem-solving and mathematical skills. Separately, all enrolled first-year students sit an additional placement test to verify personal preparation; failing it can result in an Additional Learning Obligation (OFA). All enrolled international students are also given a test assessing their level of Italian.",
+    "format": "Online, via the platform specified by the University, with asynchronous audio-video verification tools and live proctoring",
+    "dates": "2027/2028 first session: test administration from 22 to 26 February 2027. A second session is planned for 2027/2028 but its dates are not yet published. Candidates may take part in more than one Luiss Test session in the same academic year.",
+    "fee": "EUR 150",
+    "language_of_test": "The same entrance test is used for all bachelor and single-cycle courses; it is taken in English for programmes taught in English and in Italian for programmes taught in Italian. Because Global Law is taught entirely in English, applicants to Global Law take the test in English. Taking the test in English gives access to both the English-taught and the Italian-taught course lists; taking it in Italian restricts the candidate to the Italian-taught programmes. [uncertain] Luiss does not state this English-unlocks-both rule verbatim on the 2027/2028 EU test page; the page only says the test language follows the language of the chosen (binding) course.",
+    "interview": "No interview for the Luiss Test route. For the non-EU certification route the Commission's assessment may include an assessment interview ('any assessment interview')."
+  },
+  "tuition_or_fees_link": {
+    "url": "https://www.luiss.it/en/courses-and-masters-programmes/undergraduate-school/global-law",
+    "annual_amount": "EUR 15,000 for the first year of the 2027/2028 academic year, payable in three instalments, in addition to the regional tax. (For the closed 2026/2027 cycle the annual single fee was EUR 14,000.)",
+    "scholarship_url": "https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027"
+  },
+  "official_program_url": "https://www.luiss.it/en/courses-and-masters-programmes/undergraduate-school/global-law",
+  "official_call_url": [
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/eu-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/eu-students/admission-bachelors-and-masters-degree-programs-eu-students-testing",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/eu-students/direct-admission-eu-students-certifications-second-session",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-to-bachelor%27s-degrees-and-the-single-cycle-law-degree/non-eu-schengen-students/direct-admission-to-bachelor%27s-and-master%27s-degrees-for-non-eu-students-with-certificates",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/admission-requirements-international-students",
+    "https://www.luiss.it/sites/default/files/media-documents/SUA_GL.pdf"
+  ],
+  "source_quotes": [
+    {
+      "field": "program_name",
+      "quote": "The Luiss Bachelor's Degree in Global Law, taught entirely in English, prepares legal professionals to operate in global and cross-border contexts",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/undergraduate-school/global-law",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "level",
+      "quote": "Degree Undergraduate School | Credits 180 ECTS | Duration 3 Years | Language English | Year 2027/2028",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/undergraduate-school/global-law",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "degree_class",
+      "quote": "Nome del corso in inglese GLOBAL LAW ... Classe L-14 R - Scienze dei servizi giuridici ... Lingua in cui si tiene il corso inglese",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/SUA_GL.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "teaching_language",
+      "quote": "In the third year, students can personalise their study path by choosing one of three tracks: Global Law, Business & Tech ...; Global Law and International Organisations ...; Italian Law",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/undergraduate-school/global-law",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "The selection process is based on the Luiss Test, which comprises psycho-aptitude questions inspired by the SAT model. The test aims to assess logical reasoning, problem-solving, and mathematical skills.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/eu-students/admission-bachelors-and-masters-degree-programs-eu-students-testing",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "To access the test, you must have completed your application and indicated your chosen degree course, which is binding for admission and potential enrolment.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/eu-students/admission-bachelors-and-masters-degree-programs-eu-students-testing",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "No. You must specify only one degree programme when applying. This choice is binding for admission and subsequent enrollment.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-to-bachelor%27s-degrees-and-the-single-cycle-law-degree/non-eu-schengen-students/direct-admission-to-bachelor%27s-and-master%27s-degrees-for-non-eu-students-with-certificates",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "You can be admitted directly if you hold one of the following certifications: SAT - Total Score 1200/1600; LSAT - Total Score 160/180; ACT - Total Score 25/36; IB Diploma / Predicted Grade 36/45",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/eu-students/direct-admission-eu-students-certifications-second-session",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "For degree courses taught in Italian, the test will be taken in Italian; for those taught in English, it will be taken in English.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/eu-students/admission-bachelors-and-masters-degree-programs-eu-students-testing",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "Lo studente deve altresi possedere una adeguata preparazione iniziale e un livello di competenza della lingua inglese almeno pari a B2, che si ritiene assolto con il superamento della prova in lingua inglese.",
+      "url": "https://www.luiss.it/sites/default/files/media-documents/SUA_GL.pdf",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Submission of applications From October 2026 to 10 February 2027 | Test administration From 22 to 26 February 2027 | Registration By 4 May 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/eu-students/admission-bachelors-and-masters-degree-programs-eu-students-testing",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "For the 2027/2028 academic year, the Luiss Test will be held in two sessions.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/eu-students/admission-bachelors-and-masters-degree-programs-eu-students-testing",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Submission of applications From October 2026 to 24 March 2027 | Enrolment deadline By 4 May 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/eu-students/direct-admission-eu-students-certifications-second-session",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "The key deadlines for the first certification selection session for students from outside the EU/Schengen area are now available: Submission of applications From October 2026 to 10 February 2027 | Registration By 4 May 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-to-bachelor%27s-degrees-and-the-single-cycle-law-degree/non-eu-schengen-students/direct-admission-to-bachelor%27s-and-master%27s-degrees-for-non-eu-students-with-certificates",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "If you applied for admission for the 2026/2027 academic year and received an offer, please complete the enrollment process by 22 July 2026.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-to-bachelor%27s-degrees-and-the-single-cycle-law-degree/non-eu-schengen-students/direct-admission-to-bachelor%27s-and-master%27s-degrees-for-non-eu-students-with-certificates",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "It is the candidate's responsibility to ensure their diploma is valid for admission to Italian universities and, if necessary, to obtain a study visa.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-to-bachelor%27s-degrees-and-the-single-cycle-law-degree/non-eu-schengen-students/direct-admission-to-bachelor%27s-and-master%27s-degrees-for-non-eu-students-with-certificates",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "entry_exam_or_test",
+      "quote": "The test takes place online via the platform specified by the University and includes control systems to ensure a fair selection process, such as asynchronous audio-video verification tools and live proctoring.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/eu-students/admission-bachelors-and-masters-degree-programs-eu-students-testing",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "entry_exam_or_test",
+      "quote": "The participation fee is 150 euros.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/eu-students/admission-bachelors-and-masters-degree-programs-eu-students-testing",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "The annual tuition fee for enrolment in the first year of the Bachelor's Degree in Global Law for the 2027/2028 academic year is 15,000 euro, payable in three instalments, in addition to the regional tax.",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/undergraduate-school/global-law",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "If the student's qualification doesn't meet the prescribed guidelines, they can make up for the missing requirements by submitting one of the following documents: completion of a Foundation Program ... with a duration of at least one academic year ... one full year of university/college studies at an accredited and recognized institution",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/admission-requirements-international-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "official_call_url",
+      "quote": "Starting from October 2026, the admission calls will be published, providing the requirements, application procedures and deadlines for submitting an application for admission to the Bachelor's Degree in Global Law.",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/undergraduate-school/global-law",
+      "accessed_date": "2026-09-04"
+    }
+  ],
+  "uncertainty_notes": [
+    "academic_year: the programme page carries a '2027/2028' badge and states the 2027/2028 tuition fee, and all three admission-route pages publish 2027/2028 calendars. However, none of them is a full admission notice yet - each states the notice will be published only from October 2026. The 2026/2027 cycle is closed: bachelor enrolment deadline was 22 July 2026 (master enrolment deadline 15 June 2026). 2026/2027 tuition was EUR 14,000 versus EUR 15,000 for 2027/2028.",
+    "degree_class confirmed as L-14 R - Scienze dei servizi giuridici, but NOT from the English programme page (which omits the degree class). It comes from the official Luiss SUA-CdS document hosted on luiss.it (https://www.luiss.it/sites/default/files/media-documents/SUA_GL.pdf), where the Italian course name is 'STUDI GIURIDICI GLOBALI'. Normalised to 'L-14'; the full ministerial code with the reform suffix is 'L-14 R'.",
+    "'Law for Global Challenges': no Luiss programme with this name was found on luiss.it. Searches for it resolve to the Bachelor's Degree in Global Law. Treated as a naming ambiguity / non-existent programme rather than a separate item. The genuinely separate Luiss law programme is the Single-Cycle Master's Degree Programme in Law (taught in Italian), which the Global Law 'Italian Law' track can feed into via an accelerated pathway.",
+    "level: verified as a 3-year, 180 ECTS bachelor's degree (not a single-cycle law degree). The page lists it under Undergraduate School with Duration 3 Years. It is nonetheless administered together with the single-cycle Law degree in the same admission procedures ('Bachelor's and Single-Cycle Master's Degrees in Law').",
+    "Majors/tracks language: all three third-year tracks (Global Law, Business & Tech; Global Law and International Organizations; Italian Law) carry the UK flag on the study plan, so the programme is fully English including the Italian Law track. Confirmed by counting the three flag markers on the programme page.",
+    "language_requirements: the B2 English level comes from the Luiss SUA-CdS (Italian-language quality-assurance document), not from the English admission pages. No IELTS/TOEFL/Cambridge/Duolingo score table is published for bachelor admission. How the B2 level is evidenced by candidates admitted via SAT/LSAT/ACT/IB certification (who do not sit the Luiss Test) is not stated.",
+    "entry_exam_or_test.language_of_test: the rule that taking the Luiss Test in English unlocks both English- and Italian-taught programmes while taking it in Italian restricts to Italian-taught programmes is NOT stated verbatim on the 2027/2028 EU test page. That page only says the test language follows the language of the single binding course chosen. The 2027/2028 pages should be re-checked once the October 2026 admission notice is published.",
+    "application_deadline_eu: only the first Luiss Test session calendar is published for 2027/2028; the page confirms two sessions but the second session's dates are not yet available.",
+    "admission_type (EU certification route): the number of choices and the binding nature are not explicitly restated on the EU certification page; inferred by parallel with the non-EU certification page, which states it explicitly.",
+    "application_deadline_non_eu: no Universitaly pre-enrolment step or visa calendar is mentioned on the Luiss non-EU pages; only a general statement that obtaining a study visa is the candidate's responsibility.",
+    "campus: the programme page does not name a building. Luiss lists Viale Romania 32 (Undergraduate School and Admissions Office) and Via Parenzo 11 among its Rome campuses; the specific teaching location for Global Law is not confirmed on luiss.it.",
+    "required_documents: the published lists cover the certification routes and enrolment documents. No CV, motivation letter or reference letters are mentioned at bachelor level; the definitive document list will appear in the admission notice from October 2026.",
+    "tuition_or_fees_link.url: Luiss does not publish a standalone bachelor tuition page in the English navigation; the EUR 15,000 figure is stated on the programme page and repeated in the FAQ of each admission-route page.",
+    "tuition_or_fees_link.scholarship_url: the only scholarship/exemption landing page available is the 2026/2027 one; a 2027/2028 equivalent had not been published as of 2026-09-04.",
+    "Source consistency: no contradictions were found between the programme page and the admission pages. luiss.edu and backoffice.luiss.it / api.luiss.it / dev-api.luiss.it URLs surfaced in search results were not cited; all citations use the canonical luiss.it domain."
+  ],
+  "uncertain": [
+    "campus",
+    "admission_type",
+    "language_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "entry_exam_or_test",
+    "required_documents",
+    "tuition_or_fees_link"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "ma-geology-energy-resources",
+  "program_name": "Geology for Energy Resources",
+  "level": "master",
+  "degree_code": "M0415",
+  "degree_class": "LM-74 R (Scienze e Tecnologie Geologiche)",
+  "teaching_language": "Entirely English (\"Il corso è tenuto in lingua inglese\"; English manifesto: \"entirely delivered in English\"). One optional course, Planetology, remains in Italian.",
+  "curriculum_name_en": null,
+  "campus": "Perugia",
+  "department": "Dipartimento di Fisica e Geologia",
+  "admission_type": "open access",
+  "places_available": "CONFLICT: the 2026-2027 Regolamento states a sustainable capacity of 65 (\"l'utenza sostenibile è quantificata in 65 Studenti\"); the older UNIPG course-sheet 'Conoscenze richieste' box says 50. The 2026-2027 Regolamento (newer) is treated as authoritative: 65. No numero programmato.",
+  "academic_requirements": "Curricular requirements automatically satisfied for L-34 (Scienze Geologiche), plus L-30 (Scienze e Tecnologie Fisiche) and L-7 (Ingegneria Civile e Ambientale) per the UNIPG sheet, and their pre-2001 (D.M. 509/99, class 16) equivalents. Other bachelor's degrees: at least 60 CFU across CHIM, FIS, MAT and GEO sectors combined, of which at least 36 CFU in GEO sectors. Otherwise a commission evaluates via curriculum review and an interview if needed, and may prescribe integrative CFU in Area 04 Earth Sciences (GEOS) to be completed before the nulla-osta deadline (generally end of February). Personal-preparation check is via interview (\"colloquio\") in all cases requiring one. No minimum GPA stated.",
+  "language_requirements": "English B2, submitted via the Universitaly platform during application. Alternative evidence accepted for candidates not requiring a visa: at least one year of secondary school in English, an Italian secondary school with English-medium instruction, or a degree taught in English — otherwise the Commission assesses B2-equivalence via interview or another certificate.",
+  "english_certificates_accepted": [
+    "IELTS 5.5-6.5", "TOEFL iBT 72-94", "Cambridge ESOL IGCSE",
+    "LanguageCert International ESOL B2 Communicator", "Gatehouse Awards GA Level 1 (Classic B2)",
+    "Pearson PTE General Level 3", "Trinity ISE II", "Oxford Test of English B2",
+    "(alt. evidence) 1+ year of English-medium secondary schooling, or a degree taught in English"
+  ],
+  "entry_exam_or_test": "No standardised written test. Personal-preparation check always via an interview (\"La verifica della preparazione personale dello Studente viene effettuata tramite un colloquio\"), required for all applicants, with a basic-training expectation in maths, physics, chemistry and geological sciences.",
+  "nulla_osta_required": "Yes — M0415 is on UNIPG's online nulla-osta list (via SOL, from 3 Aug 2026); deadline generally coincides with end of February for candidates needing integrative CFU.",
+  "required_documents": [
+    "Bachelor's degree, preferably in Geology or Earth-Science-related field", "Degree certificate translated into English or Italian",
+    "Transcript in English (any format)", "English proficiency certificate for non-native speakers",
+    "Passport", "Universitaly pre-enrolment (non-EU)", "PICA application"
+  ],
+  "application_deadline_eu": "EU/legally-residing applicants: PICA pre-enrolment from 1 July 2026 (no published closing date); SOL enrolment for open-access master closes 1 March 2027 (department notes the practical cut-off generally coincides with end of February).",
+  "application_deadline_non_eu": "Non-EU visa applicants: PICA call 2026-visa-02, open until 12:00 noon on 30 September 2026 or until the visa quota is filled — STILL OPEN as of research date (2026-09-05), the only item in this set that is. Note: the Regolamento PDF itself cites an older code, 2026-visa-01; the central international-students page's 2026-visa-02 is current.",
+  "tuition_or_fees_link": "https://www.unipg.it/en/international-students/becoming-a-unipg-student/tuition-fees-and-scholarships",
+  "tuition_range": "€150–2,200/year depending on family income/merit. Flat Tax (4 UNDP-2016-index brackets) for family-abroad students, or ISEEU Parificato via an affiliated CAF. Declaration window 3 Aug–20 Oct 2026 (late fee to 1 Mar 2027).",
+  "cimea_requirement": "Not specified at programme level; see university-wide study-documents page for CIMEA/blackout-date rules.",
+  "double_degree": "None. Department notes numerous international collaboration agreements (mobility/Erasmus only, not a double degree).",
+  "official_program_url": "https://fisgeo.unipg.it/didattica/corso-di-laurea-magistrale-in-geology-for-energy-resources",
+  "official_call_url": "https://fisgeo.unipg.it/files/docs/sezioni/sezione-geologia/corso_magistrale_ger/lm74_ger_regolamento_2026-2027.pdf",
+  "source_quotes": [
+    {"quote": "l'utenza sostenibile è quantificata in 65 Studenti", "url": "https://fisgeo.unipg.it/files/docs/sezioni/sezione-geologia/corso_magistrale_ger/lm74_ger_regolamento_2026-2027.pdf", "field_supported": "places_available"},
+    {"quote": "lo Studente deve aver conseguito almeno 60 CFU nei settori CHIM, FIS, MAT E GEO, di cui almeno 36 nei settori GEO", "url": "https://fisgeo.unipg.it/files/docs/sezioni/sezione-geologia/corso_magistrale_ger/lm74_ger_regolamento_2026-2027.pdf", "field_supported": "academic_requirements"},
+    {"quote": "A B2-level English language certification must be submitted via the Universitaly platform during the application process to assess eligibility for enrollment", "url": "https://fisgeo.unipg.it/files/docs/sezioni/sezione-geologia/corso_magistrale_ger/manifesto-ger---english-version-26-27.pdf", "field_supported": "language_requirements"},
+    {"quote": "The application period will remain open until the quota reserved for international students requiring a VISA is filled but, in any case, no later than 12:00 pm on September 30, 2026", "url": "https://pica.cineca.it/unipg/2026-visa-02/", "field_supported": "application_deadline_non_eu"}
+  ],
+  "uncertainty_notes": "Capacity conflict (50 vs 65 places) resolved in favour of the newer 2026-2027 Regolamento (65) — flag both figures if publishing. PICA call-code drift between the Regolamento (2026-visa-01) and the current central page (2026-visa-02) — central page treated as authoritative. This is the only fully-English master with an open 2026/27 non-EU window at research time; all others were already closed. Data collected 2026-09-05, all sources unipg.it/*.unipg.it only.",
+  "research_date": "2026-09-05"
+}

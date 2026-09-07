@@ -1,0 +1,211 @@
+# University of Tuscia (UNITUS) - English-taught degree programmes
+# Field definitions for per-program JSON output
+# Scope: unitus.it official sources only. Academic year priority: 2026/2027, fallback 2025/2026.
+
+version: 1
+schema_note: >
+  Each research item produces ONE JSON object with exactly these top-level keys.
+  Use null when a value is genuinely absent from official sources.
+  NEVER invent a value: if unsure, put null and explain in uncertainty_notes.
+
+field_categories:
+
+  - category: identity
+    description: Program kimlik bilgileri
+    fields:
+      - name: program_name
+        description: >
+          Programin resmi Ingilizce adi, unitus.it sayfasinda yazildigi sekilde.
+          Italyanca resmi ad varsa parantez icinde ekle.
+        type: string
+        detail_level: brief
+        required: true
+
+      - name: level
+        description: >
+          Derece seviyesi. Izin verilen degerler: bachelor | master | single-cycle | other.
+          bachelor = Laurea (L, 3 yil). master = Laurea Magistrale (LM, 2 yil).
+          single-cycle = Laurea Magistrale a Ciclo Unico (LMR/LM-5 yil).
+          other = PhD, master universitario I/II livello, kisa kurs vb.
+        type: enum
+        allowed: [bachelor, master, single-cycle, other]
+        detail_level: brief
+        required: true
+
+      - name: teaching_language
+        description: >
+          Ogretim dili. Sadece "English" yazma; gercek durumu yaz:
+          "fully English" | "partially English (X% / belirli tracklar)" | "English + Italian" | "unclear".
+          Kismi Ingilizce ise hangi ders/track Ingilizce oldugunu belirt.
+        type: string
+        detail_level: moderate
+        required: true
+
+      - name: campus
+        description: >
+          Kampus/sehir ve varsa bolum (Dipartimento) adi.
+          Orn. "Viterbo - DIBAF (Dipartimento per la Innovazione nei sistemi Biologici, Agroalimentari e Forestali)".
+          Birden fazla lokasyon varsa hepsini listele.
+        type: string
+        detail_level: brief
+        required: true
+
+      - name: degree_class
+        description: >
+          Italyan resmi derece sinifi kodu, varsa. Orn. "LM-73", "L-25", "LM-6".
+          Sayfada yoksa null.
+        type: string
+        detail_level: brief
+        required: false
+
+  - category: admission
+    description: Kabul turu ve akademik/dil sartlari
+    fields:
+      - name: admission_type
+        description: >
+          Kabul mekanizmasi. Izin verilen degerler:
+          open access | restricted access | TOLC | SAT | selection call | other.
+          open access = serbest kayit (numero aperto), giris sinavi yok ama OFA/degerlendirme testi olabilir.
+          restricted access = numero programmato / kontenjan sinirli.
+          TOLC = CISIA TOLC sinavi zorunlu.
+          selection call = bando di selezione / basvuru degerlendirmesi ile secim (yaygin LM yontemi).
+          Birden fazla gecerliyse en belirleyicisini sec, digerini uncertainty_notes'a yaz.
+        type: enum
+        allowed: [open access, restricted access, TOLC, SAT, selection call, other]
+        detail_level: brief
+        required: true
+
+      - name: academic_requirements
+        description: >
+          Akademik on kosullar. Su alt bilgileri metin icinde ver:
+          - Gereken onceki derece (lisans icin lise diplomasi + kac yil; LM icin hangi derece siniflari)
+          - Gereken minimum CFU/ECTS ve hangi SSD alanlarinda (orn. "min 30 CFU in MAT/FIS/CHIM")
+          - Minimum not / GPA sarti varsa
+          - Curriculum degerlendirmesi / mulakat sarti varsa
+          Yabanci diplomalar icin denklik (dichiarazione di valore / CIMEA) sarti da buraya.
+        type: string
+        detail_level: detailed
+        required: true
+
+      - name: language_requirements
+        description: >
+          Dil sarti. Ayri ayri belirt:
+          - Ingilizce seviyesi (CEFR: B1/B2/C1) ve kabul edilen sinavlar + minimum skorlar (IELTS, TOEFL iBT, Cambridge, Duolingo, TOEIC)
+          - Muafiyet kosullari (Ingilizce egitim veren okuldan mezuniyet, anadili Ingilizce olma vb.)
+          - Italyanca sarti varsa (bazi kismi-Ingilizce programlarda gerekiyor) seviye ve sinav
+          Resmi sayfada skor tablosu varsa skorlari birebir aktar.
+        type: string
+        detail_level: detailed
+        required: true
+
+      - name: entry_exam_or_test
+        description: >
+          Giris sinavi / degerlendirme testi detayi:
+          - Sinav var mi, adi ne (TOLC-x, yerel test, mulakat, online interview)
+          - Tarih(ler), formati (online/yuz yuze), icerigi, gecme esigi
+          - OFA (Obblighi Formativi Aggiuntivi) mekanizmasi varsa aciklamasi
+          Sinav yoksa "No entry exam" yaz ve varsa yerine gecen degerlendirmeyi belirt.
+        type: string
+        detail_level: detailed
+        required: true
+
+  - category: deadlines
+    description: Basvuru takvimi (AB / AB disi ayri)
+    fields:
+      - name: application_deadline_eu
+        description: >
+          AB vatandaslari ve Italya'da ikamet edenler icin basvuru/kayit tarihleri.
+          Format: her pencere icin "YYYY-MM-DD to YYYY-MM-DD (aciklama)".
+          Birden fazla tur (I sessione, II sessione, late enrolment) varsa hepsini listele.
+          Akademik yili mutlaka belirt (2026/2027 mi 2025/2026 mi).
+          Sayfada tarih yoksa null + uncertainty_notes.
+        type: string
+        detail_level: detailed
+        required: true
+
+      - name: application_deadline_non_eu
+        description: >
+          AB disi / yurtdisinda ikamet eden ogrenciler icin basvuru takvimi.
+          Universitaly on kayit (pre-enrolment) tarihi, konsolosluk vize takvimi,
+          erken basvuru zorunlulugu ve kontenjan (posti riservati) tarihleri varsa buraya.
+          Format ve akademik yil kurali EU alani ile ayni.
+        type: string
+        detail_level: detailed
+        required: true
+
+  - category: application
+    description: Basvuru evraklari ve ucret/link bilgileri
+    fields:
+      - name: required_documents
+        description: >
+          Basvuruda istenen belgelerin listesi (madde madde):
+          diploma + transkript, ceviri/apostil, dichiarazione di valore veya CIMEA statement,
+          dil sertifikasi, pasaport/kimlik, CV, motivasyon mektubu, referans, portfolyo,
+          Universitaly on kayit ciktisi, fotograf, basvuru ucreti dekontu vb.
+          Belge sadece non-EU icin gerekliyse bunu belirt.
+        type: list_or_string
+        detail_level: detailed
+        required: true
+
+      - name: tuition_or_fees_link
+        description: >
+          Harc/ucret bilgisinin bulundugu resmi unitus.it URL'si.
+          Mumkunse yillik tutar araligini ve ISEE bazli kademelendirmeyi de kisa not olarak ekle.
+        type: url_with_note
+        detail_level: moderate
+        required: true
+
+      - name: official_program_url
+        description: >
+          Programin resmi unitus.it sayfasi (tercihen Ingilizce versiyonu).
+          Ingilizce sayfa yoksa Italyanca resmi sayfa + not.
+        type: url
+        detail_level: brief
+        required: true
+
+      - name: official_call_url
+        description: >
+          Basvuru cagrisinin (bando / call for applications / avviso di ammissione) resmi PDF veya sayfa URL'si.
+          Bu programa ozel cagri varsa onu, yoksa genel universite cagrisini ver ve hangisi oldugunu belirt.
+        type: url
+        detail_level: brief
+        required: false
+
+  - category: verification
+    description: Dogrulama ve guven seviyesi
+    fields:
+      - name: source_quotes
+        description: >
+          Kritik iddialari destekleyen BIREBIR alintilar. Her alinti icin:
+          { field: <hangi alani destekliyor>, quote: "<orijinal dilde kisa alinti>", url: <tam URL>, accessed: YYYY-MM-DD }
+          En az sunlar icin alinti sart: admission_type, language_requirements,
+          application_deadline_eu, application_deadline_non_eu.
+          Alinti kisa tutulmali (1-3 cumle), ceviri degil orijinal metin.
+        type: list_of_objects
+        detail_level: detailed
+        required: true
+
+      - name: uncertainty_notes
+        description: >
+          Belirsizlikler ve uyarilar:
+          - Hangi alanlar 2026/27 degil 2025/26 verisiyle dolduruldu
+          - Hangi bilgi resmi sayfada bulunamadi (null birakilan alanlar)
+          - Celiskili bilgiler (Ingilizce ve Italyanca sayfalar farkli diyorsa)
+          - Ogretim dilinin fiilen kismi Ingilizce olmasi gibi ItalyPath kullanicisini yaniltabilecek durumlar
+          Hicbir belirsizlik yoksa "None" yaz - bos birakma.
+        type: string
+        detail_level: detailed
+        required: true
+
+# Derin arastirma asamasinda otomatik doldurulur (rezerve)
+uncertain: []
+
+output_contract:
+  format: json
+  one_file_per_item: true
+  filename_pattern: "results/{level}__{program_slug}.json"
+  rules:
+    - "Sadece unitus.it ve alt alan adlari birincil kaynak sayilir."
+    - "Bilgi bulunamazsa null; asla tahmin yazma."
+    - "Her JSON'da academic year hangi yilsa deadline alanlarinin icinde acikca yazsin."
+    - "source_quotes bos olamaz."

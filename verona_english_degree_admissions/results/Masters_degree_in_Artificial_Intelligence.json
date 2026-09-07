@@ -1,0 +1,76 @@
+{
+  "programme_name": "Master's degree in Artificial intelligence",
+  "programme_code": "S84R",
+  "level": "master",
+  "academic_year": "2026/2027",
+  "programme_status": "confirmed",
+  "duration_years": 2,
+  "teaching_language": "English",
+  "fully_english_taught": true,
+  "campus": "Verona",
+  "degree_class": "LM-18",
+  "interuniversity_programme": {"is_interuniversity": false, "coordinating_institution": "University of Verona", "partner_institutions": []},
+  "admission_type": "open_access",
+  "admission_type_official_wording": "Subject to entry requirements",
+  "admission_routes": [
+    {"applicant_category": "EU", "route": "standard_enrolment", "notes": "Register for the ESSE3 Requirements Evaluation Procedure before enrolment.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1355&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"applicant_category": "non-EU_resident_in_Italy", "route": "standard_enrolment", "notes": "Requirements assessment applies; category-specific procedural details were not published on the programme page captured in this research. [uncertain]", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1355&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"applicant_category": "non-EU_abroad", "route": "international_pre_admission_call", "notes": "Applicants with a foreign qualification should follow the International Student Desk/pre-admission route and, if admitted, Universitaly for visa pre-enrolment; the 2026/27 programme-specific deadline was not located. [uncertain]", "source_url": "https://www.univr.it/en/our-services/international-degree-seeking-students"}
+  ],
+  "academic_requirements": {
+    "summary": "A three-year university degree or suitable Italian/foreign qualification is required. L-8 and L-31 graduates are admitted without further curricular testing. Other graduates need at least 60 CFU across FIS/01-FIS/07, MAT/01-MAT/09, INF/01 and/or ING-INF/01-ING-INF/07, including at least 6 CFU in MAT and 6 CFU in INF/01 and/or ING-INF. Expected foundations include continuous/discrete mathematics, logic, algorithms and data structures, object-oriented programming, computer architecture, networks, operating systems, databases, computation models and resource management.",
+    "eligible_degree_classes": ["L-8", "L-31", "corresponding pre-reform classes"],
+    "eligible_foreign_qualifications": "A foreign qualification recognised as suitable; curricular equivalence is assessed by the programme committee.",
+    "minimum_credits_by_subject_area": [
+      {"subject_area_or_ssd": "FIS/01-FIS/07, MAT/01-MAT/09, INF/01, ING-INF/01-ING-INF/07 combined", "minimum_credits": 60, "notes": "Alternative route for applicants outside L-8/L-31."},
+      {"subject_area_or_ssd": "MAT/*", "minimum_credits": 6, "notes": null},
+      {"subject_area_or_ssd": "INF/01 and/or ING-INF/*", "minimum_credits": 6, "notes": null}
+    ],
+    "minimum_grade_or_gpa": "No absolute minimum stated; applicants below 88/110 undergo additional personal-preparation assessment.",
+    "curriculum_assessment": "Mandatory for applicants from other degree classes, for L-8/L-31 graduates below 88/110, and for applicants whose bachelor's degree is more than ten years old. Curriculum analysis may be followed by an interview."
+  },
+  "curricula_tracks": [],
+  "ranking_and_quota": {"total_places": null, "reserved_non_eu_places": null, "ranking_details": "No ranking or quota is stated; enrolment follows a positive requirements assessment."},
+  "selection_components": [
+    {"component": "Curriculum/transcript assessment", "weight_or_threshold": "Positive/negative eligibility decision", "notes": "Required for applicants who trigger personal-preparation assessment."},
+    {"component": "Interview", "weight_or_threshold": null, "notes": "Held only if the committee considers it necessary."}
+  ],
+  "language_requirements": {"summary": "English at CEFR B2 is required.", "english_level_cefr": "B2", "accepted_language_certificates": ["Valid B2-or-higher certificate included in the University Language Centre equivalence list", "Other evidence of full B2 English, subject to committee assessment"], "certificate_exemptions": ["Degree certificate explicitly records passing full ENGLISH LANGUAGE B2 (not only individual skills)"], "italian_language_test_required": false, "notes": "The study plan requires students without an Italian bachelor's degree to earn 3 CFU of Italian language skills at at least A2 during the degree; this is not stated as an entry condition."},
+  "application_deadline_eu": "2026-10-15",
+  "application_deadline_non_eu": null,
+  "application_windows": [
+    {"applicant_category": "EU and equivalent applicants using ESSE3", "deadline_type": "programme_selection", "opens_at": "2026-07-15", "closes_at": "2026-10-15", "timezone": "Europe/Rome", "deadline_status": "upcoming", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1355&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"applicant_category": "non-EU applicants residing abroad", "deadline_type": "pre_admission", "opens_at": null, "closes_at": null, "timezone": "Europe/Rome", "deadline_status": "not_published", "source_url": "https://www.univr.it/en/our-services/international-degree-seeking-students"}
+  ],
+  "universitaly_deadline": null,
+  "visa_pre_enrolment_required": true,
+  "required_documents": [
+    {"document": "Bachelor's degree certificate or proof of pending completion", "applicant_categories": ["all"], "required": true, "condition": null, "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1355&lang=en&menu=iscriversi&tab=requisiti"},
+    {"document": "Transcript/course list with grades, credits and subject sectors", "applicant_categories": ["all applicants requiring curricular assessment"], "required": true, "condition": "Needed to assess the 60-CFU and subject-area requirements.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1355&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"document": "English B2 certificate or qualifying degree evidence", "applicant_categories": ["all"], "required": true, "condition": "Unless the degree certificate itself explicitly records full B2 English.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1355&lang=en&menu=iscriversi&tab=requisiti"}
+  ],
+  "document_legalisation_translation_rules": null,
+  "entry_exam_or_test": {"required": "conditional", "name": "Personal-preparation interview", "provider": "University of Verona programme committee", "mode": null, "language": null, "test_date": null, "registration_deadline": null, "minimum_score": null, "alternatives": ["Curriculum analysis alone where the committee does not require an interview"], "notes": "There is no general admission test. An interview may follow curriculum analysis for applicants below 88/110, with a degree older than ten years, or from other degree classes."},
+  "application_fee": {"amount": null, "currency": "EUR", "notes": "No programme application fee was stated on the official page consulted.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1355&lang=en&menu=iscriversi&tab=comeiscriversi"},
+  "tuition_or_fees_link": "https://www.univr.it/en/our-services/fees-and-scholarships",
+  "tuition_amount_basis": "University tuition is governed by the annual fees schedule; the programme page does not publish a programme-specific total. [uncertain]",
+  "double_degree_options": [],
+  "official_program_url": "https://www.corsi.univr.it/?ent=cs&id=1355&lang=en&menu=home",
+  "entry_requirements_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1355&lang=en&menu=iscriversi&tab=requisiti",
+  "language_evidence_url": "https://www.corsi.univr.it/?ent=cs&id=1355&lang=en&menu=home",
+  "official_call_url": null,
+  "call_metadata": {"call_scope": null, "publication_date": null, "last_modified": null, "supersedes_source_url": null},
+  "source_quotes": [
+    {"fields_supported": ["academic_year", "duration_years", "teaching_language", "campus", "degree_class", "admission_type_official_wording"], "quote": "Duration 2 years ... Admissions Subject to entry requirements ... Degree class LM-18 ... Administrative headquarters verona ... Language English", "source_url": "https://www.corsi.univr.it/?ent=cs&id=1355&lang=en&menu=home", "page_or_section": "Information Sheet", "academic_year": "2026/2027"},
+    {"fields_supported": ["academic_requirements", "language_requirements"], "quote": "Graduates of classes L-8 and L-31 ... are admitted without further curricular testing. An English language certification of level B2 is required.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1355&lang=en&menu=iscriversi&tab=requisiti", "page_or_section": "Curricular requirements", "academic_year": "2026/2027"},
+    {"fields_supported": ["academic_requirements", "entry_exam_or_test"], "quote": "The assessment consists of an analysis of the curriculum ... followed by an interview, if necessary.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1355&lang=en&menu=iscriversi&tab=requisiti", "page_or_section": "Personal preparation", "academic_year": "2026/2027"}
+  ],
+  "source_last_checked": "2026-09-05T00:00:00+03:00",
+  "applicant_category_notes": "The programme's ordinary ESSE3 route and the separate international pre-admission/visa route must not be conflated.",
+  "uncertainty_notes": [
+    {"field": "application_deadline_non_eu", "issue": "A programme-specific 2026/27 pre-admission deadline for non-EU applicants abroad was not found on the official programme page.", "conflict_type": "missing_2026_2027_source", "sources": ["https://www.univr.it/en/our-services/international-degree-seeking-students"], "resolution_needed": "Check the 2026/27 International Master's pre-admission call when published/indexed."},
+    {"field": "required_documents", "issue": "The public page confirms documents must be attached but does not expose a complete category-specific checklist in the captured content.", "conflict_type": "other", "sources": ["https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1355&lang=en&menu=iscriversi&tab=comeiscriversi"], "resolution_needed": "Retrieve the current Requirements Assessment Request Form."}
+  ],
+  "research_completeness": {"status": "partial", "verified_fields": ["programme_name", "level", "academic_year", "duration_years", "teaching_language", "campus", "degree_class", "admission_type", "academic_requirements", "language_requirements", "entry_exam_or_test"], "missing_fields": ["application_deadline_non_eu", "universitaly_deadline", "document_legalisation_translation_rules", "official_call_url"], "notes": "Core 2026/27 programme requirements are verified; international-route dates and full document rules remain unavailable."},
+  "uncertain": ["application_deadline_non_eu", "universitaly_deadline", "required_documents", "document_legalisation_translation_rules", "official_call_url", "tuition_amount_basis"]
+}

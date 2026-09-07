@@ -1,0 +1,107 @@
+{
+  "program_name": "Science and Technologies for Agriculture and Mountain Areas (STAM) - this is the current official name of the English-taught programme. The official English-programme catalogue still lists it under the older name 'Digital Management of Agriculture and Mountain Areas'. A separate, ITALIAN-taught page also exists under that older name (Italian: Gestione digitale dell'agricoltura e del territorio montano). Interclass LM-69 / LM-73.",
+  "level": "master",
+  "teaching_language": "English (fully). RESOLVED: the STAM pages state both in the course-detail box (\"Language: English\") and in the body (\"The official language of the program is English\"). The separate page still carrying the old name 'Digital management of agriculture and mountain areas' states \"Language: Italian\" and is a DIFFERENT, Italian-taught listing. Applicants must be directed to the STAM pages.",
+  "campus": "University Centre of Rieti (Polo Universitario di Rieti); Department of Agriculture and Forest Sciences (DAFNE).",
+  "degree_class": "Interclass LM-69 (Agricultural Science and Technology) / LM-73 (Forest and Environmental Science and Technology). Two separate STAM pages exist, one per class; curricula: Digital Agriculture (LM-69) and Mountain Areas Management (LM-73).",
+  "admission_type": "open access",
+  "academic_requirements": "STAM entry requirements as published in English on the official STAM page: a minimum of 24 CFU/ECTS, split as 12 ECTS in physics, mathematics, informatics, statistics, chemistry and information systems (PHYS-01 to PHYS-06; MATH-01 to MATH-06; INFO-01 Informatics; STAT-01 Statistics; CHEM-01 to CHEM-07; IINF-05/A information systems), and 12 ECTS in agriculture, forestry, botany and plant physiology (AGRI-01 to AGRI-14; BIO-01/A General Botany; BIO-01/B Systematic Botany; BIO-01/C Applied and Environmental Botany; BIO-02 Plant Physiology). Note these are the NEW Italian SSD codes. The older Italian didactic regulation (Reg.to-GEDAM-2024, D.R. 435/24 of 16.09.2024) uses legacy SSD codes and a different 6+12+6 split; that regulation belongs to the Italian-named listing. [uncertain] which document governs 2026/2027 admission.",
+  "language_requirements": "English B2 (CEFR) per the university-wide rule for English-taught programmes: certified by IELTS, TOEFL, TCL, Cambridge First, PTE Academic, Oxford Test of English, Aptis ESOL General or Aptis Advanced, or by an English-as-Medium-of-Instruction certificate for previous university studies. No programme-specific English threshold is published on the STAM pages; English proficiency is additionally verified inside the admission interview, so a certificate is not strictly indispensable. No Italian test is required for English-taught programmes. [uncertain]",
+  "entry_exam_or_test": "Open access ('ad accesso non programmato'), no numerus clausus and no TOLC. Admission is by ORAL INTERVIEW: the Didactic Commission verifies curricular requirements and personal preparation (in person or remote, with prior identification of the candidate), and the same interview verifies English proficiency. The STAM page links two interview-booking forms: https://forms.gle/M4GKbzq6XApavtA26 and https://forms.gle/mQirhzGg8rzvatCU8 . [uncertain] which of the two forms corresponds to which class/curriculum, and whether interview sessions beyond those published will be added.",
+  "application_deadline_eu": "[uncertain] No programme-specific application deadline is published on the official programme page or in the didactic regulation (open access, rolling admission via interview). University-wide 2026/2027 enrolment calendar applies: 2026-08-01 to 2026-12-29 (1st-year Master's students); 2026-11-04 for bachelor's and 2nd-year-and-beyond Master's students (plus 1st instalment); extension to 2027-02-28 for January/February 2027 graduates.",
+  "application_deadline_non_eu": "[uncertain] No programme-specific deadline published on the official page; DAFNE department-wide guidance states pre-enrolment applications for Master's degrees should be sent by email to dafne@unitus.it (and gedam@unitus.it for this specific programme), following the department's published calendar of admission interviews (https://www.unitus.it/en/departments/dafne/didactics/masters-degrees-pre-enrolment-application-and-calendar-of-interviews/). University-wide non-EU visa cutoff: 2026-11-30 (consulate visa application); onsite enrolment via International Students Desk opens 2026-08-01; Universitaly pre-enrolment applies per the national timeline.",
+  "required_documents": [
+    "First-level degree diploma (Laurea, class L-25 or, via the alternative route, another class/master's/foreign degree) - certified copy + Apostille/legalization + certified Italian translation, OR CIMEA Statement of Verification",
+    "Full academic transcript of records (needed to verify CFU/SSD distribution for the alternative admission route)",
+    "Declaration of Value (Dichiarazione di Valore) from the Italian consulate, OR CIMEA Statement of Comparability, OR ARDI Statement of Correspondence (for foreign qualifications)",
+    "Diploma Supplement (can substitute Declaration of Value if legalized)",
+    "English language certification (B2) if available - otherwise verified during the admission interview",
+    "Admission letter (issued after successful interview/verification by the Commissione Didattica)",
+    "[uncertain] Passport/ID, photo, CV, pre-enrolment email to dafne@unitus.it / gedam@unitus.it - inferred from DAFNE department-wide process description, not explicitly itemized on this programme's own page"
+  ],
+  "tuition_or_fees_link": {
+    "url": "https://www.unitus.it/en/students/fees-and-contributions/",
+    "note": "ISEE-based tiered tuition (ISEEUP model). Non-EU students without an ISEEUP declaration pay a flat fee based on country income band: 4 bands of EUR 600 / 1,050 / 1,500 / 1,950 per year (see Annex 1 country list). Full regulations: https://www.unitus.it/wp-content/uploads/2026/07/TUITION-FEES-AND-CONTRIBUTIONS-REGULATIONS_2026-2027.pdf"
+  },
+  "official_program_url": "https://www.unitus.it/en/courses/second-cycle-degree/science-and-technologies-for-agriculture-and-mountain-areas-lm-69/ (LM-69 / Digital Agriculture curriculum) and https://www.unitus.it/en/courses/second-cycle-degree/science-and-technologies-for-agriculture-and-mountain-areas-lm-73/ (LM-73 / Mountain Areas Management curriculum). Programme contact: stam@unitus.it",
+  "official_call_url": "https://www.unitus.it/wp-content/uploads/2024/09/Reg.to-GEDAM-2024-1.pdf",
+  "source_quotes": [
+    {
+      "field": "academic_requirements",
+      "quote": "Entry requirements The minimum academic requirements are at least 24 CFU, broken down as follows: 12 ECTS in the scientific educational sectors of physics, mathematics, informatics, statistics, chemistry, information system ... 12 ECTS in the educational sectors of agriculture, forestry, botany, plant physiology",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/science-and-technologies-for-agriculture-and-mountain-areas-lm-69/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "program_name",
+      "quote": "The international Master's Degree program in Science and technologies for agriculture and mountain areas (STAM) ... The program is structured as an interclass Master's Degree in LM-69 (Agricultural Science and Technology) and LM-73 (Forest and Environmental Science and Technology).",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/science-and-technologies-for-agriculture-and-mountain-areas-lm-69/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "teaching_language",
+      "quote": "Headquarter University center of Rieti | Department Agriculture and Forest Sciences | Language Italian | Course lenght 2 years | Admission Oral interview",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/digital-management-of-agriculture-and-mountain-areas/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "teaching_language",
+      "quote": "Headquarter University center of Rieti | Department Agriculture and Forest Sciences | Language English | Course Lenght 2 years | Admission Oral interview",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/science-and-technologies-for-agriculture-and-mountain-areas-lm-69/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "teaching_language",
+      "quote": "The official language of the program is English.",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/science-and-technologies-for-agriculture-and-mountain-areas-lm-69/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "admission_type",
+      "quote": "Il Corso di studio è ad accesso non programmato.",
+      "url": "https://www.unitus.it/wp-content/uploads/2024/09/Reg.to-GEDAM-2024-1.pdf",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "possesso di laurea di primo livello della classe L25 Scienze e Tecnologie Agrarie e Forestali (di almeno 180 crediti) conseguita in Università italiane o titolo conseguito all'estero riconosciuto come idoneo... Possono inoltre accedere al corso di Laurea Magistrale, sulla base dell'esame effettuato da parte della Commissione didattica, anche coloro che siano in possesso di una laurea triennale di altra classe... purché abbiano conseguito almeno 24 CFU così ripartiti.",
+      "url": "https://www.unitus.it/wp-content/uploads/2024/09/Reg.to-GEDAM-2024-1.pdf",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "conoscenza della lingua inglese, in forma scritta e orale, almeno ad un livello che consenta l'utilizzo della letteratura scientifica internazionale (livello B2 Quadro Comune Europeo di riferimento per la conoscenza della lingua), attestata dal possesso di una adeguata certificazione linguistica o, in assenza di questa, dal superamento di un apposito colloquio.",
+      "url": "https://www.unitus.it/wp-content/uploads/2024/09/Reg.to-GEDAM-2024-1.pdf",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "entry_exam_or_test",
+      "quote": "La verifica di cui al comma 4 è svolta tramite un colloquio, in presenza o a distanza, previa identificazione del candidato, che preveda anche la verifica della conoscenza della lingua inglese.",
+      "url": "https://www.unitus.it/wp-content/uploads/2024/09/Reg.to-GEDAM-2024-1.pdf",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "teaching_language",
+      "quote": "Headquarter University center of Rieti Department Agriculture and Forest Sciences Language Italian Course lenght 2 years Admission Oral interview",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/digital-management-of-agriculture-and-mountain-areas/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "campus",
+      "quote": "Location Consorzio Sviluppo Industriale di Rieti, Via dell'Elettronica, 02100 Rieti",
+      "url": "https://www.unitus.it/wp-content/uploads/2023/05/Corsi-di-Laurea-UNITUS-Digital-management-of-agriculture-and-mountain-areas.pdf",
+      "accessed": "2026-09-05"
+    }
+  ],
+  "uncertainty_notes": "NAMING CONFLICT RESOLVED 2026-09-05 by direct comparison of the raw pages. The English-taught programme is published as 'Science and Technologies for Agriculture and Mountain Areas' (STAM) on two pages, one per degree class, both stating Language: English and 'The official language of the program is English'. A separate page still titled 'Digital management of agriculture and mountain areas' states Language: Italian. The university's own English-programme catalogue lists the entry under the OLD name, which is why an earlier pass concluded the programme might be Italian-taught. ItalyPath must link to the STAM pages, not the Italian-named one.\nSTILL OPEN: (1) whether the Italian-named listing is a legacy page due for removal or a genuinely separate Italian cohort; (2) which didactic regulation governs 2026/2027 admission - the STAM page's new-code 12+12 CFU split, or the 2024 GEDAM regulation's legacy-code split; (3) no programme-specific application deadline is published, so both deadline fields rest on the university-wide 2026/2027 calendar (enrolment 2026-08-01 to 2026-12-29 for 1st-year Master's; non-EU visa cutoff 2026-11-30); (4) only three interview dates (29 Jul / 25 Aug / 22 Sep, 15:00) were found published, two already past and with no year stated; (5) no programme-specific required-documents list exists - the shared Universitaly baseline was substituted. Recommended: confirm with stam@unitus.it or Prof. Simone Priori (simone.priori@unitus.it).",
+  "uncertain": [
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "entry_exam_or_test",
+    "required_documents",
+    "academic_requirements",
+    "language_requirements",
+    "official_call_url",
+    "degree_class"
+  ]
+}

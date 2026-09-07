@@ -1,0 +1,341 @@
+{
+  "program_name": "Master's Degree Programme in Marketing",
+  "level": "master",
+  "teaching_language": {
+    "primary": "English + Italian",
+    "granularity": "english_track_of_bilingual",
+    "majors_language": [
+      {
+        "major": "Marketing Strategy, Management and Communication",
+        "language": "English",
+        "note": "Shown on the Luiss programme page with the UK flag label as the English-taught version of this major."
+      },
+      {
+        "major": "Marketing Strategy, Management and Communication",
+        "language": "Italian",
+        "note": "Shown on the Luiss programme page with the Italian flag label; parallel Italian-taught version of the same major."
+      },
+      {
+        "major": "Marketing Analytics and Data Science",
+        "language": "English",
+        "note": "Shown on the Luiss programme page with the UK flag label as the English-taught version of this major."
+      },
+      {
+        "major": "Marketing Analytics and Data Science",
+        "language": "Italian",
+        "note": "Shown on the Luiss programme page with the Italian flag label; parallel Italian-taught version of the same major."
+      }
+    ],
+    "summary": "The programme as a whole is bilingual: both majors exist in a fully English-taught version and a fully Italian-taught version, so an international applicant can complete the entire degree in English by selecting an English major. The degree is therefore IN SCOPE as an English-taught option (not italian_only).",
+    "in_scope_flag": "in_scope (English majors exist)"
+  },
+  "campus": "Rome, Italy (Luiss Guido Carli, Department of Business and Management; Viale Romania campus is the usual seat for Business and Management master's programmes). [uncertain] The programme page mentions Luiss facilities in Rome and Milan but does not name the specific building for this degree; the Milan mention appears to be a generic reference to Luiss facilities, not a delivery campus for this degree.",
+  "degree_class": "LM-77",
+  "admission_type": [
+    {
+      "route_name": "Luiss Test (Master's admission test) - EU/Schengen students",
+      "eligible_applicants": "EU/Schengen citizens holding, or about to hold, a three-year bachelor's degree qualifying for master's enrolment in Italy",
+      "test_or_certification": "Luiss Test for master's degree programmes: psycho-aptitude / academic-competence questions in a GMAT-inspired format, taken online on the Luiss Webtesting platform. Marketing IS accessible via this route (it is NOT part of the Finance and Management exception).",
+      "number_of_choices_allowed": "Up to two master's degree courses, in order of preference, within the same subject area",
+      "choice_is_binding": false,
+      "subject_area_group": "Economics (Marketing sits in the Economics/Business subject-area group together with Management, Finance, Strategic Management and Amministrazione, Finanza e Controllo; the alternative group is Law / Political Science). [uncertain] The subject-area grouping is inferred from the minimum-curricular-requirements grouping rather than an explicit list on the test page.",
+      "application_fee": "EUR 150 (non-refundable participation fee)"
+    },
+    {
+      "route_name": "Direct admission with GMAT/GRE certification - EU/Schengen students",
+      "eligible_applicants": "EU/Schengen citizens holding, or about to hold, a qualifying three-year bachelor's degree and a valid GMAT or GRE score",
+      "test_or_certification": "GMAT minimum 515 out of 805, OR GRE minimum 154 out of 170 in BOTH the Verbal and the Quantitative sections. This route explicitly covers all Luiss master's degree courses EXCEPT Management and Finance, so Marketing IS eligible.",
+      "number_of_choices_allowed": "One only",
+      "choice_is_binding": true,
+      "subject_area_group": "Not applicable - a single binding programme choice is made across the whole master's catalogue (except Management and Finance)",
+      "application_fee": "EUR 150 (non-refundable)"
+    },
+    {
+      "route_name": "Luiss Test (Master's admission test) - non-EU / non-Schengen students",
+      "eligible_applicants": "Non-EU / non-Schengen citizens who have completed or are completing a three-year degree qualifying them for master's enrolment in Italy; foreign qualifications subject to validity check by the Luiss Admissions Office",
+      "test_or_certification": "Same Luiss Test for master's degree programmes, run as a dedicated non-EU process",
+      "number_of_choices_allowed": "Up to two master's degree programmes in order of preference",
+      "choice_is_binding": false,
+      "subject_area_group": "Economics [uncertain] - same grouping assumption as the EU route",
+      "application_fee": "EUR 150 (non-refundable)"
+    },
+    {
+      "route_name": "Certified selection / admission with international qualifications - non-EU / non-Schengen students",
+      "eligible_applicants": "Non-EU / non-Schengen citizens holding the international qualifications required for entry to Luiss master's degree courses",
+      "test_or_certification": "Evaluation of academic qualifications; direct admission is granted where a valid GMAT or GRE certificate with the required minimum scores is submitted. This route explicitly excludes Finance and Management, so Marketing IS eligible. [uncertain] The 2027/2028 notice with exact scores and rounds is not yet published.",
+      "number_of_choices_allowed": null,
+      "choice_is_binding": null,
+      "subject_area_group": "Not applicable",
+      "application_fee": null
+    },
+    {
+      "route_name": "Admission route for Luiss internal students",
+      "eligible_applicants": "Luiss undergraduates, graduates and students",
+      "test_or_certification": "Dedicated Luiss-students admission test / internal procedure. [uncertain] Details for 2027/2028 not yet published; Luiss also historically grants direct access to high-GPA internal graduates.",
+      "number_of_choices_allowed": null,
+      "choice_is_binding": null,
+      "subject_area_group": null,
+      "application_fee": null
+    },
+    {
+      "route_name": "NOT APPLICABLE: Finance and Management special selection",
+      "eligible_applicants": "Not applicable to Marketing",
+      "test_or_certification": "Verified: the special selection page covers ONLY the Master's Degrees in Finance and Management (requiring GMAT minimum 555/805 or GRE minimum 157/170 in both sections, with the Luiss Test not valid). Marketing is NOT listed there, confirming Marketing follows the GENERAL master admission rules and the Luiss Test IS valid for it.",
+      "number_of_choices_allowed": null,
+      "choice_is_binding": null,
+      "subject_area_group": null,
+      "application_fee": null
+    }
+  ],
+  "academic_requirements": {
+    "prior_qualification": "A three-year (first-level) bachelor's degree, or a foreign qualification awarded after at least 3 academic years (or 4, depending on the school system) that entitles the holder to enrol in graduate programmes in the awarding country. Professional and vocational qualifications are not accepted. The degree must be obtained by 18 November 2027 for the 2027/2028 Luiss Test route.",
+    "minimum_curricular_requirements": "Direct curricular eligibility for the group of master's programmes covering Management, Finance, Strategic Management, Marketing and Amministrazione, Finanza e Controllo is granted to holders of Italian degree classes L-18 (D.M. 270/04) and 17 (D.M. 509/99) - Economics and Business Management, and L-33 (D.M. 270/04) and 28 (D.M. 509/99) - Economics. Fallback for all other bachelor programmes: at least 24 university credits (ECTS) in total, already earned or still to be earned, spread across at least three of the subject areas Business, Economics, Statistics and Law.",
+    "minimum_grade_or_gpa": "[uncertain] No minimum grade or GPA is stated on the minimum-curricular-requirements page for Marketing. Luiss has historically granted direct access to its own graduates with a high weighted average, but no 2027/2028 threshold was found published.",
+    "country_specific_rules": "[uncertain] Not found in a Marketing-specific form. Luiss publishes general rules for foreign qualifications rather than a per-country minimum-grade table on the master's pages consulted.",
+    "document_recognition": "Depends on the awarding country: Diploma Supplement for signatories of the Lisbon Recognition Convention; Statement of Verification or Apostille for ARDI countries; Statement of Comparability (CIMEA) or Declaration of Value for all other countries. Foreign qualifications are validity-checked by the Luiss Admissions Office.",
+    "compensatory_measures": "[uncertain] No compensatory or bridging measures for master's entry were found published for Marketing; the ECTS fallback (24 credits across at least three subject areas, which may still be earned) effectively serves this role."
+  },
+  "language_requirements": {
+    "required_level": "B2 in the language of instruction. For the English-taught majors, English at B2 or above; for the Italian-taught majors, Italian at B2 or above.",
+    "accepted_certificates": "[uncertain] The master's admission pages consulted do not publish a per-certificate score table. Score levels commonly published by Luiss at the B2 threshold are IELTS 6.0, TOEFL iBT 78-80, Cambridge FCE grade B and Cambridge CAE grade C, but the pages where these appear relate to exchange/other Luiss programmes, so they should be treated as indicative and re-checked in the 2027/2028 admission notice due from November 2026.",
+    "assessed_in_test": "Yes, in effect: the language route of the Luiss Test determines programme access. Taking the master's Luiss Test in English gives access to courses taught in both Italian and English; taking it in Italian gives access only to Italian-taught courses. [uncertain] Whether a separately scored English section sits inside the master's test, as opposed to the test simply being sat in English, is not stated explicitly on the pages consulted.",
+    "exemptions": "[uncertain] No exemption list (e.g. for applicants whose prior degree was taught in English) was found published on the master's admission pages consulted.",
+    "italian_requirement_note": "Applicants targeting the Italian-taught majors of Marketing must have Italian at B2; non-EU applicants to Italian-taught programmes are required to submit a certificate evidencing at least level B2 in Italian. The English-taught majors do not require Italian."
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "route": "Luiss Test - EU/Schengen",
+        "application_window": "From December 2026 to 8 April 2027",
+        "test_dates": "From 19 to 22 April 2027",
+        "results": "[uncertain] Not published on the pages consulted",
+        "enrolment_deadline": "By 22 June 2027"
+      },
+      {
+        "route": "Direct admission with GMAT/GRE certification - EU/Schengen",
+        "application_window": "From December 2026 to 31 March 2027",
+        "test_dates": "Not applicable - certification-based, no Luiss Test sitting",
+        "results": "[uncertain] Not published on the pages consulted",
+        "enrolment_deadline": "By 18 May 2027"
+      }
+    ],
+    "enrolment_deadline": "22 June 2027 (Luiss Test route); 18 May 2027 (GMAT/GRE direct admission route)",
+    "degree_completion_deadline": "By 18 November 2027 (bachelor's degree must be obtained by this date)",
+    "academic_year": "2027/2028",
+    "cycle_status": "notice not yet published",
+    "note": "The calendar above is published in summary form on the 2027/2028 EU/Schengen pages, but Luiss states the full admission notices with all requirements and the complete calendar will only be available from November 2026. The 2026/2027 cycle is closed (master's enrolment deadline 15 June 2026); Luiss now describes 2026/2027 procedures as concluded."
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "route": "Luiss Test - non-EU / non-Schengen",
+        "application_window": "From December 2026 to 8 April 2027",
+        "test_dates": "From 19 to 22 April 2027",
+        "enrolment_deadline": "By 22 June 2027"
+      },
+      {
+        "route": "Certified selection with international qualifications - non-EU / non-Schengen (excludes Finance and Management, so open to Marketing)",
+        "application_window": "[uncertain] Not yet published for 2027/2028",
+        "test_dates": "Not applicable - qualification/GMAT-GRE based",
+        "enrolment_deadline": "[uncertain] Not yet published for 2027/2028"
+      }
+    ],
+    "enrolment_deadline": "By 22 June 2027 for the non-EU Luiss Test route; not yet published for the certified-selection route",
+    "visa_or_preenrolment_notes": "[uncertain] The non-EU master's pages consulted do not detail Universitaly pre-enrolment, visa timelines or embassy procedures; these are expected in the full admission notice from November 2026. Non-EU applicants with foreign qualifications must have their degree validity verified by the Luiss Admissions Office and supply Diploma Supplement / Statement of Verification / Statement of Comparability or Declaration of Value depending on country.",
+    "academic_year": "2027/2028",
+    "cycle_status": "notice not yet published"
+  },
+  "required_documents": [
+    "Identity document or passport - REQUIRED (all routes)",
+    "Certificate of enrolment, or degree certificate with transcript of records - REQUIRED (all routes)",
+    "Valid official GMAT or GRE score report - REQUIRED for the direct-admission-with-certification route only; not required for the Luiss Test route",
+    "Payment receipt for the EUR 150 participation fee - REQUIRED",
+    "Diploma in the original language and in English - REQUIRED for applicants with a foreign qualification",
+    "Transcript of records in English - REQUIRED for applicants with a foreign qualification",
+    "Diploma Supplement (Lisbon Recognition Convention countries) / Statement of Verification or Apostille (ARDI countries) / Statement of Comparability (CIMEA) or Declaration of Value (all other countries) - REQUIRED, per awarding country",
+    "Declaration in lieu of certification - REQUIRED for applicants with a foreign qualification",
+    "English or Italian language certificate at B2 - [uncertain] apparently REQUIRED for non-EU applicants and for Italian-taught majors; the exact requirement for the EU Luiss Test route is not stated on the pages consulted",
+    "Curriculum vitae - OPTIONAL / [uncertain] not listed among required documents on the master's admission pages consulted",
+    "Motivation letter and reference letters - [uncertain] not listed for this programme's general routes; no evidence they are required"
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Luiss Test for Master's Degree Programmes (alternative route: GMAT or GRE as an external certification)",
+    "content": "Psycho-aptitude and academic-competence questions in a GMAT-inspired format, assessing logical reasoning, problem solving and quantitative/mathematical skills. [uncertain] The detailed section breakdown and question count for the MASTER'S test are not published on the pages consulted; the widely cited 50 questions in 75 minutes with +1 / -0.25 / 0 scoring is documented for the Luiss bachelor's and single-cycle test and should not be assumed identical for the master's test.",
+    "format": "Online, sat on the Luiss Webtesting platform. [uncertain] Proctoring arrangements and any on-campus option are not detailed on the pages consulted.",
+    "dates": "19 to 22 April 2027 (same window for the EU/Schengen and non-EU routes), for the 2027/2028 academic year",
+    "fee": "EUR 150, non-refundable",
+    "language_of_test": "The candidate chooses Italian or English. Taking the test in ITALIAN grants access only to Italian-taught courses - which for Marketing means only the two Italian-language majors. Taking the test in ENGLISH grants access to courses taught in both Italian and English - so an English sitting is required to reach the English-taught Marketing majors, and it also keeps the Italian majors open.",
+    "interview": "[uncertain] No interview is mentioned for the general master's routes. Luiss states elsewhere that applicants without a language certificate may be invited to an interview to verify their level of English, but this was not confirmed on the Marketing or general master's admission pages."
+  },
+  "tuition_or_fees_link": {
+    "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/marketing",
+    "annual_amount": "EUR 15,000.00 per year, divided into 3 instalments, plus the regional student welfare tax. NOTE: this contradicts the EUR 16,000 standard master's figure assumed in the research outline - the Luiss Marketing page currently states EUR 15,000, while Management and Finance are listed at EUR 17,000 (not EUR 18,000). Marketing is at the standard, lower tier.",
+    "scholarship_url": "https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027/magistrali-2026-2027-academic-year"
+  },
+  "official_program_url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/marketing",
+  "official_call_url": [
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/certified-selection-students-outside-eu-and-schengen-area",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/students-foreign-qualifications-admission-requirements-masters-degrees",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degree-programs-20262027-luiss-students/admission-test-luiss-students",
+    "https://apply.luiss.it/"
+  ],
+  "source_quotes": [
+    {
+      "field": "admission_type",
+      "quote": "Candidates may specify up to two master's degree courses within the same subject area (Economics or Law/Political Science).",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "Selection for EU/Schengen students to access all Luiss Master's degree courses, except for Management and Finance.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "The selection process for the Master's Degrees in Finance and Management is aimed at candidates interested in programmes within the Finance and Management field.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "minimum score of 515 (out of 805)",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "minimum score of 154 (out of 170) in the Verbal and Quantitative sections",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "apply for only one of the available Master's degree courses",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "If you choose to take the Test in Italian, you will only be able to apply for courses taught in Italian.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "If you choose to take the Test in English, you will be able to apply for courses in both Italian and English.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "From December 2026 to 8 April 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "From 19 to 22 April 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "By 22 June 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "By 18 November 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "From December 2026 to 31 March 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "By 18 May 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "Submission of applications: From December 2026 to 8 April 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "The admission notices, detailing all requirements, participation procedures, and the full calendar, will be available from November 2026.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "up to two Master's degree programmes in order of preference",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "at least 24 university credits in total (either already earned or still to be earned) in at least three of the following subject areas: Business, Economics, Statistics, Law",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "The annual single tuition fee for enrolment in the Master's Degree Programme in Marketing is 15,000.00 euro, divided into 3 instalments, plus the regional student welfare tax.",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/marketing",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "entry_exam_or_test",
+      "quote": "Admission is based on a test comprising psycho-aptitude and academic competence questions, similar to the GMAT.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students",
+      "accessed_date": "2026-09-04"
+    }
+  ],
+  "uncertainty_notes": [
+    "ACADEMIC YEAR vs CYCLE: The admission URLs still carry the '20262027' slug, but the page CONTENT has already been switched to the 2027/2028 cycle (dates December 2026 to April 2027, enrolment June 2027). No '20272028' URL variant exists yet. Luiss states the 2026/2027 procedures are concluded and that the full 2027/2028 admission notices will only be available from November 2026 - so as of 2026-09-04 the calendar recorded here is a published summary, not the binding notice. cycle_status is therefore 'notice not yet published' for both EU and non-EU.",
+    "2026/2027 (secondary/archival): that cycle is CLOSED; Luiss describes its procedures as complete, consistent with the 15 June 2026 master enrolment deadline given in the task brief. No archival 2026/2027 date table was retrievable from the live pages, which have been overwritten with 2027/2028 content.",
+    "ENGLISH / ITALIAN MAJOR SPLIT (verified): Marketing is genuinely bilingual, not English-only. It offers FOUR majors - Marketing Strategy, Management and Communication and Marketing Analytics and Data Science - each existing in BOTH an English and an Italian version, flagged with UK/Italian flags on the programme page. The programme is therefore in scope as an English option; an applicant must sit the Luiss Test IN ENGLISH to reach the English majors. Sitting it in Italian locks the applicant to the Italian majors only.",
+    "LUISS TEST ELIGIBILITY (verified): Marketing is NOT on the Finance/Management exception list. The special-selection page names only Finance and Management, so the Luiss Test IS valid for Marketing, and the GMAT/GRE direct route explicitly covers 'all Luiss Master's degree courses, except for Management and Finance', which likewise includes Marketing.",
+    "SOURCE CONFLICT ON GMAT/GRE THRESHOLDS: the general direct-admission route requires GMAT 515 / GRE 154, while the Finance and Management special selection requires the HIGHER GMAT 555 / GRE 157. Marketing uses the general, lower thresholds.",
+    "SOURCE CONFLICT ON TUITION: the research outline assumed EUR 16,000 as the standard master's fee with EUR 18,000 for exceptions. The live Luiss pages show EUR 15,000 for Marketing (and for International Relations, Data Science and Management, and Economics, Institutions and Financial Markets) with EUR 17,000 for Management and Finance. The outline figures appear to be from an earlier fee schedule. The EUR 15,000 figure is quoted verbatim from the Marketing programme page.",
+    "INACCESSIBLE PAGE: https://www.luiss.it/en/students/student-office/masters-degree-programs/tuition-fee-amounts-and-deadlines returned HTTP 404. The equivalent content appears to be served from backoffice.luiss.it / api.luiss.it mirrors, which are not canonical and were not cited.",
+    "ENGLISH CERTIFICATE SCORES UNVERIFIED: the specific list IELTS 6.0 / TOEFL iBT 78-80 / Cambridge FCE grade B / Cambridge CAE grade C could not be confirmed on any master's admission page on www.luiss.it. It surfaces on Luiss exchange-student and fact-sheet material. The B2 requirement itself is well supported; the score table should be re-verified against the November 2026 admission notice.",
+    "TEST CONTENT UNVERIFIED FOR MASTER'S: the 50-questions-in-75-minutes format with +1 / -0.25 / 0 scoring is documented for the Luiss BACHELOR'S and single-cycle test, not confirmed for the master's test. The master's test is described only as GMAT-like psycho-aptitude plus academic competence.",
+    "NON-EU DETAIL GAP: no rounds, required-document checklist, visa or Universitaly pre-enrolment timeline is published yet for the non-EU certified-selection route for 2027/2028; only the non-EU Luiss Test calendar is available and it mirrors the EU calendar exactly.",
+    "SUBJECT AREA GROUP INFERRED: no page consulted states outright that Marketing sits in the 'Economics' choice group. It is inferred from the minimum-curricular-requirements document, which groups Marketing with Management, Finance, Strategic Management and Amministrazione, Finanza e Controllo, all clearly Economics-side rather than Law/Political Science.",
+    "CAMPUS NOT EXPLICIT: the programme page references Luiss facilities in Rome and Milan without naming the delivery building for Marketing. Rome is near-certain; the Viale Romania attribution is an inference from the Department of Business and Management's usual seat.",
+    "APPLY PORTAL: no Marketing-specific landing page on apply.luiss.it was identified; only the generic portal root is cited.",
+    "MINIMUM GRADE / GPA, COMPENSATORY MEASURES, COUNTRY-SPECIFIC RULES and LANGUAGE EXEMPTIONS: no published values found for this programme; all left as uncertain rather than guessed.",
+    "CV, motivation letter and reference letters are NOT listed as required documents for the general Luiss master's routes; they are recorded as optional/unverified rather than omitted, since Luiss may add them in the November 2026 notice."
+  ],
+  "uncertain": [
+    "campus",
+    "admission_type",
+    "academic_requirements",
+    "language_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "required_documents",
+    "entry_exam_or_test",
+    "tuition_or_fees_link",
+    "official_call_url"
+  ]
+}

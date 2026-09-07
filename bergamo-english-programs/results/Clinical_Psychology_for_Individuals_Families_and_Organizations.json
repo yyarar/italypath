@@ -1,0 +1,131 @@
+{
+  "program_name": "Clinical Psychology for Individuals, Families and Organizations",
+  "level": "master",
+  "teaching_language": "English (entire curriculum; the degree course also has a separate Italian-taught curriculum)",
+  "campus": "Campus Pignolo (Citta Alta), Bergamo",
+  "degree_class": "LM-51 / LM-51-R Psychology",
+  "access_type": "limited-selective access (locally restricted; 45 places for the English curriculum in 2026/27)",
+  "programme_name_history": "The current English curriculum is Clinical Psychology for Individuals, Families and Organizations. It belongs to the Master's Degree Course in Clinical Psychology, which also includes a separate Italian-language curriculum named Psicologia Clinica.",
+  "awarding_institution": "University of Bergamo",
+  "admission_type": "Selection call with a ranked admission procedure for a limited-access master's programme.",
+  "academic_requirements": "Applicants need a bachelor's degree. Holders of an Italian degree must have at least 88 CFU, distributed across all eight psychology disciplinary sectors: PSIC-01/A, PSIC-01/B, PSIC-01/C, PSIC-02/A, PSIC-03/A, PSIC-03/B, PSIC-04/A and PSIC-04/B. A foreign qualification must be issued by a legally recognized university or post-secondary higher-education institution, must permit access to second-cycle university study in the issuing system, and is assessed by the Selection Committee for suitability. Applicants with foreign qualifications must already hold the degree when pre-registering. The international application page warns that applicants without a psychology degree or a substantial number of psychology examinations are very unlikely to pass selection and discourages unrelated backgrounds.",
+  "curricular_requirements_cfu": {
+    "italian_degree_route": "At least 88 CFU distributed across every one of the eight psychology sectors.",
+    "sectors": [
+      "PSIC-01/A - General Psychology",
+      "PSIC-01/B - Neuropsychology and Cognitive Neuroscience",
+      "PSIC-01/C - Psychometrics",
+      "PSIC-02/A - Developmental and Educational Psychology",
+      "PSIC-03/A - Social Psychology",
+      "PSIC-03/B - Work and Organizational Psychology",
+      "PSIC-04/A - Dynamic Psychology",
+      "PSIC-04/B - Clinical Psychology"
+    ],
+    "foreign_degree_route": "No fixed CFU conversion is published; the Selection Committee evaluates the foreign qualification and its curricular suitability."
+  },
+  "entry_exam_or_test": "Yes. The 2026/27 selection has two stages: academic merit worth up to 70 points and an evaluation test worth up to 30 points. The test contains 30 multiple-choice questions with four options, covers all eight psychology disciplinary fields with particular emphasis on Dynamic Psychology and Clinical Psychology, and is conducted in English for this curriculum. Eligibility requires at least 72/100, after which admission follows ranking and available places.",
+  "interview_required": "No general programme interview is specified in the 2026/27 limited-access call. Non-native Italian speakers may undergo an oral Italian-language assessment if they do not provide the required B1/B2 certification.",
+  "interview_language": "Italian for the B1/B2 language assessment; the academic admission test is in English.",
+  "selection_scoring": "Academic merit: maximum 70/100, calculated by converting the weighted average of degree examinations proportionally from 30 to 70. Evaluation test: maximum 30/100. Minimum eligibility score: 72/100. Ties are resolved first by the higher academic-merit score and then in favor of the younger candidate. The international pre-evaluation also requires a five-section self-certification form covering degree suitability, English proficiency, final GPA, internships, and psychology-related extracurricular/professional experience.",
+  "degree_completion_deadline": "Applicants with an Italian qualification may participate as graduating students and, if ranked successfully, enrol conditionally when no more than 24 CFU (including any internship) plus the final examination remain; the bachelor's degree must be obtained by the extraordinary March/April 2027 session. Applicants completing missing single-course credits must do so by the January/February 2027 examination session. For applicants with a foreign qualification, the degree must already have been obtained at pre-registration; conditional application is not allowed.",
+  "application_channel": "Applicants with foreign qualifications use the official University of Bergamo DreamApply online pre-evaluation portal. Candidates then follow the limited-access pre-enrolment/selection procedure through UniBG online services; visa-seeking non-EU candidates also complete Universitaly pre-enrolment after admission.",
+  "language_requirements": "English at CEFR B2 is mandatory for admission to selection and must be proved by an accepted certificate obtained no more than five years before the admission academic year or by an eligible Medium of Instruction certificate for a completed degree taught entirely in English. Non-native Italian speakers additionally need Italian B1 for entry and B2 because practical training and the final Practical Evaluation Test are conducted in Italian. B1 must be demonstrated or passed through the University's assessment by 2026-09-30; B2 must be demonstrated or assessed by 2027-03-02. Failure to meet either Italian deadline results in cancellation of enrolment.",
+  "accepted_english_certificates": [
+    "IELTS: 5.5-6.5",
+    "TOEFL iBT: 79-95",
+    "TOEFL ITP: 543-600",
+    "TOEFL CBT: 213-240",
+    "Pearson PTE Academic: 46-64",
+    "Cambridge First Certificate/FCE: grades B or C",
+    "Trinity College ISE II",
+    "Pearson Test of English General: Level 3",
+    "BEC Vantage",
+    "TIE: minimum B2 in both oral and written components",
+    "Cambridge ESOL: Level 1",
+    "ESB ESOL International: minimum Pass with Merit",
+    "TOLIMO (Iran): no skill lower than 600",
+    "Medium of Instruction certificate for a completed degree taught entirely in English"
+  ],
+  "language_waiver_conditions": "A Medium of Instruction certificate issued by the registrar or international office is accepted for a completed degree taught entirely in English and is treated as B2. Unofficial certificates and self-declarations are not accepted. Native English-speaking applicants are exempt from submitting an English certificate or MOI. No waiver from the Italian requirement is stated for non-native Italian speakers.",
+  "application_deadline_eu": [
+    "2026-05-29 (first limited-access selection session)",
+    "2026-08-21 (second limited-access selection session)"
+  ],
+  "application_deadline_non_eu": [
+    "2026-01-31 23:59:59 GMT (2026/27 international pre-evaluation call for limited-access programmes)",
+    "2026-05-29 or 2026-08-21 for the subsequent limited-access selection procedure, subject to the route/instructions in the admission decision [uncertain]"
+  ],
+  "application_call_round": [
+    {
+      "route": "International online pre-evaluation second call for limited-access master's programmes",
+      "application_period": "2026-01-01 to 2026-01-31",
+      "assessment_period": "March-April 2026",
+      "results": "By 2026-04-30"
+    },
+    {
+      "route": "First 2026/27 limited-access selection session",
+      "application_period": "2026-04-01 to 2026-05-29",
+      "places": "45 places are assigned to the English curriculum across the call's allocations [uncertain]"
+    },
+    {
+      "route": "Second 2026/27 limited-access selection session",
+      "application_period": "2026-07-01 to 2026-08-21",
+      "places": "Any places allocated to this session under the official call/rankings [uncertain]"
+    }
+  ],
+  "results_notification_date": "International pre-evaluation results are published by 2026-04-30. Exact ranking-publication dates for both domestic limited-access sessions were not recoverable from the directly accessible official page [uncertain].",
+  "max_programme_choices": 2,
+  "required_documents": [
+    "Bachelor's degree certificate, translated into English or Italian",
+    "Official transcript for the last three/four years, translated into English or Italian, or Diploma Supplement",
+    "Completed self-certification form covering degree suitability, English proficiency, final GPA, internships, and psychology-related extracurricular/professional experience",
+    "Accepted B2 English certificate or eligible Medium of Instruction certificate",
+    "Valid passport showing full name, photograph and signature",
+    "At least one reference",
+    "For candidates from other institutions, documentation needed to verify the required psychology CFU and English requirement"
+  ],
+  "references_required": "At least 1 reference",
+  "course_descriptions_required": "Not explicitly listed on the current DreamApply programme record; detailed transcripts and documentation permitting evaluation of psychology coursework are required [uncertain].",
+  "application_fee": "EUR 30 for the 2026/27 international online pre-evaluation route.",
+  "pre_enrolment_fee": "EUR 52 one-time, non-refundable fee for eligible applicants.",
+  "enrolment_deposit": "EUR 156 one-time, non-refundable enrolment fee payable on arrival in Italy.",
+  "tuition_or_fees_link": "https://en.unibg.it/study/enrollment/costs/taxes-and-benefits — official fees and benefits page. The official programme record lists a first tuition instalment of EUR 0-400 and a second instalment of EUR 0-1,700 depending on family income.",
+  "tuition_income_linked": "Yes. The official programme record states that both tuition instalments vary according to the student's family income.",
+  "official_program_url": "https://ls-pc.unibg.it/en",
+  "official_call_url": "https://www.unibg.it/sites/default/files/media/documents/2026-05-08/ENG_Bando%20ammissione%20LM%20Psicologia%20clinica%202026-2027.pdf",
+  "source_quotes": [
+    {
+      "source": "https://ls-pc.unibg.it/en/course/admission-requirements",
+      "quote": "have acquired, by the deadline of the registration for the selection, at least 88 university credits"
+    },
+    {
+      "source": "https://apply.unibg.it/courses/course/21-ma-clinical-psychology-individuals-families-and-organizations",
+      "quote": "This is a limited-access programme. Applicants must already hold a Bachelor's degree at the time of application."
+    },
+    {
+      "source": "https://www.unibg.it/sites/default/files/media/documents/2026-05-08/ENG_Bando%20ammissione%20LM%20Psicologia%20clinica%202026-2027.pdf",
+      "quote": "Only those candidates who obtain a score equal to or higher than 72/100 will be considered eligible"
+    },
+    {
+      "source": "https://www.unibg.it/sites/default/files/media/documents/2026-05-08/ENG_Bando%20ammissione%20LM%20Psicologia%20clinica%202026-2027.pdf",
+      "quote": "The test for the admission to the curriculum Clinical Psychology for individuals, families and organizations will be in English."
+    },
+    {
+      "source": "https://ls-pc.unibg.it/en/course/admission-requirements",
+      "quote": "A B1 level Italian language must be demonstrated by September 30th, 2026."
+    },
+    {
+      "source": "https://www.unibg.it/studiare/iscriversi/corsi-laurea-magistrale-ad-accesso-programmato",
+      "quote": "The pre-registration for the second selection session for the 2026-2027 academic year is scheduled from July 1 to August 21, 2026."
+    }
+  ],
+  "uncertainty_notes": "Current 2026/27 official UNIBG sources were used. The programme-specific admission page, official programme record, and indexed text of the English 2026/27 selection call were available, although direct automated access to parts of www.unibg.it and the PDF returned HTTP 403. The foreign-qualification route clearly requires the completed degree at application, whereas the central selection call allows conditional completion for qualifying Italian-degree candidates. Exact ranking dates and the per-session distribution of the 45 English-curriculum places were not fully recoverable and are marked uncertain. The second domestic selection deadline was published as 2026-08-21; the exact need for already pre-evaluated non-EU candidates to enter each domestic selection session depends on their admission instructions and is marked uncertain.",
+  "source_access_status": "Official UNIBG sources only. The programme admission page and DreamApply programme page were accessible directly through indexed page content. The central limited-access page and 2026/27 English call PDF were available through current search-engine indexing because direct fetching returned HTTP 403.",
+  "last_verified_date": "2026-09-05",
+  "uncertain": [
+    "application_deadline_non_eu",
+    "application_call_round",
+    "results_notification_date",
+    "course_descriptions_required"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "ma-geosciences-environmental-sustainability",
+  "program_name": "Scienze della terra per la gestione dei rischi e dell'ambiente — \"Geosciences for Environmental Sustainability\" curriculum (Curriculum 2)",
+  "level": "master",
+  "degree_code": "M0414",
+  "degree_class": "LM-74 R",
+  "teaching_language": "PARTIAL / CONTRADICTORY — UNIPG's official presentation states this curriculum is \"svolto interamente in lingua inglese\" / \"tenuto completamente in lingua inglese\" (i.e. claims 100% English), but the actual 2026/27 study plan shows 13 INGLESE / 3 ITALIANO modules for this curriculum specifically. Treat as MOSTLY English, not fully English — flag the marketing/study-plan contradiction explicitly rather than trusting the presentation text at face value. The other curriculum of the same degree, Curriculum 1 (Geologia Applicata alla Salvaguardia e alla Pianificazione del Territorio), is Italian-taught.",
+  "curriculum_name_en": "Geosciences for Environmental Sustainability (Curriculum 2)",
+  "campus": "Perugia",
+  "department": "Dipartimento di Fisica e Geologia",
+  "admission_type": "open access",
+  "places_available": "Not published for this curriculum specifically.",
+  "academic_requirements": "General Scienze della terra LM-74 admission requirements apply (Italian laurea triennale in a geology/earth-science-related class or equivalent CFU distribution, assessed by the department); the Geosciences for Environmental Sustainability curriculum choice is made at enrolment. Full CFU breakdown not retrieved in this pass — recommend a dedicated check of the Regolamento didattico (may parallel the sister programme Geology for Energy Resources, M0415, in the same department).",
+  "language_requirements": "Official quote (only applies if choosing this curriculum): \"Se il percorso formativo scelto dallo Studente è svolto interamente in inglese (Curriculum 2), è necessaria la conoscenza della lingua inglese almeno di Livello B2.\" B2 required. Students may be EXEMPTED from a certificate if they had at least 1 year of English-medium high school, an English-medium high-school diploma, or an English-medium bachelor's degree.",
+  "english_certificates_accepted": [
+    "IELTS 5.5-6.5", "TOEFL iBT 72-94", "Cambridge ESOL IGCSE",
+    "LanguageCert International ESOL B2 Communicator", "Gatehouse Awards GA Level 1 (Classic B2)",
+    "Pearson PTE General Level 3", "Trinity ISE II", "Oxford Test of English B2",
+    "(exemption) >=1 year of English-medium secondary schooling, English-medium diploma, or English-medium bachelor's degree"
+  ],
+  "entry_exam_or_test": "Not confirmed in this pass — likely curriculum/CV review with possible interview, similar to the sister programme Geology for Energy Resources in the same department. Needs dedicated verification.",
+  "nulla_osta_required": "Not confirmed in this pass — recommend checking UNIPG's online nulla-osta list.",
+  "required_documents": [
+    "Passport", "Foreign educational qualification documentation", "English B2 certificate (or documented exemption)",
+    "Universitaly pre-enrolment (non-EU)", "PICA application"
+  ],
+  "application_deadline_eu": "EU/legally-residing applicants: PICA pre-enrolment from 1 July 2026 (no published closing date); SOL enrolment for open-access master closes 1 March 2027.",
+  "application_deadline_non_eu": "UNCONFIRMED — the deadline table explicitly names 'Geology for Energy Resources' (M0415) under PICA call 2026-visa-02 (until 30 Sept 2026, still open) alongside Civil Engineering, but this is a DIFFERENT programme (M0414, 'Scienze della terra per la gestione dei rischi e dell'ambiente') with a similar name — it is not confirmed whether M0414 is grouped with M0415 or falls under the general window (2026-visa-03, closed 7 June 2026). Needs a dedicated check before publishing a deadline; do not assume the two Earth-science programmes share a PICA group just because they are both run by Dipartimento di Fisica e Geologia.",
+  "tuition_or_fees_link": "https://www.unipg.it/en/international-students/becoming-a-unipg-student/tuition-fees-and-scholarships",
+  "tuition_range": "EUR 150-2,200/year via a 17-band ISEE table. Non-EU/foreign-income students use a fixed Flat Tax by home-country UNDP Human Development bracket (Turkey = HIGH HD = EUR 800/year + EUR 16 stamp) or ISEEU Parificato via an affiliated CAF. Declaration window 3 Aug-20 Oct 2026 (late to 1 Mar 2027; missing 28 Feb defaults to the maximum band, ~EUR 2,096).",
+  "cimea_requirement": "Not specified at programme level; see university-wide study-documents page for CIMEA/blackout-date rules.",
+  "double_degree": "Not found for this curriculum in this research pass.",
+  "official_program_url": "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8226",
+  "official_call_url": null,
+  "source_quotes": [
+    {"quote": "Gli Studenti possono scegliere tra due Curricula: - Curriculum 1 (Geologia Applicata alla Salvaguardia e alla Pianificazione del Territorio); - Curriculum 2 (Geosciences for Environmental Sustainability), svolto interamente in lingua inglese", "url": "https://www.unipg.it/didattica/corsi-di-laurea-e-laurea-magistrale/archivio/offerta-formativa-2026-27?view=elenco&idcorso=8226&annoregolamento=2026&tab=PRE", "field_supported": "curriculum_name_en"},
+    {"quote": "Se il percorso formativo scelto dallo Studente è svolto interamente in inglese (Curriculum 2), è necessaria la conoscenza della lingua inglese almeno di Livello B2", "url": "https://www.unipg.it/didattica/corsi-di-laurea-e-laurea-magistrale/archivio/offerta-formativa-2026-27?view=elenco&idcorso=8226&annoregolamento=2026&tab=PRE", "field_supported": "language_requirements"}
+  ],
+  "uncertainty_notes": "The programme's own presentation text claims 100% English delivery ('interamente', 'completamente') but the actual study plan shows 13 EN / 3 IT modules for this curriculum — a confirmed contradiction, flag prominently before publishing as 'fully English'. PICA deadline group is unconfirmed and must not be assumed identical to the similarly-named Geology for Energy Resources (M0415) programme. Academic requirements, entry-exam process, places available, and nulla-osta status were not retrieved and need dedicated follow-up. Data collected 2026-09-05, all sources unipg.it/*.unipg.it only.",
+  "research_date": "2026-09-05"
+}

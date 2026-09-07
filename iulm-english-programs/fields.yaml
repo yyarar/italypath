@@ -1,0 +1,146 @@
+# fields.yaml — IULM University (Milano) English-taught programmes
+# Research object = one degree programme. Deep-research phase emits one JSON per item.
+topic: "IULM University (Milano) English-taught bachelor & master programmes — admission requirements"
+schema_version: 1
+generated_at: "2026-09-06"
+
+source_policy:
+  allowed_domains:
+    - "iulm.it"
+    - "iulm.com"
+  rule: >
+    Only official IULM pages (iulm.it, iulm.com) may be used as the source of record.
+    Aggregator sites (studyportals, mastersportal, unipage, etc.) may be used only to
+    cross-check a name or lead but MUST NOT be cited; every fact must resolve to an
+    iulm.it or iulm.com URL.
+  year_policy: >
+    Prioritise academic year 2026/2027. If 2026/27 information is not yet published for
+    a programme, use the most recent official year (2025/2026) and state this explicitly
+    in uncertainty_notes.
+  quoting_rule: >
+    Every non-trivial field must be backed by a short verbatim quote in source_quotes
+    (max ~30 words each) with the exact page URL it came from. Never paraphrase a
+    deadline, fee or quota as if it were quoted.
+
+fields:
+
+  identity:
+    - name: program_name
+      description: "Official programme name exactly as written on the iulm.it page (English name; note the Italian twin-course name in parentheses if one exists)."
+      detail_level: brief
+      type: string
+      required: true
+
+    - name: level
+      description: "Degree level."
+      detail_level: brief
+      type: enum
+      enum: [bachelor, master, single-cycle, other]
+      required: true
+
+    - name: teaching_language
+      description: "Language of instruction as stated officially. Distinguish fully English-taught from a partial/mixed Italian-English programme."
+      detail_level: moderate
+      type: string
+      required: true
+
+    - name: campus
+      description: "City / campus / teaching location as named on the official page (IULM is single-campus in Milano; note the specific building/site if given)."
+      detail_level: brief
+      type: string
+      required: false
+
+    - name: degree_class
+      description: "Italian ministerial degree class code and label if shown (e.g. L-20, LM-59, LM-92, LM-49). Null if not published."
+      detail_level: brief
+      type: string
+      required: false
+
+  admission:
+    - name: admission_type
+      description: "How access is regulated."
+      detail_level: moderate
+      type: enum
+      enum: [open access, restricted access, TOLC, SAT, selection call, other]
+      required: true
+
+    - name: academic_requirements
+      description: "Prior qualification required (high-school diploma / bachelor degree, required degree classes or CFU prerequisites), ranking criteria (e.g. test score + school record weighting), quota/places available, and how foreign qualifications are assessed."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: language_requirements
+      description: "Required English level (e.g. B2) and accepted certificates with minimum scores, exemptions, and whether IULM's own placement/assessment test can substitute for a certificate. Note any Italian-language requirement too (some English-taught programmes still require Italian B1)."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: application_deadline_eu
+      description: "Application window(s) and deadline(s) for EU/Italian applicants for the covered academic year. IULM runs multiple sequential test sessions — list each session's application window and test date, and the enrolment-confirmation deadline after passing."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: application_deadline_non_eu
+      description: "Application window(s) and deadline(s) for non-EU applicants residing abroad, including apply.iulm.it / Universitaly pre-enrolment steps and any visa-related cut-offs the page states."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: required_documents
+      description: "Documents to submit: diploma/transcript (with certified translation for foreign qualifications), English (and Italian, if required) language certificate, passport, CV, motivation letter, reference letter, national entrance exam result where applicable."
+      detail_level: detailed
+      type: array_of_strings
+      required: true
+
+    - name: entry_exam_or_test
+      description: "Admission test format: written test structure/duration/topics, any preliminary English test, interview stage (note IULM's Hospitality and Tourism Management two-stage written+oral test), test fee, and test dates/sessions."
+      detail_level: detailed
+      type: string
+      required: true
+
+  sources:
+    - name: tuition_or_fees_link
+      description: "Official iulm.it URL for tuition fees (and scholarship/fee-waiver page if the programme page links one)."
+      detail_level: brief
+      type: url
+      required: false
+
+    - name: official_program_url
+      description: "Canonical iulm.it programme page URL."
+      detail_level: brief
+      type: url
+      required: true
+
+    - name: official_call_url
+      description: "URL of the admission call / bando / registration procedure page or PDF governing the covered year. Null if no programme-specific call exists beyond the general admission procedures PDF."
+      detail_level: brief
+      type: url
+      required: false
+
+    - name: source_quotes
+      description: "List of {quote, url, field_supported} objects. Short verbatim excerpts (<=30 words) from iulm.it/iulm.com pages backing the extracted values, especially deadlines, language level, admission type and quota numbers."
+      detail_level: detailed
+      type: array_of_objects
+      required: true
+
+  reliability:
+    - name: uncertainty_notes
+      description: "What could not be confirmed and why: 2026/27 details not yet published (state which year was used instead), page contradicts another page, apply.iulm.it inaccessible, dual-degree track has separate stricter requirements not fully captured, programme reported full/closed before final session, or fields left null."
+      detail_level: detailed
+      type: string
+      required: true
+
+# Reserved — auto-filled during the deep-research phase with fields the agent could
+# not resolve from official sources for a given item.
+uncertain: []
+
+# Candidate fields surfaced by the Step-2 web research agent but NOT added here per
+# explicit user decision (2026-09-06: "use the given fields as-is, no extra field
+# search"). Kept as a note in case scope is revisited later: places_available,
+# capacity_status_by_session, admission_test_sessions, application_window_per_session,
+# enrolment_confirmation_deadline, admission_test_fee, ranking_criteria,
+# accepted_english_certificates_and_minimum_scores, tuition_amount_international_flat_band,
+# tuition_installment_schedule, scholarships_and_fee_waivers, refund_policy,
+# dual_degree_partners_and_extra_requirements, curricula_specializations.

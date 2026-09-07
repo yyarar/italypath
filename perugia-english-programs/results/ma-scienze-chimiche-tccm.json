@@ -1,0 +1,40 @@
+{
+  "id": "ma-scienze-chimiche-tccm",
+  "program_name": "Scienze chimiche — \"Theoretical Chemistry and Computational Modelling\" (TCCM) curriculum",
+  "level": "master",
+  "degree_code": "M0103",
+  "degree_class": "LM-54 R",
+  "teaching_language": "This curriculum's own modules are fully English (5 INGLESE / 0 ITALIANO), but the degree's shared 'Comune a tutti i curricula' block (taken regardless of curriculum choice) is 6 INGLESE / 15 ITALIANO — so the degree is NOT 100% English end-to-end even though this curriculum's specific modules are. Official presentation: \"sono previsti 5 curricula di approfondimento dal titolo: ... Energy and Sustainability (in lingua inglese) - Theoretical Chemistry and Computational Modelling (in lingua inglese).\" The other 3 curricula (Chimica Fisica, Chimica Inorganica per l'Energia e la Catalisi, Chimica Organica) are Italian-taught.",
+  "curriculum_name_en": "Theoretical Chemistry and Computational Modelling (TCCM)",
+  "campus": "Perugia (+ Erasmus Mundus joint-degree mobility across EU partner universities, see notes)",
+  "department": "DCBB — Dipartimento di Chimica, Biologia e Biotecnologie",
+  "admission_type": "open access",
+  "places_available": "Not published for this curriculum specifically at UNIPG; the Erasmus Mundus TCCM joint master (see below) has its own separate, competitive, scholarship-linked admission process distinct from ordinary UNIPG open-access enrolment.",
+  "academic_requirements": "General Scienze chimiche LM-54 admission requirements apply (Italian laurea triennale in Chimica/Chemistry class L-27 or equivalent CFU distribution, assessed by the department); the TCCM curriculum choice is made at enrolment. Full CFU breakdown not retrieved in this pass — recommend a dedicated check of the Regolamento didattico. Note: enrolling via TCCM specifically as the entry route to the Erasmus Mundus Joint Master (EMJM) TCCM programme is a SEPARATE, competitive, EU-wide application process (coordinated by Universidad Autónoma de Madrid) with its own deadlines and requirements distinct from ordinary UNIPG admission — this item covers the UNIPG-internal curriculum; the EMJM route should be verified separately at emtccm.org if relevant.",
+  "language_requirements": "Admission requires only English B1 for the UNIPG-internal curriculum (consistent with the other verified Scienze economiche/ingegneria English-curriculum patterns at UNIPG). The Erasmus Mundus EMJM TCCM programme may have its own separate, likely stricter, English requirement — not verified in this pass.",
+  "english_certificates_accepted": [
+    "IELTS 5.5-6.5", "TOEFL iBT 72-94", "Cambridge ESOL IGCSE",
+    "LanguageCert International ESOL B2 Communicator", "Gatehouse Awards GA Level 1 (Classic B2)",
+    "Pearson PTE General Level 3", "Trinity ISE II", "Oxford Test of English B2"
+  ],
+  "entry_exam_or_test": "Not confirmed in this pass for the UNIPG-internal curriculum — likely curriculum/CV review as with other UNIPG open-access master's programmes. The Erasmus Mundus EMJM TCCM route is competitive and scholarship-linked with its own separate selection process (see emtccm.org) — not covered in this pass.",
+  "nulla_osta_required": "Not confirmed in this pass for the UNIPG-internal curriculum — recommend checking UNIPG's online nulla-osta list.",
+  "required_documents": [
+    "Passport", "Foreign educational qualification documentation", "English B1 certificate",
+    "Universitaly pre-enrolment (non-EU)", "PICA application (for the UNIPG-internal route)"
+  ],
+  "application_deadline_eu": "EU/legally-residing applicants: PICA pre-enrolment from 1 July 2026 (no published closing date); SOL enrolment for open-access master closes 1 March 2027. (Separate deadlines apply to the Erasmus Mundus EMJM TCCM route if pursued instead — not covered here.)",
+  "application_deadline_non_eu": "Non-EU visa applicants (UNIPG-internal route): this programme was not explicitly named in the confirmed PICA groupings. It most likely falls under the general window, PICA call 2026-visa-03, open 29 May-7 June 2026, 12:00 — CLOSED as of research date (2026-09-05) — but this is an inference, not a confirmed programme-specific citation.",
+  "tuition_or_fees_link": "https://www.unipg.it/en/international-students/becoming-a-unipg-student/tuition-fees-and-scholarships",
+  "tuition_range": "UNIPG-internal route: EUR 150-2,200/year via a 17-band ISEE table, or Flat Tax by home-country UNDP HD bracket (Turkey = HIGH HD = EUR 800/year + EUR 16 stamp) for non-EU/foreign-income students. The Erasmus Mundus EMJM TCCM route typically carries its own EU-funded scholarship/fee structure — not verified here.",
+  "cimea_requirement": "Not specified at programme level; see university-wide study-documents page for CIMEA/blackout-date rules.",
+  "double_degree": "The TCCM curriculum is UNIPG's designated entry route into the Erasmus Mundus Joint Master (EMJM) 'Theoretical Chemistry and Computational Modelling' — coordinator Universidad Autónoma de Madrid; consortium includes Barcelona, València, Toulouse III, Sorbonne, Perugia, Trieste, KU Leuven, Groningen (plus ~32 associated partners). Genuinely a JOINT degree (not merely a double degree): \"No matter in which university you enroll you would obtain a Joint Degree at the end of the program.\" 120 ECTS, 2 years, English, current cycle 2025-2030.",
+  "official_program_url": "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8026",
+  "official_call_url": "https://www.emtccm.org/",
+  "source_quotes": [
+    {"quote": "sono previsti 5 curricula di approfondimento dal titolo: - Chimica Fisica - Chimica Inorganica per l'Energia e la Catalisi - Chimica Organica - Energy and Sustainability (in lingua inglese) - Theoretical Chemistry and Computational Modelling (in lingua inglese)", "url": "https://www.unipg.it/didattica/corsi-di-laurea-e-laurea-magistrale/archivio/offerta-formativa-2026-27?view=elenco&idcorso=8026&annoregolamento=2026&tab=PRE", "field_supported": "curriculum_name_en"},
+    {"quote": "No matter in which university you enroll you would obtain a Joint Degree at the end of the program", "url": "https://www.emtccm.org/", "field_supported": "double_degree"}
+  ],
+  "uncertainty_notes": "Two distinct admission routes exist and must not be conflated: (1) ordinary UNIPG enrolment into Scienze chimiche choosing the TCCM curriculum, vs (2) the competitive, EU-wide Erasmus Mundus EMJM TCCM application via emtccm.org — this JSON covers route (1) primarily; route (2)'s deadlines/requirements/scholarships need dedicated verification at emtccm.org before publishing. Shared-block Italian modules (15 CFU across the degree, regardless of curriculum) mean this is not a 100%-English degree even though the TCCM curriculum's own modules are. PICA deadline group is an unconfirmed inference. Academic requirements, entry-exam process, places, and nulla-osta status not retrieved. Data collected 2026-09-05, all sources unipg.it/*.unipg.it plus emtccm.org (the EMJM consortium's own site, not a UNIPG subdomain — flagged as an exception to the unipg.it-only source policy because it is the only authoritative source for the joint-degree structure).",
+  "research_date": "2026-09-05"
+}

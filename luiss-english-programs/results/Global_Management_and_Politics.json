@@ -1,0 +1,298 @@
+{
+  "program_name": "Global Management and Politics",
+  "level": "master",
+  "teaching_language": {
+    "primary": "English",
+    "granularity": "fully_english",
+    "majors_language": "No formally named majors/tracks. The programme page lists the study plan under a single English flag (🇬🇧 Study Plan) with a Year II customisation of two elective courses. Unlike Marketing, Strategic Management, Administration Finance and Control, and Government and Public Affairs (which have separate Italian and English tracks), Global Management and Politics appears only once, in the 'Courses taught in English' column of every admission-route programme list."
+  },
+  "campus": "Rome, Italy (Luiss Guido Carli). The programme page does not name a specific campus building; Luiss headquarters is Viale Pola 12, 00198 Rome, and the Admissions Office is at Viale Romania 32, 00197 Rome.",
+  "degree_class": "LM-77",
+  "admission_type": [
+    {
+      "route_name": "Luiss Test (admission test) - EU/Schengen students",
+      "eligible_applicants": "EU-Schengen",
+      "test_or_certification": "Luiss admission Test, taken in Italian or English. Taking the Test in English gives access to both Italian-taught and English-taught programmes; taking it in Italian gives access only to Italian-taught programmes (so the English Test is required for Global Management and Politics). Rankings per first-choice course, out of 100, with a minimum admission threshold set per course by the Commission. English level B2 is assessed during the admission test.",
+      "number_of_choices_allowed": "Up to two master's degree courses, but both must be within the same subject area (Economics OR Law/Political Science)",
+      "choice_is_binding": false,
+      "subject_area_group": "Both - Global Management and Politics is listed in BOTH the Economics group and the Law/Political Science group on the 2027/2028 Luiss Test page, so it can be paired as a second choice with either an Economics programme or a Law/Political Science programme",
+      "application_fee": "EUR 150 (non-refundable participation fee)"
+    },
+    {
+      "route_name": "Direct admission with certifications (GMAT/GRE) - EU/Schengen students",
+      "eligible_applicants": "EU-Schengen",
+      "test_or_certification": "GMAT with a minimum score of 515 (out of 805), OR GRE with a minimum score of 154 (out of 170) in BOTH the Verbal and Quantitative sections. Applicants attach the certificate and authorise Luiss to receive the official score via gmac.com / mba.com (GMAT) or ets.org (GRE); an unofficial score may be attached at application time. Admission is direct, based on the certification, subject to Committee review and available places. Submitting GMAT/GRE is one of the ways the required B2 English level is verified.",
+      "number_of_choices_allowed": "Only one master's degree course",
+      "choice_is_binding": true,
+      "subject_area_group": "Both - Global Management and Politics is listed under both the Economics and the Law/Political Science headings, but only one programme may be selected and the choice is binding",
+      "application_fee": "EUR 150 (mandatory, non-refundable participation fee)"
+    },
+    {
+      "route_name": "Admission test for non-EU/non-Schengen applicants",
+      "eligible_applicants": "non-EU",
+      "test_or_certification": "Luiss admission Test, conducted online and remotely, in Italian or English (English required for English-taught programmes such as Global Management and Politics). Rankings per first-choice course out of 100 with a per-course minimum threshold; candidates who took the Graduate Summer School Admission Test receive an additional score. English level B2 is assessed during the admission test.",
+      "number_of_choices_allowed": "Up to two master's degree programmes in order of preference, within the same subject area (Economics or Law/Political Science)",
+      "choice_is_binding": false,
+      "subject_area_group": "Both - Global Management and Politics appears under both the Economics and the Political Science headings on the non-EU admission test page",
+      "application_fee": "EUR 150 (mandatory, non-refundable participation fee)"
+    },
+    {
+      "route_name": "Certified selection (GMAT/GRE) - non-EU/non-Schengen applicants",
+      "eligible_applicants": "non-EU",
+      "test_or_certification": "GMAT with a minimum score of 515 (out of 805), OR GRE with a minimum score of 154 (out of 170) in the Quantitative and Verbal sections. Explicitly open to all master's programmes EXCEPT Finance and Management. Official score must be released to Luiss via gmac.com / mba.com or ets.org.",
+      "number_of_choices_allowed": "Only one master's degree programme",
+      "choice_is_binding": true,
+      "subject_area_group": "Both - listed under Economics and under Law/Political Science, but only one binding choice is permitted",
+      "application_fee": "EUR 150 (mandatory, non-refundable participation fee)"
+    }
+  ],
+  "academic_requirements": {
+    "prior_qualification": "A three-year bachelor's degree (Italian or foreign) that qualifies the holder for enrolment in an Italian master's degree programme. The degree may already be held or be obtained by 18 November 2027 for the 2027/2028 cycle.",
+    "minimum_curricular_requirements": "Per the Luiss 'Minimum curricular requirements' page, section 'Minimum academic requirements for admission to the selection process for the 2027/2028 academic year', Master's Degree in Global Management and Politics: admission is open to students enrolled in or graduates of L-18 (DM 270/04) / 17 (DM 509/99) Economics and Business Management; L-33 (DM 270/04) / 28 (DM 509/99) Economics; L-36 (DM 270/04) / 15 (DM 509/99) Political Science and International Relations. Students from other degree programmes may only be admitted if they have at least 24 university credits in total (earned or still to be earned) in at least three of the following subject areas: Business (ECON-06/A; ECON-07/A; ECON-08/A; ECON-09/A; ECON-09/B); Economics (ECON-01/A; ECON-04/A); Statistics (STAT-01/A; STAT-02/A; STAT-03/A; STAT-04/A; MATH-03/A; MATH-03/B); Law (GIUR-01/A; GIUR-02/A; GIUR-03/A; GIUR-05/A; GIUR-06/A; GIUR-09/A; GIUR-10/A). Note: the L-36 Political Science and International Relations class is accepted for this programme, which distinguishes it from the pure Economics masters (Management, Finance, Strategic Management, Marketing, AFC) that accept only L-18 and L-33. Requirements can only be satisfied by earning university credits (CFU) by the stated deadline; work experience and internships are not counted, and students transferring from another university may not make up missing requirements at Luiss.",
+    "minimum_grade_or_gpa": null,
+    "country_specific_rules": "Foreign qualifications must have been awarded on completion of a first-level programme of at least 3 (or 4) academic years, must entitle the holder to enrol in graduate programmes in the awarding country, and must be issued by an official university in that country's education system. Professional/vocational qualifications are not eligible for Italian 'Laurea Magistrale' admission (only for 'Master di primo livello'). Where a system offers both Ordinary and Honours Bachelor's degrees, only Honours Bachelor's degrees qualify.",
+    "document_recognition": "Depends on country group: (a) Lisbon Recognition Convention signatory countries - Diploma Supplement may be submitted; (b) countries in the ARDI (Automatic Recognition Database - Italy) - CIMEA Statement of Verification or an Apostille of the diploma issued via the competent Italian Embassy/Consulate; (c) countries not in ARDI or the Lisbon Convention - CIMEA Statement of Comparability or a Declaration of Value (DoV) from the competent Italian Embassy/Consulate. Enrolment is always subject to verification of validity by the Luiss Admissions Office.",
+    "compensatory_measures": "If minimum curricular requirements are not met at application time, the candidate must submit - by the admission application deadline - documentation proving they will meet them by the cycle's degree/credit deadline (9 November 2026 for the closed 2026/2027 cycle; the equivalent 2027/2028 date is 18 November 2027 per the selection calendars). Requirements may only be satisfied with university credits (CFU), not work experience or internships. No foundation-year or other compensatory pathway is documented for this master's programme."
+  },
+  "language_requirements": {
+    "required_level": "B2 (CEFR) in English",
+    "accepted_certificates": null,
+    "assessed_in_test": "Yes. The minimum curricular requirements page states for Global Management and Politics: 'In addition, students must have at least a B2 level of English, which will be assessed during the admission test.' The same page adds that, depending on the admission route, B2 proficiency is verified 'for example, by passing the Admission Test in English or by submitting GMAT or GRE certificates.'",
+    "exemptions": "Not stated on the official pages consulted. In practice the two documented verification methods are (1) passing the Luiss Admission Test taken in English, or (2) submitting a qualifying GMAT or GRE certificate on the direct-admission route."
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "route": "Luiss Test (EU/Schengen)",
+        "application_window": "From December 2026 to 8 April 2027",
+        "test_dates": "From 19 to 22 April 2027",
+        "results": "Published according to the schedule set in the Admission Notice (rankings per first-choice course, out of 100)",
+        "enrolment_deadline": "By 22 June 2027"
+      },
+      {
+        "route": "Direct admission with certifications (GMAT/GRE, EU/Schengen)",
+        "application_window": "From December 2026 to 31 March 2027",
+        "test_dates": "No Luiss test; a valid GMAT or GRE certificate is submitted with the application",
+        "results": "Published according to the schedule set for the admission session",
+        "enrolment_deadline": "By 18 May 2027"
+      }
+    ],
+    "enrolment_deadline": "22 June 2027 (Luiss Test route) / 18 May 2027 (GMAT-GRE direct admission route)",
+    "degree_completion_deadline": "Bachelor's degree must be obtained by 18 November 2027 (both EU routes)",
+    "academic_year": "2027/2028",
+    "cycle_status": "notice not yet published - the calendar for 2027/2028 is published, but Luiss states the full Admission Notice with requirements and application procedures 'will be published from November 2026'. The 2026/2027 cycle is closed (its remaining requirement: bachelor's degree and curricular requirements met by 9 November 2026)."
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "route": "Admission test for non-EU/non-Schengen applicants",
+        "application_window": "From December 2026 to 8 April 2027",
+        "test_dates": "From 19 to 22 April 2027 (test conducted online and remotely)",
+        "results": "Published in a reserved area of the Luiss website per the Admission Notice",
+        "enrolment_deadline": "By 22 June 2027"
+      },
+      {
+        "route": "Certified selection (GMAT/GRE) for non-EU/non-Schengen applicants",
+        "application_window": "From December 2026 to 31 March 2027",
+        "test_dates": "No Luiss test; GMAT or GRE certificate submitted with the application",
+        "results": "Committee reviews applications and decides admission based on score and available places per programme",
+        "enrolment_deadline": "By 18 May 2027"
+      }
+    ],
+    "enrolment_deadline": "22 June 2027 (admission test route) / 18 May 2027 (GMAT-GRE certified selection route)",
+    "visa_or_preenrolment_notes": "Luiss states repeatedly that 'It is the candidate's responsibility to check its validity and to follow any procedures related to a student visa.' Enrolment with a foreign qualification is subject to verification of its eligibility by the Luiss Admissions Office. The pages consulted do not mention the Universitaly pre-enrolment portal by name.",
+    "academic_year": "2027/2028",
+    "cycle_status": "notice not yet published - both non-EU pages state that details on how to apply, requirements, certifications and the selection timetable for 2027/2028 'will be published in the relevant admission notice, which will be available from November 2026'. The 2026/2027 non-EU procedures are closed."
+  },
+  "required_documents": [
+    "Mandatory (Luiss Test route): passport or identity card showing citizenship",
+    "Mandatory (Luiss Test route): certificate of enrolment or degree certificate (transcript of records) listing exams, credits (CFU), field of study (SSD) and degree class",
+    "Mandatory (GMAT/GRE route): identity document/passport showing citizenship",
+    "Mandatory (GMAT/GRE route): certificate of enrolment or graduation with transcript of records",
+    "Mandatory (GMAT/GRE route): a valid, official GMAT or GRE certificate, plus authorisation for Luiss to receive the official score via gmac.com / mba.com (GMAT) or ets.org (GRE). An unofficial score may be attached at submission, with the official score following per the Admission Notice",
+    "Mandatory (all routes): payment of the EUR 150 non-refundable participation fee, using the correct form for EU/Schengen vs non-EU/non-Schengen applicants",
+    "Mandatory (foreign qualifications): recognition documentation depending on country group - Diploma Supplement (Lisbon Convention countries), CIMEA Statement of Verification or Apostille (ARDI countries), or CIMEA Statement of Comparability or Declaration of Value (other countries)",
+    "Mandatory (after admission): required documentation uploaded to the Self-Service web portal once the bachelor's degree has been obtained, for final verification of requirements",
+    "Conditional: if minimum curricular requirements are not yet met, documentation proving they will be met by the deadline, submitted by the admission application deadline",
+    "Not documented on the official pages consulted: CV, motivation letter, reference letters, English language certificate (none are listed as required for this programme)"
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Luiss Test (admission test for master's degree programmes); alternatively GMAT or GRE for the direct-admission / certified-selection routes",
+    "content": null,
+    "format": "For non-EU/non-Schengen candidates the test 'is conducted online and remotely according to the schedule indicated in the admission notice.' The format for EU/Schengen candidates is not stated on the pages consulted.",
+    "dates": "19-22 April 2027 for the 2027/2028 academic year (same window for the EU/Schengen and non-EU test)",
+    "fee": "EUR 150 participation fee (applies to the Luiss Test and to the GMAT/GRE selection routes alike)",
+    "language_of_test": "Italian or English. 'If you choose to take the Test in Italian, you will only be able to apply for courses taught in Italian. If you choose to take the Test in English, you will be able to apply for courses in both Italian and English.' Because Global Management and Politics is taught in English, the Test must be taken in English to apply for it. Taking the Test in English also satisfies the B2 English verification.",
+    "interview": null
+  },
+  "tuition_or_fees_link": {
+    "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/global-management-and-politics",
+    "annual_amount": "EUR 15,000.00 per year according to the official programme page for 2027/2028: 'The annual single tuition fee for enrolment in the Master's Degree Programme in Global Management and Politics is € 15,000.00, divided into 3 instalments, plus the regional student welfare tax.' The regional student welfare tax amount is to be set by the Lazio Region. NOTE THE CONFLICT: the FAQ on all four master's admission pages states 'The one-off annual fee is €16,000 for the first year and €18,000 for the Bachelor's degree programmes in Management and Finance.' Global Management and Politics is therefore NOT in the EUR 18,000 Management/Finance bracket, but the programme page (EUR 15,000) and the admission FAQ (EUR 16,000) disagree.",
+    "scholarship_url": "https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027/magistrali-2026-2027-academic-year"
+  },
+  "official_program_url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/global-management-and-politics",
+  "official_call_url": [
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/certified-selection-students-outside-eu-and-schengen-area",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/students-foreign-qualifications-admission-requirements-masters-degrees"
+  ],
+  "source_quotes": [
+    {
+      "field": "degree_class",
+      "quote": "The degree class is LM-77",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/global-management-and-politics",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "You can specify up to two master's degree courses within the same subject area (Economics or Law/Political Science), choosing from the following programmes:",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "GMAT with a minimum score of 515 (out of 805); GRE with a minimum score of 154 (out of 170) in the Verbal and Quantitative sections.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "You can apply for only one of the available Master's degree courses",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "Please note: your course choice is binding for admission, ranking, and subsequent enrolment.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "There is a specific selection process for admission to the Master's Degree Programmes in Finance and Management.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "The selection process with certifications is aimed at candidates from outside the EU or the Schengen area who are interested in Master's degree programmes, with the exception of the Master's degree programmes in Finance and Management.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/certified-selection-students-outside-eu-and-schengen-area",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "In addition, students must have at least a B2 level of English, which will be assessed during the admission test.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "For degree programmes taught in English, in addition to meeting the minimum curricular requirements, applicants must have a level of English proficiency equivalent to at least B2. Depending on the admission route taken by applicants, proficiency at this language level is verified (for example, by passing the Admission Test in English or by submitting GMAT or GRE certificates).",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "entry_exam_or_test",
+      "quote": "If you choose to take the Test in English, you will be able to apply for courses in both Italian and English.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Submission of applications From December 2026 to 8 April 2027 | Test administration From 19 to 22 April 2027 | Registration By 22 June 2027 | Obtaining a Bachelor's degree By 18 November 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Submission of applications From December 2026 to 31 March 2027 | Enrollment By 18 May 2027 | Completion of a Bachelor's degree By 18 November 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "The admission procedures via test for the 2026/2027 academic year are now closed.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "Details on how to apply, the requirements, and the selection timetable for the 2027/2028 academic year will be published in the relevant admission notice, which will be available from November 2026.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "When applying, you can list up to two Master's degree programmes in order of preference. The courses you choose must fall within the same subject area: either Economics or Law/Political Science.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "For the 2027/2028 academic year, the selection process will follow this schedule: Submission of applications From December 2026 to 31 March 2027 | Registration By 18 May 2027 | Obtaining a Bachelor's degree By 18 November 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/certified-selection-students-outside-eu-and-schengen-area",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "Master's Degree in Global Management and Politics. Admission is open to students enrolled in or graduates of one of the following degree programmes: L-18 (Ministerial Decree 270/04) and 17 (Ministerial Decree 509/99) – Economics and Business Management; L-33 (Ministerial Decree 270/04) and 28 (Ministerial Decree 509/99) – Economics; L-36 (Ministerial Decree 270/04) and 15 (Ministerial Decree 509/99) – Political Science and International Relations",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "Students from degree programmes other than those listed above may only be admitted if they have at least 24 university credits in total (either already earned or still to be earned) in at least three of the following subject areas: Business, Economics, Statistics, Law",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "The annual single tuition fee for enrolment in the Master's Degree Programme in Global Management and Politics is € 15,000.00, divided into 3 instalments, plus the regional student welfare tax.",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/global-management-and-politics",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "The one-off annual fee is €16,000 for the first year and €18,000 for the Bachelor's degree programmes in Management and Finance.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "required_documents",
+      "quote": "Required documentation: Passport or identity card showing citizenship; a certificate of enrolment or a degree certificate (transcript of records) showing a list of exams, credits (CFU), the field of study (SSD), and the degree class.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    }
+  ],
+  "uncertainty_notes": [
+    "ACADEMIC YEAR: The programme page carries the badge 'Year 2027/2028' and all four admission pages publish the 2027/2028 calendar, so 2027/2028 is the primary cycle. However, the admission pages still sit under URL slugs containing '20262027' and Luiss explicitly states the full 2027/2028 Admission Notice 'will be published from November 2026'. Cycle status is therefore 'notice not yet published' - all dates recorded here come from the published selection calendar, not from a signed bando. The 2026/2027 cycle is closed (degree/curricular requirements had to be met by 9 November 2026).",
+    "LUISS TEST SUBJECT AREA - RESOLVED BUT DUAL: 'Global Management and Politics' is listed in BOTH the Economics column AND the Law/Political Science column on the EU Luiss Test page, the EU GMAT/GRE page, the non-EU test page and the non-EU certified selection page. This means the two-choice rule can be satisfied by pairing it with either an Economics or a Law/Political Science programme. Luiss does not state this dual listing as an explicit rule anywhere - it is inferred from the programme appearing twice in the same tables - so an applicant should confirm with ammissione@luiss.it before relying on a cross-area pairing.",
+    "FINANCE/MANAGEMENT EXCLUSION DOES NOT APPLY: Despite 'Management' in its name, Global Management and Politics is NOT subject to the Finance/Management exclusion. It is explicitly listed among the programmes available via the Luiss Test (EU and non-EU) and via the GMAT/GRE routes, whereas Finance and Management are absent from every list and have their own separate selection page.",
+    "TUITION CONFLICT: The official programme page states EUR 15,000.00 per year for Global Management and Politics, but the FAQ block repeated on all four master's admission pages states 'The one-off annual fee is €16,000 for the first year and €18,000 for the Bachelor's degree programmes in Management and Finance.' The EUR 18,000 Management/Finance bracket clearly does not apply here, but EUR 15,000 vs EUR 16,000 is an unresolved contradiction between the programme page and the admission FAQ. The FAQ wording itself is garbled (it says 'Bachelor's degree programmes' on a master's page). Recommend treating EUR 15,000 as the programme-specific figure and flagging the discrepancy.",
+    "language_requirements.accepted_certificates set to null: no official Luiss page for this master's programme lists specific English certificates or scores (e.g. IELTS / TOEFL / Cambridge). The only documented verification methods are passing the Admission Test in English or submitting a qualifying GMAT/GRE score. Certificate score tables found elsewhere on luiss.it relate to bachelor's admissions or to separate Luiss Business School / School of Law / School of Government programmes and were not applied here.",
+    "entry_exam_or_test.content set to null: the test sections (logic, problem solving, mathematics, English etc.) are not published on the 2027/2028 admission-test pages; they will appear in the Admission Notice from November 2026.",
+    "entry_exam_or_test.format partially null: online/remote administration is confirmed only for non-EU candidates; the EU/Schengen test format (on-campus vs online) is not stated.",
+    "entry_exam_or_test.interview set to null: no interview is mentioned for this programme on any consulted page; absence of mention is not the same as confirmed absence.",
+    "academic_requirements.minimum_grade_or_gpa set to null: no minimum grade/GPA threshold is published for this programme. The 'Luiss graduate with weighted average >= 28/30' direct-access rule belongs to the separate 'Admission to Master's Degree Programs for Luiss Students' page and was not verified for this programme.",
+    "campus not stated on the programme page: no campus building is named for Global Management and Politics. Rome is inferred from Luiss being a Rome university (footer: Viale Pola 12, 00198 Roma). An earlier automated summary suggested 'Rome and Milan' but this could NOT be confirmed in the raw page text and should be treated as unverified.",
+    "MAJORS/TRACKS: the programme has no named majors; customisation is via two elective courses in Year II. Unlike Marketing / Strategic Management / AFC / Government and Public Affairs, it has no parallel Italian track, so it is fully English-taught.",
+    "scholarship_url points to the 2026/2027 master's scholarship page (the latest published); a 2027/2028 equivalent was not found as of 2026-09-04.",
+    "apply.luiss.it was not reachable/verified as a programme-specific application URL; applications are described as online forms hosted on the respective admission pages.",
+    "Required documents list is assembled from the four admission pages' 'Required documentation' and FAQ blocks; the definitive list will be in the 2027/2028 Admission Notice. No CV, motivation letter or reference letters are mentioned anywhere for this programme."
+  ],
+  "uncertain": [
+    "campus",
+    "language_requirements",
+    "entry_exam_or_test",
+    "tuition_or_fees_link",
+    "academic_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "required_documents",
+    "official_call_url"
+  ]
+}

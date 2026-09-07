@@ -1,0 +1,125 @@
+# outline.yaml — research items + execution config
+topic: "IULM University (Milano) English-taught bachelor & master programmes — admission requirements"
+topic_slug: "iulm-english-programs"
+university: "IULM - Libera Università di Lingue e Comunicazione (Milano)"
+academic_year_target: "2026/2027"
+academic_year_fallback: "2025/2026"
+generated_at: "2026-09-06"
+
+source_of_item_list:
+  page: "https://www.iulm.it/en/offerta-formativa"
+  note: >
+    Verified against the official IULM bachelor's and master's degree catalogues
+    (https://www.iulm.it/en/offerta-formativa/corsi-di-lauree-triennali and
+    .../corsi-di-lauree-magistrali). IULM's initial model-knowledge draft item list
+    (6 programmes: International Management, Fashion Experience and Design Management,
+    Marketing Management, International Relations/Comparative Politics, Global
+    Communication/Media and Politics, Tourism/Territory Development) did NOT match any
+    real IULM programme and was fully discarded after web verification — see
+    excluded_candidates below. Only 5 IULM degree programmes (laurea) are confirmed
+    fully English-taught for A.Y. 2026/2027: 1 bachelor, 4 master's.
+
+scope_decision: >
+  User explicitly scoped this research to laurea triennale + laurea magistrale only.
+  IULM also runs 4 English-taught "Master & Executive Education" professional/executive
+  master's (MITH, International Marketing & Sales Communication, Museology online, MICRI)
+  which are a different Italian degree type (not laurea) — these were explicitly EXCLUDED
+  by user decision on 2026-09-06 and must not be added without a new explicit approval.
+
+shared_reference_pages:
+  admission_procedures_bachelor_pdf: "https://www.iulm.it/wps/wcm/connect/iulm/0313ca32-8ebd-41c5-82e9-82d615a4b1f6/Modalit%C3%A0+ammissione+ai+corsi+di+laurea+2026_2027_ENG.pdf?MOD=AJPERES"
+  tuition_fees_pdf: "https://www.iulm.it/wps/wcm/connect/iulm/884a483b-c67c-42c5-9d34-10f55ad4b085/Summary+Of+University+Tuition+And+Fees+2026_2027+Academic+Year.pdf?MOD=AJPERES"
+  international_prerequisites_bachelor: "https://www.iulm.it/en/orientamento-iscrizioni/iscrizioni-per-studenti-stranieri/prerequisiti"
+  international_prerequisites_master: "https://www.iulm.it/en/orientamento-iscrizioni/iscrizioni-per-studenti-stranieri/procedura/prerequisiti-ammissioni-lauree-magistrali"
+  application_portal_foreign_qualifications: "https://apply.iulm.it"
+  note: >
+    IULM runs bachelor admission across 4 test sessions (Jan/Mar/May/Jul 2026) and master
+    admission across 5 sessions (Dec 2025 through Sept 2026), each with its own application
+    window, test date and enrolment-confirmation deadline. Several English programmes
+    (Marketing EN track, Strategic Communication) have historically filled all places
+    before the final 2026/27 session. Deep-research agents must capture every session's
+    dates inside application_deadline_eu / application_deadline_non_eu rather than a single
+    date, and flag in uncertainty_notes if a programme was reported as full/closed early.
+    apply.iulm.it blocks automated fetching (403) — reconstruct international admission
+    procedure from the linked iulm.it prerequisite pages and note the access route used.
+
+items:
+
+  # ---------- BACHELOR (1) ----------
+  - id: ba-corporate-communication-pr
+    name: "Corporate Communication and Public Relations (in English)"
+    level: bachelor
+    official_program_url: "https://www.iulm.it/en/offerta-formativa/corsi-di-lauree-triennali/comunicazione-impresa-relazioni-pubbliche/comunicazione-impresa-relazioni-pubbliche"
+    status_note: >
+      IULM's only fully English-taught bachelor (class L-20). Administered as a separate
+      degree course from its Italian twin "Comunicazione d'impresa e relazioni pubbliche"
+      with its own quota (260 places for A.Y. 2026/27). Selective admission. Has dual-degree
+      tracks with Dublin Business School (IE) and Royal Roads University (CA).
+
+  # ---------- MASTER (4) ----------
+  - id: ma-marketing-consumer-behaviour-communication
+    name: "Marketing, Consumer Behaviour and Communication (English curriculum)"
+    level: master
+    official_program_url: "https://www.iulm.it/en/offerta-formativa/corsi-di-lauree-magistrali/marketing-consumi-comunicazione/"
+    status_note: >
+      Class LM-59, Milan, 120 ECTS. English curriculum of the existing Italian programme,
+      launched A.Y. 2024/25, 80 places. Second-year specialisations: Brand Management /
+      Retail Management / Digital Marketing Management.
+
+  - id: ma-strategic-communication
+    name: "Strategic Communication"
+    level: master
+    official_program_url: "https://www.iulm.it/en/offerta-formativa/corsi-di-lauree-magistrali/strategic-communication/"
+    status_note: >
+      Class LM-59, Milan, fully English, 100 places. Second-year tracks: Corporate
+      Communication / Sustainability Communication. Dual degree with Cardiff Metropolitan
+      University (UK) and University of Western Australia.
+
+  - id: ma-fashion-communication-luxury-strategies
+    name: "Fashion Communication and Luxury Strategies"
+    level: master
+    official_program_url: "https://www.iulm.it/en/offerta-formativa/corsi-di-lauree-magistrali/fashion-communication-and-luxury-strategies/"
+    status_note: >
+      Class LM-92, Milan, fully English, 100 places. Launched A.Y. 2024/25. Second-year
+      tracks: Global Trends / Luxury Strategies.
+
+  - id: ma-hospitality-tourism-management
+    name: "Hospitality and Tourism Management (Dual Degree)"
+    level: master
+    official_program_url: "https://www.iulm.it/en/offerta-formativa/corsi-di-lauree-magistrali/hospitality-tourism-management/"
+    status_note: >
+      Class LM-49, Milan, fully English, 100 places. Dual degree with University of Central
+      Florida (M.Sc.) and University of Oulu (M.Sc.). Unique two-stage admission (written +
+      oral test) — verify and capture in entry_exam_or_test.
+
+excluded_candidates:
+  - name: "International Management / Fashion, Experience and Design Management / Marketing Management / International Relations-Comparative Politics / Global Communication-Media and Politics / Tourism-Territory Development"
+    reason: >
+      Initial model-knowledge draft items — none exist at IULM under these or similar
+      names. Fully discarded after checking the official IULM catalogue.
+  - name: "International Tourism and Hospitality (MITH)"
+    reason: "Executive/professional master (master universitario), not laurea magistrale — excluded by explicit user scope decision 2026-09-06."
+  - name: "International Marketing & Sales Communication"
+    reason: "Executive/professional master (master specialistico), not laurea magistrale — excluded by explicit user scope decision 2026-09-06."
+  - name: "Contemporary Museology and Museum Communication (Online)"
+    reason: "Executive/professional master (master specialistico), not laurea magistrale — excluded by explicit user scope decision 2026-09-06."
+  - name: "Communication for International Relations (MICRI)"
+    reason: >
+      Executive/professional master, excluded on scope grounds (not laurea magistrale);
+      additionally official page describes teaching language as Italian/English (not fully
+      English), so it would not meet the English-taught criterion either.
+  - name: "Art, Valorization Strategies and the Market / Artificial Intelligence for Business and Society / Television, Cinema and New Media / Translation, Interpreting and Digital Communication / all other IULM bachelors"
+    reason: "Verified Italian-taught (or multilingual, non-English-primary) on official programme pages — not English-taught."
+
+execution:
+  batch_size: 3          # parallel agents per wave
+  items_per_agent: 1     # 5 items -> 2 waves (3 + 2)
+  output_dir: "./iulm-english-programs/results"
+  output_format: "one JSON file per item, named {id}.json, fields exactly as fields.yaml"
+  agent_model: "sonnet"
+  rules:
+    - "Only iulm.it and iulm.com sources may be cited (apply.iulm.it content must be corroborated via a linked iulm.it page)."
+    - "Prioritise A.Y. 2026/2027; if unavailable, use 2025/2026 and say so in uncertainty_notes."
+    - "Capture every admission-test session/round and its own dates rather than a single deadline."
+    - "Leave a field null rather than guessing; every null must be explained in uncertainty_notes."
+    - "Back deadlines, language level, admission type and quota numbers with verbatim quotes in source_quotes."

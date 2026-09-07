@@ -1,0 +1,154 @@
+{
+  "program_name": "Master's Degree in Law for Global Challenges",
+  "level": "master",
+  "teaching_language": {
+    "primary": "English",
+    "granularity": "fully_english",
+    "majors_language": null
+  },
+  "campus": null,
+  "degree_class": null,
+  "admission_type": [
+    {
+      "route_name": "Luiss Test",
+      "eligible_applicants": "EU-Schengen and non-EU/non-Schengen candidates [uncertain - inferred from the general Luiss Test route structure; not confirmed specifically for this programme beyond its inclusion in the eligible-programmes list]",
+      "test_or_certification": "Luiss Test (written, logic/problem solving/English); English B2 level assessed during the admission test",
+      "number_of_choices_allowed": "Up to two master's degree courses within the same subject area (Law/Political Science) [uncertain - general rule; not confirmed this programme can be paired as a second choice]",
+      "choice_is_binding": null,
+      "subject_area_group": "Law-Political Science",
+      "application_fee": "EUR 150 (non-refundable) [uncertain - confirmed for GMAT/GRE route; assumed same for Luiss Test]"
+    },
+    {
+      "route_name": "GMAT/GRE direct admission",
+      "eligible_applicants": "EU-Schengen and non-EU/non-Schengen candidates [uncertain - inferred from the general GMAT/GRE route structure]",
+      "test_or_certification": "GMAT >=515/805 OR GRE >=154/170 in both Verbal and Quantitative",
+      "number_of_choices_allowed": 1,
+      "choice_is_binding": true,
+      "subject_area_group": "Law-Political Science",
+      "application_fee": "EUR 150 (non-refundable)"
+    }
+  ],
+  "academic_requirements": {
+    "prior_qualification": "Bachelor's degree, obtained or to be obtained by the stated degree-completion deadline (18 November 2027 for the 2027/2028 EU/Schengen Luiss Test route) [uncertain - deadline is the general Luiss Test route deadline, not independently confirmed for this specific programme]",
+    "minimum_curricular_requirements": "Direct admission for graduates of Italian degree classes: L-14 (MD 270/04) / L-2 (MD 509/99) - Legal Services Sciences; L-16 (MD 270/04) / L-19 (MD 509/99) - Public Administration; L-18 (MD 270/04) / L-17 (MD 509/99) - Economics and Business Management; L-20 (MD 270/04) / L-14 (MD 509/99) - Communication Sciences; L-33 (MD 270/04) / L-28 (MD 509/99) - Economics; L-36 (MD 270/04) / L-15 (MD 509/99) - Political Science and International Relations; and LMG/01 - Single-Cycle Master's Degree in Law. Students must also have at least B2-level English, assessed during the admission test. Applicants from other degree programmes may be admitted only with at least 24 university credits in total (earned or to be earned) across at least three of the following subject areas: Business, Economics, Statistics, Law.",
+    "minimum_grade_or_gpa": null,
+    "country_specific_rules": "[uncertain] - not retrieved for this programme",
+    "document_recognition": "[uncertain] - general Luiss policy references CIMEA/Declaration of Value for foreign qualifications; not confirmed specifically for this programme",
+    "compensatory_measures": null
+  },
+  "language_requirements": {
+    "required_level": "B2",
+    "accepted_certificates": "[uncertain] - not published on the pages retrieved for this programme; general Luiss guidance elsewhere cites IELTS 6, TOEFL iBT 78-80, Cambridge FCE grade B / CAE grade C, but this was not independently confirmed for Law for Global Challenges",
+    "assessed_in_test": true,
+    "exemptions": null
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "round": "Luiss Test - EU/Schengen [uncertain - dates are the general 2027/2028 Luiss Test calendar; not confirmed with a programme-specific quote]",
+        "application_window": "December 2026 - 8 April 2027",
+        "test_date": "19-22 April 2027",
+        "enrolment_deadline": "22 June 2027"
+      },
+      {
+        "round": "GMAT/GRE direct admission - EU/Schengen [uncertain - dates are the general 2027/2028 GMAT/GRE calendar]",
+        "application_window": "December 2026 - 31 March 2027",
+        "enrolment_deadline": "18 May 2027"
+      }
+    ],
+    "enrolment_deadline": "22 June 2027 (Luiss Test route) / 18 May 2027 (GMAT/GRE route) [uncertain]",
+    "degree_completion_deadline": "18 November 2027 [uncertain]",
+    "academic_year": "2027/2028 [uncertain]",
+    "cycle_status": "notice not yet published [uncertain]"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [],
+    "enrolment_deadline": null,
+    "visa_or_preenrolment_notes": null,
+    "academic_year": "2027/2028 [uncertain]",
+    "cycle_status": "notice not yet published - official page states admission procedures for non-EU/non-Schengen students for 2027/2028 are 'coming soon' [uncertain whether this programme is included]"
+  },
+  "required_documents": [],
+  "entry_exam_or_test": {
+    "test_name": "Luiss Test (or alternatively GMAT/GRE for direct admission) [uncertain - inferred, not independently confirmed for this programme beyond inclusion in the eligible-programmes lists]",
+    "content": null,
+    "format": null,
+    "dates": null,
+    "fee": "EUR 150 (non-refundable) [uncertain]",
+    "language_of_test": null,
+    "interview": null
+  },
+  "tuition_or_fees_link": {
+    "url": null,
+    "annual_amount": null,
+    "scholarship_url": "https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027"
+  },
+  "official_program_url": null,
+  "official_call_url": [
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements"
+  ],
+  "source_quotes": [
+    {
+      "field": "admission_type (Luiss Test)",
+      "quote": "Government and Public Affairs - Italian track Government and Public Affairs - English track International Relations Global Management and Politics Law for Global Challenges",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type (GMAT/GRE)",
+      "quote": "Law for Global Challenges: Yes, included as an English-taught programme.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "academic_requirements / language_requirements",
+      "quote": "Master's Degree in Law for Global Challenges Admission is open to students enrolled in or graduates of one of the following degree programmes: L-14 ... Legal Services Sciences, L-16 ... Public Administration, L-18 ... Economics and Business Management, L-20 ... Communication Sciences, L-33 ... Economics, L-36 ... Political Science and International Relations, LMG/01 - Single-Cycle Master's Degree in Law. In addition, students must have at least a B2 level of English, which will be assessed during the admission test. Students from degree programmes other than those listed above may only be admitted if they have at least 24 university credits in total (either already earned or still to be earned) in at least three of the following subject areas: Business, Economics, Statistics, Law.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "official_program_url (negative finding)",
+      "quote": "Pagina 404 - Luiss",
+      "url": "https://www.luiss.it/it/corsi-di-laurea-e-master/scuola-di-specializzazione/law-for-global-challenges (guessed slug, confirmed 404)",
+      "accessed_date": "2026-09-04"
+    }
+  ],
+  "uncertainty_notes": [
+    "HIGH UNCERTAINTY PROGRAMME, per task instructions. No dedicated catalogue/programme page for 'Law for Global Challenges' could be located anywhere on luiss.it despite an extensive search: (1) the full luiss.it XML sitemap (9 pages, ~600+ URLs including every other graduate-school programme slug such as global-law, government-and-public-affairs, international-relations, etc.) contains NO 'law-for-global-challenges' or equivalent slug under /courses-and-masters-programmes/graduate-school/; (2) the graduate-school hub page (https://www.luiss.it/en/courses-and-masters-programmes/graduate-school) does not list or link it; (3) apply.luiss.it homepage does not mention it; (4) guessed URL slugs in both English and Italian (e.g. .../graduate-school/law-for-global-challenges, .../scuola-di-specializzazione/law-for-global-challenges, diritto-per-le-sfide-globali) all return HTTP 404 ('Pagina 404 - Luiss').",
+    "WHERE IT IS CONFIRMED TO EXIST: (a) the official Luiss Test admission page (2027/2028 EU/Schengen cycle) explicitly lists 'Law for Global Challenges' as one of five Law/Political-Science-area programmes taught in English ('Government and Public Affairs - English track', 'International Relations', 'Global Management and Politics', 'Law for Global Challenges'), verified by both an LLM-summarized fetch and a raw-HTML grep of the page source; (b) the GMAT/GRE direct-admission page for the same cycle explicitly states 'Law for Global Challenges: Yes, included as an English-taught programme'; (c) the Minimum Curricular Requirements page has a dedicated named section 'Master's Degree in Law for Global Challenges' spelling out eligible feeder Bachelor's degree classes (L-14/L-2, L-16/L-19, L-18/L-17, L-20/L-14, L-33/L-28, L-36/L-15, LMG/01), the B2-English-assessed-in-test rule, and the 24-ECTS/3-subject-area fallback rule for other degree holders - this is a real, currently-defined programme with concrete admission criteria, not a placeholder or a name mentioned only once in passing.",
+    "It appears ONLY on the English side of the Law/Political-Science listing on the Luiss Test page (no Italian-track counterpart is listed), consistent with the language_hint 'English' - i.e. this programme is fully English-taught with no parallel Italian track, unlike Government and Public Affairs or Administration, Finance and Control.",
+    "Degree class (LM code) could NOT be determined from any source consulted. It is null here rather than guessed; do not infer from the feeder degree classes, which describe INPUT bachelor's classes, not the master's own LM classification.",
+    "Campus, tuition amount, official programme URL, entry-exam format/content/interview, required-documents list, non-EU timeline, and most application_deadline_eu sub-fields are null/[uncertain] because no programme-specific page exists to source them from; the admission-route dates given (Luiss Test and GMAT/GRE calendars) are the GENERAL 2027/2028 calendars applicable to all programmes in the Law/Political-Science subject area, extrapolated to this programme by inclusion in the same eligibility list, not confirmed by a programme-specific citation.",
+    "Working hypothesis: this may be a newly announced/newly approved programme for the 2027/2028 cycle whose dedicated marketing/catalogue page has not yet been published, even though its admission-eligibility and minimum-curricular-requirement data has already been entered into the admissions system pages. This should be re-checked closer to or after November 2026, when the full 2027/2028 master's admission notices are expected to be published (per outline: 'Full master admission notices appear from Nov 2026')."
+  ],
+  "uncertain": [
+    "campus",
+    "degree_class",
+    "teaching_language.majors_language",
+    "admission_type.eligible_applicants (both routes)",
+    "admission_type.number_of_choices_allowed (Luiss Test route)",
+    "admission_type.choice_is_binding (Luiss Test route)",
+    "admission_type.application_fee (both routes)",
+    "academic_requirements.prior_qualification",
+    "academic_requirements.minimum_grade_or_gpa",
+    "academic_requirements.country_specific_rules",
+    "academic_requirements.document_recognition",
+    "language_requirements.accepted_certificates",
+    "language_requirements.exemptions",
+    "application_deadline_eu (all sub-fields - general calendar extrapolated, not programme-specific)",
+    "application_deadline_non_eu (all sub-fields)",
+    "required_documents",
+    "entry_exam_or_test.test_name",
+    "entry_exam_or_test.content",
+    "entry_exam_or_test.format",
+    "entry_exam_or_test.dates",
+    "entry_exam_or_test.fee",
+    "entry_exam_or_test.language_of_test",
+    "entry_exam_or_test.interview",
+    "tuition_or_fees_link.url",
+    "tuition_or_fees_link.annual_amount",
+    "official_program_url (no catalogue page located; confirmed 404 on guessed slugs)"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "program_name": "Economics and Communication for Management and Innovation (Economia e Comunicazione per il Management e l'Innovazione)",
+  "level": "master",
+  "teaching_language": "fully English",
+  "campus": "ROME - taught entirely at Sapienza Università di Roma under an inter-university agreement. Department of record at UNITUS: DEIM (Dipartimento di Economia, Ingegneria, Società e Impresa). [uncertain] IMPORTANT: classes are NOT delivered in Viterbo - all disciplinary and laboratory activities take place at the Rome campus per Art. 3 of the Sapienza-Tuscia convention. Sapienza is also the designated 'sede amministrativa' (administrative headquarters) handling enrolment, fees, and student records (Art. 4 of the convention).",
+  "degree_class": "LM-77",
+  "admission_type": "open access",
+  "academic_requirements": "[uncertain] A prior bachelor's-level degree (Laurea) or recognized equivalent foreign qualification is required (implicit for LM-77 admission generally; not spelled out with specific CFU/SSD thresholds on any unitus.it source found). No official unitus.it page or PDF (including the DEIM 'Regulations' listing page and the two unitus.it-hosted PDFs found for this specific program - the promotional brochure and the Sapienza-Tuscia inter-university convention) publishes curricular CFU/SSD prerequisite thresholds for this LM-77 programme, unlike other UNITUS LM-77 programmes at DEIM (e.g. 'Amministrazione, finanza e controllo' and 'Marketing e qualità', both LM-77, which do have dedicated regulation PDFs on that page). Admission proceeds via a mandatory oral interview (Colloquio orale) rather than a published numeric CFU checklist. Foreign qualifications would be expected to require standard equivalency documentation (Dichiarazione di Valore / CIMEA Statement of Comparability) per the university-wide baseline, but this is not confirmed specifically for this programme on unitus.it.",
+  "language_requirements": "English proficiency at CEFR B2 level per the university-wide baseline (accepted certificates: IELTS, TOEFL, TCL, Cambridge First, PTE Academic, Oxford Test of English, Aptis ESOL General/Advanced; or documentation of a prior EMI - English as Medium of Instruction - degree). No Italian language requirement is stated, consistent with this being a fully English-taught programme. [uncertain] No programme-specific English test/score table was found on unitus.it for this programme (unlike some other UNITUS LM programmes); the oral interview itself is conducted about the course content, not explicitly described as a language-proficiency test.",
+  "entry_exam_or_test": "Mandatory oral interview ('Colloquio orale', per the official field on the program page). Booked via the university-wide Interview Booking form at https://www.unitus.it/en/join-unitus/how-to-enroll/interview-booking/, where 'ECONOMICS AND COMMUNICATION FOR MANAGEMENT AND INNOVATION (Laurea Magistrale LM-77)' is confirmed as a selectable option in the programme dropdown. No TOLC, no numerus clausus/bando. [uncertain] No further detail (format, topics, online vs in-person, scoring threshold) is published on unitus.it for this specific programme.",
+  "application_deadline_eu": "[uncertain] No programme-specific application deadline is published on the official unitus.it program page (admission is rolling, gated by the oral interview, not a call/bando). University-wide 2026/2027 enrolment calendar applies: enrolment opens 2026-08-01, deadline for 1st-year Master's students 2026-12-29, with extension to 2027-02-28 for January/February graduates.",
+  "application_deadline_non_eu": "[uncertain] No programme-specific deadline published. University-wide 2026/2027 calendar applies: non-EU visa application cutoff at the consulate is 2026-11-30; onsite enrolment via the International Students Desk opens 2026-08-01; Universitaly pre-enrolment is open for a.y. 2026/2027 (Universitaly itself typically opens around April/May). Given that Sapienza is the administrative headquarters for this specific inter-university programme (per Art. 4 of the Sapienza-Tuscia convention), non-EU applicants should also verify whether Sapienza's own (out-of-scope) enrolment portal imposes a different or additional deadline - this could not be checked because Sapienza's site is outside this project's source scope.",
+  "required_documents": [
+    "Completed interview booking request (Interview Booking form) to schedule the mandatory oral interview",
+    "Prior degree diploma / transcript per the university-wide baseline (certified copy + Apostille/legalization + certified Italian translation, OR CIMEA Statement of Verification)",
+    "Declaration of Value (Dichiarazione di Valore) OR CIMEA Statement of Comparability OR ARDI Statement of Correspondence (for foreign qualifications)",
+    "Diploma Supplement (can substitute the Declaration of Value if legalized)",
+    "English language certificate or EMI documentation",
+    "Admission letter (issued after the interview)",
+    "[uncertain] No programme-specific required-documents list was found on unitus.it for this programme; the above is inferred from the university-wide required_documents_baseline (outline.yaml) rather than a programme-specific source"
+  ],
+  "tuition_or_fees_link": {
+    "url": "https://www.unitus.it/en/students/fees-and-contributions/",
+    "note": "[uncertain] This is the general UNITUS fees page (ISEEUP income-based tiered tuition; non-EU flat bands of EUR 600/1,050/1,500/1,950 per year by country). However, per Art. 4 of the Sapienza-Tuscia inter-university convention, Sapienza Università di Roma is the 'sede amministrativa' responsible for setting and collecting this programme's fees ('definire l'ammontare ed incassare le tasse e i contributi degli studenti'), so actual tuition amounts for this specific programme may be governed by Sapienza's own fee regulations, which are out of scope for this project (Sapienza's site is not a primary source per project rules)."
+  },
+  "official_program_url": "https://www.unitus.it/en/courses/second-cycle-degree/economics-communication-management-innovation/",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "field": "admission_type",
+      "quote": "Admission: Colloquio orale",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/economics-communication-management-innovation/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "teaching_language",
+      "quote": "The educational activities of the course are entirely conducted in English at Sapienza University of Rome.",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/economics-communication-management-innovation/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "campus",
+      "quote": "Le attività didattiche disciplinari e di tipo laboratoriale si svolgeranno presso la sede di Roma.",
+      "url": "https://www.unitus.it/wp-content/uploads/2025/02/LM-77_signed-signed.pdf",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "campus",
+      "quote": "Le parti individuano in Sapienza Università di Roma la sede amministrativa del Corso, con il compito di curarne tutti gli aspetti amministrativi e gestionali... definire l'ammontare ed incassare le tasse e i contributi degli studenti; immatricolare ed iscrivere gli studenti; gestire la carriera degli studenti iscritti.",
+      "url": "https://www.unitus.it/wp-content/uploads/2025/02/LM-77_signed-signed.pdf",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "entry_exam_or_test",
+      "quote": "ECONOMICS AND COMMUNICATION FOR MANAGEMENT AND INNOVATION (Laurea Magistrale LM-77)",
+      "url": "https://www.unitus.it/en/join-unitus/how-to-enroll/interview-booking/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "Le attività didattiche del corso si svolgono interamente in lingua inglese presso la Sapienza Università di Roma.",
+      "url": "https://www.unitus.it/wp-content/uploads/2023/09/Corsi-di-Laurea-UNITUS-Economics-and-communication-for-management-and-innovation-DEIM.pdf",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "No programme-specific deadline published on unitus.it; university-wide calendar: enrolment 2026-08-01 to 2026-12-29 for 1st-year Master's (per shared_admission_baseline / official_calendar_2026_2027)",
+      "url": "https://www.unitus.it/en/join-unitus/how-to-enroll/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "No programme-specific deadline published on unitus.it; university-wide non-EU visa cutoff 2026-11-30 (per shared_admission_baseline / official_calendar_2026_2027)",
+      "url": "https://www.unitus.it/en/join-unitus/how-to-enroll/",
+      "accessed": "2026-09-05"
+    }
+  ],
+  "uncertainty_notes": "MATERIAL FACT for ItalyPath users: although administratively catalogued under UNITUS (Viterbo) and DEIM, this programme's actual classes are delivered entirely in Rome at Sapienza Università di Roma (confirmed both by the program page description and by Art. 3 of the official Sapienza-Tuscia inter-university convention PDF, unitus.it/wp-content/uploads/2025/02/LM-77_signed-signed.pdf). Sapienza is also the designated administrative headquarters (Art. 4), meaning enrolment processing, fee-setting/collection, and student career management for this specific programme are formally run by Sapienza, not UNITUS - so cost-of-living and possibly some enrolment-mechanics details will follow Rome/Sapienza norms, not Viterbo's. || Academic prerequisites (CFU/SSD thresholds): searched the DEIM 'Regulations' page (unitus.it/en/departments/deim/about/regulations/), which lists a distinct didactic regulation PDF for each DEIM-taught degree, INCLUDING two other LM-77 programmes at DEIM ('Amministrazione, finanza e controllo' and 'Marketing e qualità') - but NO regulation PDF specific to 'Economics and Communication for Management and Innovation' appears on that page. Also checked the only two unitus.it-hosted PDFs found for this specific programme (the promotional brochure and the Sapienza-Tuscia convention); neither contains CFU/SSD admission thresholds - the convention is purely administrative/governance text (fee splits, diploma issuance, insurance, etc.), and the brochure only restates the general course description. Conclusion: no programme-specific academic (CFU/SSD) prerequisites could be found anywhere on unitus.it; academic_requirements is filled with the best-effort general inference and flagged [uncertain] rather than invented. It is possible such requirements exist only on Sapienza's own site, which is out of scope per project rules. || The general-info / study-plan page (unitus.it/en/courses/second-cycle-degree/economics-communication-management-innovation/general-info/) was fetched and confirmed to render with an empty body relevant to curriculum content: the page template pulls study-plan data client-side from the unitus-public.gomp.it API (visible in a dns-prefetch hint in the raw HTML), and no static curriculum/study-plan content is present in the server-rendered HTML - consistent with the outline's note that curriculum is administered by Sapienza rather than published on unitus.it. || Confirmed there is no UNITUS programme called 'International Business' and no LM-76 'Economics/Management' overlap was used - all facts above are scoped strictly to this LM-77 'Economics and Communication for Management and Innovation' page and its two directly linked unitus.it PDFs. || Could not find or confirm an 'anno=2026' or similar year-selector query parameter on the program URL; the program page and general-info page do not expose a year toggle in the static HTML (year/curriculum switching, if any, appears to be handled by the same client-side GOMP integration noted above). || official_call_url is null because there is no programme-specific bando/call for applications (open access + interview per shared_admission_baseline); no didactic regulation PDF specific to this programme could be substituted either, since none exists on unitus.it (see academic_requirements note above) - the closest substantive official document is the Sapienza-Tuscia convention PDF, which is cited under campus/language source_quotes instead. || tuition_or_fees_link points to the general UNITUS fees page as a best-effort placeholder, but per the convention, Sapienza (out of scope) is formally responsible for setting/collecting this programme's fees, so the true fee figures may differ from the general UNITUS ISEEUP table and could not be verified.",
+  "uncertain": [
+    "academic_requirements",
+    "language_requirements",
+    "entry_exam_or_test",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "required_documents",
+    "tuition_or_fees_link",
+    "official_call_url",
+    "campus"
+  ]
+}

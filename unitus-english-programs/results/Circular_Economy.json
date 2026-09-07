@@ -1,0 +1,88 @@
+{
+  "program_name": "Circular Economy",
+  "level": "master",
+  "degree_class": "LM-76",
+  "teaching_language": "English [uncertain]. TWO official UNITUS sources assert it: the course-page detail box (\"Language English\") and the university's own English-programme catalogue row (\"LM76 - Circular economy | Campus: Civitavecchia | Department: DEIM | CourseTaught: English\"). NO official source contradicts it. What is missing is corroboration in prose: unlike Forestry, Mechanical Engineering and Security and Human Rights, the page body never states English delivery, the English brochure PDF never mentions language of instruction, and the study-plan LANGUAGE column is blank for every course in every year. Treat as English but verify before publishing.",
+  "campus": "Civitavecchia - Department of Economics, Engineering, Society and Business Organization (DEIM); Student Office at Piazza Verdi 1, Civitavecchia; polo.civitavecchia@unitus.it",
+  "admission_type": "open access",
+  "academic_requirements": "Open access ('ad accesso libero', Art. 5 comma 1 of the didactic regulation) + suitability check + oral interview when needed. Preferred entry: three-year bachelor's degree in the Italian L-18 or L-33 class, or a recognized equivalent foreign qualification. Applicants from other bachelor's classes need at least 48 CFU overall in the base and characterizing SSDs listed in DM 16 March 2007 for classes L-18/L-33 and/or in MAT/01-09, INF/01, ING-INF/05, ING-IND/17, ING-IND/35 (Art. 5 comma 3). Personal preparation is assessed from the CV and academic transcript, 'eventually supplemented by an interview' (Art. 5 comma 4: 'eventualmente integrato da un colloquio') - i.e. the interview is not automatically mandatory for every applicant the way it is in some other UNITUS LM programmes, but is used when the paper record needs supplementing. Any missing curricular credits must be made up before the course starts. Foreign qualifications require standard equivalency documentation (Dichiarazione di Valore / CIMEA Statement of Comparability) per the university-wide baseline; this is not restated on the programme's own English page.",
+  "language_requirements": "No English-language requirement specific to this programme (CEFR level, certificate list, or minimum scores) is published on unitus.it, in the English brochure, or in the Italian didactic regulation. Given the unresolved teaching-language question (see uncertainty_notes), it is not possible to confirm whether the university-wide English-B2 baseline (IELTS, TOEFL, TCL, Cambridge First, PTE Academic, Oxford Test of English, Aptis ESOL General/Advanced, or EMI documentation) or the Italian-B2 baseline (or both) actually governs admission to this course. The didactic regulation (Art. 3 comma 4) only states that graduates of the programme must possess 'written and oral proficiency in at least one EU language besides Italian' - a graduation learning outcome, not an admission requirement, and not proof that instruction itself is delivered in English. [uncertain]",
+  "entry_exam_or_test": "No TOLC, no written entrance exam, no numero chiuso. Admission is via review of the CV/academic transcript ('curriculum vitae et studiorum'), optionally supplemented by an interview if the record needs clarifying (Art. 5 comma 4 of the didactic regulation). Separately, the official programme page offers international applicants a 2026/2027 application form and invites all interested applicants to 'Book here an oral interview!' via a Google Form, suggesting in practice an oral interview is offered/expected even though the regulation text itself makes it conditional. No interview dates, format, or language are published for this specific programme (unlike Marine Biology and Ecology's DEB interview calendar).",
+  "application_deadline_eu": "No programme-specific application deadline is published (admission is rolling, curriculum-review based). University-wide 2026/2027 enrolment calendar applies: enrolment opens 2026-08-01; deadline for 1st-year Master's students 2026-12-29; extension to 2027-02-28 for January/February graduates.",
+  "application_deadline_non_eu": "No programme-specific deadline published. University-wide 2026/2027 reference points apply: non-EU visa application cutoff at the consulate 2026-11-30; onsite enrolment for non-EU students via the International Students Desk opens 2026-08-01. Non-EU/international applicants use the dedicated 'AY 2026/2027 International Student Apply Here' Google Form linked on the official programme page.",
+  "required_documents": [
+    "International Student Application form for a.y. 2026/2027 (Google Form linked on the official programme page as 'AY 2026/2027 International Student Apply Here')",
+    "Interview-booking Google Form ('Book here an oral interview!')",
+    "Prior bachelor's degree (L-18/L-33 or equivalent) with transcript detailing exams, credits and SSDs, for the curriculum-adequacy review",
+    "High-school diploma and bachelor's degree with certified copy + Apostille/legalization + certified Italian translation, OR CIMEA Statement of Verification - university-wide baseline (not restated on this programme's own page)",
+    "Declaration of Value (Dichiarazione di Valore) OR CIMEA Statement of Comparability OR ARDI Statement of Correspondence, for foreign qualifications",
+    "Diploma Supplement (can substitute the Declaration of Value if legalized)",
+    "Language certificate (unresolved which language - see language_requirements)",
+    "[uncertain] No official, programme-specific required-documents checklist is published on unitus.it; the above list is inferred from the application/interview forms present on the page plus the university-wide baseline."
+  ],
+  "tuition_or_fees_link": {
+    "url": "https://www.unitus.it/en/students/fees-and-contributions/",
+    "note": "ISEEUP income-based tiered fees for EU/eligible students; non-EU students who do not declare ISEEUP pay a flat fee based on country-of-origin band: EUR 600 / 1,050 / 1,500 / 1,950 per year (Annex 1 country list). Full regulation: https://www.unitus.it/wp-content/uploads/2026/07/TUITION-FEES-AND-CONTRIBUTIONS-REGULATIONS_2026-2027.pdf ; fee simulator: https://www.unitus.it/en/students/fees-and-contributions/tuition-fee-simulator/"
+  },
+  "official_program_url": "https://www.unitus.it/en/courses/second-cycle-degree/circular-economy/",
+  "official_call_url": "https://www.unitus.it/wp-content/uploads/2024/03/Reg.to-Circular-Economy-2023.pdf",
+  "source_quotes": [
+    {
+      "field": "teaching_language",
+      "quote": "Department Economics, Engineering Society and Business Organization | Language English | Course lenght 2 years | Admission AY 2026/2027 International Student Apply Here",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/circular-economy/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "teaching_language",
+      "quote": "LM76 - Circular economy Campus: Civitavecchia Department: Department of Economics, Engineering, Society and Business Organization (DEIM) CourseTaught: English",
+      "url": "https://www.unitus.it/en/international/courses-catalogue/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "teaching_language (metadata field, unconfirmed in body)",
+      "quote": "LM-76 | Circular Economy | Headquarter: Civitavecchia | Department: Economics, Engineering Society and Business Organization | Language: English | Course lenght: 2 years",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/circular-economy/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "teaching_language (Italian didactic regulation - base language defaults to Italian)",
+      "quote": "L'elenco degli insegnamenti con l'indicazione dei SSD, della loro pertinenza alle attivita' caratterizzanti e affini e integrative, dell'articolazione in moduli, dei CFU assegnati per ogni insegnamento, della lingua di base dell'insegnamento se diversa dall'italiano, ... sono riportate nella Guida dello Studente.",
+      "url": "https://www.unitus.it/wp-content/uploads/2024/03/Reg.to-Circular-Economy-2023.pdf",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "teaching_language (study plan LANGUAGE column is blank for every course)",
+      "quote": "SUBJECT SEMESTER CFU SSD LANGUAGE / 119282 - CONSUMER BEHAVIOR IN THE CIRCULAR ECONOMY First Semester 8 ECON-07/A [no value listed under LANGUAGE for this or any other course row]",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/circular-economy/general-info/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "teaching_language (thesis-only English requirement, not general instruction)",
+      "quote": "La tesi e' un elaborato scritto, ampio e approfondito, redatto in modo originale dal laureando secondo modalita' definite dal Consiglio del Dipartimento, in lingua inglese, avente ad oggetto un argomento inerente al corso di studio...",
+      "url": "https://www.unitus.it/wp-content/uploads/2024/03/Reg.to-Circular-Economy-2023.pdf",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "admission_type / academic_requirements",
+      "quote": "Il corso di laurea magistrale e' ad accesso libero. Gli studenti che intendono iscriversi al corso di laurea magistrale in Circular Economy devono essere in possesso della laurea triennale nelle classi L-18 o L-33... L'adeguatezza della personale preparazione viene verificata sulla base del curriculum vitae et studiorum dello studente, eventualmente integrato da un colloquio.",
+      "url": "https://www.unitus.it/wp-content/uploads/2024/03/Reg.to-Circular-Economy-2023.pdf",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "entry_exam_or_test / application forms",
+      "quote": "AY 2026/2027 International Student Apply Here ... Are you interested in this degree program? Book here an oral interview!",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/circular-economy/",
+      "accessed": "2026-09-05"
+    }
+  ],
+  "uncertainty_notes": "PRIORITY FINDING per task instructions: the claim that this programme is taught in English rests only on the structured 'Language: English' field on the course page. After deep verification: (1) the page body text describing the course contains zero sentences stating instruction is in English (contrast with LM-77 Economics and Communication, whose page explicitly states 'The educational activities of the course are entirely conducted in English'); (2) the English-language brochure PDF (Circular-Economy-Ing.pdf) never mentions English or language of instruction at all, despite being written in English itself; (3) the study-plan LANGUAGE column on the general-info page is blank for every single course row across all years/curricula; (4) the Italian didactic regulation (Reg.to-Circular-Economy-2023.pdf, Art. 10) states the base teaching language of each course is documented in the Guida dello Studente 'se diversa dall'italiano' (if different from Italian) - i.e. the regulation's default assumption is Italian, with English (or another language) only for specific courses noted elsewhere, and no such list was found; (5) the only explicit 'in lingua inglese' requirement in the regulation (Art. 13) concerns the final thesis being written in English, and a related clause (Art. 12) about project-work presentations 'if conducted in English' - neither of these establishes that general coursework is delivered in English; (6) Art. 3 comma 4 requires graduates to have EU-language proficiency 'besides Italian' as a learning outcome, again not proof of English-medium instruction. Net conclusion: teaching_language marked [uncertain] - the English-delivery claim is NOT confirmed and is contradicted by structural evidence pointing to Italian as the base language with an unresolved English component; ItalyPath should not present this course to students as reliably fully English-taught without a direct confirmation from polo.civitavecchia@unitus.it (contact attempt not made in this pass; recommended as next step). Additional uncertainties: no official_call_url exists as a dedicated call/bando (open access, no selection call) - the didactic regulation PDF is provided in its place per project rules, though it is dated 2023 and served over plain http (not https) from unitus.it. A previously-unnoted detail found in the brochure: the programme also has a 'Double degree with Agricultural University of Tirana' for the Blue curriculum track, not mentioned in the outline's known data - flagged here for awareness but not independently verified further. The 'Orientamento unico DD_Samati_uzb' curriculum option (Uzbekistan-linked, likely a double-degree track) remains unexplained by any accessible English page. No GPA/minimum-grade threshold, and no programme-specific language-certificate list, are published anywhere on unitus.it for this course.\n\nTEACHING-LANGUAGE ASSESSMENT (re-checked 2026-09-05 against the live pages): English delivery is asserted twice by UNITUS (course-page metadata field and the international catalogue's 'CourseTaught: English' row) and is contradicted by no official source. The earlier reading that the Italian didactic regulation implies Italian is an INFERENCE (Art. 10 documents a course language in the Guida dello Studente only 'se diversa dall'italiano'), not a statement about this programme. The real gap is the absence of confirming prose and of a populated study-plan language column. Recommended: email polo.civitavecchia@unitus.it to confirm before showing this programme to English-track students.",
+  "uncertain": [
+    "teaching_language",
+    "language_requirements",
+    "required_documents",
+    "entry_exam_or_test",
+    "application_deadline_eu",
+    "application_deadline_non_eu"
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "program_name": "Economics, Management and Finance - Economics and Management for Innovation and Sustainability",
+  "level": "master",
+  "teaching_language": "fully English (curriculum-specific: this is one of three curricula within the LM-77 'Economics, Management and Finance' programme; the other two curricula, 'Management, consulenza e controllo aziendale' and 'Finanza', are taught in Italian)",
+  "campus": "Viterbo. Department: Economics, Engineering, Society and Business Organization (DEIM - Dipartimento di Economia, Ingegneria, Società e Impresa)",
+  "degree_class": "LM-77 [uncertain] - the outline task brief listed this as 'LM-76', but the official unitus.it program page and its didactic regulation PDF both unambiguously state 'LM-77'. This appears to be a mix-up in the source task with the separate 'Circular Economy' programme, which IS degree class LM-76. Reported here as LM-77 per the primary source.",
+  "admission_type": "open access",
+  "academic_requirements": "Bachelor's degree (laurea triennale) or an equivalent qualification obtained abroad and recognized as suitable is required to enter the LM-77 programme generally. The 2025-updated didactic regulation for the parent LM-77 course (Amministrazione, Finanza e Controllo) specifies: direct access for graduates of classes L-18 or L-33; graduates of other bachelor's classes (or holders of an equivalent foreign qualification, or of an old-system 4-year laurea) must additionally hold at least 36 CFU distributed as: 6-12 CFU in SSD SECS-P/01 or SECS-P/02; 6-12 CFU in SSD SECS-P/07 or SECS-P/11; 6-12 CFU in SSD IUS/01 or IUS/04; 6-12 CFU in SSD SECS-S/01, SECS-S/03 or SECS-S/06. Any curricular gap ('carenze formative') must be filled before the course starts. The programme is 'ad accesso libero' (open access): adequacy of personal preparation is verified via the candidate's CV/academic history, possibly supplemented by an interview. [uncertain] The 2025 didactic regulation PDF (the most recent one found, dated 02.10.2025) describes only the two Italian-taught curricula (Amministrazione e Controllo, Finanza) and does NOT mention the English-taught 'Economics and Management for Innovation and Sustainability' curriculum at all - it is unclear whether this English curriculum is governed by the same 36-CFU/SSD thresholds or has its own (unpublished) academic prerequisites; this could not be confirmed on unitus.it.",
+  "language_requirements": "English proficiency at CEFR B2 level is required ('English language proficiency at least at B2 level', per the official programme page), consistent with the university-wide baseline (accepted certificates: IELTS, TOEFL, TCL, Cambridge First, PTE Academic, Oxford Test of English, Aptis ESOL General/Advanced, or documentation of a prior EMI degree). No Italian language requirement is stated for this English-taught curriculum. [uncertain] No curriculum-specific numeric score table (e.g. minimum IELTS/TOEFL score) was found on unitus.it for this programme; only the general B2 threshold is stated.",
+  "entry_exam_or_test": "Enrolment is subject to verification of curricular requirements and adequate personal preparation. For international students specifically, admission requires completion of a mandatory 'Oral interview' (per the official programme page: 'For international students only: Oral interview'). For students holding a qualification obtained abroad or under previous Italian academic systems, the Degree Programme Board verifies curricular requirements through an evaluation of the applicant's prior academic career. No TOLC, no numerus clausus/bando. [uncertain] No further detail (format, dates, topics, online vs in-person, scoring threshold) specific to this curriculum is published on unitus.it; the interview is presumably booked via the university-wide Interview Booking form.",
+  "application_deadline_eu": "No programme-specific application deadline is published on the official unitus.it program page (admission is rolling, gated by curricular verification and the oral interview for international students, not a call/bando). University-wide 2026/2027 enrolment calendar applies: enrolment opens 2026-08-01, deadline for 1st-year Master's students 2026-12-29, with extension to 2027-02-28 for January/February graduates.",
+  "application_deadline_non_eu": "No programme-specific deadline published. University-wide 2026/2027 calendar applies: non-EU visa application cutoff at the consulate is 2026-11-30; onsite enrolment via the International Students Desk opens 2026-08-01; Universitaly pre-enrolment is open for a.y. 2026/2027 (Universitaly itself typically opens around April/May).",
+  "required_documents": [
+    "[uncertain] No programme-specific required-documents list was found on unitus.it for this curriculum; the following is inferred from the university-wide required_documents_baseline (outline.yaml) rather than a programme-specific source",
+    "Prior degree diploma (laurea triennale or equivalent) + full transcript, certified copy + Apostille/legalization + certified Italian translation OR CIMEA Statement of Verification",
+    "Declaration of Value (Dichiarazione di Valore) OR CIMEA Statement of Comparability OR ARDI Statement of Correspondence (for foreign qualifications)",
+    "Diploma Supplement (can substitute the Declaration of Value if legalized)",
+    "English language certificate (B2) or EMI documentation",
+    "Completed interview booking (for international students, via the university-wide Interview Booking form)",
+    "Admission letter (issued after curricular/interview verification)"
+  ],
+  "tuition_or_fees_link": {
+    "url": "https://www.unitus.it/en/students/fees-and-contributions/",
+    "note": "General UNITUS fees page. ISEEUP income-based tiered tuition for EU/assimilated students; non-EU students without an ISEEUP declaration pay a flat fee based on a 4-tier country band (EUR 600 / 1,050 / 1,500 / 1,950 per year, per Annex 1 of the 2026/2027 tuition regulations). No curriculum-specific fee figure was found."
+  },
+  "official_program_url": "https://www.unitus.it/en/courses/second-cycle-degree/management-finance-and-controlling-2/",
+  "official_call_url": "https://www.unitus.it/wp-content/uploads/2025/10/Reg.to-did.-Amministrazione-Finanza-e-Controllo-2025.pdf",
+  "source_quotes": [
+    {
+      "field": "identity/degree_class",
+      "quote": "Economics, Management and Finance – Economics and Management for Innovation and Sustainability / LM-77",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/management-finance-and-controlling-2/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "campus",
+      "quote": "Headquarter: Viterbo / Department: Economics, Engineering Society and Business Organization",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/management-finance-and-controlling-2/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "teaching_language",
+      "quote": "The \"Economics and Management for Innovation and Sustainability\" curriculum is one of three tracks within the LM-77 Master's Degree Program in Economics, Management, and Finance and is taught entirely in English.",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/management-finance-and-controlling-2/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "admission_type / entry_exam_or_test",
+      "quote": "Enrollment is subject to verification of curricular requirements. For international students only: Oral interview.",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/management-finance-and-controlling-2/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "Enrollment is in any case subject to verification of curricular requirements, adequate personal preparation, and English language proficiency at least at B2 level.",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/management-finance-and-controlling-2/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "Per l'accesso al corso è richiesta la laurea triennale nelle classi L-18 o L-33. [...] purché in possesso dei seguenti requisiti curriculari (almeno 36 CFU) [...] da 6 a 12 CFU nel SSD SECS-P/01 o SSD SECS-P/02; da 6 a 12 CFU nel SSD SECS-P/07 o SECS-P/11; da 6 a 12 CFU nel SSD IUS/01 o IUS/04; da 6 a 12 CFU nel SSD SECS-S/01 o SECS-S/03 o SECS-S/06.",
+      "url": "https://www.unitus.it/wp-content/uploads/2025/10/Reg.to-did.-Amministrazione-Finanza-e-Controllo-2025.pdf",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "Il corso di laurea magistrale è ad accesso libero. L'adeguatezza della personale preparazione viene verificata sulla base del curriculum vitae et studiorum dello studente, eventualmente integrato da un colloquio.",
+      "url": "https://www.unitus.it/wp-content/uploads/2025/10/Reg.to-did.-Amministrazione-Finanza-e-Controllo-2025.pdf",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "No programme-specific deadline published on unitus.it; university-wide calendar: enrolment 2026-08-01 to 2026-12-29 for 1st-year Master's (per shared_admission_baseline / official_calendar_2026_2027)",
+      "url": "https://www.unitus.it/en/join-unitus/how-to-enroll/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "No programme-specific deadline published on unitus.it; university-wide non-EU visa cutoff 2026-11-30 (per shared_admission_baseline / official_calendar_2026_2027)",
+      "url": "https://www.unitus.it/en/join-unitus/how-to-enroll/",
+      "accessed": "2026-09-05"
+    }
+  ],
+  "uncertainty_notes": "DEGREE CLASS DISCREPANCY: the research task brief listed this programme as 'LM-76', but every official unitus.it source (the program page, the catalogue listing, and the didactic regulation PDF) confirms the class is LM-77. This is likely a mix-up with the separate 'Circular Economy' programme (which is genuinely LM-76). Reported degree_class as LM-77 (verified) rather than LM-76 (task brief). || REGULATION GAP: the most recent didactic regulation for the parent course, 'Amministrazione, Finanza e Controllo' (LM-77), dated 02.10.2025 (D.R. n. 578/2025), describes only two curricula - 'Amministrazione e Controllo' and 'Finanza' - both taught in Italian. It makes NO mention of the English-taught 'Economics and Management for Innovation and Sustainability' curriculum that appears on the English-language unitus.it program page and in the official English-programme catalogue. This English curriculum may be newly introduced for 2026/2027 and not yet reflected in the regulation text, or it may be governed by an as-yet-unpublished amendment/annex. The academic prerequisites (36 CFU / SSD thresholds) are therefore applied here by inference from the parent LM-77 regulation, not confirmed as curriculum-specific, and should be treated with caution. || The 'general-info' study-plan sub-page for this specific curriculum URL (management-finance-and-controlling-2/general-info/) returns a 404 error; the study-plan/course-list table with CFU/SSD/LANGUAGE columns is instead only found on the sibling parent-programme page (management-finance-and-controlling/general-info/), which lists Italian-curriculum courses; no equivalent course-by-course table for the English curriculum was found. || No programme-specific interview calendar, required-documents list, or fee figure was found on unitus.it for this curriculum; the interview-booking mechanism and required documents were inferred from the university-wide baseline. || No official_call_url (bando) exists, per the university-wide open-access + interview admission model; the closest substitute, the parent programme's didactic regulation PDF, is supplied instead, with the caveat above that it does not explicitly cover this curriculum.",
+  "uncertain": [
+    "degree_class",
+    "academic_requirements",
+    "language_requirements",
+    "entry_exam_or_test",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "required_documents",
+    "tuition_or_fees_link",
+    "official_call_url"
+  ]
+}

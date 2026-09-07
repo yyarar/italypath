@@ -1,0 +1,43 @@
+{
+  "id": "ba-engineering-management",
+  "program_name": "Engineering Management",
+  "level": "bachelor",
+  "degree_code": "L0615",
+  "degree_class": "L-8 R / L-9 R",
+  "teaching_language": "Entirely English.",
+  "curriculum_name_en": null,
+  "campus": "Perugia",
+  "department": "Dipartimento di Ingegneria",
+  "admission_type": "open access",
+  "places_available": "180 places, open (free) access — no numero programmato.",
+  "academic_requirements": "Italian secondary-school diploma or equivalent foreign qualification (12 years of schooling). No specific subject prerequisites beyond passing the mandatory entry test (see entry_exam_or_test). Personal-preparation gap, if any, is recovered via OFA (Obbligo Formativo Aggiuntivo) rather than blocking enrolment for EU/resident applicants.",
+  "language_requirements": "English B2 required for admission. Regulation allows conditional matriculation without the certificate if obtained by the end of Year 1 (exam block until then) — but non-EU visa applicants are rejected outright at PICA stage without a listed B2 certificate, so treat B2 as effectively mandatory for that group. MOI (Medium of Instruction) letters and Duolingo are explicitly not accepted anywhere at UNIPG.",
+  "english_certificates_accepted": [
+    "IELTS 5.5-6.5", "TOEFL iBT 72-94", "Cambridge ESOL IGCSE",
+    "LanguageCert International ESOL B2 Communicator", "Gatehouse Awards GA Level 1 (Classic B2)",
+    "Pearson PTE General Level 3", "Trinity ISE II", "Oxford Test of English B2"
+  ],
+  "entry_exam_or_test": "Mandatory entry test — the UNIPG international-students page states: \"providing a CEnT-S test, a TOLC-I test or a SAT test is mandatory. APPLICATIONS NOT PROVIDING one of the above-mentioned tests WILL BE IMMEDIATELY REJECTED.\" The faculty-level admission-test page (ing.unipg.it/en/courses/admission-test) lists specific thresholds for only two of the three: TOLC-I >=14/50 overall with >=7/20 in Maths; CEnT-S (CISIA English-language test, live since Nov 2025: 55 questions, 110 min, EUR 55, valid 1 academic year) >=10/35 with >=5/15 in Maths. SAT is confirmed accepted on the international-students page (department page previously cited SAT >=700/1600, Maths >=350/800, and ACT >=16/36, Maths >=15/36, though these department-level SAT/ACT thresholds are not repeated on the faculty admission-test page — flagged as a minor conflict). Below the threshold, EU/resident students may still enrol with an OFA (additional learning obligation); non-EU visa applicants must pass to be admitted.",
+  "nulla_osta_required": "Not applicable at bachelor level in the same way as master's programmes (nulla osta is a master's-enrolment mechanism); admission is instead gated by the mandatory entry test.",
+  "required_documents": [
+    "Secondary-school diploma (12 years of schooling) with foreign-qualification documentation", "Passport",
+    "Entry-test result (CEnT-S, TOLC-I, or SAT)", "English B2 certificate (MOI/Duolingo not accepted)",
+    "Universitaly pre-enrolment (non-EU)", "PICA application"
+  ],
+  "application_deadline_eu": "EU/legally-residing applicants: PICA pre-enrolment from 1 July 2026 (no published closing date); SOL enrolment for open-access bachelor/single-cycle closes 20 October 2026.",
+  "application_deadline_non_eu": "Non-EU visa applicants: PICA call 2026-visa-06, open until 12:00 (noon) on 21 August 2026 — CLOSED as of research date (2026-09-05).",
+  "tuition_or_fees_link": "https://www.unipg.it/en/international-students/becoming-a-unipg-student/tuition-fees-and-scholarships",
+  "tuition_range": "EUR 150-2,200/year via a 17-band ISEE table. Non-EU/foreign-income students use a fixed Flat Tax by home-country UNDP Human Development bracket (Turkey = HIGH HD = EUR 800/year + EUR 16 stamp) or ISEEU Parificato via an affiliated CAF. Declaration window 3 Aug-20 Oct 2026 (late to 1 Mar 2027 with surcharge; missing 28 Feb entirely defaults to the maximum band, ~EUR 2,096).",
+  "cimea_requirement": "Not specified at programme level; see university-wide study-documents page for CIMEA/blackout-date rules.",
+  "double_degree": "None found on official pages for this programme.",
+  "official_program_url": "https://ing.unipg.it/en/courses/engineering-management/first-cycle-degree-course",
+  "official_call_url": "https://ing.unipg.it/en/courses/admission-test",
+  "source_quotes": [
+    {"quote": "for both the bachelor's and the master's program in ENGINEERING MANAGEMENT providing a suitable B2-LEVEL ENGLISH CERTIFICATION is mandatory... APPLICATIONS PROVIDING A MOI, OR A DIFFERENT ENGLISH CERTIFICATION WILL BE IMMEDIATELY REJECTED", "url": "https://www.unipg.it/en/international-students/becoming-a-unipg-student", "field_supported": "language_requirements"},
+    {"quote": "providing a CEnT-S test, a TOLC-I test or a SAT test is mandatory. APPLICATIONS NOT PROVIDING one of the above-mentioned tests WILL BE IMMEDIATELY REJECTED", "url": "https://www.unipg.it/en/international-students/becoming-a-unipg-student", "field_supported": "entry_exam_or_test"},
+    {"quote": "The application period will remain open until 12:00 am on August 21, 2026", "url": "https://pica.cineca.it/unipg/2026-visa-06/", "field_supported": "application_deadline_non_eu"},
+    {"quote": "Duolingo test is not accepted. A certificate/letter stating that the student's medium of instruction is English (MOI) is not accepted", "url": "https://www.unipg.it/en/international-students/becoming-a-unipg-student/language-requirements", "field_supported": "language_requirements"}
+  ],
+  "uncertainty_notes": "L0615 is the current 2026/27 active-intake course code; the older code L082 is a phasing-out cohort of the same programme (Year 3 courses only) and must not be listed as a separate active option. SAT/ACT department-level thresholds (700/1600, 16/36) were found on a department subpage in an earlier research pass but are not repeated on the current faculty-wide admission-test page — flag if publishing exact SAT/ACT thresholds. Places figure (180) and 'free access' status come from an earlier framework-verification pass and were not independently re-confirmed in this pass. Data collected 2026-09-05, all sources unipg.it/*.unipg.it only.",
+  "research_date": "2026-09-05"
+}

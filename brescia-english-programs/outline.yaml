@@ -1,0 +1,139 @@
+topic: "University of Brescia (UNIBS) - İngilizce eğitim veren lisans ve yüksek lisans programlarının admission requirements bilgileri"
+scope_notes: |
+  - Sadece unibs.it / corsi.unibs.it resmi sayfaları kaynak olarak kullanılacak.
+  - 2026/2027 admission bilgisi önceliklidir; yoksa en güncel resmi yıl (2025/2026 vb.) kullanılır.
+  - unibs.it Cloudflare "managed challenge" koruması arkasındadır. Preliminary research aşamasında
+    doğrudan sayfa erişimi başarısız oldu (403/405); sonuçlar arama motoru dizin içeriğinden derlendi.
+    Deep research aşamasında önce normal erişim denenecek, başarısız olursa uncertainty_notes alanına
+    "sayfa doğrudan doğrulanamadı, arama motoru önbelleğinden derlendi" notu düşülecek.
+  - "Medicine and Surgery" başlangıç taslağında yanlışlıkla İngilizce/Harvey programı olarak
+    listelenmişti; bu YANLIŞTIR (Harvey Course Pavia Üniversitesi'ne aittir). UNIBS Medicine and
+    Surgery tamamen İtalyancadır ve kapsam dışıdır.
+
+items:
+  # ---- LİSANS (BACHELOR) ----
+  - id: business-and-economics-bsc
+    program_name: "Business and Economics"
+    level: bachelor
+    english_delivery_scope_hint: fully_english
+    programme_status_hint: active_first_year
+    first_activation_year: "2025/2026"
+    official_program_url: "https://corsi.unibs.it/en/business-economics"
+    official_program_url_alt: "https://www.unibs.it/en/cds-business-economics"
+    official_call_url: "https://www.unibs.it/en/education/enrolling/matriculating/bachelors-degree-courses/business-and-economics"
+    notes: "Baştan sona İngilizce. Giriş: B2 İngilizce + seçici olmayan CEnT-S/English TOLC-E testi. Kayıt penceresi 13 Temmuz–17 Aralık 2026."
+
+  - id: economics-and-data-analysis-bsc
+    program_name: "Economics and Data Analysis"
+    level: bachelor
+    english_delivery_scope_hint: partial_third_year_english
+    programme_status_hint: active_first_year
+    first_activation_year: "2025/2026"
+    official_program_url: "https://corsi.unibs.it/en/data-analysis"
+    official_program_url_alt: "https://corsi.unibs.it/en/dataanalysis"
+    notes: "DİKKAT: Sadece 3. yıl İngilizce; 1. ve 2. yıl İtalyanca. Kısmi İngilizce programı olarak işaretlenmeli, tam İngilizce sanılmamalı."
+
+  # ---- YÜKSEK LİSANS (MASTER / LAUREA MAGISTRALE) ----
+  - id: adsem-master
+    program_name: "Analytics and Data Science for Economics and Management (ADSEM)"
+    level: master
+    english_delivery_scope_hint: fully_english
+    programme_status_hint: active_first_year
+    official_program_url: "https://corsi.unibs.it/en/datascience"
+    official_call_url: "https://corsi.unibs.it/en/datascience/enrolling"
+    official_program_url_alt: "https://www.unibs.it/en/cds-datascience"
+    notes: "Giriş: min. 30 ECTS ilgili SSD alanlarında (INF/, ING-INF/, MAT/, SECS-S/, SECS-P/05, FIS/, MED/01, M-PSI/03), B2 İngilizce; yetersizse sözlü/yazılı sınav (yabancı diplomalılara zorunlu)."
+
+  - id: management-international-business
+    program_name: "Management (LM) — International Business curriculum"
+    level: master
+    degree_class: "LM-77 (varsayım, doğrulanmalı)"
+    english_delivery_scope_hint: english_curriculum_within_programme
+    programme_status_hint: active_first_year
+    official_program_url: "https://corsi.unibs.it/en/management"
+    official_call_url: "https://corsi.unibs.it/en/management/enrolling"
+    notes: "Aynı Management LM içindeki İngilizce curriculum'lardan biri. Min. lisans not ortalaması 77/100 + B2 CEFR belirtiliyor. Mainz ve Nottingham Trent ile çift diploma. Curriculum bazlı ayrım gerekiyor — program adı tek başına yeterli değil."
+
+  - id: management-green-economy-sustainability
+    program_name: "Management (LM) — Green Economy and Sustainability curriculum"
+    level: master
+    degree_class: "LM-77 (varsayım, doğrulanmalı)"
+    english_delivery_scope_hint: english_curriculum_within_programme
+    programme_status_hint: active_first_year
+    official_program_url: "https://corsi.unibs.it/en/management"
+    official_call_url: "https://corsi.unibs.it/en/management/enrolling"
+    notes: "Aynı Management LM içindeki ikinci İngilizce curriculum. Giriş şartlarının International Business ile aynı mı farklı mı olduğu doğrulanmalı."
+
+  - id: civil-and-environmental-engineering
+    program_name: "Civil and Environmental Engineering"
+    level: master
+    english_delivery_scope_hint: fully_english
+    programme_status_hint: active_first_year
+    official_program_url: "https://corsi.unibs.it/en/civilandenvironmentalengineering"
+    official_program_url_alt: "https://www.unibs.it/en/cds-civil-environmental-engineering"
+    notes: "Giriş: Civil/Environmental Engineering lisansı (Calculus, Physics, Chemistry, Fluid mechanics, Structural mechanics altyapısı). B2 İngilizce zorunlu, dil için CFU ayrılmıyor."
+
+  - id: communication-technologies-and-multimedia
+    program_name: "Communication Technologies and Multimedia (CTM)"
+    level: master
+    degree_class: "LM-27"
+    english_delivery_scope_hint: fully_english
+    programme_status_hint: phasing_out_second_year_only
+    official_program_url: "https://corsi.unibs.it/en/communicationtechnologiesandmultimedia"
+    official_call_url: "https://corsi.unibs.it/en/communicationtechnologiesandmultimedia/enrolling"
+    notes: "ÖNEMLİ: 2026/27'den itibaren yalnızca 2. yıl aktif — yeni 1. sınıf kaydı ALINMIYOR. Yine de araştırmaya dahil, ancak application bilgisi 'yeni başvuru kabul edilmiyor' notuyla işaretlenecek."
+
+  - id: digital-enterprise-technology-engineering
+    program_name: "Digital Enterprise Technology Engineering (Master's)"
+    level: master
+    english_delivery_scope_hint: unverified
+    programme_status_hint: phasing_out_second_year_only
+    official_program_url: "https://corsi.unibs.it/en/digital-enterprise-technology-engineering-md"
+    official_call_url: "https://corsi.unibs.it/en/digital-enterprise-technology-engineering-md/enrolling"
+    notes: "DİKKAT: Öğretim dili preliminary research'te doğrulanamadı. Aynı isimde ayrı bir LİSANS programı da var (https://corsi.unibs.it/en/digital-enterprise-technology-engineering, TOLC-I ile, İtalyanca) — bu iki programı karıştırma. 2026/27'den itibaren bu master de yalnızca 2. yıl aktif."
+
+  - id: mechanical-engineering
+    program_name: "Mechanical Engineering (LM)"
+    level: master
+    english_delivery_scope_hint: conflicting_sources
+    programme_status_hint: active_first_year
+    official_program_url: "https://corsi.unibs.it/en/mechanical-engineering"
+    official_program_url_alt: "https://www.unibs.it/en/cds-ingegneria-meccanica-lm"
+    notes: "ÇELİŞKİLİ KAYNAK: corsi.unibs.it listesinde 'İngilizce, serbest erişim' görünüyor; program açıklamasında ise sadece Biomechanics curriculum'unun 'çoğunlukla İngilizce' olduğu yazıyor. 5 curriculum var: Vehicles, Biomechanics, Construction, Production, Energy Transition. Deep research'te hangi curriculum'un hangi dilde olduğu netleştirilmeli."
+
+excluded_not_english:
+  - name: "Medicine and Surgery"
+    reason: "Tamamen İtalyanca; 2026/27'den ulusal 'semestre filtro' sistemine tabi. Harvey Course (İngilizce) Pavia Üniversitesi'ne aittir, Brescia'da yoktur."
+  - name: "Medical Biotechnology (LM)"
+    reason: "İtalyanca, blended; B1 İngilizce istenir ama öğretim dili İtalyanca."
+  - name: "Foundation Year"
+    reason: "Uluslararası öğrenciler için hazırlık programı ama tamamen İtalyanca."
+  - name: "Electronics Engineering, Industrial Automation Engineering, Computer Science and Engineering (LM)"
+    reason: "İtalyanca."
+  - name: "Medical Engineering (L-8, yeni 2026/27)"
+    reason: "İtalyanca, TOLC-I ile giriş; akreditasyon süreci devam ediyor."
+
+horizontal_reference_pages:
+  - name: "Study programmes taught in English (genel liste)"
+    url: "https://www.unibs.it/en/english-study-programmes"
+  - name: "Pre-evaluation for master's degrees (PICA, yabancı diplomalılar için zorunlu)"
+    url: "https://www.unibs.it/en/international/degree-seeking-students/admission/pre-evaluation-masters-degrees"
+    deadline_2026_27: "2026-03-15"
+  - name: "Non-EU candidates living abroad — Universitaly vize/pre-enrolment"
+    url: "https://www.unibs.it/en/international/degree-seeking-students/admission/non-eu-candidates-living-abroad/application-study-visa-universitaly-portal"
+    deadline_2026_27: "2026-08-31"
+  - name: "EU candidates — master's degrees"
+    url: "https://www.unibs.it/en/international/degree-seeking-students/admission/eu-candidates/eu-candidates-masters-degrees"
+  - name: "STAR + LMINT scholarships (non-EU, 2026/27)"
+    url: "https://www.unibs.it/en/university/work-us/calls-and-notices/scholarships-applicants-non-eu-countries-star-lmint-ay-20262027"
+    note: "LMINT (13 burs) sadece tamamen İngilizce LM programlarına kayıt olacak non-EU adaylar için. Son başvuru 2026-03-15 öğlen."
+  - name: "All deadlines (corsi.unibs.it merkezi takvim)"
+    url: "https://corsi.unibs.it/en/all-deadlines"
+  - name: "Double Degrees"
+    url: "https://www.unibs.it/en/international/incoming-exchange/double-degrees"
+
+execution:
+  batch_size: 5
+  items_per_agent: 2
+  output_dir: "./results"
+  note: "9 program, 5 paralel ajan x ~2 program. Deep research'te her ajan önce resmi sayfaya doğrudan erişim dener; Cloudflare engeline takılırsa uncertainty_notes'a düşer."

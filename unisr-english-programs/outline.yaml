@@ -1,0 +1,136 @@
+# outline.yaml — research items + execution config
+topic: "UNISR (Vita-Salute San Raffaele) English-taught programmes — admission requirements"
+topic_slug: "unisr-english-programs"
+university: "Università Vita-Salute San Raffaele (UNISR), Milano"
+academic_year_target: "2026/2027"
+academic_year_fallback: "2025/2026"
+generated_at: "2026-09-06"
+
+source_of_item_list:
+  page: "https://www.unisr.it/en/offerta-formativa/english-courses"
+  note: >
+    Verified against unisr.it (not model prior knowledge). UNISR has NO English-taught
+    bachelor's degree — Philosophy, Psychology and other bachelor programmes are taught in
+    Italian (individual exams may be sat in English by arrangement, but that does not make
+    the programme English-taught). The full English-taught degree-programme offer for
+    A.Y. 2026/2027 is 5 programmes: 1 single-cycle and 4 master's (laurea magistrale).
+
+joint_degree_warning: >
+  3 of the 5 programmes are joint/double degrees with a partner institution, and the
+  admission process runs partly or fully OUTSIDE the standard UNISR portal:
+  - Health Informatics: joint with Politecnico di Milano.
+  - Cognitive Psychology in Health Communication: joint with USI Lugano (Switzerland) —
+    applications go through usi.ch, not the UNISR portal; tuition is billed in CHF, not EUR.
+  - Politics, Philosophy and Public Affairs: joint with Università degli Studi di Milano
+    (UniMi), open access (no entrance exam) — applications and deadlines are handled on
+    the UniMi side (pppa.cdl.unimi.it); UNISR itself has no admission/ranking page for it.
+  Deep-research agents must capture this in academic_requirements / uncertainty_notes even
+  though there is no dedicated "joint_or_double_degree" field in fields.yaml, and must state
+  clearly which portal/institution actually governs the deadline for that programme.
+
+shared_reference_pages:
+  admissions_hub: "https://www.unisr.it/en/servizi/ammissioni"
+  rankings_and_enrolment: "https://www.unisr.it/en/servizi/graduatorie-immatricolazioni"
+  tuition_fees_bachelor_master: "https://www.unisr.it/en/servizi/tasse-contributi/corsi-di-laurea-triennale-e-magistrale"
+  language_certifications: "https://www.unisr.it/en/servizi/ammissioni/certificazioni-linguistiche"
+  foreign_qualifications: "https://www.unisr.it/en/servizi/ammissioni/titoli-esteri"
+  scholarships: "https://www.unisr.it/en/servizi/ammissioni/borse-studio"
+  note: >
+    Most UNISR programmes run separate EU and non-EU admission rounds with their own
+    registration windows and test dates, and a required admission test (UNISR's own test,
+    not IMAT/TOLC, except where the joint-degree partner sets its own selection method).
+    Applicants with a foreign qualification must register at least 5 days before the
+    deadline for document pre-evaluation — a hard, programme-independent trap worth noting
+    in uncertainty_notes if a programme page does not repeat it.
+
+items:
+
+  # ---------- SINGLE-CYCLE (1) ----------
+  - id: sc-international-medical-doctor-program
+    name: "International Medical Doctor Program (IMDP)"
+    level: single-cycle
+    official_program_url: "https://www.unisr.it/en/servizi/ammissioni/international-medical-doctor-program"
+    status_note: >
+      Degree class LM-41, 6 years. Own UNISR admission test (60 MCQ, 80 min), NOT IMAT.
+      Separate EU and non-EU calls with own registration windows and two home-based test
+      sessions each. C1 English required. Confirm current-cycle dates directly on the page
+      (values seen during preliminary research: registration 17 Dec 2025 – 5/6 Feb 2026;
+      non-EU test sessions 11 Feb & 4 Mar 2026; EU test sessions 14 Feb & 14 Mar 2026) —
+      treat as unverified until re-confirmed in deep research.
+
+  # ---------- MASTER (4) ----------
+  - id: ma-biotechnology-innovative-therapeutics
+    name: "Biotechnology for Innovative Therapeutics"
+    level: master
+    official_program_url: "https://www.unisr.it/en/offerta-formativa/medicina-chirurgia/corso-di-laurea-magistrale-biotechnology-medical-biology"
+    status_note: >
+      Renamed programme — the old name "Biotechnology and Medical Biology" still appears in
+      the URL slug and on third-party aggregators. Record both names in program_name /
+      uncertainty_notes so future re-scrapes don't treat it as a different programme.
+
+  - id: ma-health-informatics
+    name: "Health Informatics"
+    level: master
+    official_program_url: "https://www.unisr.it/en/offerta-formativa/medicina-chirurgia/corso-laurea-magistrale-health-informatics"
+    status_note: >
+      Joint degree with Politecnico di Milano. UNISR marketing pages and the admission call
+      disagree on total places (call: 22 total / 18 EU + 4 non-EU; marketing page: "50
+      participants") — flag this conflict explicitly in uncertainty_notes rather than
+      picking one silently. B2 English required (lower than IMDP's C1).
+
+  - id: ma-cognitive-psychology-health-communication
+    name: "Cognitive Psychology in Health Communication"
+    level: master
+    official_program_url: "https://www.unisr.it/en/offerta-formativa/psicologia/corso-di-laurea-magistrale-cognitive-psychology-in-health-communication"
+    status_note: >
+      Joint degree with USI Lugano (Switzerland), taught across Milan and Lugano, recognised
+      in both Italy and Switzerland. Applications go through usi.ch — capture that portal URL
+      inside official_call_url. Tuition is quoted in CHF, not EUR — do not silently convert;
+      state the currency explicitly in tuition_or_fees_link / uncertainty_notes.
+
+  - id: ma-politics-philosophy-public-affairs
+    name: "Politics, Philosophy and Public Affairs (PPPA)"
+    level: master
+    official_program_url: "https://www.unisr.it/en/offerta-formativa/filosofia/politics-philosophy-and-public-affairs"
+    status_note: >
+      Interclass LM-62/LM-78 joint degree with Università degli Studi di Milano (UniMi),
+      entirely in English, open access (no entrance exam). UNISR has no admission or
+      ranking page for it — admission process and deadlines live on the UniMi side
+      (pppa.cdl.unimi.it). Deep research should locate and cite that UniMi page for
+      deadlines/documents while still using the unisr.it page for program description.
+
+excluded_candidates:
+  - name: "Philosophy (bachelor)"
+    reason: "Taught in Italian. Individual exams may be sat in English by arrangement, and some courses switch to English only if >=3 non-Italian-speaking students enrol — this does not make it an English-taught programme."
+  - name: "Psychological Sciences and Techniques / Psychology (bachelor)"
+    reason: "Italian-taught only; no English bachelor's track found on unisr.it."
+  - name: "Medicine and Surgery (single-cycle, Italian track)"
+    reason: "The Italian-taught MD programme is separate from the English-taught International Medical Doctor Program, which is its own item above."
+  - name: "Clinical Psychology (master)"
+    reason: "Does not exist at UNISR."
+  - name: "Cognitive Neuroscience and Clinical Neuropsychology (master)"
+    reason: "Does not exist as a master's; only a PhD in Cognitive and Behavioral Sciences (Italian) was found."
+  - name: "Molecular and Cellular Biology (master)"
+    reason: "Does not exist; nearest official programme is Biotechnology for Innovative Therapeutics."
+  - name: "Neuroscience (master)"
+    reason: "Does not exist at laurea magistrale level at UNISR."
+  - name: "Political Sciences and Global Strategies (bachelor) / Geopolitics, Economics and Global Strategies (master)"
+    reason: "Taught in Italian despite English-language marketing pages — verify again in deep research before fully excluding, but not counted as English-taught for this outline."
+  - name: "10 English-taught 2nd-level professional Masters (Master di II livello, e.g. Aortic Surgery, Heart Failure & Structural Heart Disease)"
+    reason: "Out of scope per user decision — this research covers laurea magistrale / single-cycle degree programmes only, not post-graduate professional Masters."
+  - name: "Single courses (corsi singoli) and PhD programmes"
+    reason: "Out of scope — not bachelor/master degree programmes."
+
+execution:
+  batch_size: 5          # parallel agents per wave
+  items_per_agent: 1     # 5 items -> 5 agents, single wave
+  output_dir: "./unisr-english-programs/results"
+  output_format: "one JSON file per item, named {id}.json, fields exactly as fields.yaml"
+  agent_model: "sonnet"
+  rules:
+    - "Only unisr.it and *.unisr.it sources may be cited for UNISR-side facts."
+    - "For the 3 joint-degree items, the partner institution's official domain (usi.ch for Cognitive Psychology in Health Communication; polimi.it for Health Informatics; unimi.it / pppa.cdl.unimi.it for PPPA) may ALSO be cited for admission process/deadlines — record which domain each fact came from."
+    - "Prioritise A.Y. 2026/2027; if unavailable, use 2025/2026 and say so in uncertainty_notes."
+    - "Leave a field null rather than guessing; every null must be explained in uncertainty_notes."
+    - "Back deadlines, language level, quotas and admission type with verbatim quotes in source_quotes."
+    - "Do not silently normalise currency (CHF vs EUR) or reconcile conflicting place counts — report both values and flag the conflict."

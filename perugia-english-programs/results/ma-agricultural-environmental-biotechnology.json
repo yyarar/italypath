@@ -1,0 +1,42 @@
+{
+  "id": "ma-agricultural-environmental-biotechnology",
+  "program_name": "Agricultural and Environmental Biotechnology (AEB) — Italian name: Biotecnologie agrarie e ambientali",
+  "level": "master",
+  "degree_code": "M1234",
+  "degree_class": "LM-7 R (Biotecnologie agrarie)",
+  "teaching_language": "English.",
+  "curriculum_name_en": null,
+  "campus": "Perugia",
+  "department": "DSA3 — Dipartimento di Scienze Agrarie, Alimentari e Ambientali, Borgo XX Giugno 74, 06121 Perugia",
+  "admission_type": "open access",
+  "places_available": "Not published; a separate visa quota exists for non-EU applicants (PICA reopens if the quota is not reached).",
+  "academic_requirements": "Requires a BSc in Biotechnology or Agricultural Sciences. Automatic for Italian laurea triennale in Biotecnologie (L-2 / ex class 1) or Scienze Agrarie e Ambientali (Biotecnologie curriculum) at UNIPG. Otherwise at least 80 ECTS across six SSD-group tiers: Maths/Physics/Stats/Informatics 6-12 ECTS; Chemistry 9-20 ECTS; Biology/Botany/Physiology/Zoology/Genetics/Microbiology etc. 20-70 ECTS; Agronomy/Horticulture/Plant protection/Food technology/Animal science 0-20 ECTS; Agricultural economics 0-6 ECTS; Agricultural genetics/microbiology 0-12 ECTS. Assessed by an Admission Committee.",
+  "language_requirements": "English B2 (\"a good command of the English language, at least a B2 level\"). No Italian requirement.",
+  "english_certificates_accepted": [
+    "IELTS 5.5-6.5", "TOEFL iBT 72-94", "LanguageCert International ESOL B2 Communicator",
+    "Gatehouse Awards GA Level 1 (Classic B2)", "Pearson PTE General Level 3", "Trinity ISE II (B2)", "Oxford Test of English B2"
+  ],
+  "entry_exam_or_test": "No standardised written test. Requirements and background assessed by an Admission Committee; if the final BSc grade is lower than 99/110 (equivalent to 90/100, GPA 3.6) the candidate is interviewed. Italian regulation equivalent: personal preparation is presumed proven for a laurea grade above 99/110 or a career average of at least 27/30.",
+  "nulla_osta_required": "Yes — M1234 is on UNIPG's online nulla-osta list (via SOL, from 3 Aug 2026).",
+  "required_documents": [
+    "Bachelor's degree in Agricultural sciences with background in genetics, microbiology, biochemistry, molecular biology", "Passport",
+    "Foreign educational qualification documentation", "CV", "English B2 certificate",
+    "Universitaly pre-enrolment (non-EU)", "PICA application"
+  ],
+  "application_deadline_eu": "EU/legally-residing applicants: PICA pre-enrolment from 1 July 2026 (no published closing date); SOL enrolment for open-access master closes 1 March 2027.",
+  "application_deadline_non_eu": "Non-EU visa applicants: current university-wide route is PICA call 2026-visa-03, open 29 May–7 June 2026, 12:00 — CLOSED as of research date (2026-09-05). NOTE: the department's own 'How to apply' page (last updated 16 March 2026) still cites an outdated call, 2026-visa-01, with a 31 March 2026 deadline and a reopening clause if the quota is not filled — this conflicts with the central page and should be verified directly with the department (segr-didattica.agraria@unipg.it) before publishing.",
+  "tuition_or_fees_link": "https://dsa3.unipg.it/en/students/graduate-students/agricultural-and-environmental-biotechnology/tuition-fee",
+  "tuition_range": "€150–2,200/year depending on family income/merit. Flat Tax (4 UNDP-2016-index brackets) for family-abroad students, or ISEEU Parificato via an affiliated CAF. Declaration window 3 Aug–20 Oct 2026 (late fee to 1 Mar 2027).",
+  "cimea_requirement": "Not specified at programme level; see university-wide study-documents page for CIMEA/blackout-date rules.",
+  "double_degree": "YES — double degree with MATE University, Gödöllő, Hungary (Hungarian University of Agriculture and Life Sciences).",
+  "official_program_url": "https://dsa3.unipg.it/en/students/graduate-students/agricultural-and-environmental-biotechnology",
+  "official_call_url": "https://dsa3.unipg.it/en/students/graduate-students/agricultural-and-environmental-biotechnology/how-to-apply",
+  "source_quotes": [
+    {"quote": "The requirements and the specific background of the candidate will be assessed by an Admission Committee. If the final BSc grade is lower than 99/110... the candidate will be interviewed", "url": "https://dsa3.unipg.it/en/students/graduate-students/agricultural-and-environmental-biotechnology/admission", "field_supported": "entry_exam_or_test"},
+    {"quote": "For the 2026-2027 academic year, pre-registration for international students who require a visa and reside abroad must be completed... no later than March 31st, 2026", "url": "https://dsa3.unipg.it/en/students/graduate-students/agricultural-and-environmental-biotechnology/how-to-apply", "field_supported": "application_deadline_non_eu"},
+    {"quote": "Shouldn't the quota for the degree programme is not reached, the procedure on PICA will be reopened", "url": "https://dsa3.unipg.it/en/students/graduate-students/agricultural-and-environmental-biotechnology/how-to-apply", "field_supported": "application_deadline_non_eu"},
+    {"quote": "(Double degree with MATE University of Gödöllő, Hungary)", "url": "https://dsa3.unipg.it/en/students/graduate-students/agricultural-and-environmental-biotechnology", "field_supported": "double_degree"}
+  ],
+  "uncertainty_notes": "Department 'How to apply' page (2026-visa-01, 31 Mar 2026 deadline) conflicts with the central UNIPG international-students page (2026-visa-03, 29 May–7 June 2026) — both recorded; recommend confirming the currently-valid call directly with the department before publishing a single deadline. Regulation PDF (Reg_AEB_english_25_26.pdf) returned 404 during research; some older dsa3.unipg.it/en/aeb/* URLs are dead after a site restructure — content corroborated via the live HTML pages listed above. Data collected 2026-09-05, all sources unipg.it/*.unipg.it only.",
+  "research_date": "2026-09-05"
+}

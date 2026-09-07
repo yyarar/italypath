@@ -1,0 +1,80 @@
+{
+  "programme_name": "Master's degree in Biology for Translational Research and Precision Medicine",
+  "programme_code": "MM9R",
+  "level": "master",
+  "academic_year": "2026/2027",
+  "programme_status": "confirmed",
+  "duration_years": 2,
+  "teaching_language": "English",
+  "fully_english_taught": true,
+  "campus": "Verona",
+  "degree_class": "LM-6 R",
+  "interuniversity_programme": {"is_interuniversity": false, "coordinating_institution": "University of Verona", "partner_institutions": []},
+  "admission_type": "selection_call",
+  "admission_type_official_wording": "Limited-entry degree programme based on qualifications",
+  "admission_routes": [
+    {"applicant_category": "EU", "route": "limited_entry_call", "notes": "Apply through ESSE3, upload the call documents, pay the EUR 50 selection fee, and qualify in the ranking.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"applicant_category": "non-EU_resident_in_Italy", "route": "limited_entry_call", "notes": "Uses the selection call subject to legal-equivalence classification.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"applicant_category": "non-EU_abroad", "route": "international_pre_admission_call", "notes": "A separate foreign-qualification assessment applies and 5 places are reserved; visa candidates also require Universitaly. Exact pre-admission timing was not independently retrieved. [uncertain]", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=requisiti"}
+  ],
+  "academic_requirements": {
+    "summary": "Applicants need an L-13, L-2 or SNT/03 bachelor's degree (or suitable equivalent) with at least 90/110, or alternatively a weighted exam average of at least 24/30 with at least 80% of programme credits completed. Applicants from other degree classes need 60 CFU in BIO, CHIM and/or MED fields, including 24 CFU in specified BIO fields. Non-EU applicants abroad are additionally described as needing a relevant biological, chemical, biophysical or bioinformatics degree and a credit-weighted average above 81%.",
+    "eligible_degree_classes": ["L-13", "L-2", "SNT/03"],
+    "eligible_foreign_qualifications": "A suitable equivalent foreign qualification. For non-EU residents abroad, the official page lists first-cycle-or-higher degrees in biological disciplines (biotechnology, biochemistry, molecular biology, biology), chemical disciplines, biophysics or bioinformatics.",
+    "minimum_credits_by_subject_area": [
+      {"subject_area_or_ssd": "BIO/01-BIO/19, CHIM/01-CHIM/12 and/or MED/01-MED/50 combined", "minimum_credits": 60, "notes": "For applicants from degree classes other than L-13, L-2 or SNT/03."},
+      {"subject_area_or_ssd": "BIO/06, BIO/09, BIO/10, BIO/11, BIO/13, BIO/18, BIO/19", "minimum_credits": 24, "notes": "Subset of the 60-CFU requirement."}
+    ],
+    "minimum_grade_or_gpa": "L-13/L-2/SNT/03: at least 90/110, or weighted exam average at least 24/30 with at least 80% of credits completed. Non-EU-abroad route: CGPA or equivalent above 81%.",
+    "curriculum_assessment": "A committee checks the qualification, curriculum and personal preparation; only eligible candidates enter the ranking."
+  },
+  "curricula_tracks": [],
+  "ranking_and_quota": {"total_places": 35, "reserved_non_eu_places": 5, "ranking_details": "Admission is by qualifications without an admission test. Eligible candidates are ranked using degree grade or weighted examination average; enrolment depends on ranking position."},
+  "selection_components": [
+    {"component": "Eligibility and curriculum check", "weight_or_threshold": "Must meet all entry/curricular requirements", "notes": null},
+    {"component": "Degree grade or weighted examination average", "weight_or_threshold": "At least 90/110, or at least 24/30 with 80% of credits completed", "notes": "Forms the basis of the merit ranking."}
+  ],
+  "language_requirements": {"summary": "CEFR B2 English is required.", "english_level_cefr": "B2", "accepted_language_certificates": ["B2-or-higher English certificate", "External certification equivalent to B2", "UNIVR CLA B2 receptive-skills entrance test for eligible external applicants"], "certificate_exemptions": ["Qualifying degree formally documented as taught in English", "English native-speaker status", "B2 English proficiency/exam recorded in a previous university career with the level clearly indicated"], "italian_language_test_required": false, "notes": "A programme-specific CLA test was scheduled for 28 July 2026 at 10:00; registration closed 10 July 2026."},
+  "application_deadline_eu": "2026-08-31T10:00:00+02:00",
+  "application_deadline_non_eu": "2026-08-30",
+  "application_windows": [
+    {"applicant_category": "EU and equivalent selection-call applicants", "deadline_type": "programme_selection", "opens_at": "2026-07-01", "closes_at": "2026-08-31T10:00:00+02:00", "timezone": "Europe/Rome", "deadline_status": "closed", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"applicant_category": "Applicants using the non-EU/foreign-qualification requirements route", "deadline_type": "programme_selection", "opens_at": null, "closes_at": "2026-08-30", "timezone": "Europe/Rome", "deadline_status": "closed", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=requisiti"},
+    {"applicant_category": "Applicants taking the programme-specific CLA B2 test", "deadline_type": "test_registration", "opens_at": null, "closes_at": "2026-07-10", "timezone": "Europe/Rome", "deadline_status": "closed", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=requisiti"}
+  ],
+  "universitaly_deadline": null,
+  "visa_pre_enrolment_required": true,
+  "required_documents": [
+    {"document": "Bachelor's degree certificate or documentation of expected completion", "applicant_categories": ["all"], "required": true, "condition": "Conditional enrolment is possible if the degree is obtained by 31 December 2026.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=requisiti"},
+    {"document": "Access declaration / requirements verification form (Annex 1)", "applicant_categories": ["selection-call applicants"], "required": true, "condition": null, "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"document": "Self-certification of CFU and examinations (Annex 2)", "applicant_categories": ["applicants whose curriculum requires CFU verification"], "required": true, "condition": null, "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"document": "English B2 certificate or exemption evidence", "applicant_categories": ["all"], "required": true, "condition": "Not needed if B2 is established through an accepted exemption or the UNIVR CLA test.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=requisiti"},
+    {"document": "PagoPA receipt for selection fee", "applicant_categories": ["selection-call applicants"], "required": true, "condition": "EUR 50 selection registration fee.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=comeiscriversi"}
+  ],
+  "document_legalisation_translation_rules": null,
+  "entry_exam_or_test": {"required": false, "name": null, "provider": "University of Verona", "mode": "Selection by qualifications; no admission test", "language": null, "test_date": null, "registration_deadline": null, "minimum_score": null, "alternatives": ["Optional/conditional UNIVR CLA English B2 receptive-skills test on 2026-07-28 for applicants lacking other accepted B2 evidence"], "notes": "The English test is evidence of language proficiency, not the competitive admission test. The programme selection itself is document-based."},
+  "application_fee": {"amount": 50, "currency": "EUR", "notes": "Selection registration fee paid via PagoPA.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=comeiscriversi"},
+  "tuition_or_fees_link": "https://www.univr.it/en/our-services/fees-and-scholarships",
+  "tuition_amount_basis": "First instalment EUR 358; second and third instalments variable under the annual university fees schedule and ISEE/ISEE-equivalent rules.",
+  "double_degree_options": [],
+  "official_program_url": "https://www.corsi.univr.it/?ent=cs&id=1337&lang=en",
+  "entry_requirements_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=requisiti",
+  "language_evidence_url": "https://www.corsi.univr.it/?ent=cs&id=1337&lang=en&menu=ilcorso&tab=presentazione",
+  "official_call_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=comeiscriversi",
+  "call_metadata": {"call_scope": "limited_entry_selection", "publication_date": "2026-06-12", "last_modified": "2026-07-21", "supersedes_source_url": null},
+  "source_quotes": [
+    {"fields_supported": ["duration_years", "teaching_language", "campus", "degree_class", "admission_type"], "quote": "Duration 2 years ... Admissions Limited-entry degree programme based on qualifications ... Degree class LM-6 R ... Language English", "source_url": "https://www.corsi.univr.it/?ent=cs&id=1337&lang=en", "page_or_section": "Information Sheet", "academic_year": "2026/2027"},
+    {"fields_supported": ["admission_type", "ranking_and_quota", "application_fee"], "quote": "limited-entry degree programme with admissions based on the applicant's qualifications (i.e. without ... an admissions test) ... 35 ... 5 reserved ... Entrance exam fee 50,00 euro", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=comeiscriversi", "page_or_section": "Type of Access / Available positions / Costs", "academic_year": "2026/2027"},
+    {"fields_supported": ["academic_requirements", "language_requirements"], "quote": "minimum ... 90/110 or ... weighted average ... at least 24/30 ... English ... level B2", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=requisiti", "page_or_section": "Admission and curricular requirements", "academic_year": "2026/2027"},
+    {"fields_supported": ["entry_exam_or_test"], "quote": "No tests are planned. Access is subject to verification of the admission and curricular requirements.", "source_url": "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=requisiti", "page_or_section": "Methods and dates of verification", "academic_year": "2026/2027"}
+  ],
+  "source_last_checked": "2026-09-05T00:00:00+03:00",
+  "applicant_category_notes": "The 5-place quota is for non-EU candidates not covered by Law 189/2002 art. 26. Residence/legal status, not nationality alone, determines the route.",
+  "uncertainty_notes": [
+    {"field": "application_deadline_eu", "issue": "The current indexed page reports the deadline as 31 August 2026 at 10:00, while an older cached version showed 5 August; a published extension appears to explain the change.", "conflict_type": "general_call_vs_specific_call", "sources": ["https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=comeiscriversi"], "resolution_needed": "Treat the later extended deadline as controlling; inspect the extension PDF for exact applicant scope."},
+    {"field": "application_deadline_non_eu", "issue": "The requirements page states 30 August 2026 while the selection page's extended deadline is 31 August at 10:00; the scope of the one-day difference is not fully explicit.", "conflict_type": "general_call_vs_specific_call", "sources": ["https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=requisiti", "https://www.corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1337&lang=en&menu=iscriversi&tab=comeiscriversi"], "resolution_needed": "Check the call and extension PDFs for the non-EU-abroad route."},
+    {"field": "document_legalisation_translation_rules", "issue": "No programme-specific translation/legalisation rules were present in the captured pages.", "conflict_type": "other", "sources": ["https://www.univr.it/en/our-services/international-degree-seeking-students"], "resolution_needed": "Consult the 2026/27 foreign-qualification documentation instructions."}
+  ],
+  "research_completeness": {"status": "partial", "verified_fields": ["programme_name", "level", "academic_year", "duration_years", "teaching_language", "campus", "degree_class", "admission_type", "academic_requirements", "language_requirements", "application_deadline_eu", "ranking_and_quota", "application_fee", "entry_exam_or_test"], "missing_fields": ["universitaly_deadline", "document_legalisation_translation_rules", "direct_call_pdf_url"], "notes": "The 2026/27 limited-entry call is published and core requirements are verified; category-specific deadline interpretation and foreign-document formalities need the call PDFs."},
+  "uncertain": ["application_deadline_non_eu", "universitaly_deadline", "document_legalisation_translation_rules", "official_call_url"]
+}

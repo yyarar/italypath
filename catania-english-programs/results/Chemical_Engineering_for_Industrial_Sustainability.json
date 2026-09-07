@@ -1,0 +1,93 @@
+{
+  "program_name": "Chemical Engineering for Industrial Sustainability",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Cittadella Universitaria, Department of Civil Engineering and Architecture (DICAR), Via Santa Sofia 64, Catania",
+  "degree_class": "LM-22 R (Chemical Engineering)",
+  "admission_type": "selection call for non-EU applicants residing abroad; curriculum pre-evaluation for EU/equated applicants",
+  "admission_route": "non_eu_public_selection_call for non-EU citizens residing abroad; eu_pre_evaluation_webform for EU/equated citizens, including qualifying non-EU residents in Italy",
+  "citizenship_track": "non_eu_resident_abroad: 2026/27 public selection; eu_and_equated: 2026/27 pre-evaluation; non_eu_resident_in_italy: treated under Italian/EU-equivalent conditions when legally resident in Italy for at least one year",
+  "academic_requirements": "A bachelor's or higher degree awarded abroad (normally after at least three years and valid for entry to the corresponding master's level in the awarding system) is required for the non-EU-abroad call. Preferred academic backgrounds are chemical engineering, petroleum engineering, chemistry, industrial chemistry, industrial engineering, mechanical engineering, civil engineering, environmental engineering, and materials engineering. For the general programme regulations, holders of Italian classes L-9 Industrial Engineering or L-27 Chemical Sciences and Technologies (or corresponding former classes 10-21) are eligible but admission is not automatic; other Italian or foreign qualifications are assessed for suitability by the Degree Programme Council. Personal preparation is checked from the academic record and, under the programme regulation, an individual interview.",
+  "eligible_bachelor_backgrounds": [
+    "Chemical engineering",
+    "Petroleum engineering",
+    "Chemistry",
+    "Industrial chemistry",
+    "Industrial engineering",
+    "Mechanical engineering",
+    "Civil engineering",
+    "Environmental engineering",
+    "Materials engineering"
+  ],
+  "curricular_subject_prerequisites": "The 2026/27 international call does not publish minimum ECTS by subject for this programme. It assesses the relevance of the applicant's previous studies and experience to the course objectives. The 2025/26 programme regulation requires knowledge equivalent to the qualifying objectives of Italian bachelor's classes L-9 and L-27; applicants from less closely aligned backgrounds may be questioned in an individual interview on basic subjects relevant to the programme's core scientific-disciplinary areas. [uncertain]",
+  "degree_recency_limit": "No degree recency limit is stated for this programme in the 2026/27 call or the latest programme regulation reviewed.",
+  "undergraduate_in_progress_allowed": "Yes, for the 2026/27 non-EU-abroad selection, provided the bachelor's degree is obtained by 31 July 2026.",
+  "professional_experience_alternative": "Candidates seconded from international organisations or foreign national services may also be considered if they hold a university degree and have relevant professional experience compatible with the academic background required for LM-22. The call does not state that professional experience alone replaces the university-degree requirement.",
+  "language_requirements": "Good written and spoken English at CEFR B2 or higher is required.",
+  "english_certificate_thresholds": {
+    "ielts_min": "5.5 overall",
+    "toefl_ibt_min": "72 total",
+    "cambridge_min": "First Certificate in English (FCE) or higher"
+  },
+  "english_certificate_exemptions": [
+    "Declaration from the university that awarded the bachelor's or master's degree stating that English was the official language of the course",
+    "Self-declaration of citizenship of an English-speaking country"
+  ],
+  "italian_language_requirement": "Not required for admission to this English-taught master's programme.",
+  "application_deadline_eu": "30 June 2026 (2026/27 pre-evaluation form open from 8 April 2026) for EU/equated applicants with a foreign qualification",
+  "application_deadline_non_eu": "17 March 2026 at 23:59 GMT+1 for the 2026/27 UNICT selection (application opens 10 February 2026 at 12:00 GMT+1); admitted visa-seeking applicants must also complete Universitaly pre-enrolment by 31 July 2026",
+  "results_publication_date": "By 6 May 2026 for the non-EU-abroad selection; the LM-22 ranking decree was issued on 5 May 2026",
+  "required_documents": [
+    "Passport personal-information pages",
+    "Bachelor's degree certificate, or enrolment certificate stating the expected graduation date, with official Italian or English translation if needed",
+    "Transcript listing courses, examinations and grades, including the grading scale and GPA where applicable, with official translation if needed",
+    "Course syllabi on official university letterhead or validated with the university stamp",
+    "Reference letter, preferably from a university lecturer and written specifically for the admission application",
+    "English-language Europass-format curriculum vitae",
+    "English-language qualification evidence or an accepted exemption",
+    "Statement of purpose in English, maximum 4,000 characters including spaces",
+    "Summary sheet",
+    "For the EU/equated pre-evaluation route: final secondary-school diploma and its Declaration of Value or comparability certificate; bachelor's degree and its Declaration of Value or comparability/verification certificate; transcript or Diploma Supplement; official course programmes; motivation letter; recommendation letter; English certificate"
+  ],
+  "entry_exam_or_test": "The 2026/27 non-EU-abroad route is a qualification-based selection scored out of 100: academic record up to 50 points, relevance of previous studies/experience up to 40, reference letter up to 5, and statement of purpose/motivation up to 5. Applicants scoring at least 50/100 are suitable. The admission board may invite applicants to an online interview and/or test. The latest programme regulation additionally states that personal preparation and B2 English are assessed through transcript analysis and an individual interview.",
+  "credential_recognition_documents": "At application, a Declaration of Value or Statement of Comparability may be uploaded as supporting evidence. To complete enrolment in Catania, non-EU-abroad students must provide an ENIC/NARIC Statement of Comparability and qualification certification, or a Declaration of Value, plus passport with study visa, Italian tax code and residence-permit request. For EU/equated pre-evaluation, UNICT lists Declaration of Value or comparability documentation for both the secondary-school and bachelor's qualifications.",
+  "tuition_or_fees_link": "https://www.unict.it/didattica/tassa-d%E2%80%99iscrizione-e-contributi",
+  "application_fee": "EUR 10 per programme application for the 2026/27 non-EU-abroad public selection; non-refundable participation fee.",
+  "enrolment_confirmation_fee": "EUR 75, non-refundable, due within 15 days of admission notification (the UNICT timeline gives 21 May 2026 as the practical deadline); credited toward the annual all-inclusive contribution.",
+  "places_quota_non_eu": "No programme-specific admissions-seat quota is stated in the 2026/27 call page or call PDF reviewed. Five scholarships are reserved for the top five candidates in each programme ranking, but this is not an admissions quota. [uncertain]",
+  "places_quota_total": "Not published in the reviewed 2026/27 official sources. [uncertain]",
+  "official_program_url": "https://www.dicar.unict.it/en/courses/lm-22",
+  "official_call_url": "https://www.unict.it/it/corsi-numero-programmato/2026-2027/public-selection-admission-non-eu-students-living-abroad-english",
+  "application_portal_url": "Non-EU abroad: https://studenti.smartedu.unict.it/ ; EU/equated pre-evaluation: https://webform.unict.it/en/pre-evaluation-form-english-taught-master-degree-courses-eu-and-equated-citizens-only",
+  "governing_decree_reference": "D.R. 392 of 4 February 2026 (non-EU students residing abroad, A.Y. 2026/27); LM-22 ranking approved by D.R. 1582 of 5 May 2026",
+  "source_quotes": [
+    {
+      "quote": "All the teaching modules are instructed in English and the students are required to write and discuss their final dissertation in English.",
+      "url": "https://www.dicar.unict.it/courses/lm-22"
+    },
+    {
+      "quote": "Application: from 10 February 2026 12.00 (GMT +1) until 17 March 2026, 23.59 (GMT +1)",
+      "url": "https://www.unict.it/sites/default/files/ds_altri_documenti/bando_eng_con_allegati_signed_signed_0.pdf"
+    },
+    {
+      "quote": "Undergraduates candidates are also accepted providing that they will obtain their bachelor's degree before 31 July 2026",
+      "url": "https://www.unict.it/sites/default/files/ds_altri_documenti/bando_eng_con_allegati_signed_signed_0.pdf"
+    },
+    {
+      "quote": "A B2 level or higher of the Common European Framework of Reference (CEFR) for languages is required",
+      "url": "https://www.unict.it/sites/default/files/ds_altri_documenti/bando_eng_con_allegati_signed_signed_0.pdf"
+    },
+    {
+      "quote": "To verify the admission requirements, you must complete the pre-evaluation form ( from 8 April 2026 till 30 June 2026).",
+      "url": "https://www.unict.it/it/node/25736"
+    }
+  ],
+  "uncertainty_notes": "The 2026/27 public call governs only non-EU citizens residing abroad; EU/equated applicants use a separate pre-evaluation route and the page gives a shared deadline rather than a programme-specific call. The programme's English regulation reviewed is for the 2025/26 cohort and links to the prior-year international call, so its interview details are used only to supplement the current 2026/27 call. UNICT's current programme and international-call materials use LM-22 R, while some annex text abbreviates this to LM-22. No admissions capacity was found; the five places mentioned on the scholarship page are scholarships, not confirmed programme seats. The tuition link is the official general fee page; the 2026/27 call itself states EUR 306 total tuition for non-EU students residing abroad.",
+  "data_academic_year": "2026/2027 (admission call and international procedures); 2025/2026 only for supplemental programme-regulation details",
+  "verification_date": "2026-09-05",
+  "uncertain": [
+    "curricular_subject_prerequisites",
+    "places_quota_non_eu",
+    "places_quota_total"
+  ]
+}

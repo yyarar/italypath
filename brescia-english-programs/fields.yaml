@@ -1,0 +1,91 @@
+fields:
+  identity:
+    - name: program_name
+      description: "Programın resmi (İngilizce) adı"
+      detail_level: brief
+    - name: level
+      description: "bachelor / master / single-cycle / other"
+      detail_level: brief
+    - name: teaching_language
+      description: "Öğretim dili (İngilizce, İtalyanca, karma) — english_delivery_scope ile birlikte okunmalı"
+      detail_level: brief
+    - name: campus
+      description: "Programın verildiği kampüs/şehir (Brescia dahilinde farklı binalar olabilir)"
+      detail_level: brief
+    - name: degree_class
+      description: "İtalyan resmi derece sınıfı (ör. LM-27, L-8) — varsa"
+      detail_level: brief
+
+  english_scope:
+    - name: english_delivery_scope
+      description: >
+        Programın İngilizce eğitim kapsamı: "fully_english" (baştan sona İngilizce) /
+        "english_curriculum_within_italian_programme" (aynı derece içinde sadece bazı
+        curriculum'lar İngilizce, ör. Management LM) / "partial_third_year_english"
+        (sadece belirli bir yıl İngilizce, ör. Economics and Data Analysis) /
+        "conflicting_or_unverified" (kaynaklar çelişkili, doğrulanamadı).
+      detail_level: detailed
+    - name: programme_status
+      description: >
+        Programın kayıt durumu: "active_first_year" (yeni öğrenci alıyor) /
+        "phasing_out_second_year_only" (sadece üst sınıf aktif, yeni kayıt YOK) /
+        "under_accreditation" (akreditasyon sürecinde) / "new_from_ay" (belirtilen
+        akademik yıldan itibaren yeni açıldı). Faz-out programlarda admission
+        requirements'ın "yeni başvuru için geçerli değil" notuyla işaretlenmesi gerekir.
+      detail_level: detailed
+    - name: pre_evaluation_required
+      description: >
+        Yabancı diplomalı adaylar için PICA üzerinden ön değerlendirme (pre-evaluation)
+        zorunlu mu? Zorunluysa platform (PICA) ve son tarih belirtilir.
+      detail_level: moderate
+    - name: entry_test_name
+      description: >
+        Varsa giriş testinin resmi/spesifik adı ve sağlayıcısı (ör. "CEnT-S / English
+        TOLC-E, CISIA tarafından"), testin seçici mi yoksa sadece yönlendirici mi
+        olduğu (ör. Business and Economics'te test seçici değildir).
+      detail_level: moderate
+
+  admission:
+    - name: admission_type
+      description: "open access / restricted access / TOLC / SAT / selection call / other"
+      detail_level: brief
+    - name: academic_requirements
+      description: "Lisans/önceki eğitim şartları, minimum kredi (CFU/ECTS) gereksinimleri, ilgili SSD alanları"
+      detail_level: detailed
+    - name: language_requirements
+      description: "İngilizce seviyesi (B1/B2), kabul edilen sertifikalar, alternatif kanıt yolları (CLA sertifikası, önceki eğitimde İngilizce CFU vb.)"
+      detail_level: detailed
+    - name: application_deadline_eu
+      description: "AB/İtalyan vatandaşı adaylar için başvuru/kayıt son tarihi"
+      detail_level: brief
+    - name: application_deadline_non_eu
+      description: "Yurtdışından başvuran non-EU adaylar için son tarih (Universitaly/vize süreciyle karışmamalı, ayrı not edilmeli)"
+      detail_level: brief
+    - name: required_documents
+      description: "İstenen belgeler (diploma, transkript, dil sertifikası, Declaration of Value / CIMEA vb.)"
+      detail_level: detailed
+    - name: entry_exam_or_test
+      description: "Giriş sınavı/testin genel açıklaması, formatı, kişisel hazırlık değerlendirmesi (mülakat vb.) gerekip gerekmediği"
+      detail_level: detailed
+
+  source_and_links:
+    - name: tuition_or_fees_link
+      description: "Öğrenim ücreti/burs bilgisi sayfası linki"
+      detail_level: brief
+    - name: official_program_url
+      description: "Programın resmi corsi.unibs.it veya unibs.it sayfası"
+      detail_level: brief
+    - name: official_call_url
+      description: "Kayıt/başvuru çağrısı (call/enrolling) sayfası — genelde official_program_url'den ayrı"
+      detail_level: brief
+    - name: source_quotes
+      description: "Resmi sayfadan alınan doğrudan alıntılar (kanıt için)"
+      detail_level: detailed
+    - name: uncertainty_notes
+      description: >
+        Belirsiz/çelişkili/doğrulanamamış noktalar. unibs.it Cloudflare koruması
+        nedeniyle sayfaya doğrudan erişilemediyse burada belirtilmeli
+        (ör. "arama motoru önbelleğinden derlendi, sayfa doğrudan doğrulanamadı").
+      detail_level: detailed
+
+uncertain: []

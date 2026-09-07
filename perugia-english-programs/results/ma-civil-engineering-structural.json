@@ -1,0 +1,41 @@
+{
+  "id": "ma-civil-engineering-structural",
+  "program_name": "Civil Engineering — \"Structural Engineering\" curriculum (within Ingegneria civile)",
+  "level": "master",
+  "degree_code": "M0723",
+  "degree_class": "LM-23 R",
+  "teaching_language": "This specific curriculum is fully English — every module verified INGLESE in the 2026/27 study plan for both years: Advanced Structural Mechanics, Design/Construction and Management of Bridges, Diagnosis of Structural Damages and Modern Building Materials, Construction and Management of Road Infrastructure, Probabilistic Modeling in Structural Engineering, Structural Testing Techniques, Earthquake Engineering, Foundation Engineering, Retrofitting of Structures, Structural Health Monitoring, Hydraulic Risk, plus English Language, Final Exam, Traineeship, Professional Development Activities, and shared modules Computational Mechanics and Technical Systems for Buildings. The other curriculum of the same degree, \"Ingegneria delle infrastrutture\", is Italian-taught.",
+  "curriculum_name_en": "Structural Engineering",
+  "campus": "Perugia",
+  "department": "Dipartimento di Ingegneria",
+  "admission_type": "open access",
+  "places_available": "Not published for this curriculum specifically.",
+  "academic_requirements": "General Civil Engineering LM-23 admission requirements apply (Italian laurea triennale in a relevant class or equivalent CFU distribution in structural/civil engineering subjects, assessed by the department); the Structural Engineering curriculum choice is made at enrolment. Full CFU breakdown not retrieved in this pass — recommend a dedicated check of the Regolamento didattico.",
+  "language_requirements": "Official quote: \"L'ammissione al corso di studio richiede la conoscenza della lingua inglese con un livello uguale o superiore a B1. Il livello B2 dovrà essere conseguito durante il percorso di studio.\" I.e. only B1 is required for admission; B2 must be reached during the degree, not necessarily before enrolling — notably less strict than Engineering Management's hard B2-at-admission rule.",
+  "english_certificates_accepted": [
+    "IELTS 5.5-6.5", "TOEFL iBT 72-94", "Cambridge ESOL IGCSE",
+    "LanguageCert International ESOL B2 Communicator", "Gatehouse Awards GA Level 1 (Classic B2)",
+    "Pearson PTE General Level 3", "Trinity ISE II", "Oxford Test of English B2 (all at B1 threshold for admission per the programme's own quote)"
+  ],
+  "entry_exam_or_test": "Not confirmed in this pass — no standardised written entrance test was found; likely curriculum/CV review as with other UNIPG open-access master's programmes. Needs dedicated verification.",
+  "nulla_osta_required": "Not confirmed in this pass — recommend checking UNIPG's online nulla-osta list.",
+  "required_documents": [
+    "Passport", "Foreign educational qualification documentation", "English B1 certificate (B2 required during, not necessarily before, the programme)",
+    "Universitaly pre-enrolment (non-EU)", "PICA application"
+  ],
+  "application_deadline_eu": "EU/legally-residing applicants: PICA pre-enrolment from 1 July 2026 (no published closing date); SOL enrolment for open-access master closes 1 March 2027.",
+  "application_deadline_non_eu": "Non-EU visa applicants: this programme is explicitly grouped with Geology for Energy Resources under PICA call 2026-visa-02, open until 12:00 (noon) on 30 September 2026 or until the visa quota is filled — STILL OPEN as of research date (2026-09-05), one of only two open windows found across the whole set.",
+  "tuition_or_fees_link": "https://www.unipg.it/en/international-students/becoming-a-unipg-student/tuition-fees-and-scholarships",
+  "tuition_range": "EUR 150-2,200/year via a 17-band ISEE table. Non-EU/foreign-income students use a fixed Flat Tax by home-country UNDP Human Development bracket (Turkey = HIGH HD = EUR 800/year + EUR 16 stamp) or ISEEU Parificato via an affiliated CAF. Declaration window 3 Aug-20 Oct 2026 (late to 1 Mar 2027; missing 28 Feb defaults to the maximum band, ~EUR 2,096).",
+  "cimea_requirement": "Not specified at programme level; see university-wide study-documents page for CIMEA/blackout-date rules.",
+  "double_degree": "None found for this curriculum in this research pass.",
+  "official_program_url": "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8644",
+  "official_call_url": null,
+  "source_quotes": [
+    {"quote": "CIVIL ENGINEERING, (Curriculum \"Ingegneria delle Infrastrutture\", taught in Italian language and Curriculum \"Structural Engineering\", taught in English language)", "url": "https://www.unipg.it/en/international-students/becoming-a-unipg-student", "field_supported": "teaching_language / curriculum_name_en"},
+    {"quote": "L'ammissione al corso di studio richiede la conoscenza della lingua inglese con un livello uguale o superiore a B1. Il livello B2 dovrà essere conseguito durante il percorso di studio.", "url": "https://www.unipg.it/en/international-students/becoming-a-unipg-student", "field_supported": "language_requirements"},
+    {"quote": "The application period will remain open until the quota reserved for international students requiring a VISA is filled but, in any case, no later than 12:00 pm on September 30, 2026", "url": "https://pica.cineca.it/unipg/2026-visa-02/", "field_supported": "application_deadline_non_eu"}
+  ],
+  "uncertainty_notes": "Academic-requirements CFU breakdown, entry-test/interview process, places available, and nulla-osta status were not retrieved in this research pass and need a dedicated follow-up check of the Regolamento didattico for M0723 (LM-23). Everything else (curriculum name, teaching language, B1 admission / B2-during-programme rule, and the PICA deadline grouping) is confirmed from official sources. Data collected 2026-09-05, all sources unipg.it/*.unipg.it only.",
+  "research_date": "2026-09-05"
+}

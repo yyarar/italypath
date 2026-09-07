@@ -1,0 +1,137 @@
+topic: "University of Catania (UNICT) - English-taught programmes admission requirements"
+
+fields:
+
+  basic_info:
+    - name: program_name
+      description: "Official name of the degree programme, as published on the UNICT/department page."
+      detail_level: brief
+    - name: level
+      description: "bachelor / master / single-cycle / other"
+      detail_level: brief
+    - name: teaching_language
+      description: "Language(s) of instruction (should be English or 'English + Italian' for the excluded/mixed case)."
+      detail_level: brief
+    - name: campus
+      description: "Campus location and/or hosting department (e.g. DIEEI, DICAR, DFA, Chirmed)."
+      detail_level: brief
+    - name: degree_class
+      description: "Official Italian degree class code, if applicable (e.g. LM-27, LM-41 R)."
+      detail_level: brief
+
+  admission:
+    - name: admission_type
+      description: "open access / restricted access / TOLC / SAT / selection call / other"
+      detail_level: moderate
+    - name: admission_route
+      description: "Which of UNICT's parallel admission channels applies: non_eu_public_selection_call / eu_pre_evaluation_webform / national_numerus_clausus_universitaly. Determines deadline, portal, documents and fee - highest-value field for this university."
+      detail_level: detailed
+    - name: citizenship_track
+      description: "Applicant category the process branches on: non_eu_resident_abroad / eu_and_equated / non_eu_resident_in_italy. UNICT treats non-EU students already legally resident in Italy for >=1 year as EU-equivalent."
+      detail_level: detailed
+    - name: academic_requirements
+      description: "Required prior qualification (bachelor's degree, subject background, minimum ECTS in specific subjects, GPA/marks threshold if any)."
+      detail_level: detailed
+    - name: eligible_bachelor_backgrounds
+      description: "List of accepted prior degree fields/backgrounds for admission to this specific programme."
+      detail_level: moderate
+    - name: curricular_subject_prerequisites
+      description: "Specific subject-matter prerequisites assessed from the applicant's transcript (e.g. control systems theory, geotechnics) - the actual academic rejection criterion."
+      detail_level: moderate
+    - name: degree_recency_limit
+      description: "Any rule requiring the prior degree to have been obtained within a certain number of years (known example: Physics requires <=6 years)."
+      detail_level: brief
+    - name: undergraduate_in_progress_allowed
+      description: "Whether final-year bachelor's students may apply before graduating, and the completion deadline if so."
+      detail_level: brief
+    - name: professional_experience_alternative
+      description: "Whether relevant professional/international-organisation experience can substitute for the standard academic background requirement."
+      detail_level: brief
+    - name: language_requirements
+      description: "English (and, where relevant, Italian) language proficiency requirements in narrative form."
+      detail_level: moderate
+    - name: english_certificate_thresholds
+      description: "Structured minimums: ielts_min, toefl_ibt_min, cambridge_min. Not uniform across UNICT programmes (ranges seen: IELTS 5.0-5.5, TOEFL 60-80)."
+      detail_level: detailed
+    - name: english_certificate_exemptions
+      description: "Accepted alternatives to a certificate: native-speaker self-declaration, or a university letter certifying English as medium of instruction of the prior degree."
+      detail_level: brief
+    - name: italian_language_requirement
+      description: "Italian-language requirement, kept separate from English. English-taught masters generally require none; Bachelor's require Italian B2 / CISIA L2 >=40/72; English-taught Medicine requires Italian B2 by year 3 for clinical rotations."
+      detail_level: moderate
+
+  deadlines:
+    - name: application_deadline_eu
+      description: "Deadline for EU/equated-citizen applicants (typically the pre-evaluation webform route)."
+      detail_level: brief
+    - name: application_deadline_non_eu
+      description: "Deadline for non-EU applicants residing abroad (typically the public selection call route), or the Universitaly registration window for Medicine."
+      detail_level: brief
+    - name: results_publication_date
+      description: "Date ranking lists / admission outcomes are published."
+      detail_level: brief
+
+  documents_and_tests:
+    - name: required_documents
+      description: "List of documents applicants must submit (transcript, diploma, CV, motivation letter, reference letter, passport, photo, etc.)."
+      detail_level: detailed
+    - name: entry_exam_or_test
+      description: "Any entrance test, interview, or qualification-based selection mechanism, including format/date if published."
+      detail_level: moderate
+    - name: credential_recognition_documents
+      description: "Foreign-credential recognition documents that may be required: CIMEA Statement of Comparability, DOV (Dichiarazione di Valore), legalised/translated diploma, official syllabi on letterhead."
+      detail_level: moderate
+
+  costs:
+    - name: tuition_or_fees_link
+      description: "Official link to tuition fee schedule / Manifesto degli studi (fees are typically ISEE-bracket based and not published as plain text)."
+      detail_level: brief
+    - name: application_fee
+      description: "Non-refundable fee to submit an application, if any (e.g. per-course application fee)."
+      detail_level: brief
+    - name: enrolment_confirmation_fee
+      description: "Non-refundable fee due upon admission to confirm the place, and the payment deadline."
+      detail_level: brief
+
+  capacity:
+    - name: places_quota_non_eu
+      description: "Number of seats reserved for non-EU applicants residing abroad, for this specific programme."
+      detail_level: brief
+    - name: places_quota_total
+      description: "Total programme capacity, if published separately from the non-EU quota."
+      detail_level: brief
+
+  sources_and_meta:
+    - name: official_program_url
+      description: "Official UNICT/department page for the programme itself."
+      detail_level: brief
+    - name: official_call_url
+      description: "Official admission call / bando / decree page governing this programme's admission for the target cycle."
+      detail_level: brief
+    - name: application_portal_url
+      description: "Portal where the application is actually submitted: studenti.smartedu.unict.it (non-EU call) / webform.unict.it (EU route) / universitaly.it (Medicine + visa pre-enrolment)."
+      detail_level: brief
+    - name: governing_decree_reference
+        # e.g. "D.R. 392 del 04.02.2026"
+      description: "Reference number/date of the rectoral decree governing the admission process, giving the record a verifiable legal anchor and making staleness detectable."
+      detail_level: brief
+    - name: source_quotes
+      description: "Short verbatim quotes (with URL) from official pages supporting key facts (deadline, quota, language threshold, etc.)."
+      detail_level: detailed
+    - name: uncertainty_notes
+      description: "Explicit notes on anything unverified, stale, contradictory between IT/EN pages, or carried over from a prior admission cycle."
+      detail_level: detailed
+    - name: data_academic_year
+      description: "Academic year the collected data actually pertains to (UNICT English-language pages are sometimes stale relative to Italian pages)."
+      detail_level: brief
+    - name: verification_date
+      description: "Date this record's data was checked against the live official page."
+      detail_level: brief
+
+uncertain:
+  # Fields flagged in advance as likely low-confidence / needing extra verification during deep research.
+  - places_quota_non_eu   # 2025/26 press-release figures may not match the 2026/27 call annex
+  - places_quota_total
+  - application_deadline_non_eu   # Medicine follows a different national process than the other 10 programmes
+  - governing_decree_reference    # per-programme annexes not all individually confirmed
+  - tuition_or_fees_link          # ISEE-bracket based, not plain text; link may point to a large combined PDF

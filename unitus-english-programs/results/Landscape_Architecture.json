@@ -1,0 +1,76 @@
+{
+  "program_name": "Landscape Architecture (Italian: Architettura del Paesaggio)",
+  "level": "master",
+  "degree_class": "LM-3",
+  "teaching_language": "English + Italian - official field on the programme page literally states 'Language: Italian and English'. The proportion of instruction delivered in each language, and which specific courses/tracks are taught in English versus Italian, is NOT stated anywhere on unitus.it. This is the only partially-English programme on UNITUS's official English-taught-programmes list; it must NOT be presented to students as fully English-taught. [uncertain]",
+  "campus": "ROME - Faculty of Architecture, Sapienza University of Rome, Palazzo Borghese (this is where the Joint Degree Course teaching center is located, per the official brochure: 'The Joint Degree Course teaching center is at the Faculty of Architecture of Sapienza University of Rome'). Partner department at UNITUS: DIBAF (Dipartimento per la Innovazione nei sistemi Biologici, Agro-alimentari e Forestali), Viterbo. Official 'Headquarter' field on the programme page reads: 'Faculty of Architecture, University \"Sapienza\" of Rome Palazzo Borghese Rome'. Official 'Department' field: 'Architecture and Design, Faculty of Architecture, University \"Sapienza\" of Rome, Rome & Innovation in Biological, Agro-Food and Forest Systems, Università della Tuscia, Viterbo'.",
+  "admission_type": "open access",
+  "academic_requirements": "Admission mechanism per the official programme page: 'Evaluation of the exams taken in the academic career and oral interview' - i.e. open access (no numero programmato, no TOLC), gated by (1) an academic-career/transcript evaluation and (2) a mandatory oral interview. No specific prior-degree classes, minimum CFU/ECTS thresholds by SSD, or GPA floor are published on any unitus.it page or PDF for this programme (the general-info/study-plan page for this course renders the WRONG content - an unrelated LM-2 archaeology/art-history curriculum with courses like 'Computer Science Applied to Cultural Heritage' and 'History of Medieval Art in Europe' - so it cannot be used as a source and must not be trusted). No unitus.it-hosted interuniversity convention document (analogous to the one found for the LM-77 Economics and Communication programme) could be located for this LM-3 programme despite searching; DIBAF's own regulations index page also lists no LM-3/Landscape Architecture regulation PDF. Foreign qualifications would be expected to require standard equivalency documentation (Dichiarazione di Valore / CIMEA Statement of Comparability) per the university-wide baseline, but this is not confirmed specifically for this programme on unitus.it. [uncertain]",
+  "language_requirements": "[uncertain] Not resolved on any official unitus.it source. Because the programme is officially listed as 'Italian and English' (not fully English), it is plausible - though NOT confirmed anywhere on unitus.it - that Italian B2 proficiency is required in addition to, or instead of, an English-language certificate, given that an unknown share of instruction is in Italian. No CEFR level, accepted certificate list, or minimum scores specific to this programme are published. Applying the university-wide baseline as a fallback only: CEFR B2 in English (IELTS, TOEFL, TCL, Cambridge First, PTE Academic, Oxford Test of English, Aptis ESOL General/Advanced, or EMI documentation) would apply to English-taught programmes, and CEFR B2 Italian (or CISIA Italian test, min. 50 points) to Italian-taught programmes - but which baseline (or combination) governs THIS specific mixed-language programme could not be determined from unitus.it. ItalyPath must not present this programme as requiring only English, nor guarantee no Italian is needed.",
+  "entry_exam_or_test": "No written entrance exam / no TOLC / no numero programmato. Admission is via (1) evaluation of exams already taken in the applicant's academic career (transcript/curriculum review) and (2) a mandatory oral interview, per the official programme page text: 'Admission: Evaluation of the exams taken in the academic career and oral interview'. The programme also appears as a selectable option ('ARCHITETTURA DEL PAESAGGIO (Laurea Magistrale LM-3)') in the university-wide Interview Booking form (https://www.unitus.it/en/join-unitus/how-to-enroll/interview-booking/). No further detail (interview format, language of interview, dates, scoring threshold, or what counts as a passing curriculum evaluation) is published on unitus.it for this specific programme. [uncertain]",
+  "application_deadline_eu": "[uncertain] No programme-specific application deadline is published (admission is rolling, gated by curriculum evaluation + oral interview, not a call/bando). University-wide 2026/2027 enrolment calendar (verified at the university level, not programme-specific): enrolment opens 2026-08-01; deadline for 1st-year Master's students 2026-12-29 (deadline for 2nd-year+ Master's/Bachelor's students 2026-11-04); extension to 2027-02-28 for January/February graduates. Whether this specific interuniversity programme instead follows a Sapienza-administered calendar could not be determined - unlike the LM-77 Economics and Communication programme, no unitus.it-hosted convention document specifying Sapienza as 'sede amministrativa' could be located for this programme, so tuition/enrolment administration responsibility (UNITUS vs Sapienza) remains unresolved for Landscape Architecture specifically.",
+  "application_deadline_non_eu": "[uncertain] No programme-specific deadline published. University-wide 2026/2027 reference points: non-EU visa application cutoff at the consulate 2026-11-30; onsite enrolment for non-EU students via the International Students Desk opens 2026-08-01; Universitaly pre-enrolment is open for a.y. 2026/2027 (Universitaly itself typically opens around April/May). Whether non-EU applicants to this specific interuniversity programme go through UNITUS's or Sapienza's admissions/visa-support pipeline is not stated on unitus.it.",
+  "required_documents": [
+    "Prior bachelor's degree (Laurea, at least 3 years) with transcript/exam record, since admission explicitly evaluates 'exams taken in the academic career'",
+    "Certified copies + Apostille/legalization + certified Italian translation of foreign qualifications, OR a CIMEA Statement of Verification (university-wide baseline; not restated on this programme's page)",
+    "Declaration of Value (Dichiarazione di Valore) OR CIMEA Statement of Comparability OR ARDI Statement of Correspondence, for foreign qualifications",
+    "Diploma Supplement (can substitute the Declaration of Value if legalized)",
+    "Language certification appropriate to the programme (unresolved whether English, Italian, or both - see language_requirements)",
+    "[uncertain] No required-documents list specific to this programme is published on unitus.it; the above is inferred from the university-wide required_documents_baseline (outline.yaml) plus the explicit mention of 'academic career exam evaluation', not from a programme-specific source."
+  ],
+  "tuition_or_fees_link": {
+    "url": "https://www.unitus.it/en/students/fees-and-contributions/",
+    "note": "[uncertain] General UNITUS fees page and ISEEUP-based fee simulator (https://www.unitus.it/en/students/fees-and-contributions/tuition-fee-simulator/; non-EU flat bands EUR 600/1,050/1,500/1,950 per year by country). Whether tuition liability for this specific interuniversity programme sits with UNITUS or with Sapienza (as the teaching is delivered at Sapienza's Faculty of Architecture) is UNCLEAR - no unitus.it-hosted interuniversity convention/agreement document analogous to the one found for LM-77 Economics and Communication could be located for this LM-3 programme to confirm which institution is the 'sede amministrativa' responsible for setting and collecting fees. This could not be resolved using unitus.it sources alone (Sapienza's own fee pages are out of scope per project rules)."
+  },
+  "official_program_url": "https://www.unitus.it/en/courses/second-cycle-degree/landscape-architecture/",
+  "official_call_url": null,
+  "source_quotes": [
+    {
+      "field": "teaching_language",
+      "quote": "Language Italian and English",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/landscape-architecture/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "campus",
+      "quote": "Headquarter Faculty of Architecture, University \"Sapienza\" of Rome Palazzo Borghese Rome Department Architecture and Design, Faculty of Architecture, University \"Sapienza\" of Rome, Rome & Innovation in Biological, Agro-Food and Forest Systems, Università della Tuscia, Viterbo",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/landscape-architecture/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "admission_type / entry_exam_or_test",
+      "quote": "Admission Evaluation of the exams taken in the academic career and oral interview",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/landscape-architecture/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "campus",
+      "quote": "The Joint Degree Course teaching center is at the Faculty of Architecture of Sapienza University of Rome.",
+      "url": "https://www.unitus.it/wp-content/uploads/2023/05/Corsi-di-Laurea-UNITUS-Landscape-Architecture-1.pdf",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "academic_requirements (unreliable source warning)",
+      "quote": "Year : 2026/2027 ... SUBJECT SEMESTER CFU SSD LANGUAGE ... COMPUTER SCIENCE APPLIED TO CULTURAL HERITAGE ... HISTORY OF MEDIEVAL ART IN EUROPE AND IN MEDITERRANEAN AREA",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/landscape-architecture/general-info/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "entry_exam_or_test",
+      "quote": "Which degree program are you interested in? ... ARCHITETTURA DEL PAESAGGIO (Laurea Magistrale LM-3)",
+      "url": "https://www.unitus.it/en/join-unitus/how-to-enroll/interview-booking/",
+      "accessed": "2026-09-05"
+    }
+  ],
+  "uncertainty_notes": "(1) TEACHING LANGUAGE: this is the only partially-English entry on UNITUS's official English-taught-programmes list. The official 'Language' field reads 'Italian and English', but no unitus.it source states which specific courses/percentage of the curriculum are in English versus Italian. ItalyPath must present this programme as PARTIALLY English, and must not claim Italian is unnecessary - Italian B2 proficiency may in practice be required, but this is not confirmed. (2) STUDY-PLAN PAGE IS WRONG: the general-info/study-plan page for this programme (https://www.unitus.it/en/courses/second-cycle-degree/landscape-architecture/general-info/) renders course content belonging to a DIFFERENT programme - an LM-2 archaeology/art-history curriculum (courses such as 'Computer Science Applied to Cultural Heritage' and 'History of Medieval Art in Europe and in Mediterranean Area') - for both the 2026/2027 and prior-year selectors. This page must NOT be used as a source for curriculum, CFU/SSD thresholds, or academic prerequisites; none of that data could be independently verified elsewhere on unitus.it. (3) NO REGULATION DOCUMENT FOUND: unlike the LM-77 Economics and Communication programme (for which a 2025 Sapienza-UNITUS interuniversity convention PDF was found on unitus.it), no equivalent convention, didactic regulation, or admission-criteria PDF for this LM-3 programme could be located on unitus.it, including on the DIBAF department's own regulations index page (https://www.unitus.it/en/departments/dibaf/informazioni/regolamenti/), which lists regulations for several other DIBAF programmes but none for Landscape Architecture / Architettura del Paesaggio. This means curricular prerequisites, CFU/SSD thresholds, and precise language-of-instruction breakdown are unresolved. (4) TUITION LIABILITY: whether Sapienza or UNITUS is the administrative headquarters (and therefore responsible for setting/collecting fees) for this specific interuniversity programme is UNCLEAR - no unitus.it document analogous to the LM-77 convention (which explicitly named Sapienza as sede amministrativa) could be found for LM-3. (5) Contact person Prof. Fabio Di Carlo's email (fabio.dicarlo@uniroma1.it) is a Sapienza address, not a UNITUS one, which is consistent with the programme being effectively run out of Rome, but this is corroborating context rather than confirmation of administrative/fee responsibility. (6) No official_call_url exists because admission is open access with curriculum evaluation + oral interview, not a numero-programmato bando; no regulation-PDF substitute could be found on unitus.it despite an active search.",
+  "uncertain": [
+    "teaching_language",
+    "academic_requirements",
+    "language_requirements",
+    "entry_exam_or_test",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "required_documents",
+    "tuition_or_fees_link"
+  ]
+}

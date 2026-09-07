@@ -1,0 +1,322 @@
+{
+  "program_name": "Master's Degree Programme in Strategic Management",
+  "level": "master",
+  "teaching_language": {
+    "primary": "English + Italian",
+    "granularity": "english_track_of_bilingual",
+    "majors_language": [
+      {
+        "major": "Strategic Management and Consulting",
+        "language": "Italian and English (offered in both an Italian track and an English track)"
+      },
+      {
+        "major": "Sustainability & Circular Economy",
+        "language": "English"
+      },
+      {
+        "major": "Technology Strategy",
+        "language": "English"
+      },
+      {
+        "major": "Entrepreneurship and Project Management",
+        "language": "English"
+      }
+    ],
+    "notes": "The Luiss admission notices list the programme twice: 'Strategic Management - Italian track' and 'Strategic Management - English track'. The programme page labels the degree 'English, Italian'."
+  },
+  "campus": "Rome - Luiss Guido Carli, Viale Pola 12, 00198 Roma (Graduate School). The programme page lists Viale Pola 12 as the address; the specific teaching building for this degree is not separately stated.",
+  "degree_class": "LM-77",
+  "admission_type": [
+    {
+      "route_name": "Luiss Test (admission test for master's degree programmes)",
+      "eligible_applicants": "EU-Schengen",
+      "test_or_certification": "Luiss Test, taken in Italian or English. Taking the test in English gives access to both Italian-taught and English-taught courses; taking it in Italian gives access only to Italian-taught courses. Strategic Management is explicitly listed for the Luiss Test in both Italian and English tracks (the Finance/Management exclusion does NOT apply to Strategic Management).",
+      "number_of_choices_allowed": "Up to two master's degree courses, chosen within the same subject area",
+      "choice_is_binding": false,
+      "subject_area_group": "Economics",
+      "application_fee": "EUR 150 (non-refundable participation fee)"
+    },
+    {
+      "route_name": "Direct admission with certifications (GMAT/GRE)",
+      "eligible_applicants": "EU-Schengen",
+      "test_or_certification": "GMAT with a minimum score of 515 (out of 805), or GRE with a minimum score of 154 (out of 170) in both the Verbal and the Quantitative sections. Strategic Management - Italian track and Strategic Management - English track are both listed as accessible via this route.",
+      "number_of_choices_allowed": "One course only",
+      "choice_is_binding": true,
+      "subject_area_group": "Economics",
+      "application_fee": "EUR 150 (non-refundable participation fee)"
+    },
+    {
+      "route_name": "Luiss Test for non-EU / non-Schengen applicants",
+      "eligible_applicants": "non-EU",
+      "test_or_certification": "Same Luiss Test, dedicated non-EU/non-Schengen session. Strategic Management is listed in both Italian and English tracks. Test can be taken in Italian or English; English gives access to both Italian- and English-taught courses.",
+      "number_of_choices_allowed": null,
+      "choice_is_binding": null,
+      "subject_area_group": "Economics",
+      "application_fee": "EUR 150 (non-refundable participation fee)"
+    },
+    {
+      "route_name": "Admission with qualifications (non-EU/non-Schengen applicants holding international qualifications)",
+      "eligible_applicants": "non-EU",
+      "test_or_certification": "No Luiss Test; selection based on the international qualification held. This route explicitly covers all master's degrees 'with the exception of Finance and Management', so Strategic Management is included. Detailed requirements are published in the admission notice.",
+      "number_of_choices_allowed": null,
+      "choice_is_binding": null,
+      "subject_area_group": "Economics",
+      "application_fee": "EUR 150 (non-refundable participation fee)"
+    },
+    {
+      "route_name": "Admission test for Luiss students (internal route)",
+      "eligible_applicants": "Luiss internal students",
+      "test_or_certification": "Dedicated admission test session reserved for Luiss undergraduates/graduates; specific rules for Strategic Management not verified in detail.",
+      "number_of_choices_allowed": null,
+      "choice_is_binding": null,
+      "subject_area_group": "Economics",
+      "application_fee": null
+    }
+  ],
+  "academic_requirements": {
+    "prior_qualification": "A three-year (first-level) bachelor's degree. Foreign degrees must come from an accredited university, result from a first-level degree programme lasting at least 3 academic years (or 4 academic years), entitle the holder to enrol in graduate programmes in the country of issue, and must not be a professional or vocational qualification. Under the Luiss Test route the bachelor's degree must be completed by 18 November 2027 (2027/2028 cycle).",
+    "minimum_curricular_requirements": "Direct eligibility for holders of an Italian three-year degree in class L-18 (D.M. 270/04) / 17 (D.M. 509/99) - Economics and Business Management, or L-33 (D.M. 270/04) / 28 (D.M. 509/99) - Economics. Applicants from other degree programmes may take part in the selection if their study plan includes at least 48 university credits (earned or to be earned) in at least two of the following subject areas: Economics (SECS-P/01, P/02, P/03, P/05, P/06); Economics and Business (SECS-P/07, P/08, P/09, P/10, P/11, P/13); Statistics and Mathematics (SECS-S/01 to S/06, MAT/01 to MAT/09); Law (IUS/01 to IUS/14, IUS/21); Computer Science and Engineering (INF/01, ING-INF/05). NOTE: this is a stricter rule (48 ECTS across at least 2 areas) than the generic 24-ECTS pattern.",
+    "minimum_grade_or_gpa": null,
+    "country_specific_rules": null,
+    "document_recognition": "Depends on the country of issue: (a) signatory countries of the Lisbon Recognition Convention - Diploma Supplement accepted; (b) countries included in ARDI (Automatic Recognition Database) - statement of verification from CIMEA or apostille of the diploma via the competent Italian Embassy/Consulate; (c) other countries - statement of comparability from CIMEA or Declaration of Value issued by the competent Italian Embassy/Consulate. Enrolment is subject to verification of the qualification's validity by the Luiss Admissions Office.",
+    "compensatory_measures": null
+  },
+  "language_requirements": {
+    "required_level": "B2 English for programmes taught in English",
+    "accepted_certificates": null,
+    "assessed_in_test": "For master's admission the language dimension is handled through the Luiss Test: the test can be sat in Italian or in English, and sitting it in English is what unlocks the English-taught courses (including the English track of Strategic Management). A separate, programme-specific certificate table for master's admission was not found on the canonical luiss.it master's admission pages consulted.",
+    "exemptions": null
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "route": "Luiss Test (EU/Schengen)",
+        "application_window": "From December 2026 to 8 April 2027",
+        "test_dates": "From 19 to 22 April 2027",
+        "results": null
+      },
+      {
+        "route": "Direct admission with certifications (GMAT/GRE, EU/Schengen)",
+        "application_window": "From December 2026 to 31 March 2027",
+        "test_dates": "Not applicable - GMAT/GRE certificate submitted with the application",
+        "results": null
+      }
+    ],
+    "enrolment_deadline": "Luiss Test route: by 22 June 2027. GMAT/GRE direct admission route: by 18 May 2027.",
+    "degree_completion_deadline": "Bachelor's degree to be completed by 18 November 2027 (stated identically for both the Luiss Test route and the GMAT/GRE route).",
+    "academic_year": "2027/2028 (primary). Secondary/archival: for 2026/2027 the cycle is closed - initial master's enrolment was due by 15 June 2026 and finalisation after graduation by 9 November 2026.",
+    "cycle_status": "open"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "route": "Luiss Test (non-EU/non-Schengen)",
+        "application_window": "From December 2026 to 8 April 2027",
+        "test_dates": "From 19 to 22 April 2027",
+        "results": null
+      },
+      {
+        "route": "Admission with qualifications (non-EU/non-Schengen)",
+        "application_window": null,
+        "test_dates": null,
+        "results": null
+      }
+    ],
+    "enrolment_deadline": "Luiss Test (non-EU) route: by 22 June 2027. Bachelor's degree to be completed by 18 November 2027.",
+    "visa_or_preenrolment_notes": "Enrolment with a foreign qualification is subject to verification of its validity by the Luiss Admissions Office, and applicants are told to check the validity of the qualification in advance as well as the procedures required to obtain a study visa. No explicit Universitaly pre-enrolment calendar was found on the canonical master's admission pages consulted.",
+    "academic_year": "2027/2028 (primary). The 2026/2027 non-EU direct-admission-with-certifications procedures are stated to be closed.",
+    "cycle_status": "notice not yet published"
+  },
+  "required_documents": [
+    "Mandatory - identity document / passport copy (PDF)",
+    "Mandatory - proof of enrolment certificate or graduation transcript of records (for the GMAT/GRE direct admission route)",
+    "Mandatory (GMAT/GRE route only) - valid GMAT or GRE certificate",
+    "Mandatory - payment of the EUR 150 non-refundable participation fee",
+    "Mandatory at enrolment - degree certificate or self-certification of the bachelor's degree",
+    "Mandatory at enrolment for foreign qualifications - Diploma Supplement, CIMEA statement of verification/comparability, apostille, or Declaration of Value (depending on country of issue)",
+    "Mandatory at enrolment (students based in Italy) - copy of the health insurance card"
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Luiss Test (master's degree admission test); alternatively GMAT or GRE for the direct admission with certifications route",
+    "content": "Reported as 50 questions in 60 minutes, split into 35 psycho-aptitude questions (logical reasoning, problem solving, mathematical skills) and 15 subject-area questions, with the subject-area block divided into Economic and Political areas. For Strategic Management the relevant subject area is Economics.",
+    "format": "Online and remote, according to the schedule set in the admission notice",
+    "dates": "19-22 April 2027 (2027/2028 cycle, both EU/Schengen and non-EU sessions)",
+    "fee": "EUR 150 non-refundable participation fee",
+    "language_of_test": "Italian or English. 'If you choose to take the Test in English, you will be able to apply for courses in both Italian and English.' Taking it in Italian restricts applications to Italian-taught courses only.",
+    "interview": null
+  },
+  "tuition_or_fees_link": {
+    "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/strategic-management",
+    "annual_amount": "EUR 15,000.00 per year, divided into 3 instalments, plus the regional student welfare tax (amount set by the Lazio Region). This is the standard master's rate; Strategic Management is NOT in the higher 'Management' bracket (the Master's Degree in Management is currently published at EUR 17,000.00).",
+    "scholarship_url": "https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027"
+  },
+  "official_program_url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/strategic-management",
+  "official_call_url": [
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/students-foreign-qualifications-admission-requirements-masters-degrees",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/registration"
+  ],
+  "source_quotes": [
+    {
+      "field": "admission_type",
+      "quote": "Strategic Management - English track",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "up to two master's degree courses",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "minimum score of 515 (out of 805)",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "minimum score of 154 (out of 170) in the Verbal and Quantitative sections",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "your course choice is binding for admission, ranking, and subsequent enrolment",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "A dedicated admission procedure for non-EU/non-Schengen applicants who hold the international qualifications required for entry to Master's degree courses, with the exception of Finance and Management.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "A dedicated admission process for non-EU/non-Schengen applicants interested in the Master's Degrees in Finance and Management, who hold the required international certifications.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "If you choose to take the Test in English, you will be able to apply for courses in both Italian and English.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "From December 2026 to 8 April 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "From 19 to 22 April 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "By 22 June 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "From December 2026 to 31 March 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "By 18 May 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "By 18 November 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "The admission notices, detailing all requirements, participation procedures, and the full calendar, will be available from November 2026.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "at least 48 university credits (earned or to be earned) in their study plan in at least two",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "L-18 (Ministerial Decree 270/04) and 17 (Ministerial Decree 509/99) - Economics and Business Management",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "The annual single tuition fee for enrolment in the Master's Degree Programme in Strategic Management is €15,000.00, divided into 3 instalments, plus the regional student welfare tax.",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/strategic-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "The annual single tuition fee for enrolment in the Master's Degree Programme in Management is € 17,000.00",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "degree_class",
+      "quote": "LM-77",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/strategic-management",
+      "accessed_date": "2026-09-04"
+    }
+  ],
+  "uncertainty_notes": [
+    "academic_year: the admission pages consulted sit under URL paths labelled '20262027' but their published content is for the 2027/2028 cycle (application December 2026 - April 2027, enrolment June 2027). The 2026/2027 cycle is closed (master's initial enrolment was due 15 June 2026, finalisation by 9 November 2026). Treated 2027/2028 as primary.",
+    "application_deadline_non_eu [uncertain]: only the non-EU Luiss Test route has published dates. The 'Admission with qualifications' route (the main non-EU path for Strategic Management applicants holding a foreign degree) has no published calendar - Luiss states the full admission notice will be available from November 2026. cycle_status set to 'notice not yet published' for that reason; rounds for that route are null.",
+    "language_requirements.accepted_certificates [uncertain]: no canonical luiss.it master's admission page consulted published a certificate table (IELTS/TOEFL/Cambridge/Duolingo scores) for master's admission. Score figures circulating in search snippets came from non-canonical Luiss hosts (api.luiss.it, backoffice.luiss.it) or from bachelor-level/Business School pages, so they were NOT recorded. Set to null.",
+    "language_requirements.required_level [uncertain]: 'B2 for English-taught programmes' is a consistent Luiss-wide statement but was not confirmed verbatim on the canonical master's admission pages for Strategic Management; no verbatim quote is therefore attached to it.",
+    "language_requirements.exemptions [uncertain]: not found on canonical pages; set to null.",
+    "Finance/Management exclusion: VERIFIED AS NOT APPLYING to Strategic Management. 'Strategic Management - Italian track' and 'Strategic Management - English track' appear explicitly in the Luiss Test programme list (Economics subject area) and also in the GMAT/GRE direct-admission list. The special exclusion applies only to the separate Master's Degrees in Finance and in Management, which have their own dedicated selection requiring international certifications.",
+    "Tuition bracket: the task brief expected EUR 16,000 standard / EUR 18,000 for Management-type masters. The figures currently published on luiss.it are EUR 15,000 for Strategic Management and EUR 17,000 for Management, so the brief's figures appear to be from a different year or source. Recorded the published EUR 15,000; the programme page does not state which academic year the amount refers to [uncertain].",
+    "entry_exam_or_test.content and .format [uncertain]: the 50-questions-in-60-minutes structure (35 psycho-aptitude + 15 subject area) and the online/remote format come from Luiss test-preparation material surfaced via search rather than from a verbatim passage on the 2027/2028 master's admission notice pages consulted. Treat as pattern information pending the full notice.",
+    "entry_exam_or_test.interview: no interview is mentioned for this programme on any consulted page; set to null rather than asserting 'no interview'.",
+    "admission_type: for the non-EU Luiss Test route and the 'Admission with qualifications' route, number_of_choices_allowed and choice_is_binding were not published; set to null. The Luiss-internal-students route exists but its programme-specific rules for Strategic Management were not verified in detail.",
+    "academic_requirements.minimum_grade_or_gpa, .country_specific_rules and .compensatory_measures [uncertain]: no programme-specific rules found on the consulted canonical pages; set to null.",
+    "required_documents: assembled from the GMAT/GRE application page and the master's enrolment/registration page (2026/2027). The 2027/2028 admission notice may add or change items; a Strategic-Management-specific document list (e.g. motivation letter, CV, reference letters) was NOT found and is therefore not claimed.",
+    "campus: the programme page footer gives Viale Pola 12, 00198 Roma. Luiss also teaches economics/management degrees at Viale Romania 32; the specific teaching building for Strategic Management is not stated on the programme page [uncertain].",
+    "apply.luiss.it returned HTTP 403 and could not be consulted, so no programme-specific application-portal link is included in official_call_url.",
+    "teaching_language: 'Strategic Management and Consulting' is the major that exists in both an Italian and an English version; the other three majors (Sustainability & Circular Economy, Technology Strategy, Entrepreneurship and Project Management) are English. The programme as a whole is therefore not fully English and is recorded as english_track_of_bilingual - it is in scope via its English track.",
+    "official_call_url: no single PDF 'bando'/admission notice document for the 2027/2028 master's cycle was located; the listed URLs are the official HTML admission-procedure pages."
+  ],
+  "uncertain": [
+    "language_requirements.required_level",
+    "language_requirements.accepted_certificates",
+    "language_requirements.exemptions",
+    "application_deadline_non_eu.rounds",
+    "application_deadline_non_eu.enrolment_deadline",
+    "application_deadline_non_eu.visa_or_preenrolment_notes",
+    "entry_exam_or_test.content",
+    "entry_exam_or_test.format",
+    "entry_exam_or_test.interview",
+    "academic_requirements.minimum_grade_or_gpa",
+    "academic_requirements.country_specific_rules",
+    "academic_requirements.compensatory_measures",
+    "required_documents",
+    "campus",
+    "tuition_or_fees_link.annual_amount",
+    "admission_type"
+  ]
+}

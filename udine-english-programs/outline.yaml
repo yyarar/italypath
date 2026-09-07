@@ -1,0 +1,129 @@
+topic: "University of Udine (UNIUD) - İngilizce eğitim veren lisans ve yüksek lisans programları admission requirements"
+description: >
+  UNIUD resmi sayfalarından (uniud.it) tamamen İngilizce yürütülen degree
+  programlarının 2026/2027 (veya en güncel resmi yıl) başvuru şartlarının
+  program bazlı derin araştırması için outline. Kaynak: web-search-agent
+  taraması (2026-09-06) + resmi UNIUD "Degrees taught entirely in English"
+  sayfası.
+
+scope_notes: >
+  Sadece uniud.it resmi sayfaları kaynak olarak kullanılacak. Kısmen İngilizce
+  (örn. IMACS ~24 ECTS İngilizce) veya adı İngilizce olup öğretim dili
+  İtalyanca olan programlar (örn. Viticulture, Enology and Wine Marketing)
+  kapsam dışı bırakıldı - bkz. excluded_candidates.
+
+items:
+  - id: udine-management-business-analytics
+    program_name: "Management & Business Analytics"
+    level: bachelor
+    degree_class: L-18
+    campus: Udine
+    admin_seat_university: Udine (UNIUD)
+    official_program_url: "https://www.uniud.it/it/didattica/corsi/area-economico-giuridica/economia/laurea/management-business-analytics"
+    notes: >
+      Tek tamamen İngilizce lisans programı. Accesso programmato locale, 100
+      kontenjan (30'u AB dışı ikametli öğrencilere ayrılmış). Giriş sınavı
+      CEnT-S (2026'da TOLC-E English yerine), son tarih 30 Kasım 2026, OFA
+      eşiği 6 puan.
+
+  - id: udine-economics
+    program_name: "Economics (Scienze Economiche)"
+    level: master
+    degree_class: LM-56
+    campus: Udine
+    admin_seat_university: Udine (UNIUD)
+    official_program_url: "https://www.uniud.it/it/didattica/corsi/area-economico-giuridica/economia/laurea-magistrale/economics-scienze-economiche"
+    notes: >
+      Accesso libero. Müfredat kolları: Economics / Sustainable Development.
+      Minimum GPA şartı uygulanmıyor (non applicable).
+
+  - id: udine-international-marketing-management-organization
+    program_name: "International Marketing, Management and Organization"
+    level: master
+    degree_class: LM-77
+    campus: Udine
+    admin_seat_university: Udine (UNIUD)
+    official_program_url: "https://www.uniud.it/en/education/offer/courses/economic-law/economic/master-degree-courses-graduate-120-ects/international-marketing-management-and-organization"
+    notes: >
+      Accesso libero. Minimum GPA: azami notun %60'ı. Çift diploma: Carinthia
+      University of Applied Sciences (CUAS), Avusturya.
+
+  - id: udine-ai-cybersecurity
+    program_name: "Artificial Intelligence & Cybersecurity"
+    level: master
+    degree_class: LM-18
+    campus: Udine
+    admin_seat_university: Udine (UNIUD)
+    official_program_url: "https://www.uniud.it/en/education/offer/courses/scientific-area/mathematics-computer-sciences-multimedia-physics/master-degree-courses-graduate-120-ects/artificial-intelligence-and-cybersecurity/"
+    notes: >
+      Uluslararası öğrenciler için yılda 45 kontenjan, başvuru son tarihi
+      program sayfasında 31 Mayıs. Minimum GPA 3/4. Bilgisayar
+      bilimi/mühendisliği lisansı gerekli; diğer fen alanları mülakatla
+      değerlendirilebilir. Çift diploma: Alpen-Adria Klagenfurt.
+
+  - id: udine-management-engineering
+    program_name: "Management Engineering"
+    level: master
+    degree_class: LM-31
+    campus: Udine
+    admin_seat_university: Udine (UNIUD)
+    official_program_url: "https://www.uniud.it/en/education/offer/courses/scientific-area/engineering/master-degree-courses-graduate-120-ects/management-engineering"
+    notes: >
+      DİKKAT: İki müfredat kolu var - biri tamamen İngilizce, diğeri ağırlıkla
+      İtalyanca. Uluslararası (İngilizce) kolda yılda 20 kontenjan, dolunca
+      kapanır. İngilizce şartı B1 (diğer tüm UNIUD İngilizce programlarında
+      B2 - tek istisna). Lisans son 5 yıl içinde alınmış Endüstri/Bilişim
+      Mühendisliği olmalı, min 90/110 veya 3/4.
+
+  - id: udine-industrial-engineering-sustainable-manufacturing
+    program_name: "Industrial Engineering for Sustainable Manufacturing"
+    level: master
+    degree_class: "LM-31 / LM-33 (interclass, mezuniyette seçiliyor)"
+    campus: Udine
+    admin_seat_university: Udine (UNIUD)
+    official_program_url: "https://industrial-engineering-sustainable-manufacturing.uniud.it/program/entry-requirements"
+    notes: >
+      Accesso libero. Minimum GPA 3/4. Danışma komitesi aylık toplanıyor
+      (rolling admission). Ayrı mikrosite üzerinden yürütülüyor - en güncel
+      şartlar orada kontrol edilmeli.
+
+  - id: udine-food-sciences-innovation-authenticity
+    program_name: "Food Sciences for Innovation and Authenticity"
+    level: master
+    degree_class: LM-70
+    campus: "Bolzano (UNIUD müfredatta ortak, idari merkez unibz)"
+    admin_seat_university: "Free University of Bolzano (unibz) - interateneo program, UNIUD + Parma + unibz"
+    official_program_url: "https://www.uniud.it/it/didattica/corsi/area-scientifica/agraria/laurea-magistrale/food-sciences-innovation-authenticity/corso/food-sciences-innovation-authenticity"
+    notes: >
+      UYARI: UNIUD kendi ders kataloğunda listeliyor ama resmi "degrees
+      taught entirely in English" sayfasında YOK, çünkü kayıt/başvuru unibz
+      üzerinden yürüyor. Derin araştırmada application_deadline, required
+      documents gibi süreç alanları unibz resmi sayfalarından doğrulanmalı,
+      sadece uniud.it yeterli olmayabilir - bu istisna uncertainty_notes'ta
+      açıkça belirtilmeli.
+
+excluded_candidates:
+  - name: "Viticulture, Enology and Wine Marketing (LM, interateneo Udine+Padova+Verona)"
+    reason: "Program adı İngilizce ama öğretim dili İtalyanca (İngilizce B2 şartı var, sertifikasızsa mülakat). Kapsam dışı bırakıldı."
+  - name: "Audiovisual Heritage and Media Education Sciences / IMACS (LM)"
+    reason: "Sadece ~24 ECTS İngilizce, geri kalanı İtalyanca - 'tamamen İngilizce' kapsamına girmiyor."
+  - name: "Ingegneria ambientale per la resilienza territoriale (LM)"
+    reason: "İtalyanca öğretim dili, doğrulandı - önceki taslakta yanlış varsayım vardı."
+  - name: "Ingegneria industriale per l'energia (L) / Ingegneria meccanica (LM)"
+    reason: "İtalyanca öğretim dili, doğrulandı."
+  - name: "Scienze e tecnologie alimentari (LM-70, klasik Udine kampüsü)"
+    reason: "İtalyanca öğretim dili - Food Sciences for Innovation and Authenticity (Bolzano) ile karıştırılmamalı."
+
+execution:
+  batch_size: 7
+  items_per_agent: 1
+  output_dir: "./results"
+
+global_notes_for_deep_research:
+  - "AB ikametli adaylar ön-değerlendirme penceresi: 01/02/2026 - 10/09/2026."
+  - "AB dışı ikametli adaylar ön-değerlendirme penceresi: 01/02/2026 - 31/05/2026 (AB'den 3.5 ay daha kısa - kritik fark)."
+  - "Universitaly ön-kayıt son tarihi (AB dışı): 30 Haziran 2026 - üniversite başvurusundan ayrı ve daha erken."
+  - "Başvuru platformu: Elix-Forms (uluslararası adaylar), Esse3 (İtalyan adaylar). €20 iade edilmez ön-değerlendirme ücreti."
+  - "İngilizce sertifikası olmadan başvuru yapılabilir ama kayıt için zorunlu; sertifika son 5 yıl içinde alınmış olmalı; sertifikasızlar online mülakatla değerlendirilebilir."
+  - "Karar süresi: başvurudan itibaren 30 iş günü; olumlu sonuçta Letter of Eligibility düzenlenir."
+  - "Kaynak: Additional Notice to the Study Prospectus 2026/2027 (AB) ve Avviso Aggiuntivo 2026/27 (AB dışı) PDF'leri - key-dates sayfalarının eski URL'leri 404 veriyor, PDF'ler kullanılmalı."

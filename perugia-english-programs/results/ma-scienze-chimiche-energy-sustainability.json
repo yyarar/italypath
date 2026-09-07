@@ -1,0 +1,39 @@
+{
+  "id": "ma-scienze-chimiche-energy-sustainability",
+  "program_name": "Scienze chimiche — \"Energy and Sustainability\" curriculum",
+  "level": "master",
+  "degree_code": "M0103",
+  "degree_class": "LM-54 R",
+  "teaching_language": "This curriculum's own modules are largely English (5 INGLESE / 1 ITALIANO), but the degree's shared 'Comune a tutti i curricula' block (taken regardless of curriculum choice) is 6 INGLESE / 15 ITALIANO — so the degree is NOT 100% English end-to-end. Official presentation: \"sono previsti 5 curricula di approfondimento dal titolo: ... Energy and Sustainability (in lingua inglese) - Theoretical Chemistry and Computational Modelling (in lingua inglese).\" The other 3 curricula (Chimica Fisica, Chimica Inorganica per l'Energia e la Catalisi, Chimica Organica) are Italian-taught.",
+  "curriculum_name_en": "Energy and Sustainability",
+  "campus": "Perugia (+ possible mobility to Jerusalem via the double-degree track, see notes)",
+  "department": "DCBB — Dipartimento di Chimica, Biologia e Biotecnologie",
+  "admission_type": "open access",
+  "places_available": "Not published for this curriculum specifically.",
+  "academic_requirements": "General Scienze chimiche LM-54 admission requirements apply (Italian laurea triennale in Chimica/Chemistry class L-27 or equivalent CFU distribution, assessed by the department); the Energy and Sustainability curriculum choice is made at enrolment. Full CFU breakdown not retrieved in this pass — recommend a dedicated check of the Regolamento didattico.",
+  "language_requirements": "Admission requires only English B1.",
+  "english_certificates_accepted": [
+    "IELTS 5.5-6.5", "TOEFL iBT 72-94", "Cambridge ESOL IGCSE",
+    "LanguageCert International ESOL B2 Communicator", "Gatehouse Awards GA Level 1 (Classic B2)",
+    "Pearson PTE General Level 3", "Trinity ISE II", "Oxford Test of English B2"
+  ],
+  "entry_exam_or_test": "Not confirmed in this pass — likely curriculum/CV review as with other UNIPG open-access master's programmes. Needs dedicated verification.",
+  "nulla_osta_required": "Not confirmed in this pass — recommend checking UNIPG's online nulla-osta list.",
+  "required_documents": [
+    "Passport", "Foreign educational qualification documentation", "English B1 certificate",
+    "Universitaly pre-enrolment (non-EU)", "PICA application"
+  ],
+  "application_deadline_eu": "EU/legally-residing applicants: PICA pre-enrolment from 1 July 2026 (no published closing date); SOL enrolment for open-access master closes 1 March 2027.",
+  "application_deadline_non_eu": "Non-EU visa applicants: this programme was not explicitly named in the confirmed PICA groupings. It most likely falls under the general window, PICA call 2026-visa-03, open 29 May-7 June 2026, 12:00 — CLOSED as of research date (2026-09-05) — but this is an inference, not a confirmed programme-specific citation.",
+  "tuition_or_fees_link": "https://www.unipg.it/en/international-students/becoming-a-unipg-student/tuition-fees-and-scholarships",
+  "tuition_range": "EUR 150-2,200/year via a 17-band ISEE table. Non-EU/foreign-income students use a fixed Flat Tax by home-country UNDP Human Development bracket (Turkey = HIGH HD = EUR 800/year + EUR 16 stamp) or ISEEU Parificato via an affiliated CAF. Declaration window 3 Aug-20 Oct 2026 (late to 1 Mar 2027; missing 28 Feb defaults to the maximum band, ~EUR 2,096).",
+  "cimea_requirement": "Not specified at programme level; see university-wide study-documents page for CIMEA/blackout-date rules.",
+  "double_degree": "Scienze chimiche (LM-54, M0103) has a double-degree agreement with Hebrew University of Jerusalem, Israel, built around an 'Environmental and Sustainable Chemistry' English curriculum, requiring at least one semester in Israel, with scholarships available. This is very likely the same track as this 'Energy and Sustainability' curriculum given the subject-matter overlap, but the exact 1:1 mapping between the two curriculum names ('Energy and Sustainability' at UNIPG vs 'Environmental and Sustainable Chemistry' at the double-degree level) has NOT been explicitly confirmed and needs dedicated verification with DCBB before publishing them as the same track.",
+  "official_program_url": "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8026",
+  "official_call_url": "https://www.dcbb.unipg.it/titoli-internazionali",
+  "source_quotes": [
+    {"quote": "sono previsti 5 curricula di approfondimento dal titolo: - Chimica Fisica - Chimica Inorganica per l'Energia e la Catalisi - Chimica Organica - Energy and Sustainability (in lingua inglese) - Theoretical Chemistry and Computational Modelling (in lingua inglese)", "url": "https://www.unipg.it/didattica/corsi-di-laurea-e-laurea-magistrale/archivio/offerta-formativa-2026-27?view=elenco&idcorso=8026&annoregolamento=2026&tab=PRE", "field_supported": "curriculum_name_en"}
+  ],
+  "uncertainty_notes": "The mapping between this UNIPG curriculum ('Energy and Sustainability') and the Hebrew University double-degree track ('Environmental and Sustainable Chemistry') is inferred from subject-matter similarity, not an explicit official statement linking the two by name — verify directly with dcbb.unipg.it/titoli-internazionali before presenting the double degree as automatically available on this curriculum. Shared-block Italian modules (15 CFU across the degree) mean this is not a 100%-English degree even though this curriculum's own modules are mostly English. PICA deadline group is an unconfirmed inference. Academic requirements, entry-exam process, places, and nulla-osta status not retrieved. Data collected 2026-09-05, all sources unipg.it/*.unipg.it only.",
+  "research_date": "2026-09-05"
+}

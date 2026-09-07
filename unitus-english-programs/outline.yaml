@@ -1,0 +1,440 @@
+# University of Tuscia (UNITUS), Viterbo - English-taught degree programmes
+# Preliminary research outline (Step 4 output of /research)
+# Created: 2026-09-04 | Revised after official catalogue discovery
+
+topic: >
+  Tuscia Universitesi (University of Tuscia, Viterbo) Ingilizce egitim veren lisans ve
+  yuksek lisans programlarinin admission requirements bilgileri.
+
+# ============================================================================
+# KRITIK BULGU: Otoriter kaynak bulundu
+# ============================================================================
+authoritative_source:
+  url: https://www.unitus.it/en/international/courses-catalogue/
+  quote: "Below is the complete list of courses available in English at UNITUS:"
+  note: >
+    Bu sayfa universitenin KENDI elle guncelledigi Ingilizce program listesidir.
+    12 kayit iceriyor, HEPSI yuksek lisans (LM). Program listesi bu sayfadan alinmistir,
+    tahminden degil. Periyodik guncellemede tek tek program sayfalarini taramak yerine
+    bu sayfayi tekrar okumak yeterlidir.
+
+# ============================================================================
+# BULGU: UNITUS'ta Ingilizce LISANS programi YOKTUR
+# ============================================================================
+bachelor_finding:
+  verdict: "2026/2027 icin UNITUS'ta tam veya kismi Ingilizce LISANS programi YOK."
+  evidence:
+    - "Resmi Ingilizce program listesindeki 12 kaydin tamami LM (yuksek lisans). Hicbir L-xx / LP-xx / L-GASTR kodu yok."
+    - "First-cycle katalogunda 24 lisans programi var; ornekleme yapilan 6 tanesinin (Design L-4, Industrial Engineering L-9, Political Science L-36, Biotechnologies L-2, Business Economics L-18, Modern Languages L-11) hepsinde Language alani: Italian."
+    - "Modern Languages and Cultures (L-11) Italyanca yurutuluyor; Ingilizce sadece CALISILAN dil, ogretim dili degil. 2026/2027 ders plani tamamen Italyanca."
+    - "interview-booking formundaki program dropdown'inda tum Laurea Triennale kayitlari Italyanca baslikli; Ingilizce baslikli her kayit Laurea Magistrale."
+  sources:
+    - https://www.unitus.it/en/international/courses-catalogue/
+    - https://www.unitus.it/en/courses/first-cycle-degree/
+    - https://www.unitus.it/en/courses/first-cycle-degree/modern-languages-and-cultures/general-info/
+    - https://www.unitus.it/en/join-unitus/how-to-enroll/interview-booking/
+  action: "ItalyPath'te UNITUS Ingilizce-egitim arayan ogrencilere SADECE yuksek lisans olarak gosterilmeli."
+
+scope:
+  primary_sources_only:
+    - www.unitus.it (ve alt alan adlari)
+  academic_year: "2026/2027 (dogrulandi - sayfalarda yil secici mevcut)"
+  technical_note: >
+    DUZELTME (2026-09-05): www.unitus.it program sayfalari server-rendered WordPress'tir.
+    Language / Admission / Headquarter alanlari ve tam admission metni HAM HTML icinde MEVCUT.
+    Duz sayfa cekme calisir. ISTISNA: bazi departman "Regulations" akordeonlari JS ile yukleniyor
+    (orn. DIKE regulations sayfasi bos donuyor) - bu durumda WP media API veya dogrudan PDF
+    linki kullanilmali. Bazi belgeler eski old.unitus.it host'unda duruyor.
+
+# ============================================================================
+# TUM PROGRAMLAR ICIN ORTAK ADMISSION CERCEVESI (on-dogrulandi)
+# Kaynak: https://www.unitus.it/en/join-unitus/how-to-enroll/ (2026/2027)
+# Derin arastirmada her program icin tekrar aranmasin, sadece program-ozel sapmalar aransin.
+# ============================================================================
+shared_admission_baseline:
+  english_language_requirement: >
+    Ingilizce yurutulen programlar icin CEFR B2. Kabul edilen sertifikalar: IELTS, TOEFL,
+    TCL, Cambridge First, PTE Academic, Oxford Test of English, Aptis ESOL General/Advanced.
+    Alternatif: onceki universite ogreniminin Ingilizce yurutuldugune dair EMI belgesi.
+    Ingilizce programlar icin Italyanca sinavi ISTENMEZ.
+  italian_language_requirement: >
+    Italyanca yurutulen programlar icin Italyanca B2 zorunlu (CISIA Italyanca testi min. 50 puan
+    alternatif). Not: 2026 icin tum CISIA tarihleri dolu ilan edilmis.
+  admission_mechanism: >
+    DOGRULANDI: Incelenen tum LM programlari didaktik yonetmeliklerinde "ad accesso libero"
+    (OPEN ACCESS). Numero programmato YOK, TOLC YOK (TOLC sadece kontenjanli lisans programlarinda).
+    Surec: online basvuru formu -> ZORUNLU SOZLU MULAKAT (oral interview) -> admission letter.
+    Bu yuzden program-ozel bando/cagri YAYINLANMIYOR - official_call_url cogu programda null olacak,
+    yerine didaktik yonetmelik PDF'i verilmeli.
+    admission_type alani icin dogru deger: "open access" (+ mulakat notu), "selection call" DEGIL.
+  deadlines_reality: >
+    UNITUS program bazli BASVURU son tarihi yayinlamiyor (surec rolling), ama universite capinda
+    KESIN KAYIT takvimi var. Kaynak: TUITION-FEES-AND-CONTRIBUTIONS-REGULATIONS_2026-2027.pdf
+  official_calendar_2026_2027:
+    enrolment_opens: "2026-08-01 (tum dereceler)"
+    deadline_bachelor_and_master_year2plus: "2026-11-04 (+ 1. taksit)"
+    deadline_master_first_year: "2026-12-29  <-- ILK YIL YUKSEK LISANS ICIN OPERATIF SON TARIH"
+    extension_jan_feb_graduates: "2027-02-28"
+    non_eu_visa_deadline: "2026-11-30 (konsolosluga vize basvurusu son tarihi)"
+    non_eu_onsite_enrolment_opens: "2026-08-01 (International Students Desk)"
+    universitaly_preenrolment: "2026/27 icin ACIK; Universitaly genelde Nisan/Mayis'ta aciyor"
+    rule: >
+      deadline alanlarina yazilacak format:
+      "No programme-specific application deadline (rolling). Enrolment 2026-08-01 to 2026-12-29
+      (1st-year Master's). Non-EU visa cutoff 2026-11-30." Tarih uydurma, bos birakma.
+  required_documents_baseline:
+    - Lise diplomasi (onayli kopya + Apostil/legalizasyon + onayli Italyanca ceviri VEYA CIMEA Statement of Verification)
+    - En az 3 yillik lisans derecesi (ayni legalizasyon secenekleri)
+    - Transcript of Records
+    - Declaration of Value (konsolosluk) VEYA CIMEA Statement of Comparability VEYA ARDI Statement of Correspondence
+    - Diploma Supplement (legalize ise DoV yerine gecebilir)
+    - Dil sertifikasi veya EMI belgesi
+    - Admission letter
+  visa_financial_proof: "Yillik 10.179,85 EUR maddi yeterlilik belgesi"
+  fees:
+    page: https://www.unitus.it/en/students/fees-and-contributions/
+    regulations_pdf: https://www.unitus.it/wp-content/uploads/2026/07/TUITION-FEES-AND-CONTRIBUTIONS-REGULATIONS_2026-2027.pdf
+    country_band_annex: https://www.unitus.it/wp-content/uploads/2026/07/All.1_-Paesi_studenti-internazionali_2026_2027.pdf
+    simulator: https://www.unitus.it/en/students/fees-and-contributions/tuition-fee-simulator/
+    model: "ISEEUP gelir bazli. ISEEUP beyan etmeyen ogrenci mense ulkeye gore sabit ucret oder."
+    non_eu_flat_bands: "4 ulke bandi: 600 / 1.050 / 1.500 / 1.950 EUR yillik (Annex 1 ulke listesi)"
+
+# ============================================================================
+# ITEMS - Resmi Ingilizce program listesindeki 12 program
+# ============================================================================
+# ============================================================================
+# ITEMS - Resmi Ingilizce program listesindeki 12 program
+# research_status: done      -> on-arastirma tamamlandi, derin asamada SADECE DOGRULAMA
+#                  partial   -> kismi veri var, eksikler tamamlanacak
+#                  todo      -> hic arastirilmadi, tam arastirma gerekli
+# ============================================================================
+items:
+
+  - id: lm73-forestry-environmental-sciences
+    program_name: Forestry and Environmental Sciences
+    level: master
+    degree_class: LM-73
+    teaching_language: "English (fully) - iki mufredat da tamamen Ingilizce"
+    campus: "Viterbo - Campus Riello, Polo didattica Agraria (DIBAF)"
+    research_status: done
+    url: https://www.unitus.it/en/courses/second-cycle-degree/forestry-environmental-sciences/
+    known:
+      curricula:
+        - "Forests and Environment - tum dersler Viterbo'da"
+        - "Mediterranean Forestry and Natural Resources Management (MEDfOR) - 1. yil Lizbon/Lleida/Padova, 2. yil Tuscia"
+      admission_type: "open access (yonetmelik: 'ad accesso libero') + zorunlu online mulakat"
+      academic_requirements: "Lisans derecesi + her alandan en az 5 ECTS: Kimya (CHIM/03,06), Bitki biyolojisi/Botanik (BIO/01-03), Silvikultur (AGR/05)"
+      extra_eu_only_requirements:
+        - "31 Aralik 1997'den SONRA dogmus olmak (yas siniri)"
+        - "Tuscia'da veya baska bir Italyan universitesinde halen ogrenci OLMAMAK"
+        - "Lisans GPA'si Italyan sisteminde 28/30 karsiligindan YUKSEK"
+        - "Lisans diplomasi 2022'den once alinmamis olmak"
+      language_requirements: "TOEFL>87, IELTS>5.5, City&Guilds IESOL B2, Cambridge FCE, Trinity ISE II, British Institute ESOL B2. Sertifika yoksa mulakatta ek test."
+      application_route_eu: "Belgeler e-posta: sfa@unitus.it, CC didattica.dibaf@unitus.it, konu satiri: 'SFA-LM admission'"
+      application_route_non_eu: "https://forms.gle/pV5Y7Xayv4WbwyRp6"
+      required_documents_eu: "Diploma + tam transkript kopyasi; Europass formatinda kisa CV; varsa Ingilizce dil sertifikasi"
+      entry_exam: "Online mulakat. Yayinlanmis konular: orman ekolojisi ve silvikultur, orman ekonomisi, zooloji."
+      regulation_pdf: "https://old.unitus.it/public/contenuti/ExJSite/Ufficio%20Legale/reg_to%20did_%20DIBAF%20LM%20scienze%20ambien_%20e%20forestali%20Pdf-A.pdf"
+      brochure: https://www.unitus.it/wp-content/uploads/2025/04/Forestry-and-environmental-sciences-Ing.pdf
+    verify_in_deep:
+      - "Sayfada gecen 'deadline November 2nd' ifadesi 2026/27 ucret yonetmeligiyle CELISIYOR (29 Aralik 2026 dogru). Eski yildan kalma metin olabilir - teyit et."
+      - "Italyanca yonetmelik Art.4 §3 YAZILI SINAV ('prova scritta') diyor, Ingilizce sayfa MULAKAT diyor. Hangisi gecerli?"
+      - "Extra-EU yas siniri ve diploma tarihi kurali yil-ozel mi, kalici mi?"
+      - "MEDfOR mufredati icin admission tamamen konsorsiyum kontrolunde (medfor.eu) - UNITUS'a bagli degil."
+
+  - id: lm7-plant-biotechnology-food-global-health
+    program_name: Plant Biotechnology for Food and Global Health
+    level: master
+    degree_class: LM-7
+    teaching_language: English (fully)
+    campus: "Viterbo - Campus Riello (DAFNE)"
+    research_status: done
+    url: https://www.unitus.it/en/courses/second-cycle-degree/plant-biotechnology-for-food-and-global-health/
+    known:
+      admission_type: "open access + zorunlu sozlu mulakat. Yumusak kontenjan: yabanci basvuru 200'u asarsa ek kriter (biyoteknoloji lisansi + GPA %95 ustu)."
+      academic_requirements: "L-2/L-13/L-25/L-26 veya yabanci esdegeri (Biyoteknoloji, Ziraat). En az 20 CFU: Matematik (MAT/01-09), Fizik (FIS/01-07), Genel Kimya (CHIM/03), Organik Kimya (CHIM/06), Genetik (AGR/07, BIO/18), Bitki Biyolojisi (BIO/04, BIO/15), Biyokimya (BIO/10)."
+      gpa_requirement: "En az 25/30 Italyan sistemi; veya Second Upper Class (B+, CGPA 3.4/4 | 4.3/5 | 6/7 | 8.5/10 | 17/20 | 105/110)"
+      language_requirements: "B2. TOEFL>87, IELTS>5.5, City&Guilds IESOL B2, Cambridge FCE, Trinity ISE II, British Institute ESOL B2. Ingilizce konusan ulke veya Ingilizce egitim belgesi olanlar muaf. Sertifika yoksa mulakatta ek test."
+      interview_calendar_2026_27:
+        international_only: ["2026-01-30", "2026-02-27", "2026-03-27", "2026-04-24"]
+        all_students: ["2026-05-29", "2026-06-26", "2026-07-31"]
+        format: "Google Meet, genelde 14:00"
+        topics: "Genel biyoloji (makromolekuller, hucre, prokaryot/okaryot), Bitki biyolojisi (ototrof/heterotrof, bitki hucresi ve dokular, organlar), Genetik (genotip-fenotip, Mendel yasalari ve mayoz, mutasyon tipleri)"
+      booking_form: https://forms.gle/GRzcGKgF5Rs31NtBA
+      required_documents: "Diploma sertifikasi/leri (sinav listesi, notlar, krediler dahil) dijital kopya; pasaport dijital kopya; secilen mulakat tarihi"
+      brochure: https://www.unitus.it/wp-content/uploads/2026/03/PLANT-BIOTECHNOLOGY-FOR-FOOD-AND-GLOBAL-HEALTH.pdf
+    verify_in_deep:
+      - "CELISKI: program sayfasi 'mulakat ogrenci Viterbo'ya geldikten sonra yapilir' diyor; DAFNE takvim sayfasi 'GMeet ile' diyor. Hangisi gecerli?"
+      - "'November 2nd' kayit son tarihinin yili belirtilmemis."
+      - "200 basvuru kontenjani ve 'GPA %95 ustu' kriterinin hangi olcege gore oldugu aciklanmamis."
+
+  - id: lm90-security-human-rights
+    program_name: Security and Human Rights
+    level: master
+    degree_class: LM-90
+    teaching_language: English (fully)
+    campus: "Viterbo - Santa Maria in Gradi. UZAKTAN EGITIM MEVCUT (dersin 2/3'une kadar uzaktan verilebiliyor)."
+    department: "DIKE (Legal, Social and Educational Sciences)"
+    research_status: done
+    url: https://www.unitus.it/en/courses/second-cycle-degree/security-and-human-rights/
+    known:
+      curricula: ["Option A - Security and Human Mobility", "Option B - Security, Technology and Sustainability"]
+      admission_type: "open access + Ingilizce sozlu mulakat"
+      admission_form: "https://forms.gle/YWhb4aASrJAEsnuX8 (a.y. 2026/2027, International students only)"
+      academic_requirements: >
+        180 CFU'luk lisans; L-14, L-16, L-36, L-37, L-40, L-42 veya LMG-01 siniflarindan
+        (veya taninmis yabanci esdegeri). Diger siniflardan gelenler: 180 CFU'nun en az 60'i
+        hukuk grubu (IUS/01-21) ARTI su gruplardan birinde olmali - siyasal-sosyal (SPS/01,04,07,08,09,11,12);
+        ekonomik-istatistik (M-GGR/02, SECS-P/01,02,03,05,06, SECS-S/01,03,04,05);
+        tarih (M-STO/02,03,04, SECS-P/04,12, SPS/02,03,06); dil (L-LIN/04,07,12,14).
+        Gerekli CFU'da %10'a kadar tolerans var.
+      language_requirements: "Ingilizce B2 (CEFR), sertifika veya departman testi. Mulakat Ingilizce yapiliyor."
+      entry_exam: "Ingilizce sozlu mulakat (yuz yuze veya uzaktan), Didaktik Komisyon tarafindan. Komisyon eksik kredilerin nasil tamamlanacagini da belirliyor."
+      regulation_pdf: https://www.unitus.it/wp-content/uploads/2024/03/Reg.to-did.-Human-r.-LM-90.pdf
+      study_plan_2026_27: https://www.unitus.it/wp-content/uploads/2026/07/Piano-degli-Studi-DIKE-2026.2027-LM-90-26-27-curr-A-e-B.pdf
+      scholarships_note: "Sayfa uluslararasi ve Italyan ogrenciler icin cesitli burslardan bahsediyor."
+    verify_in_deep:
+      - "DEPARTMAN CELISKISI: program sayfasi ve ders plani PDF'leri DIKE diyor; uluslararasi katalog sayfasi hala DISTU diyor. DIKE muhtemelen guncel (DISTU yeniden yapilandirilmis) - teyit et."
+      - "Dosyadaki yonetmelik 2023 versiyonu; 'Rules for attending students' PDF'i hala 2025/26 baskisi."
+      - "Basvuru formu 'International students only' etiketli - EU ogrencisi icin ayri yol var mi?"
+
+  - id: lm33-mechanical-engineering
+    program_name: Mechanical Engineering
+    level: master
+    degree_class: LM-33
+    teaching_language: English (fully)
+    campus: "Viterbo - Campus Riello (DEIM)"
+    research_status: done
+    url: https://www.unitus.it/en/courses/second-cycle-degree/mechanical-engineering/
+    known:
+      tracks: ["Manufacturing & Design", "Energy"]
+      double_degree: "PUT_DD, NUSTPB_DD (ders planinda gecen cift diploma yollari)"
+      admission_type: "open access (yonetmelik Art.4 §4) + sozlu mulakat"
+      application_form: https://forms.gle/xAhnhzNUAz9MHVGg9
+      academic_requirements: >
+        Lisans derecesi veya taninan yabanci esdegeri. Yonetmelikteki sayisal esik:
+        EN AZ 36 CFU su alanlardan - CHIM/03, CHIM/07, INF/01, ING-INF/05, MAT/03, MAT/05,
+        MAT/07, MAT/08, FIS/01, FIS/07; VE EN AZ 36 CFU su alanlardan - ING-IND/08, 09, 10,
+        11, 12, 13, 14, 15, 16, 17. Eksik krediler kisisel hazirlik degerlendirmesinden ONCE
+        tamamlanmali. Yabanci diplomalar Course Council tarafindan degerlendiriliyor.
+      language_requirements: "Ingilizce B2; sertifika yoksa departmanin duzenledigi degerlendirme testi"
+      entry_exam: "En az 3 ogretim uyesinden olusan komisyon onunde sozlu mulakat (yonetmelik Art.4 §3) + sertifika yoksa Ingilizce testi. TOLC YOK."
+      contact_policy: "UYARI: Sayfa acikca soyle diyor - basvuru tarihleri, burs takvimi vb. tum sorular SADECE mechanical.engineering@unitus.it adresine yazilmali; baska adrese gonderilen e-postalar dikkate alinmadan silinir."
+      regulation_pdf_en: https://www.unitus.it/wp-content/uploads/2024/11/Didactic_Regulation_MSc_Mechanical_Engineering.pdf
+      brochure: https://www.unitus.it/wp-content/uploads/2025/04/Mechanical-Engineering-Ing.pdf
+    verify_in_deep:
+      - "Dosyadaki yonetmelik 2023/24 versiyonu (Kasim 2024 yayini) - CFU esikleri 2026/27 icin degismis olabilir."
+      - "Bu programa ozel required_documents listesi hicbir resmi sayfada YOK."
+
+  - id: lm6-marine-biology-ecology
+    program_name: Marine Biology and Ecology
+    level: master
+    degree_class: LM-6
+    teaching_language: English (fully)
+    campus: "Civitavecchia - Polo Universitario (DEB)"
+    research_status: done
+    url: https://www.unitus.it/en/courses/second-cycle-degree/marine-biology-and-ecology/
+    admission_page: https://www.unitus.it/en/departments/deb/didactics/how-to-enroll-to-debs-courses/requirements-and-masters-degree-admission-interviews-deb/
+    known:
+      admission_type: "open access + zorunlu mufredat kontrolu ('nulla osta', GOMP uzerinden) + sozlu mulakat. Numero chiuso YOK, TOLC YOK."
+      academic_requirements: >
+        L-13 (Biyolojik Bilimler) veya esdegeri. Diger lisans siniflarindan gelenler icin
+        EN AZ 32 ECTS su SSD'lerde: Botanik (BIO/01, BIO/02, BIO/03), Zooloji (BIO/05),
+        Ekoloji (BIO/07), Mikrobiyoloji (BIO/19). Ayrica Kimya, Matematik, Fizik gibi temel
+        disiplinlerde yeterli kredi. L-32 mezunlari sadece UNITUS'un kendi Natural and
+        Environmental Sciences lisansindan kabul ediliyor.
+      language_requirements: "Ingilizce B2'den dusuk olmayan yeterlilik (universite geneli kural gecerli)"
+      preadmission_form: https://forms.gle/fUtiE9jyk2nKF8f98
+      required_documents: "nulla osta icin: sinavlar, krediler ve SSD'leri gosteren mezuniyet belgesi (mezun olmayanlar icin alinan/alinacak sinavlarin beyani)"
+      interview_dates_2025_26_ONLY:
+        - "2025-09-12 (17 Eylul'den one alindi)"
+        - "2025-09-22 10:00 (online)"
+        - "2025-09-26 10:30"
+        - "2025-10-20 10:30"
+        - "2025-11-21 10:30"
+        - "2025-12-19 10:30"
+        - "2026-02-20 10:30"
+      interview_format: "Italyan ogrenciler icin Civitavecchia'da, uluslararasi ogrenciler icin UZAKTAN"
+      scholarships: https://www.unitus.it/en/international/borse-di-studio-international-students/
+      brochure: https://www.unitus.it/wp-content/uploads/2025/04/Marine-biology-and-ecology-Ing.pdf
+    verify_in_deep:
+      - "ONEMLI: Yayinlanmis mulakat takvimi ve kayit penceresi hala 2025/26 etiketli. 2026/27 tarihleri HENUZ YAYINLANMAMIS - derin arastirmada tekrar kontrol et."
+      - "Bu program icin GPA alt siniri belirtilmemis."
+
+  - id: lm76-circular-economy
+    program_name: Circular Economy
+    level: master
+    degree_class: LM-76
+    teaching_language: "English (KANIT ZAYIF - asagiya bak)"
+    campus: "Civitavecchia (DEIM)"
+    research_status: done
+    url: https://www.unitus.it/en/courses/second-cycle-degree/circular-economy/
+    known:
+      admission_type: "open access (yonetmelik Art.5 §1 'ad accesso libero') + sozlu mulakat"
+      international_application_form_2026_27: "https://docs.google.com/forms/d/e/1FAIpQLScUO5l45g-6pgaCoMwZgxm519gRlED-fscFlA832c4OsRzpgg/viewform"
+      interview_booking_form: https://forms.gle/Q7HkQqss3cB8VyR38
+      academic_requirements: >
+        Yonetmelikten (Ingilizce sayfada YOK): L-18 veya L-33 sinifi uc yillik derece veya
+        taninan yabanci esdegeri. Diger siniflardan gelenler: DM 16 Mart 2007'nin 18 ve 33
+        sinif tablolarindaki temel (base) ve karakterize edici (caratterizzanti) SSD'lerde
+        ve/veya MAT/01-09, INF/01, ING-INF/05, ING-IND/17, ING-IND/35'te EN AZ 48 CFU.
+        Kisisel hazirlik CV ve akademik gecmis uzerinden degerlendiriliyor, GEREKIRSE mulakatla
+        desteklenerek. Eksik krediler ders baslamadan ONCE tamamlanmali.
+      language_requirements: "Programa ozel kural YAYINLANMAMIS - universite geneli B2 kurali gecerli"
+      campus_support: "Civitavecchia International Student Desk, Piazza Giuseppe Verdi 1; polo.civitavecchia@unitus.it"
+      regulation_pdf: https://www.unitus.it/wp-content/uploads/2024/03/Reg.to-Circular-Economy-2023.pdf
+      brochure: https://www.unitus.it/wp-content/uploads/2025/04/Circular-Economy-Ing.pdf
+    verify_in_deep:
+      - "DIL KANITI ZAYIF: Ingilizce egitim sadece yapisal metadata alaninda ('Language: English') geciyor, govde metninde HICBIR cumle Ingilizce egitim demiyor - diger 3 programda bu cumle var. Ders plani LANGUAGE sutunu bos. TEYIT SART (polo.civitavecchia@unitus.it)."
+      - "Tum admission icerigi SADECE Italyanca PDF'te; Ingilizce sayfada hicbiri yok."
+      - "Ders plani secicide 'Orientamento unico DD_Samati_uzb' adli tuhaf bir kayit var - Ozbekistan ortakli, hicbir yerde Ingilizce anlatilmayan bir cift diploma yolu olabilir."
+      - "Yonetmelik PDF'i 2023 tarihli ve http:// uzerinden servis ediliyor."
+
+  # --- Arastirilmamis programlar (derin arastirmanin asil isi) -----------------
+
+  - id: lm76-economics-management-finance
+    program_name: "Economics, Management and Finance - Economics and Management for Innovation and Sustainability"
+    level: master
+    degree_class: LM-76
+    teaching_language: English (katalogda beyan edildi)
+    campus: Viterbo (DEIM)
+    research_status: todo
+    url: https://www.unitus.it/en/courses/second-cycle-degree/management-finance-and-controlling-2/
+    note: "URL slug program adiyla uyusmuyor - once dogru sayfa teyit edilmeli."
+
+  - id: lm69-suagrimed
+    program_name: "Sustainable Agriculture in Mediterranean Environment (SuAgriMed)"
+    level: master
+    degree_class: LM-69
+    teaching_language: English (katalogda beyan edildi)
+    campus: Viterbo (DAFNE)
+    research_status: todo
+    url_to_find: "Katalog sayfasindaki linkten alinacak"
+    hint: "DAFNE mulakat takvimi sayfasi kontrol edilmeli: https://www.unitus.it/en/departments/dafne/didactics/masters-degrees-pre-enrolment-application-and-calendar-of-interviews/"
+
+  - id: lm5-archival-science-ai
+    program_name: Archival Science and AI
+    level: master
+    degree_class: LM-5
+    teaching_language: English (katalogda beyan edildi)
+    campus: Rieti (DIKE)
+    research_status: todo
+    url_to_find: "Katalog sayfasindaki linkten alinacak"
+
+  - id: digital-management-agriculture-mountain-areas
+    program_name: Digital Management of Agriculture and Mountain Areas
+    level: master
+    degree_class: "LM-69 / LM-73 (mufredat kollari)"
+    teaching_language: English (katalogda beyan edildi)
+    campus: Rieti (DAFNE)
+    research_status: todo
+    url_to_find: "Katalog sayfasindaki linkten alinacak"
+
+  - id: lm77-economics-communication-management-innovation
+    program_name: Economics and Communication for Management and Innovation
+    level: master
+    degree_class: LM-77
+    teaching_language: English (fully)
+    campus: "ROMA - Sapienza (interuniversity). DEIM kayitli bolum."
+    research_status: partial
+    warning: "Dersler Viterbo'da DEGIL, Roma'da Sapienza'da veriliyor. Ogrenciye acikca soylenmeli (yasam maliyeti farki)."
+    url: https://www.unitus.it/en/courses/second-cycle-degree/economics-communication-management-innovation/
+    known:
+      admission_type: "open access + sozlu mulakat (Colloquio orale)"
+      interview_booking_url: https://www.unitus.it/en/join-unitus/how-to-enroll/interview-booking/
+      contacts: "Prof. Giulio Guarini (giulioguarini@unitus.it); Prof. Alessio Maria Braccini (abraccini@unitus.it); didatticaeconomia@unitus.it"
+      quote: "The educational activities of the course are entirely conducted in English at Sapienza University of Rome."
+    verify_in_deep:
+      - "LM-77 mufredat on kosullari (CFU/SSD esikleri) resmi sayfada YOK - DEIM yonetmelik PDF'inde aranmali."
+      - "Ders plani sayfasi hem 2026/27 hem 2025/26 icin BOS render ediyor (mufredat Sapienza'da yonetiliyor)."
+      - "'International Business' adli bir UNITUS programi YOK - eski kaynaklar bu programa veya LM-76 Economics/Management'a isaret ediyor olabilir."
+
+  - id: lm3-landscape-architecture
+    program_name: Landscape Architecture
+    level: master
+    degree_class: LM-3
+    teaching_language: "PARTIALLY English - resmi alan: 'Italian and English'"
+    campus: "ROMA - Sapienza, Palazzo Borghese (ortak: DIBAF Viterbo)"
+    research_status: partial
+    warning: >
+      Resmi Ingilizce listedeki TEK kismi-Ingilizce program. Hangi derslerin Ingilizce
+      oldugu resmi kaynakta YAZMIYOR. Italyanca B2 gerekebilir. ItalyPath'te
+      "tam Ingilizce" olarak GOSTERILMEMELI.
+    url: https://www.unitus.it/en/courses/second-cycle-degree/landscape-architecture/
+    known:
+      admission_type: "open access + akademik kariyer sinav degerlendirmesi + sozlu mulakat"
+      brochure_pdf: https://www.unitus.it/wp-content/uploads/2023/05/Corsi-di-Laurea-UNITUS-Landscape-Architecture-1.pdf
+      contacts: "Prof. Fabio Di Carlo (fabio.dicarlo@uniroma1.it - Sapienza adresi)"
+    verify_in_deep:
+      - "general-info ders plani sayfasi YANLIS icerik render ediyor (LM-2 arkeoloji/sanat tarihi plani). Bu sayfaya GUVENILMEMELI."
+      - "Ingilizce ders orani resmi UNITUS kaynaklarinda cozulemiyor. Sapienza sayfalari kapsam disi (sadece unitus.it)."
+      - "Ucret yukumlulugu Sapienza'da mi UNITUS'ta mi belirsiz."
+
+# ============================================================================
+# ELENEN ADAYLAR (gerekceli, dogrulandi)
+# ============================================================================
+excluded:
+  - name: "Conservation and Restoration of the Environment and Forest (LM-73, DAFNE)"
+    reason: >
+      DOGRULANDI: program sayfasi "Language / Italian" diyor ve universitenin resmi
+      Ingilizce program listesinde YOK. Ingilizce sayfalarin varligi sitenin WPML
+      cevirisinden kaynaklaniyor, dersin Ingilizce olmasindan degil.
+      MEDfOR ile HICBIR ILGISI YOK (o LM-73 Forestry and Environmental Sciences'a ait).
+    url: https://www.unitus.it/en/courses/second-cycle-degree/conservation-and-restoration-of-the-environment-and-forest/
+
+  - name: "Political Science, International Security Studies and Public Communication (LM-62)"
+    reason: >
+      Resmi alan: Language = Italian. Ingilizce program listesinde YOK. Tek Ingilizce
+      temasi Nice cift diploma mufredatinda; orada da Ingilizce uc dilden biri ve sadece
+      Fransa'da gecirilen yil icin. UNITUS'taki 2. yil Italyanca.
+    url: https://www.unitus.it/en/courses/second-cycle-degree/political-science-international-security-public-communication/
+    action: "ItalyPath'te Ingilizce program setinde varsa CIKARILMALI."
+
+  - name: "Tum lisans (first-cycle) programlari - 24 adet"
+    reason: "Hicbiri Ingilizce degil. Detay: yukaridaki bachelor_finding bolumu."
+
+  - name: "Food Science and Technology / Agricultural and Environmental Sciences"
+    reason: "Resmi Ingilizce program listesinde yer almiyorlar."
+
+resolved_questions:
+  - question: "MEDfOR ayri bir program mi?"
+    answer: >
+      HAYIR. MEDfOR (Mediterranean Forestry and Natural Resources Management), LM-73
+      Forestry and Environmental Sciences programinin IKI MUFREDATINDAN BIRI. Ayri bir
+      unitus.it sayfasi yok; site aramasi "MEDfOR" icin sifir sonuc donuyor cunku ifade
+      program sayfasinin akordeonu icinde gizli. Admission tamamen konsorsiyum
+      prosedurune (medfor.eu) devrediliyor - UNITUS kontrolunde degil.
+      Not: sayfa "son bes donemde Erasmus Mundus destegiyle" diye GECMIS ZAMAN kullaniyor;
+      bursun halen aktif oldugu TEYIT EDILMEDI.
+
+# ============================================================================
+execution:
+  batch_size: 5
+  items_per_agent: 2
+  total_items: 12
+  breakdown:
+    done: 6        # Forestry, Plant Biotech, Security&HR, Mechanical Eng, Marine Biology, Circular Economy
+    partial: 2     # LM-77 Economics&Communication, LM-3 Landscape Architecture
+    todo: 4        # LM-76 Economics/Mgmt/Finance, SuAgriMed, Archival Science&AI, Digital Management
+  recommended_plan:
+    wave_1: "4 'todo' programi + 2 'partial' program = 6 item, 3 agent x 2 item. Bunlar asil is."
+    wave_2: "6 'done' programi dogrulama modunda, 3 agent x 2 item. Sadece verify_in_deep maddeleri ve eksik alanlar."
+  output_dir: ./results
+  fields_file: ./fields.yaml
+  rules:
+    - "Sayfalar server-rendered WordPress - duz sayfa cekme calisir. Sadece bazi departman akordeonlari JS."
+    - "Ilk adim: katalog sayfasindan url_to_find olan 3 programin GERCEK resmi URL'sini al."
+    - "shared_admission_baseline ve official_calendar_2026_2027 DOGRULANDI - tekrar arastirma, sadece program-ozel SAPMALARI ara."
+    - "admission_type icin dogru deger 'open access' - bu programlarda bando/selection call YOK."
+    - "official_call_url cogu programda null olacak; yerine didaktik yonetmelik PDF'ini ver."
+    - "Ingilizce sayfada admission bilgisi yoksa ITALYANCA didaktik yonetmelik PDF'ine bak - gercek CFU esikleri orada."
+    - "Her programin general-info sayfasindaki Year seciciyi 2026/2027'ye getir."
+    - "Ders plani sayfasi bos veya alakasiz icerik render ederse uncertainty_notes'a yaz (LM-77 ve LM-3'te goruldu)."
+    - "Bilgi bulunamazsa null; asla tahmin yazma. source_quotes bos birakilamaz."
+
+remaining_gaps:
+  - "3 programin resmi URL'si alinmadi: SuAgriMed, Archival Science and AI, Digital Management of Agriculture."
+  - "LM-76 Economics/Management/Finance icin URL slug ile program adi uyusmuyor."
+  - "Circular Economy'nin Ingilizce egitim iddiasi govde metninde dogrulanmadi - e-posta teyidi onerilir."
+  - "Marine Biology'nin 2026/27 mulakat takvimi henuz yayinlanmamis."
+  - "Mechanical Engineering ve Security&HR icin program-ozel belge listesi hicbir resmi sayfada yok."

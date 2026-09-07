@@ -1,0 +1,250 @@
+topic: "Luiss Guido Carli (Roma) - Ingilizce egitim veren lisans ve yuksek lisans programlari ve admission requirements"
+topic_slug: luiss-english-programs
+created: 2026-09-04
+
+scope:
+  allowed_domains:
+    - luiss.it            # canonical; luiss.edu 301 -> luiss.it/en
+    - apply.luiss.it      # DreamApply basvuru portali (resmi)
+    - pathwayprogrammes.luiss.it  # Foundation Programme portali (resmi)
+  notes: >
+    luiss.edu artik luiss.it/en adresine yonleniyor. Kaynak olarak luiss.it kullanilacak,
+    luiss.edu linkleri stale sayilacak.
+  included: "Ingilizce ogretim yapan degree programmes (bachelor + master). Kismi Ingilizce olanlar ayrica isaretlenir."
+  excluded: >
+    Italyanca-only programlar (Economics and Management, Political Science, Giurisprudenza LMG-01);
+    Business School / Postgraduate School Level I-II master ve LL.M. programlari (degree degil).
+  academic_year_policy: >
+    ONEMLI DEGISIKLIK: Luiss su anda 2027/2028 admission bilgisini yayinliyor.
+    2026/2027 dongusu KAPANDI (master kayit son 15 Haziran 2026, bachelor kayit 22 Temmuz 2026).
+    Bu nedenle "en guncel resmi yil" = 2027/2028 kabul edilir ve birincil kaynak odur.
+    2026/2027 verisi bulunursa ikincil/arsiv olarak kaydedilir, academic_year alaninda belirtilir.
+    Tam admission notice'lar bachelor icin Ekim 2026, master icin Kasim 2026'dan itibaren yayinlanir.
+
+items:
+  # ---------------- BACHELOR (Undergraduate School) ----------------
+  - id: ba-business-administration
+    name: "Business Administration"
+    level: bachelor
+    degree_class: L-18
+    language_hint: "100% English"
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/undergraduate-school/business-administration"
+
+  - id: ba-economics-and-business
+    name: "Economics and Business"
+    level: bachelor
+    degree_class: L-33
+    language_hint: "English track"
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/undergraduate-school/economics-and-business"
+
+  - id: ba-global-law
+    name: "Global Law"
+    level: bachelor
+    degree_class: L-14   # dogrulandi 2026-09-05
+    language_hint: "100% English"
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/undergraduate-school/global-law"
+
+  - id: ba-management-and-ai
+    name: "Management and Artificial Intelligence"
+    level: bachelor
+    degree_class: L-18
+    language_hint: "100% English"
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/undergraduate-school/management-and-artificial-intelligence"
+
+  - id: ba-ppe
+    name: "Politics: Philosophy and Economics (PPE)"
+    level: bachelor
+    degree_class: L-36   # dogrulandi 2026-09-05 (regolamento didattico PDF)
+    language_hint: "English"
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/undergraduate-school/politics-philosophy-and-economics"
+
+  # ---------------- FOUNDATION / PATHWAY ----------------
+  - id: foundation-social-sciences
+    name: "Foundation Programme in Social Sciences"
+    level: other
+    degree_class: "yok (60 Foundation Credits, ECTS'e donusmez)"
+    language_hint: "English"
+    url: "https://www.luiss.it/en/courses-and-masters/foundation-programme"
+    note: "Degree degil, hazirlik programi. 2026/2027 dongusu acik. Ayri portal: pathwayprogrammes.luiss.it"
+
+  # ---------------- MASTER (Graduate School) ----------------
+  - id: ms-finance
+    name: "Finance"
+    level: master
+    degree_class: LM-77
+    language_hint: "English"
+    majors_hint: ["Corporate Finance", "Financial Markets"]
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/finance"
+    note: "Eski 'Corporate Finance' ve 'Economics and Finance' programlarinin halefi. Luiss Test ile girilemez - sadece GMAT/GRE. Ucret 17.000 EUR (dogrulandi 2026-09-05)."
+
+  - id: ms-management
+    name: "Management"
+    level: master
+    degree_class: LM-77
+    language_hint: "English only"
+    majors_hint: ["Corporate Value & Business", "International Management", "Made in Italy in the Digital Age"]
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/management"
+    note: "Luiss Test ile girilemez - sadece GMAT/GRE. Ucret 17.000 EUR (dogrulandi 2026-09-05)."
+
+  - id: ms-marketing
+    name: "Marketing"
+    level: master
+    degree_class: LM-77
+    language_hint: "English + Italian track"
+    majors_hint: ["Marketing Analytics and Data Science", "Marketing Strategy Management and Communication"]
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/marketing"
+
+  - id: ms-strategic-management
+    name: "Strategic Management"
+    level: master
+    degree_class: LM-77
+    language_hint: "English + Italian track"
+    majors_hint: ["Entrepreneurship and Project Management", "Strategic Management and Consulting", "Sustainability & Circular Economy", "Technology Strategy"]
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/strategic-management"
+
+  - id: ms-data-science-management
+    name: "Data Science and Management"
+    level: master
+    degree_class: LM-91
+    language_hint: "English only"
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/data-science-and-management"
+
+  - id: ms-global-management-politics
+    name: "Global Management and Politics"
+    level: master
+    degree_class: LM-77
+    language_hint: "English only"
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/global-management-and-politics"
+
+  - id: ms-international-relations
+    name: "International Relations"
+    level: master
+    degree_class: LM-52
+    language_hint: "English only"
+    majors_hint: ["Diplomacy", "Euro-Mediterranean Studies", "Security"]
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/international-relations"
+
+  - id: ms-administration-finance-control
+    name: "Administration, Finance and Control"
+    level: master
+    degree_class: LM-77  # dogrulandi 2026-09-05
+    language_hint: "English track: Accounting, Financial Management and Control"
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/administration-finance-and-control"
+
+  - id: ms-economics-institutions-financial-markets
+    name: "Economics, Institutions and Financial Markets"
+    level: master
+    degree_class: LM-56
+    language_hint: "English + Italian"
+    majors_hint: ["RoME - Rome Master in Economics (EN)", "Economics, Data and Policy Analysis (EN)", "Banks and Financial Intermediaries (IT)"]
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/economics-institutions-and-financial-markets"
+
+  - id: ms-government-public-affairs
+    name: "Government and Public Affairs"
+    level: master
+    degree_class: LM-62
+    language_hint: "English major: Public Policy"
+    url: "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/government-and-public-affairs"
+    note: >
+      DIKKAT: 'Policies and Governance in Europe halefi' iddiasi DOGRULANAMADI (eski URL 404).
+      Daha guclu aday: Italyanca 'Governo, Amministrazione e Politica' - tarihsel katalog sayfasi ve
+      URL kalibi bugunku sayfayla ortusuyor, ama bu da kesin degil, cikarim.
+      Ayrica program sayfasinin ucret cumlesinde kopyala-yapistir hatasi var: kendi adi yerine
+      'International Relations' yaziyor.
+
+  - id: ms-law-for-global-challenges
+    name: "Law for Global Challenges"
+    level: master
+    degree_class: "bilinmiyor"
+    language_hint: "English"
+    url: "ARANACAK - henuz program katalogunda sayfasi yok"
+    note: >
+      YUKSEK BELIRSIZLIK. 2027/2028 master admission sayfalarinda secilebilir Ingilizce program
+      olarak listeleniyor (Law/Political Science alani, hem Luiss Test hem GMAT/GRE rotasi),
+      ancak katalogda program sayfasi bulunamadi. Bulunamazsa item dusurulur ve neden kaydedilir.
+
+removed_from_initial_list:
+  - name: "Corporate Finance"
+    reason: "Artik bagimsiz program degil; Finance (LM-77) icinde major."
+  - name: "Economics and Finance"
+    reason: "Finance (LM-77) icinde birlestirildi."
+  - name: "Policies and Governance in Europe"
+    reason: >
+      Katalogda artik yok (URL 404). Government and Public Affairs (LM-62) icine alindigi
+      DOGRULANAMADI - sadece guclu bir ihtimal. Bkz. ms-government-public-affairs notu.
+  - name: "Law (single-cycle LMG-01)"
+    reason: "Italyanca. Ingilizce hukuk secenegi Global Law (lisans)."
+  - name: "Political Science / Economics and Management (bachelor)"
+    reason: "Italyanca ogretim."
+  - name: "Law LL.M. / postgraduate masters"
+    reason: "Degree programme degil (Level I/II master, Business School). Kapsam disi."
+
+reference_pages:
+  admission_routes:
+    - name: "Luiss Test - Bachelor (EU/Schengen)"
+      url: "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/eu-students/admission-bachelors-and-masters-degree-programs-eu-students-testing"
+    - name: "Bachelor direct admission with certifications (non-EU): SAT/LSAT/ACT/IB"
+      url: "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-to-bachelor%27s-degrees-and-the-single-cycle-law-degree/non-eu-schengen-students/direct-admission-to-bachelor%27s-and-master%27s-degrees-for-non-eu-students-with-certificates"
+    - name: "Master admission test (EU/Schengen)"
+      url: "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students"
+    - name: "Master direct admission GMAT/GRE"
+      url: "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students"
+    - name: "Finance & Management ozel secim (Luiss Test gecersiz)"
+      url: "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/selection-masters-degree-programs-finance-and-management"
+    - name: "Master minimum curricular requirements"
+      url: "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements"
+    - name: "Master admissions - non-EU"
+      url: "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu"
+    - name: "Uluslararasi ogrenciler - ulke bazli diploma kabul kosullari"
+      url: "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/admission-bachelors-and-masters-degree-programs-law/admission-requirements-international-students"
+  fees_and_scholarships:
+    - name: "Burslar ve muafiyetler 2026/2027"
+      url: "https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027"
+  portals:
+    - name: "DreamApply basvuru portali"
+      url: "https://apply.luiss.it/"
+    - name: "Foundation Programme portali"
+      url: "https://pathwayprogrammes.luiss.it/"
+  hubs:
+    - "https://www.luiss.it/en/courses-and-masters-programmes/undergraduate-school"
+    - "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school"
+
+execution:
+  batch_size: 5
+  items_per_agent: 3
+  output_dir: ./results
+  output_format: json_per_item
+  agent_model: sonnet
+  notes: >
+    17 item / 3 = 6 agent gorevi, 5'erli iki dalgada calistirilir.
+    Her agent kendi programlarinin resmi sayfasi + ilgili admission notice sayfasini okur,
+    results/<item_id>.json uretir.
+
+verified_facts:
+  # 2026-09-05 tarihinde resmi program sayfalarindan dogrulandi
+  tuition_2027_2028:
+    standard_master: "15.000 EUR / yil (Marketing, Strategic Management, International Relations, Data Science and Management, Economics Institutions and Financial Markets, Global Management and Politics)"
+    management_and_finance: "17.000 EUR / yil"
+    correction_note: >
+      Ilk brief'te yazilan 16.000 / 18.000 rakamlari YANLISTI. Bu rakamlar master admission
+      sayfalarindaki bir SSS blogundan geliyor ve metin bozuk ("The one-off annual fee is
+      EUR 16,000 for the first year and EUR 18,000 for the Bachelor's degree programmes in
+      Management and Finance" - master'i "Bachelor" diye yaziyor). Program sayfalari birincil
+      kaynak kabul edildi. Kasim 2026'da 2027/2028 admission notice yayinlaninca tekrar bakilmali.
+    regional_tax: "Lazio Bolgesi ogrenci refah vergisi ayrica; tutar Haziran/Temmuz 2026'da belirlenecek."
+
+research_status:
+  completed: 2026-09-05
+  items_done: 17
+  items_total: 17
+  total_source_quotes: 320
+  avg_quotes_per_item: 18.8
+  missing_fields: 0
+  weakest_item: "Law for Global Challenges (4 alinti / 26 belirsiz) - Luiss'te program sayfasi yayinlanmadigi icin, arastirma eksigi degil."
+  known_luiss_site_inconsistencies:
+    - "Management sayfasi major isimlerini iki farkli sekilde veriyor (tanitim metni vs ders plani sekmeleri)."
+    - "Government and Public Affairs ucret cumlesinde kendi adi yerine 'International Relations' yaziyor (kopyala-yapistir hatasi)."
+    - "Master admission SSS blogu master programlarina 'Bachelor's degree programmes' diyor ve yanlis ucret veriyor (16.000/18.000)."
+    - "International Relations genel sayfasi 2027/2028'i 'yakinda' derken alt sayfalar tarihleri yayinlamis."
+    - "RoME major'i Luiss Test ve GMAT/GRE sayfalarinda listelenmiyor; kendi ayri GRE/GMAT+mulakat sureci var."
+  recheck_after: "Kasim 2026 - 2027/2028 master admission notice yayinlaninca ucret ve tarihler tekrar dogrulanmali."

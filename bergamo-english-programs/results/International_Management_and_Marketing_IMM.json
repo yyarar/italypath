@@ -1,0 +1,142 @@
+{
+  "program_name": "International Management and Marketing (IMM)",
+  "level": "master",
+  "teaching_language": "English (entire programme)",
+  "campus": "Campus of Economics and Law, Via dei Caniana 2, Bergamo",
+  "degree_class": "LM-77",
+  "access_type": "open access",
+  "programme_name_history": "Current name: International Management and Marketing (IMM). The programme was previously associated with Management, Marketing and Finance (MMF); an older English-track identity was International Management, Entrepreneurship and Finance (IMEF), itself described as an evolution of the English curricula of MAFIB. The DreamApply record still links to the obsolete ls-imef.unibg.it subdomain and contains legacy IMEF wording.",
+  "awarding_institution": "University of Bergamo",
+  "admission_type": "Open access, subject to verification of curricular requirements, English proficiency, and adequacy of personal preparation; an oral interview applies unless the stated exemption applies, and international-degree applicants are evaluated through CV/qualification review and interview.",
+  "academic_requirements": "A three-year university degree/diploma or another suitable foreign qualification is required. Italian graduates in L-18 (Economics and Business Management Sciences) or L-33 (Economics), the corresponding former classes 17 or 28, or a pre-DM 509/99 four-year Economics degree meet the degree-class route. Graduates from other classes must have at least 60 CFU in the specified economics/statistics and legal sectors, including at least 18 CFU in SECS-P/07, SECS-P/08, SECS-P/09, SECS-P/10 and SECS-P/11. International bachelor holders undergo evaluation of their CV and qualifications for curricular fit and adequate preparation.",
+  "curricular_requirements_cfu": {
+    "total_required_for_other_degree_classes": 60,
+    "eligible_areas": [
+      "Area/Class 13 - Economics and statistics: all SSDs",
+      "Area/Class 12 - Legal sciences: IUS/01, IUS/02, IUS/04, IUS/05, IUS/06, IUS/07, IUS/08, IUS/09, IUS/10, IUS/12, IUS/13, IUS/14, IUS/15, IUS/16, IUS/17 and IUS/20"
+    ],
+    "minimum_business_economics_component": "At least 18 of the 60 CFU must be in SECS-P/07, SECS-P/08, SECS-P/09, SECS-P/10 and/or SECS-P/11."
+  },
+  "entry_exam_or_test": "Oral interview assessing adequate personal preparation. It is normally held in June or September. Italian-track candidates are exempt if their bachelor's final grade is at least 90/110, or, if not yet graduated, their examination average is at least 24/30. Applicants holding an international bachelor are assessed through CV/qualification evaluation and an interview by the competent committee.",
+  "interview_required": "Yes for applicants with an international bachelor. For the Italian-degree route, the oral interview is waived for graduates with at least 90/110 and not-yet-graduated candidates with an examination average of at least 24/30.",
+  "interview_language": "English [uncertain]",
+  "selection_scoring": "No numerical selection ranking or scoring rubric was published on the reviewed IMM admission page; admission is based on curricular/linguistic eligibility and adequacy-of-preparation assessment.",
+  "degree_completion_deadline": "Applicants not yet graduated may pre-enrol if they have no more than three examinations outstanding, totaling no more than 24 CFU (including any internship), plus the final examination; the internship must already have started. The bachelor's degree must be obtained by the extraordinary March/April 2027 graduation session.",
+  "application_channel": "Applicants with an international qualification use the University of Bergamo online pre-evaluation portal (apply.unibg.it/DreamApply). Successful non-EU applicants requiring a visa must subsequently complete Universitaly pre-enrolment. Italian/EU enrolment and the University pre-enrolment steps are handled through UniBG's online student services according to the 2026/27 master's timetable.",
+  "language_requirements": "English at CEFR B2 or higher. The programme-specific page also treats the curricular language requirement as met by at least 6 ECTS of English in the bachelor's programme, at least six months of Erasmus/work in an English-speaking country, or at least six months attending a course delivered in English. The international application page requires a B2 certificate or an accepted medium-of-instruction basis, subject to the stated exemptions.",
+  "accepted_english_certificates": [
+    "IELTS: 5.5-6.5",
+    "TOEFL iBT: 79-95",
+    "TOEFL ITP: 543-600",
+    "TOEFL CBT: 213-240",
+    "PTE Academic: 46-64",
+    "Cambridge First Certificate/FCE: grades B or C",
+    "Trinity College ISE II",
+    "Pearson Test of English General: Level 3",
+    "BEC Vantage",
+    "TIE: minimum B2 in both oral and written tests",
+    "Cambridge ESOL: Level 1",
+    "ESB ESOL International: minimum Pass with Merit",
+    "TOLIMO (Iran): no skill lower than 600"
+  ],
+  "language_waiver_conditions": "A medium-of-instruction certificate issued by the registrar or international office is accepted when the completed degree was taught entirely in English. Unofficial certificates and self-declarations are not accepted. Native English-speaking applicants are exempt from submitting an English certificate and medium-of-instruction certificate.",
+  "application_deadline_eu": [
+    "2026-05-29 (standard pre-enrolment round 1)",
+    "2026-08-28 (standard pre-enrolment round 2)",
+    "2026-09-30 (standard pre-enrolment round 3)",
+    "2026-10-30 (late round 1, with late fee)",
+    "2026-11-13 (late round 2, with late fee)"
+  ],
+  "application_deadline_non_eu": [
+    "2026-01-15 23:59:59 GMT [uncertain]",
+    "2026-01-31 23:59:59 GMT [uncertain]"
+  ],
+  "application_call_round": [
+    {
+      "route": "2026/27 free-access master's pre-enrolment round 1",
+      "application_period": "2026-04-01 to 2026-05-29",
+      "interview_or_test": "2026-06-22 to 2026-06-26",
+      "enrolment_period": "2026-06-03 to 2026-08-28"
+    },
+    {
+      "route": "2026/27 free-access master's pre-enrolment round 2",
+      "application_period": "2026-06-03 to 2026-08-28",
+      "interview_or_test": "2026-09-10 to 2026-09-18",
+      "enrolment_period": "2026-09-01 to 2026-10-15"
+    },
+    {
+      "route": "2026/27 free-access master's pre-enrolment round 3",
+      "application_period": "2026-09-01 to 2026-09-30",
+      "interview_or_test": "2026-10-14 to 2026-10-20",
+      "enrolment_period": "2026-10-01 to 2026-11-13"
+    },
+    {
+      "route": "2026/27 late pre-enrolment rounds",
+      "application_period": "2026-10-01 to 2026-10-30, then 2026-11-02 to 2026-11-13",
+      "interview_or_test": "2026-11-12 to 2026-11-18, then 2026-11-26 to 2026-11-30",
+      "enrolment_period": "2026-11-02 to 2026-12-04, then 2026-11-16 to 2026-12-11"
+    },
+    {
+      "route": "International online pre-evaluation, two 2026/27 intakes",
+      "application_period": "Deadlines appear to be 2026-01-15 and 2026-01-31 GMT, but the IMM page currently only states that both application periods have ended [uncertain]"
+    }
+  ],
+  "results_notification_date": "No programme-specific 2026/27 results-notification date was published for this open-access course; the standard timetable instead gives interview/test and enrolment windows [uncertain].",
+  "max_programme_choices": 2,
+  "required_documents": [
+    "Bachelor degree certificate translated into English or Italian",
+    "Official academic transcript for the last three/four years translated into English or Italian, or Diploma Supplement",
+    "Descriptions of major-area courses, including relevant contents, themes, aims and objectives",
+    "English-language evidence (accepted B2 certificate or qualifying medium-of-instruction certificate)",
+    "Valid passport showing full name, photograph and signature",
+    "At least one reference"
+  ],
+  "references_required": "At least 1 reference",
+  "course_descriptions_required": "Yes. A list describing the relevant contents, themes, aims and objectives of major-area courses is required during online pre-evaluation.",
+  "application_fee": "No separate DreamApply application fee was stated on the reviewed course page [uncertain].",
+  "pre_enrolment_fee": "EUR 52 per selected master's programme; non-refundable and payable by eligible applicants.",
+  "enrolment_deposit": "EUR 156 one-time, non-refundable enrolment fee payable on arrival in Italy (as stated on the international application page).",
+  "tuition_or_fees_link": "https://en.unibg.it/study/enrollment/costs/taxes-and-benefits — official 2026/27 taxes and benefits page. The DreamApply programme record lists a first instalment of EUR 0-400 and second instalment of EUR 0-1,700 depending on family income; the central 2026/27 fee pages should prevail for the current cycle.",
+  "tuition_income_linked": "Yes. The 2026/27 contribution comprises a regional tax (EUR 130-190), EUR 16 stamp duty and an all-inclusive contribution determined by ISEEU band, years of enrolment, study area and full-/part-time status. International students may use an equivalent ISEEU (ISEEU parificato).",
+  "official_program_url": "https://ls-imm.unibg.it/en",
+  "official_call_url": "https://apply.unibg.it/courses/course/18-ma-international-management-and-marketing",
+  "source_quotes": [
+    {
+      "source": "https://ls-imm.unibg.it/en/course/admission-requirements",
+      "quote": "To be admitted to the degree course, it is necessary to have a three-year university degree or diploma or other qualification obtained abroad that is recognized as suitable."
+    },
+    {
+      "source": "https://ls-imm.unibg.it/en/course/admission-requirements",
+      "quote": "Of the aforementioned 60 CFUs, at least 18 must concern SSDs: SECS-P / 07, SECS-P / 08, SECS-P / 09, SECS-P / 10 and SECS-P / 11."
+    },
+    {
+      "source": "https://ls-imm.unibg.it/en/course/admission-requirements",
+      "quote": "Admission to the master's degree course is subject not only to the possession of the curricular and linguistic requirements, but also to the verification of the adequacy of the personal preparation of the candidates which will take place through an oral interview."
+    },
+    {
+      "source": "https://apply.unibg.it/courses/course/18-ma-international-management-and-marketing",
+      "quote": "Study language English"
+    },
+    {
+      "source": "https://apply.unibg.it/courses/course/18-ma-international-management-and-marketing",
+      "quote": "At least 1 reference(s) should be provided."
+    },
+    {
+      "source": "https://en.unibg.it/study/enrollment/enrollment-deadlines/masters-degrees-deadlines",
+      "quote": "Pre-enrollment from April 1 to May 29, 2026"
+    },
+    {
+      "source": "https://www.unibg.it/studiare/iscriversi/tasse-e-agevolazioni",
+      "quote": "For a.y. 2026-2027 the amount of the regional tax varies, based on the ISEEU value, from a minimum of EUR 130.00 to a maximum of EUR 190.00."
+    }
+  ],
+  "uncertainty_notes": "The official IMM and central UniBG pages contain live 2026/27 content, but the DreamApply course record retains obsolete IMEF text and links. Its two 2026/27 application buttons now say only that the periods have ended; exact international deadlines were not visible in the accessible IMM record. The 15 and 31 January dates are consistent with indexed 2026/27 UniBG DreamApply records but are therefore marked uncertain for IMM. The interview language is not explicitly stated on the reviewed admission page. The standard free-access master's deadlines are authoritative for ordinary UniBG pre-enrolment, while visa-seeking non-EU applicants follow the earlier online pre-evaluation route.",
+  "source_access_status": "Official UNIBG sources only. The apply.unibg.it page and central en.unibg.it/unibg.it pages were directly accessible/indexed. The ls-imm.unibg.it pages returned HTTP 405 on direct open but their current official content was available through search-engine indexing; critical facts were cross-checked against the directly accessible official application record where possible.",
+  "last_verified_date": "2026-09-05",
+  "uncertain": [
+    "interview_language",
+    "application_deadline_non_eu",
+    "results_notification_date",
+    "application_fee"
+  ]
+}

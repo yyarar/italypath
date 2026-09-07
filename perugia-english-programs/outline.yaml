@@ -1,0 +1,380 @@
+# outline.yaml — research items + execution config
+topic: "University of Perugia (UNIPG) English-taught bachelor & master programmes — admission requirements"
+topic_slug: "perugia-english-programs"
+university: "Università degli Studi di Perugia (UNIPG)"
+academic_year_target: "2026/2027"
+academic_year_fallback: "2025/2026"
+generated_at: "2026-09-05"
+
+scope_warning: >
+  UNIPG (unipg.it) and the University for Foreigners of Perugia / Università per
+  Stranieri di Perugia (unistrapg.it) are TWO SEPARATE INSTITUTIONS. Only unipg.it
+  and its department subdomains (ing.unipg.it, econ.unipg.it, etc.) are in scope.
+  Any unistrapg.it source must be discarded.
+
+source_of_item_list:
+  pages:
+    - "https://www.unipg.it/en/ects/courses-entirely-taught-in-english?view=held_in"
+    - "https://www.unipg.it/en/ects/courses-taught-in-italian-with-curriculum-taught-in-english?view=held_in"
+    - "https://www.unipg.it/en/ects/courses-taught-in-italian-with-some-modules-taught-in-english?view=held_in"
+  note: >
+    UNIPG publishes three tiers on its own ECTS catalogue: (1) entirely taught in
+    English, (2) Italian-named degree with a fully-English curriculum inside it, and
+    (3) Italian degree with only some modules in English. Tier 3 is OUT OF SCOPE for
+    this research (not an English-taught programme). A first verification pass
+    (2026-09-05, web-search-agent) checked each Tier-1/Tier-2 listing against the
+    actual 2026/27 course catalogue and found UNIPG's own classification page is
+    unreliable: of 16 programmes listed as Tier 1 or Tier 2, only 8 items below
+    survived verification. Deep-research agents must RE-VERIFY module language against
+    the live ECTS catalogue page (idcorso=XXXX) for every item, not just trust the
+    classification page.
+
+shared_reference_pages:
+  how_to_apply: "https://www.unipg.it/en/international-students/students-wishing-to-enroll/how-to-apply"
+  becoming_a_unipg_student: "https://www.unipg.it/en/international-students/becoming-a-unipg-student"
+  language_requirements: "https://www.unipg.it/en/international-students/becoming-a-unipg-student/language-requirements"
+  study_documents_cimea: "https://www.unipg.it/en/international-students/becoming-a-unipg-student/list-of-study-documents"
+  tuition_fees_scholarships: "https://www.unipg.it/en/international-students/becoming-a-unipg-student/tuition-fees-and-scholarships"
+  enrollment_procedures: "https://www.unipg.it/en/international-students/becoming-a-unipg-student/enrollment-procedures"
+  general_enrollment_requirements: "https://www.unipg.it/en/courses/general-enrollment-requirements"
+  faq: "https://www.unipg.it/en/faq"
+  restricted_access_courses: "https://www.unipg.it/didattica/corsi-a-numero-programmato/corsi-di-laurea?view=elenco"
+  pica_portal_pattern: "https://pica.cineca.it/unipg/2026-visa-03 (programme-specific PICA call code varies — deep-research agent must find the exact call code per item)"
+  tuition_regulation: "https://www.unipg.it/files/statuto-regolamenti/regolamenti/reg-contribuzione-studentesca.pdf"
+  flat_tax_country_brackets: "https://www.unipg.it/files/pagine/1996/elenco-paesi-fascia-flat_23_24.pdf"
+  flat_tax_amounts: "https://www.unipg.it/files/pagine/1996/flattax_amount-of-fees.pdf"
+  administrative_deadlines_2026_27: "https://www.unipg.it/files/pagine/1996/administrative-deadlines-a.y.-2026-2027.pdf"
+  adisu_umbria_scholarships: "https://www.adisu.umbria.it/ (2026/27 bando deadline 2 Sept 2026 12:00 — already passed; per-band euro amounts not retrievable at research time, site refused connections)"
+  fee_note: >
+    Tuition €150-2,200/year via a 17-band ISEE table (F1-F17). Non-EU / foreign-income
+    students skip ISEE and choose either a fixed "Fascia FLAT" tied to their home
+    country's UNDP Human Development classification (4 brackets, e.g. VERY HIGH
+    HD=€1,000/yr, HIGH HD=€800/yr — Turkey is classified HIGH HD per UNIPG's own
+    country list) or "ISEEU Parificato" via an affiliated CAF. Declaration window
+    3 Aug-20 Oct 2026 (late to 1 Mar 2027, surcharges apply); missing the 28 Feb
+    deadline entirely defaults the student to the maximum band (F17, ~€2,096).
+    No-tax exemption at ISEE <=€22,000 (first-year students only need to meet the
+    ISEE + enrolment-duration conditions). MAECI scholarship holders and disabled
+    students (L.104 or >=66% invalidity) are fully exempt from COA. Merit-based fee
+    reductions (up to €300) generally require an Italian-issued diploma and so
+    mostly do not apply to international students admitted on a foreign diploma.
+  note: >
+    Non-EU-abroad applicants go through PICA (pica.cineca.it/unipg/...) with
+    PROGRAMME-SPECIFIC deadlines, not one university-wide date. Confirmed 2026/27
+    PICA groups (source: unipg.it/en/international-students/becoming-a-unipg-student,
+    updated 3 Sept 2026):
+      - Civil Engineering (both curricula) + Geology for Energy Resources ->
+        2026-visa-02, until 30 Sept 2026 12:00 — STILL OPEN as of 2026-09-05.
+      - Medicine/Vet/Dental + health professions + BSc Informatics + Primary
+        Education + Building Eng-Architecture + Rehabilitation Sciences ->
+        2026-visa-04, until 6 Aug 2026 — CLOSED.
+      - Engineering Management (BSc + MSc) -> 2026-visa-06, until 21 Aug 2026 —
+        CLOSED.
+      - All other programmes (general window, incl. presumably Quant. Finance &
+        Data Science for Economics, Agri. & Env. Biotech, Med/Vet/Forensic
+        Biotech, and the newly-added English-curriculum items unless stated
+        otherwise) -> 2026-visa-03, 29 May-7 June 2026 — CLOSED.
+    EU/legally-resident applicants apply via PICA too but from 1 July 2026 (no
+    published closing date). Bachelor/single-cycle open-access enrolment closes 20
+    October 2026; open-access master enrolment closes 1 March 2027. Since it is now
+    2026-09-05, only Civil Engineering and Geology for Energy Resources still have
+    an open non-EU window — deep-research agents should capture BOTH the 2026/27
+    dates (for the record) and flag in uncertainty_notes that 2027/28 dates will not
+    be published until spring 2027.
+  entry_test: >
+    CEnT-S (CISIA English-language entry test) went live November 2025, replacing
+    the English-language TOLC-I/TOLC-E/TOLC-F for UNIPG. 55 questions, 110 minutes,
+    €55, valid one academic year. Deep-research agents must check whether each
+    bachelor item accepts TOLC-I, CEnT-S, or both, and note any SAT/ACT alternative.
+
+items:
+
+  # ---------- BACHELOR (1) ----------
+  - id: ba-engineering-management
+    name: "Engineering Management"
+    level: bachelor
+    degree_code: "L0615"
+    degree_class: "L-8 R / L-9 R"
+    campus: "Perugia"
+    tier: "fully_english"
+    official_program_url: "https://ing.unipg.it/en/courses/engineering-management/first-cycle-degree-course"
+    status_note: >
+      2026/27 active-intake code is L0615 (Years 1-2 populated in the ECTS catalogue).
+      L082 is the OLDER phasing-out code for the same programme (Year 3 only, no new
+      intake) — do NOT research L082 as a separate live option; see excluded_candidates.
+
+  # ---------- MASTER (5, fully English) ----------
+  - id: ma-engineering-management
+    name: "Engineering Management"
+    level: master
+    degree_code: "M0622"
+    degree_class: "LM-31"
+    campus: "Perugia"
+    tier: "fully_english"
+    official_program_url: "https://ing.unipg.it/en/courses/engineering-management/second-cycle-degree-course"
+
+  - id: ma-medical-veterinary-forensic-biotech
+    name: "Medical, Veterinary and Forensic Biotechnological Sciences (Scienze biotecnologiche mediche, veterinarie e forensi)"
+    level: master
+    degree_code: "M1033"
+    degree_class: "LM-9 R"
+    campus: "Perugia (Sant'Andrea delle Fratte / San Costanzo)"
+    department: "Dipartimento di Medicina e Chirurgia (with Medicina Veterinaria, Giurisprudenza)"
+    tier: "fully_english"
+    status_note: >
+      Italian-named on the university course list but verified entirely English-taught
+      (official Regolamento states "Course Language: English"). Has three Year-2
+      curricula: Medical, Veterinary, Forensic. NOT on the online-nulla-osta list —
+      if grad. grade >=90/110 and curriculum matches, no nulla osta is required.
+    official_program_url: "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8231"
+    official_call_url: "https://ginko.unipg.it/ws/off/scaricaarticolatocorso.php?codcorso=M1033&anno=2025&tipoDoc=REG_DID&lingua=ita&iddocumento=975852"
+
+  - id: ma-quantitative-finance-data-science-economics
+    name: "Quantitative Finance and Data Science for Economics"
+    level: master
+    degree_code: "M0208"
+    degree_class: "interclass LM-16 R + LM-83 R"
+    campus: "Perugia"
+    department: "Dipartimento di Economia"
+    tier: "fully_english"
+    status_note: >
+      Two tracks: Quantitative & Computational Finance; Data Science for Economics
+      and Finance. One optional course is delivered in Italian. WARNING: the UNIPG
+      2026/27 course-sheet "Modalità di ammissione" box appears to contain
+      copy-pasted text from a different Economics master (wrong CFU rule) — the
+      Regolamento didattico (18 CFU in SECS sectors, 90/110 grade threshold) is
+      authoritative.
+    official_program_url: "https://econ.unipg.it/didattica/laurea-magistrale-in-quantitative-finance-and-data-science-for-economics"
+    official_call_url: "https://econ.unipg.it/files/docs/didattica/regolamenti_2025-2026/regolamento-didattico-corso-di-laurea-magistrale-in-quantitative-finance.pdf"
+
+  - id: ma-geology-energy-resources
+    name: "Geology for Energy Resources"
+    level: master
+    degree_code: "M0415"
+    degree_class: "LM-74 R"
+    campus: "Perugia"
+    department: "Dipartimento di Fisica e Geologia"
+    tier: "fully_english"
+    status_note: >
+      One module (Planetology) remains taught in Italian. Capacity conflict:
+      course-sheet says 50 places, the 2026-2027 Regolamento (newer) says 65.
+      As of 2026-09-05 this is the ONLY item whose non-EU PICA window is still
+      open (closes 30 Sept 2026).
+    official_program_url: "https://fisgeo.unipg.it/didattica/corso-di-laurea-magistrale-in-geology-for-energy-resources"
+    official_call_url: "https://fisgeo.unipg.it/files/docs/sezioni/sezione-geologia/corso_magistrale_ger/lm74_ger_regolamento_2026-2027.pdf"
+
+  - id: ma-agricultural-environmental-biotechnology
+    name: "Agricultural and Environmental Biotechnology"
+    level: master
+    degree_code: "M1234"
+    degree_class: "LM-7 R"
+    campus: "Perugia"
+    department: "DSA3 — Dipartimento di Scienze Agrarie, Alimentari e Ambientali"
+    tier: "fully_english"
+    status_note: >
+      Has a confirmed double degree with MATE University (Hungarian University of
+      Agriculture and Life Sciences), Gödöllő, Hungary. Department "How to apply"
+      page still shows an outdated 31 March 2026 PICA deadline
+      (pica.cineca.it/unipg/2026-visa-01) — the current university-wide non-EU
+      route is 2026-visa-03 (closed 7 June 2026). Some department PDF/URLs 404
+      after a site restructure; verify before publishing.
+    official_program_url: "https://dsa3.unipg.it/en/students/graduate-students/agricultural-and-environmental-biotechnology"
+
+  # ---------- MASTER (2, English curriculum inside an Italian-named degree) ----------
+  - id: ma-civil-engineering-structural
+    name: "Civil Engineering — \"Structural Engineering\" curriculum (within Ingegneria civile)"
+    level: master
+    degree_code: "M0723"
+    degree_class: "LM-23 R"
+    campus: "Perugia"
+    tier: "english_curriculum"
+    status_note: >
+      Only the Structural Engineering curriculum is English-taught; the parallel
+      "Ingegneria delle infrastrutture" curriculum is Italian. Scope this item to the
+      Structural Engineering curriculum only.
+
+  - id: ma-economia-management-international-business
+    name: "Economia e management — \"International Business\" curriculum"
+    level: master
+    degree_code: "M0206"
+    degree_class: "LM-77 R"
+    campus: "Perugia"
+    tier: "english_curriculum"
+    status_note: >
+      Only the International Business curriculum is English-taught; the parallel
+      "Economia e management dell'innovazione" curriculum is Italian.
+
+  # ---------- MASTER (4, additional English curricula — added 2026-09-05 after module-by-module verification) ----------
+  - id: ma-scienze-chimiche-tccm
+    name: "Scienze chimiche — \"Theoretical Chemistry and Computational Modelling\" (TCCM) curriculum"
+    level: master
+    degree_code: "M0103"
+    degree_class: "LM-54 R"
+    campus: "Perugia (+ Erasmus Mundus joint-degree mobility across EU partners)"
+    tier: "english_curriculum"
+    status_note: >
+      VERIFIED 2026-09-05: curriculum-specific modules are 5 INGLESE / 0 ITALIANO, but
+      the "Comune a tutti i curricula" shared block (taken regardless of curriculum) is
+      6 INGLESE / 15 ITALIANO — so the degree is NOT 100% English end-to-end even
+      though this curriculum's own modules are. This is also UNIPG's entry route into
+      the Erasmus Mundus Joint Master TCCM (coordinator Universidad Autónoma de
+      Madrid; consortium incl. Barcelona, València, Toulouse III, Sorbonne, Perugia,
+      Trieste, KU Leuven, Groningen) — a genuine joint degree, 120 ECTS, English,
+      cycle 2025-2030. Admission requires only English B1.
+    official_program_url: "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8026"
+
+  - id: ma-scienze-chimiche-energy-sustainability
+    name: "Scienze chimiche — \"Energy and Sustainability\" curriculum"
+    level: master
+    degree_code: "M0103"
+    degree_class: "LM-54 R"
+    campus: "Perugia (+ possible mobility, see double-degree note)"
+    tier: "english_curriculum"
+    status_note: >
+      VERIFIED 2026-09-05: curriculum-specific modules 5 INGLESE / 1 ITALIANO; same
+      shared-block caveat as TCCM above (6 EN / 15 IT common modules). Tied to a
+      double-degree agreement with Hebrew University of Jerusalem, Israel
+      ("Environmental and Sustainable Chemistry", >=1 semester in Israel,
+      scholarships available) — deep-research agent must confirm whether the double
+      degree is automatic or a separate opt-in track. Admission requires only
+      English B1.
+    official_program_url: "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8026"
+
+  - id: ma-informatica-ai-cybersecurity
+    name: "Informatica — \"Artificial Intelligence\" and \"Cybersecurity\" curricula"
+    level: master
+    degree_code: "M0930"
+    degree_class: "LM-18"
+    campus: "Perugia"
+    tier: "effectively_fully_english"
+    status_note: >
+      VERIFIED 2026-09-05: NOT on UNIPG's own "entirely taught in English" list, but
+      BOTH curricula are fully English at the specialisation level — official
+      presentation: "I CORSI DI BASE ED AVANZATI di entrambi i curricula sono tenuti
+      in LINGUA INGLESE". Study plan: AI = 11 INGLESE / 0 ITALIANO, Cybersecurity =
+      12 INGLESE / 0 ITALIANO (shared block 5 EN / 1 IT). Effectively an
+      English-taught MSc missed by UNIPG's own classification — worth listing
+      despite absence from the official English-programmes page.
+    official_program_url: "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8647"
+
+  - id: ma-amministrazione-finanza-controllo-accounting-finance
+    name: "Amministrazione, finanza e controllo — \"Accounting & finance\" curriculum"
+    level: master
+    degree_code: "M0205"
+    degree_class: "LM-77 R"
+    campus: "Perugia"
+    tier: "english_curriculum"
+    status_note: >
+      VERIFIED 2026-09-05: this curriculum is 10 INGLESE / 0 ITALIANO. Official
+      presentation: "il Corso di Laurea Magistrale è stato articolato in quattro
+      indirizzi, di cui uno in lingua inglese: ACCOUNTING AND FINANCE". The other
+      three curricula (Accounting & Business Administration, Accounting & Management
+      Strategy, Accounting & Law) have English-sounding names but are actually
+      Italian-taught (10-11 ITALIANO each) — do not confuse them with this one.
+      Admission requires only English B1.
+    official_program_url: "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8029"
+
+  - id: ma-geosciences-environmental-sustainability
+    name: "Scienze della terra per la gestione dei rischi e dell'ambiente — \"Geosciences for Environmental Sustainability\" curriculum (Curriculum 2)"
+    level: master
+    degree_code: "M0414"
+    degree_class: "LM-74 R"
+    campus: "Perugia"
+    tier: "mostly_english_curriculum"
+    status_note: >
+      VERIFIED 2026-09-05: official presentation states Curriculum 2 is "svolto
+      interamente in lingua inglese" / "tenuto completamente in lingua inglese", but
+      the actual 2026/27 study plan shows 13 INGLESE / 3 ITALIANO for this
+      curriculum's own modules — NOT fully 100% English despite the marketing claim.
+      Flag this contradiction explicitly rather than trusting the presentation text.
+      Requires English B2 (exemptions possible for candidates with prior
+      English-medium schooling).
+    official_program_url: "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8226"
+
+excluded_candidates:
+  - name: "Engineering Management — First cycle, old code L082 (class L-8/L-9)"
+    reason: "Phasing-out cohort of the same programme as L0615 — only Year 3 courses remain, no new intake. Not a separate active option."
+  - name: "Relazioni internazionali (M1441, LM-52 R)"
+    reason: "On UNIPG's English-curriculum list but verified to have NO English curriculum at all, despite being widely cited elsewhere as English-taught."
+  - name: "Ingegneria meccanica (M0617, LM-33)"
+    reason: "Failed Tier-2 verification."
+  - name: "Ingegneria elettronica (M0620, LM-29)"
+    reason: "Failed Tier-2 verification."
+  - name: "Ingegneria informatica e robotica (M0619, LM-32)"
+    reason: "Failed Tier-2 verification."
+  - name: "Ingegneria ambientale (M0724, LM-35 R)"
+    reason: "Failed Tier-2 verification."
+  - name: "Ingegneria dei materiali e dei processi sostenibili (M0726, LM-53)"
+    reason: "Failed Tier-2 verification. Also has an unresolved campus conflict: listed at Terni but catalogue page shows Perugia."
+  - name: "Scienze chimiche (M0103, LM-54 R) — the other 3 curricula (Chimica Fisica, Chimica Inorganica per l'Energia e la Catalisi, Chimica Organica)"
+    reason: "Italian-taught. Only the TCCM and Energy and Sustainability curricula (see items list) are English."
+  - name: "Scienze della terra (M0414, LM-74 R) — Curriculum 1 (Geologia Applicata alla Salvaguardia e alla Pianificazione del Territorio)"
+    reason: "Italian-taught. Only Curriculum 2, Geosciences for Environmental Sustainability (see items list), has English modules."
+  - name: "Scienze della alimentazione (M1340, LM-61 R)"
+    reason: "Failed Tier-2 verification."
+  - name: "Programmazione e gestione di sistemi informatici (L067, L-P03)"
+    reason: "Failed Tier-2 verification."
+  - name: "Ottica e optometria (L069 / L0410, L-30 R)"
+    reason: "Only the 'English Language' course itself is in English — not a genuine English curriculum."
+  - name: "Medicine and Surgery, Odontoiatria e Protesi Dentaria, Medicina Veterinaria"
+    reason: >
+      Confirmed NOT offered in English at UNIPG, and UNIPG does NOT participate in
+      IMAT (IMAT only admits to English-taught medical courses, which UNIPG has
+      none of). Under Legge 26/2025 + D.Lgs. 71/2025, admission is now via a
+      compulsory Italian-language "semestre filtro" (3 exams: Biologia, Chimica,
+      Fisica, 18 CFU total, pass threshold 18/30 — NOT 18/31, a common error).
+      Non-EU applicants abroad compete in a small separate national quota (UNIPG
+      2026/27: Medicine 18 [Perugia]+4 [Terni], Dentistry 5, Veterinary 2) but still
+      sit the exams in Italian. 2026/27 portal deadlines already closed (Universitaly
+      3 Aug 2026 18:00, UNIPG SOL 6 Aug 2026 23:59)."
+  - name: "Relazioni internazionali (M1441, LM-52 R) — old English track \"Migration, Globalisation and World Governance\""
+    reason: >
+      This English-taught curriculum existed under the PRE-REFORM course code
+      (idcorso 261) and no longer appears in the 2026/27 ECTS catalogue. The
+      reformed M1441 (idcorso 7826, active 2025/26+) has only two curricula
+      (cooperazione internazionale e governance globale; conflitti internazionali)
+      and NEITHER is fully English (both are majority-Italian with some English
+      modules). scipol.unipg.it still has a stale English page advertising
+      "Migration, Globalisation and World Governance... delivered entirely in
+      English" referencing a 2021-22 catalogue — this is outdated marketing copy,
+      not current. Confirms the earlier exclusion of M1441 from the items list.
+
+global_uncertainty_notes:
+  - "B1 vs B2 English level conflict: UNIPG's study-documents page states B1 for undergraduate English-taught programmes, while individual programme/language pages state B2. Deep-research agents must record BOTH values with source URLs, not silently pick one."
+  - "SAT/ACT acceptance for Engineering Management (bachelor) is unconfirmed at the faculty level: the department page (ing.unipg.it) lists SAT >=700/1600 (maths >=350/800) and ACT >=16/36 (maths >=15/36) as accepted, but the faculty-wide admission-test page only lists TOLC-I and CEnT-S. Flag as a conflict, do not resolve by guessing."
+  - "Ingegneria dei materiali e dei processi sostenibili (M0726) has a campus conflict: listed at Terni in one place, Perugia in the ECTS catalogue page. Unresolved — carry as uncertainty_note if this item is ever revisited."
+  - "As of 2026-09-05, nearly all 2026/27 PICA (non-EU-abroad) deadlines have already passed except Geology for Energy Resources (30 Sept 2026). 2027/28 dates will not be published until roughly spring 2027 — deep-research should capture the 2026/27 dates as historical reference and say so explicitly."
+  - "PICA call-code drift: several department Regolamenti/PDFs cite an older programme-specific PICA code (e.g. 2026-visa-01) that no longer matches the current central international-students page (2026-visa-02/-03/-04/-06). Treat the central page (unipg.it/en/international-students/becoming-a-unipg-student) as authoritative and flag the mismatch rather than silently picking one."
+  - "Quantitative Finance and Data Science for Economics (M0208): the UNIPG course-sheet 'Modalità di ammissione' text does not match its own Regolamento didattico (looks copy-pasted from a different Economics master) — use the Regolamento's 18-CFU/90-110 rule and flag the conflict."
+  - "Geology for Energy Resources (M0415): capacity conflict — course sheet says 50 places, the newer 2026-2027 Regolamento says 65. Use 65 and flag the discrepancy."
+
+execution:
+  batch_size: 5          # parallel agents per wave (per user decision — session-limit safe)
+  items_per_agent: 1
+  output_dir: "./perugia-english-programs/results"
+  output_format: "one JSON file per item, named {id}.json, fields exactly as fields.yaml"
+  agent_model: "sonnet"
+  status_2026-09-05: >
+    Item list grew from 10 to 13 after a second verification pass found 3 more
+    genuine English curricula UNIPG's own classification page omits (Informatica
+    AI+Cybersecurity, Amministrazione-Accounting&Finance, and the partial Scienze
+    della terra-Geosciences for Environmental Sustainability) and confirmed the 2
+    previously-"unverified" Scienze chimiche curricula as real. All 13 items now
+    have completed results/ JSON as a byproduct of framework-verification research:
+    ba-engineering-management, ma-engineering-management,
+    ma-quantitative-finance-data-science-economics, ma-geology-energy-resources,
+    ma-agricultural-environmental-biotechnology, ma-medical-veterinary-forensic-biotech,
+    ma-civil-engineering-structural, ma-economia-management-international-business,
+    ma-scienze-chimiche-tccm, ma-scienze-chimiche-energy-sustainability,
+    ma-informatica-ai-cybersecurity, ma-amministrazione-finanza-controllo-accounting-finance,
+    ma-geosciences-environmental-sustainability. A light /research-deep pass is still
+    worth running to fill remaining per-item gaps flagged in each JSON's
+    uncertainty_notes (mainly: exact PICA group for the 7 newly-added English-curriculum
+    items, which was not explicitly stated for most of them).
+  rules:
+    - "Only unipg.it and its department subdomains (*.unipg.it) may be cited. unistrapg.it is a different university and is strictly out of scope."
+    - "Re-verify the item's actual teaching language against the live ECTS catalogue course page (courses list -> idcorso=XXXX), not just the classification list — UNIPG's own classification page has an ~50% false-positive rate on Tier 2."
+    - "Prioritise A.Y. 2026/2027; if unavailable, use 2025/2026 and say so in uncertainty_notes."
+    - "Leave a field null rather than guessing; every null must be explained in uncertainty_notes."
+    - "Back deadlines, language level and admission-type claims with verbatim quotes in source_quotes."
+    - "For the 2 unverified joint-degree items (TCCM, Hebrew University double degree), first confirm the item is a real, currently-open English-taught admission route before filling other fields; if it cannot be confirmed, say so and leave fields null rather than fabricating."

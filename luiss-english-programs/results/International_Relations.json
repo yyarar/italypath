@@ -1,0 +1,273 @@
+{
+  "program_name": "Master's Degree Programme in International Relations",
+  "level": "master",
+  "teaching_language": {
+    "primary": "English",
+    "granularity": "fully_english",
+    "majors_language": [
+      { "major": "Diplomacy", "language": "English" },
+      { "major": "Euro-Mediterranean Studies", "language": "English" },
+      { "major": "Security", "language": "English" }
+    ]
+  },
+  "campus": "Rome, Luiss Guido Carli [uncertain - programme page only carries a generic university-wide sentence about facilities 'across Rome and Milan', not a programme-specific campus/building statement]",
+  "degree_class": "LM-52",
+  "admission_type": [
+    {
+      "route_name": "Luiss Test",
+      "eligible_applicants": "Citizens of an EU or Schengen country, holding or about to hold a bachelor's degree by 18 November 2027",
+      "test_or_certification": "Luiss Test (written admission test); English B2 level assessed during the admission test",
+      "number_of_choices_allowed": "Up to two master's degree courses within the same subject area (Law/Political Science, which includes International Relations)",
+      "choice_is_binding": false,
+      "subject_area_group": "Law/Political Science",
+      "application_fee": "EUR 150 (participation fee)"
+    },
+    {
+      "route_name": "GMAT/GRE direct admission",
+      "eligible_applicants": "Citizens of an EU (or Schengen) country who have completed or are about to complete a three-year degree programme qualifying for master's enrolment",
+      "test_or_certification": "GMAT with a minimum score of 515 (out of 805) OR GRE with a minimum score of 154 (out of 170) in both the Verbal and Quantitative sections",
+      "number_of_choices_allowed": 1,
+      "choice_is_binding": true,
+      "subject_area_group": "Law/Political Science",
+      "application_fee": "EUR 150 (participation fee)"
+    }
+  ],
+  "academic_requirements": {
+    "prior_qualification": "Bachelor's degree, obtained or to be obtained by the stated degree-completion deadline (18 November 2027 for the 2027/2028 EU/Schengen Luiss Test route)",
+    "minimum_curricular_requirements": "Direct/automatic eligibility for graduates of Italian degree classes L-36 (or 15, previous system) Political Science and International Relations; L-37 (or 35) Social Sciences for Cooperation, Development and Peace; L-16 (or 19) Public Administration; L-20 (or 14) Communication Sciences. Applicants from other degree classes may still apply if they have at least 48 university credits (earned or to be earned) across at least two of the following subject areas: Economics (SECS-P/01-06), Statistics (SECS-S/01-06), Law (IUS/01-14 and IUS/11-B), Linguistics, Political Science, Sociology, History and Politics.",
+    "minimum_grade_or_gpa": null,
+    "country_specific_rules": "[uncertain] - not found on the pages retrieved for this programme; Luiss references country-specific evaluation only in the context of foreign qualification recognition (Declaration of Value / CIMEA), not a published country-by-country grade table for this course",
+    "document_recognition": "For applicants with a foreign qualification, Luiss requires either a Declaration of Value issued by the competent Italian consular representatives, or a CIMEA Certificate of Comparability or Verification; for holders of qualifications from Lisbon Convention signatory countries, the Diploma Supplement is accepted instead.",
+    "compensatory_measures": null
+  },
+  "language_requirements": {
+    "required_level": "B2",
+    "accepted_certificates": "[uncertain] - Luiss confirms only that English is assessed at B2 level during the admission test; a dedicated list of accepted external certificates (IELTS/TOEFL/Cambridge) with minimum scores specifically for the International Relations master's Luiss Test/GMAT-GRE routes could not be located with a direct quote in this pass (English-certificate score tables found via search belong to other Luiss schools - Business School and School of Government - which run separate admission processes, not the graduate-school International Relations programme)",
+    "assessed_in_test": true,
+    "exemptions": "[uncertain] - not confirmed for this specific programme; not found on the retrieved pages"
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "round": "Luiss Test - EU/Schengen",
+        "application_window": "December 2026 - 8 April 2027",
+        "test_date": "19-22 April 2027",
+        "enrolment_deadline": "22 June 2027"
+      },
+      {
+        "round": "GMAT/GRE direct admission - EU/Schengen",
+        "application_window": "December 2026 - 31 March 2027",
+        "enrolment_deadline": "18 May 2027"
+      }
+    ],
+    "enrolment_deadline": "22 June 2027 (Luiss Test route) / 18 May 2027 (GMAT/GRE route)",
+    "degree_completion_deadline": "18 November 2027",
+    "academic_year": "2027/2028",
+    "cycle_status": "The general masters-degree-admissions overview page states the 2027/2028 procedures are 'coming soon' with full notices from November 2026, while the dedicated Luiss Test and GMAT/GRE route pages (still hosted under a URL segment labelled '20262027') already display specific 2027/2028-dated windows and deadlines quoted above. Treat these as preliminary/published-in-advance dates pending the full November 2026 notice."
+  },
+  "application_deadline_non_eu": {
+    "rounds": [],
+    "enrolment_deadline": null,
+    "visa_or_preenrolment_notes": "[uncertain] - not retrieved for the 2027/2028 cycle; general Luiss enrolment documentation for foreign qualifications requires a Declaration of Value or CIMEA Certificate of Comparability, but a non-EU-specific visa/Universitaly pre-enrolment timeline for this programme was not found",
+    "academic_year": "2027/2028",
+    "cycle_status": "notice not yet published - official page states: 'Admission procedures for Master's degree courses for non-EU/non-Schengen students for the 2027/2028 academic year are coming soon,' with full notices 'available from November 2026'; separately, the same page confirms the 2026/2027 non-EU direct-admission-with-certifications cycle is 'now closed'"
+  },
+  "required_documents": [
+    "Valid identity document (ID card or passport) showing citizenship - required at admission-test signup and again in PDF format at enrolment",
+    "Certificate of enrolment or degree certificate (transcript of records) showing exams taken, credits (CFU), field of study (SSD) and degree class - required for enrolment",
+    "Valid official GMAT or GRE certificate - required only for the GMAT/GRE direct-admission route",
+    "Passport-sized front-facing photo (JPEG) - required at enrolment",
+    "Copy of health insurance card in PDF format - required only for students residing in Italy",
+    "Declaration of Value or CIMEA Certificate of Comparability/Verification (or Diploma Supplement for Lisbon Convention countries) - required for holders of foreign qualifications",
+    "CV and motivation letter [uncertain - explicitly required for other Luiss schools' master's programmes (Business School, School of Government) but not confirmed with a direct quote on the graduate-school International Relations admission/enrolment pages retrieved in this pass]"
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Luiss Test (or alternatively GMAT/GRE for direct admission)",
+    "content": "[uncertain] - specific content/section breakdown of the Luiss Test for this subject area (Law/Political Science) was not detailed on the retrieved pages; results are expressed 'in hundredths' and ranked by first-choice course",
+    "format": "[uncertain] - not confirmed whether online-proctored or on-campus for the 2027/2028 cycle",
+    "dates": "19-22 April 2027 (Luiss Test, EU/Schengen, 2027/2028 preliminary)",
+    "fee": "EUR 150 (participation fee, non-refundable)",
+    "language_of_test": "Luiss offers the Admission Test in either Italian or English. Candidates who take the test in Italian can only apply for Italian-taught courses; candidates who take it in English can apply for both English- and Italian-taught courses.",
+    "interview": "[uncertain] - not mentioned on the retrieved Luiss Test or GMAT/GRE route pages for this programme"
+  },
+  "tuition_or_fees_link": {
+    "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/international-relations",
+    "annual_amount": "EUR 15,000.00 per year, divided into 3 instalments, plus the regional student welfare tax (this is the confirmed programme-page figure; it differs from the EUR 16,000 standard master's figure and EUR 18,000 Management-and-Finance figure that appear in a separate, garbled FAQ block on the admission pages - see uncertainty_notes)",
+    "scholarship_url": "https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027"
+  },
+  "official_program_url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/international-relations",
+  "official_call_url": [
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/registration"
+  ],
+  "source_quotes": [
+    {
+      "field": "program_name / degree_class",
+      "quote": "The degree class is LM-52",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/international-relations",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "The annual single tuition fee for enrolment in the Master's Degree Programme in International Relations is € 15,000.00, divided into 3 instalments, plus the regional student welfare tax.",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/international-relations",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "campus",
+      "quote": "With many facilities across in Rome and Milan, Luiss stands out for its unique architectural spaces and large green study areas.",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/international-relations",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "teaching_language / majors_hint",
+      "quote": "After a first semester of core courses, the program is divided into three majors: Diplomacy, Security, and Euro-Mediterranean Studies.",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/international-relations",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "program structure/duration",
+      "quote": "The Master's Degree Programme in International Relations is a two-year programme (120 ECTS). The first semester provides a solid theoretical and practical foundation common to all students.",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/international-relations",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type",
+      "quote": "You can take the Luiss Test if you are a citizen of an EU or Schengen country, with a bachelor's degree, either already obtained or to be obtained by 18 November 2027.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type.number_of_choices_allowed",
+      "quote": "Candidates may specify up to two master's degree courses within the same subject area (Economics or Law/Political Science).",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type.application_fee",
+      "quote": "The participation fee is 150 euros.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "entry_exam_or_test.language_of_test",
+      "quote": "Luiss offers the option to take the Admission Test in either Italian or English. Those choosing Italian will only be able to apply for courses taught in Italian, while English test-takers may apply for courses in both Italian and English.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Applications: December 2026 to 8 April 2027; Test Administration: 19-22 April 2027; Registration: By 22 June 2027; Bachelor's Degree Completion: By 18 November 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type (GMAT/GRE route)",
+      "quote": "GMAT with a minimum score of 515 (out of 805), or GRE with a minimum score of 154 (out of 170) in the Verbal and Quantitative sections.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type.choice_is_binding (GMAT/GRE route)",
+      "quote": "You can apply for only one of the available Master's degree courses. Your course choice is binding for admission, ranking, and subsequent enrolment.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_eu (GMAT/GRE route)",
+      "quote": "From December 2026 to 31 March 2027 ... By 18 May 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "academic_requirements.minimum_curricular_requirements",
+      "quote": "at least 48 credits total university credits (earned or to be earned) in at least two of the following subject areas",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "language_requirements.required_level",
+      "quote": "At least a B2 level of English, which will be assessed during the admission test.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "Admission procedures for Master's degree courses for non-EU/non-Schengen students for the 2027/2028 academic year are coming soon.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_non_eu.cycle_status",
+      "quote": "The admission notices, detailing all requirements, participation procedures, and the full calendar, will be available from November 2026.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_non_eu (prior cycle status)",
+      "quote": "The direct admission procedures with certifications for the 2026/2027 academic year are now closed.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "academic_requirements.document_recognition",
+      "quote": "A Declaration of Value issued by the consular representatives, or a CIMEA Certificate of Comparability or Verification. For Lisbon Convention signatories, the Diploma Supplement is accepted instead.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/registration",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "required_documents",
+      "quote": "attach a copy of your valid ID (identity card or passport) in PDF format ... attach a copy of your health insurance card in PDF format (only for students residing in Italy)",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/registration",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "required_documents (final enrolment)",
+      "quote": "upload your degree certificate or, alternatively, a duly signed self-certification.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/registration",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "tuition_or_fees_link (instalment/deadline detail)",
+      "quote": "First installment payment: June 15, 2026 (€5,000) ... Total annual fee: €15,000 (three installments)",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/registration",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "official_call_url (overview page cycle status)",
+      "quote": "The admission procedures for Master's degree courses for the 2027/2028 academic year are coming soon.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions",
+      "accessed_date": "2026-09-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "Academic year mismatch: the main masters-degree-admissions overview page and the non-EU page both state 2027/2028 procedures are 'coming soon' with full notices from November 2026, while the Luiss Test and GMAT/GRE detail pages (still hosted under URLs labelled '20262027') already display specific 2027/2028-dated windows and deadlines (Dec 2026-8 Apr 2027 applications, test 19-22 Apr 2027, GMAT/GRE window Dec 2026-31 Mar 2027). These should be re-verified once the official 2027/2028 notice is published in November 2026, as URL/content labelling is currently inconsistent.",
+    "Non-EU/extra-EU round-by-round deadlines and a programme-specific visa/Universitaly pre-enrolment timeline for the 2027/2028 cycle could not be retrieved; only the general 'coming soon' / 'closed for 2026/2027' status statements were confirmed.",
+    "Campus/building for International Relations specifically was not stated on the programme page. The only campus-related sentence found ('facilities across in Rome and Milan') is generic university-wide marketing copy, not a programme-specific location statement. Luiss's main teaching campus is in Rome; this has not been confirmed as programme-specific with a direct quote.",
+    "A dedicated table of accepted external English certificates (IELTS/TOEFL/Cambridge) with minimum scores for the graduate-school International Relations Luiss Test/GMAT-GRE routes was not found on the pages retrieved. Score tables located via search (e.g. IELTS 7.0/TOEFL 100 for Business School; IELTS 6.5/TOEFL 90-91 for School of Government) belong to different Luiss schools with separate admission processes and are not confirmed to apply to this programme, so they have been omitted rather than assumed.",
+    "Required documents list is drawn from the general Luiss Test signup process and the master's registration/enrolment page (identity document, enrolment/degree certificate, GMAT/GRE certificate where applicable, photo, health insurance card for Italy-resident students, and foreign-qualification recognition documents). A CV and motivation letter, while standard for other Luiss schools' (Business School, School of Government) master's applications, were not confirmed with a direct quote for the graduate-school International Relations admission or enrolment pages.",
+    "Country-specific diploma/grade rules and English-certificate exemptions (e.g. for native speakers or graduates of English-taught degrees) were not found for this programme in this research pass.",
+    "Entry exam interview requirement and a detailed content/format breakdown of the Luiss Test (beyond 'results expressed in hundredths, ranked by first-choice course') were not found for this programme.",
+    "Scholarship page (aa-2026-2027) itself carries only navigation links; the substantive scholarship application window (12 March - 7 May 2026, Student Portal, ISEE via CAF) and amount/eligibility criteria were found via search results pointing to sub-pages and an official PDF bando, not fetched directly in this pass - the scholarship_url is kept as the entry point per the outline but its content was not independently re-verified beyond navigation structure.",
+    "Tuition figure verified at EUR 15,000/year directly on the programme page (not EUR 16,000 as stated in a separate garbled FAQ block that mislabels master's programmes as 'Bachelor's degree programmes' per the outline's guidance); the EUR 16,000/18,000 figures are noted here only as the conflicting secondary source, not adopted."
+  ],
+  "uncertain": [
+    "campus",
+    "academic_requirements.country_specific_rules",
+    "academic_requirements.compensatory_measures",
+    "language_requirements.accepted_certificates",
+    "language_requirements.exemptions",
+    "application_deadline_eu.cycle_status (preliminary dates pending official Nov 2026 notice)",
+    "application_deadline_non_eu.rounds",
+    "application_deadline_non_eu.enrolment_deadline",
+    "application_deadline_non_eu.visa_or_preenrolment_notes",
+    "required_documents (CV/motivation letter not confirmed for this specific programme)",
+    "entry_exam_or_test.content",
+    "entry_exam_or_test.format",
+    "entry_exam_or_test.interview"
+  ]
+}

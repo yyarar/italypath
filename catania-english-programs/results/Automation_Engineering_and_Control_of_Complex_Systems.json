@@ -1,0 +1,72 @@
+{
+  "program_name": "Automation Engineering and Control of Complex Systems",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Catania — Department of Electrical, Electronics and Computer Engineering (DIEEI), Via Santa Sofia 64",
+  "degree_class": "LM-25",
+  "admission_type": "Open access with verification of curricular requirements and personal preparation. For non-EU applicants residing abroad, admission is through a qualification-based public selection call, with a possible interview or test.",
+  "admission_route": "Non-EU citizens residing abroad: non_eu_public_selection_call through the UNICT Student Portal. EU/equated citizens and non-EU citizens legally resident in Italy: eu_pre_evaluation_webform when holding a foreign qualification, followed by the open-access master's admission application through Smart_Edu.",
+  "citizenship_track": "non_eu_resident_abroad / eu_and_equated / non_eu_resident_in_italy. The 2026/27 general procedure treats Italian and EU citizens, citizens of Norway, Iceland, Liechtenstein, Switzerland and San Marino, and qualifying non-EU residents in Italy on the Italian/equated route.",
+  "academic_requirements": "A degree under Italian Ministerial Decree 270/04 in class L-8 Information Engineering or L-9 Industrial Engineering, or an equivalent qualification; alternatively, a university qualification of at least three years, including a foreign qualification, recognized as suitable by the Degree Programme Council. Minimum curricular credits are 36 CFU across the listed mathematics, computer science, statistics, chemistry and physics sectors (IINF-01/A, IINF-05/A, MATH-02/A, MATH-02/B, MATH-03/A, MATH-03/B, MATH-04/A, MATH-05/A, MATH-06/A, STAT-01/B, CHEM-03/A, CHEM-06/A, PHYS-01/A, PHYS-03/A, PHYS-06/A) and 18 CFU across electrical engineering, electronics, automation and computer engineering sectors (IIET-01/A, IINF-01/A, IINF-04/A, IINF-05/A). For the 2026/27 non-EU-abroad selection, transcript ECTS/hours, marks, course projects and equivalent experiences are evaluated.",
+  "eligible_bachelor_backgrounds": "L-8 Information Engineering; L-9 Industrial Engineering; or an equivalent/recognized degree. The 2026/27 international call states that successful applicants primarily come from Automation, Electronics, Computer Science, Telecommunication, Electrical, Mechanical and Industrial Engineering backgrounds.",
+  "curricular_subject_prerequisites": "Adequate knowledge of mathematical and numerical analysis, linear algebra and geometry, probability and statistics, physics and chemistry; plus informatics, control and systems theory, electronics and information processing. Applicants must be able to use mathematical and basic-science methods to describe engineering problems. The Italian/equated route also applies the explicit 36-CFU and 18-CFU subject-sector groups stated in the 2026/27 programme annex.",
+  "degree_recency_limit": "No degree-recency limit is stated. The general procedure notes that the committee may assess whether knowledge represented by credits earned more than six years ago is obsolete.",
+  "undergraduate_in_progress_allowed": "Yes. Non-EU applicants residing abroad may apply before graduating if they obtain the bachelor's degree by 31 July 2026. Under the Italian/EU/equated general procedure, graduating students may apply conditionally; by 1 October 2026 they must have no more than 30 CFU outstanding, including the final examination, and must have submitted the thesis-assignment request through the student portal.",
+  "professional_experience_alternative": "No professional-experience substitute for the required academic qualification or curricular background is stated for this programme. Course projects or equivalent experiences may be used to evaluate methodological abilities.",
+  "language_requirements": "Good written and spoken English at CEFR B2 level or higher. For the 2026/27 non-EU-abroad selection, the requirement must be demonstrated by an accepted certificate or exemption evidence. Under the Italian/EU/equated programme annex, candidates without B2 certification are called to an individual interview.",
+  "english_certificate_thresholds": {
+    "ielts_min": "5.5 overall",
+    "toefl_ibt_min": "72 total",
+    "cambridge_min": "Cambridge First Certificate in English (FCE) or higher"
+  },
+  "english_certificate_exemptions": "A declaration from the university that awarded the bachelor's or master's degree confirming that English was the official language of the programme, or a self-declaration of citizenship of an English-speaking country.",
+  "italian_language_requirement": "No Italian-language test is required for admission through the 2026/27 non-EU call. Students who do not have sufficient Italian must acquire it during their study path; the 2025/26 teaching regulations say this may be checked by interview and addressed through an appropriate number of CFU.",
+  "application_deadline_eu": "For EU/equated applicants with a foreign qualification, the 2026/27 pre-evaluation form ran from 8 April to 30 June 2026. The subsequent open-access master's admission application through Smart_Edu ran from 6 July to 2 September 2026.",
+  "application_deadline_non_eu": "17 March 2026 at 23:59 GMT+1 for non-EU applicants residing abroad (applications opened 10 February 2026 at 12:00 GMT+1). Visa applicants also had to complete Universitaly pre-enrolment by 31 July 2026.",
+  "results_publication_date": "By 6 May 2026 for the non-EU-abroad public selection. For the Italian/EU/equated open-access procedure, admitted/not admitted/additional-test lists were due by 9 September 2026; final admitted lists follow completion of any required interview.",
+  "required_documents": "Non-EU-abroad selection: passport personal-data pages; bachelor's certificate or enrolment certificate stating expected graduation date; official Italian/English translation where needed; transcript listing courses, examinations, grades, grading range and preferably GPA; official syllabi on university letterhead or bearing the university stamp; reference letter, preferably from a university lecturer; Europass-format CV in English; English certificate or exemption evidence; statement of purpose in English (maximum 4,000 characters); summary sheet; and optional supporting documents. EU/equated foreign-title pre-evaluation: final secondary-school diploma and its Declaration of Value or comparability certificate; bachelor's degree and Declaration of Value or comparability and verification documents; transcript/Diploma Supplement; official course syllabi; motivation letter; recommendation letter; and English certificate. For the later Smart_Edu application, external-university candidates upload an updated academic record or the provided self-certification plus a valid identity document.",
+  "entry_exam_or_test": "Preparation is first assessed from the curriculum. For the Italian/EU/equated 2026/27 route, an individual interview is required when minimum curricular requirements are not met or B2 English certification is absent; it was scheduled for 16 September 2026 at 09:00 at DIEEI, room T1, Building 15, Viale A. Doria 6, with justified videoconference requests due by 14 September. Candidates are graded admitted/not admitted. For the non-EU-abroad selection, qualifications are scored out of 100: academic record up to 50, relevance of prior studies/experience up to 40, reference letter up to 5 and motivation up to 5; the board may require an online interview/test, and 50/100 is the suitability threshold.",
+  "credential_recognition_documents": "Foreign qualifications must satisfy the country-specific eligibility rules and be issued by an official university, grant access to master's study in the awarding country and normally follow at least three academic years. At enrolment, the final foreign degree must be supported by either a CIMEA Statement of Verification and Comparability or a Declaration of Value from the competent Italian diplomatic/consular authority. Documentation for the preceding high-school qualification is also required. Official translations are required when application documents are not in Italian or English.",
+  "tuition_or_fees_link": "https://www.unict.it/it/corsi-numero-programmato/2026-2027/public-selection-admission-non-eu-students-living-abroad-english (the linked call states a total 2026/27 tuition/enrolment charge of EUR 306 for non-EU students residing abroad: EUR 140 regional tax, EUR 16 stamp duty and EUR 150 annual comprehensive contribution).",
+  "application_fee": "EUR 10 per programme application for the 2026/27 non-EU-abroad selection. No application fee is stated in the 2026/27 open-access master's general procedure for Italian/EU/equated applicants.",
+  "enrolment_confirmation_fee": "EUR 75, non-refundable, payable within 15 days of admission notification for admitted non-EU-abroad applicants; it is deducted from the EUR 150 annual comprehensive contribution.",
+  "places_quota_non_eu": "[uncertain] Not stated in the public-facing 2026/27 call table; the 'available places' cell for LM-25 is blank.",
+  "places_quota_total": "[uncertain] No total capacity is published; the programme is officially classified as open access/non-programmed.",
+  "official_program_url": "https://www.unict.it/it/didattica/lauree-magistrali/2026-2027/automation-engineering-and-control-complex-systems",
+  "official_call_url": "Non-EU abroad: https://www.unict.it/it/corsi-numero-programmato/2026-2027/public-selection-admission-non-eu-students-living-abroad-english ; Italian/EU/equated open-access procedure: https://www.unict.it/it/corsi-numero-non-programmato/2026-2027/procedura-di-ammissione-al-1%C2%B0-anno-corsi-di-laurea-magistrale",
+  "application_portal_url": "Non-EU abroad and open-access admission: https://studenti.smartedu.unict.it/ ; EU/equated foreign-qualification pre-evaluation: https://webform.unict.it/en/pre-evaluation-form-english-taught-master-degree-courses-eu-and-equated-citizens-only ; visa pre-enrolment: https://www.universitaly.it/",
+  "governing_decree_reference": "D.R. 392 of 4 February 2026 (non-EU students residing abroad); D.R. 2233 of 23 June 2026 (open-access two-year master's admission procedure).",
+  "source_quotes": [
+    {
+      "quote": "Application from 10 February 2026 12.00 (GMT +1) until 17 March 2026, 23.59 (GMT +1)",
+      "url": "https://www.unict.it/it/corsi-numero-programmato/2026-2027/public-selection-admission-non-eu-students-living-abroad-english"
+    },
+    {
+      "quote": "A B2 level or higher of the Common European Framework of Reference (CEFR) for languages is required",
+      "url": "https://www.unict.it/sites/default/files/documenti_sito/academic_curricular_and_language_requirements_26-27.pdf"
+    },
+    {
+      "quote": "Successful applicants come primarily from an academic background in the following Engineering fields: Automation, Electronics, Computer Science, Telecommunication, Electrical, Mechanical and Industrial.",
+      "url": "https://www.unict.it/sites/default/files/documenti_sito/academic_curricular_and_language_requirements_26-27.pdf"
+    },
+    {
+      "quote": "La domanda di ammissione può essere effettuata dal 6 luglio al 2 settembre 2026.",
+      "url": "https://www.unict.it/sites/default/files/ds_bandi/326134_bando-lm_2233.pdf"
+    },
+    {
+      "quote": "Il colloquio sarà necessario qualora il candidato non sia in possesso dei requisiti minimi o di una certificazione che attesti una conoscenza della lingua inglese di livello B2",
+      "url": "https://www.unict.it/sites/default/files/ds_altri_documenti/0013_lm-25_automation_engineering_2026-27.pdf"
+    },
+    {
+      "quote": "Lingua in cui si tiene il corso: inglese",
+      "url": "https://www.unict.it/it/didattica/lauree-magistrali/2026-2027/automation-engineering-and-control-complex-systems"
+    }
+  ],
+  "uncertainty_notes": "No seat number is visible for LM-25 in the official 2026/27 non-EU call table, and no total capacity is stated; this is consistent with the programme's open-access classification but does not prove that the non-EU selection has no administrative quota. The detailed teaching regulations currently linked by the department are for 2025/26, so the explicit 2026/27 programme annex and international requirements PDF were prioritized. The EUR 306 tuition figure is specific to non-EU students residing abroad; Italian/EU/equated fees follow the broader 2026/27 contribution regulation and may differ.",
+  "data_academic_year": "2026/2027",
+  "verification_date": "2026-09-05",
+  "uncertain": [
+    "places_quota_non_eu",
+    "places_quota_total"
+  ]
+}

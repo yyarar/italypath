@@ -1,0 +1,43 @@
+{
+  "id": "ma-engineering-management",
+  "program_name": "Engineering Management",
+  "level": "master",
+  "degree_code": "M0622",
+  "degree_class": "LM-31 (Ingegneria Gestionale)",
+  "teaching_language": "Entirely English. Regolamento: \"Il corso, erogato in lingua inglese\"; \"Tutti gli insegnamenti saranno svolti in lingua inglese\". No written entrance test; instead a review of prior academic career and, if needed, an interview.",
+  "curriculum_name_en": null,
+  "campus": "Perugia",
+  "department": "Dipartimento di Ingegneria",
+  "admission_type": "open access",
+  "places_available": "Sustainable capacity of 80 (\"utenza sostenibile di 80 unità\"). Not numero programmato.",
+  "academic_requirements": "Direct access with an Italian laurea triennale in class L-8 (Ingegneria dell'Informazione) or L-9 (Ingegneria Industriale). Otherwise 85 CFU total across four SSD groups: >=10 CFU physics (PHYS-01/A, PHYS-03/A); >=15 CFU maths/stats/CS (MATH-02/A-B, MATH-03/A-B, MATH-04/A, MATH-06/A, STAT-01/B, STAT-04/A, IINF-05/A, INFO-01/A); >=25 CFU engineering core (IIND-04/A, IIND-05/A, IEGE-01/A, IINF-04/A); >=35 CFU specialisations (broad list incl. IIND-06/07/08, IIET-01/A, IINF-01/03/05, GIUR-02/A, ECON-07/08). Overlap credits are counted first toward group c). Only CFU earned via graded exams count, not certified professional-skill credits. Foreign degrees are curriculum-matched by a dedicated commission. No minimum GPA stated.",
+  "language_requirements": "English B2 required. Regulation allows conditional matriculation without the certificate if obtained by end of Year 1 (exam block until then) — but this conditional path is contradicted for non-EU visa applicants, whose PICA applications without a B2 certificate are rejected outright. B2 is effectively hard-required for internationals.",
+  "english_certificates_accepted": [
+    "IELTS 5.5-6.5", "TOEFL iBT 72-94", "Cambridge ESOL IGCSE",
+    "LanguageCert International ESOL B2 Communicator", "Gatehouse Awards GA Level 1 (Classic B2)",
+    "Pearson PTE General Level 3", "Trinity ISE II", "Oxford Test of English B2"
+  ],
+  "entry_exam_or_test": "No written entrance test for the MSc (TOLC-I/CEnT-S/SAT apply only to the bachelor's Engineering Management). Assessment via review of prior academic career (\"esame della carriera pregressa\"), with an interview only if deemed necessary (\"eventuale colloquio, ove ritenuto necessario\").",
+  "nulla_osta_required": "Yes — M0622 is on UNIPG's list of programmes using the online nulla-osta procedure via SOL (from 3 Aug 2026).",
+  "required_documents": [
+    "Passport", "Foreign educational qualification documentation", "Language certificate (B2) — mandatory for non-EU visa applicants, MOI letters rejected",
+    "Curriculum vitae", "Universitaly pre-enrolment (non-EU)", "PICA application (one course only per candidate)"
+  ],
+  "application_deadline_eu": "EU/legally-residing applicants: PICA pre-enrolment from 1 July 2026 (no published closing date); SOL enrolment for open-access master programmes closes 1 March 2027.",
+  "application_deadline_non_eu": "Non-EU visa applicants: PICA call 2026-visa-06, open until 12:00 (noon) on 21 August 2026 — CLOSED as of research date (2026-09-05).",
+  "tuition_or_fees_link": "https://www.unipg.it/en/international-students/becoming-a-unipg-student/tuition-fees-and-scholarships",
+  "tuition_range": "€150–2,200/year depending on family income/merit. Flat Tax (4 UNDP-2016-index brackets) for students whose family resides abroad, or ISEEU Parificato via an affiliated CAF. Declaration window 3 Aug–20 Oct 2026 (late fee if declared by 1 Mar 2027).",
+  "cimea_requirement": "Not specified at programme level beyond the general UNIPG foreign-qualification documentation requirement; see university-wide study-documents page for CIMEA/blackout-date rules.",
+  "double_degree": "None currently. Regolamento notes: \"L'erogazione in lingua inglese permetterà inoltre di analizzare in futuro eventuali opzioni di doppio titolo in collaborazione con università estere.\" Erasmus+ exchange mobility exists.",
+  "official_program_url": "https://ing.unipg.it/en/courses/engineering-management/second-cycle-degree-course",
+  "official_call_url": "https://orienta.ing.unipg.it/EngManagement/lm31/regolamento.pdf",
+  "source_quotes": [
+    {"quote": "Il corso, erogato in lingua inglese", "url": "https://orienta.ing.unipg.it/EngManagement/lm31/regolamento.pdf", "field_supported": "teaching_language"},
+    {"quote": "è prevista, per il corso di laurea magistrale, una utenza sostenibile di 80 unità", "url": "https://orienta.ing.unipg.it/EngManagement/lm31/regolamento.pdf", "field_supported": "places_available"},
+    {"quote": "APPLICATIONS PROVIDING A MOI, OR A DIFFERENT ENGLISH CERTIFICATION WILL BE IMMEDIATELY REJECTED", "url": "https://www.unipg.it/en/international-students/becoming-a-unipg-student", "field_supported": "language_requirements"},
+    {"quote": "The application period will remain open until 12:00 am on August 21, 2026", "url": "https://pica.cineca.it/unipg/2026-visa-06/", "field_supported": "application_deadline_non_eu"},
+    {"quote": "per i corsi di laurea magistrale ad accesso libero il termine ultimo è fissato al 1° marzo 2027", "url": "https://www.unipg.it/news/vita-accademica?layout=scheda&idNews=4624", "field_supported": "application_deadline_eu"}
+  ],
+  "uncertainty_notes": "Conditional-matriculation clause (certificate by end of Year 1) applies in the Italian regulation text but appears overridden in practice for non-EU visa applicants, who are rejected without a B2 certificate at PICA stage — treat B2 as effectively mandatory for that group and flag the conflict if publishing both rules. Data collected 2026-09-05, all sources unipg.it/*.unipg.it only.",
+  "research_date": "2026-09-05"
+}

@@ -1,0 +1,87 @@
+{
+  "program_name": "Physics",
+  "level": "master",
+  "teaching_language": "English",
+  "delivery_scope": "fully_english",
+  "campus": "Bari",
+  "degree_class": "LM-17",
+  "academic_year": "2026/2027; programme-specific requirements fallback to 2024/2025 [uncertain]",
+  "programme_status": "active",
+  "admission_type": "open access",
+  "academic_requirements": [
+    "An Italian degree in class L-30 under DM 270/2004 or class 25 under DM 509/1999, or a foreign qualification judged equivalent.",
+    "Required background includes mathematical analysis, geometry, linear algebra, general chemistry, classical mechanics, thermodynamics, electromagnetism, optics, experimental techniques, classical and modern physics, analogue electronics, special relativity, quantum mechanics, statistical mechanics, mathematical methods, scientific English, and computational tools.",
+    "Any missing curricular credits must be earned before the assessment of personal preparation."
+  ],
+  "qualification_system_requirements": [
+    "For a foreign master's-entry qualification: at least 15 total years of education, including at least three years at university level, and entitlement to enter a second-cycle degree in the issuing country.",
+    "The programme admissions committee determines equivalence and curricular suitability from the submitted documentation and interview."
+  ],
+  "eligible_degree_classes": ["L-30 (DM 270/2004)", "Class 25 (DM 509/1999)", "Equivalent foreign qualification"],
+  "required_subject_credits": [
+    {"subject_area": "Mathematical analysis", "ssd_or_domain": "MAT/05", "minimum_cfu_or_ects": 18, "notes": "Minimum credits in basic/core activities."},
+    {"subject_area": "General and inorganic chemistry", "ssd_or_domain": "CHIM/03", "minimum_cfu_or_ects": 5, "notes": "Minimum credits in basic/core activities."},
+    {"subject_area": "Experimental physics", "ssd_or_domain": "FIS/01", "minimum_cfu_or_ects": 45, "notes": "Minimum credits in basic/core activities."},
+    {"subject_area": "Theoretical physics, mathematical models and methods", "ssd_or_domain": "FIS/02", "minimum_cfu_or_ects": 20, "notes": "Minimum credits in basic/core activities."},
+    {"subject_area": "Matter physics and nuclear/subnuclear physics", "ssd_or_domain": "FIS/03 + FIS/04", "minimum_cfu_or_ects": 12, "notes": "Combined minimum across the two sectors."}
+  ],
+  "language_requirements": ["English proficiency at CEFR B2 minimum is required.", "If adequate documentation is missing, the admissions committee assesses actual English ability; the certificate may be obtained by completion of the degree."],
+  "language_level": "B2",
+  "accepted_language_evidence": ["Adequate documentation certifying B2 English [uncertain]", "Admissions-committee assessment of actual language preparation when documentation is absent"],
+  "personal_preparation_assessment": "The admissions committee checks documentation. A foreign-qualified applicant is invited to an interview, potentially online, to verify curricular requirements and actual scientific and linguistic preparation.",
+  "ofa_or_remedial_obligations": ["Missing curricular university credits must be acquired before the individual-preparation assessment.", "Where B2 evidence is absent, certification may be obtained by completion of the degree, subject to committee assessment."],
+  "entry_exam_or_test": null,
+  "interview_details": {"required": true, "purpose": "Verify curricular requirements and scientific and linguistic preparation for holders of foreign qualifications", "language": "English [uncertain]", "mode": "In person or online", "dates": "Not published [uncertain]", "waivers": "The regulation expressly requires the interview for foreign-qualified applicants; arrangements for other applicants are not specified [uncertain]"},
+  "admission_quota": null,
+  "selection_score_and_ranking": null,
+  "application_deadline_eu": [
+    {"stage": "Foreign-qualification preliminary evaluation on DreamApply", "opens_at": null, "deadline": "2026-09-30", "timezone": "Europe/Rome [uncertain]", "applicant_category": "EU applicants and non-EU applicants not requiring a visa who hold a foreign/international qualification", "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"}
+  ],
+  "application_deadline_non_eu": [
+    {"stage": "Foreign-qualification preliminary evaluation on DreamApply", "opens_at": null, "deadline": "2026-06-30", "timezone": "Europe/Rome [uncertain]", "visa_required": true, "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"},
+    {"stage": "Universitaly pre-enrolment for open-access programme", "opens_at": null, "deadline": "2026-09-30", "timezone": "Europe/Rome [uncertain]", "visa_required": true, "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"}
+  ],
+  "application_stages": [
+    {"sequence": 1, "stage": "Preliminary evaluation of foreign qualification", "platform": "DreamApply / Apply online!", "applies_to": "All applicants holding a foreign or international qualification", "deadline": "30 June 2026 if visa-required; 30 September 2026 if no visa is required", "action": "Upload required documents, pay the application fee, and obtain a positive evaluation.", "url": "https://apply.uniba.it/"},
+    {"sequence": 2, "stage": "Programme committee assessment and interview", "platform": "UNIBA Physics admissions committee", "applies_to": "Foreign-qualified applicants", "deadline": "Not published [uncertain]", "action": "Undergo curricular-document review and an interview assessing scientific and linguistic preparation.", "url": "https://www.uniba.it/it/corsi/magistrale-physics/corso/requisiti-di-accesso"},
+    {"sequence": 3, "stage": "Visa pre-enrolment", "platform": "Universitaly", "applies_to": "Non-EU applicants resident abroad requiring a study visa", "deadline": "30 September 2026", "action": "After positive DreamApply evaluation, submit the pre-enrolment application and qualification documents.", "url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"},
+    {"sequence": 4, "stage": "Enrolment", "platform": "UNIBA Esse3", "applies_to": "Admitted applicants", "deadline": "Not located [uncertain]", "action": "Complete enrolment and provide originals/verified documentation.", "url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"}
+  ],
+  "applicant_categories": ["EU applicants and non-EU applicants with EU-equivalent status", "Non-EU applicants resident abroad requiring a visa", "Marco Polo applicants", "Applicants in a refugee-like situation already resident in Italy"],
+  "deadline_conflict_note": "The 2026/2027 central international-admission deadlines are current, but the latest programme-specific curricular regulation located is 2024/2025 and no interview or Esse3 deadline was found [uncertain].",
+  "required_documents": [
+    {"document": "Bachelor's degree certificate or equivalent foreign qualification", "required_for": "Master's applicants", "stage": "DreamApply preliminary evaluation", "translation_required": "Official translation if not issued in English or Italian.", "authentication_required": "Verified/certified copy requested; originals must be brought on arrival.", "notes": "Must establish degree-class or foreign equivalence."},
+    {"document": "Transcript of records", "required_for": "All applicants, especially foreign-qualified applicants", "stage": "DreamApply and committee assessment", "translation_required": "Official translation if not issued in English or Italian.", "authentication_required": "Verified/certified copy requested [uncertain].", "notes": "Needed to assess the five SSD credit thresholds."},
+    {"document": "Valid identity document or passport", "required_for": "International applicants", "stage": "Application and enrolment", "translation_required": false, "authentication_required": false, "notes": "Current validity required."},
+    {"document": "B2 English evidence", "required_for": "All applicants", "stage": "Admission assessment", "translation_required": "Not stated [uncertain]", "authentication_required": "Not stated [uncertain]", "notes": "If absent, the committee assesses language ability; certificate may be completed during the degree."},
+    {"document": "Universitaly pre-enrolment summary validated by UNIBA and type-D study visa", "required_for": "Non-EU applicants resident abroad requiring a visa", "stage": "Enrolment", "translation_required": false, "authentication_required": false, "notes": "Universitaly follows positive DreamApply evaluation."}
+  ],
+  "document_translation_language": ["English", "Italian", "Official translation required when the institution does not issue documents in either accepted language"],
+  "document_authentication": ["Upload verified/certified copies and bring original entry-qualification documents on arrival.", "Additional legalization, apostille, Declaration of Value, CIMEA or ARDI requirements were not confirmed on the programme page [uncertain]."],
+  "application_fee": {"amount": 30, "currency": "EUR", "stage": "DreamApply preliminary evaluation", "payment_method": "Through the online application procedure [uncertain]", "refundable": false, "source_url": "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/studenti-extracomunitari-residenti-allestero"},
+  "tuition_or_fees_link": "https://www.uniba.it/it/ateneo/statuto-regolamenti/studenti/regolamenti-sulla-contribuzione-studentesca",
+  "official_program_url": "https://www.uniba.it/it/corsi/magistrale-physics",
+  "official_call_url": null,
+  "requirements_source_url": [
+    "https://www.uniba.it/it/corsi/magistrale-physics/studiare/regolamento-didattico/regolamento-didattico-cds-physics-2024-25.pdf",
+    "https://www.uniba.it/it/corsi/magistrale-physics/corso/requisiti-di-accesso",
+    "https://apply.uniba.it/it_IT/courses/course/132-masters-degree-physics-lm17",
+    "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"
+  ],
+  "source_quotes": [
+    {"field": "teaching_language", "quote": "Physics - Study language: English", "source_url": "https://www.uniba.it/it/corsi/magistrale-physics/corso/scheda-del-corso", "page_or_section": "Programme factsheet", "academic_year": "Current page", "accessed_at": "2026-09-05"},
+    {"field": "required_subject_credits", "quote": "18 nel settore MAT/05, 5 nel settore CHIM/03, 45 nel settore FIS/01, 20 nel settore FIS/02, 12 nei settori FIS/03+FIS/04.", "source_url": "https://www.uniba.it/it/corsi/magistrale-physics/studiare/regolamento-didattico/regolamento-didattico-cds-physics-2024-25.pdf", "page_or_section": "Art. 3, page 5", "academic_year": "2024/2025", "accessed_at": "2026-09-05"},
+    {"field": "language_level", "quote": "possiede una adeguata conoscenza della lingua inglese (livello minimo B2)", "source_url": "https://www.uniba.it/it/corsi/magistrale-physics/studiare/regolamento-didattico/regolamento-didattico-cds-physics-2024-25.pdf", "page_or_section": "Art. 3, page 5", "academic_year": "2024/2025", "accessed_at": "2026-09-05"},
+    {"field": "personal_preparation_assessment", "quote": "invitando il candidato a sostenere un colloquio (eventualmente anche per via telematica)", "source_url": "https://www.uniba.it/it/corsi/magistrale-physics/studiare/regolamento-didattico/regolamento-didattico-cds-physics-2024-25.pdf", "page_or_section": "Art. 3, page 5", "academic_year": "2024/2025", "accessed_at": "2026-09-05"},
+    {"field": "application_deadline_non_eu", "quote": "The application deadlines on the DreamApply platform are set at 30 June 2026 for non-EU students requiring a visa", "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students", "page_or_section": "Introductory section", "academic_year": "2026/2027", "accessed_at": "2026-09-05"}
+  ],
+  "source_year": ["2026/2027", "2025", "2024/2025"],
+  "source_last_checked": "2026-09-05",
+  "uncertainty_notes": [
+    {"field": "academic_year", "issue": "Programme-specific admission requirements use a 2024/2025 fallback.", "reason": "A newer Physics regulation was not surfaced in the current programme catalogue or search.", "searched_sources": ["Programme factsheet", "requirements page", "regulation archive", "DreamApply", "central international admission page"], "resolution_needed": "Confirm the credit thresholds and language rules in the final 2026/2027 regulation."},
+    {"field": "official_call_url", "issue": "No programme-specific call found.", "reason": "The programme is open access and admission is based on curricular/personal-preparation assessment.", "searched_sources": ["Programme page", "requirements page", "DreamApply"], "resolution_needed": "Confirm whether a separate 2026/2027 notice is issued."},
+    {"field": "admission_quota", "issue": "No programme-specific non-EU reserved-place number located.", "reason": "Open access does not necessarily remove the annual visa quota.", "searched_sources": ["Programme page", "international admission page", "DreamApply"], "resolution_needed": "Check the annual foreign-student quota table."},
+    {"field": "accepted_language_evidence", "issue": "No named certificate types or MOI exemption list found.", "reason": "The regulation refers only to adequate documentation and committee assessment.", "searched_sources": ["Programme regulation", "DreamApply"], "resolution_needed": "Request the accepted-evidence list from the Physics admissions committee."}
+  ],
+  "uncertain": ["academic_year", "accepted_language_evidence", "entry_exam_or_test", "interview_details", "admission_quota", "selection_score_and_ranking", "application_deadline_eu", "application_deadline_non_eu", "application_stages", "deadline_conflict_note", "required_documents", "document_authentication", "application_fee", "official_call_url"]
+}

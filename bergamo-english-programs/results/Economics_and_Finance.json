@@ -1,0 +1,161 @@
+{
+  "program_name": "Economics & Finance",
+  "level": "master",
+  "teaching_language": "English (entire programme)",
+  "campus": "Campus of Economics and Law, Via dei Caniana 2, Bergamo",
+  "degree_class": "LM-16 Finance",
+  "access_type": "open access",
+  "programme_name_history": "The current official English name is Economics & Finance (also written Economics and Finance or abbreviated EF). It is a separate LM-16 programme from Economics and Data Analysis.",
+  "awarding_institution": "University of Bergamo",
+  "admission_type": "Open access, with committee verification of curricular requirements and adequacy of preparation. An online oral interview is mandatory for international applicants using the foreign-qualification pre-assessment route and for candidates who only partially meet curricular requirements; certain Italian-degree candidates are admitted directly according to degree grade.",
+  "academic_requirements": "A three-year bachelor's degree or equivalent foreign qualification is required. Holders of an Italian degree in L-7, L-8, L-9, L-14, L-16, L-18, L-20, L-30, L-31, L-33, L-35, L-36, L-37 or L-41 (or an equivalent former DM 509/99 class) are admitted directly if their final grade is above 81/110 and otherwise undergo an interview. Holders of other Italian degree classes must meet the specified mathematics, statistics, economics and computing requirements and are likewise admitted directly above 81/110 or interviewed at 81/110 or below. Candidates not yet graduated from an Italian university are assessed under these criteria if their weighted bachelor's average is above 22/30. International applicants undergo CV and qualification evaluation plus a mandatory interview.",
+  "curricular_requirements_cfu": {
+    "applicants_from_listed_italian_degree_classes": "No additional subject-credit breakdown is stated; direct admission requires a final grade above 81/110, while a grade of 81/110 or below triggers an interview.",
+    "applicants_from_other_italian_degree_classes": [
+      "6 ECTS in mathematics: MAT/01-MAT/09 or SECS-S/06",
+      "6 ECTS in statistics: SECS-S/01-SECS-S/05 or SECS-P/05",
+      "12 ECTS in economics: SECS-P/01-SECS-P/03 or SECS-P/06",
+      "ECDL computer-skills certification, or 3 ECTS in INF/01 or ING-INF/05, or an equivalent diploma"
+    ]
+  },
+  "entry_exam_or_test": "No competitive entrance test is stated. Where required, admission depends on an individual online oral interview covering economics, mathematics, statistics and finance: rational consumer choice; information economics; foundations and applications of one-variable calculus; descriptive statistics; probability; and capital structure under perfect-markets, tax and organization theories.",
+  "interview_required": "Mandatory for international candidates applying for a visa and/or holding a foreign qualification through online pre-assessment, and for candidates who only partially meet curricular requirements. Italian-degree applicants in the listed/eligible routes are interviewed when the degree grade is 81/110 or below; qualifying applicants above 81/110 are admitted directly.",
+  "interview_language": "English [uncertain]",
+  "selection_scoring": "No competitive ranking score or numerical interview threshold is published on the programme admission page. For applicable Italian qualifications, a degree grade above 81/110 gives direct admission; 81/110 or below leads to interview. For not-yet-graduated Italian-university candidates, the published weighted-average condition is above 22/30.",
+  "degree_completion_deadline": "Pre-enrolment with reserve may be permitted if curricular requirements are already met by the relevant pre-enrolment deadline. Under the central 2026/27 master's rules, the bachelor's degree must be completed by the extraordinary March/April 2027 graduation session.",
+  "application_channel": "International candidates with qualifications obtained abroad use the University of Bergamo online pre-evaluation route and DreamApply; eligible non-EU visa applicants subsequently complete Universitaly pre-enrolment. Italian and EU candidates follow the UniBG master's pre-enrolment/enrolment procedure through the online student services.",
+  "language_requirements": "English proficiency at CEFR B2 or equivalent is required. The programme states that B2 equivalence may be demonstrated by at least 6 ECTS of English during the bachelor's degree, at least six months living or working in an English-speaking country, or at least six months attending a university course abroad taught in English. The international online application route accepts the listed B2 certificates or an eligible medium-of-instruction certificate.",
+  "accepted_english_certificates": [
+    "IELTS: 5.5-6.5",
+    "TOEFL iBT: 79-95",
+    "TOEFL ITP: 543-600",
+    "TOEFL CBT: 213-240",
+    "PTE Academic: 46-64",
+    "Cambridge First Certificate/FCE: grades B or C",
+    "Trinity College ISE II",
+    "Pearson Test of English General: Level 3",
+    "BEC Vantage",
+    "TIE: minimum B2 in both oral and written tests",
+    "Cambridge ESOL: Level 1",
+    "ESB ESOL International: minimum Pass with Merit",
+    "TOLIMO (Iran): no skill lower than 600"
+  ],
+  "language_waiver_conditions": "For international pre-evaluation, a medium-of-instruction certificate issued by the registrar or international office is accepted if the completed degree was taught entirely in English; unofficial certificates and self-declarations are not accepted. Native English-speaking applicants are exempt from both an English certificate and medium-of-instruction certificate. The programme also recognizes the B2-equivalent experience/credit routes described in language_requirements.",
+  "application_deadline_eu": [
+    "2026-05-29 (standard pre-enrolment round 1)",
+    "2026-08-28 (standard pre-enrolment round 2)",
+    "2026-09-30 (standard pre-enrolment round 3)",
+    "2026-10-30 (late round 1, with late fee)",
+    "2026-11-13 (late round 2, with late fee)"
+  ],
+  "application_deadline_non_eu": [
+    "2026-01-15 (2026/27 free-access master's pre-evaluation call 1)",
+    "2026-01-31 (2026/27 free-access master's pre-evaluation call 2)"
+  ],
+  "application_call_round": [
+    {
+      "route": "2026/27 free-access master's standard round 1",
+      "application_period": "2026-04-01 to 2026-05-29",
+      "interview_or_test": "2026-06-22 to 2026-06-26",
+      "enrolment_period": "2026-06-03 to 2026-08-28"
+    },
+    {
+      "route": "2026/27 free-access master's standard round 2",
+      "application_period": "2026-06-03 to 2026-08-28",
+      "interview_or_test": "2026-09-10 to 2026-09-18",
+      "enrolment_period": "2026-09-01 to 2026-10-15"
+    },
+    {
+      "route": "2026/27 free-access master's standard round 3",
+      "application_period": "2026-09-01 to 2026-09-30",
+      "interview_or_test": "2026-10-14 to 2026-10-20",
+      "enrolment_period": "2026-10-01 to 2026-11-13"
+    },
+    {
+      "route": "2026/27 late standard rounds",
+      "application_period": "2026-10-01 to 2026-10-30, then 2026-11-02 to 2026-11-13",
+      "interview_or_test": "2026-11-12 to 2026-11-18, then 2026-11-26 to 2026-11-30",
+      "enrolment_period": "2026-11-02 to 2026-12-04, then 2026-11-16 to 2026-12-11"
+    },
+    {
+      "route": "2026/27 non-EU foreign-qualification pre-evaluation call 1",
+      "application_period": "2025-11-24 to 2026-01-15",
+      "interview_or_test": "February-March 2026",
+      "results": "By 2026-03-31"
+    },
+    {
+      "route": "2026/27 non-EU foreign-qualification pre-evaluation call 2",
+      "application_period": "2026-01-01 to 2026-01-31",
+      "interview_or_test": "March-April 2026",
+      "results": "By 2026-04-30"
+    }
+  ],
+  "results_notification_date": [
+    "By 2026-03-31 for non-EU pre-evaluation call 1",
+    "By 2026-04-30 for non-EU pre-evaluation call 2",
+    "No separate results-publication date stated for the standard open-access pre-enrolment rounds [uncertain]"
+  ],
+  "max_programme_choices": 2,
+  "required_documents": [
+    "Bachelor degree certificate translated into English or Italian",
+    "Official academic transcript for the last three/four years translated into English or Italian, or Diploma Supplement",
+    "Major-area form/course descriptions listing relevant contents, themes, aims and objectives",
+    "English-language evidence: accepted B2 certificate or qualifying medium-of-instruction certificate",
+    "Valid passport showing full name, photograph and signature",
+    "At least one reference"
+  ],
+  "references_required": "At least 1 reference",
+  "course_descriptions_required": "Yes. International online pre-evaluation requires the Economics and Finance major-area form/course descriptions covering relevant contents, themes, aims and objectives.",
+  "application_fee": "EUR 30 pre-evaluation fee for the 2026/27 non-EU online pre-evaluation route.",
+  "pre_enrolment_fee": "EUR 52 for each selected master's programme; non-refundable and payable by eligible applicants.",
+  "enrolment_deposit": "EUR 156 one-time, non-refundable enrolment fee payable on arrival in Italy, as stated on the official DreamApply programme record.",
+  "tuition_or_fees_link": "https://www.unibg.it/studiare/iscriversi/tasse-e-agevolazioni/contribuzione-studentesca — official 2026/27 student-contribution page. The official DreamApply record summarizes tuition as EUR 0-400 for the first instalment and EUR 0-1,700 for the second, depending on family income; the central current-cycle contribution page should prevail.",
+  "tuition_income_linked": "Yes. For 2026/27, the regional tax is EUR 130-190 by ISEEU band and the all-inclusive contribution varies by ISEEU, programme area, enrolment year and full-/part-time status. International students may use equivalent ISEEU documentation.",
+  "official_program_url": "https://ls-ef.unibg.it/en",
+  "official_call_url": "https://apply.unibg.it/courses/course/42-ma-economics-finance",
+  "source_quotes": [
+    {
+      "source": "https://ls-ef.unibg.it/en/how/how-enroll",
+      "quote": "The admission to the master degree in Economics and Finance (EF) ... is subject to an assessment process to certify the suitability of the candidate."
+    },
+    {
+      "source": "https://ls-ef.unibg.it/en/how/how-enroll",
+      "quote": "Direct admission with a degree grade greater than 81/110."
+    },
+    {
+      "source": "https://ls-ef.unibg.it/en/how/how-enroll",
+      "quote": "6 ECTS for the mathematics area ... 6 ECTS for the statistics area ... 12 ECTS for the economic area"
+    },
+    {
+      "source": "https://ls-ef.unibg.it/en/how/how-enroll",
+      "quote": "For international students, the assessment will be done through an interview."
+    },
+    {
+      "source": "https://apply.unibg.it/courses/course/42-ma-economics-finance",
+      "quote": "Study language English"
+    },
+    {
+      "source": "https://apply.unibg.it/courses/course/42-ma-economics-finance",
+      "quote": "At least 1 reference(s) should be provided."
+    },
+    {
+      "source": "https://en.unibg.it/study/enrollment/foreign-students-join-us/non-eu-students/non-eu-students-pre-evaluation-online",
+      "quote": "From November 24th 2025 to January 15th 2026: prospective students can apply"
+    },
+    {
+      "source": "https://en.unibg.it/study/enrollment/foreign-students-join-us/non-eu-students/non-eu-students-pre-evaluation-online",
+      "quote": "From January 1st 2026 to January 31st 2026: prospective students can apply"
+    },
+    {
+      "source": "https://en.unibg.it/study/enrollment/enrollment-deadlines/masters-degrees-deadlines",
+      "quote": "Pre-enrollment from April 1 to May 29, 2026"
+    }
+  ],
+  "uncertainty_notes": "The programme-specific admissions page and central UniBG pages contain current 2026/27 links and deadlines. The DreamApply record displays four ended 2026/27 application buttons without dates, so the exact non-EU dates and result dates are taken from UniBG's central 2026/27 international pre-evaluation page. The interview language is not explicitly identified on the programme admission page. Standard EU/Italian deadlines and early non-EU visa pre-evaluation deadlines represent different routes and should not be treated as interchangeable. Economics & Finance is not Economics and Data Analysis.",
+  "source_access_status": "Official UNIBG sources only. The ls-ef.unibg.it programme admissions page and apply.unibg.it programme record were directly accessible through indexed official-page content; central en.unibg.it pages were available through current official search indexing, although some direct fetches returned HTTP 403.",
+  "last_verified_date": "2026-09-05",
+  "uncertain": [
+    "interview_language",
+    "results_notification_date"
+  ]
+}

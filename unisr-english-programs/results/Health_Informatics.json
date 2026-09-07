@@ -1,0 +1,214 @@
+{
+  "id": "ma-health-informatics",
+  "program_name": "Joint Master's Degree in Health Informatics (Corso di Laurea Magistrale a titolo congiunto in Health Informatics) — jointly awarded by Università Vita-Salute San Raffaele and Politecnico di Milano",
+  "level": "master",
+  "teaching_language": "English. The programme is taught entirely in English and the call states explicitly that no Italian-language proficiency is tested ('the programme is taught entirely in English; therefore, no Italian language proficiency test is required'). It is a joint/double-institution degree awarded together with Politecnico di Milano, but POLIMI confirms that teaching is not split across campuses: 'MSc programme in collaboration with Vita-Salute San Raffaele University, where all lessons are held.'",
+  "campus": "Milan, Italy — all teaching takes place on the UniSR campus (Via Olgettina 58, Milan). Politecnico di Milano is the joint-degree partner and co-awards the title, but does not host lessons. On-campus research facilities used by the programme include the UniSR AI HUB and NEUROTECH HUB.",
+  "degree_class": "LM-18 (Informatica / Computer Science). Stated in the call as 'Selection and admission to the joint Master's Degree in Health Informatics (Classification LM-18)'.",
+  "admission_type": "restricted access",
+  "academic_requirements": "Numerus clausus with a two-part selection run entirely by UniSR (Politecnico di Milano directs applicants to the UniSR call; the Academic Commission is appointed by the UniSR Faculty of Medicine and Surgery Council). Candidates must hold — or obtain by the Autumn/Fall session of a.y. 2025/2026 — either: (1) a degree in one of the Italian classes L-2 Biotechnology, L-8 Information Engineering, L-13 Biological Sciences, L-31 Information Sciences and Technologies, or LM-41 Medicine and Surgery; OR (2) at least a three-year degree / minimum 180 ECTS including either 21 credits in the sectors INF/01 and ING-INF/05, or 21 credits in the sectors BIO/09, BIO/13 and BIO/16. Applicants who meet neither condition ('candidates with other curricula') are not automatically excluded: the Commission evaluates eligibility from the uploaded exam list and detailed course syllabi, and this pre-check is completed BEFORE test registration can be finalised. Holders of foreign degrees are assessed under the same art. 2.3 / 3.4 criteria by the Admissions & Credential Evaluation Office; where Italian disciplinary sectors (SSD) cannot be identified, the Academic Committee evaluates the uploaded syllabi instead. Applicants with a non-Italian qualification or attending a foreign/international university MUST start registration at least 5 days before the deadline, because they can only book the test after their academic documents have been evaluated. Final verification of the entry qualification happens at enrolment; an unsuitable qualification forfeits the ranking place. Selection stage 2 is an academic-career score based on the weighted average of all bachelor exams (30 cum laude counted as 31), worth 40% of the total ranking score. A motivational letter is required but explicitly NOT scored ('a motivational letter, which will not be part of the evaluation but intended as complementary document').",
+  "language_requirements": "English at CEFR B2, required at ENROLMENT — not at application. Art. 7.3 of the call: 'In order to enrol, admitted candidates who confirmed their place must submit an official English language certification corresponding to level B2 of the Common European Framework of Reference CEFR.' Candidates without the certificate cannot complete enrolment and lose their assigned place. Exemption: 'Those who have attended at least two consecutive years of college entirely in English are exempted from submitting the above-mentioned English language certification.' UniSR's official accepted-certificate list sets the B2 thresholds as Cambridge 160, IELTS 5.5, TOEFL iBT (old version) 72 — the same B2 bar is named for both the MSc in Health Informatics and the MSc in Biotechnology for Innovative Therapeutics (the International MD Program requires C1: Cambridge 180 / IELTS 7.0 / TOEFL iBT 95). Other accepted bodies include LanguageCert, Trinity College London, Password Skills Plus, British Institutes, Pearson (Edexcel / LCCI / EDI), City and Guilds, Oxford Test of English, ESB, LRN, Michigan State University (MSU), Ascentis, AIM Qualifications, Gatehouse Awards, NQAI-ACELS, ESaT Malta and University of Malta. Important caveat: the list states TOEFL iBT is accepted 'only [for] certificates awarded until Dec. 2025'. No Italian-language requirement: 'the knowledge of the Italian language will not be tested.' [uncertain: whether a replacement for post-2025 TOEFL iBT (e.g. TOEFL Essentials) is accepted is not stated on the list]",
+  "english_level_required": "B2 (CEFR). Required at enrolment, not at application/test stage. Notably lower than the C1 required for UniSR's International MD Program.",
+  "entry_exam_or_test": "UniSR's own admission test — mandatory for all candidates; the admissions page states other exams or scores cannot substitute it. Format (identical in both 2026/27 sessions): 24 multiple-choice questions, 4 options each, entirely in English, split as Mathematics 8, Informatics/Computer Science 8, Biology 2, Genetics 2, Anatomy 2, Physiology 2; total time 60 minutes. Questions are randomly drawn from a UniSR-owned question bank. After the 60 minutes, candidates answer 6 additional reserve questions that do NOT count towards the score and are used only to replace a question found to be anomalous. Delivery: home-based online with remote proctoring via Selexi / ProctorExam (Google Chrome proctor plug-in on a Windows 8+/Linux laptop or macOS 10.14+ Mac with webcam and mic, minimum 1.5 Mbps up/down, plus an Android/iOS smartphone or tablet running the ProctorExam app placed behind the candidate; a 'check requirement' technical rehearsal is run from 5 days before the test). Only two sheets of white paper and a pen are permitted. Scoring and ranking: overall score of 40 points — test = 60% of the total (up to 24/40) at +1 per correct answer, -0.25 per incorrect or invalid answer, 0 for blank; academic career = 40% of the total (up to 16/40), scaled proportionally from 0 points at a weighted average of 18/30 to 16 points at 30/30 or above. Ties are broken in favour of the younger candidate. Two separate anonymous ranking lists are published (one EU, one non-EU) within 15 days of the last session. Registration fee: €150.00, non-refundable in all circumstances, paid via PayPal (card accepted, no PayPal account needed) within 15 minutes of booking the session or the booking is cancelled. A spare session exists for candidates disconnected by proven technical faults not attributable to them. Accommodations for disability (+50% time) and SLD (+30% time, non-scientific calculator, reader/scribe tutor) are available on medical certification. Note: the September call's own text lists the test-date-linked spare session date for the April round as '23/04/2025', an evident typo for 2025/2026-cycle dates in the first call. [uncertain: no minimum passing score is published — admission is purely by ranking position until places are filled]",
+  "required_documents": [
+    "Certificate or self-declaration listing exams passed with grades and ECTS credits (self-certification under Italian DPR 445/2000 art. 46 where applicable); candidates from foreign institutions must instead supply a certificate issued by the competent academic authority and endorsed by the relevant diplomatic representation",
+    "Detailed syllabus/programme for each discipline — mandatory for candidates with a non-Italian degree and for candidates with 'other curricula' outside the listed degree classes/credit thresholds",
+    "Completed Excel exam-list file using the official 'ListaEsami_ExamsList' template published on the UniSR Health Informatics admissions page",
+    "Motivational letter / brief curricular and motivational self-presentation (required to register, but explicitly not scored)",
+    "Valid identity document — identity card, photo driving licence, passport or firearms licence (shown and photographed during remote test identification)",
+    "Italian tax code (codice fiscale) — required for Italian citizens at registration and for international students at enrolment (issued by Agenzia delle Entrate)",
+    "Residence permit copy — for non-EU citizens already residing in Italy (uploaded at registration if holding a residence permit or diplomatic passport, and again at enrolment)",
+    "Official English language certificate at CEFR B2 (submitted at enrolment; waived after two consecutive years of college entirely in English)",
+    "Signed enrolment form downloaded from the UniSR website, plus receipt of the first tuition instalment payment (enrolment stage)",
+    "Self-declaration of school certificate and degree, downloadable from the UniSR website (enrolment stage)",
+    "For candidates with a foreign diploma: copy of the original Bachelor's Degree translated into English or Italian, or the final-year transcripts if the degree is not yet awarded (enrolment stage)",
+    "Original Bachelor's Degree with, if needed, verified Italian translation and legalisation/Apostille by the local Italian diplomatic authorities (post-enrolment, delivered in person)",
+    "CIMEA Statement of Comparability (suggested) OR Declaration of Value (Dichiarazione di Valore) from the Italian Consulate/Embassy/Cultural Institute — required only if the qualification's country is NOT listed on CIMEA's ARDI platform",
+    "For candidates already enrolled at another university: transfer application with Nulla Osta form, withdrawal request, or a double-enrolment request under Italian Law 33/2022",
+    "Medical certificate — only for candidates requesting disability/SLD test accommodations"
+  ],
+  "places_eu": "September (second) intake AY 2026/2027: 18 places for EU citizens and citizens with EU-equal status. First (April) call AY 2026/2027: 40 EU places — derived, since the call states 50 total of which 10 are reserved for non-EU citizens and does not print the EU figure separately. The EU quota covers Italian citizens, EU citizens wherever resident, non-EU citizens with EU-equal status, and citizens of Norway, Iceland, Liechtenstein, Switzerland, San Marino and Vatican City. [uncertain]",
+  "places_non_eu": "September (second) intake AY 2026/2027: 4 places for non-EU citizens residing abroad (out of 22 total). First (April) call AY 2026/2027: 10 places reserved for non-European citizens (out of 50 total), pursuant to art. 2 of Italian Law 264/1999. NOTE ON THE REPORTED CONFLICT: the '50 places' vs '22 places' figures do NOT come from a marketing page contradicting the call — both are official Rector's-Decree calls for the same academic year. Rector's Decree no. 9851 of 15 Dec 2025 (Call 1, April session) sets the annual programme capacity at 50 places (10 non-EU); Rector's Decree no. 10111 of 2026 (September Call, second session) opens a further 22 places (18 EU + 4 non-EU) for the September intake. The current UniSR admissions page and the info.unisr.it marketing page both show only the September figures (18 EU / 4 non-EU) and label them 'AVAILABLE PLACES (II SESSION)'. No live UniSR page was found stating '50 participants' as a class size. [uncertain: whether the September 22 places are additional to, or a residual subset of, the 50 places set by Call 1 is not stated in either decree]",
+  "application_deadline_eu": "AY 2026/2027 — BOTH rounds are closed as of the research date (6 September 2026); info.unisr.it displays 'Enrollments are closed'. Round 1 (April session, Rector's Decree 9851/2025): registration on the UniSR Admission Portal opened 22 December 2025 at 12:00 pm and closed 13 April 2026 at 12:00 pm (Italian time); test 22 April 2026; ranking within 15 days of the last session; place confirmation by 15 May 2026 with a non-refundable €1,000 advance (deducted from the first instalment); online enrolment 1 July 2026 12:00 pm – 20 July 2026 12:00 pm; ranking-list scrolling from 21 July 2026. Round 2 (September session, Rector's Decree 10111/2026): registration opened on publication of the decree (22 July 2026, 4:00 pm per info.unisr.it) and the PDF set the closing at 28 August 2026 12:00 CEST, but the UniSR admissions page carries an 'IMPORTANT UPDATE: the registration deadline has been extended to 1 September 2026 at 12.00 (Italian time)' — treat 1 September 2026 12:00 as the operative EU deadline; test 5 September 2026 (home-based); ranking within 15 days of the test; enrolment opens on publication of the ranking and closes at 12:00 noon on the third working day thereafter. Deadlines are identical for EU and non-EU applicants; only the quotas and ranking lists are separate. The 2027/2028 call had not been published at the research date.",
+  "application_deadline_non_eu": "Identical calendar to the EU round — the calls set one registration window per session for all applicants and split candidates only into two quotas and two anonymous ranking lists (EU vs non-EU). Round 1 (April session): 22 December 2025 12:00 pm – 13 April 2026 12:00 pm (Italian time), test 22 April 2026, place confirmation by 15 May 2026, enrolment 1–20 July 2026 — this round is closed. Round 2 (September session): registration from decree publication (22 July 2026) to 1 September 2026 12:00 pm (extended from the 28 August 2026 12:00 CEST printed in the PDF), test 5 September 2026 home-based — this round is also closed as of 6 September 2026. Critical practical note for applicants outside Italy: candidates attending a foreign/international university or holding a non-Italian degree must begin registration AT LEAST 5 DAYS before the closing date, because the test can only be booked after the Admissions & Credential Evaluation Office has evaluated their academic documents. Neither call mentions Universitaly pre-enrolment or any visa-related cut-off date; the calls' non-EU provisions cover only the quota definition (non-EU citizens not already resident in Italy and holding no second EU citizenship or EU permanent residence permit), the residence-permit copy for non-EU citizens already in Italy, and the CIMEA/Declaration-of-Value chain for foreign qualifications. [uncertain: Universitaly pre-enrolment and visa deadlines are not stated in the programme call and would follow the MUR Ministerial Circular of 1 April 2025 referenced by the call]",
+  "admission_rounds": [
+    {
+      "round_name": "Call 1 — April session, AY 2026/2027 (Rector's Decree no. 9851 of 15 December 2025)",
+      "applicant_group": "all (single window; separate EU and non-EU quotas and ranking lists)",
+      "registration_opens": "22 December 2025, 12:00 pm (Italian time)",
+      "registration_closes": "13 April 2026, 12:00 pm (Italian time)",
+      "test_dates": "22 April 2026 (home-based, remotely proctored); spare session for candidates disconnected through no fault of their own — technical-fault reports to admissions@unisr.it by 23 April 2026 11:59 pm, authorisation communicated by 29 April 2026",
+      "notes": "Places: 50 total, of which 10 reserved for non-EU citizens (so 40 EU, derived). Fee €150. Ranking published within 15 days of the last session on unisr.it/servizi/graduatorie-immatricolazioni/health-informatics. Place confirmation by 15 May 2026 with a non-refundable €1,000 advance deducted from the first instalment. Online enrolment 1 July 2026 12:00 pm to 20 July 2026 12:00 pm. Ranking scrolling from 21 July 2026, with newly admitted candidates enrolling by 3:00 pm of the third working day after each scrolling notice. CLOSED. The call's spare-session paragraph prints '23/04/2025', an apparent typo for 2026."
+    },
+    {
+      "round_name": "September Call — second session, AY 2026/2027 (Rector's Decree no. 10111 of 2026)",
+      "applicant_group": "all (single window; separate EU and non-EU quotas and ranking lists)",
+      "registration_opens": "On publication of the decree — 22 July 2026, 4:00 pm (Italian time) per info.unisr.it; the admissions page and the decree say only 'from the publication date of the following Call for Admission, 4:00 pm'",
+      "registration_closes": "1 September 2026, 12:00 pm (Italian time) — EXTENDED. The decree PDF prints 28 August 2026, 12:00 CEST; the UniSR admissions page overrides it with an 'IMPORTANT UPDATE' extension banner, while info.unisr.it still shows the superseded 28 August date.",
+      "test_dates": "5 September 2026 (home-based, remotely proctored)",
+      "notes": "Places: 22 total — 18 for EU citizens and citizens with EU-equal status, 4 for non-EU citizens residing abroad. Fee €150. Eligibility limited to candidates who have already graduated or will graduate within the Autumn session of AY 2025/2026. Procedure, test content, scoring and enrolment rules incorporate Rector's Decree 9851/2025 by reference. Ranking published within 15 days of the test; enrolment from ranking publication until 12:00 noon on the third working day thereafter. CLOSED as of the research date; info.unisr.it shows 'Enrollments are closed'."
+    }
+  ],
+  "tuition_or_fees_link": "https://www.unisr.it/en/servizi/tasse-contributi/corsi-di-laurea-triennale-e-magistrale",
+  "official_program_url": "https://www.unisr.it/en/offerta-formativa/medicina-chirurgia/corso-laurea-magistrale-health-informatics",
+  "official_call_url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-september-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/1c0784e6-7a1d-4595-bf5f-aeb70e2f198c.pdf",
+  "source_quotes": [
+    {
+      "quote": "Selection and admission to the joint Master's Degree in Health Informatics (Classification LM-18) is based on the number of places available.",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "degree_class, admission_type"
+    },
+    {
+      "quote": "For the academic year 2026/2027 the number of available places is 50 of which 10 are reserved for non-European citizens, in compliance with art. 2 of the Italian law 264/1999.",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "places_eu, places_non_eu"
+    },
+    {
+      "quote": "For the September intake of the academic year 2026/2027, the number of available places is 22, of which 4 are reserved for non-EU citizens, in accordance with Article 2 of Italian Law No. 264/1999.",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-september-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/1c0784e6-7a1d-4595-bf5f-aeb70e2f198c.pdf",
+      "field_supported": "places_eu, places_non_eu"
+    },
+    {
+      "quote": "Places available: 18 for EU citizens and citizens with EU equal status, 4 for NON-EU citizens residing abroad",
+      "url": "https://www.unisr.it/en/servizi/ammissioni/health-informatics",
+      "field_supported": "places_eu, places_non_eu"
+    },
+    {
+      "quote": "IMPORTANT UPDATE: the registration deadline has been extended to 1 September 2026 at 12.00 (Italian time).",
+      "url": "https://www.unisr.it/en/servizi/ammissioni/health-informatics",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu, admission_rounds"
+    },
+    {
+      "quote": "Online registration ... will open upon publication of this Rector's Decree and will close on 28 August 2026 at 12:00 CEST, according to the procedures set out in the admission call issued by Rector's Decree No. 9851 of 15 December 2025",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-september-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/1c0784e6-7a1d-4595-bf5f-aeb70e2f198c.pdf",
+      "field_supported": "admission_rounds, uncertainty_notes"
+    },
+    {
+      "quote": "candidates must register exclusively online via the UniSR Admission Portal from December 22, 2025 at 12:00 pm to April 13, 2026 at 12:00 pm (Italian time).",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "application_deadline_eu, application_deadline_non_eu, admission_rounds"
+    },
+    {
+      "quote": "The admission test for the Master's Degree in Health Informatics will be held on April 22, 2026. The admission test is home-based and takes place with an online proctoring system.",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "entry_exam_or_test, admission_rounds"
+    },
+    {
+      "quote": "Test date: 5 September 2026 (home-based) Registration fee: € 150,00",
+      "url": "https://www.unisr.it/en/servizi/ammissioni/health-informatics",
+      "field_supported": "entry_exam_or_test, admission_rounds"
+    },
+    {
+      "quote": "The selection test is entirely in English and consists of an admission test made of 24 multiple-choice questions (with 4 answer options for each question)",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "Mathematics (8 questions) Informatics (8 questions) Biology (2 questions) Genetics (2 questions) Anatomy (2 questions) Physiology (2 questions) ... The total time available is 60 minutes.",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "1 point for each correct answer; - 0,25 points for each incorrect or not valid answer; 0 points for each non-given answer",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "the registration procedure for the admission test is considered complete only after the payment of the fee of € 150,00 and the booking of the session.",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "entry_exam_or_test"
+    },
+    {
+      "quote": "A degree in one of the following classes: L2 - Biotechnology; L8 - Information Engineering; L13 - Biological Sciences; L31- Information Sciences and Technologies; LM41 - Medicine and Surgery",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "21 credits acquired in the sectors INF/01, ING-INF/05 Or 21 credits acquired in the sectors BIO/09, BIO/13, BIO/16",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "academic_requirements"
+    },
+    {
+      "quote": "In order to enrol, admitted candidates who confirmed their place must submit an official English language certification corresponding to level B2 of the Common European Framework of Reference CEFR.",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "language_requirements, english_level_required"
+    },
+    {
+      "quote": "Those who have attended at least two consecutive years of college entirely in English are exempted from submitting the above-mentioned English language certification.",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "B2 ... Cambridge 160 ... IELTS 5.5 ... TOEFL iBT old 72 ... Required for MSc in Biotechnology for Innovative Therapeutics and for MSc in Health Informatics",
+      "url": "https://www.unisr.it/attachments/English-Language-Certifications/aca140af-03f5-4d52-99a7-238498510275/dabfea10-1332-47be-9ced-b00eb5d25065.pdf",
+      "field_supported": "language_requirements, english_level_required"
+    },
+    {
+      "quote": "TOEFL iBT (only certificates awarded until Dec. 2025)",
+      "url": "https://www.unisr.it/attachments/English-Language-Certifications/aca140af-03f5-4d52-99a7-238498510275/dabfea10-1332-47be-9ced-b00eb5d25065.pdf",
+      "field_supported": "language_requirements"
+    },
+    {
+      "quote": "the course is entirely held in English; therefore, therefore the knowledge of the Italian language will not be tested.",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "teaching_language, language_requirements"
+    },
+    {
+      "quote": "MSc programme in collaboration with Vita-Salute San Raffaele University, where all lessons are held.",
+      "url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/health-informatics",
+      "field_supported": "campus, teaching_language"
+    },
+    {
+      "quote": "For enrollment, applicants must hold an English language certificate at level B2 or higher. Please refer to the Call for application",
+      "url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/health-informatics",
+      "field_supported": "english_level_required, academic_requirements"
+    },
+    {
+      "quote": "Health Informatics is a joint Master's Degree course resulting from the strategic collaboration between Vita-Salute San Raffaele University and Politecnico di Milano",
+      "url": "https://www.unisr.it/en/offerta-formativa/medicina-chirurgia/corso-laurea-magistrale-health-informatics",
+      "field_supported": "program_name, campus"
+    },
+    {
+      "quote": "Admitted candidates have to confirm their place by making a non-refundable advance payment of € 1.000,00 within May 15, 2026.",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "admission_rounds"
+    },
+    {
+      "quote": "Online enrolment will open on July 1, 2026 at noon (Italian time) and will close on July 20, 2026 at noon (Italian time).",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "admission_rounds"
+    },
+    {
+      "quote": "The amount of tuition fees for students enrolling in their first year for the academic year 2026/2027 is € 6.690,00 and it is divided into 3 instalments",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "tuition_or_fees_link"
+    },
+    {
+      "quote": "If you are attending a foreign/international University or you have been awarded a non-Italian Degree, you must register for the competition at least 5 days before the deadline",
+      "url": "https://www.unisr.it/en/servizi/ammissioni/health-informatics",
+      "field_supported": "application_deadline_non_eu, academic_requirements"
+    },
+    {
+      "quote": "Who can participate: candidates who have already graduated or that are going to graduate within the Autumn session of the AY 2025/2026.",
+      "url": "https://www.unisr.it/en/servizi/ammissioni/health-informatics",
+      "field_supported": "academic_requirements, admission_rounds"
+    },
+    {
+      "quote": "AVAILABLE PLACES (II SESSION) 18 for EU citizens 4 for NON-EU citizens residing abroad ... ADMISSION DATE From 22/07/2026 to 28/08/2026 ... Enrollments are closed",
+      "url": "https://info.unisr.it/health-informatics",
+      "field_supported": "admission_rounds, uncertainty_notes"
+    },
+    {
+      "quote": "Statement of Comparability issued by CIMEA Italia (suggested option) OR Declaration of Value (Dichiarazione di Valore) of the qualification issued by the local Italian Diplomatic Authorities",
+      "url": "https://www.unisr.it/attachments/Call-for-Admission-in-Health-Informatics-AY-2026-2027/bf11b9bf-4e32-47d3-8d7d-1d670a2f8ccf/2f096a1a-34a1-4a6e-afb1-f820ec09ac8a.pdf",
+      "field_supported": "required_documents"
+    }
+  ],
+  "uncertainty_notes": "1) PLACE-COUNT CONFLICT (the flagged issue) — resolved differently than the brief assumed. The '50' and '22' figures both come from official Rector's Decrees for AY 2026/2027, not from a marketing page contradicting a call: Decree 9851 of 15 Dec 2025 (April session) states 50 places of which 10 non-EU; Decree 10111 of 2026 (September session) states 22 places of which 4 non-EU. No live UniSR or info.unisr.it page was found stating '50 participants' — both currently show only 18 EU / 4 non-EU, explicitly labelled 'II SESSION'. What remains genuinely unresolved is whether the September 22 places are ADDITIONAL to the 50 or a residual subset of them; neither decree says. Reported both figures rather than picking one. 2) EU/non-EU split for the April round: the call gives only the total (50) and the non-EU reservation (10); the 40 EU figure is arithmetic, not quoted. 3) DEADLINE CONFLICT for the September round: the decree PDF says 28 August 2026 12:00 CEST; the UniSR admissions page carries an extension banner to 1 September 2026 12:00; info.unisr.it still displays the superseded 28 August date. The unisr.it admissions page is treated as authoritative. 4) TIMING — as of 6 September 2026 both AY 2026/2027 rounds are closed (last test held 5 September 2026) and info.unisr.it shows 'Enrollments are closed'; no AY 2027/2028 call has been published, so all dates above are historical and the 2027/28 round is expected to follow the same December-open / April-test plus July-open / September-test pattern, which is an inference, not a published fact. 5) The September round's registration OPENING date (22 July 2026, 4:00 pm) is sourced from info.unisr.it; the decree and the admissions page say only 'from the publication date of this call'. 6) UNIVERSITALY / VISA — neither call mentions Universitaly pre-enrolment, embassy visa application windows, or non-EU visa cut-off dates; these are governed by the MUR Ministerial Circular of 1 April 2025 that the call cross-references, so non-EU applicants must track that separately. 7) No minimum passing score is published for the admission test; admission is by ranking position until places are exhausted, with a reserve list and scrolling. 8) TOEFL iBT is accepted only for certificates awarded up to December 2025; UniSR's list does not name a successor test, so post-2025 TOEFL takers should confirm acceptance directly. 9) MINOR SOURCE DEFECT: the April call's spare-session paragraph prints the date '23/04/2025' where the surrounding text refers to the 2026 test cycle — an evident typo in the official English translation. 10) The English call carries the disclaimer that only the Italian version of the decree has legal value. 11) POLIMI's programme page states its content 'refers to the academic year 2024/25 and may be subject to change', so POLIMI-side statements were used only for campus and the B2 level, both of which are corroborated by the UniSR call. 12) The programme's Italian degree class is given as LM-18 in the call; the UniSR programme page does not print a class code, so no cross-check was possible.",
+  "uncertain": [
+    "places_eu",
+    "places_non_eu",
+    "language_requirements",
+    "entry_exam_or_test"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "ma-quantitative-finance-data-science-economics",
+  "program_name": "Quantitative Finance and Data Science for Economics",
+  "level": "master",
+  "degree_code": "M0208",
+  "degree_class": "Interclass LM-16 R (Finanza) + LM-83 R (Scienze statistiche ed attuariali-aziendali)",
+  "teaching_language": "English. Regolamento: \"Il corso è tenuto in inglese e si svolge in modalità convenzionale.\" One optional course is delivered in Italian.",
+  "curriculum_name_en": "Two tracks: (1) Quantitative and computational finance; (2) Data science for economics and finance.",
+  "campus": "Perugia",
+  "department": "Dipartimento di Economia, via A. Pascoli 20, 06123 Perugia",
+  "admission_type": "open access",
+  "places_available": "Not published — no numero programmato and no explicit \"utenza sostenibile\" figure in the Regolamento didattico.",
+  "academic_requirements": "Direct access with laurea triennale in L-18 (Scienza dell'economia e gestione aziendale), L-33 (Scienze economiche), L-35 (Scienze matematiche), L-41 (Statistica). Also direct access from L-8, L-9, L-30, L-31, L-7 provided the student has acquired at least 18 CFU in SECS-S/01-06 and SECS-P/01-12 sectors. Other/foreign degrees: an Admissions Committee runs a preliminary interview and CV review (\"valutazione preliminare tramite colloquio e analisi del curriculum studiorum\"); a negative outcome triggers curricular integrations (fillable via corsi singoli before the personal-preparation check). WARNING: the UNIPG 2026/27 course-sheet 'Modalità di ammissione' text (40-CFU / four-ambiti rule) appears mismatched/copy-pasted from a different Economics master — the Regolamento didattico's 18-CFU rule is authoritative; verify with the department before publishing.",
+  "language_requirements": "English B2, verified BEFORE matriculation when requesting the nulla osta (\"L'accertamento delle conoscenze... viene fatto prima della immatricolazione, presentando la richiesta di nulla osta\"). Recognised certificates listed via cla.unipg.it. No Italian language requirement for this programme.",
+  "english_certificates_accepted": [
+    "IELTS 5.5-6.5", "TOEFL iBT 72-94", "Cambridge ESOL IGCSE",
+    "LanguageCert International ESOL B2 Communicator", "Gatehouse Awards GA Level 1 (Classic B2)",
+    "Pearson PTE General Level 3", "Trinity ISE II", "Oxford Test of English B2"
+  ],
+  "entry_exam_or_test": "No standardised written test. Grade-based screening: laurea triennale grade >=90/110 is automatically sufficient. Below that, the Consiglio di Corso di Studi evaluates prior academic career and may delegate a preliminary interview (\"colloquio preliminare\") to a dedicated commission, with the interview calendar published on econ.unipg.it.",
+  "nulla_osta_required": "Yes — M0208 is on UNIPG's online nulla-osta list (via SOL, from 3 Aug 2026), and is explicitly tied to the pre-matriculation English-level check.",
+  "required_documents": [
+    "Passport", "Foreign educational qualification documentation", "English B2 certificate (or equivalent, assessed pre-matriculation)",
+    "Curriculum vitae", "Universitaly pre-enrolment (non-EU)", "PICA application"
+  ],
+  "application_deadline_eu": "EU/legally-residing applicants: PICA pre-enrolment from 1 July 2026 (no published closing date); SOL enrolment for open-access master closes 1 March 2027.",
+  "application_deadline_non_eu": "Non-EU visa applicants: PICA call 2026-visa-03, open 29 May 2026 to 7 June 2026, 12:00 — CLOSED as of research date (2026-09-05).",
+  "tuition_or_fees_link": "https://www.unipg.it/en/international-students/becoming-a-unipg-student/tuition-fees-and-scholarships",
+  "tuition_range": "€150–2,200/year depending on family income/merit. Flat Tax (4 UNDP-2016-index brackets) for family-abroad students, or ISEEU Parificato via an affiliated CAF. Declaration window 3 Aug–20 Oct 2026 (late fee to 1 Mar 2027).",
+  "cimea_requirement": "Not specified at programme level; see university-wide study-documents page for CIMEA/blackout-date rules.",
+  "double_degree": "None found on official pages.",
+  "official_program_url": "https://econ.unipg.it/didattica/laurea-magistrale-in-quantitative-finance-and-data-science-for-economics",
+  "official_call_url": "https://econ.unipg.it/files/docs/didattica/regolamenti_2025-2026/regolamento-didattico-corso-di-laurea-magistrale-in-quantitative-finance.pdf",
+  "source_quotes": [
+    {"quote": "Il corso è tenuto in inglese e si svolge in modalità convenzionale", "url": "https://econ.unipg.it/files/docs/didattica/regolamenti_2025-2026/regolamento-didattico-corso-di-laurea-magistrale-in-quantitative-finance.pdf", "field_supported": "teaching_language"},
+    {"quote": "a condizione che lo studente abbia acquisito almeno 18 cfu nei seguenti settori scientifico-disciplinari", "url": "https://econ.unipg.it/files/docs/didattica/regolamenti_2025-2026/regolamento-didattico-corso-di-laurea-magistrale-in-quantitative-finance.pdf", "field_supported": "academic_requirements"},
+    {"quote": "Tale verifica è dichiarata positiva, ogni volta che il richiedente abbia conseguito la Laurea Triennale con una votazione pari o superiore a 90/110", "url": "https://econ.unipg.it/files/docs/didattica/regolamenti_2025-2026/regolamento-didattico-corso-di-laurea-magistrale-in-quantitative-finance.pdf", "field_supported": "entry_exam_or_test"},
+    {"quote": "L'accertamento delle conoscenze e competenze nella lingua richieste viene fatto prima della immatricolazione, presentando la richiesta di nulla osta", "url": "https://econ.unipg.it/files/docs/didattica/regolamenti_2025-2026/regolamento-didattico-corso-di-laurea-magistrale-in-quantitative-finance.pdf", "field_supported": "language_requirements"},
+    {"quote": "starting from May, 29th, 2026 and no later than June, 7th, 2026, at 12:00 A.M.", "url": "https://pica.cineca.it/unipg/2026-visa-03", "field_supported": "application_deadline_non_eu"}
+  ],
+  "uncertainty_notes": "The UNIPG public course-sheet 'Modalità di ammissione' box appears to describe a different Economics master's rules (40-CFU / four ambiti / IUS-AGR sectors not present in this Regolamento) — treated as an error and NOT used; the Regolamento didattico's 18-CFU/90-110 rule was used instead. Recommend confirming directly with dipartimento.econ@unipg.it before publishing. Data collected 2026-09-05, all sources unipg.it/*.unipg.it only.",
+  "research_date": "2026-09-05"
+}

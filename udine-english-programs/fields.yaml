@@ -1,0 +1,138 @@
+topic: "University of Udine (UNIUD) İngilizce programlar - alan tanımları"
+
+field_categories:
+  - category: basic_info
+    description: "Programın temel kimlik bilgileri"
+    fields:
+      - name: program_name
+        description: "Programın tam resmi adı (İngilizce ve varsa İtalyanca)"
+        detail_level: brief
+      - name: level
+        description: "bachelor / master / single-cycle / other"
+        detail_level: brief
+      - name: teaching_language
+        description: "Öğretim dili; tamamen İngilizce mi, karma mı olduğu netleştirilmeli"
+        detail_level: brief
+      - name: campus
+        description: "Kampüs/şehir bilgisi (bazı programlar Udine dışında yürütülüyor, örn. Bolzano)"
+        detail_level: brief
+      - name: degree_class
+        description: "İtalyan derece sınıfı kodu (örn. LM-56, L-18); interclass ise ikisi de belirtilir"
+        detail_level: moderate
+
+  - category: admission
+    description: "Kabul türü ve akademik şartlar"
+    fields:
+      - name: admission_type
+        description: "open access / restricted access / TOLC / SAT / selection call / other"
+        detail_level: brief
+      - name: access_type_detail
+        description: "'accesso libero' mu 'programmato locale' mu, ve programmato ise toplam kontenjan sayısı"
+        detail_level: detailed
+      - name: academic_requirements
+        description: "Akademik ön koşullar (önceki derece, alan, minimum ECTS vb.)"
+        detail_level: detailed
+      - name: entry_exam_or_test
+        description: "Giriş sınavı/test var mı, hangisi (CEnT-S, TOLC, mülakat vb.)"
+        detail_level: moderate
+      - name: entry_test_name_and_deadline
+        description: "Sınav adı + başvuru/uygulama son tarihi + varsa OFA (eksik-yeterlilik) eşiği; kayıt öncesi mi sonrası mı alınabildiği"
+        detail_level: detailed
+
+  - category: capacity_access
+    description: "Kontenjan, idari merkez ve program durumu"
+    fields:
+      - name: reserved_places_non_eu
+        description: "Programa özel AB dışı ikametli öğrencilere ayrılmış kontenjan sayısı (varsa)"
+        detail_level: detailed
+      - name: admin_seat_university
+        description: "Ortak/interateneo programlarda idari merkezin hangi üniversite olduğu (örn. Food Sciences -> unibz); kayıt ve harç süreci oradan yürüyorsa açıkça belirtilmeli"
+        detail_level: detailed
+      - name: course_status_flag
+        description: "Program 'ad esaurimento' (kapanmakta/yeni kayıt almıyor) durumda mı"
+        detail_level: moderate
+
+  - category: language
+    description: "Dil şartları ve öğretim dili detayları"
+    fields:
+      - name: language_requirements
+        description: "İngilizce (ve varsa İtalyanca) dil şartları, kabul edilen sertifikalar, muafiyetler"
+        detail_level: detailed
+      - name: english_level_exception
+        description: "Programa özel İngilizce seviye istisnası (örn. Management Engineering B1, diğerleri B2)"
+        detail_level: detailed
+      - name: english_cert_validity_years
+        description: "İngilizce sertifikasının geçerlilik süresi (UNIUD genel kural: 5 yıl); programa özel farklıysa belirtilir"
+        detail_level: moderate
+      - name: teaching_language_partial_flag
+        description: "'tamamen İngilizce' / 'kısmen İngilizce (X ECTS)' / 'İngilizce müfredat kolu var, diğer kol İtalyanca' ayrımı"
+        detail_level: detailed
+
+  - category: deadlines
+    description: "Başvuru ve kayıt tarihleri"
+    fields:
+      - name: application_deadline_eu
+        description: "AB/İtalyan ikametli öğrenciler için son başvuru (ön-değerlendirme) tarihi"
+        detail_level: detailed
+      - name: application_deadline_non_eu
+        description: "AB dışı ikametli öğrenciler için son başvuru (ön-değerlendirme) tarihi - genelde AB'den daha erken kapanır"
+        detail_level: detailed
+      - name: universitaly_deadline
+        description: "AB dışı adaylar için Universitaly ön-kayıt son tarihi - üniversite başvuru tarihinden ayrı ve genelde daha erken/geç olabilir, karıştırılmamalı"
+        detail_level: detailed
+      - name: decision_timeline_days
+        description: "Başvurudan sonuca kadar geçen resmi süre (iş günü)"
+        detail_level: moderate
+      - name: enrolment_window
+        description: "Kabulden sonraki fiili kayıt (immatricolazione) penceresi; kronolojik sıra/kontenjan dolunca kapanma uyarısı varsa belirtilir"
+        detail_level: moderate
+
+  - category: documents
+    description: "Başvuru için gerekli belgeler"
+    fields:
+      - name: required_documents
+        description: "Başvuru için istenen belgeler listesi"
+        detail_level: detailed
+
+  - category: financial
+    description: "Ücret bilgisi"
+    fields:
+      - name: tuition_or_fees_link
+        description: "Ücret/harç sayfasının resmi linki"
+        detail_level: brief
+
+  - category: links
+    description: "Kaynak ve resmi sayfa linkleri"
+    fields:
+      - name: official_program_url
+        description: "Programın resmi UNIUD (veya ortak üniversite) sayfası"
+        detail_level: brief
+      - name: official_call_url
+        description: "Resmi başvuru/kabul çağrısı (bando/avviso) sayfası veya PDF linki"
+        detail_level: brief
+
+  - category: evidence
+    description: "Kaynak doğrulama ve belirsizlikler"
+    fields:
+      - name: source_quotes
+        description: "Bilginin dayandığı resmi kaynaktan doğrudan alıntılar"
+        detail_level: detailed
+      - name: uncertainty_notes
+        description: "Belirsiz, çelişkili veya doğrulanamamış noktalar; interateneo/ortak program istisnaları burada da tekrar belirtilmeli"
+        detail_level: detailed
+
+uncertain: []
+
+excluded_field_bundle_maliyet_platform_diger:
+  note: >
+    Kullanıcı kararıyla bu tur eklenmedi. Deep research sırasında bu bilgiler
+    tesadüfen bulunursa uncertainty_notes veya source_quotes alanına serbest
+    metin olarak eklenebilir, ayrı yapılandırılmış alan açılmayacak.
+  fields_not_added:
+    - application_platform
+    - application_fee
+    - tuition_min_max_and_isee_exemption
+    - min_gpa_requirement
+    - selection_interview_required
+    - dedicated_program_website
+    - double_degree_partners

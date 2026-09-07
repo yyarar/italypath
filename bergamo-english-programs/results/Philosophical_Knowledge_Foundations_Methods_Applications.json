@@ -1,0 +1,158 @@
+{
+  "program_name": "Philosophical Knowledge: Foundations, Methods, Applications",
+  "level": "master",
+  "teaching_language": "English (entire programme)",
+  "campus": "Campus S. Agostino (Città Alta), Bergamo",
+  "degree_class": "LM-78 Philosophy",
+  "access_type": "open access",
+  "programme_name_history": "Current official English name: Philosophical Knowledge: Foundations, Methods, Applications. The corresponding Italian title is Conoscenza filosofica: Fondamenti, Metodi, Applicazioni; no former programme name was identified.",
+  "awarding_institution": "Inter-university programme jointly taught by the University of Bergamo, the University of Pavia, and IUSS Pavia; the official regulatory record describes a joint degree and identifies the University of Bergamo as the initial administrative headquarters.",
+  "admission_type": "Open access, subject to verification of curricular requirements, personal preparation, and CEFR B2 English. Candidates whose curriculum is suitable are normally assessed through an individual English-language interview, with specified exemptions for certain L-5 Philosophy graduates/students.",
+  "academic_requirements": "A three-year bachelor's degree (or equivalent under earlier Italian systems), or a suitable foreign bachelor's degree, is required. Applicants must hold an Italian L-5 Philosophy degree or have earned at least 24 credits in the listed philosophy-related academic disciplines. Curricular eligibility is assessed before personal preparation. Applicants who lack the curricular requirements cannot proceed to the personal-preparation assessment and may complete missing requirements through individual courses for admission in a later academic year.",
+  "curricular_requirements_cfu": {
+    "standard_route": "Italian L-5 Philosophy bachelor's degree",
+    "alternative_route": "At least 24 credits in total across the accepted disciplines",
+    "accepted_disciplines": [
+      "PHIL-01/A Theoretical Philosophy",
+      "PHIL-02/A Logic and Philosophy of Science",
+      "PHIL-03/A Ethics",
+      "PHIL-04/A Aesthetics",
+      "PHIL-04/B Philosophy and Theory of Language",
+      "PHIL-05/A History of Philosophy",
+      "PHIL-05/B History of Ancient Philosophy",
+      "PHIL-05/C History of Medieval Philosophy",
+      "GIUR-17/A Philosophy of Law",
+      "GPS-01/A Political Philosophy"
+    ]
+  },
+  "entry_exam_or_test": "No competitive entrance examination is published. Admission involves curriculum screening and a personal-preparation interview when applicable. The interview has one part on the applicant's academic background and programme-relevant areas (including history of philosophy, metaphysics, ethics, epistemology, logic, and philosophy of mind) and a second part on motivation. B2 English may also be assessed in the interview.",
+  "interview_required": "Normally required after a positive curricular assessment. Exemptions apply to applicants holding an L-5 Philosophy degree (or equivalent under the former Italian system) with a final grade of at least 100/110, and applicants awaiting completion of an L-5 Philosophy degree whose examination average is at least 26/30. An exempt applicant who cannot otherwise prove B2 English must still take a language-proficiency interview. For visa applicants and all foreign-degree applicants using online pre-assessment, the Academic Preparation Pre-Assessment Interview replaces the general Initial Preparation Review.",
+  "interview_language": "English; all programme-specific 2026/27 interviews are conducted remotely.",
+  "selection_scoring": "No competitive ranking rubric or numerical pass threshold is published. The curriculum is first checked against the L-5 or 24-credit requirement. The interview then assesses academic preparation, motivation, disciplinary knowledge, scientific and linguistic skills, familiarity with methodologies, and research interests. The published exemption thresholds are 100/110 for completed L-5 degrees and a 26/30 examination average for applicants completing an L-5 degree.",
+  "degree_completion_deadline": "For ordinary 2026/27 pre-enrolment, candidates may apply conditionally when no more than three examinations totaling no more than 24 CFU, plus the final examination, remain; the degree must be obtained by the extraordinary March/April 2027 graduation session. The programme page also expressly recognizes applicants awaiting completion of an L-5 degree at pre-enrolment. The completion rule for international online pre-evaluation should be confirmed in that call [uncertain].",
+  "application_channel": "Applicants holding a foreign qualification use the University of Bergamo online pre-evaluation portal (apply.unibg.it/DreamApply). Visa-seeking non-EU applicants must also complete Universitaly and the applicable diplomatic/consular procedures. Ordinary programme pre-enrolment and enrolment use UniBG online student services.",
+  "language_requirements": "English at CEFR B2 is mandatory. B2 proficiency is assessed through the admission interview unless the applicant has passed an English examination at an equivalent level or holds an equivalent certificate recognized by the University Language Centre. Applicants exempt from the personal-preparation interview who cannot otherwise document B2 must take a language-proficiency interview.",
+  "accepted_english_certificates": [
+    "IELTS: 5.5-6.5",
+    "TOEFL iBT: 79-95",
+    "TOEFL ITP: 543-600",
+    "TOEFL CBT: 213-240",
+    "PTE Academic: 46-64",
+    "Cambridge First Certificate/FCE: grades B or C",
+    "Trinity College ISE II",
+    "Pearson Test of English General: Level 3",
+    "BEC Vantage",
+    "TIE: minimum B2 in both oral and written tests",
+    "Cambridge ESOL: Level 1",
+    "ESB ESOL International: minimum Pass with Merit",
+    "TOLIMO (Iran): no skill lower than 600"
+  ],
+  "language_waiver_conditions": "The programme waives its B2 interview test for students who have passed an English examination at an equivalent level or hold an equivalent certificate recognized by the University Language Centre. For the international pre-evaluation route, a registrar/international-office medium-of-instruction certificate for a degree taught entirely in English is accepted; unofficial certificates and self-declarations are not accepted, and native English-speaking applicants are exempt.",
+  "application_deadline_eu": [
+    "2026-05-29 (programme pre-enrolment round 1)",
+    "2026-08-28 (programme pre-enrolment round 2)",
+    "2026-09-30 (programme pre-enrolment round 3)",
+    "2026-10-30 (late pre-enrolment round 1)",
+    "2026-11-13 (late pre-enrolment round 2)"
+  ],
+  "application_deadline_non_eu": [
+    "2026-01-15 23:59:59 GMT (2026/27 international pre-evaluation first call)",
+    "2026-01-31 23:59:59 GMT (2026/27 international pre-evaluation second call)"
+  ],
+  "application_call_round": [
+    {
+      "route": "International online pre-evaluation first call - open-access master's programmes",
+      "application_period": "2025-11-24 to 2026-01-15",
+      "interview_period": "February-March 2026",
+      "results": "By 2026-03-31"
+    },
+    {
+      "route": "International online pre-evaluation second call - open- and limited-access master's programmes",
+      "application_period": "2026-01-01 to 2026-01-31",
+      "interview_period": "March-April 2026",
+      "results": "By 2026-04-30"
+    },
+    {
+      "route": "Programme pre-enrolment round 1",
+      "application_period": "2026-04-01 to 2026-05-29",
+      "interview": "2026-06-22 at 10:00"
+    },
+    {
+      "route": "Programme pre-enrolment round 2",
+      "application_period": "2026-06-03 to 2026-08-28",
+      "interview": "2026-09-14 at 14:00"
+    },
+    {
+      "route": "Programme pre-enrolment round 3",
+      "application_period": "2026-09-01 to 2026-09-30",
+      "interview": "2026-10-16 at 10:00"
+    },
+    {
+      "route": "Late programme pre-enrolment round 1",
+      "application_period": "2026-10-01 to 2026-10-30",
+      "interview": "2026-11-12 at 09:00"
+    },
+    {
+      "route": "Late programme pre-enrolment round 2",
+      "application_period": "2026-11-02 to 2026-11-13",
+      "interview": "2026-11-30 at 14:00"
+    }
+  ],
+  "results_notification_date": "International pre-evaluation results are scheduled by 2026-03-31 for the first call and by 2026-04-30 for the second call. The programme-specific page publishes interview dates but no separate result-notification dates [uncertain].",
+  "max_programme_choices": 2,
+  "required_documents": [
+    "Bachelor degree certificate translated into English or Italian",
+    "Official academic transcript for the last three/four years translated into English or Italian, or Diploma Supplement",
+    "Descriptions of major-area courses, including relevant contents, themes, aims, and objectives",
+    "English-language evidence: accepted B2 certificate or qualifying medium-of-instruction certificate, if used for exemption",
+    "Valid passport showing full name, photograph, and signature",
+    "At least one reference",
+    "Original entry-qualification documents to be presented on arrival for final enrolment"
+  ],
+  "references_required": "At least 1 reference",
+  "course_descriptions_required": "Yes. Descriptions of the relevant contents, themes, aims, and objectives of major-area courses are required for international online pre-evaluation.",
+  "application_fee": "EUR 30 pre-evaluation fee for the 2026/27 international online pre-evaluation route.",
+  "pre_enrolment_fee": "EUR 52 one-time, non-refundable, payable only by eligible applicants; the ordinary master's pre-enrolment rules may charge this per selected programme.",
+  "enrolment_deposit": "EUR 156 one-time, non-refundable enrolment fee payable on arrival in Italy.",
+  "tuition_or_fees_link": "https://en.unibg.it/study/enrollment/costs/taxes-and-benefits — official UniBG fees and benefits page. The official programme application record lists a first tuition instalment of EUR 0-400 and a second instalment of EUR 0-1,700, both depending on family income.",
+  "tuition_income_linked": "Yes. The official programme application record states that both tuition instalments vary according to the student's family income.",
+  "official_program_url": "https://ls-pfma.unibg.it/en",
+  "official_call_url": "https://apply.unibg.it/courses/course/44-lm-philosophical-knowledge-foundations-methods-applications",
+  "source_quotes": [
+    {
+      "source": "https://ls-pfma.unibg.it/en/course/admission-requirements",
+      "quote": "Candidates must have the ‘laurea triennale in filosofia’ (L-5) or at least 24 credits in the following academic disciplines."
+    },
+    {
+      "source": "https://ls-pfma.unibg.it/en/course/admission-requirements",
+      "quote": "Admission to the program is also subject to proof of adequate personal preparation and knowledge of English at level B2."
+    },
+    {
+      "source": "https://ls-pfma.unibg.it/en/course/admission-requirements",
+      "quote": "If their curriculum is deemed appropriate, they will be invited to an interview in English."
+    },
+    {
+      "source": "https://ls-pfma.unibg.it/en/how/how-apply",
+      "quote": "Pre enrolment from 1 April 2026 to 29 May 2026"
+    },
+    {
+      "source": "https://ls-pfma.unibg.it/en/how/how-apply",
+      "quote": "All interviews will be conducted remotely."
+    },
+    {
+      "source": "https://apply.unibg.it/courses/course/44-lm-philosophical-knowledge-foundations-methods-applications",
+      "quote": "Study location Italy, Bergamo"
+    },
+    {
+      "source": "https://apply.unibg.it/courses/course/44-lm-philosophical-knowledge-foundations-methods-applications",
+      "quote": "At least 1 reference(s) must be provided."
+    }
+  ],
+  "uncertainty_notes": "Programme-specific 2026/27 dates, curricular requirements, interview method, LM-78 class, English teaching language, and open-access status were directly verified on current official UNIBG pages. The non-EU deadlines, common document list, accepted-certificate score list, and EUR 30 fee come from the current common UNIBG international pre-evaluation route, because the programme's DreamApply application actions no longer expose their dates after the application periods close. The programme-specific page does not publish separate result-notification dates. The international route's conditional degree-completion rule should be reconfirmed in the applicant's applicable call.",
+  "source_access_status": "Official UNIBG sources only. The ls-pfma.unibg.it admissions and 2026/27 programme deadline pages, the central www.unibg.it programme record, and the indexed official apply.unibg.it course record were accessible. DreamApply's application-action links produced session/redirect errors after the application period ended.",
+  "last_verified_date": "2026-09-05",
+  "uncertain": [
+    "degree_completion_deadline",
+    "results_notification_date"
+  ]
+}

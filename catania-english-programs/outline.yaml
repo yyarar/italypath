@@ -1,0 +1,126 @@
+topic: "University of Catania (UNICT) - English-taught bachelor's and master's programmes: admission requirements"
+topic_tr: "Catania Üniversitesi (UNICT) İngilizce eğitim veren lisans ve yüksek lisans programları: başvuru koşulları"
+source_scope:
+  - "Only official unict.it pages/PDFs (main site + department sites, e.g. dfa.unict.it, dicar.unict.it, dieei.unict.it, dsps.unict.it, di3a.unict.it, dei.unict.it, chirmed.unict.it)"
+priority_academic_year: "2026/2027"
+fallback_rule: "If 2026/2027 admission info is not yet published for a given field, use the most recent official academic year available and record the year used in data_academic_year."
+
+items:
+  # -- Master's degree programmes (laurea magistrale, 2 years / 120 ECTS), all English-taught --
+  - id: catania-lm17-physics
+    name: "Physics"
+    program_name: "Physics"
+    degree_class: "LM-17 R"
+    level: master
+    department: "Dept. of Physics and Astronomy (DFA)"
+    seed_url: "https://www.dfa.unict.it/courses/LM-17"
+    notes: "Requires bachelor's degree obtained no more than 6 years prior; higher English bar (TOEFL 80) than most other programmes."
+
+  - id: catania-lm22-chemical-engineering
+    name: "Chemical Engineering for Industrial Sustainability"
+    program_name: "Chemical Engineering for Industrial Sustainability"
+    degree_class: "LM-22 R"
+    level: master
+    department: "Dept. of Civil Engineering and Architecture (DICAR)"
+    seed_url: "https://www.dicar.unict.it/en/courses/lm-22"
+
+  - id: catania-lm25-automation-engineering
+    name: "Automation Engineering and Control of Complex Systems"
+    program_name: "Automation Engineering and Control of Complex Systems"
+    degree_class: "LM-25"
+    level: master
+    department: "Dept. of Electrical, Electronics and Computer Engineering (DIEEI)"
+    seed_url: "https://www.dieei.unict.it/en/courses/lm-25"
+
+  - id: catania-lm26-construction-management
+    name: "Construction Management and Safety"
+    program_name: "Construction Management and Safety"
+    degree_class: "LM-26 R"
+    level: master
+    department: "Dept. of Civil Engineering and Architecture (DICAR)"
+    seed_url: "https://www.dicar.unict.it/en/courses/lm-26/course-overview"
+
+  - id: catania-lm27-communications-engineering
+    name: "Communications Engineering"
+    program_name: "Communications Engineering"
+    degree_class: "LM-27"
+    level: master
+    department: "Dept. of Electrical, Electronics and Computer Engineering (DIEEI)"
+    seed_url: "https://www.dieei.unict.it/courses/lm-27"
+
+  - id: catania-lm28-electrical-engineering
+    name: "Electrical Engineering for Sustainable Green Energy Transition"
+    program_name: "Electrical Engineering for Sustainable Green Energy Transition"
+    degree_class: "LM-28"
+    level: master
+    department: "Dept. of Electrical, Electronics and Computer Engineering (DIEEI)"
+    seed_url: "https://www.dieei.unict.it/en/courses/lm-28"
+    notes: "Lower English threshold reported (IELTS 5.0 / TOEFL 60 / Cambridge PET) - verify per current cycle."
+
+  - id: catania-lm29-electronic-engineering
+    name: "Electronic Engineering"
+    program_name: "Electronic Engineering"
+    degree_class: "LM-29"
+    level: master
+    department: "Dept. of Electrical, Electronics and Computer Engineering (DIEEI)"
+    seed_url: "https://www.dieei.unict.it/en/courses/lm-29"
+
+  - id: catania-lm62-global-politics
+    name: "Global Politics and Euro-Mediterranean Relations (GLOPEM)"
+    program_name: "Global Politics and Euro-Mediterranean Relations (GLOPEM)"
+    degree_class: "LM-62 R"
+    level: master
+    department: "Dept. of Political and Social Sciences (DSPS)"
+    seed_url: "https://www.dsps.unict.it/en/courses/lm-62/course-overview"
+    notes: "Largest non-EU quota among UNICT English programmes (reported 50 places in 2025/26 - reverify for 2026/27)."
+
+  - id: catania-lm69-agricultural-sciences
+    name: "Agricultural Sciences and Technology"
+    program_name: "Agricultural Sciences and Technology"
+    degree_class: "LM-69 R"
+    level: master
+    department: "Dept. of Agriculture, Food and Environment (DI3A)"
+    seed_url: "https://www.di3a.unict.it/corsi/lm-69-eng"
+    notes: "Lower English threshold reported (IELTS 5.0 / TOEFL 60 / PET) - verify per current cycle."
+
+  - id: catania-lmdata-data-science
+    name: "Data Science"
+    program_name: "Data Science"
+    degree_class: "LM-DATA"
+    level: master
+    department: "Dept. of Mathematics and Computer Science / Dept. of Electrical, Electronics and Computer Engineering (DMI/DEI)"
+    seed_url: "https://www.dei.unict.it/corsi/lm-data"
+    notes: "Newest programme, uses the new national LM-DATA class."
+
+  # -- Single-cycle degree (laurea magistrale a ciclo unico), English-taught --
+  - id: catania-lm41-medicine-surgery
+    name: "Medicine and Surgery"
+    program_name: "Medicine and Surgery"
+    degree_class: "LM-41 R"
+    level: single-cycle
+    department: "Dept. of Medical and Surgical Sciences and Advanced Technologies (Chirmed)"
+    seed_url: "https://www.chirmed.unict.it/en/courses/lm-41-eng/admission"
+    notes: >
+      Only English-taught programme reachable directly from high school.
+      Follows a DIFFERENT admission regime from the other 10 programmes: national numerus
+      clausus via Universitaly, not the UNICT public selection call. 2026/27: 80 places,
+      entrance test 29 Sept 2026, Universitaly registration 26 Aug - 9 Sept 2026 (15:00).
+      Also check the 2026 pre-enrolment cap notice (D.R. 2092/2026) which may block late
+      Universitaly registrations for a given cycle.
+
+excluded_items:
+  - program_name: "Relazioni internazionali (International Trade Relations)"
+    degree_class: "LM-52 R"
+    reason: "Official 2026/27 catalogue lists teaching language as 'italiano e inglese' (mixed), not fully English-taught - excluded per scope (only fully English-taught programmes)."
+  - program_name: "(all Bachelor's / laurea triennale programmes)"
+    reason: "Confirmed negative finding: UNICT publishes no English-taught Bachelor's degree programmes. All laurea triennale courses are Italian-taught and require Italian B2 or CISIA L2 >= 40/72. Documented here so this isn't re-researched as a gap."
+
+admission_process_notes:
+  - "Two parallel, structurally different admission routes exist for the 10 master's programmes: (1) non-EU public selection call (D.R. 392/2026), deadline 17 Mar 2026 23:59, portal studenti.smartedu.unict.it; (2) EU/equated-citizens pre-evaluation webform, deadline 30 Jun 2026, portal webform.unict.it. Each programme's page must be checked for both routes."
+  - "Medicine and Surgery follows a third, separate national process via Universitaly (numerus clausus), unrelated to the two routes above."
+  - "Per-programme non-EU seat quotas found during preliminary search are from the 2025/26 press release and must be reverified against the 2026/27 call annex."
+
+execution:
+  batch_size: 3
+  items_per_agent: 1
+  output_dir: "./catania-english-programs/results"

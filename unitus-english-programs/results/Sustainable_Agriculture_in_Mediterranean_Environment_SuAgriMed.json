@@ -1,0 +1,96 @@
+{
+  "program_name": "Sustainable Agriculture in Mediterranean Environment (SuAgriMed) [uncertain - see uncertainty_notes: no unitus.it page or PDF uses the name 'SuAgriMed' or 'Sustainable Agriculture in Mediterranean Environment' any longer; the current official English curriculum name at this URL is 'Organic Agriculture in Mediterranean Area (OrgAgriMed)', within the LM-69 'Agricultural and Environmental Sciences' programme]",
+  "level": "master",
+  "teaching_language": "fully English (curriculum-specific: this is the English-taught curriculum, currently named 'Organic Agriculture in Mediterranean Area / OrgAgriMed', within the LM-69 'Agricultural and Environmental Sciences' programme; the other curriculum, 'Agricultural Science / ScAg', is taught entirely in Italian)",
+  "campus": "Viterbo - Campus Riello. Department: Agriculture and Forest Sciences (DAFNE - Dipartimento di Scienze Agrarie e Forestali)",
+  "degree_class": "LM-69",
+  "admission_type": "open access",
+  "academic_requirements": "A bachelor's degree (laurea) or equivalent foreign qualification is required, particularly from class L-25 (or the earlier equivalent class 20). Candidates must have acquired at least 24 CFU distributed as: 12 CFU in SSD ranging FIS/01-07, MAT/01-09, CHIM/01-11, INF/01, SECS-S/01-02-03-06, BIO/01-02-03-04-07-10; and 12 CFU in SSD ranging AGR/01-20, IUS/03, SECS-P/01-02-08. Adequacy of personal preparation is verified through an oral entrance exam ('prova di ingresso') held before a commission of professors from the relevant SSDs, covering the knowledge/competences acquired in the bachelor's degree; the exam also checks whether the candidate has passed an English exam or otherwise has sufficient English to understand international scientific literature. Enrolment is conditional on a positive outcome of this exam. [uncertain] This 24-CFU/SSD threshold and entrance-exam description come from the Italian program page's general 'Requisiti di ammissione' section for the whole LM-69 course (both curricula); the official English-language page separately states 'Only for the curriculum Organic Agriculture in Mediterranean Area: Oral interview' as the admission requirement for this specific English curriculum, which may mean the process differs slightly (interview vs. formal commission exam) for OrgAgriMed applicants versus the Italian ScAg curriculum. A dedicated LM-69 didactic regulation PDF specific to the current OrgAgriMed curriculum's own CFU/SSD prerequisites could not be located (only an older 2024/2025-dated general LM-69 flyer/brochure was found, plus the Italian program page's requirements text).",
+  "language_requirements": "English proficiency at CEFR B2 level per the university-wide baseline (accepted certificates: IELTS, TOEFL, TCL, Cambridge First, PTE Academic, Oxford Test of English, Aptis ESOL General/Advanced, or documentation of a prior EMI degree). No Italian language requirement applies to this English-taught curriculum. [uncertain] No curriculum-specific numeric score table was found for OrgAgriMed/SuAgriMed specifically; only the general LM-69 admission text (which checks 'conoscenza della lingua inglese ad un livello che gli consenta la comprensione della letteratura scientifica internazionale' during the entrance exam) and the university-wide B2 baseline were found.",
+  "entry_exam_or_test": "Mandatory oral interview, per the official English program page ('Admission: Only for the curriculum Organic Agriculture in Mediterranean Area: Oral interview'). A university-wide interview calendar for the whole 'Agricultural and Environmental Sciences' (LM-69) course, covering both curricula, is published on the DAFNE 'Master's Degrees - Pre-enrolment Application and Calendar of Interviews' page, contact Prof. Roberto Mancinelli (mancinel@unitus.it, tel. 0761357556), conducted online via Google Meet, generally at 11:00: 27 July 2026, 22 September 2026, 30 October 2026, 27 November 2026, 23 December 2026, 29 January 2027, 25 February 2027. Interviews are booked via a linked scheduling form on that page. No TOLC, no numerus clausus/bando. The Italian program page additionally describes a more formal 'prova di ingresso' (entrance exam) before a departmental commission for the LM-69 course in general (see academic_requirements); it is unclear whether this formal commission exam and the 'oral interview' referenced on the English page for OrgAgriMed are the same event or two distinct steps.",
+  "application_deadline_eu": "No programme-specific application deadline is published on the official unitus.it program page (admission is rolling, gated by the oral interview, not a call/bando); the DAFNE interview calendar instead lists recurring interview session dates through the year (see entry_exam_or_test) rather than a single deadline. University-wide 2026/2027 enrolment calendar applies: enrolment opens 2026-08-01, deadline for 1st-year Master's students 2026-12-29, with extension to 2027-02-28 for January/February graduates.",
+  "application_deadline_non_eu": "No programme-specific deadline published. University-wide 2026/2027 calendar applies: non-EU visa application cutoff at the consulate is 2026-11-30; onsite enrolment via the International Students Desk opens 2026-08-01; Universitaly pre-enrolment is open for a.y. 2026/2027 (Universitaly itself typically opens around April/May).",
+  "required_documents": [
+    "[uncertain] No programme-specific required-documents list was found on unitus.it for this curriculum beyond the pre-enrolment application form instructions below; the remaining items are inferred from the university-wide required_documents_baseline (outline.yaml)",
+    "Pre-enrolment application, submitted either via the DAFNE application form (emailed to dafne@unitus.it) or through the student GOMP portal, per the DAFNE calendar page instructions ('Matriculations and Entrance Tests > Master's degree courses > Pre-enrolment assessment of previous career > Application for verification of curricular and cultural requirements for access to the Master's degree')",
+    "For candidates with a bachelor's degree from another university: first register from scratch on the GOMP portal to create a profile",
+    "Prior degree diploma (laurea) or equivalent foreign qualification + transcript showing CFU/SSD breakdown, certified copy + Apostille/legalization + certified Italian translation OR CIMEA Statement of Verification",
+    "Declaration of Value (Dichiarazione di Valore) OR CIMEA Statement of Comparability OR ARDI Statement of Correspondence (for foreign qualifications)",
+    "English language certificate (B2) or equivalent proof of English proficiency",
+    "Admission letter (issued after the interview / entrance exam)"
+  ],
+  "tuition_or_fees_link": {
+    "url": "https://www.unitus.it/en/students/fees-and-contributions/",
+    "note": "General UNITUS fees page. ISEEUP income-based tiered tuition for EU/assimilated students; non-EU students without an ISEEUP declaration pay a flat fee based on a 4-tier country band (EUR 600 / 1,050 / 1,500 / 1,950 per year, per Annex 1 of the 2026/2027 tuition regulations). No curriculum-specific fee figure was found."
+  },
+  "official_program_url": "https://www.unitus.it/en/courses/second-cycle-degree/agricultural-and-environmental-sciences-ms/",
+  "official_call_url": "https://www.unitus.it/wp-content/uploads/2024/09/Reg.to-did.-SAA-2024-1.pdf",
+  "source_quotes": [
+    {
+      "field": "program_name / naming discrepancy",
+      "quote": "LM69 – Sustainable Agriculture in Mediterranean Environment (SuAgriMed)",
+      "url": "https://www.unitus.it/en/international/courses-catalogue/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "program_name / naming discrepancy",
+      "quote": "Curriculum \"Organic Agriculture in Mediterranean Areas (OrgAgriMed)\", in this programme the teaching courses focus the attention to the sustainability, resilience, and climate change aspects in mediterranean environments of food production processes; all teaching courses of the whole programme is held in Englisch language. This MSc programme will be started in September 2024.",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/agricultural-and-environmental-sciences-ms/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "identity/campus/degree_class",
+      "quote": "LM-69 / Agricultural and environmental sciences – MS / Headquarter: Campus Riello Viterbo / Department: Agriculture and Forest Sciences",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/agricultural-and-environmental-sciences-ms/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "admission_type / entry_exam_or_test",
+      "quote": "Admission: Only for the curriculum Organic Agriculture in Mediterranean Area: Oral interview",
+      "url": "https://www.unitus.it/en/courses/second-cycle-degree/agricultural-and-environmental-sciences-ms/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "academic_requirements",
+      "quote": "I candidati devono aver acquisito almeno 24 CFU così ripartiti: 12 CFU nei SSD: da FIS/01 a FIS/07; da MAT/01 a MAT/09; da CHIM/01 a CHIM/11; INF/01; SECS-S/01/02/03/06; BIO/01/02/03/04/07/10; 12 CFU nei SSD: da AGR/01 a AGR/20; IUS/03; SECS-P/01/02/08.",
+      "url": "https://www.unitus.it/corsi/corsi-di-laurea-magistrale/scienze-agrarie-e-ambientali/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "entry_exam_or_test",
+      "quote": "La prova d'ingresso è orale e viene svolta di fronte ad una commissione di docenti designati dal CCS [...] Durante la prova di ingresso è anche verificato se il candidato ha superato l'esame di lingua inglese o [...] possiede la conoscenza della lingua inglese ad un livello che gli consenta la comprensione della letteratura scientifica internazionale.",
+      "url": "https://www.unitus.it/corsi/corsi-di-laurea-magistrale/scienze-agrarie-e-ambientali/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "entry_exam_or_test (interview calendar)",
+      "quote": "Agricultural and environmental sciences / Prof. Roberto Mancinelli [...] Schedule of Exams: [...] 27 luglio 2026 [...] 22 settembre 2026 [...] 30 ottobre 2026 [...] 27 novembre 2026 [...] 23 dicembre 2026 [...] 29 gennaio 2027 [...] 25 febbraio 2027 / Ore 11.00 in videoconferenza su GMeet",
+      "url": "https://www.unitus.it/en/departments/dafne/didactics/masters-degrees-pre-enrolment-application-and-calendar-of-interviews/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "No programme-specific deadline published on unitus.it; university-wide calendar: enrolment 2026-08-01 to 2026-12-29 for 1st-year Master's (per shared_admission_baseline / official_calendar_2026_2027)",
+      "url": "https://www.unitus.it/en/join-unitus/how-to-enroll/",
+      "accessed": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "No programme-specific deadline published on unitus.it; university-wide non-EU visa cutoff 2026-11-30 (per shared_admission_baseline / official_calendar_2026_2027)",
+      "url": "https://www.unitus.it/en/join-unitus/how-to-enroll/",
+      "accessed": "2026-09-05"
+    }
+  ],
+  "uncertainty_notes": "NAME CHANGE / MISMATCH (important for ItalyPath): the outline's official English-programme catalogue page (unitus.it/en/international/courses-catalogue/) links to this program's URL under the label 'LM69 – Sustainable Agriculture in Mediterranean Environment (SuAgriMed)'. However, the actual program page at that URL, its official 2026-dated PDF brochure (AGRICULTURE-AND-ENVIRONMENTAL-SCIENCES.pdf), and every piece of body content on unitus.it instead name this English curriculum 'Organic Agriculture in Mediterranean Area / Areas (OrgAgriMed)' - there is no occurrence anywhere on unitus.it of the exact strings 'SuAgriMed' or 'Sustainable Agriculture in Mediterranean Environment'. The safest interpretation is that 'SuAgriMed' was an earlier working name (both the brochure and the page mention this English curriculum 'will start' in September 2024/2025, suggesting it is a newly launched track that may have been renamed between planning and launch) and 'OrgAgriMed' is the current, official name for the same curriculum slot within LM-69 'Agricultural and Environmental Sciences'. This should be verified directly with DAFNE (dafne@unitus.it) before publishing to end users, since a genuinely separate 'SuAgriMed' programme distinct from OrgAgriMed could not be ruled out with certainty, only judged unlikely given the identical class (LM-69), department (DAFNE), campus (Viterbo/Riello), and 'started 2024/2025' timing. || The formal LM-69 academic-requirements text (24 CFU / SSD thresholds, commission-based oral entrance exam) was found only on the Italian-language program page and describes the LM-69 course in general; it is not explicitly split out per curriculum, so it is not certain these exact thresholds apply unmodified to OrgAgriMed applicants (who by definition come from non-Italian, often non-L-25 backgrounds) versus being superseded by a simpler 'oral interview' as stated on the English page for this curriculum specifically. || No dedicated didactic regulation PDF for the current OrgAgriMed curriculum (as opposed to the general LM-69/SAA regulation, which itself is dated 2024 and covers the L-25 bachelor's, not the LM-69 master's, in at least one of the PDFs found) could be confirmed; official_call_url points to the LM-69-labeled regulation PDF found via search, but this could not be fully verified as covering the OrgAgriMed curriculum specifically. || No curriculum-specific fee figure, or required-documents list beyond the university-wide baseline and the general DAFNE pre-enrolment instructions, was found.",
+  "uncertain": [
+    "program_name",
+    "academic_requirements",
+    "language_requirements",
+    "entry_exam_or_test",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "required_documents",
+    "tuition_or_fees_link",
+    "official_call_url"
+  ]
+}

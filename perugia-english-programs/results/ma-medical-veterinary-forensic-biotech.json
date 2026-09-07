@@ -1,0 +1,42 @@
+{
+  "id": "ma-medical-veterinary-forensic-biotech",
+  "program_name": "Medical, Veterinary and Forensic Biotechnological Sciences — Italian name: Scienze biotecnologiche mediche, veterinarie e forensi. Regolamento uses \"Master's Degree in Medical, Veterinary or Forensic Biotechnological Sciences\"; awarded title: MSc in Medical, Veterinary or Forensic Biotechnology.",
+  "level": "master",
+  "degree_code": "M1033",
+  "degree_class": "LM-9 R (Biotecnologie mediche, veterinarie e farmaceutiche)",
+  "teaching_language": "Entirely English, confirmed by the official Regolamento (\"Course Language: English\") and by the Italian course sheet: \"A partire dall'Anno Accademico 2017-2018 il corso è svolto integralmente in lingua inglese\". Verified against UNIPG's official 'Courses entirely taught in English' list, A.Y. 2026/27.",
+  "curriculum_name_en": "Three Year-2 curricula: Medical, Veterinary, Forensic.",
+  "campus": "Perugia (lecture halls at Sant'Andrea delle Fratte and San Costanzo)",
+  "department": "Dipartimento di Medicina e Chirurgia (course organiser), with Medicina Veterinaria and Giurisprudenza",
+  "admission_type": "open access",
+  "places_available": "Not published (\"Libero\" access for both Year 1 and Year 2, no numero programmato).",
+  "academic_requirements": "Open to Italian laurea triennale in classes L-2 (Biotecnologie), L-13 (Scienze biologiche), L-SNT3 (Professioni sanitarie tecniche — only bio-medical laboratory technicians), LM-41 (Medicina e Chirurgia), LM-42 (Medicina Veterinaria), L-38 (Scienze zootecniche e tecnologie delle produzioni animali), and their pre-2001 equivalents. Candidates from other classes or foreign universities are evaluated by an Admissions Committee case-by-case, requiring a strong background in chemistry, biochemistry, molecular/cellular biology and physiopathology; the committee may prescribe an individual up-grading programme (recovered via single courses at UNIPG).",
+  "language_requirements": "English B2 (QCER/CEFR) required for admission. No Italian language requirement.",
+  "english_certificates_accepted": [
+    "IELTS 5.5-6.5", "TOEFL iBT 72-94", "Cambridge ESOL IGCSE",
+    "LanguageCert International ESOL B2 Communicator", "Gatehouse Awards GA Level 1 (Classic B2)",
+    "Pearson PTE General Level 3", "Trinity ISE II", "Oxford Test of English B2"
+  ],
+  "entry_exam_or_test": "No standardised written test. Graduation grade above 90/110 is sufficient indicator of personal preparation and waives the nulla-osta requirement. If the grade is below 90/110, or the candidate comes from another degree class, an interview (\"colloquio\") is held with a committee of Year-1 teachers; foreign students are evaluated case-by-case, possibly including personal interviews or specific tests.",
+  "nulla_osta_required": "NOT required if curricular requirements and grade >=90/110 are met (\"If candidates have the required requisites (curriculum and graduation grade), it will not be necessary to request the authorization for the enrollment\"). M1033 is explicitly absent from UNIPG's online-nulla-osta list, consistent with this rule. Required only when curriculum/grade conditions are not met (subject to committee interview outcome).",
+  "required_documents": [
+    "Passport", "Foreign educational qualification / transcript documentation", "English B2 certificate",
+    "Curriculum vitae et studiorum (for out-of-class/foreign candidates)", "Universitaly pre-enrolment (non-EU)", "PICA application"
+  ],
+  "application_deadline_eu": "EU/legally-residing applicants: PICA pre-enrolment from 1 July 2026 (no published closing date); SOL enrolment for open-access master closes 1 March 2027.",
+  "application_deadline_non_eu": "Non-EU visa applicants: PICA call 2026-visa-03, open 29 May–7 June 2026, 12:00 — CLOSED as of research date (2026-09-05).",
+  "tuition_or_fees_link": "https://www.unipg.it/en/international-students/becoming-a-unipg-student/tuition-fees-and-scholarships",
+  "tuition_range": "€150–2,200/year depending on family income/merit. Flat Tax (4 UNDP-2016-index brackets) for family-abroad students, or ISEEU Parificato via an affiliated CAF. Declaration window 3 Aug–20 Oct 2026 (late fee to 1 Mar 2027).",
+  "cimea_requirement": "Not specified at programme level; see university-wide study-documents page for CIMEA/blackout-date rules.",
+  "double_degree": "None found on official pages.",
+  "official_program_url": "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8231",
+  "official_call_url": "https://ginko.unipg.it/ws/off/scaricaarticolatocorso.php?codcorso=M1033&anno=2025&tipoDoc=REG_DID&lingua=ita&iddocumento=975852",
+  "source_quotes": [
+    {"quote": "A partire dall'Anno Accademico 2017-2018 il corso è svolto integralmente in lingua inglese con una forte apertura a livello internazionale", "url": "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8231", "field_supported": "teaching_language"},
+    {"quote": "In first instance, a graduation grade above 90/110 is a sufficient indicator for satisfactory personal preparation... it will not be necessary to request the authorization for the enrollment (nulla osta)", "url": "https://ginko.unipg.it/ws/off/scaricaarticolatocorso.php?codcorso=M1033&anno=2025&tipoDoc=REG_DID&lingua=ita&iddocumento=975852", "field_supported": "nulla_osta_required"},
+    {"quote": "If the graduation grade is lower than 90/110, candidates have to perform an interview with a committee formed by teachers of the first year of the degree", "url": "https://ginko.unipg.it/ws/off/scaricaarticolatocorso.php?codcorso=M1033&anno=2025&tipoDoc=REG_DID&lingua=ita&iddocumento=975852", "field_supported": "entry_exam_or_test"},
+    {"quote": "Knowledge of English is required (level B2 of QCER) for admission", "url": "https://www.unipg.it/en/ects/ects-course-catalogue-2026-27?idcorso=8231", "field_supported": "language_requirements"}
+  ],
+  "uncertainty_notes": "Course website cited in the Regolomento (med.unipg.it/ccl/Biotechnological_Sciences/) returned an SSL error during research and could not be independently verified — content corroborated via the ECTS catalogue and Regolamento instead. Data collected 2026-09-05, all sources unipg.it/*.unipg.it only.",
+  "research_date": "2026-09-05"
+}

@@ -1,0 +1,139 @@
+{
+  "program_name": "Accounting, Governance and Sustainability (AGS)",
+  "level": "master",
+  "teaching_language": "English (entire programme)",
+  "campus": "Campus of Economics and Law, Via dei Caniana 2, Bergamo",
+  "degree_class": "LM-77",
+  "access_type": "open access",
+  "programme_name_history": "Current name: Accounting, Governance and Sustainability (AGS). The programme has two curricula: Accounting for International Business (AIB) and Accounting and Governance for Sustainability (AG4S). No former official programme name was identified in the reviewed sources.",
+  "awarding_institution": "University of Bergamo",
+  "admission_type": "Open access, subject to evaluation of curricular and English-language requirements and verification of adequate personal preparation. An online interview applies unless the published exemption conditions are met; applicants with an international bachelor are evaluated through CV and qualification review and an interview.",
+  "academic_requirements": "A three-year university degree or diploma, or another suitable qualification obtained abroad, is required. Italian graduates in L-18 or L-33, former classes 17 or 28, or a corresponding pre-DM 509/99 four-year Economics degree meet the degree-class route without further curricular requirements. Graduates from other degree classes need at least 60 CFU in the specified economics/statistics, law, mathematics/informatics, and industrial/information-engineering sectors. International bachelor holders undergo evaluation of their CV and qualifications for curricular fit and adequate preparation.",
+  "curricular_requirements_cfu": {
+    "total_required_for_other_degree_classes": 60,
+    "eligible_areas": [
+      "Area 13 - Economics and statistics: all SSDs",
+      "Area 12 - Law: IUS/01, IUS/02, IUS/04, IUS/05, IUS/07, IUS/08, IUS/09, IUS/10, IUS/12, IUS/13, IUS/14, IUS/15, IUS/16, IUS/17 and IUS/20",
+      "Area 01 - Mathematics and informatics: MAT/05, MAT/06, MAT/09 and INF/01",
+      "Area 09 - Industrial and information engineering: ING-IND/09, ING-IND/35 and ING-INF/05"
+    ],
+    "english_component": "The language requirement may be satisfied by at least 6 ECTS of English in the bachelor's degree, among other published routes."
+  },
+  "entry_exam_or_test": "Online interview assessing adequate personal preparation and topics consistent with the applicant's educational path. Graduates in the listed Economics classes are exempt with a final grade of at least 90/110; graduates from other classes are exempt with at least 100/110. Not-yet-graduated applicants are exempt with an exam average of at least 24/30 for the listed Economics classes or 26/30 for other classes. Applicants with an international bachelor are evaluated by interview.",
+  "interview_required": "Yes for applicants with an international bachelor. For Italian-degree applicants, it is waived when the published degree-grade or examination-average thresholds are met.",
+  "interview_language": "English [uncertain]",
+  "selection_scoring": "No numerical ranking rubric is published for this open-access programme. The assessment covers curricular and linguistic eligibility and adequate personal preparation; the official page publishes exemption thresholds of 90/110 or 100/110 for graduates and 24/30 or 26/30 for not-yet-graduated applicants, depending on degree class.",
+  "degree_completion_deadline": "For the international online pre-evaluation route, applicants with a foreign qualification could apply after completing all bachelor examinations if they would obtain the diploma by June 2026. For ordinary 2026/27 pre-enrolment, candidates may apply conditionally with no more than three examinations totaling no more than 24 CFU, plus the final examination, still outstanding; the degree must be completed by the extraordinary March/April 2027 session.",
+  "application_channel": "Applicants holding a foreign bachelor use the University of Bergamo online pre-evaluation portal (apply.unibg.it/DreamApply). Visa-seeking non-EU applicants subsequently complete Universitaly pre-enrolment. Ordinary University pre-enrolment and enrolment are completed through UniBG online student services under the 2026/27 free-access master's timetable.",
+  "language_requirements": "English at CEFR B2 or higher. The programme-specific curricular requirement is deemed satisfied by at least 6 ECTS of English in the bachelor's degree, at least six months on Erasmus or working in an English-speaking country, or at least six months attending a course taught in English. The international application route accepts an approved B2 certificate or qualifying medium-of-instruction evidence.",
+  "accepted_english_certificates": [
+    "IELTS: 5.5-6.5",
+    "TOEFL iBT: 79-95",
+    "TOEFL ITP: 543-600",
+    "TOEFL CBT: 213-240",
+    "PTE Academic: 46-64",
+    "Cambridge First Certificate/FCE: grades B or C",
+    "Trinity College ISE II",
+    "Pearson Test of English General: Level 3",
+    "BEC Vantage",
+    "TIE: minimum B2 in both oral and written tests",
+    "Cambridge ESOL: Level 1",
+    "ESB ESOL International: minimum Pass with Merit",
+    "TOLIMO (Iran): no skill lower than 600"
+  ],
+  "language_waiver_conditions": "A medium-of-instruction certificate issued by the registrar or international office is accepted when the completed degree was taught entirely in English. Unofficial certificates and self-declarations are not accepted. Native English-speaking applicants are exempt from submitting an English certificate and medium-of-instruction certificate.",
+  "application_deadline_eu": [
+    "2026-05-29 (standard pre-enrolment round 1)",
+    "2026-08-28 (standard pre-enrolment round 2)",
+    "2026-09-30 (standard pre-enrolment round 3)",
+    "2026-10-30 (late round 1, with late fee)",
+    "2026-11-13 (late round 2, with late fee)"
+  ],
+  "application_deadline_non_eu": [
+    "2026-01-15 23:59:59 GMT (2026/27 international pre-evaluation first call)",
+    "2026-01-31 23:59:59 GMT (2026/27 international pre-evaluation second call)"
+  ],
+  "application_call_round": [
+    {
+      "route": "International online pre-evaluation first call - free-access master's programmes",
+      "application_period": "2025-11-24 to 2026-01-15",
+      "interview_period": "February-March 2026",
+      "results": "By 2026-03-31"
+    },
+    {
+      "route": "International online pre-evaluation second call - free- and limited-access master's programmes",
+      "application_period": "2026-01-01 to 2026-01-31",
+      "interview_period": "March-April 2026",
+      "results": "By 2026-04-30"
+    },
+    {
+      "route": "2026/27 free-access master's standard round 1",
+      "application_period": "2026-04-01 to 2026-05-29",
+      "interview_or_test": "2026-06-22 to 2026-06-26",
+      "enrolment_period": "2026-06-03 to 2026-08-28"
+    },
+    {
+      "route": "2026/27 free-access master's standard round 2",
+      "application_period": "2026-06-03 to 2026-08-28",
+      "interview_or_test": "2026-09-10 to 2026-09-18",
+      "enrolment_period": "2026-09-01 to 2026-10-15"
+    },
+    {
+      "route": "2026/27 free-access master's standard round 3 and late rounds",
+      "application_period": "2026-09-01 to 2026-09-30; late applications 2026-10-01 to 2026-10-30 and 2026-11-02 to 2026-11-13",
+      "interview_or_test": "2026-10-14 to 2026-10-20; late interviews 2026-11-12 to 2026-11-18 and 2026-11-26 to 2026-11-30",
+      "enrolment_period": "2026-10-01 to 2026-11-13; late enrolment through 2026-12-11"
+    }
+  ],
+  "results_notification_date": "International pre-evaluation results: by 2026-03-31 for the first call and by 2026-04-30 for the second call. Standard open-access rounds do not publish a programme ranking date; they publish interview/test and enrolment windows.",
+  "max_programme_choices": 2,
+  "required_documents": [
+    "Bachelor degree certificate translated into English or Italian",
+    "Official academic transcript for the last three/four years translated into English or Italian, or Diploma Supplement",
+    "Descriptions of major-area courses, including relevant contents, themes, aims and objectives",
+    "English-language evidence: accepted B2 certificate or qualifying medium-of-instruction certificate",
+    "Valid passport showing full name, photograph and signature",
+    "At least one reference"
+  ],
+  "references_required": "At least 1 reference",
+  "course_descriptions_required": "Yes. Descriptions of the relevant contents, themes, aims and objectives of major-area courses are required during online pre-evaluation.",
+  "application_fee": "EUR 30 pre-evaluation fee for the 2026/27 international online pre-evaluation route.",
+  "pre_enrolment_fee": "EUR 52 per selected master's programme; payable for each of up to two programme choices.",
+  "enrolment_deposit": "EUR 156 one-time, non-refundable enrolment fee payable on arrival in Italy, as stated on the official international programme application page.",
+  "tuition_or_fees_link": "https://en.unibg.it/study/enrollment/costs/taxes-and-benefits — official University fees and benefits information. The programme application record lists a first tuition instalment of EUR 0-400 and a second instalment of EUR 0-1,700 depending on family income.",
+  "tuition_income_linked": "Yes. Tuition is income-linked; the official programme application record states variable first and second instalments depending on the student's family income.",
+  "official_program_url": "https://ls-ags.unibg.it/en",
+  "official_call_url": "https://apply.unibg.it/courses/course/9-ma-accounting-governance-and-sustainability",
+  "source_quotes": [
+    {
+      "source": "https://ls-ags.unibg.it/en/course/admission-requirements",
+      "quote": "To be admitted to the degree course, it is necessary to have a three-year university degree or diploma or other qualification obtained abroad that is recognized as suitable."
+    },
+    {
+      "source": "https://ls-ags.unibg.it/en/course/admission-requirements",
+      "quote": "For graduates from other degree classes, the curricular requirement for admission is to have acquired a minimum of 60 credits."
+    },
+    {
+      "source": "https://ls-ags.unibg.it/en/course/admission-requirements",
+      "quote": "Admission to the master's degree course is subject not only to the possession of the curricular and linguistic requirements, but also to the verification of the adequacy of the personal preparation of the candidates which will take place through an online interview."
+    },
+    {
+      "source": "https://apply.unibg.it/courses/course/9-ma-accounting-governance-and-sustainability",
+      "quote": "The Master's Degree in Accounting, Governance and Sustainability is provided completely in English."
+    },
+    {
+      "source": "https://en.unibg.it/study/enrollment/foreign-students-join-us/non-eu-students/non-eu-students-pre-evaluation-online",
+      "quote": "From November 24th 2025 to January 15th 2026: prospective students can apply"
+    },
+    {
+      "source": "https://en.unibg.it/study/enrollment/enrollment-deadlines/masters-degrees-deadlines",
+      "quote": "Pre-enrollment from April 1 to May 29, 2026"
+    }
+  ],
+  "uncertainty_notes": "The programme, course catalogue and central admissions pages contain current 2026/27 information. The programme-specific admission page says its interview calendar will be published soon, while the central free-access master's page supplies the standard interview windows. The interview language is not expressly stated and is marked uncertain. The DreamApply page is an official UNIBG source but was available through indexed content because direct automated access was blocked by robots.txt. The international pre-evaluation deadlines apply to applicants with foreign qualifications; ordinary EU/Italian applicants follow the later central pre-enrolment timetable.",
+  "source_access_status": "Official UNIBG sources only. The ls-ags.unibg.it admission page was directly accessible. Central unibg.it/en.unibg.it and apply.unibg.it content was retrieved through current search-engine indexing where direct access returned HTTP 403 or robots restrictions.",
+  "last_verified_date": "2026-09-05",
+  "uncertain": [
+    "interview_language"
+  ]
+}

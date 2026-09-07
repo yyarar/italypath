@@ -1,0 +1,251 @@
+schema_version: "1.0"
+record_unit: "one UNIBA degree programme"
+output_format: "JSON-compatible object"
+
+field_categories: &programme_fields
+  programme_identity:
+    - name: "program_name"
+      type: "string"
+      required: true
+      detail_level: "brief"
+      description: "Exact current official English programme title."
+    - name: "level"
+      type: "enum"
+      allowed_values: ["bachelor", "master", "single-cycle", "other"]
+      required: true
+      detail_level: "brief"
+      description: "Degree level, normalized to the requested vocabulary."
+    - name: "teaching_language"
+      type: "string_or_array"
+      required: true
+      detail_level: "brief"
+      description: "Official teaching language or languages exactly as stated by UNIBA."
+    - name: "delivery_scope"
+      type: "enum"
+      allowed_values: ["fully_english", "bilingual", "english_curriculum_only", "unclear"]
+      required: true
+      detail_level: "moderate"
+      description: "Whether the whole degree, a bilingual route, or only a curriculum is available in English."
+    - name: "campus"
+      type: "string_or_null"
+      required: true
+      detail_level: "brief"
+      description: "Official city/campus or teaching location."
+    - name: "degree_class"
+      type: "string_or_null"
+      required: true
+      detail_level: "brief"
+      description: "Italian degree class, including R suffix where officially shown."
+    - name: "academic_year"
+      type: "string"
+      required: true
+      detail_level: "brief"
+      description: "Academic year to which the extracted admission evidence applies."
+    - name: "programme_status"
+      type: "enum_or_null"
+      allowed_values: ["active", "new", "suspended", "closed", "unclear", null]
+      required: true
+      detail_level: "brief"
+      description: "Current official availability status for the researched intake."
+
+  admission_requirements:
+    - name: "admission_type"
+      type: "enum_or_array"
+      allowed_values: ["open access", "restricted access", "TOLC", "SAT", "selection call", "other"]
+      required: true
+      detail_level: "moderate"
+      description: "Normalized admission mechanism; use multiple values when applicable."
+    - name: "academic_requirements"
+      type: "array_of_strings"
+      required: true
+      detail_level: "detailed"
+      description: "Prior qualification, curricular prerequisites, grades, subject background, and equivalency rules."
+    - name: "qualification_system_requirements"
+      type: "array_of_strings_or_null"
+      required: true
+      detail_level: "detailed"
+      description: "Schooling duration, national university-entry entitlement, or foreign-qualification conditions."
+    - name: "eligible_degree_classes"
+      type: "array_of_strings_or_null"
+      required: true
+      detail_level: "detailed"
+      description: "Accepted Italian bachelor degree classes and stated foreign equivalents for master admission."
+    - name: "required_subject_credits"
+      type: "array_of_objects_or_null"
+      required: true
+      detail_level: "detailed"
+      object_fields: ["subject_area", "ssd_or_domain", "minimum_cfu_or_ects", "notes"]
+      description: "Required CFU/ECTS or disciplinary coursework thresholds."
+    - name: "language_requirements"
+      type: "array_of_strings"
+      required: true
+      detail_level: "detailed"
+      description: "All official English and, where relevant, Italian language conditions and exemptions."
+    - name: "language_level"
+      type: "string_or_null"
+      required: true
+      detail_level: "brief"
+      description: "Normalized CEFR minimum, such as B2, when explicitly required."
+    - name: "accepted_language_evidence"
+      type: "array_of_strings_or_null"
+      required: true
+      detail_level: "detailed"
+      description: "Accepted certificates, medium-of-instruction evidence, tests, and exemptions."
+    - name: "personal_preparation_assessment"
+      type: "string_or_null"
+      required: true
+      detail_level: "detailed"
+      description: "How a committee assesses curricular fit and personal preparation."
+    - name: "ofa_or_remedial_obligations"
+      type: "array_of_strings_or_null"
+      required: true
+      detail_level: "moderate"
+      description: "OFA, bridging courses, language remediation, or post-admission obligations."
+
+  tests_and_selection:
+    - name: "entry_exam_or_test"
+      type: "object_or_null"
+      required: true
+      detail_level: "detailed"
+      object_fields: ["name", "provider", "format", "language", "subjects", "minimum_score", "registration_url", "test_dates", "notes"]
+      description: "Entrance examination, TOLC, SAT, national test, or other assessment details."
+    - name: "interview_details"
+      type: "object_or_null"
+      required: true
+      detail_level: "detailed"
+      object_fields: ["required", "purpose", "language", "mode", "dates", "waivers"]
+      description: "Programme interview requirements and scheduling."
+    - name: "admission_quota"
+      type: "object_or_null"
+      required: true
+      detail_level: "moderate"
+      object_fields: ["total", "eu_or_equivalent", "non_eu_resident_abroad", "other_reserves", "source_year"]
+      description: "Available places split by official applicant category."
+    - name: "selection_score_and_ranking"
+      type: "string_or_null"
+      required: true
+      detail_level: "detailed"
+      description: "Scoring, thresholds, ranking rules, ties, and placement logic."
+
+  deadlines_and_process:
+    - name: "application_deadline_eu"
+      type: "array_of_objects_or_null"
+      required: true
+      detail_level: "detailed"
+      object_fields: ["stage", "opens_at", "deadline", "timezone", "applicant_category", "source_url"]
+      description: "EU/equivalent deadlines separated by application stage."
+    - name: "application_deadline_non_eu"
+      type: "array_of_objects_or_null"
+      required: true
+      detail_level: "detailed"
+      object_fields: ["stage", "opens_at", "deadline", "timezone", "visa_required", "source_url"]
+      description: "Non-EU deadlines, explicitly distinguishing applicants resident abroad and requiring a visa."
+    - name: "application_stages"
+      type: "array_of_objects"
+      required: true
+      detail_level: "detailed"
+      object_fields: ["sequence", "stage", "platform", "applies_to", "deadline", "action", "url"]
+      description: "Ordered DreamApply, Universitaly, test, interview, ranking, and enrolment steps as applicable."
+    - name: "applicant_categories"
+      type: "array_of_strings"
+      required: true
+      detail_level: "moderate"
+      description: "Official categories whose requirements or timelines differ."
+    - name: "deadline_conflict_note"
+      type: "string_or_null"
+      required: true
+      detail_level: "moderate"
+      description: "Any conflict between central, programme, call, or platform dates and how it was handled."
+
+  documents_and_fees:
+    - name: "required_documents"
+      type: "array_of_objects"
+      required: true
+      detail_level: "detailed"
+      object_fields: ["document", "required_for", "stage", "translation_required", "authentication_required", "notes"]
+      description: "Complete evidence-based document checklist by applicant category and application stage."
+    - name: "document_translation_language"
+      type: "array_of_strings_or_null"
+      required: true
+      detail_level: "moderate"
+      description: "Accepted document languages and certified translation rules."
+    - name: "document_authentication"
+      type: "array_of_strings_or_null"
+      required: true
+      detail_level: "detailed"
+      description: "Legalization/apostille, Declaration of Value, CIMEA/ARDI, or verification requirements."
+    - name: "application_fee"
+      type: "object_or_null"
+      required: true
+      detail_level: "moderate"
+      object_fields: ["amount", "currency", "stage", "payment_method", "refundable", "source_url"]
+      description: "Application, test, or pre-evaluation fee and payment conditions."
+    - name: "tuition_or_fees_link"
+      type: "string_or_null"
+      required: true
+      detail_level: "brief"
+      description: "Direct official UNIBA link for tuition, contributions, exemptions, or programme fees."
+
+  official_sources_and_evidence:
+    - name: "official_program_url"
+      type: "string"
+      required: true
+      detail_level: "brief"
+      description: "Canonical official UNIBA programme page."
+    - name: "official_call_url"
+      type: "string_or_null"
+      required: true
+      detail_level: "brief"
+      description: "Direct official admission call/bando URL for the applicable academic year."
+    - name: "requirements_source_url"
+      type: "array_of_strings"
+      required: true
+      detail_level: "brief"
+      description: "Official admission, regulations, or programme pages supporting the requirements."
+    - name: "source_quotes"
+      type: "array_of_objects"
+      required: true
+      detail_level: "detailed"
+      object_fields: ["field", "quote", "source_url", "page_or_section", "academic_year", "accessed_at"]
+      description: "Short verbatim UNIBA evidence snippets tied to individual extracted fields."
+    - name: "source_year"
+      type: "array_of_strings"
+      required: true
+      detail_level: "brief"
+      description: "Academic year or publication year for each material source."
+    - name: "source_last_checked"
+      type: "string"
+      format: "YYYY-MM-DD"
+      required: true
+      detail_level: "brief"
+      description: "Date on which official URLs and claims were last verified."
+
+  research_quality:
+    - name: "uncertainty_notes"
+      type: "array_of_objects"
+      required: true
+      detail_level: "detailed"
+      object_fields: ["field", "issue", "reason", "searched_sources", "resolution_needed"]
+      description: "Missing, conflicting, outdated, inferred, or scope-ambiguous information. Use an empty array only when none remains."
+
+# Compatibility alias for the research validator, which expects the legacy
+# top-level `fields` key.
+fields: *programme_fields
+
+uncertain:
+  description: >-
+    Reserved deep-research field list. Populate automatically with the names of all
+    fields whose values are missing, conflicting, inferred, based on a fallback
+    academic year, or not yet confirmed by a programme-specific UNIBA source.
+  type: "array_of_strings"
+  default: []
+
+validation_rules:
+  - "Every URL must use HTTPS and resolve under uniba.it or www.uniba.it."
+  - "Every deadline must identify the applicant category and application stage."
+  - "Never copy a central deadline into a programme field without checking for a programme-specific call or page."
+  - "Prefer 2026/2027; if an older year is used, record it in academic_year and explain the fallback in uncertainty_notes."
+  - "Use null only after checking the programme page, current regulations, admission page, and any available call."
+  - "Do not infer a language certificate, test score, quota, deadline, or document requirement from another programme."
+  - "Bilingual items remain provisional until a full English pathway is confirmed in official programme regulations or curricula."
+  - "source_quotes must be short, exact, and sufficient to audit each material claim."

@@ -1,0 +1,72 @@
+{
+  "program_name": "Electrical Engineering for Sustainable Green Energy Transition",
+  "level": "master",
+  "teaching_language": "English",
+  "campus": "Catania — Department of Electrical, Electronics and Computer Engineering (DIEEI), Cittadella Universitaria",
+  "degree_class": "LM-28",
+  "admission_type": "Open access with verification of curricular requirements and personal preparation. Non-EU applicants residing abroad follow a qualification-based public selection call with a possible online interview or test.",
+  "admission_route": "Non-EU citizens residing abroad: non_eu_public_selection_call through the UNICT Student Portal. EU/equated applicants and non-EU citizens legally resident in Italy who hold foreign qualifications: eu_pre_evaluation_webform, followed by the open-access master's admission application through Smart_Edu.",
+  "citizenship_track": "non_eu_resident_abroad / eu_and_equated / non_eu_resident_in_italy. The EU/equated route covers Italian and EU citizens, citizens of Norway, Iceland, Liechtenstein, Switzerland and San Marino, and qualifying non-EU residents in Italy.",
+  "academic_requirements": "For the 2026/27 non-EU-abroad call, applicants need a bachelor's or higher degree awarded abroad after at least three years of study and suitable for entry to a master's degree in the awarding country. For the Italian/EU/equated open-access route, accepted qualifications are an L-9 Industrial Engineering degree, an L-8 Information Engineering degree, or another suitable qualification, including a foreign one, subject to minimum curriculum checks. The alternative curriculum requires 6 CFU in MATH-02/A or MATH-02/B; 12 CFU in MATH-03/A; 6 CFU in CHEM-03/A, CHEM-06/A or IMAT-01/A; 12 CFU in IIET-01/A, IIND-08/A or IIND-08/B; and 6 CFU in IINF-04/A. In addition, all applicants must have at least 36 CFU in the listed basic-science/computing subject group and 18 CFU in the listed electrical/automation subject group. For foreign curricula not expressed in CFU, 6 or 9 CFU is treated as one corresponding examination and 12 CFU as two examinations.",
+  "eligible_bachelor_backgrounds": "Primarily Electrical Engineering, Electronics Engineering and Industrial Engineering. The Italian/EU/equated route explicitly accepts Italian degree classes L-8 Information Engineering and L-9 Industrial Engineering, or another recognized suitable qualification meeting the stated subject-credit requirements.",
+  "curricular_subject_prerequisites": "Adequate knowledge of mathematical and numerical analysis, linear algebra and geometry, physics, chemistry, informatics, control and systems theory. The 2026/27 open-access annex also permits the board to verify competence in the foundational electrical-engineering subject ING-IND/31 (Elettrotecnica).",
+  "degree_recency_limit": "No fixed degree-recency limit is stated. The 2026/27 open-access annex notes that the board applies the university rule on possible obsolescence of knowledge represented by credits earned more than six years earlier.",
+  "undergraduate_in_progress_allowed": "Yes. Non-EU applicants residing abroad may apply before graduation if they obtain the bachelor's degree by 31 July 2026. Under the Italian/EU/equated procedure, final-year students may apply conditionally; by 1 October 2026 they must have no more than 30 CFU outstanding, including the final examination, and must have submitted the thesis-assignment request through the student portal. Conditional enrolment must be regularized by earning the degree by 28 February 2027.",
+  "professional_experience_alternative": "Applicants seconded from international organisations or foreign national services may be considered if they hold a university degree and have relevant professional experience. This is not a substitute for holding a university degree.",
+  "language_requirements": "Good knowledge of English at CEFR B2 or higher. For the 2026/27 non-EU-abroad selection this may be shown by one of the listed certificates or an accepted exemption. For the Italian/EU/equated open-access route, English at no less than B2 is checked for candidates who do not hold a certificate.",
+  "english_certificate_thresholds": {
+    "ielts_min": "5.0 overall",
+    "toefl_ibt_min": "60 total",
+    "cambridge_min": "Cambridge ESOL Preliminary (PET) or Business Preliminary (BEC), or higher"
+  },
+  "english_certificate_exemptions": "A declaration from the university that awarded the bachelor's or master's degree confirming that English was the official language of the programme, or a self-declaration of citizenship of an English-speaking country.",
+  "italian_language_requirement": "No Italian-language test is required for admission to this English-taught programme under the 2026/27 non-EU-abroad call.",
+  "application_deadline_eu": "For EU/equated applicants with a foreign qualification, the 2026/27 pre-evaluation form was available from 8 April to 30 June 2026. The subsequent open-access master's admission application through Smart_Edu ran from 6 July to 2 September 2026.",
+  "application_deadline_non_eu": "17 March 2026 at 23:59 GMT+1 for non-EU applicants residing abroad (applications opened 10 February 2026 at 12:00 GMT+1). Visa applicants also had to complete Universitaly pre-enrolment by 31 July 2026.",
+  "results_publication_date": "By 6 May 2026 for the non-EU-abroad public selection. For the Italian/EU/equated open-access route, the initial admitted/not-admitted/additional-test list was due by 9 September 2026; any post-interview admitted list follows the interview held on 21 September 2026.",
+  "required_documents": "Non-EU-abroad selection: passport personal-data pages; bachelor's certificate or enrolment certificate stating the expected graduation date; official Italian or English translation where needed; transcript listing courses, examinations, grades, grading range and preferably GPA; official syllabi on university letterhead or bearing the university stamp; reference letter, preferably from a university lecturer; Europass-format CV in English; English certificate or exemption evidence; statement of purpose in English, maximum 4,000 characters; summary sheet; and any optional supporting documents. EU/equated foreign-title pre-evaluation: final secondary-school diploma and Declaration of Value or comparability certificate; bachelor's degree and Declaration of Value or comparability and verification documentation; transcript or Diploma Supplement; official course syllabi; motivation letter; recommendation letter; and English certificate. The later Smart_Edu application requires an updated academic record or self-certification and a valid identity document for applicants from another university.",
+  "entry_exam_or_test": "The board first evaluates the curriculum and personal preparation. For the non-EU-abroad selection, qualifications are scored out of 100: academic record up to 50 points, relevance of prior studies and experience up to 40, reference letter up to 5 and motivation up to 5; the board may require an online interview or test, and 50/100 is the suitability threshold. For the Italian/EU/equated route, the board may verify foundational competence in ING-IND/31 and checks B2 English for applicants without certification. Any interview was scheduled for 21 September 2026 at 10:00 in room P7, fifth floor, Building 3, DIEEI, Viale A. Doria 6, Catania. If an additional test/interview is required, EUR 35 is charged with the second tuition instalment.",
+  "credential_recognition_documents": "A foreign qualification must be issued by an official university, grant access to graduate programmes in the awarding country and normally follow at least three academic years of study. At enrolment, the final foreign degree must be accompanied by either a CIMEA Statement of Verification and Comparability or a Declaration of Value issued by the competent Italian diplomatic or consular authority. Documentation for the preceding high-school qualification is also required. Application documents not in Italian or English require an official translation.",
+  "tuition_or_fees_link": "https://www.unict.it/it/corsi-numero-programmato/2026-2027/public-selection-admission-non-eu-students-living-abroad-english (the linked call states a total 2026/27 charge of EUR 306 for non-EU students residing abroad: EUR 140 regional tax, EUR 16 stamp duty and EUR 150 annual comprehensive contribution). Italian/EU/equated applicants are directed to the 2026/27 Manifesto degli Studi from the open-access procedure page: https://www.unict.it/it/corsi-numero-non-programmato/2026-2027/procedura-di-ammissione-al-1%C2%B0-anno-corsi-di-laurea-magistrale",
+  "application_fee": "EUR 10 per programme application for the 2026/27 non-EU-abroad selection. The open-access procedure states no application fee, but a EUR 35 charge is added to the second tuition instalment if an additional test or interview is required.",
+  "enrolment_confirmation_fee": "EUR 75, non-refundable, payable within 15 days of admission notification for admitted non-EU-abroad applicants; it is deducted from the EUR 150 annual comprehensive contribution. The Italian/EU/equated route instead requires the fixed EUR 156 enrolment charge during enrolment.",
+  "places_quota_non_eu": "[uncertain] Not stated in the public-facing 2026/27 call table; the available-places cell for LM-28 is blank.",
+  "places_quota_total": "[uncertain] No total capacity is published; the programme is officially classified as open access/non-programmed, meaning places are not preset.",
+  "official_program_url": "https://www.unict.it/it/didattica/lauree-magistrali/2026-2027/electrical-engineering-sustainable-green-energy-transition",
+  "official_call_url": "Non-EU abroad: https://www.unict.it/it/corsi-numero-programmato/2026-2027/public-selection-admission-non-eu-students-living-abroad-english ; Italian/EU/equated open-access procedure: https://www.unict.it/it/corsi-numero-non-programmato/2026-2027/procedura-di-ammissione-al-1%C2%B0-anno-corsi-di-laurea-magistrale",
+  "application_portal_url": "Non-EU abroad and open-access admission: https://studenti.smartedu.unict.it/ ; EU/equated foreign-qualification pre-evaluation: https://webform.unict.it/en/pre-evaluation-form-english-taught-master-degree-courses-eu-and-equated-citizens-only ; visa pre-enrolment: https://www.universitaly.it/",
+  "governing_decree_reference": "D.R. 392 of 4 February 2026 (non-EU students residing abroad); D.R. 2233 of 23 June 2026 (open-access two-year master's admission procedure).",
+  "source_quotes": [
+    {
+      "quote": "IELTS: overall score 5 or higher; TOEFL: minimum total score 60",
+      "url": "https://www.unict.it/sites/default/files/ds_altri_documenti/academic_curricular_and_language_requirements_26-27_0.pdf"
+    },
+    {
+      "quote": "Successful applicants come primarily from an academic background in: Electrical Engineering; Electronics Engineering; Industrial Engineering.",
+      "url": "https://www.unict.it/sites/default/files/ds_altri_documenti/academic_curricular_and_language_requirements_26-27_0.pdf"
+    },
+    {
+      "quote": "Application from 10 February 2026 12.00 (GMT +1) until 17 March 2026, 23.59 (GMT +1)",
+      "url": "https://www.unict.it/it/corsi-numero-programmato/2026-2027/public-selection-admission-non-eu-students-living-abroad-english"
+    },
+    {
+      "quote": "La domanda di ammissione può essere effettuata dal 6 luglio al 2 settembre 2026.",
+      "url": "https://www.unict.it/sites/default/files/ds_bandi/326134_bando-lm_2233.pdf"
+    },
+    {
+      "quote": "Per i candidati non in possesso di certificazione, sarà verificata la conoscenza della lingua inglese",
+      "url": "https://www.unict.it/sites/default/files/ds_altri_documenti/0016_lm-28_electrical_engineering_for_sustainable_green_energy_transition_2026-27.pdf"
+    },
+    {
+      "quote": "Accesso: non programmato",
+      "url": "https://www.unict.it/it/didattica/lauree-magistrali/2026-2027/electrical-engineering-sustainable-green-energy-transition"
+    }
+  ],
+  "uncertainty_notes": "The official 2026/27 call does not display a seat quota for LM-28, although the 2025/26 call listed 30 places; the older figure was not carried forward. The programme is open access overall, but the separate non-EU-abroad route still uses a ranked selection, so open access should not be read as automatic admission for that track. The certificate scores are reproduced exactly from the 2026/27 annex even though IELTS 5.0 and Cambridge PET are often mapped below CEFR B2; UNICT nevertheless labels the required level B2. The EUR 306 tuition figure applies specifically to non-EU students residing abroad; Italian/EU/equated fees follow the broader contribution regulation and may differ.",
+  "data_academic_year": "2026/2027",
+  "verification_date": "2026-09-05",
+  "uncertain": [
+    "places_quota_non_eu",
+    "places_quota_total"
+  ]
+}

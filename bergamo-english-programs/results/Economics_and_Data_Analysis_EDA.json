@@ -1,0 +1,92 @@
+{
+  "program_name": "Economics and Data Analysis (EDA)",
+  "level": "master",
+  "teaching_language": "English (entire programme)",
+  "campus": "Campus of Economics and Law, Via dei Caniana 2, Bergamo",
+  "degree_class": "LM-56",
+  "access_type": "open access",
+  "programme_name_history": "The current programme is Economics and Data Analysis (EDA). The DreamApply record contains legacy links to ls-egm.unibg.it, reflecting the earlier Economics and Global Markets (EGM) programme/site identity.",
+  "awarding_institution": "University of Bergamo",
+  "admission_type": "Open access with assessment of curricular requirements and adequacy of preparation. Direct admission rules apply to qualifying Italian-degree applicants; an online oral interview is required for international/foreign-qualification applicants using pre-assessment, applicants requiring a visa, applicants who only partially meet curricular requirements, and Italian-degree applicants below the stated grade threshold.",
+  "academic_requirements": "A bachelor's degree or equivalent suitable foreign qualification is required. Holders of an Italian bachelor's degree in L-18, L-33, former class 17, or former class 28 qualify by degree class; they are directly admitted with a final grade of at least 81/110 and otherwise undergo an interview. Holders of other Italian degree classes need at least 48 ECTS across Economics, Business and Management, Statistics, Mathematics, Law and/or Sociology; they are directly admitted with at least 81/110 and otherwise undergo an interview. For students not yet graduated, the grade criterion is met by a weighted bachelor's examination average of at least 22/30. International and foreign-qualification candidates are individually assessed and interviewed.",
+  "curricular_requirements_cfu": {
+    "eligible_italian_degree_classes_without_additional_cfu_requirement": ["L-18", "L-33", "former class 17", "former class 28"],
+    "other_italian_degree_classes_minimum": "48 ECTS",
+    "eligible_areas": ["Economics", "Business and Management", "Statistics", "Mathematics", "Law", "Sociology"]
+  },
+  "entry_exam_or_test": "There is no competitive entrance examination. An online oral admission interview is used to assess preparation for international/foreign-qualification applicants and other candidates falling within the programme's interview rules. Interview topics may cover the basic mathematical, econometric and economic background specified on the prospective-students page. International applicants without acceptable English evidence must also take an English-language test.",
+  "interview_required": "Yes for international candidates applying for a visa, candidates with a foreign academic qualification using online pre-assessment, candidates who only partially meet curricular requirements, and Italian-degree candidates whose final grade is below 81/110 (or whose weighted average while not yet graduated is below 22/30).",
+  "interview_language": "English",
+  "selection_scoring": "No numerical ranking rubric is stated for this free-access programme. The committee assesses curricular suitability and preparation; for the Italian-degree route, 81/110 (or a 22/30 weighted average for candidates not yet graduated) is the threshold for direct admission without interview.",
+  "degree_completion_deadline": "A candidate may pre-enrol with a proviso under the University's general master's rules if no more than three examinations, totaling no more than 24 CFU including any internship, plus the final examination remain; any internship must already have started. The bachelor's degree must be obtained by the extraordinary March/April 2027 graduation session.",
+  "application_channel": "Non-EU applicants with a foreign bachelor's degree use the UniBG online pre-evaluation route through apply.unibg.it (DreamApply), followed, where applicable, by Universitaly visa pre-enrolment. EU applicants and candidates following the ordinary route use UniBG's online student services under the free-access master's timetable.",
+  "language_requirements": "English at CEFR B2 or equivalent is required. For the programme-specific route, B2 can also be evidenced by at least 6 ECTS of English in the bachelor's degree, at least six months living or working in an English-speaking country, or at least six months attending a university course abroad taught in English. International applicants who do not submit acceptable English certification with pre-application are required to take an English-language test.",
+  "accepted_english_certificates": [
+    "IELTS Academic: 5.5-6.5",
+    "TOEFL iBT: 72-94",
+    "TOEFL ITP: 543-600",
+    "TOEFL CBT: 213-240",
+    "PTE Academic: 46-64",
+    "Cambridge FCE: grades B or C",
+    "Trinity College ISE II",
+    "Pearson Test of English General: Level 3",
+    "BEC Vantage",
+    "TIE: minimum B2 in both oral and written tests",
+    "Cambridge ESOL: Level 1",
+    "ESB ESOL International: minimum Pass with Merit",
+    "TOLIMO (Iran): no skill lower than 600"
+  ],
+  "language_waiver_conditions": "A medium-of-instruction certificate issued by the registrar or international office is accepted when the completed degree was taught entirely in English; unofficial certificates and self-declarations are not accepted. Native English-speaking applicants are exempt from English certification and medium-of-instruction evidence. The EDA programme page also recognizes 6 ECTS of English, six months in an English-speaking country, or six months of university study abroad in English as B2-equivalent evidence.",
+  "application_deadline_eu": [
+    "2026-05-29 (ordinary pre-enrolment round 1)",
+    "2026-08-28 (ordinary pre-enrolment round 2)",
+    "2026-09-30 (ordinary pre-enrolment round 3)",
+    "2026-10-30 (late round 1, with late fee)",
+    "2026-11-13 (late round 2, with late fee)"
+  ],
+  "application_deadline_non_eu": [
+    "2026-01-15 (international pre-evaluation call 1)",
+    "2026-01-31 (international pre-evaluation call 2)"
+  ],
+  "application_call_round": [
+    {"route": "2026/27 international pre-evaluation call 1, free-access master's programmes", "application_period": "2025-11-24 to 2026-01-15", "interview_or_test": "February-March 2026", "results": "By 2026-03-31"},
+    {"route": "2026/27 international pre-evaluation call 2, free- and limited-access master's programmes", "application_period": "2026-01-01 to 2026-01-31", "interview_or_test": "March-April 2026", "results": "By 2026-04-30"},
+    {"route": "2026/27 ordinary free-access master's round 1", "application_period": "2026-04-01 to 2026-05-29", "interview_or_test": "2026-06-22 to 2026-06-26", "enrolment_period": "2026-06-03 to 2026-08-28"},
+    {"route": "2026/27 ordinary free-access master's round 2", "application_period": "2026-06-03 to 2026-08-28", "interview_or_test": "2026-09-10 to 2026-09-18", "enrolment_period": "2026-09-01 to 2026-10-15"},
+    {"route": "2026/27 ordinary free-access master's round 3", "application_period": "2026-09-01 to 2026-09-30", "interview_or_test": "2026-10-14 to 2026-10-20", "enrolment_period": "2026-10-01 to 2026-11-13"},
+    {"route": "2026/27 late free-access master's rounds", "application_period": "2026-10-01 to 2026-10-30, then 2026-11-02 to 2026-11-13", "interview_or_test": "2026-11-12 to 2026-11-18, then 2026-11-26 to 2026-11-30", "enrolment_period": "2026-11-02 to 2026-12-04, then 2026-11-16 to 2026-12-11"}
+  ],
+  "results_notification_date": ["By 2026-03-31 (international pre-evaluation call 1)", "By 2026-04-30 (international pre-evaluation call 2)"],
+  "max_programme_choices": 2,
+  "required_documents": [
+    "Bachelor degree certificate, translated into English or Italian",
+    "Official academic transcript for the last three/four years, translated into English or Italian, or Diploma Supplement",
+    "EDA Major Area Form / descriptions of major-area courses, including relevant contents, themes, aims and objectives",
+    "Accepted B2 English-language evidence",
+    "Valid passport showing full name, photograph and signature",
+    "At least one reference"
+  ],
+  "references_required": "At least 1 reference",
+  "course_descriptions_required": "Yes. The EDA Major Area Form and major-area course descriptions are required for international online pre-evaluation.",
+  "application_fee": "EUR 30 pre-evaluation fee for the 2026/27 non-EU online pre-evaluation procedure.",
+  "pre_enrolment_fee": "EUR 52 for each selected master's programme; non-refundable.",
+  "enrolment_deposit": "EUR 156 one-time, non-refundable enrolment fee payable on arrival in Italy, as stated in the official DreamApply programme record.",
+  "tuition_or_fees_link": "https://en.unibg.it/study/enrollment/costs/taxes-and-benefits — official University tuition/taxes information. The EDA DreamApply record lists a first instalment of EUR 0-400 and a second instalment of EUR 0-1,700 depending on family income.",
+  "tuition_income_linked": "Yes. Tuition contributions are income-linked through ISEEU/ISEE rules; the DreamApply record explicitly states income-dependent first and second instalments.",
+  "official_program_url": "https://ls-eda.unibg.it/en",
+  "official_call_url": "https://apply.unibg.it/courses/course/15-ma-economics-and-data-analysis",
+  "source_quotes": [
+    {"source": "https://ls-eda.unibg.it/en", "quote": "The Master's degree program in Economics and Data Analysis (EDA), entirely delivered in English"},
+    {"source": "https://ls-eda.unibg.it/en/how/how-enroll", "quote": "The admission to the master degree in Economics and Data Analysis (EDA) ... is subject to an assessment process to certify the suitability of the candidate."},
+    {"source": "https://ls-eda.unibg.it/en/how/how-enroll", "quote": "A minimum of 48 ECTS in one or more of the following areas: Economics, Business and Management, Statistics, Mathematics, Law, Sociology."},
+    {"source": "https://ls-eda.unibg.it/en/how/how-enroll", "quote": "Direct admission with a degree grade at least 81/110. Otherwise, the interview with the admission Committee."},
+    {"source": "https://ls-eda.unibg.it/en/how/how-enroll", "quote": "Applicants are required to have a minimum English language knowledge (at least level B2 according to the Common European Framework of Reference for Languages (CEFR))."},
+    {"source": "https://apply.unibg.it/courses/course/15-ma-economics-and-data-analysis", "quote": "Study language English"},
+    {"source": "https://en.unibg.it/study/enrollment/foreign-students-join-us/non-eu-students/non-eu-students-pre-evaluation-online", "quote": "From November 24th 2025 to January 15th 2026: prospective students can apply"},
+    {"source": "https://en.unibg.it/study/enrollment/enrollment-deadlines/masters-degrees-deadlines", "quote": "Pre-enrollment from April 1 to May 29, 2026"}
+  ],
+  "uncertainty_notes": "The programme-specific EDA page and central UniBG pages provide current 2026/27 information. The DreamApply record's ls-egm.unibg.it links are legacy links, not a separate current programme. The EUR 156 enrolment amount is taken from the official DreamApply record and should be checked against the final central 2026/27 fee notice if the University updates it. Ordinary EU deadlines and the earlier international pre-evaluation deadlines represent different application routes.",
+  "source_access_status": "Official UNIBG sources only. The EDA programme site and central en.unibg.it pages were directly available through current official indexing. The apply.unibg.it course page was available through its official indexed record; direct automated opening was blocked by robots.txt.",
+  "last_verified_date": "2026-09-05",
+  "uncertain": []
+}

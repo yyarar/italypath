@@ -1,0 +1,136 @@
+{
+  "program_name": "Management Engineering",
+  "level": "master",
+  "teaching_language": "English (entire programme)",
+  "campus": "Engineering campus, Dalmine, Bergamo",
+  "degree_class": "LM-31",
+  "access_type": "open access",
+  "programme_name_history": "Current official name: Management Engineering. The DreamApply record still links to the former programme subdomain ls-ig.unibg.it, while the current official programme site is ls-me.unibg.it; no different former degree title was identified.",
+  "awarding_institution": "University of Bergamo",
+  "admission_type": "Open access, subject to curriculum evaluation, verification of the programme-specific curricular credits, B2 English, and possible interview. An orientation interview is compulsory for candidates whose bachelor grade does not exceed 80/110.",
+  "academic_requirements": "A bachelor's degree or recognized equivalent from an accredited institution and adequate undergraduate preparation are required. Access is normally granted to applicants with at least 30 ECTS in basic subjects (Chemistry, Physics, Mathematics and Statistics) and 30 ECTS in Industrial Engineering subjects, including at least 18 ECTS in Management Engineering disciplinary fields or equivalent. The final decision is based on curriculum review and possibly an interview. Applicants missing curricular requirements may take individual courses before regular enrolment.",
+  "curricular_requirements_cfu": {
+    "basic_subjects_minimum": "30 ECTS in Chemistry, Physics, Mathematics and Statistics",
+    "industrial_engineering_minimum": "30 ECTS in Industrial Engineering subjects",
+    "management_engineering_component": "At least 18 of the Industrial Engineering ECTS must be in Management Engineering disciplinary fields or equivalent",
+    "assessment_note": "The programme offers a non-binding self-assessment form using Italian SSD codes and ECTS; formal eligibility is determined by the admissions evaluation."
+  },
+  "entry_exam_or_test": "No competitive entrance examination is published for this open-access programme. Admission is based on curriculum evaluation and, where required, an orientation interview; the central 2026/27 timetable labels the assessment windows as interview/test periods.",
+  "interview_required": "Possible following curriculum assessment; compulsory for candidates whose bachelor grade is 80/110 or lower.",
+  "interview_language": "English [uncertain]",
+  "selection_scoring": "No ranking rubric or minimum admission score is published. The programme publishes a bachelor-grade trigger: candidates with a grade not exceeding 80/110 must attend an orientation interview. Curricular eligibility is assessed against the 30 + 30 ECTS structure, including the 18 ECTS Management Engineering component.",
+  "degree_completion_deadline": "For ordinary 2026/27 pre-enrolment, candidates may apply conditionally when no more than three examinations totaling no more than 24 CFU, plus the final examination, remain; the degree must be obtained by the extraordinary March/April 2027 graduation session. For the international online pre-evaluation route, the applicable completion condition should be checked in the call [uncertain].",
+  "application_channel": "Applicants holding a foreign qualification use the University of Bergamo online pre-evaluation portal (apply.unibg.it/DreamApply). Visa-seeking non-EU applicants must also complete the required diplomatic/consular and Universitaly procedures. Ordinary pre-enrolment and enrolment follow UniBG online student services.",
+  "language_requirements": "English at CEFR B2. The programme page states that the B2 requirement applies to candidates and that native English speakers are exempt; the certificate must have been obtained within the previous two years. The official international application page also accepts approved B2 certificates or qualifying medium-of-instruction evidence.",
+  "accepted_english_certificates": [
+    "IELTS: 5.5-6.5",
+    "TOEFL iBT: 79-95",
+    "TOEFL ITP: 543-600",
+    "TOEFL CBT: 213-240",
+    "PTE Academic: 46-64",
+    "Cambridge First Certificate/FCE: grades B or C",
+    "Trinity College ISE II",
+    "Pearson Test of English General: Level 3",
+    "BEC Vantage",
+    "TIE: minimum B2 in both oral and written tests",
+    "Cambridge ESOL: Level 1",
+    "ESB ESOL International: minimum Pass with Merit",
+    "TOLIMO (Iran): no skill lower than 600"
+  ],
+  "language_waiver_conditions": "A medium-of-instruction certificate issued by the registrar or international office is accepted when the completed degree was taught entirely in English. Unofficial certificates and self-declarations are not accepted. Native English-speaking applicants are exempt from submitting an English certificate and medium-of-instruction certificate.",
+  "application_deadline_eu": [
+    "2026-05-29 (standard pre-enrolment round 1)",
+    "2026-08-28 (standard pre-enrolment round 2)",
+    "2026-09-30 (standard pre-enrolment round 3)",
+    "2026-10-30 (late round 1, with late fee)",
+    "2026-11-13 (late round 2, with late fee)"
+  ],
+  "application_deadline_non_eu": [
+    "2026-01-15 23:59:59 GMT (2026/27 international pre-evaluation first call)",
+    "2026-01-31 23:59:59 GMT (2026/27 international pre-evaluation second call)"
+  ],
+  "application_call_round": [
+    {
+      "route": "International online pre-evaluation first call - free-access master's programmes",
+      "application_period": "2025-11-24 to 2026-01-15",
+      "interview_period": "February-March 2026",
+      "results": "By 2026-03-31"
+    },
+    {
+      "route": "International online pre-evaluation second call - free- and limited-access master's programmes",
+      "application_period": "2026-01-01 to 2026-01-31",
+      "interview_period": "March-April 2026",
+      "results": "By 2026-04-30"
+    },
+    {
+      "route": "2026/27 free-access master's standard round 1",
+      "application_period": "2026-04-01 to 2026-05-29",
+      "interview_or_test": "2026-06-22 to 2026-06-26",
+      "enrolment_period": "2026-06-03 to 2026-08-28"
+    },
+    {
+      "route": "2026/27 free-access master's standard round 2",
+      "application_period": "2026-06-03 to 2026-08-28",
+      "interview_or_test": "2026-09-10 to 2026-09-18",
+      "enrolment_period": "2026-09-01 to 2026-10-15"
+    },
+    {
+      "route": "2026/27 free-access master's standard round 3 and late rounds",
+      "application_period": "2026-09-01 to 2026-09-30; late applications 2026-10-01 to 2026-10-30 and 2026-11-02 to 2026-11-13",
+      "interview_or_test": "2026-10-14 to 2026-10-20; late interviews 2026-11-12 to 2026-11-18 and 2026-11-26 to 2026-11-30",
+      "enrolment_period": "2026-10-01 to 2026-11-13; late enrolment through 2026-12-11"
+    }
+  ],
+  "results_notification_date": "International pre-evaluation results: by 2026-03-31 for the first call and by 2026-04-30 for the second call. Standard open-access rounds publish interview/test and enrolment windows rather than a ranked-results date.",
+  "max_programme_choices": 2,
+  "required_documents": [
+    "Bachelor degree certificate translated into English or Italian",
+    "Official academic transcript for the last three/four years translated into English or Italian, or Diploma Supplement",
+    "Descriptions of major-area courses, including relevant contents, themes, aims and objectives",
+    "English-language evidence: accepted B2 certificate or qualifying medium-of-instruction certificate",
+    "Valid passport showing full name, photograph and signature",
+    "At least one reference"
+  ],
+  "references_required": "At least 1 reference",
+  "course_descriptions_required": "Yes. Descriptions of the relevant contents, themes, aims and objectives of major-area courses are required during online pre-evaluation.",
+  "application_fee": "EUR 30 pre-evaluation fee for the 2026/27 international online pre-evaluation route.",
+  "pre_enrolment_fee": "EUR 52 per selected master's programme; payable for each of up to two programme choices.",
+  "enrolment_deposit": "EUR 156 one-time, non-refundable enrolment fee payable on arrival in Italy, as stated on the official international programme application page.",
+  "tuition_or_fees_link": "https://en.unibg.it/study/enrollment/costs/taxes-and-benefits — official University fees and benefits information. The programme application record lists a first tuition instalment of EUR 0-400 and a second instalment of EUR 0-1,700 depending on family income.",
+  "tuition_income_linked": "Yes. The programme application record states that both tuition instalments vary according to the student's family income.",
+  "official_program_url": "https://ls-me.unibg.it/en",
+  "official_call_url": "https://apply.unibg.it/courses/course/20-ma-management-engineering",
+  "source_quotes": [
+    {
+      "source": "https://ls-me.unibg.it/en/course/admission-and-entry-requirements",
+      "quote": "The admission requirements are a Bachelor’s Degree or recognized equivalent from an accredited institution and adequate undergraduate training."
+    },
+    {
+      "source": "https://ls-me.unibg.it/en/course/admission-and-entry-requirements",
+      "quote": "Candidates for the course must have a B2 level in English."
+    },
+    {
+      "source": "https://ls-me.unibg.it/en/course/admission-and-entry-requirements",
+      "quote": "access will normally be granted to those who have acquired at least 30 ECTS in basic courses (Chemistry, Physics, Mathematics and Statistics) and 30 ECTS in the specific courses in the field of Industrial Engineering, of which at least 18 ECTS in the disciplinary fields of Management Engineering or equivalent."
+    },
+    {
+      "source": "https://ls-me.unibg.it/en/course/admission-and-entry-requirements",
+      "quote": "For the candidates who do not exceed the 80/110 grade in their bachelor, an orientation interview with the entry commission is compulsory."
+    },
+    {
+      "source": "https://apply.unibg.it/courses/course/20-ma-management-engineering",
+      "quote": "Study location Italy, Engineering campus, Dalmine, Bergamo"
+    },
+    {
+      "source": "https://en.unibg.it/study/enrollment/enrollment-deadlines/masters-degrees-deadlines",
+      "quote": "Pre-enrollment from April 1 to May 29, 2026"
+    }
+  ],
+  "uncertainty_notes": "Current 2026/27 programme and central admissions information was available. The programme-specific page does not explicitly state the interview language, so it is marked uncertain. The international pre-evaluation deadlines and application fee are taken from the current common UNIBG foreign-qualification call; the directly opened Management Engineering DreamApply page confirms two 2026/27 application intakes but displays only that both periods have ended, not their dates. The current programme domain is ls-me.unibg.it, although the DreamApply record retains links to the older ls-ig.unibg.it alias.",
+  "source_access_status": "Official UNIBG sources only. The current ls-me.unibg.it programme/admission pages and central en.unibg.it 2026/27 deadline page were directly accessible. The official apply.unibg.it programme record was directly opened from indexed/cached official content; its application action redirects were not accessible without a session.",
+  "last_verified_date": "2026-09-05",
+  "uncertain": [
+    "interview_language",
+    "degree_completion_deadline"
+  ]
+}

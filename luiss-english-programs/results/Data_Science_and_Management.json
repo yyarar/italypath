@@ -1,0 +1,297 @@
+{
+  "program_name": "Data Science and Management",
+  "level": "master",
+  "teaching_language": {
+    "primary": "English",
+    "granularity": "fully_english",
+    "majors_language": "No separately designated majors/tracks with distinct languages are published on the official programme page; the whole programme is listed as English. On the EU/Schengen master's admission test page the programme appears in the list of Economics-area courses taught in English (unlike Marketing / Strategic Management / Administration, Finance and Control / Economics, Institutions and Financial Markets, which are listed with both an Italian and an English track)."
+  },
+  "campus": "Rome (Luiss Guido Carli). The official programme page also references Luiss facilities in Milan; the specific building/campus for this programme is not stated on the page.",
+  "degree_class": "LM-91",
+  "admission_type": [
+    {
+      "route_name": "Luiss Test (admission test for master's degree programmes) - EU/Schengen students",
+      "eligible_applicants": "EU-Schengen",
+      "test_or_certification": "Luiss admission test made up of psycho-aptitude and academic competence questions, 'similar to the GMAT'. The test may be taken in Italian or English; taking it in English gives access to both Italian- and English-taught courses. B2 English is assessed during the admission test.",
+      "number_of_choices_allowed": "Up to two master's degree courses, both within the same subject area",
+      "choice_is_binding": false,
+      "subject_area_group": "Economics (Data Science and Management is listed among the Economics-area master's degree courses taught in English)",
+      "application_fee": "150 euros (participation fee)"
+    },
+    {
+      "route_name": "Luiss Test (admission test for master's degree programmes) - non-EU/non-Schengen students",
+      "eligible_applicants": "non-EU",
+      "test_or_certification": "Same Luiss admission test, administered online and remotely. Test may be taken in Italian or English; English gives access to both Italian- and English-taught courses. B2 English assessed during the admission test.",
+      "number_of_choices_allowed": "Up to two master's degree programmes within the same subject area (Economics or Political Science/Law)",
+      "choice_is_binding": false,
+      "subject_area_group": "Economics",
+      "application_fee": "150 euros (non-refundable)"
+    },
+    {
+      "route_name": "Direct admission with GMAT/GRE certification (EU/Schengen students)",
+      "eligible_applicants": "EU-Schengen",
+      "test_or_certification": "GMAT with a minimum score of 515 (out of 805), OR GRE with a minimum score of 154 (out of 170) in both the Verbal and Quantitative sections",
+      "number_of_choices_allowed": "One only - 'You can apply for only one of the available Master's degree courses'",
+      "choice_is_binding": true,
+      "subject_area_group": "Not applicable - single binding choice, no subject-area grouping. This route covers all Luiss master's degree courses except Management and Finance, which have their own dedicated selection; Data Science and Management is therefore covered by this route.",
+      "application_fee": "EUR 150 (non-refundable participation fee)"
+    }
+  ],
+  "academic_requirements": {
+    "prior_qualification": "A bachelor's degree (Italian laurea or equivalent foreign first-cycle degree). For the Luiss Test route the degree must be obtained by 18 November 2027; for the GMAT/GRE direct-admission route applicants may be still enrolled or already graduated (a certificate of enrolment or graduation with transcript of records is required).",
+    "minimum_curricular_requirements": {
+      "summary": "Data Science and Management has a STRICTER curricular rule than most other Luiss masters: 48 ECTS across at least TWO subject areas, of which at least 24 ECTS must fall in a specific named list of SSDs. (Most other Luiss masters only require 24 ECTS across at least three subject areas.)",
+      "direct_access_degree_classes": "L-8, L-16, L-18, L-30, L-31, L-33, L-35, L-41 (Ministerial Decree 270/04) and the equivalent classes under Ministerial Decree 509/99",
+      "ects_rule_2027_2028": "Applicants from degree programmes not in the direct-access list must have 'at least 48 university credits in total (either already earned or still to be earned) in at least two of the following subject areas', and 'at least 24 ECTS credits must be earned in the following scientific subject areas: ECON-01/A; ECON-06/A; ECON-07/A; ECON-08/A; STAT-01/A; INFO-01/A; IINF-01/A.'",
+      "named_ssds_2027_2028": [
+        "ECON-01/A",
+        "ECON-06/A",
+        "ECON-07/A",
+        "ECON-08/A",
+        "STAT-01/A",
+        "INFO-01/A",
+        "IINF-01/A"
+      ],
+      "eligible_subject_areas_2027_2028": "Six subject areas are listed: Economics (ECON-01/A; ECON-02/A; ECON-03/A; ECON-04/A; ECON-05/A), Economics and Business (ECON-06/A through ECON-10/A), Statistics and Mathematics (STAT and MATH sectors), Law (GIUR sectors), Information Technology (INFO-01/A) and Engineering (IIND, IEGE, IIET, IBIO, IINF, IMIS sectors). The exact per-area SSD enumeration should be re-checked against the live page before publication.",
+      "ects_rule_2026_2027": "Same structure under the old SSD nomenclature: 'at least 48 university credits (either completed or pending) in at least two of the following subject areas', of which 'at least 24 must be earned in: SECS-P/01, SECS-P/07, SECS-P/08, SECS-P/10, SECS-S/01, INF/01, ING-INF/01'.",
+      "named_ssds_2026_2027": [
+        "SECS-P/01",
+        "SECS-P/07",
+        "SECS-P/08",
+        "SECS-P/10",
+        "SECS-S/01",
+        "INF/01",
+        "ING-INF/01"
+      ],
+      "source": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements"
+    },
+    "minimum_grade_or_gpa": null,
+    "country_specific_rules": null,
+    "document_recognition": null,
+    "compensatory_measures": null
+  },
+  "language_requirements": {
+    "required_level": "B2 (English)",
+    "accepted_certificates": null,
+    "assessed_in_test": "Yes. For 2027/2028 the minimum curricular requirements page states for Data Science and Management: 'In addition, students must have at least a B2 level of English, which will be assessed during the admission test.' For 2026/2027 the wording was: 'For degree programmes taught in English, in addition to meeting the minimum curricular requirements, applicants must have a level of English proficiency equivalent to at least B2.'",
+    "exemptions": null
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "route": "Luiss Test (EU/Schengen)",
+        "application_window": "From December 2026 to 8 April 2027",
+        "test_dates": "From 19 to 22 April 2027",
+        "results": null,
+        "enrolment_deadline": "By 22 June 2027"
+      },
+      {
+        "route": "Direct admission with GMAT/GRE certification (EU/Schengen)",
+        "application_window": "From December 2026 to 31 March 2027",
+        "test_dates": "Not applicable - admission on the basis of an existing GMAT or GRE certificate",
+        "results": null,
+        "enrolment_deadline": "By 18 May 2027"
+      }
+    ],
+    "enrolment_deadline": "22 June 2027 (Luiss Test route); 18 May 2027 (GMAT/GRE direct admission route)",
+    "degree_completion_deadline": "By 18 November 2027 (both routes)",
+    "academic_year": "2027/2028",
+    "cycle_status": "notice not yet published"
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "route": "Luiss Test (non-EU/non-Schengen)",
+        "application_window": "From December 2026 to 8 April 2027",
+        "test_dates": "From 19 to 22 April 2027 (online, remotely proctored)",
+        "results": null,
+        "enrolment_deadline": "By 22 June 2027"
+      }
+    ],
+    "enrolment_deadline": "By 22 June 2027 (Luiss Test route for non-EU/non-Schengen students)",
+    "visa_or_preenrolment_notes": null,
+    "academic_year": "2027/2028",
+    "cycle_status": "notice not yet published"
+  },
+  "required_documents": [
+    "Identity document/passport showing citizenship (mandatory - GMAT/GRE direct admission route)",
+    "Certificate of enrolment or graduation with a transcript of records (mandatory - GMAT/GRE direct admission route)",
+    "A valid, official GMAT or GRE certificate (mandatory - GMAT/GRE direct admission route; the unofficial score screenshot may be uploaded by the deadline, with the official score then sent directly to Luiss by the certifying body)",
+    "Online application form submitted through the Luiss website / apply portal, with payment of the EUR 150 participation fee (mandatory - all routes)"
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Luiss Test (admission test for master's degree programmes); alternatively GMAT or GRE for the direct-admission route",
+    "content": "'Admission is based on a test comprising psycho-aptitude and academic competence questions, similar to the GMAT.' English proficiency at B2 level is also assessed during the admission test. A detailed section-by-section breakdown is not published on the 2027/2028 pages.",
+    "format": "Online and remote administration (explicitly stated for the non-EU/non-Schengen test). Ranking by score with minimum thresholds.",
+    "dates": "19-22 April 2027 (2027/2028 cycle, both EU/Schengen and non-EU/non-Schengen)",
+    "fee": "150 euros",
+    "language_of_test": "Italian or English. 'If you choose to take the Test in Italian, you will only be able to apply for courses taught in Italian.' 'If you choose to take the Test in English, you will be able to apply for courses in both Italian and English.' Since Data Science and Management is taught in English, the test must be taken in English.",
+    "interview": null
+  },
+  "tuition_or_fees_link": {
+    "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/data-science-and-management",
+    "annual_amount": "The official programme page states: 'The annual single tuition fee for enrolment in the Master's Degree Programme in Data Science and Management is EUR 15,000.00, divided into 3 instalments, plus the regional student welfare tax.' NOTE: the 2027/2028 master's admission pages instead cite a general master's fee of EUR 16,000 with EUR 18,000 for Management and Finance. Data Science and Management is NOT in the EUR 18,000 Management/Finance bracket. See uncertainty_notes for the EUR 15,000 vs EUR 16,000 discrepancy.",
+    "scholarship_url": "https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027/magistrali-2026-2027-academic-year"
+  },
+  "official_program_url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/data-science-and-management",
+  "official_call_url": [
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements"
+  ],
+  "source_quotes": [
+    {
+      "field": "admission_type",
+      "quote": "Admission is based on a test comprising psycho-aptitude and academic competence questions, similar to the GMAT.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "Selection for EU/Schengen students to access all Luiss Master's degree courses, except for Management and Finance.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "GMAT with a minimum score of 515 (out of 805)",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "GRE with a minimum score of 154 (out of 170) in the Verbal and Quantitative sections",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "You can apply for only one of the available Master's degree courses",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "admission_type",
+      "quote": "your course choice is binding for admission, ranking, and subsequent enrolment",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "academic_requirements.minimum_curricular_requirements",
+      "quote": "at least 48 university credits in total (either already earned or still to be earned) in at least two of the following subject areas",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "academic_requirements.minimum_curricular_requirements",
+      "quote": "at least 24 ECTS credits must be earned in the following scientific subject areas: ECON-01/A; ECON-06/A; ECON-07/A; ECON-08/A; STAT-01/A; INFO-01/A; IINF-01/A.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "In addition, students must have at least a B2 level of English, which will be assessed during the admission test.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "For degree programmes taught in English, in addition to meeting the minimum curricular requirements, applicants must have a level of English proficiency equivalent to at least B2.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "entry_exam_or_test",
+      "quote": "If you choose to take the Test in English, you will be able to apply for courses in both Italian and English.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Submission of applications: From December 2026 to 8 April 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Test administration: From 19 to 22 April 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Registration: By 22 June 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Obtaining a Bachelor's degree: By 18 November 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "From December 2026 to 31 March 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "Admission procedures for Master's degree courses for non-EU/non-Schengen students for the 2027/2028 academic year are coming soon",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "The admission notices, detailing all requirements, participation methods, and the full calendar, will be available from November 2026.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "application_deadline_non_eu",
+      "quote": "The direct admission procedures with certifications for the 2026/2027 academic year are now closed.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "tuition_or_fees_link",
+      "quote": "The annual single tuition fee for enrolment in the Master's Degree Programme in Data Science and Management is € 15,000.00, divided into 3 instalments, plus the regional student welfare tax.",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/data-science-and-management",
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "field": "degree_class",
+      "quote": "Degree Programme Class: LM-91",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/data-science-and-management",
+      "accessed_date": "2026-09-04"
+    }
+  ],
+  "uncertainty_notes": [
+    "ACADEMIC YEAR: 2027/2028 is the primary published cycle, but only preliminary calendar information is online. Luiss states the full admission notices 'will be available from November 2026', so cycle_status is set to 'notice not yet published' for both EU and non-EU. The 2026/2027 cycle is described as complete/closed on the official pages and is recorded only as archival background (2026/2027 named SSDs are given under the old SECS/INF/ING nomenclature).",
+    "TUITION DISCREPANCY (important): the official Data Science and Management programme page states EUR 15,000.00 per year in 3 instalments, while the 2027/2028 master's admission test pages state a general master's fee of EUR 16,000 with EUR 18,000 for Management and Finance. The programme page may still reflect the 2026/2027 amount. Recommend re-checking the programme page after the November 2026 notice is published. What is clear is that Data Science and Management is NOT in the EUR 18,000 Management/Finance bracket.",
+    "FINANCE/MANAGEMENT EXCLUSION: verified that it does NOT apply to Data Science and Management. Luiss runs a separate 'Selection for the Master's Degree Programs in Finance and Management'; the GMAT/GRE direct-admission route covers 'all Luiss Master's degree courses, except for Management and Finance'. Data Science and Management appears explicitly in the Economics-area, English-taught list on the Luiss Test page, so both the Luiss Test and the GMAT/GRE direct-admission routes are open to it. Despite its name containing 'Management', it is a distinct LM-91 programme, not the LM-77 'Management' master.",
+    "ACCEPTED ENGLISH CERTIFICATES set to null: no luiss.it Graduate School page for master's degree admissions publishes an explicit list of accepted certificates with minimum scores (IELTS 6 / TOEFL iBT 78-80 / Cambridge FCE grade B / CAE grade C). Score tables found in search results came from Luiss Business School (businessschool.luiss.it), a separate entity with its own, higher requirements, so they were not used. For 2027/2028 the official statement is that B2 English is assessed during the admission test itself.",
+    "NON-EU DETAILS INCOMPLETE: the extra-EU landing page has no published 2027/2028 calendar yet; the dates recorded for the non-EU Luiss Test route come from the dedicated non-EU admission-test page, which currently mirrors the EU calendar (applications December 2026 - 8 April 2027, test 19-22 April 2027, registration by 22 June 2027). These must be re-verified against the November 2026 notice. No Universitaly pre-enrolment / visa timetable was found on the English pages, so visa_or_preenrolment_notes is null.",
+    "REQUIRED DOCUMENTS are only published in detail for the GMAT/GRE direct-admission route; the document list for the Luiss Test route will only be definitive in the November 2026 admission notice.",
+    "SUBJECT AREA ENUMERATION: the six eligible subject areas for the 48-ECTS rule were captured at group level (Economics, Economics and Business, Statistics and Mathematics, Law, Information Technology, Engineering). The complete SSD code list inside each area was partially summarised by the fetch and should be re-read verbatim from the minimum curricular requirements page before publishing to end users. The critical 24-ECTS named-SSD list was captured verbatim and is reliable.",
+    "MISSING FIELDS set to null and unverified: academic_requirements.minimum_grade_or_gpa (no published direct-access weighted-average threshold for Luiss internal students found on the 2027/2028 English pages), country_specific_rules, document_recognition (CIMEA / Declaration of Value), compensatory_measures, language_requirements.exemptions, entry_exam_or_test.interview, and results/announcement dates within the application rounds.",
+    "PDF NOTICE INACCESSIBLE: the 2026/2027 GMAT/GRE admission notice PDF at luiss.it/sites/default/files/2025-11/Bando_Ammissione_con_GMAT-GRE_2026_2027_..._Finance_e_Management_Eng.pdf returned HTTP 403 and could not be read, so the Finance/Management exclusion was confirmed indirectly from the EU/Schengen admission landing page wording instead.",
+    "CAMPUS: the programme page lists English as the language and references both Rome and Milan Luiss locations; no specific building (Viale Romania / Viale Pola) is named for this programme."
+  ],
+  "uncertain": [
+    "campus",
+    "academic_requirements",
+    "language_requirements",
+    "application_deadline_eu",
+    "application_deadline_non_eu",
+    "required_documents",
+    "entry_exam_or_test",
+    "tuition_or_fees_link",
+    "official_call_url"
+  ]
+}

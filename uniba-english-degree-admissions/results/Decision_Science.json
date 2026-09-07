@@ -1,0 +1,73 @@
+{
+  "program_name": "Decision Science",
+  "level": "master",
+  "teaching_language": "English",
+  "delivery_scope": "fully_english",
+  "campus": "Bari, Department of Physics",
+  "degree_class": "LM-55",
+  "academic_year": "2026/2027",
+  "programme_status": "active",
+  "admission_type": "open access",
+  "academic_requirements": [
+    "A bachelor's degree in one of the directly eligible Italian classes, or a suitable equivalent foreign qualification.",
+    "Graduates from other classes must document at least 30 CFU across the listed physical/mathematical, psychological, economic/statistical, or industrial/information-engineering disciplines.",
+    "Any curricular credit deficiencies must be completed before the assessment of personal preparation."
+  ],
+  "qualification_system_requirements": [
+    "For a non-Italian qualification, the committee evaluates duration, credits and disciplinary content.",
+    "The foreign qualification must grant access to second-cycle study in the education system where it was awarded."
+  ],
+  "eligible_degree_classes": ["L-8 Information Engineering", "L-9 Industrial Engineering", "L-18 Economics and Business Management", "L-24 Psychological Sciences and Techniques", "L-30 Physical Sciences and Technologies", "L-31 Computer Sciences and Technologies", "L-33 Economics", "L-35 Mathematics", "L-41 Statistics", "Other degree classes with the required 30 CFU"],
+  "required_subject_credits": [
+    {"subject_area": "Physical and mathematical sciences; psychological sciences; economics and statistics; industrial and information engineering", "ssd_or_domain": "PHYS-01/A, PHYS-02/A, PHYS-03/A, PHYS-06/A; MATH-01/A, MATH-03/A, MATH-03/B, MATH-04/A, MATH-05/A, MATH-06/A; PSIC-01/A, PSIC-01/B, PSIC-01/C, PSIC-03/A, PSIC-03/B; ECON-01/A, ECON-02/A, ECON-04/A, ECON-05/A, ECON-06/A, ECON-07/A, STAT-01/A, STAT-04/A; ING-INF/05, ING-IND/35", "minimum_cfu_or_ects": 30, "notes": "Applies to applicants whose degree is not in a directly eligible class; credits may be distributed across one or more listed groups."}
+  ],
+  "language_requirements": ["English proficiency of at least CEFR B2 is required."],
+  "language_level": "B2",
+  "accepted_language_evidence": ["English-language certificate demonstrating at least CEFR B2", "Pre-admission interview used to verify English proficiency"],
+  "personal_preparation_assessment": "A three-member programme committee reviews the submitted documentation and may hold an interview, including online, to verify curricular requirements and scientific and linguistic preparation. Applicants with foreign qualifications are invited to an interview.",
+  "ofa_or_remedial_obligations": ["Curricular integrations must be acquired before the personal-preparation assessment.", "The programme offers recommended preparatory crash courses and suggested self-study materials aligned with the applicant's first-cycle background."],
+  "entry_exam_or_test": null,
+  "interview_details": {"required": "Required for applicants holding a foreign qualification; otherwise may be required by the committee", "purpose": "Verify curricular requirements and scientific and linguistic personal preparation", "language": "English", "mode": "In person or online", "dates": "[uncertain] Not published in the sources checked", "waivers": "[uncertain] No programme-specific waiver schedule published"},
+  "admission_quota": {"total": null, "eu_or_equivalent": null, "non_eu_resident_abroad": 30, "other_reserves": "10 Marco Polo places", "source_year": "2026/2027"},
+  "selection_score_and_ranking": null,
+  "application_deadline_eu": [{"stage": "DreamApply pre-evaluation", "opens_at": "[uncertain] Not stated", "deadline": "2026-09-30", "timezone": "[uncertain] Not stated", "applicant_category": "EU and non-EU applicants not requiring a visa", "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"}],
+  "application_deadline_non_eu": [{"stage": "DreamApply pre-evaluation", "opens_at": "[uncertain] Not stated", "deadline": "2026-06-30", "timezone": "[uncertain] Not stated", "visa_required": true, "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"}],
+  "application_stages": [
+    {"sequence": 1, "stage": "Programme selection and foreign-qualification pre-evaluation", "platform": "DreamApply", "applies_to": "International applicants", "deadline": "2026-06-30 (visa applicants) or 2026-09-30 (non-visa applicants)", "action": "Submit the online application, documents and applicable fee", "url": "https://apply.uniba.it"},
+    {"sequence": 2, "stage": "Curricular and personal-preparation review/interview", "platform": "UNIBA programme committee", "applies_to": "All applicants as determined by the regulations; interview expressly required for foreign qualifications", "deadline": "[uncertain] Programme schedule not published", "action": "Complete document review and any requested interview", "url": "https://www.uniba.it/en/courses/decision-science/studying/piano-di-studi/academic-regulations/regolamento_didattico_cds_lm55_a-a-2025-2026_def.pdf"},
+    {"sequence": 3, "stage": "Pre-enrolment", "platform": "Universitaly", "applies_to": "Non-EU applicants requiring a visa", "deadline": "[uncertain] Follow the ministerial/consular deadline", "action": "Submit pre-enrolment and proceed with the study-visa process", "url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students"},
+    {"sequence": 4, "stage": "Final enrolment", "platform": "Esse3 / UNIBA", "applies_to": "Admitted applicants", "deadline": "[uncertain] Not located for this programme", "action": "Present original/verified documents and complete enrolment and fee payment", "url": "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/brochure-uniba-2026-2027.pdf"}
+  ],
+  "applicant_categories": ["Applicant not requiring a visa (Italian, EU, or non-EU with EU-equivalent status)", "Applicant requiring a visa (non-EU resident abroad)", "Marco Polo applicant", "Applicant in a refugee-like situation already residing in Italy"],
+  "deadline_conflict_note": null,
+  "required_documents": [
+    {"document": "Passport or identity card", "required_for": "International applicants", "stage": "Application/enrolment", "translation_required": false, "authentication_required": false, "notes": "Valid identity document."},
+    {"document": "Bachelor's diploma or degree certificate", "required_for": "All applicants", "stage": "DreamApply and final enrolment", "translation_required": "If not in English or Italian", "authentication_required": "Original/verified documentation required at enrolment", "notes": "Must demonstrate eligibility for second-cycle study."},
+    {"document": "Academic transcript with credits and subjects", "required_for": "All applicants", "stage": "DreamApply", "translation_required": "If not in English or Italian", "authentication_required": "Verified copy where applicable", "notes": "Used for curricular evaluation."},
+    {"document": "English B2 certificate, if used as evidence", "required_for": "Applicants claiming certificate-based verification", "stage": "Admission review", "translation_required": false, "authentication_required": "[uncertain] Not stated", "notes": "An interview may alternatively verify proficiency."},
+    {"document": "Declaration of Value, ARDI or CIMEA comparability statement", "required_for": "Foreign-qualification holders, as applicable", "stage": "Enrolment/qualification recognition", "translation_required": "As applicable", "authentication_required": true, "notes": "The 2026/27 guide lists these recognition documents."},
+    {"document": "Visa and residence-permit documentation", "required_for": "Non-EU visa applicants", "stage": "Visa/final enrolment", "translation_required": false, "authentication_required": false, "notes": "Residence permit or application receipt is required after arrival."}
+  ],
+  "document_translation_language": ["English", "Italian", "Official translation required when the institution cannot issue documents in one of these languages"],
+  "document_authentication": ["Original entry-qualification documents must be presented on arrival.", "Foreign academic documents may require legalization or Apostille and a Declaration of Value, ARDI, CIMEA comparability statement or verification statement, depending on the case."],
+  "application_fee": {"amount": "[uncertain] Amount not stated in the 2026/2027 guide", "currency": "EUR", "stage": "DreamApply foreign-qualification pre-evaluation", "payment_method": "Bank transfer through DreamApply", "refundable": "[uncertain] Not stated", "source_url": "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/brochure-uniba-2026-2027.pdf"},
+  "tuition_or_fees_link": "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/brochure-uniba-2026-2027.pdf",
+  "official_program_url": "https://www.uniba.it/en/courses/decision-science/decision-science",
+  "official_call_url": null,
+  "requirements_source_url": ["https://www.uniba.it/en/courses/decision-science/studying/piano-di-studi/academic-regulations/regolamento_didattico_cds_lm55_a-a-2025-2026_def.pdf", "https://apply.uniba.it/en_US/courses/course/150-masters-degree-decision-science-lm55", "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students", "https://www.uniba.it/it/studenti/segreterie-studenti/studenti-stranieri/contingenti-riservati-agli-studenti-extra-ue-residenti-allestero-e-richiedenti-visto-2026-2027_pdf.pdf"],
+  "source_quotes": [
+    {"field": "delivery_scope", "quote": "is taught in English", "source_url": "https://www.uniba.it/en/courses/decision-science/studying/piano-di-studi/academic-regulations/regolamento_didattico_cds_lm55_a-a-2025-2026_def.pdf", "page_or_section": "Article 1, page 2", "academic_year": "2025/2026", "accessed_at": "2026-09-05"},
+    {"field": "admission_type", "quote": "The study programme has open admission.", "source_url": "https://www.uniba.it/en/courses/decision-science/studying/piano-di-studi/academic-regulations/regolamento_didattico_cds_lm55_a-a-2025-2026_def.pdf", "page_or_section": "Article 3, page 5", "academic_year": "2025/2026", "accessed_at": "2026-09-05"},
+    {"field": "language_level", "quote": "English at a level of at least B2", "source_url": "https://www.uniba.it/en/courses/decision-science/studying/piano-di-studi/academic-regulations/regolamento_didattico_cds_lm55_a-a-2025-2026_def.pdf", "page_or_section": "Article 3, page 7", "academic_year": "2025/2026", "accessed_at": "2026-09-05"},
+    {"field": "application_deadline_non_eu", "quote": "30 June 2026 for non-EU students requiring a visa", "source_url": "https://www.uniba.it/en/students/international-students/admission/admission-of-international-students", "page_or_section": "Admission of International Students", "academic_year": "2026/2027", "accessed_at": "2026-09-05"}
+  ],
+  "source_year": ["2025/2026 programme academic regulations", "2026/2027 international admission page", "2026/2027 reserved-place table", "2026/2027 international student guide"],
+  "source_last_checked": "2026-09-05",
+  "uncertainty_notes": [
+    {"field": "academic_year", "issue": "Programme-specific admission regulations currently located are for 2025/2026.", "reason": "The 2026/2027 central admission sources confirm the active programme and quotas, but a 2026/2027 Decision Science regulation was not located.", "searched_sources": ["Programme page", "2025/2026 academic regulation", "2026/2027 international admission page", "2026/2027 quota table"], "resolution_needed": "Replace fallback curricular rules if a 2026/2027 programme regulation is published."},
+    {"field": "application_fee", "issue": "The fee requirement is stated but the amount and refundability are not.", "reason": "The guide directs payment through DreamApply without a numeric amount.", "searched_sources": ["2026/2027 international student guide", "DreamApply course page"], "resolution_needed": "Confirm the amount in the logged-in DreamApply application or current fee notice."},
+    {"field": "official_call_url", "issue": "No programme-specific 2026/2027 call was located.", "reason": "Open-access admission is governed by programme regulations and central international procedures.", "searched_sources": ["Programme site", "International students admission page"], "resolution_needed": "Monitor for a programme-specific call or annual enrolment notice."},
+    {"field": "application_stages", "issue": "Interview and final-enrolment dates are unpublished.", "reason": "Central sources state platform deadlines but not the programme committee calendar.", "searched_sources": ["Academic regulation", "DreamApply", "International student guide"], "resolution_needed": "Obtain dates from the programme office or application portal."}
+  ],
+  "uncertain": ["academic_year", "entry_exam_or_test", "interview_details", "admission_quota", "selection_score_and_ranking", "application_deadline_eu", "application_deadline_non_eu", "application_stages", "required_documents", "application_fee", "official_call_url"]
+}

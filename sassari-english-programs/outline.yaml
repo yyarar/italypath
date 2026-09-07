@@ -1,0 +1,95 @@
+# University of Sassari (UNISS) — İngilizce eğitim veren lisans ve yüksek lisans
+# programlarının admission requirements araştırması
+# Oluşturulma: 2026-09-05 | Kaynak kısıtı: sadece resmi uniss.it sayfaları (+ departman alt alanları)
+
+topic: "UNISS İngilizce eğitim veren lisans ve yüksek lisans programları — admission requirements (2026/2027)"
+
+scope:
+  source_restriction: "Sadece uniss.it resmi sayfaları ve departman alt alanları (veterinaria.uniss.it, disea.uniss.it, dcf.uniss.it vb.)"
+  academic_year: "2026/2027 öncelikli; bulunamazsa en güncel resmi yıl (2025/2026) kullanılır ve notlanır. NOT: 5 Eylül 2026 itibarıyla hiçbir İngilizce programın 2026/27 giriş sınavı takvimi henüz yayınlanmamış görünüyor — Temmuz-Eylül 2026 civarında yeniden doğrulanmalı"
+  language_scope: "Sadece TAM İngilizce eğitim veren (curriculum bazında tamamen İngilizce) programlar dahil edilir. Kısmen İngilizce/İtalyanca karma programlar ve sadece bir alt-curriculum'u İngilizce olan programlar (aşağıda excluded_items) kullanıcı kararıyla hariç tutuldu"
+  note_program_specific_dates: "UNISS'te tek bir başvuru deadline'ı yok — her program kendi giriş sınavı/mülakat tarihlerini kendi departman sayfasında ilan ediyor, birden fazla tarih/tur olabiliyor. Derin araştırmada application_deadline_eu / application_deadline_non_eu alanlarına TÜM turlar not düşülmeli"
+  bot_protection_warning: "uniss.it ve departman alt alanları AWS WAF insan doğrulaması (CAPTCHA) arkasında olabilir. Ön araştırma agent'ı canlı sayfalara erişemedi, Wayback Machine snapshot'ları kullandı. Derin araştırma agent'ları da aynı engelle karşılaşabilir — erişemezse Wayback/arama önbelleği kullanılmalı ve uncertainty_notes'a not düşülmeli"
+
+research_guidelines:
+  primary_source: "Her programın hem www.uniss.it/it/didattica/offerta-formativa/lauree-magistrali/<program> genel sayfası HEM de kendi departman alt-alanı (örn. veterinaria.uniss.it, disea.uniss.it) birlikte kontrol edilmeli — üniversite geneli sayfa admission detaylarını neredeyse hiç vermiyor, gerçek gereksinimler departman sayfasında"
+  zero_bachelor_finding: "UNISS'in 39 lisans (laurea triennale/ciclo unico) programının TAMAMI İtalyanca eğitim veriyor. Tam İngilizce bir lisans programı YOK — bu aktif bir araştırma bulgusudur, item listesine dahil edilecek bachelor bulunmuyor"
+  multi_campus_warning: "UNISS tek kampüslü değil: Sassari (ana), Alghero (Mimarlık/Planlama), Olbia (IMAST, havalimanı binası, Sassari'den ~100km), Nuoro, Oristano. campus alanı şehir düzeyinde doğru yazılmalı — konaklama/maliyet için materyal fark yaratıyor"
+  entry_test_structure_warning: "Her üç program da tek bir 'giriş sınavı' değil, çok parçalı bir süreç kullanıyor: çoktan seçmeli akademik test (bazen sadece teşhis amaçlı, admission'ı etkilemiyor) + İngilizce mülakat/görüşme. Format programdan programa farklı — academic_requirements ve entry_exam_or_test alanlarında bu detay kaybedilmemeli"
+  conditional_enrolment_note: "UNISS'te tipik olarak lisans derecesi başvuru anında henüz alınmamış olsa da başvuru kabul ediliyor; 'derece 31 Aralık'a kadar tamamlanmalı, kesin kayıt orta Ocak'a kadar yapılmalı' gibi koşullu bir kural var. Bu application_deadline alanlarına veya uncertainty_notes'a mutlaka not düşülmeli"
+
+# ---------------------------------------------------------------
+# ITEMS — her tam İngilizce program ayrı araştırma nesnesi
+# ---------------------------------------------------------------
+
+items:
+  # ---------- LİSANS (BACHELOR) ----------
+  # NOT: UNISS'in 39 lisans programının tamamı İtalyanca eğitim veriyor (bkz. zero_bachelor_finding).
+  # Bu, aktif bir araştırma bulgusu olarak kaydedilir; item listesine dahil edilecek bachelor yok.
+
+  # ---------- YÜKSEK LİSANS (MASTER / LAUREA MAGISTRALE) ----------
+  - id: lm-biotechnology-human-animal-health
+    name: "Biotechnology for Human and Animal Health (BHAH)"
+    level: master
+    teaching_language: "İngilizce (tamamen; ancak müfredatta 3 CFU'luk İtalyanca başlıklı bir gıda güvenliği dersi görülüyor — uncertainty_notes'a düşülmeli)"
+    campus: "Sassari, Veteriner Fakültesi (Via Vienna 2)"
+    degree_class: "LM-9"
+    access_type: open
+    status: active
+    notes: "2025/26'da yeni açılmış görünüyor — ön araştırmada Mart 2025 İngilizce sayfasında yoktu, Mayıs 2026 İtalyanca sayfasında var. Giriş: çoktan seçmeli test (sitoloji/biyokimya/moleküler biyoloji/sitogenetik) + İngilizce mülakat, online (Microsoft Teams). 2025/26'da 5 ayrı sınav tarihi (26 Eyl, 16 Eki, 6 Kas, 27 Kas, 17 Ara 2025), her birinin kendi kayıt penceresi var — 2026/27 takvimi doğrulanacak. Koordinatör Prof. Daniela Bebbere"
+    url: "https://www.uniss.it/it/didattica/offerta-formativa/lauree-magistrali/biotechnology-human-and-animal-health"
+    department_url: "https://veterinaria.uniss.it/en/study/prospective-students/biotechnology-human-and-animal-health-bhah"
+
+  - id: lm-wildlife-management-conservation-control
+    name: "Wildlife Management, Conservation and Control (WMCC)"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Sassari, Veteriner Fakültesi (Via Vienna 2)"
+    degree_class: "LM-86"
+    access_type: open
+    status: active
+    notes: "Görünüşte açık erişim ama üniversite geneli sayfada GÖRÜNMEYEN bir kısıt var: non-EU öğrenci kontenjanı max 15 (departman sayfasında). Giriş testi çoktan seçmeli ama admission'ı ETKİLEMİYOR (sadece teşhis amaçlı) + İngilizce mülakat asıl belirleyici. Lisans derecesi tamamlanmamışsa 31 Aralık'a kadar tamamlanma, orta Ocak'a kadar kayıt şartı. İletişim: wmcc@uniss.it"
+    url: "https://www.uniss.it/it/didattica/offerta-formativa/lauree-magistrali/wildlife-management-conservation-and-control"
+    department_url: "https://veterinaria.uniss.it/it/i-nostri-corsi/futuri-studenti/wildlife-management-conservation-and-control-wmcc"
+
+  - id: lm-innovation-management-sustainable-tourism
+    name: "Innovation Management for Sustainable Tourism (IMAST/IMST)"
+    level: master
+    teaching_language: "İngilizce"
+    campus: "Olbia (Olbia Costa Smeralda Havalimanı binası, Sassari'den ~100km) — DİKKAT: Sassari şehri DEĞİL"
+    degree_class: "LM-77"
+    access_type: "selection call (mülakat)"
+    status: active
+    notes: "Babeș-Bolyai Üniversitesi (Cluj-Napoca, Romanya) ile ÇİFT DİPLOMA — 2. yıl yurt dışında. Giriş: müfredat kontrolü + çoktan seçmeli İngilizce testi + motivasyon mülakatı. 2025/26'da 3 mülakat turu (8&11 Eyl, 29-30 Eki 2025, 9 Oca 2026); kayıt 15 Ocak'a, derece 31 Aralık'a kadar tamamlanmalı. UNISS uluslararası öğrencilere kendi bursunu VERMİYOR — ERSU Sassari / MAECI'ye yönlendiriyor. Konaklama A.L.M.A. üzerinden Geovillage'da. İletişim: bpes@uniss.it"
+    url: "https://www.uniss.it/it/didattica/offerta-formativa/lauree-magistrali/innovation-management-sustainable-tourism"
+    department_url: "https://www.disea.uniss.it/it/i-nostri-corsi/laurea-magistrale-innovation-management-sustainable-tourism-imast"
+
+# ---------------------------------------------------------------
+# KAPSAM DIŞI BIRAKILANLAR (veri setinin eksiksizliği kanıtlansın diye kayıtlı —
+# derin araştırmada tekrar "keşfedilip" yanlışlıkla eklenmesinler diye)
+# ---------------------------------------------------------------
+excluded_items:
+  - name: "Environmental Conservation, Restoration and Sustainability (ECRS) — LM-75"
+    reason: "Sadece 'Marine' alt-curriculum'u İngilizce ('taught primarily in English'), 'Terrestrial' alt-curriculum İtalyanca. Programın kendisi 'Inglese Italiano' olarak listeleniyor — tam İngilizce değil. Kullanıcı kararıyla hariç tutuldu (kısmi-İngilizce programlar dahil edilmeyecek)"
+  - name: "Economia / Economics — LM-56"
+    reason: "Sadece 'Economic Intelligence' curriculum'unda kısmi İngilizce yol (≥30 ECTS partner üniversitelerde İngilizce). Program geneli 'Italiano/Inglese' — tam İngilizce değil"
+  - name: "Scienze chimiche / Chemical Sciences — LM-54"
+    reason: "'Italiano/Inglese' karma; çift diploma partneri Wrocław'dan Lisbon/Instituto Superior Técnico'ya değişmiş, erişim artık 'Programmato' — tam İngilizce değil"
+  - name: "Scienze delle produzioni zootecniche / Animal Production Sciences — LM-86 (Tarım Fakültesi, WMCC ile aynı kod ama farklı program)"
+    reason: "'Italiano/Inglese' karma, Universidade de Évora ile çift diploma — tam İngilizce değil"
+  - name: "Pianificazione e politiche per la città, l'ambiente e il paesaggio — LM-48 (Alghero)"
+    reason: "Mart 2025 İngilizce sayfasında 'Italian/English' idi, Mayıs 2026 İtalyanca sayfasında 'Lingua di erogazione: Italiano' olarak GÜNCELLENMİŞ — artık tam İtalyanca görünüyor. Ayrıca Barcelona/Girona/Lisbon/IUAV Avrupa Master'ı ve Tianjin çift diplomasını kaybetmiş, sadece Kartaca (Tunus) kalmış"
+  - name: "Mimarlık (Architettura) — LM-4, Alghero"
+    reason: "'Lingua del corso: Italiano' — İngilizce track yok"
+  - name: "Tüm lisans (laurea triennale/ciclo unico) programları (39 adet, Economia e management del turismo - Olbia dahil)"
+    reason: "Hepsi İtalyanca eğitim veriyor; UNISS'te tam İngilizce lisans programı bulunmuyor (zero_bachelor_finding)"
+  - name: "Veterinary Medicine, Medicine and Surgery, Agriculture (genel Tıp/Veteriner/Tarım programları)"
+    reason: "İtalyanca eğitim veriyor. Sadece Veteriner Fakültesi bünyesindeki BHAH ve WMCC yüksek lisansları İngilizce — bunlar ayrı item olarak zaten dahil"
+
+# ---------------------------------------------------------------
+# YÜRÜTME AYARLARI (/research-deep bunları okur)
+# ---------------------------------------------------------------
+execution:
+  batch_size: 3          # sadece 3 item var, hepsi paralel çalışabilir
+  items_per_agent: 1     # her agent tek programı derinlemesine araştırır
+  output_dir: "./results"

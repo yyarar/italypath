@@ -1,0 +1,91 @@
+# UNISS araştırması — alan tanımları
+# Kullanıcı kararı: sadece brief'te verilen orijinal 16 alan kullanılacak, ek alan açılmayacak.
+# UNISS'e özgü yapısal nüanslar (çoklu sınav tarihi, non-EU kotası, koşullu kayıt vb.)
+# ayrı alanlar yerine ilgili alanın description'ına ve derin araştırmada
+# uncertainty_notes / source_quotes içine not düşülerek yakalanacak.
+# detail_level: brief -> moderate -> detailed
+# Derin araştırma aşamasında her program için bu şemaya uygun JSON üretilecek.
+
+fields:
+
+  # ---------- 1. KİMLİK ----------
+  identity:
+    - name: program_name
+      description: "Programın resmi tam adı (uniss.it / departman sayfasındaki İngilizce ad)"
+      detail_level: brief
+      core: true
+    - name: level
+      description: "bachelor / master / single-cycle / other"
+      detail_level: brief
+      core: true
+    - name: teaching_language
+      description: "Tam İngilizce mi; UNISS'te bazı programlar sadece tek bir alt-curriculum'da İngilizce olabiliyor (bkz. outline.yaml excluded_items) — bu programlar item listesine dahil edilmedi, ama eğer derin araştırmada dil şartıyla ilgili bir belirsizlik/değişiklik bulunursa burada not düşülmeli"
+      detail_level: brief
+      core: true
+    - name: campus
+      description: "Şehir/kampüs düzeyinde belirtilmeli — UNISS çok kampüslü: Sassari (ana), Alghero, Olbia (havalimanı binası, Sassari'den ~100km), Nuoro, Oristano. 'Sassari' varsayılmamalı, her program için doğrulanmalı"
+      detail_level: brief
+      core: true
+    - name: degree_class
+      description: "İtalyan degree class kodu (LM-9, LM-86, LM-77 vb.), varsa"
+      detail_level: brief
+
+  # ---------- 2. KABUL (ADMISSION) ----------
+  admission:
+    - name: admission_type
+      description: "open access / restricted access / TOLC / SAT / selection call / other. UNISS'in İngilizce programlarında tipik olarak 'open access ama non-EU kontenjan tavanı' veya 'selection call (mülakat)' türünde karma yapılar görülüyor — bu nüans academic_requirements veya uncertainty_notes'ta açıklanmalı"
+      detail_level: moderate
+      core: true
+    - name: academic_requirements
+      description: "Akademik önkoşullar: kabul edilen lisans derecesi sınıfları/alanları + varsa minimum ECTS/kredi dökümü (örn. belirli bilimsel derslerden min. X ECTS). Giriş sınavının TAM formatı da burada açıklanmalı: UNISS programları genelde çok parçalı bir süreç kullanıyor (çoktan seçmeli akademik test — bazen sadece teşhis amaçlı, admission'ı etkilemiyor — + İngilizce mülakat/görüşme); bu ayrım kaybedilmemeli. Non-EU öğrenci sayısına dair sabit bir kontenjan varsa (üniversite geneli sayfada görünmeyebilir, departman sayfasında olur) burada belirtilmeli"
+      detail_level: detailed
+      core: true
+    - name: language_requirements
+      description: "İngilizce yeterlilik şartı (CEFR seviyesi, örn. B1/B2) ve kabul edilen kanıt yöntemleri: sertifika, denk üniversite dersleri, veya giriş mülakatında değerlendirme. UNISS'te sabit bir sertifika/puan tablosu (IELTS/TOEFL skor listesi gibi) yayınlanmamış olabilir — bu durum açıkça 'sabit skor tablosu yok' diye not düşülmeli"
+      detail_level: detailed
+      core: true
+    - name: application_deadline_eu
+      description: "AB adayları için başvuru/kayıt son tarihi (ISO formatına normalize edilecek). UNISS'te tek bir deadline yerine BİRDEN FAZLA sınav/mülakat turu ve tarihi olabiliyor (her turun kendi kayıt penceresi var) — varsa TÜM turlar burada listelenmeli, tek bir tarihe indirgenmemeli. Ayrıca lisans derecesi henüz alınmamışsa 'koşullu kayıt' kuralı (derece tamamlama + kesin kayıt için ayrı, daha geç tarihler) varsa burada açıkça belirtilmeli"
+      detail_level: detailed
+      core: true
+    - name: application_deadline_non_eu
+      description: "AB dışı adaylar için başvuru/kayıt son tarihi (ISO formatına normalize edilecek). Aynı çoklu-tur ve koşullu-kayıt nüansları application_deadline_eu ile aynı şekilde geçerli. Ayrıca Universitaly (universitaly.it) üzerinden yapılan ayrı bir vize ön-kayıt adımı olup olmadığı da burada not düşülmeli"
+      detail_level: detailed
+      core: true
+    - name: required_documents
+      description: "Başvuru için gerekli belgeler listesi (diploma, transkript, dil sertifikası, motivasyon mektubu, referans mektubu vb.)"
+      detail_level: detailed
+      core: true
+    - name: entry_exam_or_test
+      description: "Giriş sınavı/mülakat var mı, TAM formatı ne (çoktan seçmeli test mi, mülakat mı, ikisi birden mi, hangisi admission'ı asıl belirliyor). Sınavın online mı yüz yüze mi yapıldığı (örn. Microsoft Teams üzerinden online mülakat) ve varsa TÜM sınav tarihleri/turları burada belirtilmeli"
+      detail_level: detailed
+      core: true
+
+  # ---------- 3. ÜCRET VE KAYNAK LİNKLERİ ----------
+  fees_links:
+    - name: tuition_or_fees_link
+      description: "Harç/ücret sayfası linki + kısa özet. UNISS'te harç genelde gelire (ISEE) bağlı kademeli bir yapı olabilir, düz tek rakam yanıltıcı olabilir — mümkünse aralık belirtilmeli. Üniversitenin uluslararası öğrencilere kendi bursu olup olmadığı da (varsa ERSU/MAECI gibi harici kaynaklara yönlendirme) burada not düşülebilir"
+      detail_level: moderate
+      core: true
+    - name: official_program_url
+      description: "Resmi program sayfası (www.uniss.it genel sayfası)"
+      detail_level: brief
+      core: true
+    - name: official_call_url
+      description: "Resmi başvuru çağrısı/departman sayfası linki (örn. veterinaria.uniss.it, disea.uniss.it) — asıl admission detayları genelde bu sayfada, genel uniss.it sayfasında değil"
+      detail_level: brief
+      core: true
+
+  # ---------- 4. KANIT VE BELİRSİZLİK ----------
+  evidence:
+    - name: source_quotes
+      description: "Kritik iddiaların (tarih, kontenjan, eşik puan, dil şartı gibi) doğrudan alıntıları — zorunlu"
+      detail_level: moderate
+      core: true
+    - name: uncertainty_notes
+      description: "Belirsizlikler: hangi akademik yılın verisi kullanıldı, çelişen bilgi, sayfaya doğrudan mı yoksa Wayback Machine/arama önbelleği üzerinden mi erişildi (uniss.it AWS WAF/CAPTCHA arkasında olabilir), 2026/27 takviminin henüz yayınlanmamış olması gibi durumlar burada belirtilmeli"
+      detail_level: moderate
+      core: true
+
+# Derin araştırma aşamasında otomatik doldurulacak belirsiz alanlar (rezerve)
+uncertain: []

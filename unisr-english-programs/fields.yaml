@@ -1,0 +1,168 @@
+# fields.yaml — Università Vita-Salute San Raffaele (UNISR) English-taught programmes
+# Research object = one degree programme. Deep-research phase emits one JSON per item.
+topic: "UNISR English-taught single-cycle & master programmes — admission requirements"
+schema_version: 1
+generated_at: "2026-09-06"
+
+source_policy:
+  allowed_domains:
+    - "unisr.it"
+    - "*.unisr.it"
+    - "usi.ch (Cognitive Psychology in Health Communication only — joint degree)"
+    - "polimi.it (Health Informatics only — joint degree)"
+    - "unimi.it / pppa.cdl.unimi.it (PPPA only — joint degree, UNISR has no admission page)"
+  rule: >
+    UNISR-side facts must resolve to a unisr.it URL. For the 3 joint-degree programmes,
+    the named partner domain may also be cited, but only for that specific programme, and
+    the field's value or source_quotes entry must make clear which institution's page the
+    fact came from. Aggregator sites (mastersportal, studyinitaly, uniitalia, etc.) may be
+    used to locate a lead but MUST NOT be cited as the source of record.
+  year_policy: >
+    Prioritise academic year 2026/2027. If 2026/27 information is not yet published for a
+    programme (or a round for that year has already closed), use the most recent official
+    year/round and state this explicitly in uncertainty_notes, including whether the round
+    referenced is EU or non-EU.
+  quoting_rule: >
+    Every non-trivial field must be backed by a short verbatim quote in source_quotes
+    (max ~30 words each) with the exact page URL it came from. Never paraphrase a deadline,
+    fee, quota or language level as if it were quoted.
+
+fields:
+
+  identity:
+    - name: program_name
+      description: "Official programme name exactly as written on the source page. If the programme was renamed (e.g. Biotechnology for Innovative Therapeutics, formerly Biotechnology and Medical Biology), include the former name in parentheses."
+      detail_level: brief
+      type: string
+      required: true
+
+    - name: level
+      description: "Degree level."
+      detail_level: brief
+      type: enum
+      enum: [bachelor, master, single-cycle, other]
+      required: true
+
+    - name: teaching_language
+      description: "Language of instruction as stated officially. Note if the programme is a joint/double degree taught partly at a partner institution's campus (e.g. Milan + Lugano)."
+      detail_level: moderate
+      type: string
+      required: true
+
+    - name: campus
+      description: "City / campus / teaching location. For joint-degree programmes, list every campus/country where teaching actually happens, not just Milan."
+      detail_level: brief
+      type: string
+      required: false
+
+    - name: degree_class
+      description: "Italian ministerial degree class code and label if shown (e.g. LM-41, LM-62/LM-78 interclass). Null if not published."
+      detail_level: brief
+      type: string
+      required: false
+
+  admission:
+    - name: admission_type
+      description: "How access is regulated."
+      detail_level: moderate
+      type: enum
+      enum: [open access, restricted access, TOLC, SAT, selection call, other]
+      required: true
+
+    - name: academic_requirements
+      description: "Prior qualification required, required degree classes/subjects, GPA or curricular prerequisites, how foreign qualifications are assessed, and — for joint-degree programmes — which institution(s) actually run the selection process."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: language_requirements
+      description: "Required English level (e.g. B2, C1) and accepted certificates (IELTS/TOEFL/Cambridge), score thresholds, exemptions (e.g. schooling entirely in English), and at what stage it is required (application vs enrolment). Note any Italian-language requirement or support too."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: english_level_required
+      description: "The specific minimum CEFR English level required for this programme (e.g. B2 or C1), extracted as its own value so programmes can be compared directly. Include the stage it applies to (application vs enrolment) if it differs from language_requirements."
+      detail_level: brief
+      type: string
+      required: true
+
+    - name: entry_exam_or_test
+      description: "Any admission test: whether it is UNISR's own test or a partner institution's selection method, question count/sections, duration, delivery mode (e.g. home-based/remote-proctored), scoring rule, and registration fee if separate from tuition."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: required_documents
+      description: "Documents to submit: transcript, diploma, Declaration of Value / CIMEA statement, Universitaly pre-enrolment, passport, motivation letter, exams list, syllabi, language certificate, etc."
+      detail_level: detailed
+      type: array_of_strings
+      required: true
+
+  quotas:
+    - name: places_eu
+      description: "Number of places reserved for EU (or equivalent) applicants for the covered academic year, as published in the official call. Null if not split by group."
+      detail_level: brief
+      type: string
+      required: false
+
+    - name: places_non_eu
+      description: "Number of places reserved for non-EU applicants for the covered academic year. If UNISR marketing pages and the official call disagree on totals (as seen for Health Informatics), report both figures and flag the conflict here or in uncertainty_notes."
+      detail_level: brief
+      type: string
+      required: false
+
+  deadlines:
+    - name: application_deadline_eu
+      description: "Application window and deadline for EU / equivalent applicants for the covered academic year. If multiple rounds exist, summarise the applicable one(s) here and give full detail in admission_rounds."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: application_deadline_non_eu
+      description: "Application window and deadline for non-EU applicants residing abroad, including Universitaly pre-enrolment and visa-related cut-offs where stated. If the non-EU round for the target year has already closed by the time of research, say so and give the round dates anyway."
+      detail_level: detailed
+      type: string
+      required: true
+
+    - name: admission_rounds
+      description: "Structured list of every admission round found for this programme: [{round_name, applicant_group (EU/non-EU/all), registration_opens, registration_closes, test_date(s), notes}]. Needed because several UNISR programmes run 2+ independent rounds per year (e.g. IMDP has two test sessions per group; Biotechnology has a spring non-EU round and a later EU round)."
+      detail_level: detailed
+      type: array_of_objects
+      required: true
+
+  sources:
+    - name: tuition_or_fees_link
+      description: "Official tuition fees page/section for this programme. State the currency explicitly (most UNISR programmes bill in EUR, but Cognitive Psychology in Health Communication bills in CHF via USI Lugano) — never assume EUR."
+      detail_level: brief
+      type: url
+      required: false
+
+    - name: official_program_url
+      description: "Canonical unisr.it programme page URL."
+      detail_level: brief
+      type: url
+      required: true
+
+    - name: official_call_url
+      description: "URL of the admission call / bando (PDF or page) that governs the covered year. For joint-degree programmes whose call lives on the partner's site (usi.ch, pppa.cdl.unimi.it), use that URL and note the domain."
+      detail_level: brief
+      type: url
+      required: false
+
+    - name: source_quotes
+      description: "List of {quote, url, field_supported} objects. Short verbatim excerpts (<=30 words) backing the extracted values, especially deadlines, quotas, language level, currency and admission type."
+      detail_level: detailed
+      type: array_of_objects
+      required: true
+
+  reliability:
+    - name: uncertainty_notes
+      description: "What could not be confirmed and why: 2026/27 call not yet published or already closed for one applicant group, UNISR page contradicts partner-institution page, place-count conflicts (marketing vs. official call), currency ambiguity, programme name changed without alias update, or any field left null."
+      detail_level: detailed
+      type: string
+      required: true
+
+# Reserved — auto-filled during the deep-research phase with fields the agent could
+# not resolve from official sources for a given item.
+uncertain: []

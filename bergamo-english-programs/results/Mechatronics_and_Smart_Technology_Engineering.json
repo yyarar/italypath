@@ -1,0 +1,139 @@
+{
+  "program_name": "Mechatronics and Smart Technology Engineering",
+  "level": "master",
+  "teaching_language": "English (entire programme)",
+  "campus": "Engineering campus, Dalmine, Bergamo",
+  "degree_class": "LM-33 (Mechanical Engineering)",
+  "access_type": "open access",
+  "programme_name_history": "The current official English name is Mechatronics and Smart Technology Engineering; the Italian degree title is Meccatronica e Smart Technology Engineering. The official application record also describes the programme as Master in Mechanical Engineering (Smart Technology Engineering), an explanatory legacy-style wording rather than a separate current degree.",
+  "awarding_institution": "University of Bergamo",
+  "admission_type": "Open access, with programme-committee evaluation of curricular requirements and personal preparation; applicants follow an interview/test verification window rather than a competitive ranking examination.",
+  "academic_requirements": "Applicants must hold a first-cycle degree in class L-7 Civil and Environmental Engineering, L-8 Information Engineering, L-9 Industrial Engineering, or L-23 Building Science and Technology, or an equivalent/suitable foreign qualification. They must have adequate foundations in engineering, particularly mechanical engineering, and at least 24 CFU earned across at least three of the nine specified mechanical-engineering disciplinary sectors. Every application is evaluated individually by the responsible programme committee, which verifies the curricular conditions and the applicant's personal preparation.",
+  "curricular_requirements_cfu": {
+    "minimum": "24 CFU",
+    "distribution": "Credits must have been earned in at least 3 of the 9 listed disciplinary sectors",
+    "eligible_sectors": [
+      "ING-IND/08 - Fluid Machinery",
+      "ING-IND/09 - Energy Systems and the Environment",
+      "ING-IND/10 - Industrial Technical Physics",
+      "ING-IND/12 - Mechanical and Thermal Measurements",
+      "ING-IND/13 - Applied Mechanics",
+      "ING-IND/14 - Mechanical Design and Machine Construction",
+      "ING-IND/15 - Design and Methods of Industrial Engineering",
+      "ING-IND/16 - Manufacturing Technologies and Systems",
+      "ING-IND/17 - Industrial Mechanical Plants"
+    ]
+  },
+  "entry_exam_or_test": "No competitive entrance examination is published. After access requirements are evaluated, the applicant must undergo the programme's interview/test for verification of initial preparation; foreign-qualification applicants already interviewed during pre-evaluation are excluded from repeating it.",
+  "interview_required": "Yes, as an initial-preparation verification following curricular evaluation; the exact format may be an interview or test [uncertain].",
+  "interview_language": "English [uncertain]",
+  "selection_scoring": "No competitive ranking rubric or numerical admission threshold is published. Eligibility is based on the specified degree classes or a suitable equivalent, the 24-CFU/three-sector requirement, and an individual evaluation of personal preparation.",
+  "degree_completion_deadline": "For ordinary 2026/27 pre-enrolment, a candidate may apply conditionally if no more than three examinations totalling no more than 24 CFU, plus the final examination, remain. The bachelor's degree must be completed by the extraordinary March/April 2027 graduation session. The international pre-evaluation route states that non-EU applicants should already hold a foreign bachelor's degree [uncertain].",
+  "application_channel": "Applicants with a foreign qualification use the University of Bergamo online pre-evaluation portal (apply.unibg.it/DreamApply). Visa-seeking non-EU applicants must additionally complete Universitaly and the applicable visa procedure. Ordinary pre-enrolment is submitted through UniBG's online Student Desk.",
+  "language_requirements": "The programme-specific 2026/27 course page and its official DreamApply record state English at CEFR B1 as the minimum admission prerequisite. However, the UniBG 2026/27 future-student guide says applicants to English-taught master's programmes must provide recognized B2 English evidence or qualifying medium-of-instruction evidence. Because the official sources conflict, applicants using the international route should satisfy B2 unless UniBG confirms otherwise [uncertain].",
+  "accepted_english_certificates": "A recognized English certificate at the applicable CEFR level is accepted. The programme-specific DreamApply page does not expose a complete current certificate-and-score table in the accessible official content; applicants should use the current UniBG recognized-certificates list and target B2 for the international route [uncertain].",
+  "language_waiver_conditions": "A medium-of-instruction certificate issued by the registrar or international office is accepted where the completed degree programme was taught entirely in English. Unofficial certificates and self-declarations are not accepted. Native English-speaking applicants are exempt from submitting an English certificate and medium-of-instruction certificate.",
+  "application_deadline_eu": [
+    "2026-05-29 (standard pre-enrolment round 1)",
+    "2026-08-28 (standard pre-enrolment round 2)",
+    "2026-09-30 (standard pre-enrolment round 3)",
+    "2026-10-30 (late round 1, with late fee)",
+    "2026-11-13 (late round 2, with late fee)"
+  ],
+  "application_deadline_non_eu": [
+    "2026-01-15 23:59:59 GMT (2026/27 international pre-evaluation first call)",
+    "2026-01-31 23:59:59 GMT (2026/27 international pre-evaluation second call)",
+    "2026-09-30 (later UniBG and Universitaly pre-enrolment route for visa-seeking applicants to this free-access programme, subject to qualification assessment)"
+  ],
+  "application_call_round": [
+    {
+      "route": "International online pre-evaluation first call - free-access master's programmes",
+      "application_period": "2025-11-24 to 2026-01-15",
+      "interview_period": "February-March 2026",
+      "results": "By 2026-03-31"
+    },
+    {
+      "route": "International online pre-evaluation second call - free- and limited-access master's programmes",
+      "application_period": "2026-01-01 to 2026-01-31",
+      "interview_period": "March-April 2026",
+      "results": "By 2026-04-30"
+    },
+    {
+      "route": "2026/27 free-access master's standard round 1",
+      "application_period": "2026-04-01 to 2026-05-29",
+      "interview_or_test": "2026-06-22 to 2026-06-26",
+      "enrolment_period": "2026-06-03 to 2026-08-28"
+    },
+    {
+      "route": "2026/27 free-access master's standard round 2",
+      "application_period": "2026-06-03 to 2026-08-28",
+      "interview_or_test": "2026-09-10 to 2026-09-18",
+      "enrolment_period": "2026-09-01 to 2026-10-15"
+    },
+    {
+      "route": "2026/27 free-access master's standard round 3 and late rounds",
+      "application_period": "2026-09-01 to 2026-09-30; late applications 2026-10-01 to 2026-10-30 and 2026-11-02 to 2026-11-13",
+      "interview_or_test": "2026-10-14 to 2026-10-20; late interviews 2026-11-12 to 2026-11-18 and 2026-11-26 to 2026-11-30",
+      "enrolment_period": "2026-10-01 to 2026-11-13; late enrolment through 2026-12-11"
+    }
+  ],
+  "results_notification_date": "International pre-evaluation results are published by 2026-03-31 for the first call and by 2026-04-30 for the second call. The standard open-access route publishes interview/test and enrolment windows rather than a ranked-results deadline.",
+  "max_programme_choices": 2,
+  "required_documents": [
+    "Bachelor degree certificate translated into English or Italian",
+    "Official academic transcript for the last three/four years translated into English or Italian, or Diploma Supplement",
+    "Descriptions of major-area courses, including relevant contents, themes, aims and objectives",
+    "English-language evidence: recognized certificate or qualifying medium-of-instruction certificate",
+    "Valid passport showing full name, photograph and signature",
+    "At least one reference"
+  ],
+  "references_required": "At least 1 reference",
+  "course_descriptions_required": "Yes. A list describing the relevant contents, themes, aims and objectives of major-area courses is compulsory during online pre-evaluation.",
+  "application_fee": "EUR 30, non-refundable, for the 2026/27 international online pre-evaluation route.",
+  "pre_enrolment_fee": "EUR 52 per selected master's programme; payable for each of up to two programme choices.",
+  "enrolment_deposit": "EUR 156 one-time, non-refundable enrolment fee payable on arrival in Italy, as stated in the official DreamApply programme record.",
+  "tuition_or_fees_link": "https://en.unibg.it/study/enrollment/costs/taxes-and-benefits — official UniBG fees and benefits page. The official programme application record lists a first tuition instalment of EUR 0-400 and a second instalment of EUR 0-1,700 depending on family income.",
+  "tuition_income_linked": "Yes. The official application record states that both tuition instalments vary according to family income; the 2026/27 fees page also applies income-linked ISEEU rules.",
+  "official_program_url": "https://ls-mec.unibg.it/en",
+  "official_call_url": "https://apply.unibg.it/courses/course/43-ma-mechatronics-and-smart-technology-engineering",
+  "source_quotes": [
+    {
+      "source": "https://www.unibg.it/studiare/corsi/offertaformativa/mechatronics-and-smart-technology-engineering",
+      "quote": "The programme belongs to class LM-33 - Mechanical Engineering."
+    },
+    {
+      "source": "https://www.unibg.it/studiare/corsi/offertaformativa/mechatronics-and-smart-technology-engineering",
+      "quote": "As a further access requirement, applicants must possess at least 24 CFU earned in at least 3 of the 9 scientific-disciplinary sectors characterising Mechanical Engineering."
+    },
+    {
+      "source": "https://www.unibg.it/studiare/corsi/offertaformativa/mechatronics-and-smart-technology-engineering",
+      "quote": "For knowledge of English, level B1 or equivalent is required as the minimum prerequisite for admission."
+    },
+    {
+      "source": "https://apply.unibg.it/courses/course/43-ma-mechatronics-and-smart-technology-engineering",
+      "quote": "Study language English"
+    },
+    {
+      "source": "https://apply.unibg.it/courses/course/43-ma-mechatronics-and-smart-technology-engineering",
+      "quote": "At least 1 reference(s) should be provided."
+    },
+    {
+      "source": "https://en.unibg.it/study/enrollment/enrollment-deadlines/masters-degrees-deadlines",
+      "quote": "Pre-enrollment from April 1 to May 29, 2026"
+    },
+    {
+      "source": "https://elearning15.unibg.it/mod/book/tool/print/index.php?chapterid=1032&id=592",
+      "quote": "recognized English language certificate level B2 for master's degree courses in English"
+    }
+  ],
+  "uncertainty_notes": "Official 2026/27 programme, course-offer and central admissions information was available. The principal uncertainty is an official-source conflict: the programme page and DreamApply record specify B1 English, while the 2026/27 international applicant guide requires B2 for English-taught master's degrees. The precise format and language of the personal-preparation interview/test are not stated on the accessible programme pages. The 2026/27 first and second international pre-evaluation deadlines are common UniBG deadlines rather than a programme-specific call. The September route is available for free-access programmes but may be too late for practical visa processing, so visa-seeking candidates should prefer the January pre-evaluation calls.",
+  "source_access_status": "Only official unibg.it subdomains were used. The central programme page, programme site, admissions deadlines, fees page and 2026/27 student guide were directly accessible or indexed as official current pages. The official apply.unibg.it programme record was blocked for direct automated opening, so its programme-specific content was obtained from the official indexed page; session-dependent application actions were not accessible.",
+  "last_verified_date": "2026-09-05",
+  "uncertain": [
+    "interview_required",
+    "interview_language",
+    "degree_completion_deadline",
+    "language_requirements",
+    "accepted_english_certificates"
+  ]
+}

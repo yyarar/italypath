@@ -1,0 +1,265 @@
+{
+  "program_name": "Master's Degree Programme in Government and Public Affairs",
+  "level": "master",
+  "teaching_language": {
+    "primary": "English + Italian",
+    "granularity": "english_track_of_bilingual",
+    "majors_language": [
+      { "major": "Public Policy", "language": "English" },
+      { "major": "Communication and Public Affairs", "language": "Italian" },
+      { "major": "Government and Administration", "language": "Italian" }
+    ]
+  },
+  "campus": "Rome, Italy - Luiss Guido Carli. [uncertain] The programme page does not name a specific building. Circumstantial evidence: Luiss's School of Government / School of European Political Economy operate from Viale di Villa Emiliani 14, while the Undergraduate/Graduate School and Political Science department facilities are at Viale Romania 32; it was not confirmed which campus specifically hosts this Graduate School master's programme (as distinct from the separate School of Government programmes).",
+  "degree_class": "LM-62",
+  "admission_type": [
+    {
+      "route_name": "Luiss Test",
+      "eligible_applicants": "EU-Schengen and non-EU/non-Schengen candidates (separate admission notices for each group)",
+      "test_or_certification": "Luiss Test (psycho-aptitude/logical-reasoning/problem-solving/mathematics style test); English B2 (CEFR) level assessed for the English-taught major",
+      "number_of_choices_allowed": "Up to two master's degree courses within the same subject area",
+      "choice_is_binding": false,
+      "subject_area_group": "Law-Political Science",
+      "application_fee": "EUR 150 (non-refundable) - confirmed on both the EU/Schengen and non-EU/non-Schengen Luiss Test admission pages"
+    },
+    {
+      "route_name": "GMAT/GRE direct admission",
+      "eligible_applicants": "EU-Schengen and non-EU/non-Schengen candidates",
+      "test_or_certification": "GMAT >=515/805 OR GRE >=154/170 in both Verbal and Quantitative sections",
+      "number_of_choices_allowed": 1,
+      "choice_is_binding": true,
+      "subject_area_group": "Law-Political Science",
+      "application_fee": "EUR 150 (non-refundable)"
+    }
+  ],
+  "academic_requirements": {
+    "prior_qualification": "Bachelor's degree (three-year first-level degree), obtained or to be obtained by the stated degree-completion deadline (18 November 2027 for the 2027/2028 EU/Schengen cycle)",
+    "minimum_curricular_requirements": "Direct admission for graduates of Italian degree classes L-36 (MD 270/04) / L-15 (MD 509/99) - Political Science and International Relations; L-37 (MD 270/04) / L-35 (MD 509/99) - Social Sciences for Cooperation, Development and Peace; L-16 (MD 270/04) / L-19 (MD 509/99) - Public Administration; L-20 (MD 270/04) / L-14 (MD 509/99) - Communication Sciences. Alternative pathway for other degree classes: at least 48 university credits (earned or pending) across at least two of: Economics, Statistics, Law, Linguistics, Political Science, Sociology, History and Politics.",
+    "minimum_grade_or_gpa": null,
+    "country_specific_rules": "Not published per-country for this specific programme; the general Luiss foreign-qualifications policy (Lisbon Convention / ARDI / non-ARDI tiers, see document_recognition) is the only country-differentiated rule confirmed. [uncertain] whether Luiss also publishes a country-by-country minimum-grade table for this programme specifically.",
+    "document_recognition": "Tiered by the awarding country: (1) Lisbon Recognition Convention signatory countries - a Diploma Supplement per CIMEA guidance; (2) ARDI database countries - a CIMEA statement of verification OR an apostille of the diploma issued by the competent Italian Embassy/Consulate; (3) non-ARDI/non-Lisbon countries - a CIMEA statement of comparability OR a Declaration of Value of the Diploma issued by the competent Italian Embassy/Consulate. Enrolment can be finalized 'conditionally' while the CIMEA procedure is still in progress.",
+    "compensatory_measures": "[uncertain] Luiss's foreign-qualifications guidance references that candidates whose qualification differs from the standard requirements 'may be subject to compensatory measures' to comply with enrolment requirements, but the exact verbatim wording and the specific measures (extra exams, a foundation year, etc.) could not be retrieved and re-confirmed with a direct quote in this pass."
+  },
+  "language_requirements": {
+    "required_level": "B2 CEFR in English (for the Public Policy English-taught major / English-taken Luiss Test)",
+    "accepted_certificates": "Certification of at least B2 CEFR issued no more than three years previously is required in general; Luiss automatically assigns B2 to candidates whose prior schooling was conducted entirely in English. Higher levels earn admission-score bonus points (C1: +15 points; C2: +30 points) if a certificate is submitted. [uncertain] The exact list of accepted test names and minimum scores (e.g., IELTS 6, TOEFL iBT 78-80, Cambridge FCE/CAE) quoted in the outline was not independently re-confirmed via a direct verbatim quote for this specific master's programme in this research pass.",
+    "assessed_in_test": true,
+    "exemptions": "Automatic B2 assignment if prior schooling was conducted entirely in English (no certificate required to reach B2, only to claim a higher level for bonus points). [uncertain] Whether holders of a valid TOEFL/IELTS score can skip the English component of the Luiss Test itself (as opposed to just proving B2) was not confirmed specifically for this master's-level route; a similar exemption mechanism was found in Luiss materials but its applicability to this exact admission route is unverified."
+  },
+  "application_deadline_eu": {
+    "rounds": [
+      {
+        "round": "Luiss Test - EU/Schengen",
+        "application_window": "December 2026 - 8 April 2027",
+        "test_date": "19-22 April 2027",
+        "enrolment_deadline": "22 June 2027"
+      },
+      {
+        "round": "GMAT/GRE direct admission - EU/Schengen",
+        "application_window": "December 2026 - 31 March 2027",
+        "enrolment_deadline": "18 May 2027"
+      }
+    ],
+    "enrolment_deadline": "22 June 2027 (Luiss Test route) / 18 May 2027 (GMAT/GRE route)",
+    "degree_completion_deadline": "18 November 2027",
+    "academic_year": "2027/2028",
+    "cycle_status": "Preliminary dates published under the EU/Schengen Luiss Test and GMAT/GRE direct-admission pages (still hosted under URLs labelled '2026/2027'); the full official 2027/2028 admission notice is expected from November 2026 per Luiss's own general master's-admissions page."
+  },
+  "application_deadline_non_eu": {
+    "rounds": [
+      {
+        "route": "Luiss Test for non-EU/non-Schengen students",
+        "application_window": "December 2026 - 8 April 2027",
+        "test_date": "19-22 April 2027",
+        "enrolment_deadline": "22 June 2027",
+        "degree_completion_deadline": "18 November 2027"
+      }
+    ],
+    "enrolment_deadline": "22 June 2027 (Luiss Test route, preliminary)",
+    "visa_or_preenrolment_notes": "[uncertain] Not retrieved for this specific programme/cycle. Luiss's general non-EU admissions overview describes three separate procedures (Luiss Test; Finance & Management selection - not applicable to this programme; admission with international qualifications) but does not detail Universitaly pre-enrolment or visa steps on the pages checked in this pass.",
+    "academic_year": "2027/2028",
+    "cycle_status": "Full 2027/2028 non-EU admission notices are described as 'coming soon', to be published from November 2026; separately, the 2026/2027 direct-admission-with-certifications procedure for non-EU students is stated as 'now closed'."
+  },
+  "required_documents": [
+    "Identity document/passport confirming citizenship (required)",
+    "Certificate of enrolment or degree completion with transcript of records/exams and credits (required)",
+    "Valid official GMAT or GRE certificate (required only for the GMAT/GRE route)",
+    "For foreign qualifications: Diploma Supplement, CIMEA statement (verification or comparability), apostille, or Declaration of Value, depending on the awarding country's status under the Lisbon Convention/ARDI (required for non-Italian degrees)",
+    "CV [uncertain - not explicitly listed on the pages retrieved but commonly requested]",
+    "Motivation letter/statement of purpose [uncertain - not explicitly confirmed for this programme]",
+    "Reference letters [uncertain - not explicitly confirmed for this programme]"
+  ],
+  "entry_exam_or_test": {
+    "test_name": "Luiss Test (or alternatively GMAT/GRE for direct admission)",
+    "content": "[uncertain] General Luiss admission-test materials describe a 75-minute, 50-question multiple-choice test of psycho-aptitude, logical-reasoning, problem-solving and mathematics content (SAT-inspired), each correct answer worth 1 point and each wrong answer -0.25, minimum passing score 60/100 - but this description was found in materials primarily addressed to bachelor's/single-cycle admissions and was not independently re-confirmed as identical for this master's programme's Luiss Test.",
+    "format": "Confirmed 'conducted online and remotely' for the non-EU/non-Schengen Luiss Test route; [uncertain] whether the EU/Schengen route uses the same online/remote format was not explicitly stated on the EU/Schengen test page fetched in this pass.",
+    "dates": "19-22 April 2027 (Luiss Test, both EU/Schengen and non-EU/non-Schengen routes, 2027/2028 preliminary)",
+    "fee": "EUR 150 (non-refundable)",
+    "language_of_test": "Taking the test in English gives access to all three majors (English- and Italian-taught); taking it in Italian gives access only to the Italian-taught majors (Communication and Public Affairs; Government and Administration).",
+    "interview": "[uncertain] Not confirmed for the standard Luiss Test or GMAT/GRE route for this programme; a personal-interview requirement tied to English/Logic-test score exemptions was found in other Luiss admission materials but its applicability to this specific route was not verified."
+  },
+  "tuition_or_fees_link": {
+    "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/government-and-public-affairs",
+    "annual_amount": "EUR 15,000.00 per year (payable in three instalments, plus the Lazio regional student welfare tax). [uncertain - partial confirmation] The programme's own page copy contains an apparent copy-paste error: the tuition sentence fetched from this page literally reads 'Master's Degree Programme in International Relations is EUR 15,000.00', i.e. it names a different programme. The EUR 15,000/year figure itself is consistent with every other standard Luiss graduate-school master's programme checked (including Administration, Finance and Control), so it is very likely also correct for Government and Public Affairs, but the page text does not unambiguously say so in its own name. Note: a separate FAQ block on the non-EU/non-Schengen Luiss Test admission page states a conflicting figure of EUR 16,000 for 'most programs' (mislabelling master's programmes as 'Bachelor's degree programmes'); per the outline's guidance, EUR 15,000 is treated as authoritative and EUR 16,000 as a conflicting secondary source.",
+    "scholarship_url": "https://www.luiss.it/en/orientation-and-admissions/incentives-and-support/scholarship-exemptions/aa-2026-2027"
+  },
+  "official_program_url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/government-and-public-affairs",
+  "official_call_url": [
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+    "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/students-foreign-qualifications-admission-requirements-masters-degrees"
+  ],
+  "source_quotes": [
+    {
+      "field": "program_name / degree_class",
+      "quote": "Master's Degree Programme in Government and Public Affairs ... degree class LM-62",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/government-and-public-affairs",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "teaching_language / majors",
+      "quote": "Government and Administration (taught in Italian); Communication and Public Affairs (taught in Italian); Public Policy (taught in English)",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/government-and-public-affairs",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "tuition_or_fees_link (page copy anomaly)",
+      "quote": "The annual single tuition fee for enrolment in the Master's Degree Programme in International Relations is € 15,000.00",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/government-and-public-affairs",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "entry_exam_or_test (career/context)",
+      "quote": "Employment rate of Luiss graduates one year after graduation is 95%.",
+      "url": "https://www.luiss.it/en/courses-and-masters-programmes/graduate-school/government-and-public-affairs",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type.application_fee",
+      "quote": "The participation fee is 150 euros.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type.subject_area_group",
+      "quote": "Law/Political Science programs include: Government and Public Affairs (Italian and English tracks)",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_eu",
+      "quote": "Submission of applications: From December 2026 to 8 April 2027; Test administration: April 19-22, 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/admission-test-masters-degree-programs-eu-and-schengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type (GMAT/GRE route)",
+      "quote": "Government and Public Affairs: Yes, included. Two language options available: Italian track, English track. Minimum score of 515 (out of 805) for GMAT; 154 (out of 170) in the Verbal and Quantitative sections for GRE.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "admission_type.choice_is_binding (GMAT/GRE route)",
+      "quote": "can apply for only one of the available Master's degree courses ... your course choice is binding for admission, ranking, and subsequent enrolment.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_eu (GMAT/GRE route)",
+      "quote": "Applications: From December 2026 to 31 March 2027; Enrollment: By 18 May 2027; Bachelor's completion: By 18 November 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-eu-schengen-students/direct-admission-certifications-euschengen-students",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "academic_requirements.minimum_curricular_requirements",
+      "quote": "L-36 (Ministerial Decree 270/04) and 15 (Ministerial Decree 509/99) - Political Science and International Relations; L-37 (Ministerial Decree 270/04) and 35 (Ministerial Decree 509/99) - Social Sciences for Cooperation, Development, and Peace; L-16 (Ministerial Decree 270/04) and 19 (Ministerial Decree 509/99) - Public Administration; L-20 (Ministerial Decree 270/04) and 14 (Ministerial Decree 509/99) - Communication Sciences; at least 48 credits (either completed or pending) in their study plan, covering at least two of the following subject areas",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/minimum-curricular-requirements",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_non_eu / cycle_status",
+      "quote": "Admission procedures for Master's degree courses for non-EU/non-Schengen students for the 2027/2028 academic year are coming soon. The admission notices ... will be available from November 2026.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_non_eu (prior cycle status)",
+      "quote": "The direct admission procedures with certifications for the 2026/2027 academic year are now closed.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "application_deadline_non_eu.rounds (test route)",
+      "quote": "From December 2026 to 8 April 2027 ... From 19 to 22 April 2027 ... By 22 June 2027 ... By 18 November 2027",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "entry_exam_or_test.format (non-EU route)",
+      "quote": "conducted online and remotely",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "tuition_or_fees_link (conflicting secondary figure)",
+      "quote": "The single annual contribution is EUR 16,000 for most programs and EUR 18,000 for the Bachelor's degree programmes in Management and Finance.",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/admission-masters-degrees-20262027-extra-eu/admission-test-masters-degree-programs-students-outside-eu-and-schengen-area",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "language_requirements",
+      "quote": "Certification of at least level B2 CEFR proficiency in the English language issued no more than three years previously",
+      "url": "https://api.luiss.it/en/entra-luiss/ammissione-magistrali/studenti-internazionali/Extra-UE",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "language_requirements.exemptions",
+      "quote": "schooling done entirely through English (automatic B2 assignment); to claim a higher level and earn bonus points, candidates must submit an official certificate (C1: +15 points; C2: +30 points)",
+      "url": "https://api.luiss.it/en/entra-luiss/ammissione-magistrali/studenti-internazionali/Extra-UE",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "academic_requirements.document_recognition",
+      "quote": "statement of comparability from CIMEA or the Declaration of Value of the Diploma issued by the competent Italian Embassy or Consulate",
+      "url": "https://www.luiss.it/en/orientation-and-admissions/admission-procedures/masters-degree-admissions/students-foreign-qualifications-admission-requirements-masters-degrees",
+      "accessed_date": "2026-09-05"
+    },
+    {
+      "field": "former_name_check (title of historical Italian-named programme)",
+      "quote": "Corso di Laurea Magistrale in Governo Amministrazione e Politica",
+      "url": "https://www.luiss.it/it/ateneo/quality-assurance/didattica/offerta-formativa/anno-accademico-20222023/gov-amministrazione-politica",
+      "accessed_date": "2026-09-05"
+    }
+  ],
+  "uncertainty_notes": [
+    "Former-name claim RESOLVED (partially, against the outline's hypothesis): the outline asked to verify whether Government and Public Affairs is the successor to 'Policies and Governance in Europe'. That specific claim could NOT be confirmed - the old 'Policies and Governance in Europe' admissions URL (https://www.luiss.it/ammissione/offerta-formativa/laurea-magistrale/policies-governance-europe) now returns HTTP 404, and no page found in this research pass links it to Government and Public Affairs. Instead, strong circumstantial evidence points to a DIFFERENT Italian-named predecessor/parallel programme: 'Governo, Amministrazione e Politica' (GAP - 'Government, Administration and Politics'), whose historical quality-assurance catalogue page (academic year 2022/2023) was found on luiss.it, and whose current-era URL slug ('governo-amministrazione-politica') sits in the exact same site path pattern as the current 'government-and-public-affairs' English page. This is consistent with GAP being renamed/rebranded in English as 'Government and Public Affairs', but this was NOT independently confirmed with an explicit 'formerly known as' statement on any live page - it is a reasoned inference from URL-structure and title correspondence, not a direct quote, and should be treated as likely-but-not-certain.",
+    "Academic year timeline: full 2027/2028 non-EU admission notices are explicitly described as 'coming soon' (from November 2026), while the EU/Schengen Luiss Test and GMAT/GRE direct-admission pages already display specific 2027/2028-labelled dates under URLs still headed '20262027'. Treat these as preliminary/carried-over dates pending the official November 2026 notice.",
+    "This programme IS eligible for both the Luiss Test and GMAT/GRE direct admission (confirmed on the official admission pages, listed under the Law/Political Science subject area) - it is not subject to the Finance/Management GMAT-GRE-only exclusion.",
+    "Tuition figure: the programme's own page contains a copy-paste anomaly, naming 'International Relations' instead of 'Government and Public Affairs' in the tuition sentence itself, even though the sentence appears on the Government and Public Affairs URL. The EUR 15,000/year amount is consistent with every other standard Luiss graduate-school master's programme checked (including Administration, Finance and Control) and is very likely correct here too, but this specific page's wording does not name the right programme, so the figure is flagged uncertain pending a cleaner source. A separate FAQ block on the non-EU Luiss Test page states EUR 16,000 for 'most programs' (mislabelled as 'Bachelor's degree programmes') - treated as a conflicting secondary source, not authoritative.",
+    "campus/building for Government and Public Affairs specifically is not stated on the programme page; Luiss's School of Government / School of European Political Economy (a separate academic unit from the Graduate School) operate from a different address (Viale di Villa Emiliani 14) than the main Political Science/Economics departments (Viale Romania 32), and it is not confirmed which one, if either, hosts this specific Graduate School master's degree.",
+    "Full IELTS/TOEFL iBT/Cambridge minimum-score table for general (non-test) English certification was not found via a direct verbatim quote specific to this programme in this research pass; only the general B2 CEFR / bonus-point rule was confirmed on the non-EU/international-students master's language page.",
+    "Exact verbatim wording of the 'compensatory measures' policy for candidates with insufficient qualifications could not be re-confirmed with a direct quote; only a paraphrase from Luiss materials was found.",
+    "Required documents list beyond passport, transcript/enrolment certificate, GMAT/GRE certificate (where applicable), and foreign-qualification recognition documents (CIMEA/apostille/Declaration of Value) was not exhaustively confirmed for this specific programme (CV, motivation letter, references remain unconfirmed and are flagged uncertain).",
+    "Personal-interview requirement and detailed test content/structure (75-minute, 50-question SAT-style format) were found in general Luiss admission-test materials that appear primarily addressed to bachelor's/single-cycle admissions; their applicability to this specific master's Luiss Test route was not independently re-confirmed.",
+    "Bilingual programme note: only the 'Public Policy' major is taught in English; the other two majors (Communication and Public Affairs; Government and Administration) are Italian-taught, per the programme page itself and the admission-test route listing."
+  ],
+  "uncertain": [
+    "former name 'Policies and Governance in Europe' succession claim - resolved as unconfirmed/likely-false; a different predecessor ('Governo, Amministrazione e Politica') was found instead but not conclusively linked via a direct quote",
+    "campus",
+    "tuition_or_fees_link.annual_amount (programme-page wording names a different programme in the tuition sentence)",
+    "academic_requirements.minimum_grade_or_gpa",
+    "academic_requirements.country_specific_rules",
+    "academic_requirements.compensatory_measures",
+    "language_requirements.accepted_certificates",
+    "language_requirements.exemptions (Logic/English test skip via TOEFL/IELTS score)",
+    "application_deadline_non_eu.visa_or_preenrolment_notes",
+    "required_documents (CV, motivation letter, reference letters)",
+    "entry_exam_or_test.content (exact structure for this master's route)",
+    "entry_exam_or_test.format (EU/Schengen route)",
+    "entry_exam_or_test.interview"
+  ]
+}

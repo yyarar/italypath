@@ -1,0 +1,85 @@
+{
+  "programme_name": "Master’s degree in Economics and Data Analysis",
+  "programme_code": "1307 / C80R",
+  "level": "master",
+  "academic_year": "2026/2027",
+  "programme_status": "confirmed",
+  "duration_years": 2,
+  "teaching_language": "English",
+  "fully_english_taught": true,
+  "campus": "Verona",
+  "degree_class": "LM-56 R",
+  "interuniversity_programme": {"is_interuniversity": false, "coordinating_institution": "University of Verona", "partner_institutions": []},
+  "admission_type": "open_access",
+  "admission_type_official_wording": "Subject to entry requirements; procedure for assessing the required requirements",
+  "admission_routes": [
+    {"applicant_category": "EU", "route": "standard_enrolment", "notes": "ESSE3 eligibility check, then enrolment after a positive outcome.", "source_url": "https://corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1307&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"applicant_category": "non-EU_resident_in_Italy", "route": "standard_enrolment", "notes": "EU-equivalent route where legally applicable; foreign qualifications are directed to the International Student Desk.", "source_url": "https://corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1307&lang=en&menu=iscriversi&tab=requisiti"},
+    {"applicant_category": "non-EU_abroad", "route": "international_pre_admission_call", "notes": "For eligible non-Italian citizens holding a foreign degree and not resident in Italy; followed by Universitaly visa pre-enrolment.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando414469.pdf"}
+  ],
+  "academic_requirements": {
+    "summary": "Three-year university degree/diploma or suitable foreign qualification, obtained by 31 December 2026. At least 12 CFU in SECS-S/01-06 and/or MAT/01-09, plus 48 CFU across the broad economics, statistics, law, mathematics, physics, computer science, engineering and social-science SSD list; up to 10% tolerance is permitted in one or more groups if 60 CFU total is met. A weighted average of at least 22/30 establishes adequate preparation; below that, an interview must be passed. Degrees older than 10 years require commission verification. The international pre-admission call additionally requires an Economics or closely related Economics/Statistics/Finance degree by 30 June 2026 and first-class or at least 85%-of-maximum CGPA.",
+    "eligible_degree_classes": [],
+    "eligible_foreign_qualifications": "A suitable foreign Bachelor-equivalent. International call: Economics or a field related to Economics, Statistics and Finance.",
+    "minimum_credits_by_subject_area": [
+      {"subject_area_or_ssd": "SECS-S/01-06 and MAT/01-09", "minimum_credits": 12, "notes": "Quantitative core."},
+      {"subject_area_or_ssd": "SECS-P/01-13; SECS-S/01-06; INF/01; IUS/01-17 and IUS/21; MAT/01-09; FIS/01-08; ING-INF/01-07; ING-IND/03-20, 23-27, 31-35; SPS/01-14", "minimum_credits": 48, "notes": "A tolerance up to 10% is allowed for one or more groups if at least 60 total CFU is met."}
+    ],
+    "minimum_grade_or_gpa": "Regular route: weighted average 22/30; a lower average triggers an interview. International call: first-class or at least 85% of the maximum grade/CGPA.",
+    "curriculum_assessment": "All UNIVR economics graduates automatically satisfy the curricular-credit check. Other applicants are assessed against the credit groups; below-average and over-10-year cases require further verification."
+  },
+  "curricula_tracks": [],
+  "ranking_and_quota": {"total_places": null, "reserved_non_eu_places": null, "ranking_details": "No general programme quota is stated. The international call separately ranks applicants for pre-admission and support, with a 60/100 pass threshold and results by 15 May 2026."},
+  "selection_components": [
+    {"component": "Weighted degree average", "weight_or_threshold": "22/30 regular-route threshold", "notes": "Below threshold requires interview."},
+    {"component": "Curriculum and relevance", "weight_or_threshold": "0-30 points", "notes": "International-call ranking."},
+    {"component": "CGPA", "weight_or_threshold": "0-40 points", "notes": "International-call ranking."},
+    {"component": "Online interview", "weight_or_threshold": "0-30 points; 60/100 total pass", "notes": "International-call interview only after at least 50/70 on curriculum plus CGPA."}
+  ],
+  "language_requirements": {"summary": "English proficiency of at least CEFR B2 is required. The international call accepts an official B2-equivalent certificate or a previous degree taught in English.", "english_level_cefr": "B2", "accepted_language_certificates": ["Certificates in UNIVR's official equivalence list"], "certificate_exemptions": ["Previous degree taught in English (international pre-admission call)"], "italian_language_test_required": false, "notes": "Duolingo is accepted under the international call only for candidates from Iran and Afghanistan."},
+  "application_deadline_eu": "2026-11-12",
+  "application_deadline_non_eu": "2026-03-31",
+  "application_windows": [
+    {"applicant_category": "EU and EU-equivalent", "deadline_type": "programme_selection", "opens_at": "2026-06-03", "closes_at": "2026-10-15", "timezone": "Europe/Rome", "deadline_status": "closed", "source_url": "https://corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1307&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"applicant_category": "EU and EU-equivalent", "deadline_type": "document_completion", "opens_at": null, "closes_at": "2026-11-12", "timezone": "Europe/Rome", "deadline_status": "closed", "source_url": "https://corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1307&lang=en&menu=iscriversi&tab=comeiscriversi"},
+    {"applicant_category": "non-EU abroad with foreign degree", "deadline_type": "pre_admission", "opens_at": null, "closes_at": "2026-03-31", "timezone": "Europe/Rome", "deadline_status": "closed", "source_url": "https://www.univr.it/en/our-services/prospective-students/international-degree-seeking-students"},
+    {"applicant_category": "EU and EU-equivalent", "deadline_type": "enrolment", "opens_at": null, "closes_at": "2026-12-21", "timezone": "Europe/Rome", "deadline_status": "closed", "source_url": "https://corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1307&lang=en&menu=iscriversi&tab=comeiscriversi"}
+  ],
+  "universitaly_deadline": null,
+  "visa_pre_enrolment_required": true,
+  "required_documents": [
+    {"document": "Identity document/passport personal-data pages", "applicant_categories": ["non-EU_abroad"], "required": true, "condition": null, "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando414469.pdf"},
+    {"document": "Bachelor degree certificate or expected-completion evidence", "applicant_categories": ["non-EU_abroad"], "required": true, "condition": "Also provide Master's degree if the Bachelor lasted two years.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando414469.pdf"},
+    {"document": "Academic transcript in English", "applicant_categories": ["non-EU_abroad"], "required": true, "condition": "Modules/exams and, if possible, ECTS, weighted average, and grading range.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando414469.pdf"},
+    {"document": "CV in English", "applicant_categories": ["non-EU_abroad"], "required": true, "condition": "Maximum two pages.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando414469.pdf"},
+    {"document": "English certificate", "applicant_categories": ["non-EU_abroad", "EU", "non-EU_resident_in_Italy"], "required": true, "condition": "International-call exemption for previous English-taught degree.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando414469.pdf"},
+    {"document": "€50 pre-admission fee receipt", "applicant_categories": ["non-EU_abroad"], "required": true, "condition": "International-call route only.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando414469.pdf"},
+    {"document": "Self-certification listing examinations", "applicant_categories": ["EU", "non-EU_resident_in_Italy"], "required": true, "condition": "Graduates/undergraduates from another university using the ESSE3 eligibility check.", "source_url": "https://corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1307&lang=en&menu=iscriversi&tab=comeiscriversi"}
+  ],
+  "document_legalisation_translation_rules": "International-call transcripts must be in English. Programme-specific final legalisation/apostille rules were not stated on the reviewed programme page.",
+  "entry_exam_or_test": {"required": "conditional", "name": "Personal-preparation interview / online international-call interview", "provider": "University of Verona teaching/evaluation committee", "mode": "Interview; online for international-call ranking", "language": "English [uncertain]", "test_date": null, "registration_deadline": null, "minimum_score": "Regular route: interview required below 22/30 weighted average. International call: 60/100 total pass, interview eligibility after 50/70 pre-interview points.", "alternatives": ["No further check when all curricular requirements and the 22/30 preparation threshold are satisfied"], "notes": "Interview topics are published in the How to enrol section; this is not a standardised admission test."},
+  "application_fee": {"amount": 50, "currency": "EUR", "notes": "International pre-admission fee, deductible from enrolment fees except for scholarship winners.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando414469.pdf"},
+  "tuition_or_fees_link": "https://www.univr.it/benefici",
+  "tuition_amount_basis": "First instalment €358 in 2026/27, with variable second and third instalments based on ISEEU/ISEE-equivalent calculations; international-call benefits can alter the amount.",
+  "double_degree_options": [{"partner": "University of Würzburg", "separate_selection": true, "notes": "Double-degree mobility; not initial programme admission.", "official_url": "https://corsi.univr.it/?ent=cs&id=1307&lang=en&menu=iscriversi&tab=doubledegree"}],
+  "official_program_url": "https://corsi.univr.it/?ent=cs&id=1307&lang=en",
+  "entry_requirements_url": "https://corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1307&lang=en&menu=iscriversi&tab=requisiti",
+  "language_evidence_url": "https://corsi.univr.it/?ent=cs&id=1307&lang=en",
+  "official_call_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando414469.pdf",
+  "call_metadata": {"call_scope": "pre_admission_and_scholarship", "publication_date": null, "last_modified": null, "supersedes_source_url": null},
+  "source_quotes": [
+    {"fields_supported": ["programme_name", "academic_year", "duration_years", "degree_class", "campus", "teaching_language"], "quote": "Duration 2 years; Admissions Subject to entry requirements; Degree class LM-56 R; Administrative headquarters verona; Language English", "source_url": "https://corsi.univr.it/?ent=cs&id=1307&lang=en", "page_or_section": "Information Sheet", "academic_year": "2026/2027"},
+    {"fields_supported": ["academic_requirements", "language_requirements"], "quote": "Knowledge of English at a level of at least B2 is required ... from SECS-S/01 to 06; from MAT/01 to 09: 12 CFU ... [and] 48 CFU", "source_url": "https://corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1307&lang=en&menu=iscriversi&tab=requisiti", "page_or_section": "Curricular requirements", "academic_year": "2026/2027"},
+    {"fields_supported": ["entry_exam_or_test", "academic_requirements"], "quote": "Those who ... have a weighted average of 22/30 or higher ... are considered eligible. In the case of a lower average, enrolment is only permitted after passing an interview.", "source_url": "https://corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1307&lang=en&menu=iscriversi&tab=requisiti", "page_or_section": "Personal preparation", "academic_year": "2026/2027"},
+    {"fields_supported": ["academic_requirements", "language_requirements"], "quote": "A three-year university degree ... including at least 12 ECTS in the Mathematics area and at least 48 ECTS in the Economics-Statistics area ... by June 30, 2026 ... CGPA ... at least ... 85%", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando414469.pdf", "page_or_section": "Annex 1 - Economics and Data Analysis", "academic_year": "2026/2027"},
+    {"fields_supported": ["required_documents", "application_fee"], "quote": "Applications ... [attach] ID ... degree certificate ... academic transcript ... CV ... certificate of English language competence ... payment receipt for the €50 pre-admission fee.", "source_url": "https://cdn.docs.univr.it/documenti/Concorso/bando/bando414469.pdf", "page_or_section": "Article 3", "academic_year": "2026/2027"}
+  ],
+  "source_last_checked": "2026-09-05T00:00:00+03:00",
+  "applicant_category_notes": "Foreign-qualification holders are told not to use the ordinary assessment procedure and to contact the International Student Desk. The 31 March call has narrower nationality/residence/degree criteria.",
+  "uncertainty_notes": [
+    {"field": "universitaly_deadline", "issue": "No programme-specific 2026/27 Universitaly deadline was located.", "conflict_type": "other", "sources": ["https://www.univr.it/en/our-services/prospective-students/international-degree-seeking-students"], "resolution_needed": "Confirm against the current Universitaly/MUR notice."},
+    {"field": "entry_exam_or_test.language", "issue": "The interview language is not explicitly stated.", "conflict_type": "other", "sources": ["https://corsi.univr.it/?aa=2026%2F2027&ent=cs&id=1307&lang=en&menu=iscriversi&tab=requisiti"], "resolution_needed": "Confirm with the programme office."}
+  ],
+  "research_completeness": {"status": "partial", "verified_fields": ["identity", "curricular credits", "grade thresholds", "language", "route deadlines", "documents", "fee", "selection"], "missing_fields": ["Universitaly deadline", "explicit interview language", "overall programme quota"], "notes": "Core 2026/27 admission fields are supported by official UNIVR sources."},
+  "uncertain": ["universitaly_deadline", "entry_exam_or_test.language"]
+}

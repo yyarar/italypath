@@ -1,0 +1,98 @@
+topic: "University of Verona English-taught degree programmes and admission requirements"
+scope:
+  institution: "University of Verona"
+  official_domain: "univr.it"
+  source_policy: "Use only official University of Verona pages and documents hosted on univr.it or its official corsi.univr.it subdomain."
+  programme_rule: "Include degree programmes officially identified as fully taught in English; exclude programmes that merely have an English web page or only some English modules."
+  levels:
+    - bachelor
+    - master
+    - single-cycle
+    - other
+  academic_year_priority:
+    - "2026/2027"
+    - "latest official academic year available per programme"
+  object_unit: "One research item per distinct English-taught degree programme. Curricula, double degrees, and applicant routes are nested under the parent programme unless UNIVR treats them as separate degree programmes."
+
+items:
+  - item_id: artificial_intelligence
+    programme_name: "Master's degree in Artificial Intelligence"
+    level: master
+    discovery_status: confirmed
+  - item_id: biology_translational_research_precision_medicine
+    programme_name: "Master's degree in Biology for Translational Research and Precision Medicine"
+    level: master
+    discovery_status: confirmed
+  - item_id: computer_engineering_intelligent_systems
+    programme_name: "Master's Degree in Computer Engineering for Intelligent Systems"
+    level: master
+    discovery_status: confirmed
+  - item_id: data_science
+    programme_name: "Master's degree in Data Science"
+    level: master
+    discovery_status: confirmed
+  - item_id: economics_data_analysis
+    programme_name: "Master's degree in Economics and Data Analysis"
+    level: master
+    discovery_status: confirmed
+  - item_id: international_economics_business
+    programme_name: "Master's degree in International Economics and Business"
+    level: master
+    discovery_status: confirmed
+  - item_id: languages_global_business_trade_tourism
+    programme_name: "Master's degree in Languages for Global Business, Trade and Tourism"
+    level: master
+    discovery_status: confirmed
+  - item_id: languages_literatures_digital_culture
+    programme_name: "Master's degree in Languages, Literatures and Digital Culture"
+    level: master
+    discovery_status: confirmed
+  - item_id: linguistics
+    programme_name: "Master's degree in Linguistics"
+    level: master
+    discovery_status: confirmed
+  - item_id: mathematics
+    programme_name: "Master's degree in Mathematics"
+    level: master
+    discovery_status: confirmed
+  - item_id: medical_bioinformatics
+    programme_name: "Master's degree in Medical Bioinformatics"
+    level: master
+    discovery_status: confirmed
+  - item_id: molecular_medical_biotechnology
+    programme_name: "Master's degree in Molecular and Medical Biotechnology"
+    level: master
+    discovery_status: confirmed
+  - item_id: viticulture_enology_wine_marketing
+    programme_name: "Master's degree in Viticulture, Enology and Wine Marketing (interuniversity)"
+    level: master
+    discovery_status: confirmed
+
+excluded_or_unresolved_items:
+  - programme_name: "Bachelor's degree in Computer Engineering for Robotic and Intelligent Systems"
+    status: excluded_pending_scope_change
+    reason: "The programme is labelled Italian/English in an older catalogue but is not on the official 2026/27 foreign-language programme list and appears to contain substantial Italian-taught study."
+  - programme_name: "Medicine and Surgery"
+    status: excluded
+    reason: "The official 2026/27 information sheet identifies Italian, not English, as the teaching language."
+  - programme_name: "Unidentified fourteenth English course"
+    status: unresolved
+    reason: "The 2026/27 facts page reports 14 courses taught in English, while the official International Programmes page lists 13 degree programmes. Do not invent an item; resolve during deep research."
+
+discovery_sources:
+  - "https://www.univr.it/en/international-programmes"
+  - "https://www.univr.it/en/our-services/international-degree-seeking-students"
+  - "https://www.univr.it/en/degree-programmes/2026-2027/economics/postgraduate-masters"
+  - "https://www.univr.it/en/degree-programmes/2026-2027/sciences-and-engineering/postgraduate-masters"
+  - "https://www.univr.it/en/degree-programmes/2026-2027/foreign-languages-and-literatures/postgraduate-masters"
+  - "https://www.univr.it/en/degree-programmes/2026-2027/all-areas/undergraduate-bachelor"
+  - "https://www.univr.it/en/univerona-in-cifre"
+
+execution:
+  batch_size: 4
+  items_per_agent: 3
+  output_dir: "./results"
+  output_format: json
+  filename_key: item_id
+  source_last_checked: "2026-09-05"
+
