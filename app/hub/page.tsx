@@ -168,7 +168,7 @@ export default function HubPage() {
                   lede={lede}
                   relaxed={recommendation.relaxed !== "none"}
                 />
-                <div className="mt-5 grid items-start gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(18rem,0.7fr)]">
+                <div className="mt-5 grid grid-cols-1 items-start gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(18rem,0.7fr)]">
                   <ProgramMatchList matches={recommendation.matches} />
                   <aside className="grid gap-5 lg:sticky lg:top-24">
                     <ScholarshipBlock

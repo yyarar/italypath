@@ -12,7 +12,9 @@ import {
 import {
   AlertTriangle,
   ArrowLeft,
+  ArrowRight,
   Building2,
+  Calculator,
   CalendarRange,
   CheckCircle2,
   ExternalLink,
@@ -97,6 +99,9 @@ type ScholarshipsText = {
   applicationWindow: string;
   iseeLimit: string;
   ispeLimit: string;
+  iseePromptTitle: string;
+  iseePromptBody: string;
+  iseePromptCta: string;
   managingBodies: string;
   officialSources: string;
   openInstitution: string;
@@ -598,6 +603,27 @@ function FactLine({
   );
 }
 
+function IseeCalculatorPrompt({ copy }: { copy: ScholarshipsText }) {
+  return (
+    <Link
+      href="/isee"
+      className="group mt-5 flex items-center gap-4 bg-[var(--editorial-sage)] p-4 text-white shadow-[0_12px_30px_rgba(31,79,70,0.22)] transition hover:bg-[#173d36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+    >
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-white/12 text-[#dbe8e1] ring-1 ring-inset ring-white/15">
+        <Calculator className="h-5 w-5" />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block font-serif text-lg leading-snug">{copy.iseePromptTitle}</span>
+        <span className="mt-1 block text-xs leading-5 text-[#c8d2ce]">{copy.iseePromptBody}</span>
+        <span className="mt-2 inline-flex items-center gap-1.5 text-sm font-bold text-[#f3d2bf]">
+          {copy.iseePromptCta}
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </span>
+      </span>
+    </Link>
+  );
+}
+
 function RegionQuickFacts({
   region,
   copy,
@@ -673,6 +699,8 @@ function RegionFilePanel({
           </span>
         </div>
       </div>
+
+      <IseeCalculatorPrompt copy={copy} />
 
       <section className="mt-6">
         <SectionTitle icon={<Landmark className="h-3.5 w-3.5" />}>

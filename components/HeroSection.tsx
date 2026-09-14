@@ -40,19 +40,22 @@ export default function HeroSection({ stats }: HeroSectionProps) {
       ...copy.programs,
       statValue: formatStatValue(stats.programsCount),
       href: "/universities",
+      secondary: null,
     },
     scholarships: {
       label: copy.scholarshipsTab,
       icon: Landmark,
       ...copy.scholarships,
       statValue: "20",
-      href: "/scholarships",
+      href: "/isee",
+      secondary: { label: copy.scholarships.secondaryCta, href: "/scholarships" },
     },
     application: {
       label: copy.applicationTab,
       icon: FileCheck2,
       ...copy.application,
       href: isSignedIn ? "/hub" : "/giris?mode=kayit",
+      secondary: null,
     },
   };
 
@@ -230,7 +233,7 @@ export default function HeroSection({ stats }: HeroSectionProps) {
                   </h2>
                   <p className="mt-3 max-w-md text-sm leading-6 text-[#c8d2ce]">{selected.description}</p>
 
-                  <ol className="mt-6 space-y-2.5">
+                  <ol className="mb-6 mt-6 space-y-2.5">
                     {selected.steps.map((step) => (
                       <li key={step} className="flex items-center gap-3 text-sm text-[#eef2ef]">
                         <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#dbe8e1] text-[var(--editorial-sage)]">
@@ -248,6 +251,14 @@ export default function HeroSection({ stats }: HeroSectionProps) {
                     {selected.cta}
                     <ArrowRight className="home-hover-arrow h-4 w-4" />
                   </Link>
+                  {selected.secondary && (
+                    <Link
+                      href={selected.secondary.href}
+                      className="mt-3 self-center rounded-full px-3 py-1 text-xs font-semibold text-[#c8d2ce] underline decoration-white/30 underline-offset-4 hover:text-white hover:decoration-white/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#dbe8e1]"
+                    >
+                      {selected.secondary.label}
+                    </Link>
+                  )}
                 </motion.div>
               </AnimatePresence>
             </div>
