@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import HomePageClient from "@/components/HomePageClient";
 import { CURATED_CITIES } from "@/lib/cities/data";
-import { getUniversitiesData } from "@/lib/universities.server";
+import { getUniversitiesDirectory } from "@/lib/universities.server";
 import { getTotalDepartments } from "@/lib/universitiesFilters";
 import type { UniversityStats } from "@/lib/universityStats";
 
-export const dynamic = "force-dynamic";
+// ISR: 3 saat Vercel onbelleginden sunulur; soguk sunucu gecikmesi ve egress icin (SEO_AUDIT.md §20).
+export const revalidate = 10800;
 
 // Ana sayfaya özel canonical. Global olarak root layout'a koymuyoruz; aksi halde
 // tüm sayfaların canonical'ı yanlışlıkla "/" adresine kilitlenir.
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 
 async function getHomeStats(): Promise<UniversityStats> {
   try {
-    const universities = await getUniversitiesData();
+    const universities = await getUniversitiesDirectory();
 
     return {
       universitiesCount: universities.length,

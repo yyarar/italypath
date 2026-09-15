@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 
 const BASE_URL = "https://italypath.app";
 
+// ISR: 3 saat Vercel onbelleginden sunulur; soguk sunucu gecikmesi ve egress icin (SEO_AUDIT.md §20).
+export const revalidate = 10800;
+
 type DepartmentDetailPageProps = {
   params: Promise<{ id: string; deptSlug: string }>;
 };

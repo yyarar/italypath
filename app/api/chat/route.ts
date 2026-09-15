@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { getUniversitiesData } from "@/lib/universities.server";
+import { getUniversitiesDirectory } from "@/lib/universities.server";
 import type { University } from "@/types/universities";
 
 type ChatRole = "user" | "assistant";
@@ -87,7 +87,7 @@ export async function POST(req: Request) {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-    const universities = await getUniversitiesData();
+    const universities = await getUniversitiesDirectory();
     const systemPrompt = buildSystemPrompt(universities);
 
     // Sohbet geçmişini Gemini'nin anladığı formata çevir

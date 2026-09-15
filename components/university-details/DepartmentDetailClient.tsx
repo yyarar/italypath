@@ -31,13 +31,16 @@ export function DepartmentDetailClient({
   const { isSignedIn } = useAuth();
   const { t, language } = useLanguage();
   const { universities, loading: universitiesLoading, error: universitiesError } =
-    useUniversitiesData(initialUniversity ? [initialUniversity] : undefined);
+    useUniversitiesData(initialUniversity ? [initialUniversity] : undefined, {
+      fetchWhenInitial: false,
+    });
   const [expandingDeptSlug, setExpandingDeptSlug] = useState<string | null>(null);
 
+  // Sunucudan gelen tam okul verisi (kabul dosyalari dahil) once; dizin kopyasi yalnizca yedek.
   const university = useMemo(
     () =>
-      universities.find((entry) => String(entry.id) === String(idFromUrl)) ??
-      initialUniversity,
+      initialUniversity ??
+      universities.find((entry) => String(entry.id) === String(idFromUrl)),
     [idFromUrl, initialUniversity, universities],
   );
   const department = useMemo(

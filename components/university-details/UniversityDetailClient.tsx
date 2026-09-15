@@ -17,25 +17,32 @@ import { UniversityPortraitMasthead } from "./UniversityPortraitMasthead";
 interface UniversityDetailClientProps {
   initialUniversity: University | null;
   idFromUrl: string;
-  cameFromList: boolean;
 }
 
 export function UniversityDetailClient({
   initialUniversity,
   idFromUrl,
-  cameFromList,
 }: UniversityDetailClientProps) {
   const router = useRouter();
   const { t, language } = useLanguage();
   const { isFavorite, toggleFavorite, loading } = useFavorites();
   const { universities, loading: universitiesLoading, error: universitiesError } =
-    useUniversitiesData(initialUniversity ? [initialUniversity] : undefined);
+    useUniversitiesData(initialUniversity ? [initialUniversity] : undefined, {
+      fetchWhenInitial: false,
+    });
   const [expandingDeptSlug, setExpandingDeptSlug] = useState<string | null>(null);
+  // ISR: sayfa sunucuda searchParams okumaz; "listeden geldi" bilgisi hidrasyon sonrasi URL'den alinir.
+  const [cameFromList, setCameFromList] = useState(false);
 
+  useEffect(() => {
+    setCameFromList(new URLSearchParams(window.location.search).get("from") === "list");
+  }, []);
+
+  // Sunucudan gelen tam okul verisi once; dizin (hafif) kopyasi yalnizca sunucu verisi yoksa kullanilir.
   const university = useMemo(
     () =>
-      universities.find((entry) => String(entry.id) === String(idFromUrl)) ??
-      initialUniversity,
+      initialUniversity ??
+      universities.find((entry) => String(entry.id) === String(idFromUrl)),
     [idFromUrl, initialUniversity, universities],
   );
 

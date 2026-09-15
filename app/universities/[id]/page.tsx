@@ -4,16 +4,12 @@ import { notFound } from "next/navigation";
 
 const BASE_URL = "https://italypath.app";
 
-type SearchParamValue = string | string[] | undefined;
+// ISR: 3 saat Vercel onbelleginden sunulur; soguk sunucu gecikmesi ve egress icin (SEO_AUDIT.md §20).
+export const revalidate = 10800;
+
 type UniversityDetailPageProps = {
   params: Promise<{ id: string }>;
-  searchParams?: Promise<Record<string, SearchParamValue>>;
 };
-
-function getSingleParam(value: SearchParamValue) {
-  if (Array.isArray(value)) return value[0] ?? "";
-  return value ?? "";
-}
 
 function UniversityDetailDataUnavailable() {
   return (
@@ -35,10 +31,8 @@ function UniversityDetailDataUnavailable() {
 
 export default async function UniversityDetailPage({
   params,
-  searchParams,
 }: UniversityDetailPageProps) {
   const resolvedParams = await params;
-  const resolvedSearchParams = searchParams ? await searchParams : {};
   let university;
 
   try {
@@ -79,7 +73,6 @@ export default async function UniversityDetailPage({
       <UniversityDetailClient
         initialUniversity={university}
         idFromUrl={resolvedParams.id}
-        cameFromList={getSingleParam(resolvedSearchParams.from) === "list"}
       />
     </>
   );

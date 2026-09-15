@@ -13,7 +13,7 @@ import {
   getCityGuideName,
   resolveCityGuideSelection,
 } from "@/lib/cities/normalization";
-import { getUniversitiesData } from "@/lib/universities.server";
+import { getUniversitiesDirectory } from "@/lib/universities.server";
 
 export const metadata: Metadata = {
   title: "İtalya Şehir Rehberleri | ItalyPath",
@@ -41,7 +41,7 @@ function getSingleParam(value: SearchParamValue) {
   return value ?? "";
 }
 
-function createCityOptions(universities: Awaited<ReturnType<typeof getUniversitiesData>>) {
+function createCityOptions(universities: Awaited<ReturnType<typeof getUniversitiesDirectory>>) {
   const options = new Map<string, CityGuideOption>();
   universities.forEach((university) => {
     const cityName = getCityGuideName(university.city);
@@ -81,7 +81,7 @@ function resolveSelectedCity(rawCity: string, cityOptions: CityGuideOption[]) {
 }
 
 function createCityUniversitySummaries(
-  universities: Awaited<ReturnType<typeof getUniversitiesData>>,
+  universities: Awaited<ReturnType<typeof getUniversitiesDirectory>>,
   citySlug: string
 ): CityGuideUniversitySummary[] {
   return universities
@@ -117,10 +117,10 @@ function CityGuidesDataUnavailable() {
 
 export default async function CityGuidesPage({ searchParams }: CityGuidesPageProps) {
   const resolvedSearchParams = searchParams ? await searchParams : {};
-  let universities: Awaited<ReturnType<typeof getUniversitiesData>>;
+  let universities: Awaited<ReturnType<typeof getUniversitiesDirectory>>;
 
   try {
-    universities = await getUniversitiesData();
+    universities = await getUniversitiesDirectory();
   } catch (error) {
     console.error("Failed to load city guides data:", error);
     return <CityGuidesDataUnavailable />;

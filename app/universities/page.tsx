@@ -3,7 +3,7 @@ import {
   UniversitiesExplorer,
   type UniversitiesExplorerFilters,
 } from "@/components/universities/UniversitiesExplorer";
-import { getUniversitiesData } from "@/lib/universities.server";
+import { getUniversitiesDirectory } from "@/lib/universities.server";
 import {
   filterUniversities,
   getCitiesWithCounts,
@@ -77,7 +77,7 @@ export default async function UniversitiesPage({ searchParams }: UniversitiesPag
   let universities: University[];
 
   try {
-    universities = await getUniversitiesData();
+    universities = await getUniversitiesDirectory();
   } catch (error) {
     console.error("Failed to load universities page data:", error);
     return <UniversitiesDataUnavailable />;

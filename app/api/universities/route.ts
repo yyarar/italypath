@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { getUniversitiesData } from "@/lib/universities.server";
+import { getUniversitiesDirectory } from "@/lib/universities.server";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    const universities = await getUniversitiesData();
+    const universities = await getUniversitiesDirectory();
 
     return NextResponse.json(universities, {
       headers: {
