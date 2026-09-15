@@ -17,6 +17,7 @@ import {
   Wallet,
 } from "lucide-react";
 
+import ConsultPrompt from "@/components/consultation/ConsultPrompt";
 import { useLanguage } from "@/context/LanguageContext";
 import { calculateIsee, type IseeInput } from "@/lib/iseeCalculator";
 
@@ -453,7 +454,7 @@ function BreakdownLine({
 }
 
 export default function IseeCalculatorClient() {
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
   const copy = COPY[language];
   const locale = language === "tr" ? "tr-TR" : "en-US";
   const [form, setForm] = useState<FormState>(DEFAULT_FORM);
@@ -851,6 +852,10 @@ export default function IseeCalculatorClient() {
               </div>
             </section>
           </aside>
+        </div>
+
+        <div className="mt-10">
+          <ConsultPrompt {...t.consultPrompt.isee} cta={t.consultPrompt.cta} />
         </div>
       </div>
 

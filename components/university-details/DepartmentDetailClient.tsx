@@ -7,6 +7,7 @@ import { useAuth } from "@clerk/nextjs";
 
 import type { University } from "@/types/universities";
 import ScrollProgress from "@/components/ScrollProgress";
+import ConsultPrompt from "@/components/consultation/ConsultPrompt";
 import { useLanguage } from "@/context/LanguageContext";
 import { useUniversitiesData } from "@/lib/useUniversitiesData";
 import { ComingSoonNotice } from "./ComingSoonNotice";
@@ -222,6 +223,8 @@ export function DepartmentDetailClient({
             body={t.department.detailsComingSoonBody}
           />
         )}
+
+        <ConsultPrompt {...t.consultPrompt.program} cta={t.consultPrompt.cta} />
 
         <ProgramDirectory
           university={university}

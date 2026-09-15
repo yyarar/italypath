@@ -73,6 +73,22 @@ const closing = read("components/HomeClosingCta.tsx");
 must(closing, "CONSULT_ANCHOR", "Kapanış CTA ön görüşmeye gider");
 mustNot(closing, "primaryCtaSignedIn", "Eski kapanış CTA kalmamalı");
 
+// Task 5 — içerik sayfaları ve menü
+const prompt = read("components/consultation/ConsultPrompt.tsx");
+must(prompt, "CONSULT_PAGE_PATH", "Kutu ayrı sayfaya gider");
+for (const [file, key] of [
+  ["components/university-details/DepartmentDetailClient.tsx", "t.consultPrompt.program"],
+  ["components/university-details/UniversityDetailClient.tsx", "t.consultPrompt.university"],
+  ["components/scholarships/ScholarshipsExplorer.tsx", "t.consultPrompt.scholarships"],
+  ["components/isee/IseeCalculatorClient.tsx", "t.consultPrompt.isee"],
+]) {
+  const source = read(file);
+  must(source, "<ConsultPrompt", `${file} kutu`);
+  must(source, key, `${file} metin`);
+}
+mustNot(read("components/university-details/UniversityDetailClient.tsx"), "aiMentorHref", "Duraklatılmış AI masası linki kalmamalı");
+must(read("components/Navbar.tsx"), "CONSULT_PAGE_PATH", "Menü linki");
+
 if (failures.length > 0) {
   console.error("[FAIL] Home consultation check failed.");
   for (const failure of failures) console.error(` - ${failure}`);

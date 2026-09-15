@@ -7,6 +7,7 @@ import { Globe2 } from "lucide-react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { CONSULT_PAGE_PATH } from "@/lib/consultation";
 
 interface NavbarProps {
   homeFloating?: boolean;
@@ -25,6 +26,7 @@ export default function Navbar({ homeFloating = false }: NavbarProps) {
     { href: "/communities", label: t.navbar.communities },
     ...(isSignedIn ? [{ href: "/hub", label: t.navbar.hub }] : []),
     ...(isSignedIn ? [{ href: "/sat", label: t.navbar.sat }] : []),
+    { href: CONSULT_PAGE_PATH, label: t.navbar.consultation },
     { href: aiMentorHref, label: t.navbar.mentor },
   ];
 

@@ -6,10 +6,10 @@ import { useRouter } from "next/navigation";
 
 import type { University } from "@/types/universities";
 import ScrollProgress from "@/components/ScrollProgress";
+import ConsultPrompt from "@/components/consultation/ConsultPrompt";
 import { useLanguage } from "@/context/LanguageContext";
 import { useFavorites } from "@/lib/useFavorites";
 import { useUniversitiesData } from "@/lib/useUniversitiesData";
-import { DetailMentorPrompt } from "./DetailMentorPrompt";
 import { ProgramDirectory } from "./ProgramDirectory";
 import { UniversityHighlights } from "./UniversityHighlights";
 import { UniversityPortraitMasthead } from "./UniversityPortraitMasthead";
@@ -27,14 +27,10 @@ export function UniversityDetailClient({
 }: UniversityDetailClientProps) {
   const router = useRouter();
   const { t, language } = useLanguage();
-  const { isFavorite, toggleFavorite, loading, isLoggedIn } = useFavorites();
+  const { isFavorite, toggleFavorite, loading } = useFavorites();
   const { universities, loading: universitiesLoading, error: universitiesError } =
     useUniversitiesData(initialUniversity ? [initialUniversity] : undefined);
   const [expandingDeptSlug, setExpandingDeptSlug] = useState<string | null>(null);
-
-  const aiMentorHref = isLoggedIn
-    ? "/ai-mentor"
-    : "/giris?redirect_url=%2Fai-mentor";
 
   const university = useMemo(
     () =>
@@ -155,13 +151,7 @@ export function UniversityDetailClient({
           }}
         />
 
-        <DetailMentorPrompt
-          href={aiMentorHref}
-          eyebrow={t.detail.mentorEyebrow}
-          title={t.detail.mentorTitle}
-          body={t.detail.mentorBody}
-          cta={t.detail.askAi}
-        />
+        <ConsultPrompt {...t.consultPrompt.university} cta={t.consultPrompt.cta} />
       </main>
     </div>
   );

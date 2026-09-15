@@ -34,7 +34,6 @@ const universityDetailClient = read("components/university-details/UniversityDet
 const departmentDetailClient = read("components/university-details/DepartmentDetailClient.tsx");
 
 const portraitFiles = [
-  "components/university-details/DetailMentorPrompt.tsx",
   "components/university-details/ProgramAdmissionDetailsPanel.tsx",
   "components/university-details/programAdmissionPresentation.ts",
   "components/university-details/ProgramTransitionEntry.tsx",
@@ -68,7 +67,7 @@ requireTokens("university detail client", universityDetailClient, [
   "UniversityPortraitMasthead",
   "UniversityHighlights",
   "ProgramDirectory",
-  "DetailMentorPrompt",
+  "ConsultPrompt",
   "description",
   "features",
   "isFavorite",

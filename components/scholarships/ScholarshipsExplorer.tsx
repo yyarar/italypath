@@ -25,6 +25,7 @@ import {
   Wallet,
 } from 'lucide-react';
 
+import ConsultPrompt from '@/components/consultation/ConsultPrompt';
 import { useLanguage } from '@/context/LanguageContext';
 import {
   getScholarshipRegionBySlug,
@@ -916,6 +917,10 @@ export default function ScholarshipsExplorer({
         </main>
 
         <RegionRail selectedSlug={selectedSlug} onSelectRegion={handleRegionSelect} copy={copy} />
+
+        <div className="mt-16">
+          <ConsultPrompt {...t.consultPrompt.scholarships} cta={t.consultPrompt.cta} />
+        </div>
       </div>
     </div>
   );
