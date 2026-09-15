@@ -8,6 +8,9 @@ import VelocityBridge from "@/components/VelocityBridge";
 import IseeSection from "@/components/IseeSection";
 import ScholarshipsSection from "@/components/ScholarshipsSection";
 import HomeClosingCta from "@/components/HomeClosingCta";
+import ConsultationFaq from "@/components/consultation/ConsultationFaq";
+import ConsultationSection from "@/components/consultation/ConsultationSection";
+import MobileConsultBar from "@/components/consultation/MobileConsultBar";
 import Footer from "@/components/Footer";
 import type { UniversityStats } from "@/lib/universityStats";
 
@@ -22,12 +25,15 @@ export default function HomePageClient({ stats, citiesCount }: HomePageClientPro
       <Navbar homeFloating />
       <HeroSection stats={stats} />
       <HomeToolsSection stats={stats} citiesCount={citiesCount} />
+      <ConsultationSection variant="home" />
       <HomeStoryBand />
       <VelocityBridge stats={stats} />
       <ScholarshipsSection />
       <IseeSection />
+      <ConsultationFaq />
       <HomeClosingCta />
       <Footer />
+      <MobileConsultBar />
     </div>
   );
 }

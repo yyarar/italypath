@@ -10,10 +10,12 @@ import {
   FileCheck2,
   GraduationCap,
   Landmark,
+  MessageCircle,
 } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { CONSULT_ANCHOR } from "@/lib/consultation";
 import { formatStatValue, type UniversityStats } from "@/lib/universityStats";
 
 type FocusId = "programs" | "scholarships" | "application";
@@ -118,12 +120,13 @@ export default function HeroSection({ stats }: HeroSectionProps) {
               {copy.primaryCta}
               <ArrowRight className="home-hover-arrow ml-2 h-4 w-4" />
             </Link>
-            <Link
-              href={isSignedIn ? "/hub" : "/giris?mode=kayit"}
-              className="home-pressable inline-flex min-h-12 items-center justify-center rounded-full border border-[rgba(21,32,28,0.14)] bg-white/55 px-6 text-sm font-semibold text-[var(--editorial-ink)] shadow-[0_8px_24px_rgba(21,32,28,0.05)] backdrop-blur-xl hover:bg-white/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--editorial-sage)]"
+            <a
+              href={`#${CONSULT_ANCHOR}`}
+              className="home-pressable group inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--editorial-terracotta)] px-6 text-sm font-semibold text-white shadow-[0_10px_26px_rgba(180,92,58,0.24)] hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--editorial-terracotta)]"
             >
+              <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
               {copy.secondaryCta}
-            </Link>
+            </a>
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-y-3 text-sm">

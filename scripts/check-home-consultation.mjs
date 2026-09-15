@@ -44,6 +44,23 @@ must(homePage, "CURATED_CITIES.length", "Şehir sayısı server'da");
 const homeClient = read("components/HomePageClient.tsx");
 must(homeClient, "<HomeToolsSection", "Ana sayfa araç vitrini");
 
+// Task 3 — ön görüşme bölümü
+const section = read("components/consultation/ConsultationSection.tsx");
+must(section, "ExpertLeadForm", "Gerçek form kullanılmalı");
+must(section, "id={CONSULT_ANCHOR}", "Bölüm anchor");
+must(section, "aria-live", "Başarı mesajı live region");
+mustNot(section, "onSubmitCapture", "Prototip gönderim engeli taşınmamalı");
+mustNot(section.toLowerCase(), "service_role", "Client service role içeremez");
+must(read("components/consultation/ConsultationFaq.tsx"), "<details", "SSS details");
+const bar = read("components/consultation/MobileConsultBar.tsx");
+must(bar, "md:hidden", "Sabit buton yalnız mobil");
+must(bar, "getElementById(CONSULT_ANCHOR)", "Form görünürken gizlenme");
+must(homeClient, "<ConsultationSection", "Ana sayfa ön görüşme bölümü");
+must(homeClient, "<ConsultationFaq", "Ana sayfa SSS");
+must(homeClient, "<MobileConsultBar", "Ana sayfa sabit buton");
+const hero = read("components/HeroSection.tsx");
+must(hero, "CONSULT_ANCHOR", "Hero CTA ön görüşmeye gider");
+
 if (failures.length > 0) {
   console.error("[FAIL] Home consultation check failed.");
   for (const failure of failures) console.error(` - ${failure}`);
