@@ -798,7 +798,10 @@ Performans/SEO skorları ve LCP değişmedi (beklenen; renk değişikliği perfo
 - Deploy sonrası production'da 3 koşu; PSI çalışmıyorsa yerel Lighthouse ile “yerel lab” etiketiyle kaydet.
 - Program detay sayfalarında soğuk gecikme aynı gün doğrulandı (yukarıdaki tablo); bir sonraki adım LCP görseli için `priority`/`sizes`/boyut incelemesi ve gövde gecikmesi çözümü.
 
-### 19.8 Dış işlemler
+### 19.8 Dış işlemler ve deploy sonrası doğrulama
 
 - GSC'de işlem yapılmadı; sitemap yeniden gönderilmedi.
-- Kod değişiklikleri yerel commit olarak hazırlandı; production'a push kullanıcı onayıyla yapılır.
+- Kullanıcı onayıyla `bad8ae3` 15 Eylül 2026 akşamı `main`'e push edildi; Vercel deploy'u yaklaşık 3 dakikada canlıya düştü (production CSS'inde `--editorial-terracotta-ink` görüldü).
+- Canlı sağlık kontrolü: `/`, `/universities`, örnek program sayfası ve `/on-gorusme` 200, tek H1, `noindex` yok, yeni renk sınıfları HTML'de; sitemap 1.079 URL.
+- Deploy sonrası production, simüle mobil, 3 koşu (ana sayfa): erişilebilirlik 92/92/92; kontrast bulgusu 14 → **3** (yalnız dekoratif `01/02/03`); kalan erişilebilirlik bulguları `meta-viewport` (ürün kararı), `label-content-name-mismatch`, dekoratif rakamlar. Performans 89/74/76 ve LCP 3,8/7,2/5,9 sn arasında dalgalandı; üç koşuda da sunucu yanıtı 40 ms ve doküman ~0,5 sn'de tamamlandı, yani dalgalanma §19.2'de anlatılan simüle model yapaylığıdır (renk değişikliği yükleme performansını etkileyemez).
+- Regresyon kontrolü, devtools throttling ile birebir: deploy öncesi FCP=LCP 3,7 sn (sıcak); deploy sonrası 3,7 ve 3,6 sn; doküman ve CSS bitiş zamanları aynı. Regresyon yok.
