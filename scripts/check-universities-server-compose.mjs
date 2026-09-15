@@ -128,10 +128,13 @@ const directory = composeUniversitiesFromSupabaseRows(
     { id: 11, university_id: 1, name: "Without", slug: "without", languages: ["en"], duration_years: 3, level: "bachelor", sort_order: 2 },
   ],
   [],
-  new Set([10])
+  new Map([[10, "2026-06-02T12:46:31.193Z"]])
 );
 assert.equal(directory[0].departments[0].hasAdmissionDetails, true);
 assert.equal(directory[0].departments[0].admissionDetails, undefined);
 assert.equal(directory[0].departments[1].hasAdmissionDetails, false);
+// updatedAt: kabul dosyasi zaman damgasi program satirina tasinir (sitemap lastmod)
+assert.equal(directory[0].departments[0].updatedAt, "2026-06-02T12:46:31.193Z");
+assert.equal(directory[0].departments[1].updatedAt, undefined);
 
 console.log("[OK] Universities server compose preserves single-cycle and admission details.");

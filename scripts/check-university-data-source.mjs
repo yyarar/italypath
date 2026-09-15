@@ -120,8 +120,8 @@ if (!/export async function getUniversitiesDirectory\b/.test(universitiesServerD
 if (!/export async function getUniversityById\b/.test(universitiesServerData)) {
   fail("lib/universities.server.ts must export getUniversityById (targeted per-university fetch)");
 }
-if (!universitiesServerData.includes('.select("department_id")')) {
-  fail('lib/universities.server.ts directory must fetch admission presence with select("department_id") only');
+if (!universitiesServerData.includes('.select("department_id,updated_at")')) {
+  fail('lib/universities.server.ts directory must fetch admission presence with select("department_id,updated_at") only (no heavy text)');
 }
 if (!universitiesServerData.includes('.eq("university_id", ')) {
   fail('lib/universities.server.ts getUniversityById must filter departments/admission rows with eq("university_id", ...)');

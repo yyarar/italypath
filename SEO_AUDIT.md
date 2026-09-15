@@ -883,3 +883,43 @@ Bekleyen: Supabase edge log sayımı (istek/gün ve istek biçimi) ve Usage ekra
 - Free planda ikinci mühlet olmadığı için haftalık Supabase Usage kontrolü SEO takvimine eklendi; hedef dönem başına < 1 GB.
 - Chat sistem promptu artık kabul metinlerini içermiyor; AI masası duraklatılmış durumda, yeniden açılırsa değerlendirilir.
 - Sonraki hız kalemi §19.6/2: font diyeti (10 preload dosyası, CSS ile yarış).
+
+## 21. Search Console kontrolü — 16 Eylül 2026
+
+Kaynak: Kerem'in paylaştığı ekran görüntüleri (gece 00:30-01:00). Core Web Vitals ve Güvenlik/Manuel işlemler ekranları bu turda görüntülenmedi.
+
+### 21.1 Ekranlar
+
+| Rapor | Değer |
+|---|---|
+| Sayfalar | Dizinde 22; dizin dışı 1.090 (6 neden). Grafik: Temmuz başından 29 Ağustos'a ~860, sonra ~1.090 |
+| "noindex" ile hariç | 854, doğrulama 22 Temmuz'dan beri "Başladı", sayı değişmiyor |
+| Keşfedildi, dizine eklenmedi | 225; örneklerin hepsi gerçek program/üniversite sayfası (ör. 1 numaralı okulun mühendislik programları), "son tarama: yok" |
+| Tarandı, dizine eklenmedi | 1: `/universities/52` (28 Haziran) |
+| Robots.txt engeli | 3: `/giris?redirect_url=/ai-mentor`, `/hub`, `/giris?mode=kayit` (kasıtlı) |
+| Yönlendirmeli sayfa | 3: `http://www`, `https://www`, `http://` kökleri → kanonik (normal) |
+| Yeniden yönlendirme hatası | 3: `/universities`, `/isee`, `/scholarships`; son tarama 27 Haziran (alan adı taşınması dönemi); sayfalar bugün 200 |
+| Tarama istatistikleri (90 gün) | 67,1 B istek, 186 MB, ortalama yanıt 605 ms; neredeyse tamamı 28 Haziran civarındaki tek günlük ~55-60 B'lik ilk tarama, sonrası sıfıra yakın düz |
+| Yanıta göre | 200 %93, 302 %7, 301/404/ulaşılamadı < %1 (403 yok) |
+| Dosya türüne göre | "Diğer" %92, HTML %5, JSON %1, JS %1 (font vb. varlıklar) |
+| Googlebot türü | Masaüstü %87, akıllı telefon %4 |
+| Ana makineler | italypath.app 66.809 sorunsuz; clerk.italypath.app 263; www 28 (geçmişte sorun, çözüldü) |
+| URL denetimi (canlı) | Program sayfası kullanılabilir, 1 geçerli yapılandırılmış öğe; dizin isteği gönderildi (16 Eyl 00:43). Vercel challenge Googlebot'u etkilemiyor |
+| Site haritası | Son okuma 14.09.2026, 1.078 sayfa, başarılı |
+| Performans (28 gün / önceki) | Tıklama 7 / 4; gösterim 646 / 267; CTR %1,1 / %1,5; konum 8,4 / 6,2 |
+| Sorgular | `italypath` 20 gösterim; "italya şehirleri" ailesi ~14; program adları ("digital and public humanities", "digital humanities ca foscari") |
+| Sayfalar | `/communities` 7 tıklama / 27 gösterim; Digital and Public Humanities 209 gösterim (28 Ağustos'ta dizin isteği gönderilen sayfa); Management of Innovation (MIE) 77 (6 Eylül'de istek gönderilen); environmental-engineering 73; criminology 51 |
+
+### 21.2 Yorum
+
+- Google siteyi 28 Haziran'da bir kez taradı, 857 sayfada (o günkü) noindex gördü ve sonra neredeyse geri gelmedi. Sonuçları: noindex doğrulaması 8 haftadır ilerlemiyor; 225 sitemap URL'si hiç taranmadı; üç ana sayfa 27 Haziran'daki yönlendirme hatasıyla kayıtlı kaldı. Bugün hiçbir şey bozuk değil; sorun "yeniden tarama talebi"nin düşük olması.
+- Yeniden taranan program sayfaları hemen gösterim alıyor (209 ve 77 gösterim, ikisi de dizin isteği gönderilen sayfalar). Yani en yüksek kaldıraç: yeniden taramayı tetiklemek. Hız düzeltmesi (§20) ve aşağıdaki iki değişiklik bunun için.
+- Tarama trafiğinin %92'si sayfa değil varlık (font vb.); font diyeti tarama verimliliği için de değerli (§19.6/2).
+- 854 + 225 + 22 ≈ 1.079 sitemap; parametreli/kopya URL sorunu yok.
+
+### 21.3 Aksiyonlar
+
+1. Kerem (GSC): `/universities`, `/isee`, `/scholarships` için URL denetimi canlı test + "dizine eklenmesini iste" (yalnız bu üçü). Deploy sonrası sitemap'i yeniden gönder.
+2. Kod (16 Eylül, bu kayıtla aynı commit): `app/sitemap.ts` her URL'ye `lastModified` yazar: veritabanı `updated_at` (okul, program, kabul dosyası) ile `PAGE_TEMPLATE_LAST_MODIFIED = 2026-09-15` (program/üniversite/ISEE/burs sayfalarına ön görüşme bölümü eklenen deploy) arasındaki en yeni tarih. Şablon içeriği yeniden değişirse sabit güncellenir; uydurma tarih yok.
+3. Kod: `/universities` sunucu HTML'i artık 64 okulun tamamını listeler (önceden 12). Googlebot `/api/universities`'i robots.txt nedeniyle çekemediği için 52 okula iç link göremiyordu.
+4. İzleme (1-2 hafta): "Keşfedildi" ve "noindex" sayıları, tarama istatistiklerinde istek sayısı ve ortalama yanıt süresi (605 ms bazı), performans raporunda gösterim. Googlebot masaüstü ağırlığı ve %7 302 (girişli sayfa yönlendirmeleri) not edildi, acil değil.

@@ -10,7 +10,9 @@ import {
   getTotalDepartments,
 } from "@/lib/universitiesFilters";
 
-const UNIVERSITIES_HTML_PREVIEW_LIMIT = 12;
+// Tum okullar sunucu HTML'ine girer: Googlebot /api/universities'i robots.txt nedeniyle cekemedigi icin
+// okullara giden ic linkler HTML'de olmali (SEO_AUDIT.md §21). Okul basina 3 program etiketi yeter.
+const UNIVERSITY_HTML_PROGRAM_TAG_LIMIT = 3;
 
 type SearchParamValue = string | string[] | undefined;
 type UniversitiesPageProps = {
@@ -47,9 +49,11 @@ function createDepartmentHtmlPreview(department: Department): Department {
 }
 
 function createUniversitiesHtmlPreview(universities: University[]) {
-  return universities.slice(0, UNIVERSITIES_HTML_PREVIEW_LIMIT).map((university) => ({
+  return universities.map((university) => ({
     ...university,
-    departments: university.departments.slice(0, 3).map(createDepartmentHtmlPreview),
+    departments: university.departments
+      .slice(0, UNIVERSITY_HTML_PROGRAM_TAG_LIMIT)
+      .map(createDepartmentHtmlPreview),
     departmentCount: university.departments.length,
   }));
 }

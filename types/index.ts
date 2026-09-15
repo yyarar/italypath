@@ -25,6 +25,7 @@ export interface SupabaseUniversityDepartmentRow {
   duration_years: number | null;
   level: string | null;
   sort_order: number | null;
+  updated_at?: string | null;
 }
 
 export interface SupabaseProgramAdmissionDetailsRow {
@@ -64,6 +65,7 @@ export interface SupabaseUniversityRow {
   features: string[] | null;
   features_en: string[] | null;
   sort_order: number | null;
+  updated_at?: string | null;
 }
 
 export interface UserProfileRow {

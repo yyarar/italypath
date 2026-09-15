@@ -43,7 +43,7 @@ italypath-main/
 ├── app/
 │   ├── layout.tsx                  # ClerkProvider, LanguageProvider, MobileZoomLock, RouteTransition
 │   ├── page.tsx                    # Home server wrapper (ISR 3h); stats getUniversitiesDirectory() kaynakli
-│   ├── sitemap.ts                  # getUniversitiesDirectory() ile dinamik sitemap
+│   ├── sitemap.ts                  # getUniversitiesDirectory() ile dinamik sitemap; lastModified = DB updated_at ∨ PAGE_TEMPLATE_LAST_MODIFIED
 │   ├── robots.ts                   # Public/protected indexleme kurallari
 │   ├── data.ts                     # Legacy local seed/yedek; runtime tarafindan import edilmez
 │   ├── api/
@@ -374,7 +374,7 @@ SEO Adim 2 (`SEO 2` merge'i):
 
 - `/universities`, `/universities/[id]`, `/universities/[id]/departments/[deptSlug]`, `/cities`, `/scholarships` icin ilk production HTML guclendirildi
 - Target SEO sayfalarinda `BAILOUT_TO_CLIENT_SIDE_RENDERING` temizlendi
-- `/universities` server HTML'i sinirli preview tasir: 12 okul + okul basi 3 program etiketi; tam veri client tarafinda `/api/universities` ile gelir
+- `/universities` server HTML'i tum okullari (64) okul basi 3 program etiketiyle tasir (2026-09-16'ya kadar 12 okuldu; Googlebot `/api/universities`'i robots nedeniyle cekemedigi icin ic linkler HTML'de olmali); tam program listesi client tarafinda `/api/universities` ile gelir
 - `components/universities/UniversitiesExplorer.tsx`, `components/university-details/UniversityDetailClient.tsx` ve `DepartmentDetailClient.tsx` client leaf pattern'ini tasir
 - `lib/useUniversitiesData.ts` initial data alabilir; initial data varsa skeleton/loading ile baslamaz
 - Server fetch hata durumlari route-level editorial error block'a duser; global `app/error.tsx`'e dusmemesi hedeflenir
@@ -438,7 +438,7 @@ SEO 2.5 sonrasi canli audit'te `/` sayfasi gercek H1, CTA/internal link ve canli
 `app/universities/page.tsx`:
 
 - async Server Component wrapper'dir; `getUniversitiesDirectory()` ile hafif canli veri alir (`searchParams` okudugu icin dinamik)
-- ilk HTML icin sinirli crawlable preview uretir (12 okul, okul basi 3 program etiketi)
+- ilk HTML'e tum okullari koyar (okul basi 3 program etiketi); Googlebot API'yi cekemedigi icin okul linkleri HTML'de olmali
 - `components/universities/UniversitiesExplorer.tsx` client leaf'ine `initialUniversities`, initial filters ve stats gecer
 - URL sync search/filter: `q`, `city`, `type`, `fav`
 - view mode: `grid | compact`
@@ -756,3 +756,4 @@ node scripts/check-universities-server-compose.mjs
 15. Terracotta renkli metin/ikon icin `text-[var(--editorial-terracotta-ink)]` kullan; `--editorial-terracotta` base tokeni yalnizca buton/arka plan/cerceve icin. `npm run check:seo-vitals` bunu zorlar.
 16. `components/RouteTransition.tsx` icindeki `<AnimatePresence initial={false}>` kaldirilmaz; ilk yuklemede sayfa iceriginin gorunur gelmesini bu saglar.
 17. Egress diyeti: agir kabul metinleri (`source_quotes`, sartlar, belgeler) yalnizca `getUniversityById()` ile detay sayfalarina gelir; liste/API/sitemap/chat `getUniversitiesDirectory()` kullanir. ISR sayfalarinda (`/`, detay sayfalari) `revalidate` + bos `generateStaticParams()` korunur ve sunucu tarafinda `searchParams`/`cookies()`/`headers()` okunmaz.
+18. Sitemap `lastModified` gercek degisiklige baglidir: DB `updated_at` (okul/program/kabul dosyasi) ile `app/sitemap.ts` icindeki `PAGE_TEMPLATE_LAST_MODIFIED` sabitinin en yenisi. Program/universite sayfa sablonunun GORUNUR icerigi degistiginde sabiti o deploy tarihine cek; uydurma tarih yazma (SEO_AUDIT.md §21).

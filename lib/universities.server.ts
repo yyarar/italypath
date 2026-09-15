@@ -16,9 +16,9 @@ import type {
 } from "@/types";
 
 const UNIVERSITY_COLUMNS =
-  "id,name,city,type,fee,image,description,description_en,website,features,features_en,sort_order";
+  "id,name,city,type,fee,image,description,description_en,website,features,features_en,sort_order,updated_at";
 const UNIVERSITY_DEPARTMENT_COLUMNS =
-  "id,university_id,name,slug,languages,duration_years,level,sort_order";
+  "id,university_id,name,slug,languages,duration_years,level,sort_order,updated_at";
 const PROGRAM_ADMISSION_DETAIL_COLUMNS =
   "department_id,university_id,raw_program_name,raw_level,raw_teaching_language,campus,degree_class,admission_type,academic_requirements,language_requirements,application_deadline_eu,application_deadline_non_eu,required_documents,entry_exam_or_test,tuition_or_fees_link,official_program_url,official_call_url,source_quotes,uncertain,uncertainty_notes,source_file";
 const UNIVERSITY_PAGE_SIZE = 1000;
@@ -39,7 +39,7 @@ const PROGRAM_DURATIONS = new Set<ProgramDurationYears>([1, 2, 3, 4, 5, 6]);
 // Not: memo'daki listeler/objeler tum istekler arasinda PAYLASILIR; caller'lar bunlari
 // yerinde mutate etmemeli (sort/push gerekiyorsa once kopyala).
 type MemoEntry<T> = { data: T; expiresAt: number };
-type AdmissionPresenceRow = { department_id: number };
+type AdmissionPresenceRow = { department_id: number; updated_at: string | null };
 const UNIVERSITY_MEMO_MAX_ENTRIES = 500;
 
 let directoryCache: MemoEntry<University[]> | null = null;
@@ -138,7 +138,23 @@ function createDepartment(row: SupabaseUniversityDepartmentRow): Department | nu
     languages: normalizeLanguages(row.languages),
     durationYears: normalizeDurationYears(row.duration_years),
     level: normalizeLevel(row.level),
+    updatedAt: latestTimestamp(row.updated_at),
   };
+}
+
+// Gecerli ISO zaman damgalarinin en yenisi; sitemap lastmod icin.
+function latestTimestamp(...values: Array<string | null | undefined>): string | undefined {
+  let latest: string | undefined;
+  let latestMs = Number.NEGATIVE_INFINITY;
+  for (const value of values) {
+    if (!value) continue;
+    const ms = new Date(value).getTime();
+    if (Number.isFinite(ms) && ms > latestMs) {
+      latestMs = ms;
+      latest = new Date(ms).toISOString();
+    }
+  }
+  return latest;
 }
 
 function optionalText(value: string | null): string | undefined {
@@ -197,6 +213,7 @@ function createUniversity(row: SupabaseUniversityRow, departments: Department[])
     website: normalizeText(row.website),
     features: normalizeStringList(row.features),
     features_en: featuresEn.length > 0 ? featuresEn : undefined,
+    updatedAt: latestTimestamp(row.updated_at),
     departments,
   };
 }
@@ -260,16 +277,16 @@ async function fetchUniversityDepartmentRows(
   }
 }
 
-// Kabul dosyasi VARLIGI: dizin icin yalnizca department_id cekilir (agir metinler asla).
-async function fetchAdmissionPresenceDepartmentIds(): Promise<Set<number>> {
+// Kabul dosyasi VARLIGI: dizin icin yalnizca department_id + updated_at cekilir (agir metinler asla).
+async function fetchAdmissionPresence(): Promise<Map<number, string | null>> {
   const supabase = createReadOnlySupabaseClient();
-  const ids = new Set<number>();
+  const presence = new Map<number, string | null>();
 
   for (let from = 0; ; from += PROGRAM_ADMISSION_DETAIL_PAGE_SIZE) {
     const to = from + PROGRAM_ADMISSION_DETAIL_PAGE_SIZE - 1;
     const { data, error } = await supabase
       .from("program_admission_details")
-      .select("department_id")
+      .select("department_id,updated_at")
       .order("department_id", { ascending: true })
       .range(from, to)
       .returns<AdmissionPresenceRow[]>();
@@ -280,11 +297,11 @@ async function fetchAdmissionPresenceDepartmentIds(): Promise<Set<number>> {
 
     const page = data ?? [];
     for (const row of page) {
-      if (typeof row.department_id === "number") ids.add(row.department_id);
+      if (typeof row.department_id === "number") presence.set(row.department_id, row.updated_at ?? null);
     }
 
     if (page.length < PROGRAM_ADMISSION_DETAIL_PAGE_SIZE) {
-      return ids;
+      return presence;
     }
   }
 }
@@ -324,7 +341,7 @@ export function composeUniversitiesFromSupabaseRows(
   universityRows: SupabaseUniversityRow[],
   departmentRows: SupabaseUniversityDepartmentRow[],
   admissionDetailRows: SupabaseProgramAdmissionDetailsRow[] = [],
-  admissionPresenceDepartmentIds?: Set<number>
+  admissionPresence?: Map<number, string | null>
 ): University[] {
   const detailsByDepartmentId = new Map<number, ProgramAdmissionDetails>();
 
@@ -343,12 +360,15 @@ export function composeUniversitiesFromSupabaseRows(
 
     const admissionDetails =
       typeof row.id === "number" ? detailsByDepartmentId.get(row.id) : undefined;
+    const presenceUpdatedAt =
+      typeof row.id === "number" ? admissionPresence?.get(row.id) : undefined;
     const hasAdmissionDetails =
       Boolean(admissionDetails) ||
-      (typeof row.id === "number" && admissionPresenceDepartmentIds?.has(row.id) === true);
+      (typeof row.id === "number" && admissionPresence?.has(row.id) === true);
+    const updatedAt = latestTimestamp(department.updatedAt, presenceUpdatedAt, row.updated_at);
     const enrichedDepartment: Department = admissionDetails
-      ? { ...department, admissionDetails, hasAdmissionDetails }
-      : { ...department, hasAdmissionDetails };
+      ? { ...department, admissionDetails, hasAdmissionDetails, updatedAt }
+      : { ...department, hasAdmissionDetails, updatedAt };
 
     const departments = departmentsByUniversityId.get(row.university_id) ?? [];
     departments.push(enrichedDepartment);
@@ -375,16 +395,16 @@ export async function getUniversitiesDirectory(): Promise<University[]> {
   // Single-flight: es zamanli cache miss'lerde tek cekis calisir, digerleri ayni sonucu bekler.
   if (!directoryInFlight) {
     const refresh = (async () => {
-      const [universityRows, departmentRows, presenceIds] = await Promise.all([
+      const [universityRows, departmentRows, admissionPresence] = await Promise.all([
         fetchUniversityRows(),
         fetchUniversityDepartmentRows(),
-        fetchAdmissionPresenceDepartmentIds(),
+        fetchAdmissionPresence(),
       ]);
       const universities = composeUniversitiesFromSupabaseRows(
         universityRows,
         departmentRows,
         [],
-        presenceIds
+        admissionPresence
       );
 
       directoryCache = {

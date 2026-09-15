@@ -38,6 +38,8 @@ export interface Department {
   admissionDetails?: ProgramAdmissionDetails;
   /** Dizin (hafif) verisinde admissionDetails tasinmaz; kabul dosyasi var mi bilgisi bu bayrakla gelir. */
   hasAdmissionDetails?: boolean;
+  /** Program satiri veya kabul dosyasinin son guncellenme zamani (ISO); sitemap lastmod icin. */
+  updatedAt?: string;
 }
 
 export interface University {
@@ -53,4 +55,6 @@ export interface University {
   website: string;
   features: string[];
   features_en?: string[];
+  /** Okul satirinin son guncellenme zamani (ISO); sitemap lastmod icin. */
+  updatedAt?: string;
 }
