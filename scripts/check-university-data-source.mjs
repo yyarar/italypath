@@ -52,7 +52,7 @@ for (const path of liveDataSurfaces) {
 
 const marketingSurfaces = [
   "components/HeroSection.tsx",
-  "components/FeaturesSection.tsx",
+  "components/home/HomeToolsSection.tsx",
   "components/VelocityBridge.tsx",
 ];
 

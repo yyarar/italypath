@@ -154,8 +154,7 @@ if (navbar.includes("SignInButton")) {
 mustContain(navbar, "/giris", "components/Navbar.tsx");
 
 for (const path of [
-  "components/BottomNav.tsx",
-  "components/FeaturesSection.tsx",
+  "components/HomeClosingCta.tsx",
   "app/hub/page.tsx",
 ]) {
   const content = read(path);

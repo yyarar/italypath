@@ -2,18 +2,15 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useAuth } from "@clerk/nextjs";
 
 import { useLanguage } from "@/context/LanguageContext";
 import Reveal from "@/components/ui/Reveal";
+import { CONSULT_ANCHOR } from "@/lib/consultation";
 
 // Sayfa sonu kapanis cagrisi. Koyu ink bant; hero'daki sage/paper ile kontrast.
 export default function HomeClosingCta() {
   const { t } = useLanguage();
-  const { isSignedIn } = useAuth();
   const c = t.homeClose;
-  const primaryHref = isSignedIn ? "/hub" : "/giris?mode=kayit";
-  const primaryLabel = isSignedIn ? c.primaryCtaSignedIn : c.primaryCta;
 
   return (
     <section className="bg-[var(--editorial-paper)] pb-16 lg:pb-24">
@@ -29,13 +26,13 @@ export default function HomeClosingCta() {
           <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#c9d8d1] sm:text-base">{c.body}</p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
-              href={primaryHref}
-              className="home-pressable group inline-flex items-center justify-center rounded-full bg-[#faf7f0] px-6 py-3 text-sm font-semibold text-[#15201c] shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7c9b8]"
+            <a
+              href={`#${CONSULT_ANCHOR}`}
+              className="home-pressable group inline-flex items-center justify-center rounded-full bg-[var(--editorial-terracotta)] px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7c9b8]"
             >
-              {primaryLabel}
+              {c.primaryCta}
               <ArrowRight className="home-hover-arrow ml-2 h-4 w-4" />
-            </Link>
+            </a>
             <Link
               href="/universities"
               className="home-pressable group inline-flex items-center justify-center rounded-full border border-white/30 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-[#faf7f0] hover:border-[#e7c9b8] hover:text-[#e7c9b8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#e7c9b8]"

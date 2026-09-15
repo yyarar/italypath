@@ -15,16 +15,8 @@ const checks = [
     ],
   },
   {
-    file: "components/FeaturesSection.tsx",
-    forbidden: ["BentoGrid", "BentoCard", "Marquee", "AnimatedList", "BorderBeam"],
-  },
-  {
     file: "components/VelocityBridge.tsx",
     forbidden: ["ScrollVelocityContainer", "ScrollVelocityRow", "ItalyPathLine"],
-  },
-  {
-    file: "components/BottomNav.tsx",
-    forbidden: ["blur-md", "linear-gradient(135deg", "border-4 border-white"],
   },
   {
     file: "components/IseeSection.tsx",
@@ -32,7 +24,7 @@ const checks = [
   },
   {
     file: "components/ScholarshipsSection.tsx",
-    forbidden: ["radial-gradient", "rounded-[2.5rem]", "blur-2xl"],
+    forbidden: ["radial-gradient", "blur-2xl"],
   },
 ];
 

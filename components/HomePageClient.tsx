@@ -3,7 +3,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import HomeStoryBand from "@/components/HomeStoryBand";
-import FeaturesSection from "@/components/FeaturesSection";
 import VelocityBridge from "@/components/VelocityBridge";
 import IseeSection from "@/components/IseeSection";
 import ScholarshipsSection from "@/components/ScholarshipsSection";
@@ -21,7 +20,6 @@ export default function HomePageClient({ stats }: HomePageClientProps) {
       <Navbar homeFloating />
       <HeroSection stats={stats} />
       <HomeStoryBand />
-      <FeaturesSection stats={stats} />
       <VelocityBridge stats={stats} />
       <ScholarshipsSection />
       <IseeSection />
