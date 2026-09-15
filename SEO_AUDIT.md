@@ -843,7 +843,25 @@ Tasarım: `docs/superpowers/specs/2026-09-15-university-data-egress-isr-design.m
 
 ### 20.4 Deploy sonrası doğrulama
 
-Deploy Kerem'in "gönder" onayıyla yapılır; sonrasında doldurulacak: `x-vercel-cache` HIT, devtools throttling soğuk/sıcak FCP ve gövde bitişi, ertesi gün Supabase log sayımı (istek/gün ve boyut) ve Usage ekranı.
+- Kerem'in onayıyla 16 Eylül 2026 00:04 (TSİ) civarı `main`'e push edildi (`44b4e11`…`8f66ecc`); Vercel deploy'u birkaç dakikada canlıya düştü.
+- Production, tarayıcı içinden (same-origin fetch, `x-vercel-cache` başlığı okunarak):
+
+| Sayfa | 1. istek | Sonraki istekler | Not |
+|---|---|---|---|
+| `/` | HIT (`age` 67 sn) | HIT | build'de üretilmiş, 3 saat önbellek |
+| Program sayfası (Ca' Foscari / Digital and Public Humanities) | HIT (`age` 56 sn) | HIT, HIT | ilk ziyaretimde üretilmiş, sonra önbellekten |
+| `/universities/12` (ilk kez açılan sayfa) | MISS (`age` 0) | 4 sn sonra HIT | on-demand ISR çalışıyor |
+| `/universities` | MISS, `private, no-store` | — | tasarım gereği dinamik (searchParams) |
+| `/api/universities` | 200, `no-store` | — | 64 okul, 1.008 program, 900 kabul bayrağı, ağır alan yok |
+
+- Arka arkaya iki isteğin ikisi de MISS dönebilir (önbellek yazımı yanıt sonrası tamamlanıyor); birkaç saniye sonra HIT.
+- **Vercel Security Checkpoint olayı:** deploy sonrası aynı gece tarayıcı olmayan istekler (curl, Lighthouse, harici fetch) `403` + `x-vercel-mitigated: challenge` aldı; gerçek tarayıcı doğrulamayı geçip sayfayı normal açtı. Bu Vercel Firewall'un challenge katmanıdır (Attack Challenge Mode veya otomatik DDoS mitigasyonu); büyük olasılıkla aynı gün yapılan yoğun ölçüm trafiği (Lighthouse koşuları, 20 saniyelik polling) tetikledi. Takip: Vercel → Project → Firewall ekranında Attack Challenge Mode'un kapalı olduğu doğrulanmalı; GSC URL Inspection "canlı test" ile Googlebot'un sayfayı çekebildiği teyit edilmeli. Ders: production'a karşı polling/Lighthouse koşularını seyrek tut (saniyede değil dakikada bir; art arda en fazla 3-4 koşu).
+- Devtools throttling hız ölçümü ve ertesi gün Supabase log sayımı, challenge kalktıktan sonra alınacak (20.6).
+
+### 20.6 Takip ölçümleri (doldurulacak)
+
+- Devtools throttling ile production `/`, `/universities`, program sayfası: gövde bitişi, FCP/LCP (soğuk/sıcak).
+- Supabase edge log sayımı (istek/gün, `program_admission_details` istek biçimi ve content-range) ve Usage ekranı egress eğrisi.
 
 ### 20.5 Notlar ve kalan riskler
 
