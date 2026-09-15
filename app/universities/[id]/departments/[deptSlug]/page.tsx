@@ -7,6 +7,12 @@ const BASE_URL = "https://italypath.app";
 // ISR: 3 saat Vercel onbelleginden sunulur; soguk sunucu gecikmesi ve egress icin (SEO_AUDIT.md §20).
 export const revalidate = 10800;
 
+// ISR icin gerekli: bos generateStaticParams rotayi "statik uretilebilir" yapar; hicbir sayfa build'de
+// uretilmez, ilk istekte uretilip revalidate suresince Vercel onbelleginden sunulur (SEO_AUDIT.md §20).
+export function generateStaticParams() {
+  return [];
+}
+
 type DepartmentDetailPageProps = {
   params: Promise<{ id: string; deptSlug: string }>;
 };

@@ -42,6 +42,9 @@ for (const file of isrPages) {
   if (source.includes("searchParams")) {
     failures.push(`${file}: sunucu tarafinda searchParams okumak sayfayi dinamige dusurur (ISR iptal)`);
   }
+  if (file !== "app/page.tsx" && !source.includes("export function generateStaticParams()")) {
+    failures.push(`${file}: dinamik rota ISR icin bos generateStaticParams() export etmeli (yoksa her istek dinamik render)`);
+  }
 }
 
 const css = readFileSync("app/globals.css", "utf8");

@@ -60,10 +60,12 @@ requireTokens("university detail wrapper", universityPage, [
   "if (!university) notFound();",
   "UniversityDetailClient",
   "initialUniversity",
-  "cameFromList",
 ]);
 
 requireTokens("university detail client", universityDetailClient, [
+  // ISR: wrapper searchParams okumaz; "listeden geldi" davranisi client'ta URL'den turetilir
+  "cameFromList",
+  "window.location.search",
   "UniversityPortraitMasthead",
   "UniversityHighlights",
   "ProgramDirectory",

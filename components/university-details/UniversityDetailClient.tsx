@@ -31,12 +31,6 @@ export function UniversityDetailClient({
       fetchWhenInitial: false,
     });
   const [expandingDeptSlug, setExpandingDeptSlug] = useState<string | null>(null);
-  // ISR: sayfa sunucuda searchParams okumaz; "listeden geldi" bilgisi hidrasyon sonrasi URL'den alinir.
-  const [cameFromList, setCameFromList] = useState(false);
-
-  useEffect(() => {
-    setCameFromList(new URLSearchParams(window.location.search).get("from") === "list");
-  }, []);
 
   // Sunucudan gelen tam okul verisi once; dizin (hafif) kopyasi yalnizca sunucu verisi yoksa kullanilir.
   const university = useMemo(
@@ -55,6 +49,8 @@ export function UniversityDetailClient({
   }, [expandingDeptSlug, idFromUrl, router]);
 
   const handleBack = () => {
+    // ISR: sayfa sunucuda searchParams okumaz; "listeden geldi" bilgisi tiklama aninda URL'den alinir.
+    const cameFromList = new URLSearchParams(window.location.search).get("from") === "list";
     if (cameFromList && window.history.length > 1) {
       router.back();
       return;
