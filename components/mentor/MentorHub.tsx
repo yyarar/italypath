@@ -93,7 +93,7 @@ export default function MentorHub({
                   }
                   className="grid w-full grid-cols-[40px_minmax(0,1fr)_auto] gap-x-5 gap-y-2 py-6 text-left transition-colors duration-200 ease-out hover:bg-[#f6f0e7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] active:scale-[0.995] disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:bg-transparent disabled:active:scale-100 sm:gap-x-6"
                 >
-                  <span className="pt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+                  <span className="pt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
                     {channel.numberLabel}
                   </span>
 
@@ -119,7 +119,7 @@ export default function MentorHub({
                   <span
                     className={`self-start whitespace-nowrap pt-2 text-[11px] font-bold uppercase tracking-[0.12em] ${
                       isActive
-                        ? "text-[var(--editorial-terracotta)]"
+                        ? "text-[var(--editorial-terracotta-ink)]"
                         : "border border-[var(--editorial-border)] px-3 py-1.5 text-[var(--editorial-muted)]"
                     }`}
                   >

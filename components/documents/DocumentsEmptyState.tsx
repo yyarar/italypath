@@ -6,7 +6,7 @@ export default function DocumentsEmptyState() {
   const { t } = useLanguage();
   return (
     <div className="mt-10 border border-[var(--editorial-border)] bg-[var(--editorial-band)] px-7 py-12 text-center">
-      <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
+      <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta-ink)]">
         {t.documents.emptyState.eyebrow}
       </p>
       <h2 className="mx-auto mt-3 max-w-xs font-serif text-2xl font-normal text-[var(--editorial-ink)]">

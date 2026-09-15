@@ -40,7 +40,7 @@ export default function VolunteerConversationStart({
   return (
     <form onSubmit={handleSubmit} className="border-y border-[var(--editorial-border)] py-6">
       <fieldset disabled={sending}>
-        <legend className="mb-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
+        <legend className="mb-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]">
           {copy.topicLabel}
         </legend>
         <div className="grid gap-px border border-[var(--editorial-border)] bg-[var(--editorial-border)] sm:grid-cols-2">
@@ -73,7 +73,7 @@ export default function VolunteerConversationStart({
 
       <label
         htmlFor="volunteer-first-message"
-        className="mb-3 mt-6 block text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]"
+        className="mb-3 mt-6 block text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]"
       >
         {copy.messageLabel}
       </label>
@@ -92,7 +92,7 @@ export default function VolunteerConversationStart({
       />
 
       {failed ? (
-        <p role="alert" className="mt-3 text-sm text-[var(--editorial-terracotta)]">
+        <p role="alert" className="mt-3 text-sm text-[var(--editorial-terracotta-ink)]">
           {copy.sendError}
         </p>
       ) : null}

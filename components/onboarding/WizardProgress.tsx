@@ -13,7 +13,7 @@ export default function WizardProgress({
 }: WizardProgressProps) {
   return (
     <div>
-      <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[var(--editorial-terracotta)]">
+      <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[var(--editorial-terracotta-ink)]">
         {label}
       </p>
       <div className="mt-2 flex gap-1.5" aria-hidden>

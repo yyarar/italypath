@@ -125,7 +125,7 @@ export function UniversityDetailClient({
 
       <main className="mx-auto max-w-7xl space-y-12 px-4 py-10 sm:px-6 lg:px-8">
         <section className="grid gap-5 lg:grid-cols-[190px_minmax(0,1fr)]">
-          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
             {t.detail.about}
           </p>
           <p className="max-w-4xl font-serif text-xl leading-8 text-[var(--editorial-ink)] sm:text-2xl sm:leading-9">

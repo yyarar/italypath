@@ -41,7 +41,7 @@ export default function OperatorReplyComposer({
     >
       <label
         htmlFor="operator-reply"
-        className="mb-3 block text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]"
+        className="mb-3 block text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]"
       >
         {copy.teamIdentity}
       </label>
@@ -60,7 +60,7 @@ export default function OperatorReplyComposer({
       />
 
       {failed ? (
-        <p role="alert" className="mt-3 text-sm text-[var(--editorial-terracotta)]">
+        <p role="alert" className="mt-3 text-sm text-[var(--editorial-terracotta-ink)]">
           {copy.sendError}
         </p>
       ) : null}

@@ -69,7 +69,7 @@ export function ProgramTransitionEntry({
             {department.name}
           </motion.span>
           {department.admissionDetails ? (
-            <ArrowRight className="h-4 w-4 shrink-0 text-[var(--editorial-terracotta)]" />
+            <ArrowRight className="h-4 w-4 shrink-0 text-[var(--editorial-terracotta-ink)]" />
           ) : (
             <span className="shrink-0 rounded-full border border-[var(--editorial-border)] bg-[var(--editorial-paper)] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
               {comingSoonLabel}
@@ -95,7 +95,7 @@ export function ProgramTransitionEntry({
           </div>
           <div className="flex min-h-0 items-center justify-center px-6 text-center">
             <div className="max-w-3xl">
-              <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+              <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
                 {university.name}
               </p>
               <motion.h3

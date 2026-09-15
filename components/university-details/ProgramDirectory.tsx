@@ -42,7 +42,7 @@ function ProgramGroup({
         <h3 className="text-xs font-black uppercase tracking-[0.16em] text-[var(--editorial-muted)]">
           {label}
         </h3>
-        <span className="font-serif text-xl font-semibold text-[var(--editorial-terracotta)]">
+        <span className="font-serif text-xl font-semibold text-[var(--editorial-terracotta-ink)]">
           {departments.length}
         </span>
       </header>
@@ -101,7 +101,7 @@ export function ProgramDirectory({
     <section className="space-y-5">
       <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[var(--editorial-border)] pb-4">
         <div>
-          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
             {programCountLabel}
           </p>
           <h2 className="mt-2 font-serif text-3xl font-semibold leading-none text-[var(--editorial-ink)] sm:text-4xl">

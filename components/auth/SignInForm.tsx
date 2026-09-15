@@ -65,7 +65,7 @@ export function SignInForm() {
               autoComplete="email"
               className="h-11 border border-[var(--editorial-border)] bg-white px-3 text-sm text-[var(--editorial-ink)] focus:border-[var(--editorial-sage)] focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-[var(--editorial-sage)]"
             />
-            <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
+            <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta-ink)]" />
           </Clerk.Field>
 
           <SignIn.Action
@@ -79,7 +79,7 @@ export function SignInForm() {
             </Clerk.Loading>
           </SignIn.Action>
 
-          <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
+          <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta-ink)]" />
         </div>
       </SignIn.Step>
 
@@ -115,7 +115,7 @@ export function SignInForm() {
                   )}
                 </button>
               </div>
-              <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
+              <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta-ink)]" />
             </Clerk.Field>
 
             <SignIn.Action
@@ -138,7 +138,7 @@ export function SignInForm() {
               </Clerk.Loading>
             </SignIn.Action>
 
-            <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
+            <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta-ink)]" />
           </div>
         </SignIn.Strategy>
 
@@ -177,7 +177,7 @@ export function SignInForm() {
                   </div>
                 )}
               />
-              <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
+              <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta-ink)]" />
             </Clerk.Field>
 
             <SignIn.Action
@@ -214,7 +214,7 @@ export function SignInForm() {
               </Clerk.Loading>
             </SignIn.Action>
 
-            <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
+            <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta-ink)]" />
           </div>
         </SignIn.Strategy>
 

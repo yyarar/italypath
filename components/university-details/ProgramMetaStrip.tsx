@@ -23,7 +23,7 @@ export function ProgramMetaStrip({
 }: ProgramMetaStripProps) {
   return (
     <section className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
-      <p className="border-b border-[var(--editorial-border)] px-4 py-3 text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta)] sm:px-5">
+      <p className="border-b border-[var(--editorial-border)] px-4 py-3 text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)] sm:px-5">
         {factsLabel}
       </p>
       <dl className="grid sm:grid-cols-3">

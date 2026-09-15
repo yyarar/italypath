@@ -22,7 +22,7 @@ export default function TopicCompleted({
 
   return (
     <section className="rounded-[1.4rem] border border-[rgba(31,79,70,0.16)] bg-[rgba(255,254,250,0.86)] p-7 text-center shadow-[0_18px_50px_rgba(21,32,28,0.06)] backdrop-blur-xl">
-      <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
+      <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta-ink)]">
         {topic.skill}
       </p>
       <h2 className="mb-2 font-serif text-2xl font-normal text-[var(--editorial-ink)]">

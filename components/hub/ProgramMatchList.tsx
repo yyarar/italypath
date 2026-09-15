@@ -25,7 +25,7 @@ export default function ProgramMatchList({ matches }: { matches: ProgramMatch[] 
             <GraduationCap className="h-5 w-5" aria-hidden="true" />
           </span>
           <div className="min-w-0">
-            <p id="hub-programs-label" className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+            <p id="hub-programs-label" className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
               {t.hub.recoSections.programs}
             </p>
           </div>
@@ -60,7 +60,7 @@ export default function ProgramMatchList({ matches }: { matches: ProgramMatch[] 
                   {levelShort} · {langs}
                 </span>
                 <ArrowRight
-                  className="hub-arrow h-4 w-4 text-[var(--editorial-terracotta)]"
+                  className="hub-arrow h-4 w-4 text-[var(--editorial-terracotta-ink)]"
                   strokeWidth={2}
                 />
               </div>

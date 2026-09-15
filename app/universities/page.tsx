@@ -58,7 +58,7 @@ function UniversitiesDataUnavailable() {
   return (
     <div className="min-h-screen bg-[var(--editorial-paper)] px-4 py-24 text-[var(--editorial-ink)] sm:px-6 lg:px-8">
       <main className="mx-auto max-w-3xl border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-8 sm:p-10">
-        <p className="text-xs font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+        <p className="text-xs font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
           ItalyPath okul rehberi
         </p>
         <h1 className="mt-4 font-serif text-4xl font-semibold tracking-[-0.03em]">

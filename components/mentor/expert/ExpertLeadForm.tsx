@@ -97,7 +97,7 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
       <p
         id={`${field}-error`}
         role="alert"
-        className="mt-2 text-sm text-[var(--editorial-terracotta)]"
+        className="mt-2 text-sm text-[var(--editorial-terracotta-ink)]"
       >
         {message}
       </p>
@@ -271,7 +271,7 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
       </div>
 
       {submitError ? (
-        <p role="alert" className="text-sm text-[var(--editorial-terracotta)]">
+        <p role="alert" className="text-sm text-[var(--editorial-terracotta-ink)]">
           {copy.submitError}
         </p>
       ) : null}

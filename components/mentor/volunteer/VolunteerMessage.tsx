@@ -37,7 +37,7 @@ export default function VolunteerMessage({
           className={`text-[10px] font-bold uppercase tracking-[0.16em] ${
             isStaffMessage
               ? "text-[var(--editorial-sage)]"
-              : "text-[var(--editorial-terracotta)]"
+              : "text-[var(--editorial-terracotta-ink)]"
           }`}
         >
           {senderName}

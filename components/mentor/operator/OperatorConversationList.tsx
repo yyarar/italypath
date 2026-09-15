@@ -95,7 +95,7 @@ export default function OperatorConversationList({
                     {dateFormatter.format(new Date(conversation.last_message_at))}
                   </time>
                 </span>
-                <span className="mt-2 block text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-terracotta)]">
+                <span className="mt-2 block text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-terracotta-ink)]">
                   {t.aiMentor.volunteerDesk.topics[conversation.topic]}
                 </span>
                 <span className="mt-2 block break-words font-serif text-sm leading-6 text-[var(--editorial-muted)]">

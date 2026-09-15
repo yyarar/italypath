@@ -88,7 +88,7 @@ export default function VolunteerDesk({ channel, onBackToHub }: VolunteerDeskPro
 
       <section className="mx-auto w-full max-w-3xl flex-1 px-4 py-8 sm:px-6">
         <header className="mb-8">
-          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
             {copy.eyebrow}
           </p>
           <h1 className="mt-3 font-serif text-3xl leading-tight text-[var(--editorial-ink)] sm:text-4xl">
@@ -117,7 +117,7 @@ export default function VolunteerDesk({ channel, onBackToHub }: VolunteerDeskPro
             <button
               type="button"
               onClick={() => void reload().catch(() => undefined)}
-              className="mt-4 text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+              className="mt-4 text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
             >
               {copy.retry}
             </button>
@@ -140,7 +140,7 @@ export default function VolunteerDesk({ channel, onBackToHub }: VolunteerDeskPro
                 <button
                   type="button"
                   onClick={() => void reload().catch(() => undefined)}
-                  className="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+                  className="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
                 >
                   {copy.retry}
                 </button>
@@ -155,7 +155,7 @@ export default function VolunteerDesk({ channel, onBackToHub }: VolunteerDeskPro
             />
 
             {closeFailedConversationId === selectedConversation.id ? (
-              <p role="alert" className="mt-5 text-sm text-[var(--editorial-terracotta)]">
+              <p role="alert" className="mt-5 text-sm text-[var(--editorial-terracotta-ink)]">
                 {copy.closeError}
               </p>
             ) : null}
@@ -167,7 +167,7 @@ export default function VolunteerDesk({ channel, onBackToHub }: VolunteerDeskPro
                     type="button"
                     onClick={() => void handleClose()}
                     disabled={closing}
-                    className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)] transition-colors duration-200 ease-out hover:text-[var(--editorial-terracotta)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)] disabled:cursor-not-allowed disabled:opacity-50"
+                    className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)] transition-colors duration-200 ease-out hover:text-[var(--editorial-terracotta-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)] disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     {copy.closeCta}
                   </button>

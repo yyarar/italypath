@@ -49,7 +49,7 @@ function formatDate(value: string, language: Language) {
 
 function platformMonogramColor(platform: CommunityPlatform) {
   if (platform === "whatsapp") return "text-[var(--editorial-sage)]";
-  if (platform === "telegram") return "text-[var(--editorial-terracotta)]";
+  if (platform === "telegram") return "text-[var(--editorial-terracotta-ink)]";
   return "text-[var(--editorial-ink)]";
 }
 
@@ -160,7 +160,7 @@ function AtlasTableOfContents({
                 href={`#${chapter.slug}`}
                 className="block px-4 py-2 transition hover:bg-[#f6f0e7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
               >
-                <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
+                <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]">
                   {String(index + 1).padStart(2, "0")}
                 </div>
                 <div className="mt-1 text-sm font-semibold leading-tight text-[var(--editorial-ink)]">
@@ -216,7 +216,7 @@ function EntryRow({ community }: { community: CommunityLink }) {
         ) : null}
       </div>
 
-      <span className="inline-flex items-center gap-1 self-start whitespace-nowrap pt-[3px] text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-terracotta)]">
+      <span className="inline-flex items-center gap-1 self-start whitespace-nowrap pt-[3px] text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-terracotta-ink)]">
         {t.communities.openAction}
         <ExternalLink className="h-3 w-3" aria-hidden="true" />
       </span>
@@ -249,7 +249,7 @@ function ChapterBlock({
     >
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
         <div className="flex items-baseline gap-3 sm:gap-4">
-          <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+          <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
             {numberLabel}
           </span>
           <h2
@@ -302,7 +302,7 @@ function AtlasFooterPrompt() {
 
       <a
         href={mailHref}
-        className="inline-flex items-center gap-2 self-start whitespace-nowrap border border-[var(--editorial-terracotta)] px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-terracotta)] transition hover:bg-[var(--editorial-terracotta)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-terracotta)] sm:self-center"
+        className="inline-flex items-center gap-2 self-start whitespace-nowrap border border-[var(--editorial-terracotta)] px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-terracotta-ink)] transition hover:bg-[var(--editorial-terracotta)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-terracotta)] sm:self-center"
       >
         {t.communities.footerCta}
         <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />

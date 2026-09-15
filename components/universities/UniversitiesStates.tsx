@@ -55,7 +55,7 @@ export function UniversitiesErrorState({ message }: UniversitiesErrorStateProps)
   return (
     <div className="min-h-screen bg-[var(--editorial-paper)] px-4 py-24 text-[var(--editorial-ink)] sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-xl flex-col border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-8">
-        <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]">
           ItalyPath
         </p>
         <h1 className="mt-4 font-serif text-3xl font-semibold tracking-[-0.03em]">

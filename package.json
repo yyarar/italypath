@@ -27,6 +27,7 @@
     "check:mentor-desks": "node scripts/check-mentor-desks.mjs",
     "check:expert-leads": "node scripts/check-expert-leads.mjs",
     "check:home-consultation": "node scripts/check-home-consultation.mjs",
+    "check:seo-vitals": "node scripts/check-seo-vitals.mjs",
     "test:volunteer-desk": "node scripts/test-volunteer-desk.mjs",
     "test:mentor-operator": "node scripts/test-mentor-operator-inbox.mjs",
     "test:mentor-db": "node scripts/test-mentor-db.mjs",

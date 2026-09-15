@@ -26,7 +26,7 @@ export default function SatHeroPanel() {
     >
       <div className="mb-5 -mx-2 -mt-2 flex items-start justify-between gap-4 border-b border-[var(--editorial-border)] px-2 pb-4 pt-2">
         <div className="min-w-0">
-          <p className="flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
+          <p className="flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]">
             <span className="h-px w-6 bg-[var(--editorial-terracotta)]" aria-hidden="true" />
             {s.eyebrow}
           </p>

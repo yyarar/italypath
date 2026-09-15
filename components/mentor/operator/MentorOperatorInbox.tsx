@@ -69,12 +69,12 @@ export default function MentorOperatorInbox() {
               </Link>
               <Link
                 href="/ekip/uzman"
-                className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)] transition-colors duration-200 ease-out hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+                className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)] transition-colors duration-200 ease-out hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
               >
                 {copy.expertLeads} →
               </Link>
             </div>
-            <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
+            <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]">
               {copy.eyebrow}
             </p>
             <h1 className="mt-3 font-serif text-4xl text-[var(--editorial-ink)]">
@@ -86,7 +86,7 @@ export default function MentorOperatorInbox() {
             <button
               type="button"
               onClick={() => void reload().catch(() => undefined)}
-              className="mt-5 w-full border border-[var(--editorial-terracotta)] px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)] transition-colors duration-200 ease-out hover:bg-[var(--editorial-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+              className="mt-5 w-full border border-[var(--editorial-terracotta)] px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)] transition-colors duration-200 ease-out hover:bg-[var(--editorial-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
             >
               {copy.connectionLost}
             </button>
@@ -103,7 +103,7 @@ export default function MentorOperatorInbox() {
               <button
                 type="button"
                 onClick={() => void reload().catch(() => undefined)}
-                className="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+                className="mt-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
               >
                 {copy.retry}
               </button>

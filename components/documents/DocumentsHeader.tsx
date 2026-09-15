@@ -20,7 +20,7 @@ export default function DocumentsHeader({ docCount, typeCount }: DocumentsHeader
         <ArrowLeft className="h-4 w-4" strokeWidth={2} />
         {t.list.backHome}
       </Link>
-      <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
+      <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta-ink)]">
         {t.documents.eyebrow}
       </p>
       <h1 className="mt-2 font-serif text-4xl font-normal tracking-[-0.01em] text-[var(--editorial-ink)] sm:text-5xl">

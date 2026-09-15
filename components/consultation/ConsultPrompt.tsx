@@ -16,7 +16,7 @@ export default function ConsultPrompt({ eyebrow, title, body, cta }: ConsultProm
     <aside className="border-y border-[var(--editorial-border)] bg-[var(--editorial-band)] px-4 py-6 sm:px-6">
       <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
         <div className="min-w-0">
-          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
             {eyebrow}
           </p>
           <h2 className="mt-2 font-serif text-2xl font-semibold leading-tight text-[var(--editorial-ink)]">

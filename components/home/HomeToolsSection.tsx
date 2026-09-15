@@ -66,7 +66,7 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
       href: "/scholarships",
       photo: { src: HOME_PHOTOS.portico.src, alt: alts.portico },
       surface: "bg-[#eef3ef]",
-      iconSurface: "bg-[var(--editorial-surface)] text-[var(--editorial-terracotta)]",
+      iconSurface: "bg-[var(--editorial-surface)] text-[var(--editorial-terracotta-ink)]",
     },
     {
       icon: Calculator,
@@ -100,7 +100,7 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
       href: "/communities",
       photo: { src: HOME_PHOTOS.romeFriends.src, alt: alts.romeFriends },
       surface: "bg-[#eef3ef]",
-      iconSurface: "bg-[var(--editorial-surface)] text-[var(--editorial-terracotta)]",
+      iconSurface: "bg-[var(--editorial-surface)] text-[var(--editorial-terracotta-ink)]",
     },
     {
       icon: FolderOpen,
@@ -119,7 +119,7 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
               {c.eyebrow}
             </p>
             <h2 className="mt-4 max-w-2xl font-serif text-4xl font-normal leading-[1.02] tracking-[-0.035em] text-[var(--editorial-ink)] sm:text-5xl lg:text-6xl">
@@ -173,7 +173,7 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
                     <div className="mt-auto pt-5">
                       <p
                         className={`text-xs font-semibold ${
-                          tool.dark ? "text-[#f3d2bf]" : "text-[var(--editorial-terracotta)]"
+                          tool.dark ? "text-[#f3d2bf]" : "text-[var(--editorial-terracotta-ink)]"
                         }`}
                       >
                         {tool.meta}

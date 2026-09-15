@@ -524,7 +524,7 @@ export default function SatBankExplorer() {
                   aria-label={`${t.sat.mistakesTitle} · ${totalWrongCount}`}
                   onClick={() => setView({ mode: "mistakes" })}
                   whileTap={reduceMotion ? undefined : { scale: 0.96 }}
-                  className="inline-flex min-h-10 shrink-0 items-center gap-2 rounded-xl px-3 text-xs font-semibold text-[var(--editorial-terracotta)] outline-none transition-colors hover:bg-[rgba(183,91,56,0.08)] focus-visible:ring-2 focus-visible:ring-[var(--editorial-terracotta)]"
+                  className="inline-flex min-h-10 shrink-0 items-center gap-2 rounded-xl px-3 text-xs font-semibold text-[var(--editorial-terracotta-ink)] outline-none transition-colors hover:bg-[rgba(183,91,56,0.08)] focus-visible:ring-2 focus-visible:ring-[var(--editorial-terracotta)]"
                 >
                   <XCircle className="h-4 w-4" strokeWidth={1.8} />
                   <span className="hidden sm:inline">{t.sat.mistakesTitle}</span> · {totalWrongCount}
@@ -580,7 +580,7 @@ export default function SatBankExplorer() {
           </p>
         ) : null}
         {sessionError ? (
-          <p className="mb-4 border-l-2 border-[var(--editorial-terracotta)] bg-[var(--editorial-surface)] px-3 py-2 text-[12px] text-[var(--editorial-terracotta)]">
+          <p className="mb-4 border-l-2 border-[var(--editorial-terracotta)] bg-[var(--editorial-surface)] px-3 py-2 text-[12px] text-[var(--editorial-terracotta-ink)]">
             {sessionError}
           </p>
         ) : null}

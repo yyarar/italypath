@@ -37,7 +37,7 @@ export default function VolunteerConversationHistory({
     <section aria-labelledby="volunteer-history-title" className="mt-12">
       <h2
         id="volunteer-history-title"
-        className="mb-4 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]"
+        className="mb-4 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]"
       >
         {copy.historyTitle}
       </h2>

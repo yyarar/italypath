@@ -390,6 +390,14 @@ SEO Adim 3 Part 1 (`288dd5d`, breadcrumb polish `b1fd488`):
 - University detail sayfalari 3 seviyeli, program detail sayfalari 4 seviyeli `BreadcrumbList` JSON-LD tasir
 - University/program kaydi bulunamazsa route `notFound()` ile gercek HTTP 404 dondurur; veri kaynagi hata verirse editorial "veri yuklenemedi" govdesi korunur
 
+SEO Adim 3.5 (2026-09-15, kontrast + vitals guard; ayrinti `SEO_AUDIT.md` §19):
+
+- `--editorial-terracotta-ink: #9f4629` tokeni eklendi; terracotta renkli METIN/ikon her yerde `text-[var(--editorial-terracotta-ink)]` kullanir (kucuk puntoda WCAG AA). Base `--editorial-terracotta` yalnizca buton/arka plan/cerceve icindir.
+- `components/RouteTransition.tsx` icindeki `<AnimatePresence initial={false}>` ilk yuklemede alt agactaki tum framer-motion `initial` durumlarini devre disi birakir; sunucu HTML'i `opacity:1` ile gelir. Bu prop kaldirilirsa tum sayfalarda H1 hidrasyona kadar gizlenir. Guard: `npm run check:seo-vitals`.
+- Mobil zoom kilidi (`maximumScale: 1`, `userScalable: false`, `MobileZoomLock`) bilincli urun karari; SEO siralama sinyali degildir, yeniden onerme.
+- Gercek LCP darbogazi (devtools throttling ile dogrulandi): soguk instance'da `getUniversitiesData()` beklenirken HTML govdesi ~5 sn gecikir; sicak instance'da render-blocking CSS, 10 preload font dosyasi (164 KiB) ve JS ile bant genisligi yarisir. Simule Lighthouse'un "render delay" degeri bu yuzden animasyon kaniti degildir.
+- Statik prerender edilen sayfalardaki `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi `app/layout.tsx` `<Analytics />` bileseninden gelir ve footer sonrasindadir; icerik sunucu HTML'inde oldugu surece zararsizdir.
+
 Son canli SEO kabul audit notlari (2026-07-22):
 
 - `robots.txt` ve `sitemap.xml` `.app` icin PASS; sitemap `1087` URL tasiyor (`6` statik + `64` university + `1017` program) ve `.com` URL kalmadi
@@ -673,6 +681,7 @@ npm run check:hub-onboarding
 npm run check:mentor-desks
 npm run check:expert-leads
 npm run check:home-consultation
+npm run check:seo-vitals
 npm run test:volunteer-desk
 npm run test:mentor-operator
 npm run test:mentor-db
@@ -711,6 +720,8 @@ node scripts/check-universities-server-compose.mjs
 5. SEO 3 Part 1 tamamlandi; Part 2 icin ayri spec/plan henuz yazilmadi. Hidden/uydurma schema yok; sadece sayfada gorunen gercek bilgiye dayali structured data eklenmeli.
 6. `Organization` + `WebSite` JSON-LD root layout nedeniyle her sayfada tekrar eder. Bu gecersiz degildir; Google ana sayfa veya tek bir kurumsal sayfanin yeterli oldugunu belirttigi icin ileride dusuk oncelikli sadeleştirme olarak degerlendirilebilir.
 7. AI Mentor system prompt'u canli program sayisi arttikca buyuyor; prompt boyutu, latency ve maliyet izlenmeli.
+8. Soguk serverless instance'da `getUniversitiesData()` compose'u beklenirken `/`, `/universities` ve detay sayfalarinin HTML govdesi ~5 sn gecikiyor (2026-09-15 devtools olcumu). In-memory memo instance basina oldugu icin dusuk trafikte cogu ilk ziyaret soguk. Cozum adaylari: ana sayfa/liste icin `revalidate`/ISR veya instance'lar arasi kalici onbellek, ana sayfa stat'leri icin hafif sayim sorgusu, detayda hedefli sorgu. Ayrinti `SEO_AUDIT.md` §19.3 ve §19.6.
+9. `next/font` 10 font dosyasini (Spectral 4 agirlik x latin+latin-ext, Hanken 2) High oncelikle preload ediyor; sicak instance'da bile render-blocking CSS bunlarla yarisip ilk cizimi ~3,5 sn'ye itiyor. Spectral agirliklari ilk ekranda kullanilanlarla sinirlanmali; latin-ext Turkce icin gerekli.
 
 ### Repo hijyeni
 
@@ -736,3 +747,5 @@ node scripts/check-universities-server-compose.mjs
 12. Yeni agent, once bu dosyayi, sonra ilgili feature dosyalarini, sonra dogrulama scriptlerini okumali.
 13. Expert lead client dosyalari veya `NEXT_PUBLIC_*` değişkenleri hiçbir zaman `SUPABASE_SERVICE_ROLE_KEY` alamaz; public form insert'i yalnızca server-only `app/api/expert-leads` sınırından geçer.
 14. Sehir rehberlerinde generic fallback iddialari uretme; arastirilmamis sehri acikca `unresearched` olarak goster. Tiered kayitlarda sehir bazinda fiyat/Numbeo verisi cogaltma; merkezi, surumlu tier maliyet modelini kullan.
+15. Terracotta renkli metin/ikon icin `text-[var(--editorial-terracotta-ink)]` kullan; `--editorial-terracotta` base tokeni yalnizca buton/arka plan/cerceve icin. `npm run check:seo-vitals` bunu zorlar.
+16. `components/RouteTransition.tsx` icindeki `<AnimatePresence initial={false}>` kaldirilmaz; ilk yuklemede sayfa iceriginin gorunur gelmesini bu saglar.

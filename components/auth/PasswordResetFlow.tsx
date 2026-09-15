@@ -44,7 +44,7 @@ export function PasswordResetVerification() {
                 </div>
               )}
             />
-            <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
+            <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta-ink)]" />
           </Clerk.Field>
 
           <SignIn.Action
@@ -81,7 +81,7 @@ export function PasswordResetVerification() {
             </Clerk.Loading>
           </SignIn.Action>
 
-          <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
+          <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta-ink)]" />
         </div>
       </div>
     </SignIn.Strategy>
@@ -125,7 +125,7 @@ export function PasswordResetFlow() {
               {t.auth.actions.backToSignIn}
             </SignIn.Action>
 
-            <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
+            <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta-ink)]" />
           </div>
         </div>
       </SignIn.Step>
@@ -171,7 +171,7 @@ export function PasswordResetFlow() {
                   )}
                 </button>
               </div>
-              <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
+              <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta-ink)]" />
             </Clerk.Field>
 
             <SignIn.Action
@@ -194,7 +194,7 @@ export function PasswordResetFlow() {
               {t.auth.actions.backToSignIn}
             </SignIn.Action>
 
-            <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
+            <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta-ink)]" />
           </div>
         </div>
       </SignIn.Step>

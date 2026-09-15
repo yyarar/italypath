@@ -59,7 +59,7 @@ function DepartmentTags({
         </span>
       ))}
       {hiddenCount > 0 && (
-        <span className="border border-[var(--editorial-border)] bg-[var(--editorial-paper)] px-2.5 py-1 text-[11px] font-bold text-[var(--editorial-terracotta)]">
+        <span className="border border-[var(--editorial-border)] bg-[var(--editorial-paper)] px-2.5 py-1 text-[11px] font-bold text-[var(--editorial-terracotta-ink)]">
           +{hiddenCount} {moreLabel}
         </span>
       )}
@@ -86,8 +86,8 @@ function FavoriteButton({
       aria-pressed={isFavorite}
       className={`inline-flex h-10 w-10 items-center justify-center border transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] ${
         isFavorite
-          ? "border-[var(--editorial-terracotta)] bg-[#fbf0eb] text-[var(--editorial-terracotta)]"
-          : "border-[var(--editorial-border)] bg-[var(--editorial-surface)] text-[var(--editorial-muted)] hover:border-[var(--editorial-terracotta)] hover:text-[var(--editorial-terracotta)]"
+          ? "border-[var(--editorial-terracotta)] bg-[#fbf0eb] text-[var(--editorial-terracotta-ink)]"
+          : "border-[var(--editorial-border)] bg-[var(--editorial-surface)] text-[var(--editorial-muted)] hover:border-[var(--editorial-terracotta)] hover:text-[var(--editorial-terracotta-ink)]"
       }`}
     >
       <Heart className={`h-4 w-4 ${isFavorite ? "fill-current" : ""}`} />
@@ -144,9 +144,9 @@ export function UniversityGuideRow({
           <Link
             href={`/cities?city=${encodeURIComponent(university.city)}`}
             prefetch={false}
-            className="inline-flex min-w-0 items-center gap-1.5 hover:text-[var(--editorial-terracotta)] transition"
+            className="inline-flex min-w-0 items-center gap-1.5 hover:text-[var(--editorial-terracotta-ink)] transition"
           >
-            <MapPin className="h-3.5 w-3.5 shrink-0 text-[var(--editorial-terracotta)]" />
+            <MapPin className="h-3.5 w-3.5 shrink-0 text-[var(--editorial-terracotta-ink)]" />
             <span className="truncate">{university.city}</span>
           </Link>
           <span>{typeLabel}</span>

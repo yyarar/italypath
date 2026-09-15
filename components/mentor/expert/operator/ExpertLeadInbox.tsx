@@ -65,12 +65,12 @@ export default function ExpertLeadInbox() {
               </Link>
               <Link
                 href="/ekip/mentor"
-                className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)] transition hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+                className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)] transition hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
               >
                 {copy.volunteerInbox} →
               </Link>
             </div>
-            <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
+            <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]">
               {copy.eyebrow}
             </p>
             <h1 className="mt-3 font-serif text-4xl text-[var(--editorial-ink)]">

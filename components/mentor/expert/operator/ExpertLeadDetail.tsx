@@ -83,7 +83,7 @@ export default function ExpertLeadDetail({
       className="min-w-0 border-y border-[var(--editorial-border)] py-5 lg:px-6"
     >
       <header className="border-b border-[var(--editorial-border)] pb-5">
-        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)]">
+        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)]">
           {copy.filters[lead.status]}
         </p>
         <h2 id={`expert-lead-${lead.id}`} className="mt-2 font-serif text-3xl text-[var(--editorial-ink)]">
@@ -144,7 +144,7 @@ export default function ExpertLeadDetail({
           ))}
         </select>
         {error === "status_failed" ? (
-          <p role="alert" className="mt-2 text-sm text-[var(--editorial-terracotta)]">
+          <p role="alert" className="mt-2 text-sm text-[var(--editorial-terracotta-ink)]">
             {copy.statusError}
           </p>
         ) : null}
@@ -166,7 +166,7 @@ export default function ExpertLeadDetail({
           className="mt-2 w-full resize-y border border-[var(--editorial-border)] bg-[var(--editorial-surface)] px-3 py-3 text-base text-[var(--editorial-ink)] outline-none focus:border-[var(--editorial-sage)] disabled:cursor-not-allowed disabled:opacity-50"
         />
         {error === "note_failed" ? (
-          <p role="alert" className="mt-2 text-sm text-[var(--editorial-terracotta)]">
+          <p role="alert" className="mt-2 text-sm text-[var(--editorial-terracotta-ink)]">
             {copy.noteError}
           </p>
         ) : null}
@@ -182,7 +182,7 @@ export default function ExpertLeadDetail({
 
       <div className="mt-8 border-t border-[var(--editorial-border)] pt-6">
         {error === "delete_failed" ? (
-          <p role="alert" className="mb-3 text-sm text-[var(--editorial-terracotta)]">
+          <p role="alert" className="mb-3 text-sm text-[var(--editorial-terracotta-ink)]">
             {copy.deleteError}
           </p>
         ) : null}
@@ -190,7 +190,7 @@ export default function ExpertLeadDetail({
           type="button"
           disabled={deleting || savingStatus || savingNote}
           onClick={handleDelete}
-          className="border border-[var(--editorial-terracotta)] px-4 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)] transition hover:bg-[var(--editorial-terracotta)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-terracotta)] disabled:cursor-not-allowed disabled:opacity-50"
+          className="border border-[var(--editorial-terracotta)] px-4 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)] transition hover:bg-[var(--editorial-terracotta)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-terracotta)] disabled:cursor-not-allowed disabled:opacity-50"
         >
           {copy.deleteLead}
         </button>

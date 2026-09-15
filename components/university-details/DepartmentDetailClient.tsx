@@ -146,7 +146,7 @@ export function DepartmentDetailClient({
         />
 
         <section className="grid gap-5 lg:grid-cols-[190px_minmax(0,1fr)]">
-          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
             {t.department.schoolContext}
           </p>
           <div className="max-w-4xl space-y-4">

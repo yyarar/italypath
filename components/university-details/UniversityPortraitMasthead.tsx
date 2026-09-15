@@ -56,8 +56,8 @@ export function UniversityPortraitMasthead({
             aria-pressed={favorite}
             className={`inline-flex h-11 w-11 items-center justify-center border transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] ${
               favorite
-                ? "border-[var(--editorial-terracotta)] bg-[#fbf0eb] text-[var(--editorial-terracotta)]"
-                : "border-[var(--editorial-border)] bg-[var(--editorial-surface)] text-[var(--editorial-muted)] hover:border-[var(--editorial-terracotta)] hover:text-[var(--editorial-terracotta)]"
+                ? "border-[var(--editorial-terracotta)] bg-[#fbf0eb] text-[var(--editorial-terracotta-ink)]"
+                : "border-[var(--editorial-border)] bg-[var(--editorial-surface)] text-[var(--editorial-muted)] hover:border-[var(--editorial-terracotta)] hover:text-[var(--editorial-terracotta-ink)]"
             } disabled:opacity-50`}
           >
             <Heart className={`h-4 w-4 ${favorite ? "fill-current" : ""}`} />
@@ -78,7 +78,7 @@ export function UniversityPortraitMasthead({
 
           <div className="flex min-w-0 flex-col justify-between border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-5 sm:p-7">
             <div className="min-w-0">
-              <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+              <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
                 {eyebrow}
               </p>
               <h1 className="mt-4 break-words font-serif text-4xl font-semibold leading-[0.98] text-[var(--editorial-ink)] sm:text-5xl lg:text-6xl">
@@ -87,9 +87,9 @@ export function UniversityPortraitMasthead({
               <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm font-bold text-[var(--editorial-muted)]">
                 <Link
                   href={`/cities?city=${encodeURIComponent(university.city)}`}
-                  className="inline-flex min-w-0 items-center gap-1.5 hover:text-[var(--editorial-terracotta)] transition"
+                  className="inline-flex min-w-0 items-center gap-1.5 hover:text-[var(--editorial-terracotta-ink)] transition"
                 >
-                  <MapPin className="h-4 w-4 shrink-0 text-[var(--editorial-terracotta)]" />
+                  <MapPin className="h-4 w-4 shrink-0 text-[var(--editorial-terracotta-ink)]" />
                   <span className="truncate">{university.city}</span>
                 </Link>
                 <span>{university.type}</span>

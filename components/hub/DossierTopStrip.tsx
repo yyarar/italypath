@@ -36,7 +36,7 @@ export default function DossierTopStrip() {
           <ArrowLeft className="h-4 w-4" />
         </Link>
         <div className="min-w-0">
-          <div className="flex items-center gap-1.5 text-[var(--editorial-terracotta)]">
+          <div className="flex items-center gap-1.5 text-[var(--editorial-terracotta-ink)]">
             <LayoutDashboard className="h-3.5 w-3.5" aria-hidden="true" />
             <p className="truncate text-[10px] font-bold uppercase tracking-[0.2em]">{t.hub.topStripEyebrow}</p>
           </div>

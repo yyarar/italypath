@@ -109,7 +109,7 @@ export default function SatDashboardHeader({
 
           <div className="grid grid-cols-3 border-b border-[var(--editorial-border)] lg:border-b-0 lg:border-r">
             <div className="flex min-w-0 flex-col items-center justify-center border-r border-[var(--editorial-border)] px-3 py-6 text-center">
-              <Flame className="mb-3 h-5 w-5 text-[var(--editorial-terracotta)]" strokeWidth={1.8} />
+              <Flame className="mb-3 h-5 w-5 text-[var(--editorial-terracotta-ink)]" strokeWidth={1.8} />
               <p className="font-serif text-4xl leading-none tracking-[-0.04em] text-[var(--editorial-ink)]">{streak}</p>
               <p className="mt-2 text-[11px] leading-4 text-[var(--editorial-muted)]">
                 {streak === 0 ? t.sat.dashboardStreakEmpty : t.sat.dashboardStreakLabel}
@@ -117,7 +117,7 @@ export default function SatDashboardHeader({
             </div>
 
             <div className="flex min-w-0 flex-col items-center justify-center border-r border-[var(--editorial-border)] px-3 py-6 text-center">
-              <Target className="mb-3 h-5 w-5 text-[var(--editorial-terracotta)]" strokeWidth={1.8} />
+              <Target className="mb-3 h-5 w-5 text-[var(--editorial-terracotta-ink)]" strokeWidth={1.8} />
               <p className="font-serif text-4xl leading-none tracking-[-0.04em] text-[var(--editorial-ink)]">
                 {todayCount}<small className="text-xl">/{DAILY_GOAL}</small>
               </p>

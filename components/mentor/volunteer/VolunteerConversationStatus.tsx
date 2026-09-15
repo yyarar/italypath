@@ -29,7 +29,7 @@ export default function VolunteerConversationStatus({
           : copy.statusClosed;
   const className = `text-[10px] font-bold uppercase tracking-[0.14em] ${
     realtimeState === "disconnected" || status === "closed"
-      ? "text-[var(--editorial-terracotta)]"
+      ? "text-[var(--editorial-terracotta-ink)]"
       : "text-[var(--editorial-sage)]"
   }`;
 

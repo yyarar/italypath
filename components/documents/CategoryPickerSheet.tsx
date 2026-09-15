@@ -43,7 +43,7 @@ export default function CategoryPickerSheet({
             transition={{ type: "spring", stiffness: 320, damping: 34 }}
             onClick={(e) => e.stopPropagation()}
           >
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--editorial-terracotta)]">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--editorial-terracotta-ink)]">
               {t.documents.sheet.eyebrow}
             </p>
             <h2 className="mt-1.5 font-serif text-2xl font-normal text-[var(--editorial-ink)]">

@@ -128,7 +128,7 @@ export default function QuestionCard({ question, onAnswered, onNext, isLast }: Q
             <p className={`flex items-center gap-2 ${
                 result === "correct"
                   ? "text-[13px] font-semibold text-[var(--editorial-sage)]"
-                  : "text-[13px] font-semibold text-[var(--editorial-terracotta)]"
+                  : "text-[13px] font-semibold text-[var(--editorial-terracotta-ink)]"
               }`}>
               <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${result === "correct" ? "bg-[var(--editorial-sage-soft)]" : "bg-[rgba(183,91,56,0.1)]"}`}>
                 {result === "correct" ? <Check className="h-4 w-4" strokeWidth={2.4} /> : <X className="h-4 w-4" strokeWidth={2.4} />}

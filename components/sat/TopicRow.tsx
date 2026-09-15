@@ -19,10 +19,10 @@ interface TopicRowProps {
 }
 
 const tierMeta: Record<MasteryTier, { textClassName: string; barClassName: string; Icon: LucideIcon | null }> = {
-  gold: { textClassName: "text-[var(--editorial-terracotta)]", barClassName: "bg-[var(--editorial-terracotta)]", Icon: Trophy },
+  gold: { textClassName: "text-[var(--editorial-terracotta-ink)]", barClassName: "bg-[var(--editorial-terracotta)]", Icon: Trophy },
   silver: { textClassName: "text-[var(--editorial-sage)]", barClassName: "bg-[var(--editorial-sage)]", Icon: Award },
-  bronze: { textClassName: "text-[var(--editorial-terracotta)]", barClassName: "bg-[var(--editorial-terracotta)]", Icon: Award },
-  weak: { textClassName: "text-[var(--editorial-terracotta)]", barClassName: "bg-[var(--editorial-terracotta)]", Icon: null },
+  bronze: { textClassName: "text-[var(--editorial-terracotta-ink)]", barClassName: "bg-[var(--editorial-terracotta)]", Icon: Award },
+  weak: { textClassName: "text-[var(--editorial-terracotta-ink)]", barClassName: "bg-[var(--editorial-terracotta)]", Icon: null },
   none: { textClassName: "text-[var(--editorial-muted)]", barClassName: "bg-[var(--editorial-border)]", Icon: null },
 };
 
@@ -75,7 +75,7 @@ export default function TopicRow({
           <p className={`mt-1.5 flex items-center gap-1.5 text-[11px] font-semibold ${tierMeta[tier].textClassName}`}>
             {TierIcon ? <TierIcon className="h-3.5 w-3.5" strokeWidth={1.9} /> : null}
             {tierLabel[tier]}
-            {wrongCount > 0 ? <span className="font-normal text-[var(--editorial-terracotta)]">· {wrongCount} {t.sat.wrongLabel}</span> : null}
+            {wrongCount > 0 ? <span className="font-normal text-[var(--editorial-terracotta-ink)]">· {wrongCount} {t.sat.wrongLabel}</span> : null}
           </p>
         </div>
 

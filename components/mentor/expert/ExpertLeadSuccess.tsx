@@ -18,7 +18,7 @@ export default function ExpertLeadSuccess({ onBackToHub }: ExpertLeadSuccessProp
       <button
         type="button"
         onClick={onBackToHub}
-        className="mt-8 text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)] transition hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+        className="mt-8 text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)] transition hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
       >
         {copy.backToDesks}
       </button>

@@ -35,7 +35,7 @@ export default function VolunteerComposer({ sending, onSend }: VolunteerComposer
     >
       <label
         htmlFor="volunteer-message"
-        className="mb-3 block text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]"
+        className="mb-3 block text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]"
       >
         {copy.messageLabel}
       </label>
@@ -54,7 +54,7 @@ export default function VolunteerComposer({ sending, onSend }: VolunteerComposer
       />
 
       {failed ? (
-        <p role="alert" className="mt-3 text-sm text-[var(--editorial-terracotta)]">
+        <p role="alert" className="mt-3 text-sm text-[var(--editorial-terracotta-ink)]">
           {copy.sendError}
         </p>
       ) : null}

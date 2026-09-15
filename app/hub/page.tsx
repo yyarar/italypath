@@ -124,7 +124,7 @@ export default function HubPage() {
     return (
       <div className="min-h-screen bg-[var(--editorial-paper)] px-4 py-12 sm:px-6">
         <div className="hub-material mx-auto max-w-md rounded-[2rem] p-8 text-center shadow-[0_24px_70px_rgba(21,32,28,0.12)]">
-          <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta)]">
+          <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--editorial-terracotta-ink)]">
             ITALYPATH
           </p>
           <h1 className="mt-4 font-serif text-3xl font-normal leading-tight tracking-[-0.02em] text-[var(--editorial-ink)]">
@@ -194,7 +194,7 @@ export default function HubPage() {
               String(favorites.length),
             )}
             icon={Heart}
-            iconClassName="text-[var(--editorial-terracotta)]"
+            iconClassName="text-[var(--editorial-terracotta-ink)]"
           />
           <CompactStatCard
             href="/documents"
@@ -215,7 +215,7 @@ export default function HubPage() {
             label={t.sat.title}
             value={t.sat.subtitle}
             icon={BookOpen}
-            iconClassName="text-[var(--editorial-terracotta)]"
+            iconClassName="text-[var(--editorial-terracotta-ink)]"
           />
         </div>
 

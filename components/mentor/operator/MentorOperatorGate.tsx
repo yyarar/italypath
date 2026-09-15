@@ -49,7 +49,7 @@ export default function MentorOperatorGate({
     return (
       <main className="grid min-h-[100dvh] place-items-center bg-[var(--editorial-paper)] px-4 py-12">
         <section className="w-full max-w-xl border-y border-[var(--editorial-border)] py-10">
-          <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
+          <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]">
             {copy.eyebrow}
           </p>
           <h1 className="mt-3 font-serif text-3xl text-[var(--editorial-ink)]">

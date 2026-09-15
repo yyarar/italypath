@@ -26,7 +26,7 @@ export default function ScholarshipsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="group/card grid gap-8 rounded-[2rem] border border-white/75 bg-[#eef3ef] p-6 shadow-[0_18px_55px_rgba(21,32,28,0.07)] sm:rounded-[2.5rem] sm:p-8 lg:grid-cols-[1fr_0.9fr] lg:p-10">
           <div>
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--editorial-surface)] text-[var(--editorial-terracotta)] shadow-[0_6px_18px_rgba(21,32,28,0.08)]">
+            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--editorial-surface)] text-[var(--editorial-terracotta-ink)] shadow-[0_6px_18px_rgba(21,32,28,0.08)]">
               <MapPinned className="h-5 w-5" />
             </div>
             <h2 className="max-w-xl font-serif text-3xl font-normal leading-tight tracking-[-0.015em] text-[var(--editorial-ink)] sm:text-4xl">
@@ -57,7 +57,7 @@ export default function ScholarshipsSection() {
                   href={`/scholarships?region=${slug}`}
                   className="home-pressable group grid grid-cols-[2rem_1fr_auto] items-center gap-3 rounded-xl px-2 py-4 hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--editorial-sage)]"
                 >
-                  <span className="text-sm font-semibold text-[var(--editorial-terracotta)]">
+                  <span className="text-sm font-semibold text-[var(--editorial-terracotta-ink)]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>

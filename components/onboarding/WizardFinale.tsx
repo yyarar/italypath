@@ -22,7 +22,7 @@ export default function WizardFinale({
       role="status"
       aria-live="polite"
     >
-      <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[var(--editorial-terracotta)]">
+      <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-[var(--editorial-terracotta-ink)]">
         {eyebrow}
       </p>
       <h1 className="mt-5 font-serif text-4xl font-normal leading-tight tracking-[-0.02em] text-[var(--editorial-ink)]">

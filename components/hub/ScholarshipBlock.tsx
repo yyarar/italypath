@@ -19,10 +19,10 @@ export default function ScholarshipBlock({ region, budget }: ScholarshipBlockPro
     return (
       <section aria-labelledby="hub-scholarship-label" className="hub-material rounded-[2rem] p-5 sm:p-6">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#f2e8e0] text-[var(--editorial-terracotta)]">
+          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#f2e8e0] text-[var(--editorial-terracotta-ink)]">
             <Landmark className="h-[18px] w-[18px]" aria-hidden="true" />
           </span>
-          <p id="hub-scholarship-label" className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+          <p id="hub-scholarship-label" className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
             {t.hub.recoSections.scholarship}
           </p>
         </div>
@@ -42,10 +42,10 @@ export default function ScholarshipBlock({ region, budget }: ScholarshipBlockPro
   return (
     <section aria-labelledby="hub-scholarship-label" className="hub-material rounded-[2rem] p-5 sm:p-6">
       <div className="flex items-center gap-3">
-        <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#f2e8e0] text-[var(--editorial-terracotta)]">
+        <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#f2e8e0] text-[var(--editorial-terracotta-ink)]">
           <Landmark className="h-[18px] w-[18px]" aria-hidden="true" />
         </span>
-        <p id="hub-scholarship-label" className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+        <p id="hub-scholarship-label" className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
           {t.hub.recoSections.scholarship}
         </p>
       </div>
@@ -68,7 +68,7 @@ export default function ScholarshipBlock({ region, budget }: ScholarshipBlockPro
             <p className="mt-0.5 text-[11px] leading-5 text-[var(--editorial-muted)]">
               {t.hub.scholarshipCards.regionDesc}
             </p>
-            <ArrowUpRight className="hub-arrow mt-3 h-4 w-4 text-[var(--editorial-terracotta)]" aria-hidden="true" />
+            <ArrowUpRight className="hub-arrow mt-3 h-4 w-4 text-[var(--editorial-terracotta-ink)]" aria-hidden="true" />
           </Link>
         )}
         <Link
@@ -85,7 +85,7 @@ export default function ScholarshipBlock({ region, budget }: ScholarshipBlockPro
           <p className="mt-0.5 text-[11px] leading-5 text-[var(--editorial-muted)]">
             {t.hub.scholarshipCards.iseeDesc}
           </p>
-          <ArrowUpRight className="hub-arrow mt-3 h-4 w-4 text-[var(--editorial-terracotta)]" aria-hidden="true" />
+          <ArrowUpRight className="hub-arrow mt-3 h-4 w-4 text-[var(--editorial-terracotta-ink)]" aria-hidden="true" />
         </Link>
       </div>
     </section>

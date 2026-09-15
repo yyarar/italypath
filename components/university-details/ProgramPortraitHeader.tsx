@@ -48,7 +48,7 @@ export function ProgramPortraitHeader({
 
           <div className="flex min-w-0 flex-col justify-between border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-5 sm:p-7">
             <div>
-              <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+              <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
                 {eyebrow}
               </p>
               <motion.h1
@@ -65,7 +65,7 @@ export function ProgramPortraitHeader({
                 {university.name}
               </Link>
               <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[var(--editorial-muted)]">
-                <MapPin className="h-4 w-4 text-[var(--editorial-terracotta)]" />
+                <MapPin className="h-4 w-4 text-[var(--editorial-terracotta-ink)]" />
                 {university.city}
               </p>
             </div>

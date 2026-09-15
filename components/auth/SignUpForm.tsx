@@ -30,7 +30,7 @@ export function SignUpForm() {
               autoComplete="email"
               className="h-11 border border-[var(--editorial-border)] bg-white px-3 text-sm text-[var(--editorial-ink)] focus:border-[var(--editorial-sage)] focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-[var(--editorial-sage)]"
             />
-            <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
+            <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta-ink)]" />
           </Clerk.Field>
 
           <Clerk.Field name="username" className="grid gap-1.5">
@@ -43,7 +43,7 @@ export function SignUpForm() {
               autoComplete="username"
               className="h-11 border border-[var(--editorial-border)] bg-white px-3 text-sm text-[var(--editorial-ink)] focus:border-[var(--editorial-sage)] focus:outline focus:outline-2 focus:outline-offset-1 focus:outline-[var(--editorial-sage)]"
             />
-            <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
+            <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta-ink)]" />
           </Clerk.Field>
 
           <Clerk.Field name="password" className="grid gap-1.5">
@@ -76,7 +76,7 @@ export function SignUpForm() {
                 )}
               </button>
             </div>
-            <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
+            <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta-ink)]" />
           </Clerk.Field>
 
           <Clerk.Field name="legalAccepted" className="hidden">
@@ -101,7 +101,7 @@ export function SignUpForm() {
             </Clerk.Loading>
           </SignUp.Action>
 
-          <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
+          <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta-ink)]" />
         </div>
       </SignUp.Step>
 
@@ -142,7 +142,7 @@ export function SignUpForm() {
                   </div>
                 )}
               />
-              <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta)]" />
+              <Clerk.FieldError className="text-xs text-[var(--editorial-terracotta-ink)]" />
             </Clerk.Field>
 
             <SignUp.Action
@@ -192,7 +192,7 @@ export function SignUpForm() {
               </SignUp.Action>
             </div>
 
-            <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta)]" />
+            <Clerk.GlobalError className="text-xs text-[var(--editorial-terracotta-ink)]" />
           </div>
         </SignUp.Strategy>
       </SignUp.Step>

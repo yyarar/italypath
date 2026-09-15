@@ -16,7 +16,7 @@ export default function CategoryGroup({ categoryKey, docs, onDelete }: CategoryG
   return (
     <section className="mt-8 first:mt-7">
       <div className="mb-1.5 flex items-baseline justify-between">
-        <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--editorial-terracotta)]">
+        <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--editorial-terracotta-ink)]">
           {t.documents.categories[categoryKey]}
         </h2>
         <span className="text-[10px] font-bold tracking-[0.1em] text-[var(--editorial-muted)]">

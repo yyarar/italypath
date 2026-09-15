@@ -281,7 +281,7 @@ export default function CityGuidesExplorer({
         {/* Intro */}
         <section className="mt-8 grid gap-7 px-1 py-7 sm:mt-10 sm:px-3 sm:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(250px,0.32fr)] lg:items-end">
           <div>
-            <p className="mb-4 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[var(--editorial-terracotta)]">
+            <p className="mb-4 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[var(--editorial-terracotta-ink)]">
               {copy.pageIdentity}
             </p>
             <h1 className="max-w-4xl font-serif text-5xl font-normal leading-[0.94] tracking-[-0.035em] text-[var(--editorial-ink)] sm:text-6xl lg:text-[5.25rem]">
@@ -450,7 +450,7 @@ export default function CityGuidesExplorer({
               {activeHistory && (
                 <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/45 p-5 sm:p-6">
                   <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
-                    <Landmark className="h-3.5 w-3.5 text-[var(--editorial-terracotta)]" />
+                    <Landmark className="h-3.5 w-3.5 text-[var(--editorial-terracotta-ink)]" />
                     {copy.historyTitle}
                   </div>
                   <p className="text-sm font-medium leading-6 text-[var(--editorial-muted)]">{activeHistory}</p>
@@ -461,7 +461,7 @@ export default function CityGuidesExplorer({
                         href={activeCity.historySourceUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-semibold text-[var(--editorial-terracotta)] underline-offset-4 hover:underline"
+                        className="font-semibold text-[var(--editorial-terracotta-ink)] underline-offset-4 hover:underline"
                       >
                         {activeCity.historySourceTitle}
                       </a>
@@ -474,7 +474,7 @@ export default function CityGuidesExplorer({
               {isUnresearched && (
                 <section className="mt-5 rounded-[1.5rem] border border-[var(--editorial-border)] bg-white/55 p-5 sm:p-6">
                   <div className="flex items-start gap-3">
-                    <Info className="mt-0.5 h-4 w-4 shrink-0 text-[var(--editorial-terracotta)]" />
+                    <Info className="mt-0.5 h-4 w-4 shrink-0 text-[var(--editorial-terracotta-ink)]" />
                     <div>
                       <h3 className="font-serif text-xl text-[var(--editorial-ink)]">{copy.guidePreparingTitle}</h3>
                       <p className="mt-2 text-sm leading-6 text-[var(--editorial-muted)]">{copy.guidePreparingBody}</p>
@@ -563,7 +563,7 @@ export default function CityGuidesExplorer({
                         href={activeCity.costSourceUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 font-semibold text-[var(--editorial-terracotta)] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-terracotta)]"
+                        className="inline-flex items-center gap-1 font-semibold text-[var(--editorial-terracotta-ink)] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-terracotta)]"
                       >
                         {activeCity.costSourceName}
                         <ExternalLink className="h-3 w-3 shrink-0" />
@@ -587,7 +587,7 @@ export default function CityGuidesExplorer({
               {/* Regional Scholarship Card */}
               {scholarshipRegion && (
                 <section className="mt-5 rounded-[1.5rem] border border-[#e6cabb] bg-[#fbf3ed] p-5 sm:p-6">
-                  <div className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)]">
+                  <div className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)]">
                     <Landmark className="h-4 w-4" />
                     {copy.bursaryTitle}
                   </div>
@@ -608,7 +608,7 @@ export default function CityGuidesExplorer({
                             href={body.officialUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--editorial-terracotta)] hover:underline"
+                            className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--editorial-terracotta-ink)] hover:underline"
                           >
                             {body.name}
                             <ExternalLink className="h-3 w-3 shrink-0" />
@@ -629,7 +629,7 @@ export default function CityGuidesExplorer({
 
                   <Link
                     href={`/scholarships?region=${scholarshipRegion.regionSlug}`}
-                    className="city-pressable mt-5 flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-[var(--editorial-terracotta)] bg-transparent px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-[var(--editorial-terracotta)] hover:bg-[var(--editorial-terracotta)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-terracotta)]"
+                    className="city-pressable mt-5 flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-[var(--editorial-terracotta)] bg-transparent px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-[var(--editorial-terracotta-ink)] hover:bg-[var(--editorial-terracotta)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-terracotta)]"
                   >
                     {copy.bursaryCta}
                   </Link>
@@ -675,7 +675,7 @@ export default function CityGuidesExplorer({
 
               {/* Warning Notice */}
               {!isUnresearched && <section className="mt-3 rounded-[1.25rem] border border-[#e6cabb] bg-[#fff8f3] p-4">
-                <div className="flex items-start gap-2 text-[var(--editorial-terracotta)]">
+                <div className="flex items-start gap-2 text-[var(--editorial-terracotta-ink)]">
                   <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
                   <div className="min-w-0">
                     <p className="text-xs font-bold uppercase tracking-[0.1em]">{copy.warningTitle}</p>
@@ -710,7 +710,7 @@ export default function CityGuidesExplorer({
                             {uni.type} · {uni.departmentCount} {t.detail.programCount}
                           </span>
                         </div>
-                        <ExternalLink className="city-arrow h-3.5 w-3.5 shrink-0 text-[var(--editorial-terracotta)]" />
+                        <ExternalLink className="city-arrow h-3.5 w-3.5 shrink-0 text-[var(--editorial-terracotta-ink)]" />
                       </Link>
                     ))
                   ) : (

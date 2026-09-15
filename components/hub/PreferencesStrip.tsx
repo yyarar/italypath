@@ -66,7 +66,7 @@ export default function PreferencesStrip() {
         <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--editorial-sage-soft)] text-[var(--editorial-sage)]">
           <Settings2 className="h-[18px] w-[18px]" aria-hidden="true" />
         </span>
-        <p id="hub-prefs-label" className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+        <p id="hub-prefs-label" className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
           {t.hub.preferencesTitle}
         </p>
       </div>

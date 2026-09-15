@@ -46,7 +46,7 @@ export default function ExpertLeadList({
   return (
     <section aria-label={copy.title} className="min-w-0">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--editorial-border)] pb-4">
-        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)]">
+        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)]">
           {copy.newCount.replace("{count}", String(newCount))}
         </p>
         <button
@@ -117,7 +117,7 @@ export default function ExpertLeadList({
                     {dateFormatter.format(new Date(lead.created_at))}
                   </time>
                 </span>
-                <span className="mt-2 block text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-terracotta)]">
+                <span className="mt-2 block text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-terracotta-ink)]">
                   {formCopy.studyLevels[lead.study_level]} · {formCopy.fieldsOfInterest[lead.field_of_interest]}
                 </span>
                 <span className="mt-2 block text-[9px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-muted)]">

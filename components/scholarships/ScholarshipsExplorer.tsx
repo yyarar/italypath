@@ -574,7 +574,7 @@ function LinkRow({
         <span className="block truncate text-sm font-semibold text-[var(--editorial-ink)]">{title}</span>
         <span className="mt-0.5 block truncate text-xs text-[var(--editorial-muted)]">{domainLabel(href)}</span>
       </span>
-      <span className="inline-flex items-center gap-1 text-xs font-bold text-[var(--editorial-terracotta)]">
+      <span className="inline-flex items-center gap-1 text-xs font-bold text-[var(--editorial-terracotta-ink)]">
         {action}
         <ExternalLink className="h-3.5 w-3.5" />
       </span>
@@ -692,7 +692,7 @@ function RegionFilePanel({
           {isVerified ? (
             <CheckCircle2 className="mt-0.5 h-4 w-4 text-[var(--editorial-sage)]" />
           ) : (
-            <ShieldCheck className="mt-0.5 h-4 w-4 text-[var(--editorial-terracotta)]" />
+            <ShieldCheck className="mt-0.5 h-4 w-4 text-[var(--editorial-terracotta-ink)]" />
           )}
           <span>
             {isVerified ? copy.verifiedShort : copy.pendingShort}
@@ -739,7 +739,7 @@ function RegionFilePanel({
 
       <section className="mt-6 border-t border-[var(--editorial-border)] pt-4 text-[var(--editorial-ink)]">
         <div className="flex items-start gap-3">
-          <AlertTriangle className="mt-1 h-4 w-4 shrink-0 text-[var(--editorial-terracotta)]" />
+          <AlertTriangle className="mt-1 h-4 w-4 shrink-0 text-[var(--editorial-terracotta-ink)]" />
           <div>
             <p className="text-sm font-bold">{copy.sourceChecklistTitle}</p>
             <p className="mt-2 text-sm leading-6 text-[var(--editorial-muted)]">{copy.sourceChecklistBody}</p>

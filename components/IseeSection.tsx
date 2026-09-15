@@ -36,7 +36,7 @@ export default function IseeSection() {
                 >
                   <div className="mb-3 flex items-center justify-between">
                     <CheckCircle2 className="h-4 w-4 text-[var(--editorial-sage)]" />
-                    <span className="font-serif text-sm text-[var(--editorial-border)] transition-colors duration-200 group-hover:text-[var(--editorial-terracotta)]">
+                    <span className="font-serif text-sm text-[var(--editorial-border)] transition-colors duration-200 group-hover:text-[var(--editorial-terracotta-ink)]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>

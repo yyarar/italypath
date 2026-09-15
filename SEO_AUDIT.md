@@ -1,10 +1,10 @@
 # ItalyPath SEO Audit ve Devir Notu
 
-> Son belge güncellemesi: 3 Eylül 2026  
+> Son belge güncellemesi: 15 Eylül 2026  
 > Bulguların ana doğrulama tarihi: 28 Ağustos 2026  
 > İncelenen site: `https://italypath.app`  
 > Kapsam: Google Search Console, canlı teknik kontroller, sitemap/robots, indekslenebilirlik, temel on-page SEO, yapılandırılmış veri ve PageSpeed Insights  
-> Durum: Bu çalışma bir denetimdir. Bu denetim sırasında SEO/performance düzeltmesi yapan kod değişikliği uygulanmadı.
+> Durum: Bu çalışma bir denetim olarak başladı (28 Ağustos). 15 Eylül 2026'da §19'daki kontrast düzeltmesi ve guard uygulandı; §8.3'teki LCP kök neden çıkarımı aynı gün canlı ölçümle **çürütüldü** (bkz. §19.3). Bölüm 8.3 ve 12/P1 tarihsel kayıt olarak korunur; güncel öncelik listesi §19.6'dadır.
 
 Bu dosya, yeni bir geliştirici veya AI ajanının önceki konuşmayı okumadan SEO durumunu anlayabilmesi için hazırlanmıştır. Sayısal GSC ve PageSpeed verileri zamanla değişir; tarihleri dikkate almadan güncel gerçek kabul edilmemelidir.
 
@@ -316,6 +316,8 @@ Kod kanıtı:
 - Hero'da animasyon korunacaksa opacity animasyonu LCP öğesine uygulanmamalı; tercihen yalnızca ikincil panel/ikonlarda kullanılmalı.
 - Düzeltme sonrası LCP yeniden ölçülmeli; varsayım test edilmeden “çözüldü” kabul edilmemeli.
 
+> **Düzeltme (15 Eylül 2026):** Bu çıkarım yanlış çıktı. Canlı HTML'de H1'in sarmalayıcısı `style="opacity:1;transform:translateY(0px)"` ile gelir; `components/RouteTransition.tsx` içindeki `<AnimatePresence initial={false}>` ilk render'da alt ağaçtaki tüm framer-motion `initial` durumlarını devre dışı bırakır, yani hero animasyonu ilk yüklemede hiç çalışmaz. Gerçek ağ kısıtlamalı (devtools throttling) ölçümlerde FCP ile LCP her koşuda aynıdır: başlık gizlenmiyor, sayfanın ilk çizimi bütünüyle geç oluyor. Simüle Lighthouse'un “element render delay” değeri, Lantern modelinin gözlenen izde LCP'den önce biten JavaScript dosyalarını LCP bağımlılığı saymasından kaynaklanan bir yapaylıktır. Hero animasyonu kaldırma denemesi ölçümde etkisiz çıktığı için geri alındı. Ayrıntı ve gerçek kök nedenler: §19.3.
+
 ### 8.4 Render-blocking CSS
 
 Rapor:
@@ -530,16 +532,18 @@ Başarı ölçütü:
 
 ### P1 — Mobil LCP ve erişilebilirlik hızlı düzeltmeleri
 
-1. Hero H1'in parent `motion.div` başlangıç opacity'sini kaldır.
-2. H1'i hydration/Framer Motion beklemeden görünür yap.
-3. `maximumScale: 1` ve `userScalable: false` ayarlarını kaldır.
-4. `MobileZoomLock` pinch/double-tap engellerini kaldır.
-5. Terracotta küçük metin rengini AA uyumlu koyu tona çek.
+> Durum 15 Eylül 2026 (ayrıntı §19): 1-2 çürütüldü ve iptal; 3-4 ürün kararıyla korunuyor; 5 uygulandı.
+
+1. ~~Hero H1'in parent `motion.div` başlangıç opacity'sini kaldır.~~ Gereksiz: ilk yüklemede H1 zaten görünür (§8.3 düzeltme notu).
+2. ~~H1'i hydration/Framer Motion beklemeden görünür yap.~~ Zaten öyle; asıl neden §19.3.
+3. ~~`maximumScale: 1` ve `userScalable: false` ayarlarını kaldır.~~ **Ürün kararı: korunuyor.** Sıralama sinyali değildir; Lighthouse'ta yalnız Erişilebilirlik kategorisini etkiler (`meta-viewport`). Yeniden önerme.
+4. ~~`MobileZoomLock` pinch/double-tap engellerini kaldır.~~ Aynı ürün kararı; iOS Safari viewport yasağını yok saydığı için kilit hissini asıl bu bileşen verir, ikisi birlikte kalır.
+5. Terracotta küçük metin rengini AA uyumlu koyu tona çek. **Uygulandı:** `--editorial-terracotta-ink: #9f4629` yalnız metin/ikon için; buton/arka plan/çerçeve base tokenda.
 
 Başarı ölçütü:
 
-- Mobil LCP < 2,5 sn.
-- Accessibility 100 veya viewport/contrast bulgularının sıfırlanması.
+- Mobil LCP < 2,5 sn (bu hedef artık §19.6'daki sunucu gecikmesi ve font/CSS yarışı işleriyle kovalanır).
+- Kontrast bulgusu: terracotta metin için sıfırlandı (§19.5); `meta-viewport` bulgusu kabul edilen bulgudur.
 - CLS < 0,1 korunmalı.
 
 ### P2 — JavaScript ve public/auth mimarisi
@@ -612,6 +616,8 @@ Bir sonraki AI ajanı işe başlamadan önce:
 - [ ] `noindex` doğrulamasının yeni durumunu kaydet.
 - [ ] Sitemap URL sayısını ve son okuma tarihini karşılaştır.
 - [ ] Canlı `robots.txt` ve sitemap'i tekrar doğrula.
+- [ ] `npm run check:seo-vitals` çalıştır (RouteTransition `initial={false}` + terracotta ink token guard'ı).
+- [ ] Simüle Lighthouse'un “render delay” değerini tek başına kanıt sayma; LCP iddialarını devtools throttling ve sunucu HTML'i ile doğrula (§19.2).
 - [ ] Düzeltme isteniyorsa önce P1 maddelerini küçük, geri alınabilir değişiklikler halinde uygula.
 - [ ] Her düzeltmeyi production PageSpeed ve erişilebilirlik testiyle doğrula.
 - [ ] Kullanıcı açıkça istemeden GSC, deploy veya production üzerinde değişiklik yapma.
@@ -629,7 +635,10 @@ Bir sonraki AI ajanı işe başlamadan önce:
 - `components/RouteTransition.tsx`
 - `components/MobileZoomLock.tsx`
 - `components/Navbar.tsx`
-- `components/FeaturesSection.tsx`
+- `components/home/HomeToolsSection.tsx` (eski `FeaturesSection.tsx` 15 Eylül'de kaldırıldı)
+- `components/ui/Reveal.tsx`
+- `scripts/check-seo-vitals.mjs`
+- `lib/universities.server.ts` (3 saatlik in-memory memo; soğuk instance gecikmesi §19.3)
 - `components/HomeClosingCta.tsx`
 - `components/university-details/ProgramAdmissionDetailsPanel.tsx`
 
@@ -702,3 +711,94 @@ Bu veri istatistiksel karar için yetersizdir. Henüz pazarlama/lansman yapılma
 2. Lansman günü ölçüm başlangıç tarihini kaydet.
 3. Lansmandan 7 ve 28 gün sonra GSC performansını karşılaştır.
 4. Lansman öncesinde yalnız kritik regresyonları izle: sitemap başarısı, canlı URL indekslenebilirliği, robots/noindex, mobil PageSpeed ve analytics event'leri.
+
+## 19. İzleme ve düzeltme kaydı — 15 Eylül 2026
+
+Bağlam: Ana sayfa aynı gün yeniden yapılandırıldı (ücretsiz ön görüşme hunisi, `HomeToolsSection`, stok fotoğraflar, yeni `/on-gorusme` sayfası; commit'ler `b23022a`…`bde55c0`). `FeaturesSection` kaldırıldığı için §9.2'deki örnekler tarihsel; renk tokenı ve sorun aynıydı. Mobil zoom kilidi bu tarihte ürün kararı olarak korundu.
+
+### 19.1 Canlı kontroller
+
+| Kontrol | Sonuç |
+|---|---|
+| `robots.txt` | Çalışıyor; `/on-gorusme` ve `/yasal/*` `Allow: /` ile taranabilir |
+| `sitemap.xml` | 1.079 URL (7 statik + 1.072 üniversite/program); `/on-gorusme` eklendi |
+| `/` | 200, title/description/canonical/tek H1/2 JSON-LD, noindex yok; `cache-control: private, no-store` (P3 değişmedi) |
+| `/on-gorusme` | 200, title/description/canonical/tek H1; form ve SSS sunucu HTML'inde |
+| `/yasal/gizlilik` | 200, canonical ve H1 var; yasal sayfalar sitemap'te değil (bilinçli/düşük öncelik, karar açık) |
+| GSC | Bu kontrolde görüntülenmedi; `noindex` doğrulama durumu 6 Eylül'deki 854 bekliyor değerinde bilinir |
+
+`BAILOUT_TO_CLIENT_SIDE_RENDERING` notu: `/on-gorusme` ve `/yasal/*` gibi statik prerender edilen sayfaların HTML'inde bu iz vardır; kaynağı `app/layout.tsx` içindeki `<Analytics />` (Vercel Analytics, Suspense sınırı) olup footer'dan sonra gelir. Görünür içerik tamamen sunucu HTML'indedir; iz zararsızdır ve tek başına FAIL kriteri değildir. Ölçüt: kritik içerik (title, H1, metin, linkler) sunucu HTML'inde mi.
+
+### 19.2 Ölçüm araçları ve tuzaklar
+
+- PageSpeed Insights API anonim kotası 429 verdi; pagespeed.web.dev arayüzü tarayıcıda tamamlanmadı. Yerel Lighthouse 12.8.2 (`npx --yes lighthouse@12 … --chrome-flags="--headless=new"`) kullanıldı.
+- **Simüle throttling (PSI/Lighthouse varsayılanı)** metin LCP'sinde “render delay”i JavaScript'e bağlayabilir; yerel hızlı sunucuda bu yapaylık büyür (bkz. §8.3 düzeltme notu). Kök neden analizinde **`--throttling-method=devtools`** kullan: gerçek zaman çizelgesi verir.
+- Yerel üretim derlemesinde iki yapaylık görüldü: Clerk `/v1/client/handshake` yönlendirme zinciri (~1,8 sn, yalnız localhost) ve `next/image` optimizasyon önbelleğinin soğuk olması (program sayfasında 71 sn'lik sahte LCP). Yerel sonuçları production ile birebir karşılaştırma; farkı (before/after) karşılaştır.
+- Production, aynı koda karşı simüle mobil (15 Eylül, tek koşu): Performans 90, Erişilebilirlik 92, SEO 100, FCP 1,0 sn, LCP 3,7 sn, TBT 30 ms, CLS 0,002, Speed Index 1,8 sn; kullanılmayan JS 265 KiB (Clerk ~188 KiB); erişilebilirlik bulguları `color-contrast` (14), `meta-viewport`, `label-content-name-mismatch`.
+
+### 19.3 LCP kök nedeni (devtools throttling, mobil, Slow 4G)
+
+| Koşu | FCP | LCP | Doküman gövdesi bitişi | Render-blocking CSS bitişi | Not |
+|---|---:|---:|---:|---:|---|
+| Production #1 | 8,3 sn | 8,3 sn | 5,5 sn | 8,2 sn | Başlıklar 0,5 sn'de geldi, gövde 5 sn sunucuda bekledi; tüm alt kaynaklar 5,4 sn'de keşfedildi |
+| Production #2 | 3,7 sn | 3,7 sn | 0,8 sn | 3,6 sn | Gövde hızlı; 20 KiB CSS, 10 font dosyası (164 KiB, High öncelik) ve JS ile bant genişliği yarıştı |
+| Yerel yeni derleme #1/#2 | 4,0 / 4,2 sn | 4,0 / 4,2 sn | 2,5 sn | 3,9 sn | Clerk handshake yönlendirmesi dahil; aynı CSS/font yarışı |
+
+Diğer production sayfaları (aynı yöntem, aynı gün):
+
+| Sayfa | FCP | LCP | LCP öğesi | Doküman gövdesi bitişi | CSS bitişi |
+|---|---:|---:|---|---:|---:|
+| Program detay #1 (soğuk) | 6,1 sn | 8,2 sn | Portre görseli (`/_next/image`, Pexels, 58 KiB) | 3,7 sn | 6,1 sn |
+| Program detay #2 (sıcak) | 3,6 sn | 4,6 sn | Aynı görsel (yükleme süresi 3,9 sn) | 0,9 sn | 3,6 sn |
+| `/universities` | 3,7 sn | 3,7 sn | H1 | 0,8 sn | 3,6 sn |
+| `/cities` | 3,7 sn | 3,7 sn | H1 | 0,8 sn | 3,6 sn |
+
+`/cities` üniversite verisi çekmediği hâlde aynı 3,7 sn'yi vermesi, sıcak durumdaki darboğazın sayfaya değil site geneli CSS/font/JS yarışına ait olduğunu gösterir. Program sayfalarında LCP öğesi görseldir; soğuk gövde gecikmesi orada da (3,7 sn) görülür ve üstüne görsel yükleme eklenir.
+
+Sonuçlar:
+
+1. Her koşuda **FCP = LCP** ve LCP öğesi H1: başlık gizlenmiyor, ilk çizimin kendisi geç. Hero animasyonu ve `RouteTransition` sunucu HTML'inde `opacity:1` üretir.
+2. **Soğuk sunucu gecikmesi (production #1):** `app/page.tsx` `force-dynamic` ve `getUniversitiesData()` bekler; `lib/universities.server.ts` memo'su instance başına in-memory'dir. Vercel serverless instance'ları düşük trafikte sık yenilendiği için ilk ziyaretlerin önemli kısmı soğuk memo'ya düşer ve HTML gövdesi ~5 sn bekler. Aynı fonksiyon `/universities`, üniversite ve program detay sayfalarında da çağrılır; 1.072 program sayfası için en büyük CWV riski budur (program sayfasında doğrulandı: soğuk koşuda gövde 3,7 sn, sıcakta 0,9 sn).
+3. **Sıcak sunucuda font/CSS yarışı (production #2):** `next/font` 10 dosyayı (Spectral 400/500/600/700 × latin+latin-ext = 8, Hanken Grotesk 2) High öncelikle preload eder; bunlar render-blocking CSS ile aynı anda indiği için CSS 2,8 sn sürer ve ilk çizim onu bekler. Türkçe karakterler için latin-ext gereklidir; kazanç Spectral ağırlıklarını azaltmakta ve ilk ekranda kullanılmayan ağırlıkların preload'unu kapatmaktadır.
+4. Simüle modeldeki 3-4 sn'lik “render delay” değerleri (tüm sayfalarda) bu iki gerçek nedenin modeldeki yansımasıdır; animasyon kaynaklı değildir.
+
+### 19.4 Uygulanan değişiklikler
+
+1. `app/globals.css`: `--editorial-terracotta-ink: #9f4629` eklendi (paper zemininde 5,78:1; en koyu kart zemini `#f2e8e0` üzerinde 5,14:1). Base `--editorial-terracotta: #b75b38` buton/arka plan/çerçeve için değişmedi.
+2. `text-[var(--editorial-terracotta)]` → `text-[var(--editorial-terracotta-ink)]`: 73 takipli dosyada 170 kullanım (app/components/lib). Untracked prototip dosyalarına dokunulmadı.
+3. `scripts/check-seo-vitals.mjs` + `npm run check:seo-vitals`: RouteTransition `initial={false}` korunuyor mu, ink tokenı yerinde mi, base token metinde kullanılıyor mu.
+4. Hero H1 giriş animasyonunu kaldırma denemesi yapıldı, ölçümde etkisiz çıktı ve geri alındı (kod değişmedi).
+5. Zoom kilidi ürün kararı olarak kaydedildi; P1'den çıkarıldı.
+
+### 19.5 Sonuç (yerel üretim derlemesi, simüle mobil, kontrast bulguları)
+
+| Sayfa | Erişilebilirlik önce → sonra | Kontrast bulgusu önce → sonra |
+|---|---:|---:|
+| `/` | 92 → 92 | 14 → 3 (kalan: dekoratif gri `01/02/03`, #d8ded9, 1,3:1) |
+| `/universities` | 83 → 87 | 41 → 0 |
+| Program detay (örnek) | 86 → 90 | 8 → 0 |
+| `/cities` | 86 → 90 | 5 → 0 |
+| `/scholarships` | 89 → 94 | 1 → 0 |
+| `/isee` | 84 → 89 | 1 → 0 |
+| `/on-gorusme` | 89 → 93 | 1 → 0 |
+
+Performans/SEO skorları ve LCP değişmedi (beklenen; renk değişikliği performansı etkilemez). Kapsam dışı bırakılanlar: dekoratif `01/02/03` süs rakamları (WCAG'da “pure decoration” istisnası; karar açık), `label-content-name-mismatch` (5 link: `aria-label` görünen metni içermeli; küçük iş), `meta-viewport` (ürün kararı).
+
+### 19.6 Güncel öncelik listesi (P1'in yerine geçer)
+
+1. **Sunucu gövde gecikmesi:** Ana sayfa ve `/universities` için `force-dynamic` yerine kontrollü `revalidate`/ISR veya kalıcı (instance'lar arası) veri önbelleği; ana sayfa istatistikleri için tam 4,5 MB compose yerine hafif sayım sorgusu. Detay sayfalarında `getUniversityById` tüm okulları compose etmek yerine hedefli sorgu + önbellek. Ölçüt: devtools koşusunda doküman gövdesi bitişi soğukta da < 1,5 sn. Program sayfalarında ayrıca LCP portre görselinin `priority`/`sizes`/ağırlığı gözden geçirilmeli (sıcakta bile görsel yüklemesi 3,9 sn).
+2. **Font diyeti:** Spectral ağırlıklarını ilk ekranda kullanılanlarla sınırla (aday: 400 + 600), diğerlerinde `preload: false`; latin-ext kalır. Ölçüt: ilk çizimden önce indirilen font dosyası 10 → ≤ 6, CSS bitişi belirgin erken.
+3. **JS diyeti (eski P2):** Clerk'in herkese açık sayfalarda yüklenmesi (~188 KiB kullanılmayan) ve geniş client ağacı; auth regresyon testleriyle birlikte.
+4. **On-page (eski P4):** Program meta description Türkçeleştirme, `ExpandableText` çift metin, şehir/bölge landing kararı.
+5. **Küçük erişilebilirlik:** `label-content-name-mismatch` linkleri; dekoratif rakam kararı.
+
+### 19.7 Bir sonraki ölçüm protokolü eki
+
+- Kök neden/etki ölçümünde `--throttling-method=devtools` ile FCP, LCP, doküman gövdesi bitişi ve render-blocking CSS bitişini birlikte raporla; soğuk/sıcak ayrımı için aynı URL'yi arka arkaya iki kez koş.
+- Deploy sonrası production'da 3 koşu; PSI çalışmıyorsa yerel Lighthouse ile “yerel lab” etiketiyle kaydet.
+- Program detay sayfalarında soğuk gecikme aynı gün doğrulandı (yukarıdaki tablo); bir sonraki adım LCP görseli için `priority`/`sizes`/boyut incelemesi ve gövde gecikmesi çözümü.
+
+### 19.8 Dış işlemler
+
+- GSC'de işlem yapılmadı; sitemap yeniden gönderilmedi.
+- Kod değişiklikleri yerel commit olarak hazırlandı; production'a push kullanıcı onayıyla yapılır.

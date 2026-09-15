@@ -61,7 +61,7 @@ export function UniversitiesFilterBar({
     <section className="min-w-0 overflow-hidden border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
       <div className="flex min-w-0 flex-col gap-3 border-b border-[var(--editorial-border)] p-4 lg:flex-row lg:items-center lg:justify-between">
         <div className="min-w-0">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]">
             {labels.filterLabel}
           </p>
           <p className="mt-1 text-sm font-semibold text-[var(--editorial-muted)]">
@@ -74,7 +74,7 @@ export function UniversitiesFilterBar({
             <button
               type="button"
               onClick={onClearFilters}
-              className="inline-flex items-center gap-2 border border-[var(--editorial-border)] bg-[var(--editorial-paper)] px-3 py-2 text-xs font-bold text-[var(--editorial-ink)] transition hover:border-[var(--editorial-terracotta)] hover:text-[var(--editorial-terracotta)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+              className="inline-flex items-center gap-2 border border-[var(--editorial-border)] bg-[var(--editorial-paper)] px-3 py-2 text-xs font-bold text-[var(--editorial-ink)] transition hover:border-[var(--editorial-terracotta)] hover:text-[var(--editorial-terracotta-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
             >
               <X className="h-3.5 w-3.5" />
               {labels.clearFilters}
@@ -196,7 +196,7 @@ export function UniversitiesFilterBar({
           className={`flex h-12 items-center justify-center gap-2 border px-4 text-sm font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] ${
             showFavoritesOnly
               ? "border-[var(--editorial-terracotta)] bg-[var(--editorial-terracotta)] text-white"
-              : "border-[var(--editorial-border)] bg-[var(--editorial-paper)] text-[var(--editorial-ink)] hover:border-[var(--editorial-terracotta)] hover:text-[var(--editorial-terracotta)]"
+              : "border-[var(--editorial-border)] bg-[var(--editorial-paper)] text-[var(--editorial-ink)] hover:border-[var(--editorial-terracotta)] hover:text-[var(--editorial-terracotta-ink)]"
           }`}
         >
           <Heart className={`h-4 w-4 ${favoriteCount > 0 ? "fill-current" : ""}`} />

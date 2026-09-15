@@ -59,7 +59,7 @@ export default function OperatorConversationThread({
       className="min-w-0 border-y border-[var(--editorial-border)] py-5 lg:px-6"
     >
       <header className="border-b border-[var(--editorial-border)] pb-5">
-        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)]">
+        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)]">
           {t.aiMentor.volunteerDesk.topics[conversation.topic]}
         </p>
         <div className="mt-2 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
@@ -85,7 +85,7 @@ export default function OperatorConversationThread({
       />
 
       {closeFailed ? (
-        <p role="alert" className="mt-5 text-sm text-[var(--editorial-terracotta)]">
+        <p role="alert" className="mt-5 text-sm text-[var(--editorial-terracotta-ink)]">
           {copy.closeError}
         </p>
       ) : null}
@@ -103,7 +103,7 @@ export default function OperatorConversationThread({
               type="button"
               onClick={() => void handleClose()}
               disabled={closing || sending}
-              className="border border-[var(--editorial-border)] px-4 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)] transition-colors duration-200 ease-out hover:border-[var(--editorial-terracotta)] hover:text-[var(--editorial-terracotta)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] disabled:cursor-not-allowed disabled:opacity-50"
+              className="border border-[var(--editorial-border)] px-4 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)] transition-colors duration-200 ease-out hover:border-[var(--editorial-terracotta)] hover:text-[var(--editorial-terracotta-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] disabled:cursor-not-allowed disabled:opacity-50"
             >
               {copy.close}
             </button>

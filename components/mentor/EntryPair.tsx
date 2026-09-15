@@ -30,7 +30,7 @@ export default function EntryPair({
       className="mt-10 first:mt-0"
     >
       <div>
-        <div className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
+        <div className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]">
           {t.aiMentor.questionLabel} {numberLabel}
         </div>
         <p

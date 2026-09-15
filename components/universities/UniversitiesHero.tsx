@@ -65,7 +65,7 @@ export function UniversitiesHero({
 
         <div className="grid min-w-0 gap-8 py-10 md:grid-cols-[minmax(0,1fr)_360px] md:items-end lg:py-14">
           <div className="min-w-0">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta)] sm:tracking-[0.18em]">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)] sm:tracking-[0.18em]">
               {guideLabel}
             </p>
             <h1 className="max-w-full break-words font-serif text-3xl font-semibold leading-[1.02] tracking-[-0.03em] text-[var(--editorial-ink)] sm:max-w-3xl sm:text-5xl sm:leading-[0.98] sm:tracking-[-0.04em] lg:text-6xl">
@@ -91,7 +91,7 @@ export function UniversitiesHero({
                     className="min-w-0 hover:bg-[#f6f0e7] transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
                   >
                     <div className={cellClasses}>
-                      <dt className="truncate text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--editorial-terracotta)] sm:text-[10px]">
+                      <dt className="truncate text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--editorial-terracotta-ink)] sm:text-[10px]">
                         {stat.label} ↗
                       </dt>
                       <dd className="mt-2 font-serif text-3xl font-semibold text-[var(--editorial-ink)]">

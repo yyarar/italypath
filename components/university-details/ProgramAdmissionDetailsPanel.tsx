@@ -237,7 +237,7 @@ function SourceNavLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex min-h-10 shrink-0 items-center gap-2 px-1 text-sm font-bold text-[var(--editorial-sage)] transition hover:text-[var(--editorial-terracotta)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+      className="inline-flex min-h-10 shrink-0 items-center gap-2 px-1 text-sm font-bold text-[var(--editorial-sage)] transition hover:text-[var(--editorial-terracotta-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
     >
       {label}
       <ExternalLink className="h-3.5 w-3.5" />
@@ -291,11 +291,11 @@ function ExpandableText({
         >
           {displayValue}
         </span>
-        <span className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-[var(--editorial-terracotta)] group-open:hidden">
+        <span className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-[var(--editorial-terracotta-ink)] group-open:hidden">
           {readFullLabel}
           <ChevronDown className="h-3.5 w-3.5" />
         </span>
-        <span className="hidden items-center gap-1 text-xs font-bold text-[var(--editorial-terracotta)] group-open:inline-flex">
+        <span className="hidden items-center gap-1 text-xs font-bold text-[var(--editorial-terracotta-ink)] group-open:inline-flex">
           {collapseLabel}
           <ChevronUp className="h-3.5 w-3.5" />
         </span>
@@ -319,7 +319,7 @@ function EvidenceLink({
       href={evidence.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex min-h-8 shrink-0 items-center gap-1 text-xs font-bold text-[var(--editorial-terracotta)] transition hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+      className="inline-flex min-h-8 shrink-0 items-center gap-1 text-xs font-bold text-[var(--editorial-terracotta-ink)] transition hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
     >
       {label}
       <ExternalLink className="h-3 w-3" />
@@ -660,7 +660,7 @@ export function ProgramAdmissionDetailsPanel({
                           href={details.officialCallUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-2 inline-flex min-h-8 items-center gap-1 text-sm font-bold text-[var(--editorial-terracotta)] transition hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+                          className="mt-2 inline-flex min-h-8 items-center gap-1 text-sm font-bold text-[var(--editorial-terracotta-ink)] transition hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
                         >
                           {labels.verifyInOfficialCall}
                           <ExternalLink className="h-3.5 w-3.5" />
@@ -745,7 +745,7 @@ export function ProgramAdmissionDetailsPanel({
               </ul>
               {additionalDocuments.length > 0 ? (
                 <details className="group mt-4 border-t border-[var(--editorial-border)] pt-3">
-                  <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-sm font-bold text-[var(--editorial-terracotta)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]">
+                  <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-sm font-bold text-[var(--editorial-terracotta-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]">
                     {additionalDocuments.length === 1
                       ? labels.moreDocumentsSingle
                       : fillTemplate(labels.moreDocuments, {
@@ -794,7 +794,7 @@ export function ProgramAdmissionDetailsPanel({
 
           {hasUncertainty ? (
             <section className="-mx-5 border-t border-[var(--editorial-terracotta)]/35 bg-[#fbf2eb] px-5 py-5 sm:-mx-7 sm:px-7">
-              <h3 className="font-serif text-xl font-semibold text-[var(--editorial-terracotta)] sm:text-2xl">
+              <h3 className="font-serif text-xl font-semibold text-[var(--editorial-terracotta-ink)] sm:text-2xl">
                 {labels.uncertaintyTitle}
               </h3>
               {uncertaintyLabels.length > 0 ? (
@@ -864,7 +864,7 @@ export function ProgramAdmissionDetailsPanel({
                         href={source.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-start gap-1 break-words text-sm font-bold leading-5 text-[var(--editorial-ink)] transition hover:text-[var(--editorial-terracotta)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+                        className="inline-flex items-start gap-1 break-words text-sm font-bold leading-5 text-[var(--editorial-ink)] transition hover:text-[var(--editorial-terracotta-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
                       >
                         {source.title}
                         <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0" />
@@ -885,7 +885,7 @@ export function ProgramAdmissionDetailsPanel({
 
                   {source.evidence.length > 0 ? (
                     <details className="group mt-3 pl-12">
-                      <summary className="w-fit cursor-pointer text-xs font-bold text-[var(--editorial-sage)] transition marker:text-[var(--editorial-terracotta)] hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]">
+                      <summary className="w-fit cursor-pointer text-xs font-bold text-[var(--editorial-sage)] transition marker:text-[var(--editorial-terracotta-ink)] hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]">
                         {source.evidence.length === 1
                           ? labels.sourceExcerptSingle
                           : fillTemplate(labels.sourceExcerptCount, {
@@ -926,7 +926,7 @@ export function ProgramAdmissionDetailsPanel({
               </a>
               <Link
                 href={mentorHref}
-                className="inline-flex min-h-11 items-center justify-center gap-2 border border-[var(--editorial-ink)] bg-[var(--editorial-ink)] px-3 py-2 text-center text-sm font-bold text-[var(--editorial-paper)] transition hover:bg-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)] lg:justify-start lg:border-0 lg:bg-transparent lg:px-0 lg:text-left lg:text-[var(--editorial-terracotta)] lg:hover:bg-transparent lg:hover:text-[var(--editorial-ink)]"
+                className="inline-flex min-h-11 items-center justify-center gap-2 border border-[var(--editorial-ink)] bg-[var(--editorial-ink)] px-3 py-2 text-center text-sm font-bold text-[var(--editorial-paper)] transition hover:bg-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)] lg:justify-start lg:border-0 lg:bg-transparent lg:px-0 lg:text-left lg:text-[var(--editorial-terracotta-ink)] lg:hover:bg-transparent lg:hover:text-[var(--editorial-ink)]"
               >
                 {labels.askAi}
                 <ArrowRight className="h-4 w-4 shrink-0" />

@@ -57,7 +57,7 @@ export default function MentorTopBar(props: MentorTopBarProps) {
     statusKey === "streaming"
       ? "text-[var(--editorial-sage)]"
       : statusKey === "error"
-        ? "text-[var(--editorial-terracotta)]"
+        ? "text-[var(--editorial-terracotta-ink)]"
         : "text-[var(--editorial-muted)]";
 
   return (
@@ -72,7 +72,7 @@ export default function MentorTopBar(props: MentorTopBarProps) {
       </button>
 
       <div className="hidden items-baseline gap-2 sm:flex">
-        <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta)]">
+        <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-terracotta-ink)]">
           {channel.numberLabel}
         </span>
         <span className="text-sm font-semibold text-[var(--editorial-ink)]">

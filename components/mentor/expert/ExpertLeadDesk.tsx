@@ -33,7 +33,7 @@ export default function ExpertLeadDesk({ channel, onBackToHub }: ExpertLeadDeskP
 
       <section className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
         <header className="border-b border-[var(--editorial-border)] pb-8">
-          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
             {copy.eyebrow}
           </p>
           <h1 className="mt-3 font-serif text-3xl leading-tight text-[var(--editorial-ink)] sm:text-4xl">

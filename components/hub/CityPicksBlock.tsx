@@ -17,7 +17,7 @@ export default function CityPicksBlock({ cities }: { cities: CityDetail[] }) {
         <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--editorial-sage-soft)] text-[var(--editorial-sage)]">
           <MapPinned className="h-[18px] w-[18px]" aria-hidden="true" />
         </span>
-        <p id="hub-cities-label" className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+        <p id="hub-cities-label" className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
           {t.hub.recoSections.cities}
         </p>
       </div>
@@ -34,7 +34,7 @@ export default function CityPicksBlock({ cities }: { cities: CityDetail[] }) {
             <p className="mt-0.5 text-[11px] text-[var(--editorial-muted)]">
               {language === "tr" ? city.nameEn : city.name}
             </p>
-            <ArrowUpRight className="hub-arrow mt-2 h-3.5 w-3.5 text-[var(--editorial-terracotta)]" aria-hidden="true" />
+            <ArrowUpRight className="hub-arrow mt-2 h-3.5 w-3.5 text-[var(--editorial-terracotta-ink)]" aria-hidden="true" />
           </Link>
         ))}
       </div>

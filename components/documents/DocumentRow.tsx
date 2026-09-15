@@ -47,7 +47,7 @@ export default function DocumentRow({ doc, onDelete, isLast }: DocumentRowProps)
           <button
             type="button"
             onClick={() => onDelete(doc.id, doc.storage_path)}
-            className="text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-terracotta)]"
+            className="text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-terracotta-ink)]"
           >
             {t.documents.row.confirmYes}
           </button>
@@ -81,7 +81,7 @@ export default function DocumentRow({ doc, onDelete, isLast }: DocumentRowProps)
             type="button"
             onClick={() => setConfirming(true)}
             aria-label={t.documents.row.delete}
-            className="text-[var(--editorial-border)] transition-colors hover:text-[var(--editorial-terracotta)]"
+            className="text-[var(--editorial-border)] transition-colors hover:text-[var(--editorial-terracotta-ink)]"
           >
             <Trash2 className="h-4 w-4" strokeWidth={2} />
           </button>

@@ -32,7 +32,7 @@ export default function AccountFooter() {
         <SignOutButton redirectUrl="/">
           <button
             type="button"
-            className="hub-pressable min-h-10 rounded-full border border-[var(--editorial-border)] bg-[var(--editorial-surface)] px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-ink)] hover:border-[var(--editorial-terracotta)] hover:bg-[#fbeee7] hover:text-[var(--editorial-terracotta)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-terracotta)]"
+            className="hub-pressable min-h-10 rounded-full border border-[var(--editorial-border)] bg-[var(--editorial-surface)] px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-ink)] hover:border-[var(--editorial-terracotta)] hover:bg-[#fbeee7] hover:text-[var(--editorial-terracotta-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-terracotta)]"
           >
             {t.hub.accountFooter.signOut}
           </button>

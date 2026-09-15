@@ -511,7 +511,7 @@ export default function IseeCalculatorClient() {
       <div className="mx-auto max-w-7xl">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--editorial-sage)] transition hover:text-[var(--editorial-terracotta)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--editorial-sage)] transition hover:text-[var(--editorial-terracotta-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
         >
           <ArrowLeft className="h-4 w-4" />
           {copy.back}
@@ -562,7 +562,7 @@ export default function IseeCalculatorClient() {
                 </div>
                 <div className="border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-4">
                   <p className="text-xs font-semibold text-[var(--editorial-muted)]">{copy.scaleLabel}</p>
-                  <p className="mt-1 font-serif text-3xl text-[var(--editorial-terracotta)]">{toNumber(result.scale, locale)}</p>
+                  <p className="mt-1 font-serif text-3xl text-[var(--editorial-terracotta-ink)]">{toNumber(result.scale, locale)}</p>
                 </div>
               </div>
             </div>
@@ -784,7 +784,7 @@ export default function IseeCalculatorClient() {
               <div className="space-y-4 p-5">
                 <div className="border border-[var(--editorial-border)] bg-white p-4">
                   <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-[var(--editorial-ink)]">
-                    {isStudentAutonomous ? <CheckCircle2 className="h-4 w-4 text-[var(--editorial-sage)]" /> : <Info className="h-4 w-4 text-[var(--editorial-terracotta)]" />}
+                    {isStudentAutonomous ? <CheckCircle2 className="h-4 w-4 text-[var(--editorial-sage)]" /> : <Info className="h-4 w-4 text-[var(--editorial-terracotta-ink)]" />}
                     {copy.universityStatus}
                   </div>
                   <p className="text-sm leading-6 text-[var(--editorial-muted)]">

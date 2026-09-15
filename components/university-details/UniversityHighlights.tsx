@@ -11,7 +11,7 @@ export function UniversityHighlights({
 
   return (
     <section>
-      <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta)]">
+      <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
         {title}
       </p>
       <div className="mt-4 grid border border-[var(--editorial-border)] bg-[var(--editorial-surface)] sm:grid-cols-2 lg:grid-cols-3">
