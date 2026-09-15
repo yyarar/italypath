@@ -858,10 +858,24 @@ Tasarım: `docs/superpowers/specs/2026-09-15-university-data-egress-isr-design.m
 - **Vercel Security Checkpoint olayı:** deploy sonrası aynı gece tarayıcı olmayan istekler (curl, Lighthouse, harici fetch) `403` + `x-vercel-mitigated: challenge` aldı; gerçek tarayıcı doğrulamayı geçip sayfayı normal açtı. Bu Vercel Firewall'un challenge katmanıdır (Attack Challenge Mode veya otomatik DDoS mitigasyonu); büyük olasılıkla aynı gün yapılan yoğun ölçüm trafiği (Lighthouse koşuları, 20 saniyelik polling) tetikledi. Takip: Vercel → Project → Firewall ekranında Attack Challenge Mode'un kapalı olduğu doğrulanmalı; GSC URL Inspection "canlı test" ile Googlebot'un sayfayı çekebildiği teyit edilmeli. Ders: production'a karşı polling/Lighthouse koşularını seyrek tut (saniyede değil dakikada bir; art arda en fazla 3-4 koşu).
 - Devtools throttling hız ölçümü ve ertesi gün Supabase log sayımı, challenge kalktıktan sonra alınacak (20.6).
 
-### 20.6 Takip ölçümleri (doldurulacak)
+### 20.6 Takip ölçümleri
 
-- Devtools throttling ile production `/`, `/universities`, program sayfası: gövde bitişi, FCP/LCP (soğuk/sıcak).
-- Supabase edge log sayımı (istek/gün, `program_admission_details` istek biçimi ve content-range) ve Usage ekranı egress eğrisi.
+Production, devtools throttling (mobil, Slow 4G), 16 Eylül 2026 gece (challenge kalktıktan sonra, koşular 60 sn aralıklı):
+
+| Koşu | Doküman gövdesi bitişi | FCP | LCP | LCP öğesi |
+|---|---:|---:|---:|---|
+| Program sayfası, deploy öncesi soğuk | 3,7 sn | 6,1 sn | 8,2 sn | portre görseli |
+| Program sayfası, deploy öncesi sıcak | 0,9 sn | 3,6 sn | 4,6 sn | portre görseli |
+| Program sayfası, deploy sonrası #1 (yeni deploy sonrası ilk istek, ISR MISS) | **1,0 sn** | 3,7 sn | 4,7 sn | portre görseli |
+| Program sayfası, deploy sonrası #2 (ISR HIT) | 1,0 sn | 3,7 sn | 4,7 sn | portre görseli |
+| Ana sayfa, deploy öncesi sıcak | 0,8 sn | 3,6 sn | 3,6 sn | H1 |
+| Ana sayfa, deploy sonrası | 0,9 sn | 3,8 sn | 3,8 sn | H1 |
+
+Sonuç: soğuk sunucudaki 3-5 saniyelik gövde beklemesi kalktı (hedef < 1,5 sn sağlandı); ilk çizim (FCP) beklendiği gibi değişmedi, çünkü sıcak durumdaki darboğaz §19.3/3'teki font/CSS/JS bant genişliği yarışıdır (sıradaki iş: §19.6/2 font diyeti ve /3 Clerk JS). Program sayfasında LCP portre görseli olmaya devam ediyor (§19.6/1 alt maddesi: `priority`/`sizes` incelemesi).
+
+Not: yalnızca belge değişikliği içeren push'lar da Vercel'de yeni deploy üretir ve ISR önbelleğini sıfırlar (ilk istekler yeniden MISS). Belge commit'lerini toplu push et; istenirse Vercel "Ignored Build Step" ile yalnız `*.md`/`docs/` değişikliklerinde build atlanabilir.
+
+Bekleyen: Supabase edge log sayımı (istek/gün ve istek biçimi) ve Usage ekranı egress eğrisi, 17 Eylül'den itibaren (log servisi 16 Eylül gece geçici olarak hata verdi).
 
 ### 20.5 Notlar ve kalan riskler
 
