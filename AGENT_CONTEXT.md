@@ -42,8 +42,8 @@ Bu agac tam envanter degil; mimariyi anlamak icin aktif yuzeyleri ozetler.
 italypath-main/
 ├── app/
 │   ├── layout.tsx                  # ClerkProvider, LanguageProvider, MobileZoomLock, RouteTransition
-│   ├── page.tsx                    # Home server wrapper; stats getUniversitiesData() kaynakli
-│   ├── sitemap.ts                  # getUniversitiesData() ile dinamik sitemap
+│   ├── page.tsx                    # Home server wrapper (ISR 3h); stats getUniversitiesDirectory() kaynakli
+│   ├── sitemap.ts                  # getUniversitiesDirectory() ile dinamik sitemap
 │   ├── robots.ts                   # Public/protected indexleme kurallari
 │   ├── data.ts                     # Legacy local seed/yedek; runtime tarafindan import edilmez
 │   ├── api/
@@ -190,7 +190,12 @@ Canli veri `lib/universities.server.ts` icinde Supabase'den compose edilir:
 - `university_departments`
 - `program_admission_details`
 
-`getUniversitiesData()` bu uc tabloyu sayfali sekilde ceker, normalize eder, `Department.admissionDetails` alanini ilgili department'a ekler ve `University[]` dondurur.
+Iki calisma zamani fonksiyonu vardir (2026-09-15 egress diyeti; tam veri seti compose'u runtime'dan kaldirildi):
+
+- `getUniversitiesDirectory()`: `universities` + `university_departments` + `program_admission_details?select=department_id` (yalnizca VARLIK). Her `Department` `hasAdmissionDetails` bayragi tasir, `admissionDetails` alani yoktur. Sikistirilmis ~47 KB. Kullananlar: `/`, `/universities`, `/cities`, sitemap, `/api/universities`, `/api/chat`.
+- `getUniversityById(id)`: tek okulun `id`/`university_id` filtreli tam verisi (`admissionDetails` dahil), ~90-180 KB. Kullananlar: universite/program detay page + layout'lari.
+- `composeUniversitiesFromSupabaseRows(uniRows, deptRows, admissionRows = [], presenceIds?)` saf compose; `scripts/check-universities-server-compose.mjs` test eder.
+- Kabul dosyasi varligini okumak icin `lib/admissionPresence.ts` `hasAdmissionDossier(department)` kullanilir (hub oneri bonusu, "yakinda" rozeti).
 
 Son canli Supabase dogrulamasinda (2026-07-22):
 
@@ -212,14 +217,15 @@ Son canli Supabase dogrulamasinda (2026-07-22):
 - browser fetch icin `cache: "no-store"`
 - client process icinde in-memory cache + request dedupe yapar
 
-`lib/universities.server.ts` (2026-07-02 Supabase egress kota asimi sonrasi):
+`lib/universities.server.ts` (2026-07-02 egress kota asimi; 2026-09-15 egress diyeti + ISR):
 
-- `getUniversitiesData()` compose sonucunu **3 saatlik in-memory memo**da tutar (`SERVER_CACHE_TTL_MS`). Tam veri seti ~4.5 MB'dir ve memo'suz her sayfa/crawl compose'u Supabase egress'ini tuketiyordu (ayda 32+ GB, kota %650 asildi).
-- Supabase fetch hata verirse eldeki bayat memo sunulur (stale-on-error); memo yoksa hata firlatilir ve mevcut route-level error davranisi calisir.
-- Her deploy memo'yu sifirlar; yeni program importlari en gec TTL kadar gecikmeyle canliya yansir.
-- `scripts/check-university-data-source.mjs` bu politikayi zorunlu kilar: TTL 1-6 saat araliginda olmali, stale-on-error mevcut olmali. Memo'yu kapatmak (`= 0`) artik fail'dir.
+- Her iki fonksiyon sonucunu **3 saatlik in-memory memo**da tutar (`SERVER_CACHE_TTL_MS`; dizin icin tek memo, okul basina ayri memo), single-flight ve stale-on-error uygular. Supabase fetch hata verirse eldeki bayat memo sunulur; memo yoksa hata firlatilir ve route-level editorial error govdesi calisir.
+- Tam veri seti sikistirilmis ~4,6 MB'dir ve %98'i `program_admission_details`tir. 2026-09-15 oncesinde her soguk Vercel instance'i (gunde 82-88 tane) bunu tam cekiyordu: gunde ~390 MB, donemde 7,3 GB (Free kota 5 GB). Agir kabul metinleri artik yalnizca detay sayfalari icin, hedefli sorguyla cekilir; beklenen gunluk egress ~10 MB.
+- ISR: `app/page.tsx`, `app/universities/[id]/page.tsx` ve program `page.tsx` `export const revalidate = 10800` tasir; detay rotalari bos `generateStaticParams()` ile "statik uretilebilir" olur (build'de sayfa uretilmez, ilk istekte uretilip Vercel onbelleginde 3 saat tutulur). Bu sayfalar sunucu tarafinda `searchParams`/`cookies()`/`headers()` OKUMAZ; aksi halde rota sessizce dinamige duser. `/universities` ve `/cities` `searchParams` okudugu icin dinamik kalir ama dizinle calisir.
+- Her deploy memo'yu ve ISR onbellegini sifirlar; yeni program importlari en gec 3 saat gecikmeyle canliya yansir.
+- Guard'lar: `npm run check:university-data-source` (tam compose export'u yasak, dizin/hedefli fonksiyonlar ve cagiran dosya eslesmesi, `select("department_id")`, `eq("university_id", …)`, TTL 1-6 saat, stale-on-error, API no-store, hook `fetchWhenInitial`), `npm run check:seo-vitals` (revalidate/generateStaticParams/searchParams kurallari), `node scripts/check-universities-server-compose.mjs` (`hasAdmissionDetails` uc durum).
 
-`scripts/check-university-data-source.mjs`, `app/`, `components/` ve `lib/` runtime kaynaklarinin `app/data.ts` import etmesini yasaklar. `/api/universities`, sitemap, university metadata layout'lari ve chat context `getUniversitiesData()` uzerinden calismalidir.
+`scripts/check-university-data-source.mjs`, `app/`, `components/` ve `lib/` runtime kaynaklarinin `app/data.ts` import etmesini yasaklar. `/api/universities`, sitemap ve chat context `getUniversitiesDirectory()`; university/program metadata layout'lari `getUniversityById()` uzerinden calismalidir.
 
 ---
 
@@ -410,7 +416,7 @@ Son canli SEO kabul audit notlari (2026-07-22):
 
 ### Home
 
-`app/page.tsx` async Server Component wrapper'dir ve `components/HomePageClient.tsx` client leaf'ini render eder. Server wrapper `getUniversitiesData()` ile canli university/program stat'lerini hesaplar; hata durumunda `{ universitiesCount: null, programsCount: null }` doner.
+`app/page.tsx` async Server Component wrapper'dir ve `components/HomePageClient.tsx` client leaf'ini render eder. Server wrapper `getUniversitiesDirectory()` ile canli university/program stat'lerini hesaplar (ISR, `revalidate = 10800`); hata durumunda `{ universitiesCount: null, programsCount: null }` doner.
 
 `components/HomePageClient.tsx` sirasi (2026-09-15): `Navbar` -> `HeroSection` (ikinci CTA "Ucretsiz on gorusme al", `#on-gorusme`) -> `HomeToolsSection` (7 arac) -> `ConsultationSection variant="home"` -> `HomeStoryBand` -> `VelocityBridge` -> `ScholarshipsSection` -> `IseeSection` -> `ConsultationFaq` -> `HomeClosingCta` (birincil CTA on gorusme) -> `Footer` -> `MobileConsultBar`. `FeaturesSection.tsx` kaldirildi. University/program stat'leri canli university data akisi ile gelmelidir; `64/240` gibi local seed sayilari hard-code edilmemeli. Sehir sayisi server wrapper'da `CURATED_CITIES.length` ile prop olarak gecer; sehir verisi client bundle'a import edilmez.
 
@@ -431,7 +437,7 @@ SEO 2.5 sonrasi canli audit'te `/` sayfasi gercek H1, CTA/internal link ve canli
 
 `app/universities/page.tsx`:
 
-- async Server Component wrapper'dir; `getUniversitiesData()` ile canli veri alir
+- async Server Component wrapper'dir; `getUniversitiesDirectory()` ile hafif canli veri alir (`searchParams` okudugu icin dinamik)
 - ilk HTML icin sinirli crawlable preview uretir (12 okul, okul basi 3 program etiketi)
 - `components/universities/UniversitiesExplorer.tsx` client leaf'ine `initialUniversities`, initial filters ve stats gecer
 - URL sync search/filter: `q`, `city`, `type`, `fav`
@@ -440,7 +446,7 @@ SEO 2.5 sonrasi canli audit'te `/` sayfasi gercek H1, CTA/internal link ve canli
 - helper'lar: `lib/universitiesFilters.ts`
 - UI parcalari: `components/universities/*`
 
-`app/universities/[id]/page.tsx` ve department detail page artik server wrapper + client leaf pattern'i kullanir. Server wrapper `getUniversityById()` ile ilk HTML'e okul/program adi, aciklama, fee, sehir, program linkleri ve admission details gibi gorunur icerikleri koyar; client leaf favori, dil, route animation ve program transition davranisini korur.
+`app/universities/[id]/page.tsx` ve department detail page artik server wrapper + client leaf pattern'i kullanir. Server wrapper `getUniversityById()` ile ilk HTML'e okul/program adi, aciklama, fee, sehir, program linkleri ve admission details gibi gorunur icerikleri koyar; client leaf favori, dil, route animation ve program transition davranisini korur. Client leaf'ler `useUniversitiesData(initial, { fetchWhenInitial: false })` cagirir: sunucudan gelen tam okul verisi varken hafif dizin cekilmez ve onu ezmez (kabul paneli tam veriyle kalir). Universite sayfasinin geri tusu `?from=list` bilgisini tiklama aninda `window.location.search`ten okur (wrapper ISR icin `searchParams` okumaz).
 
 SEO `layout.tsx` Server Component'lerinde `generateMetadata()` ile uretilir. `generateMetadata()` hicbir zaman `"use client"` dosyasina konmamalidir.
 
@@ -460,7 +466,7 @@ AI backend'i `app/api/chat/route.ts` icindedir.
 - malformed body veya gecersiz messages icin `400`
 - Gemini model: `gemini-2.5-flash`
 - response: text/plain `ReadableStream`
-- sistem promptu `getUniversitiesData()` ile canli university/program listesinden uretilir
+- sistem promptu `getUniversitiesDirectory()` ile hafif university/program listesinden uretilir (kabul metinleri yok)
 
 Risk: Supabase department sayisi buyudukce chat system prompt'u da buyur. Latency/cost ve token boyutu izlenmeli.
 
@@ -720,7 +726,7 @@ node scripts/check-universities-server-compose.mjs
 5. SEO 3 Part 1 tamamlandi; Part 2 icin ayri spec/plan henuz yazilmadi. Hidden/uydurma schema yok; sadece sayfada gorunen gercek bilgiye dayali structured data eklenmeli.
 6. `Organization` + `WebSite` JSON-LD root layout nedeniyle her sayfada tekrar eder. Bu gecersiz degildir; Google ana sayfa veya tek bir kurumsal sayfanin yeterli oldugunu belirttigi icin ileride dusuk oncelikli sadeleştirme olarak degerlendirilebilir.
 7. AI Mentor system prompt'u canli program sayisi arttikca buyuyor; prompt boyutu, latency ve maliyet izlenmeli.
-8. Soguk serverless instance'da `getUniversitiesData()` compose'u beklenirken `/`, `/universities` ve detay sayfalarinin HTML govdesi ~5 sn gecikiyor (2026-09-15 devtools olcumu). In-memory memo instance basina oldugu icin dusuk trafikte cogu ilk ziyaret soguk. Cozum adaylari: ana sayfa/liste icin `revalidate`/ISR veya instance'lar arasi kalici onbellek, ana sayfa stat'leri icin hafif sayim sorgusu, detayda hedefli sorgu. Ayrinti `SEO_AUDIT.md` §19.3 ve §19.6.
+8. (2026-09-15'te cozuldu: egress diyeti + ISR, bkz. Veri Katmani) Soguk serverless instance'da eski `getUniversitiesData()` compose'u beklenirken `/`, `/universities` ve detay sayfalarinin HTML govdesi ~5 sn gecikiyor (2026-09-15 devtools olcumu). In-memory memo instance basina oldugu icin dusuk trafikte cogu ilk ziyaret soguk. Cozum adaylari: ana sayfa/liste icin `revalidate`/ISR veya instance'lar arasi kalici onbellek, ana sayfa stat'leri icin hafif sayim sorgusu, detayda hedefli sorgu. Ayrinti `SEO_AUDIT.md` §19.3 ve §19.6.
 9. `next/font` 10 font dosyasini (Spectral 4 agirlik x latin+latin-ext, Hanken 2) High oncelikle preload ediyor; sicak instance'da bile render-blocking CSS bunlarla yarisip ilk cizimi ~3,5 sn'ye itiyor. Spectral agirliklari ilk ekranda kullanilanlarla sinirlanmali; latin-ext Turkce icin gerekli.
 
 ### Repo hijyeni
@@ -738,7 +744,7 @@ node scripts/check-universities-server-compose.mjs
 3. Hook'lar mevcut pattern geregi `lib/` altinda tutulur.
 4. SEO gereken dinamik route'larda `generateMetadata()` Server Component `layout.tsx` dosyasinda kalir; client page'e tasima.
 5. Route guvenligi `proxy.ts` uzerinden yonetilir; `middleware.ts` olusturma.
-6. Runtime kodunda `app/data.ts` import etme. Live university/program data icin `getUniversitiesData()` veya `/api/universities`, domain tipleri icin `types/universities.ts` kullan.
+6. Runtime kodunda `app/data.ts` import etme. Live university/program data icin liste yuzeylerinde `getUniversitiesDirectory()` veya `/api/universities`, tek okul icin `getUniversityById()`, domain tipleri icin `types/universities.ts` kullan. Tam veri seti compose'unu runtime'a geri getirme (egress).
 7. UI metinleri `lib/translations.ts` icinde TR/EN paralel tutulur.
 8. Supabase generated types yok; yeni DB row ihtiyacinda `types/index.ts` icine explicit interface ekle.
 9. SEO icin hidden keyword block, `display:none` SEO metni veya botlara farkli icerik ekleme. Kullaniciya gorunmeyen SEO text yasak.
@@ -749,3 +755,4 @@ node scripts/check-universities-server-compose.mjs
 14. Sehir rehberlerinde generic fallback iddialari uretme; arastirilmamis sehri acikca `unresearched` olarak goster. Tiered kayitlarda sehir bazinda fiyat/Numbeo verisi cogaltma; merkezi, surumlu tier maliyet modelini kullan.
 15. Terracotta renkli metin/ikon icin `text-[var(--editorial-terracotta-ink)]` kullan; `--editorial-terracotta` base tokeni yalnizca buton/arka plan/cerceve icin. `npm run check:seo-vitals` bunu zorlar.
 16. `components/RouteTransition.tsx` icindeki `<AnimatePresence initial={false}>` kaldirilmaz; ilk yuklemede sayfa iceriginin gorunur gelmesini bu saglar.
+17. Egress diyeti: agir kabul metinleri (`source_quotes`, sartlar, belgeler) yalnizca `getUniversityById()` ile detay sayfalarina gelir; liste/API/sitemap/chat `getUniversitiesDirectory()` kullanir. ISR sayfalarinda (`/`, detay sayfalari) `revalidate` + bos `generateStaticParams()` korunur ve sunucu tarafinda `searchParams`/`cookies()`/`headers()` okunmaz.
