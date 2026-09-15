@@ -109,6 +109,70 @@ if (!universitiesServerData.includes("serving stale cached data")) {
   );
 }
 
+// Egress diyeti (2026-09-15): tam veri seti compose'u runtime'dan kaldirildi.
+// Dizin (hafif) + hedefli okul cekisi sozlesmesi; ayrinti docs/superpowers/specs/2026-09-15-university-data-egress-isr-design.md
+if (/export async function getUniversitiesData\b/.test(universitiesServerData)) {
+  fail("lib/universities.server.ts must not export the full-dataset getUniversitiesData (4.6 MB per cold instance)");
+}
+if (!/export async function getUniversitiesDirectory\b/.test(universitiesServerData)) {
+  fail("lib/universities.server.ts must export getUniversitiesDirectory (light directory: no heavy admission text)");
+}
+if (!/export async function getUniversityById\b/.test(universitiesServerData)) {
+  fail("lib/universities.server.ts must export getUniversityById (targeted per-university fetch)");
+}
+if (!universitiesServerData.includes('.select("department_id")')) {
+  fail('lib/universities.server.ts directory must fetch admission presence with select("department_id") only');
+}
+if (!universitiesServerData.includes('.eq("university_id", ')) {
+  fail('lib/universities.server.ts getUniversityById must filter departments/admission rows with eq("university_id", ...)');
+}
+
+const directorySurfaces = [
+  "app/page.tsx",
+  "app/universities/page.tsx",
+  "app/cities/page.tsx",
+  "app/sitemap.ts",
+  "app/api/universities/route.ts",
+  "app/api/chat/route.ts",
+];
+for (const path of directorySurfaces) {
+  const source = read(path);
+  if (!source.includes("getUniversitiesDirectory(")) {
+    fail(`${path} must read university data via getUniversitiesDirectory()`);
+  }
+  if (source.includes("getUniversitiesData(")) {
+    fail(`${path} must not call the removed full-dataset getUniversitiesData()`);
+  }
+}
+
+const targetedSurfaces = [
+  "app/universities/[id]/page.tsx",
+  "app/universities/[id]/layout.tsx",
+  "app/universities/[id]/departments/[deptSlug]/page.tsx",
+  "app/universities/[id]/departments/[deptSlug]/layout.tsx",
+];
+for (const path of targetedSurfaces) {
+  const source = read(path);
+  if (!source.includes("getUniversityById(")) {
+    fail(`${path} must read its university via getUniversityById()`);
+  }
+  if (source.includes("getUniversitiesDirectory(") || source.includes("getUniversitiesData(")) {
+    fail(`${path} must not load the whole directory for one university`);
+  }
+}
+
+if (!universitiesDataHook.includes("fetchWhenInitial")) {
+  fail("lib/useUniversitiesData.ts must support the fetchWhenInitial option (detail pages keep server data)");
+}
+for (const path of [
+  "components/university-details/UniversityDetailClient.tsx",
+  "components/university-details/DepartmentDetailClient.tsx",
+]) {
+  if (!read(path).includes("fetchWhenInitial: false")) {
+    fail(`${path} must call useUniversitiesData with { fetchWhenInitial: false } so the light directory never overrides server data`);
+  }
+}
+
 if (failures.length > 0) {
   console.error("[FAIL] University data source check failed.");
   for (const failure of failures) {

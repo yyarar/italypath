@@ -21,6 +21,29 @@ if (!routeTransition.includes("<motion.div") || !routeTransition.includes("key={
   failures.push("RouteTransition: pathname anahtarlı motion.div sarmalayıcısı beklenen yapıda değil; guard'ı güncelle");
 }
 
+// ISR (2026-09-15): halka acik veri sayfalari Vercel'in paylasimli onbelleginden sunulur (SEO_AUDIT.md §20).
+// force-dynamic veya sunucu tarafinda searchParams okumak sayfayi dinamige dusurur ve soguk sunucu gecikmesi geri gelir.
+const isrPages = [
+  "app/page.tsx",
+  "app/universities/[id]/page.tsx",
+  "app/universities/[id]/departments/[deptSlug]/page.tsx",
+];
+for (const file of isrPages) {
+  const source = readFileSync(file, "utf8");
+  const match = source.match(/export const revalidate = (\d+);/);
+  if (!match) {
+    failures.push(`${file}: 'export const revalidate = <saniye>;' eksik (ISR olmadan soguk sunucu gecikmesi geri gelir)`);
+  } else if (Number(match[1]) < 3600 || Number(match[1]) > 21600) {
+    failures.push(`${file}: revalidate 3600-21600 saniye araliginda olmali`);
+  }
+  if (source.includes("force-dynamic")) {
+    failures.push(`${file}: force-dynamic ISR ile celisir`);
+  }
+  if (source.includes("searchParams")) {
+    failures.push(`${file}: sunucu tarafinda searchParams okumak sayfayi dinamige dusurur (ISR iptal)`);
+  }
+}
+
 const css = readFileSync("app/globals.css", "utf8");
 if (!css.includes("--editorial-terracotta-ink: #9f4629")) {
   failures.push("globals.css: --editorial-terracotta-ink: #9f4629 tokenı eksik veya değişmiş (paper zemininde 5,78:1; en koyu kart zemininde 5,14:1)");

@@ -102,4 +102,36 @@ assert.deepEqual(department.admissionDetails?.sourceQuotes, [
   },
 ]);
 
+// hasAdmissionDetails (2026-09-15): detayli compose'da true; yalniz-varlik (dizin) compose'unda true ama
+// admissionDetails yok; hicbiri yoksa false.
+assert.equal(universities[0].departments[0].hasAdmissionDetails, true);
+
+const directory = composeUniversitiesFromSupabaseRows(
+  [
+    {
+      id: 1,
+      name: "U",
+      city: "Bologna",
+      type: "Public",
+      fee: "",
+      image: "",
+      description: "d",
+      description_en: null,
+      website: "",
+      features: [],
+      features_en: null,
+      sort_order: 1,
+    },
+  ],
+  [
+    { id: 10, university_id: 1, name: "With dossier", slug: "with-dossier", languages: ["en"], duration_years: 3, level: "bachelor", sort_order: 1 },
+    { id: 11, university_id: 1, name: "Without", slug: "without", languages: ["en"], duration_years: 3, level: "bachelor", sort_order: 2 },
+  ],
+  [],
+  new Set([10])
+);
+assert.equal(directory[0].departments[0].hasAdmissionDetails, true);
+assert.equal(directory[0].departments[0].admissionDetails, undefined);
+assert.equal(directory[0].departments[1].hasAdmissionDetails, false);
+
 console.log("[OK] Universities server compose preserves single-cycle and admission details.");
