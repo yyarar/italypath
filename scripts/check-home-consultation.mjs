@@ -32,6 +32,18 @@ must(translations, 'secondaryCta: "Book a free consultation"', "Hero EN CTA");
 const pkg = read("package.json");
 must(pkg, '"check:home-consultation": "node scripts/check-home-consultation.mjs"', "npm script");
 
+// Task 2 — araç vitrini
+const tools = read("components/home/HomeToolsSection.tsx");
+for (const href of ['"/universities"', '"/scholarships"', '"/isee"', '"/sat"', '"/cities"', '"/communities"', '"/hub"']) {
+  must(tools, href, "Araç kartı linki");
+}
+must(tools, 'id="araclar"', "Araç bölümü anchor");
+mustNot(tools, "CURATED_CITIES", "Şehir verisi client bundle'a girmemeli");
+const homePage = read("app/page.tsx");
+must(homePage, "CURATED_CITIES.length", "Şehir sayısı server'da");
+const homeClient = read("components/HomePageClient.tsx");
+must(homeClient, "<HomeToolsSection", "Ana sayfa araç vitrini");
+
 if (failures.length > 0) {
   console.error("[FAIL] Home consultation check failed.");
   for (const failure of failures) console.error(` - ${failure}`);
