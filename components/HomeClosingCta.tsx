@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
 import Reveal from "@/components/ui/Reveal";
 import { CONSULT_ANCHOR } from "@/lib/consultation";
+import { HOME_PHOTOS } from "@/lib/homePhotos";
 
 // Sayfa sonu kapanis cagrisi. Koyu ink bant; hero'daki sage/paper ile kontrast.
 export default function HomeClosingCta() {
@@ -15,7 +17,19 @@ export default function HomeClosingCta() {
   return (
     <section className="bg-[var(--editorial-paper)] pb-16 lg:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal className="overflow-hidden rounded-[2rem] border border-[#0f1712] bg-[#15201c] px-6 py-14 text-center shadow-[0_24px_70px_rgba(21,32,28,0.16)] sm:rounded-[2.5rem] sm:px-10 lg:px-16 lg:py-20">
+        <Reveal className="relative isolate overflow-hidden rounded-[2rem] border border-[#0f1712] bg-[#15201c] px-6 py-14 text-center shadow-[0_24px_70px_rgba(21,32,28,0.16)] sm:rounded-[2.5rem] sm:px-10 lg:px-16 lg:py-20">
+          <Image
+            src={HOME_PHOTOS.closingPortico.src}
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="(min-width: 1280px) 1216px, 100vw"
+            className="-z-10 object-cover opacity-45"
+          />
+          <div
+            className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(21,32,28,0.55),rgba(21,32,28,0.92))]"
+            aria-hidden="true"
+          />
           <p className="flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#e7c9b8]">
             <span className="h-px w-7 bg-[#e7c9b8]" aria-hidden="true" />
             {c.eyebrow}

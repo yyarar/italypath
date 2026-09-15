@@ -89,6 +89,24 @@ for (const [file, key] of [
 mustNot(read("components/university-details/UniversityDetailClient.tsx"), "aiMentorHref", "Duraklatılmış AI masası linki kalmamalı");
 must(read("components/Navbar.tsx"), "CONSULT_PAGE_PATH", "Menü linki");
 
+// Ana sayfa fotoğrafları
+const homePhotos = read("lib/homePhotos.ts");
+for (const match of homePhotos.matchAll(/src: "([^"]+)"/g)) {
+  if (!existsSync(`public${match[1]}`)) failures.push(`Fotoğraf dosyası eksik: public${match[1]}`);
+}
+if (countOf(translations, "homePhotos: {") < 2) failures.push("TR+EN namespace eksik: homePhotos: {");
+for (const file of [
+  "components/HeroSection.tsx",
+  "components/home/HomeToolsSection.tsx",
+  "components/consultation/ConsultationSection.tsx",
+  "components/HomeClosingCta.tsx",
+]) {
+  const source = read(file);
+  must(source, "HOME_PHOTOS", `${file} fotoğraf`);
+  must(source, 'from "next/image"', `${file} next/image`);
+  mustNot(source, "images.unsplash.com", `${file} dış fotoğraf adresi`);
+}
+
 if (failures.length > 0) {
   console.error("[FAIL] Home consultation check failed.");
   for (const failure of failures) console.error(` - ${failure}`);

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -15,6 +16,7 @@ import {
 
 import Reveal from "@/components/ui/Reveal";
 import { useLanguage } from "@/context/LanguageContext";
+import { HOME_PHOTOS } from "@/lib/homePhotos";
 import { formatStatValue, type UniversityStats } from "@/lib/universityStats";
 
 interface HomeToolsSectionProps {
@@ -30,6 +32,7 @@ interface ToolCard {
   href: string;
   surface: string;
   iconSurface: string;
+  photo: { src: string; alt: string };
   wide?: boolean;
   dark?: boolean;
 }
@@ -38,6 +41,7 @@ interface ToolCard {
 export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectionProps) {
   const { t } = useLanguage();
   const c = t.homeTools;
+  const alts = t.homePhotos;
   const universitiesMeta =
     stats.universitiesCount === null || stats.programsCount === null
       ? c.liveData
@@ -51,6 +55,7 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
       ...c.universities,
       meta: universitiesMeta,
       href: "/universities",
+      photo: { src: HOME_PHOTOS.library.src, alt: alts.library },
       surface: "bg-[#e7efe9]",
       iconSurface: "bg-[var(--editorial-sage)] text-white",
       wide: true,
@@ -59,6 +64,7 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
       icon: MapPinned,
       ...c.scholarships,
       href: "/scholarships",
+      photo: { src: HOME_PHOTOS.portico.src, alt: alts.portico },
       surface: "bg-[#eef3ef]",
       iconSurface: "bg-[var(--editorial-surface)] text-[var(--editorial-terracotta)]",
     },
@@ -66,6 +72,7 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
       icon: Calculator,
       ...c.isee,
       href: "/isee",
+      photo: { src: HOME_PHOTOS.laptop.src, alt: alts.laptop },
       surface: "bg-[#f3ece6]",
       iconSurface: "bg-[var(--editorial-surface)] text-[var(--editorial-sage)]",
     },
@@ -74,6 +81,7 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
       ...c.sat,
       meta: `${c.sat.meta} · ${c.signInNote}`,
       href: "/sat",
+      photo: { src: HOME_PHOTOS.studyTogether.src, alt: alts.studyTogether },
       surface: "bg-[#f2e8e0]",
       iconSurface: "bg-[var(--editorial-terracotta)] text-white",
     },
@@ -82,6 +90,7 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
       ...c.cities,
       meta: c.cities.meta.replace("{count}", String(citiesCount)),
       href: "/cities",
+      photo: { src: HOME_PHOTOS.milanTram.src, alt: alts.milano },
       surface: "bg-[#eceee5]",
       iconSurface: "bg-[var(--editorial-surface)] text-[var(--editorial-sage)]",
     },
@@ -89,6 +98,7 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
       icon: Users,
       ...c.communities,
       href: "/communities",
+      photo: { src: HOME_PHOTOS.romeFriends.src, alt: alts.romeFriends },
       surface: "bg-[#eef3ef]",
       iconSurface: "bg-[var(--editorial-surface)] text-[var(--editorial-terracotta)]",
     },
@@ -97,6 +107,7 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
       ...c.hub,
       meta: c.signInNote,
       href: "/hub",
+      photo: { src: HOME_PHOTOS.desk.src, alt: alts.desk },
       surface: "bg-[#15201c]",
       iconSurface: "bg-white/10 text-[#f3d2bf]",
       dark: true,
@@ -132,6 +143,19 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
                       tool.dark ? "border-[#0f1712] text-[#faf7f0]" : "border-white/70"
                     }`}
                   >
+                    <div
+                      className={`relative -mx-5 -mt-5 mb-5 overflow-hidden rounded-t-[1.7rem] sm:-mx-6 sm:-mt-6 ${
+                        tool.wide ? "h-44 sm:h-52" : "h-36"
+                      }`}
+                    >
+                      <Image
+                        src={tool.photo.src}
+                        alt={tool.photo.alt}
+                        fill
+                        sizes={tool.wide ? "(min-width: 1024px) 620px, (min-width: 640px) 100vw, 100vw" : "(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw"}
+                        className="home-hover-image object-cover"
+                      />
+                    </div>
                     <div className="flex items-start justify-between gap-4">
                       <div
                         className={`flex h-11 w-11 items-center justify-center rounded-2xl shadow-[0_6px_18px_rgba(21,32,28,0.1)] ${tool.iconSurface}`}
@@ -146,7 +170,7 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
                         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                       </span>
                     </div>
-                    <div className="mt-auto pt-8">
+                    <div className="mt-auto pt-5">
                       <p
                         className={`text-xs font-semibold ${
                           tool.dark ? "text-[#f3d2bf]" : "text-[var(--editorial-terracotta)]"

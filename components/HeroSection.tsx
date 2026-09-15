@@ -2,6 +2,7 @@
 
 import { useState, type KeyboardEvent } from "react";
 import { useAuth } from "@clerk/nextjs";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -16,6 +17,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
 import { CONSULT_ANCHOR } from "@/lib/consultation";
+import { HOME_PHOTOS } from "@/lib/homePhotos";
 import { formatStatValue, type UniversityStats } from "@/lib/universityStats";
 
 type FocusId = "programs" | "scholarships" | "application";
@@ -34,6 +36,12 @@ export default function HeroSection({ stats }: HeroSectionProps) {
   const [focus, setFocus] = useState<FocusId>("programs");
   const [animateFocusChange, setAnimateFocusChange] = useState(true);
   const copy = t.homeApple;
+  const photos = t.homePhotos;
+  const cityPhotos = [
+    { key: "bologna", photo: HOME_PHOTOS.bologna, city: photos.cities.bologna, alt: photos.bologna, tilt: "-rotate-2" },
+    { key: "firenze", photo: HOME_PHOTOS.firenze, city: photos.cities.firenze, alt: photos.firenze, tilt: "rotate-1 translate-y-3" },
+    { key: "milano", photo: HOME_PHOTOS.milano, city: photos.cities.milano, alt: photos.milano, tilt: "-rotate-1" },
+  ];
 
   const focuses = {
     programs: {
@@ -135,6 +143,20 @@ export default function HeroSection({ stats }: HeroSectionProps) {
                 <span className="text-xl font-semibold tracking-[-0.035em] text-[var(--editorial-ink)]">{item.value}</span>
                 <span className="text-sm text-[var(--editorial-muted)]">{item.label}</span>
               </div>
+            ))}
+          </div>
+
+          <div className="mt-10 grid grid-cols-3 gap-2.5 sm:gap-3">
+            {cityPhotos.map(({ key, photo, city, alt, tilt }) => (
+              <figure
+                key={key}
+                className={`relative aspect-[4/5] overflow-hidden rounded-[1.25rem] border-4 border-white shadow-[0_14px_34px_rgba(21,32,28,0.16)] ${tilt}`}
+              >
+                <Image src={photo.src} alt={alt} fill sizes="(min-width: 1024px) 190px, 32vw" className="object-cover" />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[rgba(13,20,17,0.72)] to-transparent px-2.5 pb-2 pt-6 text-xs font-semibold text-white">
+                  {city}
+                </figcaption>
+              </figure>
             ))}
           </div>
         </motion.div>

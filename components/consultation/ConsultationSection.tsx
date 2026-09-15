@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Check, MessageCircle } from "lucide-react";
 
 import ExpertLeadForm from "@/components/mentor/expert/ExpertLeadForm";
 import Reveal from "@/components/ui/Reveal";
 import { useLanguage } from "@/context/LanguageContext";
 import { CONSULT_ANCHOR } from "@/lib/consultation";
+import { HOME_PHOTOS } from "@/lib/homePhotos";
 
 interface ConsultationSectionProps {
   // "page": /on-gorusme'de başlık h1 ve navbar için üst boşluk; "home": ana sayfa bölümü.
@@ -30,6 +32,16 @@ export default function ConsultationSection({ variant }: ConsultationSectionProp
         <Reveal className="overflow-hidden rounded-[2rem] bg-[var(--editorial-ink)] text-[#faf7f0] shadow-[0_28px_80px_rgba(21,32,28,0.18)] sm:rounded-[2.5rem]">
           <div className="grid lg:grid-cols-[1fr_1.05fr]">
             <div className="relative p-6 sm:p-10 lg:p-12">
+              <div className="relative -mx-6 -mt-6 mb-8 h-56 overflow-hidden sm:-mx-10 sm:-mt-10 sm:h-72 lg:-mx-12 lg:-mt-12">
+                <Image
+                  src={HOME_PHOTOS.conversation.src}
+                  alt={t.homePhotos.conversation}
+                  fill
+                  sizes="(min-width: 1024px) 600px, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(21,32,28,0.15)] to-[var(--editorial-ink)]" />
+              </div>
               <p className="relative flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#e7c9b8]">
                 <span className="h-px w-7 bg-[#e7c9b8]" aria-hidden="true" />
                 {c.eyebrow}
