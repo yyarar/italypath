@@ -4,6 +4,7 @@ import type { ProfileCityPref, ProfileField, UserProfile } from "@/lib/hub/profi
 import { SCHOLARSHIP_REGION_MAP } from "@/lib/scholarships/regions";
 import type { CityDetail } from "@/types/cities";
 import type { RegionSlug, ScholarshipRegionRecord } from "@/types/scholarships";
+import { hasAdmissionDossier } from "@/lib/admissionPresence";
 
 export interface ProgramMatch {
   university: University;
@@ -342,7 +343,7 @@ function collectMatches(
       score += city.score;
       if (city.reason) reasons.push(city.reason);
 
-      if (department.admissionDetails) {
+      if (hasAdmissionDossier(department)) {
         score += 0.5;
         reasons.push("details");
       }

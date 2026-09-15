@@ -36,6 +36,8 @@ export interface Department {
   durationYears: ProgramDurationYears;
   level: ProgramLevel;
   admissionDetails?: ProgramAdmissionDetails;
+  /** Dizin (hafif) verisinde admissionDetails tasinmaz; kabul dosyasi var mi bilgisi bu bayrakla gelir. */
+  hasAdmissionDetails?: boolean;
 }
 
 export interface University {
