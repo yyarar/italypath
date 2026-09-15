@@ -61,6 +61,18 @@ must(homeClient, "<MobileConsultBar", "Ana sayfa sabit buton");
 const hero = read("components/HeroSection.tsx");
 must(hero, "CONSULT_ANCHOR", "Hero CTA ön görüşmeye gider");
 
+// Task 4 — ayrı sayfa
+const consultPage = read("app/on-gorusme/page.tsx");
+mustNot(consultPage, '"use client"', "Sayfa server wrapper olmalı");
+must(consultPage, 'canonical: "/on-gorusme"', "Canonical");
+must(read("components/consultation/ConsultationPageClient.tsx"), 'variant="page"', "Sayfa varyantı");
+must(read("proxy.ts"), "'/on-gorusme(.*)'", "Public route");
+must(read("app/sitemap.ts"), "/on-gorusme", "Sitemap");
+mustNot(read("app/robots.ts"), "/on-gorusme", "Robots disallow olmamalı");
+const closing = read("components/HomeClosingCta.tsx");
+must(closing, "CONSULT_ANCHOR", "Kapanış CTA ön görüşmeye gider");
+mustNot(closing, "primaryCtaSignedIn", "Eski kapanış CTA kalmamalı");
+
 if (failures.length > 0) {
   console.error("[FAIL] Home consultation check failed.");
   for (const failure of failures) console.error(` - ${failure}`);

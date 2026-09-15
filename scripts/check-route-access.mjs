@@ -51,6 +51,7 @@ const publicChecks = [
   "/sign-in",
   "/sign-up",
   "/giris",
+  "/on-gorusme",
   "/sitemap.xml",
   "/robots.txt",
 ];

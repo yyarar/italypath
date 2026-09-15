@@ -21,6 +21,7 @@ const isPublicRoute = createRouteMatcher([
   '/topluluklar(.*)',  // Türkçe kısa yol -> /communities
   '/yasal(.*)',        // Yasal sayfalar (gizlilik, kullanım koşulları, çerez)
   '/giris(.*)',        // Yeni Türkçe giriş/kayıt sayfası
+  '/on-gorusme(.*)',   // Ücretsiz ön görüşme sayfası
   '/sitemap.xml',      // Google botları için
   '/robots.txt',       // Google botları için
 ]);
