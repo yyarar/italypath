@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur. Degisiklik gecmisi icin `AGENT_COMMITS.md`, son audit notlari icin `AGENT_CONTEXT_FIX_REPORT.md` okunabilir; bu dosya ise guncel mimari ve calisma kurallarinin kaynak dokumanidir.
 
-Son guncelleme: 2026-08-21
+Son guncelleme: 2026-09-15
 
 ---
 
@@ -54,6 +54,7 @@ italypath-main/
 │   │   ├── page.tsx                # Tek sayfa giris+kayit (Clerk Elements); /sign-in ve /sign-up next.config redirects
 │   │   └── sso-callback/page.tsx   # Google OAuth donus rotasi; /giris sayfasini yeniden kullanir
 │   ├── hosgeldin/page.tsx          # Protected 4 adimli onboarding sihirbazi
+│   ├── on-gorusme/page.tsx         # Public ucretsiz on gorusme sayfasi (server wrapper)
 │   ├── ai-mentor/page.tsx          # Protected consultation desks UI
 │   ├── ekip/mentor/page.tsx        # Protected, staff-allowlisted gonullu operator inbox
 │   ├── universities/
@@ -83,7 +84,8 @@ italypath-main/
 │   ├── MobileZoomLock.tsx          # Coarse pointer pinch/double-tap/edge-swipe guard
 │   ├── RouteTransition.tsx
 │   ├── HeroSection.tsx
-│   ├── FeaturesSection.tsx
+│   ├── home/HomeToolsSection.tsx   # Ana sayfa 7 ucretsiz arac vitrini
+│   ├── consultation/               # On gorusme bolumu, SSS, mobil sabit buton, ConsultPrompt, /on-gorusme client leaf
 │   ├── VelocityBridge.tsx
 │   ├── ScholarshipsSection.tsx
 │   ├── IseeSection.tsx
@@ -291,6 +293,7 @@ Public route pattern'leri:
 - `/topluluklar(.*)`
 - `/yasal(.*)`
 - `/giris(.*)`       # yeni tek sayfa giris+kayit
+- `/on-gorusme(.*)`  # ucretsiz on gorusme sayfasi; sitemap'te
 - `/sitemap.xml`
 - `/robots.txt`
 
@@ -401,7 +404,18 @@ Son canli SEO kabul audit notlari (2026-07-22):
 
 `app/page.tsx` async Server Component wrapper'dir ve `components/HomePageClient.tsx` client leaf'ini render eder. Server wrapper `getUniversitiesData()` ile canli university/program stat'lerini hesaplar; hata durumunda `{ universitiesCount: null, programsCount: null }` doner.
 
-`components/HomePageClient.tsx`, `Navbar`, `HeroSection`, `FeaturesSection`, `VelocityBridge`, `ScholarshipsSection`, `IseeSection`, `Footer` bilesenlerini birlestirir. University/program stat'leri canli university data akisi ile gelmelidir; `64/240` gibi local seed sayilari hard-code edilmemeli.
+`components/HomePageClient.tsx` sirasi (2026-09-15): `Navbar` -> `HeroSection` (ikinci CTA "Ucretsiz on gorusme al", `#on-gorusme`) -> `HomeToolsSection` (7 arac) -> `ConsultationSection variant="home"` -> `HomeStoryBand` -> `VelocityBridge` -> `ScholarshipsSection` -> `IseeSection` -> `ConsultationFaq` -> `HomeClosingCta` (birincil CTA on gorusme) -> `Footer` -> `MobileConsultBar`. `FeaturesSection.tsx` kaldirildi. University/program stat'leri canli university data akisi ile gelmelidir; `64/240` gibi local seed sayilari hard-code edilmemeli. Sehir sayisi server wrapper'da `CURATED_CITIES.length` ile prop olarak gecer; sehir verisi client bundle'a import edilmez.
+
+### Ucretsiz on gorusme (gelir hunisi)
+
+Ilk gelir modeli ucretli danismanlik; kapi mevcut uzman lead formudur. Fiyat/paket, "biz kimiz", sahte yorum veya uydurma yanit suresi eklenmez.
+
+- Paylasilan sabitler: `lib/consultation.ts` (`CONSULT_ANCHOR = "on-gorusme"`, `CONSULT_PAGE_PATH = "/on-gorusme"`).
+- `components/consultation/ConsultationSection.tsx` gercek `ExpertLeadForm`'u kullanir (`POST /api/expert-leads`); `variant="page"` basligi h1 yapar. Yeni tablo/kolon yok.
+- `/on-gorusme`: `app/on-gorusme/page.tsx` server metadata + `ConsultationPageClient`; public route ve sitemap'te.
+- `ConsultPrompt` program detay, universite detay (eski duraklatilmis AI masasi kutusunun yerine), `/scholarships` ve `/isee` sayfalarinda `/on-gorusme`'ye gider. Navbar masaustunde ayrica link var; menu ileride yeniden ele alinacak.
+- Metinler `lib/translations.ts`: `homeTools`, `consultation`, `homeFaq`, `consultPrompt`, `navbar.consultation` (TR+EN).
+- Guard: `npm run check:home-consultation`. Spec/plan: `docs/superpowers/specs/2026-09-15-homepage-free-consultation-design.md`, `docs/superpowers/plans/2026-09-15-homepage-free-consultation-plan.md`.
 
 SEO 2.5 sonrasi canli audit'te `/` sayfasi gercek H1, CTA/internal link ve canli stats tasir; `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizdir. Hidden SEO text ekleme.
 
@@ -658,6 +672,7 @@ npm run check:auth-ui
 npm run check:hub-onboarding
 npm run check:mentor-desks
 npm run check:expert-leads
+npm run check:home-consultation
 npm run test:volunteer-desk
 npm run test:mentor-operator
 npm run test:mentor-db
