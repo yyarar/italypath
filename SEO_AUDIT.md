@@ -786,7 +786,7 @@ Performans/SEO skorları ve LCP değişmedi (beklenen; renk değişikliği perfo
 
 ### 19.6 Güncel öncelik listesi (P1'in yerine geçer)
 
-1. **Sunucu gövde gecikmesi:** Ana sayfa ve `/universities` için `force-dynamic` yerine kontrollü `revalidate`/ISR veya kalıcı (instance'lar arası) veri önbelleği; ana sayfa istatistikleri için tam 4,5 MB compose yerine hafif sayım sorgusu. Detay sayfalarında `getUniversityById` tüm okulları compose etmek yerine hedefli sorgu + önbellek. Ölçüt: devtools koşusunda doküman gövdesi bitişi soğukta da < 1,5 sn. Program sayfalarında ayrıca LCP portre görselinin `priority`/`sizes`/ağırlığı gözden geçirilmeli (sıcakta bile görsel yüklemesi 3,9 sn).
+1. **Sunucu gövde gecikmesi:** ✅ Uygulandı (§20; deploy Kerem onayıyla). Hafif dizin + hedefli okul sorgusu + 3 saatlik ISR. Ölçüt: devtools koşusunda doküman gövdesi bitişi soğukta da < 1,5 sn. Program sayfalarında ayrıca LCP portre görselinin `priority`/`sizes`/ağırlığı gözden geçirilmeli (sıcakta bile görsel yüklemesi 3,9 sn).
 2. **Font diyeti:** Spectral ağırlıklarını ilk ekranda kullanılanlarla sınırla (aday: 400 + 600), diğerlerinde `preload: false`; latin-ext kalır. Ölçüt: ilk çizimden önce indirilen font dosyası 10 → ≤ 6, CSS bitişi belirgin erken.
 3. **JS diyeti (eski P2):** Clerk'in herkese açık sayfalarda yüklenmesi (~188 KiB kullanılmayan) ve geniş client ağacı; auth regresyon testleriyle birlikte.
 4. **On-page (eski P4):** Program meta description Türkçeleştirme, `ExpandableText` çift metin, şehir/bölge landing kararı.
@@ -805,3 +805,49 @@ Performans/SEO skorları ve LCP değişmedi (beklenen; renk değişikliği perfo
 - Canlı sağlık kontrolü: `/`, `/universities`, örnek program sayfası ve `/on-gorusme` 200, tek H1, `noindex` yok, yeni renk sınıfları HTML'de; sitemap 1.079 URL.
 - Deploy sonrası production, simüle mobil, 3 koşu (ana sayfa): erişilebilirlik 92/92/92; kontrast bulgusu 14 → **3** (yalnız dekoratif `01/02/03`); kalan erişilebilirlik bulguları `meta-viewport` (ürün kararı), `label-content-name-mismatch`, dekoratif rakamlar. Performans 89/74/76 ve LCP 3,8/7,2/5,9 sn arasında dalgalandı; üç koşuda da sunucu yanıtı 40 ms ve doküman ~0,5 sn'de tamamlandı, yani dalgalanma §19.2'de anlatılan simüle model yapaylığıdır (renk değişikliği yükleme performansını etkileyemez).
 - Regresyon kontrolü, devtools throttling ile birebir: deploy öncesi FCP=LCP 3,7 sn (sıcak); deploy sonrası 3,7 ve 3,6 sn; doküman ve CSS bitiş zamanları aynı. Regresyon yok.
+
+## 20. Egress diyeti ve ISR — 15-16 Eylül 2026
+
+Tasarım: `docs/superpowers/specs/2026-09-15-university-data-egress-isr-design.md`. Plan: `docs/superpowers/plans/2026-09-15-university-data-egress-isr-plan.md`. Commit'ler: `44b4e11` … `be7a2d5`.
+
+### 20.1 Teşhis (Supabase logları ve ölçümler, 15 Eylül)
+
+- Supabase Usage: egress 7,27 / 5 GB (%145), dönem 27 Ağustos – 27 Eylül 2026; mühlet 14 Ekim 2026'da bitiyor, sonrasında 402 kısıtlaması riski. Free planda para cezası yok, kısıtlama var; ikinci mühlet verilmiyor.
+- Edge log sayımı: 15 Eylül'de 24 saatte 168 tam çekim (deploy ve yerel ölçümler dahil); normal günlerde 82-88 (3 Eylül: 88, 10 Eylül: 82). Her çekim farklı bir Vercel IP'sinden geliyor (soğuk instance); her çekim = `universities` (0-63) + `university_departments` (0-999, 1000-1007) + `program_admission_details` (0-899).
+- Boyutlar (gzip): universities 12,5 KB, departments 32 KB, admission details 4.575 KB → 4,62 MB/çekim; admission tablosu ham 13,8 MB. 85 çekim × 4,6 MB ≈ 390 MB/gün ≈ 7,3 GB / 19 gün; ekrandaki rakamla uyumlu.
+- Tetikleyiciler: ana sayfa, `/universities`, `/cities`, 64 üniversite + 1.072 program sayfası, sitemap (saatte bir), `/api/universities` (her tarayıcı ziyareti) ve chat aynı tam çekimi kullanıyordu. Program sayfası kendi okulu için 90-180 KB'a ihtiyaç duyarken 4,6 MB çekiyordu; sitemap 16 KB için 4,6 MB.
+- Bu aynı zamanda §19.3'teki "soğuk sunucuda gövde 3-5 sn" gecikmesinin kaynağıdır.
+
+### 20.2 Uygulanan tasarım
+
+- `lib/universities.server.ts`: tam çekim `getUniversitiesData()` kaldırıldı. `getUniversitiesDirectory()` (okul + program satırları + kabul dosyası VARLIĞI, `select=department_id`; ~47 KB gz) ve `getUniversityById(id)` (`eq("university_id")` filtreli tam okul; 90-180 KB gz). İkisi de 3 saatlik in-memory memo, single-flight, stale-on-error.
+- `Department.hasAdmissionDetails` bayrağı + `lib/admissionPresence.ts` `hasAdmissionDossier()`; hub öneri bonusu ve "yakında" rozeti bununla çalışır.
+- Ana sayfa, liste, şehirler, sitemap, `/api/universities`, chat → dizin. `/api/universities` yanıtı ağır kabul metinlerini taşımaz (224 KB ham; Vercel gzip ile ~50 KB beklenir); `no-store` sözleşmesi aynen.
+- ISR: `app/page.tsx` (`force-dynamic` kaldırıldı), üniversite ve program `page.tsx` → `revalidate = 10800` + boş `generateStaticParams()`; üniversite sayfası sunucuda `searchParams` okumaz, geri tuşu `?from=list`i tıklama anında tarayıcıdan okur.
+- `useUniversitiesData(initial, { fetchWhenInitial: false })`: detay leaf'leri sunucudan gelen tam okul verisini korur; hafif dizin kabul panelini ezmez.
+- Guard'lar: `check:university-data-source` (yeni sözleşme), `check:seo-vitals` (revalidate/generateStaticParams/searchParams), `check-universities-server-compose` (bayrak üç durum), `check:university-details-ui` (cameFromList client'ta).
+
+### 20.3 Yerel doğrulama (16 Eylül, üretim derlemesi)
+
+| Kontrol | Sonuç |
+|---|---|
+| Build rota tablosu | `/` ○ revalidate 3h; `/universities/[id]` ve program rotası ● (bos generateStaticParams); `/universities`, `/cities` ƒ (searchParams) |
+| Program sayfası | 1. istek 0,49 sn `x-nextjs-cache: MISS`, 2. istek 5 ms `HIT`; `Cache-Control: s-maxage=10800`; H1, 4 JSON-LD, kabul paneli sunucu HTML'inde (13 "Tümünü oku") |
+| Tarayıcı (hidrasyon sonrası) | Kabul paneli tam: "Kaynaklı kabul dosyası", 1. Başvuru takvimi, 2. Kabul koşulları; dizin verisi paneli ezmedi |
+| Üniversite sayfası | MISS 42 ms → HIT; H1 + 31 program linki |
+| Ana sayfa / liste / şehirler / sitemap | HIT ve 64 · 1.008 istatistikleri; 12 okul kartı; şehirler 200; sitemap 1.079 URL |
+| 404 | `/universities/99999` ve `/universities/abc` → 404 |
+| `/api/universities` | 64 okul, 1.008 program, 900 `hasAdmissionDetails`; `admissionDetails`/`sourceQuotes` yok |
+| Supabase edge logları (kendi IP'm) | admission isteği ya hedefli (`university_id=eq.9`, range 0-28) ya yalnız `select=department_id`; tam admission çekimi yok |
+| Guard'lar, `tsc`, ESLint | Yeşil (tek lint hatası `app/communities/prototype`, bu işin dışında ve untracked) |
+
+### 20.4 Deploy sonrası doğrulama
+
+Deploy Kerem'in "gönder" onayıyla yapılır; sonrasında doldurulacak: `x-vercel-cache` HIT, devtools throttling soğuk/sıcak FCP ve gövde bitişi, ertesi gün Supabase log sayımı (istek/gün ve boyut) ve Usage ekranı.
+
+### 20.5 Notlar ve kalan riskler
+
+- Yeni program importları canlıya en geç 3 saat gecikmeyle yansır (memo + ISR). On-demand revalidation yok; istenirse sonra eklenir.
+- Free planda ikinci mühlet olmadığı için haftalık Supabase Usage kontrolü SEO takvimine eklendi; hedef dönem başına < 1 GB.
+- Chat sistem promptu artık kabul metinlerini içermiyor; AI masası duraklatılmış durumda, yeniden açılırsa değerlendirilir.
+- Sonraki hız kalemi §19.6/2: font diyeti (10 preload dosyası, CSS ile yarış).
