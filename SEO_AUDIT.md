@@ -886,7 +886,7 @@ Bekleyen: Supabase edge log sayımı (istek/gün ve istek biçimi) ve Usage ekra
 
 ## 21. Search Console kontrolü — 16 Eylül 2026
 
-Kaynak: Kerem'in paylaştığı ekran görüntüleri (gece 00:30-01:00). Core Web Vitals ve Güvenlik/Manuel işlemler ekranları bu turda görüntülenmedi.
+Kaynak: Kerem'in paylaştığı ekran görüntüleri (gece 00:30-01:30). Core Web Vitals: veri yok (düşük trafik, beklenen). Güvenlik/Manuel işlemler: sorun yok.
 
 ### 21.1 Ekranlar
 
@@ -919,7 +919,7 @@ Kaynak: Kerem'in paylaştığı ekran görüntüleri (gece 00:30-01:00). Core We
 
 ### 21.3 Aksiyonlar
 
-1. Kerem (GSC): `/universities`, `/isee`, `/scholarships` için URL denetimi canlı test + "dizine eklenmesini iste" (yalnız bu üçü). Deploy sonrası sitemap'i yeniden gönder.
+1. Kerem (GSC): `/universities`, `/isee`, `/scholarships` için URL denetimi canlı test + "dizine eklenmesini iste" — 16 Eylül gece yapıldı. Deploy (4f1cfd4, 16 Eylül ~01:20) sonrası sitemap yeniden gönderimi Kerem'de.
 2. Kod (16 Eylül, bu kayıtla aynı commit): `app/sitemap.ts` her URL'ye `lastModified` yazar: veritabanı `updated_at` (okul, program, kabul dosyası) ile `PAGE_TEMPLATE_LAST_MODIFIED = 2026-09-15` (program/üniversite/ISEE/burs sayfalarına ön görüşme bölümü eklenen deploy) arasındaki en yeni tarih. Şablon içeriği yeniden değişirse sabit güncellenir; uydurma tarih yok.
 3. Kod: `/universities` sunucu HTML'i artık 64 okulun tamamını listeler (önceden 12). Googlebot `/api/universities`'i robots.txt nedeniyle çekemediği için 52 okula iç link göremiyordu.
 4. İzleme (1-2 hafta): "Keşfedildi" ve "noindex" sayıları, tarama istatistiklerinde istek sayısı ve ortalama yanıt süresi (605 ms bazı), performans raporunda gösterim. Googlebot masaüstü ağırlığı ve %7 302 (girişli sayfa yönlendirmeleri) not edildi, acil değil.
