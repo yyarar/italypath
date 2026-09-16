@@ -13,6 +13,9 @@ import { useUniversitiesData } from "@/lib/useUniversitiesData";
 import { ComingSoonNotice } from "./ComingSoonNotice";
 import { ProgramAdmissionDetailsPanel } from "./ProgramAdmissionDetailsPanel";
 import { ProgramDirectory } from "./ProgramDirectory";
+import { DetailBreadcrumb } from "./DetailBreadcrumb";
+import { RelatedLinks } from "./RelatedLinks";
+import type { RelatedLinksData } from "@/lib/relatedLinks";
 import { ProgramMetaStrip } from "./ProgramMetaStrip";
 import { ProgramPortraitHeader } from "./ProgramPortraitHeader";
 
@@ -20,12 +23,14 @@ interface DepartmentDetailClientProps {
   initialUniversity: University | null;
   initialDepartmentSlug: string;
   idFromUrl: string;
+  related: RelatedLinksData | null;
 }
 
 export function DepartmentDetailClient({
   initialUniversity,
   initialDepartmentSlug,
   idFromUrl,
+  related,
 }: DepartmentDetailClientProps) {
   const router = useRouter();
   const { isSignedIn } = useAuth();
@@ -128,6 +133,15 @@ export function DepartmentDetailClient({
   return (
     <div className="min-h-screen bg-[var(--editorial-paper)] pb-28 text-[var(--editorial-ink)]">
       <ScrollProgress />
+      <DetailBreadcrumb
+        ariaLabel={t.breadcrumb.label}
+        items={[
+          { label: t.breadcrumb.home, href: "/" },
+          { label: t.breadcrumb.universities, href: "/universities" },
+          { label: university.name, href: `/universities/${idFromUrl}` },
+        ]}
+        current={department.name}
+      />
       <ProgramPortraitHeader
         university={university}
         department={department}
@@ -245,6 +259,7 @@ export function DepartmentDetailClient({
           }}
         />
 
+        {related ? <RelatedLinks data={related} labels={t.related} /> : null}
       </main>
     </div>
   );

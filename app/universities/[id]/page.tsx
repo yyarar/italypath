@@ -1,5 +1,6 @@
 import { UniversityDetailClient } from "@/components/university-details/UniversityDetailClient";
-import { getUniversityById } from "@/lib/universities.server";
+import { getUniversitiesDirectory, getUniversityById } from "@/lib/universities.server";
+import { buildRelatedLinks, type RelatedLinksData } from "@/lib/relatedLinks";
 import { notFound } from "next/navigation";
 
 const BASE_URL = "https://italypath.app";
@@ -50,6 +51,14 @@ export default async function UniversityDetailPage({
 
   if (!university) notFound();
 
+  // Ic baglanti agi: hafif dizinle ayni sehirdeki okullar + sehir rehberi + bolge bursu (hata sayfayi bozmaz).
+  let related: RelatedLinksData | null = null;
+  try {
+    related = buildRelatedLinks(university, await getUniversitiesDirectory());
+  } catch (error) {
+    console.error("Failed to build related links:", error);
+  }
+
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -79,6 +88,7 @@ export default async function UniversityDetailPage({
       <UniversityDetailClient
         initialUniversity={university}
         idFromUrl={resolvedParams.id}
+        related={related}
       />
     </>
   );

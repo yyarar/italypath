@@ -164,6 +164,14 @@ export const translations = {
       scholarships: { eyebrow: "Ücretsiz ön görüşme", title: "Burs başvurusunda takıldın mı?", body: "Bölgeni, ISEE sürecini ve gerekli belgeleri birlikte netleştirelim." },
       isee: { eyebrow: "Ücretsiz ön görüşme", title: "ISEE sonucunu nasıl kullanacağından emin değil misin?", body: "Burs uygunluğunu ve sonraki adımlarını ücretsiz ön görüşmede konuşalım." },
     },
+    breadcrumb: { label: "Sayfa yolu", home: "Ana sayfa", universities: "Üniversiteler" },
+    related: {
+      title: "İlgili bağlantılar",
+      sameCity: "{city} şehrindeki diğer üniversiteler",
+      cityGuide: "{city} şehir rehberi",
+      regionScholarships: "{region} bölge bursları",
+      programs: "program",
+    },
     featureAnimations: {
       marquee: [
         "Milano",
@@ -1225,6 +1233,14 @@ export const translations = {
       university: { eyebrow: "Free consultation", title: "Which program here fits you?", body: "Talk through program choice, documents, and the application flow in a free consultation." },
       scholarships: { eyebrow: "Free consultation", title: "Stuck on a scholarship application?", body: "Let's go over your region, the ISEE process, and the documents you need." },
       isee: { eyebrow: "Free consultation", title: "Not sure how to use your ISEE result?", body: "Discuss scholarship eligibility and your next steps in a free consultation." },
+    },
+    breadcrumb: { label: "Breadcrumb", home: "Home", universities: "Universities" },
+    related: {
+      title: "Related links",
+      sameCity: "Other universities in {city}",
+      cityGuide: "{city} city guide",
+      regionScholarships: "{region} regional scholarships",
+      programs: "programs",
     },
     featureAnimations: {
       marquee: [

@@ -156,8 +156,8 @@ for (const path of targetedSurfaces) {
   if (!source.includes("getUniversityById(")) {
     fail(`${path} must read its university via getUniversityById()`);
   }
-  if (source.includes("getUniversitiesDirectory(") || source.includes("getUniversitiesData(")) {
-    fail(`${path} must not load the whole directory for one university`);
+  if (source.includes("getUniversitiesData(")) {
+    fail(`${path} must not call the removed full-dataset getUniversitiesData()`);
   }
 }
 

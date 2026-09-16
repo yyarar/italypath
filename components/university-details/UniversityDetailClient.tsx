@@ -11,17 +11,22 @@ import { useLanguage } from "@/context/LanguageContext";
 import { useFavorites } from "@/lib/useFavorites";
 import { useUniversitiesData } from "@/lib/useUniversitiesData";
 import { ProgramDirectory } from "./ProgramDirectory";
+import { DetailBreadcrumb } from "./DetailBreadcrumb";
+import { RelatedLinks } from "./RelatedLinks";
+import type { RelatedLinksData } from "@/lib/relatedLinks";
 import { UniversityHighlights } from "./UniversityHighlights";
 import { UniversityPortraitMasthead } from "./UniversityPortraitMasthead";
 
 interface UniversityDetailClientProps {
   initialUniversity: University | null;
   idFromUrl: string;
+  related: RelatedLinksData | null;
 }
 
 export function UniversityDetailClient({
   initialUniversity,
   idFromUrl,
+  related,
 }: UniversityDetailClientProps) {
   const router = useRouter();
   const { t, language } = useLanguage();
@@ -111,6 +116,16 @@ export function UniversityDetailClient({
   return (
     <div className="min-h-screen bg-[var(--editorial-paper)] pb-28 text-[var(--editorial-ink)]">
       <ScrollProgress />
+      <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
+        <DetailBreadcrumb
+          ariaLabel={t.breadcrumb.label}
+          items={[
+            { label: t.breadcrumb.home, href: "/" },
+            { label: t.breadcrumb.universities, href: "/universities" },
+          ]}
+          current={university.name}
+        />
+      </div>
       <UniversityPortraitMasthead
         university={university}
         eyebrow={t.detail.portraitEyebrow}
@@ -155,6 +170,7 @@ export function UniversityDetailClient({
         />
 
         <ConsultPrompt {...t.consultPrompt.university} cta={t.consultPrompt.cta} />
+        {related ? <RelatedLinks data={related} labels={t.related} /> : null}
       </main>
     </div>
   );

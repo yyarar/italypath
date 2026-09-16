@@ -1,5 +1,6 @@
 import { DepartmentDetailClient } from "@/components/university-details/DepartmentDetailClient";
-import { getUniversityById } from "@/lib/universities.server";
+import { getUniversitiesDirectory, getUniversityById } from "@/lib/universities.server";
+import { buildRelatedLinks, type RelatedLinksData } from "@/lib/relatedLinks";
 import { notFound } from "next/navigation";
 
 const BASE_URL = "https://italypath.app";
@@ -48,6 +49,14 @@ export default async function DepartmentDetailPage({ params }: DepartmentDetailP
 
   if (!university) notFound();
 
+  // Ic baglanti agi: hafif dizinle ayni sehirdeki okullar + sehir rehberi + bolge bursu (hata sayfayi bozmaz).
+  let related: RelatedLinksData | null = null;
+  try {
+    related = buildRelatedLinks(university, await getUniversitiesDirectory());
+  } catch (error) {
+    console.error("Failed to build related links:", error);
+  }
+
   // Program adını layout'taki ile aynı şekilde slug üzerinden çöz.
   const department = university.departments.find(
     (d) => d.slug === resolvedParams.deptSlug
@@ -91,6 +100,7 @@ export default async function DepartmentDetailPage({ params }: DepartmentDetailP
         initialUniversity={university}
         initialDepartmentSlug={resolvedParams.deptSlug}
         idFromUrl={resolvedParams.id}
+        related={related}
       />
     </>
   );

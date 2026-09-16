@@ -60,12 +60,15 @@ requireTokens("university detail wrapper", universityPage, [
   "if (!university) notFound();",
   "UniversityDetailClient",
   "initialUniversity",
+  "buildRelatedLinks(",
 ]);
 
 requireTokens("university detail client", universityDetailClient, [
   // ISR: wrapper searchParams okumaz; "listeden geldi" davranisi client'ta URL'den turetilir
   "cameFromList",
   "window.location.search",
+  "DetailBreadcrumb",
+  "RelatedLinks",
   "UniversityPortraitMasthead",
   "UniversityHighlights",
   "ProgramDirectory",
@@ -87,9 +90,12 @@ requireTokens("program detail wrapper", programPage, [
   "DepartmentDetailClient",
   "initialUniversity",
   "initialDepartmentSlug",
+  "buildRelatedLinks(",
 ]);
 
 requireTokens("program detail client", departmentDetailClient, [
+  "DetailBreadcrumb",
+  "RelatedLinks",
   "ProgramPortraitHeader",
   "ProgramAdmissionDetailsPanel",
   "ProgramDirectory",
