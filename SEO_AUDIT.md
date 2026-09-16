@@ -923,3 +923,19 @@ Kaynak: Kerem'in paylaştığı ekran görüntüleri (gece 00:30-01:30). Core We
 2. Kod (16 Eylül, bu kayıtla aynı commit): `app/sitemap.ts` her URL'ye `lastModified` yazar: veritabanı `updated_at` (okul, program, kabul dosyası) ile `PAGE_TEMPLATE_LAST_MODIFIED = 2026-09-15` (program/üniversite/ISEE/burs sayfalarına ön görüşme bölümü eklenen deploy) arasındaki en yeni tarih. Şablon içeriği yeniden değişirse sabit güncellenir; uydurma tarih yok.
 3. Kod: `/universities` sunucu HTML'i artık 64 okulun tamamını listeler (önceden 12). Googlebot `/api/universities`'i robots.txt nedeniyle çekemediği için 52 okula iç link göremiyordu.
 4. İzleme (1-2 hafta): "Keşfedildi" ve "noindex" sayıları, tarama istatistiklerinde istek sayısı ve ortalama yanıt süresi (605 ms bazı), performans raporunda gösterim. Googlebot masaüstü ağırlığı ve %7 302 (girişli sayfa yönlendirmeleri) not edildi, acil değil.
+
+## 22. İç bağlantı ağı, 1. faz — 16 Eylül 2026
+
+Tasarım: `docs/superpowers/specs/2026-09-16-internal-linking-phase1-design.md`. Commit: `4c112cf` (push 16 Eylül gece, Kerem onayıyla).
+
+- Üniversite ve program sayfalarına görünür ekmek kırıntısı (Ana sayfa › Üniversiteler › Okul › Program; JSON-LD ile aynı sıra) ve "İlgili bağlantılar" kutusu eklendi: aynı şehirdeki en fazla 6 okul (program sayısıyla), şehir rehberi (`/cities?city=…`), bölge bursları (`/scholarships?region=…`). Sunucu HTML'inde; hafif dizinle hesaplanır, hata sayfayı bozmaz.
+- Amaç: Google'ın Haziran'dan beri geri dönmediği 1.136 sayfaya iç sinyal (§21) ve ziyaretçiye gezinme yolu. Yeni URL yok; 2. fazda şehir/bölge için gerçek adresli sayfalar ve "aynı alanda diğer üniversiteler" (resmi bölüm sınıfı kodu `degree_class`: 900 kabul kaydının 778'inde var, 124 kod 2+ okulda ortak; kodu olmayanlar için hub anahtar kelime sözlüğü) değerlendirilecek.
+- Yerel doğrulama: Politecnico di Milano ve Aeronautical Engineering sayfalarında kırıntı + 6 Milano okulu + Milano şehir rehberi + Lombardia bursları; guard'lar (`check:university-details-ui` yeni token'lar), tsc, lint temiz.
+- Deploy sonrası doğrulama ve izleme (§21.3/4 ile birlikte): production HTML'de kırıntı ve kutu; 1-2 hafta sonra GSC tarama istatistikleri ve "Keşfedildi" sayısı.
+
+### Sonraki aday işler (öncelik sırası, Kerem seçer)
+
+1. Program/üniversite başlık ve meta açıklamalarını Türkçeleştirip benzersizleştirme (1.072 sayfa, şablon işi; §7).
+2. Font diyeti (§19.6/2): 10 preload dosyası → ilk ekranda kullanılan ağırlıklar; ilk çizim ~3,7 sn'nin ana kalemi.
+3. Anahtar kelime listesi (GSC + otomatik tamamlama) ve rehber içerik/şehir sayfası kararı (§21, 2. faz).
+4. Ön görüşme SSS'sine FAQPage şeması; program sayfası LCP görselinin `priority`/`sizes` incelemesi.
