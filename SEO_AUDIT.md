@@ -931,7 +931,7 @@ Tasarım: `docs/superpowers/specs/2026-09-16-internal-linking-phase1-design.md`.
 - Üniversite ve program sayfalarına görünür ekmek kırıntısı (Ana sayfa › Üniversiteler › Okul › Program; JSON-LD ile aynı sıra) ve "İlgili bağlantılar" kutusu eklendi: aynı şehirdeki en fazla 6 okul (program sayısıyla), şehir rehberi (`/cities?city=…`), bölge bursları (`/scholarships?region=…`). Sunucu HTML'inde; hafif dizinle hesaplanır, hata sayfayı bozmaz.
 - Amaç: Google'ın Haziran'dan beri geri dönmediği 1.136 sayfaya iç sinyal (§21) ve ziyaretçiye gezinme yolu. Yeni URL yok; 2. fazda şehir/bölge için gerçek adresli sayfalar ve "aynı alanda diğer üniversiteler" (resmi bölüm sınıfı kodu `degree_class`: 900 kabul kaydının 778'inde var, 124 kod 2+ okulda ortak; kodu olmayanlar için hub anahtar kelime sözlüğü) değerlendirilecek.
 - Yerel doğrulama: Politecnico di Milano ve Aeronautical Engineering sayfalarında kırıntı + 6 Milano okulu + Milano şehir rehberi + Lombardia bursları; guard'lar (`check:university-details-ui` yeni token'lar), tsc, lint temiz.
-- Deploy sonrası doğrulama ve izleme (§21.3/4 ile birlikte): production HTML'de kırıntı ve kutu; 1-2 hafta sonra GSC tarama istatistikleri ve "Keşfedildi" sayısı.
+- Deploy doğrulandı (16 Eylül gece): production'da üniversite ve program sayfalarında kırıntı satırı ve "İlgili bağlantılar" kutusu (6 aynı-şehir linki) sunucu HTML'inde. İzleme: 1-2 hafta sonra GSC tarama istatistikleri ve "Keşfedildi" sayısı (§21.3/4).
 
 ### Sonraki aday işler (öncelik sırası, Kerem seçer)
 
