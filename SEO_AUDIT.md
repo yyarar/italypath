@@ -875,7 +875,17 @@ Sonuç: soğuk sunucudaki 3-5 saniyelik gövde beklemesi kalktı (hedef < 1,5 sn
 
 Not: yalnızca belge değişikliği içeren push'lar da Vercel'de yeni deploy üretir ve ISR önbelleğini sıfırlar (ilk istekler yeniden MISS). Belge commit'lerini toplu push et; istenirse Vercel "Ignored Build Step" ile yalnız `*.md`/`docs/` değişikliklerinde build atlanabilir.
 
-Bekleyen: Supabase edge log sayımı (istek/gün ve istek biçimi) ve Usage ekranı egress eğrisi, 17 Eylül'den itibaren (log servisi 16 Eylül gece geçici olarak hata verdi).
+Supabase edge log sayımı, 17 Eylül 2026 (son 24 saat, Vercel IP'leri) ve karşılaştırma:
+
+| Gün | `program_admission_details` istekleri | Tahmini egress |
+|---|---|---:|
+| 14 Eylül (deploy öncesi) | 128 tam çekim (0-899, eski 4,6 MB'lık sorgu) | ~590 MB |
+| 16-17 Eylül (deploy sonrası) | 0 tam çekim; 111 yalnız-varlık (dizin) + 250 hedefli (tek okul; toplam ~8.800 satır) | ~30-50 MB (dizin ~6 MB + hedefli 21-45 MB) |
+
+- Eski tam çekim production'da tamamen bitti. Düşüş 12-20 kat; bu tempoyla aylık ~0,9-1,5 GB (Free kota 5 GB).
+- Hedefli çekim sayısının (250/gün, 100 farklı instance) deploy öncesi toplam çekimden (128/gün) yüksek olması tarama trafiğinin arttığına işaret ediyor (sitemap lastmod + yeniden gönderim sonrası); GSC tarama istatistikleriyle teyit edilecek.
+- Yedek optimizasyon (gerekirse): program sayfası okulun tüm kabul satırları yerine yalnız kendi satırını, üniversite sayfası yalnız varlık bilgisini çekerse hedefli egress 5-10 kat daha düşer.
+- Fatura düzeyi: 27 Ağustos-27 Eylül dönemi kümülatif olduğu için "aşıldı" görünmeye devam eder; belirleyici olan 27 Eylül'de başlayan dönemdir (14 Ekim'e kadar beklenen ~0,5-0,9 GB). Usage ekranındaki günlük egress grafiği Kerem'den istenir.
 
 ### 20.5 Notlar ve kalan riskler
 
