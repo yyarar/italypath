@@ -504,4 +504,26 @@ const iseeSectionSource = await readFile(path.join(root, "components/IseeSection
 assert.ok(iseeSectionSource.includes("t.isee.homeCardItems"), "IseeSection reads its items from translations");
 assert.ok(!iseeSectionSource.includes("language ==="), "IseeSection must not branch on language for copy");
 
+// ---------------------------------------------------------------------------
+// 5) Biçimlendirme yardımcıları
+// ---------------------------------------------------------------------------
+const format = await importTs("components/isee/format.ts");
+
+assert.equal(format.fill("{sqm} m² = {value}", { sqm: 120, value: "60.000 €" }), "120 m² = 60.000 €");
+assert.equal(format.fill("{missing} stays", {}), "{missing} stays", "unknown placeholders are left untouched");
+assert.equal(format.formatAmount(1_250_000, "tr"), "1.250.000");
+assert.equal(format.formatAmount(1_250_000, "en"), "1,250,000");
+assert.equal(format.formatAmount(44.8161, "tr", 4), "44,8161");
+assert.equal(format.formatAmount(44.8161, "en", 4), "44.8161");
+assert.equal(format.formatAmount(999.5, "tr"), "1.000", "rounds to whole units by default");
+assert.equal(format.formatAmount(-1_500, "tr"), "-1.500");
+assert.equal(format.formatEuro(26_887.93, "tr"), "26.888 €");
+assert.equal(format.formatEuro(26_887.93, "en"), "€26,888");
+assert.equal(format.formatEuro(26_887.93, "tr", 2), "26.887,93 €");
+assert.equal(format.parseDigits("1.250.000"), 1_250_000);
+assert.equal(format.parseDigits("12abc3"), 123);
+assert.equal(format.parseDigits(""), null);
+assert.equal(format.parseDigits("abc"), null);
+assert.equal(format.parseDigits("12345", 3), 123, "input length is capped");
+
 console.log("ISEE Parificato checks passed");
