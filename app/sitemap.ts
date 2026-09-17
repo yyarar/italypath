@@ -4,12 +4,13 @@ import type { University } from '@/types/universities';
 
 export const revalidate = 3600;
 
-// Sayfa sablonunun son anlamli icerik degisikligi: 2026-09-15'te program, universite, ISEE ve burs
-// sayfalarina ucretsiz on gorusme bolumu eklendi (a1eea73). Sablon icerigi yeniden degisirse bu
-// tarihi guncelle. Veritabani zaman damgalari (updated_at) bundan yeniyse onlar kullanilir.
-// Google lastmod'u yeniden tarama onceligi icin kullanir; tarih uydurma, gercek degisiklige bagla
-// (SEO_AUDIT.md §21).
-const PAGE_TEMPLATE_LAST_MODIFIED = new Date('2026-09-15T00:00:00Z');
+// Sayfa sablonunun son anlamli icerik degisikligi: 2026-09-17'de program detay sayfasi yeniden
+// duzenlendi (program kunyesi yukari, kabul metinleri madde madde, kaynak izi acilir-kapanir,
+// Turkce baslik ve aciklama). Onceki kayit: 2026-09-15 ucretsiz on gorusme bolumu (a1eea73).
+// Sablon icerigi yeniden degisirse bu tarihi guncelle. Veritabani zaman damgalari (updated_at)
+// bundan yeniyse onlar kullanilir. Google lastmod'u yeniden tarama onceligi icin kullanir;
+// tarih uydurma, gercek degisiklige bagla (SEO_AUDIT.md §21).
+const PAGE_TEMPLATE_LAST_MODIFIED = new Date('2026-09-17T00:00:00Z');
 
 function toDate(value?: string): Date | null {
     if (!value) return null;
