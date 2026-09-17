@@ -177,6 +177,30 @@ const midSentence =
   "The programme-specific A.Y. 2026-2027 call is not yet published, so the requirements-check date is unknown; in the A.Y. 2025-2026 call the corresponding date was 16 September 2025; the office confirmed this by e-mail.";
 assert.deepEqual(splitAdmissionSegments(midSentence), [{ text: midSentence }]);
 
+// 3bb. Liste ortasindaki kucuk harfli devam cumlesi onceki maddeye eklenir,
+// bolme iptal edilmez (Ca' Foscari AB takvimi gibi uzun metinler).
+const listWithContinuation = splitAdmissionSegments(
+  "Application Window: April 7, 2026 - June 4, 2026; Results Publication: June 25, 2026; Notes: EU applicants must complete the preliminary evaluation on apply.unive.it; the exact portal round cut-offs are not reproduced on the official pages.",
+);
+assert.equal(listWithContinuation.length, 3);
+assert.equal(listWithContinuation[2].label, "Notes");
+assert.ok(
+  listWithContinuation[2].text.endsWith(
+    "apply.unive.it; the exact portal round cut-offs are not reproduced on the official pages.",
+  ),
+  listWithContinuation[2].text,
+);
+assert.equal(
+  lettersOnly(
+    listWithContinuation
+      .map((segment) => `${segment.label ?? ""}${segment.text}`)
+      .join(""),
+  ),
+  lettersOnly(
+    "Application Window: April 7, 2026 - June 4, 2026; Results Publication: June 25, 2026; Notes: EU applicants must complete the preliminary evaluation on apply.unive.it; the exact portal round cut-offs are not reproduced on the official pages.",
+  ),
+);
+
 // 3c. Kisa ama "Etiket: deger" biciminde olan parcalar bolunur
 const labelledList = splitAdmissionSegments(
   "Academic Year: 2026/2027; Opening Date: 2026-01-15; Closing Date: 2026-04-06",

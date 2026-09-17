@@ -35,6 +35,9 @@ const departmentDetailClient = read("components/university-details/DepartmentDet
 
 const portraitFiles = [
   "components/university-details/ProgramAdmissionDetailsPanel.tsx",
+  "components/university-details/ProgramSummaryStrip.tsx",
+  "components/university-details/ProgramSourceTrail.tsx",
+  "components/university-details/programDossierShared.tsx",
   "components/university-details/programAdmissionPresentation.ts",
   "components/university-details/ProgramTransitionEntry.tsx",
   "components/university-details/ProgramDirectory.tsx",
@@ -150,6 +153,14 @@ requireTokens("portrait components", portraitSource, [
   "uncertaintyNote",
   "details.uncertaintyNotes.map",
   "break-words",
+  // 2026-09-17 program detay turu: kabul metni madde madde, tarihler yerel,
+  // kunye ayri bilesen, kaynak izi acilir-kapanir, tek DOM kopyasi + aria.
+  "splitAdmissionSegments",
+  "localizeAdmissionDates",
+  "localizeAdmissionType",
+  "ProgramSummaryStrip",
+  "ProgramSourceTrail",
+  "aria-expanded",
 ]);
 
 forbidTokens("detail redesign", allDetailSource, [

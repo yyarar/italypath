@@ -276,18 +276,27 @@ export function splitAdmissionSegments(value: string): AdmissionSegment[] {
       .map((part) => part.trim())
       .filter((part) => part.length > 0);
 
+    // Kucuk harfle baslayan parca cumlenin devamidir: yeni madde acmak yerine
+    // onceki maddeye geri eklenir (noktali virgul korunur).
+    const merged = parts.reduce<string[]>((result, part) => {
+      if (result.length > 0 && !SEGMENT_START_PATTERN.test(part)) {
+        result[result.length - 1] = `${result[result.length - 1]}; ${part}`;
+        return result;
+      }
+      result.push(part);
+      return result;
+    }, []);
+
     // Kisa parca yalnizca "Etiket: deger" biciminde kabul edilir; boylece
     // "Opening Date: 2026-01-15" bolunurken cumle parcalari bolunmez.
     const splittable =
-      parts.length >= MIN_SEGMENT_COUNT &&
-      parts.every(
+      merged.length >= MIN_SEGMENT_COUNT &&
+      merged.every(
         (part) =>
-          SEGMENT_START_PATTERN.test(part) &&
-          (part.length >= MIN_SEGMENT_LENGTH ||
-            SEGMENT_LABEL_PATTERN.test(part)),
+          part.length >= MIN_SEGMENT_LENGTH || SEGMENT_LABEL_PATTERN.test(part),
       );
 
-    return splittable ? parts : [line];
+    return splittable ? merged : [line];
   });
 
   if (pieces.length < 2) return [{ text: pieces[0] ?? "" }];
