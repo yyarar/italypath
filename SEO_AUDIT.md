@@ -817,6 +817,7 @@ Tasarım: `docs/superpowers/specs/2026-09-15-university-data-egress-isr-design.m
 - Boyutlar (gzip): universities 12,5 KB, departments 32 KB, admission details 4.575 KB → 4,62 MB/çekim; admission tablosu ham 13,8 MB. 85 çekim × 4,6 MB ≈ 390 MB/gün ≈ 7,3 GB / 19 gün; ekrandaki rakamla uyumlu.
 - Tetikleyiciler: ana sayfa, `/universities`, `/cities`, 64 üniversite + 1.072 program sayfası, sitemap (saatte bir), `/api/universities` (her tarayıcı ziyareti) ve chat aynı tam çekimi kullanıyordu. Program sayfası kendi okulu için 90-180 KB'a ihtiyaç duyarken 4,6 MB çekiyordu; sitemap 16 KB için 4,6 MB.
 - Bu aynı zamanda §19.3'teki "soğuk sunucuda gövde 3-5 sn" gecikmesinin kaynağıdır.
+- Temmuz'daki memo düzeltmesinden sonra neden yeniden aşıldı (17 Eylül analizi): egress = günlük soğuk instance sayısı × tam veri seti boyutu; ikisi birden büyüdü. (a) Kabul dosyası satırları Temmuz sonunda 571 iken 30 Ağustos-6 Eylül importlarıyla 900'e çıktı (+%58; çekim başına ~4,6 MB). (b) Günlük soğuk çekim ~40'tan (28 Ağustos, ~190 MB/gün) 80-90'a (Eylül başı), 128-168'e (14-15 Eylül) yükseldi: 1.000+ sayfaya gelen bot/tarayıcı dalgaları, düşük gerçek trafikte instance'ların sürekli yenilenmesi ve sık deploy'lar (28 Ağustos 23 commit, 15-16 Eylül 26 commit; her deploy tüm memo'ları sıfırlar; 15 Eylül'deki ölçüm trafiği de o günün 683 MB'lık zirvesine katkı yaptı). In-memory memo yalnızca aynı instance'a gelen tekrar istekleri kurtarıyordu; yapısal sorun (her yeni instance'ın ve her sayfa türünün tüm veri setini indirmesi) duruyordu.
 
 ### 20.2 Uygulanan tasarım
 
