@@ -526,4 +526,55 @@ assert.equal(format.parseDigits(""), null);
 assert.equal(format.parseDigits("abc"), null);
 assert.equal(format.parseDigits("12345", 3), 123, "input length is capped");
 
+// ---------------------------------------------------------------------------
+// 6) Sayfa ve kaynak guard'ları
+// ---------------------------------------------------------------------------
+for (const removed of ["lib/iseeCalculator.ts", "components/isee/IseeCalculatorClient.tsx"]) {
+  assert.ok(!existsSync(path.join(root, removed)), `legacy ordinary-ISEE file must be removed: ${removed}`);
+}
+
+for (const pureFile of [
+  "lib/isee/parificato.ts",
+  "lib/isee/reference.ts",
+  "lib/isee/verdict.ts",
+  "lib/isee/wizardState.ts",
+]) {
+  const source = await readFile(path.join(root, pureFile), "utf8");
+  assert.ok(!/from\s+["'](react|next)/.test(source), `${pureFile} must stay framework-free`);
+  assert.ok(!/^import\s+(?!type\b)/m.test(source), `${pureFile} may only use type imports`);
+}
+
+const pageSource = await readFile(path.join(root, "app/isee/page.tsx"), "utf8");
+assert.ok(pageSource.includes("IseeParificatoClient"), "app/isee/page.tsx renders the Parificato client leaf");
+assert.ok(!pageSource.includes('"use client"'), "app/isee/page.tsx stays a server wrapper");
+
+const layoutSource = await readFile(path.join(root, "app/isee/layout.tsx"), "utf8");
+assert.ok(layoutSource.includes("ISEE Parificato"), "metadata names ISEE Parificato");
+assert.ok(layoutSource.includes('canonical: "/isee"'), "canonical stays /isee");
+
+const clientSource = await readFile(path.join(root, "components/isee/IseeParificatoClient.tsx"), "utf8");
+assert.ok(clientSource.includes("<h1"), "client leaf renders the page H1");
+assert.ok(clientSource.includes("<IseeWizard"), "client leaf renders the wizard");
+assert.ok(clientSource.includes("<IseeExplainer"), "client leaf renders the visible explainer");
+assert.ok(clientSource.includes("<ConsultPrompt"), "client leaf keeps the consultation prompt");
+
+for (const uiFile of [
+  "components/isee/IseeParificatoClient.tsx",
+  "components/isee/IseeWizard.tsx",
+  "components/isee/IseeResult.tsx",
+  "components/isee/IseeExplainer.tsx",
+  "components/isee/steps/HouseholdStep.tsx",
+  "components/isee/steps/IncomeStep.tsx",
+  "components/isee/steps/PropertyStep.tsx",
+  "components/isee/steps/SavingsStep.tsx",
+]) {
+  const source = await readFile(path.join(root, uiFile), "utf8");
+  assert.ok(source.includes("t.iseeTool"), `${uiFile} must read its copy from t.iseeTool`);
+  assert.ok(!/[ğĞşŞıİçÇöÖüÜ]/.test(source.replace(/\/\/.*$/gm, "")), `${uiFile} must not hard-code Turkish copy`);
+}
+
+const explainerSource = await readFile(path.join(root, "components/isee/IseeExplainer.tsx"), "utf8");
+assert.ok(explainerSource.includes("CITY_THRESHOLDS"), "explainer lists the sourced city limits");
+assert.ok(explainerSource.includes("sourceUrl"), "explainer links every limit to its official source");
+
 console.log("ISEE Parificato checks passed");

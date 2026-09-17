@@ -80,7 +80,7 @@ for (const [file, key] of [
   ["components/university-details/DepartmentDetailClient.tsx", "t.consultPrompt.program"],
   ["components/university-details/UniversityDetailClient.tsx", "t.consultPrompt.university"],
   ["components/scholarships/ScholarshipsExplorer.tsx", "t.consultPrompt.scholarships"],
-  ["components/isee/IseeCalculatorClient.tsx", "t.consultPrompt.isee"],
+  ["components/isee/IseeParificatoClient.tsx", "t.consultPrompt.isee"],
 ]) {
   const source = read(file);
   must(source, "<ConsultPrompt", `${file} kutu`);
