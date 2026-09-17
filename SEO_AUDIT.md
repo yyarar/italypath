@@ -885,7 +885,7 @@ Supabase edge log sayımı, 17 Eylül 2026 (son 24 saat, Vercel IP'leri) ve kar�
 - Eski tam çekim production'da tamamen bitti. Düşüş 12-20 kat; bu tempoyla aylık ~0,9-1,5 GB (Free kota 5 GB).
 - Hedefli çekim sayısının (250/gün, 100 farklı instance) deploy öncesi toplam çekimden (128/gün) yüksek olması tarama trafiğinin arttığına işaret ediyor (sitemap lastmod + yeniden gönderim sonrası); GSC tarama istatistikleriyle teyit edilecek.
 - Yedek optimizasyon (gerekirse): program sayfası okulun tüm kabul satırları yerine yalnız kendi satırını, üniversite sayfası yalnız varlık bilgisini çekerse hedefli egress 5-10 kat daha düşer.
-- Fatura düzeyi: 27 Ağustos-27 Eylül dönemi kümülatif olduğu için "aşıldı" görünmeye devam eder; belirleyici olan 27 Eylül'de başlayan dönemdir (14 Ekim'e kadar beklenen ~0,5-0,9 GB). Usage ekranındaki günlük egress grafiği Kerem'den istenir.
+- Fatura düzeyi (Usage ekranı, 17 Eylül): dönem toplamı 7,40 GB (aşım 2,40 GB). Günlük egress grafiği 28 Ağustos'ta ~190 MB'tan 15 Eylül'de 683 MB'a tırmanmış; 16 ve 17 Eylül çubukları ~30 MB'a çökmüş (log tahminiyle uyumlu). Dönem kümülatif olduğu için 27 Eylül'e kadar "aşıldı" görünür (tahmini kapanış ~7,7 GB); belirleyici olan 27 Eylül'de başlayan dönemdir (14 Ekim'e kadar beklenen ~0,5 GB / 5 GB). Organizasyon Vercel Marketplace üzerinden yönetiliyor; plan değişikliği gerekirse Vercel'den yapılır.
 
 ### 20.5 Notlar ve kalan riskler
 
