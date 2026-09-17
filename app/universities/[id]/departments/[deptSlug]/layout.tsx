@@ -1,8 +1,19 @@
 import { Metadata } from 'next';
 import { DEFAULT_UNIVERSITY_IMAGE } from '@/lib/universityDefaults';
 import { getUniversityById } from '@/lib/universities.server';
+import { getCityGuideName } from '@/lib/cities/normalization';
+import { hasAdmissionDossier } from '@/lib/admissionPresence';
+import {
+    buildProgramDescription,
+    buildProgramTitle,
+    type ProgramMetadataInput,
+} from '@/lib/programMetadata';
 
 const BASE_URL = 'https://italypath.app';
+
+// Sehir degeri "Napoli / Caserta" gibi birlesik olabilir; rehber adini kullan.
+const resolveCity = (city: string) =>
+    getCityGuideName(city) ?? city.split('/')[0].trim() ?? city;
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string; deptSlug: string }> }): Promise<Metadata> {
     const resolvedParams = await params;
@@ -11,20 +22,33 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
     if (!university || !department) {
         return {
-            title: 'Program Not Found - ItalyPath',
-            description: 'The requested program could not be found.',
+            title: 'Program bulunamadı | ItalyPath',
+            description: 'Aradığınız program kaydı bulunamadı.',
         };
     }
 
+    const metadataInput: ProgramMetadataInput = {
+        programName: department.name,
+        universityName: university.name,
+        city: university.city,
+        level: department.level,
+        durationYears: department.durationYears,
+        languages: department.languages,
+        hasDossier: hasAdmissionDossier(department),
+    };
+
+    const title = buildProgramTitle(metadataInput, resolveCity);
+    const description = buildProgramDescription(metadataInput, resolveCity);
+
     return {
-        title: `${department.name} — ${university.name} | ItalyPath`,
-        description: `Study ${department.name} at ${university.name} in ${university.city}, Italy. Tuition: ${university.fee}. Explore program details, requirements, and more.`,
+        title,
+        description,
         alternates: {
             canonical: `/universities/${resolvedParams.id}/departments/${resolvedParams.deptSlug}`,
         },
         openGraph: {
             title: `${department.name} — ${university.name}`,
-            description: `Study ${department.name} at ${university.name} in ${university.city}, Italy.`,
+            description,
             url: `${BASE_URL}/universities/${resolvedParams.id}/departments/${resolvedParams.deptSlug}`,
             images: [university.image || DEFAULT_UNIVERSITY_IMAGE],
         },
