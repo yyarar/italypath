@@ -346,4 +346,141 @@ assert.equal(
   "Padova ISPE status is near at 44,500",
 );
 
+// ---------------------------------------------------------------------------
+// 3) Form durumu ve doğrulama
+// ---------------------------------------------------------------------------
+const wizard = await importTs("lib/isee/wizardState.ts");
+
+assert.deepEqual(wizard.STEP_ORDER, ["household", "income", "property", "savings"], "four steps in order");
+
+const emptyForm = wizard.createEmptyForm(2025);
+assert.equal(emptyForm.referenceYear, 2025, "default year comes from the caller");
+assert.equal(emptyForm.members, null, "form opens empty");
+assert.equal(emptyForm.disabledMembers, 0, "disabled members default to zero");
+assert.deepEqual(emptyForm.earners, [{ id: 1, kind: null, grossTry: null }], "one empty earner row");
+assert.equal(wizard.nextEarnerId(emptyForm.earners), 2, "next earner id follows the highest id");
+assert.equal(wizard.nextEarnerId([]), 1, "earner ids start at one");
+
+assert.deepEqual(
+  wizard.validateStep("household", emptyForm),
+  { members: "choose", children: "choose" },
+  "empty household step asks for members and children",
+);
+assert.deepEqual(
+  wizard.validateStep("household", { ...emptyForm, members: 4, children: 2 }),
+  { hasMinorChildren: "choose" },
+  "minor-children question is required when there are children",
+);
+assert.deepEqual(
+  wizard.validateStep("household", { ...emptyForm, members: 2, children: 0 }),
+  {},
+  "no minor-children question without children",
+);
+assert.deepEqual(
+  wizard.validateStep("household", { ...emptyForm, members: 3, children: 5, hasMinorChildren: false }),
+  { children: "childrenExceedMembers" },
+  "children cannot exceed members",
+);
+assert.deepEqual(
+  wizard.validateStep("household", { ...emptyForm, members: 4, children: 2, hasMinorChildren: true }),
+  { hasChildUnderThree: "choose", parentsWork: "choose" },
+  "follow-up questions are required when there are minor children",
+);
+assert.deepEqual(
+  wizard.validateStep("household", {
+    ...emptyForm,
+    members: 4,
+    children: 2,
+    hasMinorChildren: true,
+    hasChildUnderThree: false,
+    parentsWork: true,
+  }),
+  {},
+  "complete household step is valid",
+);
+
+assert.deepEqual(
+  wizard.validateStep("income", emptyForm),
+  { "earner-1-kind": "earnerKind", "earner-1-amount": "earnerAmount" },
+  "empty earner row reports both fields",
+);
+assert.deepEqual(
+  wizard.validateStep("income", { ...emptyForm, earners: [] }),
+  { earners: "earnersEmpty" },
+  "at least one earner is required",
+);
+assert.deepEqual(
+  wizard.validateStep("income", { ...emptyForm, earners: [{ id: 1, kind: "employee", grossTry: 0 }] }),
+  { "earner-1-amount": "earnerAmount" },
+  "zero income is not accepted",
+);
+assert.deepEqual(
+  wizard.validateStep("income", { ...emptyForm, earners: [{ id: 3, kind: "pension", grossTry: 480_000 }] }),
+  {},
+  "complete income step is valid",
+);
+
+assert.deepEqual(
+  wizard.validateStep("property", emptyForm),
+  { tenure: "choose", hasOtherBuildings: "choose" },
+  "empty property step asks for tenure and other buildings",
+);
+assert.deepEqual(
+  wizard.validateStep("property", { ...emptyForm, tenure: "owned", hasOtherBuildings: true }),
+  { homeSqm: "sqm", otherSqm: "sqm" },
+  "owned home and other buildings need square metres",
+);
+assert.deepEqual(
+  wizard.validateStep("property", { ...emptyForm, tenure: "rented", hasOtherBuildings: false }),
+  { annualRentTry: "rent" },
+  "rented home needs the yearly rent",
+);
+assert.deepEqual(
+  wizard.validateStep("property", { ...emptyForm, tenure: "free", hasOtherBuildings: false }),
+  {},
+  "rent-free home without other buildings is valid",
+);
+
+assert.deepEqual(wizard.validateStep("savings", emptyForm), { savingsTry: "savings" }, "savings are required");
+assert.deepEqual(wizard.validateStep("savings", { ...emptyForm, savingsTry: 0 }), {}, "zero savings are accepted");
+
+const formA = {
+  ...emptyForm,
+  members: 4,
+  children: 2,
+  hasMinorChildren: false,
+  earners: [
+    { id: 1, kind: "employee", grossTry: 1_200_000 },
+    { id: 2, kind: "employee", grossTry: 600_000 },
+  ],
+  tenure: "owned",
+  homeSqm: 120,
+  annualRentTry: 999_999,
+  hasOtherBuildings: true,
+  otherSqm: 80,
+  savingsTry: 500_000,
+};
+const inputA = wizard.toParificatoInput(formA);
+assert.deepEqual(inputA.home, { tenure: "owned", sqm: 120, mortgageTry: 0 }, "only the chosen tenure is mapped");
+assert.deepEqual(inputA.otherBuildings, { sqm: 80, mortgageTry: 0 });
+assert.deepEqual(inputA.savings, { tryAmount: 500_000, eurAmount: 0 });
+near(calculateParificato(inputA, RATE_2025).isee, 17_771.49, "form A reproduces family A");
+
+const formHidden = wizard.toParificatoInput({
+  ...formA,
+  children: 0,
+  hasMinorChildren: true,
+  hasChildUnderThree: true,
+  parentsWork: true,
+  tenure: "rented",
+  annualRentTry: 240_000,
+  hasOtherBuildings: false,
+  otherSqm: 80,
+});
+assert.equal(formHidden.hasMinorChildren, false, "minor flags are ignored without children");
+assert.equal(formHidden.hasChildUnderThree, false);
+assert.equal(formHidden.parentsWork, false);
+assert.deepEqual(formHidden.home, { tenure: "rented", annualRentTry: 240_000 });
+assert.deepEqual(formHidden.otherBuildings, { sqm: 0, mortgageTry: 0 }, "hidden other-building values are ignored");
+
 console.log("ISEE Parificato checks passed");
