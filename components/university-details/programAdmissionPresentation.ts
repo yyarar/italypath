@@ -188,3 +188,140 @@ export function admissionFieldIsUncertain(
 ) {
   return canonicalizeAdmissionFieldRefs(details.uncertain).includes(field);
 }
+
+/* Kaynakli kabul metinlerinin sunum bicimi (2026-09-17 program detay turu).
+   Kural: bilgi eklenmez, cikarilmaz, yeniden yazilmaz. Yalnizca satir/madde
+   bolme, etiket ayirma ve ISO tarih bicimlendirmesi yapilir. */
+
+export interface AdmissionSegment {
+  label?: string;
+  text: string;
+}
+
+const TR_MONTHS = [
+  "Ocak",
+  "Şubat",
+  "Mart",
+  "Nisan",
+  "Mayıs",
+  "Haziran",
+  "Temmuz",
+  "Ağustos",
+  "Eylül",
+  "Ekim",
+  "Kasım",
+  "Aralık",
+] as const;
+
+const ADMISSION_TYPE_TR: Record<string, string> = {
+  "open access": "Serbest giriş",
+  "open access with entry requirements examination":
+    "Giriş şartları incelemesiyle serbest giriş",
+  "open with entry requirements examination":
+    "Giriş şartları incelemesiyle serbest giriş",
+  "selection call": "Seçme çağrısı",
+  "selection call / academic evaluation":
+    "Seçme çağrısı / akademik değerlendirme",
+  "restricted access": "Kontenjanlı giriş",
+  tolc: "TOLC sınavı",
+  "document evaluation": "Belge değerlendirmesi",
+};
+
+const SEGMENT_LABEL_PATTERN = /^([A-Z][A-Za-z0-9 /&'()-]{2,70}):\s+(.+)$/;
+// Madde basi gibi duran parca: buyuk harf, rakam, madde isareti ya da koseli
+// parantez ile baslar. Kucuk harfle baslayan parca cumle ortasidir; boyle bir
+// parca varsa satir bolunmez (yarim cumle maddesi olusmasin).
+const SEGMENT_START_PATTERN = /^[A-Z0-9•\-[(]/;
+const MIN_SEGMENT_LENGTH = 25;
+const MIN_SEGMENT_COUNT = 3;
+const DEGREE_CLASS_CODE_PATTERN =
+  /\b(LMG\s*\/\s*\d{1,2}|LM\s*-?\s*\d{1,2}|L\s*-?\s*\d{1,2})\b/gi;
+
+// cleanAdmissionDisplayValue tum bosluklari teke indirir; bu surum satir
+// sonlarini korur, cunku madde bolmesi onlara dayanir.
+export function cleanAdmissionTextPreservingBreaks(value: string) {
+  return value
+    .replace(/\s*\[uncertain\]\s*/gi, " ")
+    .split(/\r?\n/)
+    .map((line) => line.replace(/[^\S\n]+/g, " ").trim())
+    .filter((line) => line.length > 0)
+    .join("\n");
+}
+
+// Yalnizca ISO tarihleri (2026-01-14) okunur hale getirir. Ingilizce ay adlari
+// bilincli olarak cevrilmez: cumlenin kalani Ingilizce oldugu icin karisik
+// metin olusmasin (Kerem karari, 17 Eylul 2026).
+export function localizeAdmissionDates(value: string, language: "tr" | "en") {
+  if (language !== "tr") return value;
+
+  return value.replace(
+    /\b(\d{4})-(\d{2})-(\d{2})\b/g,
+    (match, year: string, month: string, day: string) => {
+      const monthIndex = Number(month) - 1;
+      const dayNumber = Number(day);
+      if (monthIndex < 0 || monthIndex > 11) return match;
+      if (dayNumber < 1 || dayNumber > 31) return match;
+      return `${dayNumber} ${TR_MONTHS[monthIndex]} ${year}`;
+    },
+  );
+}
+
+export function splitAdmissionSegments(value: string): AdmissionSegment[] {
+  const cleaned = cleanAdmissionTextPreservingBreaks(value);
+  if (cleaned.length === 0) return [{ text: "" }];
+
+  const pieces = cleaned.split("\n").flatMap((line) => {
+    const parts = line
+      .split(/;\s+/)
+      .map((part) => part.trim())
+      .filter((part) => part.length > 0);
+
+    // Kucuk harfle baslayan parca cumlenin devamidir: yeni madde acmak yerine
+    // onceki maddeye geri eklenir (noktali virgul korunur).
+    const merged = parts.reduce<string[]>((result, part) => {
+      if (result.length > 0 && !SEGMENT_START_PATTERN.test(part)) {
+        result[result.length - 1] = `${result[result.length - 1]}; ${part}`;
+        return result;
+      }
+      result.push(part);
+      return result;
+    }, []);
+
+    // Kisa parca yalnizca "Etiket: deger" biciminde kabul edilir; boylece
+    // "Opening Date: 2026-01-15" bolunurken cumle parcalari bolunmez.
+    const splittable =
+      merged.length >= MIN_SEGMENT_COUNT &&
+      merged.every(
+        (part) =>
+          part.length >= MIN_SEGMENT_LENGTH || SEGMENT_LABEL_PATTERN.test(part),
+      );
+
+    return splittable ? merged : [line];
+  });
+
+  if (pieces.length < 2) return [{ text: pieces[0] ?? "" }];
+
+  return pieces.map((piece) => {
+    const match = SEGMENT_LABEL_PATTERN.exec(piece);
+    if (!match) return { text: piece };
+    return { label: match[1], text: match[2] };
+  });
+}
+
+export function localizeAdmissionType(value: string, language: "tr" | "en") {
+  if (language !== "tr") return value;
+  return ADMISSION_TYPE_TR[value.trim().toLowerCase()] ?? value;
+}
+
+export function extractDegreeClassCodes(value: string | undefined) {
+  if (!value) return [];
+
+  const codes = [...value.matchAll(DEGREE_CLASS_CODE_PATTERN)].map((match) => {
+    const raw = match[1].replace(/\s+/g, "").toUpperCase();
+    if (raw.startsWith("LMG/")) return raw;
+    if (raw.startsWith("LM")) return `LM-${raw.replace(/^LM-?/, "")}`;
+    return `L-${raw.replace(/^L-?/, "")}`;
+  });
+
+  return [...new Set(codes)];
+}

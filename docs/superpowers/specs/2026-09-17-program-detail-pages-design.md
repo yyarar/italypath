@@ -42,7 +42,7 @@ Son satır bu turun en büyük teknik bulgusu: program sayfası bugün **okulun 
 
 - `splitAdmissionSegments(value)`: önce satır sonları, sonra `; ` ile böler. Kural: en az 2 ayırıcı **ve** her parça ≥ 25 karakter olmalı; aksi hâlde tek paragraf döner. Karakter kaybı yok (birim test: parçaları birleştir → kaynakla eşit, yalnız boşluk farkı).
 - `extractSegmentLabel(segment)`: baştaki `Label:` kalıbını (büyük harfle başlayan, ≤ 40 karakter) ayırır; ör. `Application Window:`, `Round Name:`, `Test Dates:`. Etiket kalın, gerisi normal.
-- `localizeAdmissionDates(text, "tr")`: yalnız TR dilinde, yalnız tarih biçimlerini çevirir — `2026-01-14` → `14 Ocak 2026`; `18 March 2026` → `18 Mart 2026`; `January 15, 2026` → `15 Ocak 2026`; `March 2026` → `Mart 2026`. Başka hiçbir kelime çevrilmez. EN dilinde metin aynen kalır.
+- `localizeAdmissionDates(text, "tr")`: yalnız TR dilinde ve **yalnız ISO tarihlerini** çevirir — `2026-01-14` → `14 Ocak 2026`. İngilizce ay adları (`18 March 2026`) bilinçli olarak çevrilmez: cümlenin kalanı İngilizce olduğu için karışık metin oluşmasın (Kerem kararı, 17 Eylül). EN dilinde metin aynen kalır.
 - `localizeAdmissionType(value, "tr")`: yalnız 8 yaygın kategorik ifadeyi Türkçeleştirir (`open access` → "Serbest giriş", `selection call` → "Seçme çağrısı", `restricted access` → "Kontenjanlı giriş", `TOLC` → "TOLC sınavı" vb.; 517/900 kayıt). Tanınmayan ifade **aynen** gösterilir.
 - `extractDegreeClassCode(value)`: `LM-32`, `L-8`, `LMG/01` gibi resmî kodu çıkarır (İş 4'te de kullanılır).
 
@@ -99,7 +99,7 @@ Kabul ölçütü: yeni guard `npm run check:program-metadata` — saf fonksiyonu
 - Şehir rehberi ve bölge bursu linkleri `RelatedLinks`'ten buraya taşınır; `RelatedLinks` aynı şehirdeki okullar + (İş 4) aynı alandaki okullar olarak kalır. Tekrar yok.
 - Şehri rehberde olmayan veya bölgesi tanımsız okullarda ilgili satır gösterilmez (mevcut `buildRelatedLinks` davranışı).
 - Guard: `ProgramNextSteps.tsx` de `portraitFiles` listesine eklenir (yasak token taraması ve literal kapsaması için).
-- **Ölçüm açık soru:** ön görüşme tıklamalarını saymak Vercel Web Analytics özel olay desteği gerektirir (ücretsiz planda yok). Plan Pro ise `track("consult_cta_click", { source: "program" })` eklenir; değilse bu kalem atlanır ve Kerem'e ayrıca sorulur.
+- **Ölçüm kalemi kapsam dışı:** ön görüşme tıklamasını saymak Vercel Web Analytics özel olay desteği gerektirir; hesap ücretsiz (Hobby) planda olduğu için bu özellik yok (Kerem, 17 Eylül). `track()` çağrısı eklenmez. Ölçüm ileride Pro'ya geçilirse veya lead formuna kaynak alanı eklenirse ayrı iş olarak değerlendirilir.
 
 ### İş 7 (H) — Erişilebilirlik ≥ 95
 
@@ -156,8 +156,8 @@ Deploy 1, 2 ve 3'te sitemap sabiti güncellenir; belge commit'leri bu push'lara 
 | Guard'lar literal dizeler arıyor | Her iş öncesi ilgili guard dosyası okunur; sözleşme değişirse guard aynı commit'te güncellenir |
 | Sık deploy ISR önbelleğini sıfırlar | 4 deploy grubu; belge commit'leri biriktirilip aynı push'a bindirilir |
 
-## Açık sorular
+## Açık notlar
 
-1. **Vercel planı:** özel olay sayımı (ön görüşme tıklaması) mümkün mü? Ücretsiz planda değilse İş 6'nın ölçüm kalemi atlanır.
+1. Ön görüşme tıklama ölçümü kapsam dışı (Vercel Hobby planında özel olay yok). Brifteki "ön görüşme çağrısına tıklama ölçülebilir olmalı" ölçütü bu turda karşılanmıyor; bu bilinçli bir karar.
 2. Türkçe cümle özetleri (LLM ile toplu üretim) park edildi; ileride açılırsa ayrı tasarım ve veritabanı alanı gerekir.
 3. Kodu olmayan 137 dosyalı programda "aynı alanda diğer üniversiteler" bölümü gösterilmiyor; anahtar kelime eşleştirmesi bilinçli olarak kullanılmıyor.
