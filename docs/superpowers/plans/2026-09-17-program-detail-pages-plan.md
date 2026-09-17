@@ -111,34 +111,28 @@ assert.equal(
   "First intake: 2026-02-26 to 2026-04-16.",
 );
 
-// 6. Tarih yerelleştirme: yalnizca tarihler, yalnizca TR
+// 6. Tarih yerelleştirme: YALNIZCA ISO biçimi (2026-01-14), yalnizca TR
+// (Kerem karari 17 Eylul: Ingilizce ay adlari cevrilmez, karisik cumle olusmasin.)
 assert.equal(
   localizeAdmissionDates("2025-11-27 to 2026-01-14 13:00", "tr"),
   "27 Kasım 2025 to 14 Ocak 2026 13:00",
 );
 assert.equal(
   localizeAdmissionDates("18 March 2026 to 4 May 2026", "tr"),
-  "18 Mart 2026 to 4 Mayıs 2026",
-);
-assert.equal(
-  localizeAdmissionDates("February 23, 2026 at 00:00 Italian time", "tr"),
-  "23 Şubat 2026 at 00:00 Italian time",
+  "18 March 2026 to 4 May 2026",
 );
 assert.equal(
   localizeAdmissionDates("From October 2026 to 10 February 2027", "tr"),
-  "From Ekim 2026 to 10 Şubat 2027",
+  "From October 2026 to 10 February 2027",
 );
 assert.equal(
-  localizeAdmissionDates("18 March 2026", "en"),
-  "18 March 2026",
-);
-// Kucuk harfli kip fiili tarih sayilmaz
-assert.equal(
-  localizeAdmissionDates("applicants may submit until 2026", "tr"),
-  "applicants may submit until 2026",
+  localizeAdmissionDates("2026-01-14", "en"),
+  "2026-01-14",
 );
 // Gecersiz ISO tarih aynen kalir
 assert.equal(localizeAdmissionDates("2026-13-40", "tr"), "2026-13-40");
+// Yil-ay ya da tek basina yil dokunulmaz
+assert.equal(localizeAdmissionDates("academic year 2026/2027", "tr"), "academic year 2026/2027");
 
 // 7. Kabul tipi: bilinen kategoriler Turkce, bilinmeyen aynen
 assert.equal(localizeAdmissionType("open access", "tr"), "Serbest giriş");
@@ -188,13 +182,6 @@ const TR_MONTHS = [
   "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık",
 ] as const;
 
-const EN_MONTHS = [
-  "january", "february", "march", "april", "may", "june",
-  "july", "august", "september", "october", "november", "december",
-] as const;
-
-const EN_MONTH_PATTERN = EN_MONTHS.join("|");
-
 const ADMISSION_TYPE_TR: Record<string, string> = {
   "open access": "Serbest giriş",
   "open access with entry requirements examination":
@@ -222,52 +209,19 @@ export function cleanAdmissionTextPreservingBreaks(value: string) {
     .join("\n");
 }
 
-function monthIndexFromEnglish(month: string) {
-  return EN_MONTHS.indexOf(month.toLowerCase() as (typeof EN_MONTHS)[number]);
-}
-
+// Yalnizca ISO tarihleri (2026-01-14) okunur hale getirir. Ingilizce ay adlari
+// bilincli olarak cevrilmez (Kerem karari 17 Eylul): cumlenin kalani Ingilizce
+// oldugu icin karisik metin olusmasin.
 export function localizeAdmissionDates(value: string, language: "tr" | "en") {
   if (language !== "tr") return value;
 
-  return value
-    // 2026-01-14 -> 14 Ocak 2026
-    .replace(/\b(\d{4})-(\d{2})-(\d{2})\b/g, (match, year, month, day) => {
-      const monthIndex = Number(month) - 1;
-      const dayNumber = Number(day);
-      if (monthIndex < 0 || monthIndex > 11) return match;
-      if (dayNumber < 1 || dayNumber > 31) return match;
-      return `${dayNumber} ${TR_MONTHS[monthIndex]} ${year}`;
-    })
-    // 18 March 2026 / 18 March -> 18 Mart 2026 / 18 Mart
-    .replace(
-      new RegExp(
-        `\\b(\\d{1,2})(?:st|nd|rd|th)?\\s+(${EN_MONTH_PATTERN})\\b(\\s+\\d{4})?`,
-        "gi",
-      ),
-      (match, day, month, year) => {
-        const monthIndex = monthIndexFromEnglish(month);
-        if (monthIndex < 0) return match;
-        return `${Number(day)} ${TR_MONTHS[monthIndex]}${year ?? ""}`;
-      },
-    )
-    // February 23, 2026 -> 23 Şubat 2026 (yalnız büyük harfle başlayan ay adı)
-    .replace(
-      new RegExp(`\\b(${EN_MONTH_PATTERN})\\s+(\\d{1,2}),?\\s+(\\d{4})\\b`, "g"),
-      (match, month, day, year) => {
-        const monthIndex = monthIndexFromEnglish(month);
-        if (monthIndex < 0) return match;
-        return `${Number(day)} ${TR_MONTHS[monthIndex]} ${year}`;
-      },
-    )
-    // October 2026 -> Ekim 2026 (yalnız büyük harfle başlayan ay adı)
-    .replace(
-      new RegExp(`\\b(${EN_MONTH_PATTERN})\\s+(\\d{4})\\b`, "g"),
-      (match, month, year) => {
-        const monthIndex = monthIndexFromEnglish(month);
-        if (monthIndex < 0) return match;
-        return `${TR_MONTHS[monthIndex]} ${year}`;
-      },
-    );
+  return value.replace(/\b(\d{4})-(\d{2})-(\d{2})\b/g, (match, year, month, day) => {
+    const monthIndex = Number(month) - 1;
+    const dayNumber = Number(day);
+    if (monthIndex < 0 || monthIndex > 11) return match;
+    if (dayNumber < 1 || dayNumber > 31) return match;
+    return `${dayNumber} ${TR_MONTHS[monthIndex]} ${year}`;
+  });
 }
 
 export function splitAdmissionSegments(value: string): AdmissionSegment[] {
