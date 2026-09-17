@@ -138,15 +138,16 @@ Davranış kuralları:
 lib/isee/
   parificato.ts   # saf hesap: calculateParificato(input, rate) → sonuç + döküm; bağımlılıksız
   reference.ts    # kurlar, beş şehir limiti, kaynak/tarih meta verisi; averageLimits()
-  verdict.ts      # bandFor(), overallLight(), cityStatuses(); bağımlılıksız (limitler parametre)
+  verdict.ts      # bandFor(), statusFor(), buildVerdict(); bağımlılıksız (limitler parametre)
+  wizardState.ts  # form tipi, boş durum, form → hesap girdisi dönüşümü, adım doğrulayıcıları (saf)
 components/isee/
   IseeParificatoClient.tsx  # sayfa client leaf: başlık, sihirbaz, açıklama, ConsultPrompt
   IseeWizard.tsx            # adım durumu, doğrulama, gezinme, sonuç geçişi
   steps/HouseholdStep.tsx, IncomeStep.tsx, PropertyStep.tsx, SavingsStep.tsx
   IseeResult.tsx            # ışık, kartlar, şehir listesi, döküm
   IseeExplainer.tsx         # görünür açıklama/SEO bölümü
-  fields.tsx                # MoneyField, NumberChips, YesNo, FieldHint, FieldError
-  wizardState.ts            # form tipi, boş durum, form → hesap girdisi dönüşümü, adım doğrulayıcıları (saf)
+  fields.tsx                # MoneyField, NumberChips, ChoiceChips, YesNo, FieldHint, FieldError
+  format.ts                 # fill, formatAmount, formatEuro, parseDigits (Intl'siz, hydration güvenli)
 ```
 
 - `app/isee/page.tsx` yeni client leaf'i render eder (`force-dynamic` korunur); `app/isee/layout.tsx` metadata'sı "ISEE Parificato" odağıyla güncellenir (canonical aynı).
