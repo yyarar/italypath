@@ -259,19 +259,227 @@ export const translations = {
     },
     // 👇 ISEE Çevirileri (Türkçe)
     isee: {
-      title: "ISEE Hesaplayıcı (Tahmini)",
-      subtitle: "İtalya'da üniversite harç indirimi ve burslar için tahmini değerinizi hesaplayın.",
-      incomeLabel: "Ailenin Toplam Yıllık Brüt Geliri (€)",
-      assetsLabel: "Banka Mevduatı & Mal Varlığı (€)",
-      familyLabel: "Ailedeki Toplam Kişi Sayısı",
-      calculateBtn: "Hesapla",
-      resultTitle: "Tahmini ISEE Değeriniz",
-      disclaimer: "*Bu değer bilgilendirme amaçlıdır. Resmi geçerliliği yoktur.",
-      homeCardBadge: "ISEE SIMULATOR",
-      homeCardTitle: "Burs ve Harç İndirimi Şansınızı Hesaplayın",
-      homeCardDesc: "İtalya'da eğitim maliyetlerini düşürmenin ilk adımı ISEE değerinizi bilmektir. Ücretsiz simülatörümüzle tahmini değerinizi saniyeler içinde öğrenin.",
-      homeCardBtn: "Hemen Hesapla",
-      person: "Kişi"
+      homeCardTitle: "Burs şansını ISEE Parificato ile ölç",
+      homeCardDesc: "Ailen Türkiye'de yaşıyorsa burs başvurusunda ISEE Parificato hesaplanır. Geliri TL, evi m² olarak gir; tahmini değerini ve beş büyük şehrin burs limitlerine göre durumunu gör.",
+      homeCardItems: ["Gelir (TL)", "Ev ve mülk (m²)", "Birikim ve aile"],
+      homeCardBtn: "Hesaplamaya başla"
+    },
+    iseeTool: {
+      header: {
+        back: "Ana sayfaya dön",
+        eyebrow: "ItalyPath ISEE",
+        title: "ISEE Parificato hesaplayıcı",
+        subtitle: "Ailen Türkiye'de yaşıyorsa İtalya'daki burs başvurularında ISEE Parificato hesaplanır. Geliri TL, evi m² olarak gir; tahmini ISEE ve ISPE değerini ve burs limitlerine göre durumunu gör.",
+        trust: ["TL ve m² ile sorar", "Resmi kur, 2026/27 limitleri", "Tahmindir, resmi değeri CAF verir"]
+      },
+      nav: {
+        stepWord: "Adım",
+        back: "Geri",
+        next: "Devam",
+        calculate: "Hesapla",
+        edit: "Cevapları düzenle",
+        restart: "Baştan başla",
+        yes: "Evet",
+        no: "Hayır",
+        optional: "isteğe bağlı",
+        increase: "Artır",
+        decrease: "Azalt"
+      },
+      units: { lira: "TL", euro: "€", sqm: "m²" },
+      household: {
+        title: "Aile",
+        heading: "Evde kaç kişi yaşıyorsunuz?",
+        membersHint: "Öğrenci dahil: anne, baba, kardeşler ve aynı evde yaşayan diğer kişiler.",
+        childrenLabel: "Bunların kaçı çocuk?",
+        childrenHint: "Öğrenci dahil, anne-babasıyla yaşayan çocukların sayısı.",
+        minorsLabel: "18 yaşından küçük çocuk var mı?",
+        underThreeLabel: "3 yaşından küçük çocuk var mı?",
+        parentsWorkLabel: "Anne ve baba, seçeceğin yılda en az 6 ay çalıştı mı?",
+        parentsWorkHint: "Tek ebeveynli ailede o ebeveynin çalışması yeterli.",
+        specialToggle: "Özel durum: engelli birey",
+        disabledLabel: "Engelli veya bakıma muhtaç kişi sayısı",
+        disabledHint: "Belgelenebilir orta veya ağır engellilik. Yoksa 0 bırak."
+      },
+      income: {
+        title: "Yıl ve gelir",
+        yearHeading: "Hangi yılın rakamlarını giriyorsun?",
+        yearHint: "2026/27 başvurularında Torino ve Bologna 2025'i; Milano, Roma ve Padova 2024'ü istedi. Emin değilsen 2025'i seç.",
+        rateNote: "Resmi kur (Banca d'Italia {year} ortalaması): 1 € = {rate} TL",
+        earnersHeading: "Ailede geliri olan herkesi ekle",
+        earnersHint: "O yılın toplam brüt geliri: kesintiler öncesi, ikramiye dahil. Yalnızca net maaşı biliyorsan yaklaşık brüt için neti 0,72'ye böl; bu kaba bir tahmindir.",
+        earnerTitle: "Gelir sahibi {n}",
+        kindLabel: "Gelir türü",
+        kinds: { employee: "Maaşlı", pension: "Emekli", other: "Diğer" },
+        otherHint: "Diğer: serbest meslek, ticari kazanç, kira geliri.",
+        amountLabel: "Yıllık brüt gelir",
+        addEarner: "Gelir sahibi ekle",
+        removeEarner: "Satırı sil"
+      },
+      property: {
+        title: "Ev ve mülk",
+        heading: "Oturduğunuz ev kimin?",
+        tenure: {
+          owned: "Kendi evimiz",
+          rented: "Kirada oturuyoruz",
+          free: "Başkasının evi, kira ödemiyoruz"
+        },
+        sqmLabel: "Evin büyüklüğü (brüt m²)",
+        mortgageLabel: "Kalan konut kredisi",
+        mortgageHint: "31 Aralık {year} günü kalan anapara borcu. Yoksa boş bırak.",
+        rentLabel: "Yıllık kira",
+        rentHint: "{year} yılında ödenen toplam kira. Kira kontratı belgelenirse gelirden düşülür (en çok 7.000 €).",
+        sqmInfo: "İtalya evin piyasa değerine bakmaz. Her m² sabit 500 € sayılır: {sqm} m² = {value}.",
+        sqmInfoEmpty: "İtalya evin piyasa değerine bakmaz. Her m² sabit 500 € sayılır. Örnek: 120 m² = 60.000 €.",
+        homeExemptNote: "Oturduğunuz evin ilk 52.500 €'luk kısmı hesaba katılmaz.",
+        otherHeading: "Başka ev, dükkan veya yazlığınız var mı?",
+        otherHint: "Aile üyelerinden herhangi birinin üzerine kayıtlı binalar. Arsa ve tarla sayılmaz.",
+        otherSqmLabel: "Diğer binaların toplam büyüklüğü (brüt m²)",
+        otherMortgageLabel: "Bu binalar için kalan kredi",
+        otherMortgageHint: "Yoksa boş bırak."
+      },
+      savings: {
+        title: "Birikim",
+        heading: "31 Aralık {year} günü ailenin toplam birikimi ne kadardı?",
+        hint: "Tüm aile üyelerinin vadesiz ve vadeli hesapları, fon, hisse ve şirket payları dahil.",
+        tryLabel: "TL birikim",
+        tryHint: "Birikim yoksa 0 yaz.",
+        eurLabel: "Döviz ve altın birikimi (euro karşılığı)",
+        eurHint: "Dolar, euro veya altın hesabı varsa yaklaşık euro karşılığını yaz. Yoksa boş bırak."
+      },
+      errors: {
+        choose: "Bir seçenek seç.",
+        childrenExceedMembers: "Çocuk sayısı evdeki kişi sayısından fazla olamaz.",
+        earnersEmpty: "En az bir gelir sahibi ekle.",
+        earnerKind: "Gelir türünü seç.",
+        earnerAmount: "Yıllık brüt geliri TL olarak yaz.",
+        sqm: "Brüt m² değerini yaz.",
+        rent: "Yıllık kirayı TL olarak yaz.",
+        savings: "Birikimi TL olarak yaz; birikim yoksa 0 yaz.",
+        summary: "Devam etmeden önce işaretli alanları tamamla."
+      },
+      result: {
+        title: "Tahmini sonucun",
+        lights: {
+          blue: {
+            label: "Mavi ışık: rahat görünüyorsun",
+            body: "Tahmini değerlerin beş büyük şehrin burs limitlerinin belirgin altında. Resmi hesapta küçük farklar çıksa bile büyük olasılıkla limitin altında kalırsın."
+          },
+          yellow: {
+            label: "Sarı ışık: sınırdasın",
+            body: "Tahminin burs limitlerine yakın. Resmi hesapta kur, yıl ve belge farkları sonucu birkaç bin euro oynatabilir; şehir seçimi sonucu değiştirebilir."
+          },
+          red: {
+            label: "Kırmızı ışık: limitlerin üstündesin",
+            body: "Bu rakamlarla bölgesel ihtiyaç bursu zor görünüyor. Harç indirimi ve başarı bursları ayrı değerlendirilir; seçenekleri birlikte konuşabiliriz."
+          }
+        },
+        iseeLabel: "Tahmini ISEE",
+        iseeHint: "Gelir ve varlıkların %20'si, aile katsayısına bölünür.",
+        ispeLabel: "Tahmini ISPE",
+        ispeHint: "Yalnızca varlıklar, aile katsayısına bölünür.",
+        bindingIsee: "Durumunu gelir tarafı (ISEE) belirliyor.",
+        bindingIspe: "Durumunu varlık tarafı (ISPE) belirliyor: m² ve birikim etkili.",
+        citiesTitle: "Beş şehrin {year} burs limitleri",
+        citiesHint: "Her şehir kendi limitiyle karşılaştırılır. ISEE ya da ISPE limitinden biri aşılırsa burs alınamaz.",
+        iseeShort: "ISEE",
+        ispeShort: "ISPE",
+        status: { below: "altında", near: "sınırda", above: "üstünde" },
+        worseNote: "Dikkat: {cities} için durumun genel tablodan daha zor.",
+        cityNames: { milano: "Milano", torino: "Torino", bologna: "Bologna", roma: "Roma", padova: "Padova" },
+        disclaimerTitle: "Bu bir tahmindir",
+        disclaimer: "Resmi ISEE Parificato değerini yalnızca İtalya'daki yetkili CAF ya da burs kurumu, Türkiye'den getirilen çevirili ve apostilli belgelerle hesaplar. Kurumlar farklı yıl ve kur kullanabilir; sonucun birkaç bin euro oynaması normaldir.",
+        scholarshipsLink: "Bölgesel burs haritasını aç"
+      },
+      breakdown: {
+        toggle: "Nasıl hesapladık?",
+        rate: "Kur ({year} ortalaması)",
+        rateValue: "1 € = {rate} TL",
+        incomeTitle: "Gelir tarafı (ISR)",
+        totalIncome: "Toplam brüt gelir",
+        employeeDeduction: "Maaşlı indirimi (%20, kişi başı en çok 3.000 €)",
+        pensionDeduction: "Emekli indirimi (%20, kişi başı en çok 1.000 €)",
+        rentDeduction: "Kira indirimi (en çok {cap})",
+        isr: "Gelir göstergesi (ISR)",
+        assetsTitle: "Varlık tarafı (ISP)",
+        homeValue: "Oturulan ev ({sqm} m² × 500 €)",
+        homeMortgage: "Kalan konut kredisi",
+        homeFranchise: "Ev muafiyeti",
+        homeCounted: "Evden hesaba giren (kalanın 2/3'ü)",
+        otherValue: "Diğer binalar ({sqm} m² × 500 €)",
+        otherMortgage: "Diğer binaların kredisi",
+        savingsTotal: "Birikim",
+        savingsFranchise: "Birikim muafiyeti",
+        savingsNet: "Birikimden hesaba giren",
+        isp: "Varlık göstergesi (ISP)",
+        scaleTitle: "Aile katsayısı",
+        scaleBase: "{members} kişilik aile",
+        increments: {
+          children3: "3 çocuk",
+          children4: "4 çocuk",
+          children5: "5 ve üzeri çocuk",
+          minorsWork: "18 yaş altı çocuk, ebeveynler çalışıyor",
+          underThreeWork: "3 yaş altı çocuk, ebeveynler çalışıyor",
+          disability: "Engelli birey"
+        },
+        scaleTotal: "Toplam katsayı",
+        formulaTitle: "Sonuç",
+        ise: "ISE = ISR + %20 × ISP",
+        isee: "ISEE = ISE ÷ katsayı",
+        ispe: "ISPE = ISP ÷ katsayı",
+        shareTitle: "Sonucu ne belirledi?",
+        shareIncome: "Gelirin payı",
+        shareAssets: "Varlıkların payı"
+      },
+      explainer: {
+        title: "ISEE Parificato nedir, nasıl hesaplanır?",
+        what: {
+          heading: "ISEE Parificato nedir?",
+          body: [
+            "ISEE, İtalya'da burs ve harç indirimi için ailenin ekonomik durumunu tek bir rakama indiren göstergedir. Ailesi İtalya dışında yaşayan ve geliri yurt dışında olan öğrenciler için normal ISEE çıkarılamaz; yerine aynı mantıkla hesaplanan ISEE Parificato kullanılır. Bazı burs kurumları buna ISEEUP der."
+          ]
+        },
+        how: {
+          heading: "Nasıl hesaplanır?",
+          bullets: [
+            "Ailenin yıllık brüt geliri, o yılın Banca d'Italia ortalama kuruyla euroya çevrilir.",
+            "Yurt dışındaki evler piyasa değeriyle değil, m² başına sabit 500 € ile değerlenir. Arsa ve tarla sayılmaz; kalan konut kredisi düşülür.",
+            "31 Aralık'taki banka birikimi aynı kurla euroya çevrilir.",
+            "İtalyan mevzuatındaki (DPCM 159/2013) muafiyetler uygulanır: oturulan evin ilk 52.500 €'su, birikimin ilk 6.000-10.000 €'su, maaş ve emekli gelirinin bir kısmı ve belgelenen kira.",
+            "ISEE = (gelir + varlıkların %20'si) ÷ aile katsayısı. Aile kalabalıklaştıkça katsayı büyür, ISEE düşer."
+          ]
+        },
+        difference: {
+          heading: "ISEE ve ISPE farkı",
+          body: [
+            "Burslarda iki ayrı limit vardır. ISEE gelir ve varlığı birlikte ölçer; ISPE yalnızca varlığı ölçer (varlıklar ÷ aile katsayısı). İkisinden biri limiti aşarsa burs alınamaz.",
+            "Türkiye'den başvuran ailelerde geliri düşük ama birkaç gayrimenkulü olanlar çoğunlukla ISPE limitine takılır."
+          ]
+        },
+        year: {
+          heading: "Hangi yılın geliri istenir?",
+          body: [
+            "Kurumdan kuruma değişir. 2026/27 başvurularında EDISU Piemonte (Torino) ve ER.GO (Bologna) AB dışı öğrencilerden 2025 yılını; LazioDisco (Roma), Politecnico di Milano ve Padova Üniversitesi 2024 yılını istedi. Başvurmadan önce kendi kurumunun şartnamesine bak."
+          ]
+        },
+        official: {
+          heading: "Resmi hesabı kim yapar?",
+          body: [
+            "Resmi değeri İtalya'da kurumun anlaşmalı olduğu CAF (vergi yardım merkezi) ya da burs kurumunun kendisi hesaplar. Türkiye'den alınan aile, gelir, tapu ve banka belgeleri İtalyancaya çevrilmiş ve apostilli olmalıdır. Bu sayfadaki sonuç yalnızca ön fikir verir."
+          ]
+        },
+        limitsTitle: "2026/27 burs limitleri",
+        limitsCaption: "Resmi şartnamelerden alınmıştır. Son doğrulama: {date}.",
+        iseeLimit: "ISEE limiti",
+        ispeLimit: "ISPE limiti",
+        requestedYear: "İstenen yıl",
+        sourceLink: "Resmi belge",
+        sourcesTitle: "Kaynaklar",
+        sourceLabels: {
+          rates: "Banca d'Italia yıllık ortalama döviz kurları",
+          dpcm: "DPCM 159/2013 (ISEE yönetmeliği)",
+          unimi: "Università degli Studi di Milano: yurt dışı gelirli öğrencilerin değerlendirilmesi"
+        }
+      }
     },
     homeScholarshipsCta: {
       badge: "Bölgesel Burs Verisi",
@@ -1329,19 +1537,227 @@ export const translations = {
     },
     // 👇 ISEE Translations (English)
     isee: {
-      title: "ISEE Calculator (Estimated)",
-      subtitle: "Calculate your estimated value for university tuition reduction and scholarships in Italy.",
-      incomeLabel: "Total Annual Gross Family Income (€)",
-      assetsLabel: "Bank Deposits & Assets (€)",
-      familyLabel: "Total Family Members",
-      calculateBtn: "Calculate",
-      resultTitle: "Your Estimated ISEE Value",
-      disclaimer: "*This value is for informational purposes only. It has no official validity.",
-      homeCardBadge: "ISEE SIMULATOR",
-      homeCardTitle: "Calculate Your Scholarship & Tuition Chances",
-      homeCardDesc: "The first step to reducing costs in Italy is knowing your ISEE. Get an estimate in seconds with our free simulator.",
-      homeCardBtn: "Calculate Now",
-      person: "People"
+      homeCardTitle: "Check your scholarship odds with ISEE Parificato",
+      homeCardDesc: "If your family lives in Türkiye, scholarship offices calculate an ISEE Parificato. Enter income in TRY and homes in m² to see your estimate and where you stand against the limits of five major cities.",
+      homeCardItems: ["Income (TRY)", "Home and property (m²)", "Savings and family"],
+      homeCardBtn: "Start calculating"
+    },
+    iseeTool: {
+      header: {
+        back: "Back home",
+        eyebrow: "ItalyPath ISEE",
+        title: "ISEE Parificato calculator",
+        subtitle: "If your family lives in Türkiye, Italian scholarship offices calculate an ISEE Parificato for you. Enter income in TRY and homes in m² to see your estimated ISEE and ISPE and where you stand against scholarship limits.",
+        trust: ["Asks in TRY and m²", "Official rate, 2026/27 limits", "An estimate: a CAF issues the official value"]
+      },
+      nav: {
+        stepWord: "Step",
+        back: "Back",
+        next: "Continue",
+        calculate: "Calculate",
+        edit: "Edit answers",
+        restart: "Start over",
+        yes: "Yes",
+        no: "No",
+        optional: "optional",
+        increase: "Increase",
+        decrease: "Decrease"
+      },
+      units: { lira: "TRY", euro: "€", sqm: "m²" },
+      household: {
+        title: "Family",
+        heading: "How many people live in your home?",
+        membersHint: "Including the student: mother, father, siblings and anyone else living in the same home.",
+        childrenLabel: "How many of them are children?",
+        childrenHint: "Children living with their parents, including the student.",
+        minorsLabel: "Is any child under 18?",
+        underThreeLabel: "Is any child under 3?",
+        parentsWorkLabel: "Did both parents work at least 6 months in the year you will choose?",
+        parentsWorkHint: "In a single-parent family, that parent working is enough.",
+        specialToggle: "Special case: disabled family member",
+        disabledLabel: "Disabled or care-dependent members",
+        disabledHint: "Documented medium or severe disability. Leave 0 if none."
+      },
+      income: {
+        title: "Year and income",
+        yearHeading: "Which year's figures are you entering?",
+        yearHint: "For 2026/27 applications Turin and Bologna asked for 2025; Milan, Rome and Padua asked for 2024. If unsure, choose 2025.",
+        rateNote: "Official rate (Banca d'Italia {year} average): €1 = {rate} TRY",
+        earnersHeading: "Add everyone in the family with income",
+        earnersHint: "Total gross income for that year: before deductions, bonuses included. If you only know the net salary, divide it by 0.72 for a rough gross figure.",
+        earnerTitle: "Earner {n}",
+        kindLabel: "Income type",
+        kinds: { employee: "Employee", pension: "Pensioner", other: "Other" },
+        otherHint: "Other: self-employment, business profit, rental income.",
+        amountLabel: "Yearly gross income",
+        addEarner: "Add an earner",
+        removeEarner: "Remove row"
+      },
+      property: {
+        title: "Home and property",
+        heading: "Who owns the home you live in?",
+        tenure: {
+          owned: "We own it",
+          rented: "We rent it",
+          free: "Someone else's home, rent-free"
+        },
+        sqmLabel: "Size of the home (gross m²)",
+        mortgageLabel: "Remaining mortgage",
+        mortgageHint: "Outstanding principal on 31 December {year}. Leave empty if none.",
+        rentLabel: "Yearly rent",
+        rentHint: "Total rent paid in {year}. A documented lease is deducted from income (up to €7,000).",
+        sqmInfo: "Italy ignores the market value of the home. Every m² counts as a flat €500: {sqm} m² = {value}.",
+        sqmInfoEmpty: "Italy ignores the market value of the home. Every m² counts as a flat €500. Example: 120 m² = €60,000.",
+        homeExemptNote: "The first €52,500 of the home you live in is not counted.",
+        otherHeading: "Do you own another home, shop or summer house?",
+        otherHint: "Buildings registered to any family member. Land and fields are not counted.",
+        otherSqmLabel: "Total size of the other buildings (gross m²)",
+        otherMortgageLabel: "Remaining mortgage on these buildings",
+        otherMortgageHint: "Leave empty if none."
+      },
+      savings: {
+        title: "Savings",
+        heading: "What were the family's total savings on 31 December {year}?",
+        hint: "Current and deposit accounts, funds, shares and company stakes of all family members.",
+        tryLabel: "Savings in TRY",
+        tryHint: "Enter 0 if there are no savings.",
+        eurLabel: "Foreign currency and gold (in euro)",
+        eurHint: "If you hold dollar, euro or gold accounts, enter the approximate euro value. Leave empty if none."
+      },
+      errors: {
+        choose: "Choose an option.",
+        childrenExceedMembers: "Children cannot outnumber the people in the home.",
+        earnersEmpty: "Add at least one earner.",
+        earnerKind: "Choose the income type.",
+        earnerAmount: "Enter the yearly gross income in TRY.",
+        sqm: "Enter the gross m².",
+        rent: "Enter the yearly rent in TRY.",
+        savings: "Enter savings in TRY, or 0 if there are none.",
+        summary: "Complete the marked fields before continuing."
+      },
+      result: {
+        title: "Your estimate",
+        lights: {
+          blue: {
+            label: "Blue light: you look comfortable",
+            body: "Your estimates sit clearly below the scholarship limits of the five major cities. Even if the official figure differs a little, you will most likely stay under the limit."
+          },
+          yellow: {
+            label: "Yellow light: you are borderline",
+            body: "Your estimate is close to the scholarship limits. Exchange rate, year and document differences can move the official figure by a few thousand euro, and the city you choose can change the outcome."
+          },
+          red: {
+            label: "Red light: you are above the limits",
+            body: "With these figures a need-based regional scholarship looks unlikely. Tuition reductions and merit scholarships are assessed separately, and we can go through the options together."
+          }
+        },
+        iseeLabel: "Estimated ISEE",
+        iseeHint: "Income plus 20% of assets, divided by the family coefficient.",
+        ispeLabel: "Estimated ISPE",
+        ispeHint: "Assets only, divided by the family coefficient.",
+        bindingIsee: "The income side (ISEE) decides your status.",
+        bindingIspe: "The asset side (ISPE) decides your status: m² and savings matter most.",
+        citiesTitle: "{year} scholarship limits in five cities",
+        citiesHint: "Each city is compared with its own limits. Exceeding either the ISEE or the ISPE limit rules out the scholarship.",
+        iseeShort: "ISEE",
+        ispeShort: "ISPE",
+        status: { below: "below", near: "borderline", above: "above" },
+        worseNote: "Note: your position is harder than the overall picture in {cities}.",
+        cityNames: { milano: "Milan", torino: "Turin", bologna: "Bologna", roma: "Rome", padova: "Padua" },
+        disclaimerTitle: "This is an estimate",
+        disclaimer: "Only an authorised CAF or the scholarship office in Italy calculates the official ISEE Parificato, using translated and apostilled documents from Türkiye. Offices may use a different year and rate, so a difference of a few thousand euro is normal.",
+        scholarshipsLink: "Open the regional scholarship map"
+      },
+      breakdown: {
+        toggle: "How did we calculate this?",
+        rate: "Exchange rate ({year} average)",
+        rateValue: "€1 = {rate} TRY",
+        incomeTitle: "Income side (ISR)",
+        totalIncome: "Total gross income",
+        employeeDeduction: "Employee deduction (20%, up to €3,000 each)",
+        pensionDeduction: "Pension deduction (20%, up to €1,000 each)",
+        rentDeduction: "Rent deduction (up to {cap})",
+        isr: "Income indicator (ISR)",
+        assetsTitle: "Asset side (ISP)",
+        homeValue: "Home you live in ({sqm} m² × €500)",
+        homeMortgage: "Remaining mortgage",
+        homeFranchise: "Home exemption",
+        homeCounted: "Counted from the home (2/3 of the rest)",
+        otherValue: "Other buildings ({sqm} m² × €500)",
+        otherMortgage: "Mortgage on other buildings",
+        savingsTotal: "Savings",
+        savingsFranchise: "Savings exemption",
+        savingsNet: "Counted from savings",
+        isp: "Asset indicator (ISP)",
+        scaleTitle: "Family coefficient",
+        scaleBase: "Family of {members}",
+        increments: {
+          children3: "3 children",
+          children4: "4 children",
+          children5: "5 or more children",
+          minorsWork: "Child under 18, parents working",
+          underThreeWork: "Child under 3, parents working",
+          disability: "Disabled member"
+        },
+        scaleTotal: "Total coefficient",
+        formulaTitle: "Result",
+        ise: "ISE = ISR + 20% × ISP",
+        isee: "ISEE = ISE ÷ coefficient",
+        ispe: "ISPE = ISP ÷ coefficient",
+        shareTitle: "What drove the result?",
+        shareIncome: "Share from income",
+        shareAssets: "Share from assets"
+      },
+      explainer: {
+        title: "What is ISEE Parificato and how is it calculated?",
+        what: {
+          heading: "What is ISEE Parificato?",
+          body: [
+            "ISEE is the indicator Italy uses to reduce a family's economic situation to a single figure for scholarships and tuition reductions. A regular ISEE cannot be issued for students whose family lives and earns outside Italy; an ISEE Parificato, built on the same logic, is used instead. Some scholarship offices call it ISEEUP."
+          ]
+        },
+        how: {
+          heading: "How is it calculated?",
+          bullets: [
+            "The family's yearly gross income is converted to euro at the Banca d'Italia average rate for that year.",
+            "Homes abroad are not valued at market price but at a flat €500 per m². Land is not counted, and the remaining mortgage is deducted.",
+            "Bank savings on 31 December are converted at the same rate.",
+            "The exemptions of Italian law (DPCM 159/2013) apply: the first €52,500 of the home you live in, the first €6,000-10,000 of savings, part of salary and pension income, and documented rent.",
+            "ISEE = (income + 20% of assets) ÷ family coefficient. The larger the family, the higher the coefficient and the lower the ISEE."
+          ]
+        },
+        difference: {
+          heading: "ISEE versus ISPE",
+          body: [
+            "Scholarships have two separate limits. ISEE measures income and assets together; ISPE measures assets only (assets ÷ family coefficient). Exceeding either one rules out the scholarship.",
+            "Families applying from Türkiye with modest income but several properties usually hit the ISPE limit."
+          ]
+        },
+        year: {
+          heading: "Which year's income is requested?",
+          body: [
+            "It depends on the office. For 2026/27 applications EDISU Piemonte (Turin) and ER.GO (Bologna) asked non-EU students for 2025; LazioDisco (Rome), Politecnico di Milano and the University of Padua asked for 2024. Check your own office's call before applying."
+          ]
+        },
+        official: {
+          heading: "Who calculates the official value?",
+          body: [
+            "In Italy, the official value is calculated by the CAF (tax assistance centre) working with the office, or by the scholarship office itself. Family, income, property and bank documents from Türkiye must be translated into Italian and apostilled. The result on this page is only a first indication."
+          ]
+        },
+        limitsTitle: "2026/27 scholarship limits",
+        limitsCaption: "Taken from the official calls. Last verified: {date}.",
+        iseeLimit: "ISEE limit",
+        ispeLimit: "ISPE limit",
+        requestedYear: "Requested year",
+        sourceLink: "Official document",
+        sourcesTitle: "Sources",
+        sourceLabels: {
+          rates: "Banca d'Italia yearly average exchange rates",
+          dpcm: "DPCM 159/2013 (ISEE regulation)",
+          unimi: "Università degli Studi di Milano: assessing students with income abroad"
+        }
+      }
     },
     homeScholarshipsCta: {
       badge: "Regional Scholarship Data",

@@ -483,4 +483,25 @@ assert.equal(formHidden.parentsWork, false);
 assert.deepEqual(formHidden.home, { tenure: "rented", annualRentTry: 240_000 });
 assert.deepEqual(formHidden.otherBuildings, { sqm: 0, mortgageTry: 0 }, "hidden other-building values are ignored");
 
+// ---------------------------------------------------------------------------
+// 4) Çeviriler
+// ---------------------------------------------------------------------------
+const translationsSource = await readFile(path.join(root, "lib/translations.ts"), "utf8");
+assert.equal(
+  translationsSource.split("\n    iseeTool: {").length - 1,
+  2,
+  "iseeTool namespace must exist once in TR and once in EN",
+);
+for (const legacyKey of ["incomeLabel:", "assetsLabel:", "familyLabel:", "homeCardBadge:"]) {
+  assert.ok(!translationsSource.includes(legacyKey), `legacy isee key must be removed: ${legacyKey}`);
+}
+assert.equal(
+  translationsSource.split("homeCardItems: [").length - 1,
+  2,
+  "home card items live in translations (TR + EN)",
+);
+const iseeSectionSource = await readFile(path.join(root, "components/IseeSection.tsx"), "utf8");
+assert.ok(iseeSectionSource.includes("t.isee.homeCardItems"), "IseeSection reads its items from translations");
+assert.ok(!iseeSectionSource.includes("language ==="), "IseeSection must not branch on language for copy");
+
 console.log("ISEE Parificato checks passed");
