@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { ReactNode, RefObject } from "react";
-import { AlertTriangle, ArrowRight, CheckCircle2, XCircle, type LucideIcon } from "lucide-react";
+import { AlertTriangle, ArrowRight } from "lucide-react";
 
 import { fill, formatAmount, formatEuro, type Language } from "@/components/isee/format";
 import { useLanguage } from "@/context/LanguageContext";
@@ -30,8 +30,6 @@ const LIGHT_STYLES: Record<Light, { box: string; dot: string; text: string }> = 
   yellow: { box: "border-[#e4cd8a] bg-[#f7edd0]", dot: "bg-[#c99700]", text: "text-[#6b4e00]" },
   red: { box: "border-[#e8c9bd] bg-[#f5d9cf]", dot: "bg-[#b3401f]", text: "text-[#8b321a]" },
 };
-
-const LIGHT_ICONS: Record<Light, LucideIcon> = { blue: CheckCircle2, yellow: AlertTriangle, red: XCircle };
 
 const STATUS_STYLES: Record<CityStatus, string> = {
   below: "text-[#1d4568]",
@@ -80,7 +78,6 @@ export default function IseeResult({
   const euro = (value: number) => formatEuro(value, language);
   const minus = (value: number) => (value > 0 ? `-${euro(value)}` : euro(0));
   const light = LIGHT_STYLES[verdict.light];
-  const LightIcon = LIGHT_ICONS[verdict.light];
 
   const bindingNote =
     verdict.iseeLight === verdict.ispeLight
@@ -109,8 +106,7 @@ export default function IseeResult({
 
       <div className={`mt-6 border p-4 ${light.box}`}>
         <div className={`flex items-center gap-3 ${light.text}`}>
-          <span className={`h-3 w-3 shrink-0 rounded-full ${light.dot}`} aria-hidden="true" />
-          <LightIcon className="h-5 w-5 shrink-0" aria-hidden="true" />
+          <span className={`h-4 w-4 shrink-0 rounded-full ${light.dot}`} aria-hidden="true" />
           <p className="text-base font-semibold leading-6">{copy.lights[verdict.light].label}</p>
         </div>
         <p className={`mt-2 text-sm leading-6 ${light.text}`}>{copy.lights[verdict.light].body}</p>

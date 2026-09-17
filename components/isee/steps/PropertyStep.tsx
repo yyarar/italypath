@@ -63,7 +63,7 @@ export default function PropertyStep({ form, update, errors, language }: StepPro
             onChange={(homeSqm) => update({ homeSqm })}
             suffix={units.sqm}
             language={language}
-            maxDigits={5}
+            maxDigits={4}
             error={errorFor("homeSqm")}
           />
           <InfoBox>{`${sqmInfo(form.homeSqm)} ${copy.homeExemptNote}`}</InfoBox>
@@ -113,7 +113,7 @@ export default function PropertyStep({ form, update, errors, language }: StepPro
             onChange={(otherSqm) => update({ otherSqm })}
             suffix={units.sqm}
             language={language}
-            maxDigits={5}
+            maxDigits={4}
             error={errorFor("otherSqm")}
           />
           <InfoBox>{sqmInfo(form.otherSqm)}</InfoBox>
