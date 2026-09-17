@@ -1,9 +1,32 @@
 import { DepartmentDetailClient } from "@/components/university-details/DepartmentDetailClient";
 import { getUniversitiesDirectory, getUniversityById } from "@/lib/universities.server";
 import { buildRelatedLinks, type RelatedLinksData } from "@/lib/relatedLinks";
+import { hasAdmissionDossier } from "@/lib/admissionPresence";
+import type { Department, University } from "@/types/universities";
 import { notFound } from "next/navigation";
 
 const BASE_URL = "https://italypath.app";
+
+// Sayfa yalnizca acilan programin kabul dosyasina ihtiyac duyar. Okulun tum
+// dosyalari tarayiciya gonderilirse RSC yuku medyanda 277 KB, en kotu durumda
+// 2 MB olur (17 Eylul olcumu); diger programlar icin varlik bayragi yeterli.
+function pruneUniversityForProgram(
+  university: University,
+  deptSlug: string,
+): University {
+  return {
+    ...university,
+    departments: university.departments.map((entry) => {
+      if (entry.slug === deptSlug) return entry;
+      const light: Department = {
+        ...entry,
+        hasAdmissionDetails: hasAdmissionDossier(entry),
+      };
+      delete light.admissionDetails;
+      return light;
+    }),
+  };
+}
 
 // ISR: 3 saat Vercel onbelleginden sunulur; soguk sunucu gecikmesi ve egress icin (SEO_AUDIT.md §20).
 export const revalidate = 10800;
@@ -97,7 +120,10 @@ export default async function DepartmentDetailPage({ params }: DepartmentDetailP
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <DepartmentDetailClient
-        initialUniversity={university}
+        initialUniversity={pruneUniversityForProgram(
+          university,
+          resolvedParams.deptSlug,
+        )}
         initialDepartmentSlug={resolvedParams.deptSlug}
         idFromUrl={resolvedParams.id}
         related={related}
