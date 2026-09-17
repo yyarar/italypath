@@ -263,4 +263,87 @@ near(messy.scale, 1.57, "scale uses sanitized household", 0.001);
 assert.throws(() => calculateParificato(input(), 0), RangeError, "rate must be positive");
 assert.throws(() => calculateParificato(input(), Number.NaN), RangeError, "rate must be a number");
 
+// ---------------------------------------------------------------------------
+// 2) Referans veriler ve ışık kuralı
+// ---------------------------------------------------------------------------
+const reference = await importTs("lib/isee/reference.ts");
+const { bandFor, statusFor, buildVerdict } = await importTs("lib/isee/verdict.ts");
+
+assert.equal(reference.TRY_PER_EUR[2024], RATE_2024, "2024 Banca d'Italia annual average");
+assert.equal(reference.TRY_PER_EUR[2025], RATE_2025, "2025 Banca d'Italia annual average");
+assert.equal(reference.DEFAULT_REFERENCE_YEAR, 2025, "default reference year");
+assert.deepEqual(reference.REFERENCE_YEARS, [2025, 2024], "selectable years, newest first");
+assert.match(reference.RATE_SOURCE.url, /^https:\/\/tassidicambio\.bancaditalia\.it\//, "rate source is Banca d'Italia");
+assert.match(reference.THRESHOLDS_VERIFIED_AT, /^\d{4}-\d{2}-\d{2}$/, "verification date is ISO");
+assert.equal(reference.THRESHOLDS_ACADEMIC_YEAR, "2026/27");
+
+assert.deepEqual(
+  reference.CITY_THRESHOLDS.map((city) => city.key),
+  ["milano", "torino", "bologna", "roma", "padova"],
+  "five main destinations in display order",
+);
+const expectedLimits = {
+  milano: [26_887.93, 58_452.06, 2024],
+  torino: [26_306.25, 57_187.53, 2025],
+  bologna: [25_000, 50_000, 2025],
+  roma: [28_339.88, 61_608.48, 2024],
+  padova: [26_306.25, 43_125.94, 2024],
+};
+for (const city of reference.CITY_THRESHOLDS) {
+  const [iseeLimit, ispeLimit, requestedYear] = expectedLimits[city.key];
+  assert.equal(city.iseeLimit, iseeLimit, `${city.key} ISEE limit`);
+  assert.equal(city.ispeLimit, ispeLimit, `${city.key} ISPE limit`);
+  assert.equal(city.requestedYear, requestedYear, `${city.key} requested year`);
+  assert.match(city.sourceUrl, /^https:\/\//, `${city.key} source must be https`);
+  assert.ok(city.body.length > 0, `${city.key} managing body`);
+}
+for (const source of reference.FORMULA_SOURCES) {
+  assert.match(source.url, /^https:\/\//, `${source.key} formula source must be https`);
+}
+
+const averages = reference.averageLimits();
+near(averages.isee, 26_568.06, "average ISEE limit is computed from data", 0.01);
+near(averages.ispe, 54_074.8, "average ISPE limit is computed from data", 0.01);
+
+assert.equal(bandFor(0.85 * averages.isee - 0.01, averages.isee), "blue", "below 85% of average is blue");
+assert.equal(bandFor(0.85 * averages.isee, averages.isee), "yellow", "exactly 85% of average is yellow");
+assert.equal(bandFor(1.1 * averages.isee, averages.isee), "yellow", "exactly 110% of average is yellow");
+assert.equal(bandFor(1.1 * averages.isee + 0.01, averages.isee), "red", "above 110% of average is red");
+assert.equal(bandFor(0, averages.isee), "blue", "zero is blue");
+
+assert.equal(statusFor(0.9 * 25_000 - 0.01, 25_000), "below");
+assert.equal(statusFor(0.9 * 25_000, 25_000), "near");
+assert.equal(statusFor(1.05 * 25_000, 25_000), "near");
+assert.equal(statusFor(1.05 * 25_000 + 0.01, 25_000), "above");
+
+const verdictA = buildVerdict(familyA.isee, familyA.ispe, reference.CITY_THRESHOLDS, averages);
+assert.equal(verdictA.light, "blue", "family A is blue");
+assert.deepEqual(verdictA.worseCities, [], "family A has no harder city");
+assert.ok(verdictA.cities.every((city) => city.status === "below"), "family A is below every city limit");
+
+const verdictC = buildVerdict(familyC.isee, familyC.ispe, reference.CITY_THRESHOLDS, averages);
+assert.equal(verdictC.light, "red", "family C is red");
+assert.ok(verdictC.cities.every((city) => city.status === "above"), "family C is above every city limit");
+
+const verdictD = buildVerdict(familyD.isee, familyD.ispe, reference.CITY_THRESHOLDS, averages);
+assert.equal(verdictD.iseeLight, "yellow", "family D ISEE is yellow");
+assert.equal(verdictD.ispeLight, "blue", "family D ISPE is blue");
+assert.equal(verdictD.light, "yellow", "overall light is the worse of the two");
+assert.deepEqual(
+  Object.fromEntries(verdictD.cities.map((city) => [city.key, city.status])),
+  { milano: "near", torino: "near", bologna: "near", roma: "below", padova: "near" },
+  "family D city statuses",
+);
+assert.deepEqual(verdictD.worseCities, [], "near cities are not worse than a yellow light");
+
+// Genel tablo mavi ama Padova'nın düşük ISPE limiti aşılıyor
+const verdictPadova = buildVerdict(10_000, 44_500, reference.CITY_THRESHOLDS, averages);
+assert.equal(verdictPadova.light, "blue", "44,500 ISPE is still below 85% of the average");
+assert.deepEqual(verdictPadova.worseCities, ["padova"], "Padova is flagged as harder than the overall light");
+assert.equal(
+  verdictPadova.cities.find((city) => city.key === "padova").ispeStatus,
+  "near",
+  "Padova ISPE status is near at 44,500",
+);
+
 console.log("ISEE Parificato checks passed");
