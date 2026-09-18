@@ -165,7 +165,7 @@ export function DepartmentDetailClient({
     sourceLabel: t.department.sourceLabel,
     uncertaintyTitle: t.department.uncertaintyTitle,
     uncertaintyNote: t.department.uncertaintyNote,
-    uncertaintyFlag: t.department.uncertaintyFlag,
+    sourceChangeNotice: t.department.sourceChangeNotice,
     additionalDocumentsMayApply: t.department.additionalDocumentsMayApply,
     sourceTrail: t.department.sourceTrail,
     programSourcePurpose: t.department.programSourcePurpose,
@@ -222,22 +222,19 @@ export function DepartmentDetailClient({
           />
         ) : null}
 
-        <section className="grid gap-5 lg:grid-cols-[190px_minmax(0,1fr)]">
-          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
-            {t.department.schoolContext}
+        {/* Okul tanitimi: baslik etiketi yok (Kerem karari, 19 Eylul); ince sage cizgiyle ayrilan
+            sade bir alinti blogu. */}
+        <div className="max-w-4xl border-l-2 border-[var(--editorial-sage)] pl-5 sm:pl-7">
+          <Link
+            href={`/universities/${university.id}`}
+            className="inline-flex w-fit items-center font-serif text-lg font-semibold text-[var(--editorial-ink)] underline decoration-[var(--editorial-sage)] decoration-2 underline-offset-4 transition hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)] sm:text-xl"
+          >
+            {university.name}
+          </Link>
+          <p className="mt-3 font-serif text-xl leading-8 text-[var(--editorial-ink)] sm:text-2xl sm:leading-9">
+            {description}
           </p>
-          <div className="max-w-4xl space-y-4">
-            <Link
-              href={`/universities/${university.id}`}
-              className="inline-flex w-fit items-center font-serif text-xl font-semibold text-[var(--editorial-ink)] underline decoration-[var(--editorial-sage)] decoration-2 underline-offset-4 transition hover:text-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)] sm:text-2xl"
-            >
-              {university.name}
-            </Link>
-            <p className="font-serif text-xl leading-8 text-[var(--editorial-ink)] sm:text-2xl sm:leading-9">
-              {description}
-            </p>
-          </div>
-        </section>
+        </div>
 
         {department.admissionDetails ? (
           <ProgramAdmissionDetailsPanel

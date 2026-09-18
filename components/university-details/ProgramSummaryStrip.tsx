@@ -1,7 +1,7 @@
 /* Program kunyesi: sayfanin ust kismindaki "bir bakista" bloku. Bilgi yalnizca
    kabul dosyasindaki dogrulanmis alanlardan gelir; yeni metin uretilmez. */
 
-import { AlertTriangle } from "lucide-react";
+import { Info } from "lucide-react";
 
 import type { ProgramAdmissionDetails } from "@/types/universities";
 import {
@@ -19,7 +19,6 @@ import {
   buildDossierSources,
   fillTemplate,
   formatSourceDate,
-  getUncertaintyLabels,
   latestQuote,
   type ProgramDossierLabels,
 } from "./programDossierShared";
@@ -82,10 +81,6 @@ export function ProgramSummaryStrip({
       value: string;
     } => Boolean(fact.value),
   );
-
-  const uncertaintyLabels = getUncertaintyLabels(details.uncertain, labels);
-  const hasUncertainty =
-    uncertaintyLabels.length > 0 || details.uncertaintyNotes.length > 0;
 
   if (profileFacts.length === 0 && sources.length === 0) return null;
 
@@ -155,15 +150,15 @@ export function ProgramSummaryStrip({
         ))}
       </dl>
 
-      {hasUncertainty ? (
-        <p className="flex items-start gap-2 border-t border-[var(--editorial-terracotta)]/35 bg-[#fbf2eb] px-5 py-3 text-xs leading-5 text-[var(--editorial-ink)] sm:px-7 sm:text-sm">
-          <AlertTriangle
-            aria-hidden="true"
-            className="mt-0.5 h-4 w-4 shrink-0 text-[var(--editorial-terracotta-ink)]"
-          />
-          <span>{labels.uncertaintyFlag}</span>
-        </p>
-      ) : null}
+      {/* Kaynak dogrulama notu: kabul bilgileri her yil degisebildigi icin her dosyali programda
+          gorunur (Kerem karari, 19 Eylul). Ayrintili belirsizlikler kaynak izinde kalir. */}
+      <p className="flex items-start gap-2 border-t border-[var(--editorial-terracotta)]/35 bg-[#fbf2eb] px-5 py-3 text-xs leading-5 text-[var(--editorial-ink)] sm:px-7 sm:text-sm">
+        <Info
+          aria-hidden="true"
+          className="mt-0.5 h-4 w-4 shrink-0 text-[var(--editorial-terracotta-ink)]"
+        />
+        <span>{labels.sourceChangeNotice}</span>
+      </p>
     </section>
   );
 }

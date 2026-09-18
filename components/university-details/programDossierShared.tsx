@@ -57,7 +57,7 @@ export interface ProgramDossierLabels {
   sourceLabel: string;
   uncertaintyTitle: string;
   uncertaintyNote: string;
-  uncertaintyFlag: string;
+  sourceChangeNotice: string;
   additionalDocumentsMayApply: string;
   sourceTrail: string;
   programSourcePurpose: string;
