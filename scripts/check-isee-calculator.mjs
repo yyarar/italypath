@@ -1,107 +1,660 @@
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import ts from "typescript";
 
+// ISEE Parificato kalıcı guard'ı. lib/isee/* dosyaları bağımlılıksızdır; her biri tek başına transpile edilip içe aktarılır.
 const root = process.cwd();
-const sourcePath = path.join(root, "lib", "iseeCalculator.ts");
 
-async function importCalculator() {
-  const source = await readFile(sourcePath, "utf8").catch((error) => {
-    assert.fail(`lib/iseeCalculator.ts must exist before ISEE checks can run: ${error.message}`);
+async function importTs(relativePath) {
+  const source = await readFile(path.join(root, relativePath), "utf8").catch((error) => {
+    assert.fail(`${relativePath} must exist before ISEE checks can run: ${error.message}`);
   });
-
-  const tempDir = await mkdtemp(path.join(tmpdir(), "isee-calculator-"));
-  const tempFile = path.join(tempDir, "iseeCalculator.mjs");
+  const tempDir = await mkdtemp(path.join(tmpdir(), "isee-check-"));
+  const tempFile = path.join(tempDir, `${path.basename(relativePath, ".ts")}.mjs`);
   const compiled = ts.transpileModule(source, {
-    compilerOptions: {
-      module: ts.ModuleKind.ES2022,
-      target: ts.ScriptTarget.ES2020,
-    },
+    compilerOptions: { module: ts.ModuleKind.ES2022, target: ts.ScriptTarget.ES2020 },
   }).outputText;
-
   await writeFile(tempFile, compiled, "utf8");
-  const loadedModule = await import(`file://${tempFile}`);
-  await rm(tempDir, { recursive: true, force: true });
-  return loadedModule;
+  try {
+    return await import(`file://${tempFile}`);
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
 }
 
-function approx(actual, expected, message) {
-  assert.ok(Math.abs(actual - expected) < 0.01, `${message}: expected ${expected}, received ${actual}`);
+function near(actual, expected, message, tolerance = 0.5) {
+  assert.ok(
+    Math.abs(actual - expected) <= tolerance,
+    `${message}: expected ${expected}, received ${actual}`,
+  );
 }
 
-const {
-  calculateIsee,
-  calculateEquivalenceScale,
-  calculateMobileAssetDeduction,
-  calculateRentDeduction,
-  calculateMainResidenceAsset,
-} = await importCalculator();
+const RATE_2024 = 35.5734;
+const RATE_2025 = 44.8161;
 
-approx(
-  calculateEquivalenceScale({
+function household(overrides = {}) {
+  return {
+    members: 4,
+    children: 2,
+    hasMinorChildren: false,
+    hasChildUnderThree: false,
+    parentsWork: false,
+    disabledMembers: 0,
+    ...overrides,
+  };
+}
+
+function input(overrides = {}) {
+  return {
+    ...household(),
+    earners: [],
+    home: { tenure: "free" },
+    otherBuildings: { sqm: 0, mortgageTry: 0 },
+    savings: { tryAmount: 0, eurAmount: 0 },
+    ...overrides,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// 1) Hesap motoru
+// ---------------------------------------------------------------------------
+const { calculateParificato, calculateScale, SQM_VALUE_EUR } = await importTs("lib/isee/parificato.ts");
+
+assert.equal(SQM_VALUE_EUR, 500, "foreign buildings are valued at 500 EUR per sqm");
+
+// Aile katsayısı
+near(calculateScale(household({ members: 1, children: 0 })).value, 1, "1 member", 0.001);
+near(calculateScale(household({ members: 2, children: 1 })).value, 1.57, "2 members", 0.001);
+near(calculateScale(household({ members: 3, children: 1 })).value, 2.04, "3 members", 0.001);
+near(calculateScale(household()).value, 2.46, "4 members", 0.001);
+near(calculateScale(household({ members: 5, children: 2 })).value, 2.85, "5 members", 0.001);
+near(calculateScale(household({ members: 6, children: 2 })).value, 3.2, "6 members add 0.35", 0.001);
+near(calculateScale(household({ members: 7, children: 2 })).value, 3.55, "7 members add 0.70", 0.001);
+near(calculateScale(household({ members: 5, children: 3 })).value, 3.05, "3 children add 0.20", 0.001);
+near(calculateScale(household({ members: 6, children: 4 })).value, 3.55, "4 children add 0.35", 0.001);
+near(calculateScale(household({ members: 7, children: 5 })).value, 4.05, "5+ children add 0.50", 0.001);
+near(
+  calculateScale(household({ hasMinorChildren: true, parentsWork: true })).value,
+  2.66,
+  "minor children with working parents add 0.20",
+  0.001,
+);
+near(
+  calculateScale(household({ hasMinorChildren: true, hasChildUnderThree: true, parentsWork: true })).value,
+  2.76,
+  "child under three with working parents adds 0.30",
+  0.001,
+);
+near(
+  calculateScale(household({ hasMinorChildren: true, parentsWork: false })).value,
+  2.46,
+  "no increase when parents do not work",
+  0.001,
+);
+near(
+  calculateScale(household({ hasMinorChildren: false, hasChildUnderThree: true, parentsWork: true })).value,
+  2.46,
+  "under-three flag is ignored without minor children",
+  0.001,
+);
+near(calculateScale(household({ disabledMembers: 2 })).value, 3.46, "each disabled member adds 0.50", 0.001);
+near(
+  calculateScale(household({ members: 1, children: 0, disabledMembers: 3 })).value,
+  1.5,
+  "disabled members are clamped to household size",
+  0.001,
+);
+assert.deepEqual(
+  calculateScale(household({ members: 5, children: 3, hasMinorChildren: true, parentsWork: true })).increments,
+  [
+    { key: "children3", value: 0.2 },
+    { key: "minorsWork", value: 0.2 },
+  ],
+  "increments are reported with stable keys",
+);
+
+// Aile A — mavi
+const familyA = calculateParificato(
+  input({
+    earners: [
+      { kind: "employee", grossTry: 1_200_000 },
+      { kind: "employee", grossTry: 600_000 },
+    ],
+    home: { tenure: "owned", sqm: 120, mortgageTry: 0 },
+    otherBuildings: { sqm: 80, mortgageTry: 0 },
+    savings: { tryAmount: 500_000, eurAmount: 0 },
+  }),
+  RATE_2025,
+);
+near(familyA.totalIncome, 40_164.14, "A total income");
+near(familyA.employeeDeduction, 5_677.61, "A employee deduction is capped per earner");
+near(familyA.isr, 34_486.53, "A ISR");
+near(familyA.homeValue, 60_000, "A home value");
+near(familyA.homeCounted, 5_000, "A home counts two thirds above the franchise");
+near(familyA.otherBuildingsNet, 40_000, "A other buildings");
+near(familyA.savingsNet, 1_156.7, "A savings above the franchise");
+near(familyA.isp, 46_156.7, "A ISP");
+near(familyA.scale, 2.46, "A scale", 0.001);
+near(familyA.isee, 17_771.49, "A ISEE");
+near(familyA.ispe, 18_762.89, "A ISPE");
+near(familyA.incomeShare, 34_486.53 / 43_717.87, "A income share of ISE", 0.001);
+
+// Aile B — kira, 3 çocuk, 2024
+const familyB = calculateParificato(
+  input({
+    members: 5,
+    children: 3,
+    hasMinorChildren: true,
+    parentsWork: true,
+    earners: [
+      { kind: "employee", grossTry: 900_000 },
+      { kind: "employee", grossTry: 480_000 },
+    ],
+    home: { tenure: "rented", annualRentTry: 240_000 },
+    savings: { tryAmount: 300_000, eurAmount: 2_000 },
+  }),
+  RATE_2024,
+);
+near(familyB.rentCap, 7_500, "B rent cap grows with the third child");
+near(familyB.rentDeduction, 6_746.61, "B rent deduction");
+near(familyB.isr, 26_347.77, "B ISR");
+near(familyB.savingsFranchise, 11_000, "B savings franchise grows with the third child");
+near(familyB.isp, 0, "B ISP");
+near(familyB.scale, 3.25, "B scale", 0.001);
+near(familyB.isee, 8_107.01, "B ISEE");
+near(familyB.ispe, 0, "B ISPE");
+
+// Aile C — varlık ağır, kırmızı
+const familyC = calculateParificato(
+  input({
+    members: 3,
+    children: 1,
+    earners: [
+      { kind: "pension", grossTry: 480_000 },
+      { kind: "other", grossTry: 360_000 },
+    ],
+    home: { tenure: "owned", sqm: 200, mortgageTry: 900_000 },
+    otherBuildings: { sqm: 330, mortgageTry: 0 },
+    savings: { tryAmount: 2_000_000, eurAmount: 15_000 },
+  }),
+  RATE_2025,
+);
+near(familyC.pensionDeduction, 1_000, "C pension deduction is capped");
+near(familyC.employeeDeduction, 0, "C other income has no deduction");
+near(familyC.isr, 17_743.26, "C ISR");
+near(familyC.homeCounted, 18_278.62, "C home after mortgage and franchise");
+near(familyC.isp, 232_905.44, "C ISP");
+near(familyC.isee, 31_531.55, "C ISEE");
+near(familyC.ispe, 114_169.33, "C ISPE");
+
+// Aile D — sarı
+const familyD = calculateParificato(
+  input({
+    earners: [{ kind: "employee", grossTry: 2_400_000 }],
+    home: { tenure: "owned", sqm: 150, mortgageTry: 0 },
+    otherBuildings: { sqm: 60, mortgageTry: 0 },
+    savings: { tryAmount: 800_000, eurAmount: 0 },
+  }),
+  RATE_2025,
+);
+near(familyD.isr, 50_552.18, "D ISR");
+near(familyD.isp, 52_850.73, "D ISP");
+near(familyD.isee, 24_846.48, "D ISEE");
+near(familyD.ispe, 21_484.04, "D ISPE");
+
+// Kenar durumlar
+const rentOverIncome = calculateParificato(
+  input({
+    earners: [{ kind: "employee", grossTry: 100_000 }],
+    home: { tenure: "rented", annualRentTry: 300_000 },
+  }),
+  RATE_2025,
+);
+near(rentOverIncome.rentDeduction, 1_785.08, "rent deduction cannot exceed remaining income");
+near(rentOverIncome.isr, 0, "ISR never goes below zero");
+
+const mortgageOverValue = calculateParificato(
+  input({
+    home: { tenure: "owned", sqm: 50, mortgageTry: 2_000_000 },
+    otherBuildings: { sqm: 40, mortgageTry: 1_500_000 },
+  }),
+  RATE_2025,
+);
+near(mortgageOverValue.homeCounted, 0, "mortgage above home value gives zero");
+near(mortgageOverValue.otherBuildingsNet, 0, "mortgage above other building value gives zero");
+
+const fourChildren = calculateParificato(
+  input({
     members: 6,
     children: 4,
-    childrenUnderThree: 1,
-    hasMinorChildren: true,
-    bothParentsWorkedOrSingleParentWorked: true,
-    disabilityMembers: 1,
-  }).value,
-  3.2 + 0.35 + 0.3 + 0.5,
-  "ordinary scale includes base, four-child, minor-work and disability increases",
-);
-
-assert.equal(calculateMobileAssetDeduction({ members: 3, children: 1, mobileAssets: 8_000 }), 8_000);
-assert.equal(calculateMobileAssetDeduction({ members: 4, children: 3, mobileAssets: 25_000 }), 11_000);
-
-assert.equal(calculateRentDeduction({ annualRent: 9_600, children: 3, incomeBeforeRent: 12_000 }), 7_500);
-assert.equal(calculateRentDeduction({ annualRent: 9_600, children: 3, incomeBeforeRent: 4_000 }), 4_000);
-
-approx(
-  calculateMainResidenceAsset({
-    mainResidenceValue: 70_000,
-    mainResidenceMortgage: 0,
-    children: 3,
+    earners: [{ kind: "employee", grossTry: 3_000_000 }],
+    home: { tenure: "owned", sqm: 130, mortgageTry: 0 },
+    savings: { tryAmount: 0, eurAmount: 20_000 },
   }),
-  10_000,
-  "main residence counts as two thirds of value above the ordinary threshold",
+  RATE_2025,
+);
+near(fourChildren.homeFranchise, 57_500, "home franchise grows by 2,500 per child after the second");
+near(fourChildren.homeCounted, 5_000, "home counted with larger franchise");
+near(fourChildren.savingsFranchise, 12_000, "savings franchise max grows by 1,000 per child after the second");
+near(fourChildren.savingsNet, 8_000, "savings above larger franchise");
+
+const messy = calculateParificato(
+  input({
+    members: 2,
+    children: 9,
+    disabledMembers: -3,
+    earners: [
+      { kind: "employee", grossTry: -50_000 },
+      { kind: "other", grossTry: Number.NaN },
+    ],
+    home: { tenure: "owned", sqm: Number.NaN, mortgageTry: -1 },
+    otherBuildings: { sqm: -10, mortgageTry: 0 },
+    savings: { tryAmount: -5, eurAmount: Number.NaN },
+  }),
+  RATE_2025,
+);
+assert.equal(messy.children, 2, "children are clamped to household size");
+near(messy.isee, 0, "negative and NaN inputs are treated as zero");
+near(messy.scale, 1.57, "scale uses sanitized household", 0.001);
+
+assert.throws(() => calculateParificato(input(), 0), RangeError, "rate must be positive");
+assert.throws(() => calculateParificato(input(), Number.NaN), RangeError, "rate must be a number");
+
+// ---------------------------------------------------------------------------
+// 2) Referans veriler ve ışık kuralı
+// ---------------------------------------------------------------------------
+const reference = await importTs("lib/isee/reference.ts");
+const { bandFor, statusFor, buildVerdict } = await importTs("lib/isee/verdict.ts");
+
+assert.equal(reference.TRY_PER_EUR[2024], RATE_2024, "2024 Banca d'Italia annual average");
+assert.equal(reference.TRY_PER_EUR[2025], RATE_2025, "2025 Banca d'Italia annual average");
+assert.equal(reference.DEFAULT_REFERENCE_YEAR, 2025, "default reference year");
+assert.deepEqual(reference.REFERENCE_YEARS, [2025, 2024], "selectable years, newest first");
+assert.match(reference.RATE_SOURCE.url, /^https:\/\/tassidicambio\.bancaditalia\.it\//, "rate source is Banca d'Italia");
+assert.match(reference.THRESHOLDS_VERIFIED_AT, /^\d{4}-\d{2}-\d{2}$/, "verification date is ISO");
+assert.equal(reference.THRESHOLDS_ACADEMIC_YEAR, "2026/27");
+
+assert.deepEqual(
+  reference.CITY_THRESHOLDS.map((city) => city.key),
+  ["milano", "torino", "bologna", "roma", "padova"],
+  "five main destinations in display order",
+);
+const expectedLimits = {
+  milano: [26_887.93, 58_452.06, 2024],
+  torino: [26_306.25, 57_187.53, 2025],
+  bologna: [25_000, 50_000, 2025],
+  roma: [28_339.88, 61_608.48, 2024],
+  padova: [26_306.25, 43_125.94, 2024],
+};
+for (const city of reference.CITY_THRESHOLDS) {
+  const [iseeLimit, ispeLimit, requestedYear] = expectedLimits[city.key];
+  assert.equal(city.iseeLimit, iseeLimit, `${city.key} ISEE limit`);
+  assert.equal(city.ispeLimit, ispeLimit, `${city.key} ISPE limit`);
+  assert.equal(city.requestedYear, requestedYear, `${city.key} requested year`);
+  assert.match(city.sourceUrl, /^https:\/\//, `${city.key} source must be https`);
+  assert.ok(city.body.length > 0, `${city.key} managing body`);
+}
+for (const source of reference.FORMULA_SOURCES) {
+  assert.match(source.url, /^https:\/\//, `${source.key} formula source must be https`);
+}
+
+const averages = reference.averageLimits();
+near(averages.isee, 26_568.06, "average ISEE limit is computed from data", 0.01);
+near(averages.ispe, 54_074.8, "average ISPE limit is computed from data", 0.01);
+
+assert.equal(bandFor(0.85 * averages.isee - 0.01, averages.isee), "blue", "below 85% of average is blue");
+assert.equal(bandFor(0.85 * averages.isee, averages.isee), "yellow", "exactly 85% of average is yellow");
+assert.equal(bandFor(1.1 * averages.isee, averages.isee), "yellow", "exactly 110% of average is yellow");
+assert.equal(bandFor(1.1 * averages.isee + 0.01, averages.isee), "red", "above 110% of average is red");
+assert.equal(bandFor(0, averages.isee), "blue", "zero is blue");
+
+assert.equal(statusFor(0.9 * 25_000 - 0.01, 25_000), "below");
+assert.equal(statusFor(0.9 * 25_000, 25_000), "near");
+assert.equal(statusFor(1.05 * 25_000, 25_000), "near");
+assert.equal(statusFor(1.05 * 25_000 + 0.01, 25_000), "above");
+
+const verdictA = buildVerdict(familyA.isee, familyA.ispe, reference.CITY_THRESHOLDS, averages);
+assert.equal(verdictA.light, "blue", "family A is blue");
+assert.deepEqual(verdictA.worseCities, [], "family A has no harder city");
+assert.ok(verdictA.cities.every((city) => city.status === "below"), "family A is below every city limit");
+
+const verdictC = buildVerdict(familyC.isee, familyC.ispe, reference.CITY_THRESHOLDS, averages);
+assert.equal(verdictC.light, "red", "family C is red");
+assert.ok(verdictC.cities.every((city) => city.status === "above"), "family C is above every city limit");
+
+const verdictD = buildVerdict(familyD.isee, familyD.ispe, reference.CITY_THRESHOLDS, averages);
+assert.equal(verdictD.iseeLight, "yellow", "family D ISEE is yellow");
+assert.equal(verdictD.ispeLight, "blue", "family D ISPE is blue");
+assert.equal(verdictD.light, "yellow", "overall light is the worse of the two");
+assert.deepEqual(
+  Object.fromEntries(verdictD.cities.map((city) => [city.key, city.status])),
+  { milano: "near", torino: "near", bologna: "near", roma: "below", padova: "near" },
+  "family D city statuses",
+);
+assert.deepEqual(verdictD.worseCities, [], "near cities are not worse than a yellow light");
+
+// Genel tablo mavi ama Padova'nın düşük ISPE limiti aşılıyor
+const verdictPadova = buildVerdict(10_000, 44_500, reference.CITY_THRESHOLDS, averages);
+assert.equal(verdictPadova.light, "blue", "44,500 ISPE is still below 85% of the average");
+assert.deepEqual(verdictPadova.worseCities, ["padova"], "Padova is flagged as harder than the overall light");
+assert.equal(
+  verdictPadova.cities.find((city) => city.key === "padova").ispeStatus,
+  "near",
+  "Padova ISPE status is near at 44,500",
 );
 
-const result = calculateIsee({
-  members: 3,
-  children: 1,
-  childrenUnderThree: 0,
+// ---------------------------------------------------------------------------
+// 3) Form durumu ve doğrulama
+// ---------------------------------------------------------------------------
+const wizard = await importTs("lib/isee/wizardState.ts");
+
+assert.deepEqual(wizard.STEP_ORDER, ["household", "income", "property", "savings"], "four steps in order");
+
+const emptyForm = wizard.createEmptyForm(2025);
+assert.equal(emptyForm.referenceYear, 2025, "default year comes from the caller");
+assert.equal(emptyForm.members, null, "form opens empty");
+assert.equal(emptyForm.disabledMembers, 0, "disabled members default to zero");
+assert.deepEqual(emptyForm.earners, [{ id: 1, kind: null, grossTry: null }], "one empty earner row");
+assert.equal(wizard.nextEarnerId(emptyForm.earners), 2, "next earner id follows the highest id");
+assert.equal(wizard.nextEarnerId([]), 1, "earner ids start at one");
+
+assert.deepEqual(
+  wizard.validateStep("household", emptyForm),
+  { members: "choose", children: "choose" },
+  "empty household step asks for members and children",
+);
+assert.deepEqual(
+  wizard.validateStep("household", { ...emptyForm, members: 4, children: 2 }),
+  { hasMinorChildren: "choose" },
+  "minor-children question is required when there are children",
+);
+assert.deepEqual(
+  wizard.validateStep("household", { ...emptyForm, members: 2, children: 0 }),
+  {},
+  "no minor-children question without children",
+);
+assert.deepEqual(
+  wizard.validateStep("household", { ...emptyForm, members: 3, children: 5, hasMinorChildren: false }),
+  { children: "childrenExceedMembers" },
+  "children cannot exceed members",
+);
+assert.deepEqual(
+  wizard.validateStep("household", { ...emptyForm, members: 4, children: 2, hasMinorChildren: true }),
+  { hasChildUnderThree: "choose", parentsWork: "choose" },
+  "follow-up questions are required when there are minor children",
+);
+assert.deepEqual(
+  wizard.validateStep("household", {
+    ...emptyForm,
+    members: 4,
+    children: 2,
+    hasMinorChildren: true,
+    hasChildUnderThree: false,
+    parentsWork: true,
+  }),
+  {},
+  "complete household step is valid",
+);
+
+assert.deepEqual(
+  wizard.validateStep("income", emptyForm),
+  { "earner-1-kind": "earnerKind", "earner-1-amount": "earnerAmount" },
+  "empty earner row reports both fields",
+);
+assert.deepEqual(
+  wizard.validateStep("income", { ...emptyForm, earners: [] }),
+  { earners: "earnersEmpty" },
+  "at least one earner is required",
+);
+assert.deepEqual(
+  wizard.validateStep("income", { ...emptyForm, earners: [{ id: 1, kind: "employee", grossTry: 0 }] }),
+  { "earner-1-amount": "earnerAmount" },
+  "zero income is not accepted",
+);
+assert.deepEqual(
+  wizard.validateStep("income", { ...emptyForm, earners: [{ id: 3, kind: "pension", grossTry: 480_000 }] }),
+  {},
+  "complete income step is valid",
+);
+
+assert.deepEqual(
+  wizard.validateStep("property", emptyForm),
+  { tenure: "choose", hasOtherBuildings: "choose" },
+  "empty property step asks for tenure and other buildings",
+);
+assert.deepEqual(
+  wizard.validateStep("property", { ...emptyForm, tenure: "owned", hasOtherBuildings: true }),
+  { homeSqm: "sqm", otherSqm: "sqm" },
+  "owned home and other buildings need square metres",
+);
+assert.deepEqual(
+  wizard.validateStep("property", { ...emptyForm, tenure: "rented", hasOtherBuildings: false }),
+  { annualRentTry: "rent" },
+  "rented home needs the yearly rent",
+);
+assert.deepEqual(
+  wizard.validateStep("property", { ...emptyForm, tenure: "free", hasOtherBuildings: false }),
+  {},
+  "rent-free home without other buildings is valid",
+);
+
+assert.deepEqual(wizard.validateStep("savings", emptyForm), { savingsTry: "savings" }, "savings are required");
+assert.deepEqual(wizard.validateStep("savings", { ...emptyForm, savingsTry: 0 }), {}, "zero savings are accepted");
+
+const formA = {
+  ...emptyForm,
+  members: 4,
+  children: 2,
+  hasMinorChildren: false,
+  earners: [
+    { id: 1, kind: "employee", grossTry: 1_200_000 },
+    { id: 2, kind: "employee", grossTry: 600_000 },
+  ],
+  tenure: "owned",
+  homeSqm: 120,
+  annualRentTry: 999_999,
+  hasOtherBuildings: true,
+  otherSqm: 80,
+  savingsTry: 500_000,
+};
+const inputA = wizard.toParificatoInput(formA);
+assert.deepEqual(inputA.home, { tenure: "owned", sqm: 120, mortgageTry: 0 }, "only the chosen tenure is mapped");
+assert.deepEqual(inputA.otherBuildings, { sqm: 80, mortgageTry: 0 });
+assert.deepEqual(inputA.savings, { tryAmount: 500_000, eurAmount: 0 });
+near(calculateParificato(inputA, RATE_2025).isee, 17_771.49, "form A reproduces family A");
+
+const formHidden = wizard.toParificatoInput({
+  ...formA,
+  children: 0,
   hasMinorChildren: true,
-  bothParentsWorkedOrSingleParentWorked: false,
-  disabilityMembers: 0,
-  income: {
-    taxableAndExemptIncome: 30_000,
-    employeeIncome: 20_000,
-    employeeEarners: 1,
-    pensionIncome: 5_000,
-    pensionEarners: 1,
-    maintenancePaid: 0,
-    disabilityExpenses: 0,
-    annualRent: 8_400,
-  },
-  assets: {
-    bankBalances: 15_000,
-    bankAverageStock: 12_000,
-    otherFinancialAssets: 10_000,
-    stateBackedSavings: 30_000,
-    otherRealEstateValue: 50_000,
-    otherRealEstateMortgage: 0,
-    mainResidenceValue: 0,
-    mainResidenceMortgage: 0,
-    ownedMainResidence: false,
-  },
+  hasChildUnderThree: true,
+  parentsWork: true,
+  tenure: "rented",
+  annualRentTry: 240_000,
+  hasOtherBuildings: false,
+  otherSqm: 80,
 });
+assert.equal(formHidden.hasMinorChildren, false, "minor flags are ignored without children");
+assert.equal(formHidden.hasChildUnderThree, false);
+assert.equal(formHidden.parentsWork, false);
+assert.deepEqual(formHidden.home, { tenure: "rented", annualRentTry: 240_000 });
+assert.deepEqual(formHidden.otherBuildings, { sqm: 0, mortgageTry: 0 }, "hidden other-building values are ignored");
 
-approx(result.isr, 19_000, "ISR subtracts work, pension and rent deductions");
-approx(result.mobileAssetsNet, 15_000, "mobile assets exclude protected state savings and apply franchise");
-approx(result.isp, 65_000, "ISP combines net mobile and real-estate assets");
-approx(result.ise, 32_000, "ISE applies 20 percent of ISP");
-approx(result.isee, 15_686.27, "ISEE divides ISE by equivalence scale");
+// ---------------------------------------------------------------------------
+// 4) Çeviriler
+// ---------------------------------------------------------------------------
+const translationsSource = await readFile(path.join(root, "lib/translations.ts"), "utf8");
+assert.equal(
+  translationsSource.split("\n    iseeTool: {").length - 1,
+  2,
+  "iseeTool namespace must exist once in TR and once in EN",
+);
+for (const legacyKey of ["incomeLabel:", "assetsLabel:", "familyLabel:", "homeCardBadge:"]) {
+  assert.ok(!translationsSource.includes(legacyKey), `legacy isee key must be removed: ${legacyKey}`);
+}
+assert.equal(
+  translationsSource.split("homeCardItems: [").length - 1,
+  2,
+  "home card items live in translations (TR + EN)",
+);
+const iseeSectionSource = await readFile(path.join(root, "components/IseeSection.tsx"), "utf8");
+assert.ok(iseeSectionSource.includes("t.isee.homeCardItems"), "IseeSection reads its items from translations");
+assert.ok(!iseeSectionSource.includes("language ==="), "IseeSection must not branch on language for copy");
 
-console.log("ISEE calculator checks passed");
+// ---------------------------------------------------------------------------
+// 5) Biçimlendirme yardımcıları
+// ---------------------------------------------------------------------------
+const format = await importTs("components/isee/format.ts");
+
+assert.equal(format.fill("{sqm} m² = {value}", { sqm: 120, value: "60.000 €" }), "120 m² = 60.000 €");
+assert.equal(format.fill("{missing} stays", {}), "{missing} stays", "unknown placeholders are left untouched");
+assert.equal(format.formatAmount(1_250_000, "tr"), "1.250.000");
+assert.equal(format.formatAmount(1_250_000, "en"), "1,250,000");
+assert.equal(format.formatAmount(44.8161, "tr", 4), "44,8161");
+assert.equal(format.formatAmount(44.8161, "en", 4), "44.8161");
+assert.equal(format.formatAmount(999.5, "tr"), "1.000", "rounds to whole units by default");
+assert.equal(format.formatAmount(-1_500, "tr"), "-1.500");
+assert.equal(format.formatEuro(26_887.93, "tr"), "26.888 €");
+assert.equal(format.formatEuro(26_887.93, "en"), "€26,888");
+assert.equal(format.formatEuro(26_887.93, "tr", 2), "26.887,93 €");
+assert.equal(format.parseDigits("1.250.000"), 1_250_000);
+assert.equal(format.parseDigits("12abc3"), 123);
+assert.equal(format.parseDigits(""), null);
+assert.equal(format.parseDigits("abc"), null);
+assert.equal(format.parseDigits("12345", 3), 123, "input length is capped");
+
+// ---------------------------------------------------------------------------
+// 6) Sayfa ve kaynak guard'ları
+// ---------------------------------------------------------------------------
+for (const removed of ["lib/iseeCalculator.ts", "components/isee/IseeCalculatorClient.tsx"]) {
+  assert.ok(!existsSync(path.join(root, removed)), `legacy ordinary-ISEE file must be removed: ${removed}`);
+}
+
+for (const pureFile of [
+  "lib/isee/parificato.ts",
+  "lib/isee/reference.ts",
+  "lib/isee/verdict.ts",
+  "lib/isee/wizardState.ts",
+]) {
+  const source = await readFile(path.join(root, pureFile), "utf8");
+  assert.ok(!/from\s+["'](react|next)/.test(source), `${pureFile} must stay framework-free`);
+  assert.ok(!/^import\s+(?!type\b)/m.test(source), `${pureFile} may only use type imports`);
+}
+
+const pageSource = await readFile(path.join(root, "app/isee/page.tsx"), "utf8");
+assert.ok(pageSource.includes("IseeParificatoClient"), "app/isee/page.tsx renders the Parificato client leaf");
+assert.ok(!pageSource.includes('"use client"'), "app/isee/page.tsx stays a server wrapper");
+
+const layoutSource = await readFile(path.join(root, "app/isee/layout.tsx"), "utf8");
+assert.ok(layoutSource.includes("ISEE Parificato"), "metadata names ISEE Parificato");
+assert.ok(layoutSource.includes('canonical: "/isee"'), "canonical stays /isee");
+
+const clientSource = await readFile(path.join(root, "components/isee/IseeParificatoClient.tsx"), "utf8");
+assert.ok(clientSource.includes("<h1"), "client leaf renders the page H1");
+assert.ok(clientSource.includes("<IseeWizard"), "client leaf renders the wizard");
+assert.ok(clientSource.includes("<IseeExplainer"), "client leaf renders the visible explainer");
+assert.ok(clientSource.includes("<ConsultPrompt"), "client leaf keeps the consultation prompt");
+
+for (const uiFile of [
+  "components/isee/IseeParificatoClient.tsx",
+  "components/isee/IseeWizard.tsx",
+  "components/isee/IseeResult.tsx",
+  "components/isee/IseeExplainer.tsx",
+  "components/isee/steps/HouseholdStep.tsx",
+  "components/isee/steps/IncomeStep.tsx",
+  "components/isee/steps/PropertyStep.tsx",
+  "components/isee/steps/SavingsStep.tsx",
+]) {
+  const source = await readFile(path.join(root, uiFile), "utf8");
+  assert.ok(source.includes("t.iseeTool"), `${uiFile} must read its copy from t.iseeTool`);
+  assert.ok(!/[ğĞşŞıİçÇöÖüÜ]/.test(source.replace(/\/\/.*$/gm, "")), `${uiFile} must not hard-code Turkish copy`);
+}
+
+const explainerSource = await readFile(path.join(root, "components/isee/IseeExplainer.tsx"), "utf8");
+assert.ok(explainerSource.includes("CITY_THRESHOLDS"), "explainer lists the sourced city limits");
+assert.ok(explainerSource.includes("sourceUrl"), "explainer links every limit to its official source");
+
+// ---------------------------------------------------------------------------
+// 7) İnceleme sonrası eklenen kontroller (2026-09-19)
+// ---------------------------------------------------------------------------
+// Ortalamaya göre mavi ama bir şehrin kendi limiti aşılıyorsa ışık en az sarı olmalı.
+const verdictEscalated = buildVerdict(10_000, 45_500, reference.CITY_THRESHOLDS, averages);
+assert.equal(verdictEscalated.ispeLight, "blue", "45,500 ISPE is below 85% of the average on its own");
+assert.equal(verdictEscalated.light, "yellow", "a city above its own limit escalates blue to yellow");
+assert.deepEqual(verdictEscalated.worseCities, ["padova"], "the escalating city is still listed as harder");
+assert.deepEqual(verdictC.worseCities, [], "nothing is harder than a red light");
+
+near(
+  calculateParificato(input({ members: 1, children: 0, savings: { tryAmount: 0, eurAmount: 20_000 } }), RATE_2025).savingsFranchise,
+  6_000,
+  "single-person savings franchise",
+);
+near(
+  calculateParificato(input({ members: 2, children: 0, savings: { tryAmount: 0, eurAmount: 20_000 } }), RATE_2025).savingsFranchise,
+  8_000,
+  "two-person savings franchise",
+);
+
+assert.equal(format.formatPercent(79.4, "tr"), "%79");
+assert.equal(format.formatPercent(79.5, "en"), "80%");
+assert.equal(format.parseDigits("85.5"), 85, "pasted decimals are truncated, not multiplied");
+assert.equal(format.parseDigits("85,50"), 85);
+assert.equal(format.parseDigits("1.250,00"), 1_250);
+assert.equal(format.parseDigits("1,250.00"), 1_250);
+assert.equal(format.parseDigits("1.250"), 1_250, "thousand separators survive");
+
+const fullHousehold = wizard.toParificatoInput({
+  ...formA,
+  members: 5,
+  children: 3,
+  hasMinorChildren: true,
+  hasChildUnderThree: true,
+  parentsWork: true,
+  disabledMembers: 1,
+});
+assert.equal(fullHousehold.hasMinorChildren, true);
+assert.equal(fullHousehold.hasChildUnderThree, true);
+assert.equal(fullHousehold.parentsWork, true);
+assert.equal(fullHousehold.disabledMembers, 1);
+near(calculateScale(fullHousehold).value, 2.85 + 0.2 + 0.3 + 0.5, "full household increments flow through the form", 0.001);
+
+// Çeviri ağacı: TR ve EN anahtarları birebir, şablon değişkenleri aynı.
+const { translations } = await importTs("lib/translations.ts");
+function keyTree(node, prefix = "") {
+  if (Array.isArray(node)) return [`${prefix}[${node.length}]`];
+  if (node && typeof node === "object") {
+    return Object.keys(node).flatMap((key) => keyTree(node[key], prefix ? `${prefix}.${key}` : key));
+  }
+  return [prefix];
+}
+for (const namespace of ["isee", "iseeTool"]) {
+  assert.deepEqual(
+    keyTree(translations.en[namespace]),
+    keyTree(translations.tr[namespace]),
+    `${namespace}: EN key tree must mirror TR`,
+  );
+}
+function templates(node, prefix, out) {
+  if (typeof node === "string") {
+    const vars = [...node.matchAll(/\{(\w+)\}/g)].map((match) => match[1]).sort();
+    if (vars.length) out[prefix] = vars;
+  } else if (node && typeof node === "object") {
+    for (const key of Object.keys(node)) templates(node[key], `${prefix}.${key}`, out);
+  }
+  return out;
+}
+assert.deepEqual(
+  templates(translations.en.iseeTool, "iseeTool", {}),
+  templates(translations.tr.iseeTool, "iseeTool", {}),
+  "template placeholders must match between TR and EN",
+);
+const allowedPlaceholders = new Set(["year", "rate", "n", "sqm", "value", "cap", "members", "cities", "date"]);
+for (const [key, vars] of Object.entries(templates(translations.tr.iseeTool, "iseeTool", {}))) {
+  for (const name of vars) assert.ok(allowedPlaceholders.has(name), `${key} uses unknown placeholder {${name}}`);
+}
+
+
+console.log("ISEE Parificato checks passed");
