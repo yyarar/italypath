@@ -14,6 +14,19 @@
   --editorial-terracotta-ink: #9f4629; /* terracotta METİN/ikon rengi: küçük yazıda WCAG AA (≥4.5:1) için koyu ton; buton/arka plan/çerçeve base tokenda kalır */
   --editorial-border: #d8ded9;
   --editorial-band: #f5f1e8;
+  /* ISEE sonuç ışıkları (mavi/hardal/tuğla): zemin, çerçeve, metin (WCAG AA), lamba */
+  --isee-blue-bg: #e6eef5;
+  --isee-blue-border: #b9cde0;
+  --isee-blue-ink: #1d4568;
+  --isee-blue-dot: #2f6ea5;
+  --isee-amber-bg: #f7edd0;
+  --isee-amber-border: #e4cd8a;
+  --isee-amber-ink: #6b4e00;
+  --isee-amber-dot: #c99700;
+  --isee-brick-bg: #f5d9cf;
+  --isee-brick-border: #e8c9bd;
+  --isee-brick-ink: #8b321a;
+  --isee-brick-dot: #b3401f;
 
   /* Premium Color Tokens */
   --glass-bg: rgba(255, 255, 255, 0.75);

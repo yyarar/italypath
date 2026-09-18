@@ -7,11 +7,8 @@ import { useLanguage } from "@/context/LanguageContext";
 import Reveal from "@/components/ui/Reveal";
 
 export default function IseeSection() {
-  const { t, language } = useLanguage();
-  const items =
-    language === "tr"
-      ? ["Gelir ve mal varlığı", "Aile kişi sayısı", "Tahmini eşdeğer ölçek"]
-      : ["Income and assets", "Family members", "Estimated equivalence scale"];
+  const { t } = useLanguage();
+  const items = t.isee.homeCardItems;
 
   return (
     <section className="bg-[var(--editorial-paper)] pb-20 lg:pb-28">

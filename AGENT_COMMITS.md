@@ -529,3 +529,15 @@
 | `/ekip/mentor`, `lib/mentor/useMentorOperatorInbox.ts`, `components/mentor/operator/*` | 🆕 Tek operator inbox'i; auth fencing, status kuyruklari, reply/close, action pin ve Realtime recovery eklendi |
 | `proxy.ts`, `app/robots.ts`, `lib/legal/documents.ts` | 🔒 Operator route korumasi, crawl dislama ve insan yazismasi veri/retention/hizmet siniri aciklamalari eklendi |
 | `scripts/check-mentor-desks.mjs`, `scripts/test-mentor-*.mjs`, `SUPABASE_SECURITY_RUNBOOK.md` | ✅ Kalici mentor guard'i, davranis/PostgreSQL testleri ve production iki-hesap kurulum-kabul runbook'u eklendi |
+
+### ISEE Parificato hesaplayıcı (2026-09-17, `feat/isee-parificato`)
+| Dosya | Değişiklik |
+|-------|------------|
+| `lib/isee/parificato.ts`, `reference.ts`, `verdict.ts`, `wizardState.ts` | 🆕 Saf ISEE Parificato hesabı, kaynaklı kur/limit verisi, ışık kuralı, form doğrulama |
+| `components/isee/*` | 🆕 4 adımlı sihirbaz, sonuç ekranı, açıklama bölümü, form alanları, deterministik biçimlendirme |
+| `lib/iseeCalculator.ts`, `components/isee/IseeCalculatorClient.tsx` | 🗑️ Normal ISEE hesabı ve ekranı kaldırıldı |
+| `lib/translations.ts` | ♻️ Yeni `iseeTool` ad alanı (TR+EN); `isee` yalnızca ana sayfa kartı |
+| `components/IseeSection.tsx` | ♻️ Kart maddeleri çeviriden gelir |
+| `app/isee/page.tsx`, `app/isee/layout.tsx` | ♻️ Yeni client leaf ve ISEE Parificato metadata'sı |
+| `scripts/check-isee-calculator.mjs` | ♻️ Baştan yazıldı: örnek aileler, ışık sınırları, veri ve kaynak guard'ları |
+| `scripts/check-home-consultation.mjs`, `app/sitemap.ts`, `public/llms.txt` | ♻️ Yeni dosya yolu, `/isee` lastModified, açıklama |

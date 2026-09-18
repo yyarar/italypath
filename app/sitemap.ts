@@ -11,6 +11,8 @@ export const revalidate = 3600;
 // bundan yeniyse onlar kullanilir. Google lastmod'u yeniden tarama onceligi icin kullanir;
 // tarih uydurma, gercek degisiklige bagla (SEO_AUDIT.md §21).
 const PAGE_TEMPLATE_LAST_MODIFIED = new Date('2026-09-17T00:00:00Z');
+// /isee görünür içeriği 2026-09-17'de ISEE Parificato aracıyla yenilendi; program şablonundan bağımsız izlenir (SEO_AUDIT.md §21).
+const ISEE_PAGE_LAST_MODIFIED = new Date('2026-09-19T00:00:00Z');
 
 function toDate(value?: string): Date | null {
     if (!value) return null;
@@ -53,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
         {
             url: `${baseUrl}/isee`,
-            lastModified: PAGE_TEMPLATE_LAST_MODIFIED,
+            lastModified: ISEE_PAGE_LAST_MODIFIED,
             changeFrequency: 'monthly',
             priority: 0.8,
         },

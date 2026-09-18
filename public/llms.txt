@@ -7,7 +7,7 @@
 - A searchable directory of Italian universities and English-taught programmes, with university, city, programme-level, and available admission-detail information.
 - Source-backed programme dossiers when official programme pages, calls, tuition pages, requirements, document lists, or deadlines are available.
 - A regional scholarship atlas that links to the responsible Italian institutions and explains that criteria and calls change by academic year.
-- An educational ISEE calculator. Its result is an estimate only, not an official ISEE declaration or eligibility decision.
+- An educational ISEE Parificato calculator for families living in Türkiye (income in TRY, homes in m² at the conventional EUR 500 per m², official Banca d'Italia yearly average rate). Its result is an estimate only, not an official ISEE declaration or eligibility decision.
 - City guides with labelled cost-data sources and update dates, plus curated student community links.
 
 ## Source and freshness policy
@@ -21,7 +21,7 @@
 - [ItalyPath home](https://italypath.app/): https://italypath.app/
 - [University and programme directory](https://italypath.app/universities): https://italypath.app/universities
 - [Regional scholarship atlas](https://italypath.app/scholarships): https://italypath.app/scholarships
-- [ISEE estimate calculator](https://italypath.app/isee): https://italypath.app/isee
+- [ISEE Parificato estimate calculator](https://italypath.app/isee): https://italypath.app/isee
 - [Italian student city guides](https://italypath.app/cities): https://italypath.app/cities
 - [Student community atlas](https://italypath.app/communities): https://italypath.app/communities
 - [XML sitemap](https://italypath.app/sitemap.xml): https://italypath.app/sitemap.xml

@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur. Degisiklik gecmisi icin `AGENT_COMMITS.md`, son audit notlari icin `AGENT_CONTEXT_FIX_REPORT.md` okunabilir; bu dosya ise guncel mimari ve calisma kurallarinin kaynak dokumanidir.
 
-Son guncelleme: 2026-09-15
+Son guncelleme: 2026-09-17
 
 ---
 
@@ -73,7 +73,7 @@ italypath-main/
 │   ├── scholarships/page.tsx
 │   ├── isee/
 │   │   ├── layout.tsx              # /isee SEO metadata
-│   │   └── page.tsx                # Server wrapper -> components/isee/IseeCalculatorClient.tsx
+│   │   └── page.tsx                # Server wrapper -> components/isee/IseeParificatoClient.tsx
 │   ├── favorites/page.tsx
 │   ├── documents/page.tsx
 │   ├── hub/page.tsx                # Protected profil bazli oneri merkezi
@@ -89,7 +89,7 @@ italypath-main/
 │   ├── VelocityBridge.tsx
 │   ├── ScholarshipsSection.tsx
 │   ├── IseeSection.tsx
-│   ├── isee/IseeCalculatorClient.tsx
+│   ├── isee/                       # ISEE Parificato sihirbazi: client leaf, wizard, steps, result, explainer, fields, format
 │   ├── Footer.tsx
 │   ├── cities/CityGuidesExplorer.tsx
 │   ├── communities/CommunityAtlas.tsx
@@ -118,6 +118,7 @@ italypath-main/
 │   ├── community-links.ts
 │   ├── legal/documents.ts          # Yasal sayfa metinleri (TR) + footer/sitemap linkleri
 │   ├── hub/                        # profile.ts, useUserProfile.ts, recommendations.ts, useDocumentsCount.ts
+│   ├── isee/                       # parificato.ts (saf hesap), reference.ts (kur + limit verisi), verdict.ts (isik), wizardState.ts (form)
 │   ├── mentor/                     # Channel registry, native Clerk/Supabase hooks ve state/controller helper'lari
 │   ├── sat/                        # SAT types, SPR answer matching, server memo, client hooks
 │   └── scholarships/regions.ts
@@ -386,7 +387,7 @@ SEO Adim 2.5 (`SEO 2.5` deploy'u):
 - `/`, `/isee`, `/communities` canli HTML'deki `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizlendi
 - `/` server wrapper oldu; `getUniversitiesData()` ile server'da canli stats hesaplar, hata durumunda stats `null` doner ve sayfa patlamaz
 - Home UI `components/HomePageClient.tsx` client leaf'ine tasindi
-- `/isee` server wrapper oldu; hesaplayici `components/isee/IseeCalculatorClient.tsx` client leaf'ine tasindi
+- `/isee` server wrapper oldu; hesaplayici client leaf'e tasindi (2026-09-17'den beri `components/isee/IseeParificatoClient.tsx`)
 - `/communities` `force-dynamic` ile static prerender + analytics kaynakli marker'dan cikarildi; atlas HTML'de gercek H1/chapter/topluluk satirlari tasimaya devam eder
 
 SEO Adim 3 Part 1 (`288dd5d`, breadcrumb polish `b1fd488`):
@@ -607,9 +608,18 @@ SEO 2.5 sonrasi `/communities` `force-dynamic` route'tur. Canli HTML'de gercek H
 
 ### ISEE
 
-`app/isee/page.tsx` server wrapper'dir ve `components/isee/IseeCalculatorClient.tsx` client leaf'ini render eder. Hesaplama `lib/iseeCalculator.ts` scala equivalente formulunu kullanir. Dogrulama: `npm run check:isee`.
+`/isee` yalnizca **ISEE Parificato** tahmini yapar (ailesi Turkiye'de yasayan ogrenciler). Normal ISEE hesabi 2026-09-17'de kaldirildi; geri getirme.
 
-`app/isee/layout.tsx` SEO metadata tasir. SEO 2.5 sonrasi hesaplayici client interaktivitesi korunur; canli HTML'de gercek H1, aciklama, ISEE formulu ve form alanlari gorunur; `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizdir.
+- `app/isee/page.tsx` server wrapper (`force-dynamic`), `components/isee/IseeParificatoClient.tsx` client leaf: H1, 4 adimli sihirbaz (`IseeWizard` + `steps/*`), sonuc (`IseeResult`), gorunur aciklama + limit kartlari (`IseeExplainer`), `ConsultPrompt`.
+- Saf hesap katmani `lib/isee/`: `parificato.ts` (DPCM 159/2013 muafiyet/katsayilari, bina m2 x 500 EUR, TL -> EUR), `reference.ts` (Banca d'Italia yillik ortalama kurlar, bes sehrin 2026/27 ISEE/ISPE limitleri, kaynak URL + dogrulama tarihi), `verdict.ts` (ortalamaya gore mavi/sari/kirmizi; bir sehrin kendi limiti asiliyorsa isik en az sari; sehir bazinda altinda/sinirda/ustunde), `wizardState.ts` (form durumu, adim dogrulama). Bu dosyalar React/Next icermez ve birbirinden yalnizca `import type` alir.
+- Veri bakimi: yeni yil kuru (Ocak) ve yeni sartname limitleri (yaz) yalnizca `lib/isee/reference.ts` icinde guncellenir; her deger resmi kaynaga bagli olmalidir. Burs haritasi (`lib/scholarships/regions.ts`) ayri veri kaynagidir ve hala 2025/26 tasir.
+- Metinler `lib/translations.ts` `iseeTool` (TR+EN); tutarlar `components/isee/format.ts` ile deterministik bicimlenir (Intl yok, hydration guvenli). Isik renkleri `app/globals.css` `--isee-*` tokenlaridir.
+- Dev sunucusu `globals.css` token eklemelerini bazen eski Turbopack onbelleginden sunar; tarayicida `--isee-*` bos donerse `.next/dev` silinip sunucu yeniden baslatilir (uretim build'i etkilenmez).
+- Form bos acilir, durum yalnizca bellekte tutulur (localStorage/URL yok).
+- Dogrulama: `npm run check:isee` (dort elle hesaplanmis aile, kenar durumlar, isik sinirlari, veri butunlugu, kaynak guard'lari).
+- Tasarim/plan: `docs/superpowers/specs/2026-09-17-isee-parificato-calculator-design.md`, `docs/superpowers/plans/2026-09-17-isee-parificato-calculator-plan.md`.
+
+`app/isee/layout.tsx` SEO metadata tasir (ISEE Parificato odakli title/description + Open Graph). Canli HTML'de gercek H1, aciklama bolumu, bes sehir limiti ve sihirbazin ilk adimi gorunur; `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizdir.
 
 ### Yasal sayfalar
 
