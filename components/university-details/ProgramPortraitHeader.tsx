@@ -41,7 +41,7 @@ export function ProgramPortraitHeader({
               alt={`${department.name} - ${university.name}`}
               fill
               priority
-              sizes="(min-width: 1024px) 48vw, 100vw"
+              sizes="(min-width: 1280px) 580px, (min-width: 1024px) 46vw, 100vw"
               className="object-cover"
             />
           </div>
