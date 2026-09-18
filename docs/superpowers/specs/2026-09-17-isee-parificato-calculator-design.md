@@ -102,6 +102,7 @@ Ortalama: ISEE 26.568,06 €; ISPE 54.074,80 € (veriden hesaplanır, elle yaz�
 
 - Bant: `değer < 0,85 × ortalama` → **mavi**; `değer ≤ 1,10 × ortalama` → **sarı**; üstü → **kırmızı**.
 - ISEE ve ISPE ayrı ayrı sınıflanır; **genel ışık = kötü olan**.
+- Güvenlik kilidi (2026-09-19 inceleme sonrası): ortalamaya göre mavi çıksa bile herhangi bir şehrin **kendi** limiti aşılıyorsa ("üstünde") genel ışık en az **sarı** yanar. Örnek: ISPE 45.500 € ortalamanın %15 altında kalır ama Padova'nın 43.126 € limitini aşar; yanlışlıkla "rahatsın" denmez.
 - Alt bant bilerek geniş: kur yöntemi (Torino 31 Aralık kuru kullanır, 2025'te yıllık ortalamadan ~%11 farklı), referans yıl ve belge farkları tahmini oynatır; en pahalı hata yanlışlıkla "rahatsın" demektir.
 - Şehir satırı durumu, o şehrin **kendi** limitlerine göre: `değer < 0,90 × limit` → "altında"; `değer ≤ 1,05 × limit` → "sınırda"; üstü → "üstünde". ISEE ve ISPE'den kötü olan satırın durumudur.
 - Genel ışıktan daha kötü durumda şehir varsa açıklamanın altına bir dikkat satırı eklenir (örnek: Padova'nın düşük ISPE limiti).
