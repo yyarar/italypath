@@ -1,9 +1,14 @@
+"use client";
+
 /* Kabul dosyasinin uc bileseni (kunye, govde, kaynak izi) arasinda paylasilan
    etiket sozlesmesi ve kucuk sunum parcalari. 2026-09-17 program detay turunda
    ProgramAdmissionDetailsPanel.tsx icinden ayrildi. */
 
+import { useId, useState } from "react";
 import {
   CalendarDays,
+  ChevronDown,
+  ChevronUp,
   ExternalLink,
   FileText,
   ReceiptText,
@@ -244,6 +249,79 @@ export function sourceNameForEvidence(
   return source?.title ?? fallback;
 }
 
+export function ToggleButton({
+  expanded,
+  onToggle,
+  contentId,
+  readFullLabel,
+  collapseLabel,
+}: {
+  expanded: boolean;
+  onToggle: () => void;
+  contentId: string;
+  readFullLabel: string;
+  collapseLabel: string;
+}) {
+  return (
+    <button
+      type="button"
+      aria-expanded={expanded}
+      aria-controls={contentId}
+      onClick={onToggle}
+      className="mt-2 inline-flex min-h-11 items-center gap-1 text-xs font-bold text-[var(--editorial-terracotta-ink)] transition hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+    >
+      {expanded ? collapseLabel : readFullLabel}
+      {expanded ? (
+        <ChevronUp className="h-3.5 w-3.5" />
+      ) : (
+        <ChevronDown className="h-3.5 w-3.5" />
+      )}
+    </button>
+  );
+}
+
+// Kunyedeki gibi dar alanlarda uzun kaynak metni: 3 satirla sinirlanir, metin HTML'e BIR kez
+// yazilir, "Tumunu oku" dugmesi aria-expanded ile acar. 900 dosyanin 404'unde kampus/kabul
+// tipi/egitim dili degerlerinden en az biri 90 karakteri asiyor (en uzun 5.643).
+const CLAMP_THRESHOLD = 90;
+
+export function ClampedValue({
+  value,
+  readFullLabel,
+  collapseLabel,
+  className = "",
+}: {
+  value: string;
+  readFullLabel: string;
+  collapseLabel: string;
+  className?: string;
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const contentId = useId();
+  const needsClamp = value.length > CLAMP_THRESHOLD;
+
+  return (
+    <>
+      {/* "block" sinifi eklenmez: line-clamp display:-webkit-box ister, block onu ezer. */}
+      <p
+        id={contentId}
+        className={`break-words ${needsClamp && !expanded ? "line-clamp-3" : ""} ${className}`}
+      >
+        {value}
+      </p>
+      {needsClamp ? (
+        <ToggleButton
+          expanded={expanded}
+          onToggle={() => setExpanded((current) => !current)}
+          contentId={contentId}
+          readFullLabel={readFullLabel}
+          collapseLabel={collapseLabel}
+        />
+      ) : null}
+    </>
+  );
+}
+
 export function SourceNavLink({
   href,
   label,
@@ -344,19 +422,27 @@ export function ProfileFact({
   value,
   evidence,
   viewSourceLabel,
+  readFullLabel,
+  collapseLabel,
 }: {
   label: string;
   value: string;
   evidence?: AdmissionQuoteEvidence;
   viewSourceLabel: string;
+  readFullLabel: string;
+  collapseLabel: string;
 }) {
   return (
     <div className="min-w-0 border-t border-[var(--editorial-border)] py-4">
       <dt className="text-[10px] font-black uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
         {label}
       </dt>
-      <dd className="mt-2 break-words text-[13px] font-semibold leading-5 text-[var(--editorial-ink)] sm:text-sm sm:leading-6">
-        {cleanAdmissionDisplayValue(value)}
+      <dd className="mt-2 text-[13px] font-semibold leading-5 text-[var(--editorial-ink)] sm:text-sm sm:leading-6">
+        <ClampedValue
+          value={cleanAdmissionDisplayValue(value)}
+          readFullLabel={readFullLabel}
+          collapseLabel={collapseLabel}
+        />
       </dd>
       <EvidenceLink evidence={evidence} label={viewSourceLabel} />
     </div>

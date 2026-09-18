@@ -149,6 +149,8 @@ export function ProgramSummaryStrip({
             value={fact.value}
             evidence={evidenceFor(fact.field)}
             viewSourceLabel={labels.viewSource}
+            readFullLabel={labels.readFull}
+            collapseLabel={labels.collapseText}
           />
         ))}
       </dl>

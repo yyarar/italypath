@@ -6,7 +6,7 @@
    yalnizca BIR kez yazilir (line-clamp + aria-expanded dugmesi). */
 
 import { useId, useState } from "react";
-import { ChevronDown, ChevronUp, ExternalLink, Square } from "lucide-react";
+import { ChevronDown, ExternalLink, Square } from "lucide-react";
 
 import type { ProgramAdmissionDetails } from "@/types/universities";
 import {
@@ -20,6 +20,7 @@ import {
 import {
   DossierSectionTitle,
   EvidenceLink,
+  ToggleButton,
   SourceMeta,
   buildDossierSources,
   fillTemplate,
@@ -35,37 +36,6 @@ interface ProgramAdmissionDetailsPanelProps {
 }
 
 const COLLAPSED_SEGMENT_COUNT = 3;
-
-function ToggleButton({
-  expanded,
-  onToggle,
-  contentId,
-  readFullLabel,
-  collapseLabel,
-}: {
-  expanded: boolean;
-  onToggle: () => void;
-  contentId: string;
-  readFullLabel: string;
-  collapseLabel: string;
-}) {
-  return (
-    <button
-      type="button"
-      aria-expanded={expanded}
-      aria-controls={contentId}
-      onClick={onToggle}
-      className="mt-2 inline-flex min-h-11 items-center gap-1 text-xs font-bold text-[var(--editorial-terracotta-ink)] transition hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
-    >
-      {expanded ? collapseLabel : readFullLabel}
-      {expanded ? (
-        <ChevronUp className="h-3.5 w-3.5" />
-      ) : (
-        <ChevronDown className="h-3.5 w-3.5" />
-      )}
-    </button>
-  );
-}
 
 function AdmissionText({
   value,
