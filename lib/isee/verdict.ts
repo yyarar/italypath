@@ -49,7 +49,7 @@ export function buildVerdict<K extends string>(
 ): Verdict<K> {
   const iseeLight = bandFor(isee, averages.isee);
   const ispeLight = bandFor(ispe, averages.ispe);
-  const light = LIGHT_RANK[iseeLight] >= LIGHT_RANK[ispeLight] ? iseeLight : ispeLight;
+  const averageLight = LIGHT_RANK[iseeLight] >= LIGHT_RANK[ispeLight] ? iseeLight : ispeLight;
 
   const cityResults = cities.map((city) => {
     const iseeStatus = statusFor(isee, city.iseeLimit);
@@ -57,6 +57,11 @@ export function buildVerdict<K extends string>(
     const status = STATUS_RANK[iseeStatus] >= STATUS_RANK[ispeStatus] ? iseeStatus : ispeStatus;
     return { key: city.key, iseeStatus, ispeStatus, status };
   });
+
+  // Ortalama "rahat" dese bile bir şehrin kendi limiti aşılıyorsa (ör. Padova'nın düşük ISPE limiti)
+  // yanlışlıkla "rahatsın" dememek için ışık en az sarı yanar.
+  const anyCityAbove = cityResults.some((city) => city.status === "above");
+  const light: Light = averageLight === "blue" && anyCityAbove ? "yellow" : averageLight;
 
   return {
     iseeLight,

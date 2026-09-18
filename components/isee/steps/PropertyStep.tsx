@@ -14,7 +14,7 @@ const TENURES: Tenure[] = ["owned", "rented", "free"];
 
 function InfoBox({ children }: { children: string }) {
   return (
-    <p className="flex gap-2 border border-[#b9cde0] bg-[#e6eef5] p-3 text-sm leading-6 text-[#1d4568]">
+    <p className="flex gap-2 border border-[var(--isee-blue-border)] bg-[var(--isee-blue-bg)] p-3 text-sm leading-6 text-[var(--isee-blue-ink)]">
       <Info className="mt-1 h-4 w-4 shrink-0" aria-hidden="true" />
       <span>{children}</span>
     </p>
@@ -41,7 +41,12 @@ export default function PropertyStep({ form, update, errors, language }: StepPro
     <div className="space-y-8">
       <div>
         <QuestionLabel id="isee-tenure-label">{copy.heading}</QuestionLabel>
-        <div role="radiogroup" aria-labelledby="isee-tenure-label" className="mt-3 grid gap-2">
+        <div
+          role="radiogroup"
+          aria-labelledby="isee-tenure-label"
+          aria-describedby={errorFor("tenure") ? "isee-tenure-error" : undefined}
+          className="mt-3 grid gap-2"
+        >
           {TENURES.map((tenure) => (
             <WizardOptionCard
               key={tenure}

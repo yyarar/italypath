@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { ReactNode, RefObject } from "react";
 import { AlertTriangle, ArrowRight } from "lucide-react";
 
-import { fill, formatAmount, formatEuro, type Language } from "@/components/isee/format";
+import { fill, formatAmount, formatEuro, formatPercent, type Language } from "@/components/isee/format";
 import { useLanguage } from "@/context/LanguageContext";
 import type { ParificatoResult } from "@/lib/isee/parificato";
 import {
@@ -26,15 +26,27 @@ interface IseeResultProps {
 }
 
 const LIGHT_STYLES: Record<Light, { box: string; dot: string; text: string }> = {
-  blue: { box: "border-[#b9cde0] bg-[#e6eef5]", dot: "bg-[#2f6ea5]", text: "text-[#1d4568]" },
-  yellow: { box: "border-[#e4cd8a] bg-[#f7edd0]", dot: "bg-[#c99700]", text: "text-[#6b4e00]" },
-  red: { box: "border-[#e8c9bd] bg-[#f5d9cf]", dot: "bg-[#b3401f]", text: "text-[#8b321a]" },
+  blue: {
+    box: "border-[var(--isee-blue-border)] bg-[var(--isee-blue-bg)]",
+    dot: "bg-[var(--isee-blue-dot)]",
+    text: "text-[var(--isee-blue-ink)]",
+  },
+  yellow: {
+    box: "border-[var(--isee-amber-border)] bg-[var(--isee-amber-bg)]",
+    dot: "bg-[var(--isee-amber-dot)]",
+    text: "text-[var(--isee-amber-ink)]",
+  },
+  red: {
+    box: "border-[var(--isee-brick-border)] bg-[var(--isee-brick-bg)]",
+    dot: "bg-[var(--isee-brick-dot)]",
+    text: "text-[var(--isee-brick-ink)]",
+  },
 };
 
 const STATUS_STYLES: Record<CityStatus, string> = {
-  below: "text-[#1d4568]",
-  near: "text-[#6b4e00]",
-  above: "text-[#8b321a]",
+  below: "text-[var(--isee-blue-ink)]",
+  near: "text-[var(--isee-amber-ink)]",
+  above: "text-[var(--isee-brick-ink)]",
 };
 
 function Row({ label, value, strong = false }: { label: string; value: string; strong?: boolean }) {
@@ -92,6 +104,9 @@ export default function IseeResult({
 
   const incomePercent = Math.round(result.incomeShare * 100);
   const assetPercent = 100 - incomePercent;
+  // Muafiyet satırları "fiilen düşülen" tutarı gösterir: 30.000 €'luk evden 52.500 € düşülmez, 30.000 € düşülür.
+  const homeFranchiseApplied = Math.min(result.homeFranchise, Math.max(0, result.homeValue - result.homeMortgage));
+  const savingsFranchiseApplied = Math.min(result.savingsFranchise, result.savingsTotal);
 
   return (
     <div className="p-5 sm:p-8">
@@ -188,7 +203,7 @@ export default function IseeResult({
                   value={euro(result.homeValue)}
                 />
                 {result.homeMortgage > 0 ? <Row label={rows.homeMortgage} value={minus(result.homeMortgage)} /> : null}
-                <Row label={rows.homeFranchise} value={minus(result.homeFranchise)} />
+                <Row label={rows.homeFranchise} value={minus(homeFranchiseApplied)} />
                 <Row label={rows.homeCounted} value={euro(result.homeCounted)} />
               </>
             ) : null}
@@ -204,7 +219,7 @@ export default function IseeResult({
               </>
             ) : null}
             <Row label={rows.savingsTotal} value={euro(result.savingsTotal)} />
-            <Row label={rows.savingsFranchise} value={minus(result.savingsFranchise)} />
+            <Row label={rows.savingsFranchise} value={minus(savingsFranchiseApplied)} />
             <Row label={rows.savingsNet} value={euro(result.savingsNet)} />
             <Row label={rows.isp} value={euro(result.isp)} strong />
           </RowGroup>
@@ -239,10 +254,10 @@ export default function IseeResult({
               </div>
               <div className="mt-2 flex flex-wrap justify-between gap-2 text-sm text-[var(--editorial-muted)]">
                 <span>
-                  {rows.shareIncome}: %{incomePercent}
+                  {rows.shareIncome}: {formatPercent(incomePercent, language)}
                 </span>
                 <span>
-                  {rows.shareAssets}: %{assetPercent}
+                  {rows.shareAssets}: {formatPercent(assetPercent, language)}
                 </span>
               </div>
             </div>
@@ -250,12 +265,12 @@ export default function IseeResult({
         </div>
       </details>
 
-      <div className="mt-6 border border-[#e8c9bd] bg-[#fff8f5] p-4">
-        <p className="flex items-center gap-2 text-sm font-semibold text-[#8b321a]">
+      <div className="mt-6 border border-[var(--isee-brick-border)] bg-[var(--editorial-surface)] p-4">
+        <p className="flex items-center gap-2 text-sm font-semibold text-[var(--isee-brick-ink)]">
           <AlertTriangle className="h-4 w-4 shrink-0" aria-hidden="true" />
           {copy.disclaimerTitle}
         </p>
-        <p className="mt-2 text-sm leading-6 text-[#8b321a]">{copy.disclaimer}</p>
+        <p className="mt-2 text-sm leading-6 text-[var(--isee-brick-ink)]">{copy.disclaimer}</p>
       </div>
 
       <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-[var(--editorial-border)] pt-5">

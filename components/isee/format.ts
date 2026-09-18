@@ -21,7 +21,17 @@ export function formatEuro(value: number, language: Language, digits = 0): strin
   return language === "tr" ? `${amount} €` : `€${amount}`;
 }
 
+export function formatPercent(value: number, language: Language): string {
+  const rounded = Math.round(Number.isFinite(value) ? value : 0);
+  return language === "tr" ? `%${rounded}` : `${rounded}%`;
+}
+
+// Yalnızca tam sayı kabul edilir: yapıştırılan "85,50" veya "85.5" gibi ondalık kısımlar atılır,
+// "1.250" gibi binlik ayırıcılar korunur.
 export function parseDigits(raw: string, maxDigits = 12): number | null {
-  const digits = raw.replace(/\D/g, "").slice(0, maxDigits);
+  const digits = raw
+    .replace(/[.,]\d{1,2}$/, "")
+    .replace(/\D/g, "")
+    .slice(0, maxDigits);
   return digits === "" ? null : Number(digits);
 }

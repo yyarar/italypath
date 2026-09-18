@@ -41,10 +41,16 @@ export default function IseeWizard() {
     cardRef.current?.scrollIntoView({ block: "start" });
   }, [stepIndex, showResult]);
 
-  // Doğrulama başarısızsa ilk hata mesajını görünür alana getir.
+  // Doğrulama başarısızsa ilk hatalı alana odaklan ve ilk hata mesajını görünür alana getir.
   useEffect(() => {
     if (errorTick === 0) return;
-    cardRef.current?.querySelector('[role="alert"]')?.scrollIntoView({ block: "center" });
+    const card = cardRef.current;
+    if (!card) return;
+    const firstInvalid = card.querySelector<HTMLElement>(
+      '[aria-invalid="true"], [role="group"][aria-describedby$="-error"] button',
+    );
+    firstInvalid?.focus({ preventScroll: true });
+    card.querySelector('[role="alert"]')?.scrollIntoView({ block: "center" });
   }, [errorTick]);
 
   const outcome = useMemo(() => {
@@ -68,6 +74,7 @@ export default function IseeWizard() {
       if (Object.keys(current).length === 0) return current;
       const next = { ...current };
       for (const key of Object.keys(patch)) delete next[key];
+      if ("members" in patch && next.children === "childrenExceedMembers") delete next.children;
       if ("earners" in patch) {
         for (const key of Object.keys(next)) {
           if (key.startsWith("earner")) delete next[key];
@@ -153,7 +160,7 @@ export default function IseeWizard() {
           </div>
 
           {Object.keys(errors).length > 0 ? (
-            <p role="alert" className="mt-6 text-sm font-semibold text-[#8b321a]">
+            <p role="alert" className="mt-6 text-sm font-semibold text-[var(--isee-brick-ink)]">
               {copy.errors.summary}
             </p>
           ) : null}

@@ -81,7 +81,7 @@ export default function IncomeStep({ form, update, errors, language }: StepProps
                 <button
                   type="button"
                   onClick={() => removeEarner(earner.id)}
-                  className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#8b321a] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+                  className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--isee-brick-ink)] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
                 >
                   <Trash2 className="h-4 w-4" aria-hidden="true" />
                   {copy.removeEarner}

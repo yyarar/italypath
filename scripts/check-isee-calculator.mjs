@@ -577,4 +577,84 @@ const explainerSource = await readFile(path.join(root, "components/isee/IseeExpl
 assert.ok(explainerSource.includes("CITY_THRESHOLDS"), "explainer lists the sourced city limits");
 assert.ok(explainerSource.includes("sourceUrl"), "explainer links every limit to its official source");
 
+// ---------------------------------------------------------------------------
+// 7) İnceleme sonrası eklenen kontroller (2026-09-19)
+// ---------------------------------------------------------------------------
+// Ortalamaya göre mavi ama bir şehrin kendi limiti aşılıyorsa ışık en az sarı olmalı.
+const verdictEscalated = buildVerdict(10_000, 45_500, reference.CITY_THRESHOLDS, averages);
+assert.equal(verdictEscalated.ispeLight, "blue", "45,500 ISPE is below 85% of the average on its own");
+assert.equal(verdictEscalated.light, "yellow", "a city above its own limit escalates blue to yellow");
+assert.deepEqual(verdictEscalated.worseCities, ["padova"], "the escalating city is still listed as harder");
+assert.deepEqual(verdictC.worseCities, [], "nothing is harder than a red light");
+
+near(
+  calculateParificato(input({ members: 1, children: 0, savings: { tryAmount: 0, eurAmount: 20_000 } }), RATE_2025).savingsFranchise,
+  6_000,
+  "single-person savings franchise",
+);
+near(
+  calculateParificato(input({ members: 2, children: 0, savings: { tryAmount: 0, eurAmount: 20_000 } }), RATE_2025).savingsFranchise,
+  8_000,
+  "two-person savings franchise",
+);
+
+assert.equal(format.formatPercent(79.4, "tr"), "%79");
+assert.equal(format.formatPercent(79.5, "en"), "80%");
+assert.equal(format.parseDigits("85.5"), 85, "pasted decimals are truncated, not multiplied");
+assert.equal(format.parseDigits("85,50"), 85);
+assert.equal(format.parseDigits("1.250,00"), 1_250);
+assert.equal(format.parseDigits("1,250.00"), 1_250);
+assert.equal(format.parseDigits("1.250"), 1_250, "thousand separators survive");
+
+const fullHousehold = wizard.toParificatoInput({
+  ...formA,
+  members: 5,
+  children: 3,
+  hasMinorChildren: true,
+  hasChildUnderThree: true,
+  parentsWork: true,
+  disabledMembers: 1,
+});
+assert.equal(fullHousehold.hasMinorChildren, true);
+assert.equal(fullHousehold.hasChildUnderThree, true);
+assert.equal(fullHousehold.parentsWork, true);
+assert.equal(fullHousehold.disabledMembers, 1);
+near(calculateScale(fullHousehold).value, 2.85 + 0.2 + 0.3 + 0.5, "full household increments flow through the form", 0.001);
+
+// Çeviri ağacı: TR ve EN anahtarları birebir, şablon değişkenleri aynı.
+const { translations } = await importTs("lib/translations.ts");
+function keyTree(node, prefix = "") {
+  if (Array.isArray(node)) return [`${prefix}[${node.length}]`];
+  if (node && typeof node === "object") {
+    return Object.keys(node).flatMap((key) => keyTree(node[key], prefix ? `${prefix}.${key}` : key));
+  }
+  return [prefix];
+}
+for (const namespace of ["isee", "iseeTool"]) {
+  assert.deepEqual(
+    keyTree(translations.en[namespace]),
+    keyTree(translations.tr[namespace]),
+    `${namespace}: EN key tree must mirror TR`,
+  );
+}
+function templates(node, prefix, out) {
+  if (typeof node === "string") {
+    const vars = [...node.matchAll(/\{(\w+)\}/g)].map((match) => match[1]).sort();
+    if (vars.length) out[prefix] = vars;
+  } else if (node && typeof node === "object") {
+    for (const key of Object.keys(node)) templates(node[key], `${prefix}.${key}`, out);
+  }
+  return out;
+}
+assert.deepEqual(
+  templates(translations.en.iseeTool, "iseeTool", {}),
+  templates(translations.tr.iseeTool, "iseeTool", {}),
+  "template placeholders must match between TR and EN",
+);
+const allowedPlaceholders = new Set(["year", "rate", "n", "sqm", "value", "cap", "members", "cities", "date"]);
+for (const [key, vars] of Object.entries(templates(translations.tr.iseeTool, "iseeTool", {}))) {
+  for (const name of vars) assert.ok(allowedPlaceholders.has(name), `${key} uses unknown placeholder {${name}}`);
+}
+
+
 console.log("ISEE Parificato checks passed");

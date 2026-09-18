@@ -19,7 +19,7 @@ export function FieldHint({ id, children }: { id?: string; children: ReactNode }
 export function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
   return (
-    <p id={id} role="alert" className="mt-2 text-sm font-semibold text-[#8b321a]">
+    <p id={id} role="alert" className="mt-2 text-sm font-semibold text-[var(--isee-brick-ink)]">
       {message}
     </p>
   );
@@ -37,8 +37,7 @@ function Chip({ label, selected, onSelect }: { label: string; selected: boolean;
   return (
     <button
       type="button"
-      role="radio"
-      aria-checked={selected}
+      aria-pressed={selected}
       onClick={onSelect}
       className={`min-h-11 min-w-11 border px-4 text-sm font-semibold transition-colors active:translate-y-[1px] ${FOCUS_RING} ${
         selected
@@ -75,9 +74,9 @@ export function ChoiceChips<T extends string | number>({
       <QuestionLabel id={`${id}-label`}>{label}</QuestionLabel>
       {hint ? <FieldHint id={`${id}-hint`}>{hint}</FieldHint> : null}
       <div
-        role="radiogroup"
+        role="group"
         aria-labelledby={`${id}-label`}
-        aria-describedby={hint ? `${id}-hint` : undefined}
+        aria-describedby={[hint ? `${id}-hint` : null, error ? `${id}-error` : null].filter(Boolean).join(" ") || undefined}
         className="mt-3 flex flex-wrap gap-2"
       >
         {options.map((option) => (
@@ -131,9 +130,9 @@ export function NumberChips({
       <QuestionLabel id={`${id}-label`}>{label}</QuestionLabel>
       {hint ? <FieldHint id={`${id}-hint`}>{hint}</FieldHint> : null}
       <div
-        role="radiogroup"
+        role="group"
         aria-labelledby={`${id}-label`}
-        aria-describedby={hint ? `${id}-hint` : undefined}
+        aria-describedby={[hint ? `${id}-hint` : null, error ? `${id}-error` : null].filter(Boolean).join(" ") || undefined}
         className="mt-3 flex flex-wrap gap-2"
       >
         {numbers.map((number) => (
@@ -145,7 +144,7 @@ export function NumberChips({
         <div className="mt-3 inline-flex items-center border border-[var(--editorial-border)] bg-white">
           <button
             type="button"
-            aria-label={decreaseLabel}
+            aria-label={`${decreaseLabel}: ${label}`}
             onClick={() => onChange(Math.max(moreFrom, value - 1))}
             className={`flex h-11 w-11 items-center justify-center text-[var(--editorial-sage)] hover:bg-[var(--editorial-sage-soft)] ${FOCUS_RING}`}
           >
@@ -159,7 +158,7 @@ export function NumberChips({
           </output>
           <button
             type="button"
-            aria-label={increaseLabel}
+            aria-label={`${increaseLabel}: ${label}`}
             onClick={() => onChange(Math.min(hardMax, value + 1))}
             className={`flex h-11 w-11 items-center justify-center text-[var(--editorial-sage)] hover:bg-[var(--editorial-sage-soft)] ${FOCUS_RING}`}
           >
@@ -225,7 +224,9 @@ export function MoneyField({
   maxDigits = 12,
   error,
 }: MoneyFieldProps) {
-  const describedBy = [hint ? `${id}-hint` : null, error ? `${id}-error` : null].filter(Boolean).join(" ");
+  const describedBy = [`${id}-unit`, hint ? `${id}-hint` : null, error ? `${id}-error` : null]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div>
@@ -239,7 +240,7 @@ export function MoneyField({
       <div
         className={`mt-2 flex items-center border bg-white focus-within:ring-2 focus-within:ring-[var(--editorial-sage-soft)] ${
           error
-            ? "border-[#b3401f]"
+            ? "border-[var(--isee-brick-dot)]"
             : "border-[var(--editorial-border)] focus-within:border-[var(--editorial-sage)]"
         }`}
       >
@@ -254,7 +255,10 @@ export function MoneyField({
           aria-describedby={describedBy || undefined}
           className="h-12 min-w-0 flex-1 bg-transparent px-3 text-right text-base font-semibold tabular-nums text-[var(--editorial-ink)] outline-none"
         />
-        <span className="flex h-12 min-w-12 items-center justify-center border-l border-[var(--editorial-border)] px-3 text-sm font-semibold text-[var(--editorial-muted)]">
+        <span
+          id={`${id}-unit`}
+          className="flex h-12 min-w-12 items-center justify-center border-l border-[var(--editorial-border)] px-3 text-sm font-semibold text-[var(--editorial-muted)]"
+        >
           {suffix}
         </span>
       </div>
