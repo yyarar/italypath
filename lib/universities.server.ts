@@ -14,6 +14,7 @@ import type {
   SupabaseUniversityDepartmentRow,
   SupabaseUniversityRow,
 } from "@/types";
+import { extractDegreeClassCodes } from "@/components/university-details/programAdmissionPresentation";
 
 const UNIVERSITY_COLUMNS =
   "id,name,city,type,fee,image,description,description_en,website,features,features_en,sort_order,updated_at";
@@ -40,6 +41,7 @@ const PROGRAM_DURATIONS = new Set<ProgramDurationYears>([1, 2, 3, 4, 5, 6]);
 // yerinde mutate etmemeli (sort/push gerekiyorsa once kopyala).
 type MemoEntry<T> = { data: T; expiresAt: number };
 type AdmissionPresenceRow = { department_id: number; updated_at: string | null };
+type ProgramDegreeClassCodesRow = { department_id: number; degree_class_codes: string | null };
 const UNIVERSITY_MEMO_MAX_ENTRIES = 500;
 
 let directoryCache: MemoEntry<University[]> | null = null;
@@ -306,6 +308,39 @@ async function fetchAdmissionPresence(): Promise<Map<number, string | null>> {
   }
 }
 
+// Resmi bolum sinifi kodu: dizinde "ayni alanda diger universiteler" eslesmesi icin gerekir.
+// Uzun degree_class metni yerine program_degree_class_codes gorunumunden yalnizca kisa kodlar
+// okunur (~4 KB gz; ham metin 38 KB gz olurdu). Gorunum: supabase/program_degree_class_codes.sql.
+async function fetchAdmissionDegreeClasses(): Promise<Map<number, string[]>> {
+  const supabase = createReadOnlySupabaseClient();
+  const codesByDepartment = new Map<number, string[]>();
+
+  for (let from = 0; ; from += PROGRAM_ADMISSION_DETAIL_PAGE_SIZE) {
+    const to = from + PROGRAM_ADMISSION_DETAIL_PAGE_SIZE - 1;
+    const { data, error } = await supabase
+      .from("program_degree_class_codes")
+      .select("department_id,degree_class_codes")
+      .order("department_id", { ascending: true })
+      .range(from, to)
+      .returns<ProgramDegreeClassCodesRow[]>();
+
+    if (error) {
+      throw new Error(`Failed to fetch program degree classes from Supabase: ${error.message}`);
+    }
+
+    const page = data ?? [];
+    for (const row of page) {
+      if (typeof row.department_id !== "number") continue;
+      const codes = extractDegreeClassCodes(row.degree_class_codes ?? undefined);
+      if (codes.length > 0) codesByDepartment.set(row.department_id, codes);
+    }
+
+    if (page.length < PROGRAM_ADMISSION_DETAIL_PAGE_SIZE) {
+      return codesByDepartment;
+    }
+  }
+}
+
 async function fetchProgramAdmissionDetailRows(
   universityId?: number
 ): Promise<SupabaseProgramAdmissionDetailsRow[]> {
@@ -341,7 +376,8 @@ export function composeUniversitiesFromSupabaseRows(
   universityRows: SupabaseUniversityRow[],
   departmentRows: SupabaseUniversityDepartmentRow[],
   admissionDetailRows: SupabaseProgramAdmissionDetailsRow[] = [],
-  admissionPresence?: Map<number, string | null>
+  admissionPresence?: Map<number, string | null>,
+  admissionDegreeClasses?: Map<number, string[]>
 ): University[] {
   const detailsByDepartmentId = new Map<number, ProgramAdmissionDetails>();
 
@@ -366,9 +402,17 @@ export function composeUniversitiesFromSupabaseRows(
       Boolean(admissionDetails) ||
       (typeof row.id === "number" && admissionPresence?.has(row.id) === true);
     const updatedAt = latestTimestamp(department.updatedAt, presenceUpdatedAt, row.updated_at);
+    // Bolum sinifi kodu compose'un DISINDA cikarilir (cagiran katman extractDegreeClassCodes
+    // kullanir); compose saf kalir ve yalnizca hazir kodlari okur.
+    const degreeClassCodes =
+      typeof row.id === "number" ? admissionDegreeClasses?.get(row.id) : undefined;
+    const baseDepartment: Department =
+      degreeClassCodes && degreeClassCodes.length > 0
+        ? { ...department, degreeClassCodes }
+        : department;
     const enrichedDepartment: Department = admissionDetails
-      ? { ...department, admissionDetails, hasAdmissionDetails, updatedAt }
-      : { ...department, hasAdmissionDetails, updatedAt };
+      ? { ...baseDepartment, admissionDetails, hasAdmissionDetails, updatedAt }
+      : { ...baseDepartment, hasAdmissionDetails, updatedAt };
 
     const departments = departmentsByUniversityId.get(row.university_id) ?? [];
     departments.push(enrichedDepartment);
@@ -395,16 +439,19 @@ export async function getUniversitiesDirectory(): Promise<University[]> {
   // Single-flight: es zamanli cache miss'lerde tek cekis calisir, digerleri ayni sonucu bekler.
   if (!directoryInFlight) {
     const refresh = (async () => {
-      const [universityRows, departmentRows, admissionPresence] = await Promise.all([
-        fetchUniversityRows(),
-        fetchUniversityDepartmentRows(),
-        fetchAdmissionPresence(),
-      ]);
+      const [universityRows, departmentRows, admissionPresence, admissionDegreeClasses] =
+        await Promise.all([
+          fetchUniversityRows(),
+          fetchUniversityDepartmentRows(),
+          fetchAdmissionPresence(),
+          fetchAdmissionDegreeClasses(),
+        ]);
       const universities = composeUniversitiesFromSupabaseRows(
         universityRows,
         departmentRows,
         [],
-        admissionPresence
+        admissionPresence,
+        admissionDegreeClasses
       );
 
       directoryCache = {
@@ -460,10 +507,18 @@ export async function getUniversityById(id: string | number): Promise<University
         fetchUniversityDepartmentRows(numericId),
         fetchProgramAdmissionDetailRows(numericId),
       ]);
+      // Detay yolunda kodlar programin kendi kabul satirindan turetilir (ek sorgu yok).
+      const degreeClasses = new Map<number, string[]>();
+      for (const row of admissionDetailRows) {
+        const codes = extractDegreeClassCodes(row.degree_class ?? undefined);
+        if (codes.length > 0) degreeClasses.set(row.department_id, codes);
+      }
       const university = composeUniversitiesFromSupabaseRows(
         universityRows,
         departmentRows,
-        admissionDetailRows
+        admissionDetailRows,
+        undefined,
+        degreeClasses
       )[0];
 
       if (universityCache.size >= UNIVERSITY_MEMO_MAX_ENTRIES) {

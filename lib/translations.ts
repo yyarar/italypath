@@ -170,6 +170,8 @@ export const translations = {
       sameCity: "{city} şehrindeki diğer üniversiteler",
       cityGuide: "{city} şehir rehberi",
       regionScholarships: "{region} bölge bursları",
+      sameField: "Aynı alanda diğer üniversiteler",
+      sameFieldNote: "Resmî İtalyan bölüm sınıfı koduna göre eşleştirildi.",
       programs: "program",
     },
     featureAnimations: {
@@ -1242,6 +1244,8 @@ export const translations = {
       sameCity: "Other universities in {city}",
       cityGuide: "{city} city guide",
       regionScholarships: "{region} regional scholarships",
+      sameField: "Other universities in the same field",
+      sameFieldNote: "Matched by the official Italian degree class code.",
       programs: "programs",
     },
     featureAnimations: {

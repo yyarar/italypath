@@ -6,7 +6,13 @@ import ts from "typescript";
 function importTsModule(path) {
   const source = readFileSync(resolve(process.cwd(), path), "utf8")
     .replace('import { createClient } from "@supabase/supabase-js";', "")
-    .replace(/import type\s*\{[\s\S]*?\}\s*from\s*"@\/types(?:\/universities)?";/g, "");
+    .replace(/import type\s*\{[\s\S]*?\}\s*from\s*"@\/types(?:\/universities)?";/g, "")
+    // compose saf olmalidir: sunum modulune bagimli olamaz. Bu import yalnizca fetch
+    // katmaninda (degree_class kodu cikarimi) kullanilir, o yuzden burada silinebilir.
+    .replace(
+      'import { extractDegreeClassCodes } from "@/components/university-details/programAdmissionPresentation";',
+      "",
+    );
   const transpiled = ts.transpileModule(source, {
     compilerOptions: {
       module: ts.ModuleKind.ES2022,
@@ -136,5 +142,42 @@ assert.equal(directory[0].departments[1].hasAdmissionDetails, false);
 // updatedAt: kabul dosyasi zaman damgasi program satirina tasinir (sitemap lastmod)
 assert.equal(directory[0].departments[0].updatedAt, "2026-06-02T12:46:31.193Z");
 assert.equal(directory[0].departments[1].updatedAt, undefined);
+
+// degreeClassCodes (2026-09-17): dizin, "ayni alanda diger universiteler" icin resmi bolum sinifi
+// kodunu tasir. Kod 5. parametre ile gelir; admissionDetails dizinde ASLA olusmaz.
+const directoryWithCodes = composeUniversitiesFromSupabaseRows(
+  [
+    {
+      id: 1,
+      name: "U",
+      city: "Bologna",
+      type: "Public",
+      fee: "",
+      image: "",
+      description: "d",
+      description_en: null,
+      website: "",
+      features: [],
+      features_en: null,
+      sort_order: 1,
+    },
+  ],
+  [
+    { id: 10, university_id: 1, name: "With dossier", slug: "with-dossier", languages: ["en"], duration_years: 3, level: "bachelor", sort_order: 1 },
+    { id: 11, university_id: 1, name: "Without", slug: "without", languages: ["en"], duration_years: 3, level: "bachelor", sort_order: 2 },
+  ],
+  [],
+  new Map([[10, "2026-06-02T12:46:31.193Z"]]),
+  new Map([[10, ["LM-41"]]])
+);
+assert.deepEqual(directoryWithCodes[0].departments[0].degreeClassCodes, ["LM-41"]);
+assert.equal(directoryWithCodes[0].departments[1].degreeClassCodes, undefined);
+assert.equal(directoryWithCodes[0].departments[0].admissionDetails, undefined);
+assert.equal(directoryWithCodes[0].departments[0].hasAdmissionDetails, true);
+assert.equal(directoryWithCodes[0].departments[0].updatedAt, "2026-06-02T12:46:31.193Z");
+
+// compose kendi basina kod cikarmaz: harita verilmezse degreeClassCodes olusmaz. Kodu uretme
+// isi cagiran katmanda (getUniversityById / dizin cekisi) extractDegreeClassCodes ile yapilir.
+assert.equal(universities[0].departments[0].degreeClassCodes, undefined);
 
 console.log("[OK] Universities server compose preserves single-cycle and admission details.");

@@ -9,6 +9,8 @@ export interface RelatedLinksLabels {
   cityGuide: string;
   regionScholarships: string;
   programs: string;
+  sameField: string;
+  sameFieldNote: string;
 }
 
 interface RelatedLinksProps {
@@ -21,8 +23,9 @@ interface HubLink {
   label: string;
 }
 
-// Ic baglanti blogu: ayni sehirdeki universiteler + sehir rehberi + bolge burslari (SEO_AUDIT.md §22).
-// Sunucu HTML'inde render edilir; Googlebot ve ziyaretci ayni linkleri gorur.
+// Ic baglanti blogu: ayni resmi bolum sinifindaki diger okullarin programlari, ayni sehirdeki
+// universiteler, sehir rehberi ve bolge burslari (SEO_AUDIT.md §22). Sunucu HTML'inde render
+// edilir; Googlebot ve ziyaretci ayni linkleri gorur.
 export function RelatedLinks({ data, labels }: RelatedLinksProps) {
   const hubLinks: HubLink[] = [];
   if (data.cityGuide) {
@@ -38,7 +41,14 @@ export function RelatedLinks({ data, labels }: RelatedLinksProps) {
     });
   }
 
-  if (data.sameCityUniversities.length === 0 && hubLinks.length === 0) return null;
+  const sameFieldPrograms = data.sameFieldPrograms ?? [];
+  if (
+    sameFieldPrograms.length === 0 &&
+    data.sameCityUniversities.length === 0 &&
+    hubLinks.length === 0
+  ) {
+    return null;
+  }
 
   return (
     <section
@@ -53,6 +63,39 @@ export function RelatedLinks({ data, labels }: RelatedLinksProps) {
           {labels.title}
         </h2>
       </header>
+      {sameFieldPrograms.length > 0 ? (
+        <div className="border-b border-[var(--editorial-border)] px-4 py-4 sm:px-5">
+          <h3 className="font-serif text-lg font-semibold text-[var(--editorial-ink)]">
+            {labels.sameField}
+          </h3>
+          <p className="mt-1 text-xs leading-5 text-[var(--editorial-muted)]">
+            {labels.sameFieldNote}
+          </p>
+          <ul className="mt-2 grid gap-x-8 md:grid-cols-2">
+            {sameFieldPrograms.map((entry) => (
+              <li
+                key={entry.href}
+                className="border-t border-[var(--editorial-border)]"
+              >
+                <Link
+                  href={entry.href}
+                  className="flex min-h-11 items-center justify-between gap-3 py-2 text-sm text-[var(--editorial-ink)] transition hover:text-[var(--editorial-terracotta-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+                >
+                  <span className="min-w-0">
+                    <span className="block truncate font-semibold">{entry.programName}</span>
+                    <span className="block truncate text-xs text-[var(--editorial-muted)]">
+                      {entry.universityName}
+                    </span>
+                  </span>
+                  <span className="shrink-0 text-xs font-bold text-[var(--editorial-muted)]">
+                    {entry.code}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
       <div className="grid md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
         {data.sameCityUniversities.length > 0 ? (
           <div className="px-4 py-4 sm:px-5">

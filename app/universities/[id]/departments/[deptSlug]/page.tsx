@@ -72,20 +72,21 @@ export default async function DepartmentDetailPage({ params }: DepartmentDetailP
 
   if (!university) notFound();
 
-  // Ic baglanti agi: hafif dizinle ayni sehirdeki okullar + sehir rehberi + bolge bursu (hata sayfayi bozmaz).
-  let related: RelatedLinksData | null = null;
-  try {
-    related = buildRelatedLinks(university, await getUniversitiesDirectory());
-  } catch (error) {
-    console.error("Failed to build related links:", error);
-  }
-
   // Program adını layout'taki ile aynı şekilde slug üzerinden çöz.
   const department = university.departments.find(
     (d) => d.slug === resolvedParams.deptSlug
   );
 
   if (!department) notFound();
+
+  // Ic baglanti agi: hafif dizinle ayni sehirdeki okullar, sehir rehberi, bolge bursu ve ayni
+  // resmi bolum sinifindaki diger okullarin programlari (hata sayfayi bozmaz).
+  let related: RelatedLinksData | null = null;
+  try {
+    related = buildRelatedLinks(university, await getUniversitiesDirectory(), department);
+  } catch (error) {
+    console.error("Failed to build related links:", error);
+  }
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",

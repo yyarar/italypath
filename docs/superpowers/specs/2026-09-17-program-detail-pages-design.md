@@ -16,7 +16,8 @@ Durum: Kerem'in 5 kararı alındı (sohbet, 17 Eylül). Uygulama planı ayrı be
 3. **Kabul dosyası olmayan 108 program:** sayfa ziyaretçi için faydalı hâle getirilir, Google'a `noindex` + sitemap dışı; dosya eklenince kendiliğinden açılır.
 4. **Görsel değişim toleransı:** kabul dosyasının düzeni ve sayfadaki bölüm sırası değişebilir; üstteki görsel/başlık alanı, renkler ve yazı tipleri değişmez.
 5. **Ön görüşme:** tek noktada, "Sonraki adımlar" bölümünün içinde, ISEE/şehir rehberi/bölge bursu ile aynı ağırlıkta bir seçenek olarak. Ton "isterseniz"; aciliyet/fiyat/sosyal kanıt yok.
-6. **Ek veri işi yok:** son tarih/sınav bilgisini yapılandırılmış alana çıkarma işi yapılmayacak (17 Eylül kararı). Dolayısıyla **veritabanı şeması değişmiyor**; hiçbir yeni kolon/migration yok.
+6. **Ek veri işi yok:** son tarih/sınav bilgisini yapılandırılmış alana çıkarma işi yapılmayacak (17 Eylül kararı). Tablolara yeni kolon eklenmiyor.
+7. **Tek istisna — salt okunur kod görünümü (19 Eylül, Kerem onayı):** "Aynı alanda diğer üniversiteler" için dizin, uzun `degree_class` metnini indirmek yerine `program_degree_class_codes` görünümünden yalnız kısa kodları okur (38 KB gz → 4 KB gz). Tabloya dokunmaz, `security_invoker`, yalnız SELECT; SQL: `supabase/program_degree_class_codes.sql`.
 
 ### Kararı doğrulayan veri gerçekleri (17 Eylül, Supabase)
 
@@ -80,7 +81,7 @@ Kabul ölçütü: yeni guard `npm run check:program-metadata` — saf fonksiyonu
 
 ### İş 4 (D) — "Aynı alanda diğer üniversiteler"
 
-- `lib/universities.server.ts` içine **ayrı** bir sorgu: `program_admission_details` → `select("department_id,degree_class")` (mevcut `select("department_id,updated_at")` literali guard gereği korunur). Yanıt ~900 kısa satır (~10 KB gz), 3 saatlik memo'ya girer.
+- `lib/universities.server.ts` içine **ayrı** bir sorgu: `program_degree_class_codes` görünümü → `select("department_id,degree_class_codes")` (mevcut `select("department_id,updated_at")` literali guard gereği korunur). Ölçüm: ham `degree_class` metni 38 KB gz olurdu (ortalama 128, en fazla 3.300 karakter); görünüm 4,1 KB gz. 3 saatlik memo'ya girer. Kodlar `/api/universities` yanıtından çıkarılır (tarayıcıya gereksiz 22 KB gitmesin).
 - Kodlar `extractDegreeClassCode` ile normalize edilip dizin compose'unda `Department.degreeClassCode` alanına yazılır. Dizin satırları **asla** `admissionDetails` taşımaz (`check-universities-server-compose.mjs:134`); compose'un 4. parametresinin tipi değişmez, kodlar 5. parametre olarak gelir.
 - `lib/relatedLinks.ts`: aynı koda sahip, farklı okuldaki en fazla 6 program. Sıralama: kabul dosyası olanlar önce, sonra okulun program sayısı, sonra ad. Sunucu HTML'inde, `RelatedLinks` içinde yeni bölüm.
 - Kodu olmayan programlarda (137 dosyalı + 108 dosyasız) bu bölüm **gösterilmez**. Brifte önerilen anahtar kelime sözlüğü (`FIELD_KEYWORDS`) kullanılmayacak: kategorileri çok geniş ("digital", "energy", "industrial"), yanlış eşleşme üretir. 738 sayfa zaten kodla eşleşiyor.

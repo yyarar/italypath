@@ -120,6 +120,22 @@ if (!/export async function getUniversitiesDirectory\b/.test(universitiesServerD
 if (!/export async function getUniversityById\b/.test(universitiesServerData)) {
   fail("lib/universities.server.ts must export getUniversityById (targeted per-university fetch)");
 }
+// 2026-09-17: dizin, "ayni alanda diger universiteler" icin resmi bolum sinifi kodunu ayri ve
+// hafif bir sorguyla ceker: uzun degree_class metni degil, program_degree_class_codes gorunumunun
+// kisa kod kolonu (egress: ~4 KB gz). Kabul metinleri (sartlar, belgeler, alintilar) dizine GIRMEZ.
+if (!universitiesServerData.includes('.from("program_degree_class_codes")')) {
+  fail('lib/universities.server.ts directory must read degree class codes from the program_degree_class_codes view');
+}
+if (!universitiesServerData.includes('.select("department_id,degree_class_codes")')) {
+  fail('lib/universities.server.ts directory must select only department_id,degree_class_codes from the codes view');
+}
+if (universitiesServerData.includes('.select("department_id,degree_class")')) {
+  fail("lib/universities.server.ts must not download the long degree_class text for the directory (use the codes view)");
+}
+if (!universitiesServerData.includes("extractDegreeClassCodes")) {
+  fail("lib/universities.server.ts must normalize degree class values with extractDegreeClassCodes");
+}
+
 if (!universitiesServerData.includes('.select("department_id,updated_at")')) {
   fail('lib/universities.server.ts directory must fetch admission presence with select("department_id,updated_at") only (no heavy text)');
 }

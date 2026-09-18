@@ -38,6 +38,7 @@ const portraitFiles = [
   "components/university-details/ProgramSummaryStrip.tsx",
   "components/university-details/ProgramSourceTrail.tsx",
   "components/university-details/programDossierShared.tsx",
+  "components/university-details/RelatedLinks.tsx",
   "components/university-details/programAdmissionPresentation.ts",
   "components/university-details/ProgramTransitionEntry.tsx",
   "components/university-details/ProgramDirectory.tsx",
@@ -161,6 +162,8 @@ requireTokens("portrait components", portraitSource, [
   "ProgramSummaryStrip",
   "ProgramSourceTrail",
   "aria-expanded",
+  // Ayni resmi bolum sinifindaki diger okullarin programlari (2026-09-17).
+  "sameFieldPrograms",
 ]);
 
 forbidTokens("detail redesign", allDetailSource, [
