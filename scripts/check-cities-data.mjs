@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import ts from "typescript";
 
 const paths = {
+  admissionPresence: new URL("../lib/admissionPresence.ts", import.meta.url),
   cityData: new URL("../lib/cities/data.ts", import.meta.url),
   cityExplorer: new URL("../components/cities/CityGuidesExplorer.tsx", import.meta.url),
   cityPage: new URL("../app/cities/page.tsx", import.meta.url),
@@ -66,7 +67,12 @@ const scholarshipRuntime = loadTypeScriptModule(
   sources.scholarships,
   "lib/scholarships/regions.ts"
 );
+const admissionPresenceRuntime = loadTypeScriptModule(
+  sources.admissionPresence,
+  "lib/admissionPresence.ts"
+);
 const hubRuntime = loadTypeScriptModule(sources.hub, "lib/hub/recommendations.ts", {
+  "@/lib/admissionPresence": admissionPresenceRuntime,
   "@/lib/cities/data": cityRuntime,
   "@/lib/scholarships/regions": scholarshipRuntime,
 });

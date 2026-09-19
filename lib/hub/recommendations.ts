@@ -192,7 +192,6 @@ export const CITY_GROUPS: Record<Exclude<ProfileCityPref, "any">, string[]> = {
     "Siena",
     "Trento",
     "Parma",
-    "Ferrara",
     "Ancona",
   ],
 };
