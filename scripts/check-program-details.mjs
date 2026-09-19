@@ -38,14 +38,6 @@ const UNIVERSITY_CHECKS = [
         expectedDurationYears: 2,
       },
       {
-        name: "Archaeology and Cultures of the Ancient World",
-        level: "master",
-        missingProgramMessage:
-          "Missing expected Bologna program: Archaeology and Cultures of the Ancient World (master)",
-        requiresDetails: false,
-        expectedDurationYears: 2,
-      },
-      {
         name: "Statistical Sciences",
         level: "bachelor",
         missingProgramMessage: "Missing Statistical Sciences bachelor row",
@@ -109,7 +101,7 @@ const UNIVERSITY_CHECKS = [
   {
     universityId: 5,
     label: "Polito",
-    expectedDetailCount: 31,
+    expectedDetailCount: 34,
     criticalPrograms: [
       {
         name: "Architecture",
@@ -657,7 +649,8 @@ const UNIVERSITY_CHECKS = [
         missingProgramMessage: "Missing expected Pisa program: Cybersecurity (master)",
         requiresDetails: true,
         expectedDurationYears: 2,
-        expectedApplicationDeadlineEu: "2026-02-25",
+        // 2026-02-25 was the call-opening minute, not an EU deadline (fixed 2026-09-19).
+        expectedUncertainField: "application_deadline_eu",
       },
       {
         name: "Engineering of Paper and Cardboard",
