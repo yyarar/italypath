@@ -44,7 +44,7 @@ Son satır bu turun en büyük teknik bulgusu: program sayfası bugün **okulun 
 - `splitAdmissionSegments(value)`: önce satır sonları, sonra `; ` ile böler. Kural: en az 2 ayırıcı **ve** her parça ≥ 25 karakter olmalı; aksi hâlde tek paragraf döner. Karakter kaybı yok (birim test: parçaları birleştir → kaynakla eşit, yalnız boşluk farkı).
 - `extractSegmentLabel(segment)`: baştaki `Label:` kalıbını (büyük harfle başlayan, ≤ 40 karakter) ayırır; ör. `Application Window:`, `Round Name:`, `Test Dates:`. Etiket kalın, gerisi normal.
 - `localizeAdmissionDates(text, "tr")`: yalnız TR dilinde ve **yalnız ISO tarihlerini** çevirir — `2026-01-14` → `14 Ocak 2026`. İngilizce ay adları (`18 March 2026`) bilinçli olarak çevrilmez: cümlenin kalanı İngilizce olduğu için karışık metin oluşmasın (Kerem kararı, 17 Eylül). EN dilinde metin aynen kalır.
-- `localizeAdmissionType(value, "tr")`: yalnız 8 yaygın kategorik ifadeyi Türkçeleştirir (`open access` → "Serbest giriş", `selection call` → "Seçme çağrısı", `restricted access` → "Kontenjanlı giriş", `TOLC` → "TOLC sınavı" vb.; 517/900 kayıt). Tanınmayan ifade **aynen** gösterilir.
+- `localizeAdmissionType(value, "tr")`: yalnız 8 yaygın kategorik ifadeyi Türkçeleştirir (`open access` → "Açık kabul (kontenjansız)" (19 Eylül Kerem kararı; "Serbest giriş" herkes girebilir gibi okunuyordu), `selection call` → "Seçme çağrısı", `restricted access` → "Kontenjanlı giriş", `TOLC` → "TOLC sınavı" vb.; 517/900 kayıt). Tanınmayan ifade **aynen** gösterilir.
 - `extractDegreeClassCode(value)`: `LM-32`, `L-8`, `LMG/01` gibi resmî kodu çıkarır (İş 4'te de kullanılır).
 
 **Panel yeniden düzeni** (`ProgramAdmissionDetailsPanel.tsx` 943 satır; üç dosyaya bölünür):

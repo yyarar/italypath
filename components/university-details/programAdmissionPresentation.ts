@@ -214,11 +214,12 @@ const TR_MONTHS = [
 ] as const;
 
 const ADMISSION_TYPE_TR: Record<string, string> = {
-  "open access": "Serbest giriş",
+  // "Serbest giris" herkes girebilir gibi okunuyordu; open access = kontenjan yok, sartlar gecerli.
+  "open access": "Açık kabul (kontenjansız)",
   "open access with entry requirements examination":
-    "Giriş şartları incelemesiyle serbest giriş",
+    "Açık kabul (kontenjansız, şart incelemesiyle)",
   "open with entry requirements examination":
-    "Giriş şartları incelemesiyle serbest giriş",
+    "Açık kabul (kontenjansız, şart incelemesiyle)",
   "selection call": "Seçme çağrısı",
   "selection call / academic evaluation":
     "Seçme çağrısı / akademik değerlendirme",

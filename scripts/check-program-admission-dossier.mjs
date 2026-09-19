@@ -245,7 +245,12 @@ assert.equal(
 );
 
 // 7. Kabul tipi: bilinen kategoriler Turkce, bilinmeyen aynen
-assert.equal(localizeAdmissionType("open access", "tr"), "Serbest giriş");
+// "Serbest giris" herkes girebilir gibi okunuyordu (Kerem, 19 Eylul): open access = kontenjan yok.
+assert.equal(localizeAdmissionType("open access", "tr"), "Açık kabul (kontenjansız)");
+assert.equal(
+  localizeAdmissionType("Open access with entry requirements examination", "tr"),
+  "Açık kabul (kontenjansız, şart incelemesiyle)",
+);
 assert.equal(localizeAdmissionType("Selection call", "tr"), "Seçme çağrısı");
 assert.equal(localizeAdmissionType("TOLC", "tr"), "TOLC sınavı");
 assert.equal(
