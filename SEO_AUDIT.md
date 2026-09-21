@@ -1,6 +1,6 @@
 # ItalyPath SEO Audit ve Devir Notu
 
-> Son belge güncellemesi: 15 Eylül 2026  
+> Son belge güncellemesi: 21 Eylül 2026  
 > Bulguların ana doğrulama tarihi: 28 Ağustos 2026  
 > İncelenen site: `https://italypath.app`  
 > Kapsam: Google Search Console, canlı teknik kontroller, sitemap/robots, indekslenebilirlik, temel on-page SEO, yapılandırılmış veri ve PageSpeed Insights  
@@ -604,6 +604,7 @@ Hedefler:
 - **“857 URL'ye tek tek indeks isteği atalım.”** Önerilmez. Sitemap ve doğrulama süreci kullanılmalı; birkaç temsilci URL ile canlı test yeterlidir.
 - **“PageSpeed 81 kesin saha performansıdır.”** Yanlış. Raporda CrUX verisi yok; 81 laboratuvar skorudur.
 - **“Bologna görseli LCP sorunu.”** Yanlış. Raporun LCP öğesi H1 başlığıdır.
+- **“Üniversite/program sayfaları taranmadı çünkü Supabase kotası aşıldı ve veritabanı dondu.”** Yanlış (21 Eylül 2026 değerlendirmesi, §24.4). Google'ın tek büyük taraması 28 Haziran'da, ilk aşımdan (2 Temmuz) önceydi; 90 günlük tarama istatistiklerinde sunucu hatası yok; taranmayan 225 sayfada "son tarama: yok" (hiç istenmedi); Supabase kısıtlaması hiçbir zaman uygulanmadı.
 
 ## 15. Gelecek ajan için başlangıç kontrol listesi
 
@@ -983,3 +984,56 @@ Tasarım/plan: `docs/superpowers/specs/2026-09-17-program-detail-pages-design.md
 - Deploy sonrası: Rich Results Test ile `EducationalOccupationalProgram` doğrulaması; Search Console'da site haritasının yeniden gönderilmesi (19 Eylül silmeleri + bu deploy).
 - Plan kapsamı dışı bırakılanlar (Kerem, 17 Eylül): programın yalnız kendi kabul satırını çekmesi (İş 9/J), Türkçe cümle özetleri, son tarih/sınav alan çıkarımı, ön görüşme tıklama ölçümü (Vercel Hobby).
 - SEO sıradaki adaylar değişmedi (§22): font diyeti, Clerk JS diyeti, anahtar kelime listesi + şehir/bölge sayfaları, ön görüşme SSS'si için FAQPage şeması, program sayfası LCP görselinin `priority`/`sizes` incelemesi.
+
+## 24. Search Console sinyali ve dizin isteği turu — 21 Eylül 2026
+
+Bağlam: 19 Eylül'de yeni SEO oturumu devraldı (AGENT_CONTEXT.md → §19-23 → hafıza). §22'deki 1. aday iş (Türkçe, sayfaya özgü program başlık/açıklaması) §23 Deploy 1 ile bitti. Bu kayıt kod değişikliği içermez; gelen sinyali, envanter değişiminin GSC'ye beklenen yansımasını ve başlatılan dizin isteği turunu belgeler.
+
+### 24.1 Gelen sinyal: ilk başarılı doğrulama
+
+- 21 Eylül'de Search Console e-postası: "italypath.app sitesindeki Sayfayı dizine ekleme sorunları başarıyla düzeltildi", doğrulanan sorun **"Yeniden yönlendirme hatası"**, 3 sayfa düzeltilmiş olarak doğrulandı.
+- Bunlar §21'deki `/universities`, `/isee`, `/scholarships` (27 Haziran'daki alan adı taşınma döneminden kalan kayıt). 16 Eylül gece Kerem üçü için URL denetimi + "dizine eklenmesini iste" yapmıştı (§21.3/1).
+- Anlamı: Haziran'dan beri ilk başarılı doğrulama. İstek gönderilen sayfalarda Googlebot geri geliyor ve yeniden tarıyor; yöntem bu sitede kanıtlı (§21'de 2 program sayfası da istek sonrası hemen gösterim almıştı).
+- Kapsamadıkları: 854 `noindex` doğrulaması ve 225 "keşfedildi, dizine eklenmedi" ayrı süreçler; bu kayıtta GSC ekranı görüntülenmedi, durumları bilinmiyor.
+
+### 24.2 Envanter değişiminin GSC'ye beklenen yansıması
+
+- 19 Eylül veri temizliği (§23.2): 8 okul + 67 program silindi; sitemap 1.079 → **1.004** URL (7 statik + 56 okul + 941 program). Silinen adresler `notFound()` ile gerçek HTTP 404 döner.
+- Bir sonraki GSC kontrolünde "Bulunamadı (404)" sayısında artış **beklenir ve normaldir**; 854 `noindex` listesindeki silinmiş adresler 404'e geçerek listeden düşer. Aksiyon gerekmez; 404'leri yönlendirmeye çevirme (eşdeğer sayfa yok).
+- Kerem'in yapacağı (§23.3 ile aynı): site haritasını GSC'de yeniden gönder (19 Eylül silmeleri + 21 Eylül şablon tarihi).
+
+### 24.3 Dizin isteği turu (başlatıldı)
+
+Gerekçe: Google siteye kendiliğinden dönmüyor (§21.2); "dizine eklenmesini iste" kanıtlı tek tetikleyici. §12/P0 gereği 941 program sayfasına tek tek istek gönderilmez; bunun yerine her biri kendi programlarının tamamına link veren **56 üniversite sayfası** hub olarak kullanılır. Günlük kota ~10 istek; sıra canlı Supabase'den program sayısına göre (en büyük okul önce).
+
+| Gün | Kapsam | Program kapsamı | Durum |
+|---|---|---:|---|
+| 1 | Okul id 3, 4, 1, 10, 15, 7, 5, 8, 14, 18 (Bologna … Trento) | 468 | ✅ 21 Eylül |
+| 2 | id 6, 9, 11, 25, 20, 2, 13, 16, 63, 17 | 241 | bekliyor |
+| 3 | id 19, 21, 12, 29, 23, 22, 33, 28, 26, 32 | 144 | bekliyor |
+| 4 | id 57, 51, 27, 24, 42, 37, 44, 64, 61, 41 | 62 | bekliyor |
+| 5 | id 47, 52, 31, 40, 54, 35, 43, 55, 46, 53 | 20 | bekliyor |
+| 6 | id 48, 56, 59, 50, 30, 38 + `/`, `/cities`, `/communities`, `/on-gorusme` | 6 | bekliyor |
+
+`/universities`, `/isee`, `/scholarships` 16 Eylül'de gönderildi (24.1), tekrar gerekmez. Sıralı adres listesi Kerem'e dosya olarak verildi; gerekirse `universities` ⨝ `university_departments` sayımıyla yeniden üretilir.
+
+### 24.4 Değerlendirilen ve reddedilen teori: "Supabase aşımı taramayı engelledi"
+
+Kerem'in sorusu üzerine incelendi; kanıtlar teoriyi desteklemiyor (§14'e de eklendi):
+
+1. **Zaman çizelgesi:** Google'ın tek büyük taraması 28 Haziran (55-60 bin istek); ilk egress aşımı 2 Temmuz'da fark edildi, yani taramadan sonra. O gün sayfalar sunuluyordu ama `noindex` taşıyordu (§14).
+2. **GSC sunucu sorunu görmedi:** 90 günlük tarama istatistikleri (§21.1) %93 `200`, 5xx yok, ana makine durumu 66.809 istekte sorunsuz. Veritabanı donsaydı "Sunucu hatası (5xx)" veya "Tarandı, dizine eklenmedi" artardı; ikincisi 1 adet.
+3. **225 sayfa hiç istenmedi:** "son tarama: yok" → hata değil, tarama önceliği kararı.
+4. **Kısıtlama hiç uygulanmadı:** Temmuz aşımı memo ile çözüldü; Eylül aşımı mühlet içinde (14 Ekim). Ayrıca stale-on-error memo Supabase hatasında eski veriyi sunar, sayfa çökmez.
+5. **Eylül'de nedensellik ters:** bot tarama dalgaları soğuk instance'ları çoğaltıp egress'i şişirdi (§20.1); aşım taramayı değil, tarama aşımı üretti.
+
+Tek dolaylı etki: soğuk instance'da 3-5 sn gövde gecikmesi (§19.3) tarama hızını bir miktar düşürmüş olabilir; GSC ortalama yanıt 605 ms idi ve 16 Eylül'de çözüldü (§20). Asıl neden: 28 Haziran'da 857 `noindex` + üç aylık alan adı + dış bağlantı yokluğu → düşük tarama talebi. Dış sinyal (bağlantı/otorite) ayrı bir karar konusu; Kerem'e sorulmadan açılmaz.
+
+### 24.5 Bir sonraki GSC kontrolü (23-30 Eylül) — kontrol listesi
+
+- **Sayfalar:** dizinde (22 bazı) ↑?; `noindex` (854) ↓?; keşfedildi (225) ↓?; **404 ↑ beklenen** (24.2).
+- **Tarama istatistikleri:** günlük istek sayısı (16 Eylül sonrası artış beklenir; Supabase logları 250 hedefli/gün gösteriyordu, §20.6), ortalama yanıt (605 ms bazı, ISR sonrası düşmeli), ana makine durumu (24.4'ü kesin kapatır).
+- **Performans:** gösterim (646/28 gün bazı); dizin isteği gönderilen okul sayfalarında ilk gösterimler.
+- **Site haritası:** yeniden gönderim sonrası son okuma tarihi ve **1.004** sayfa.
+- **Rich Results Test:** bir dosyalı program sayfasında `EducationalOccupationalProgram` (§23.3).
+- **Supabase Usage:** dönem 27 Eylül'de sıfırlanır; 14 Ekim'e kadar hedef < 1 GB (§20.6).
