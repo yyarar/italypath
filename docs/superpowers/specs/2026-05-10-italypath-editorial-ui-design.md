@@ -1,7 +1,7 @@
 # ItalyPath Editorial UI Redesign
 
 Date: 2026-05-10
-Status: Approved visual direction, pending implementation plan
+Durum (2026-09-21): **UYGULANDI** — 5eab41f (2026-05-10). Ana sayfa 2026-09-15'te ön görüşme odağıyla yeniden düzenlendi (2848933). Tasarım sırasındaki durum: "Approved visual direction, pending implementation plan".
 
 Accepted concept:
 

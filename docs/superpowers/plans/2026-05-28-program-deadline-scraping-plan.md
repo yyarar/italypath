@@ -1,5 +1,7 @@
 # Program Deadline Scraping Implementation Plan
 
+> Durum (2026-09-21): **İPTAL** — Task 12'de durduruldu (Haziran 2026); deadline altyapısı 2026-07-22'de kaldırıldı. Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Scrape non-EU application deadlines for top 10-15 Italian universities and store them in `app/data.ts` via the existing override-map pattern, with scrape and LLM extraction separated into independent stages.

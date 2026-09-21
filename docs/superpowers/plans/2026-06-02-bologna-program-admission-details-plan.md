@@ -1,5 +1,7 @@
 # Bologna Program Admission Details Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — 2026-06-02 (41c3b9c). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Import the 97 University of Bologna admission-detail JSON files into Supabase without corrupting the existing program directory, add `single-cycle` support, and show official program/admission details on program pages.

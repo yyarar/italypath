@@ -1,7 +1,7 @@
 # Tasarım: Auth UX Yenileme (Clerk Elements)
 
 Tarih: 2026-06-16
-Durum: Onaylandı (Kerem) — uygulama planına geçilecek
+Durum (2026-09-21): **YERİNE GEÇTİ** — Uygulandı 2026-06-16/17 (867f0a7 vd.); 2026-07-01 Clerk Elements rebuild ile yenilendi. Güncel: specs/2026-07-01-clerk-elements-auth-rebuild-design.md. Tasarım sırasındaki durum: "Onaylandı (Kerem) — uygulama planına geçilecek".
 Dal: `feat/auth-redesign` (planlanan)
 
 ## Amaç

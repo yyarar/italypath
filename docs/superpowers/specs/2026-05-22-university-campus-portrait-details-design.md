@@ -1,7 +1,7 @@
 # University Details Redesign - Campus Portrait
 
 Date: 2026-05-22
-Status: Brainstorm approved, awaiting user review
+Durum (2026-09-21): **UYGULANDI** — 7ace805 + 1e1ca11 (2026-05-22). Sonrası: 09-16 breadcrumb/ilgili bağlantılar (4c112cf), 17-21 Eylül program detay turu. Tasarım sırasındaki durum: "Brainstorm approved, awaiting user review".
 
 ## Goal
 

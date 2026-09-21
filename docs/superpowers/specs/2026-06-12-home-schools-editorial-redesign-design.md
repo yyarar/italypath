@@ -1,5 +1,7 @@
 # ItalyPath iOS — Home + Okullar "Modern Editorial" Yeniden Tasarımı (Pilot)
 
+Durum (2026-09-21): **BAŞKA PROJE** — 'ItalyPath iOS' pilotu; bu repoda uygulanmaz, ayrı 'remake' mobil projesi kapsamı.
+
 > **Tarih:** 12 Haziran 2026
 > **Kapsam:** Pilot — Ana Sayfa (Home) + Okullar (liste + detay + program başvuru detayı)
 > **Faz 2 (ayrı spec):** Mentör, Burs, Profil, ISEE, Belgelerim, Topluluk — aynı dile kalibre

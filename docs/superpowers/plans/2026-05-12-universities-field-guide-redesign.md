@@ -1,5 +1,7 @@
 # Universities Field Guide Redesign Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — ad109fc (2026-05-12). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Rebuild `/universities` as an editorial field-guide school browser while preserving existing search, URL filters, favorites, language, and view-mode behavior.

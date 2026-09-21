@@ -1,5 +1,7 @@
 # City Guides Mobile Selector Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — Kod kanıtı: CityGuidesExplorer.tsx mobil seçici. Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Replace the long mobile city directory with a compact, accessible city selector while preserving the current desktop atlas.

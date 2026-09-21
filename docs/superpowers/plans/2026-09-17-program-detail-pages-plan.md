@@ -1,5 +1,18 @@
 # Program Detay Sayfaları Uygulama Planı
 
+> Durum (2026-09-21): **KISMEN** — Task 1-5 ve 7-9 uygulandı, Task 6 İPTAL; görev tablosu dosyanın başında; SEO_AUDIT §23. Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
+| Görev | Durum (2026-09-21) | Kanıt |
+| --- | --- | --- |
+| Task 1-3: metin biçimlendirme, kabul dosyası düzeni, Türkçe başlık/açıklama | UYGULANDI | Deploy 1, 17 Eylül (SEO_AUDIT §23.1) |
+| Task 4: sayfa ağırlığı (prop budama) | UYGULANDI | 270c232, 17 Eylül |
+| Task 5: aynı alanda diğer üniversiteler | UYGULANDI | 40ec74c, 19 Eylül |
+| Task 6: kabul dosyası olmayan 108 program (noindex + sitemap dışı) | İPTAL | Kerem kararı, 21 Eylül; 19 Eylül turundan sonra dosyasız program kalmadı (§23.1) |
+| Task 7: sonraki adımlar | UYGULANDI | 8ac4d61, 21 Eylül |
+| Task 8: erişilebilirlik | UYGULANDI | 5eb3a2c, 21 Eylül |
+| Task 9: yapılandırılmış veri | UYGULANDI | 162e434, 21 Eylül |
+| Kapsam dışı bırakılanlar | — | Kerem, 17 Eylül; SEO_AUDIT §23.3 |
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** 1.008 program detay sayfasını okunur, benzersiz ve ön görüşmeye açık hâle getirmek; sayfa ağırlığını ve ince içerik riskini düşürmek.

@@ -1,7 +1,7 @@
 # ItalyPath Uzman Lead Masası — Tasarım Belgesi
 
 Tarih: 2026-08-10  
-Durum: Kerem ile brainstorming oturumunda onaylandı  
+Durum (2026-09-21): **UYGULANDI** — 84e40df (2026-08-11). Tasarım sırasındaki durum: "Kerem ile brainstorming oturumunda onaylandı".
 Uygulayıcı: Ayrı bir uygulayıcı agent  
 Tasarım ve uygulama planı sorumlusu: Codex
 

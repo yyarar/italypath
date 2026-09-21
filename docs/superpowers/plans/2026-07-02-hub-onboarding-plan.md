@@ -1,5 +1,7 @@
 # Hub Remake + Onboarding Sihirbazı — Uygulama Planı
 
+> Durum (2026-09-21): **UYGULANDI** — 5540605 (2026-07-02). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 > **Codex için not:** Bu plan görev görev uygulanır. Her görev kendi commit'iyle biter ve

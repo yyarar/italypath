@@ -1,5 +1,7 @@
 # Home Wiring + Auto-Advance Stage — Implementation Plan
 
+> Durum (2026-09-21): **YERİNE GEÇTİ** — Uygulandı 2026-05-20; stage modeli 2026-07-02'de kaldırıldı (5522606). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Three small polish items: localStorage `italyPathStage` now auto-advances from favorites/documents user actions, every decorative-but-non-clickable element on the home page becomes a real `<Link>`, and `AGENT_COMMITS.md` catches up with the four major redesigns shipped since Commit 50.

@@ -2,7 +2,7 @@
 
 Tarih: 2026-07-24
 
-Durum: Tasarım kullanıcı tarafından onaylandı; yürütme planı hazır
+Durum (2026-09-21): **UYGULANDI** — e9840dd + dbbacbd (2026-08-22); canlı: 1.019/1.019 soruda explanation_en (2026-09-21 sayımı). Tasarım sırasındaki durum: "Tasarım kullanıcı tarafından onaylandı; yürütme planı hazır".
 
 Yürütme planı:
 `docs/superpowers/plans/2026-07-24-sat-english-rationale-extraction.md`

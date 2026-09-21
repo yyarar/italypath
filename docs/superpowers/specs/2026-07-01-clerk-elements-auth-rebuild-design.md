@@ -1,7 +1,7 @@
 # Design: Clerk Elements Auth Rebuild
 
 Date: 2026-07-01
-Status: Approved design; ready for written spec review
+Durum (2026-09-21): **UYGULANDI** — 2026-07-01 (ec35e2f, e100252, 0c900db); auth için esas referans. Tasarım sırasındaki durum: "Approved design; ready for written spec review".
 
 ## Problem
 

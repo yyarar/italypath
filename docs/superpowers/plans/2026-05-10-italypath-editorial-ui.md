@@ -1,5 +1,7 @@
 # ItalyPath Editorial UI Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — 5eab41f (2026-05-10). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Rework the ItalyPath homepage and mobile navigation from AI/SaaS visual language into the approved Editorial Guide direction.

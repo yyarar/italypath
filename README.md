@@ -2,7 +2,7 @@
 
 ItalyPath, Italya'da egitim almak isteyen Turk ogrenciler icin hazirlanan Next.js tabanli rehber uygulamasidir. Universite/program arama, sehir rehberleri, bolgesel burs haritasi, ISEE hesaplayici, kurate topluluk rehberi, ucretsiz on gorusme formu ve `/ai-mentor` danisma merkezi (public; AI masasi arayuzde duraklatilmis, gonullu masa giris ister) ile giris gerektiren favoriler, belge cuzdani, SAT soru bankasi ve calisma dosyasi (`/hub`) yuzeylerini icerir.
 
-Yeni agent veya gelistirici once [AGENT_CONTEXT.md](./AGENT_CONTEXT.md) dosyasini okumali; erisim modeli, veri katmani ve calisma kurallari oradadir. [AGENT_COMMITS.md](./AGENT_COMMITS.md) tarihsel ve eksik degisiklik notlaridir (Git gecmisi esastir); [AGENT_CONTEXT_FIX_REPORT.md](./AGENT_CONTEXT_FIX_REPORT.md) 2026-06-11'de uygulanmis eski bir audit arsividir. En son context degerlendirmesi `docs/CONTEXT_AUDIT_2026-09-19.md` icindedir.
+Yeni agent veya gelistirici once [AGENTS.md](./AGENTS.md) (okuma sirasi + degismez kurallar), sonra [AGENT_CONTEXT.md](./AGENT_CONTEXT.md) dosyasini okumali; erisim modeli, veri katmani ve calisma kurallari oradadir. Tek acik is listesi [docs/STATUS.md](./docs/STATUS.md), tasarim/plan durumlari [docs/superpowers/INDEX.md](./docs/superpowers/INDEX.md) icindedir. [AGENT_COMMITS.md](./AGENT_COMMITS.md) tarihsel ve eksik degisiklik notlaridir (Git gecmisi esastir); [AGENT_CONTEXT_FIX_REPORT.md](./AGENT_CONTEXT_FIX_REPORT.md) 2026-06-11'de uygulanmis eski bir audit arsividir. En son context degerlendirmesi `docs/CONTEXT_AUDIT_2026-09-19.md` icindedir.
 
 ## Stack
 

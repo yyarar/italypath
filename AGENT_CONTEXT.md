@@ -1,6 +1,6 @@
 # ItalyPath - Agent Context & Knowledge Base
 
-Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur; guncel mimari ve calisma kurallarinin kaynak dokumanidir. `AGENT_COMMITS.md` tarihsel ve eksik degisiklik notlaridir (Git gecmisi esastir). `AGENT_CONTEXT_FIX_REPORT.md` 2026-06-11'de uygulanmis eski bir audit arsividir. En son context degerlendirmesi `docs/CONTEXT_AUDIT_2026-09-19.md` icindedir; bu dosyadaki 2026-09-21 duzeltmeleri o raporun uygulama sirasinin 1. ve 2. adimidir.
+Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur; guncel mimari ve calisma kurallarinin kaynak dokumanidir. `AGENT_COMMITS.md` tarihsel ve eksik degisiklik notlaridir (Git gecmisi esastir). `AGENT_CONTEXT_FIX_REPORT.md` 2026-06-11'de uygulanmis eski bir audit arsividir. En son context degerlendirmesi `docs/CONTEXT_AUDIT_2026-09-19.md` icindedir; bu dosyadaki 2026-09-21 duzeltmeleri o raporun uygulama sirasinin 1. ve 2. adimidir. Okumaya kok `AGENTS.md` ile basla; tek acik is listesi `docs/STATUS.md`, tasarim/plan belgelerinin durumu `docs/superpowers/INDEX.md` icindedir (3. adim, 2026-09-21).
 
 Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun)
 
@@ -42,6 +42,7 @@ Bu agac tam envanter degil; mimariyi anlamak icin aktif yuzeyleri ozetler.
 
 ```text
 italypath-main/
+├── AGENTS.md                       # Kisa giris: okuma sirasi + degismez kurallar (ONCE BUNU OKU)
 ├── app/
 │   ├── layout.tsx                  # ClerkProvider, LanguageProvider, MobileZoomLock, RouteTransition
 │   ├── page.tsx                    # Home server wrapper (ISR 3h); stats getUniversitiesDirectory() kaynakli
@@ -172,7 +173,10 @@ italypath-main/
 │   ├── AI_SEARCH_VISIBILITY_PLAN.md
 │   ├── SOCIAL_MEDIA.md             # @eduitalya sosyal medya baglami (kreatif marka adi: "Eduitalya Italypath")
 │   ├── CONTEXT_AUDIT_2026-09-19.md # Son context degerlendirmesi
+│   ├── STATUS.md                   # Tek acik is listesi ve kanitlanmis son durum
 │   └── superpowers/
+│       ├── INDEX.md                # Her brif/spec/plan belgesinin durumu ve kaniti
+│       ├── briefs/                 # ajan brifleri
 │       ├── specs/                  # tasarim belgeleri (tarihli; durum etiketi henuz yok, uygulanmis olanlarda "onay bekliyor" kalmis olabilir)
 │       └── plans/                  # uygulama planlari (checkbox'lar ilerlemeyi YANSITMAZ; gercek durum icin SEO_AUDIT §23 gibi kayitlara bak)
 ├── SEO_AUDIT.md                    # SEO olcum/duzeltme kaydi (§1 ozeti tarihsel; guncel is listesi son bolumlerde)
@@ -772,23 +776,7 @@ Dogrulama olmayan legacy arac: `npm run clean:med` kok dizinde `med` dosyasi bek
 
 ## Bilinen Sorunlar ve Bakim Borcu
 
-### Orta oncelik
-
-1. PWA paketi eksik: `public/manifest.webmanifest` ve ikon setleri (`192x192`, `512x512`) yok.
-2. Legacy local seed `app/data.ts` icindeki bazi universite gorselleri tekrarli/placeholder kalitesinde; runtime bu veriyi kullanmaz.
-3. Universite karsilastirma ozelligi yok; mevcut favori + university data modeliyle yapilabilir.
-4. Search Console `Sitemaps`, `Pages`, Core Web Vitals ve URL Inspection durumlari izlenmeli; bu production verisine repo icinden erisilemez.
-5. SEO 3 Part 1 tamamlandi; program sayfalarina `EducationalOccupationalProgram` eklendi (2026-09-21, `SEO_AUDIT.md` §23), Rich Results Test dogrulamasi deploy sonrasi acik. Sonraki adaylar (§22/§23.3): FAQPage semasi, font diyeti, Clerk JS diyeti; ayri spec/plan henuz yok. Hidden/uydurma schema yok; sadece sayfada gorunen gercek bilgiye dayali structured data eklenmeli.
-6. `Organization` + `WebSite` JSON-LD root layout nedeniyle her sayfada tekrar eder. Bu gecersiz degildir; Google ana sayfa veya tek bir kurumsal sayfanin yeterli oldugunu belirttigi icin ileride dusuk oncelikli sadeleştirme olarak degerlendirilebilir.
-7. AI Mentor system prompt'u canli program sayisi arttikca buyuyor; prompt boyutu, latency ve maliyet izlenmeli.
-8. (Cozuldu 2026-09-15: egress diyeti + ISR, bkz. Veri Katmani ve `SEO_AUDIT.md` §20.) Soguk instance'daki ~5 sn govde gecikmesi artik acik borc degildir; kalan performans borcu 9. maddedir.
-9. `next/font` 10 font dosyasini (Spectral 4 agirlik x latin+latin-ext, Hanken 2) High oncelikle preload ediyor; sicak instance'da bile render-blocking CSS bunlarla yarisip ilk cizimi ~3,5 sn'ye itiyor. Spectral agirliklari ilk ekranda kullanilanlarla sinirlanmali; latin-ext Turkce icin gerekli.
-
-### Repo hijyeni
-
-1. Research/import artifact klasorleri (`output/*`, `*-admission-requirements/`, scrape JSON/PNG ciktilari) repoya commitlenmis ve son birlesmeyle hacmi buyumus durumda; dis storage'a mi yoksa `.gitignore`'a mi alinacagi netlestirilmeli.
-2. Legacy UI dosyalari (`components/ui/scroll-based-velocity.tsx` gibi) aktif import edilmiyorsa silinmeli veya "kullanma" diye isaretlenmeli.
-3. `.DS_Store`, `.swp`, editor artifact'leri repo'ya girmemeli.
+Tek acik is listesi 2026-09-21'den beri `docs/STATUS.md` icindedir (zaman kritik isler, veri guncelligi, SEO/performans, urun borcu, repo/belge hijyeni; her madde kanit ve karar sahibiyle). Buraya is listesi yazilmaz; mimari nitelikteki uyarilar ilgili feature bolumlerinde durur. Eski liste `docs/STATUS.md` D ve E bolumlerine tasindi (PWA, karsilastirma, legacy gorseller, JSON-LD tekrari, AI prompt boyutu, font diyeti, artifact klasorleri, legacy UI dosyalari).
 
 ---
 
@@ -805,7 +793,7 @@ Dogrulama olmayan legacy arac: `npm run clean:med` kok dizinde `med` dosyasi bek
 9. SEO icin hidden keyword block, `display:none` SEO metni veya botlara farkli icerik ekleme. Kullaniciya gorunmeyen SEO text yasak.
 10. Public SEO sayfalarinda page-level CSR bailout riskine dikkat et. `useSearchParams`/Suspense kullanimi kritik ilk HTML'i skeleton'a dusuruyorsa server wrapper + client leaf pattern'ini tercih et.
 11. Existing dirty worktree varsay; kullanici degisikliklerini revert etme.
-12. Yeni agent, once bu dosyayi, sonra ilgili feature dosyalarini, sonra dogrulama scriptlerini okumali.
+12. Yeni agent once `AGENTS.md`, sonra bu dosyayi, sonra `docs/STATUS.md`, ilgili feature dosyalarini ve dogrulama scriptlerini okumali.
 13. Expert lead client dosyalari veya `NEXT_PUBLIC_*` değişkenleri hiçbir zaman `SUPABASE_SERVICE_ROLE_KEY` alamaz; public form insert'i yalnızca server-only `app/api/expert-leads` sınırından geçer.
 14. Sehir rehberlerinde generic fallback iddialari uretme; arastirilmamis sehri acikca `unresearched` olarak goster. Tiered kayitlarda sehir bazinda fiyat/Numbeo verisi cogaltma; merkezi, surumlu tier maliyet modelini kullan.
 15. Terracotta renkli metin/ikon icin `text-[var(--editorial-terracotta-ink)]` kullan; `--editorial-terracotta` base tokeni yalnizca buton/arka plan/cerceve icin. `npm run check:seo-vitals` bunu zorlar.

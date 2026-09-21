@@ -1,7 +1,7 @@
 # Hub Remake + Onboarding Sihirbazı — Tasarım Belgesi
 
 Tarih: 2026-07-02
-Durum: Kerem ile brainstorming oturumunda onaylandı (tek sapma: "Tümünü gör" davranışı, bkz. §4.3)
+Durum (2026-09-21): **UYGULANDI** — 5540605 (2026-07-02). Tasarım sırasındaki durum: "Kerem ile brainstorming oturumunda onaylandı (tek sapma: "Tümünü gör" davranışı, bkz. §4.3)".
 Uygulayıcı: Codex (bu belge + uygulama planı prompt paketi olarak verilecek)
 
 ---

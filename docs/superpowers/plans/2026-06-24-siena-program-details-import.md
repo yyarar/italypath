@@ -1,5 +1,7 @@
 # Siena Program Details Import Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — 2026-06-24 serisi (ce80b86, f759dd2, a123e70); checkbox'lar işaretlenmemiş. Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Add a dry-run-first Siena programme admission details importer that reads the 19 researched UNISI JSON files and produces a Supabase import plan/report without mutating live data.

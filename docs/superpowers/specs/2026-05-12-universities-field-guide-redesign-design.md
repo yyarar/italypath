@@ -1,5 +1,7 @@
 # Universities Field Guide Redesign Design
 
+Durum (2026-09-21): **UYGULANDI** — ad109fc (2026-05-12); 2026-06-22 SEO 2 ile server wrapper + client leaf yapısına taşındı (836592e).
+
 Date: 2026-05-12
 
 ## Goal

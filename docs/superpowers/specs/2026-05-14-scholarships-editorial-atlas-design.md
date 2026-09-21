@@ -1,7 +1,7 @@
 # Scholarships Editorial Atlas Redesign
 
 Date: 2026-05-14  
-Status: Approved design direction, awaiting implementation approval  
+Durum (2026-09-21): **UYGULANDI** — 2026-05-14 serisi; kod: components/scholarships/ScholarshipsExplorer.tsx. Tasarım sırasındaki durum: "Approved design direction, awaiting implementation approval".
 Accepted concept: `/Users/keremyarar/.codex/generated_images/019e25c1-6b7f-7dd1-9bc2-80c155ee32b9/ig_06a405745c84f9e9016a059459c6348191838c3f4662dcb190.png`
 
 ## Goal

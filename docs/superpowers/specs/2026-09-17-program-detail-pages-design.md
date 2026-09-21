@@ -3,7 +3,7 @@
 Tarih: 2026-09-17
 Brif: `docs/superpowers/briefs/2026-09-17-program-detail-pages-brief.md`
 İlgili: `SEO_AUDIT.md` §19-22, `docs/superpowers/specs/2026-09-15-university-data-egress-isr-design.md`, `docs/superpowers/specs/2026-09-16-internal-linking-phase1-design.md`
-Durum: Kerem'in 5 kararı alındı (sohbet, 17 Eylül). Uygulama planı ayrı belgede yazılacak.
+Durum (2026-09-21): **KISMEN** — Task 1-5 ve 7-9 uygulandı (Deploy 1-4, 17-21 Eylül; SEO_AUDIT §23); Task 6 İPTAL (Kerem, 21 Eylül); kapsam dışı listesi §23.3. Tasarım sırasındaki durum: "Kerem'in 5 kararı alındı (sohbet, 17 Eylül). Uygulama planı ayrı belgede yazılacak.".
 
 ## Amaç
 

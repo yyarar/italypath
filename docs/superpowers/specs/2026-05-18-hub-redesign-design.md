@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-18
 **Scope:** Replace the entire `/hub` page with an editorial "study dossier" that matches the home page's visual system. No new Supabase tables, no new env vars, no new dependencies.
-**Status:** Brainstorm approved · ready for implementation plan.
+Durum (2026-09-21): **YERİNE GEÇTİ** — Uygulandı (05-18/20), 2026-07-02 hub onboarding ile stage/bento modeli kaldırıldı (5522606). Güncel: specs/2026-07-02-hub-onboarding-design.md. Tasarım sırasındaki durum: "** Brainstorm approved · ready for implementation plan.".
 
 ---
 

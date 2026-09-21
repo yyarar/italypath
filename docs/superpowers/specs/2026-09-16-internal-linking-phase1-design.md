@@ -1,7 +1,7 @@
 # İç Bağlantı Ağı, 1. Faz — Tasarım
 
 Tarih: 2026-09-16
-Durum: Kerem onayladı (sohbet). Kapsam sınırlı (yeni URL yok), plan belgesi gerekmedi.
+Durum (2026-09-21): **UYGULANDI** — 4c112cf (2026-09-16); SEO_AUDIT §22. Tasarım sırasındaki durum: "Kerem onayladı (sohbet). Kapsam sınırlı (yeni URL yok), plan belgesi gerekmedi.".
 İlgili: `SEO_AUDIT.md` §21 (Google'ın Haziran'dan beri geri gelmemesi), §22 (bu işin kaydı)
 
 ## Amaç

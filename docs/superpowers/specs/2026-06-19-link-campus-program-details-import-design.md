@@ -1,5 +1,7 @@
 # Link Campus Program Details Import Design
 
+Durum (2026-09-21): **UYGULANDI** — Plan 12/12; scripts/import-link-campus-program-details.mjs; 72b6cac (2026-06-21).
+
 ## Goal
 
 Import the six researched Link Campus University English bachelor/master admission requirement JSON files into Supabase, populating `program_admission_details` and adding or correcting `university_departments` rows only when the current database lacks an exact program match.

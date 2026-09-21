@@ -1,7 +1,7 @@
 # AI Mentor → Consultation Desks Redesign
 
 Date: 2026-05-15
-Status: Awaiting user review
+Durum (2026-09-21): **UYGULANDI** — Sonraki değişiklikler: 791c369 yeniden adlandırma ve 6a5241b AI masası paused (2026-07-23), 2e711fc gönüllü masa (07-20), 84e40df uzman masası (08-11). Tasarım sırasındaki durum: "Awaiting user review".
 
 ## Goal
 

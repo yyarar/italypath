@@ -1,5 +1,7 @@
 # University Campus Portrait Details Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — 7ace805 + 1e1ca11 (2026-05-22). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Replace the current glossy university and program detail pages with the approved Campus Portrait editorial UI while preserving visible school and program information except for the explicit `fee` UI removal.

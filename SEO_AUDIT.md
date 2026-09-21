@@ -4,7 +4,7 @@
 > Bulguların ana doğrulama tarihi: 28 Ağustos 2026  
 > İncelenen site: `https://italypath.app`  
 > Kapsam: Google Search Console, canlı teknik kontroller, sitemap/robots, indekslenebilirlik, temel on-page SEO, yapılandırılmış veri ve PageSpeed Insights  
-> Durum: Bu çalışma bir denetim olarak başladı (28 Ağustos). 15 Eylül 2026'da §19'daki kontrast düzeltmesi ve guard uygulandı; §8.3'teki LCP kök neden çıkarımı aynı gün canlı ölçümle **çürütüldü** (bkz. §19.3). Bölüm 8.3 ve 12/P1 tarihsel kayıt olarak korunur; güncel öncelik listesi §19.6'dadır.
+> Durum: Bu çalışma bir denetim olarak başladı (28 Ağustos). 15 Eylül 2026'da §19'daki kontrast düzeltmesi ve guard uygulandı; §8.3'teki LCP kök neden çıkarımı aynı gün canlı ölçümle **çürütüldü** (bkz. §19.3). Bölüm 8.3 ve 12/P1 tarihsel kayıt olarak korunur; güncel öncelik listesi §19.6'dadır. **Okuma notu (21 Eylül 2026):** §1 özeti 28 Ağustos snapshot'ıdır ve o günkü öncelikleri listeler (H1 animasyonu çürütüldü, zoom kilidi ürün kararı olarak kapandı, kontrast düzeltildi); güncel açık işler §23.3, §24.5 ve `docs/STATUS.md`'dedir.
 
 Bu dosya, yeni bir geliştirici veya AI ajanının önceki konuşmayı okumadan SEO durumunu anlayabilmesi için hazırlanmıştır. Sayısal GSC ve PageSpeed verileri zamanla değişir; tarihleri dikkate almadan güncel gerçek kabul edilmemelidir.
 

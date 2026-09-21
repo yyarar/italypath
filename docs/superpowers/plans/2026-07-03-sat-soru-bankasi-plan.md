@@ -1,5 +1,7 @@
 # SAT Soru Bankası Implementation Plan
 
+> Durum (2026-09-21): **KISMEN** — Math bankası canlı (1.019 soru); Reading/Writing bankaya alınmadı. Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Masaüstündeki 1410 resmi SAT sorusunu (821 Math + 589 Reading and Writing) yapılandırılmış veriye çevirip, giriş yapmış kullanıcılara `/sat` altında konu bazlı interaktif soru çözme deneyimi sunmak.

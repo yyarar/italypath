@@ -1,5 +1,7 @@
 # ItalyPath iOS — Faz 2: Kalan 6 Modül Editorial Kalibrasyonu
 
+Durum (2026-09-21): **BAŞKA PROJE** — 'ItalyPath iOS' Faz 2; bu repoda uygulanmaz, 'remake' mobil projesi kapsamı.
+
 > **Tarih:** 13 Haziran 2026
 > **Kapsam:** Mentör, Profil, Burs, ISEE, Belgelerim, Topluluk — 6 mevcut modül editoryal dile kalibre
 > **Bağlı spec:** [Faz 1 — Home + Okullar](2026-06-12-home-schools-editorial-redesign-design.md)

@@ -1,5 +1,7 @@
 # ItalyPath Expert Lead Desk Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — 84e40df (2026-08-11). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Open the ItalyPath Expert desk to guests and signed-in users, persist free WhatsApp pre-consultation leads safely in Supabase, and let the single existing staff operator manage them from `/ekip/uzman`.

@@ -1,5 +1,7 @@
 # Home + Okullar Modern Editorial Yeniden Tasarımı — Implementation Plan
 
+> Durum (2026-09-21): **BAŞKA PROJE** — iOS pilotu; bu repoda uygulanmaz. Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** ItalyPath iOS uygulamasının Home + Okullar (liste + detay + program admission detail) ekranlarını "Modern Editorial İtalyan kültürü" yönünde yeniden tasarlamak; AppTheme v3 — Editorial token sistemini kurmak; launch screen + app icon'u kalibre etmek; mevcut çalışan davranışları bozmadan.

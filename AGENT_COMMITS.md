@@ -1,3 +1,7 @@
+# AGENT_COMMITS - Tarihsel Degisiklik Notlari
+
+> Durum (2026-09-21): **ARSIV / EKSIK** — Bu dosya erken donem sohbet oturumlarinin notlaridir: sira numaralari gercek commit SHA'si degildir, cogu kayit tarihsizdir ve 2026 yaz/sonbahar isleri (uzman masasi, egress/ISR, program detay turu, ISEE Parificato) burada yoktur. Degisiklik gecmisi icin `git log` esastir; guncel durum `docs/STATUS.md`. Yeni kayit eklenmez.
+
 ## 🛠️ Yapılan Değişiklikler (Bu Chat'te)
 
 ### Commit 1: `feat: AI Mentor streaming and memory logic completed`

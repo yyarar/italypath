@@ -2,7 +2,7 @@
 
 **Date:** 2026-06-01
 **Scope:** Rebuild the `/documents` page (Belge Cüzdanı) from scratch into an editorial, category-organized document wallet that matches the rest of the app's visual system. Adds one nullable `category` column to `user_documents`. No new env vars, no new dependencies, no new Supabase tables.
-**Status:** Brainstorm approved (visual companion) · ready for implementation plan.
+Durum (2026-09-21): **UYGULANDI** — 78661a5 + e481668 (2026-06-02). Tasarım sırasındaki durum: "** Brainstorm approved (visual companion) · ready for implementation plan.".
 
 ---
 

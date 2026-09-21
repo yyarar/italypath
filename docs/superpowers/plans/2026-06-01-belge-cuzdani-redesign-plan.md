@@ -1,5 +1,7 @@
 # Belge Cüzdanı Redesign Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — 78661a5 + e481668 (2026-06-02). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 >
 > **Visual craft:** Components are written here in the established editorial idiom. During execution, apply the **high-end-visual-design** skill when polishing spacing / micro-interactions — do not regress to generic tokens (see the smoke check in Task 2).

@@ -1,7 +1,7 @@
 # "Detay Yakında" Rozeti ve Boş Durum
 
 **Tarih:** 2026-06-15
-**Durum:** Tasarım onaylandı, implementasyon planı bekleniyor
+Durum (2026-09-21): **UYGULANDI** — f804ef0, 0368dea, 73749dd (2026-06-15). 19 Eylül 2026'dan beri dosyasız program yok; rozet fiilen görünmez (ComingSoonNotice.tsx duruyor). Tasarım sırasındaki durum: "** Tasarım onaylandı, implementasyon planı bekleniyor".
 **Sahip:** Kerem (PO)
 **Tetik:** iOS (Swift) sürümünde mevcut "Detay yakında" davranışını web'e taşımak.
 

@@ -1,5 +1,7 @@
 # Faz 2 — Kalan 6 Modül Editorial Kalibrasyonu Plan
 
+> Durum (2026-09-21): **BAŞKA PROJE** — iOS Faz 2; bu repoda uygulanmaz. Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: superpowers:executing-plans. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Mentör → Profil → Burs → ISEE → Belgelerim → Topluluk ekranlarını AppTheme v3 — Editorial token sistemine kalibre etmek; her modülün işlevsel sözleşmesini bozmadan görsel dili Faz 1 ile birleştirmek.

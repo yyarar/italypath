@@ -1,7 +1,7 @@
 # Tasarım: SAT Bankası — Kaldığın Yerden Devam
 
 Tarih: 2026-07-04
-Durum: Tasarım onaylandı (Kerem, 2026-07-04)
+Durum (2026-09-21): **UYGULANDI** — 820cfe1 (2026-07-04). Tasarım sırasındaki durum: "Tasarım onaylandı (Kerem, 2026-07-04)".
 
 ## Amaç
 

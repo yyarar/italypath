@@ -7,6 +7,8 @@
 
 > Bu belge hukuki görüş değildir. Yasal metinlerle ilgili maddeler, yayın öncesi operasyon doğrulaması ve KVKK konusunda yetkin hukukçu kontrolü gerektirir.
 
+> Durum (2026-09-21): **ARŞİV — 22 Temmuz 2026 snapshot'ı.** Şehir rehberleri (21 Ağustos, araştırılmış tiered model), ISEE (17 Eylül, Parificato sihirbazı), program kabul dosyaları (19 Eylül, %100 dosyalı) ve ana sayfa (15 Eylül, ön görüşme odağı) bu tarihten sonra değişti; ilgili eleştiriler tarihseldir. Hâlâ açık maddeler (hukukçu incelemesi, burs/topluluk güncelliği, sosyal içerik iddiaları) `docs/STATUS.md`'de izlenir.
+
 ---
 
 ## 1. Yönetici kararı

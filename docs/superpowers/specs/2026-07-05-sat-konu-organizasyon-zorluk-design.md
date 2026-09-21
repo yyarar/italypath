@@ -1,7 +1,7 @@
 # Tasarım: SAT Konu Organizasyonu (Domain Gruplama) + Zorluk Seçimi
 
 Tarih: 2026-07-05
-Durum: Onaylandı (Kerem, 2026-07-05)
+Durum (2026-09-21): **UYGULANDI** — 4421a21 (2026-07-05). Tasarım sırasındaki durum: "Onaylandı (Kerem, 2026-07-05)".
 
 ## Amaç
 

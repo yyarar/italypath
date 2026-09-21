@@ -1,5 +1,7 @@
 # City Guide Content Expansion Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — 2026-08-21 serisi (60c207b → cc93f8c). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Replace generic city-guide fallback claims with source-checked content for 25 real student cities, a centralized three-tier budget model, short Wikipedia-attributed histories, and an honest unresearched state.

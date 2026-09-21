@@ -1,5 +1,7 @@
 # Üniversite Verisi Egress Diyeti + ISR — Uygulama Planı
 
+> Durum (2026-09-21): **UYGULANDI** — SEO_AUDIT §20 (2026-09-16). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Soğuk Vercel işçisinde 4,6 MB'lık tam Supabase çekimini kaldırıp sayfa başına yalnızca gereken veriyi çekmek ve halka açık veri sayfalarını 3 saatlik ISR ile hazır sunmak.

@@ -1,5 +1,7 @@
 # Siena Program Details Import Design
 
+Durum (2026-09-21): **UYGULANDI** — 2026-06-24 serisi (ce80b86, f759dd2, a123e70); scripts/import-siena-program-details.mjs. Plan checkbox'ları işaretlenmemiş olsa da iş yapıldı.
+
 ## Goal
 
 Import the University of Siena English-taught programme admission details into the existing Supabase-backed `program_admission_details` flow, using the same dry-run-first pattern as the previous university imports.

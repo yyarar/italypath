@@ -1,5 +1,7 @@
 # SAT Math Soru Çıkarma — Prompt Şablonu ve Runbook
 
+Durum (2026-09-21): **AKTİF REFERANS** — SAT pipeline LLM extract runbook'u (201464f, 2026-07-03); AGENT_CONTEXT 'SAT Soru Bankasi' bölümü.
+
 Bu runbook `tmp/sat-bank/math-images/` altındaki soru görüntülerini yapılandırılmış
 JSON'a çevirir. Kural: pilot (plan Task 6) Kerem onayından geçmeden toplu çalıştırma
 (plan Task 9) yapılmaz.

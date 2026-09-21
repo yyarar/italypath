@@ -1,5 +1,7 @@
 # SAT Authored Explanations Import Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — dbbacbd (2026-08-22); canlı 1.019/1.019 explanation_en. Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Resolve the final authored-explanation review item, package all 213 records, and safely populate only the currently-null `public.sat_questions.explanation_en` values in the Path Supabase project.

@@ -1,7 +1,7 @@
 # Tasarım: SAT Soru Bankası (Soru Çözüm Merkezi)
 
 Tarih: 2026-07-03
-Durum: Tasarım onaylandı; yazılı spec kullanıcı incelemesinde
+Durum (2026-09-21): **KISMEN** — Math bankası canlı: 1.019 soru (2026-07-03/04 serisi, 3a5e5ea → e6c5475). Reading/Writing (589 soru hedefi) bankaya alınmadı. Tasarım sırasındaki durum: "Tasarım onaylandı; yazılı spec kullanıcı incelemesinde".
 
 ## Amaç
 

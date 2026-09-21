@@ -1,5 +1,7 @@
 # Link Campus Program Details Import Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — 12/12 checkbox; 72b6cac (2026-06-21). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Import six researched Link Campus English programme admission-detail JSON files into Supabase using a repeatable dry-run/apply script.

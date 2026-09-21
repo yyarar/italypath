@@ -1,5 +1,7 @@
 # AGENT_CONTEXT Fix Raporu
 
+> Durum (2026-09-21): **ARSIV** — 2026-06-11 tarihli ve ayni gun uygulanmis audit. Yerine gecen: `docs/CONTEXT_AUDIT_2026-09-19.md` (uygulama: 2026-09-21, f58fcd0 + 631a2a4 + paket 3). Buradaki `TTL=0`, eski auth akisi, 972 program gibi ifadeler tarihseldir; baslangic rehberi olarak kullanma. Okumaya `AGENTS.md` ile basla.
+
 Tarih: 2026-06-11
 
 Bu rapor, `AGENT_CONTEXT.md` dosyasinin mevcut repo gercekligiyle nerelerde ayrildigini ve yeni agent onboarding'i icin hangi alanlarin fixlenmesi gerektigini listeler. Mevcut `AGENT_CONTEXT.md` dosyasi bu calismada degistirilmedi; rapor ayrica eklendi.

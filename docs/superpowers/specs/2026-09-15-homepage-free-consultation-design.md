@@ -1,7 +1,7 @@
 # Ana Sayfa: Ücretsiz Ön Görüşme Odağı — Tasarım
 
 Tarih: 2026-09-15
-Durum: Kerem onayı bekliyor
+Durum (2026-09-21): **UYGULANDI** — 218b2a5 + 2848933 (2026-09-15). Tasarım sırasındaki durum: "Kerem onayı bekliyor".
 Önizleme (yerel, commit edilmez): `/communities/prototype/ana-sayfa?v=b`, kaynak `components/prototypes/home/`
 
 ## Amaç

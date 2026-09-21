@@ -1,7 +1,7 @@
 # Program Deadline Scraping & Storage
 
 **Tarih:** 2026-05-27
-**Durum:** Brainstorming onaylandı, implementation plan'a hazır
+Durum (2026-09-21): **İPTAL** — Scrape hattı Haziran 2026'da Task 12'de durduruldu (Sapienza çıktısı gürültülü); yerel deadline altyapısı 2026-07-22'de kaldırıldı. Gerçek tarihler program_admission_details'ten gelir. Tasarım sırasındaki durum: "** Brainstorming onaylandı, implementation plan'a hazır".
 **Sahip:** Kerem Yarar (product owner) + Claude (implementer)
 
 ---

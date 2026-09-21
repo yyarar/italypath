@@ -1,7 +1,7 @@
 # Eksik Şehir Rehberi İçerikleri Tasarımı
 
 **Tarih:** 2026-08-19  
-**Durum:** Kullanıcı tarafından onaylandı  
+Durum (2026-09-21): **UYGULANDI** — 2026-08-21 serisi (60c207b → cc93f8c); 25 araştırılmış + 17 legacy kayıt. Tasarım sırasındaki durum: "** Kullanıcı tarafından onaylandı".
 **Araştırma girdileri:** `city-content-research/outline.yaml`, `city-content-research/fields.yaml`
 
 ## Amaç

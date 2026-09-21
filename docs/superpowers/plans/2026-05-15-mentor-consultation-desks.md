@@ -1,5 +1,7 @@
 # Mentor Consultation Desks Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — Sonraki değişiklikler için specs/2026-05-15 satırına bak (AI masası 2026-07-23'ten beri paused). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Replace the single-channel chatbot UI at `/ai-mentor` with a three-desk editorial consultation hub — ItalyPath AI (live), ItalyPath Gönüllü Ekip (coming soon, free/limited), ItalyPath Uzman (coming soon, paid).

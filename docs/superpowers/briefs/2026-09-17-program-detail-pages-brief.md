@@ -2,7 +2,7 @@
 
 Tarih: 2026-09-17
 Hazırlayan: SEO ajanı (15-17 Eylül oturumu), Kerem'in isteğiyle
-Durum: Yeni ajana devredilecek görev. Kapsam ve öncelikler Kerem'le netleştirilmeden uygulamaya geçilmez.
+Durum (2026-09-21): **KISMEN** — Task 1-5 ve 7-9 uygulandı (Deploy 1-4, 17-21 Eylül; SEO_AUDIT §23); Task 6 İPTAL (Kerem, 21 Eylül). Brifteki 'uygulamaya geçilmez' notu tamamlanmıştır. Tasarım sırasındaki durum: "Yeni ajana devredilecek görev. Kapsam ve öncelikler Kerem'le netleştirilmeden uygulamaya geçilmez.".
 
 ## 0. Nasıl başlanır
 

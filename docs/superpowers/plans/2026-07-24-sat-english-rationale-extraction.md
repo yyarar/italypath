@@ -1,5 +1,7 @@
 # SAT Math English Rationale Extraction Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — e9840dd + dbbacbd (2026-08-22). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Mevcut 1.019 SAT Math sorusundan resmî Unformatted answer-key kaynağıyla doğrudan eşleşen 806 soru için tam İngilizce `Rationale` metnini, görsel matematiği LaTeX'e çevirerek ve her kaydı bağımsız review'dan geçirerek Git dışı, checksum'lı bir veri paketine çıkarmak.

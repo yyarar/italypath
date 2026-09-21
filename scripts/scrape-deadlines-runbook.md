@@ -1,5 +1,7 @@
 # Scrape Deadlines — Claude Execution Runbook
 
+> Durum (2026-09-21): **LEGACY** — Deadline scrape hattı Haziran 2026'da Task 12'de durduruldu, yerel deadline altyapısı 2026-07-22'de kaldırıldı. Bu runbook, `scripts/save-scraped.mjs`, `lib/deadlines/targets.ts` ve `docs/superpowers/specs/extraction-prompt-template.md` güncel veri girişi yolu değildir; gerçek tarihler Supabase `program_admission_details` tablosuna `scripts/import-*-program-details.mjs` ile girer (bkz. `DATA_ENTRY_GUIDE.md`).
+
 **Purpose:** Visit each admission URL in `lib/deadlines/targets.ts` and save its cleaned page content to `tmp/scraped/` as markdown. No LLM extraction here — that happens in a separate manual step driven by Kerem (see `docs/superpowers/specs/extraction-prompt-template.md`).
 
 ## Prerequisites

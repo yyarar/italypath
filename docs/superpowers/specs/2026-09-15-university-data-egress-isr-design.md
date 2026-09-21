@@ -1,7 +1,7 @@
 # Üniversite Verisi: Egress Diyeti ve Hazır Sayfa Önbelleği (ISR) — Tasarım
 
 Tarih: 2026-09-15
-Durum: Kerem onayladı (15 Eylül 2026, sohbet). Uygulama planı: `docs/superpowers/plans/2026-09-15-university-data-egress-isr-plan.md`
+Durum (2026-09-21): **UYGULANDI** — SEO_AUDIT §20; canlı doğrulama 2026-09-16 (b9138dc kaydı). Tasarım sırasındaki durum: "Kerem onayladı (15 Eylül 2026, sohbet). Uygulama planı: `docs/superpowers/plans/2026-09-15-university-data-egress-isr-plan.md`".
 İlgili kayıt: `SEO_AUDIT.md` §19.3 (LCP kök nedeni) ve §20 (bu işin sonucu)
 
 ## Amaç

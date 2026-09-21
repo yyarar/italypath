@@ -1,5 +1,7 @@
 # Scholarships Editorial Atlas Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — 2026-05-14 serisi; kod: components/scholarships/ScholarshipsExplorer.tsx. Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Rebuild `/scholarships` as a map-first editorial atlas where the selected region's official institution and official source links are the primary hierarchy.

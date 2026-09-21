@@ -1,7 +1,7 @@
 # Design: Auth Production Redirect Hardening
 
 Date: 2026-06-27
-Status: Ready for Kerem review
+Durum (2026-09-21): **UYGULANDI** — 232e973 (2026-06-27); guard: npm run check:auth-production. Tasarım sırasındaki durum: "Ready for Kerem review".
 
 ## Problem
 

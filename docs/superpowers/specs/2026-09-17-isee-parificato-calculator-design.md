@@ -1,7 +1,7 @@
 # ISEE Parificato Hesaplayıcı — Baştan Yenileme Tasarımı
 
 Tarih: 2026-09-17
-Durum: Kerem onayladı (2026-09-17, sohbet içinde; ara onay istenmeden uygulamaya geçilecek)
+Durum (2026-09-21): **UYGULANDI** — 193a242 (2026-09-19). Tasarım sırasındaki durum: "Kerem onayladı (2026-09-17, sohbet içinde; ara onay istenmeden uygulamaya geçilecek)".
 Dal / çalışma kopyası: `feat/isee-parificato`, `.worktrees/isee-parificato`
 
 ## Amaç

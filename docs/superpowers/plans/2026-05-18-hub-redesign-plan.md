@@ -1,5 +1,7 @@
 # /hub Editorial Dossier Redesign — Implementation Plan
 
+> Durum (2026-09-21): **YERİNE GEÇTİ** — 2026-07-02 hub onboarding (5540605) ile kaldırıldı. Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Replace the current generic SaaS-styled `/hub` page with an editorial "study dossier" page that matches the rest of ItalyPath's visual language and adds a localStorage-backed application stage tracker.

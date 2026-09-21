@@ -1,7 +1,7 @@
 # Tasarım: Yasal Sayfalar (Gizlilik, Kullanım Koşulları, Çerez)
 
 Tarih: 2026-06-12
-Durum: Onaylandı (Kerem) — uygulama planına geçilecek
+Durum (2026-09-21): **UYGULANDI** — a69300c (2026-06-12); iletişim adresi 2bfd9f2 (2026-07-21). Hukukçu incelemesi açık (docs/STATUS.md #18). Tasarım sırasındaki durum: "Onaylandı (Kerem) — uygulama planına geçilecek".
 Dal: `feat/legal-pages`
 
 ## Amaç

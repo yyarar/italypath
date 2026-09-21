@@ -2,7 +2,7 @@
 
 Tarih: 2026-08-28
 
-Durum: Kullanıcı tarafından yön seçimi onaylandı; yazılı spec harici agent ve
+Durum (2026-09-21): **YERİNE GEÇTİ** — Geniş spec; bilinçli olarak dar plan uygulandı: plans/2026-08-28-sat-question-remediation-slim-plan.md (tamamlandı 2026-08-29, 81efb17). Tasarım sırasındaki durum: "Kullanıcı tarafından yön seçimi onaylandı; yazılı spec harici agent ve".
 kullanıcı incelemesinde
 
 ## Yönetici Özeti

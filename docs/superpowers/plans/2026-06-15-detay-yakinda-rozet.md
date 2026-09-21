@@ -1,5 +1,7 @@
 # "Detay Yakında" Rozeti — Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — f804ef0 (2026-06-15). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Üniversite detay sayfasındaki program listesinde `admissionDetails` boş olan satırlara "Detay yakında" rozeti, program detay sayfasında ise panelin yerine boş durum kartı koy.

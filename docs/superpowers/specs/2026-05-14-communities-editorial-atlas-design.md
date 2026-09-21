@@ -1,7 +1,7 @@
 # Communities Editorial Atlas Redesign
 
 Date: 2026-05-14
-Status: Awaiting user review
+Durum (2026-09-21): **UYGULANDI** — 6055c7a (2026-05-14). Tasarım sırasındaki durum: "Awaiting user review".
 
 ## Goal
 

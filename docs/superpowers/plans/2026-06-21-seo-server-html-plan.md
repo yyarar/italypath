@@ -1,5 +1,7 @@
 # SEO Server HTML Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — 836592e 'SEO 2' (2026-06-22). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Render visible, indexable server HTML for the public SEO pages while preserving the current client explorer/detail UX.

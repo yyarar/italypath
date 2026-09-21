@@ -1,5 +1,7 @@
 # Ana Sayfa Ücretsiz Ön Görüşme Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — 218b2a5 + 2848933 (2026-09-15). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Ana sayfada tüm ücretsiz araçları gösterip ücretsiz ön görüşmeyi ana çağrı yapmak; aynı akışı `/on-gorusme` sayfasına ve program/üniversite/burs/ISEE sayfalarına taşımak.

@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-19
 **Scope:** Three small connected pieces of polish following the hub editorial dossier ship: (1) auto-advance the localStorage `italyPathStage` from user actions (favorites + documents) so the dossier feels alive without manual clicking, (2) make every decorative-but-non-clickable element on the home page actually navigate somewhere meaningful, (3) catch up `AGENT_COMMITS.md` with the four major redesigns shipped recently.
-**Status:** Brainstorm approved · ready for implementation plan.
+Durum (2026-09-21): **YERİNE GEÇTİ** — Uygulandı 2026-05-20 (324d3d0, a1d119b, 9a9de8d); stage modeli 2026-07-02'de kaldırıldı (5522606). Tasarım sırasındaki durum: "** Brainstorm approved · ready for implementation plan.".
 
 ---
 

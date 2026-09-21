@@ -1,5 +1,7 @@
 # Auth Production Redirect Hardening Implementation Plan
 
+> Durum (2026-09-21): **UYGULANDI** — 232e973 (2026-06-27). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Send signed-out users who open protected ItalyPath pages to the custom `/giris` auth page, while keeping API routes protected without HTML redirects and documenting the correct Clerk production env model.

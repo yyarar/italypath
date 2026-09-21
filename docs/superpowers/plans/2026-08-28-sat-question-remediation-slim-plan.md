@@ -1,5 +1,7 @@
 # SAT Soru Metni İyileştirme (Slim) — Uygulama Planı
 
+> Durum (2026-09-21): **UYGULANDI** — Tamamlandı 2026-08-29 (81efb17); figür onarım backlog'u 2 kayıt açık (docs/STATUS.md #22). Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Canlı SAT bankasındaki erişilebilirlik-metni bozulması taşıyan ~160-220 soruyu önce kullanıcı görünümünden gizlemek, sonra resmî kaynak görüntülerinden doğrulanmış şekilde düzeltip güvenli (compare-and-swap + yedekli) bir patch akışıyla canlıya işlemek; bu sırada sağlam ~800 soruya kesinlikle dokunmamak.

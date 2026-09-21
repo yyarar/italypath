@@ -1,7 +1,7 @@
 # Tasarım: Şehir Rehberleri Mobil Seçici
 
 Tarih: 2026-07-19
-Durum: Tasarım onaylandı; yazılı spec kullanıcı incelemesinde
+Durum (2026-09-21): **UYGULANDI** — Kod kanıtı: components/cities/CityGuidesExplorer.tsx 'Mobile City Selector' (select#mobile-city-selector); ayrı commit bulunamadı. Tasarım sırasındaki durum: "Tasarım onaylandı; yazılı spec kullanıcı incelemesinde".
 
 ## Amaç
 

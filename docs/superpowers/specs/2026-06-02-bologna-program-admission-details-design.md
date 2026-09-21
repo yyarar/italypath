@@ -1,7 +1,7 @@
 # Bologna Program Admission Details
 
 **Tarih:** 2026-06-02
-**Durum:** Brainstorming onaylandi, kullanici spec review bekliyor
+Durum (2026-09-21): **UYGULANDI** — 2026-06-02 (41c3b9c); scripts/import-bologna-program-details.mjs. Tasarım sırasındaki durum: "** Brainstorming onaylandi, kullanici spec review bekliyor".
 **Sahip:** Kerem Yarar (product owner) + Codex (implementer)
 
 ---

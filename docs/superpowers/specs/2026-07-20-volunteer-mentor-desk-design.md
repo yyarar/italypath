@@ -1,7 +1,7 @@
 # Gönüllü Mentor Masası V1 — Tasarım Belgesi
 
 Tarih: 2026-07-20
-Durum: Kerem ile brainstorming oturumunda onaylandı
+Durum (2026-09-21): **UYGULANDI** — 2e711fc (2026-07-20), PR #3 dc737da (2026-07-21). Tasarım sırasındaki durum: "Kerem ile brainstorming oturumunda onaylandı".
 Uygulayıcı: Codex
 
 ---

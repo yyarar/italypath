@@ -1,5 +1,7 @@
 # Deadline Extraction — Manual LLM Prompt Template
 
+Durum (2026-09-21): **LEGACY** — İptal edilen deadline scrape hattının parçası; güncel veri girişi yolu değil.
+
 **Use this:** After `scripts/scrape-deadlines-runbook.md` has populated `tmp/scraped/` with markdown files, copy the prompt below into any LLM (Gemini, Claude, ChatGPT, etc.) along with the contents of every file in `tmp/scraped/`. Save the LLM's JSON output to `tmp/deadlines-extracted.json`.
 
 You can iterate on this prompt freely — re-running with a better prompt does NOT require re-scraping.

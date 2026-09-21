@@ -1,5 +1,7 @@
 # Auth UX Yenileme — Implementation Plan
 
+> Durum (2026-09-21): **YERİNE GEÇTİ** — 2026-07-01 Clerk Elements rebuild planı ile yenilendi. Checkbox'lar ilerlemeyi yansıtmaz; bkz. docs/superpowers/INDEX.md.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Replace Clerk's default `<SignIn />` / `<SignUp />` pages and the Navbar modal with a single editorial Turkish-localized `/giris` page built on Clerk Elements (Level 2 — Clerk handles auth, we own the UI).
