@@ -24,6 +24,7 @@ const isPublicRoute = createRouteMatcher([
   '/on-gorusme(.*)',   // Ücretsiz ön görüşme sayfası
   '/sitemap.xml',      // Google botları için
   '/robots.txt',       // Google botları için
+  '/llms.txt',         // AI asistanlari icin discovery dosyasi (public/llms.txt); matcher .txt'yi statik saymaz, allowlist sart
 ]);
 
 const PROTECTED_PAGE_ROUTES = [

@@ -54,6 +54,7 @@ const publicChecks = [
   "/on-gorusme",
   "/sitemap.xml",
   "/robots.txt",
+  "/llms.txt",
 ];
 
 const protectedChecks = [
@@ -178,6 +179,13 @@ if (!publicPatterns.includes("/cities(.*)")) {
 
 if (!publicPatterns.includes("/giris(.*)")) {
   failures.push("Public list is missing /giris(.*)");
+}
+
+// /llms.txt statik dosya sayilmaz: proxy matcher yalnizca belirli uzantilari (css/js/png...) haric tutar,
+// .txt bunlarin arasinda degildir. Allowlist disinda kalirsa Clerk oturumsuz istegi 404'e dusurur
+// (21 Eylul 2026 canli bulgu: x-clerk-auth-reason: protect-rewrite).
+if (!publicPatterns.includes("/llms.txt")) {
+  failures.push("Public list is missing /llms.txt (AI assistant discovery file)");
 }
 
 if (failures.length > 0) {

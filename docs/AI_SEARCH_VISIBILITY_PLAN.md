@@ -13,7 +13,7 @@ Make ItalyPath a useful, citable planning source for Turkish students considerin
 - The XML sitemap includes the public discovery pages plus university and programme pages.
 - University programme dossiers, regional scholarship records, and city guides already expose valuable source and freshness signals in the product.
 - Before this change, the home-page count-up component emitted `0 university / 0 programme` in server HTML. Search snippets could therefore repeat a false number; the component now renders the real value before client-side animation.
-- `public/llms.txt` now gives non-Google assistants a concise, factual map of the site and explicit time-sensitive-information boundaries. It is supplementary; it is not a Google AI Overview ranking mechanism.
+- `public/llms.txt` now gives non-Google assistants a concise, factual map of the site and explicit time-sensitive-information boundaries. It is supplementary; it is not a Google AI Overview ranking mechanism. Access: the proxy matcher does not treat `.txt` as a static file, so `/llms.txt` must stay in the `proxy.ts` public allowlist (added 2026-09-21 after production returned 404 with a signed-out Clerk header); `check:routes` and `check:ai-search` guard that entry.
 
 ## Priority query set
 

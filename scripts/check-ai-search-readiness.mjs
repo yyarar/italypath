@@ -13,10 +13,11 @@ function assertIncludes(source, expected, file, failures) {
   }
 }
 
-const [llms, robots, countUp] = await Promise.all([
+const [llms, robots, countUp, proxy] = await Promise.all([
   readProjectFile('public/llms.txt'),
   readProjectFile('app/robots.ts'),
   readProjectFile('components/CountUpStat.tsx'),
+  readProjectFile('proxy.ts'),
 ]);
 
 const failures = [];
@@ -31,6 +32,11 @@ assertIncludes(robots, "userAgent: '*'", 'app/robots.ts', failures);
 assertIncludes(robots, "'/universities'", 'app/robots.ts', failures);
 assertIncludes(robots, "'/scholarships'", 'app/robots.ts', failures);
 assertIncludes(robots, "'/isee'", 'app/robots.ts', failures);
+
+// Erisim: /llms.txt proxy matcher tarafindan statik dosya sayilmaz; public allowlist'te olmazsa
+// canlida oturumsuz istek 404 alir (21 Eylul 2026 bulgusu). Icerik kontrolu tek basina yetmez.
+const publicRouteList = proxy.match(/createRouteMatcher\(\s*\[([\s\S]*?)\]\s*\)/m)?.[1] ?? '';
+assertIncludes(publicRouteList, "'/llms.txt'", 'proxy.ts public route allowlist', failures);
 
 assertIncludes(countUp, 'useState(() => value ?? 0)', 'components/CountUpStat.tsx', failures);
 
