@@ -10,7 +10,7 @@ export const revalidate = 3600;
 // Sablon icerigi yeniden degisirse bu tarihi guncelle. Veritabani zaman damgalari (updated_at)
 // bundan yeniyse onlar kullanilir. Google lastmod'u yeniden tarama onceligi icin kullanir;
 // tarih uydurma, gercek degisiklige bagla (SEO_AUDIT.md §21).
-const PAGE_TEMPLATE_LAST_MODIFIED = new Date('2026-09-19T00:00:00Z');
+const PAGE_TEMPLATE_LAST_MODIFIED = new Date('2026-09-21T00:00:00Z');
 // /isee görünür içeriği 2026-09-17'de ISEE Parificato aracıyla yenilendi; program şablonundan bağımsız izlenir (SEO_AUDIT.md §21).
 const ISEE_PAGE_LAST_MODIFIED = new Date('2026-09-19T00:00:00Z');
 

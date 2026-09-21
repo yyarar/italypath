@@ -950,3 +950,36 @@ Tasarım: `docs/superpowers/specs/2026-09-16-internal-linking-phase1-design.md`.
 2. Font diyeti (§19.6/2): 10 preload dosyası → ilk ekranda kullanılan ağırlıklar; ilk çizim ~3,7 sn'nin ana kalemi.
 3. Anahtar kelime listesi (GSC + otomatik tamamlama) ve rehber içerik/şehir sayfası kararı (§21, 2. faz).
 4. Ön görüşme SSS'sine FAQPage şeması; program sayfası LCP görselinin `priority`/`sizes` incelemesi.
+
+## 23. Program detay sayfaları turu — 17-21 Eylül 2026
+
+Tasarım/plan: `docs/superpowers/specs/2026-09-17-program-detail-pages-design.md`, `docs/superpowers/plans/2026-09-17-program-detail-pages-plan.md` (9 görev, 4 deploy grubu). Dal: `feat/program-detail-pages`.
+
+### 23.1 Yapılanlar
+
+- **Deploy 1 (17 Eylül, canlı):** kaynaklı kabul dosyası düzeni (künye + takvim + koşullar + belgeler + belirsizlikler + kaynak izi), Türkçe ve sayfaya özgü `title`/`description` (1.000+ sayfa).
+- **Deploy 2 (19 Eylül, canlı):** sayfa ağırlığı (yalnız açılan programın kabul dosyası istemciye gider), "Aynı alanda diğer üniversiteler" (resmî `degree_class` koduna göre), künye başlığı "Temel bilgiler", her dosyalı sayfada kaynak değişim notu, "open access" → "Açık kabul (kontenjansız)".
+- **Deploy 3+4 (21 Eylül, bu kayıt):**
+  - **Task 7 — "Sonraki adımlar":** ISEE, şehir rehberi ve bölge bursları linkleri + ücretsiz ön görüşme kutusu tek blokta toplandı. Şehir/burs linkleri "İlgili bağlantılar"da tekrar edilmiyor (`showHubLinks={false}`); üniversite sayfası değişmedi. Ön görüşme metni teklif tonuna çekildi.
+  - **Task 8 — erişilebilirlik:** kabul dosyasındaki iki `<dl>` yalnız `dt`/`dd` içerecek şekilde düzeltildi (kaynak linki `dd` içine alındı; geniş ekranda `dd` iki sütuna yayılır, görünüm aynı).
+  - **Task 9 — yapılandırılmış veri:** dosyalı programlarda ikinci JSON-LD (`EducationalOccupationalProgram`): ad, URL, okul, dil, süre, tam zamanlı. Tarih/ücret/kabul koşulu **yok** (doğrulanmış tek değer yok).
+  - **Task 6 — YAPILMADI (Kerem kararı, 21 Eylül):** "dosyasız programları noindex + sitemap dışı" adımı anlamını yitirdi; 19 Eylül'deki 108 program turundan sonra canlıda dosyasız program kalmadı (56 okul / 941 program / %100 dosyalı, bkz. `tmp/uni-research/STATUS.md`). İleride dosyasız satır eklenirse emniyet kemeri olarak yeniden değerlendirilir.
+
+### 23.2 Ölçümler (yerel üretim derlemesi, 21 Eylül)
+
+| Ölçü | Değer |
+| --- | --- |
+| Erişilebilirlik (Lighthouse, devtools throttling, program sayfası) | 91 → **93** |
+| Kalan tek erişilebilirlik bulgusu | `meta-viewport` (`user-scalable=no`) — bilinçli zoom kilidi ürün kararı; 95 bu karar değişmeden mümkün değil |
+| Program sayfası sunucu HTML'i | 141 KB ham / **20 KB gzip** |
+| Başlık hiyerarşisi | h1 → h2 → h3, atlama yok (doğrulandı) |
+| JSON-LD | sayfa başına 4 script (Organization, WebSite, BreadcrumbList, EducationalOccupationalProgram) |
+| Sitemap | **1.004 URL** (7 statik + 56 okul + 941 program). Düşüşün sebebi Task 6 değil, 19 Eylül'deki veri temizliği (67 program + 8 okul silindi). |
+
+`PAGE_TEMPLATE_LAST_MODIFIED` 2026-09-21'e çekildi (görünür şablon değişikliği: "Sonraki adımlar" bloğu).
+
+### 23.3 Açık kalanlar
+
+- Deploy sonrası: Rich Results Test ile `EducationalOccupationalProgram` doğrulaması; Search Console'da site haritasının yeniden gönderilmesi (19 Eylül silmeleri + bu deploy).
+- Plan kapsamı dışı bırakılanlar (Kerem, 17 Eylül): programın yalnız kendi kabul satırını çekmesi (İş 9/J), Türkçe cümle özetleri, son tarih/sınav alan çıkarımı, ön görüşme tıklama ölçümü (Vercel Hobby).
+- SEO sıradaki adaylar değişmedi (§22): font diyeti, Clerk JS diyeti, anahtar kelime listesi + şehir/bölge sayfaları, ön görüşme SSS'si için FAQPage şeması, program sayfası LCP görselinin `priority`/`sizes` incelemesi.
