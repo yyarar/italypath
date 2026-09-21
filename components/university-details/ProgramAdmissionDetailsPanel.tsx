@@ -266,7 +266,9 @@ export function ProgramAdmissionDetailsPanel({
                   <dt className="text-sm font-bold text-[var(--editorial-ink)]">
                     {row.label}
                   </dt>
-                  <dd>
+                  {/* Kaynak linki <dd> icinde: <dl> altindaki sarmalayici yalnizca dt+dd icermeli
+                      (axe definition-list). Genis ekranda dd iki sutuna yayilir, gorunum ayni. */}
+                  <dd className="sm:col-start-2 sm:col-end-4 sm:grid sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-5">
                     {row.value ? (
                       <AdmissionText
                         value={row.value}
@@ -280,11 +282,11 @@ export function ProgramAdmissionDetailsPanel({
                         {labels.notSpecifiedInSources}
                       </p>
                     )}
+                    <EvidenceLink
+                      evidence={evidenceFor(row.field)}
+                      label={labels.viewSource}
+                    />
                   </dd>
-                  <EvidenceLink
-                    evidence={evidenceFor(row.field)}
-                    label={labels.viewSource}
-                  />
                 </div>
               ))}
             </dl>

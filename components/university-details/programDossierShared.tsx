@@ -437,14 +437,16 @@ export function ProfileFact({
       <dt className="text-[10px] font-black uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
         {label}
       </dt>
+      {/* Kaynak linki <dd> icinde durur: <dl> altindaki sarmalayici yalnizca dt+dd icermeli
+          (axe definition-list). Gorunum degismez, link yine deger blogunun altinda. */}
       <dd className="mt-2 text-[13px] font-semibold leading-5 text-[var(--editorial-ink)] sm:text-sm sm:leading-6">
         <ClampedValue
           value={cleanAdmissionDisplayValue(value)}
           readFullLabel={readFullLabel}
           collapseLabel={collapseLabel}
         />
+        <EvidenceLink evidence={evidence} label={viewSourceLabel} />
       </dd>
-      <EvidenceLink evidence={evidence} label={viewSourceLabel} />
     </div>
   );
 }
