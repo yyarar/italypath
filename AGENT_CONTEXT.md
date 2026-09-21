@@ -1,14 +1,16 @@
 # ItalyPath - Agent Context & Knowledge Base
 
-Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur. Degisiklik gecmisi icin `AGENT_COMMITS.md`, son audit notlari icin `AGENT_CONTEXT_FIX_REPORT.md` okunabilir; bu dosya ise guncel mimari ve calisma kurallarinin kaynak dokumanidir.
+Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur; guncel mimari ve calisma kurallarinin kaynak dokumanidir. `AGENT_COMMITS.md` tarihsel ve eksik degisiklik notlaridir (Git gecmisi esastir). `AGENT_CONTEXT_FIX_REPORT.md` 2026-06-11'de uygulanmis eski bir audit arsividir. En son context degerlendirmesi `docs/CONTEXT_AUDIT_2026-09-19.md` icindedir; bu dosyadaki 2026-09-21 duzeltmeleri o raporun uygulama sirasinin 1. ve 2. adimidir.
 
-Son guncelleme: 2026-09-17
+Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun)
+
+Sayilar bu dosyada tarihli snapshot olarak gecer. Guncel sayim "Canli university/program verisi" bolumundedir; eski tarihli bolumlerdeki sayilari bugunku gercek sayma.
 
 ---
 
 ## Proje Tanimi
 
-ItalyPath, Italya'da egitim almak isteyen Turk ogrenciler icin Next.js tabanli rehber uygulamasidir. Public tarafta universite/program arama, sehir rehberleri, bolgesel burs haritasi, ISEE hesaplayici ve kurate edilmis topluluk rehberi vardir. Giris gerektiren tarafta AI mentor, kalici gonullu ekip yazismasi, favoriler, belge cuzdani ve kisisel calisma dosyasi (`/hub`) bulunur.
+ItalyPath, Italya'da egitim almak isteyen Turk ogrenciler icin Next.js tabanli rehber uygulamasidir. Public tarafta universite/program arama, sehir rehberleri, bolgesel burs haritasi, ISEE Parificato hesaplayici, kurate edilmis topluluk rehberi, ucretsiz on gorusme formu ve `/ai-mentor` danisma merkezi (uc masa: ItalyPath AI arayuzde `paused`, Gonullu Ekip giris ister, Uzman formu public) vardir. Giris gerektiren tarafta gonullu ekip yazismasi, favoriler, belge cuzdani, SAT soru bankasi, onboarding (`/hosgeldin`) ve kisisel calisma dosyasi (`/hub`) bulunur. Erisim modelinin tek kaynagi `proxy.ts` ve asagidaki "Auth ve Route Matrix" bolumudur.
 
 Uygulamanin ana tasarim dili editorial paper/sage/terracotta paleti, serif basliklar, keskin border'lar ve mobil oncelikli layout'lardir. Gradient/sparkle/indigo SaaS kalibi yeni islerde genellikle tercih edilmez.
 
@@ -55,8 +57,9 @@ italypath-main/
 │   │   └── sso-callback/page.tsx   # Google OAuth donus rotasi; /giris sayfasini yeniden kullanir
 │   ├── hosgeldin/page.tsx          # Protected 4 adimli onboarding sihirbazi
 │   ├── on-gorusme/page.tsx         # Public ucretsiz on gorusme sayfasi (server wrapper)
-│   ├── ai-mentor/page.tsx          # Protected consultation desks UI
+│   ├── ai-mentor/page.tsx          # Public consultation desks UI (AI masasi paused; gonullu masa giris ister)
 │   ├── ekip/mentor/page.tsx        # Protected, staff-allowlisted gonullu operator inbox
+│   ├── ekip/uzman/page.tsx         # Protected, staff-allowlisted uzman lead inbox
 │   ├── universities/
 │   │   ├── layout.tsx              # /universities SEO metadata
 │   │   ├── page.tsx                # Server SEO wrapper + crawlable preview + client explorer
@@ -65,7 +68,7 @@ italypath-main/
 │   │       ├── page.tsx            # Server SEO wrapper + client university portrait
 │   │       └── departments/[deptSlug]/
 │   │           ├── layout.tsx      # Server generateMetadata
-│   │           └── page.tsx        # Server SEO wrapper + client program portrait
+│   │           └── page.tsx        # Server SEO wrapper (pruneUniversityForProgram, EducationalOccupationalProgram JSON-LD) + client program portrait
 │   ├── cities/page.tsx
 │   ├── communities/page.tsx        # Public atlas; force-dynamic SEO 2.5 wrapper
 │   ├── topluluklar/page.tsx        # redirect -> /communities
@@ -96,10 +99,10 @@ italypath-main/
 │   ├── scholarships/ScholarshipsExplorer.tsx
 │   ├── sat/                        # SAT konu listesi, soru karti, KaTeX MathText, oturum ozeti
 │   ├── universities/              # Server-safe rows + UniversitiesExplorer client leaf
-│   ├── university-details/         # Detail client leaves, portrait headers, program directory, admission panel
+│   ├── university-details/         # Detail client leaves, portrait headers, program directory, kabul dosyasi (ProgramAdmissionDetailsPanel, ProgramSummaryStrip, ProgramSourceTrail, programDossierShared), DetailBreadcrumb, RelatedLinks, ProgramNextSteps
 │   ├── mentor/                     # Mentor hub + AI, gonullu ogrenci ve operator yuzeyleri
 │   ├── legal/                      # LegalDocument.tsx (yasal belge sunum bileseni)
-│   ├── auth/                       # /giris parcalari: AuthShell, AuthCard, AuthTabs, OAuthButtons, SignInForm, SignUpForm, VerificationStep, PasswordResetFlow
+│   ├── auth/                       # /giris parcalari: AuthShell, AuthCard, AuthTabs, OAuthButtons, SignInForm, SignUpForm, PasswordResetFlow (6 haneli dogrulama adimi SignUpForm icindedir)
 │   ├── onboarding/                 # /hosgeldin wizard kartlari, progress ve finale
 │   ├── hub/                        # Profil seridi, program/burs/sehir oneri bloklari, kompakt kartlar
 │   └── ui/                         # Small reusable UI/motion helpers; scroll velocity legacy unless imported
@@ -111,6 +114,9 @@ italypath-main/
 │   ├── universitiesFilters.ts      # Search/filter/view mode utilities and storage key
 │   ├── universityDefaults.ts
 │   ├── universityStats.ts
+│   ├── admissionPresence.ts        # hasAdmissionDossier(department): tam veri veya hasAdmissionDetails bayragi
+│   ├── programMetadata.ts          # Program sayfasi Turkce title/description (saf modul); guard check:program-metadata
+│   ├── relatedLinks.ts             # buildRelatedLinks: ayni sehir okullari, sehir rehberi, bolge bursu, ayni degree_class kodlu programlar
 │   ├── useFavorites.ts
 │   ├── translations.ts
 │   ├── cities/data.ts
@@ -128,8 +134,11 @@ italypath-main/
 │   ├── cities.ts
 │   └── scholarships.ts
 ├── public/data/italy-regions.geojson
+├── public/llms.txt                 # AI asistanlari icin discovery dosyasi; proxy allowlist'te (2026-09-21)
 ├── scripts/
 │   ├── check-route-access.mjs
+│   ├── check-ai-search-readiness.mjs # public/llms.txt icerigi + robots + proxy allowlist (/llms.txt) statik kontrolu
+│   ├── check-program-metadata.mjs   # Turkce program metadata sablonu guard'i
 │   ├── check-mentor-desks.mjs       # Mentor channel/DB/RLS/UI/legal kalici guard'i
 │   ├── test-volunteer-desk.mjs      # Ogrenci lifecycle/race davranis testleri
 │   ├── test-mentor-operator-inbox.mjs # Operator auth/action/Realtime davranis testleri
@@ -144,8 +153,8 @@ italypath-main/
 │   ├── check-universities-server-compose.mjs
 │   ├── validate-supabase-university-data.mjs
 │   ├── validate-data-integrity.mjs
-│   ├── save-scraped.mjs             # deadline scrape kaydetme yardimcisi
-│   ├── scrape-deadlines-runbook.md  # Claude scrape runbook (LLM extract icermez)
+│   ├── save-scraped.mjs             # LEGACY deadline scrape kaydetme yardimcisi
+│   ├── scrape-deadlines-runbook.md  # LEGACY scrape runbook (LLM extract icermez); guncel veri girisi yolu degil
 │   ├── import-*-program-details.mjs # Bologna/Ca'Foscari/Genoa/Milan/Milano-Bicocca/Padua/Polimi/Polito/Sapienza
 │   ├── sat/                        # PDF -> JSON pipeline ve import scriptleri
 │   └── clean-med-data.mjs
@@ -154,17 +163,24 @@ italypath-main/
 │   ├── program_admission_details.sql
 │   ├── user_profiles.sql
 │   ├── volunteer_mentor.sql        # Gonullu mentor tablolar/RLS/RPC/Realtime kontrati
-│   └── sat_bank.sql                # sat_questions service-role-only + sat_attempts RLS
+│   ├── expert_leads.sql            # Uzman lead tablosu, staff-only RLS
+│   ├── program_degree_class_codes.sql # Salt okunur view (2026-09-19); dizin sorgusu buna BAGIMLI
+│   ├── sat_bank.sql                # sat_questions service-role-only + sat_attempts RLS
+│   ├── sat_explanations.sql        # sat_questions aciklama kolonlari (service-role-only ek)
+│   └── add_documents_category.sql  # user_documents.category kolonu (idempotent)
 ├── docs/
-│   ├── CAMPAIGN_PLAN_LAUNCH.md
-│   ├── LAUNCH_STRATEGY_INSTAGRAM_TIKTOK.md
+│   ├── AI_SEARCH_VISIBILITY_PLAN.md
+│   ├── SOCIAL_MEDIA.md             # @eduitalya sosyal medya baglami (kreatif marka adi: "Eduitalya Italypath")
+│   ├── CONTEXT_AUDIT_2026-09-19.md # Son context degerlendirmesi
 │   └── superpowers/
-│       ├── specs/                  # tasarim belgeleri; SEO server HTML spec dahil
-│       └── plans/                  # uygulama planlari; SEO server HTML plan dahil
+│       ├── specs/                  # tasarim belgeleri (tarihli; durum etiketi henuz yok, uygulanmis olanlarda "onay bekliyor" kalmis olabilir)
+│       └── plans/                  # uygulama planlari (checkbox'lar ilerlemeyi YANSITMAZ; gercek durum icin SEO_AUDIT §23 gibi kayitlara bak)
+├── SEO_AUDIT.md                    # SEO olcum/duzeltme kaydi (§1 ozeti tarihsel; guncel is listesi son bolumlerde)
+├── EDITORIAL_AUDIT.md              # Temmuz 2026 editorial snapshot
 ├── DATA_ENTRY_GUIDE.md
 ├── SUPABASE_SECURITY_RUNBOOK.md
-├── AGENT_COMMITS.md
-└── AGENT_CONTEXT_FIX_REPORT.md
+├── AGENT_COMMITS.md                # tarihsel/eksik degisiklik notlari; Git gecmisi esastir
+└── AGENT_CONTEXT_FIX_REPORT.md     # 2026-06-11 uygulanmis audit arsivi
 ```
 
 ---
@@ -190,20 +206,26 @@ Canli veri `lib/universities.server.ts` icinde Supabase'den compose edilir:
 - `universities`
 - `university_departments`
 - `program_admission_details`
+- `program_degree_class_codes` (salt okunur VIEW, `supabase/program_degree_class_codes.sql`, 2026-09-19): `degree_class` serbest metninden cikarilmis kisa resmi kodlar (LM-32 gibi). `security_invoker = true`, yazma yetkisi yok. Yeni Supabase ortami kurulurken bu view olusturulmazsa dizin sorgusu hata verir.
 
 Iki calisma zamani fonksiyonu vardir (2026-09-15 egress diyeti; tam veri seti compose'u runtime'dan kaldirildi):
 
-- `getUniversitiesDirectory()`: `universities` + `university_departments` + `program_admission_details?select=department_id` (yalnizca VARLIK). Her `Department` `hasAdmissionDetails` bayragi tasir, `admissionDetails` alani yoktur. Sikistirilmis ~47 KB. Kullananlar: `/`, `/universities`, `/cities`, sitemap, `/api/universities`, `/api/chat`.
-- `getUniversityById(id)`: tek okulun `id`/`university_id` filtreli tam verisi (`admissionDetails` dahil), ~90-180 KB. Kullananlar: universite/program detay page + layout'lari.
+- `getUniversitiesDirectory()`: `universities` + `university_departments` + `program_admission_details` uzerinden `select("department_id,updated_at")` (yalnizca VARLIK + sitemap `lastModified` icin tarih) + `program_degree_class_codes` view'inden `select("department_id,degree_class_codes")`. Her `Department` `hasAdmissionDetails` bayragi ve varsa `degreeClassCodes`/`updatedAt` tasir, `admissionDetails` alani yoktur. Sikistirilmis ~50 KB (dizin ~47 KB + kod view'i ~4 KB). Kullananlar: `/`, `/universities`, `/cities`, sitemap, `/api/universities`, `/api/chat`, program sayfasinin ilgili baglanti hesabi.
+- `getUniversityById(id)`: tek okulun `id`/`university_id` filtreli tam verisi (`admissionDetails` dahil), ~90-180 KB. Kullananlar: universite/program detay page + layout'lari. Program sayfasi bu veriyi istemciye gondermeden once `pruneUniversityForProgram` ile budar: yalnizca acilan programin `admissionDetails`i kalir, diger programlar bayraga iner (17 Eylul olcumu: budanmazsa RSC yuku medyanda 277 KB, en kotu 2 MB).
 - `composeUniversitiesFromSupabaseRows(uniRows, deptRows, admissionRows = [], presenceIds?)` saf compose; `scripts/check-universities-server-compose.mjs` test eder.
 - Kabul dosyasi varligini okumak icin `lib/admissionPresence.ts` `hasAdmissionDossier(department)` kullanilir (hub oneri bonusu, "yakinda" rozeti).
 
-Son canli Supabase dogrulamasinda (2026-07-22):
+Canli Supabase sayimi (2026-09-21, `select count(*)`; 19 Eylul 2026 veri temizliginde 8 okul + 67 program silindi, 41 arastirilmis kabul dosyasi import edildi):
 
-- `64` university
-- `1017` department
-- level dagilimi: `247 bachelor`, `753 master`, `17 single-cycle`
-- language dagilimi: `1017 en`, `81 it`
+- `56` university, `39` sehir
+- `941` department (program)
+- level dagilimi: `167 bachelor`, `741 master`, `33 single-cycle`
+- language dagilimi: `941 en`, `130 it` (cok dilli satirlar iki kez sayilir)
+- `941` program_admission_details satiri: her programin kabul dosyasi var, dosyasiz program YOK
+- `803` programda view'den gelen resmi degree class kodu var
+- sitemap `1.004` URL (7 statik + 56 okul + 941 program)
+
+Eski belgelerde gecen `64 okul / 1017 program / 1.087 URL` (22 Temmuz 2026) sayilari tarihseldir; bugunku gercek olarak kullanma.
 
 ### API ve cache kurali
 
@@ -223,8 +245,8 @@ Son canli Supabase dogrulamasinda (2026-07-22):
 - Her iki fonksiyon sonucunu **3 saatlik in-memory memo**da tutar (`SERVER_CACHE_TTL_MS`; dizin icin tek memo, okul basina ayri memo), single-flight ve stale-on-error uygular. Supabase fetch hata verirse eldeki bayat memo sunulur; memo yoksa hata firlatilir ve route-level editorial error govdesi calisir.
 - Tam veri seti sikistirilmis ~4,6 MB'dir ve %98'i `program_admission_details`tir. 2026-09-15 oncesinde her soguk Vercel instance'i (gunde 82-88 tane) bunu tam cekiyordu: gunde ~390 MB, donemde 7,3 GB (Free kota 5 GB). Agir kabul metinleri artik yalnizca detay sayfalari icin, hedefli sorguyla cekilir; beklenen gunluk egress ~10 MB.
 - ISR: `app/page.tsx`, `app/universities/[id]/page.tsx` ve program `page.tsx` `export const revalidate = 10800` tasir; detay rotalari bos `generateStaticParams()` ile "statik uretilebilir" olur (build'de sayfa uretilmez, ilk istekte uretilip Vercel onbelleginde 3 saat tutulur). Bu sayfalar sunucu tarafinda `searchParams`/`cookies()`/`headers()` OKUMAZ; aksi halde rota sessizce dinamige duser. `/universities` ve `/cities` `searchParams` okudugu icin dinamik kalir ama dizinle calisir.
-- Her deploy memo'yu ve ISR onbellegini sifirlar; yeni program importlari en gec 3 saat gecikmeyle canliya yansir.
-- Guard'lar: `npm run check:university-data-source` (tam compose export'u yasak, dizin/hedefli fonksiyonlar ve cagiran dosya eslesmesi, `select("department_id")`, `eq("university_id", …)`, TTL 1-6 saat, stale-on-error, API no-store, hook `fetchWhenInitial`), `npm run check:seo-vitals` (revalidate/generateStaticParams/searchParams kurallari), `node scripts/check-universities-server-compose.mjs` (`hasAdmissionDetails` uc durum).
+- Her deploy memo'yu ve ISR onbellegini sifirlar. Import sonrasi yayin suresi icin KESIN UST SINIR YOKTUR: yenileme araligi 3 saattir ama yeni veri ancak bir istek geldiginde, memo suresi dolmussa ve yeniden uretim basariyla bittiginde gorunur (ISR stale-while-revalidate: suresi dolan sayfayi ilk isteyen hala eski sayfayi alir, yenileme arka planda baslar). Memo ile ISR saatleri ayrisabilir; kaynak hatasinda stale-on-error eski veriyi daha da uzun tutar. Acil yayin yolu: yeniden deploy (memo + ISR sifirlanir); on-demand revalidation yoktur. Import sonrasi canlida dogrulama yap, "3 saat gecti, kesin yansidi" varsayma.
+- Guard'lar: `npm run check:university-data-source` (tam compose export'u yasak, dizin/hedefli fonksiyonlar ve cagiran dosya eslesmesi, `select("department_id,updated_at")`, view okuma zorunlu (`program_degree_class_codes` + `select("department_id,degree_class_codes")`, uzun `degree_class` metni dizinde yasak), `eq("university_id", …)`, TTL 1-6 saat, stale-on-error, API no-store, hook `fetchWhenInitial`), `npm run check:seo-vitals` (revalidate/generateStaticParams/searchParams kurallari), `node scripts/check-universities-server-compose.mjs` (`hasAdmissionDetails` uc durum).
 
 `scripts/check-university-data-source.mjs`, `app/`, `components/` ve `lib/` runtime kaynaklarinin `app/data.ts` import etmesini yasaklar. `/api/universities`, sitemap ve chat context `getUniversitiesDirectory()`; university/program metadata layout'lari `getUniversityById()` uzerinden calismalidir.
 
@@ -281,7 +303,7 @@ Gercek EU/non-EU basvuru tarihleri Supabase `program_admission_details` tablosun
 
 ## Auth ve Route Matrix
 
-Route guvenligi sadece `proxy.ts` ile saglanir. `middleware.ts` olusturma.
+Route guvenligi sadece `proxy.ts` ile saglanir. `middleware.ts` olusturma. Bu bolum ve `proxy.ts` erisim modelinin TEK kaynagidir; README ve diger bolumler buna uyar. `/ai-mentor` public'tir (AI masasi arayuzde paused, gonullu masa sayfa icinde `/giris`'e yonlendirir, uzman formu public); `/api/chat`, `/api/sat/*` ve `/ekip/*` protected'dir.
 
 Public route pattern'leri:
 
@@ -303,6 +325,7 @@ Public route pattern'leri:
 - `/on-gorusme(.*)`  # ucretsiz on gorusme sayfasi; sitemap'te
 - `/sitemap.xml`
 - `/robots.txt`
+- `/llms.txt`       # AI asistanlari icin discovery dosyasi; proxy matcher `.txt` uzantisini haric tutmadigi icin allowlist'te olmali (2026-09-21 oncesinde canlida 404 donuyordu)
 
 Protected ornekler:
 
@@ -346,7 +369,7 @@ Bilesenler `components/auth/` altinda:
 - 6 haneli dogrulama adimi `SignUpForm.tsx` icindeki Clerk Elements strategy'sinde render edilir
 - `PasswordResetFlow.tsx`: 2 adimli sifremi unuttum akisi
 
-Tum metinler `lib/translations.ts` `auth.*` namespace altinda (TR + EN paralel). Tasarim notu: `docs/superpowers/specs/2026-06-16-auth-redesign-design.md`. Uygulama plani: `docs/superpowers/plans/2026-06-16-auth-redesign-plan.md`.
+Tum metinler `lib/translations.ts` `auth.*` namespace altinda (TR + EN paralel). Esas referans (Clerk Elements mimarisi): `docs/superpowers/specs/2026-07-01-clerk-elements-auth-rebuild-design.md` ve `docs/superpowers/plans/2026-07-01-clerk-elements-auth-rebuild.md`; production redirect sertlestirmesi `docs/superpowers/*/2026-06-27-auth-production-redirect-hardening*`. 16 Haziran tasarim/plani (`2026-06-16-auth-redesign-*`) ilk surumun arsividir.
 
 Clerk Elements v0.24.18 ile bilinen sapmalar (gelecek auth degisikliklerinde dikkat):
 
@@ -361,7 +384,7 @@ Clerk Elements v0.24.18 ile bilinen sapmalar (gelecek auth degisikliklerinde dik
 
 ### SEO ve domain durumu
 
-Canonical marka/domain karari: **ItalyPath** ile devam ediliyor; canonical domain **`https://italypath.app`**.
+Canonical marka/domain karari: **ItalyPath** ile devam ediliyor; canonical domain **`https://italypath.app`**. Sosyal medya/kreatif iceriklerde marka adi "Eduitalya Italypath" ve hesap `@eduitalya`dir (`docs/SOCIAL_MEDIA.md`); bu, site basligini, JSON-LD `Organization` adini veya domain'i degistirmek icin gerekce degildir.
 
 SEO Adim 1 (`SEO 1` commit'i):
 
@@ -375,7 +398,7 @@ SEO Adim 2 (`SEO 2` merge'i):
 
 - `/universities`, `/universities/[id]`, `/universities/[id]/departments/[deptSlug]`, `/cities`, `/scholarships` icin ilk production HTML guclendirildi
 - Target SEO sayfalarinda `BAILOUT_TO_CLIENT_SIDE_RENDERING` temizlendi
-- `/universities` server HTML'i tum okullari (64) okul basi 3 program etiketiyle tasir (2026-09-16'ya kadar 12 okuldu; Googlebot `/api/universities`'i robots nedeniyle cekemedigi icin ic linkler HTML'de olmali); tam program listesi client tarafinda `/api/universities` ile gelir
+- `/universities` server HTML'i tum okullari (2026-09-21 itibariyla 56) okul basi 3 program etiketiyle tasir (2026-09-16'ya kadar 12 okuldu; Googlebot `/api/universities`'i robots nedeniyle cekemedigi icin ic linkler HTML'de olmali); tam program listesi client tarafinda `/api/universities` ile gelir
 - `components/universities/UniversitiesExplorer.tsx`, `components/university-details/UniversityDetailClient.tsx` ve `DepartmentDetailClient.tsx` client leaf pattern'ini tasir
 - `lib/useUniversitiesData.ts` initial data alabilir; initial data varsa skeleton/loading ile baslamaz
 - Server fetch hata durumlari route-level editorial error block'a duser; global `app/error.tsx`'e dusmemesi hedeflenir
@@ -385,7 +408,7 @@ SEO Adim 2 (`SEO 2` merge'i):
 SEO Adim 2.5 (`SEO 2.5` deploy'u):
 
 - `/`, `/isee`, `/communities` canli HTML'deki `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizlendi
-- `/` server wrapper oldu; `getUniversitiesData()` ile server'da canli stats hesaplar, hata durumunda stats `null` doner ve sayfa patlamaz
+- `/` server wrapper oldu; server'da canli stats hesaplar (o tarihte `getUniversitiesData()`, 2026-09-15'ten beri `getUniversitiesDirectory()`), hata durumunda stats `null` doner ve sayfa patlamaz
 - Home UI `components/HomePageClient.tsx` client leaf'ine tasindi
 - `/isee` server wrapper oldu; hesaplayici client leaf'e tasindi (2026-09-17'den beri `components/isee/IseeParificatoClient.tsx`)
 - `/communities` `force-dynamic` ile static prerender + analytics kaynakli marker'dan cikarildi; atlas HTML'de gercek H1/chapter/topluluk satirlari tasimaya devam eder
@@ -402,7 +425,7 @@ SEO Adim 3.5 (2026-09-15, kontrast + vitals guard; ayrinti `SEO_AUDIT.md` §19):
 - `--editorial-terracotta-ink: #9f4629` tokeni eklendi; terracotta renkli METIN/ikon her yerde `text-[var(--editorial-terracotta-ink)]` kullanir (kucuk puntoda WCAG AA). Base `--editorial-terracotta` yalnizca buton/arka plan/cerceve icindir.
 - `components/RouteTransition.tsx` icindeki `<AnimatePresence initial={false}>` ilk yuklemede alt agactaki tum framer-motion `initial` durumlarini devre disi birakir; sunucu HTML'i `opacity:1` ile gelir. Bu prop kaldirilirsa tum sayfalarda H1 hidrasyona kadar gizlenir. Guard: `npm run check:seo-vitals`.
 - Mobil zoom kilidi (`maximumScale: 1`, `userScalable: false`, `MobileZoomLock`) bilincli urun karari; SEO siralama sinyali degildir, yeniden onerme.
-- Gercek LCP darbogazi (devtools throttling ile dogrulandi): soguk instance'da `getUniversitiesData()` beklenirken HTML govdesi ~5 sn gecikir; sicak instance'da render-blocking CSS, 10 preload font dosyasi (164 KiB) ve JS ile bant genisligi yarisir. Simule Lighthouse'un "render delay" degeri bu yuzden animasyon kaniti degildir.
+- Gercek LCP darbogazi (devtools throttling ile dogrulandi): 2026-09-15 oncesinde soguk instance'da eski tam compose (`getUniversitiesData()`, kaldirildi) beklenirken HTML govdesi ~5 sn gecikirdi (egress diyeti + ISR ile cozuldu, `SEO_AUDIT.md` §20); sicak instance'da hala render-blocking CSS, 10 preload font dosyasi (164 KiB) ve JS ile bant genisligi yarisir. Simule Lighthouse'un "render delay" degeri bu yuzden animasyon kaniti degildir.
 - Statik prerender edilen sayfalardaki `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi `app/layout.tsx` `<Analytics />` bileseninden gelir ve footer sonrasindadir; icerik sunucu HTML'inde oldugu surece zararsizdir.
 
 Son canli SEO kabul audit notlari (2026-07-22):
@@ -414,6 +437,8 @@ Son canli SEO kabul audit notlari (2026-07-22):
 - Name.com DNS Vercel'in yeni onerilerine guncellendi: apex `A -> 216.198.79.1`, `www` CNAME Vercel'in project-specific `vercel-dns-017.com` hedefine gider
 - Google Search Console domain property `italypath.app` dogrulandi; `https://italypath.app/sitemap.xml` gonderildi; kritik URL'ler icin URL Inspection + Request Indexing yapildi (`/`, `/universities`, `/isee`, `/scholarships`, `/cities`, `/communities`)
 - SEO 3 Part 2 icin henuz ayri spec/plan yoktur. Yeni schema yalnizca sayfada gorunen, dogrulanmis bilgiye dayanmali; Rich Results Test ve Search Console URL Inspection ile deploy sonrasi kontrol edilmelidir
+
+Guncel durum (2026-09-21, `SEO_AUDIT.md` §23-24): sitemap `1.004` URL; dosyali program sayfalari ikinci JSON-LD olarak `EducationalOccupationalProgram` tasir (ad, URL, okul, dil, sure, tam zamanli; tarih/ucret/kosul YOK cunku dogrulanmis tek deger yok). Rich Results Test dogrulamasi ve sitemap'in yeniden gonderimi deploy sonrasi acik istir. Yukaridaki 22 Temmuz sayilari tarihseldir.
 
 ### Home
 
@@ -448,6 +473,16 @@ SEO 2.5 sonrasi canli audit'te `/` sayfasi gercek H1, CTA/internal link ve canli
 - UI parcalari: `components/universities/*`
 
 `app/universities/[id]/page.tsx` ve department detail page artik server wrapper + client leaf pattern'i kullanir. Server wrapper `getUniversityById()` ile ilk HTML'e okul/program adi, aciklama, fee, sehir, program linkleri ve admission details gibi gorunur icerikleri koyar; client leaf favori, dil, route animation ve program transition davranisini korur. Sayfa sarmalayicilari ayrica `lib/relatedLinks.ts` `buildRelatedLinks(university, directory)` ile ic baglanti verisini hesaplar; client leaf'ler ustte `DetailBreadcrumb` (gorunur kirinti, JSON-LD ile ayni sira) ve altta `RelatedLinks` (ayni sehirdeki okullar, sehir rehberi, bolge bursu) render eder (2026-09-16, `SEO_AUDIT.md` §22). Client leaf'ler `useUniversitiesData(initial, { fetchWhenInitial: false })` cagirir: sunucudan gelen tam okul verisi varken hafif dizin cekilmez ve onu ezmez (kabul paneli tam veriyle kalir). Universite sayfasinin geri tusu `?from=list` bilgisini tiklama aninda `window.location.search`ten okur (wrapper ISR icin `searchParams` okumaz).
+
+Program detay sayfasi turu (17-21 Eylul 2026; kayit `SEO_AUDIT.md` §23, plan `docs/superpowers/plans/2026-09-17-program-detail-pages-plan.md`, plan checkbox'lari guncel degil):
+
+- Metadata: `lib/programMetadata.ts` Turkce, sayfaya ozgu `title`/`description` uretir (saf modul; yalnizca kayittaki alanlar, uydurma bilgi yok; dosyasiz programda vaat cumlesi yok). Guard: `npm run check:program-metadata`.
+- Kabul dosyasi sunumu: `ProgramSummaryStrip` (kunye, "Temel bilgiler"), `ProgramAdmissionDetailsPanel`, `ProgramSourceTrail` (URL bazinda kaynak izi), ortak parcalar `programDossierShared.tsx`; `<dl>` yapilari yalnizca `dt`/`dd` icerir (a11y).
+- "Ayni alanda diger universiteler": `Department.degreeClassCodes` (view'den) ile `lib/relatedLinks.ts` icinde resmi kod eslesmesi; kodu olmayan programda bolum gosterilmez, anahtar kelime tahmini yapilmaz.
+- `ProgramNextSteps`: ISEE, sehir rehberi, bolge bursu linkleri + ucretsiz on gorusme kutusu tek blokta; sehir/burs linkleri `RelatedLinks`te tekrar edilmez (`showHubLinks={false}`).
+- JSON-LD: dosyali programda `EducationalOccupationalProgram` (yalnizca dogrulanmis alanlar).
+- Bilincli YAPILMAYAN (Kerem karari, 21 Eylul): dosyasiz programlari `noindex` + sitemap disi birakma; canlida dosyasiz program kalmadigi icin anlamsiz. Ileride dosyasiz satir eklenirse yeniden degerlendir.
+- Kapsam disi (Kerem karari, 17 Eylul): programin yalnizca kendi kabul satirini cekmesi, Turkce cumle ozetleri, son tarih/sinav alan cikarimi, on gorusme tiklama olcumu.
 
 SEO `layout.tsx` Server Component'lerinde `generateMetadata()` ile uretilir. `generateMetadata()` hicbir zaman `"use client"` dosyasina konmamalidir.
 
@@ -652,15 +687,21 @@ Kodun bekledigi ana tablolar:
 - `universities`: university base rows
 - `university_departments`: program rows, languages/duration/level/sort
 - `program_admission_details`: program admission metadata ve source/uncertainty modeli
+- `program_degree_class_codes` (VIEW): `program_admission_details.degree_class` metninden kisa resmi kodlar; dizin sorgusu buna bagimli
+- `sat_questions`: SAT soru bankasi; anon/authenticated okuyamaz, yalnizca server service-role okur (`needs_review=true` satirlari sunulmaz)
+- `sat_attempts`: kullanicinin kendi denemeleri (`requesting_user_id()` RLS)
 
-SQL/runbook dosyalari:
+SQL/runbook dosyalari (sifirdan kurulum sirasi DEGILDIR; gercek production schema dashboard'dan dogrulanir):
 
 - `supabase/rls_hardening.sql`: favorites, user_documents ve storage RLS hardening
 - `supabase/program_admission_details.sql`: program admission details tablo/policy/grant setup
 - `supabase/user_profiles.sql`: onboarding profil tablo/policy/grant setup
 - `supabase/volunteer_mentor.sql`: mentor tablolar, private idempotency, RLS, RPC ve Realtime setup
 - `supabase/expert_leads.sql`: uzman lead tablo, constraint, `updated_at` trigger, index, grant ve staff-only RLS setup
-- `SUPABASE_SECURITY_RUNBOOK.md`: Clerk + Supabase operasyon rehberi
+- `supabase/program_degree_class_codes.sql`: salt okunur degree class kodu view'i (`security_invoker`), 2026-09-19'da uygulandi
+- `supabase/sat_bank.sql`, `supabase/sat_explanations.sql`: SAT tablolari ve aciklama kolonlari (service-role-only)
+- `supabase/add_documents_category.sql`: `user_documents.category` kolonu
+- `SUPABASE_SECURITY_RUNBOOK.md`: Clerk + Supabase operasyon rehberi (legacy/native token ayrimi; tam kurulum rehberi degildir)
 
 Gercek production schema dashboard'dan dogrulanmalidir.
 
@@ -674,12 +715,12 @@ Gercek production schema dashboard'dan dogrulanmalidir.
 | --- | --- |
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Server-only SAT soru okuma/import ve expert lead insert işlemleri; client bundle'a girmemeli |
-| `GEMINI_API_KEY` | Gemini chat endpoint |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server-only: SAT soru okuma (`lib/sat/questions.server.ts`), expert lead insert (`lib/mentor/expertLeads.server.ts`) ve yetkili admin/import scriptleri. Production ve Preview'da ZORUNLU (yoksa `/sat` ve on gorusme formu calismaz); local'de bu yuzeyler test edilecekse gerekir. Asla client bundle'a veya `NEXT_PUBLIC_*` alanina girmez |
+| `GEMINI_API_KEY` | Gemini chat endpoint (`/api/chat`); yoksa 503. AI masasi arayuzde paused oldugu icin bugun kullaniciya acik yuzey yok |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk frontend |
 | `CLERK_SECRET_KEY` | Clerk server |
 
-Supabase env eksikse university API ve Supabase dogrulama scriptleri hata verir.
+Supabase env eksikse university API ve Supabase dogrulama scriptleri hata verir. Ornek dosya `.env.example`; Clerk anahtar kurallari (live/test, Preview) README'dedir. Test edilmis Node surumu: 20.20.1 (2026-09-21; `package.json` icinde `engines` alani yok, eski plan belgelerindeki farkli Node sartlarina bakarak surum cikarma).
 
 ---
 
@@ -714,7 +755,9 @@ npm run check:university-details-ui
 npm run check:scholarships-ui
 npm run check:editorial-ui
 npm run check:documents-ui
-npm run clean:med
+npm run check:program-metadata
+npm run check:ai-search
+npm run check:auth-production
 ```
 
 Ek dogrulama:
@@ -722,6 +765,8 @@ Ek dogrulama:
 ```bash
 node scripts/check-universities-server-compose.mjs
 ```
+
+Dogrulama olmayan legacy arac: `npm run clean:med` kok dizinde `med` dosyasi bekler (repoda yok) ve dosya uretir; kontrol komutu degildir.
 
 ---
 
@@ -733,10 +778,10 @@ node scripts/check-universities-server-compose.mjs
 2. Legacy local seed `app/data.ts` icindeki bazi universite gorselleri tekrarli/placeholder kalitesinde; runtime bu veriyi kullanmaz.
 3. Universite karsilastirma ozelligi yok; mevcut favori + university data modeliyle yapilabilir.
 4. Search Console `Sitemaps`, `Pages`, Core Web Vitals ve URL Inspection durumlari izlenmeli; bu production verisine repo icinden erisilemez.
-5. SEO 3 Part 1 tamamlandi; Part 2 icin ayri spec/plan henuz yazilmadi. Hidden/uydurma schema yok; sadece sayfada gorunen gercek bilgiye dayali structured data eklenmeli.
+5. SEO 3 Part 1 tamamlandi; program sayfalarina `EducationalOccupationalProgram` eklendi (2026-09-21, `SEO_AUDIT.md` §23), Rich Results Test dogrulamasi deploy sonrasi acik. Sonraki adaylar (§22/§23.3): FAQPage semasi, font diyeti, Clerk JS diyeti; ayri spec/plan henuz yok. Hidden/uydurma schema yok; sadece sayfada gorunen gercek bilgiye dayali structured data eklenmeli.
 6. `Organization` + `WebSite` JSON-LD root layout nedeniyle her sayfada tekrar eder. Bu gecersiz degildir; Google ana sayfa veya tek bir kurumsal sayfanin yeterli oldugunu belirttigi icin ileride dusuk oncelikli sadeleştirme olarak degerlendirilebilir.
 7. AI Mentor system prompt'u canli program sayisi arttikca buyuyor; prompt boyutu, latency ve maliyet izlenmeli.
-8. (2026-09-15'te cozuldu: egress diyeti + ISR, bkz. Veri Katmani) Soguk serverless instance'da eski `getUniversitiesData()` compose'u beklenirken `/`, `/universities` ve detay sayfalarinin HTML govdesi ~5 sn gecikiyor (2026-09-15 devtools olcumu). In-memory memo instance basina oldugu icin dusuk trafikte cogu ilk ziyaret soguk. Cozum adaylari: ana sayfa/liste icin `revalidate`/ISR veya instance'lar arasi kalici onbellek, ana sayfa stat'leri icin hafif sayim sorgusu, detayda hedefli sorgu. Ayrinti `SEO_AUDIT.md` §19.3 ve §19.6.
+8. (Cozuldu 2026-09-15: egress diyeti + ISR, bkz. Veri Katmani ve `SEO_AUDIT.md` §20.) Soguk instance'daki ~5 sn govde gecikmesi artik acik borc degildir; kalan performans borcu 9. maddedir.
 9. `next/font` 10 font dosyasini (Spectral 4 agirlik x latin+latin-ext, Hanken 2) High oncelikle preload ediyor; sicak instance'da bile render-blocking CSS bunlarla yarisip ilk cizimi ~3,5 sn'ye itiyor. Spectral agirliklari ilk ekranda kullanilanlarla sinirlanmali; latin-ext Turkce icin gerekli.
 
 ### Repo hijyeni
@@ -767,3 +812,5 @@ node scripts/check-universities-server-compose.mjs
 16. `components/RouteTransition.tsx` icindeki `<AnimatePresence initial={false}>` kaldirilmaz; ilk yuklemede sayfa iceriginin gorunur gelmesini bu saglar.
 17. Egress diyeti: agir kabul metinleri (`source_quotes`, sartlar, belgeler) yalnizca `getUniversityById()` ile detay sayfalarina gelir; liste/API/sitemap/chat `getUniversitiesDirectory()` kullanir. ISR sayfalarinda (`/`, detay sayfalari) `revalidate` + bos `generateStaticParams()` korunur ve sunucu tarafinda `searchParams`/`cookies()`/`headers()` okunmaz.
 18. Sitemap `lastModified` gercek degisiklige baglidir: DB `updated_at` (okul/program/kabul dosyasi) ile `app/sitemap.ts` icindeki `PAGE_TEMPLATE_LAST_MODIFIED` sabitinin en yenisi. Program/universite sayfa sablonunun GORUNUR icerigi degistiginde sabiti o deploy tarihine cek; uydurma tarih yazma (SEO_AUDIT.md §21).
+19. Yeni Supabase ortami kurarken `program_degree_class_codes` view'ini olustur (`supabase/program_degree_class_codes.sql`); dizin sorgusu view olmadan hata verir. Program sayfasinin `pruneUniversityForProgram` budamasini kaldirma; agir kabul dosyasi yalnizca acilan program icin istemciye gider.
+20. `/llms.txt` gibi kok dosyalar proxy matcher'da statik sayilmaz (`.txt` haric tutulmaz). Public olacak her kok dosya `proxy.ts` allowlist'ine ve `scripts/check-route-access.mjs` public listesine birlikte eklenir; icerik guard'i tek basina erisimi kanitlamaz.
