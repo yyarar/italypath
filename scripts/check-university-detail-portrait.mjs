@@ -39,6 +39,7 @@ const portraitFiles = [
   "components/university-details/ProgramSourceTrail.tsx",
   "components/university-details/programDossierShared.tsx",
   "components/university-details/RelatedLinks.tsx",
+  "components/university-details/ProgramNextSteps.tsx",
   "components/university-details/programAdmissionPresentation.ts",
   "components/university-details/ProgramTransitionEntry.tsx",
   "components/university-details/ProgramDirectory.tsx",
@@ -120,6 +121,11 @@ requireTokens("program detail client", departmentDetailClient, [
   "ComingSoonNotice",
   "detailsComingSoonTitle",
   "detailsComingSoonBody",
+  // "Sonraki adimlar" blogu: ISEE + sehir rehberi + bolge bursu + on gorusme kutusu tek yerde;
+  // sehir/burs linkleri bu yuzden RelatedLinks'te tekrar edilmez.
+  "ProgramNextSteps",
+  "t.department.nextSteps",
+  "showHubLinks={false}",
 ]);
 
 requireTokens("university detail fee", allDetailSource, [

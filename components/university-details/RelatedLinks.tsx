@@ -16,6 +16,8 @@ export interface RelatedLinksLabels {
 interface RelatedLinksProps {
   data: RelatedLinksData;
   labels: RelatedLinksLabels;
+  /** Program sayfasinda sehir/burs linkleri "Sonraki adimlar" blogunda durur; burada tekrar edilmez. */
+  showHubLinks?: boolean;
 }
 
 interface HubLink {
@@ -26,15 +28,15 @@ interface HubLink {
 // Ic baglanti blogu: ayni resmi bolum sinifindaki diger okullarin programlari, ayni sehirdeki
 // universiteler, sehir rehberi ve bolge burslari (SEO_AUDIT.md §22). Sunucu HTML'inde render
 // edilir; Googlebot ve ziyaretci ayni linkleri gorur.
-export function RelatedLinks({ data, labels }: RelatedLinksProps) {
+export function RelatedLinks({ data, labels, showHubLinks = true }: RelatedLinksProps) {
   const hubLinks: HubLink[] = [];
-  if (data.cityGuide) {
+  if (showHubLinks && data.cityGuide) {
     hubLinks.push({
       href: data.cityGuide.href,
       label: labels.cityGuide.replace("{city}", data.cityGuide.name),
     });
   }
-  if (data.regionScholarships) {
+  if (showHubLinks && data.regionScholarships) {
     hubLinks.push({
       href: data.regionScholarships.href,
       label: labels.regionScholarships.replace("{region}", data.regionScholarships.name),

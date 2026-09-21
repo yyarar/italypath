@@ -7,7 +7,6 @@ import { useAuth } from "@clerk/nextjs";
 
 import type { University } from "@/types/universities";
 import ScrollProgress from "@/components/ScrollProgress";
-import ConsultPrompt from "@/components/consultation/ConsultPrompt";
 import { useLanguage } from "@/context/LanguageContext";
 import { useUniversitiesData } from "@/lib/useUniversitiesData";
 import { ComingSoonNotice } from "./ComingSoonNotice";
@@ -16,6 +15,7 @@ import { ProgramSourceTrail } from "./ProgramSourceTrail";
 import { ProgramSummaryStrip } from "./ProgramSummaryStrip";
 import type { ProgramDossierLabels } from "./programDossierShared";
 import { ProgramDirectory } from "./ProgramDirectory";
+import { ProgramNextSteps } from "./ProgramNextSteps";
 import { DetailBreadcrumb } from "./DetailBreadcrumb";
 import { RelatedLinks } from "./RelatedLinks";
 import type { RelatedLinksData } from "@/lib/relatedLinks";
@@ -249,7 +249,11 @@ export function DepartmentDetailClient({
           />
         )}
 
-        <ConsultPrompt {...t.consultPrompt.program} cta={t.consultPrompt.cta} />
+        <ProgramNextSteps
+          related={related}
+          labels={t.department.nextSteps}
+          consult={{ ...t.consultPrompt.program, cta: t.consultPrompt.cta }}
+        />
 
         {department.admissionDetails ? (
           <ProgramSourceTrail
@@ -278,7 +282,7 @@ export function DepartmentDetailClient({
           }}
         />
 
-        {related ? <RelatedLinks data={related} labels={t.related} /> : null}
+        {related ? <RelatedLinks data={related} labels={t.related} showHubLinks={false} /> : null}
       </main>
     </div>
   );

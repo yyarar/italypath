@@ -76,14 +76,22 @@ mustNot(closing, "primaryCtaSignedIn", "Eski kapanış CTA kalmamalı");
 // Task 5 — içerik sayfaları ve menü
 const prompt = read("components/consultation/ConsultPrompt.tsx");
 must(prompt, "CONSULT_PAGE_PATH", "Kutu ayrı sayfaya gider");
-for (const [file, key] of [
-  ["components/university-details/DepartmentDetailClient.tsx", "t.consultPrompt.program"],
+// Program sayfasinda kutu "Sonraki adimlar" blogunun icinde durur: metin anahtari client'ta,
+// <ConsultPrompt cagrisi ProgramNextSteps'te.
+must(read("components/university-details/ProgramNextSteps.tsx"), "<ConsultPrompt", "Program sayfasi kutusu");
+must(
+  read("components/university-details/DepartmentDetailClient.tsx"),
+  "ProgramNextSteps",
+  "Program sayfasi kutuyu Sonraki adimlar blogunda render eder",
+);
+for (const [file, key, skipBox] of [
+  ["components/university-details/DepartmentDetailClient.tsx", "t.consultPrompt.program", "skipBox"],
   ["components/university-details/UniversityDetailClient.tsx", "t.consultPrompt.university"],
   ["components/scholarships/ScholarshipsExplorer.tsx", "t.consultPrompt.scholarships"],
   ["components/isee/IseeParificatoClient.tsx", "t.consultPrompt.isee"],
 ]) {
   const source = read(file);
-  must(source, "<ConsultPrompt", `${file} kutu`);
+  if (skipBox !== "skipBox") must(source, "<ConsultPrompt", `${file} kutu`);
   must(source, key, `${file} metin`);
 }
 mustNot(read("components/university-details/UniversityDetailClient.tsx"), "aiMentorHref", "Duraklatılmış AI masası linki kalmamalı");

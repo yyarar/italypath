@@ -159,7 +159,7 @@ export const translations = {
     },
     consultPrompt: {
       cta: "Ücretsiz ön görüşme al",
-      program: { eyebrow: "Ücretsiz ön görüşme", title: "Bu programa başvurmak için yardım ister misin?", body: "Kabul şartlarını, belgeleri ve takvimi birlikte netleştirelim." },
+      program: { eyebrow: "Ücretsiz ön görüşme", title: "Kendi başına ilerleyebilirsin", body: "Takıldığın bir yer olursa kabul koşullarını, belgeleri ve takvimi ücretsiz ön görüşmede birlikte netleştirebiliriz." },
       university: { eyebrow: "Ücretsiz ön görüşme", title: "Bu okulda hangi program sana uygun?", body: "Program seçimi, belgeler ve başvuru akışını ücretsiz ön görüşmede konuşalım." },
       scholarships: { eyebrow: "Ücretsiz ön görüşme", title: "Burs başvurusunda takıldın mı?", body: "Bölgeni, ISEE sürecini ve gerekli belgeleri birlikte netleştirelim." },
       isee: { eyebrow: "Ücretsiz ön görüşme", title: "ISEE sonucunu nasıl kullanacağından emin değil misin?", body: "Burs uygunluğunu ve sonraki adımlarını ücretsiz ön görüşmede konuşalım." },
@@ -928,6 +928,12 @@ export const translations = {
       detailsComingSoonTitle: "Kabul detayları yakında",
       detailsComingSoonBody:
         "Bu programın resmi başvuru bilgileri eklendikçe burada görünecek. Şimdilik üstteki temel bilgileri kullanabilirsin.",
+      nextSteps: {
+        title: "Sonraki adımlar",
+        isee: "ISEE ile burs ve harç durumunu hesapla",
+        cityGuide: "{city} şehir rehberi",
+        regionScholarships: "{region} bölge bursları",
+      },
     },
     aiMentor: {
       backHome: "Ana sayfaya dön",
@@ -1440,7 +1446,7 @@ export const translations = {
     },
     consultPrompt: {
       cta: "Book a free consultation",
-      program: { eyebrow: "Free consultation", title: "Want help applying to this program?", body: "Let's clarify the requirements, documents, and timeline together." },
+      program: { eyebrow: "Free consultation", title: "You can take it from here", body: "If you get stuck, we can go through the requirements, documents, and timeline together in a free consultation." },
       university: { eyebrow: "Free consultation", title: "Which program here fits you?", body: "Talk through program choice, documents, and the application flow in a free consultation." },
       scholarships: { eyebrow: "Free consultation", title: "Stuck on a scholarship application?", body: "Let's go over your region, the ISEE process, and the documents you need." },
       isee: { eyebrow: "Free consultation", title: "Not sure how to use your ISEE result?", body: "Discuss scholarship eligibility and your next steps in a free consultation." },
@@ -2209,6 +2215,12 @@ export const translations = {
       detailsComingSoonTitle: "Admission details coming soon",
       detailsComingSoonBody:
         "Official admission information for this program will appear here as it is added. For now, you can rely on the basics above.",
+      nextSteps: {
+        title: "Next steps",
+        isee: "Estimate your scholarship and fee level with ISEE",
+        cityGuide: "{city} city guide",
+        regionScholarships: "{region} regional scholarships",
+      },
     },
     aiMentor: {
       backHome: "Back to home",
