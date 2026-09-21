@@ -114,12 +114,33 @@ export default async function DepartmentDetailPage({ params }: DepartmentDetailP
     ],
   };
 
+  // Yalniz kabul dosyasi olan programda; sadece sayfada gorunen, dogrulanmis alanlar
+  // (ad, okul, dil, sure). Son tarih, ucret ve kabul kosulu eklenmez.
+  const programJsonLd = hasAdmissionDossier(department)
+    ? {
+        "@context": "https://schema.org",
+        "@type": "EducationalOccupationalProgram",
+        name: department.name,
+        url: `${BASE_URL}/universities/${resolvedParams.id}/departments/${resolvedParams.deptSlug}`,
+        provider: { "@type": "Organization", name: university.name },
+        inLanguage: department.languages.map((entry) => (entry === "it" ? "it" : "en")),
+        timeToComplete: `P${department.durationYears}Y`,
+        educationalProgramMode: "full-time",
+      }
+    : null;
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {programJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(programJsonLd) }}
+        />
+      ) : null}
       <DepartmentDetailClient
         initialUniversity={pruneUniversityForProgram(
           university,
