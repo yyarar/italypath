@@ -33,8 +33,8 @@ Sütunlar: **Kanıt / kaynak** = repo dosyası, commit, kayıt bölümü veya ca
 
 | # | İş | Kanıt / kaynak | Karar |
 | --- | --- | --- | --- |
-| 5 | Burs haritası: 20 bölge kaydı `lastVerifiedAt` 2026-03-09, veriler 2025/26 akademik yılına ait; 2026/27 çağrılarıyla kaynaktan yeniden doğrulanmalı. Tarihler doğrulama yapılmadan ileri alınmaz | `lib/scholarships/regions.ts`; audit madde 8 | Onay + kaynak turu |
-| 6 | Topluluklar: 19 kayıt `lastCheckedAt` 2026-03-10; link/aktiflik kontrolü | `lib/community-links.ts` | Onay |
+| 5 | Burs haritası: 8 `verified-full` bölge (Campania, Emilia-Romagna, Lazio, Lombardia, Marche, Piemonte, Puglia, Toscana) 24 Eylül 2026'da 2026/27 resmî bandolarıyla güncellendi (Kerem onayı; araştırma `burs-8-bolge-2026-27-research/`, Git dışı; ölü 6 link değişti; Lazio ve Lombardia eşikleri ISEE aracıyla eşitlendi). **Açık kalan:** 12 `registry-only` bölge (Abruzzo, Basilicata, Calabria, Friuli VG, Liguria, Molise, Sardegna, Sicilia, Trentino-AA, Umbria, Valle d'Aosta, Veneto) hâlâ 9 Mart 2026 tarihli kurum dizini; `ardis.fvg.it` bu makineden çözümlenemedi. Kasım–Aralık 2026'da 2027/28 tazelemesiyle birlikte ele alınabilir | `lib/scholarships/regions.ts`; `burs-8-bolge-2026-27-research/results/` | 12 dizin bölgesi için tur kararı |
+| 6 | Topluluklar: 19 kayıt `lastCheckedAt` 2026-03-10. **Kerem kararı (23 Eylül): bu turda dokunulmuyor.** Otomatik link kontrolü 23 Eylül: 13 WhatsApp daveti geçerli ama `sapienza-2026-2027` grubunun adı artık "GRUP KAPANDI"; bazı grup adları değişmiş (Padova TR, Florence 2025/2026, UniBO 2026-2027, ER.GO Yardımlaşma 2026/2027); 3 kayıt eski dönem kohortu (Unito 22/23, Unito 23/24, Sapienza 23/24); Telegram geçerli; 5 Facebook grubu otomatik istekte okunamıyor (bot koruması), elle/Chrome kontrolü gerekir | `lib/community-links.ts`; link kontrolü 2026-09-23 | Kapanan grup + kohort grupları kararı |
 | 7 | ISEE referansları 2026/27 (doğrulama 2026-09-17): Ocak 2027'de yeni yıl kuru, yaz 2027'de yeni şartname limitleri | `lib/isee/reference.ts` | — |
 | 8 | Instagram CAPTIONS.md: "64 üniversite", "1.008 program", "900 program" 8 Eylül snapshot'ı; yayın öncesi 56 / 941 / 941 ile güncellenmeli, "her programın yanında kaynak" vaadi dosyalı oranla eşleşmeli; taslak/onaylı/yayımlandı etiketi yok | `content/instagram/CAPTIONS.md` satır 19, 160, 199; audit madde 9 | Yayın kararı |
 | 9 | 16 okulun `website` alanı Google arama linki | 19 Eylül notu (`tmp/uni-research/STATUS.md`) | Kerem: şimdilik hayır |
@@ -79,6 +79,7 @@ Sütunlar: **Kanıt / kaynak** = repo dosyası, commit, kayıt bölümü veya ca
 
 ## Kapananlar (son 7 gün)
 
+- 2026-09-24: Burs haritasında 8 ayrıntılı bölge 2026/27 çağrılarına geçirildi (8 Sonnet ajanı, resmî bando PDF'leri, 36 canlı kaynak adresi; eşik değişimi yalnız Lazio ve Lombardia'da).
 - 2026-09-19: 108 dosyasız program turu kapandı (41 import, 67 program + 8 okul silindi; 751/752/246 düzeltildi). `check:cities` yükleyici hatası (afe5d01).
 - 2026-09-21: Program detay Deploy 3+4 (`SEO_AUDIT.md` §23); Task 6 (dosyasız noindex) bilinçli iptal.
 - 2026-09-21: `/llms.txt` canlıda 404 → 200 (f58fcd0); `check:auth-production` bayat `/ai-mentor` beklentisi düzeltildi (Temmuz'dan beri kırmızıydı).
