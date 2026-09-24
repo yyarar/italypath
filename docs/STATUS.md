@@ -76,6 +76,7 @@ Sütunlar: **Kanıt / kaynak** = repo dosyası, commit, kayıt bölümü veya ca
 | 30 | `DATA_ENTRY_GUIDE.md` 39 satır: hedef ortam, dry-run, yedek, yazılabilir alanlar, kaynak/akademik yıl, import sonrası cache kontrolü eksik | audit madde 11 | Sıralama |
 | 31 | `check:docs` (belge yol/npm script referans guard'ı) ve `engines` ile Node pinleme önerileri | audit | Kerem |
 | 32 | `SUPABASE_SECURITY_RUNBOOK.md`: kapsam, SQL bağımlılıkları (view, SAT, expert_leads) ve son doğrulama tarihi eklenmeli | audit dosya tablosu | Sıralama |
+| 33 | Burs sayfası ve ana sayfa CTA'sındaki doğrulama tarihi notu `lib/translations.ts` içinde sabit metin (24 Eylül 2026 / 9 Mart 2026); bir sonraki veri güncellemesinde yine bayatlar. Aday: tarihleri `SCHOLARSHIP_REGIONS` kayıtlarındaki `lastVerifiedAt` değerlerinden türetmek | 0d01455 | Sıralama |
 
 ## Kapananlar (son 7 gün)
 
