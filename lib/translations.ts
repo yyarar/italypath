@@ -488,7 +488,7 @@ export const translations = {
       title: "Bölgesel Burs Haritası",
       description: "İtalya'da bölge bazlı burs, yurt ve yemek desteği yapısını tek ekranda gör. İlk adımda resmi kurumları ve kritik eşikleri hızlıca karşılaştır.",
       button: "Burs Haritasını Aç",
-      note: "9 Mart 2026 itibarıyla resmi kaynaklardan doğrulanan kayıtlar."
+      note: "Ayrıntılı 8 bölge 24 Eylül 2026'da 2026/27 resmi bandolarıyla, kurum dizini 12 bölge 9 Mart 2026'da doğrulandı."
     },
     scholarships: {
       heroBadge: "Public Feature",
@@ -496,7 +496,7 @@ export const translations = {
       pageIdentity: "ItalyPath Burs Atlası",
       subtitle: "Bu ekran, İtalya'daki bölgesel burs kurumlarını ve temel çağrı mantığını resmi kaynaklara dayanarak özetler. Başvuru öncesi her zaman ilgili kurumun güncel bandosunu tekrar doğrula.",
       intro: "İtalya'da burs işleri bölge bazlı yürür. Haritadan bölge seç, yetkili kurumu ve resmi kaynak sayfalarını hızlıca aç.",
-      verifiedAsOf: "9 Mart 2026 itibarıyla doğrulanan veriler",
+      verifiedAsOf: "Ayrıntılı bölgeler 24 Eylül 2026, kurum dizini 9 Mart 2026 itibarıyla doğrulandı",
       regionSelectorTitle: "Bölge Seçimi",
       regionSelectorHelper: "V1 sürümünde map-ready grid seçici kullanılır. Seçim URL ile senkron tutulur.",
       detailsTitle: "Bölge Detayı",
@@ -1775,7 +1775,7 @@ export const translations = {
       title: "Regional Scholarship Map",
       description: "Compare scholarship, housing, and canteen logic across Italian regions on one screen. Start with official institutions and key financial thresholds.",
       button: "Open Scholarship Map",
-      note: "Records verified from official sources as of March 9, 2026."
+      note: "Eight detailed regions verified against the 2026/27 official calls on September 24, 2026; the 12 registry-only regions as of March 9, 2026."
     },
     scholarships: {
       heroBadge: "Public Feature",
@@ -1783,7 +1783,7 @@ export const translations = {
       pageIdentity: "ItalyPath Scholarship Atlas",
       subtitle: "This page summarizes regional scholarship institutions and core call logic in Italy using official sources. Always re-check the latest call on the official institution page before applying.",
       intro: "Scholarship processes in Italy are regional. Pick a region on the map, then open the official institution and source pages.",
-      verifiedAsOf: "Data verified as of March 9, 2026",
+      verifiedAsOf: "Detailed regions verified as of September 24, 2026; registry entries as of March 9, 2026",
       regionSelectorTitle: "Select Region",
       regionSelectorHelper: "V1 uses a map-ready region grid selector. Selection is synced with URL query.",
       detailsTitle: "Region Details",
