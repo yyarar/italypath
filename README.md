@@ -1,6 +1,6 @@
 # ItalyPath
 
-ItalyPath, Italya'da egitim almak isteyen Turk ogrenciler icin hazirlanan Next.js tabanli rehber uygulamasidir. Universite/program arama, sehir rehberleri, bolgesel burs haritasi, ISEE hesaplayici, kurate topluluk rehberi, ucretsiz on gorusme formu ve `/ai-mentor` danisma merkezi (public; AI masasi arayuzde duraklatilmis, gonullu masa giris ister) ile giris gerektiren favoriler, belge cuzdani, SAT soru bankasi ve calisma dosyasi (`/hub`) yuzeylerini icerir.
+ItalyPath, Italya'da egitim almak isteyen Turk ogrenciler icin hazirlanan Next.js tabanli rehber uygulamasidir. Universite/program arama, sehir rehberleri, bolgesel burs haritasi, ISEE hesaplayici, kurate topluluk rehberi, ucretsiz on gorusme formu ve `/ai-mentor` danisma merkezi (public; gonullu masa giris ister, uzman formu herkese acik) ile giris gerektiren favoriler, belge cuzdani, SAT soru bankasi ve calisma dosyasi (`/hub`) yuzeylerini icerir.
 
 Yeni agent veya gelistirici once [AGENTS.md](./AGENTS.md) (okuma sirasi + degismez kurallar), sonra [AGENT_CONTEXT.md](./AGENT_CONTEXT.md) dosyasini okumali; erisim modeli, veri katmani ve calisma kurallari oradadir. Tek acik is listesi [docs/STATUS.md](./docs/STATUS.md), tasarim/plan durumlari [docs/superpowers/INDEX.md](./docs/superpowers/INDEX.md) icindedir. [AGENT_COMMITS.md](./AGENT_COMMITS.md) tarihsel ve eksik degisiklik notlaridir (Git gecmisi esastir); [AGENT_CONTEXT_FIX_REPORT.md](./AGENT_CONTEXT_FIX_REPORT.md) 2026-06-11'de uygulanmis eski bir audit arsividir. En son context degerlendirmesi `docs/CONTEXT_AUDIT_2026-09-19.md` icindedir.
 
@@ -12,7 +12,6 @@ Yeni agent veya gelistirici once [AGENTS.md](./AGENTS.md) (okuma sirasi + degism
 - Framer Motion
 - Clerk auth
 - Supabase database/storage
-- Google Gemini streaming chat
 - TypeScript
 
 ## Kurulum
@@ -35,7 +34,6 @@ NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
 SUPABASE_SECRET_KEY=
-GEMINI_API_KEY=
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/giris
@@ -53,7 +51,6 @@ Ornek dosya: `.env.example`. Hangi ortamda ne gerekir:
 | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Zorunlu | Zorunlu | Zorunlu | Public anon erisim; RLS ile korunur |
 | `SUPABASE_SERVICE_ROLE_KEY` | `/sat` veya on gorusme formu test edilecekse | Zorunlu | Zorunlu | Server-only: SAT soru okuma, expert lead insert, admin/import scriptleri. Asla `NEXT_PUBLIC_*` yapma, client dosyasina koyma |
 | `SUPABASE_SECRET_KEY` | Zorunlu | Zorunlu | Zorunlu | Server-only, yeni tip gizli anahtar (`sb_secret_…`): okul/program katalog okumalari ve katalog okuyan betikler. Yoksa okul/program sayfalari, sitemap ve build hata verir. Vercel'de Supabase entegrasyonu tanimlar |
-| `GEMINI_API_KEY` | Istege bagli | Istege bagli | Istege bagli | `/api/chat` anahtarsiz 503 doner; AI masasi arayuzde duraklatilmis |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY` | Zorunlu (test anahtari) | Zorunlu (development anahtari) | Zorunlu (`pk_live`/`sk_live`) | Asagidaki Clerk notlarina bak |
 
 Canlı Vercel Production ortamında Clerk anahtarları `pk_live_` ve `sk_live_`
@@ -104,14 +101,14 @@ Tek kaynak `proxy.ts` ve AGENT_CONTEXT.md "Auth ve Route Matrix" bolumudur; bu l
 
 Public: `/`, `/ai-mentor/*`, `/api/expert-leads`, `/api/universities`, `/data/*`, `/sign-in`, `/sign-up`, `/universities/*`, `/cities/*`, `/isee`, `/scholarships`, `/communities`, `/topluluklar`, `/yasal/*`, `/giris/*`, `/on-gorusme`, `/sitemap.xml`, `/robots.txt`, `/llms.txt` (API'ler tam yol; agaclar `yol` + `yol/*` cifti).
 
-`/ai-mentor` public'tir: AI masasi arayuzde duraklatilmis, gonullu masa sayfa icinde `/giris`'e yonlendirir, uzman on gorusme formu herkese aciktir.
+`/ai-mentor` public'tir: gonullu masa sayfa icinde `/giris`'e yonlendirir, uzman on gorusme formu herkese aciktir (AI masasi 2026-09-26'da kaldirildi).
 
 Protected: `/documents`, `/ekip/*`, `/favorites`, `/hosgeldin`, `/hub`, `/profile`, `/sat`,
-`/api/chat`, `/api/sat/*`.
+`/api/sat/*`.
 
 Signed-out kullanıcı protected veya listede olmayan bir sayfa açarsa `proxy.ts` onu
 `/giris?redirect_url=<istenen-route>` adresine yönlendirir. Protected API route'lar
-(`/api/chat`, `/api/sat/*`) HTML login sayfasına yönlendirilmez; Clerk'in API cevabını alır.
+(`/api/sat/*`) HTML login sayfasına yönlendirilmez; Clerk'in API cevabını alır.
 `/api/sat/questions` handler'ı ayrıca kendi `auth()` kontrolünü yapar.
 
 Route guvenligi `proxy.ts` ile yonetilir; `middleware.ts` olusturulmaz.

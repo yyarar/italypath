@@ -45,21 +45,16 @@
     "clean:med": "node --no-warnings scripts/clean-med-data.mjs"
   },
   "dependencies": {
-    "@ai-sdk/google": "^3.0.23",
-    "@ai-sdk/react": "^3.0.80",
     "@clerk/elements": "^0.24.20",
     "@clerk/nextjs": "^6.39.7",
-    "@google/generative-ai": "^0.24.1",
     "@supabase/supabase-js": "^2.95.3",
     "@vercel/analytics": "^2.0.1",
-    "ai": "^6.0.78",
     "framer-motion": "^12.34.0",
     "katex": "^0.17.0",
     "lucide-react": "^0.563.0",
     "next": "16.3.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "react-markdown": "^10.1.0"
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

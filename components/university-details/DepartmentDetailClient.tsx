@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@clerk/nextjs";
 
 import type { University } from "@/types/universities";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -37,7 +36,6 @@ export function DepartmentDetailClient({
   related,
 }: DepartmentDetailClientProps) {
   const router = useRouter();
-  const { isSignedIn } = useAuth();
   const { t, language } = useLanguage();
   const [expandingDeptSlug, setExpandingDeptSlug] = useState<string | null>(null);
 
@@ -149,8 +147,8 @@ export function DepartmentDetailClient({
     sourceExcerptSingle: t.department.sourceExcerptSingle,
     nextStep: t.department.nextStep,
     openOfficialSource: t.department.openOfficialSource,
-    askAi: t.department.askAi,
-    aiContextNote: t.department.aiContextNote,
+    askExpert: t.department.askExpert,
+    expertDeskNote: t.department.expertDeskNote,
     otherAdmissionInformation: t.department.otherAdmissionInformation,
   };
 
@@ -232,9 +230,6 @@ export function DepartmentDetailClient({
             details={department.admissionDetails}
             labels={dossierLabels}
             language={language}
-            programName={department.name}
-            universityName={university.name}
-            isSignedIn={isSignedIn}
           />
         ) : null}
 

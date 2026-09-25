@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur; guncel mimari ve calisma kurallarinin kaynak dokumanidir. `AGENT_COMMITS.md` tarihsel ve eksik degisiklik notlaridir (Git gecmisi esastir). `AGENT_CONTEXT_FIX_REPORT.md` 2026-06-11'de uygulanmis eski bir audit arsividir. En son context degerlendirmesi `docs/CONTEXT_AUDIT_2026-09-19.md` icindedir; bu dosyadaki 2026-09-21 duzeltmeleri o raporun uygulama sirasinin 1. ve 2. adimidir. Okumaya kok `AGENTS.md` ile basla; tek acik is listesi `docs/STATUS.md`, tasarim/plan belgelerinin durumu `docs/superpowers/INDEX.md` icindedir (3. adim, 2026-09-21).
 
-Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun) · 2026-09-26: veri katmani, kanonik okul adresi, JSON-LD kacisi, okul fotograflari ve hata sayfalari (guvenlik denetimi kart 2) · 2026-09-26: katalog yetkileri ve kullanici yazma sinirlari canlida (guvenlik denetimi kart 4)
+Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun) · 2026-09-26: veri katmani, kanonik okul adresi, JSON-LD kacisi, okul fotograflari ve hata sayfalari (guvenlik denetimi kart 2) · 2026-09-26: AI mentor masasi, `/api/chat` ve Gemini/AI SDK paketleri kaldirildi (guvenlik denetimi kart 6; dalda, push bekliyor) · 2026-09-26: katalog yetkileri ve kullanici yazma sinirlari canlida (guvenlik denetimi kart 4)
 
 Sayilar bu dosyada tarihli snapshot olarak gecer. Guncel sayim "Canli university/program verisi" bolumundedir; eski tarihli bolumlerdeki sayilari bugunku gercek sayma.
 
@@ -10,7 +10,7 @@ Sayilar bu dosyada tarihli snapshot olarak gecer. Guncel sayim "Canli university
 
 ## Proje Tanimi
 
-ItalyPath, Italya'da egitim almak isteyen Turk ogrenciler icin Next.js tabanli rehber uygulamasidir. Public tarafta universite/program arama, sehir rehberleri, bolgesel burs haritasi, ISEE Parificato hesaplayici, kurate edilmis topluluk rehberi, ucretsiz on gorusme formu ve `/ai-mentor` danisma merkezi (uc masa: ItalyPath AI arayuzde `paused`, Gonullu Ekip giris ister, Uzman formu public) vardir. Giris gerektiren tarafta gonullu ekip yazismasi, favoriler, belge cuzdani, SAT soru bankasi, onboarding (`/hosgeldin`) ve kisisel calisma dosyasi (`/hub`) bulunur. Erisim modelinin tek kaynagi `proxy.ts` ve asagidaki "Auth ve Route Matrix" bolumudur.
+ItalyPath, Italya'da egitim almak isteyen Turk ogrenciler icin Next.js tabanli rehber uygulamasidir. Public tarafta universite/program arama, sehir rehberleri, bolgesel burs haritasi, ISEE Parificato hesaplayici, kurate edilmis topluluk rehberi, ucretsiz on gorusme formu ve `/ai-mentor` danisma merkezi (iki masa: Gonullu Ekip giris ister, Uzman formu public; AI masasi 2026-09-26'da kaldirildi) vardir. Giris gerektiren tarafta gonullu ekip yazismasi, favoriler, belge cuzdani, SAT soru bankasi, onboarding (`/hosgeldin`) ve kisisel calisma dosyasi (`/hub`) bulunur. Erisim modelinin tek kaynagi `proxy.ts` ve asagidaki "Auth ve Route Matrix" bolumudur.
 
 Uygulamanin ana tasarim dili editorial paper/sage/terracotta paleti, serif basliklar, keskin border'lar ve mobil oncelikli layout'lardir. Gradient/sparkle/indigo SaaS kalibi yeni islerde genellikle tercih edilmez.
 
@@ -25,14 +25,11 @@ Uygulamanin ana tasarim dili editorial paper/sage/terracotta paleti, serif basli
 | Stil | Tailwind CSS | v4 |
 | Animasyon | Framer Motion | 12.34.0 |
 | Ikon | Lucide React | 0.563.0 |
-| Markdown | React Markdown | 10.1.0 |
 | Auth | Clerk (`@clerk/nextjs`, `@clerk/elements`) | 6.39.7 / 0.24.20 (2026-09-25) |
 | Database/Storage | Supabase JS | 2.95.3 |
-| AI | Google Gemini (`@google/generative-ai`) | 0.24.1 |
-| AI SDK paketleri | `ai`, `@ai-sdk/google`, `@ai-sdk/react` | Kurulu, aktif mentor akisi native Gemini |
 | Dil | TypeScript | 5.x |
 
-Not: AI SDK paketleri kurulu olsa da `app/api/chat/route.ts` ve `app/ai-mentor/page.tsx` mevcut akista `@google/generative-ai` ile native streaming kullanir. `@ai-sdk/react` `useChat` hook'u aktif degildir.
+Not: Projede AI/LLM paketi yoktur. AI mentor masasi, `/api/chat` (Gemini) ve `ai`, `@ai-sdk/google`, `@ai-sdk/react`, `@google/generative-ai`, `react-markdown` paketleri 2026-09-26'da kaldirildi (Kerem karari 2026-09-25; `docs/STATUS.md` Kapananlar #21, #42).
 
 ---
 
@@ -52,14 +49,13 @@ italypath-main/
 │   ├── data.ts                     # Legacy local seed/yedek; runtime tarafindan import edilmez
 │   ├── api/
 │   │   ├── universities/route.ts   # force-dynamic, no-store, Supabase-backed public API
-│   │   ├── sat/questions/route.ts  # Protected SAT question API; service-role-backed, no-store
-│   │   └── chat/route.ts           # Protected Gemini streaming endpoint
+│   │   └── sat/questions/route.ts  # Protected SAT question API; service-role-backed, no-store
 │   ├── giris/
 │   │   ├── page.tsx                # Tek sayfa giris+kayit (Clerk Elements); /sign-in ve /sign-up next.config redirects
 │   │   └── sso-callback/page.tsx   # Google OAuth donus rotasi; /giris sayfasini yeniden kullanir
 │   ├── hosgeldin/page.tsx          # Protected 4 adimli onboarding sihirbazi
 │   ├── on-gorusme/page.tsx         # Public ucretsiz on gorusme sayfasi (server wrapper)
-│   ├── ai-mentor/page.tsx          # Public consultation desks UI (AI masasi paused; gonullu masa giris ister)
+│   ├── ai-mentor/page.tsx          # Public consultation desks UI (gonullu masa giris ister, uzman formu public)
 │   ├── ekip/mentor/page.tsx        # Protected, staff-allowlisted gonullu operator inbox
 │   ├── ekip/uzman/page.tsx         # Protected, staff-allowlisted uzman lead inbox
 │   ├── universities/
@@ -102,7 +98,7 @@ italypath-main/
 │   ├── sat/                        # SAT konu listesi, soru karti, KaTeX MathText, oturum ozeti
 │   ├── universities/              # Server-safe rows + UniversitiesExplorer client leaf
 │   ├── university-details/         # Detail client leaves, portrait headers, program directory, kabul dosyasi (ProgramAdmissionDetailsPanel, ProgramSummaryStrip, ProgramSourceTrail, programDossierShared), DetailBreadcrumb, RelatedLinks, ProgramNextSteps
-│   ├── mentor/                     # Mentor hub + AI, gonullu ogrenci ve operator yuzeyleri
+│   ├── mentor/                     # Mentor hub + gonullu ogrenci, uzman formu ve operator yuzeyleri
 │   ├── legal/                      # LegalDocument.tsx (yasal belge sunum bileseni)
 │   ├── auth/                       # /giris parcalari: AuthShell, AuthCard, AuthTabs, OAuthButtons, SignInForm, SignUpForm, PasswordResetFlow (6 haneli dogrulama adimi SignUpForm icindedir)
 │   ├── onboarding/                 # /hosgeldin wizard kartlari, progress ve finale
@@ -221,7 +217,7 @@ Canli veri `lib/universities.server.ts` icinde Supabase'den compose edilir:
 
 Calisma zamani fonksiyonlari (2026-09-15 egress diyeti; 2026-09-26 guvenlik denetimi kart 2: okul sayfasi dizinden, program sayfasi yalnizca kendi kabul satirindan). Tam veri seti compose'u ve okul basina tum kabul dosyalarini ceken sorgu runtime'da YOKTUR:
 
-- `getUniversitiesDirectory()`: `universities` + `university_departments` + `program_admission_details` uzerinden `select("department_id,updated_at")` (yalnizca VARLIK + sitemap `lastModified` icin tarih) + `program_degree_class_codes` view'inden `select("department_id,degree_class_codes")`. Her `Department` `hasAdmissionDetails` bayragi ve varsa `degreeClassCodes`/`updatedAt` tasir, `admissionDetails` alani yoktur. Sikistirilmis ~50 KB (dizin ~47 KB + kod view'i ~4 KB). Kullananlar: `/`, `/universities`, `/cities`, sitemap, `/api/universities`, `/api/chat` ve asagidaki iki fonksiyon.
+- `getUniversitiesDirectory()`: `universities` + `university_departments` + `program_admission_details` uzerinden `select("department_id,updated_at")` (yalnizca VARLIK + sitemap `lastModified` icin tarih) + `program_degree_class_codes` view'inden `select("department_id,degree_class_codes")`. Her `Department` `hasAdmissionDetails` bayragi ve varsa `degreeClassCodes`/`updatedAt` tasir, `admissionDetails` alani yoktur. Sikistirilmis ~50 KB (dizin ~47 KB + kod view'i ~4 KB). Kullananlar: `/`, `/universities`, `/cities`, sitemap, `/api/universities` ve asagidaki iki fonksiyon.
 - `getUniversityById(id)`: dizindeki okul kaydini dondurur; ayri Supabase sorgusu yapmaz. Yalnizca kanonik id kabul edilir (`lib/universityPath.ts` `parseCanonicalUniversityId`: basinda sifir olmayan, en fazla 9 haneli sayi; "003" aranmaz). Kullananlar: okul sayfasi ve layout'u. Okul sayfasi tarayiciya hicbir programin tam kabul dosyasini gondermez; program listesi yalnizca varlik bayragini kullanir (2026-09-25 olcumu: en buyuk okul sayfasi ~2 MB HTML'di).
 - `getProgramPageData(id, deptSlug)`: dizin kaydi + YALNIZCA acilan programin kabul satiri (`program_admission_details`, `.eq("university_id", …).eq("department_id", …).maybeSingle()`, yalnizca panelin okudugu kolonlar; `raw_program_name`, `raw_level`, `source_file` cekilmez). Program sayfasi ve metadata layout'u ayni memo'lu veriyi kullanir (ek istek yok); ilgili baglantilar ayni dizinle hesaplanir. Donen `department` dizin kaydinin KOPYASIDIR.
 - `pruneUniversityForProgram(university, department)`: istemciye giden okul nesnesini kurar; kabul dosyasi yalnizca acilan programda, diger programlar dizindeki hafif kayitlar. Paylasilan dizin nesneleri degismez (yeni nesne doner; `check-universities-server-compose.mjs` test eder).
@@ -309,7 +305,7 @@ Supabase canli veri master ve single-cycle satirlarini da tasir. Yeni program im
 - uncertain fields
 - uncertainty notes
 
-UI paneli: `components/university-details/ProgramAdmissionDetailsPanel.tsx`. Panel, ham alanlari alt alta basmak yerine kaynakli kabul dosyasi olarak sunar: program ozeti, basvuru takvimi, kabul kosullari, belgeler, acik belirsizlikler ve URL bazinda gruplanmis kaynak izi. `field_refs`, `sources`, `retrieved_at` ve `[uncertain]` isaretlerinin sunum eslemesi `components/university-details/programAdmissionPresentation.ts` icindedir; kaynak alintilari birlestirilmez veya kaybedilmez. Dossier'daki ItalyPath AI aksiyonu `/ai-mentor?desk=ai&program=...&university=...&focus=...` ile baglami tasir ve mesaji otomatik gondermeden taslak olarak acar.
+UI paneli: `components/university-details/ProgramAdmissionDetailsPanel.tsx`. Panel, ham alanlari alt alta basmak yerine kaynakli kabul dosyasi olarak sunar: program ozeti, basvuru takvimi, kabul kosullari, belgeler, acik belirsizlikler ve URL bazinda gruplanmis kaynak izi. `field_refs`, `sources`, `retrieved_at` ve `[uncertain]` isaretlerinin sunum eslemesi `components/university-details/programAdmissionPresentation.ts` icindedir; kaynak alintilari birlestirilmez veya kaybedilmez. Kaynak izindeki "Sıradaki adım" butonu (2026-09-26, Kerem karari) giris istemeden uzman masasini acar (`/ai-mentor?desk=expert`); program baglami forma tasinmaz.
 
 DB setup/policy: `supabase/program_admission_details.sql`.
 
@@ -323,7 +319,7 @@ Gercek EU/non-EU basvuru tarihleri Supabase `program_admission_details` tablosun
 
 ## Auth ve Route Matrix
 
-Route guvenligi sadece `proxy.ts` ile saglanir. `middleware.ts` olusturma. Bu bolum ve `proxy.ts` erisim modelinin TEK kaynagidir; README ve diger bolumler buna uyar. `/ai-mentor` public'tir (AI masasi arayuzde paused, gonullu masa sayfa icinde `/giris`'e yonlendirir, uzman formu public); `/api/chat`, `/api/sat/*` ve `/ekip/*` protected'dir.
+Route guvenligi sadece `proxy.ts` ile saglanir. `middleware.ts` olusturma. Bu bolum ve `proxy.ts` erisim modelinin TEK kaynagidir; README ve diger bolumler buna uyar. `/ai-mentor` public'tir (gonullu masa sayfa icinde `/giris`'e yonlendirir, uzman formu public); `/api/sat/*` ve `/ekip/*` protected'dir.
 
 Public route pattern'leri (2026-09-25'ten beri kesin kalip: agac icin `'/yol'` + `'/yol/(.*)'` cifti, tek uc nokta icin tam yol; `'/yol(.*)'` bicimi ayni onekle baslayan kardes yollari da actigi icin kullanilmaz ve `check:routes` bunu reddeder):
 
@@ -356,11 +352,10 @@ Protected ornekler:
 - `/hosgeldin`
 - `/hub`
 - `/sat`
-- `/api/chat`
 - `/api/sat/questions`
 - `/profile`
 
-Oturumsuz istek davranisi (`proxy.ts` dal sirasi): public -> gecer; `PROTECTED_PAGE_ROUTES` -> `/giris?redirect_url=...`; `/api/*` -> Clerk'in varsayilan API cevabi (HTML giris sayfasina yonlendirme yok); listede olmayan diger yollar -> yine `/giris?redirect_url=...` (2026-09-25 oncesinde Clerk'in barindirilan giris sayfasina gidiyordu). Korumali API handler'lari proxy'ye tek basina guvenmez: `/api/sat/questions` kendi `auth()` kontrolunu yapar ve oturum yoksa 401 doner (`/api/chat` AI mentor kaldirma isiyle silinecek, STATUS #42).
+Oturumsuz istek davranisi (`proxy.ts` dal sirasi): public -> gecer; `PROTECTED_PAGE_ROUTES` -> `/giris?redirect_url=...`; `/api/*` -> Clerk'in varsayilan API cevabi (HTML giris sayfasina yonlendirme yok); listede olmayan diger yollar -> yine `/giris?redirect_url=...` (2026-09-25 oncesinde Clerk'in barindirilan giris sayfasina gidiyordu). Korumali API handler'lari proxy'ye tek basina guvenmez: `/api/sat/questions` kendi `auth()` kontrolunu yapar ve oturum yoksa 401 doner; `check:routes` her korumali API icin bunu zorlar.
 
 Clerk guvenilen kokenler (2026-09-25): `lib/auth/trustedOrigins.ts` tek kaynaktir. `clerkMiddleware` `authorizedParties`, `ClerkProvider` `allowedRedirectOrigins` olarak ayni listeyi alir: Vercel Production'da yalniz `https://italypath.app`; Preview'da ek olarak yayinin kendi `*.vercel.app` adresleri; yerelde `CLERK_DEV_ORIGINS` (verilmezse `http://localhost:3000`). Liste yanlis olursa girisli kullanici oturumsuz gorunur; yayindan sonra canlida bir kez giris denenmelidir.
 
@@ -520,23 +515,14 @@ SEO `layout.tsx` Server Component'lerinde `generateMetadata()` ile uretilir. `ge
 
 `components/university-details/ProgramDirectory.tsx`, programlari bachelor/master/single-cycle gruplarina ayirir. Department detail sayfasi admission details panelini varsa gosterir.
 
-### Mentor Masalari (AI + Gonullu + Uzman)
+### Mentor Masalari (Gonullu + Uzman)
 
-`/ai-mentor` public route'tur; SEO karari değişmediği için `robots.ts` içinde disallow kalır ve sitemap'e eklenmez. UI üç masalı consultation desk modelidir:
+`/ai-mentor` public route'tur; SEO karari değişmediği için `robots.ts` içinde disallow kalır ve sitemap'e eklenmez. Adres tarihsel nedenle `ai-mentor` olarak kalir. UI iki masalı consultation desk modelidir (kanal kaydi `lib/mentor/channels.ts`: `volunteer` 01, `expert` 02; `availability` `active` veya `paused`, duraklatilan masa hub'da secilemez):
 
-- ItalyPath AI: backend/native Gemini streaming akışı korunur; masa 2026-07-23 itibarıyla arayüzde geçici olarak `paused` ve seçilemez.
 - ItalyPath Gönüllü Ekip: aktif, giriş gerektiren Supabase üzerinde kalıcı site içi insan yazışmasıdır. Misafir `desk=volunteer` seçerse `/giris?redirect_url=/ai-mentor?desk=volunteer` akışına gider.
 - ItalyPath Uzman: aktif public `expert-lead` formudur. Form altı zorunlu alanla ücretsiz WhatsApp ön görüşme talebi toplar; e-posta, onay kutusu, CAPTCHA, IP saklama, telefon bazlı dedupe veya otomatik silme yoktur. `submission_id` yalnızca retry/double-click idempotency'si içindir.
 
-AI backend'i `app/api/chat/route.ts` icindedir.
-
-- `GEMINI_API_KEY` yoksa `503`
-- malformed body veya gecersiz messages icin `400`
-- Gemini model: `gemini-2.5-flash`
-- response: text/plain `ReadableStream`
-- sistem promptu `getUniversitiesDirectory()` ile hafif university/program listesinden uretilir (kabul metinleri yok)
-
-Risk: Supabase department sayisi buyudukce chat system prompt'u da buyur. Latency/cost ve token boyutu izlenmeli.
+AI masasi (ItalyPath AI, Gemini) 2026-07-23'ten beri arayuzde duraklatilmisti; 2026-09-26'da tamamen kaldirildi (Kerem karari 2026-09-25, guvenlik denetimi S1#1, S5#6, S6#5, O3#6, O3#9): `app/api/chat/route.ts`, `MentorChatRoom`/`EntryPair`/`StarterPrompts`/`LockedDeskNotice`, AI ceviri anahtarlari, AI SDK/Gemini/`react-markdown` paketleri ve Spectral 700 agirligi (AI yanitlari disindaki tek kullanim, program dizinindeki program sayisi, Kerem karariyla `font-semibold` oldu; `app/layout.tsx` 400/500/600 yukler). Eski `?desk=ai` baglantilari hub'a duser. `check:mentor-desks` kaldirilan dosya ve paketlerin geri gelmesini engeller.
 
 Gonullu masa mimarisi:
 
@@ -545,7 +531,7 @@ Gonullu masa mimarisi:
 - Tablolar: `mentor_staff`, `mentor_conversations`, `mentor_messages`. RPC idempotency kayitlari ogrenci tarafindan okunamayan ayri private tabloda tutulur.
 - Yazmalar yalnizca `start_volunteer_conversation`, `send_student_mentor_message`, `send_staff_mentor_message` ve `close_volunteer_conversation` RPC'leriyle yapilir. Operator girisi `is_active_mentor_staff` RPC'siyle ayrica dogrulanir.
 - Okumalar ve canli olaylar Clerk'in native session token'i ile Supabase RLS + Realtime kullanir; mentor kodunda deprecated Clerk `supabase` JWT template'i veya service-role key yoktur.
-- Realtime kanallari private'tir (2026-09-25, guvenlik denetimi G4#1): dort kanal da `mentorPrivateChannelOptions()` (`lib/mentor/volunteerDeskState.ts`) ile acilir; Realtime katilimi yalnizca `realtime.messages` uzerindeki `mentor_realtime_student_read` (kendi `mentor-conversations:<user id>` ve kendi `mentor-messages:<gorusme id>` konusu) ve `mentor_realtime_staff_read` (aktif operator, kendi id'siyle baslayan `mentor-operator-*` konulari) SELECT politikalarina gore kabul eder (`supabase/volunteer_mentor.sql`). Yazma politikasi bilincli olarak yoktur (masa broadcast kullanmaz). Kanal adi degisirse politika da degismelidir. Supabase panelindeki Realtime "Allow public access" ayari ancak politikalar ve private istemci canlidayken kapatilir; sira ve canli durum `SUPABASE_SECURITY_RUNBOOK.md` "Private Realtime" ve `docs/STATUS.md`.
+- Realtime kanallari private'tir (2026-09-25, guvenlik denetimi G4#1): dort kanal da `mentorPrivateChannelOptions()` (`lib/mentor/volunteerDeskState.ts`) ile acilir; Realtime katilimi yalnizca `realtime.messages` uzerindeki `mentor_realtime_student_read` (kendi `mentor-conversations:<user id>` ve kendi `mentor-messages:<gorusme id>` konusu) ve `mentor_realtime_staff_read` (aktif operator, kendi id'siyle baslayan `mentor-operator-*` konulari) SELECT politikalarina gore kabul eder (`supabase/volunteer_mentor.sql`). Yazma politikasi bilincli olarak yoktur (masa broadcast kullanmaz). Kanal adi degisirse politika da degismelidir. Supabase panelindeki Realtime "Allow public access" ayari 2026-09-25 22:38 UTC'den beri kapali (proje yalniz private kanal kabul eder); yeni bir Realtime ozelligi private kanal ve `realtime.messages` politikasi olmadan calismaz. Kayit `SUPABASE_SECURITY_RUNBOOK.md` "Private Realtime".
 - V1: bir operator, ogrenci basina tek acik gorusme, yalnizca duz metin, ek/atama/not/typing/read receipt/otomatik bildirim yok. Her iki taraf gorusmeyi kapatabilir; kapali gecmis hesap silinene kadar salt okunur tutulur.
 - Kotuye kullanim siniri (2026-09-25, `supabase/volunteer_mentor.sql`): ogrenci basina 10 dakikada 20 mesaj (`message_rate_limited`) ve 24 saatte 5 yeni gorusme (`conversation_rate_limited`); ayni nonce ile tekrar deneme sinirdan once cevaplanir, staff mesajlari sinirsizdir. 2026-09-25'te canliya uygulandi (migration `volunteer_mentor_student_rate_limit`).
 - Zaman asimi (2026-09-25): `useMentorSupabaseClient` Clerk token beklemesini ve her PostgREST istegini `MENTOR_REQUEST_TIMEOUT_MS` (15 sn, `lib/mentor/volunteerDeskState.ts`) ile sinirlar; takilan istek hataya doner ve ogrenci/operator ekranlarindaki mevcut "yuklenemedi / tekrar dene" durumu acilir. `check:mentor-desks` bu iki sozlesmeyi zorlar.
@@ -762,7 +748,6 @@ Gercek production schema dashboard'dan dogrulanmalidir; son tarihli dokum `supab
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon key |
 | `SUPABASE_SECRET_KEY` | Server-only, Supabase'in yeni tip gizli anahtari (`sb_secret_…`; 2026-09-26). Katalog okumalari (`lib/universities.server.ts`: okullar, programlar, kabul dosyalari, degree class view'i) ve katalog okuyan betikler (`check-program-details`, `check:data`, `import-*` dry-run). Production, Preview ve local build'de ZORUNLU: yoksa veya `sb_secret_` ile baslamiyorsa okul/program sayfalari, sitemap ve build hata verir (anon'a geri dusulmez). Vercel'de Supabase entegrasyonu tanimlar; yerelde `.env.local`'a elle eklenir. Asla client bundle'a veya `NEXT_PUBLIC_*` alanina girmez |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server-only (eski tip): SAT soru okuma (`lib/sat/questions.server.ts`), expert lead insert (`lib/mentor/expertLeads.server.ts`) ve yetkili admin/import scriptlerinin yazma kismi (`import-*` once `SUPABASE_SECRET_KEY`'i dener). Production ve Preview'da ZORUNLU (yoksa `/sat` ve on gorusme formu calismaz); local'de bu yuzeyler test edilecekse gerekir. Supabase eski tip anahtarlari 2026 sonunda emekliye ayirir; bu yuzeylerin yeni anahtara gecisi ayri istir. Asla client bundle'a veya `NEXT_PUBLIC_*` alanina girmez |
-| `GEMINI_API_KEY` | Gemini chat endpoint (`/api/chat`); yoksa 503. AI masasi arayuzde paused oldugu icin bugun kullaniciya acik yuzey yok |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk frontend |
 | `CLERK_SECRET_KEY` | Clerk server |
 | `CLERK_DEV_ORIGINS` | Istege bagli, yalniz yerel: Clerk oturumunun kabul edildigi yerel koken(ler), virgulle ayrilmis; verilmezse `http://localhost:3000`. Vercel Production/Preview'da okunmaz (`lib/auth/trustedOrigins.ts`) |

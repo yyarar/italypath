@@ -1,6 +1,6 @@
 # ItalyPath — Servis Abonelikleri ve Kullanım Limitleri
 
-Durum: AKTIF REFERANS · Oluşturma: 2026-09-25 · Son güncelleme: 2026-09-25 (yedek satırları, G2#2) · Kanıt: Supabase MCP (org planı, DB/Storage boyutu, edge log sayımı), Kerem'in panel ekranları (Vercel Usage, Supabase Usage, Clerk Overview, Name.com; 2026-09-25), resmî limit/fiyat sayfaları (her satırda URL)
+Durum: AKTIF REFERANS · Oluşturma: 2026-09-25 · Son güncelleme: 2026-09-26 (Gemini kaldırıldı, güvenlik kartı 6) · 2026-09-25 (yedek satırları, G2#2) · Kanıt: Supabase MCP (org planı, DB/Storage boyutu, edge log sayımı), Kerem'in panel ekranları (Vercel Usage, Supabase Usage, Clerk Overview, Name.com; 2026-09-25), resmî limit/fiyat sayfaları (her satırda URL)
 
 Bu belge projenin kullandığı dış servislerin planını, limitini, ölçülmüş kullanımını ve limit aşımında ne olduğunu tutar. Kullanım limitleri sorumluluğu 2026-09-25'ten beri ayrı bir ajan rolüdür. Yeni bir servis eklenirse buraya satır açılır; plan değişirse tarih ve kanıtla güncellenir. Açık işler `docs/STATUS.md`'dedir.
 
@@ -13,7 +13,7 @@ Limit sayıları 2026-09-25'te resmî sayfalardan ve panellerden doğrulandı; s
 | Vercel (takım "yyarar's projects") | Barındırma, ISR, görsel optimizasyonu, Web Analytics | **Hobby** | Vercel Usage ekranı, 2026-09-25 | **En yüksek:** ISR Writes %38, Fluid Active CPU %44 (30 gün); Hobby ticari kullanımı yasaklıyor; aşımda özellik 30 gün durur |
 | Supabase (proje "Path", `kskbnxxyviowmrlskwke`) | Veritabanı, Storage (belgeler), Realtime (gönüllü masa) | **Free** | MCP `get_organization` + Usage ekranı, 2026-09-25 | Orta: dönem 8,04/5 GB (kapanıyor); yeni dönemde günlük 20-65 MB; 14 Ekim'den sonra ikinci mühlet yok |
 | Clerk (uygulama "Italypath", Production) | Giriş/kayıt (Google OAuth + e-posta kodu) | **Student** (GitHub Student Developer Pack) | Clerk Overview ekranı, 2026-09-25 | Düşük: Pro eşdeğeri limit, 50.000 MRU; haftalık aktif 1 |
-| Google Gemini API | `/api/chat` (AI masası arayüzde paused) | Kaldırılacak (Kerem kararı, 2026-09-25) | Kerem | Anahtar silinene kadar: uç noktada hız/kota sınırı yok |
+| Google Gemini API | Kullanılmıyor (AI masası ve `/api/chat` 2026-09-26'da kaldırıldı) | Kaldırıldı (Kerem kararı, 2026-09-25) | Kerem; `docs/STATUS.md` Kapananlar | Yok: AI Studio anahtarları ve Vercel `GEMINI_API_KEY` 2026-09-26'da silindi |
 | Name.com | `italypath.app` alan adı + DNS | Tek alan adı, otomatik yenileme açık, bitiş **2 Mayıs 2027**, WHOIS gizli | Name.com ekranı, 2026-09-25 | Düşük |
 | GitHub (`yyarar/italypath`) | Kod deposu | Free varsayılıyor | `.github/workflows` yok | Yok (Actions kullanılmıyor); Clerk Student planı GitHub bağlantısına bağlı |
 | Unsplash / Pexels | Görseller (hesap/anahtar yok, doğrudan URL) | — | `next.config.ts` remotePatterns | Vercel görsel dönüşüm kotasını tüketir |
@@ -99,7 +99,7 @@ Vercel CLI (2026-09-25 kuruldu, `vercel` 60.0.1, `/opt/homebrew/bin/vercel`; Ker
 - `vercel usage` Hobby'de çalışmaz: "Billing cost data is unavailable" (Hobby'de fatura verisi yok; `/v1/billing/charges` aynı kaynak).
 - `vercel metrics` (ISR write units, CPU, istek sayısı) **Observability Plus** ister (ücretli eklenti) → Hobby'de kullanılamaz; satın alma önerilmez.
 - İşe yarayanlar: `vercel ls italypath` (production deploy listesi ve sayısı), `vercel env ls production --project italypath` (değişken ADLARI; değer okuma), `vercel inspect <url>`.
-- 2026-09-25 `vercel env ls`: `GEMINI_API_KEY` production'da hâlâ tanımlı. `quizkey` (Development/Preview/Production, ~9 Şubat 2026'da Clerk ve Gemini anahtarlarıyla aynı gün eklenmiş) hiçbir commit'te, dalda veya çalışma dosyasında geçmiyor; site kullanmıyor, Kerem kaynağını bilmiyor. Kullanım/maliyet riski yok; silmek isteğe bağlı temizlik (Vercel → italypath → Settings → Environment Variables).
+- 2026-09-25 `vercel env ls`: `GEMINI_API_KEY` production'da hâlâ tanımlıydı; 2026-09-26'da Kerem kaldırdı (ad listesinde yok). `quizkey` (Development/Preview/Production, ~9 Şubat 2026'da Clerk ve Gemini anahtarlarıyla aynı gün eklenmiş) hiçbir commit'te, dalda veya çalışma dosyasında geçmiyor; site kullanmıyor, Kerem kaynağını bilmiyor. Kullanım/maliyet riski yok; silmek isteğe bağlı temizlik (Vercel → italypath → Settings → Environment Variables).
 
 ## Supabase
 
@@ -156,11 +156,10 @@ Plan: **Student** ("Personal workspace", Clerk ekranı 2026-09-25). Kaynak: http
 
 ## Google Gemini API
 
-Kerem kararı (2026-09-25): AI mentor kaldırılacak.
+Durum: KALDIRILDI (2026-09-26). Kerem kararı (2026-09-25): AI mentor kaldırılacak.
 
-- Kaldırılana kadar risk: `/api/chat` giriş yapan herkese açık, hız/kota sınırı yok; her mesajda 941 programlık dizin sistem promptuna giriyor. Anahtar ödeme bağlı bir projedeyse aynı anahtar otomatik ücretlenir (Tier 1 aylık 250 $ tavan) (https://ai.google.dev/gemini-api/docs/billing).
-- En hızlı güvenlik adımı: anahtarı Google AI Studio'da silmek (kod değişikliği ve deploy gerekmez) ve Vercel ortam değişkenlerinden `GEMINI_API_KEY`'i kaldırmak.
-- Kod `gemini-2.5-flash` kullanıyor; Google bu modeli eski/kısıtlı erişimli sayıyor (https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash, 2026-09-22).
+- 2026-09-26: Kerem Google AI Studio'daki tüm Gemini anahtarlarını sildi ve Vercel'den `GEMINI_API_KEY`'i kaldırdı. Aynı gün kod tarafı (`/api/chat`, AI masası, `ai`/`@ai-sdk/*`/`@google/generative-ai` paketleri) dalda kaldırıldı; push Kerem onayıyla. Ayrıntı `docs/STATUS.md` Kapananlar.
+- Kalan elle kontrol (Kerem): Şubat 2026'dan bu yana Gemini kullanım/faturası (Google AI Studio → Usage; ödeme bağlıysa Google Cloud Billing).
 
 ## Name.com ve iletişim adresi
 
@@ -171,7 +170,7 @@ Kerem kararı (2026-09-25): AI mentor kaldırılacak.
 
 | Sıklık | Ne | Nasıl |
 | --- | --- | --- |
-| Haftalık (pazartesi 09:00, otomatik) | Supabase egress, Vercel deploy sayısı, `GEMINI_API_KEY` durumu | Zamanlanmış görev "ItalyPath haftalık kullanım kontrolü" (`~/.claude/scheduled-tasks/italypath-weekly-usage-check/`); rapor `tmp/usage/YYYY-MM-DD.md` (Git dışı); uygulama kapalıysa bir sonraki açılışta çalışır |
+| Haftalık (pazartesi 09:00, otomatik) | Supabase egress, Vercel deploy sayısı, `GEMINI_API_KEY` durumu (2026-09-26'dan beri beklenen: tanımlı değil) | Zamanlanmış görev "ItalyPath haftalık kullanım kontrolü" (`~/.claude/scheduled-tasks/italypath-weekly-usage-check/`); rapor `tmp/usage/YYYY-MM-DD.md` (Git dışı); uygulama kapalıysa bir sonraki açılışta çalışır |
 | Haftalık (elle; Kerem veya ajan) | Supabase yedeği (veritabanı + `documents` + `sat-figures`) | `npm run backup:supabase -- --run`, ardından `-- --verify`; arşiv `BACKUP_DIR`'e yazılır, sonra bilgisayar dışına kopyalanır. Tek yedek egress üst sınırı ~16,6 MB (2026-09-25). Ayrıntı: `SUPABASE_SECURITY_RUNBOOK.md` bölüm 7 |
 | Canlıya yazan her işten önce (`--apply`, import, SQL güncelleme/silme, migration) | Supabase yedeği | Aynı komutlar; `--verify` geçmeden canlı yazma başlamaz (`DATA_ENTRY_GUIDE.md`) |
 | Aylık (ayın ilk pazartesi) | Vercel ISR Writes, Fluid Active CPU, Fast Origin Transfer | Kerem'den Usage ekranı; hedef 30 günlük pencerede < %60 |

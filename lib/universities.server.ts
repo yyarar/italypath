@@ -496,7 +496,7 @@ export function composeUniversitiesFromSupabaseRows(
   return universities;
 }
 
-// Hafif dizin: liste/ana sayfa/sehirler/sitemap/API/chat ve okul sayfasi icin. Agir kabul metinleri yok.
+// Hafif dizin: liste/ana sayfa/sehirler/sitemap/API ve okul sayfasi icin. Agir kabul metinleri yok.
 export async function getUniversitiesDirectory(): Promise<University[]> {
   return readThroughMemo(
     directoryCache,

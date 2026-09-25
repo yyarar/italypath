@@ -27,7 +27,7 @@ function mustNotContain(content, needle, label) {
 const proxy = read("proxy.ts");
 
 mustContain(proxy, "PROTECTED_PAGE_ROUTES", "proxy.ts");
-// /ai-mentor 2026-07-23'ten beri public consultation hub'idir (AI masasi arayuzde paused, gonullu
+// /ai-mentor 2026-07-23'ten beri public consultation hub'idir (AI masasi 2026-09-26'da kaldirildi; gonullu
 // masa sayfa icinde /giris'e yonlendirir). Public matcher'da olmali, PROTECTED_PAGE_ROUTES'ta olmamali.
 mustContain(proxy, "'/ai-mentor', '/ai-mentor/(.*)'", "proxy.ts");
 mustNotContain(proxy, '"/ai-mentor"', "proxy.ts");

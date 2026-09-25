@@ -69,8 +69,8 @@ export interface ProgramDossierLabels {
   sourceExcerptSingle: string;
   nextStep: string;
   openOfficialSource: string;
-  askAi: string;
-  aiContextNote: string;
+  askExpert: string;
+  expertDeskNote: string;
   otherAdmissionInformation: string;
 }
 

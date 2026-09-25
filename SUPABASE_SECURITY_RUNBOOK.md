@@ -145,7 +145,7 @@ Sıra önemlidir. Panel ayarı koddan önce kapatılırsa bugünkü kanallar red
 2. SQL'in Realtime bölümünü canlıya uygula (Kerem onayı). Bu adım bugünkü kanalları etkilemez.
 3. Private kanal kullanan kodu yayına al (push, Kerem kararı).
 4. İki hesaplı testi yap (aşağıda).
-5. Supabase Dashboard → Realtime → Settings → "Allow public access" ayarını kapat (Kerem).
+5. Supabase Dashboard → Realtime → Settings → "Allow public access" ayarını kapat ve sayfa altındaki "Save" ile kaydet (Kerem). Ekranda kapalı görünmesi yetmez; genel anahtarla herkese açık bir kanala katılma denemesi `PrivateOnly` ile reddedilmelidir.
 6. İki hesaplı testi tekrarla. Masa bozulursa ayarı hemen geri aç, sonra incele.
 
 Doğrulama sorgusu: politika listesinde yalnız iki satır olmalı (`mentor_realtime_staff_read`, `mentor_realtime_student_read`), ikisi de `SELECT`; anon yazma yetkileri `false` beklenir:
@@ -176,6 +176,9 @@ Kayıt:
 | Tarih | Adım | Sonuç |
 | --- | --- | --- |
 | 2026-09-25 22:04 UTC | 2. adım: migration `volunteer_mentor_private_realtime` (Kerem onayı; önce 21:11 UTC yedeği `--verify` ile doğrulandı) | İki SELECT politikası canlıda. Anon `insert`/`update` yetkisi `true` kaldı (Supabase'e ait). Geri alınan canlı denemede gerçek 2 öğrenci + operatör kimliğiyle 10/10 giriş kararı doğru; öğrenci ve anon yazma 42501 ile reddedildi; deneme satırı kalmadı. Canlıdaki herkese açık kanallar etkilenmedi. |
+| 2026-09-26 | 3. adım: push (c2bab1e, kart 2 ile aynı yayın) | Yayın Ready. |
+| 2026-09-25 22:38 UTC | 5. adım: "Allow public access" kapatıldı (Kerem; ilk denemede ekranda kapalı görünüyordu ama kaydedilmemişti, "Save" sonrası devreye girdi) | Genel anahtarla herkese açık kanal `PrivateOnly`, girişsiz masa kanalı `Unauthorized` ile reddedildi. |
+| 2026-09-26 | 4.+6. adım: üretimde iki hesaplı test (Kerem) | Mesajlar öğrenci ve operatör arasında iki yönde yenilemeden geliyor. |
 
 ## Expert Lead Desk
 

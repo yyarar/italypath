@@ -121,8 +121,6 @@ requireTokens("program detail client", departmentDetailClient, [
   "department.durationYears",
   "department.languages",
   "language={language}",
-  "programName={department.name}",
-  "isSignedIn={isSignedIn}",
   "ComingSoonNotice",
   "detailsComingSoonTitle",
   "detailsComingSoonBody",
@@ -173,6 +171,8 @@ requireTokens("portrait components", portraitSource, [
   "ProgramSummaryStrip",
   "ProgramSourceTrail",
   "aria-expanded",
+  // AI masasi kaldirildi (2026-09-26): kaynak izindeki yonlendirme uzman masasina gider.
+  '"/ai-mentor?desk=expert"',
   // Ayni resmi bolum sinifindaki diger okullarin programlari (2026-09-17).
   "sameFieldPrograms",
 ]);
