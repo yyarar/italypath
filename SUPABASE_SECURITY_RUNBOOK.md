@@ -136,6 +136,44 @@ where active = true;
 
 `private_idempotency_realtime_rows` must be `0`. Any non-zero result is a deployment failure: remove `mentor_rpc_idempotency` from `supabase_realtime` before client traffic.
 
+### Private Realtime
+
+Durum: AKTIF REFERANS · Tasarım: 2026-09-25 (güvenlik denetimi G4#1) · Kanıt: `supabase/volunteer_mentor.sql` Realtime bölümü, `lib/mentor/volunteerDeskState.ts` `mentorPrivateChannelOptions()`, `npm run test:mentor-db` "private Realtime topics". Canlı durum `docs/STATUS.md`.
+
+Gönüllü masanın dört canlı kanalı private açılır. Supabase bir private kanala katılımı yalnız `realtime.messages` üzerindeki SELECT politikalarına göre kabul eder: öğrenci yalnız kendi görüşme listesi ve kendi görüşmesinin mesaj kanalına, aktif operatör yalnız kendi kimliğiyle başlayan operatör kanallarına girer. Yazma politikası yoktur. Satır verisi yine tabloların RLS'iyle süzülür.
+
+Sıra önemlidir. Panel ayarı koddan önce kapatılırsa bugünkü kanallar reddedilir ve masa canlı güncellemeyi kaybeder:
+
+1. Yedek al ve doğrula (bölüm 7).
+2. SQL'in Realtime bölümünü canlıya uygula (Kerem onayı). Bu adım bugünkü kanalları etkilemez.
+3. Private kanal kullanan kodu yayına al (push, Kerem kararı).
+4. İki hesaplı testi yap (aşağıda).
+5. Supabase Dashboard → Realtime → Settings → "Allow public access" ayarını kapat (Kerem).
+6. İki hesaplı testi tekrarla. Masa bozulursa ayarı hemen geri aç, sonra incele.
+
+Doğrulama sorgusu: politika listesinde yalnız iki satır olmalı (`mentor_realtime_staff_read`, `mentor_realtime_student_read`), ikisi de `SELECT`; anon yazma yetkileri `false` beklenir:
+
+```sql
+select policyname, cmd, roles
+from pg_policies
+where schemaname = 'realtime' and tablename = 'messages'
+order by policyname;
+
+select has_table_privilege('anon', 'realtime.messages', 'insert') as anon_insert,
+       has_table_privilege('anon', 'realtime.messages', 'update') as anon_update;
+```
+
+`realtime.messages` Supabase'in Realtime rolüne aittir. Barındırılan projede `revoke` bu yetkileri kaldıramayabilir; o durumda sonuç `true` kalır ve anon yazmasını RLS reddeder (yazma politikası yok). Sonucu STATUS'a yaz.
+
+İki hesaplı test (üretimde, iki normal öğrenci hesabı + operatör hesabı, üç ayrı tarayıcı profili):
+
+1. Öğrenci A `/ai-mentor?desk=volunteer` sayfasında görüşme başlatır veya açık görüşmesini açar; bağlantı durumu canlı görünür.
+2. Operatör `/ekip/mentor` sayfasında A'nın görüşmesini açar ve cevap yazar; cevap A'nın ekranında sayfa yenilemeden görünür.
+3. A cevap yazar; mesaj operatör ekranında yenilemeden görünür, liste sırası güncellenir.
+4. Öğrenci B yalnız kendi görüşmesini görür; A'nın görüşmesi ve mesajları B'de hiç görünmez.
+5. Üç tarayıcının geliştirici konsolunda Realtime yetki hatası (`Unauthorized`, `CHANNEL_ERROR`) yoktur.
+6. Test görüşmelerini kapat.
+
 ## Expert Lead Desk
 
 Bu masa gönüllü görüşmelerinden ayrı bir `expert_leads` tablosu ve public form
@@ -149,6 +187,8 @@ endpoint'i kullanır. Kurulumu yalnızca production deploy yetkisi olan kişi ya
 6. Manuel test sonunda test lead kaydını `/ekip/uzman` panelinden sil.
 
 `supabase/expert_leads.sql` kurulmamışsa public endpoint kontrollü `503` döner; RLS'yi gevşetmek veya service-role key'i client'a vermek kabul edilebilir bir fallback değildir.
+
+Saatlik yoğunluk (2026-09-25, Kerem kararı 50 / 150): son bir saatte site genelinde 50 talep dolduysa yeni talepler `suspected` durumuyla kaydedilir ve `/ekip/uzman` "Şüpheli" filtresinde bekler; 150'den sonrası reddedilir ve form öğrencinin girdisini koruyarak "yoğunluk" mesajı gösterir. Gerçek bir şüpheli talep durumunu "Yeni" yaparak listeye alınır. Gelen kutusu "Yeni" filtresiyle açılır ve 50'lik sayfalarla yüklenir.
 
 ## 7) Yedek ve geri yükleme
 

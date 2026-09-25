@@ -1,6 +1,6 @@
 # ItalyPath — Açık İşler ve Son Durum
 
-Tarih: 2026-09-25 · Doğrulandığı commit: `771b995` · 2026-09-25: servis planları/kullanım (#1, #18, #21, #40-42) eklendi, kaynak `docs/USAGE_LIMITS.md` · 2026-09-25: Supabase yedek ve geri yükleme yolu (G2#2) kapandı, #43-45 eklendi
+Tarih: 2026-09-25 · Doğrulandığı commit: `771b995` · 2026-09-25: servis planları/kullanım (#1, #18, #21, #40-42) eklendi, kaynak `docs/USAGE_LIMITS.md` · 2026-09-25: Supabase yedek ve geri yükleme yolu (G2#2) kapandı, #43-45 eklendi · 2026-09-25: güvenlik kartı 5 (S3#3, S2#2, S2#4, G4#1) dalda, #53 eklendi
 
 Bu dosya projenin **tek** açık iş listesidir (`docs/CONTEXT_AUDIT_2026-09-19.md` önerisi). Her değişiklikte tarihi ve kanıtı güncelle; biten işi "Kapananlar"a taşı. Mimari `AGENT_CONTEXT.md`'de, tarihsel ölçümler `SEO_AUDIT.md`'de, tasarım/plan durumları `docs/superpowers/INDEX.md`'de tutulur.
 
@@ -103,13 +103,14 @@ Denetim: canlı RLS/yetki okuması, herkese açık anahtarla okuma/yazma denemes
 
 | # | İş | Kanıt / kaynak | Karar |
 | --- | --- | --- | --- |
-| 46 | Vercel Firewall ile `/api/expert-leads` için IP başına istek sınırı (veritabanındaki saatlik 50 sınırına ek, saldırı sırasında gerçek öğrencilerin de beklemesini azaltır) | Vercel paneli | Kerem (panel ayarı) |
+| 46 | Vercel Firewall ile `/api/expert-leads` için IP başına istek sınırı (veritabanındaki saatlik 50 şüpheli / 150 tavan sınırına ek, saldırı sırasında gerçek öğrencilerin de beklemesini azaltır) | Vercel paneli | Kerem (panel ayarı) |
 | 47 | Bot tuzağı (`website` alanı) şifre yöneticisi doldurursa talep sessizce kaybolur (formda uyarı yok); ayrıca tuzak 200, gerçek kayıt 201 döndüğü için botlar ayırt edebilir | `lib/mentor/expertLeadValidation.ts`, `components/mentor/expert/ExpertLeadForm.tsx` | Sıralama |
 | 48 | Ekip yetkisi tüm sütunları güncelleyebiliyor (telefon, ad, tarih); en az yetki için `status` + `internal_note` ile sınırlanabilir | `supabase/expert_leads.sql` `grant update` | Sıralama |
 | 49 | Başkasının numarasıyla talep açılabilir; ekip o kişiye istenmeden WhatsApp yazabilir. Süreç notu: ilk mesajda talebin kendisine ait olup olmadığını teyit et | süreç | Kerem |
-| 50 | Talep gelen kutusunda sayfalama yok ve liste açıklama metnini de çeker; kayıt sayısı büyürse (1.000+) yeni talepler görünmeyebilir ve her yenileme çok veri indirir | `lib/mentor/useExpertLeadInbox.ts` | Ölçek büyüyünce |
-| 51 | Küçükler: adda yön/görünmez karakterler listede boş görünen ad yaratabilir, silme onayındaki ad `$&` desenleriyle bozulabilir; formda `method="post"` yok (etkileşimden önce gönderim riski, animasyonla büyük ölçüde örtülü); sunucu tarafı ekleme ve form isteğinde süre sınırı yok | `ExpertLeadDetail.tsx`, `ExpertLeadForm.tsx`, `expertLeads.server.ts` | Düşük |
+| 50 | Talep gelen kutusunda sayfalama yok ve liste açıklama metnini de çeker; kayıt sayısı büyürse (1.000+) yeni talepler görünmeyebilir ve her yenileme çok veri indirir. **Kart 5 dalında çözüldü** (50'lik sayfa + "Daha fazla göster", sunucu tarafı filtre); yayınla kapanır (#53). Açıklama metni hâlâ listeyle gelir, sayfa başına üst sınırlı | `lib/mentor/useExpertLeadInbox.ts` | Yayın (#53) |
+| 51 | Küçükler: adda yön/görünmez karakterler listede boş görünen ad yaratabilir (**kart 5 dalında çözüldü**, yayınla kapanır #53), silme onayındaki ad `$&` desenleriyle bozulabilir; formda `method="post"` yok (etkileşimden önce gönderim riski, animasyonla büyük ölçüde örtülü); sunucu tarafı ekleme ve form isteğinde süre sınırı yok | `ExpertLeadDetail.tsx`, `ExpertLeadForm.tsx`, `expertLeads.server.ts` | Düşük |
 | 52 | Supabase uyarısı: `public.set_updated_at` (üniversite/bölüm/topluluk/burs içerik tabloları, birleştirilmemiş `UI` dalından) `search_path` sabitlemiyor; ayrıca `supabase/rls_hardening.sql` yeniden çalıştırılırsa `requesting_user_id()` sabitlemesini kaldırır. Gerçek risk çok düşük, hijyen işi | Supabase güvenlik danışmanı; `supabase/rls_hardening.sql` | Canlı DB onayı |
+| 53 | Güvenlik kartı 5 yayını (denetim S3#3, S2#2, S2#4, G4#1). Dal `claude/competent-pike-e3c652`, commit edildi, push edilmedi. Kalan sıra: (1) iki canlı SQL (uzman formu şüpheli eşiği + 150 tavan; gönüllü masa Realtime okuma politikaları), (2) push, (3) iki hesaplı Realtime testi, (4) Supabase Realtime "Allow public access" kapatma, (5) testi tekrar. Panel ayarı 2. adımdan önce kapatılırsa masa canlı güncellemeyi kaybeder. Ayrıntı `SUPABASE_SECURITY_RUNBOOK.md` "Private Realtime" | `supabase/expert_leads.sql`, `supabase/volunteer_mentor.sql`, `npm run test:mentor-db` | Kerem: canlı SQL, push, panel ayarı |
 
 ## Kapananlar (son 7 gün)
 
