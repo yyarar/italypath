@@ -242,6 +242,21 @@ for (const filePath of [
   );
 }
 
+const validationSource = read("lib/mentor/expertLeadValidation.ts");
+const mentorDbTest = read("scripts/test-mentor-db.mjs");
+mustInclude(route, "isSameSiteJsonRequest(request)", "Expert lead route kaynak/icerik turu kontrolu yapmiyor");
+mustInclude(route, '"application/json"', "Expert lead route JSON icerik turu istemiyor");
+mustInclude(route, 'error: "rate_limited" }, 429', "Expert lead route yogunluk cevabi (429) vermiyor");
+mustInclude(server, "expert_lead_rate_limited", "Expert lead server saatlik sinir hatasini tanimiyor");
+mustInclude(sql, "create trigger expert_leads_hourly_cap", "Expert lead saatlik sinir tetikleyicisi eksik");
+mustInclude(sql, "v_recent_leads >= 50", "Expert lead saatlik siniri 50 degil");
+mustInclude(mentorDbTest, "expert_lead_rate_limited", "Expert lead saatlik sinir DB testi eksik");
+mustInclude(validationSource, "Array.from(value).length", "Expert lead uzunlugu kod noktasi olarak sayilmiyor");
+mustInclude(validationSource, '"invalid_characters"', "Expert lead gorunmez karakter kontrolu eksik");
+mustInclude(expertForm, "copy.busyError", "Expert lead formu yogunluk mesajini gostermiyor");
+mustInclude(translations, "busyError", "Expert lead yogunluk metni eksik");
+mustInclude(translations, "invalidCharacters", "Expert lead gorunmez karakter metni eksik");
+
 if (failures.length > 0) {
   console.error("Expert lead guard failed:");
   failures.forEach((failure) => console.error(`- ${failure}`));

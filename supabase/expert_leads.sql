@@ -65,6 +65,42 @@ create trigger expert_leads_set_updated_at
   before update on public.expert_leads
   for each row execute function public.set_expert_leads_updated_at();
 
+-- Abuse cap (2026-09-25, Kerem decision): at most 50 new leads per hour across
+-- the whole site, so an unauthenticated flood cannot fill the Free-tier database.
+-- A same-submission retry skips the cap and is answered by the unique constraint.
+create or replace function public.enforce_expert_leads_hourly_cap()
+returns trigger
+language plpgsql
+set search_path = ''
+as $$
+declare
+  v_recent_leads integer;
+begin
+  if exists (
+    select 1 from public.expert_leads where submission_id = new.submission_id
+  ) then
+    return new;
+  end if;
+
+  perform pg_catalog.pg_advisory_xact_lock(
+    pg_catalog.hashtextextended('expert_leads:hourly_cap', 0)
+  );
+  select count(*)
+  into v_recent_leads
+  from public.expert_leads
+  where created_at > timezone('utc', now()) - interval '1 hour';
+  if v_recent_leads >= 50 then
+    raise exception 'expert_lead_rate_limited' using errcode = 'P0001';
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists expert_leads_hourly_cap on public.expert_leads;
+create trigger expert_leads_hourly_cap
+  before insert on public.expert_leads
+  for each row execute function public.enforce_expert_leads_hourly_cap();
+
 alter table public.expert_leads enable row level security;
 
 revoke all on public.expert_leads from anon, authenticated;

@@ -1025,6 +1025,7 @@ export const translations = {
         submit: "ÜCRETSİZ ÖN GÖRÜŞME TALEBİ GÖNDER",
         submitting: "GÖNDERİLİYOR…",
         submitError: "Talebin şu anda gönderilemedi. Bilgilerin duruyor; tekrar deneyebilirsin.",
+        busyError: "Şu anda çok yoğun talep alıyoruz. Bilgilerin duruyor; birkaç dakika sonra tekrar gönderebilirsin.",
         success: "Talebini aldık. Ekibimiz WhatsApp üzerinden en kısa sürede sana ulaşacak.",
         backToDesks: "MASALARA DÖN",
         fields: {
@@ -1065,6 +1066,7 @@ export const translations = {
           fieldOfInterest: "Geçerli bir alan seç.",
           targetIntake: "Geçerli bir başlangıç dönemi seç.",
           helpRequest: "Açıklama 10–3000 karakter olmalı.",
+          invalidCharacters: "Bu alanda desteklenmeyen görünmez bir karakter var. Metni silip yeniden yazmayı dene.",
         },
       },
       channels: {
@@ -2314,6 +2316,7 @@ export const translations = {
         submit: "SEND FREE PRE-CONSULTATION REQUEST",
         submitting: "SENDING…",
         submitError: "Your request could not be sent right now. Your information is still here, so you can try again.",
+        busyError: "We are receiving an unusually high number of requests. Your information is still here; please try again in a few minutes.",
         success: "We received your request. Our team will contact you on WhatsApp as soon as possible.",
         backToDesks: "BACK TO DESKS",
         fields: {
@@ -2354,6 +2357,7 @@ export const translations = {
           fieldOfInterest: "Choose a valid field.",
           targetIntake: "Choose a valid intake.",
           helpRequest: "The description must be 10–3000 characters.",
+          invalidCharacters: "This field contains an unsupported hidden character. Try deleting and retyping the text.",
         },
       },
       channels: {

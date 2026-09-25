@@ -158,6 +158,44 @@ for (const [field, changes] of invalidCases) {
   assert.ok(field in result.errors, `${field} error key is missing`);
 }
 
+// Lengths are counted in code points so the form agrees with Postgres char_length.
+assert.equal(
+  validateExpertLeadPayload({ ...validPayload, fullName: "😀" }, clock).kind,
+  "invalid",
+  "a one-code-point name must be too short, as the database would reject it",
+);
+assert.equal(
+  validateExpertLeadPayload({ ...validPayload, fullName: "😀".repeat(120) }, clock).kind,
+  "valid",
+  "120 emoji are within the 120-character database limit",
+);
+assert.equal(
+  validateExpertLeadPayload({ ...validPayload, helpRequest: "😀".repeat(3000) }, clock).kind,
+  "valid",
+  "3000 emoji are within the 3000-character database limit",
+);
+
+// Characters Postgres rejects, or that break a name, fail validation instead of the insert.
+for (const [field, value] of [
+  ["helpRequest", "Başvuru yol haritası\u0000 istiyorum lütfen"],
+  ["helpRequest", "Başvuru yol haritası \ud800 istiyorum lütfen"],
+  ["fullName", "Ada\nÖğrenci"],
+  ["fullName", "Ada\u0007Öğrenci"],
+]) {
+  const result = validateExpertLeadPayload({ ...validPayload, [field]: value }, clock);
+  assert.equal(result.kind, "invalid", `${JSON.stringify(value)} must be rejected in ${field}`);
+  if (result.kind !== "invalid") assert.fail(`${field} did not return field errors`);
+  assert.equal(result.errors[field], "invalid_characters", `${field} must report invalid_characters`);
+}
+assert.equal(
+  validateExpertLeadPayload(
+    { ...validPayload, helpRequest: "Birinci satır\nİkinci satır\tve son satır" },
+    clock,
+  ).kind,
+  "valid",
+  "line breaks and tabs stay allowed in the help request",
+);
+
 const rows = [
   {
     id: "lead-new",

@@ -41,7 +41,7 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
     Partial<Record<ExpertLeadField, string>>
   >({});
   const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
+  const [submitError, setSubmitError] = useState<"generic" | "busy" | null>(null);
   const intakeOptions = useMemo(() => buildTargetIntakeOptions(), []);
 
   const setField = (field: keyof ExpertLeadDraft, value: string) => {
@@ -55,6 +55,7 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
     const code = fieldErrors[field];
     if (!code) return null;
     if (code === "required") return copy.validation.required;
+    if (code === "invalid_characters") return copy.validation.invalidCharacters;
     return copy.validation[field];
   };
 
@@ -68,7 +69,7 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
     }
 
     setSubmitting(true);
-    setSubmitError(false);
+    setSubmitError(null);
     try {
       const response = await fetch("/api/expert-leads", {
         method: "POST",
@@ -77,15 +78,20 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
       });
       const result = (await response.json()) as {
         ok?: boolean;
+        error?: string;
         errors?: Partial<Record<ExpertLeadField, string>>;
       };
       if (!response.ok || !result.ok) {
         if (result.errors) setFieldErrors(result.errors);
+        if (result.error === "rate_limited") {
+          setSubmitError("busy");
+          return;
+        }
         throw new Error("expert_lead_submit_failed");
       }
       onSubmitted();
     } catch {
-      setSubmitError(true);
+      setSubmitError("generic");
     } finally {
       setSubmitting(false);
     }
@@ -272,7 +278,7 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
 
       {submitError ? (
         <p role="alert" className="text-sm text-[var(--editorial-terracotta-ink)]">
-          {copy.submitError}
+          {submitError === "busy" ? copy.busyError : copy.submitError}
         </p>
       ) : null}
 

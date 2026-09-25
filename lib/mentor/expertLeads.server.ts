@@ -16,7 +16,7 @@ function createServiceRoleClient() {
 
 export async function storeExpertLead(
   value: ExpertLeadSubmission,
-): Promise<"created" | "duplicate"> {
+): Promise<"created" | "duplicate" | "rate_limited"> {
   const { error } = await createServiceRoleClient().from("expert_leads").insert({
     submission_id: value.submissionId,
     full_name: value.fullName,
@@ -34,6 +34,8 @@ export async function storeExpertLead(
   ) {
     return "duplicate";
   }
+  // Raised by the hourly cap trigger in supabase/expert_leads.sql.
+  if (error.message.includes("expert_lead_rate_limited")) return "rate_limited";
 
   throw new Error(`expert_lead_insert_failed:${error.code ?? "unknown"}`);
 }

@@ -16,7 +16,31 @@ function json(body: unknown, status: number) {
   });
 }
 
+// Only the site's own form may post here: a JSON content type forces a CORS
+// preflight (which this route never approves) and a present Origin must match
+// the host, so other sites cannot relay spam through their visitors' browsers.
+function isSameSiteJsonRequest(request: Request): boolean {
+  const contentType = request.headers.get("content-type") ?? "";
+  if (!contentType.toLowerCase().startsWith("application/json")) return false;
+
+  const origin = request.headers.get("origin");
+  if (!origin) return true;
+  const siteHosts = [
+    request.headers.get("x-forwarded-host"),
+    request.headers.get("host"),
+  ].filter(Boolean);
+  try {
+    return siteHosts.includes(new URL(origin).host);
+  } catch {
+    return false;
+  }
+}
+
 export async function POST(request: Request) {
+  if (!isSameSiteJsonRequest(request)) {
+    return json({ ok: false, error: "forbidden" }, 403);
+  }
+
   let body: unknown;
 
   try {
@@ -39,6 +63,9 @@ export async function POST(request: Request) {
 
   try {
     const result = await storeExpertLead(validation.value);
+    if (result === "rate_limited") {
+      return json({ ok: false, error: "rate_limited" }, 429);
+    }
     return json({ ok: true }, result === "created" ? 201 : 200);
   } catch (error) {
     console.error("Expert lead submission failed:", error);

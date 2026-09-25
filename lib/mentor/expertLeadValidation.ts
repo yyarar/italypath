@@ -28,6 +28,25 @@ function stringValue(value: unknown): string {
   return typeof value === "string" ? value : "";
 }
 
+// Postgres counts text length in code points and rejects NUL bytes and unpaired
+// surrogates; checking the same way here keeps a lead from failing at insert time.
+function characterLength(value: string): number {
+  return Array.from(value).length;
+}
+
+function isWellFormed(value: string): boolean {
+  try {
+    encodeURIComponent(value);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+const NAME_CONTROL_CHARACTERS = /[\u0000-\u001f\u007f]/;
+// Line breaks and tabs stay allowed in the free-text request.
+const TEXT_CONTROL_CHARACTERS = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/;
+
 function isExpertStudyLevel(value: string): value is ExpertStudyLevel {
   return (EXPERT_STUDY_LEVELS as readonly string[]).includes(value);
 }
@@ -75,8 +94,10 @@ export function validateExpertLeadPayload(
 
   if (!UUID_PATTERN.test(submissionId)) errors.submissionId = "invalid";
 
-  if (fullName.length < 2) errors.fullName = "too_short";
-  else if (fullName.length > 120) errors.fullName = "too_long";
+  if (NAME_CONTROL_CHARACTERS.test(fullName) || !isWellFormed(fullName)) {
+    errors.fullName = "invalid_characters";
+  } else if (characterLength(fullName) < 2) errors.fullName = "too_short";
+  else if (characterLength(fullName) > 120) errors.fullName = "too_long";
 
   const normalizedPhone = normalizeWhatsAppPhone(whatsappPhone);
   if (!normalizedPhone) errors.whatsappPhone = "invalid";
@@ -85,8 +106,10 @@ export function validateExpertLeadPayload(
   if (!isExpertField(fieldOfInterest)) errors.fieldOfInterest = "invalid";
   if (!isValidTargetIntake(targetIntake, now)) errors.targetIntake = "invalid";
 
-  if (helpRequest.length < 10) errors.helpRequest = "too_short";
-  else if (helpRequest.length > 3000) errors.helpRequest = "too_long";
+  if (TEXT_CONTROL_CHARACTERS.test(helpRequest) || !isWellFormed(helpRequest)) {
+    errors.helpRequest = "invalid_characters";
+  } else if (characterLength(helpRequest) < 10) errors.helpRequest = "too_short";
+  else if (characterLength(helpRequest) > 3000) errors.helpRequest = "too_long";
 
   if (Object.keys(errors).length > 0) {
     return { kind: "invalid", errors };

@@ -536,6 +536,8 @@ Uzman lead mimarisi gönüllü konuşma tablolarını, hook'larını veya Realti
 - Public form `components/mentor/expert/ExpertLeadDesk.tsx` içindedir; `POST /api/expert-leads` server-side doğrulama ve server-only service-role insert sınırıdır.
 - `expert_leads` ayrı tablo, constraint ve RLS yüzeyidir. Anon/normal authenticated kullanıcı okuyamaz veya mutate edemez; insert yalnızca server route ile olur.
 - `/ekip/uzman` protected route'tur ve mevcut tek aktif `mentor_staff` operatörü için `is_active_mentor_staff()` + RLS doğrulamasını kullanır. `useExpertLeadInbox` Realtime/polling/notification kullanmaz; yetki veya kullanıcı değişiminde lead state'ini fail-closed temizler.
+- Kotuye kullanim siniri (2026-09-25, Kerem karari): `expert_leads_hourly_cap` BEFORE INSERT tetikleyicisi tum site genelinde saatte en fazla 50 yeni talep kabul eder (`expert_lead_rate_limited`); ayni `submission_id` ile tekrar deneme sinirdan once gecer. Route bunu 429 `rate_limited` olarak doner, form "yogunluk" mesaji gosterir. Canliya uygulandi (migration `expert_leads_hourly_cap`).
+- Route yalnizca `application/json` kabul eder ve Origin basligi varsa site host'uyla eslesmelidir (baska sitenin ziyaretci tarayicilari uzerinden gonderim yapmasini engeller); aksi 403. Dogrulama uzunlugu Postgres gibi kod noktasi olarak sayar, NUL/kontrol karakteri ve eslesmemis surrogate `invalid_characters` doner (eskiden insert'te 503 ile talep kayboluyordu).
 - Kalıcı kontroller: `npm run check:expert-leads` ve `npm run test:expert-leads`; DB/RLS matrisi `npm run test:mentor-db` içindedir.
 
 Production acilisi Clerk third-party auth, SQL kurulumu ve `mentor_staff` provision adimlari tamamlanmadan yapilmaz; ayrintilar `SUPABASE_SECURITY_RUNBOOK.md` icindedir.

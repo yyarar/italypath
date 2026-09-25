@@ -653,6 +653,38 @@ async function main() {
     loadExpertLeadsSql();
   });
 
+  await test("expert leads are capped at 50 per hour; retries and older leads are exempt", async () => {
+    const leadInsert = (submissionId, suffix) => `
+      insert into public.expert_leads (
+        submission_id, full_name, whatsapp_phone, study_level,
+        field_of_interest, target_intake, help_request
+      ) values (
+        ${quote(submissionId)}, ${quote(`Cap Lead ${suffix}`)}, '+905321239999', 'bachelor',
+        'undecided', 'undecided', ${quote(`Hourly cap request ${suffix}`)}
+      );
+    `;
+    const existing = Number(scalar(runSql(`
+      select count(*) from public.expert_leads
+      where created_at > timezone('utc', now()) - interval '1 hour';
+    `)));
+    runSql(`
+      insert into public.expert_leads (
+        submission_id, full_name, whatsapp_phone, study_level,
+        field_of_interest, target_intake, help_request
+      )
+      select ('b1000000-0000-4000-8000-' || lpad(g::text, 12, '0'))::uuid,
+        'Cap Lead ' || g, '+90532123' || lpad(g::text, 4, '0'), 'bachelor',
+        'undecided', 'undecided', 'Hourly cap request ' || g
+      from generate_series(1, ${Math.max(0, 50 - existing)}) g;
+    `);
+    const limited = runSql(leadInsert("b1000000-0000-4000-8000-000000000099", "overflow"), { allowFailure: true });
+    assertFailure(limited, "expert_lead_rate_limited", "51st expert lead within an hour");
+    const retry = runSql(leadInsert("b1000000-0000-4000-8000-000000000001", "retry"), { allowFailure: true });
+    assertFailure(retry, "expert_leads_submission_id_key", "same-submission retry during the cap");
+    runSql("update public.expert_leads set created_at = created_at - interval '2 hours';");
+    runSql(leadInsert("b1000000-0000-4000-8000-000000000100", "after window"));
+  });
+
   await test("different-nonce concurrent starts reject the losing request", async () => {
     const results = await runConcurrentBehindGate(conversationGate, [
       {
