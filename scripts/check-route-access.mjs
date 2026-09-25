@@ -100,6 +100,7 @@ const publicChecks = [
   "/ai-mentor/session",
   "/api/universities",
   "/api/expert-leads",
+  "/api/webhooks/clerk",
   "/data/italy-regions.geojson",
   "/sign-in",
   "/sign-up",
@@ -126,6 +127,9 @@ const protectedChecks = [
   "/api/expert-leads/export",
   "/api/expert-leads-x",
   "/api/universities/export",
+  "/api/webhooks",
+  "/api/webhooks/clerk/replay",
+  "/api/webhooks/clerkx",
   "/girisx",
   "/universities-x",
 ];
@@ -229,6 +233,27 @@ for (const entry of inventory) {
   const handlerSource = readFileSync(entry.file, "utf8");
   if (!handlerSource.includes("await auth()")) {
     failures.push(`${relative(root, entry.file)} must check the session itself with auth() (401 without userId)`);
+  }
+}
+
+// Herkese acik webhook adresi oturum tasimaz; tek koruma imza dogrulamasidir. Handler baska
+// hicbir isten once Clerk imzasini dogrulamali ve yalniz POST sunmali.
+for (const entry of inventory) {
+  if (entry.kind !== "api" || !entry.path.startsWith("/api/webhooks/")) continue;
+  const where = relative(root, entry.file);
+  if (classify(entry.path) !== "public") continue;
+  const handlerSource = readFileSync(entry.file, "utf8");
+  if (!handlerSource.includes('from "@clerk/nextjs/webhooks"')) {
+    failures.push(`${where} must verify the request with verifyWebhook from @clerk/nextjs/webhooks`);
+    continue;
+  }
+  const verifyIndex = handlerSource.indexOf("await verifyWebhook(request)");
+  const firstSideEffect = handlerSource.search(/await (?!verifyWebhook\()/);
+  if (verifyIndex < 0 || (firstSideEffect >= 0 && firstSideEffect < verifyIndex)) {
+    failures.push(`${where} must await verifyWebhook(request) before any other awaited work`);
+  }
+  if (/export (?:async )?function (?:GET|PUT|PATCH|DELETE)\b/.test(handlerSource)) {
+    failures.push(`${where} must only export POST`);
   }
 }
 

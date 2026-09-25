@@ -36,6 +36,7 @@
     "test:mentor-operator": "node scripts/test-mentor-operator-inbox.mjs",
     "test:mentor-db": "node scripts/test-mentor-db.mjs",
     "test:expert-leads": "node scripts/test-expert-leads.mjs",
+    "test:account-deletion": "node scripts/test-account-deletion.mjs",
     "check:auth-production": "node scripts/check-auth-production-redirects.mjs",
     "sat:audit": "node scripts/sat/audit-sat-content.mjs",
     "sat:patch": "node scripts/sat/patch-sat-questions.mjs",
