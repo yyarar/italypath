@@ -38,6 +38,9 @@ const {
   resolveConversationSelection,
   transitionCommittedAuth,
   transitionMessageScope,
+  withMentorTimeout,
+  classifyMentorActionFailure,
+  MENTOR_REQUEST_TIMEOUT_MS,
 } = await importStateHelpers();
 
 const oldConversation = {
@@ -326,5 +329,32 @@ assert.doesNotMatch(
   /refreshMessages/,
   "durable start resolution must not wait for independent selected-thread message loading",
 );
+
+assert.equal(MENTOR_REQUEST_TIMEOUT_MS, 15_000, "mentor requests must give up after 15 seconds");
+assert.equal(
+  await withMentorTimeout(Promise.resolve("token"), 50),
+  "token",
+  "a request that settles in time must pass its value through",
+);
+await assert.rejects(
+  withMentorTimeout(new Promise(() => {}), 20),
+  /mentor_request_timeout/,
+  "a request that never settles must reject with the timeout error",
+);
+await assert.rejects(
+  withMentorTimeout(Promise.reject(new Error("upstream_failed")), 50),
+  /upstream_failed/,
+  "an upstream failure must surface unchanged",
+);
+assert.equal(
+  classifyMentorActionFailure({ message: "message_rate_limited", code: "P0001" }),
+  "message_rate_limited",
+);
+assert.equal(
+  classifyMentorActionFailure({ message: "conversation_rate_limited", code: "P0001" }),
+  "conversation_rate_limited",
+);
+assert.equal(classifyMentorActionFailure(new Error("send_failed")), "generic");
+assert.equal(classifyMentorActionFailure(null), "generic");
 
 console.log("volunteer desk lifecycle checks passed");

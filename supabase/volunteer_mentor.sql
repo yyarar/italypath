@@ -281,6 +281,8 @@ declare
     120
   );
   v_conversation_id uuid;
+  v_recent_messages integer;
+  v_recent_conversations integer;
 begin
   if v_user_id is null then
     raise exception 'authentication_required' using errcode = '42501';
@@ -321,6 +323,32 @@ begin
   limit 1;
   if found then
     raise exception 'open_conversation_exists' using errcode = 'P0001';
+  end if;
+
+  -- Abuse cap (2026-09-25): 5 new conversations per 24 hours and 20 student
+  -- messages per 10 minutes per student. Checked after the idempotency lookup
+  -- so a same-nonce retry still returns the original result.
+  perform pg_catalog.pg_advisory_xact_lock(
+    pg_catalog.hashtextextended('mentor:student_rate:' || v_user_id, 0)
+  );
+  select count(*)
+  into v_recent_conversations
+  from public.mentor_conversations
+  where user_id = v_user_id
+    and created_at > timezone('utc', now()) - interval '24 hours';
+  if v_recent_conversations >= 5 then
+    raise exception 'conversation_rate_limited' using errcode = 'P0001';
+  end if;
+  select count(*)
+  into v_recent_messages
+  from public.mentor_messages message
+  join public.mentor_conversations conversation
+    on conversation.id = message.conversation_id
+  where conversation.user_id = v_user_id
+    and message.sender_kind = 'student'
+    and message.created_at > timezone('utc', now()) - interval '10 minutes';
+  if v_recent_messages >= 20 then
+    raise exception 'message_rate_limited' using errcode = 'P0001';
   end if;
 
   insert into public.mentor_conversations (
@@ -386,6 +414,7 @@ declare
   v_conversation public.mentor_conversations%rowtype;
   v_idempotency_conversation_id uuid;
   v_message_id uuid;
+  v_recent_messages integer;
 begin
   if v_user_id is null then
     raise exception 'authentication_required' using errcode = '42501';
@@ -429,6 +458,23 @@ begin
 
   if v_conversation.status = 'closed' then
     raise exception 'conversation_closed' using errcode = 'P0001';
+  end if;
+
+  -- Abuse cap (2026-09-25): 20 student messages per 10 minutes per student,
+  -- counted across all of the student's conversations. Staff sends are not capped.
+  perform pg_catalog.pg_advisory_xact_lock(
+    pg_catalog.hashtextextended('mentor:student_rate:' || v_user_id, 0)
+  );
+  select count(*)
+  into v_recent_messages
+  from public.mentor_messages message
+  join public.mentor_conversations conversation
+    on conversation.id = message.conversation_id
+  where conversation.user_id = v_user_id
+    and message.sender_kind = 'student'
+    and message.created_at > timezone('utc', now()) - interval '10 minutes';
+  if v_recent_messages >= 20 then
+    raise exception 'message_rate_limited' using errcode = 'P0001';
   end if;
 
   insert into public.mentor_messages (

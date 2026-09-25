@@ -3,6 +3,10 @@
 import { type FormEvent, useState } from "react";
 
 import { useLanguage } from "@/context/LanguageContext";
+import {
+  classifyMentorActionFailure,
+  type MentorActionFailure,
+} from "@/lib/mentor/volunteerDeskState";
 
 export interface VolunteerComposerProps {
   sending: boolean;
@@ -13,7 +17,7 @@ export default function VolunteerComposer({ sending, onSend }: VolunteerComposer
   const { t } = useLanguage();
   const copy = t.aiMentor.volunteerDesk;
   const [draft, setDraft] = useState("");
-  const [failed, setFailed] = useState(false);
+  const [failure, setFailure] = useState<MentorActionFailure | null>(null);
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -22,9 +26,9 @@ export default function VolunteerComposer({ sending, onSend }: VolunteerComposer
     try {
       await onSend(trimmed);
       setDraft("");
-      setFailed(false);
-    } catch {
-      setFailed(true);
+      setFailure(null);
+    } catch (error) {
+      setFailure(classifyMentorActionFailure(error));
     }
   };
 
@@ -44,7 +48,7 @@ export default function VolunteerComposer({ sending, onSend }: VolunteerComposer
         value={draft}
         onChange={(event) => {
           setDraft(event.target.value);
-          if (failed) setFailed(false);
+          if (failure) setFailure(null);
         }}
         maxLength={4000}
         disabled={sending}
@@ -53,9 +57,13 @@ export default function VolunteerComposer({ sending, onSend }: VolunteerComposer
         className="w-full resize-y border border-[var(--editorial-border)] bg-[var(--editorial-paper)] px-4 py-3 font-serif text-base leading-7 text-[var(--editorial-ink)] outline-none placeholder:italic placeholder:text-[var(--editorial-muted)] focus:border-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] disabled:cursor-not-allowed disabled:opacity-60"
       />
 
-      {failed ? (
+      {failure ? (
         <p role="alert" className="mt-3 text-sm text-[var(--editorial-terracotta-ink)]">
-          {copy.sendError}
+          {failure === "message_rate_limited"
+            ? copy.messageRateLimitError
+            : failure === "conversation_rate_limited"
+              ? copy.conversationRateLimitError
+              : copy.sendError}
         </p>
       ) : null}
 

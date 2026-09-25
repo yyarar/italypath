@@ -7,6 +7,10 @@ import {
   VOLUNTEER_TOPIC_IDS,
   type VolunteerTopicId,
 } from "@/lib/mentor/volunteer";
+import {
+  classifyMentorActionFailure,
+  type MentorActionFailure,
+} from "@/lib/mentor/volunteerDeskState";
 
 export interface VolunteerConversationStartProps {
   sending: boolean;
@@ -21,7 +25,7 @@ export default function VolunteerConversationStart({
   const copy = t.aiMentor.volunteerDesk;
   const [topic, setTopic] = useState<VolunteerTopicId>("university-program");
   const [draft, setDraft] = useState("");
-  const [failed, setFailed] = useState(false);
+  const [failure, setFailure] = useState<MentorActionFailure | null>(null);
   const showScopeNote = topic === "scholarship-isee" || topic === "visa-residence";
 
   const handleSubmit = async (event: FormEvent) => {
@@ -31,9 +35,9 @@ export default function VolunteerConversationStart({
     try {
       await onStart(topic, trimmed);
       setDraft("");
-      setFailed(false);
-    } catch {
-      setFailed(true);
+      setFailure(null);
+    } catch (error) {
+      setFailure(classifyMentorActionFailure(error));
     }
   };
 
@@ -82,7 +86,7 @@ export default function VolunteerConversationStart({
         value={draft}
         onChange={(event) => {
           setDraft(event.target.value);
-          if (failed) setFailed(false);
+          if (failure) setFailure(null);
         }}
         maxLength={4000}
         disabled={sending}
@@ -91,9 +95,13 @@ export default function VolunteerConversationStart({
         className="w-full resize-y border border-[var(--editorial-border)] bg-[var(--editorial-surface)] px-4 py-3 font-serif text-base leading-7 text-[var(--editorial-ink)] outline-none placeholder:italic placeholder:text-[var(--editorial-muted)] focus:border-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] disabled:cursor-not-allowed disabled:opacity-60"
       />
 
-      {failed ? (
+      {failure ? (
         <p role="alert" className="mt-3 text-sm text-[var(--editorial-terracotta-ink)]">
-          {copy.sendError}
+          {failure === "message_rate_limited"
+            ? copy.messageRateLimitError
+            : failure === "conversation_rate_limited"
+              ? copy.conversationRateLimitError
+              : copy.sendError}
         </p>
       ) : null}
 

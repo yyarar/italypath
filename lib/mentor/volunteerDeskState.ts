@@ -16,6 +16,44 @@ export interface MessageScope<T> {
   messages: T[];
 }
 
+// Upper bound for one mentor request (Clerk token + Supabase call); past it the
+// desk shows its load error and retry instead of an endless loading line.
+export const MENTOR_REQUEST_TIMEOUT_MS = 15_000;
+
+export function withMentorTimeout<T>(
+  promise: PromiseLike<T>,
+  timeoutMs: number = MENTOR_REQUEST_TIMEOUT_MS,
+): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error("mentor_request_timeout")), timeoutMs);
+    Promise.resolve(promise).then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      (error: unknown) => {
+        clearTimeout(timer);
+        reject(error);
+      },
+    );
+  });
+}
+
+export type MentorActionFailure =
+  | "message_rate_limited"
+  | "conversation_rate_limited"
+  | "generic";
+
+export function classifyMentorActionFailure(error: unknown): MentorActionFailure {
+  const message =
+    typeof error === "object" && error !== null && "message" in error
+      ? String((error as { message: unknown }).message)
+      : "";
+  if (message.includes("conversation_rate_limited")) return "conversation_rate_limited";
+  if (message.includes("message_rate_limited")) return "message_rate_limited";
+  return "generic";
+}
+
 export function resolveConversationSelection<T extends MentorConversationRow>(
   rows: T[],
   currentConversationId: string | null,

@@ -169,6 +169,19 @@ mustInclude(securityRunbook, "legacy_mentor_idempotency_migration_required", "Le
 mustInclude(securityRunbook, "private_idempotency_realtime_rows", "Private Realtime kontrolü eksik");
 mustInclude(mentorClient, "getToken()", "Native Clerk token kullanılmıyor");
 mustNotInclude(mentorClient, 'template: "supabase"', "Deprecated JWT template kullanılıyor");
+mustInclude(mentorClient, "withMentorTimeout(getToken())", "Mentor token beklemesi zaman aşımına bağlı değil");
+mustInclude(
+  mentorClient,
+  "requestTimeoutMs: MENTOR_REQUEST_TIMEOUT_MS",
+  "Mentor Supabase istekleri zaman aşımına bağlı değil",
+);
+mustInclude(studentState, "export const MENTOR_REQUEST_TIMEOUT_MS", "Mentor istek zaman aşımı sabiti eksik");
+mustInclude(sql, "raise exception 'message_rate_limited'", "Öğrenci mesaj hız sınırı eksik");
+mustInclude(sql, "raise exception 'conversation_rate_limited'", "Öğrenci görüşme açma sınırı eksik");
+mustInclude(mentorDbTest, "message_rate_limited", "Mesaj hız sınırı DB testi eksik");
+mustInclude(mentorDbTest, "conversation_rate_limited", "Görüşme açma sınırı DB testi eksik");
+mustInclude(translations, "messageRateLimitError", "Mesaj hız sınırı metni eksik");
+mustInclude(translations, "conversationRateLimitError", "Görüşme açma sınırı metni eksik");
 mustInclude(studentHook, 'rpc("start_volunteer_conversation"', "Start RPC eksik");
 mustInclude(studentHook, 'rpc("send_student_mentor_message"', "Student send RPC eksik");
 mustInclude(studentHook, 'rpc("close_volunteer_conversation"', "Close RPC eksik");

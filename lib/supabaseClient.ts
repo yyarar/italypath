@@ -7,17 +7,26 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 type AccessTokenProvider = () => Promise<string | null>;
 
+interface ClerkSupabaseClientOptions {
+  /** Aborts each PostgREST request after this many milliseconds. */
+  requestTimeoutMs?: number;
+}
+
 /**
  * Clerk access tokenıyla RLS uyumlu Supabase client üretir.
  * Tokenın kabul edilmesi için Clerk, Supabase third-party auth provider olarak
  * yapılandırılmış olmalıdır.
  */
-export function createClerkSupabaseClient(getAccessToken: AccessTokenProvider) {
+export function createClerkSupabaseClient(
+  getAccessToken: AccessTokenProvider,
+  options: ClerkSupabaseClientOptions = {},
+) {
   return createClient(supabaseUrl, supabaseAnonKey, {
     accessToken: getAccessToken,
     auth: {
       persistSession: false,
       autoRefreshToken: false,
     },
+    ...(options.requestTimeoutMs ? { db: { timeout: options.requestTimeoutMs } } : {}),
   });
 }

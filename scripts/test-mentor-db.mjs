@@ -903,6 +903,66 @@ async function main() {
     assertFailure(nullStaffBody, "invalid_message_length", "NULL staff body");
   });
 
+  await test("student messages are capped at 20 per 10 minutes; retries and staff are exempt", async () => {
+    const conversation = scalar(runSql(asUser("student-rate", functionCall(
+      "start_volunteer_conversation",
+      [quote("other"), quote("Rate Student"), quote("Rate message 0"), quote("a1000000-0000-4000-8000-000000000000")],
+    ))));
+    runSql(asUser("student-rate", `
+      select public.send_student_mentor_message(${quote(conversation)}, 'Rate message ' || g, ('a1000000-0000-4000-8000-' || lpad(g::text, 12, '0'))::uuid)
+      from generate_series(1, 19) g;
+    `));
+    const limited = runSql(asUser("student-rate", functionCall(
+      "send_student_mentor_message",
+      [quote(conversation), quote("Rate message 20"), quote("a1000000-0000-4000-8000-000000000020")],
+    )), { allowFailure: true });
+    assertFailure(limited, "message_rate_limited", "21st student message in 10 minutes");
+    const retryId = scalar(runSql(asUser("student-rate", functionCall(
+      "send_student_mentor_message",
+      [quote(conversation), quote("Rate message 5"), quote("a1000000-0000-4000-8000-000000000005")],
+    ))));
+    const originalId = scalar(runSql(`select id from public.mentor_messages where client_nonce = 'a1000000-0000-4000-8000-000000000005';`));
+    assert(retryId === originalId, "same-nonce retry past the limit must return the original message");
+    runSql(asUser("staff-primary", functionCall(
+      "send_staff_mentor_message",
+      [quote(conversation), quote("Staff reply past student limit"), quote("a1000000-0000-4000-8000-000000000099")],
+    )));
+    runSql(`update public.mentor_messages set created_at = created_at - interval '11 minutes' where conversation_id = ${quote(conversation)};`);
+    runSql(asUser("student-rate", functionCall(
+      "send_student_mentor_message",
+      [quote(conversation), quote("Rate message after window"), quote("a1000000-0000-4000-8000-000000000021")],
+    )));
+    const studentCount = scalar(runSql(`select count(*) from public.mentor_messages where conversation_id = ${quote(conversation)} and sender_kind = 'student';`));
+    assert(studentCount === "21", `unexpected student message count after window: ${studentCount}`);
+  });
+
+  await test("students can start at most 5 conversations per 24 hours", async () => {
+    const started = [];
+    for (let index = 1; index <= 5; index += 1) {
+      const conversation = scalar(runSql(asUser("student-conversation-rate", functionCall(
+        "start_volunteer_conversation",
+        [quote("other"), quote("Conversation Rate"), quote(`Conversation ${index}`), quote(`a2000000-0000-4000-8000-00000000000${index}`)],
+      ))));
+      runSql(asUser("student-conversation-rate", functionCall("close_volunteer_conversation", [quote(conversation)])));
+      started.push(conversation);
+    }
+    const limited = runSql(asUser("student-conversation-rate", functionCall(
+      "start_volunteer_conversation",
+      [quote("other"), quote("Conversation Rate"), quote("Conversation 6"), quote("a2000000-0000-4000-8000-000000000006")],
+    )), { allowFailure: true });
+    assertFailure(limited, "conversation_rate_limited", "6th conversation in 24 hours");
+    const retry = scalar(runSql(asUser("student-conversation-rate", functionCall(
+      "start_volunteer_conversation",
+      [quote("other"), quote("Conversation Rate"), quote("Conversation 5"), quote("a2000000-0000-4000-8000-000000000005")],
+    ))));
+    assert(retry === started[4], "same-nonce start retry past the limit must return the original conversation");
+    runSql(`update public.mentor_conversations set created_at = created_at - interval '25 hours' where user_id = 'student-conversation-rate';`);
+    runSql(asUser("student-conversation-rate", functionCall(
+      "start_volunteer_conversation",
+      [quote("other"), quote("Conversation Rate"), quote("Conversation after window"), quote("a2000000-0000-4000-8000-000000000007")],
+    )));
+  });
+
   await test("grants and private ledger enforce the RPC boundary", async () => {
     const grants = scalar(runSql(`
       select concat_ws(':',
