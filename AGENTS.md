@@ -17,7 +17,7 @@ Arsivler baslangic rehberi degildir: `AGENT_CONTEXT_FIX_REPORT.md` (2026-06-11 u
 
 ## Degismez kurallar (ozet)
 
-- Route guvenligi yalnizca `proxy.ts`; `middleware.ts` olusturma. Public/protected tek kaynak: `proxy.ts` + `AGENT_CONTEXT.md` "Auth ve Route Matrix". `/ai-mentor` public (AI masasi arayuzde paused), `/api/chat` ve `/ekip/*` protected.
+- Route guvenligi yalnizca `proxy.ts`; `middleware.ts` olusturma. Public/protected tek kaynak: `proxy.ts` + `AGENT_CONTEXT.md` "Auth ve Route Matrix". `/ai-mentor` public (gonullu + uzman masasi; AI masasi 2026-09-26'da kaldirildi), `/api/sat/*` ve `/ekip/*` protected.
 - Runtime'da `app/data.ts` import etme. Liste yuzeyleri `getUniversitiesDirectory()`, okul sayfasi `getUniversityById()` (dizin kaydi), program sayfasi `getProgramPageData()` (yalnizca o programin kabul satiri); tam veri seti compose'unu veya okul basina tum kabul dosyalarini geri getirme (egress diyeti). ISR sayfalarinda sunucu tarafinda `searchParams`/`cookies()`/`headers()` okuma ve veri hatasini yakalama (son saglam sayfa kalsin).
 - `program_degree_class_codes` view'i dizin sorgusunun bagimliligidir; yeni Supabase ortaminda `supabase/program_degree_class_codes.sql` ile olustur.
 - `SUPABASE_SERVICE_ROLE_KEY` ve `SUPABASE_SECRET_KEY` server-only; `NEXT_PUBLIC_*` alanina veya client dosyasina asla girmez. Katalog okumalari (okul/program/kabul dosyasi) yalnizca `lib/universities.server.ts` icinde `SUPABASE_SECRET_KEY` (`sb_secret_…`) ile yapilir; anon anahtara geri dusme yok (2026-09-26). Prod Supabase migration ve silme yalnizca Kerem onayiyla.

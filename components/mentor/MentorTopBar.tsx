@@ -13,7 +13,7 @@ type MentorTopBarProps =
       mode: "chat";
       channel: MentorChannel;
       statusLabel: string;
-      statusKey: "idle" | "streaming" | "error" | "locked";
+      statusKey: "idle" | "streaming" | "error";
       onBackToHub: () => void;
     };
 

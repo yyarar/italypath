@@ -22,42 +22,15 @@ interface ProgramSourceTrailProps {
   details: ProgramAdmissionDetails;
   labels: ProgramDossierLabels;
   language: "tr" | "en";
-  programName: string;
-  universityName: string;
-  isSignedIn?: boolean;
 }
 
-function buildMentorHref({
-  isSignedIn,
-  programName,
-  universityName,
-  focus,
-}: {
-  isSignedIn?: boolean;
-  programName: string;
-  universityName: string;
-  focus: string[];
-}) {
-  const params = new URLSearchParams({
-    desk: "ai",
-    program: programName,
-    university: universityName,
-  });
-  if (focus.length > 0) params.set("focus", focus.join(", "));
-
-  const target = `/ai-mentor?${params.toString()}`;
-  return isSignedIn
-    ? target
-    : `/giris?redirect_url=${encodeURIComponent(target)}`;
-}
+// Uzman masasi public'tir: giris gerektirmeden ucretsiz on gorusme formunu acar.
+const EXPERT_DESK_HREF = "/ai-mentor?desk=expert";
 
 export function ProgramSourceTrail({
   details,
   labels,
   language,
-  programName,
-  universityName,
-  isSignedIn,
 }: ProgramSourceTrailProps) {
   const evidence = buildAdmissionEvidence(details.sourceQuotes);
   const sources = buildDossierSources(details, evidence, labels);
@@ -66,13 +39,6 @@ export function ProgramSourceTrail({
     uncertaintyLabels.length > 0 || details.uncertaintyNotes.length > 0;
 
   if (sources.length === 0 && !hasUncertainty) return null;
-
-  const mentorHref = buildMentorHref({
-    isSignedIn,
-    programName,
-    universityName,
-    focus: uncertaintyLabels,
-  });
 
   return (
     <details className="group select-text border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
@@ -207,15 +173,15 @@ export function ProgramSourceTrail({
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
             <Link
-              href={mentorHref}
+              href={EXPERT_DESK_HREF}
               className="inline-flex min-h-11 items-center justify-center gap-2 border border-[var(--editorial-ink)] px-3 py-2 text-center text-sm font-bold text-[var(--editorial-ink)] transition hover:bg-[var(--editorial-ink)] hover:text-[var(--editorial-paper)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
             >
-              {labels.askAi}
+              {labels.askExpert}
               <ArrowRight className="h-4 w-4 shrink-0" />
             </Link>
           </div>
           <p className="mt-3 text-xs leading-5 text-[var(--editorial-muted)]">
-            {labels.aiContextNote}
+            {labels.expertDeskNote}
           </p>
         </div>
       </div>

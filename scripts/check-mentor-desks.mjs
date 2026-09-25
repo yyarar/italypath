@@ -45,7 +45,6 @@ const operatorInbox = read("components/mentor/operator/MentorOperatorInbox.tsx")
 const proxySource = read("proxy.ts");
 const robotsSource = read("app/robots.ts");
 const legalSource = read("lib/legal/documents.ts");
-const mentorRoom = read("components/mentor/MentorChatRoom.tsx");
 const operatorController = read("lib/mentor/operatorInboxController.ts");
 const operatorBehaviorTest = read("scripts/test-mentor-operator-inbox.mjs");
 const agentContext = read("AGENT_CONTEXT.md");
@@ -94,7 +93,9 @@ const termsMentorSection = sectionBetween(
   "4. Kullanıcı Yükümlülükleri",
 );
 
-mustInclude(channels, '"ai-chat"', "AI experience eksik");
+// AI masasi ve /api/chat 2026-09-26'da kaldirildi (Kerem karari 2026-09-25, docs/STATUS.md #42).
+mustNotInclude(channels, '"ai-chat"', "Kaldırılan AI masası deneyimi geri gelmiş");
+mustNotInclude(channels, 'id: "ai"', "Kaldırılan AI masası kanal kaydı geri gelmiş");
 mustInclude(channels, '"volunteer-inbox"', "Volunteer experience eksik");
 mustInclude(channels, '"expert-lead"', "Expert experience eksik");
 mustInclude(channels, "availability", "Availability modeli eksik");
@@ -112,15 +113,28 @@ mustInclude(
 );
 mustInclude(
   mentorPage,
-  'aiChannel.availability !== "active"',
-  "Program bağlamı AI duraklatmasını aşabiliyor",
-);
-mustInclude(
-  mentorPage,
   'channel.availability === "paused"',
   "Duraklatılmış masa seçim guard'ı eksik",
 );
-mustInclude(mentorPage, "aiMessages", "AI state ayrıştırılmamış");
+mustNotInclude(mentorPage, "/api/chat", "Mentor sayfası kaldırılan AI uç noktasını çağırıyor");
+mustNotInclude(mentorPage, "MentorChatRoom", "Mentor sayfası kaldırılan AI sohbet odasını render ediyor");
+[
+  "app/api/chat/route.ts",
+  "components/mentor/MentorChatRoom.tsx",
+  "components/mentor/EntryPair.tsx",
+  "components/mentor/StarterPrompts.tsx",
+  "components/mentor/LockedDeskNotice.tsx",
+].forEach((path) => {
+  if (existsSync(path)) failures.push(`Kaldırılan AI masası dosyası geri gelmiş: ${path}`);
+});
+[
+  '"ai":',
+  '"@ai-sdk/',
+  '"@google/generative-ai"',
+  '"react-markdown"',
+].forEach((needle) =>
+  mustNotInclude(packageJson, needle, "Kaldırılan AI/Markdown paketi geri gelmiş"),
+);
 mustNotInclude(mentorPage, "MessagesByChannel", "Eski kanal-bazlı AI state kaldı");
 mustInclude(volunteer, "VOLUNTEER_TOPIC_IDS", "Konu ID'leri eksik");
 mustInclude(volunteer, "MENTOR_CONVERSATION_STATUSES", "Durum ID'leri eksik");
@@ -283,12 +297,12 @@ mustInclude(
 mustInclude(
   translations,
   'hubPausedCta: "GEÇİCİ DEVRE DIŞI"',
-  "AI geçici devre dışı CTA metni eksik",
+  "Duraklatılmış masa CTA metni eksik",
 );
 mustInclude(
   translations,
   'hubPausedCta: "TEMPORARILY UNAVAILABLE"',
-  "AI temporarily unavailable CTA copy missing",
+  "Paused desk CTA copy missing",
 );
 mustInclude(mentorHub, "disabled={isPaused}", "Duraklatılmış masa arayüzde kilitli değil");
 [
@@ -406,7 +420,6 @@ mustInclude(
 for (const [label, source] of [
   ["lib/legal/documents.ts", legalSource],
   ["components/communities/CommunityAtlas.tsx", read("components/communities/CommunityAtlas.tsx")],
-  ["components/mentor/LockedDeskNotice.tsx", read("components/mentor/LockedDeskNotice.tsx")],
 ]) {
   mustNotInclude(source, "italypath.com", `${label} üçüncü tarafa ait alan adına iletişim adresi veriyor`);
 }
@@ -431,7 +444,6 @@ if (mentorTermsParagraphCount !== 4) {
 mustInclude(packageJson, '"check:mentor-desks"', "Package mentor check script eksik");
 mustInclude(channels, 'experience: "volunteer-inbox"', "Volunteer experience kaydı eksik");
 mustInclude(channels, 'experience: "expert-lead"', "Expert experience kaydı eksik");
-mustInclude(mentorRoom, "LockedDeskNotice", "Expert locked branch kaldırılmış");
 mustNotInclude(sql, "sender_user_id", "Student-readable message row staff ID taşıyor");
 mustNotInclude(
   volunteerMessage,
@@ -469,13 +481,10 @@ mustInclude(
   "Agent context mentor doğrulamasını açıklamıyor",
 );
 
-const aiRecord =
-  channels.match(/\{\s*id: "ai"[\s\S]*?\n\s*\}/)?.[0] ?? "";
 const volunteerRecord =
   channels.match(/\{\s*id: "volunteer"[\s\S]*?\n\s*\}/)?.[0] ?? "";
 const expertRecord =
   channels.match(/\{\s*id: "expert"[\s\S]*?\n\s*\}/)?.[0] ?? "";
-mustInclude(aiRecord, 'availability: "paused"', "AI masa geçici olarak duraklatılmamış");
 mustInclude(volunteerRecord, 'availability: "active"', "Volunteer masa aktif değil");
 mustInclude(
   expertRecord,
