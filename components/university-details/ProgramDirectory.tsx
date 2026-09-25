@@ -109,7 +109,7 @@ export function ProgramDirectory({
           </h2>
         </div>
         <p className="text-sm font-bold text-[var(--editorial-muted)]">
-          <span className="font-serif text-3xl text-[var(--editorial-ink)]">
+          <span className="font-serif text-3xl font-semibold text-[var(--editorial-ink)]">
             {departments.length}
           </span>{" "}
           {programCountLabel}

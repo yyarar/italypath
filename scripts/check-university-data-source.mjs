@@ -33,7 +33,6 @@ for (const path of ["app", "components", "lib"].flatMap(collectSourceFiles)) {
 
 const liveDataSurfaces = [
   "app/api/universities/route.ts",
-  "app/api/chat/route.ts",
   "app/sitemap.ts",
   "app/universities/[id]/layout.tsx",
   "app/universities/[id]/departments/[deptSlug]/layout.tsx",
@@ -224,7 +223,6 @@ const directorySurfaces = [
   "app/cities/page.tsx",
   "app/sitemap.ts",
   "app/api/universities/route.ts",
-  "app/api/chat/route.ts",
 ];
 for (const path of directorySurfaces) {
   const source = read(path);

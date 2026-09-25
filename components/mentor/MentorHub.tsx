@@ -58,16 +58,12 @@ export default function MentorHub({
             const badgeText =
               channel.id === "volunteer"
                 ? t.aiMentor.hubVolunteerActiveBadge
-                : channel.id === "expert"
-                  ? t.aiMentor.hubExpertActiveBadge
-                  : null;
+                : t.aiMentor.hubExpertActiveBadge;
             const ctaText = isPaused
               ? t.aiMentor.hubPausedCta
               : channel.id === "expert"
                 ? `${t.aiMentor.hubExpertCta} ↗`
-                : isActive
-                  ? `${t.aiMentor.hubOpenCta} ↗`
-                  : t.aiMentor.hubLockedCta;
+                : `${t.aiMentor.hubOpenCta} ↗`;
 
             return (
               <motion.li
@@ -86,11 +82,7 @@ export default function MentorHub({
                   type="button"
                   onClick={() => onSelectChannel(channel.id)}
                   disabled={isPaused}
-                  aria-label={
-                    badgeText
-                      ? `${copy.name}, ${badgeText}`
-                      : `${copy.name}, ${ctaText}`
-                  }
+                  aria-label={`${copy.name}, ${badgeText}`}
                   className="grid w-full grid-cols-[40px_minmax(0,1fr)_auto] gap-x-5 gap-y-2 py-6 text-left transition-colors duration-200 ease-out hover:bg-[#f6f0e7] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] active:scale-[0.995] disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:bg-transparent disabled:active:scale-100 sm:gap-x-6"
                 >
                   <span className="pt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
@@ -102,11 +94,9 @@ export default function MentorHub({
                       <h2 className="font-serif text-2xl font-normal tracking-[-0.018em] text-[var(--editorial-ink)] sm:text-3xl">
                         {copy.name}
                       </h2>
-                      {badgeText && (
-                        <span className="whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-sage)]">
-                          {badgeText}
-                        </span>
-                      )}
+                      <span className="whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-sage)]">
+                        {badgeText}
+                      </span>
                     </div>
                     <p className="mt-2 max-w-2xl font-serif text-sm italic leading-relaxed text-[var(--editorial-muted)] sm:text-base">
                       {copy.tagline}

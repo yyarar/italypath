@@ -120,7 +120,6 @@ const protectedChecks = [
   "/hub",
   "/profile",
   "/sat",
-  "/api/chat",
   "/api/sat/questions",
   // Public kaliplarin kardes onekleri ve alt yollari public olmamali.
   "/database",
@@ -144,7 +143,7 @@ for (const route of protectedChecks) {
   }
 }
 
-for (const route of ["/api/chat", "/api/sat/questions"]) {
+for (const route of ["/api/sat/questions"]) {
   if (classify(route) !== "protected-api") {
     failures.push(`Expected ${route} to keep Clerk's API response (no HTML redirect), got ${classify(route)}`);
   }
@@ -156,7 +155,7 @@ if (classify("/ekip/mentor") !== "protected-page") {
 
 // 3) Envanter: her sayfa, API ve public dosya ya public ya da acikca korumali olmali.
 // Yeni bir sayfa listeye eklenmezse oturumsuz ziyaretci giris duvarina duser; bu adim onu yakalar.
-const protectedApiRoutes = ["/api/chat", "/api/sat/questions"];
+const protectedApiRoutes = ["/api/sat/questions"];
 
 function walk(dir) {
   if (!existsSync(dir)) return [];
@@ -219,17 +218,14 @@ for (const entry of inventory) {
 
 for (const route of protectedApiRoutes) {
   if (!inventory.some((entry) => entry.kind === "api" && entry.path === route)) {
-    // Kaldirilan API listede kalmasin (ornegin /api/chat silindiginde).
+    // Kaldirilan API listede kalmasin.
     failures.push(`Protected API list names ${route} but no app route file exists`);
   }
 }
 
 // Korumali API handler'i proxy'ye tek basina guvenmez: kendi auth() kontrolunu yapar.
-// /api/chat istisnasi gecicidir: route AI mentor kaldirma isiyle silinecek (docs/STATUS.md #42).
-const handlerAuthExceptions = ["/api/chat"];
 for (const entry of inventory) {
   if (entry.kind !== "api" || !protectedApiRoutes.includes(entry.path)) continue;
-  if (handlerAuthExceptions.includes(entry.path)) continue;
   const handlerSource = readFileSync(entry.file, "utf8");
   if (!handlerSource.includes("await auth()")) {
     failures.push(`${relative(root, entry.file)} must check the session itself with auth() (401 without userId)`);

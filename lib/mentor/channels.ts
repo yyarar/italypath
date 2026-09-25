@@ -1,40 +1,29 @@
-export const MENTOR_CHANNEL_IDS = ["ai", "volunteer", "expert"] as const;
+export const MENTOR_CHANNEL_IDS = ["volunteer", "expert"] as const;
 export type MentorChannelId = (typeof MENTOR_CHANNEL_IDS)[number];
 
-export type MentorExperience = "ai-chat" | "volunteer-inbox" | "expert-lead";
-export type MentorAvailability = "active" | "paused" | "coming-soon";
+export type MentorExperience = "volunteer-inbox" | "expert-lead";
+export type MentorAvailability = "active" | "paused";
 
 export interface MentorChannel {
   id: MentorChannelId;
   order: number;
   numberLabel: string;
-  monogram: string;
   experience: MentorExperience;
   availability: MentorAvailability;
 }
 
 export const MENTOR_CHANNELS: MentorChannel[] = [
   {
-    id: "ai",
+    id: "volunteer",
     order: 1,
     numberLabel: "01",
-    monogram: "AI",
-    experience: "ai-chat",
-    availability: "paused",
-  },
-  {
-    id: "volunteer",
-    order: 2,
-    numberLabel: "02",
-    monogram: "GE",
     experience: "volunteer-inbox",
     availability: "active",
   },
   {
     id: "expert",
-    order: 3,
-    numberLabel: "03",
-    monogram: "UZ",
+    order: 2,
+    numberLabel: "02",
     experience: "expert-lead",
     availability: "active",
   },
