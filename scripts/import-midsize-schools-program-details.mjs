@@ -281,9 +281,9 @@ function createSupabaseClient() {
   const supabaseKey =
     mode === "apply"
       ? process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY
-      : process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+      : process.env.SUPABASE_SECRET_KEY;
   if (!supabaseUrl || !supabaseKey) {
-    throw new Error(mode === "apply" ? "URL and service key required for --apply." : "URL and anon key required.");
+    throw new Error(mode === "apply" ? "URL and service key required for --apply." : "URL and SUPABASE_SECRET_KEY required (catalog reads use the server-only secret key).");
   }
   return createClient(supabaseUrl, supabaseKey, { auth: { persistSession: false, autoRefreshToken: false } });
 }

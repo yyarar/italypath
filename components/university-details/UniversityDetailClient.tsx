@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import type { University } from "@/types/universities";
@@ -9,7 +8,6 @@ import ScrollProgress from "@/components/ScrollProgress";
 import ConsultPrompt from "@/components/consultation/ConsultPrompt";
 import { useLanguage } from "@/context/LanguageContext";
 import { useFavorites } from "@/lib/useFavorites";
-import { useUniversitiesData } from "@/lib/useUniversitiesData";
 import { ProgramDirectory } from "./ProgramDirectory";
 import { DetailBreadcrumb } from "./DetailBreadcrumb";
 import { RelatedLinks } from "./RelatedLinks";
@@ -18,40 +16,27 @@ import { UniversityHighlights } from "./UniversityHighlights";
 import { UniversityPortraitMasthead } from "./UniversityPortraitMasthead";
 
 interface UniversityDetailClientProps {
-  initialUniversity: University | null;
-  idFromUrl: string;
+  /** Sunucu sarmalayicisindan gelen dizin kaydi (kabul dosyasi yalnizca varlik bayragi). */
+  initialUniversity: University;
   related: RelatedLinksData | null;
 }
 
 export function UniversityDetailClient({
-  initialUniversity,
-  idFromUrl,
+  initialUniversity: university,
   related,
 }: UniversityDetailClientProps) {
   const router = useRouter();
   const { t, language } = useLanguage();
   const { isFavorite, toggleFavorite, loading } = useFavorites();
-  const { universities, loading: universitiesLoading, error: universitiesError } =
-    useUniversitiesData(initialUniversity ? [initialUniversity] : undefined, {
-      fetchWhenInitial: false,
-    });
   const [expandingDeptSlug, setExpandingDeptSlug] = useState<string | null>(null);
 
-  // Sunucudan gelen tam okul verisi once; dizin (hafif) kopyasi yalnizca sunucu verisi yoksa kullanilir.
-  const university = useMemo(
-    () =>
-      initialUniversity ??
-      universities.find((entry) => String(entry.id) === String(idFromUrl)),
-    [idFromUrl, initialUniversity, universities],
-  );
-
   useEffect(() => {
-    if (!expandingDeptSlug || !idFromUrl) return;
+    if (!expandingDeptSlug) return;
     const timer = window.setTimeout(() => {
-      router.push(`/universities/${idFromUrl}/departments/${expandingDeptSlug}`);
+      router.push(`/universities/${university.id}/departments/${expandingDeptSlug}`);
     }, 280);
     return () => window.clearTimeout(timer);
-  }, [expandingDeptSlug, idFromUrl, router]);
+  }, [expandingDeptSlug, router, university.id]);
 
   const handleBack = () => {
     // ISR: sayfa sunucuda searchParams okumaz; "listeden geldi" bilgisi tiklama aninda URL'den alinir.
@@ -62,40 +47,6 @@ export function UniversityDetailClient({
     }
     router.push("/universities");
   };
-
-  if (universitiesLoading && !university) {
-    return (
-      <div className="min-h-screen bg-[var(--editorial-paper)] px-4 py-24 text-center text-sm font-semibold text-[var(--editorial-muted)]">
-        {language === "tr" ? "Okul dosyası yükleniyor..." : "Loading school portrait..."}
-      </div>
-    );
-  }
-
-  if (universitiesError && !university) {
-    return (
-      <div className="min-h-screen bg-[var(--editorial-paper)] px-4 py-24 text-center text-sm font-semibold text-[var(--editorial-muted)]">
-        {language === "tr"
-          ? "Üniversite verisi yüklenemedi."
-          : "University data could not be loaded."}
-      </div>
-    );
-  }
-
-  if (!university) {
-    return (
-      <div className="min-h-screen bg-[var(--editorial-paper)] px-4 py-24 text-center">
-        <h1 className="font-serif text-4xl font-semibold text-[var(--editorial-ink)]">
-          {t.detail.notFound}
-        </h1>
-        <Link
-          href="/universities"
-          className="mt-5 inline-flex border border-[var(--editorial-sage)] px-4 py-3 text-sm font-bold text-[var(--editorial-sage)]"
-        >
-          {t.detail.backToList}
-        </Link>
-      </div>
-    );
-  }
 
   const favorite = isFavorite(university.id);
   const description =

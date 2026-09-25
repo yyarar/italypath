@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Heart, MapPin } from "lucide-react";
 
 import { DEFAULT_UNIVERSITY_IMAGE } from "@/lib/universityDefaults";
+import { remotePhotoProps } from "@/lib/remotePhoto";
 import {
   getTypeLabel,
   getUniversityDescription,
@@ -118,6 +119,7 @@ export function UniversityGuideRow({
         aria-label={university.name}
       >
         <Image
+          {...remotePhotoProps(university.image || DEFAULT_UNIVERSITY_IMAGE)}
           src={university.image || DEFAULT_UNIVERSITY_IMAGE}
           alt={university.name}
           fill
@@ -204,6 +206,7 @@ export function UniversityCompactRow({
         aria-label={university.name}
       >
         <Image
+          {...remotePhotoProps(university.image || DEFAULT_UNIVERSITY_IMAGE)}
           src={university.image || DEFAULT_UNIVERSITY_IMAGE}
           alt={university.name}
           fill

@@ -11,6 +11,7 @@ import {
   ExpandableScreenTrigger,
 } from "@/components/ui/expandable-screen";
 import { DEFAULT_UNIVERSITY_IMAGE } from "@/lib/universityDefaults";
+import { remotePhotoProps } from "@/lib/remotePhoto";
 import type { Department, University } from "@/types/universities";
 import { hasAdmissionDossier } from "@/lib/admissionPresence";
 
@@ -86,6 +87,7 @@ export function ProgramTransitionEntry({
         <div className="grid h-full grid-rows-[minmax(180px,42vh)_1fr] bg-[var(--editorial-paper)]">
           <div className="relative min-h-0">
             <Image
+              {...remotePhotoProps(university.image || DEFAULT_UNIVERSITY_IMAGE)}
               src={university.image || DEFAULT_UNIVERSITY_IMAGE}
               alt={`${department.name} - ${university.name}`}
               fill

@@ -40,15 +40,17 @@ function loadDotenvLocal() {
 function createSupabaseClient() {
   loadDotenvLocal();
 
+  // Katalog tablolari sunucudaki gibi server-only gizli anahtarla okunur; herkese acik anon anahtara
+  // geri dusulmez (guvenlik denetimi S9#1).
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const supabaseSecretKey = process.env.SUPABASE_SECRET_KEY;
 
-  if (!supabaseUrl || !supabaseAnonKey) {
-    fail("NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_ANON_KEY is missing");
+  if (!supabaseUrl || !supabaseSecretKey) {
+    fail("NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SECRET_KEY is missing");
     return null;
   }
 
-  return createClient(supabaseUrl, supabaseAnonKey, {
+  return createClient(supabaseUrl, supabaseSecretKey, {
     auth: {
       persistSession: false,
       autoRefreshToken: false,

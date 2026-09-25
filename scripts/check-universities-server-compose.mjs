@@ -5,7 +5,10 @@ import ts from "typescript";
 
 function importTsModule(path) {
   const source = readFileSync(resolve(process.cwd(), path), "utf8")
-    .replace('import { createClient } from "@supabase/supabase-js";', "")
+    // server-only ve Supabase istemcisi yalnizca fetch katmaninda kullanilir; saf compose testi icin silinir.
+    .replace('import "server-only";', "")
+    .replace('import { createClient, type SupabaseClient } from "@supabase/supabase-js";', "")
+    .replace('import { parseCanonicalUniversityId } from "@/lib/universityPath";', "")
     .replace(/import type\s*\{[\s\S]*?\}\s*from\s*"@\/types(?:\/universities)?";/g, "")
     // compose saf olmalidir: sunum modulune bagimli olamaz. Bu import yalnizca fetch
     // katmaninda (degree_class kodu cikarimi) kullanilir, o yuzden burada silinebilir.
@@ -25,7 +28,9 @@ function importTsModule(path) {
   return import(`data:text/javascript;base64,${encoded}`);
 }
 
-const { composeUniversitiesFromSupabaseRows } = await importTsModule("lib/universities.server.ts");
+const { composeUniversitiesFromSupabaseRows, pruneUniversityForProgram } = await importTsModule(
+  "lib/universities.server.ts",
+);
 
 const universities = composeUniversitiesFromSupabaseRows(
   [
@@ -177,7 +182,26 @@ assert.equal(directoryWithCodes[0].departments[0].hasAdmissionDetails, true);
 assert.equal(directoryWithCodes[0].departments[0].updatedAt, "2026-06-02T12:46:31.193Z");
 
 // compose kendi basina kod cikarmaz: harita verilmezse degreeClassCodes olusmaz. Kodu uretme
-// isi cagiran katmanda (getUniversityById / dizin cekisi) extractDegreeClassCodes ile yapilir.
+// isi cagiran katmanda (dizin cekisi) extractDegreeClassCodes ile yapilir.
 assert.equal(universities[0].departments[0].degreeClassCodes, undefined);
+
+// pruneUniversityForProgram (2026-09-25): program sayfasi dizin kaydina yalnizca acilan programin kabul
+// dosyasini ekler. Paylasilan dizin nesneleri DEGISMEZ; yeni okul nesnesi ve yeni program listesi doner.
+const sharedUniversity = directory[0];
+const sharedDepartmentsBefore = JSON.stringify(sharedUniversity);
+const openedDepartment = {
+  ...sharedUniversity.departments[0],
+  admissionDetails: department.admissionDetails,
+  hasAdmissionDetails: true,
+};
+const pruned = pruneUniversityForProgram(sharedUniversity, openedDepartment);
+assert.notEqual(pruned, sharedUniversity);
+assert.notEqual(pruned.departments, sharedUniversity.departments);
+assert.equal(pruned.departments[0], openedDepartment);
+assert.equal(pruned.departments[0].admissionDetails?.officialProgramUrl, "https://example.com/program");
+assert.equal(pruned.departments[1], sharedUniversity.departments[1]);
+assert.equal(pruned.departments[1].admissionDetails, undefined);
+assert.equal(JSON.stringify(sharedUniversity), sharedDepartmentsBefore);
+assert.equal(sharedUniversity.departments[0].admissionDetails, undefined);
 
 console.log("[OK] Universities server compose preserves single-cycle and admission details.");

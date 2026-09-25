@@ -1,7 +1,8 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-import type { NextRequest } from "next/server";
+import { NextResponse, type NextRequest } from "next/server";
 
 import { getTrustedOrigins } from "@/lib/auth/trustedOrigins";
+import { resolveUniversityPath } from "@/lib/universityPath";
 
 /**
  * Auth gerektirmeyen (public) yollar.
@@ -63,8 +64,28 @@ function buildSignInRedirectUrl(request: NextRequest) {
   return signInUrl.href;
 }
 
+// Her okulun tek adresi olur: standart disi okul id'si (ör. /universities/003) sayfa uretilmeden ve
+// onbellege yazilmadan once kanonik adrese 308 ile gider, sayi olmayan id 404 alir (lib/universityPath.ts).
+function handleUniversityPath(request: NextRequest) {
+  const decision = resolveUniversityPath(request.nextUrl.pathname);
+  if (decision.kind === "redirect") {
+    const target = request.nextUrl.clone();
+    target.pathname = decision.pathname;
+    return NextResponse.redirect(target, 308);
+  }
+  if (decision.kind === "notFound") {
+    return NextResponse.rewrite(new URL("/_not-found", request.url), { status: 404 });
+  }
+  return null;
+}
+
 export default clerkMiddleware(
   async (auth, request) => {
+    const universityPathResponse = handleUniversityPath(request);
+    if (universityPathResponse) {
+      return universityPathResponse;
+    }
+
     if (isPublicRoute(request)) {
       return;
     }

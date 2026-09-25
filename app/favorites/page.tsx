@@ -9,6 +9,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { motion } from 'framer-motion';
 import { useUniversitiesData } from '@/lib/useUniversitiesData';
 import { DEFAULT_UNIVERSITY_IMAGE } from '@/lib/universityDefaults';
+import { remotePhotoProps } from '@/lib/remotePhoto';
 
 // Popüler öneri üniversiteleri (PoliMi, Bologna, Bocconi)
 const RECOMMENDED_IDS = [1, 3, 7];
@@ -93,6 +94,7 @@ export default function FavoritesPage() {
                   <Link href={`/universities/${uni.id}`}>
                     <div className="bg-white rounded-2xl p-3.5 shadow-sm border border-slate-100 flex items-center gap-3.5 hover:shadow-md hover:border-slate-200 active:scale-[0.98] transition-all">
                       <Image
+                        {...remotePhotoProps(uni.image || DEFAULT_UNIVERSITY_IMAGE)}
                         src={uni.image || DEFAULT_UNIVERSITY_IMAGE}
                         alt={uni.name}
                         width={56}
@@ -124,6 +126,7 @@ export default function FavoritesPage() {
             <Link key={uni.id} href={`/universities/${uni.id}`}>
               <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex items-center gap-4 active:scale-[0.98] transition-transform mb-4">
                 <Image
+                  {...remotePhotoProps(uni.image || DEFAULT_UNIVERSITY_IMAGE)}
                   src={uni.image || DEFAULT_UNIVERSITY_IMAGE}
                   alt={uni.name}
                   width={80}

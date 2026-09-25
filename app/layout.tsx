@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Spectral, Hanken_Grotesk } from "next/font/google";
 import { Analytics } from '@vercel/analytics/next';
 import { getTrustedOrigins } from "@/lib/auth/trustedOrigins";
+import { serializeJsonLd } from "@/lib/jsonLd";
 import "./globals.css";
 
 // Editoryal başlık serifi (Times/Georgia varsayılanı yerine gerçek marka fontu).
@@ -91,7 +92,7 @@ export default function RootLayout({
         >
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+            dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteJsonLd) }}
           />
           <MobileZoomLock />
           <LanguageProvider>

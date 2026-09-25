@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, ExternalLink, Heart, MapPin } from "lucide-react";
 
 import { DEFAULT_UNIVERSITY_IMAGE } from "@/lib/universityDefaults";
+import { remotePhotoProps } from "@/lib/remotePhoto";
 import type { University } from "@/types/universities";
 
 interface UniversityPortraitMastheadProps {
@@ -67,6 +68,7 @@ export function UniversityPortraitMasthead({
         <div className="mt-6 grid gap-5 lg:grid-cols-[minmax(360px,1.02fr)_minmax(0,0.98fr)] lg:items-stretch">
           <div className="relative aspect-[16/11] min-h-64 overflow-hidden border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
             <Image
+              {...remotePhotoProps(university.image || DEFAULT_UNIVERSITY_IMAGE)}
               src={university.image || DEFAULT_UNIVERSITY_IMAGE}
               alt={university.name}
               fill
