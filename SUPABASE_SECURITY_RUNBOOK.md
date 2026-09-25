@@ -194,7 +194,7 @@ endpoint'i kullanır. Kurulumu yalnızca production deploy yetkisi olan kişi ya
 
 `supabase/expert_leads.sql` kurulmamışsa public endpoint kontrollü `503` döner; RLS'yi gevşetmek veya service-role key'i client'a vermek kabul edilebilir bir fallback değildir.
 
-Saatlik yoğunluk (2026-09-25, Kerem kararı 50 / 150): son bir saatte site genelinde 50 talep dolduysa yeni talepler `suspected` durumuyla kaydedilir ve `/ekip/uzman` "Şüpheli" filtresinde bekler; 150'den sonrası reddedilir ve form öğrencinin girdisini koruyarak "yoğunluk" mesajı gösterir. Gerçek bir şüpheli talep durumunu "Yeni" yaparak listeye alınır. Gelen kutusu "Yeni" filtresiyle açılır ve 50'lik sayfalarla yüklenir.
+Saatlik yoğunluk (2026-09-25, Kerem kararı 50 / 150): son bir saatte site genelinde 50 talep dolduysa yeni talepler `suspected` durumuyla kaydedilir ve `/ekip/uzman` "Şüpheli" filtresinde bekler; 150'den sonrası reddedilir ve form öğrencinin girdisini koruyarak "yoğunluk" mesajı gösterir. Gerçek bir şüpheli talep durumunu "Yeni" yaparak listeye alınır. Gelen kutusu "Yeni" filtresiyle açılır ve 50'lik sayfalarla yüklenir. Canlıya uygulama: 2026-09-25 22:20 UTC, migration `expert_leads_suspected_threshold` (Kerem onayı). Geri alınan denemede ilk 50 `new`, 51-150 `suspected`, 151. `expert_lead_rate_limited`; deneme satırı kalmadı.
 
 ## 7) Yedek ve geri yükleme
 
