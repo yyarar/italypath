@@ -8,7 +8,6 @@ import { useAuth } from "@clerk/nextjs";
 import type { University } from "@/types/universities";
 import ScrollProgress from "@/components/ScrollProgress";
 import { useLanguage } from "@/context/LanguageContext";
-import { useUniversitiesData } from "@/lib/useUniversitiesData";
 import { ComingSoonNotice } from "./ComingSoonNotice";
 import { ProgramAdmissionDetailsPanel } from "./ProgramAdmissionDetailsPanel";
 import { ProgramSourceTrail } from "./ProgramSourceTrail";
@@ -23,70 +22,43 @@ import { ProgramMetaStrip } from "./ProgramMetaStrip";
 import { ProgramPortraitHeader } from "./ProgramPortraitHeader";
 
 interface DepartmentDetailClientProps {
-  initialUniversity: University | null;
+  /**
+   * Sunucu sarmalayicisindan gelen okul: acilan programin kabul dosyasi dahil, diger programlar
+   * dizindeki hafif kayitlar (pruneUniversityForProgram).
+   */
+  initialUniversity: University;
   initialDepartmentSlug: string;
-  idFromUrl: string;
   related: RelatedLinksData | null;
 }
 
 export function DepartmentDetailClient({
-  initialUniversity,
+  initialUniversity: university,
   initialDepartmentSlug,
-  idFromUrl,
   related,
 }: DepartmentDetailClientProps) {
   const router = useRouter();
   const { isSignedIn } = useAuth();
   const { t, language } = useLanguage();
-  const { universities, loading: universitiesLoading, error: universitiesError } =
-    useUniversitiesData(initialUniversity ? [initialUniversity] : undefined, {
-      fetchWhenInitial: false,
-    });
   const [expandingDeptSlug, setExpandingDeptSlug] = useState<string | null>(null);
 
-  // Sunucudan gelen tam okul verisi (kabul dosyalari dahil) once; dizin kopyasi yalnizca yedek.
-  const university = useMemo(
-    () =>
-      initialUniversity ??
-      universities.find((entry) => String(entry.id) === String(idFromUrl)),
-    [idFromUrl, initialUniversity, universities],
-  );
   const department = useMemo(
-    () => university?.departments.find((entry) => entry.slug === initialDepartmentSlug),
+    () => university.departments.find((entry) => entry.slug === initialDepartmentSlug),
     [initialDepartmentSlug, university],
   );
   const otherDepts = useMemo(
-    () => university?.departments.filter((entry) => entry.slug !== initialDepartmentSlug) ?? [],
+    () => university.departments.filter((entry) => entry.slug !== initialDepartmentSlug),
     [initialDepartmentSlug, university],
   );
 
   useEffect(() => {
-    if (!expandingDeptSlug || !university?.id) return;
+    if (!expandingDeptSlug) return;
     const timer = window.setTimeout(() => {
       router.push(`/universities/${university.id}/departments/${expandingDeptSlug}`);
     }, 280);
     return () => window.clearTimeout(timer);
-  }, [expandingDeptSlug, router, university?.id]);
+  }, [expandingDeptSlug, router, university.id]);
 
-  if (universitiesLoading && !university) {
-    return (
-      <div className="min-h-screen bg-[var(--editorial-paper)] px-4 py-24 text-center text-sm font-semibold text-[var(--editorial-muted)]">
-        {language === "tr" ? "Program dosyası yükleniyor..." : "Loading program portrait..."}
-      </div>
-    );
-  }
-
-  if (universitiesError && !university) {
-    return (
-      <div className="min-h-screen bg-[var(--editorial-paper)] px-4 py-24 text-center text-sm font-semibold text-[var(--editorial-muted)]">
-        {language === "tr"
-          ? "Üniversite verisi yüklenemedi."
-          : "University data could not be loaded."}
-      </div>
-    );
-  }
-
-  if (!university || !department) {
+  if (!department) {
     return (
       <div className="min-h-screen bg-[var(--editorial-paper)] px-4 py-24 text-center">
         <h1 className="font-serif text-4xl font-semibold text-[var(--editorial-ink)]">
@@ -190,7 +162,7 @@ export function DepartmentDetailClient({
         items={[
           { label: t.breadcrumb.home, href: "/" },
           { label: t.breadcrumb.universities, href: "/universities" },
-          { label: university.name, href: `/universities/${idFromUrl}` },
+          { label: university.name, href: `/universities/${university.id}` },
         ]}
         current={department.name}
       />

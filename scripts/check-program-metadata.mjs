@@ -149,7 +149,7 @@ const layoutSource = readFileSync(
 for (const token of [
   "buildProgramTitle",
   "buildProgramDescription",
-  "getUniversityById(",
+  "getProgramPageData(",
   "hasAdmissionDossier",
 ]) {
   assert.ok(

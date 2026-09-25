@@ -2,7 +2,8 @@ import type { MetadataRoute } from 'next';
 import { getUniversitiesDirectory } from '@/lib/universities.server';
 import type { University } from '@/types/universities';
 
-export const revalidate = 3600;
+// Dizin memo'su 3 saat tutulur; sitemap daha sik yenilenirse ayni veriyi yeniden yazar (O1#6).
+export const revalidate = 10800;
 
 // Sayfa sablonunun son anlamli icerik degisikligi: 2026-09-19'da program sayfalarina "Ayni alanda
 // diger universiteler" bolumu eklendi. Onceki kayitlar: 2026-09-17 program detay duzeni (kunye,
@@ -93,7 +94,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const departmentRoutes: MetadataRoute.Sitemap = universities.flatMap((uni) =>
         uni.departments.map((dept) => ({
-            url: `${baseUrl}/universities/${uni.id}/departments/${dept.slug}`,
+            url: `${baseUrl}/universities/${uni.id}/departments/${encodeURIComponent(dept.slug)}`,
             lastModified: latest(toDate(dept.updatedAt), toDate(uni.updatedAt)),
             changeFrequency: 'monthly' as const,
             priority: 0.5,

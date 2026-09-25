@@ -1,6 +1,7 @@
 import { UniversityDetailClient } from "@/components/university-details/UniversityDetailClient";
 import { getUniversitiesDirectory, getUniversityById } from "@/lib/universities.server";
-import { buildRelatedLinks, type RelatedLinksData } from "@/lib/relatedLinks";
+import { buildRelatedLinks } from "@/lib/relatedLinks";
+import { serializeJsonLd } from "@/lib/jsonLd";
 import { notFound } from "next/navigation";
 
 const BASE_URL = "https://italypath.app";
@@ -18,46 +19,20 @@ type UniversityDetailPageProps = {
   params: Promise<{ id: string }>;
 };
 
-function UniversityDetailDataUnavailable() {
-  return (
-    <div className="min-h-screen bg-[var(--editorial-paper)] px-4 py-24 text-[var(--editorial-ink)] sm:px-6 lg:px-8">
-      <main className="mx-auto max-w-3xl border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-8 sm:p-10">
-        <p className="text-xs font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
-          ItalyPath okul portresi
-        </p>
-        <h1 className="mt-4 font-serif text-4xl font-semibold tracking-[-0.03em]">
-          Üniversite verisi yüklenemedi
-        </h1>
-        <p className="mt-4 text-sm leading-6 text-[var(--editorial-muted)] sm:text-base">
-          Bu okulun canlı profil ve program bilgilerine şu anda ulaşılamıyor. Lütfen birkaç dakika sonra tekrar deneyin.
-        </p>
-      </main>
-    </div>
-  );
-}
-
+// Veri hatasi yakalanmaz: ISR yenilemesi hata verirse Vercel son saglam sayfayi sunmaya devam eder;
+// hic saglam sayfa yoksa istek hata sayfasina duser ve onbellege yazilmaz (guvenlik denetimi O2#6).
 export default async function UniversityDetailPage({
   params,
 }: UniversityDetailPageProps) {
   const resolvedParams = await params;
-  let university;
-
-  try {
-    university = await getUniversityById(resolvedParams.id);
-  } catch (error) {
-    console.error("Failed to load university detail data:", error);
-    return <UniversityDetailDataUnavailable />;
-  }
+  // Okul dizinden gelir (kabul dosyasi yalnizca VARLIK bayragi); tam dosyalar program sayfasindadir.
+  const university = await getUniversityById(resolvedParams.id);
 
   if (!university) notFound();
 
-  // Ic baglanti agi: hafif dizinle ayni sehirdeki okullar + sehir rehberi + bolge bursu (hata sayfayi bozmaz).
-  let related: RelatedLinksData | null = null;
-  try {
-    related = buildRelatedLinks(university, await getUniversitiesDirectory());
-  } catch (error) {
-    console.error("Failed to build related links:", error);
-  }
+  // Ic baglanti agi: hafif dizinle ayni sehirdeki okullar + sehir rehberi + bolge bursu.
+  const related = buildRelatedLinks(university, await getUniversitiesDirectory());
+  const universityUrl = `${BASE_URL}/universities/${university.id}`;
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -74,7 +49,7 @@ export default async function UniversityDetailPage({
         "@type": "ListItem",
         position: 3,
         name: university.name,
-        item: `${BASE_URL}/universities/${resolvedParams.id}`,
+        item: universityUrl,
       },
     ],
   };
@@ -83,11 +58,10 @@ export default async function UniversityDetailPage({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(breadcrumbJsonLd) }}
       />
       <UniversityDetailClient
         initialUniversity={university}
-        idFromUrl={resolvedParams.id}
         related={related}
       />
     </>

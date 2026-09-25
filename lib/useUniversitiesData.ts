@@ -27,30 +27,18 @@ async function fetchUniversities(): Promise<University[]> {
   return universitiesRequest;
 }
 
-type UseUniversitiesDataOptions = {
-  /**
-   * false: sunucudan gelen tam veri varken /api/universities (hafif dizin) cekilmez ve
-   * modul onbellegindeki hafif kopya sunucu verisini ezmez. Detay sayfalari icin.
-   */
-  fetchWhenInitial?: boolean;
-};
-
-export function useUniversitiesData(
-  initialUniversities?: University[],
-  { fetchWhenInitial = true }: UseUniversitiesDataOptions = {}
-) {
+export function useUniversitiesData(initialUniversities?: University[]) {
   const hasInitialUniversities = Boolean(initialUniversities?.length);
-  const keepInitial = hasInitialUniversities && !fetchWhenInitial;
-  const [universities, setUniversities] = useState<University[]>(() =>
-    keepInitial ? (initialUniversities as University[]) : universitiesCache ?? initialUniversities ?? []
+  const [universities, setUniversities] = useState<University[]>(
+    () => universitiesCache ?? initialUniversities ?? []
   );
-  const [loading, setLoading] = useState(!keepInitial && !universitiesCache && !hasInitialUniversities);
+  const [loading, setLoading] = useState(!universitiesCache && !hasInitialUniversities);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let active = true;
 
-    if (keepInitial || universitiesCache) {
+    if (universitiesCache) {
       return () => {
         active = false;
       };
@@ -74,7 +62,7 @@ export function useUniversitiesData(
     return () => {
       active = false;
     };
-  }, [keepInitial]);
+  }, []);
 
   return { universities, loading, error };
 }

@@ -6,8 +6,7 @@ const BASE_URL = 'https://italypath.app';
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
     const resolvedParams = await params;
-    const idFromUrl = resolvedParams.id;
-    const university = await getUniversityById(idFromUrl);
+    const university = await getUniversityById(resolvedParams.id);
 
     if (!university) {
         return {
@@ -16,16 +15,19 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
         };
     }
 
+    // Canonical ve Open Graph adresi kayittaki id'den kurulur (adresteki yazimdan degil).
+    const path = `/universities/${university.id}`;
+
     return {
         title: `${university.name} - ItalyPath`,
         description: university.description.substring(0, 160) + '...',
         alternates: {
-            canonical: `/universities/${idFromUrl}`,
+            canonical: path,
         },
         openGraph: {
             title: `${university.name} - Study in Italy`,
             description: university.description.substring(0, 160),
-            url: `${BASE_URL}/universities/${idFromUrl}`,
+            url: `${BASE_URL}${path}`,
             images: [university.image || DEFAULT_UNIVERSITY_IMAGE],
         },
     };

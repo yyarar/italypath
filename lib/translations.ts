@@ -859,6 +859,13 @@ export const translations = {
       desc: "İtalya'da kaybolmuş olabilirsiniz ama endişelenmeyin! Doğru yolu bulmak için ana sayfaya dönebilirsiniz.",
       btn: "Ana Sayfaya Dön"
     },
+    globalError: {
+      eyebrow: "ItalyPath",
+      title: "Sayfa şu anda açılamadı",
+      desc: "Beklenmedik bir sorun oluştu. Birkaç dakika sonra yeniden deneyin; sorun sürerse ana sayfadan devam edebilirsiniz.",
+      retry: "Tekrar dene",
+      home: "Ana sayfaya dön"
+    },
     department: {
       backToUni: "Üniversiteye Dön",
       otherDepts: "Diğer Bölümler",
@@ -2156,6 +2163,13 @@ export const translations = {
       title: "404 - Page Not Found",
       desc: "You might be lost in Italy, but don't worry! You can go back to the homepage to find the right path.",
       btn: "Back to Home"
+    },
+    globalError: {
+      eyebrow: "ItalyPath",
+      title: "This page could not be opened",
+      desc: "Something unexpected went wrong. Please try again in a few minutes; if it keeps happening, continue from the home page.",
+      retry: "Try again",
+      home: "Back to home"
     },
     department: {
       backToUni: "Back to University",

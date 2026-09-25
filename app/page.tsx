@@ -16,18 +16,15 @@ export const metadata: Metadata = {
   },
 };
 
+// Veri hatasi yakalanmaz: bos istatistik ("...") 3 saat onbellekte kalmasin; ISR yenilemesi hata
+// verirse Vercel son saglam ana sayfayi sunmaya devam eder (guvenlik denetimi O2#6/O4#2).
 async function getHomeStats(): Promise<UniversityStats> {
-  try {
-    const universities = await getUniversitiesDirectory();
+  const universities = await getUniversitiesDirectory();
 
-    return {
-      universitiesCount: universities.length,
-      programsCount: getTotalDepartments(universities),
-    };
-  } catch (error) {
-    console.error("Failed to load home university stats:", error);
-    return { universitiesCount: null, programsCount: null };
-  }
+  return {
+    universitiesCount: universities.length,
+    programsCount: getTotalDepartments(universities),
+  };
 }
 
 export default async function Home() {

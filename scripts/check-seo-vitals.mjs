@@ -21,6 +21,10 @@ if (!routeTransition.includes("<motion.div") || !routeTransition.includes("key={
   failures.push("RouteTransition: pathname anahtarlı motion.div sarmalayıcısı beklenen yapıda değil; guard'ı güncelle");
 }
 
+const tracked = execSync("git ls-files app components lib", { encoding: "utf8" })
+  .split("\n")
+  .filter((file) => /\.(tsx|ts)$/.test(file));
+
 // ISR (2026-09-15): halka acik veri sayfalari Vercel'in paylasimli onbelleginden sunulur (SEO_AUDIT.md §20).
 // force-dynamic veya sunucu tarafinda searchParams okumak sayfayi dinamige dusurur ve soguk sunucu gecikmesi geri gelir.
 const isrPages = [
@@ -45,6 +49,45 @@ for (const file of isrPages) {
   if (file !== "app/page.tsx" && !source.includes("export function generateStaticParams()")) {
     failures.push(`${file}: dinamik rota ISR icin bos generateStaticParams() export etmeli (yoksa her istek dinamik render)`);
   }
+  // Veri hatasi yakalanip yedek govde uretilirse o govde 3 saat onbellekte kalir; hata firlatilirsa
+  // Vercel son saglam sayfayi sunmaya devam eder (guvenlik denetimi O2#6, 2026-09-25).
+  if (/\bcatch\s*\(/.test(source)) {
+    failures.push(`${file}: ISR sayfasi veri hatasini yakalamamali (bos/yedek govde onbellege yazilir)`);
+  }
+}
+
+// JSON-LD (guvenlik denetimi S5#3, 2026-09-25): <script> govdesi lib/jsonLd.ts serializeJsonLd ile yazilir;
+// dangerouslySetInnerHTML icinde ham JSON.stringify yasak.
+const jsonLdFiles = [
+  "app/layout.tsx",
+  "app/universities/[id]/page.tsx",
+  "app/universities/[id]/departments/[deptSlug]/page.tsx",
+];
+for (const file of tracked) {
+  const source = readFileSync(file, "utf8");
+  if (/dangerouslySetInnerHTML=\{\{\s*__html:\s*JSON\.stringify\(/.test(source)) {
+    failures.push(`${file}: JSON-LD icin ham JSON.stringify yerine serializeJsonLd kullan`);
+  }
+}
+for (const file of jsonLdFiles) {
+  if (!readFileSync(file, "utf8").includes("serializeJsonLd(")) {
+    failures.push(`${file}: JSON-LD etiketi serializeJsonLd ile yazilmali`);
+  }
+}
+const jsonLdHelper = readFileSync("lib/jsonLd.ts", "utf8");
+for (const escape of ['"\\\\u003c"', '"\\\\u003e"', '"\\\\u0026"']) {
+  if (!jsonLdHelper.includes(escape)) {
+    failures.push(`lib/jsonLd.ts: ${escape} kacisi eksik`);
+  }
+}
+
+// Sitemap: slug'lar adres olarak kodlanir; yenileme dizin memo'suyla ayni (3 saat).
+const sitemap = readFileSync("app/sitemap.ts", "utf8");
+if (!sitemap.includes("encodeURIComponent(dept.slug)")) {
+  failures.push("app/sitemap.ts: program slug'i encodeURIComponent ile yazilmali");
+}
+if (!/export const revalidate = 10800;/.test(sitemap)) {
+  failures.push("app/sitemap.ts: revalidate 10800 olmali (dizin memo'su 3 saat)");
 }
 
 const css = readFileSync("app/globals.css", "utf8");
@@ -52,9 +95,6 @@ if (!css.includes("--editorial-terracotta-ink: #9f4629")) {
   failures.push("globals.css: --editorial-terracotta-ink: #9f4629 tokenı eksik veya değişmiş (paper zemininde 5,78:1; en koyu kart zemininde 5,14:1)");
 }
 
-const tracked = execSync("git ls-files app components lib", { encoding: "utf8" })
-  .split("\n")
-  .filter((file) => /\.(tsx|ts)$/.test(file));
 for (const file of tracked) {
   if (readFileSync(file, "utf8").includes("text-[var(--editorial-terracotta)]")) {
     failures.push(`${file}: terracotta metin/ikon için text-[var(--editorial-terracotta-ink)] kullanılmalı`);

@@ -15,6 +15,11 @@ Yeni veya guncellenen program verisi once bu tablolara yazilir. Uygulama
 `lib/universities.server.ts` ile bu uc tabloyu tek `University[]` modelinde
 birlesitirir.
 
+Katalog okumalari (uygulama ve `import-*` dry-run, `check:program-details`,
+`check:data`) server-only `SUPABASE_SECRET_KEY` (yeni tip `sb_secret_...`)
+ister; `.env.local`'da yoksa betik acik hata verir, herkese acik anon anahtara
+donulmez (2026-09-26).
+
 ## Tip ve local yedek siniri
 
 - Paylasilan uygulama tipleri: `types/universities.ts`

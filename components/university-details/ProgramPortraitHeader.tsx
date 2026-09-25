@@ -6,6 +6,7 @@ import { ArrowLeft, ExternalLink, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { DEFAULT_UNIVERSITY_IMAGE } from "@/lib/universityDefaults";
+import { remotePhotoProps } from "@/lib/remotePhoto";
 import type { Department, University } from "@/types/universities";
 
 interface ProgramPortraitHeaderProps {
@@ -37,6 +38,7 @@ export function ProgramPortraitHeader({
         <div className="mt-6 grid gap-5 lg:grid-cols-[minmax(360px,0.95fr)_minmax(0,1.05fr)] lg:items-stretch">
           <div className="relative aspect-[16/11] min-h-64 overflow-hidden border border-[var(--editorial-border)] bg-[var(--editorial-surface)]">
             <Image
+              {...remotePhotoProps(university.image || DEFAULT_UNIVERSITY_IMAGE)}
               src={university.image || DEFAULT_UNIVERSITY_IMAGE}
               alt={`${department.name} - ${university.name}`}
               fill

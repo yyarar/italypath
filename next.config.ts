@@ -5,6 +5,12 @@ const isDev = process.env.NODE_ENV === "development";
 // Clerk Frontend API (canli, ozel alan adi) ve kullanici gorselleri.
 const CLERK_FRONTEND_API = "https://clerk.italypath.app";
 const CLERK_IMAGES = "https://img.clerk.com";
+// Okul fotograflari tarayiciya dogrudan bu servislerden gelir (lib/remotePhoto.ts).
+const SCHOOL_PHOTO_HOSTS = [
+  "https://images.unsplash.com",
+  "https://plus.unsplash.com",
+  "https://images.pexels.com",
+];
 
 function supabaseOrigins() {
   try {
@@ -47,7 +53,12 @@ const reportOnlyPolicy = [
     ...CLERK_DEV_CONNECT_SOURCES,
     ...DEV_CONNECT_SOURCES,
   ].join(" "),
-  ["img-src 'self' data: blob:", CLERK_IMAGES, ...(supabase ? [supabase.https] : [])].join(" "),
+  [
+    "img-src 'self' data: blob:",
+    CLERK_IMAGES,
+    ...SCHOOL_PHOTO_HOSTS,
+    ...(supabase ? [supabase.https] : []),
+  ].join(" "),
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self' data:",
   "worker-src 'self' blob:",
@@ -73,22 +84,9 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.pexels.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'plus.unsplash.com',
-      },
-    ],
-  },
+  // Uzak alan adi izni (images.remotePatterns) bilincli olarak yok: /_next/image yalnizca yerel
+  // dosyalari isler. Okul fotograflari (Unsplash/Pexels) lib/remotePhoto.ts ile kendi servislerinin
+  // boyutlandiricisindan gelir (guvenlik denetimi S9#4, 2026-09-25).
   async headers() {
     return [
       {

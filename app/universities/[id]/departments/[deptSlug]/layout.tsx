@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { DEFAULT_UNIVERSITY_IMAGE } from '@/lib/universityDefaults';
-import { getUniversityById } from '@/lib/universities.server';
+import { getProgramPageData } from '@/lib/universities.server';
 import { getCityGuideName } from '@/lib/cities/normalization';
 import { hasAdmissionDossier } from '@/lib/admissionPresence';
 import {
@@ -17,16 +17,17 @@ const resolveCity = (city: string) =>
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string; deptSlug: string }> }): Promise<Metadata> {
     const resolvedParams = await params;
-    const university = await getUniversityById(resolvedParams.id);
-    const department = university?.departments.find((d) => d.slug === resolvedParams.deptSlug);
+    // Sayfayla ayni memo'lu veri (dizin + programin kendi kabul satiri); ek Supabase istegi yok.
+    const data = await getProgramPageData(resolvedParams.id, resolvedParams.deptSlug);
 
-    if (!university || !department) {
+    if (!data) {
         return {
             title: 'Program bulunamadı | ItalyPath',
             description: 'Aradığınız program kaydı bulunamadı.',
         };
     }
 
+    const { university, department } = data;
     const metadataInput: ProgramMetadataInput = {
         programName: department.name,
         universityName: university.name,
@@ -39,17 +40,19 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
     const title = buildProgramTitle(metadataInput, resolveCity);
     const description = buildProgramDescription(metadataInput, resolveCity);
+    // Canonical ve Open Graph adresi kayittaki id ve slug'dan kurulur (adresteki yazimdan degil).
+    const path = `/universities/${university.id}/departments/${encodeURIComponent(department.slug)}`;
 
     return {
         title,
         description,
         alternates: {
-            canonical: `/universities/${resolvedParams.id}/departments/${resolvedParams.deptSlug}`,
+            canonical: path,
         },
         openGraph: {
             title: `${department.name} — ${university.name}`,
             description,
-            url: `${BASE_URL}/universities/${resolvedParams.id}/departments/${resolvedParams.deptSlug}`,
+            url: `${BASE_URL}${path}`,
             images: [university.image || DEFAULT_UNIVERSITY_IMAGE],
         },
     };

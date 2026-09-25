@@ -68,6 +68,11 @@ requireTokens("university detail wrapper", universityPage, [
   "buildRelatedLinks(",
 ]);
 
+// Okul sayfasi (guvenlik denetimi S9#3, 2026-09-25): dizin kaydiyla calisir; tarayiciya hicbir programin
+// tam kabul dosyasi gitmez, program listesi yalnizca varlik bayragini (hasAdmissionDossier) kullanir.
+forbidTokens("university detail wrapper", universityPage, ["getProgramPageData", "admissionDetails"]);
+forbidTokens("university detail client", universityDetailClient, ["admissionDetails", "useUniversitiesData"]);
+
 requireTokens("university detail client", universityDetailClient, [
   // ISR: wrapper searchParams okumaz; "listeden geldi" davranisi client'ta URL'den turetilir
   "cameFromList",
@@ -88,10 +93,10 @@ requireTokens("university detail client", universityDetailClient, [
 ]);
 
 requireTokens("program detail wrapper", programPage, [
-  "getUniversityById",
+  "getProgramPageData",
   'import { notFound } from "next/navigation"',
-  "if (!university) notFound();",
-  "if (!department) notFound();",
+  "if (!data) notFound();",
+  "pruneUniversityForProgram(",
   "DepartmentDetailClient",
   "initialUniversity",
   "initialDepartmentSlug",
