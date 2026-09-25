@@ -1,7 +1,10 @@
+import { auth } from "@clerk/nextjs/server";
+
 import { getSatQuestions, getSatTopics } from "@/lib/sat/questions.server";
 
 // Bu route proxy.ts public listesinde DEGIL -> Clerk middleware korur.
 // Icerik korumali (College Board sorulari): public listeye asla ekleme.
+// Handler ayrica kendi oturum kontrolunu yapar (proxy'ye tek basina guvenmez).
 export const dynamic = "force-dynamic";
 
 const NO_STORE_HEADERS = {
@@ -10,6 +13,14 @@ const NO_STORE_HEADERS = {
 };
 
 export async function GET(request: Request) {
+  const { userId } = await auth();
+  if (!userId) {
+    return new Response(JSON.stringify({ error: "Giris gerekli." }), {
+      status: 401,
+      headers: NO_STORE_HEADERS,
+    });
+  }
+
   try {
     const url = new URL(request.url);
     const section = url.searchParams.get("section");

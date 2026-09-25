@@ -18,6 +18,9 @@ if (!robots.includes("'/sat'")) fail("app/robots.ts: /sat disallow listesinde ol
 
 // 2) Server veri katmani politikalari
 const server = read("lib/sat/questions.server.ts");
+if (!server.startsWith('import "server-only";')) {
+  fail('questions.server.ts: ilk satir import "server-only"; olmali (service role client istemci paketine giremez)');
+}
 if (!server.includes("SUPABASE_SERVICE_ROLE_KEY")) fail("questions.server.ts: service role key kullanmali");
 if (server.includes("NEXT_PUBLIC_SUPABASE_ANON_KEY")) fail("questions.server.ts: anon key KULLANMAMALI (korumali icerik)");
 const ttlMatch = server.match(/SERVER_CACHE_TTL_MS = (\d+) \* 60 \* 60 \* 1000/);
@@ -35,6 +38,12 @@ if (!server.includes("if (row.needs_review) return null")) {
 const route = read("app/api/sat/questions/route.ts");
 if (!route.includes("no-store")) fail("api/sat/questions: no-store header olmali");
 if (!route.includes("force-dynamic")) fail("api/sat/questions: force-dynamic olmali");
+if (
+  !route.includes('import { auth } from "@clerk/nextjs/server"') ||
+  !/const \{ userId \} = await auth\(\);\s*if \(!userId\) \{[\s\S]{0,200}status: 401/.test(route)
+) {
+  fail("api/sat/questions: handler kendi auth() kontrolunu yapmali (userId yoksa 401)");
+}
 if (route.includes("explanationEn") || route.includes("explanation_en")) {
   fail("api/sat/questions: topics cevabi aciklama metni tasimamalı");
 }

@@ -45,7 +45,14 @@ mustContain(pageSource, "AuthFailedFallback", "app/giris/page.tsx");
 mustContain(pageSource, "useSearchParams", "app/giris/page.tsx");
 mustContain(pageSource, "useRouter", "app/giris/page.tsx");
 mustContain(pageSource, "redirect_url", "app/giris/page.tsx");
-mustMatch(pageSource, /\.startsWith\(\s*["']\/\/["']\s*\)/, "app/giris/page.tsx", 'startsWith("//") redirect guard');
+// redirect_url: tarayicinin URL ayristirmasiyla ayni koken sarti + kontrol karakteri reddi.
+mustContain(pageSource, "hasControlCharacter(value)", "app/giris/page.tsx");
+mustMatch(
+  pageSource,
+  /new URL\(value, origin\)\.origin === origin/,
+  "app/giris/page.tsx",
+  "same-origin redirect_url check (new URL(value, origin).origin === origin)",
+);
 mustContain(pageSource, "router.replace", "app/giris/page.tsx");
 mustNotContain(pageSource, "OAuthButtons", "app/giris/page.tsx");
 mustNotContain(pageSource, "VerificationStep", "app/giris/page.tsx");
@@ -142,7 +149,19 @@ mustContain(nextConfig, "/sign-up", "next.config.ts");
 mustContain(nextConfig, "/giris", "next.config.ts");
 
 const proxy = read("proxy.ts");
-mustContain(proxy, "/giris(.*)", "proxy.ts");
+mustContain(proxy, "'/giris', '/giris/(.*)'", "proxy.ts");
+
+// Clerk yalniz guvenilen kokenlere yonlendirir (uretimde yalniz canli alan adi).
+const layout = read("app/layout.tsx");
+mustContain(layout, "allowedRedirectOrigins={getTrustedOrigins()}", "app/layout.tsx");
+const trustedOrigins = read("lib/auth/trustedOrigins.ts");
+mustContain(trustedOrigins, 'export const PRODUCTION_ORIGIN = "https://italypath.app";', "lib/auth/trustedOrigins.ts");
+mustMatch(
+  trustedOrigins,
+  /if \(vercelEnv === "production"\) \{\s*return \[PRODUCTION_ORIGIN\];\s*\}/,
+  "lib/auth/trustedOrigins.ts",
+  "production branch trusting only PRODUCTION_ORIGIN",
+);
 
 const robots = read("app/robots.ts");
 mustContain(robots, "/giris", "app/robots.ts");

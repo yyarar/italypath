@@ -83,8 +83,10 @@ mustInclude(
   "Turkce basari metni eksik",
 );
 mustInclude(expertSuccess, "aria-live", "Expert success live region eksik");
-mustInclude(proxySource, "'/ai-mentor(.*)'", "Public mentor hub matcher eksik");
-mustInclude(proxySource, "'/api/expert-leads(.*)'", "Public expert POST matcher eksik");
+mustInclude(proxySource, "'/ai-mentor', '/ai-mentor/(.*)'", "Public mentor hub matcher eksik");
+// Tam yol: alt yollar ve kardes onekler (/api/expert-leads/...) public olmamali.
+mustInclude(proxySource, "'/api/expert-leads',", "Public expert POST matcher eksik");
+mustNotInclude(proxySource, "'/api/expert-leads(.*)'", "Expert POST matcher tam yol olmali");
 mustInclude(mentorPage, "useAuth", "Volunteer auth gate eksik");
 mustInclude(
   mentorPage,

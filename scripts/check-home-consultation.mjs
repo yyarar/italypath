@@ -66,7 +66,7 @@ const consultPage = read("app/on-gorusme/page.tsx");
 mustNot(consultPage, '"use client"', "Sayfa server wrapper olmalı");
 must(consultPage, 'canonical: "/on-gorusme"', "Canonical");
 must(read("components/consultation/ConsultationPageClient.tsx"), 'variant="page"', "Sayfa varyantı");
-must(read("proxy.ts"), "'/on-gorusme(.*)'", "Public route");
+must(read("proxy.ts"), "'/on-gorusme', '/on-gorusme/(.*)'", "Public route");
 must(read("app/sitemap.ts"), "/on-gorusme", "Sitemap");
 mustNot(read("app/robots.ts"), "/on-gorusme", "Robots disallow olmamalı");
 const closing = read("components/HomeClosingCta.tsx");

@@ -1,3 +1,5 @@
+import "server-only";
+
 import { createClient } from "@supabase/supabase-js";
 
 import type { SatDifficulty, SatQuestion, SatSection, SatTopic } from "@/lib/sat/types";

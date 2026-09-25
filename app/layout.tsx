@@ -2,6 +2,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata, Viewport } from "next";
 import { Spectral, Hanken_Grotesk } from "next/font/google";
 import { Analytics } from '@vercel/analytics/next';
+import { getTrustedOrigins } from "@/lib/auth/trustedOrigins";
 import "./globals.css";
 
 // Editoryal başlık serifi (Times/Georgia varsayılanı yerine gerçek marka fontu).
@@ -81,6 +82,7 @@ export default function RootLayout({
       signUpUrl="/giris?mode=kayit"
       signInFallbackRedirectUrl="/hub"
       signUpFallbackRedirectUrl="/hosgeldin"
+      allowedRedirectOrigins={getTrustedOrigins()}
     >
       <html lang="tr" suppressHydrationWarning className={`${spectral.variable} ${hankenGrotesk.variable}`}>
         <body

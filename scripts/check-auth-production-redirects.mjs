@@ -29,7 +29,7 @@ const proxy = read("proxy.ts");
 mustContain(proxy, "PROTECTED_PAGE_ROUTES", "proxy.ts");
 // /ai-mentor 2026-07-23'ten beri public consultation hub'idir (AI masasi arayuzde paused, gonullu
 // masa sayfa icinde /giris'e yonlendirir). Public matcher'da olmali, PROTECTED_PAGE_ROUTES'ta olmamali.
-mustContain(proxy, "'/ai-mentor(.*)'", "proxy.ts");
+mustContain(proxy, "'/ai-mentor', '/ai-mentor/(.*)'", "proxy.ts");
 mustNotContain(proxy, '"/ai-mentor"', "proxy.ts");
 mustContain(proxy, '"/ekip"', "proxy.ts");
 mustContain(proxy, '"/hosgeldin"', "proxy.ts");

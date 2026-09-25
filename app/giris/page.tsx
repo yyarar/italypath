@@ -20,12 +20,25 @@ import { AuthTabs, type AuthTab } from "@/components/auth/AuthTabs";
 import { SignInForm } from "@/components/auth/SignInForm";
 import { SignUpForm } from "@/components/auth/SignUpForm";
 
-function isSafeRelativeRedirect(value: string) {
-  return (
-    value.startsWith("/") &&
-    !value.startsWith("//") &&
-    !value.includes("\\")
-  );
+function hasControlCharacter(value: string) {
+  for (let index = 0; index < value.length; index += 1) {
+    const code = value.charCodeAt(index);
+    if (code <= 0x1f || (code >= 0x7f && code <= 0x9f)) return true;
+  }
+  return false;
+}
+
+// redirect_url yalnız bu sitenin kendi adresine çözülebilir; tarayıcının URL
+// ayrıştırmasıyla başka kökene giden veya kontrol karakteri taşıyan değer temizlenir.
+function isSameOriginRedirect(value: string) {
+  if (hasControlCharacter(value)) return false;
+
+  try {
+    const origin = window.location.origin;
+    return new URL(value, origin).origin === origin;
+  } catch {
+    return false;
+  }
 }
 
 function GirisInner() {
@@ -38,7 +51,7 @@ function GirisInner() {
   useEffect(() => {
     const redirectUrl = params.get("redirect_url");
 
-    if (!redirectUrl || isSafeRelativeRedirect(redirectUrl)) {
+    if (!redirectUrl || isSameOriginRedirect(redirectUrl)) {
       return;
     }
 
