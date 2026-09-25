@@ -333,3 +333,5 @@ Kayıt:
 | Tarih | Adım | Sonuç |
 | --- | --- | --- |
 | 2026-09-26 | Yerel test: `npm run test:mentor-db` (PostgreSQL 16 ve 17, `LC_ALL=C`) | Geçti: soru başına son deneme, gün özeti (bugün/seri/en uzun seri, saat dilimi, geçersiz saat dilimi), başka kullanıcının satırları görünmez, anon reddedilir, dosya yeniden çalıştırılabilir |
+| 2026-09-25 23:55 UTC (TR 26 Eylül) | Yedek `italypath-supabase-20260925T235549Z.tar.gpg` (7,7 MB) alındı, `--verify` sağlam | Geçti |
+| 2026-09-25 23:58 UTC (TR 26 Eylül) | Migration `card7_sat_progress` (Kerem onayı; dosyanın `begin`/`commit` arası içeriği) | Canlı kontrol (yalnız okuma, işlem sonunda geri alınan rol/kimlik ayarı): en çok denemesi olan gerçek öğrenci kimliğiyle `authenticated` rolünde görünüm 76 soru / 12 doğru, özet `0:0:3`; ikisi de tablodan bağımsız hesaplamayla aynı. Geçersiz saat dilimi UTC'ye düştü. İkinci gerçek öğrenci birincinin satırlarını 0 gördü, kendi 27 sorusunu gördü. anon: görünüm ve fonksiyon 42501. Güvenlik danışmanında yeni uyarı yok |
