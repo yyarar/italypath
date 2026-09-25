@@ -78,7 +78,7 @@ Sütunlar: **Kanıt / kaynak** = repo dosyası, commit, kayıt bölümü veya ca
 | 28 | `AGENT_CONTEXT.md` kısaltma (audit önerisi ~200–300 satır): tekrar ve tarihsel anlatım ayıklanacak; kural listesi ve guard eşlemeleri korunur | audit "Önerilen sade yapı" | Ertelendi |
 | 29 | `docs/superpowers` planlarındaki checkbox'lar (33 plan, 14 işaretli / 1.427 işaretsiz) ilerlemeyi yansıtmaz; durum `docs/superpowers/INDEX.md`'de tutulur, checkbox'lar toplu işaretlenmez | INDEX.md | — |
 | 30 | `DATA_ENTRY_GUIDE.md` 39 satır: hedef ortam, dry-run, yedek, yazılabilir alanlar, kaynak/akademik yıl, import sonrası cache kontrolü eksik | audit madde 11 | Sıralama |
-| 31 | `check:docs` (belge yol/npm script referans guard'ı) ve `engines` ile Node pinleme önerileri | audit | Kerem |
+| 31 | `check:docs` (belge yol/npm script referans guard'ı) önerisi. `engines` Node pinlemesi 2026-09-25'te dalda yapıldı (`24.x`, güvenlik kartı 1; yayın bekliyor) | audit; `package.json` | Kerem |
 | 32 | `SUPABASE_SECURITY_RUNBOOK.md`: kapsam, SQL bağımlılıkları (view, SAT, expert_leads) ve son doğrulama tarihi eklenmeli | audit dosya tablosu | Sıralama |
 | 33 | Burs sayfası ve ana sayfa CTA'sındaki doğrulama tarihi notu `lib/translations.ts` içinde sabit metin (24 Eylül 2026 / 9 Mart 2026); bir sonraki veri güncellemesinde yine bayatlar. Aday: tarihleri `SCHOLARSHIP_REGIONS` kayıtlarındaki `lastVerifiedAt` değerlerinden türetmek | 0d01455 | Sıralama |
 

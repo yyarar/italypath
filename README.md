@@ -24,7 +24,7 @@ npm run dev
 
 Dev server varsayilan olarak `http://localhost:3000` adresinde calisir.
 
-Test edilmis Node surumu: 20.20.1 (2026-09-21). `package.json` icinde `engines` alani yoktur; eski plan belgelerindeki farkli Node sartlarina bakarak surum cikarma.
+Test edilmis Node surumu: 24.13.0 (2026-09-25). `package.json` `engines.node` alani `24.x`'tir; eski plan belgelerindeki farkli Node sartlarina bakarak surum cikarma.
 
 ## Environment
 
@@ -41,6 +41,8 @@ NEXT_PUBLIC_CLERK_SIGN_IN_URL=/giris
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/giris?mode=kayit
 NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/hub
 NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/hosgeldin
+# Istege bagli, yalniz yerel: 3000 disinda bir portta calisirken Clerk oturumunun kabul edilecegi adres(ler)
+# CLERK_DEV_ORIGINS=http://localhost:3000
 ```
 
 Ornek dosya: `.env.example`. Hangi ortamda ne gerekir:
@@ -98,16 +100,17 @@ node scripts/check-universities-server-compose.mjs
 
 Tek kaynak `proxy.ts` ve AGENT_CONTEXT.md "Auth ve Route Matrix" bolumudur; bu liste ozettir.
 
-Public: `/`, `/ai-mentor/*`, `/api/expert-leads`, `/api/universities`, `/data/*`, `/sign-in`, `/sign-up`, `/universities`, `/cities`, `/isee`, `/scholarships`, `/communities`, `/topluluklar`, `/yasal/*`, `/giris`, `/on-gorusme`, `/sitemap.xml`, `/robots.txt`, `/llms.txt`.
+Public: `/`, `/ai-mentor/*`, `/api/expert-leads`, `/api/universities`, `/data/*`, `/sign-in`, `/sign-up`, `/universities/*`, `/cities/*`, `/isee`, `/scholarships`, `/communities`, `/topluluklar`, `/yasal/*`, `/giris/*`, `/on-gorusme`, `/sitemap.xml`, `/robots.txt`, `/llms.txt` (API'ler tam yol; agaclar `yol` + `yol/*` cifti).
 
 `/ai-mentor` public'tir: AI masasi arayuzde duraklatilmis, gonullu masa sayfa icinde `/giris`'e yonlendirir, uzman on gorusme formu herkese aciktir.
 
 Protected: `/documents`, `/ekip/*`, `/favorites`, `/hosgeldin`, `/hub`, `/profile`, `/sat`,
 `/api/chat`, `/api/sat/*`.
 
-Signed-out kullanıcı protected page route açarsa `proxy.ts` onu
-`/giris?redirect_url=<istenen-route>` adresine yönlendirir. Protected API route
-olan `/api/chat` HTML login sayfasına yönlendirilmez; API gibi korumalı kalır.
+Signed-out kullanıcı protected veya listede olmayan bir sayfa açarsa `proxy.ts` onu
+`/giris?redirect_url=<istenen-route>` adresine yönlendirir. Protected API route'lar
+(`/api/chat`, `/api/sat/*`) HTML login sayfasına yönlendirilmez; Clerk'in API cevabını alır.
+`/api/sat/questions` handler'ı ayrıca kendi `auth()` kontrolünü yapar.
 
 Route guvenligi `proxy.ts` ile yonetilir; `middleware.ts` olusturulmaz.
 

@@ -20,13 +20,13 @@ Uygulamanin ana tasarim dili editorial paper/sage/terracotta paleti, serif basli
 
 | Katman | Teknoloji | Surum |
 | --- | --- | --- |
-| Framework | Next.js App Router | 16.1.6 |
+| Framework | Next.js App Router | 16.3.6 (2026-09-25) |
 | UI | React / React DOM | 19.2.3 |
 | Stil | Tailwind CSS | v4 |
 | Animasyon | Framer Motion | 12.34.0 |
 | Ikon | Lucide React | 0.563.0 |
 | Markdown | React Markdown | 10.1.0 |
-| Auth | Clerk (`@clerk/nextjs`) | 6.37.3 |
+| Auth | Clerk (`@clerk/nextjs`, `@clerk/elements`) | 6.39.7 / 0.24.20 (2026-09-25) |
 | Database/Storage | Supabase JS | 2.95.3 |
 | AI | Google Gemini (`@google/generative-ai`) | 0.24.1 |
 | AI SDK paketleri | `ai`, `@ai-sdk/google`, `@ai-sdk/react` | Kurulu, aktif mentor akisi native Gemini |
@@ -309,24 +309,24 @@ Gercek EU/non-EU basvuru tarihleri Supabase `program_admission_details` tablosun
 
 Route guvenligi sadece `proxy.ts` ile saglanir. `middleware.ts` olusturma. Bu bolum ve `proxy.ts` erisim modelinin TEK kaynagidir; README ve diger bolumler buna uyar. `/ai-mentor` public'tir (AI masasi arayuzde paused, gonullu masa sayfa icinde `/giris`'e yonlendirir, uzman formu public); `/api/chat`, `/api/sat/*` ve `/ekip/*` protected'dir.
 
-Public route pattern'leri:
+Public route pattern'leri (2026-09-25'ten beri kesin kalip: agac icin `'/yol'` + `'/yol/(.*)'` cifti, tek uc nokta icin tam yol; `'/yol(.*)'` bicimi ayni onekle baslayan kardes yollari da actigi icin kullanilmaz ve `check:routes` bunu reddeder):
 
 - `/`
-- `/ai-mentor(.*)`  # public consultation hub; robots disallow/sitemap exclusion sürer
-- `/api/expert-leads(.*)` # public, yalnızca POST expert lead gönderimi
-- `/api/universities(.*)`
-- `/data(.*)`
-- `/sign-in(.*)`     # eski URL, `next.config.ts` 308 ile `/giris`'e yonlendirir
-- `/sign-up(.*)`     # eski URL, `next.config.ts` 308 ile `/giris?mode=kayit`'e yonlendirir
-- `/universities(.*)`
-- `/cities(.*)`
-- `/isee(.*)`
-- `/scholarships(.*)`
-- `/communities(.*)`
-- `/topluluklar(.*)`
-- `/yasal(.*)`
-- `/giris(.*)`       # yeni tek sayfa giris+kayit
-- `/on-gorusme(.*)`  # ucretsiz on gorusme sayfasi; sitemap'te
+- `/ai-mentor`, `/ai-mentor/(.*)`  # public consultation hub; robots disallow/sitemap exclusion sürer
+- `/api/expert-leads` # tam yol; public, yalnızca POST expert lead gönderimi
+- `/api/universities` # tam yol
+- `/data/(.*)`       # public statik veri (burs haritasi GeoJSON)
+- `/sign-in`, `/sign-in/(.*)`     # eski URL, `next.config.ts` 308 ile `/giris`'e yonlendirir
+- `/sign-up`, `/sign-up/(.*)`     # eski URL, `next.config.ts` 308 ile `/giris?mode=kayit`'e yonlendirir
+- `/universities`, `/universities/(.*)`
+- `/cities`, `/cities/(.*)`
+- `/isee`, `/isee/(.*)`
+- `/scholarships`, `/scholarships/(.*)`
+- `/communities`, `/communities/(.*)`
+- `/topluluklar`, `/topluluklar/(.*)`
+- `/yasal`, `/yasal/(.*)`
+- `/giris`, `/giris/(.*)`       # yeni tek sayfa giris+kayit (+ `/giris/sso-callback`)
+- `/on-gorusme`, `/on-gorusme/(.*)`  # ucretsiz on gorusme sayfasi; sitemap'te
 - `/sitemap.xml`
 - `/robots.txt`
 - `/llms.txt`       # AI asistanlari icin discovery dosyasi; proxy matcher `.txt` uzantisini haric tutmadigi icin allowlist'te olmali (2026-09-21 oncesinde canlida 404 donuyordu)
@@ -341,11 +341,20 @@ Protected ornekler:
 - `/hub`
 - `/sat`
 - `/api/chat`
+- `/api/sat/questions`
 - `/profile`
+
+Oturumsuz istek davranisi (`proxy.ts` dal sirasi): public -> gecer; `PROTECTED_PAGE_ROUTES` -> `/giris?redirect_url=...`; `/api/*` -> Clerk'in varsayilan API cevabi (HTML giris sayfasina yonlendirme yok); listede olmayan diger yollar -> yine `/giris?redirect_url=...` (2026-09-25 oncesinde Clerk'in barindirilan giris sayfasina gidiyordu). Korumali API handler'lari proxy'ye tek basina guvenmez: `/api/sat/questions` kendi `auth()` kontrolunu yapar ve oturum yoksa 401 doner (`/api/chat` AI mentor kaldirma isiyle silinecek, STATUS #42).
+
+Clerk guvenilen kokenler (2026-09-25): `lib/auth/trustedOrigins.ts` tek kaynaktir. `clerkMiddleware` `authorizedParties`, `ClerkProvider` `allowedRedirectOrigins` olarak ayni listeyi alir: Vercel Production'da yalniz `https://italypath.app`; Preview'da ek olarak yayinin kendi `*.vercel.app` adresleri; yerelde `CLERK_DEV_ORIGINS` (verilmezse `http://localhost:3000`). Liste yanlis olursa girisli kullanici oturumsuz gorunur; yayindan sonra canlida bir kez giris denenmelidir.
+
+`/giris` `redirect_url` degerini tarayicinin URL ayristirmasiyla (`new URL(deger, origin)`) ayni koken sartina ve kontrol karakteri reddine tabi tutar; uymayan deger sorgudan temizlenir.
+
+Guvenlik basliklari (2026-09-25, `next.config.ts` `headers()`, tum yollar): `X-Frame-Options: DENY`; zorunlu `Content-Security-Policy` yalniz `frame-ancestors 'none'; object-src 'none'; base-uri 'self'`; ayrica `Content-Security-Policy-Report-Only` izin listesi (self, satir ici betik, Clerk Frontend API, Supabase https/wss, Clerk gorselleri; test anahtarinda Clerk development instance, `next dev`'de eval/HMR). Nonce tabanli CSP kullanilmaz (ISR onbellegini bozar). Rapor-modu ihlalleri yalniz tarayici konsolunda gorunur (rapor adresi yok); zorunlu hale getirmeden once `/giris`, `/documents`, `/sat` girisli denenmeli. Kayit formunda `SignUp.Captcha` vardir: Clerk panelinde bot korumasi aciksa kayit sirasinda Cloudflare Turnstile yuklenir ve izin listesinde yoktur; zorunlu hale getirmeden once rapor-modunda kayit akisi kontrol edilmeli. `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (kamera, mikrofon, konum, browsing-topics kapali), `poweredByHeader: false`.
 
 Navbar artik signed-out durumda **modal acmaz**; `<Link href="/giris">` ile tam sayfa `/giris`'e gider. Protected CTA linkleri signed-out durumda `/giris?redirect_url=...` adresine gider (`/sign-in?redirect_url=...` referanslari kalmadi). Mobil BottomNav 2026-07-23 tarihinde uygulama genelinden kaldirildi.
 
-`npm run check:routes`, public/protected matrix'i ve scholarship GeoJSON fetch kurallarini smoke-test eder. `npm run check:auth-ui`, `/giris` sayfasinin ve auth migration'inin butunlugunu dogrular.
+`npm run check:routes`, public/protected matrix'i Clerk'in kendi yol eslestiricisiyle (`@clerk/shared/pathMatcher`) dener, kardes onek ve alt yol negatif denemelerini yapar, `app/**/page.tsx`, `app/**/route.ts`, `app/robots.ts`, `app/sitemap.ts` ve `public/*` dosyalarini tarayip ne allowlist'te ne acik korumali listede olan yolu hata sayar, `authorizedParties` sozlesmesini ve scholarship GeoJSON fetch kurallarini kontrol eder. Yeni public sayfa/dosya eklerken `proxy.ts` allowlist'i, yeni korumali sayfada `PROTECTED_PAGE_ROUTES`, yeni korumali API'de script icindeki `protectedApiRoutes` listesi guncellenir. `npm run check:auth-ui`, `/giris` sayfasinin ve auth migration'inin butunlugunu, `redirect_url` ayni koken kontrolunu ve `allowedRedirectOrigins` baglantisini dogrular.
 
 ---
 
@@ -375,7 +384,7 @@ Bilesenler `components/auth/` altinda:
 
 Tum metinler `lib/translations.ts` `auth.*` namespace altinda (TR + EN paralel). Esas referans (Clerk Elements mimarisi): `docs/superpowers/specs/2026-07-01-clerk-elements-auth-rebuild-design.md` ve `docs/superpowers/plans/2026-07-01-clerk-elements-auth-rebuild.md`; production redirect sertlestirmesi `docs/superpowers/*/2026-06-27-auth-production-redirect-hardening*`. 16 Haziran tasarim/plani (`2026-06-16-auth-redesign-*`) ilk surumun arsividir.
 
-Clerk Elements v0.24.18 ile bilinen sapmalar (gelecek auth degisikliklerinde dikkat):
+Clerk Elements v0.24.18 ile bilinen sapmalar (2026-09-25'te 0.24.20'ye yukseltildi; sapmalar gecerli varsayilir, gelecek auth degisikliklerinde dikkat):
 
 - OAuth butonu icin `Clerk.Connection` (NOT eski `SignIn.SocialProvider`)
 - Virtual routing OAuth donusu icin `/giris/sso-callback` sayfasi korunmali; kaldirilirsa Google donusu 404'e duser
@@ -592,7 +601,7 @@ Dogrulama: `npm run check:hub-onboarding` ve `npm run check:university-data-sour
 
 Veri modeli `supabase/sat_bank.sql` icindedir: `sat_questions` dogrudan anon/authenticated okumaya kapali, yalnizca server API tarafindan `SUPABASE_SERVICE_ROLE_KEY` ile okunur; `sat_attempts` Clerk user id uzerinden `requesting_user_id()` RLS ile kullanicinin kendi denemelerine aciktir.
 
-Server katmani `lib/sat/questions.server.ts`: service role client, 3 saatlik in-memory memo, single-flight refresh ve stale-on-error davranisi kullanir. API route `app/api/sat/questions/route.ts` `force-dynamic` ve `Cache-Control: no-store` dondurur.
+Server katmani `lib/sat/questions.server.ts`: ilk satiri `import "server-only"` (istemci paketine giremez), service role client, 3 saatlik in-memory memo, single-flight refresh ve stale-on-error davranisi kullanir. API route `app/api/sat/questions/route.ts` `force-dynamic` ve `Cache-Control: no-store` dondurur; proxy korumasina ek olarak kendi `auth()` kontrolunu yapar (oturum yoksa 401).
 
 Client yuzeyi `app/sat/page.tsx` ve `components/sat/*` altindadir. `MathText` KaTeX ile `$...$` ifadelerini render eder; `lib/sat/answers.ts` SPR sayi/kesir cevap eslestirmesini yapar. Soru fetch ve attempt yazimi `lib/sat/useSatBank.ts` / `lib/sat/useSatAttempts.ts` hook'larindadir.
 
@@ -626,7 +635,7 @@ Kalici dogrulama: `npm run check:cities`.
 
 `/scholarships` public route'tur. `components/scholarships/ScholarshipsExplorer.tsx`, `lib/scholarships/regions.ts`, `types/scholarships.ts`, `public/data/italy-regions.geojson` kullanir.
 
-GeoJSON lokal `/data/italy-regions.geojson` uzerinden fetch edilir; `/data(.*)` public olmalidir.
+GeoJSON lokal `/data/italy-regions.geojson` uzerinden fetch edilir; `/data/(.*)` public olmalidir.
 
 SEO Adim 2 sonrasi `app/scholarships/page.tsx` server-rendered gorunur intro/region nav tasir; map/GeoJSON client deneyimi korunur. Son canli audit'te `/scholarships` bailout temizdir.
 
@@ -670,7 +679,7 @@ SEO 2.5 sonrasi `/communities` `force-dynamic` route'tur. Canli HTML'de gercek H
 - Sunum: `components/legal/LegalDocument.tsx` (saf Server Component, editorial stil)
 - Route: `app/yasal/[slug]/page.tsx` (`generateStaticParams` + `generateMetadata`, server)
 - Footer'da "Yasal" linkleri `LEGAL_LINKS` ile uretilir
-- `proxy.ts` public route: `/yasal(.*)`
+- `proxy.ts` public route: `/yasal` + `/yasal/(.*)`
 - Su an sadece Turkce; Ingilizce ileride ayni yapilandirilmis modele eklenebilir.
 
 Tasarim notu: `docs/superpowers/specs/2026-06-12-yasal-sayfalar-design.md`.
@@ -725,8 +734,9 @@ Gercek production schema dashboard'dan dogrulanmalidir.
 | `GEMINI_API_KEY` | Gemini chat endpoint (`/api/chat`); yoksa 503. AI masasi arayuzde paused oldugu icin bugun kullaniciya acik yuzey yok |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk frontend |
 | `CLERK_SECRET_KEY` | Clerk server |
+| `CLERK_DEV_ORIGINS` | Istege bagli, yalniz yerel: Clerk oturumunun kabul edildigi yerel koken(ler), virgulle ayrilmis; verilmezse `http://localhost:3000`. Vercel Production/Preview'da okunmaz (`lib/auth/trustedOrigins.ts`) |
 
-Supabase env eksikse university API ve Supabase dogrulama scriptleri hata verir. Ornek dosya `.env.example`; Clerk anahtar kurallari (live/test, Preview) README'dedir. Test edilmis Node surumu: 20.20.1 (2026-09-21; `package.json` icinde `engines` alani yok, eski plan belgelerindeki farkli Node sartlarina bakarak surum cikarma).
+Supabase env eksikse university API ve Supabase dogrulama scriptleri hata verir. Ornek dosya `.env.example`; Clerk anahtar kurallari (live/test, Preview) README'dedir. Test edilmis Node surumu: 24.13.0 (2026-09-25; `package.json` `engines.node` = `24.x`, Vercel ile ayni ana surum; eski plan belgelerindeki farkli Node sartlarina bakarak surum cikarma). Guard scriptleri Node 20'de de calisir.
 
 ---
 

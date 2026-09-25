@@ -34,7 +34,7 @@ Arsivler baslangic rehberi degildir: `AGENT_CONTEXT_FIX_REPORT.md` (2026-06-11 u
 
 - Her degisiklikten sonra ilgili guard'i calistir (`AGENT_CONTEXT.md` "Komutlar"). Belge, ortam veya route degisikliginde en az: `check:routes`, `check:auth-production`, `check:ai-search`, `check:expert-leads`, `check:mentor-desks`, `check:seo-vitals`, `check:university-data-source`.
 - "Kontroller yesil" ifadesi tarihlidir; bugunku durum icin guard'i yeniden kos.
-- Test edilmis Node surumu: 20.20.1 (2026-09-21). `package.json` icinde `engines` yok.
+- Test edilmis Node surumu: 24.13.0 (2026-09-25); `package.json` `engines.node` = `24.x` (Vercel de 24 kullanir). Bu makinede PATH'te once Homebrew Node 20 gelebilir; `node -v` ile kontrol et, Node 24 `/usr/local/bin/node`.
 
 ## Belge sozlesmesi
 
