@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur; guncel mimari ve calisma kurallarinin kaynak dokumanidir. `AGENT_COMMITS.md` tarihsel ve eksik degisiklik notlaridir (Git gecmisi esastir). `AGENT_CONTEXT_FIX_REPORT.md` 2026-06-11'de uygulanmis eski bir audit arsividir. En son context degerlendirmesi `docs/CONTEXT_AUDIT_2026-09-19.md` icindedir; bu dosyadaki 2026-09-21 duzeltmeleri o raporun uygulama sirasinin 1. ve 2. adimidir. Okumaya kok `AGENTS.md` ile basla; tek acik is listesi `docs/STATUS.md`, tasarim/plan belgelerinin durumu `docs/superpowers/INDEX.md` icindedir (3. adim, 2026-09-21).
 
-Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun) · 2026-09-26: veri katmani, kanonik okul adresi, JSON-LD kacisi, okul fotograflari ve hata sayfalari (guvenlik denetimi kart 2; dalda, push bekliyor) · 2026-09-26: AI mentor masasi, `/api/chat` ve Gemini/AI SDK paketleri kaldirildi (guvenlik denetimi kart 6; dalda, push bekliyor)
+Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun) · 2026-09-26: veri katmani, kanonik okul adresi, JSON-LD kacisi, okul fotograflari ve hata sayfalari (guvenlik denetimi kart 2) · 2026-09-26: AI mentor masasi, `/api/chat` ve Gemini/AI SDK paketleri kaldirildi (guvenlik denetimi kart 6; dalda, push bekliyor) · 2026-09-26: katalog yetkileri ve kullanici yazma sinirlari canlida (guvenlik denetimi kart 4)
 
 Sayilar bu dosyada tarihli snapshot olarak gecer. Guncel sayim "Canli university/program verisi" bolumundedir; eski tarihli bolumlerdeki sayilari bugunku gercek sayma.
 
@@ -160,7 +160,10 @@ italypath-main/
 │   ├── sat/                        # PDF -> JSON pipeline ve import scriptleri
 │   └── clean-med-data.mjs
 ├── supabase/
-│   ├── rls_hardening.sql
+│   ├── rls_hardening.sql           # favorites, user_documents, documents deposu: RLS, yetki, uzunluk kurallari, kisi basi sinirlar
+│   ├── data_api_privileges.sql     # Katalog yalniz sunucuya acik, yeni tablo kapali baslar, pg_graphql kapali (2026-09-26)
+│   ├── archive_legacy_content_tables.sql # community_links + scholarship_regions yerinde arsiv (2026-09-26)
+│   ├── schema_2026-09-26.sql       # Canli public semasinin tarihli dokumu (veri yok); kurulum kaynagi degil
 │   ├── program_admission_details.sql
 │   ├── user_profiles.sql
 │   ├── volunteer_mentor.sql        # Gonullu mentor tablolar/RLS/RPC/Realtime kontrati
@@ -210,7 +213,7 @@ Canli veri `lib/universities.server.ts` icinde Supabase'den compose edilir:
 - `universities`
 - `university_departments`
 - `program_admission_details`
-- `program_degree_class_codes` (salt okunur VIEW, `supabase/program_degree_class_codes.sql`, 2026-09-19): `degree_class` serbest metninden cikarilmis kisa resmi kodlar (LM-32 gibi). `security_invoker = true`, yazma yetkisi yok. Yeni Supabase ortami kurulurken bu view olusturulmazsa dizin sorgusu hata verir.
+- `program_degree_class_codes` (salt okunur VIEW, `supabase/program_degree_class_codes.sql`, 2026-09-19): `degree_class` serbest metninden cikarilmis kisa resmi kodlar (LM-32 gibi). `security_invoker = true`, yazma yetkisi yok; 2026-09-26'dan beri yalniz sunucu (service_role) okur. Yeni Supabase ortami kurulurken bu view olusturulmazsa dizin sorgusu hata verir.
 
 Calisma zamani fonksiyonlari (2026-09-15 egress diyeti; 2026-09-26 guvenlik denetimi kart 2: okul sayfasi dizinden, program sayfasi yalnizca kendi kabul satirindan). Tam veri seti compose'u ve okul basina tum kabul dosyalarini ceken sorgu runtime'da YOKTUR:
 
@@ -221,7 +224,7 @@ Calisma zamani fonksiyonlari (2026-09-15 egress diyeti; 2026-09-26 guvenlik dene
 - `composeUniversitiesFromSupabaseRows(uniRows, deptRows, admissionRows = [], presenceIds?, degreeClassCodes?)` saf compose; `scripts/check-universities-server-compose.mjs` test eder.
 - Kabul dosyasi varligini okumak icin `lib/admissionPresence.ts` `hasAdmissionDossier(department)` kullanilir (hub oneri bonusu, "yakinda" rozeti, okul sayfasi program listesi).
 
-Katalog okuma anahtari (2026-09-26, S9#1 kod tarafi): `lib/universities.server.ts` `import "server-only"` ile baslar ve dort katalog kaynagini yalnizca server-only `SUPABASE_SECRET_KEY` (Supabase'in yeni tip gizli anahtari, `sb_secret_…`) ile okur. Anahtar yoksa veya `sb_secret_` ile baslamiyorsa acik hata firlatilir; herkese acik anon anahtara geri dusulmez. Ayni kural katalog okuyan betiklerde de gecerlidir (`check-program-details.mjs`, `validate-supabase-university-data.mjs`, `import-*.mjs` okuma/dry-run kismi). Vercel'de degisken Supabase entegrasyonunca tanimlidir (Production, Preview, Development); yerelde `.env.local`'a elle eklenir. Katalog tablolarinin yetki sikilastirmasi ayri istir (guvenlik karti 4; bu degisiklik canlida dogrulandiktan sonra, Kerem onayiyla).
+Katalog okuma anahtari (2026-09-26, S9#1 kod tarafi): `lib/universities.server.ts` `import "server-only"` ile baslar ve dort katalog kaynagini yalnizca server-only `SUPABASE_SECRET_KEY` (Supabase'in yeni tip gizli anahtari, `sb_secret_…`) ile okur. Anahtar yoksa veya `sb_secret_` ile baslamiyorsa acik hata firlatilir; herkese acik anon anahtara geri dusulmez. Ayni kural katalog okuyan betiklerde de gecerlidir (`check-program-details.mjs`, `validate-supabase-university-data.mjs`, `import-*.mjs` okuma/dry-run kismi). Vercel'de degisken Supabase entegrasyonunca tanimlidir (Production, Preview, Development); yerelde `.env.local`'a elle eklenir. 2026-09-26'dan beri (guvenlik karti 4, `supabase/data_api_privileges.sql`) anon ve authenticated rollerinin dort katalog kaynaginda (ve `university_departments` id dizisinde) hicbir yetkisi ve okuma politikasi yoktur; ziyaretci anahtariyla istek 42501 doner. Istemciye katalog grant'i veya okuma politikasi geri eklemek egress acigini yeniden acar (`check:university-data-source` SQL'i de denetler). Ayni projeye bagli `~/remake` iOS uygulamasi bu yuzden katalog okuyamaz (`docs/STATUS.md` #56).
 
 Canli Supabase sayimi (2026-09-21, `select count(*)`; 19 Eylul 2026 veri temizliginde 8 okul + 67 program silindi, 41 arastirilmis kabul dosyasi import edildi):
 
@@ -551,7 +554,7 @@ Production acilisi Clerk third-party auth, SQL kurulumu ve `mentor_staff` provis
 `lib/useFavorites.ts` tek hook'tur.
 
 - Guest: `localStorage` key `italyPathFavorites`
-- Signed-in: Supabase `favorites` tablosu, Clerk `supabase` JWT template ile
+- Signed-in: Supabase `favorites` tablosu, Clerk `supabase` JWT template ile; veritabani kisi basi en cok 100 favori ve sayisal `university_id` kabul eder (`favorite_limit_reached`, 2026-09-26)
 - optimistic update + rollback
 - logout sonrasi stale state temizlenir
 
@@ -562,7 +565,8 @@ Production acilisi Clerk third-party auth, SQL kurulumu ve `mentor_staff` provis
 - private bucket uyumlu signed URL akisi
 - upload'da storage basarili DB insert basarisiz olursa cleanup
 - delete'de storage ve DB hata objeleri kontrol edilir
-- client-side mime/size guard'lari vardir
+- client-side mime/size guard'lari vardir: `lib/documents/limits.ts` (5 MB, izinli turler, dosya adi 255) depo ve tablo kurallariyla aynidir (`check:documents-ui` karsilastirir); dosya uzantisi turden gelir, dosya adindan degil
+- veritabani/depo sinirlari (2026-09-26, `supabase/rls_hardening.sql`): kisi basi en cok 30 belge satiri (`document_limit_reached`) ve 30 dosya, `storage_path` sahibin klasorunde ve en cok 300 karakter, `category` alti anahtardan biri veya NULL
 
 ### Hub
 
@@ -584,7 +588,7 @@ Profil modeli:
 
 - `lib/hub/profile.ts`: level/field/budget/city enum'lari, `UserProfile`, bos profil guard'i
 - `types/index.ts`: explicit `UserProfileRow` interface'i
-- Supabase tablo setup'i: `supabase/user_profiles.sql` (`user_id` Clerk id primary key, RLS `requesting_user_id()`)
+- Supabase tablo setup'i: `supabase/user_profiles.sql` (`user_id` Clerk id primary key, RLS `requesting_user_id()`; 2026-09-26'dan beri `fields` yalniz `PROFILE_FIELDS`'in 8 anahtarindan, en cok 2 eleman)
 
 Oneri motoru:
 
@@ -605,7 +609,7 @@ Dogrulama: `npm run check:hub-onboarding` ve `npm run check:university-data-sour
 
 `/sat` protected soru cozme deneyimidir. Public route listesine eklenmez; `PROTECTED_PAGE_ROUTES` icinde acikca yer alir ve signed-out kullanici `/giris?redirect_url=/sat` adresine yonlenir. Robots disallow listesinde tutulur.
 
-Veri modeli `supabase/sat_bank.sql` icindedir: `sat_questions` dogrudan anon/authenticated okumaya kapali, yalnizca server API tarafindan `SUPABASE_SERVICE_ROLE_KEY` ile okunur; `sat_attempts` Clerk user id uzerinden `requesting_user_id()` RLS ile kullanicinin kendi denemelerine aciktir.
+Veri modeli `supabase/sat_bank.sql` icindedir: `sat_questions` dogrudan anon/authenticated okumaya kapali, yalnizca server API tarafindan `SUPABASE_SERVICE_ROLE_KEY` ile okunur; `sat_attempts` Clerk user id uzerinden `requesting_user_id()` RLS ile kullanicinin kendi denemelerine aciktir; 2026-09-26'dan beri cevap en cok 32 karakter (`QuestionCard` giris kutusu da 32), hesap basina 24 saatte en cok 2.000 deneme (`sat_attempt_rate_limited`) ve `answered_at` sunucu saatiyle yazilir. `sat-figures` deposu 512 KB, yalniz WebP.
 
 Server katmani `lib/sat/questions.server.ts`: ilk satiri `import "server-only"` (istemci paketine giremez), service role client, 3 saatlik in-memory memo, single-flight refresh ve stale-on-error davranisi kullanir. API route `app/api/sat/questions/route.ts` `force-dynamic` ve `Cache-Control: no-store` dondurur; proxy korumasina ek olarak kendi `auth()` kontrolunu yapar (oturum yoksa 401).
 
@@ -711,10 +715,16 @@ Kodun bekledigi ana tablolar:
 - `program_degree_class_codes` (VIEW): `program_admission_details.degree_class` metninden kisa resmi kodlar; dizin sorgusu buna bagimli
 - `sat_questions`: SAT soru bankasi; anon/authenticated okuyamaz, yalnizca server service-role okur (`needs_review=true` satirlari sunulmaz)
 - `sat_attempts`: kullanicinin kendi denemeleri (`requesting_user_id()` RLS)
+- `community_links`, `scholarship_regions`: ARSIV (2026-09-26, Kerem karari); site bu verileri `lib/community-links.ts` ve `lib/scholarships/regions.ts`'ten okur, tablolarda istemci erisimi yok
+
+Yetki modeli (2026-09-26, guvenlik karti 4): `postgres`'in `public` semasinda actigi yeni tablo ve diziler anon/authenticated'a kapali baslar. Yeni tablo ekleyen SQL dosyasi RLS politikalarinin yanina gereken `grant`'lari acikca yazar (ornek: `supabase/user_profiles.sql`). Kullanici tablolarinda authenticated yalniz uygulamanin kullandigi fiilleri tasir; anon hicbir sey yapamaz. Kurallarin yerel testi `npm run test:mentor-db` (Supabase benzeri ayri veritabani, favori/belge/profil/SAT/dosya sahipligi ve sinirlar).
 
 SQL/runbook dosyalari (sifirdan kurulum sirasi DEGILDIR; gercek production schema dashboard'dan dogrulanir):
 
-- `supabase/rls_hardening.sql`: favorites, user_documents ve storage RLS hardening
+- `supabase/rls_hardening.sql`: favorites, user_documents ve documents deposu (RLS, yetkiler, uzunluk kurallari, kisi basi sinirlar, 5 MB)
+- `supabase/data_api_privileges.sql`: katalog yetkileri, yeni tablo varsayilanlari, `set_updated_at` search_path, `pg_graphql` kapali
+- `supabase/archive_legacy_content_tables.sql`: `community_links` ve `scholarship_regions` arsivi
+- `supabase/schema_2026-09-26.sql`: kart 4 sonrasi canli `public` semasinin tarihli dokumu (yalniz yapi; storage ve Realtime ayarlari altta yorum)
 - `supabase/program_admission_details.sql`: program admission details tablo/policy/grant setup
 - `supabase/user_profiles.sql`: onboarding profil tablo/policy/grant setup
 - `supabase/volunteer_mentor.sql`: mentor tablolar, private idempotency, RLS, RPC ve Realtime setup
@@ -724,7 +734,7 @@ SQL/runbook dosyalari (sifirdan kurulum sirasi DEGILDIR; gercek production schem
 - `supabase/add_documents_category.sql`: `user_documents.category` kolonu
 - `SUPABASE_SECURITY_RUNBOOK.md`: Clerk + Supabase operasyon rehberi (legacy/native token ayrimi; tam kurulum rehberi degildir)
 
-Gercek production schema dashboard'dan dogrulanmalidir.
+Gercek production schema dashboard'dan dogrulanmalidir; son tarihli dokum `supabase/schema_2026-09-26.sql`.
 
 ---
 
@@ -808,7 +818,7 @@ Tek acik is listesi 2026-09-21'den beri `docs/STATUS.md` icindedir (zaman kritik
 3. Hook'lar mevcut pattern geregi `lib/` altinda tutulur.
 4. SEO gereken dinamik route'larda `generateMetadata()` Server Component `layout.tsx` dosyasinda kalir; client page'e tasima.
 5. Route guvenligi `proxy.ts` uzerinden yonetilir; `middleware.ts` olusturma.
-6. Runtime kodunda `app/data.ts` import etme. Live university/program data icin liste yuzeylerinde `getUniversitiesDirectory()` veya `/api/universities`, okul sayfasi icin `getUniversityById()` (dizin kaydi), program sayfasi icin `getProgramPageData()` (dizin + yalnizca o programin kabul satiri), domain tipleri icin `types/universities.ts` kullan. Tam veri seti compose'unu veya okul basina tum kabul dosyalarini ceken sorguyu runtime'a geri getirme (egress). Katalog okumalari yalnizca `lib/universities.server.ts` icinde, server-only `SUPABASE_SECRET_KEY` ile yapilir; anon anahtara geri dusme ekleme.
+6. Runtime kodunda `app/data.ts` import etme. Live university/program data icin liste yuzeylerinde `getUniversitiesDirectory()` veya `/api/universities`, okul sayfasi icin `getUniversityById()` (dizin kaydi), program sayfasi icin `getProgramPageData()` (dizin + yalnizca o programin kabul satiri), domain tipleri icin `types/universities.ts` kullan. Tam veri seti compose'unu veya okul basina tum kabul dosyalarini ceken sorguyu runtime'a geri getirme (egress). Katalog okumalari yalnizca `lib/universities.server.ts` icinde, server-only `SUPABASE_SECRET_KEY` ile yapilir; anon anahtara geri dusme ekleme. anon/authenticated'a katalog grant'i veya okuma politikasi verme (2026-09-26'dan beri kapali).
 7. UI metinleri `lib/translations.ts` icinde TR/EN paralel tutulur.
 8. Supabase generated types yok; yeni DB row ihtiyacinda `types/index.ts` icine explicit interface ekle.
 9. SEO icin hidden keyword block, `display:none` SEO metni veya botlara farkli icerik ekleme. Kullaniciya gorunmeyen SEO text yasak.

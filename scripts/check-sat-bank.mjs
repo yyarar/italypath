@@ -80,6 +80,19 @@ for (const needle of [
   if (!sql.includes(needle)) fail(`sat_bank.sql: "${needle}" eksik`);
 }
 if (!sql.includes("explanation_en text")) fail("sat_bank.sql: explanation_en nullable text olmali");
+// Kullanici yazma sinirlari (guvenlik denetimi kart 4, 2026-09-26)
+for (const needle of [
+  "check (char_length(selected_answer) <= 32)",
+  "create trigger sat_attempts_daily_cap",
+  "if v_recent >= 2000 then",
+  "new.answered_at := pg_catalog.now();",
+  "values ('sat-figures', 'sat-figures', true, 524288, array['image/webp'])",
+]) {
+  if (!sql.includes(needle)) fail(`sat_bank.sql: "${needle}" eksik`);
+}
+if (!read("components/sat/QuestionCard.tsx").includes("maxLength={32}")) {
+  fail("QuestionCard.tsx: SPR cevap kutusu 32 karakterle sinirli olmali (sat_attempts kurali)");
+}
 const explanationSql = read("supabase/sat_explanations.sql");
 if (!explanationSql.includes("add column if not exists explanation_en text")) {
   fail("sat_explanations.sql: idempotent nullable explanation_en eklemeli");
@@ -106,6 +119,9 @@ for (const path of [
 const importBank = read("scripts/sat/import-bank.mjs");
 if (importBank.includes(".upsert(")) fail("import-bank.mjs: sat_questions upsert YASAK (insert-only sozlesme)");
 if (importBank.includes("upsert: true")) fail("import-bank.mjs: storage upsert YASAK");
+if (!importBank.includes("fileSizeLimit: 524288") || !importBank.includes('allowedMimeTypes: ["image/webp"]')) {
+  fail("import-bank.mjs: sat-figures deposu sat_bank.sql ile ayni sinirla (512 KB, WebP) olusturulmali");
+}
 if (!importBank.includes("INSERT-ONLY FAIL")) fail("import-bank.mjs: var olan id fark kontrolu eksik");
 for (const toolPath of ["scripts/sat/patch-sat-questions.mjs", "scripts/sat/audit-sat-content.mjs"]) {
   if (!existsSync(resolve(process.cwd(), toolPath))) fail(`${toolPath} eksik`);

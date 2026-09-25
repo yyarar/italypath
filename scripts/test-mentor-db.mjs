@@ -454,6 +454,523 @@ function functionCall(name, args) {
   return `select public.${name}(${args.join(", ")});`;
 }
 
+// Security audit card 4 (2026-09-26): favorites, documents, profiles, SAT
+// attempts, storage policies and catalog grants. Loaded in their own database
+// in the order a fresh project would apply them.
+const userDataDatabase = "user_data";
+const userDataSqlFiles = [
+  "supabase/add_documents_category.sql",
+  "supabase/rls_hardening.sql",
+  "supabase/user_profiles.sql",
+  "supabase/sat_bank.sql",
+  "supabase/program_admission_details.sql",
+  "supabase/program_degree_class_codes.sql",
+  "supabase/data_api_privileges.sql",
+  "supabase/archive_legacy_content_tables.sql",
+].map((file) => resolve(file));
+
+function userDataSql(sql, { allowFailure = false } = {}) {
+  return runSql(sql, { allowFailure, database: userDataDatabase });
+}
+
+function asAnon(sql) {
+  return `set role anon;
+${sql}`;
+}
+
+function loadUserDataSql() {
+  for (const file of userDataSqlFiles) {
+    command(psql, [...psqlArgs(userDataDatabase), "-f", file]);
+  }
+}
+
+// Hosted-project state before card 4: Supabase's default grants for objects
+// postgres creates in public, a minimal storage schema, catalog tables with
+// public read policies, dashboard-made user tables with the duplicate
+// favorites index, and set_updated_at() without a pinned search_path.
+function installUserDataStubs() {
+  runSql(`
+    do $$
+    begin
+      if not exists (select 1 from pg_roles where rolname = 'service_role') then
+        create role service_role nologin bypassrls;
+      end if;
+    end $$;
+    create database ${userDataDatabase};
+  `);
+  installSupabaseStubs(userDataDatabase);
+  userDataSql(`
+    alter default privileges for role postgres in schema public
+      grant all on tables to anon, authenticated, service_role;
+    alter default privileges for role postgres in schema public
+      grant all on sequences to anon, authenticated, service_role;
+    alter default privileges for role postgres in schema public
+      grant all on functions to anon, authenticated, service_role;
+
+    create schema storage;
+    create table storage.buckets (
+      id text primary key,
+      name text not null,
+      public boolean default false,
+      file_size_limit bigint,
+      allowed_mime_types text[]
+    );
+    create table storage.objects (
+      id uuid primary key default gen_random_uuid(),
+      bucket_id text references storage.buckets (id),
+      name text not null,
+      created_at timestamptz not null default now()
+    );
+    alter table storage.objects enable row level security;
+    grant usage on schema storage to anon, authenticated, service_role;
+    grant select, insert, update, delete on storage.buckets, storage.objects
+      to anon, authenticated, service_role;
+    insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+    values ('documents', 'documents', false, 20971520,
+      array['application/pdf', 'image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif']);
+
+    create function public.set_updated_at()
+    returns trigger
+    language plpgsql
+    as $fn$
+    begin
+      new.updated_at = timezone('utc', now());
+      return new;
+    end;
+    $fn$;
+
+    create table public.universities (
+      id bigint primary key,
+      name text not null,
+      updated_at timestamptz not null default now()
+    );
+    create table public.university_departments (
+      id bigserial primary key,
+      university_id bigint not null references public.universities (id),
+      slug text not null,
+      level text not null,
+      updated_at timestamptz not null default now()
+    );
+    create table public.program_admission_details (
+      department_id bigint primary key
+        references public.university_departments (id) on delete cascade,
+      university_id bigint not null references public.universities (id),
+      degree_class text,
+      updated_at timestamptz not null default now()
+    );
+    alter table public.universities enable row level security;
+    alter table public.university_departments enable row level security;
+    alter table public.program_admission_details enable row level security;
+    create policy universities_public_read on public.universities
+      for select to anon, authenticated using (true);
+    create policy university_departments_public_read on public.university_departments
+      for select to anon, authenticated using (true);
+    create policy program_admission_details_public_read on public.program_admission_details
+      for select to anon, authenticated using (true);
+    insert into public.universities (id, name) values (1, 'Probe University');
+    insert into public.university_departments (id, university_id, slug, level)
+    values (10, 1, 'probe-program', 'master');
+    insert into public.program_admission_details (department_id, university_id, degree_class)
+    values (10, 1, 'LM-32 Ingegneria informatica');
+
+    create table public.community_links (id text primary key, name text not null);
+    create table public.scholarship_regions (region_slug text primary key, region_name text not null);
+    alter table public.community_links enable row level security;
+    alter table public.scholarship_regions enable row level security;
+    create policy community_links_public_read on public.community_links
+      for select to anon, authenticated using (true);
+    create policy scholarship_regions_public_read on public.scholarship_regions
+      for select to anon, authenticated using (true);
+    insert into public.community_links (id, name) values ('probe', 'Probe community');
+    insert into public.scholarship_regions (region_slug, region_name) values ('lazio', 'Lazio');
+
+    create table public.favorites (
+      id uuid primary key default gen_random_uuid(),
+      user_id text not null,
+      university_id text not null,
+      created_at timestamptz not null default timezone('utc', now()),
+      unique (user_id, university_id)
+    );
+    create unique index favorites_user_university_unique
+      on public.favorites (user_id, university_id);
+    create table public.user_documents (
+      id uuid primary key default gen_random_uuid(),
+      user_id text not null,
+      file_name text not null,
+      file_url text not null,
+      created_at timestamptz default now(),
+      storage_path text
+    );
+  `);
+}
+
+function documentRowSql(userId, fileName, path, category = "'identity'") {
+  return `insert into public.user_documents (user_id, file_name, file_url, storage_path, category)
+values (${quote(userId)}, ${quote(fileName)}, ${quote(path)}, ${quote(path)}, ${category});`;
+}
+
+function documentObjectSql(path) {
+  return `insert into storage.objects (bucket_id, name) values ('documents', ${quote(path)});`;
+}
+
+function satAttemptSql(userId, answer, answeredAt = "timezone('utc', now())") {
+  return `insert into public.sat_attempts (user_id, question_id, selected_answer, is_correct, answered_at)
+values (${quote(userId)}, 'sat-probe-q1', ${quote(answer)}, true, ${answeredAt});`;
+}
+
+async function runUserDataTests() {
+  installUserDataStubs();
+  loadUserDataSql();
+  userDataSql(`
+    insert into public.sat_questions (
+      id, section, domain, skill, skill_slug, difficulty, question_type,
+      prompt, correct_answer, source_file
+    ) values (
+      'sat-probe-q1', 'math', 'Algebra', 'Linear equations', 'linear-equations', 1, 'mcq',
+      'Probe', '"A"'::jsonb, 'probe.pdf'
+    );
+  `);
+  console.log("mentor-db: loaded user-data SQL artifacts");
+
+  await test("catalog tables and the class-code view are server-only", async () => {
+    const grants = scalar(userDataSql(`
+      select concat_ws(':',
+        has_table_privilege('anon', 'public.universities', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('authenticated', 'public.universities', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('anon', 'public.university_departments', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('authenticated', 'public.university_departments', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('anon', 'public.program_admission_details', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('authenticated', 'public.program_admission_details', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('anon', 'public.program_degree_class_codes', 'select,insert,update,delete'),
+        has_table_privilege('authenticated', 'public.program_degree_class_codes', 'select,insert,update,delete'),
+        has_sequence_privilege('anon', 'public.university_departments_id_seq', 'usage,select,update'),
+        has_sequence_privilege('authenticated', 'public.university_departments_id_seq', 'usage,select,update'),
+        has_table_privilege('service_role', 'public.program_admission_details', 'select'),
+        has_table_privilege('service_role', 'public.program_degree_class_codes', 'select'),
+        (select count(*) from pg_policies
+          where schemaname = 'public'
+            and tablename in ('universities', 'university_departments', 'program_admission_details'))
+      );
+    `));
+    assert(grants === "f:f:f:f:f:f:f:f:f:f:t:t:0", `unexpected catalog grants: ${grants}`);
+    for (const relation of ["universities", "university_departments", "program_admission_details", "program_degree_class_codes"]) {
+      assertFailure(
+        userDataSql(asAnon(`select count(*) from public.${relation};`), { allowFailure: true }),
+        "permission denied",
+        `anon read of ${relation}`,
+      );
+      assertFailure(
+        userDataSql(asUser("catalog-reader", `select count(*) from public.${relation};`), { allowFailure: true }),
+        "permission denied",
+        `authenticated read of ${relation}`,
+      );
+    }
+    assertFailure(
+      userDataSql(asAnon("update public.universities set name = 'x';"), { allowFailure: true }),
+      "permission denied",
+      "anon catalog write",
+    );
+    const serverRead = scalar(userDataSql(`
+      set role service_role;
+      select concat_ws(':',
+        (select count(*) from public.program_admission_details),
+        (select degree_class_codes from public.program_degree_class_codes where department_id = 10)
+      );
+    `));
+    assert(serverRead === "1:LM-32", `service_role catalog read failed: ${serverRead}`);
+  });
+
+  await test("archived content tables are closed to client roles and keep their rows", async () => {
+    const state = scalar(userDataSql(`
+      select concat_ws(':',
+        has_table_privilege('anon', 'public.community_links', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('authenticated', 'public.community_links', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('anon', 'public.scholarship_regions', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('authenticated', 'public.scholarship_regions', 'select,insert,update,delete,truncate,references,trigger'),
+        (select count(*) from pg_policies where tablename in ('community_links', 'scholarship_regions')),
+        (select count(*) from public.community_links) + (select count(*) from public.scholarship_regions),
+        obj_description('public.scholarship_regions'::regclass, 'pg_class') like 'ARSIV%'
+      );
+    `));
+    assert(state === "f:f:f:f:0:2:t", `archived tables are not closed: ${state}`);
+    assertFailure(
+      userDataSql(asAnon("select count(*) from public.scholarship_regions;"), { allowFailure: true }),
+      "permission denied",
+      "anon read of archived scholarship_regions",
+    );
+  });
+
+  await test("new public tables start closed; helper functions pin search_path", async () => {
+    const probe = scalar(userDataSql(`
+      create table public.card4_default_probe (
+        id bigint generated always as identity primary key,
+        note text
+      );
+      select concat_ws(':',
+        has_table_privilege('anon', 'public.card4_default_probe', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('authenticated', 'public.card4_default_probe', 'select,insert,update,delete,truncate,references,trigger'),
+        has_sequence_privilege('anon', 'public.card4_default_probe_id_seq', 'usage,select,update'),
+        has_sequence_privilege('authenticated', 'public.card4_default_probe_id_seq', 'usage,select,update'),
+        has_table_privilege('service_role', 'public.card4_default_probe', 'select')
+      );
+      drop table public.card4_default_probe;
+    `));
+    assert(probe === "f:f:f:f:t", `new table default privileges are open: ${probe}`);
+    const configs = scalar(userDataSql(`
+      select string_agg(p.proname || '=' || array_to_string(coalesce(p.proconfig, '{}'), ','), ';' order by p.proname)
+      from pg_proc p
+      where p.pronamespace = 'public'::regnamespace
+        and p.proname in (
+          'requesting_user_id', 'set_updated_at', 'enforce_favorites_per_user_cap',
+          'enforce_user_documents_per_user_cap', 'enforce_sat_attempts_daily_cap'
+        );
+    `));
+    assert(
+      configs === 'enforce_favorites_per_user_cap=search_path=""'
+        + ';enforce_sat_attempts_daily_cap=search_path=""'
+        + ';enforce_user_documents_per_user_cap=search_path=""'
+        + ';requesting_user_id=search_path=""'
+        + ';set_updated_at=search_path=""',
+      `unexpected function search_path settings: ${configs}`,
+    );
+  });
+
+  await test("user tables grant only the verbs the app uses", async () => {
+    const grants = scalar(userDataSql(`
+      select concat_ws(':',
+        has_table_privilege('anon', 'public.favorites', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('anon', 'public.user_documents', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('anon', 'public.user_profiles', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('anon', 'public.sat_attempts', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('authenticated', 'public.favorites', 'select'),
+        has_table_privilege('authenticated', 'public.favorites', 'insert'),
+        has_table_privilege('authenticated', 'public.favorites', 'delete'),
+        has_table_privilege('authenticated', 'public.favorites', 'update,truncate,references,trigger'),
+        has_table_privilege('authenticated', 'public.user_documents', 'select'),
+        has_table_privilege('authenticated', 'public.user_documents', 'insert'),
+        has_table_privilege('authenticated', 'public.user_documents', 'delete'),
+        has_table_privilege('authenticated', 'public.user_documents', 'update,truncate,references,trigger'),
+        has_table_privilege('authenticated', 'public.user_profiles', 'select'),
+        has_table_privilege('authenticated', 'public.user_profiles', 'insert'),
+        has_table_privilege('authenticated', 'public.user_profiles', 'update'),
+        has_table_privilege('authenticated', 'public.user_profiles', 'delete'),
+        has_table_privilege('authenticated', 'public.user_profiles', 'truncate,references,trigger'),
+        has_table_privilege('authenticated', 'public.sat_attempts', 'update,delete,truncate,references,trigger')
+      );
+    `));
+    assert(
+      grants === "f:f:f:f:t:t:t:f:t:t:t:f:t:t:t:t:f:f",
+      `unexpected user table grants: ${grants}`,
+    );
+    for (const table of ["favorites", "user_documents", "user_profiles", "sat_attempts"]) {
+      assertFailure(
+        userDataSql(asAnon(`select count(*) from public.${table};`), { allowFailure: true }),
+        "permission denied",
+        `anon read of ${table}`,
+      );
+    }
+  });
+
+  await test("favorites: owners only, numeric ids, at most 100 per account", async () => {
+    userDataSql(asUser("fav-a", "insert into public.favorites (user_id, university_id) values ('fav-a', '1');"));
+    assertFailure(
+      userDataSql(asUser("fav-b", "insert into public.favorites (user_id, university_id) values ('fav-a', '2');"), { allowFailure: true }),
+      "row-level security",
+      "insert into another user's favorites",
+    );
+    const visibleToB = scalar(userDataSql(asUser("fav-b", "select count(*) from public.favorites where user_id = 'fav-a';")));
+    assert(visibleToB === "0", `user B can read user A's favorites: ${visibleToB}`);
+    userDataSql(asUser("fav-b", "delete from public.favorites where user_id = 'fav-a';"));
+    assertFailure(
+      userDataSql(asUser("fav-b", "update public.favorites set university_id = '9' where user_id = 'fav-a';"), { allowFailure: true }),
+      "permission denied",
+      "favorites update",
+    );
+    const stillThere = scalar(userDataSql("select count(*) from public.favorites where user_id = 'fav-a';"));
+    assert(stillThere === "1", `user B changed user A's favorites: ${stillThere}`);
+
+    for (const badId of ["abc", "1234567", "1; drop"]) {
+      assertFailure(
+        userDataSql(asUser("fav-a", `insert into public.favorites (user_id, university_id) values ('fav-a', ${quote(badId)});`), { allowFailure: true }),
+        "favorites_university_id_format",
+        `favorite university id ${badId}`,
+      );
+    }
+
+    userDataSql(asUser("fav-a", `
+      insert into public.favorites (user_id, university_id)
+      select 'fav-a', g::text from generate_series(2, 100) as g;
+    `));
+    assertFailure(
+      userDataSql(asUser("fav-a", "insert into public.favorites (user_id, university_id) values ('fav-a', '101');"), { allowFailure: true }),
+      "favorite_limit_reached",
+      "101st favorite",
+    );
+    userDataSql(asUser("fav-b", "insert into public.favorites (user_id, university_id) values ('fav-b', '101');"));
+    const indexes = scalar(userDataSql(`
+      select concat_ws(':',
+        (select count(*) from pg_indexes where schemaname = 'public' and indexname = 'favorites_user_university_unique'),
+        (select count(*) from pg_constraint where conname = 'favorites_user_id_university_id_key')
+      );
+    `));
+    assert(indexes === "0:1", `favorites uniqueness should be one constraint, no duplicate index: ${indexes}`);
+  });
+
+  await test("user_documents: owners only, bounded rows, at most 30 per account", async () => {
+    userDataSql(asUser("doc-a", documentRowSql("doc-a", "passport.pdf", "doc-a/1.pdf")));
+    userDataSql(asUser("doc-a", documentRowSql("doc-a", "legacy.pdf", "doc-a/2.pdf", "null")));
+    const failures = [
+      [documentRowSql("doc-a", "stolen.pdf", "doc-b/1.pdf"), "user_documents_storage_path_owner"],
+      [documentRowSql("doc-a", "x".repeat(256), "doc-a/3.pdf"), "user_documents_file_name_length"],
+      [documentRowSql("doc-a", "long.pdf", `doc-a/${"x".repeat(300)}.pdf`), "user_documents_file_url_length"],
+      [documentRowSql("doc-a", "secret.pdf", "doc-a/4.pdf", "'secret'"), "user_documents_category_check"],
+    ];
+    for (const [sql, expected] of failures) {
+      assertFailure(userDataSql(asUser("doc-a", sql), { allowFailure: true }), expected, expected);
+    }
+    assertFailure(
+      userDataSql(asUser("doc-b", documentRowSql("doc-a", "planted.pdf", "doc-a/5.pdf")), { allowFailure: true }),
+      "row-level security",
+      "insert into another user's documents",
+    );
+    const visibleToB = scalar(userDataSql(asUser("doc-b", "select count(*) from public.user_documents where user_id = 'doc-a';")));
+    assert(visibleToB === "0", `user B can read user A's documents: ${visibleToB}`);
+    userDataSql(asUser("doc-b", "delete from public.user_documents where user_id = 'doc-a';"));
+    assertFailure(
+      userDataSql(asUser("doc-b", "update public.user_documents set file_name = 'x' where user_id = 'doc-a';"), { allowFailure: true }),
+      "permission denied",
+      "user_documents update",
+    );
+    const stillThere = scalar(userDataSql("select count(*) from public.user_documents where user_id = 'doc-a';"));
+    assert(stillThere === "2", `user B changed user A's documents: ${stillThere}`);
+
+    userDataSql(asUser("doc-a", Array.from({ length: 28 }, (_, index) =>
+      documentRowSql("doc-a", `file-${index}.pdf`, `doc-a/bulk-${index}.pdf`)).join("\n")));
+    assertFailure(
+      userDataSql(asUser("doc-a", documentRowSql("doc-a", "one-too-many.pdf", "doc-a/31.pdf")), { allowFailure: true }),
+      "document_limit_reached",
+      "31st document",
+    );
+  });
+
+  await test("user_profiles: owners only, eight field keys, at most two", async () => {
+    const upsert = (userId, fields) => `
+      insert into public.user_profiles (user_id, level, fields)
+      values (${quote(userId)}, 'master', ${fields})
+      on conflict (user_id) do update set fields = excluded.fields, updated_at = timezone('utc', now());`;
+    userDataSql(asUser("profile-a", upsert("profile-a", "array['engineering-tech']")));
+    userDataSql(asUser("profile-a", upsert("profile-a", "array['engineering-tech', 'law-politics']")));
+    for (const [fields, label] of [
+      ["array['engineering-tech', 'law-politics', 'arts-fashion']", "three fields"],
+      ["array['hacking']", "unknown field"],
+      ["array[null]::text[]", "null field"],
+    ]) {
+      assertFailure(
+        userDataSql(asUser("profile-a", upsert("profile-a", fields)), { allowFailure: true }),
+        "user_profiles_fields_check",
+        label,
+      );
+    }
+    assertFailure(
+      userDataSql(asUser("profile-b", upsert("profile-a", "array['arts-fashion']")), { allowFailure: true }),
+      "row-level security",
+      "profile upsert for another user",
+    );
+    const visibleToB = scalar(userDataSql(asUser("profile-b", "select count(*) from public.user_profiles where user_id = 'profile-a';")));
+    assert(visibleToB === "0", `user B can read user A's profile: ${visibleToB}`);
+    userDataSql(asUser("profile-b", `
+      update public.user_profiles set fields = array['arts-fashion'] where user_id = 'profile-a';
+      delete from public.user_profiles where user_id = 'profile-a';
+    `));
+    const stored = scalar(userDataSql("select array_to_string(fields, ',') from public.user_profiles where user_id = 'profile-a';"));
+    assert(stored === "engineering-tech,law-politics", `user B changed user A's profile: ${stored}`);
+  });
+
+  await test("sat_attempts: owners only, short answers, 2,000 per 24 hours on server time", async () => {
+    userDataSql(asUser("sat-a", satAttemptSql("sat-a", "A", "'2000-01-01T00:00:00Z'")));
+    const stamped = scalar(userDataSql("select answered_at > now() - interval '5 minutes' from public.sat_attempts where user_id = 'sat-a';"));
+    assert(stamped === "t", "answered_at must be stamped with server time");
+    assertFailure(
+      userDataSql(asUser("sat-a", satAttemptSql("sat-a", "9".repeat(33))), { allowFailure: true }),
+      "sat_attempts_selected_answer_length",
+      "33-character answer",
+    );
+    assertFailure(
+      userDataSql(asUser("sat-b", satAttemptSql("sat-a", "B")), { allowFailure: true }),
+      "row-level security",
+      "attempt recorded for another user",
+    );
+    const visibleToB = scalar(userDataSql(asUser("sat-b", "select count(*) from public.sat_attempts where user_id = 'sat-a';")));
+    assert(visibleToB === "0", `user B can read user A's attempts: ${visibleToB}`);
+
+    userDataSql(asUser("sat-a", `
+      insert into public.sat_attempts (user_id, question_id, selected_answer, is_correct)
+      select 'sat-a', 'sat-probe-q1', 'A', true from generate_series(2, 2000);
+    `));
+    assertFailure(
+      userDataSql(asUser("sat-a", satAttemptSql("sat-a", "A")), { allowFailure: true }),
+      "sat_attempt_rate_limited",
+      "2,001st attempt in 24 hours",
+    );
+    userDataSql(asUser("sat-b", satAttemptSql("sat-b", "C")));
+    userDataSql("update public.sat_attempts set answered_at = answered_at - interval '25 hours' where user_id = 'sat-a';");
+    userDataSql(asUser("sat-a", satAttemptSql("sat-a", "A")));
+  });
+
+  await test("storage buckets: private 5 MB documents, owner folders, 30 files; WebP figures", async () => {
+    const buckets = scalar(userDataSql(`
+      select string_agg(
+        concat_ws('|', id, public, file_size_limit, array_to_string(allowed_mime_types, ',')),
+        ';' order by id
+      )
+      from storage.buckets;
+    `));
+    assert(
+      buckets === "documents|f|5242880|application/pdf,image/jpeg,image/png,image/webp,image/heic,image/heif"
+        + ";sat-figures|t|524288|image/webp",
+      `unexpected bucket settings: ${buckets}`,
+    );
+    userDataSql(asUser("obj-a", documentObjectSql("obj-a/1.pdf")));
+    assertFailure(
+      userDataSql(asUser("obj-a", documentObjectSql("obj-b/1.pdf")), { allowFailure: true }),
+      "row-level security",
+      "upload into another user's folder",
+    );
+    const visibleToB = scalar(userDataSql(asUser("obj-b", "select count(*) from storage.objects where name like 'obj-a/%';")));
+    assert(visibleToB === "0", `user B can list user A's files: ${visibleToB}`);
+    userDataSql(asUser("obj-b", `
+      update storage.objects set name = 'obj-b/taken.pdf' where name = 'obj-a/1.pdf';
+      delete from storage.objects where name = 'obj-a/1.pdf';
+    `));
+    const anonVisible = scalar(userDataSql(asAnon("select count(*) from storage.objects where bucket_id = 'documents';")));
+    assert(anonVisible === "0", `anon can list documents: ${anonVisible}`);
+    const stillThere = scalar(userDataSql("select count(*) from storage.objects where name = 'obj-a/1.pdf';"));
+    assert(stillThere === "1", `user B changed user A's file: ${stillThere}`);
+
+    userDataSql(asUser("obj-a", Array.from({ length: 29 }, (_, index) =>
+      documentObjectSql(`obj-a/bulk-${index}.pdf`)).join("\n")));
+    assertFailure(
+      userDataSql(asUser("obj-a", documentObjectSql("obj-a/31.pdf")), { allowFailure: true }),
+      "row-level security",
+      "31st file",
+    );
+    userDataSql(asUser("obj-b", documentObjectSql("obj-b/1.pdf")));
+  });
+
+  await test("user-data SQL artifacts are rerunnable", async () => {
+    loadUserDataSql();
+    const state = scalar(userDataSql(`
+      select concat_ws(':',
+        has_table_privilege('anon', 'public.program_admission_details', 'select'),
+        has_table_privilege('authenticated', 'public.favorites', 'update'),
+        (select count(*) from public.favorites where user_id = 'fav-a'),
+        (select count(*) from pg_indexes where indexname = 'favorites_user_university_unique')
+      );
+    `));
+    assert(state === "f:f:100:0", `SQL rerun changed card 4 state: ${state}`);
+  });
+}
+
 async function main() {
   console.log(`mentor-db: using PostgreSQL tools from ${postgresTools.source}`);
   port = await freePort();
@@ -1173,6 +1690,8 @@ async function main() {
     const activeCount = scalar(runSql("select count(*) from public.mentor_staff where active = true;"));
     assert(activeCount === "1", `SQL rerun changed the active staff invariant: ${activeCount}`);
   });
+
+  await runUserDataTests();
 
   console.log("mentor-db: PASS");
 }

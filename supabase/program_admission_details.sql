@@ -111,16 +111,14 @@ create index if not exists program_admission_details_university_id_idx
 
 alter table public.program_admission_details enable row level security;
 
+-- Server-only since 2026-09-26 (security audit card 4, S9#1): the site reads
+-- this table in lib/universities.server.ts with the server-only secret key
+-- (service_role). anon and authenticated have no grant and no read policy;
+-- supabase/data_api_privileges.sql closes the other catalog tables the same way.
 drop policy if exists program_admission_details_public_read
   on public.program_admission_details;
 
-create policy program_admission_details_public_read
-  on public.program_admission_details
-  for select
-  to anon, authenticated
-  using (true);
-
-grant select on table public.program_admission_details to anon, authenticated;
+revoke all on table public.program_admission_details from public, anon, authenticated;
 grant select, insert, update, delete on table public.program_admission_details to service_role;
 
 commit;
