@@ -336,6 +336,9 @@ if (!proxySource.includes("resolveUniversityPath(") || universityPathCall === -1
       fail(`supabase/data_api_privileges.sql must revoke all on public.${relation} from anon and authenticated`);
     }
   }
+  if (!privilegesSql.includes("revoke all on sequence public.university_departments_id_seq from public, anon, authenticated;")) {
+    fail("supabase/data_api_privileges.sql must revoke the university_departments id sequence from anon and authenticated");
+  }
   for (const policy of [
     "universities_public_read",
     "university_departments_public_read",

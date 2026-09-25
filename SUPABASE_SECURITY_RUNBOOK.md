@@ -29,16 +29,12 @@ Not: Bu adım olmadan RLS politikaları "kim kullanıcı?" bilgisini doğru okuy
 3. Script şunları yapar:
    - `favorites` ve `user_documents` için RLS açar.
    - Her kullanıcının sadece kendi satırlarını görmesini/yazmasını sağlar.
-   - `documents` bucket'ını private yapar.
-   - Storage policy'leri ile sadece kendi klasörüne (`{userId}/...`) erişim verir.
+   - Ziyaretçi (anon) rolüne hiç izin vermez; giriş yapmış kullanıcıya yalnız uygulamanın kullandığı fiilleri verir (okuma, ekleme, silme).
+   - Uzunluk kuralları ve kişi başı sınırlar koyar (en çok 100 favori, 30 belge).
+   - `documents` bucket'ını private, dosya başına 5 MB ve izinli türlerle kurar.
+   - Storage policy'leri ile sadece kendi klasörüne (`{userId}/...`) ve en çok 30 dosyaya izin verir.
 
-Eğer şu hatayı alırsan:
-- `ERROR: must be owner of table objects`
-
-Şu yolu izle:
-1. Scriptin `public` tablolarını (`favorites`, `user_documents`) çalıştır.
-2. `storage.objects` policy'lerini `Storage -> Policies` ekranından UI ile yönet.
-3. `documents` bucket için `public = false` ayarını UI'dan doğrula.
+`storage.objects` Supabase'in storage rolüne aittir; script tabloyu değiştirmez, yalnız politikaları yeniden kurar (Supabase `postgres` rolüne bu tablo için politika yetkisi verir). Politika adımı yine de `must be owner` hatası verirse politikaları `Storage -> Policies` ekranından elle kur ve `documents` bucket'ının `public = false` olduğunu doğrula.
 
 ## 4) Uygulama davranışı (bu repoda hazırlandı)
 
@@ -47,7 +43,7 @@ Kod tarafında şu güvenlik iyileştirmeleri zaten uygulandı:
 1. Supabase istekleri Clerk token ile gönderiliyor.
 2. Documents için `publicUrl` yerine kısa ömürlü `signed URL` kullanılıyor.
 3. Upload edilen dokümanlarda `storage_path` bazlı erişim yapılıyor.
-4. Katalog tabloları (`universities`, `university_departments`, `program_admission_details`, `program_degree_class_codes` view'i) yalnızca sunucuda, `lib/universities.server.ts` içinde server-only `SUPABASE_SECRET_KEY` (yeni tip gizli anahtar, `sb_secret_…`) ile okunuyor (2026-09-26). Tarayıcı bu tabloları okumaz; herkese açık anon anahtara geri düşülmez. Katalog okuyan betikler de aynı anahtarı kullanır. Anahtar Supabase Dashboard → Project Settings → API Keys → Secret keys altındadır; Vercel'de Supabase entegrasyonu `SUPABASE_SECRET_KEY` olarak tanımlar (Production, Preview, Development). Sızarsa yalnızca o gizli anahtar panelden silinip yenisi oluşturulur; eski tip anahtarlar etkilenmez. Katalog tablolarının yetki sıkılaştırması ayrı iştir ve bu değişiklik canlıda doğrulandıktan sonra, Kerem onayıyla yapılır.
+4. Katalog tabloları (`universities`, `university_departments`, `program_admission_details`, `program_degree_class_codes` view'i) yalnızca sunucuda, `lib/universities.server.ts` içinde server-only `SUPABASE_SECRET_KEY` (yeni tip gizli anahtar, `sb_secret_…`) ile okunuyor (2026-09-26). Tarayıcı bu tabloları okumaz; herkese açık anon anahtara geri düşülmez. Katalog okuyan betikler de aynı anahtarı kullanır. Anahtar Supabase Dashboard → Project Settings → API Keys → Secret keys altındadır; Vercel'de Supabase entegrasyonu `SUPABASE_SECRET_KEY` olarak tanımlar (Production, Preview, Development). Sızarsa yalnızca o gizli anahtar panelden silinip yenisi oluşturulur; eski tip anahtarlar etkilenmez. 2026-09-26'dan beri ziyaretçi (anon) ve giriş yapmış kullanıcı (authenticated) rolleri bu dört kaynağa hiç erişemez (bölüm 8).
 
 ## 5) Doğrulama testi (zorunlu)
 
@@ -267,7 +263,7 @@ Bu adımlar canlıya yazar. Her adım yalnız Kerem'in açık onayıyla yapılı
 4. Geri yükle: `pg_restore --dbname=postgres --single-transaction --exit-on-error --use-list=restore.list db/public.dump`. Bağlantıyı komut satırına parola yazarak değil, yeni projenin Session pooler bilgileriyle `PGHOST`/`PGPORT`/`PGUSER`/`PGPASSWORD`/`PGSSLMODE=require` ortam değişkenleriyle ver. Hata olursa tek transaction olduğu için hiçbir şey yazılmaz; hatayı oku, listeyi düzelt, yeniden dene.
 5. Realtime'ı yeniden kur: `alter publication supabase_realtime add table public.mentor_conversations, public.mentor_messages;` Tablo listesi `manifest.json` → `database.realtime_tables` alanındadır.
 6. Storage'ı kur:
-   - Bucket'ları `manifest.json` → `storage.buckets` ayarlarıyla oluştur. 2026-09-25 ayarları: `documents` private, 20 MB sınır, pdf/jpeg/png/webp/heic/heif; `sat-figures` public.
+   - Bucket'ları `manifest.json` → `storage.buckets` ayarlarıyla oluştur. 2026-09-26'dan beri: `documents` private, 5 MB sınır, pdf/jpeg/png/webp/heic/heif (`supabase/rls_hardening.sql`); `sat-figures` public, 512 KB, yalnız WebP (`supabase/sat_bank.sql`). 2026-09-25 arşivinin manifest'i eski ayarı (20 MB, `sat-figures` sınırsız) taşır; repodaki SQL esastır.
    - `documents` politikaları için `supabase/rls_hardening.sql` Storage bölümünü uygula. Sonucu manifest'teki 4 politikayla karşılaştır (`documents_select/insert/update/delete_own_objects`).
    - Dosyaları service-role ile `storage/<bucket>/<yol>` altındaki aynı yola yükle. `user_documents.storage_path` bu yollara bakar.
 7. Vercel'de `NEXT_PUBLIC_SUPABASE_URL`, anon/publishable, service-role ve `SUPABASE_SECRET_KEY` (yeni projenin `sb_secret_…` anahtarı; yoksa okul/program sayfaları çalışmaz) anahtarlarını yeni projeye çevir. Ardından `npm run check:data` ve bölüm 5'teki doğrulama testini yap.
@@ -277,3 +273,33 @@ Bu adımlar canlıya yazar. Her adım yalnız Kerem'in açık onayıyla yapılı
 1. Önce bugünkü durumun yedeğini al (`--run`), `--verify` ile kontrol et.
 2. Eski satırları yedekten SQL dosyasına çıkar. Canlıya dokunmaz: `pg_restore --data-only --table=<tablo> --file=<tablo>.sql db/public.dump`
 3. Yalnız gereken satırlar için düzeltme SQL'i hazırla ve canlıyla karşılaştır. Kerem onayıyla uygula.
+
+## 8) Veri API yetkileri ve kullanıcı yazma sınırları
+
+Durum: AKTIF REFERANS · Uygulama: 2026-09-26 (güvenlik denetimi kart 4: S9#1 veritabanı tarafı, S3#6, S3#2, S5#1, G4#3, S3#7, O5#7) · Kanıt: `supabase/data_api_privileges.sql`, `supabase/archive_legacy_content_tables.sql`, `supabase/rls_hardening.sql`, `supabase/user_profiles.sql`, `supabase/sat_bank.sql`, `supabase/schema_2026-09-26.sql`, `npm run test:mentor-db`.
+
+Kural özeti:
+
+- Katalog (`universities`, `university_departments` ve id dizisi, `program_admission_details`, `program_degree_class_codes`) yalnız sunucudan, gizli anahtarla (service_role) okunur. anon ve authenticated rollerinin yetkisi ve okuma politikası yoktur.
+- `community_links` ve `scholarship_regions` yerinde arşivlidir (Kerem kararı): satırlar ve yedek yerinde, istemci erişimi kapalı, tablo yorumu "ARSIV". Site bu verileri kod içinden okur.
+- `postgres` rolünün `public` şemasında açtığı yeni tablo ve diziler istemci rollerine kapalı başlar. Yeni tablo ekleyen SQL dosyası, RLS politikalarının yanında gereken `grant`'ları açıkça yazar. Yeni fonksiyonların varsayılan çalıştırma izni değişmedi.
+- `pg_graphql` kapalıdır (site GraphQL kullanmaz). Yeniden açmak: Dashboard → Database → Extensions.
+- Kullanıcı tabloları: anon hiçbir şey yapamaz. authenticated `favorites` ve `user_documents`'ta okuma/ekleme/silme, `user_profiles`'ta okuma/ekleme/güncelleme/silme, `sat_attempts`'ta okuma/ekleme yapar; satırlar RLS ile sahibine süzülür.
+- Kişi başı sınırlar: 100 favori (`favorite_limit_reached`), 30 belge satırı (`document_limit_reached`), `documents` deposunda 30 dosya, 24 saatte 2.000 SAT denemesi (`sat_attempt_rate_limited`; deneme saati sunucudan yazılır), profilde en çok 2 alan. Uzunluk kuralları: dosya adı 255, depo yolu 300 ve sahibin klasöründe, SAT cevabı 32 karakter.
+
+Sıra önemlidir: katalog kapatılmadan önce sitenin katalogu gizli anahtarla okuduğu canlıda doğrulanmalıdır (kart 2). Aksi halde tüm okul ve program sayfaları çöker.
+
+Kayıt:
+
+| Tarih | Adım | Sonuç |
+| --- | --- | --- |
+| 2026-09-25 23:10 UTC (TR 26 Eylül) | Ön kontrol: kart 2 canlıda (22:25 UTC'den beri katalog okumalarının tamamı gizli anahtarla), 21:11 UTC yedeği `--verify` ile sağlam, canlı veride yeni kurallara aykırı satır 0 (yalnız sayım sorguları) | Geçti |
+| 2026-09-25 23:16-23:24 UTC | Migration `card4_data_api_privileges` (23:16), `card4_archive_legacy_content_tables` (23:18), `card4_rls_hardening_limits` (23:19), `card4_user_profiles_limits` (23:20), `card4_sat_bank_limits` (23:20), `card4_catalog_sequence_privileges` (23:24; ilk migration'da atlanan id dizisi) (Kerem onayı; her biri repodaki dosyanın `begin`/`commit` arası içeriği) | anon anahtarıyla katalog isteği 42501 "permission denied"; gizli anahtarla okuma 200; GraphQL "extension is not enabled"; önbellekte olmayan okul/program sayfaları, `/api/universities` ve `/sitemap.xml` 200; Supabase kayıtlarında sunucu okumaları 200; yabancı bir kullanıcı rolüyle salt okunur denemede başkasına ait favori/belge/profil/SAT/dosya 0 satır |
+| 2026-09-25 23:22 UTC | Danışmanlar: güvenlik `function_search_path_mutable` 1 → 0, GraphQL görünürlük uyarıları 8+13 → 0; performans `duplicate_index` 1 → 0. Bilinçli kalanlar: RLS açık ama politikasız tablolar (katalog, arşiv, SAT soruları, mentor iç tabloları; yalnız sunucu okur), mentor RPC'leri (kart 5), Supabase Auth parola uyarısı (giriş Clerk'te) | Kayıt |
+
+Canlı kabul (giriş gerektirir, Kerem): favori ekle/çıkar, 5 MB altı belge yükle/sil, bir SAT sorusu çöz, profil kaydet. Hepsi normal çalışmalı.
+
+Geri alma (yalnız Kerem onayıyla, migration olarak): katalogda istemci okumasını açmak için `grant select` ve okuma politikası geri kurulur; sınırlar ilgili `drop trigger`/`drop constraint` ile kaldırılır; `documents` sınırı `storage.buckets` üzerinden değiştirilir. Ayrıntılı komutlar bu belgeye yazılmaz; repodaki SQL dosyaları referanstır.
+
+Bilinen etki: `~/remake` iOS uygulaması (yayında değil) katalog ve burs tablolarını anon anahtarla okur ve 20 MB belge yükler; bu değişiklikten sonra o ekranlar çalışmaz. Yayınlanırsa sitenin sunucu adresinden okumaya taşınmalı (`docs/STATUS.md`).
+

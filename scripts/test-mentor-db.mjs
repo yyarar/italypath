@@ -545,7 +545,7 @@ function installUserDataStubs() {
       updated_at timestamptz not null default now()
     );
     create table public.university_departments (
-      id bigint primary key,
+      id bigserial primary key,
       university_id bigint not null references public.universities (id),
       slug text not null,
       level text not null,
@@ -643,6 +643,8 @@ async function runUserDataTests() {
         has_table_privilege('authenticated', 'public.program_admission_details', 'select,insert,update,delete,truncate,references,trigger'),
         has_table_privilege('anon', 'public.program_degree_class_codes', 'select,insert,update,delete'),
         has_table_privilege('authenticated', 'public.program_degree_class_codes', 'select,insert,update,delete'),
+        has_sequence_privilege('anon', 'public.university_departments_id_seq', 'usage,select,update'),
+        has_sequence_privilege('authenticated', 'public.university_departments_id_seq', 'usage,select,update'),
         has_table_privilege('service_role', 'public.program_admission_details', 'select'),
         has_table_privilege('service_role', 'public.program_degree_class_codes', 'select'),
         (select count(*) from pg_policies
@@ -650,7 +652,7 @@ async function runUserDataTests() {
             and tablename in ('universities', 'university_departments', 'program_admission_details'))
       );
     `));
-    assert(grants === "f:f:f:f:f:f:f:f:t:t:0", `unexpected catalog grants: ${grants}`);
+    assert(grants === "f:f:f:f:f:f:f:f:f:f:t:t:0", `unexpected catalog grants: ${grants}`);
     for (const relation of ["universities", "university_departments", "program_admission_details", "program_degree_class_codes"]) {
       assertFailure(
         userDataSql(asAnon(`select count(*) from public.${relation};`), { allowFailure: true }),

@@ -22,6 +22,15 @@ revoke all on table public.university_departments from public, anon, authenticat
 revoke all on table public.program_admission_details from public, anon, authenticated;
 revoke all on table public.program_degree_class_codes from public, anon, authenticated;
 
+-- university_departments.id draws from this sequence; only imports
+-- (service_role) insert programs.
+do $$
+begin
+  if to_regclass('public.university_departments_id_seq') is not null then
+    revoke all on sequence public.university_departments_id_seq from public, anon, authenticated;
+  end if;
+end $$;
+
 drop policy if exists universities_public_read on public.universities;
 drop policy if exists university_departments_public_read on public.university_departments;
 drop policy if exists program_admission_details_public_read on public.program_admission_details;
