@@ -24,6 +24,21 @@ birlesitirir.
 Runtime kodu `app/data.ts` import edemez. Bu kural
 `npm run check:university-data-source` ile korunur.
 
+## Canli yazmadan once yedek (2026-09-25)
+
+Canli veriye yazan her isten once yedek alinir ve acilabildigi kontrol edilir:
+`import-*` betiklerinin `--apply` kosusu, SQL ile guncelleme veya silme,
+migration. `--verify` gecmeden canli yazma baslamaz.
+
+```bash
+npm run backup:supabase -- --run
+npm run backup:supabase -- --verify
+```
+
+Bunun disinda haftada bir yedek alinir. Kurulum, geri yukleme ve prova:
+`SUPABASE_SECURITY_RUNBOOK.md` bolum 7. Her tam yedek Supabase egress harcar
+(`docs/USAGE_LIMITS.md`); gunde birden fazla calistirma.
+
 ## Kontrol komutlari
 
 Canli veri degisikliginden sonra:

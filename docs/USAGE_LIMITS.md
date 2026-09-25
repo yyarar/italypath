@@ -1,6 +1,6 @@
 # ItalyPath — Servis Abonelikleri ve Kullanım Limitleri
 
-Durum: AKTIF REFERANS · Oluşturma: 2026-09-25 · Son güncelleme: 2026-09-25 · Kanıt: Supabase MCP (org planı, DB/Storage boyutu, edge log sayımı), Kerem'in panel ekranları (Vercel Usage, Supabase Usage, Clerk Overview, Name.com; 2026-09-25), resmî limit/fiyat sayfaları (her satırda URL)
+Durum: AKTIF REFERANS · Oluşturma: 2026-09-25 · Son güncelleme: 2026-09-25 (yedek satırları, G2#2) · Kanıt: Supabase MCP (org planı, DB/Storage boyutu, edge log sayımı), Kerem'in panel ekranları (Vercel Usage, Supabase Usage, Clerk Overview, Name.com; 2026-09-25), resmî limit/fiyat sayfaları (her satırda URL)
 
 Bu belge projenin kullandığı dış servislerin planını, limitini, ölçülmüş kullanımını ve limit aşımında ne olduğunu tutar. Kullanım limitleri sorumluluğu 2026-09-25'ten beri ayrı bir ajan rolüdür. Yeni bir servis eklenirse buraya satır açılır; plan değişirse tarih ve kanıtla güncellenir. Açık işler `docs/STATUS.md`'dedir.
 
@@ -172,6 +172,8 @@ Kerem kararı (2026-09-25): AI mentor kaldırılacak.
 | Sıklık | Ne | Nasıl |
 | --- | --- | --- |
 | Haftalık (pazartesi 09:00, otomatik) | Supabase egress, Vercel deploy sayısı, `GEMINI_API_KEY` durumu | Zamanlanmış görev "ItalyPath haftalık kullanım kontrolü" (`~/.claude/scheduled-tasks/italypath-weekly-usage-check/`); rapor `tmp/usage/YYYY-MM-DD.md` (Git dışı); uygulama kapalıysa bir sonraki açılışta çalışır |
+| Haftalık (elle; Kerem veya ajan) | Supabase yedeği (veritabanı + `documents` + `sat-figures`) | `npm run backup:supabase -- --run`, ardından `-- --verify`; arşiv `BACKUP_DIR`'e yazılır, sonra bilgisayar dışına kopyalanır. Tek yedek egress üst sınırı ~16,6 MB (2026-09-25). Ayrıntı: `SUPABASE_SECURITY_RUNBOOK.md` bölüm 7 |
+| Canlıya yazan her işten önce (`--apply`, import, SQL güncelleme/silme, migration) | Supabase yedeği | Aynı komutlar; `--verify` geçmeden canlı yazma başlamaz (`DATA_ENTRY_GUIDE.md`) |
 | Aylık (ayın ilk pazartesi) | Vercel ISR Writes, Fluid Active CPU, Fast Origin Transfer | Kerem'den Usage ekranı; hedef 30 günlük pencerede < %60 |
 | Ayın 27'si civarı | Supabase dönem kapanışı | Kerem'den Usage ekranı |
 | Aylık | Vercel Usage tamamı, Clerk kullanıcı sayısı | Kerem'den ekran görüntüsü |
@@ -185,4 +187,5 @@ Kerem kararı (2026-09-25): AI mentor kaldırılacak.
 - Canlıya karşı polling en az 60 sn aralıkla, Lighthouse art arda en fazla 3-4 koşu (Vercel Firewall challenge'ı).
 - Yeni `next/image` kaynağı veya yeni görsel genişliği görsel dönüşüm kotasını tüketir (Hobby 5.000/ay).
 - Paralel araştırma ajanları 5-10 ile sınırlı (Claude oturum limiti).
+- Supabase yedeği egress harcar (2026-09-25: tek yedek ≤ ~16,6 MB; dump 3,3 MB + 265 dosya 4,5 MB). Haftalık yedek ve canlı yazma öncesi yedek dışında çalıştırma; deneme modu (`--dry-run`) yalnız sayım okur.
 - Bu belgedeki bir planı veya limiti değiştiren her bilgi tarih ve kanıtla girilir.
