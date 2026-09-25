@@ -1,6 +1,7 @@
 "use client";
 
-import { type FormEvent, useMemo, useState } from "react";
+import Link from "next/link";
+import { type FormEvent, useMemo, useState, useSyncExternalStore } from "react";
 
 import { useLanguage } from "@/context/LanguageContext";
 import {
@@ -19,6 +20,21 @@ export interface ExpertLeadFormProps {
 }
 
 type VisibleExpertLeadField = Exclude<ExpertLeadField, "submissionId">;
+
+// Yil secenekleri sayfa acildiktan sonra tarayicinin tarihinden uretilir. Statik /on-gorusme
+// HTML'i derlendigi yili tasir; sunucu anlik goruntusu null oldugu icin yilbasindan sonra
+// hidrasyon uyusmazligi olmaz, secenekler ilk istemci cizimiyle gelir.
+function subscribeToNothing() {
+  return () => {};
+}
+
+function readCurrentUtcYear() {
+  return new Date().getUTCFullYear();
+}
+
+function readServerYear() {
+  return null;
+}
 
 function createInitialDraft(): ExpertLeadDraft {
   return {
@@ -42,7 +58,11 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
   >({});
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<"generic" | "busy" | null>(null);
-  const intakeOptions = useMemo(() => buildTargetIntakeOptions(), []);
+  const currentYear = useSyncExternalStore(subscribeToNothing, readCurrentUtcYear, readServerYear);
+  const intakeOptions = useMemo(
+    () => (currentYear === null ? [] : buildTargetIntakeOptions(new Date(Date.UTC(currentYear, 0, 1)))),
+    [currentYear],
+  );
 
   const setField = (field: keyof ExpertLeadDraft, value: string) => {
     setDraft((current) => ({ ...current, [field]: value }));
@@ -289,6 +309,16 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
       >
         {submitting ? copy.submitting : copy.submit}
       </button>
+
+      <p className="text-xs leading-5 text-[var(--editorial-muted)]">
+        {copy.privacyNotice.lead}{" "}
+        <Link
+          href="/yasal/gizlilik"
+          className="underline underline-offset-2 hover:text-[var(--editorial-ink)]"
+        >
+          {copy.privacyNotice.link}
+        </Link>
+      </p>
     </form>
   );
 }
