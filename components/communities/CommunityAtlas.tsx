@@ -18,7 +18,7 @@ import {
 } from "@/lib/communities/chapters";
 import type { Language } from "@/types";
 
-const SUGGESTION_MAIL = "contact@italypath.com";
+const SUGGESTION_MAIL = "contact@italypath.app";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },

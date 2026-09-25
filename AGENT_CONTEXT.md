@@ -666,7 +666,7 @@ SEO 2.5 sonrasi `/communities` `force-dynamic` route'tur. Canli HTML'de gercek H
 
 `/yasal/[slug]` dinamik route'u uc statik yasal sayfayi besler: `gizlilik` (Gizlilik Politikasi ve KVKK Aydinlatma Metni), `kullanim-kosullari`, `cerez-politikasi`.
 
-- Icerik: `lib/legal/documents.ts` (yapilandirilmis Turkce metin; yasal iletisim adresi `contact@italypath.com`)
+- Icerik: `lib/legal/documents.ts` (yapilandirilmis Turkce metin; yasal iletisim adresi `contact@italypath.app`, Name.com e-posta yonlendirmesi; `italypath.com` baska bir sirkete aittir, public yuzeylerde kullanma, guard `check:mentor-desks`)
 - Sunum: `components/legal/LegalDocument.tsx` (saf Server Component, editorial stil)
 - Route: `app/yasal/[slug]/page.tsx` (`generateStaticParams` + `generateMetadata`, server)
 - Footer'da "Yasal" linkleri `LEGAL_LINKS` ile uretilir

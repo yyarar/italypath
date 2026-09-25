@@ -1,7 +1,7 @@
 // ItalyPath yasal belgeleri (Türkçe).
 // Metinler yapılandırılmış tutulur ki ileride İngilizce çeviri aynı şekle eklenebilsin.
-export const CONTACT_EMAIL = "contact@italypath.com";
-export const LEGAL_LAST_UPDATED = "11 Ağustos 2026";
+export const CONTACT_EMAIL = "contact@italypath.app";
+export const LEGAL_LAST_UPDATED = "25 Eylül 2026";
 
 export type LegalSection = {
   heading: string;

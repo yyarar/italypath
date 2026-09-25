@@ -372,14 +372,23 @@ mustInclude(
 );
 mustInclude(
   legalSource,
-  'export const LEGAL_LAST_UPDATED = "11 Ağustos 2026"',
+  'export const LEGAL_LAST_UPDATED = "25 Eylül 2026"',
   "Yasal metin güncelleme tarihi eksik",
 );
 mustInclude(
   legalSource,
-  'export const CONTACT_EMAIL = "contact@italypath.com"',
+  'export const CONTACT_EMAIL = "contact@italypath.app"',
   "Yasal iletişim e-postası production adresiyle eşleşmiyor",
 );
+// italypath.com başka bir şirkete ait (2026-09-25 DNS kontrolü); bu alan adına giden
+// iletişim adresi KVKK taleplerini üçüncü tarafa gönderir. Public yüzeylerde yasak.
+for (const [label, source] of [
+  ["lib/legal/documents.ts", legalSource],
+  ["components/communities/CommunityAtlas.tsx", read("components/communities/CommunityAtlas.tsx")],
+  ["components/mentor/LockedDeskNotice.tsx", read("components/mentor/LockedDeskNotice.tsx")],
+]) {
+  mustNotInclude(source, "italypath.com", `${label} üçüncü tarafa ait alan adına iletişim adresi veriyor`);
+}
 mustNotInclude(
   legalSource,
   "CONTACT_EMAIL_PLACEHOLDER",

@@ -5,7 +5,7 @@ import { ExternalLink } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import type { MentorChannel } from "@/lib/mentor/channels";
 
-const NOTIFY_MAIL = "contact@italypath.com";
+const NOTIFY_MAIL = "contact@italypath.app";
 
 export default function LockedDeskNotice({
   channel,
