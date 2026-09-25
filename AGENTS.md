@@ -10,7 +10,7 @@ Bu dosya yeni bir ajanin ilk okuyacagi kisa giristir: okuma sirasi, degismez cal
 2. `AGENT_CONTEXT.md`: guncel mimari, veri katmani, route matrisi, feature sozlesmeleri, 20 agent kurali
 3. `docs/STATUS.md`: tek acik is listesi ve kanitlanmis son durum
 4. Isle ilgili feature dosyalari ve o feature'in guard scripti (`AGENT_CONTEXT.md` "Komutlar")
-5. Gerektiginde: `SEO_AUDIT.md` (olcum kaydi; son bolumler guncel, §1 ozeti 28 Agustos snapshot'i), `SUPABASE_SECURITY_RUNBOOK.md`, `DATA_ENTRY_GUIDE.md`
+5. Gerektiginde: `SEO_AUDIT.md` (olcum kaydi; son bolumler guncel, §1 ozeti 28 Agustos snapshot'i), `SUPABASE_SECURITY_RUNBOOK.md`, `DATA_ENTRY_GUIDE.md`, `docs/USAGE_LIMITS.md` (servis planlari, limitler, olculmus kullanim; veri cekme, ISR veya deploy temposunu etkileyen her iste once bunu oku)
 6. `docs/superpowers/INDEX.md`: her tasarim/plan belgesinin durumu ve kaniti; plan checkbox'lari ilerleme gostermez
 
 Arsivler baslangic rehberi degildir: `AGENT_CONTEXT_FIX_REPORT.md` (2026-06-11 uygulanmis audit), `AGENT_COMMITS.md` (SHA'siz, eksik eski notlar), `EDITORIAL_AUDIT.md` (Temmuz 2026 snapshot), `docs/CONTEXT_AUDIT_2026-09-19.md` (son degerlendirme; 1-3. adimlari uygulandi).

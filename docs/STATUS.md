@@ -1,6 +1,6 @@
 # ItalyPath — Açık İşler ve Son Durum
 
-Tarih: 2026-09-25 · Doğrulandığı commit: `771b995`
+Tarih: 2026-09-25 · Doğrulandığı commit: `771b995` · 2026-09-25: servis planları/kullanım (#1, #18, #21, #40-42) eklendi, kaynak `docs/USAGE_LIMITS.md`
 
 Bu dosya projenin **tek** açık iş listesidir (`docs/CONTEXT_AUDIT_2026-09-19.md` önerisi). Her değişiklikte tarihi ve kanıtı güncelle; biten işi "Kapananlar"a taşı. Mimari `AGENT_CONTEXT.md`'de, tarihsel ölçümler `SEO_AUDIT.md`'de, tasarım/plan durumları `docs/superpowers/INDEX.md`'de tutulur.
 
@@ -16,7 +16,8 @@ Sütunlar: **Kanıt / kaynak** = repo dosyası, commit, kayıt bölümü veya ca
 | Erişim | `/llms.txt` canlıda 200 (oturumsuz); `/ai-mentor` public, AI masası arayüzde paused | canlı HEAD isteği 2026-09-21; `proxy.ts`, `lib/mentor/channels.ts` |
 | Guard'lar | routes, auth-production, ai-search, expert-leads, mentor-desks, seo-vitals, university-data-source, home-consultation, program-metadata, auth-ui, hub-onboarding, cities, isee yeşil | yerel koşu, 2026-09-21 |
 | Son deploy'lar | Program detay Deploy 3+4 (§23), `/llms.txt` düzeltmesi (f58fcd0), context düzeltmesi (631a2a4), §24 + Instagram paketi (ab38759) | Git, 2026-09-21 |
-| Doğrulanmamış | GSC ekranı bu turda görüntülenmedi; Rich Results Test yapılmadı; Vercel/Supabase dashboard okunmadı | — |
+| Doğrulanmamış | GSC ekranı bu turda görüntülenmedi; Rich Results Test yapılmadı | — |
+| Servis planları (2026-09-25) | Vercel Hobby, Supabase Free, Clerk Student, Name.com `italypath.app` (2 Mayıs 2027, otomatik yenileme); kullanım tablosu ve limitler | `docs/USAGE_LIMITS.md` |
 
 ## Açık işler
 
@@ -24,7 +25,10 @@ Sütunlar: **Kanıt / kaynak** = repo dosyası, commit, kayıt bölümü veya ca
 
 | # | İş | Kanıt / kaynak | Karar |
 | --- | --- | --- | --- |
-| 1 | Supabase Free egress mühleti: dönem 27 Eylül'de sıfırlanır, 14 Ekim'e kadar hedef < 1 GB; ikinci mühlet yok. Supabase Usage izlenmeli | `SEO_AUDIT.md` §20.6, §24.5 | — |
+| 1 | Supabase Free egress mühleti: dönem 27 Eylül'de sıfırlanır (kapanış 8,04/5 GB), 14 Ekim'e kadar hedef < 1 GB; ikinci mühlet yok. 16-25 Eylül günlük ~20-65 MB, ama hedefli kabul çekimi 250 → 604/gün artıyor; "program sayfası yalnız kendi kabul satırını çeksin" düzeltmesi önerildi | `docs/USAGE_LIMITS.md` Supabase; `SEO_AUDIT.md` §20.6 | Kerem düzeltmeyi başka ajana soracak |
+| 40 | Vercel Hobby, 30 gün (25 Eylül): Fluid Active CPU %44, ISR Writes %38 (77K/200K; ISR 16 Eylül'de başladı, 16-24 Eylül 13 push). Aşılırsa özellik 30 gün durur. Günlük grafik (25 Eylül): Writes push günleri 8-16K, push'suz günler taban 3-5K; Active CPU 3,5-5,5 dk/gün (%50-60 tempo, acil değil). Push'lar haftada 1-2 toplu gönderime indirilmeli; push'suz bir haftada Writes tabanı düşmezse çıktı determinizmi/boyutu incelenmeli | `docs/USAGE_LIMITS.md` Vercel | — |
+| 41 | Vercel Hobby ticari kullanımı yasaklıyor; `/on-gorusme` ücretli danışmanlık lead formu ticari sayılır. Pro 20 $/üye/ay | `docs/USAGE_LIMITS.md` Vercel; fair-use guidelines | Kerem |
+| 42 | Gemini: AI mentor kaldırılacak (Kerem kararı 25 Eylül). Önce anahtarı AI Studio'da sil ve Vercel'den `GEMINI_API_KEY`'i kaldır (`/api/chat` giriş yapan herkese açık, sınırsız); sonra kod kaldırma ayrı iş | `app/api/chat/route.ts`; `docs/USAGE_LIMITS.md` Gemini | Kerem: anahtar silme |
 | 2 | GSC kontrolü 23-30 Eylül: dizin / `noindex` / keşfedildi / 404 sayıları, sitemap yeniden gönderimi (1.004), tarama istatistikleri | `SEO_AUDIT.md` §24.5 kontrol listesi | — |
 | 3 | Rich Results Test ile bir dosyalı program sayfasında `EducationalOccupationalProgram` doğrulaması | `SEO_AUDIT.md` §23.3 | — |
 | 4 | 2027/28 tarih tazelemesi: Kasım–Aralık 2026'da tüm site program tarihleri (bazı okullar şimdiden 2027/28 takvimi taşıyor) | `tmp/uni-research/STATUS.md` (yerel, Git dışı), 19 Eylül notu | Tempo |
@@ -56,10 +60,10 @@ Sütunlar: **Kanıt / kaynak** = repo dosyası, commit, kayıt bölümü veya ca
 | # | İş | Kanıt / kaynak | Karar |
 | --- | --- | --- | --- |
 | 17 | Sentry hata izleme kurulmadı (`package.json`'da sentry paketi yok); DSN bekleniyor | `package.json` | DSN |
-| 18 | Yasal metinler için hukukçu incelemesi yapılmadı; iletişim adresi `contact@italypath.com` yayında (2bfd9f2, 21 Temmuz) | `EDITORIAL_AUDIT.md` uyarısı, `lib/legal/documents.ts` | Hukukçu |
+| 18 | Yasal metinler için hukukçu incelemesi yapılmadı; iletişim adresi `contact@italypath.com` yayında (2bfd9f2, 21 Temmuz). **25 Eylül: `italypath.com` bize ait değil** (başka bir şirketin sitesi, Google Workspace MX); bu adrese yazılan KVKK/gizlilik talepleri o şirkete gider. Kerem kararı (25 Eylül): `contact@italypath.app`, Name.com ücretsiz e-posta yönlendirmesiyle Kerem'in Gmail'ine. Kod hazır, commit/push edilmedi (yasal metinler, "Topluluk öner", "Açıldığında haber et"; `LEGAL_LAST_UPDATED` 25 Eylül 2026; `check:mentor-desks` artık `italypath.com`'u bu yüzeylerde yasaklıyor). Yönlendirme 25 Eylül'de kuruldu ve çalışıyor (Name.com MX, deneme e-postası ulaştı; ilk e-posta Gmail spam'ine düştü, Kerem "spam değil" işaretledi). Bekleyen: push onayı. Push bugünden sonra olursa `LEGAL_LAST_UPDATED`'i push tarihine çek | `lib/legal/documents.ts`, `scripts/check-mentor-desks.mjs`, DNS kontrolü 2026-09-25 | Kerem: yönlendirme kurulumu, push onayı, hukukçu |
 | 19 | PWA paketi yok: `public/manifest.webmanifest` ve 192/512 ikonlar | repo | Öncelik |
 | 20 | Üniversite karşılaştırma özelliği yok (favori + dizin modeliyle yapılabilir) | fikir | Öncelik |
-| 21 | AI mentor masası arayüzde paused; açılırsa önce system prompt boyutu, latency ve maliyet ölçülmeli (941 programlık dizin) | `lib/mentor/channels.ts`, `app/api/chat/route.ts` | Kerem |
+| 21 | AI mentor masası arayüzde paused; Kerem 25 Eylül'de kaldırma kararı verdi (bkz. #42) | `lib/mentor/channels.ts`, `app/api/chat/route.ts` | Karar verildi: kaldır |
 | 22 | SAT: figür onarım backlog'u 2 kayıt; `explanation_tr` hiç yok (1.019 soruda yalnız `explanation_en`); Reading/Writing bankaya alınmadı (07-03 planı Math + R/W hedefliyordu) | `tmp/sat-bank/remediation/figure-repair-backlog.json` (yerel); Supabase sayımı | Kapsam |
 | 23 | `app/data.ts` legacy seed'deki tekrarlı/placeholder görseller (runtime kullanmaz) | `app/data.ts` | Düşük |
 | 24 | Yerel `next dev`'de program detay sayfaları 404 verdi (canlıda 200), 19 Eylül notu; bu turda yeniden denenmedi | `tmp/uni-research/STATUS.md` | Doğrulama |
