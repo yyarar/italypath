@@ -131,6 +131,31 @@ function installSupabaseStubs(database) {
     grant usage on schema auth to anon, authenticated;
     grant execute on function auth.jwt() to anon, authenticated;
     create publication supabase_realtime;
+
+    -- Shape of Supabase's realtime.messages and realtime.topic(); hosted
+    -- projects grant select/insert/update to both client roles.
+    create schema realtime;
+    create table realtime.messages (
+      id uuid primary key default gen_random_uuid(),
+      topic text not null,
+      extension text not null,
+      payload jsonb,
+      event text,
+      private boolean default false,
+      inserted_at timestamp not null default now(),
+      updated_at timestamp not null default now()
+    );
+    alter table realtime.messages enable row level security;
+    create function realtime.topic()
+    returns text
+    language sql
+    stable
+    as $$
+      select nullif(current_setting('realtime.topic', true), '')::text;
+    $$;
+    grant usage on schema realtime to anon, authenticated;
+    grant select, insert, update on realtime.messages to anon, authenticated;
+    grant execute on function realtime.topic() to anon, authenticated;
   `, { database });
 }
 
@@ -274,6 +299,29 @@ function asUser(userId, sql, applicationName = "") {
 set role authenticated;
 set request.jwt.claims = ${quote(JSON.stringify({ sub: userId }))};
 ${sql}`;
+}
+
+// Mirrors Realtime's private-channel join check: a probe row for the topic is
+// written by the server role, then the caller must be able to select it.
+function realtimeJoinSql(userId, topic) {
+  const caller = userId
+    ? `set local role authenticated;
+set local request.jwt.claims = ${quote(JSON.stringify({ sub: userId }))};`
+    : "set local role anon;";
+  return `begin;
+insert into realtime.messages (topic, extension, private)
+values (${quote(topic)}, 'broadcast', true);
+${caller}
+select set_config('realtime.topic', ${quote(topic)}, true) is not null;
+select 'join:' || count(*) from realtime.messages where topic = ${quote(topic)};
+rollback;`;
+}
+
+function canJoinRealtimeTopic(userId, topic) {
+  const lines = runSql(realtimeJoinSql(userId, topic)).stdout.trim().split("\n");
+  const verdict = lines.find((line) => line.startsWith("join:"));
+  assert(verdict, `realtime join probe returned no verdict for ${topic}`);
+  return verdict === "join:1";
 }
 
 function scalar(result) {
@@ -653,7 +701,7 @@ async function main() {
     loadExpertLeadsSql();
   });
 
-  await test("expert leads are capped at 50 per hour; retries and older leads are exempt", async () => {
+  await test("expert leads past 50 an hour are kept as suspected; the 151st is refused", async () => {
     const leadInsert = (submissionId, suffix) => `
       insert into public.expert_leads (
         submission_id, full_name, whatsapp_phone, study_level,
@@ -661,28 +709,59 @@ async function main() {
       ) values (
         ${quote(submissionId)}, ${quote(`Cap Lead ${suffix}`)}, '+905321239999', 'bachelor',
         'undecided', 'undecided', ${quote(`Hourly cap request ${suffix}`)}
-      );
+      )
+      returning status;
     `;
-    const existing = Number(scalar(runSql(`
+    const recentLeads = () => Number(scalar(runSql(`
       select count(*) from public.expert_leads
       where created_at > timezone('utc', now()) - interval '1 hour';
     `)));
-    runSql(`
-      insert into public.expert_leads (
-        submission_id, full_name, whatsapp_phone, study_level,
-        field_of_interest, target_intake, help_request
-      )
-      select ('b1000000-0000-4000-8000-' || lpad(g::text, 12, '0'))::uuid,
-        'Cap Lead ' || g, '+90532123' || lpad(g::text, 4, '0'), 'bachelor',
-        'undecided', 'undecided', 'Hourly cap request ' || g
-      from generate_series(1, ${Math.max(0, 50 - existing)}) g;
-    `);
-    const limited = runSql(leadInsert("b1000000-0000-4000-8000-000000000099", "overflow"), { allowFailure: true });
-    assertFailure(limited, "expert_lead_rate_limited", "51st expert lead within an hour");
+    const fillTo = (target, series) => {
+      const missing = Math.max(0, target - recentLeads());
+      runSql(`
+        insert into public.expert_leads (
+          submission_id, full_name, whatsapp_phone, study_level,
+          field_of_interest, target_intake, help_request
+        )
+        select ('${series}-0000-4000-8000-' || lpad(g::text, 12, '0'))::uuid,
+          'Cap Lead ' || g, '+90532123' || lpad(g::text, 4, '0'), 'bachelor',
+          'undecided', 'undecided', 'Hourly cap request ' || g
+        from generate_series(1, ${missing}) g;
+      `);
+    };
+
+    fillTo(50, "b1000000");
+    const fiftyFirst = scalar(runSql(leadInsert("b3000000-0000-4000-8000-000000000051", "soft")));
+    assert(fiftyFirst === "suspected", `51st lead within an hour was stored as ${fiftyFirst}`);
+
+    fillTo(150, "b2000000");
+    const suspected = scalar(runSql(`
+      select count(*) from public.expert_leads
+      where created_at > timezone('utc', now()) - interval '1 hour'
+        and status = 'suspected';
+    `));
+    assert(suspected === "100", `expected leads 51-150 to be suspected, got ${suspected}`);
+
+    const limited = runSql(leadInsert("b3000000-0000-4000-8000-000000000151", "overflow"), { allowFailure: true });
+    assertFailure(limited, "expert_lead_rate_limited", "151st expert lead within an hour");
     const retry = runSql(leadInsert("b1000000-0000-4000-8000-000000000001", "retry"), { allowFailure: true });
     assertFailure(retry, "expert_leads_submission_id_key", "same-submission retry during the cap");
+
+    const promoted = scalar(runSql(asUser("staff-primary", `
+      update public.expert_leads set status = 'new'
+      where submission_id = 'b3000000-0000-4000-8000-000000000051'
+      returning status;
+    `)));
+    assert(promoted === "new", "active staff could not move a suspected lead back to new");
+    const unknownStatus = runSql(
+      "update public.expert_leads set status = 'spam' where submission_id = 'b3000000-0000-4000-8000-000000000051';",
+      { allowFailure: true },
+    );
+    assertFailure(unknownStatus, "expert_leads_status_check", "unknown expert lead status");
+
     runSql("update public.expert_leads set created_at = created_at - interval '2 hours';");
-    runSql(leadInsert("b1000000-0000-4000-8000-000000000100", "after window"));
+    const afterWindow = scalar(runSql(leadInsert("b3000000-0000-4000-8000-000000000152", "after window")));
+    assert(afterWindow === "new", `a lead after the window was stored as ${afterWindow}`);
   });
 
   await test("different-nonce concurrent starts reject the losing request", async () => {
@@ -782,6 +861,59 @@ async function main() {
     assert(staffMessageCount === totalMessageCount, "active staff could not read the complete message history");
     const anonRead = runSql("set role anon; select * from public.mentor_conversations;", { allowFailure: true });
     assertFailure(anonRead, "permission denied", "anonymous conversation read");
+  });
+
+  await test("private Realtime topics admit only their owner or the active operator", async () => {
+    const studentOne = "student-caller-one";
+    const studentTwo = "student-caller-two";
+    const staff = "staff-primary";
+    const allowed = [
+      [studentOne, `mentor-conversations:${studentOne}`],
+      [studentOne, `mentor-messages:${callerOneConversation}`],
+      [studentTwo, `mentor-messages:${callerTwoConversation}`],
+      [staff, `mentor-operator-conversations:${staff}:all:1:0`],
+      [staff, `mentor-operator-messages:${staff}:${callerOneConversation}:1:0`],
+    ];
+    const denied = [
+      [studentOne, `mentor-conversations:${studentTwo}`],
+      [studentOne, `mentor-messages:${callerTwoConversation}`],
+      [studentOne, `mentor-operator-conversations:${studentOne}:all:1:0`],
+      [studentOne, `mentor-operator-messages:${studentOne}:${callerOneConversation}:1:0`],
+      [studentOne, "mentor-conversations:"],
+      [staff, `mentor-operator-conversations:${studentOne}:all:1:0`],
+      [staff, `mentor-conversations:${studentOne}`],
+      [null, `mentor-conversations:${studentOne}`],
+      [null, `mentor-messages:${callerOneConversation}`],
+      [null, `mentor-operator-conversations:${staff}:all:1:0`],
+    ];
+    for (const [userId, topic] of allowed) {
+      assert(canJoinRealtimeTopic(userId, topic), `${userId} could not join ${topic}`);
+    }
+    for (const [userId, topic] of denied) {
+      assert(!canJoinRealtimeTopic(userId, topic), `${userId ?? "anon"} joined ${topic}`);
+    }
+
+    const studentBroadcast = runSql(asUser(studentOne, `
+      select set_config('realtime.topic', ${quote(`mentor-conversations:${studentOne}`)}, false);
+      insert into realtime.messages (topic, extension, private)
+      values (${quote(`mentor-conversations:${studentOne}`)}, 'broadcast', true);
+    `), { allowFailure: true });
+    assertFailure(studentBroadcast, "row-level security", "student broadcast into own topic");
+    const anonBroadcast = runSql(`
+      set role anon;
+      insert into realtime.messages (topic, extension, private)
+      values ('mentor-conversations:any', 'broadcast', true);
+    `, { allowFailure: true });
+    assertFailure(anonBroadcast, "permission denied", "anonymous broadcast");
+    const grants = scalar(runSql(`
+      select concat_ws(':',
+        has_table_privilege('anon', 'realtime.messages', 'insert'),
+        has_table_privilege('anon', 'realtime.messages', 'update'),
+        (select count(*) from pg_policies
+          where schemaname = 'realtime' and tablename = 'messages' and cmd <> 'SELECT')
+      );
+    `));
+    assert(grants === "f:f:0", `realtime write surface is open: ${grants}`);
   });
 
   await test("student nonce reuse against a different target is rejected", async () => {

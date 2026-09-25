@@ -180,6 +180,27 @@ mustInclude(sql, "raise exception 'message_rate_limited'", "Öğrenci mesaj hız
 mustInclude(sql, "raise exception 'conversation_rate_limited'", "Öğrenci görüşme açma sınırı eksik");
 mustInclude(mentorDbTest, "message_rate_limited", "Mesaj hız sınırı DB testi eksik");
 mustInclude(mentorDbTest, "conversation_rate_limited", "Görüşme açma sınırı DB testi eksik");
+// Private Realtime (2026-09-25): every desk channel joins as private and only
+// the realtime.messages policies admit the owner or the active operator.
+mustInclude(studentState, "config: { private: true }", "Mentor Realtime kanalları private değil");
+for (const [source, label] of [
+  [studentHook, "Öğrenci"],
+  [operatorHook, "Operatör"],
+]) {
+  const channelCalls = source.split(".channel(").length - 1;
+  const privateCalls = source.split("mentorPrivateChannelOptions()").length - 1;
+  if (channelCalls === 0 || channelCalls !== privateCalls) {
+    failures.push(`${label} Realtime kanallarının hepsi private değil (${privateCalls}/${channelCalls})`);
+  }
+}
+mustInclude(sql, 'create policy "mentor_realtime_student_read"', "Öğrenci Realtime okuma politikası eksik");
+mustInclude(sql, 'create policy "mentor_realtime_staff_read"', "Operatör Realtime okuma politikası eksik");
+mustInclude(sql, "revoke insert, update on realtime.messages from anon", "Anon Realtime yazma yetkisi kaldırılmıyor");
+if (/on realtime\.messages\s+for (insert|update|delete|all)/i.test(sql)) {
+  failures.push("realtime.messages için yazma politikası olmamalı (masa broadcast kullanmaz)");
+}
+mustInclude(mentorDbTest, "private Realtime topics admit only their owner or the active operator", "Realtime politika DB testi eksik");
+mustInclude(securityRunbook, "Allow public access", "Realtime public erişim kapatma sırası runbook'ta eksik");
 mustInclude(translations, "messageRateLimitError", "Mesaj hız sınırı metni eksik");
 mustInclude(translations, "conversationRateLimitError", "Görüşme açma sınırı metni eksik");
 mustInclude(studentHook, 'rpc("start_volunteer_conversation"', "Start RPC eksik");

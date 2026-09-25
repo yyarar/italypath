@@ -3,6 +3,30 @@ import "server-only";
 import { createClient } from "@supabase/supabase-js";
 
 import type { ExpertLeadSubmission } from "@/lib/mentor/expertLeads";
+import type { ExpertLeadField } from "@/lib/mentor/expertLeadValidation";
+
+export type ExpertLeadStoreResult =
+  | { kind: "created" }
+  | { kind: "duplicate" }
+  | { kind: "rate_limited" }
+  | { kind: "rejected"; field: ExpertLeadField | null };
+
+// Check constraints in supabase/expert_leads.sql, keyed to the form field they guard.
+const CONSTRAINT_FIELDS: Record<string, ExpertLeadField> = {
+  expert_leads_full_name_check: "fullName",
+  expert_leads_phone_check: "whatsappPhone",
+  expert_leads_study_level_check: "studyLevel",
+  expert_leads_field_check: "fieldOfInterest",
+  expert_leads_target_intake_check: "targetIntake",
+  expert_leads_help_request_check: "helpRequest",
+};
+
+function rejectedField(message: string): ExpertLeadField | null {
+  const constraint = Object.keys(CONSTRAINT_FIELDS).find((name) =>
+    message.includes(name),
+  );
+  return constraint ? CONSTRAINT_FIELDS[constraint] : null;
+}
 
 function createServiceRoleClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -16,7 +40,7 @@ function createServiceRoleClient() {
 
 export async function storeExpertLead(
   value: ExpertLeadSubmission,
-): Promise<"created" | "duplicate" | "rate_limited"> {
+): Promise<ExpertLeadStoreResult> {
   const { error } = await createServiceRoleClient().from("expert_leads").insert({
     submission_id: value.submissionId,
     full_name: value.fullName,
@@ -27,15 +51,23 @@ export async function storeExpertLead(
     help_request: value.helpRequest,
   });
 
-  if (!error) return "created";
+  if (!error) return { kind: "created" };
   if (
     error.code === "23505" &&
     error.message.includes("expert_leads_submission_id_key")
   ) {
-    return "duplicate";
+    return { kind: "duplicate" };
   }
   // Raised by the hourly cap trigger in supabase/expert_leads.sql.
-  if (error.message.includes("expert_lead_rate_limited")) return "rate_limited";
+  if (error.message.includes("expert_lead_rate_limited")) {
+    return { kind: "rate_limited" };
+  }
+  // Input the validator let through but Postgres refuses (a check constraint,
+  // or a character the database encoding cannot store) is the sender's input,
+  // not an outage.
+  if (error.code === "23514" || error.code === "22P05") {
+    return { kind: "rejected", field: rejectedField(error.message) };
+  }
 
   throw new Error(`expert_lead_insert_failed:${error.code ?? "unknown"}`);
 }

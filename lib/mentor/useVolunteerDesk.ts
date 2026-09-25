@@ -16,6 +16,7 @@ import {
   createOwnerScopedNonceRegistry,
   createSerializedReconciliationQueue,
   deriveMentorRealtimeState,
+  mentorPrivateChannelOptions,
   resolveConversationSelection,
   transitionCommittedAuth,
   transitionMessageScope,
@@ -476,7 +477,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
           void refreshConversations(false).catch(() => undefined);
         };
         channel = supabase
-          .channel(`mentor-conversations:${ownerId}`)
+          .channel(`mentor-conversations:${ownerId}`, mentorPrivateChannelOptions())
           .on(
             "postgres_changes",
             {
@@ -554,7 +555,7 @@ export function useVolunteerDesk(): UseVolunteerDeskResult {
         await supabase.realtime.setAuth();
         if (!active || !isCurrent(generation, ownerId)) return;
         channel = supabase
-          .channel(`mentor-messages:${conversationId}`)
+          .channel(`mentor-messages:${conversationId}`, mentorPrivateChannelOptions())
           .on(
             "postgres_changes",
             {

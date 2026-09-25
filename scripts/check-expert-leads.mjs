@@ -115,10 +115,12 @@ if (
 }
 mustInclude(expertOperatorPage, "<ExpertLeadInbox />", "Expert operator route inbox render etmiyor");
 mustInclude(expertOperatorInbox, "useExpertLeadInbox", "Expert operator hook kullanmiyor");
-mustInclude(expertOperatorList, "all", "Tum expert filter eksik");
-mustInclude(expertOperatorList, "new", "Yeni expert filter eksik");
-mustInclude(expertOperatorList, "contacted", "Contacted expert filter eksik");
-mustInclude(expertOperatorList, "completed", "Completed expert filter eksik");
+// Filters are listed once in expertLeadInboxState.ts and rendered by the list.
+mustInclude(expertInboxState, '"all"', "Tum expert filter eksik");
+mustInclude(expertInboxState, '"new"', "Yeni expert filter eksik");
+mustInclude(expertInboxState, '"contacted"', "Contacted expert filter eksik");
+mustInclude(expertInboxState, '"completed"', "Completed expert filter eksik");
+mustInclude(expertInboxState, '"suspected"', "Supheli expert filter eksik");
 mustInclude(expertOperatorDetail, "buildWhatsAppHref", "WhatsApp link helper eksik");
 mustInclude(expertOperatorDetail, 'target="_blank"', "WhatsApp yeni sekmede acilmiyor");
 mustInclude(expertOperatorDetail, 'rel="noreferrer"', "WhatsApp noreferrer eksik");
@@ -154,6 +156,10 @@ if (translations.split("expertOperator:").length - 1 < 2) {
   "statusError",
   "noteError",
   "deleteError",
+  "suspectedCount",
+  "suspectedHint",
+  "loadMore",
+  "loadMoreError",
 ].forEach((key) => {
   if (translations.split(key).length - 1 < 2) {
     failures.push(`expertOperator ceviri anahtari eksik: ${key}`);
@@ -249,7 +255,23 @@ mustInclude(route, '"application/json"', "Expert lead route JSON icerik turu ist
 mustInclude(route, 'error: "rate_limited" }, 429', "Expert lead route yogunluk cevabi (429) vermiyor");
 mustInclude(server, "expert_lead_rate_limited", "Expert lead server saatlik sinir hatasini tanimiyor");
 mustInclude(sql, "create trigger expert_leads_hourly_cap", "Expert lead saatlik sinir tetikleyicisi eksik");
-mustInclude(sql, "v_recent_leads >= 50", "Expert lead saatlik siniri 50 degil");
+mustInclude(sql, "v_recent_leads >= 50", "Expert lead saatlik supheli esigi 50 degil");
+mustInclude(sql, "v_recent_leads >= 150", "Expert lead saatlik sert tavani 150 degil");
+mustInclude(sql, "new.status := 'suspected'", "Esigi asan lead supheli olarak kabul edilmiyor");
+mustInclude(sql, "'new', 'contacted', 'completed', 'suspected'", "Expert lead durumlarinda suspected eksik");
+mustInclude(mentorDbTest, "kept as suspected", "Supheli esik DB testi eksik");
+mustInclude(server, '"23514"', "Postgres kural ihlali 400'e eslenmiyor");
+mustInclude(server, '"22P05"', "Postgres karakter hatasi 400'e eslenmiyor");
+mustInclude(route, 'result.kind === "rejected"', "Expert lead route reddedilen girdiyi 400 donmuyor");
+mustInclude(validationSource, '"too_few_letters"', "Adda en az iki harf kurali eksik");
+mustInclude(validationSource, "\\u202a-\\u202e", "Yazi yonu karakterleri reddedilmiyor");
+mustInclude(expertLeadTests, "Yardım 🙏🙏", "Emojili kisa mesaj testi eksik");
+mustInclude(expertInboxState, 'DEFAULT_EXPERT_LEAD_FILTER: ExpertLeadFilter = "new"', "Gelen kutusu varsayilan filtresi yeni degil");
+mustInclude(expertInboxState, "EXPERT_LEAD_PAGE_SIZE", "Gelen kutusu sayfa boyutu eksik");
+mustInclude(expertInboxHook, ".limit(EXPERT_LEAD_PAGE_SIZE + 1)", "Gelen kutusu sayfalanmiyor");
+mustInclude(expertInboxHook, 'query.neq("status", "suspected")', "Tumu filtresi supheli talepleri ayirmiyor");
+mustInclude(expertOperatorList, "EXPERT_LEAD_FILTERS", "Gelen kutusu filtre listesi eksik");
+mustInclude(expertOperatorList, "onLoadMore", "Gelen kutusu daha fazla dugmesi eksik");
 mustInclude(mentorDbTest, "expert_lead_rate_limited", "Expert lead saatlik sinir DB testi eksik");
 mustInclude(validationSource, "Array.from(value).length", "Expert lead uzunlugu kod noktasi olarak sayilmiyor");
 mustInclude(validationSource, '"invalid_characters"', "Expert lead gorunmez karakter kontrolu eksik");

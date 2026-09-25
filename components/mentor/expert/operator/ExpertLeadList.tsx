@@ -3,19 +3,25 @@
 import { useMemo } from "react";
 
 import { useLanguage } from "@/context/LanguageContext";
-import type { ExpertLeadFilter } from "@/lib/mentor/expertLeadInboxState";
+import {
+  EXPERT_LEAD_FILTERS,
+  type ExpertLeadFilter,
+} from "@/lib/mentor/expertLeadInboxState";
 import type { ExpertLeadRow } from "@/types";
-
-const FILTERS: ExpertLeadFilter[] = ["all", "new", "contacted", "completed"];
 
 export interface ExpertLeadListProps {
   rows: ExpertLeadRow[];
   selectedLeadId: string | null;
   filter: ExpertLeadFilter;
   newCount: number;
+  suspectedCount: number;
+  hasMore: boolean;
   loading: boolean;
+  loadingMore: boolean;
+  loadMoreFailed: boolean;
   disabled?: boolean;
   onRefresh: () => Promise<void>;
+  onLoadMore: () => Promise<void>;
   onFilterChange: (filter: ExpertLeadFilter) => void;
   onSelect: (id: string) => void;
 }
@@ -25,9 +31,14 @@ export default function ExpertLeadList({
   selectedLeadId,
   filter,
   newCount,
+  suspectedCount,
+  hasMore,
   loading,
+  loadingMore,
+  loadMoreFailed,
   disabled = false,
   onRefresh,
+  onLoadMore,
   onFilterChange,
   onSelect,
 }: ExpertLeadListProps) {
@@ -46,9 +57,16 @@ export default function ExpertLeadList({
   return (
     <section aria-label={copy.title} className="min-w-0">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--editorial-border)] pb-4">
-        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)]">
-          {copy.newCount.replace("{count}", String(newCount))}
-        </p>
+        <div className="space-y-1">
+          <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)]">
+            {copy.newCount.replace("{count}", String(newCount))}
+          </p>
+          {suspectedCount > 0 ? (
+            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
+              {copy.suspectedCount.replace("{count}", String(suspectedCount))}
+            </p>
+          ) : null}
+        </div>
         <button
           type="button"
           disabled={disabled || loading}
@@ -59,8 +77,8 @@ export default function ExpertLeadList({
         </button>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 sm:grid-cols-4" aria-label={copy.title}>
-        {FILTERS.map((status) => {
+      <div className="mt-4 grid grid-cols-3 sm:grid-cols-5" aria-label={copy.title}>
+        {EXPERT_LEAD_FILTERS.map((status) => {
           const selected = filter === status;
           return (
             <button
@@ -80,6 +98,12 @@ export default function ExpertLeadList({
           );
         })}
       </div>
+
+      {filter === "suspected" ? (
+        <p className="mt-4 font-serif text-sm italic leading-6 text-[var(--editorial-muted)]">
+          {copy.suspectedHint}
+        </p>
+      ) : null}
 
       <div className="mt-4 border-y border-[var(--editorial-border)]">
         {loading ? (
@@ -128,6 +152,22 @@ export default function ExpertLeadList({
           })
         )}
       </div>
+
+      {loadMoreFailed ? (
+        <p role="alert" className="mt-3 text-sm text-[var(--editorial-terracotta-ink)]">
+          {copy.loadMoreError}
+        </p>
+      ) : null}
+      {hasMore && !loading ? (
+        <button
+          type="button"
+          disabled={disabled || loadingMore}
+          onClick={() => void onLoadMore().catch(() => undefined)}
+          className="mt-4 w-full border border-[var(--editorial-border)] px-3 py-3 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-ink)] transition hover:border-[var(--editorial-sage)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          {loadingMore ? copy.loadingMore : copy.loadMore}
+        </button>
+      ) : null}
     </section>
   );
 }

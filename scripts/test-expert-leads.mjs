@@ -81,15 +81,20 @@ const {
   buildTargetIntakeOptions,
   buildWhatsAppHref,
   normalizeWhatsAppPhone,
+  DEFAULT_EXPERT_LEAD_FILTER,
+  EXPERT_LEAD_FILTERS,
+  appendExpertLeads,
+  expertLeadCursorFilter,
   filterExpertLeads,
   removeExpertLead,
   replaceExpertLead,
   resolveExpertLeadSelection,
+  splitExpertLeadPage,
   transitionExpertLeadIdentity,
   validateExpertLeadPayload,
 } = await importHelpers();
 
-assert.deepEqual(EXPERT_LEAD_STATUSES, ["new", "contacted", "completed"]);
+assert.deepEqual(EXPERT_LEAD_STATUSES, ["new", "contacted", "completed", "suspected"]);
 assert.deepEqual(EXPERT_STUDY_LEVELS, ["bachelor", "master", "undecided"]);
 assert.equal(EXPERT_FIELDS.at(-1), "undecided");
 assert.deepEqual(buildTargetIntakeOptions(new Date("2026-08-10T12:00:00Z")), [
@@ -165,10 +170,53 @@ assert.equal(
   "a one-code-point name must be too short, as the database would reject it",
 );
 assert.equal(
-  validateExpertLeadPayload({ ...validPayload, fullName: "😀".repeat(120) }, clock).kind,
+  validateExpertLeadPayload({ ...validPayload, fullName: `Al${"😀".repeat(118)}` }, clock).kind,
   "valid",
-  "120 emoji are within the 120-character database limit",
+  "a 120-code-point name is within the 120-character database limit",
 );
+assert.equal(
+  validateExpertLeadPayload({ ...validPayload, fullName: `Al${"😀".repeat(119)}` }, clock).errors
+    ?.fullName,
+  "too_long",
+  "a 121-code-point name is over the database limit",
+);
+// "Yardım 🙏🙏" is 10 UTF-16 units but 8 code points: Postgres would reject it.
+assert.equal(
+  validateExpertLeadPayload({ ...validPayload, helpRequest: "Yardım 🙏🙏" }, clock).errors
+    ?.helpRequest,
+  "too_short",
+  "a short request padded with emoji must be too short, as the database would reject it",
+);
+assert.equal(
+  validateExpertLeadPayload({ ...validPayload, helpRequest: "Yardım lazım 🙏🙏" }, clock).kind,
+  "valid",
+  "a ten-code-point request with emoji is accepted",
+);
+assert.equal(
+  validateExpertLeadPayload(
+    { ...validPayload, helpRequest: "Bilmiyorum 🤷‍♀️ nereden başlamalıyım 👩‍💻" },
+    clock,
+  ).kind,
+  "valid",
+  "emoji sequences joined with U+200D stay allowed in the help request",
+);
+
+// A name needs at least two letters in any script.
+for (const [fullName, expected] of [
+  ["😀😀", "too_few_letters"],
+  ["12", "too_few_letters"],
+  ["A.", "too_few_letters"],
+  ["Li", null],
+  ["Мария", null],
+  ["محمد", null],
+]) {
+  const result = validateExpertLeadPayload({ ...validPayload, fullName }, clock);
+  assert.equal(
+    result.kind === "invalid" ? result.errors.fullName ?? null : null,
+    expected,
+    `${JSON.stringify(fullName)} name letter rule`,
+  );
+}
 assert.equal(
   validateExpertLeadPayload({ ...validPayload, helpRequest: "😀".repeat(3000) }, clock).kind,
   "valid",
@@ -181,6 +229,20 @@ for (const [field, value] of [
   ["helpRequest", "Başvuru yol haritası \ud800 istiyorum lütfen"],
   ["fullName", "Ada\nÖğrenci"],
   ["fullName", "Ada\u0007Öğrenci"],
+  ["fullName", "Ada\u0085Öğrenci"],
+  ["fullName", "Ada \u202eicnerĞÖ"],
+  ["fullName", "Ada\u2066Öğrenci\u2069"],
+  ["fullName", "Ada\u200bÖğrenci"],
+  ["fullName", "Ada\u200dÖğrenci"],
+  ["fullName", "Ada\u200fÖğrenci"],
+  ["fullName", "Ada\u2060Öğrenci"],
+  ["fullName", "Ada\ufeffÖğrenci"],
+  ["helpRequest", "Başvuru yol haritası\tistiyorum lütfen"],
+  ["helpRequest", "Başvuru yol haritası\r\nistiyorum lütfen"],
+  ["helpRequest", "Başvuru yol haritası\u009b istiyorum lütfen"],
+  ["helpRequest", "Başvuru \u202eyol haritası istiyorum lütfen"],
+  ["helpRequest", "Başvuru yol\u200b haritası istiyorum lütfen"],
+  ["helpRequest", "Başvuru yol\ufeff haritası istiyorum lütfen"],
 ]) {
   const result = validateExpertLeadPayload({ ...validPayload, [field]: value }, clock);
   assert.equal(result.kind, "invalid", `${JSON.stringify(value)} must be rejected in ${field}`);
@@ -189,11 +251,11 @@ for (const [field, value] of [
 }
 assert.equal(
   validateExpertLeadPayload(
-    { ...validPayload, helpRequest: "Birinci satır\nİkinci satır\tve son satır" },
+    { ...validPayload, helpRequest: "Birinci satır\nİkinci satır\n\nve son satır" },
     clock,
   ).kind,
   "valid",
-  "line breaks and tabs stay allowed in the help request",
+  "line breaks stay allowed in the help request",
 );
 
 const rows = [
@@ -246,7 +308,36 @@ const contactedRow = {
   updated_at: "2026-08-10T12:05:00.000Z",
 };
 
+const suspectedRow = {
+  ...rows[0],
+  id: "lead-suspected",
+  submission_id: "10000000-0000-4000-8000-000000000013",
+  status: "suspected",
+  created_at: "2026-08-10T09:00:00.000Z",
+};
 assert.deepEqual(filterExpertLeads(rows, "new").map((row) => row.id), ["lead-new"]);
+assert.equal(DEFAULT_EXPERT_LEAD_FILTER, "new", "the inbox opens on new leads");
+assert.deepEqual(EXPERT_LEAD_FILTERS, ["new", "contacted", "completed", "all", "suspected"]);
+assert.deepEqual(
+  filterExpertLeads([...rows, suspectedRow], "all").map((row) => row.id),
+  rows.map((row) => row.id),
+  "all leaves suspected leads out",
+);
+assert.deepEqual(
+  filterExpertLeads([...rows, suspectedRow], "suspected").map((row) => row.id),
+  ["lead-suspected"],
+);
+assert.deepEqual(splitExpertLeadPage(rows, 2), { rows: rows.slice(0, 2), hasMore: true });
+assert.deepEqual(splitExpertLeadPage(rows, 3), { rows, hasMore: false });
+assert.deepEqual(
+  appendExpertLeads(rows.slice(0, 2), rows.slice(1)).map((row) => row.id),
+  rows.map((row) => row.id),
+  "a page overlapping the loaded rows is not duplicated",
+);
+assert.equal(
+  expertLeadCursorFilter({ created_at: "2026-08-10T11:00:00.123456+00:00", id: "lead-x" }),
+  'created_at.lt."2026-08-10T11:00:00.123456+00:00",and(created_at.eq."2026-08-10T11:00:00.123456+00:00",id.lt."lead-x")',
+);
 assert.equal(replaceExpertLead(rows, contactedRow)[0].status, "contacted");
 assert.equal(removeExpertLead(rows, "lead-new").some((row) => row.id === "lead-new"), false);
 assert.equal(resolveExpertLeadSelection(rows, "missing", "all"), rows[0].id);

@@ -695,4 +695,48 @@ begin
 end
 $$;
 
+-- Private Realtime channels (2026-09-25). The desk hooks join their channels
+-- with `private: true`; Realtime then admits a join only when the caller can
+-- select from realtime.messages for that topic. Topics mirror the hooks:
+--   student:  mentor-conversations:<own user id>
+--             mentor-messages:<own conversation id>
+--   operator: mentor-operator-conversations:<own user id>:...
+--             mentor-operator-messages:<own user id>:...
+-- There are deliberately no insert/update policies: the desk never
+-- broadcasts, so nobody may write to these topics. Row data still reaches a
+-- subscriber only through the table RLS above. Supabase's
+-- "Allow public access" Realtime setting must be switched off only after
+-- these policies and the private-channel client are live.
+drop policy if exists "mentor_realtime_student_read" on realtime.messages;
+create policy "mentor_realtime_student_read"
+on realtime.messages
+for select
+to authenticated
+using (
+  (select realtime.topic()) = 'mentor-conversations:' || (select public.requesting_user_id())
+  or exists (
+    select 1
+    from public.mentor_conversations conversation
+    where conversation.user_id = (select public.requesting_user_id())
+      and 'mentor-messages:' || conversation.id::text = (select realtime.topic())
+  )
+);
+
+drop policy if exists "mentor_realtime_staff_read" on realtime.messages;
+create policy "mentor_realtime_staff_read"
+on realtime.messages
+for select
+to authenticated
+using (
+  (select public.is_active_mentor_staff())
+  and split_part((select realtime.topic()), ':', 1)
+    in ('mentor-operator-conversations', 'mentor-operator-messages')
+  and split_part((select realtime.topic()), ':', 2) = (select public.requesting_user_id())
+);
+
+-- Anonymous clients never use Realtime topics. The grant is owned by
+-- Supabase's Realtime role, so on hosted projects this may leave the grant in
+-- place; RLS still denies every anonymous write because no policy allows it.
+revoke insert, update on realtime.messages from anon;
+
 commit;

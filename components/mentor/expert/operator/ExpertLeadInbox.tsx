@@ -21,7 +21,10 @@ export default function ExpertLeadInbox() {
     selectedLead,
     filter,
     newCount,
+    suspectedCount,
+    hasMore,
     loading,
+    loadingMore,
     savingStatus,
     savingNote,
     deleting,
@@ -29,6 +32,7 @@ export default function ExpertLeadInbox() {
     setFilter,
     selectLead,
     reload,
+    loadMore,
     updateStatus,
     saveNote,
     deleteLead,
@@ -84,9 +88,14 @@ export default function ExpertLeadInbox() {
               selectedLeadId={selectedLead?.id ?? null}
               filter={filter}
               newCount={newCount}
+              suspectedCount={suspectedCount}
+              hasMore={hasMore}
               loading={loading}
+              loadingMore={loadingMore}
+              loadMoreFailed={error === "load_more_failed"}
               disabled={savingStatus || savingNote || deleting}
               onRefresh={reload}
+              onLoadMore={loadMore}
               onFilterChange={setFilter}
               onSelect={handleSelect}
             />

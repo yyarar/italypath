@@ -43,9 +43,15 @@ function isWellFormed(value: string): boolean {
   }
 }
 
-const NAME_CONTROL_CHARACTERS = /[\u0000-\u001f\u007f]/;
-// Line breaks and tabs stay allowed in the free-text request.
-const TEXT_CONTROL_CHARACTERS = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/;
+// C0/C1 control characters, text-direction controls and invisible format
+// characters make a lead unreadable or misleading in the team inbox.
+const NAME_FORBIDDEN_CHARACTERS =
+  /[\u0000-\u001f\u007f-\u009f\u061c\u180e\u200b-\u200f\u202a-\u202e\u2060-\u2064\u2066-\u2069\ufeff]/;
+// The free-text request additionally keeps line breaks, and the zero-width
+// joiners that emoji sequences and some scripts need.
+const TEXT_FORBIDDEN_CHARACTERS =
+  /[\u0000-\u0009\u000b-\u001f\u007f-\u009f\u061c\u180e\u200b\u200e\u200f\u202a-\u202e\u2060-\u2064\u2066-\u2069\ufeff]/;
+const LETTER = /\p{L}/gu;
 
 function isExpertStudyLevel(value: string): value is ExpertStudyLevel {
   return (EXPERT_STUDY_LEVELS as readonly string[]).includes(value);
@@ -94,10 +100,11 @@ export function validateExpertLeadPayload(
 
   if (!UUID_PATTERN.test(submissionId)) errors.submissionId = "invalid";
 
-  if (NAME_CONTROL_CHARACTERS.test(fullName) || !isWellFormed(fullName)) {
+  if (NAME_FORBIDDEN_CHARACTERS.test(fullName) || !isWellFormed(fullName)) {
     errors.fullName = "invalid_characters";
   } else if (characterLength(fullName) < 2) errors.fullName = "too_short";
   else if (characterLength(fullName) > 120) errors.fullName = "too_long";
+  else if ((fullName.match(LETTER) ?? []).length < 2) errors.fullName = "too_few_letters";
 
   const normalizedPhone = normalizeWhatsAppPhone(whatsappPhone);
   if (!normalizedPhone) errors.whatsappPhone = "invalid";
@@ -106,7 +113,7 @@ export function validateExpertLeadPayload(
   if (!isExpertField(fieldOfInterest)) errors.fieldOfInterest = "invalid";
   if (!isValidTargetIntake(targetIntake, now)) errors.targetIntake = "invalid";
 
-  if (TEXT_CONTROL_CHARACTERS.test(helpRequest) || !isWellFormed(helpRequest)) {
+  if (TEXT_FORBIDDEN_CHARACTERS.test(helpRequest) || !isWellFormed(helpRequest)) {
     errors.helpRequest = "invalid_characters";
   } else if (characterLength(helpRequest) < 10) errors.helpRequest = "too_short";
   else if (characterLength(helpRequest) > 3000) errors.helpRequest = "too_long";
