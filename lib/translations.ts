@@ -576,7 +576,9 @@ export const translations = {
       emptyTitle: "Henüz favori üniversiten yok",
       emptySubtitle: "Sana uygun okulları keşfet, beğendiklerini kaydet!",
       emptyCta: "Üniversiteleri Keşfet",
-      emptyRecommendTitle: "Başlamak için popüler seçenekler"
+      emptyRecommendTitle: "Başlamak için popüler seçenekler",
+      loadError: "Favorilerin şu anda yüklenemedi.",
+      retry: "Tekrar dene",
     },
     documents: {
       title: "Belge Cüzdanı",
@@ -605,7 +607,10 @@ export const translations = {
         type: "Sadece resim ve PDF yüklenebilir.",
         generic: "Bir şeyler ters gitti, tekrar dene.",
         deleteFail: "Silme başarısız oldu.",
+        viewFail: "Belge açılamadı, tekrar dene.",
       },
+      loadError: "Belgelerin şu anda yüklenemedi.",
+      retry: "Tekrar dene",
       emptyState: {
         eyebrow: "Boş Cüzdan",
         title: "Belge cüzdanın henüz boş",
@@ -620,6 +625,7 @@ export const translations = {
       finish: "Dosyamı hazırla",
       stepLabel: "Adım {current} / {total}",
       saveError: "Cevapların kaydedilemedi. Tekrar dener misin?",
+      loadError: "Kayıtlı cevapların şu anda yüklenemedi. Tekrar dener misin?",
       retry: "Tekrar dene",
       steps: {
         level: {
@@ -771,10 +777,14 @@ export const translations = {
       loadError: "Sorular yüklenemedi. Lütfen tekrar dene.",
       figureAlt: "Soru görseli",
       emptyBank: "Soru bankası hazırlanıyor; çok yakında burada.",
+      progressLoadError: "İlerlemen şu anda yüklenemedi; çözdüğün sorular burada görünmüyor.",
+      progressRetry: "Tekrar dene",
     },
     hub: {
       genericName: "ItalyPath Kullanıcısı",
       docsUnavailable: "Belge sayısı şu an alınamadı",
+      profileLoadError: "Profilin şu anda yüklenemedi; önerilerin bu yüzden görünmüyor.",
+      retry: "Tekrar dene",
       languageTitle: "Aktif Dil",
       languageToggle: "Dili Değiştir",
       viewModeGrid: "Kart",
@@ -1842,7 +1852,9 @@ export const translations = {
       emptyTitle: "No favorite universities yet",
       emptySubtitle: "Discover universities, save the ones you love!",
       emptyCta: "Explore Universities",
-      emptyRecommendTitle: "Popular picks to get started"
+      emptyRecommendTitle: "Popular picks to get started",
+      loadError: "Your favorites couldn't be loaded right now.",
+      retry: "Try again",
     },
     documents: {
       title: "Document Wallet",
@@ -1871,7 +1883,10 @@ export const translations = {
         type: "Only images and PDFs are allowed.",
         generic: "Something went wrong, please try again.",
         deleteFail: "Deletion failed.",
+        viewFail: "The document couldn't be opened, please try again.",
       },
+      loadError: "Your documents couldn't be loaded right now.",
+      retry: "Try again",
       emptyState: {
         eyebrow: "Empty Wallet",
         title: "Your document wallet is empty",
@@ -1886,6 +1901,7 @@ export const translations = {
       finish: "Build my dossier",
       stepLabel: "Step {current} / {total}",
       saveError: "We couldn't save your answers. Try again?",
+      loadError: "Your saved answers couldn't be loaded right now. Try again?",
       retry: "Try again",
       steps: {
         level: {
@@ -2037,10 +2053,14 @@ export const translations = {
       loadError: "Questions could not be loaded. Please try again.",
       figureAlt: "Question figure",
       emptyBank: "The question bank is being prepared; coming very soon.",
+      progressLoadError: "Your progress couldn't be loaded right now; solved questions aren't shown here.",
+      progressRetry: "Try again",
     },
     hub: {
       genericName: "ItalyPath User",
       docsUnavailable: "Document count is unavailable right now",
+      profileLoadError: "Your profile couldn't be loaded right now, so your picks aren't shown.",
+      retry: "Try again",
       languageTitle: "Active Language",
       languageToggle: "Switch Language",
       viewModeGrid: "Cards",

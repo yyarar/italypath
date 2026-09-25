@@ -467,6 +467,7 @@ const userDataSqlFiles = [
   "supabase/program_degree_class_codes.sql",
   "supabase/data_api_privileges.sql",
   "supabase/archive_legacy_content_tables.sql",
+  "supabase/sat_progress.sql",
 ].map((file) => resolve(file));
 
 function userDataSql(sql, { allowFailure = false } = {}) {
@@ -955,6 +956,108 @@ async function runUserDataTests() {
       "31st file",
     );
     userDataSql(asUser("obj-b", documentObjectSql("obj-b/1.pdf")));
+  });
+
+  // Security audit O4#3 (2026-09-26): /sat reads the latest answer per
+  // question and a one-row day summary instead of every attempt.
+  await test("sat progress: latest answer per question and day summary, caller only", async () => {
+    const at = (offset) => `now() - interval '${offset}'`;
+    const tokyoToday = "((now() at time zone 'Asia/Tokyo')::date + time '00:01') at time zone 'Asia/Tokyo'";
+    const tokyoYesterday = "((now() at time zone 'Asia/Tokyo')::date - 1 + time '23:59') at time zone 'Asia/Tokyo'";
+    const rows = [
+      // prog-a: days -10..-6 and -3..0 (runs of 5 and 4), two answers today.
+      ["prog-a", "sat-probe-q1", "B", false, at("10 days")],
+      ["prog-a", "sat-probe-q1", "A", true, at("9 days")],
+      ["prog-a", "sat-probe-q1", "B", false, at("8 days")],
+      ["prog-a", "sat-probe-q1", "A", true, at("7 days")],
+      ["prog-a", "sat-probe-q1", "A", true, at("6 days")],
+      ["prog-a", "sat-probe-q1", "A", true, at("3 days")],
+      ["prog-a", "sat-probe-q2", "C", true, at("2 days")],
+      ["prog-a", "sat-probe-q1", "B", false, at("1 day")],
+      ["prog-a", "sat-probe-q2", "D", false, "now()"],
+      ["prog-a", "sat-probe-q3", "A", true, "now()"],
+      ["prog-b", "sat-probe-q3", "A", true, "now()"],
+      ["prog-c", "sat-probe-q1", "A", true, at("2 days")],
+      ["prog-c", "sat-probe-q1", "B", false, at("1 day")],
+      ["prog-d", "sat-probe-q1", "A", true, at("3 days")],
+      ["prog-tokyo-today", "sat-probe-q1", "A", true, tokyoToday],
+      ["prog-tokyo-yesterday", "sat-probe-q1", "A", true, tokyoYesterday],
+    ];
+    // The daily-cap trigger stamps server time; replica mode keeps the
+    // historical answered_at values this setup needs.
+    userDataSql(`
+      insert into public.sat_questions (
+        id, section, domain, skill, skill_slug, difficulty, question_type,
+        prompt, correct_answer, source_file
+      ) values
+        ('sat-probe-q2', 'math', 'Algebra', 'Linear equations', 'linear-equations', 1, 'mcq', 'Probe 2', '"C"'::jsonb, 'probe.pdf'),
+        ('sat-probe-q3', 'math', 'Algebra', 'Linear equations', 'linear-equations', 1, 'mcq', 'Probe 3', '"A"'::jsonb, 'probe.pdf');
+      set session_replication_role = replica;
+      insert into public.sat_attempts (user_id, question_id, selected_answer, is_correct, answered_at) values
+      ${rows.map(([userId, questionId, answer, correct, answeredAt]) =>
+        `(${quote(userId)}, ${quote(questionId)}, ${quote(answer)}, ${correct}, ${answeredAt})`).join(",\n      ")};
+      set session_replication_role = origin;
+    `);
+
+    const latestSql = `
+      select coalesce(string_agg(question_id || '=' || selected_answer || ':' || is_correct, ',' order by question_id), '-')
+      from public.sat_latest_attempts;`;
+    const latestA = scalar(userDataSql(asUser("prog-a", latestSql)));
+    assert(
+      latestA === "sat-probe-q1=B:false,sat-probe-q2=D:false,sat-probe-q3=A:true",
+      `latest answers for prog-a: ${latestA}`,
+    );
+    const latestB = scalar(userDataSql(asUser("prog-b", latestSql)));
+    assert(latestB === "sat-probe-q3=A:true", `latest answers for prog-b: ${latestB}`);
+    const crossRead = scalar(userDataSql(asUser("prog-b", "select count(*) from public.sat_latest_attempts where user_id = 'prog-a';")));
+    assert(crossRead === "0", `prog-b can read prog-a's latest answers: ${crossRead}`);
+
+    const summary = (userId, zone = "'UTC'") => scalar(userDataSql(asUser(userId, `
+      select concat_ws(':', today_count, current_streak, longest_streak)
+      from public.sat_attempt_summary(${zone});`)));
+    for (const [userId, expected] of [
+      ["prog-a", "2:4:5"],
+      ["prog-b", "1:1:1"],
+      ["prog-c", "0:2:2"],
+      ["prog-d", "0:0:1"],
+      ["prog-nobody", "0:0:0"],
+    ]) {
+      const actual = summary(userId);
+      assert(actual === expected, `summary for ${userId}: ${actual}, expected ${expected}`);
+    }
+    for (const zone of ["'Not/A_Zone'", "''", "null"]) {
+      const actual = summary("prog-a", zone);
+      assert(actual === "2:4:5", `summary with time zone ${zone} should fall back to UTC: ${actual}`);
+    }
+    const tokyoTodaySummary = summary("prog-tokyo-today", "'Asia/Tokyo'");
+    assert(tokyoTodaySummary === "1:1:1", `Tokyo 00:01 today counts as today: ${tokyoTodaySummary}`);
+    const tokyoYesterdaySummary = summary("prog-tokyo-yesterday", "'Asia/Tokyo'");
+    assert(tokyoYesterdaySummary === "0:1:1", `Tokyo 23:59 yesterday counts as yesterday: ${tokyoYesterdaySummary}`);
+
+    assertFailure(
+      userDataSql(asAnon("select count(*) from public.sat_latest_attempts;"), { allowFailure: true }),
+      "permission denied",
+      "anon read of sat_latest_attempts",
+    );
+    assertFailure(
+      userDataSql(asAnon("select * from public.sat_attempt_summary('UTC');"), { allowFailure: true }),
+      "permission denied",
+      "anon call of sat_attempt_summary",
+    );
+    const grants = scalar(userDataSql(`
+      select concat_ws(':',
+        has_table_privilege('authenticated', 'public.sat_latest_attempts', 'select'),
+        has_table_privilege('authenticated', 'public.sat_latest_attempts', 'insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('anon', 'public.sat_latest_attempts', 'select,insert,update,delete,truncate,references,trigger'),
+        has_function_privilege('authenticated', 'public.sat_attempt_summary(text)', 'execute'),
+        has_function_privilege('anon', 'public.sat_attempt_summary(text)', 'execute'),
+        (select 'security_invoker=true' = any(reloptions) from pg_class where oid = 'public.sat_latest_attempts'::regclass),
+        (select array_to_string(proconfig, ',') from pg_proc where oid = 'public.sat_attempt_summary(text)'::regprocedure),
+        (select prosecdef from pg_proc where oid = 'public.sat_attempt_summary(text)'::regprocedure),
+        (select count(*) from pg_indexes where schemaname = 'public' and indexname = 'sat_attempts_user_answered_idx')
+      );
+    `));
+    assert(grants === 't:f:f:t:f:t:search_path="":f:1', `unexpected sat progress grants: ${grants}`);
   });
 
   await test("user-data SQL artifacts are rerunnable", async () => {

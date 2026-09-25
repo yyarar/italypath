@@ -13,7 +13,6 @@ export interface UserDocument {
   storage_path: string;
   created_at: string;
   category?: string | null;
-  signed_url?: string;
 }
 
 export interface SupabaseUniversityDepartmentRow {
