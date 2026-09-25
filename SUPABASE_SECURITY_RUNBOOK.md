@@ -2,15 +2,22 @@
 
 Bu doküman teknik olmayan kullanım için hazırlanmıştır. Sırayla uygula.
 
-## 1) Clerk tarafı (mevcut legacy istemciler)
+## 1) Clerk tarafı (oturum anahtarı)
 
-Favoriler, belgeler, profil ve SAT akışları geçici olarak mevcut `supabase`
-JWT template'ini kullanmaya devam eder. Mentor kurulumu için yeni template oluşturma;
-mevcut template'i silme, yeniden adlandırma veya payload/secret ayarlarını değiştirme.
+Sitenin Supabase'e giden bütün istekleri Clerk'in native Supabase entegrasyonundan
+gelen normal session token'ını kullanır (mentor masası 2026-07'den beri; favoriler,
+belgeler, profil ve SAT 2026-09-26'dan beri, güvenlik denetimi kart 7:
+`lib/useUserSupabaseClient.ts`). Kodda deprecated `supabase` JWT template'i yoktur;
+`check:hub-onboarding` ve `check:mentor-desks` geri gelmesini engeller.
 
-Yeni mentor akışı deprecated JWT template kullanmaz. Clerk'in native Supabase
-entegrasyonundan gelen normal session token'ını kullanır. Legacy istemcilerin native
-token'a taşınması ayrı bir migrasyon ve regresyon testi olarak yapılmalıdır.
+Clerk panelindeki eski `supabase` JWT template'i yalnız şu sırayla kaldırılır:
+
+1. Kart 7 kodu yayında (push, Kerem kararı).
+2. Bölüm 5'teki iki hesaplı test canlıda geçti.
+3. Kerem Clerk Dashboard → JWT Templates → `supabase` ekranında imza ayarını not eder (özel imza anahtarı mı, hangi algoritma) ve sonucu `docs/STATUS.md`'ye yazar.
+4. Kerem template'i siler. Yeni template oluşturulmaz.
+
+Template silinmeden önce yayındaki eski sürüm (kart 7 öncesi) hâlâ onu kullanır; bu yüzden sıra değişmez.
 
 ## 2) Supabase tarafı (Clerk provider)
 
@@ -47,15 +54,17 @@ Kod tarafında şu güvenlik iyileştirmeleri zaten uygulandı:
 
 ## 5) Doğrulama testi (zorunlu)
 
-1. Kullanıcı A ile giriş yap, bir belge yükle, favori ekle.
-2. Kullanıcı B ile giriş yap, A'nın belgesi/favorisi görünmemeli.
-3. Belgede "Görüntüle" linki çalışmalı (signed URL).
-4. 10 dakika sonra eski belge linki geçersiz olmalı (normal davranış).
+1. Kullanıcı A ile giriş yap, bir belge yükle, favori ekle, `/hosgeldin`'de profil kaydet, `/sat`'ta bir soru çöz.
+2. Kullanıcı B ile giriş yap, A'nın belgesi/favorisi/profili/SAT ilerlemesi görünmemeli.
+3. Belgede "Görüntüle" yeni sekmede belgeyi açmalı. Link yalnız tıklanınca üretilir (2026-09-26'dan beri).
+4. Açılan belge adresi 2 dakika sonra tekrar açılınca geçersiz olmalı (link ömrü 90 saniye; normal davranış).
+5. `/sat`'ta çözülen soru, "bugün" sayısı ve seri sayfa yenilenince korunmalı.
+6. Tarayıcı konsolunda Supabase 401/403 hatası olmamalı.
 
 ## 6) Sorun olursa hızlı kontrol
 
-1. Legacy özelliklerde hata varsa mevcut Clerk template adı gerçekten `supabase` mı?
-2. Mentor akışında hata varsa native session token yenilendi mi (çıkış/giriş)?
+1. Favori/belge/profil/SAT veya mentor akışında 401/403 varsa native session token yenilendi mi (çıkış/giriş)? Token'da `role=authenticated` ve Clerk kullanıcı kimliğiyle aynı `sub` olmalı.
+2. Sayfa "yüklenemedi, tekrar dene" gösteriyorsa istek 15 saniyede cevap alamamış veya reddedilmiştir; konsoldaki hatayı oku.
 3. Supabase Third-Party Auth içinde doğru Clerk domain'i aktif mi?
 4. SQL script hata vermeden tamamlandı mı?
 5. `documents` bucket kesinlikle `public = false` mı?
@@ -306,3 +315,21 @@ Geri alma (yalnız Kerem onayıyla, migration olarak): katalogda istemci okumas�
 
 Bilinen etki: `~/remake` iOS uygulaması (yayında değil) katalog ve burs tablolarını anon anahtarla okur ve 20 MB belge yükler; bu değişiklikten sonra o ekranlar çalışmaz. Yayınlanırsa sitenin sunucu adresinden okumaya taşınmalı (`docs/STATUS.md`).
 
+## 9) SAT ilerleme okuması
+
+Durum: AKTIF REFERANS · Tasarım: 2026-09-26 (güvenlik denetimi kart 7, O4#3) · Kanıt: `supabase/sat_progress.sql`, `lib/sat/useSatAttempts.ts`, `npm run test:mentor-db` ("sat progress"), `npm run check:sat-bank`.
+
+`/sat` artık kullanıcının bütün denemelerini indirmez. İki okuma vardır:
+
+- `sat_latest_attempts` (view, `security_invoker`): soru başına en son deneme. `sat_attempts` RLS'i çağıran kullanıcıya uygulanır; herkes yalnız kendi satırlarını görür.
+- `sat_attempt_summary(p_time_zone)` (fonksiyon, `security invoker`): bugünkü deneme sayısı, güncel seri ve en uzun seri, tek satır. Günler tarayıcının saat diliminde sayılır; geçersiz saat dilimi UTC'ye düşer.
+
+Yetki: ikisi de yalnız giriş yapmış kullanıcıya (authenticated) açıktır; ziyaretçi (anon) ve PUBLIC kapalıdır. Yeni tablo/view'lar kart 4'ten beri kapalı başlar, fonksiyonlarda Supabase varsayılanı açık olduğu için dosya fonksiyon iznini kendisi kapatır.
+
+Sıra önemlidir: SQL canlıya push'tan ÖNCE uygulanır. Yeni kod view ve fonksiyon olmadan SAT ilerlemesini yükleyemez ("yüklenemedi" gösterir); eski kod bunlardan etkilenmez.
+
+Kayıt:
+
+| Tarih | Adım | Sonuç |
+| --- | --- | --- |
+| 2026-09-26 | Yerel test: `npm run test:mentor-db` (PostgreSQL 16 ve 17, `LC_ALL=C`) | Geçti: soru başına son deneme, gün özeti (bugün/seri/en uzun seri, saat dilimi, geçersiz saat dilimi), başka kullanıcının satırları görünmez, anon reddedilir, dosya yeniden çalıştırılabilir |
