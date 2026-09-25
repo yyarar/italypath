@@ -77,7 +77,7 @@ Platform'u çalıştırmak için bazı hizmetleri dış sağlayıcılardan alır
 
 | Alıcı grubu | Sağlayıcı ve konum | Hangi veri, hangi amaçla |
 | --- | --- | --- |
-| Barındırma ve içerik dağıtım hizmeti | Vercel Inc., ABD `[Doğrulanacak: sunucu işlevlerinin çalıştığı bölge]` | Sitenin sunulması; her istekte IP adresi ve tarayıcı bilgisi; çerezsiz ve anonim ziyaret istatistiği |
+| Barındırma ve içerik dağıtım hizmeti | Vercel Inc. (ABD şirketi); sunucu bölgesi Almanya (Frankfurt), 2026-09-25 canlı yanıt başlığıyla ölçüldü | Sitenin sunulması; her istekte IP adresi ve tarayıcı bilgisi; çerezsiz ve anonim ziyaret istatistiği |
 | Kimlik doğrulama hizmeti | Clerk Inc., ABD | Hesap bilgileri, giriş ve oturum kayıtları; doğrulama e-postaları |
 | Veritabanı ve dosya saklama hizmeti | Supabase Inc. (ABD şirketi); veritabanı ve dosya sunucusu İsviçre (Zürih) | Profil cevapları, favoriler, belgeler, SAT geçmişi, gönüllü mentor görüşmeleri, uzman ön görüşme talepleri |
 | Mesajlaşma hizmeti | WhatsApp (Meta) `[Doğrulanacak: Türkiye'deki kullanıcılar için hizmeti sunan Meta şirketi ve ülkesi]` | Uzman ön görüşme için WhatsApp numaranız ve yazışmalar |
