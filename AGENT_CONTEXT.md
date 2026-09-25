@@ -518,6 +518,8 @@ Gonullu masa mimarisi:
 - Yazmalar yalnizca `start_volunteer_conversation`, `send_student_mentor_message`, `send_staff_mentor_message` ve `close_volunteer_conversation` RPC'leriyle yapilir. Operator girisi `is_active_mentor_staff` RPC'siyle ayrica dogrulanir.
 - Okumalar ve canli olaylar Clerk'in native session token'i ile Supabase RLS + Realtime kullanir; mentor kodunda deprecated Clerk `supabase` JWT template'i veya service-role key yoktur.
 - V1: bir operator, ogrenci basina tek acik gorusme, yalnizca duz metin, ek/atama/not/typing/read receipt/otomatik bildirim yok. Her iki taraf gorusmeyi kapatabilir; kapali gecmis hesap silinene kadar salt okunur tutulur.
+- Kotuye kullanim siniri (2026-09-25, `supabase/volunteer_mentor.sql`): ogrenci basina 10 dakikada 20 mesaj (`message_rate_limited`) ve 24 saatte 5 yeni gorusme (`conversation_rate_limited`); ayni nonce ile tekrar deneme sinirdan once cevaplanir, staff mesajlari sinirsizdir. 2026-09-25'te canliya uygulandi (migration `volunteer_mentor_student_rate_limit`).
+- Zaman asimi (2026-09-25): `useMentorSupabaseClient` Clerk token beklemesini ve her PostgREST istegini `MENTOR_REQUEST_TIMEOUT_MS` (15 sn, `lib/mentor/volunteerDeskState.ts`) ile sinirlar; takilan istek hataya doner ve ogrenci/operator ekranlarindaki mevcut "yuklenemedi / tekrar dene" durumu acilir. `check:mentor-desks` bu iki sozlesmeyi zorlar.
 - Kalici kontrol: `npm run check:mentor-desks`, `npm run test:volunteer-desk`, `npm run test:mentor-operator` ve `npm run test:mentor-db`. Production kabulunde ayrica normal ogrenci + operator hesaplariyla iki-hesap RLS/Realtime matrisi uygulanir.
 
 Uzman lead mimarisi gönüllü konuşma tablolarını, hook'larını veya Realtime state machine'ini yeniden kullanmaz:

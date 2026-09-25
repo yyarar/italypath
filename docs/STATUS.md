@@ -1,6 +1,6 @@
 # ItalyPath — Açık İşler ve Son Durum
 
-Tarih: 2026-09-21 · Doğrulandığı commit: `ab38759`
+Tarih: 2026-09-25 · Doğrulandığı commit: `771b995`
 
 Bu dosya projenin **tek** açık iş listesidir (`docs/CONTEXT_AUDIT_2026-09-19.md` önerisi). Her değişiklikte tarihi ve kanıtı güncelle; biten işi "Kapananlar"a taşı. Mimari `AGENT_CONTEXT.md`'de, tarihsel ölçümler `SEO_AUDIT.md`'de, tasarım/plan durumları `docs/superpowers/INDEX.md`'de tutulur.
 
@@ -78,8 +78,22 @@ Sütunlar: **Kanıt / kaynak** = repo dosyası, commit, kayıt bölümü veya ca
 | 32 | `SUPABASE_SECURITY_RUNBOOK.md`: kapsam, SQL bağımlılıkları (view, SAT, expert_leads) ve son doğrulama tarihi eklenmeli | audit dosya tablosu | Sıralama |
 | 33 | Burs sayfası ve ana sayfa CTA'sındaki doğrulama tarihi notu `lib/translations.ts` içinde sabit metin (24 Eylül 2026 / 9 Mart 2026); bir sonraki veri güncellemesinde yine bayatlar. Aday: tarihleri `SCHOLARSHIP_REGIONS` kayıtlarındaki `lastVerifiedAt` değerlerinden türetmek | 0d01455 | Sıralama |
 
+### F. Gönüllü masa (güvenlik denetimi 2026-09-25)
+
+Denetim: canlı RLS/yetki/fonksiyon okuması, herkese açık anahtarla erişim denemesi, sahte öğrenci hesabıyla geri alınan başkasının görüşmesine erişim denemesi (hepsi reddedildi), kod incelemesi, 5 mentor testi. Kritik/yüksek bulgu yok. Aşağıdakiler düşük önceliklidir.
+
+| # | İş | Kanıt / kaynak | Karar |
+| --- | --- | --- | --- |
+| 35 | Öğrencinin panelde görünen adı istemciden gelir (`p_display_name`); siteyi atlatan biri adını "ItalyPath Ekibi" veya başka bir öğrenci adı yapabilir (görüşme yine yalnız kendisine aittir). Aday: adı sunucu tarafında Clerk profilinden almak | `start_volunteer_conversation` | Sıralama |
+| 36 | Yalnız satır atlaması, sekme veya görünmez karakterden oluşan mesaj/ad, siteyi atlatıp doğrudan istekle gönderilebilir (`btrim` yalnız boşluğu kırpar) | `supabase/volunteer_mentor.sql` gövde/ad kontrolleri | Sıralama |
+| 37 | Operatör panelinin canlı kanalı filtresiz: herhangi bir öğrenci mesajında açık sekmedeki listenin tamamı yeniden indirilir (kapalı listesi büyüdükçe pahalılaşır) | `lib/mentor/useMentorOperatorInbox.ts` görüşme kanalı | Ölçek büyüyünce |
+| 38 | Liste/mesaj okumalarında sayfalama yok ve `select("*")` kullanılmayan alanları da çeker; 1.000 mesajı geçen bir görüşmede Supabase satır sınırı yüzünden en yeni mesajlar görünmeyebilir | `useVolunteerDesk.ts`, `useMentorOperatorInbox.ts` okumaları | Ölçek büyüyünce |
+| 39 | Öğrenci mesaj kanalı adı görüşme değişiminde tekrar kullanılıyor; çok hızlı A → kapalı → A geçişinde canlı bağlantı "bağlanıyor"da kalabilir (kod okumasıyla, denenmedi; operatör kancası bunu dönem ekiyle önlüyor) | `lib/mentor/useVolunteerDesk.ts` mesaj kanalı | Doğrulama |
+
 ## Kapananlar (son 7 gün)
 
+- 2026-09-25: Gönüllü masa ve operatör paneli sonsuz "hazırlanıyor" beklemesine karşı 15 saniyelik süre sınırına bağlandı (Clerk anahtarı + Supabase isteği); süre dolunca mevcut "yüklenemedi / tekrar dene" ekranı açılır. Öğrenci formları sınır hatalarını ayrı mesajla gösterir. Tetikleyen: 24 Eylül Safari'de tek seferlik takılma (Kerem onayıyla canlıya alındı).
+- 2026-09-25: Öğrenci başına 10 dakikada 20 mesaj ve 24 saatte 5 yeni görüşme sınırı canlı veritabanına uygulandı (migration `volunteer_mentor_student_rate_limit`, Kerem onayı). Canlıda geri alınan denemeyle doğrulandı: 20 mesaj kabul, 21. `message_rate_limited`; yetkiler değişmedi.
 - 2026-09-24: Burs haritasında 8 ayrıntılı bölge 2026/27 çağrılarına geçirildi (8 Sonnet ajanı, resmî bando PDF'leri, 36 canlı kaynak adresi; eşik değişimi yalnız Lazio ve Lombardia'da).
 - 2026-09-19: 108 dosyasız program turu kapandı (41 import, 67 program + 8 okul silindi; 751/752/246 düzeltildi). `check:cities` yükleyici hatası (afe5d01).
 - 2026-09-21: Program detay Deploy 3+4 (`SEO_AUDIT.md` §23); Task 6 (dosyasız noindex) bilinçli iptal.
