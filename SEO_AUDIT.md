@@ -1,6 +1,6 @@
 # ItalyPath SEO Audit ve Devir Notu
 
-> Son belge güncellemesi: 21 Eylül 2026  
+> Son belge güncellemesi: 23 Eylül 2026  
 > Bulguların ana doğrulama tarihi: 28 Ağustos 2026  
 > İncelenen site: `https://italypath.app`  
 > Kapsam: Google Search Console, canlı teknik kontroller, sitemap/robots, indekslenebilirlik, temel on-page SEO, yapılandırılmış veri ve PageSpeed Insights  
@@ -1009,8 +1009,8 @@ Gerekçe: Google siteye kendiliğinden dönmüyor (§21.2); "dizine eklenmesini 
 | Gün | Kapsam | Program kapsamı | Durum |
 |---|---|---:|---|
 | 1 | Okul id 3, 4, 1, 10, 15, 7, 5, 8, 14, 18 (Bologna … Trento) | 468 | ✅ 21 Eylül |
-| 2 | id 6, 9, 11, 25, 20, 2, 13, 16, 63, 17 | 241 | bekliyor |
-| 3 | id 19, 21, 12, 29, 23, 22, 33, 28, 26, 32 | 144 | bekliyor |
+| 2 | id 6, 9, 11, 25, 20, 2, 13, 16, 63 (+17 Gün 3'e kaydı) | 223 | ✅ 25 Eylül (9/10; 10. istekte "kota aşıldı", günlük kota fiilen ~9-10) |
+| 3 | id 17 (Messina, Gün 2'den), 19, 21, 12, 29, 23, 22, 33, 28, 26 (+32 Gün 4'e kayar) | 150 | bekliyor |
 | 4 | id 57, 51, 27, 24, 42, 37, 44, 64, 61, 41 | 62 | bekliyor |
 | 5 | id 47, 52, 31, 40, 54, 35, 43, 55, 46, 53 | 20 | bekliyor |
 | 6 | id 48, 56, 59, 50, 30, 38 + `/`, `/cities`, `/communities`, `/on-gorusme` | 6 | bekliyor |
@@ -1037,3 +1037,52 @@ Tek dolaylı etki: soğuk instance'da 3-5 sn gövde gecikmesi (§19.3) tarama h�
 - **Site haritası:** yeniden gönderim sonrası son okuma tarihi ve **1.004** sayfa.
 - **Rich Results Test:** bir dosyalı program sayfasında `EducationalOccupationalProgram` (§23.3).
 - **Supabase Usage:** dönem 27 Eylül'de sıfırlanır; 14 Ekim'e kadar hedef < 1 GB (§20.6).
+
+## 25. Search Console kontrolü, 1. tur — 23 Eylül 2026
+
+§24.5 kontrol listesinin uygulanması. Chrome uzantısı bağlı olmadığı için GSC ekranları Kerem'den ekran görüntüsü olarak alınır (25.2); giriş gerektirmeyen kontroller ajan tarafından yapıldı (25.1).
+
+### 25.1 Giriş gerektirmeyen kontroller (ajan, 23 Eylül)
+
+| Kontrol | Sonuç |
+|---|---|
+| Canlı `sitemap.xml` | **1.004 URL** (7 statik + 56 okul + 941 program). `lastmod`: 1.002 URL `2026-09-21`, `/isee` `2026-09-19`, `/communities` **lastmod yok** (force-dynamic rota; küçük iş: şablon tarihi verilebilir, aciliyet yok) |
+| Program sayfası (Politecnico di Milano / Civil Engineering) | 200, `noindex` yok, TR başlık şablonu ("Civil Engineering — Politecnico di Milano \| ItalyPath"), H1 var, 141 KB ham HTML. `x-vercel-cache: STALE`, `age` ≈ 40 sa: 3 saatlik ISR süresi dolmuş, eski kopya anında sunulup arkada yenileniyor (beklenen davranış) |
+| JSON-LD | 3 script: `[Organization, WebSite]` dizisi, `BreadcrumbList`, `EducationalOccupationalProgram` (ad, URL, okul, dil, süre P3Y, tam zamanlı) |
+| Rich Results Test (Google) | Tarama başarılı; **1 geçerli öğe (Breadcrumbs), hata yok**. `EducationalOccupationalProgram` Google'ın zengin sonuç türü olmadığı için bu araçta listelenmez (beklenen) |
+| Schema Markup Validator (schema.org) | 4 varlık, **0 hata, 1 uyarı**: `inLanguage`, `EducationalOccupationalProgram` tipinde tanımlı bir özellik değil. Zararsız (Google bilinmeyen özelliği yok sayar); küçük temizlik adayı: özelliği kaldır veya `hasCourse` → `Course.inLanguage` altına taşı |
+| Supabase edge logları (son 24 sa) | Dizin yükü **141** (140 farklı Vercel IP'si) × 4 istek (universities, departments, kabul varlığı, degree codes); hedefli okul yükü **295** (111 IP) × 3 istek (`id=eq` / `university_id=eq`); **tam çekim 0; 200 dışı yanıt 0**; origin ortalaması 420-620 ms. 16-17 Eylül'e göre (111 / 250) dizin **+%27**, hedefli **+%18** → tarama trafiği artmaya devam ediyor. Tahmini egress ~35-60 MB/gün (§20.6 ile uyumlu; dönem 27 Eylül'de sıfırlanır). Yedek optimizasyon (program sayfası yalnız kendi kabul satırını çeksin) hâlâ aday |
+
+Ölçüm notu: ilk log sınıflandırması `select=department_id` desenini hem varlık sorgusuna hem tam kabul kolon listesine (ilk kolon `department_id`) eşleştirdiği için hedefli kabul çekimlerini "dizin-varlık" saymıştı; `university_id=eq.` önce kontrol edilerek düzeltildi. Gelecek sayımlarda bu sıraya dikkat.
+
+### 25.2 Search Console ekranları (Kerem'in ekran görüntüleri, 23 Eylül; rapor verisi 21 Eylül tarihli)
+
+| Rapor | 16 Eylül | 23 Eylül | Yorum |
+|---|---|---|---|
+| `noindex` ile hariç | 854, doğrulama "Başladı" (22 Tem) | **847**, hâlâ "Başladı" | −7. Grafik 25 Haziran'dan beri ~850'de düz. Örnek URL `/universities/36/departments/digital-management`, son tarama 19 Tem 2026; okul 36 19 Eylül'de silindi → yeniden taranınca 404'e geçer. Temmuz ortasında ikinci bir tarama olmuş (örnek tarihi) |
+| Keşfedildi, dizine eklenmedi | 225 | **246** | +21: `/universities` HTML'inde 64 okulun listelenmesi (§21.3/3) ve sitemap lastmod ile Google daha çok URL tanıdı. Grafik: 10-18 Eylül ~258'e çıktı, 19-21 Eylül ~240'a indi (tarama başlıyor). Temmuz ortası–1 Eylül arası grafik boş. "Düzeltmeyi doğrula" düğmesi açık, henüz başlatılmadı |
+| Tarandı, dizine eklenmedi | 1 | 2 | +1; örnek URL alınmadı |
+| Yeniden yönlendirme hatası | 3 | **0, Başarılı** | §24.1'deki doğrulama raporda kapanmış |
+| Robots engeli / Yönlendirmeli sayfa | 3 / 3 | 3 / 3 | kasıtlı, değişmedi |
+| Bulunamadı (404) | — | satır yok | silinen 75 URL henüz yeniden taranmadı; ileride görünür (§24.2) |
+| Dizinde | 22 | görüntülenmedi (ekranın üstü kesik) | sonraki turda alınacak |
+| Site haritası | 14 Eyl okundu, 1.078 | **21 Eyl gönderildi ve okundu, Başarılı, 1.004** | canlı sayımla birebir (25.1); yeniden gönderim yapılmış |
+| Performans (3 ay, sayfalar) | 28 gün: 7 tık / 646 gös. | 26 sayfa gösterim aldı. `/communities` 11 tık / 37 gös., `/` 3 / 20, `/cities` 1 / 43, `/isee` 1 / 6. Program sayfaları **0 tık**: environmental-engineering (Pavia) 374 gös., digital-and-public-humanities (Ca' Foscari) 283, MIE (Statale) 147, criminology (Cattolica) 103, physical-sciences (Pavia) 89 | 28 günlük görünüm alınmadığı için 16 Eylül'le kıyas yok. Program sayfaları gösterim alıyor ama tıklanmıyor (konum/başlık konusu); TR başlıklar 17 Eylül'de çıktı, etki için erken |
+| Tarama istatistikleri | 67,1 B istek / 605 ms | görüntülenmedi | sonraki turda; ana makine durumu §24.4'ü kesin kapatır |
+| Anomali | — | `clerk.italypath.app/` 1 tık / 29 gösterim | Clerk frontend API alan adı. Kök adres tarayıcıda boş sayfa (title yok, metin yok, robots meta yok). Zararsız ama kirli; robots kontrolü Clerk'te. Düşük öncelik, izle |
+
+Sağlama: dizin dışı toplam 3+3+246+2+847 = 1.101 > sitemap 1.004 → yaklaşık 100 eski/silinmiş URL hâlâ eski kovalarda sayılıyor; yeniden tarandıkça 404 kovasına geçer.
+
+### 25.3 Yorum
+
+- Yön doğru, hız düşük: beş günde `noindex` −7, "keşfedildi" kovası hareketlendi, yönlendirme hatası kapandı, sitemap taze. Google'ın kendiliğinden dönme hızı hâlâ düşük; ana kaldıraç dizin isteği turu (§24.3) olmaya devam ediyor.
+- "Keşfedildi" sayısının büyümesi kötü değil: Google daha çok sayfayı tanıyor. Beklenen akış keşfedildi → tarandı → dizinde. Başarı ölçütü: bu sayı düşerken "dizinde" artmalı.
+- Program sayfalarında gösterim var, tıklama yok → ileride on-page konusu (başlık/konum). Şimdilik dokunma; TR başlıkların etkisi için 28 gün bekle.
+- Supabase log artışı (25.1, +%18-27) ile "keşfedildi" grafiğindeki hareket uyumlu: tarama gerçekten artıyor.
+
+### 25.4 Aksiyonlar
+
+1. Kerem: "Keşfedildi, dizine eklenmedi" ekranında **"Düzeltmeyi doğrula"** düğmesi. **Yapıldı: doğrulama 23 Eylül 2026'da "Başladı"** (Kerem, 25 Eylül teyidi). Gerekçe: sayfalar gerçekten değişti (yeni şablon, hızlı sunucu, iç linkler); Google doğrulama için örnek URL'leri yeniden tarar. Başarısız çıkarsa zarar yok; yeniden tarama tetikleyicisi olarak kullanılır.
+2. Kerem: dizin isteği turu Gün 2-6 (§24.3).
+3. Sonraki tur (30 Eylül civarı): Sayfalar ekranının üstü ("dizinde" sayısı), Tarama istatistikleri + ana makine durumu, Performans **28 gün**, 404 satırı, "Tarandı, dizine eklenmedi" örneği.
+4. Düşük öncelik (sırasıyla): `clerk.italypath.app` kökü için Clerk ayarları incelemesi; `/communities` sitemap lastmod; `inLanguage` uyarısı (25.1).
