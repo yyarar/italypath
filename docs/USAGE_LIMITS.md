@@ -136,7 +136,7 @@ Sınıflandırma tuzağı: `select=department_id` hem dizin (varlık) sorgusuna 
 
 Neden artıyor: program sayfası `getUniversityById()` ile okulun **tüm** kabul dosyalarını çeker (Sapienza 97 satır, ham ~540 KB; en büyük okul ham ~2 MB). ISR 3 saatte bir yenilenir, in-memory memo instance başınadır ve her deploy memo'yu sıfırlar. Google taraması arttıkça çekim sayısı artar. 25 Eylül'de en çok çekilen okullar: id 3 (42), 4 (33), 9 (30), 14 (29), 18 (28).
 
-Önerilen düzeltme: program sayfası yalnızca kendi kabul satırını çeksin (tahmini ~10 kat düşüş). Kerem bu işi ayrı bir ajana soracak (2026-09-25).
+Önerilen düzeltme: program sayfası yalnızca kendi kabul satırını çeksin (tahmini ~10 kat düşüş). Kerem bu işi ayrı bir ajana soracak (2026-09-25). **2026-09-26: uygulandı, dalda, push bekliyor** (güvenlik kartı 2): program sayfası yalnız kendi satırını çeker, okul sayfası hiç kabul dosyası çekmez; ayrıntı `AGENT_CONTEXT.md` "Veri Katmani". Yayından sonra Usage ekranında günlük egress'in düştüğü kontrol edilmeli.
 
 ### Olay geçmişi
 

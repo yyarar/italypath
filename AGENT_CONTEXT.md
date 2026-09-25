@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur; guncel mimari ve calisma kurallarinin kaynak dokumanidir. `AGENT_COMMITS.md` tarihsel ve eksik degisiklik notlaridir (Git gecmisi esastir). `AGENT_CONTEXT_FIX_REPORT.md` 2026-06-11'de uygulanmis eski bir audit arsividir. En son context degerlendirmesi `docs/CONTEXT_AUDIT_2026-09-19.md` icindedir; bu dosyadaki 2026-09-21 duzeltmeleri o raporun uygulama sirasinin 1. ve 2. adimidir. Okumaya kok `AGENTS.md` ile basla; tek acik is listesi `docs/STATUS.md`, tasarim/plan belgelerinin durumu `docs/superpowers/INDEX.md` icindedir (3. adim, 2026-09-21).
 
-Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun)
+Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun) · 2026-09-26: veri katmani, kanonik okul adresi, JSON-LD kacisi, okul fotograflari ve hata sayfalari (guvenlik denetimi kart 2; dalda, push bekliyor)
 
 Sayilar bu dosyada tarihli snapshot olarak gecer. Guncel sayim "Canli university/program verisi" bolumundedir; eski tarihli bolumlerdeki sayilari bugunku gercek sayma.
 
@@ -45,6 +45,7 @@ italypath-main/
 ├── AGENTS.md                       # Kisa giris: okuma sirasi + degismez kurallar (ONCE BUNU OKU)
 ├── app/
 │   ├── layout.tsx                  # ClerkProvider, LanguageProvider, MobileZoomLock, RouteTransition
+│   ├── global-error.tsx            # Kok layout hata verirse markali 500 sayfasi (TR/EN, lib/translations.ts globalError)
 │   ├── page.tsx                    # Home server wrapper (ISR 3h); stats getUniversitiesDirectory() kaynakli
 │   ├── sitemap.ts                  # getUniversitiesDirectory() ile dinamik sitemap; lastModified = DB updated_at ∨ PAGE_TEMPLATE_LAST_MODIFIED
 │   ├── robots.ts                   # Public/protected indexleme kurallari
@@ -65,11 +66,11 @@ italypath-main/
 │   │   ├── layout.tsx              # /universities SEO metadata
 │   │   ├── page.tsx                # Server SEO wrapper + crawlable preview + client explorer
 │   │   └── [id]/
-│   │       ├── layout.tsx          # Server generateMetadata
-│   │       ├── page.tsx            # Server SEO wrapper + client university portrait
+│   │       ├── layout.tsx          # Server generateMetadata (getUniversityById: dizin kaydi)
+│   │       ├── page.tsx            # Server SEO wrapper + client university portrait (dizin kaydi, kabul dosyasi yok)
 │   │       └── departments/[deptSlug]/
-│   │           ├── layout.tsx      # Server generateMetadata
-│   │           └── page.tsx        # Server SEO wrapper (pruneUniversityForProgram, EducationalOccupationalProgram JSON-LD) + client program portrait
+│   │           ├── layout.tsx      # Server generateMetadata (getProgramPageData, sayfayla ayni veri)
+│   │           └── page.tsx        # Server SEO wrapper (getProgramPageData + pruneUniversityForProgram, EducationalOccupationalProgram JSON-LD) + client program portrait
 │   ├── cities/page.tsx
 │   ├── communities/page.tsx        # Public atlas; force-dynamic SEO 2.5 wrapper
 │   ├── topluluklar/page.tsx        # redirect -> /communities
@@ -110,7 +111,10 @@ italypath-main/
 ├── context/LanguageContext.tsx
 ├── lib/
 │   ├── supabaseClient.ts           # Browser anon client + Clerk JWT client helper
-│   ├── universities.server.ts      # Supabase-backed live university composer
+│   ├── universities.server.ts      # server-only katalog okuyucu: dizin + program basina kabul satiri (SUPABASE_SECRET_KEY)
+│   ├── universityPath.ts           # Kanonik okul id kurali (/universities/003 -> 308); proxy + veri katmani ortak
+│   ├── jsonLd.ts                   # serializeJsonLd: JSON-LD <script> govdesi (<, >, & Unicode kacisli)
+│   ├── remotePhoto.ts              # Unsplash/Pexels okul fotograflari icin next/image loader (Vercel optimizasyonu yok)
 │   ├── useUniversitiesData.ts      # Client fetch/dedupe/in-memory cache over /api/universities
 │   ├── universitiesFilters.ts      # Search/filter/view mode utilities and storage key
 │   ├── universityDefaults.ts
@@ -212,12 +216,16 @@ Canli veri `lib/universities.server.ts` icinde Supabase'den compose edilir:
 - `program_admission_details`
 - `program_degree_class_codes` (salt okunur VIEW, `supabase/program_degree_class_codes.sql`, 2026-09-19): `degree_class` serbest metninden cikarilmis kisa resmi kodlar (LM-32 gibi). `security_invoker = true`, yazma yetkisi yok. Yeni Supabase ortami kurulurken bu view olusturulmazsa dizin sorgusu hata verir.
 
-Iki calisma zamani fonksiyonu vardir (2026-09-15 egress diyeti; tam veri seti compose'u runtime'dan kaldirildi):
+Calisma zamani fonksiyonlari (2026-09-15 egress diyeti; 2026-09-26 guvenlik denetimi kart 2: okul sayfasi dizinden, program sayfasi yalnizca kendi kabul satirindan). Tam veri seti compose'u ve okul basina tum kabul dosyalarini ceken sorgu runtime'da YOKTUR:
 
-- `getUniversitiesDirectory()`: `universities` + `university_departments` + `program_admission_details` uzerinden `select("department_id,updated_at")` (yalnizca VARLIK + sitemap `lastModified` icin tarih) + `program_degree_class_codes` view'inden `select("department_id,degree_class_codes")`. Her `Department` `hasAdmissionDetails` bayragi ve varsa `degreeClassCodes`/`updatedAt` tasir, `admissionDetails` alani yoktur. Sikistirilmis ~50 KB (dizin ~47 KB + kod view'i ~4 KB). Kullananlar: `/`, `/universities`, `/cities`, sitemap, `/api/universities`, `/api/chat`, program sayfasinin ilgili baglanti hesabi.
-- `getUniversityById(id)`: tek okulun `id`/`university_id` filtreli tam verisi (`admissionDetails` dahil), ~90-180 KB. Kullananlar: universite/program detay page + layout'lari. Program sayfasi bu veriyi istemciye gondermeden once `pruneUniversityForProgram` ile budar: yalnizca acilan programin `admissionDetails`i kalir, diger programlar bayraga iner (17 Eylul olcumu: budanmazsa RSC yuku medyanda 277 KB, en kotu 2 MB).
-- `composeUniversitiesFromSupabaseRows(uniRows, deptRows, admissionRows = [], presenceIds?)` saf compose; `scripts/check-universities-server-compose.mjs` test eder.
-- Kabul dosyasi varligini okumak icin `lib/admissionPresence.ts` `hasAdmissionDossier(department)` kullanilir (hub oneri bonusu, "yakinda" rozeti).
+- `getUniversitiesDirectory()`: `universities` + `university_departments` + `program_admission_details` uzerinden `select("department_id,updated_at")` (yalnizca VARLIK + sitemap `lastModified` icin tarih) + `program_degree_class_codes` view'inden `select("department_id,degree_class_codes")`. Her `Department` `hasAdmissionDetails` bayragi ve varsa `degreeClassCodes`/`updatedAt` tasir, `admissionDetails` alani yoktur. Sikistirilmis ~50 KB (dizin ~47 KB + kod view'i ~4 KB). Kullananlar: `/`, `/universities`, `/cities`, sitemap, `/api/universities`, `/api/chat` ve asagidaki iki fonksiyon.
+- `getUniversityById(id)`: dizindeki okul kaydini dondurur; ayri Supabase sorgusu yapmaz. Yalnizca kanonik id kabul edilir (`lib/universityPath.ts` `parseCanonicalUniversityId`: basinda sifir olmayan, en fazla 9 haneli sayi; "003" aranmaz). Kullananlar: okul sayfasi ve layout'u. Okul sayfasi tarayiciya hicbir programin tam kabul dosyasini gondermez; program listesi yalnizca varlik bayragini kullanir (2026-09-25 olcumu: en buyuk okul sayfasi ~2 MB HTML'di).
+- `getProgramPageData(id, deptSlug)`: dizin kaydi + YALNIZCA acilan programin kabul satiri (`program_admission_details`, `.eq("university_id", …).eq("department_id", …).maybeSingle()`, yalnizca panelin okudugu kolonlar; `raw_program_name`, `raw_level`, `source_file` cekilmez). Program sayfasi ve metadata layout'u ayni memo'lu veriyi kullanir (ek istek yok); ilgili baglantilar ayni dizinle hesaplanir. Donen `department` dizin kaydinin KOPYASIDIR.
+- `pruneUniversityForProgram(university, department)`: istemciye giden okul nesnesini kurar; kabul dosyasi yalnizca acilan programda, diger programlar dizindeki hafif kayitlar. Paylasilan dizin nesneleri degismez (yeni nesne doner; `check-universities-server-compose.mjs` test eder).
+- `composeUniversitiesFromSupabaseRows(uniRows, deptRows, admissionRows = [], presenceIds?, degreeClassCodes?)` saf compose; `scripts/check-universities-server-compose.mjs` test eder.
+- Kabul dosyasi varligini okumak icin `lib/admissionPresence.ts` `hasAdmissionDossier(department)` kullanilir (hub oneri bonusu, "yakinda" rozeti, okul sayfasi program listesi).
+
+Katalog okuma anahtari (2026-09-26, S9#1 kod tarafi): `lib/universities.server.ts` `import "server-only"` ile baslar ve dort katalog kaynagini yalnizca server-only `SUPABASE_SECRET_KEY` (Supabase'in yeni tip gizli anahtari, `sb_secret_…`) ile okur. Anahtar yoksa veya `sb_secret_` ile baslamiyorsa acik hata firlatilir; herkese acik anon anahtara geri dusulmez. Ayni kural katalog okuyan betiklerde de gecerlidir (`check-program-details.mjs`, `validate-supabase-university-data.mjs`, `import-*.mjs` okuma/dry-run kismi). Vercel'de degisken Supabase entegrasyonunca tanimlidir (Production, Preview, Development); yerelde `.env.local`'a elle eklenir. Katalog tablolarinin yetki sikilastirmasi ayri istir (guvenlik karti 4; bu degisiklik canlida dogrulandiktan sonra, Kerem onayiyla).
 
 Canli Supabase sayimi (2026-09-21, `select count(*)`; 19 Eylul 2026 veri temizliginde 8 okul + 67 program silindi, 41 arastirilmis kabul dosyasi import edildi):
 
@@ -246,13 +254,18 @@ Eski belgelerde gecen `64 okul / 1017 program / 1.087 URL` (22 Temmuz 2026) sayi
 
 `lib/universities.server.ts` (2026-07-02 egress kota asimi; 2026-09-15 egress diyeti + ISR):
 
-- Her iki fonksiyon sonucunu **3 saatlik in-memory memo**da tutar (`SERVER_CACHE_TTL_MS`; dizin icin tek memo, okul basina ayri memo), single-flight ve stale-on-error uygular. Supabase fetch hata verirse eldeki bayat memo sunulur; memo yoksa hata firlatilir ve route-level editorial error govdesi calisir.
-- Tam veri seti sikistirilmis ~4,6 MB'dir ve %98'i `program_admission_details`tir. 2026-09-15 oncesinde her soguk Vercel instance'i (gunde 82-88 tane) bunu tam cekiyordu: gunde ~390 MB, donemde 7,3 GB (Free kota 5 GB). Agir kabul metinleri artik yalnizca detay sayfalari icin, hedefli sorguyla cekilir; beklenen gunluk egress ~10 MB.
+- Dizin ve program basina kabul satiri **3 saatlik in-memory memo**da tutulur (`SERVER_CACHE_TTL_MS`; dizin icin tek memo, `okulId:programId` anahtarli kabul memo'su, ust sinir `ADMISSION_MEMO_MAX_ENTRIES` = 2000 > 941 program; dolunca en eski kayit silinir). Single-flight uygulanir. Suresi dolmus kayit HEMEN sunulur ve arka planda tek yenileme baslar (stale-while-revalidate); yenileme basarisizsa bayat kayit `STALE_RETRY_MS` (5 dk) daha sunulur, sonra yeniden denenir. Memo yoksa ve Supabase hata verirse hata firlatilir.
+- Her Supabase istegi `SUPABASE_REQUEST_TIMEOUT_MS` (8 sn, `db.timeout`) sonra iptal edilir; asili istek sayfa uretimini tutmaz.
+- ISR sayfalari (`/`, okul ve program sayfalari) veri hatasini YAKALAMAZ: yenileme hata verirse Vercel son saglam sayfayi sunmaya devam eder; hic saglam sayfa yoksa istek `app/error.tsx`'e duser ve onbellege yazilmaz. Eski "veri yuklenemedi" yedek govdeleri ve ana sayfanin `null` istatistik yedegi 2026-09-26'da kaldirildi (3 saat onbellekte kaliyorlardi). Kok layout hatasi `app/global-error.tsx` ile markali sayfaya duser. `check:seo-vitals` ISR sayfalarinda `catch (` bulunmasina izin vermez.
+- Surec kurali: Supabase kisitli veya hata veriyorken push yapilmaz. Build sirasinda Supabase erisilemezse `/sitemap.xml` on-uretimi basarisiz olur ve Vercel o deploy'u yayina almaz; asil risk basarili bir deploy'dan sonra soguk sayfalarda Supabase hatasidir.
+- Tam veri seti sikistirilmis ~4,6 MB'dir ve %98'i `program_admission_details`tir. 2026-09-15 oncesinde her soguk Vercel instance'i (gunde 82-88 tane) bunu tam cekiyordu: gunde ~390 MB, donemde 7,3 GB (Free kota 5 GB). 2026-09-15 ile 2026-09-26 arasinda program sayfasi okulun TUM kabul dosyalarini cekiyordu (en buyuk okul ham ~2 MB); artik program sayfasi yalnizca kendi satirini, okul sayfasi hicbirini cekmez.
 - ISR: `app/page.tsx`, `app/universities/[id]/page.tsx` ve program `page.tsx` `export const revalidate = 10800` tasir; detay rotalari bos `generateStaticParams()` ile "statik uretilebilir" olur (build'de sayfa uretilmez, ilk istekte uretilip Vercel onbelleginde 3 saat tutulur). Bu sayfalar sunucu tarafinda `searchParams`/`cookies()`/`headers()` OKUMAZ; aksi halde rota sessizce dinamige duser. `/universities` ve `/cities` `searchParams` okudugu icin dinamik kalir ama dizinle calisir.
-- Her deploy memo'yu ve ISR onbellegini sifirlar. Import sonrasi yayin suresi icin KESIN UST SINIR YOKTUR: yenileme araligi 3 saattir ama yeni veri ancak bir istek geldiginde, memo suresi dolmussa ve yeniden uretim basariyla bittiginde gorunur (ISR stale-while-revalidate: suresi dolan sayfayi ilk isteyen hala eski sayfayi alir, yenileme arka planda baslar). Memo ile ISR saatleri ayrisabilir; kaynak hatasinda stale-on-error eski veriyi daha da uzun tutar. Acil yayin yolu: yeniden deploy (memo + ISR sifirlanir); on-demand revalidation yoktur. Import sonrasi canlida dogrulama yap, "3 saat gecti, kesin yansidi" varsayma.
-- Guard'lar: `npm run check:university-data-source` (tam compose export'u yasak, dizin/hedefli fonksiyonlar ve cagiran dosya eslesmesi, `select("department_id,updated_at")`, view okuma zorunlu (`program_degree_class_codes` + `select("department_id,degree_class_codes")`, uzun `degree_class` metni dizinde yasak), `eq("university_id", …)`, TTL 1-6 saat, stale-on-error, API no-store, hook `fetchWhenInitial`), `npm run check:seo-vitals` (revalidate/generateStaticParams/searchParams kurallari), `node scripts/check-universities-server-compose.mjs` (`hasAdmissionDetails` uc durum).
+- Her deploy memo'yu ve ISR onbellegini sifirlar. Import sonrasi yayin suresi icin KESIN UST SINIR YOKTUR: yenileme araligi 3 saattir ama yeni veri ancak bir istek geldiginde, memo suresi dolmussa ve yeniden uretim basariyla bittiginde gorunur (ISR stale-while-revalidate: suresi dolan sayfayi ilk isteyen hala eski sayfayi alir, yenileme arka planda baslar). Memo ile ISR saatleri ayrisabilir; 2026-09-26'dan beri suresi dolmus memo once bir kez daha sunulup arka planda yenilendigi icin bir ISR yenilemesi hala onceki veriyi yazabilir (yeni veri en gec bir sonraki yenilemede); kaynak hatasinda stale-on-error eski veriyi daha da uzun tutar. Acil yayin yolu: yeniden deploy (memo + ISR sifirlanir); on-demand revalidation yoktur. Import sonrasi canlida dogrulama yap, "3 saat gecti, kesin yansidi" varsayma.
+- Guard'lar: `npm run check:university-data-source` (tam compose export'u ve okul basina tum kabul dosyasi cekimi yasak; `getUniversityById` dizinden ve kanonik id ile; `getProgramPageData` + `.eq("university_id", universityId)` + `.eq("department_id", departmentId)` + `.maybeSingle`; kullanilmayan kolonlar yasak; okul sayfasi/layout'u `getUniversityById`, program sayfasi/layout'u `getProgramPageData` + `pruneUniversityForProgram`; `import "server-only"`, `SUPABASE_SECRET_KEY` + `sb_secret_` kontrolu, anon anahtar yasak (katalog okuyan betikler dahil); `db.timeout` 1-15 sn; memo ust siniri > 941; `STALE_RETRY_MS`; view okuma zorunlu (`program_degree_class_codes` + `select("department_id,degree_class_codes")`, uzun `degree_class` metni dizinde yasak); TTL 1-6 saat; stale-on-error; API no-store; detay istemcileri `/api/universities` cekmez; `app/global-error.tsx` var; `proxy.ts` kanonik okul adresini public daldan once cozer ve `lib/universityPath.ts` karar tablosu), `npm run check:seo-vitals` (revalidate/generateStaticParams/searchParams, ISR sayfasinda `catch (` yasak, JSON-LD'de ham `JSON.stringify` yasak ve `serializeJsonLd` zorunlu, sitemap slug kodlamasi ve `revalidate = 10800`), `node scripts/check-universities-server-compose.mjs` (`hasAdmissionDetails` uc durum, `pruneUniversityForProgram` paylasilan nesneyi degistirmez).
 
-`scripts/check-university-data-source.mjs`, `app/`, `components/` ve `lib/` runtime kaynaklarinin `app/data.ts` import etmesini yasaklar. `/api/universities`, sitemap ve chat context `getUniversitiesDirectory()`; university/program metadata layout'lari `getUniversityById()` uzerinden calismalidir.
+`scripts/check-university-data-source.mjs`, `app/`, `components/` ve `lib/` runtime kaynaklarinin `app/data.ts` import etmesini yasaklar. `/api/universities`, sitemap ve chat context `getUniversitiesDirectory()`; okul sayfasi/metadata layout'u `getUniversityById()`, program sayfasi/metadata layout'u `getProgramPageData()` uzerinden calismalidir.
+
+Kanonik okul adresi (2026-09-26, S9#2): her okulun tek adresi `/universities/<id>` (id basinda sifirsiz). `proxy.ts` sayfa uretiminden ve ISR onbelleginden ONCE `lib/universityPath.ts` `resolveUniversityPath` ile karar verir: sifirli veya yuzde kodlu sayi (`/universities/003`, alt yollar dahil) kanonik adrese 308; sayi olmayan id statik 404 sayfasina (`/_not-found`) 404 durum koduyla yeniden yazilir. Canonical, Open Graph ve breadcrumb adresleri kayittaki `university.id` ve `department.slug`'dan kurulur (adresteki yazimdan degil). Bilinmeyen sayisal id ve program slug'i sayfada `notFound()` ile 404 olur.
 
 ---
 
@@ -350,7 +363,7 @@ Clerk guvenilen kokenler (2026-09-25): `lib/auth/trustedOrigins.ts` tek kaynakti
 
 `/giris` `redirect_url` degerini tarayicinin URL ayristirmasiyla (`new URL(deger, origin)`) ayni koken sartina ve kontrol karakteri reddine tabi tutar; uymayan deger sorgudan temizlenir.
 
-Guvenlik basliklari (2026-09-25, `next.config.ts` `headers()`, tum yollar): `X-Frame-Options: DENY`; zorunlu `Content-Security-Policy` yalniz `frame-ancestors 'none'; object-src 'none'; base-uri 'self'`; ayrica `Content-Security-Policy-Report-Only` izin listesi (self, satir ici betik, Clerk Frontend API, Supabase https/wss, Clerk gorselleri; test anahtarinda Clerk development instance, `next dev`'de eval/HMR). Nonce tabanli CSP kullanilmaz (ISR onbellegini bozar). Rapor-modu ihlalleri yalniz tarayici konsolunda gorunur (rapor adresi yok); zorunlu hale getirmeden once `/giris`, `/documents`, `/sat` girisli denenmeli. Kayit formunda `SignUp.Captcha` vardir: Clerk panelinde bot korumasi aciksa kayit sirasinda Cloudflare Turnstile yuklenir ve izin listesinde yoktur; zorunlu hale getirmeden once rapor-modunda kayit akisi kontrol edilmeli. `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (kamera, mikrofon, konum, browsing-topics kapali), `poweredByHeader: false`.
+Guvenlik basliklari (2026-09-25, `next.config.ts` `headers()`, tum yollar): `X-Frame-Options: DENY`; zorunlu `Content-Security-Policy` yalniz `frame-ancestors 'none'; object-src 'none'; base-uri 'self'`; ayrica `Content-Security-Policy-Report-Only` izin listesi (self, satir ici betik, Clerk Frontend API, Supabase https/wss, Clerk gorselleri, okul fotograflari icin Unsplash/Pexels (2026-09-26); test anahtarinda Clerk development instance, `next dev`'de eval/HMR). Nonce tabanli CSP kullanilmaz (ISR onbellegini bozar). Rapor-modu ihlalleri yalniz tarayici konsolunda gorunur (rapor adresi yok); zorunlu hale getirmeden once `/giris`, `/documents`, `/sat` girisli denenmeli. Kayit formunda `SignUp.Captcha` vardir: Clerk panelinde bot korumasi aciksa kayit sirasinda Cloudflare Turnstile yuklenir ve izin listesinde yoktur; zorunlu hale getirmeden once rapor-modunda kayit akisi kontrol edilmeli. `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (kamera, mikrofon, konum, browsing-topics kapali), `poweredByHeader: false`.
 
 Navbar artik signed-out durumda **modal acmaz**; `<Link href="/giris">` ile tam sayfa `/giris`'e gider. Protected CTA linkleri signed-out durumda `/giris?redirect_url=...` adresine gider (`/sign-in?redirect_url=...` referanslari kalmadi). Mobil BottomNav 2026-07-23 tarihinde uygulama genelinden kaldirildi.
 
@@ -414,14 +427,14 @@ SEO Adim 2 (`SEO 2` merge'i):
 - `/universities` server HTML'i tum okullari (2026-09-21 itibariyla 56) okul basi 3 program etiketiyle tasir (2026-09-16'ya kadar 12 okuldu; Googlebot `/api/universities`'i robots nedeniyle cekemedigi icin ic linkler HTML'de olmali); tam program listesi client tarafinda `/api/universities` ile gelir
 - `components/universities/UniversitiesExplorer.tsx`, `components/university-details/UniversityDetailClient.tsx` ve `DepartmentDetailClient.tsx` client leaf pattern'ini tasir
 - `lib/useUniversitiesData.ts` initial data alabilir; initial data varsa skeleton/loading ile baslamaz
-- Server fetch hata durumlari route-level editorial error block'a duser; global `app/error.tsx`'e dusmemesi hedeflenir
+- Server fetch hata durumlari 2026-09-26'dan beri yakalanmaz (ISR son saglam sayfayi korur, bkz. "API ve cache kurali"); eski route-level editorial error block'lari kaldirildi
 - Tasarim/spec: `docs/superpowers/specs/2026-06-21-seo-server-html-design.md`
 - Plan: `docs/superpowers/plans/2026-06-21-seo-server-html-plan.md`
 
 SEO Adim 2.5 (`SEO 2.5` deploy'u):
 
 - `/`, `/isee`, `/communities` canli HTML'deki `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizlendi
-- `/` server wrapper oldu; server'da canli stats hesaplar (o tarihte `getUniversitiesData()`, 2026-09-15'ten beri `getUniversitiesDirectory()`), hata durumunda stats `null` doner ve sayfa patlamaz
+- `/` server wrapper oldu; server'da canli stats hesaplar (o tarihte `getUniversitiesData()`, 2026-09-15'ten beri `getUniversitiesDirectory()`); o tarihte hata durumunda stats `null` donuyordu, 2026-09-26'dan beri hata firlatilir (bos istatistik 3 saat onbellekte kalmasin)
 - Home UI `components/HomePageClient.tsx` client leaf'ine tasindi
 - `/isee` server wrapper oldu; hesaplayici client leaf'e tasindi (2026-09-17'den beri `components/isee/IseeParificatoClient.tsx`)
 - `/communities` `force-dynamic` ile static prerender + analytics kaynakli marker'dan cikarildi; atlas HTML'de gercek H1/chapter/topluluk satirlari tasimaya devam eder
@@ -430,8 +443,9 @@ SEO Adim 3 Part 1 (`288dd5d`, breadcrumb polish `b1fd488`):
 
 - Ana sayfaya explicit `alternates.canonical: "/"` eklendi
 - `app/layout.tsx` site geneli gercek bilgiye dayali `Organization` + `WebSite` JSON-LD tasir; dogrulanmamis logo/sosyal hesap/SearchAction eklenmez
+- Tum JSON-LD `<script>` govdeleri `lib/jsonLd.ts` `serializeJsonLd` ile yazilir (`<`, `>`, `&` Unicode kacisli; 2026-09-26, S5#3); `check:seo-vitals` ham `JSON.stringify`'a izin vermez. Sitemap program slug'larini `encodeURIComponent` ile yazar ve 3 saatte bir yenilenir (dizin memo'suyla ayni)
 - University detail sayfalari 3 seviyeli, program detail sayfalari 4 seviyeli `BreadcrumbList` JSON-LD tasir
-- University/program kaydi bulunamazsa route `notFound()` ile gercek HTTP 404 dondurur; veri kaynagi hata verirse editorial "veri yuklenemedi" govdesi korunur
+- University/program kaydi bulunamazsa route `notFound()` ile gercek HTTP 404 dondurur; veri kaynagi hatasi 2026-09-26'dan beri firlatilir (ISR son saglam sayfayi sunar; eski "veri yuklenemedi" govdesi kaldirildi)
 
 SEO Adim 3.5 (2026-09-15, kontrast + vitals guard; ayrinti `SEO_AUDIT.md` §19):
 
@@ -455,7 +469,7 @@ Guncel durum (2026-09-21, `SEO_AUDIT.md` §23-24): sitemap `1.004` URL; dosyali 
 
 ### Home
 
-`app/page.tsx` async Server Component wrapper'dir ve `components/HomePageClient.tsx` client leaf'ini render eder. Server wrapper `getUniversitiesDirectory()` ile canli university/program stat'lerini hesaplar (ISR, `revalidate = 10800`); hata durumunda `{ universitiesCount: null, programsCount: null }` doner.
+`app/page.tsx` async Server Component wrapper'dir ve `components/HomePageClient.tsx` client leaf'ini render eder. Server wrapper `getUniversitiesDirectory()` ile canli university/program stat'lerini hesaplar (ISR, `revalidate = 10800`); veri hatasi firlatilir, ISR son saglam ana sayfayi sunar (2026-09-26 oncesinde `null` istatistik 3 saat onbellekte kalabiliyordu).
 
 `components/HomePageClient.tsx` sirasi (2026-09-15): `Navbar` -> `HeroSection` (ikinci CTA "Ucretsiz on gorusme al", `#on-gorusme`) -> `HomeToolsSection` (7 arac) -> `ConsultationSection variant="home"` -> `HomeStoryBand` -> `VelocityBridge` -> `ScholarshipsSection` -> `IseeSection` -> `ConsultationFaq` -> `HomeClosingCta` (birincil CTA on gorusme) -> `Footer` -> `MobileConsultBar`. `FeaturesSection.tsx` kaldirildi. University/program stat'leri canli university data akisi ile gelmelidir; `64/240` gibi local seed sayilari hard-code edilmemeli. Sehir sayisi server wrapper'da `CURATED_CITIES.length` ile prop olarak gecer; sehir verisi client bundle'a import edilmez.
 
@@ -485,7 +499,9 @@ SEO 2.5 sonrasi canli audit'te `/` sayfasi gercek H1, CTA/internal link ve canli
 - helper'lar: `lib/universitiesFilters.ts`
 - UI parcalari: `components/universities/*`
 
-`app/universities/[id]/page.tsx` ve department detail page artik server wrapper + client leaf pattern'i kullanir. Server wrapper `getUniversityById()` ile ilk HTML'e okul/program adi, aciklama, fee, sehir, program linkleri ve admission details gibi gorunur icerikleri koyar; client leaf favori, dil, route animation ve program transition davranisini korur. Sayfa sarmalayicilari ayrica `lib/relatedLinks.ts` `buildRelatedLinks(university, directory)` ile ic baglanti verisini hesaplar; client leaf'ler ustte `DetailBreadcrumb` (gorunur kirinti, JSON-LD ile ayni sira) ve altta `RelatedLinks` (ayni sehirdeki okullar, sehir rehberi, bolge bursu) render eder (2026-09-16, `SEO_AUDIT.md` §22). Client leaf'ler `useUniversitiesData(initial, { fetchWhenInitial: false })` cagirir: sunucudan gelen tam okul verisi varken hafif dizin cekilmez ve onu ezmez (kabul paneli tam veriyle kalir). Universite sayfasinin geri tusu `?from=list` bilgisini tiklama aninda `window.location.search`ten okur (wrapper ISR icin `searchParams` okumaz).
+`app/universities/[id]/page.tsx` ve department detail page artik server wrapper + client leaf pattern'i kullanir. Okul sayfasi `getUniversityById()` (dizin kaydi) ile ilk HTML'e okul/program adi, aciklama, fee, sehir ve program linklerini koyar; program sayfasi `getProgramPageData()` ile ayrica o programin kabul dosyasini koyar. Client leaf favori, dil, route animation ve program transition davranisini korur. Sayfa sarmalayicilari ayrica `lib/relatedLinks.ts` `buildRelatedLinks(university, directory)` ile ic baglanti verisini hesaplar; client leaf'ler ustte `DetailBreadcrumb` (gorunur kirinti, JSON-LD ile ayni sira) ve altta `RelatedLinks` (ayni sehirdeki okullar, sehir rehberi, bolge bursu) render eder (2026-09-16, `SEO_AUDIT.md` §22). Detay client leaf'leri yalnizca sunucudan gelen veriyi gosterir, `/api/universities` cekmez (2026-09-26; eski `fetchWhenInitial` secenegi ve ulasilamayan "yukleniyor / veri yuklenemedi" dallari kaldirildi). Universite sayfasinin geri tusu `?from=list` bilgisini tiklama aninda `window.location.search`ten okur (wrapper ISR icin `searchParams` okumaz).
+
+Okul fotograflari (2026-09-26, S9#4): `university.image` ve `DEFAULT_UNIVERSITY_IMAGE` Unsplash/Pexels adresleridir (canli: 54 Unsplash, 2 Pexels). Bunlari gosteren `<Image>` bilesenleri (`UniversityRows`, `favorites`, `UniversityPortraitMasthead`, `ProgramPortraitHeader`, `ProgramTransitionEntry`) `lib/remotePhoto.ts` `remotePhotoProps(src)` ile kendi loader'ini alir: boyutlandirmayi Unsplash/Pexels adres parametreleri yapar (Unsplash'te kaynaktaki genislikten buyutulmez). Global `images.loader` kullanilmaz; `next.config.ts`'te `images.remotePatterns` YOKTUR, yani `/_next/image` yalnizca yerel `/images` dosyalarini isler. Yeni uzak fotograf gosteren bilesen `remotePhotoProps` kullanmali; baska bir uzak alan adi eklenecekse `lib/remotePhoto.ts` ve CSP `img-src` birlikte guncellenir.
 
 Program detay sayfasi turu (17-21 Eylul 2026; kayit `SEO_AUDIT.md` §23, plan `docs/superpowers/plans/2026-09-17-program-detail-pages-plan.md`, plan checkbox'lari guncel degil):
 
@@ -495,7 +511,7 @@ Program detay sayfasi turu (17-21 Eylul 2026; kayit `SEO_AUDIT.md` §23, plan `d
 - `ProgramNextSteps`: ISEE, sehir rehberi, bolge bursu linkleri + ucretsiz on gorusme kutusu tek blokta; sehir/burs linkleri `RelatedLinks`te tekrar edilmez (`showHubLinks={false}`).
 - JSON-LD: dosyali programda `EducationalOccupationalProgram` (yalnizca dogrulanmis alanlar).
 - Bilincli YAPILMAYAN (Kerem karari, 21 Eylul): dosyasiz programlari `noindex` + sitemap disi birakma; canlida dosyasiz program kalmadigi icin anlamsiz. Ileride dosyasiz satir eklenirse yeniden degerlendir.
-- Kapsam disi (Kerem karari, 17 Eylul): programin yalnizca kendi kabul satirini cekmesi, Turkce cumle ozetleri, son tarih/sinav alan cikarimi, on gorusme tiklama olcumu.
+- Kapsam disi (Kerem karari, 17 Eylul): Turkce cumle ozetleri, son tarih/sinav alan cikarimi, on gorusme tiklama olcumu. "Programin yalnizca kendi kabul satirini cekmesi" 17 Eylul'de kapsam disiydi; 2026-09-26'da guvenlik denetimi kart 2 ile uygulandi (`getProgramPageData`).
 
 SEO `layout.tsx` Server Component'lerinde `generateMetadata()` ile uretilir. `generateMetadata()` hicbir zaman `"use client"` dosyasina konmamalidir.
 
@@ -732,7 +748,8 @@ Gercek production schema dashboard'dan dogrulanmalidir.
 | --- | --- |
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anon key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Server-only: SAT soru okuma (`lib/sat/questions.server.ts`), expert lead insert (`lib/mentor/expertLeads.server.ts`) ve yetkili admin/import scriptleri. Production ve Preview'da ZORUNLU (yoksa `/sat` ve on gorusme formu calismaz); local'de bu yuzeyler test edilecekse gerekir. Asla client bundle'a veya `NEXT_PUBLIC_*` alanina girmez |
+| `SUPABASE_SECRET_KEY` | Server-only, Supabase'in yeni tip gizli anahtari (`sb_secret_…`; 2026-09-26). Katalog okumalari (`lib/universities.server.ts`: okullar, programlar, kabul dosyalari, degree class view'i) ve katalog okuyan betikler (`check-program-details`, `check:data`, `import-*` dry-run). Production, Preview ve local build'de ZORUNLU: yoksa veya `sb_secret_` ile baslamiyorsa okul/program sayfalari, sitemap ve build hata verir (anon'a geri dusulmez). Vercel'de Supabase entegrasyonu tanimlar; yerelde `.env.local`'a elle eklenir. Asla client bundle'a veya `NEXT_PUBLIC_*` alanina girmez |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server-only (eski tip): SAT soru okuma (`lib/sat/questions.server.ts`), expert lead insert (`lib/mentor/expertLeads.server.ts`) ve yetkili admin/import scriptlerinin yazma kismi (`import-*` once `SUPABASE_SECRET_KEY`'i dener). Production ve Preview'da ZORUNLU (yoksa `/sat` ve on gorusme formu calismaz); local'de bu yuzeyler test edilecekse gerekir. Supabase eski tip anahtarlari 2026 sonunda emekliye ayirir; bu yuzeylerin yeni anahtara gecisi ayri istir. Asla client bundle'a veya `NEXT_PUBLIC_*` alanina girmez |
 | `GEMINI_API_KEY` | Gemini chat endpoint (`/api/chat`); yoksa 503. AI masasi arayuzde paused oldugu icin bugun kullaniciya acik yuzey yok |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk frontend |
 | `CLERK_SECRET_KEY` | Clerk server |
@@ -804,7 +821,7 @@ Tek acik is listesi 2026-09-21'den beri `docs/STATUS.md` icindedir (zaman kritik
 3. Hook'lar mevcut pattern geregi `lib/` altinda tutulur.
 4. SEO gereken dinamik route'larda `generateMetadata()` Server Component `layout.tsx` dosyasinda kalir; client page'e tasima.
 5. Route guvenligi `proxy.ts` uzerinden yonetilir; `middleware.ts` olusturma.
-6. Runtime kodunda `app/data.ts` import etme. Live university/program data icin liste yuzeylerinde `getUniversitiesDirectory()` veya `/api/universities`, tek okul icin `getUniversityById()`, domain tipleri icin `types/universities.ts` kullan. Tam veri seti compose'unu runtime'a geri getirme (egress).
+6. Runtime kodunda `app/data.ts` import etme. Live university/program data icin liste yuzeylerinde `getUniversitiesDirectory()` veya `/api/universities`, okul sayfasi icin `getUniversityById()` (dizin kaydi), program sayfasi icin `getProgramPageData()` (dizin + yalnizca o programin kabul satiri), domain tipleri icin `types/universities.ts` kullan. Tam veri seti compose'unu veya okul basina tum kabul dosyalarini ceken sorguyu runtime'a geri getirme (egress). Katalog okumalari yalnizca `lib/universities.server.ts` icinde, server-only `SUPABASE_SECRET_KEY` ile yapilir; anon anahtara geri dusme ekleme.
 7. UI metinleri `lib/translations.ts` icinde TR/EN paralel tutulur.
 8. Supabase generated types yok; yeni DB row ihtiyacinda `types/index.ts` icine explicit interface ekle.
 9. SEO icin hidden keyword block, `display:none` SEO metni veya botlara farkli icerik ekleme. Kullaniciya gorunmeyen SEO text yasak.
@@ -815,7 +832,7 @@ Tek acik is listesi 2026-09-21'den beri `docs/STATUS.md` icindedir (zaman kritik
 14. Sehir rehberlerinde generic fallback iddialari uretme; arastirilmamis sehri acikca `unresearched` olarak goster. Tiered kayitlarda sehir bazinda fiyat/Numbeo verisi cogaltma; merkezi, surumlu tier maliyet modelini kullan.
 15. Terracotta renkli metin/ikon icin `text-[var(--editorial-terracotta-ink)]` kullan; `--editorial-terracotta` base tokeni yalnizca buton/arka plan/cerceve icin. `npm run check:seo-vitals` bunu zorlar.
 16. `components/RouteTransition.tsx` icindeki `<AnimatePresence initial={false}>` kaldirilmaz; ilk yuklemede sayfa iceriginin gorunur gelmesini bu saglar.
-17. Egress diyeti: agir kabul metinleri (`source_quotes`, sartlar, belgeler) yalnizca `getUniversityById()` ile detay sayfalarina gelir; liste/API/sitemap/chat `getUniversitiesDirectory()` kullanir. ISR sayfalarinda (`/`, detay sayfalari) `revalidate` + bos `generateStaticParams()` korunur ve sunucu tarafinda `searchParams`/`cookies()`/`headers()` okunmaz.
+17. Egress diyeti: agir kabul metinleri (`source_quotes`, sartlar, belgeler) yalnizca program sayfasina ve yalnizca o programin satiri olarak gelir (`getProgramPageData()`); okul sayfasi, liste/API/sitemap/chat `getUniversitiesDirectory()` kullanir. ISR sayfalarinda (`/`, detay sayfalari) `revalidate` + bos `generateStaticParams()` korunur, sunucu tarafinda `searchParams`/`cookies()`/`headers()` okunmaz ve veri hatasi yakalanmaz (son saglam sayfa kalsin; yedek govde onbellege yazilir).
 18. Sitemap `lastModified` gercek degisiklige baglidir: DB `updated_at` (okul/program/kabul dosyasi) ile `app/sitemap.ts` icindeki `PAGE_TEMPLATE_LAST_MODIFIED` sabitinin en yenisi. Program/universite sayfa sablonunun GORUNUR icerigi degistiginde sabiti o deploy tarihine cek; uydurma tarih yazma (SEO_AUDIT.md §21).
-19. Yeni Supabase ortami kurarken `program_degree_class_codes` view'ini olustur (`supabase/program_degree_class_codes.sql`); dizin sorgusu view olmadan hata verir. Program sayfasinin `pruneUniversityForProgram` budamasini kaldirma; agir kabul dosyasi yalnizca acilan program icin istemciye gider.
+19. Yeni Supabase ortami kurarken `program_degree_class_codes` view'ini olustur (`supabase/program_degree_class_codes.sql`); dizin sorgusu view olmadan hata verir. Program sayfasinin `pruneUniversityForProgram` adimini kaldirma; agir kabul dosyasi yalnizca acilan program icin istemciye gider, okul sayfasina hic gitmez. Memo'daki dizin nesneleri paylasilir: yerinde degistirme, kopyala. Okul adresi kanoniktir (`lib/universityPath.ts` + `proxy.ts`); canonical/OG/breadcrumb adreslerini URL parcasindan degil kayittan kur.
 20. `/llms.txt` gibi kok dosyalar proxy matcher'da statik sayilmaz (`.txt` haric tutulmaz). Public olacak her kok dosya `proxy.ts` allowlist'ine ve `scripts/check-route-access.mjs` public listesine birlikte eklenir; icerik guard'i tek basina erisimi kanitlamaz.

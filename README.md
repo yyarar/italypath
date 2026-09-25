@@ -34,6 +34,7 @@ Test edilmis Node surumu: 24.13.0 (2026-09-25). `package.json` `engines.node` al
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
+SUPABASE_SECRET_KEY=
 GEMINI_API_KEY=
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
@@ -51,6 +52,7 @@ Ornek dosya: `.env.example`. Hangi ortamda ne gerekir:
 | --- | --- | --- | --- | --- |
 | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Zorunlu | Zorunlu | Zorunlu | Public anon erisim; RLS ile korunur |
 | `SUPABASE_SERVICE_ROLE_KEY` | `/sat` veya on gorusme formu test edilecekse | Zorunlu | Zorunlu | Server-only: SAT soru okuma, expert lead insert, admin/import scriptleri. Asla `NEXT_PUBLIC_*` yapma, client dosyasina koyma |
+| `SUPABASE_SECRET_KEY` | Zorunlu | Zorunlu | Zorunlu | Server-only, yeni tip gizli anahtar (`sb_secret_…`): okul/program katalog okumalari ve katalog okuyan betikler. Yoksa okul/program sayfalari, sitemap ve build hata verir. Vercel'de Supabase entegrasyonu tanimlar |
 | `GEMINI_API_KEY` | Istege bagli | Istege bagli | Istege bagli | `/api/chat` anahtarsiz 503 doner; AI masasi arayuzde duraklatilmis |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY` | Zorunlu (test anahtari) | Zorunlu (development anahtari) | Zorunlu (`pk_live`/`sk_live`) | Asagidaki Clerk notlarina bak |
 

@@ -47,6 +47,7 @@ Kod tarafında şu güvenlik iyileştirmeleri zaten uygulandı:
 1. Supabase istekleri Clerk token ile gönderiliyor.
 2. Documents için `publicUrl` yerine kısa ömürlü `signed URL` kullanılıyor.
 3. Upload edilen dokümanlarda `storage_path` bazlı erişim yapılıyor.
+4. Katalog tabloları (`universities`, `university_departments`, `program_admission_details`, `program_degree_class_codes` view'i) yalnızca sunucuda, `lib/universities.server.ts` içinde server-only `SUPABASE_SECRET_KEY` (yeni tip gizli anahtar, `sb_secret_…`) ile okunuyor (2026-09-26). Tarayıcı bu tabloları okumaz; herkese açık anon anahtara geri düşülmez. Katalog okuyan betikler de aynı anahtarı kullanır. Anahtar Supabase Dashboard → Project Settings → API Keys → Secret keys altındadır; Vercel'de Supabase entegrasyonu `SUPABASE_SECRET_KEY` olarak tanımlar (Production, Preview, Development). Sızarsa yalnızca o gizli anahtar panelden silinip yenisi oluşturulur; eski tip anahtarlar etkilenmez. Katalog tablolarının yetki sıkılaştırması ayrı iştir ve bu değişiklik canlıda doğrulandıktan sonra, Kerem onayıyla yapılır.
 
 ## 5) Doğrulama testi (zorunlu)
 
@@ -223,7 +224,7 @@ Bu adımlar canlıya yazar. Her adım yalnız Kerem'in açık onayıyla yapılı
    - Bucket'ları `manifest.json` → `storage.buckets` ayarlarıyla oluştur. 2026-09-25 ayarları: `documents` private, 20 MB sınır, pdf/jpeg/png/webp/heic/heif; `sat-figures` public.
    - `documents` politikaları için `supabase/rls_hardening.sql` Storage bölümünü uygula. Sonucu manifest'teki 4 politikayla karşılaştır (`documents_select/insert/update/delete_own_objects`).
    - Dosyaları service-role ile `storage/<bucket>/<yol>` altındaki aynı yola yükle. `user_documents.storage_path` bu yollara bakar.
-7. Vercel'de `NEXT_PUBLIC_SUPABASE_URL`, anon/publishable ve service-role anahtarlarını yeni projeye çevir. Ardından `npm run check:data` ve bölüm 5'teki doğrulama testini yap.
+7. Vercel'de `NEXT_PUBLIC_SUPABASE_URL`, anon/publishable, service-role ve `SUPABASE_SECRET_KEY` (yeni projenin `sb_secret_…` anahtarı; yoksa okul/program sayfaları çalışmaz) anahtarlarını yeni projeye çevir. Ardından `npm run check:data` ve bölüm 5'teki doğrulama testini yap.
 
 **B) Mevcut projede kısmi kurtarma (örneğin yanlış bir `--apply` sonrası birkaç satır):**
 
