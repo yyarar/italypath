@@ -41,6 +41,7 @@
     "sat:patch": "node scripts/sat/patch-sat-questions.mjs",
     "test:sat-audit": "node scripts/sat/test-content-audit.mjs",
     "test:sat-patch": "node scripts/sat/test-question-patch.mjs",
+    "backup:supabase": "node --no-warnings scripts/backup-supabase.mjs",
     "clean:med": "node --no-warnings scripts/clean-med-data.mjs"
   },
   "dependencies": {

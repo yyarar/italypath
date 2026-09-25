@@ -47,6 +47,13 @@ next-env.d.ts
 
 yedek
 
+# Supabase yedek arsivleri (scripts/backup-supabase.mjs) repo DISINDA tutulur;
+# yanlislikla repoya kopyalanirsa izlenmesin. Depo herkese acik.
+*.tar.gpg
+*.tar.gpg.partial
+*.dump
+italypath-supabase-*
+
 # Deadline scrape artifacts
 tmp/
 

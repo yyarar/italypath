@@ -735,6 +735,7 @@ Gercek production schema dashboard'dan dogrulanmalidir.
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk frontend |
 | `CLERK_SECRET_KEY` | Clerk server |
 | `CLERK_DEV_ORIGINS` | Istege bagli, yalniz yerel: Clerk oturumunun kabul edildigi yerel koken(ler), virgulle ayrilmis; verilmezse `http://localhost:3000`. Vercel Production/Preview'da okunmaz (`lib/auth/trustedOrigins.ts`) |
+| `SUPABASE_DB_URL`, `BACKUP_PASSPHRASE`, `BACKUP_DIR` | Yalniz yerel `.env.local`: `npm run backup:supabase` (Session pooler baglanti dizesi, arsiv parolasi, repo disi yedek klasoru). Vercel'e eklenmez, degerleri yazdirilmaz (`SUPABASE_SECURITY_RUNBOOK.md` bolum 7) |
 
 Supabase env eksikse university API ve Supabase dogrulama scriptleri hata verir. Ornek dosya `.env.example`; Clerk anahtar kurallari (live/test, Preview) README'dedir. Test edilmis Node surumu: 24.13.0 (2026-09-25; `package.json` `engines.node` = `24.x`, Vercel ile ayni ana surum; eski plan belgelerindeki farkli Node sartlarina bakarak surum cikarma). Guard scriptleri Node 20'de de calisir.
 
@@ -781,6 +782,8 @@ Ek dogrulama:
 ```bash
 node scripts/check-universities-server-compose.mjs
 ```
+
+Yedek (canli okuma + repo disina sifreli arsiv yazma; 2026-09-25): `npm run backup:supabase -- --dry-run`, `-- --run`, `-- --verify`, `-- --drill`. Canliya yazan her `--apply`/silme/migration oncesi ve haftada bir calisir; egress harcar. Ayrinti ve prova kaydi `SUPABASE_SECURITY_RUNBOOK.md` bolum 7.
 
 Dogrulama olmayan legacy arac: `npm run clean:med` kok dizinde `med` dosyasi bekler (repoda yok) ve dosya uretir; kontrol komutu degildir.
 

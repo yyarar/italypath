@@ -1,6 +1,6 @@
 # ItalyPath — Açık İşler ve Son Durum
 
-Tarih: 2026-09-25 · Doğrulandığı commit: `771b995` · 2026-09-25: servis planları/kullanım (#1, #18, #21, #40-42) eklendi, kaynak `docs/USAGE_LIMITS.md`
+Tarih: 2026-09-25 · Doğrulandığı commit: `771b995` · 2026-09-25: servis planları/kullanım (#1, #18, #21, #40-42) eklendi, kaynak `docs/USAGE_LIMITS.md` · 2026-09-25: Supabase yedek ve geri yükleme yolu (G2#2) kapandı, #43-45 eklendi
 
 Bu dosya projenin **tek** açık iş listesidir (`docs/CONTEXT_AUDIT_2026-09-19.md` önerisi). Her değişiklikte tarihi ve kanıtı güncelle; biten işi "Kapananlar"a taşı. Mimari `AGENT_CONTEXT.md`'de, tarihsel ölçümler `SEO_AUDIT.md`'de, tasarım/plan durumları `docs/superpowers/INDEX.md`'de tutulur.
 
@@ -81,6 +81,9 @@ Sütunlar: **Kanıt / kaynak** = repo dosyası, commit, kayıt bölümü veya ca
 | 31 | `check:docs` (belge yol/npm script referans guard'ı) önerisi. `engines` Node pinlemesi 2026-09-25'te dalda yapıldı (`24.x`, güvenlik kartı 1; yayın bekliyor) | audit; `package.json` | Kerem |
 | 32 | `SUPABASE_SECURITY_RUNBOOK.md`: kapsam, SQL bağımlılıkları (view, SAT, expert_leads) ve son doğrulama tarihi eklenmeli | audit dosya tablosu | Sıralama |
 | 33 | Burs sayfası ve ana sayfa CTA'sındaki doğrulama tarihi notu `lib/translations.ts` içinde sabit metin (24 Eylül 2026 / 9 Mart 2026); bir sonraki veri güncellemesinde yine bayatlar. Aday: tarihleri `SCHOLARSHIP_REGIONS` kayıtlarındaki `lastVerifiedAt` değerlerinden türetmek | 0d01455 | Sıralama |
+| 43 | Yedek arşivinin bilgisayar dışı kopyası: ilk arşiv (25 Eylül, 7,7 MB) yalnız bu Mac'te, `~/Desktop/ItalyPath-Yedek`. Kerem harici diske veya buluta taşıyacak (arşiv şifreli). Kural: haftada bir ve canlıya yazan her işten önce `npm run backup:supabase -- --run` + `--verify`. Arşiv kişisel veri içerir; eski arşivlerin saklama süresi (ör. son 8 hafta) belirlenmedi | `SUPABASE_SECURITY_RUNBOOK.md` bölüm 7, `docs/USAGE_LIMITS.md` kontrol takvimi | Kerem: yer + saklama süresi |
+| 44 | Git dışı araştırma dosyalarının yedeği yok: `tmp/` ~358 MB (SAT bankası 356 MB: açıklama görselleri 249 MB, soru görselleri 55 MB, onarım 46 MB; `tmp/uni-research/db-snapshots` işlem öncesi JSON'lar), `*-admission-requirements/` ve benzeri 16 klasör (~6 MB), izlenmeyen `dosyasiz-108-program-research/` (1,7 MB) ve `burs-8-bolge-2026-27-research/` (0,4 MB). Öneri: repo dışında özel bir klasöre (ör. bulut `ItalyPath-Arastirma/`) haftalık kopya; SAT görselleri yeniden üretilebiliyorsa yalnız JSON/md (~10 MB) yeter. #25 ve #26 ile birlikte karar | `git status --ignored`, `du` (2026-09-25) | Kerem |
+| 45 | Vercel `italypath` projesinde Supabase entegrasyonunun otomatik eklediği `POSTGRES_URL`, `POSTGRES_URL_NON_POOLING`, `POSTGRES_PRISMA_URL`, `POSTGRES_PASSWORD` vb. değişkenler var. 25 Eylül'de veritabanı parolası yedek için sıfırlandı; bu değişkenler büyük olasılıkla eski parolayı taşıyor (doğrulanmadı). Site kodu bunları kullanmıyor (`POSTGRES_` yalnız `POSTGRES_BIN` olarak test betiğinde). Seçenek: sil ya da entegrasyondan yenile | `vercel env ls production --project italypath` (yalnız adlar), `git grep POSTGRES_` | Kerem |
 
 ### F. Gönüllü masa (güvenlik denetimi 2026-09-25)
 
@@ -95,6 +98,8 @@ Denetim: canlı RLS/yetki/fonksiyon okuması, herkese açık anahtarla erişim d
 | 39 | Öğrenci mesaj kanalı adı görüşme değişiminde tekrar kullanılıyor; çok hızlı A → kapalı → A geçişinde canlı bağlantı "bağlanıyor"da kalabilir (kod okumasıyla, denenmedi; operatör kancası bunu dönem ekiyle önlüyor) | `lib/mentor/useVolunteerDesk.ts` mesaj kanalı | Doğrulama |
 
 ## Kapananlar (son 7 gün)
+
+- 2026-09-25: Supabase yedek ve geri yükleme yolu kuruldu (güvenlik denetimi G2#2): `npm run backup:supabase` (`--dry-run`, `--run`, `--verify`, `--drill`). Kapsam: `public` şeması (kullanıcı tabloları dahil), `documents` ve `sat-figures` dosyaları, gpg ile şifreli arşiv, repo dışında. İlk yedek (7,7 MB) alındı ve yerel PostgreSQL 17'de geri yükleme provası yapıldı: TUTTU (tablo 15/15, 3.168 satır; nesne türü 15/15; dosya 265/265). Kural `DATA_ENTRY_GUIDE.md` ve `docs/USAGE_LIMITS.md`'de; ayrıntı `SUPABASE_SECURITY_RUNBOOK.md` bölüm 7. #30 ve #32 kısmen karşılandı (yedek kuralı ve runbook yedek bölümü).
 
 - 2026-09-25: Gönüllü masa ve operatör paneli sonsuz "hazırlanıyor" beklemesine karşı 15 saniyelik süre sınırına bağlandı (Clerk anahtarı + Supabase isteği); süre dolunca mevcut "yüklenemedi / tekrar dene" ekranı açılır. Öğrenci formları sınır hatalarını ayrı mesajla gösterir. Tetikleyen: 24 Eylül Safari'de tek seferlik takılma (Kerem onayıyla canlıya alındı).
 - 2026-09-25: Öğrenci başına 10 dakikada 20 mesaj ve 24 saatte 5 yeni görüşme sınırı canlı veritabanına uygulandı (migration `volunteer_mentor_student_rate_limit`, Kerem onayı). Canlıda geri alınan denemeyle doğrulandı: 20 mesaj kabul, 21. `message_rate_limited`; yetkiler değişmedi.

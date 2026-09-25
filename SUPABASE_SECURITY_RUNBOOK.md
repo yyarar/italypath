@@ -149,3 +149,84 @@ endpoint'i kullanır. Kurulumu yalnızca production deploy yetkisi olan kişi ya
 6. Manuel test sonunda test lead kaydını `/ekip/uzman` panelinden sil.
 
 `supabase/expert_leads.sql` kurulmamışsa public endpoint kontrollü `503` döner; RLS'yi gevşetmek veya service-role key'i client'a vermek kabul edilebilir bir fallback değildir.
+
+## 7) Yedek ve geri yükleme
+
+Durum: AKTIF REFERANS · Kuruluş: 2026-09-25 (güvenlik denetimi G2#2) · Kanıt: `scripts/backup-supabase.mjs`, aşağıdaki prova kaydı.
+
+Supabase Free planında otomatik yedek (PITR) yoktur. Veritabanı veya belge deposu bozulur, yanlış bir `--apply`/silme olur ya da proje kısıtlanırsa geri dönüş yolu bu bölümdür.
+
+### Ne yedeklenir, ne yedeklenmez
+
+| Yedeklenir | Yedeklenmez (yeni projede panelden veya repodan kurulur) |
+| --- | --- |
+| `public` şemasının tamamı: 15 tablo ve verileri (kullanıcı tabloları dahil: `favorites`, `user_documents`, `user_profiles`, `mentor_*`, `expert_leads`, `sat_attempts`), `program_degree_class_codes` view'i, fonksiyonlar, trigger'lar, RLS politikaları, tablo/fonksiyon yetkileri, varsayılan yetkiler | `auth` şeması (giriş Clerk'te; 2026-09-25'te 1 eski kayıt), `vault` (boş), `supabase_migrations` geçmişi, `extensions` |
+| Storage `documents` (öğrenci belgeleri) ve `sat-figures` (SAT şekilleri) dosyaları | Panel ayarları: Third-Party Auth (Clerk, bölüm 2), API anahtarları, Data API ayarları |
+| `manifest.json`: tablo satır ve nesne sayıları (dump ile aynı snapshot), dosya sha256 özetleri, bucket ayarları, Storage politikalarının metni, Realtime yayınındaki tablolar | Vercel ortam değişkenleri |
+
+`pg_dump --schema=public` Realtime yayın üyeliğini içermez; bu yüzden liste manifest'e yazılır ve geri yüklemede yeniden kurulur (prova bunu 2026-09-25'te yakaladı).
+
+Arşiv: `italypath-supabase-<UTC zaman>.tar.gpg`. İçinde `manifest.json`, `db/public.dump` (pg_dump custom format) ve `storage/<bucket>/<yol>`. Şifreleme gpg simetrik AES256 (RFC 4880, bütünlük kontrollü); parola `BACKUP_PASSPHRASE`. Arşiv kişisel veri içerir: parolasız paylaşılmaz, repoya girmez (betik repo içi klasörü reddeder, `.gitignore` `*.tar.gpg` ve `*.dump` dosyalarını dışlar).
+
+### Bir kez kurulum
+
+1. PostgreSQL araçları sunucu sürümünden eski olamaz. Supabase 17 kullanıyor: `brew install postgresql@17` (2026-09-25'te 17.11 kuruldu; 16 yerinde kaldı). Homebrew'un 17.11 paketi, 16 bağlıyken paylaşım ve kütüphane klasörlerini bağlamıyor. Bu yüzden iki kısayol eklendi: `/opt/homebrew/share/postgresql@17` → `../opt/postgresql@17/share/postgresql` ve `/opt/homebrew/lib/postgresql@17` → `../opt/postgresql@17/lib/postgresql`. Bunlar olmadan `initdb` "postgres.bki does not exist" hatası verir.
+2. gpg: bu Mac'te 2.5.20 kurulu (`brew install gnupg`).
+3. `.env.local` içine üç değer girer (değerler asla yazdırılmaz; betik bağlantıyı `PG*` ortam değişkenleriyle, parolayı gpg'ye ayrı kanaldan verir):
+   - `SUPABASE_DB_URL`: Dashboard → Connect → **Session pooler** (port 5432). Doğrudan bağlantı yalnız IPv6'dır; transaction pooler (6543) reddedilir.
+   - `BACKUP_PASSPHRASE`: en az 16 karakter. Kerem şifre yöneticisinde de tutar. **Parola kaybolursa yedek açılamaz.**
+   - `BACKUP_DIR`: repo dışında bir klasör. 2026-09-25: `~/Desktop/ItalyPath-Yedek`. Kerem arşivleri daha sonra bilgisayar dışında bir yere (harici disk veya bulut) kopyalayacak. Betik hedef bu bilgisayardaysa uyarı verir.
+
+### Ne zaman
+
+- Haftada bir (`docs/USAGE_LIMITS.md` kontrol takvimi).
+- Canlı veriye yazan her işten önce: `import-*` betiklerinin `--apply` koşusu, SQL ile güncelleme/silme, migration. Yedek alınıp `--verify` geçmeden bu işler başlamaz.
+- Her tam yedek Supabase egress harcar (2026-09-25 ölçümü aşağıdaki kayıtta). Günde birden fazla çalıştırma.
+
+### Komutlar
+
+1. `npm run backup:supabase -- --dry-run`: canlıdan yalnız sayım okur. Ne yedekleneceğini, tahmini boyutu ve hazırlık eksiklerini yazar. Dosya yazmaz.
+2. `npm run backup:supabase -- --run`: şifreli arşivi oluşturur, ardından hemen açıp dump özetini kontrol eder.
+3. `npm run backup:supabase -- --verify [arşiv]`: arşivi geçici klasöre açar. Parola, gpg bütünlüğü, dump ve dosya sha256 özetleri ve dump içerik listesini kontrol eder. Canlıya bağlanmaz.
+4. `npm run backup:supabase -- --drill [arşiv]`: geri yükleme provası (aşağıda). Canlıya bağlanmaz.
+
+`[arşiv]` verilmezse `BACKUP_DIR` içindeki en yeni arşiv kullanılır.
+
+### Geri yükleme provası (`--drill`)
+
+1. Arşivi geçici klasöre açar ve `--verify` kontrollerini yapar.
+2. Geçici bir PostgreSQL kümesi kurar (`initdb --no-locale`, `LC_ALL=C`). Küme yalnız bu kullanıcıya açık bir unix soketinde dinler, TCP portu açmaz.
+3. Supabase'in hazır kurduğu parçaların taslaklarını ekler: `anon`, `authenticated`, `service_role`, `authenticator`, `supabase_admin` rolleri, `auth.jwt()`/`auth.uid()`/`auth.role()`, `extensions` şeması (pgcrypto, uuid-ossp) ve `supabase_realtime` yayını.
+4. `pg_restore --single-transaction --exit-on-error` çalıştırır. İçerik listesinden yalnız `SCHEMA - public` satırı çıkarılır (hedefte şema zaten vardır).
+5. Manifest'teki Realtime tablolarını yayına ekler.
+6. Karşılaştırma: her tablonun satır sayısı ve 15 nesne türü yedek anıyla eşleşmelidir (tablo, view, materialized view, sequence, indeks, kısıt, fonksiyon, trigger, politika, RLS açık tablo, tip, tablo yetkisi, fonksiyon yetkisi, varsayılan yetki, Realtime tablosu). Storage dosyalarının sha256 özetleri de eşleşmelidir. Tek bir eşleşmeme varsa sonuç "TUTMADI" olur ve çıkış kodu 1'dir.
+7. Kümeyi durdurur, açılan dosyaları siler.
+
+### Prova kaydı
+
+| Tarih | Arşiv | Sonuç | Not |
+| --- | --- | --- | --- |
+| 2026-09-25 | `italypath-supabase-20260925T211128Z.tar.gpg`: 7,7 MB (dump 3,3 MB + 265 dosya 4,5 MB), yedek süresi ~1,5 dk | **TUTTU**: tablo 15/15 (3.168 satır), nesne türü 15/15 (15 tablo, 1 view, 38 indeks, 62 kısıt, 9 fonksiyon, 6 trigger, 22 politika, 389 tablo yetkisi, 35 fonksiyon yetkisi, 6 varsayılan yetki, 2 Realtime tablosu), dosya 265/265 sha256 | Kaynak Supabase 17.6, prova yerel PostgreSQL 17.11. Sayımlar ve dump aynı snapshot'tan alındı (Session pooler snapshot paylaşımına izin verdi). Egress üst sınırı ~16,6 MB. Aynı gün sahte veriyle yapılan ön prova, Realtime üyeliğinin dump'ta olmadığını yakaladı ve düzeltildi. Gerçek bir Supabase projesine geri yükleme denenmedi. |
+
+### Acil durumda gerçek geri yükleme
+
+Bu adımlar canlıya yazar. Her adım yalnız Kerem'in açık onayıyla yapılır. 2026-09-25 itibarıyla gerçek bir Supabase projesine karşı denenmedi; yukarıdaki prova yerel Postgres'te süper kullanıcıyla yapıldı.
+
+**A) Yeni, boş bir Supabase projesine tam geri yükleme (proje kaybı):**
+
+1. Aynı bölgede (eu-central-2) Postgres 17 ile yeni proje aç. Bölüm 2'deki Clerk Third-Party Auth ayarını yap.
+2. Arşivi aç. Repo gerekmez, gpg ve tar yeterlidir: `gpg --decrypt <arşiv> | tar -xf - -C <boş klasör>`. gpg parolayı sorar.
+3. İçerik listesini hazırla. İki tür satır çıkarılır: `SCHEMA - public` (yeni projede şema hazır gelir) ve `DEFAULT ACL ... supabase_admin` ile biten 3 satır. Supabase'de `postgres` rolü `supabase_admin` adına varsayılan yetki değiştiremez; yeni projede bu yetkiler zaten aynıdır. Komut: `pg_restore --list db/public.dump | grep -v -E ' SCHEMA - public | DEFAULT ACL .* supabase_admin$' > restore.list`
+4. Geri yükle: `pg_restore --dbname=postgres --single-transaction --exit-on-error --use-list=restore.list db/public.dump`. Bağlantıyı komut satırına parola yazarak değil, yeni projenin Session pooler bilgileriyle `PGHOST`/`PGPORT`/`PGUSER`/`PGPASSWORD`/`PGSSLMODE=require` ortam değişkenleriyle ver. Hata olursa tek transaction olduğu için hiçbir şey yazılmaz; hatayı oku, listeyi düzelt, yeniden dene.
+5. Realtime'ı yeniden kur: `alter publication supabase_realtime add table public.mentor_conversations, public.mentor_messages;` Tablo listesi `manifest.json` → `database.realtime_tables` alanındadır.
+6. Storage'ı kur:
+   - Bucket'ları `manifest.json` → `storage.buckets` ayarlarıyla oluştur. 2026-09-25 ayarları: `documents` private, 20 MB sınır, pdf/jpeg/png/webp/heic/heif; `sat-figures` public.
+   - `documents` politikaları için `supabase/rls_hardening.sql` Storage bölümünü uygula. Sonucu manifest'teki 4 politikayla karşılaştır (`documents_select/insert/update/delete_own_objects`).
+   - Dosyaları service-role ile `storage/<bucket>/<yol>` altındaki aynı yola yükle. `user_documents.storage_path` bu yollara bakar.
+7. Vercel'de `NEXT_PUBLIC_SUPABASE_URL`, anon/publishable ve service-role anahtarlarını yeni projeye çevir. Ardından `npm run check:data` ve bölüm 5'teki doğrulama testini yap.
+
+**B) Mevcut projede kısmi kurtarma (örneğin yanlış bir `--apply` sonrası birkaç satır):**
+
+1. Önce bugünkü durumun yedeğini al (`--run`), `--verify` ile kontrol et.
+2. Eski satırları yedekten SQL dosyasına çıkar. Canlıya dokunmaz: `pg_restore --data-only --table=<tablo> --file=<tablo>.sql db/public.dump`
+3. Yalnız gereken satırlar için düzeltme SQL'i hazırla ve canlıyla karşılaştır. Kerem onayıyla uygula.
