@@ -174,6 +174,12 @@ select has_table_privilege('anon', 'realtime.messages', 'insert') as anon_insert
 5. Üç tarayıcının geliştirici konsolunda Realtime yetki hatası (`Unauthorized`, `CHANNEL_ERROR`) yoktur.
 6. Test görüşmelerini kapat.
 
+Kayıt:
+
+| Tarih | Adım | Sonuç |
+| --- | --- | --- |
+| 2026-09-25 22:04 UTC | 2. adım: migration `volunteer_mentor_private_realtime` (Kerem onayı; önce 21:11 UTC yedeği `--verify` ile doğrulandı) | İki SELECT politikası canlıda. Anon `insert`/`update` yetkisi `true` kaldı (Supabase'e ait). Geri alınan canlı denemede gerçek 2 öğrenci + operatör kimliğiyle 10/10 giriş kararı doğru; öğrenci ve anon yazma 42501 ile reddedildi; deneme satırı kalmadı. Canlıdaki herkese açık kanallar etkilenmedi. |
+
 ## Expert Lead Desk
 
 Bu masa gönüllü görüşmelerinden ayrı bir `expert_leads` tablosu ve public form
