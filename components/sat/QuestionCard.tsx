@@ -102,6 +102,7 @@ export default function QuestionCard({ question, onAnswered, onNext, isLast }: Q
           <input
             type="text"
             inputMode="decimal"
+            maxLength={32}
             value={sprInput}
             disabled={answered}
             onChange={(event) => setSprInput(event.target.value)}

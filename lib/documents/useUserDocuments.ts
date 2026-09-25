@@ -8,6 +8,7 @@ import {
   resolveCategoryKey,
   type DocumentCategoryKey,
 } from "@/lib/documents/categories";
+import { documentExtensionFor, documentRecordName } from "@/lib/documents/limits";
 import type { UserDocument } from "@/types";
 
 const SIGNED_URL_EXPIRES_IN_SECONDS = 60 * 10;
@@ -87,8 +88,9 @@ export function useUserDocuments(): UseUserDocuments {
   const upload = useCallback(
     async (file: File, category: DocumentCategoryKey) => {
       if (!user?.id) return;
+      const ext = documentExtensionFor(file.type);
+      if (!ext) throw new Error("unsupported_document_type");
       setUploading(true);
-      const ext = file.name.split(".").pop();
       const filePath = `${user.id}/${Date.now()}.${ext}`;
       let inStorage = false;
       let rowCreated = false;
@@ -100,7 +102,7 @@ export function useUserDocuments(): UseUserDocuments {
         inStorage = true;
         const { error: dbError } = await supabase.from("user_documents").insert({
           user_id: user.id,
-          file_name: file.name,
+          file_name: documentRecordName(file.name),
           file_url: filePath,
           storage_path: filePath,
           category,

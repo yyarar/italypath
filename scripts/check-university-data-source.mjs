@@ -321,6 +321,53 @@ if (!proxySource.includes("resolveUniversityPath(") || universityPathCall === -1
   }
 }
 
+// Catalog grants (security audit card 4, 2026-09-26): the catalog is read
+// only on the server with the secret key, so the SQL artifacts must keep the
+// client roles closed. A grant or public read policy here would reopen it.
+{
+  const privilegesSql = read("supabase/data_api_privileges.sql");
+  for (const relation of [
+    "universities",
+    "university_departments",
+    "program_admission_details",
+    "program_degree_class_codes",
+  ]) {
+    if (!privilegesSql.includes(`revoke all on table public.${relation} from public, anon, authenticated;`)) {
+      fail(`supabase/data_api_privileges.sql must revoke all on public.${relation} from anon and authenticated`);
+    }
+  }
+  for (const policy of [
+    "universities_public_read",
+    "university_departments_public_read",
+    "program_admission_details_public_read",
+  ]) {
+    if (!privilegesSql.includes(`drop policy if exists ${policy}`)) {
+      fail(`supabase/data_api_privileges.sql must drop the ${policy} policy`);
+    }
+  }
+  for (const statement of [
+    "alter default privileges for role postgres in schema public\n  revoke all on tables from anon, authenticated;",
+    "alter default privileges for role postgres in schema public\n  revoke all on sequences from anon, authenticated;",
+  ]) {
+    if (!privilegesSql.includes(statement)) {
+      fail(`supabase/data_api_privileges.sql must keep new public tables closed: ${statement.split("\n")[1].trim()}`);
+    }
+  }
+  for (const path of [
+    "supabase/program_admission_details.sql",
+    "supabase/program_degree_class_codes.sql",
+    "supabase/data_api_privileges.sql",
+  ]) {
+    const sql = read(path);
+    if (/grant\s+[^;]*\bto\s+[^;]*\b(anon|authenticated)\b/i.test(sql)) {
+      fail(`${path} must not grant catalog access to anon or authenticated`);
+    }
+    if (/create\s+policy[^;]*\bto\s+[^;]*\b(anon|authenticated)\b/i.test(sql)) {
+      fail(`${path} must not create a client read policy on the catalog`);
+    }
+  }
+}
+
 if (failures.length > 0) {
   console.error("[FAIL] University data source check failed.");
   for (const failure of failures) {
