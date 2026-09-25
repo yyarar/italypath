@@ -166,7 +166,7 @@ EN:
 
 ## 6. Silmeyi uygulayan mekanizmalar
 
-- Hesap silme: Clerk `user.deleted` olayı imzası doğrulanan `/api/webhooks/clerk` adresine gelir; kullanıcının `documents` klasöründeki dosyalar ve `user_documents`, `favorites`, `user_profiles`, `sat_attempts`, `mentor_conversations` satırları silinir (görüşme mesajları görüşmeyle birlikte). Canlıya geçmesi için Kerem'in adımları `docs/STATUS.md` #55'te.
+- Hesap silme: Clerk `user.deleted` olayı imzası doğrulanan `/api/webhooks/clerk` adresine gelir; kullanıcının `documents` klasöründeki dosyalar ve `user_documents`, `favorites`, `user_profiles`, `sat_attempts`, `mentor_conversations` satırları silinir (görüşme mesajları görüşmeyle birlikte). Canlıya geçmesi için Kerem'in adımları `docs/STATUS.md` #59'da.
 - Ön görüşme saklama: `npm run cleanup:expert-leads` ayda bir kuru çalıştırılır, Kerem onayıyla `-- --apply`. Kurallar `scripts/expert-lead-retention.mjs`.
 
 ## 7. Hukukçuya açık sorular

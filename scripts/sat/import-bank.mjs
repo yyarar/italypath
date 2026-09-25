@@ -82,7 +82,12 @@ const newIds = new Set(newRows.map((r) => r.id));
 const figures = bank.filter((q) => q.figure_path && newIds.has(q.id));
 const { data: buckets } = await supabase.storage.listBuckets();
 if (!buckets?.some((b) => b.name === "sat-figures")) {
-  const { error } = await supabase.storage.createBucket("sat-figures", { public: true });
+  // Ayni ayar supabase/sat_bank.sql icinde: 512 KB, yalniz WebP.
+  const { error } = await supabase.storage.createBucket("sat-figures", {
+    public: true,
+    fileSizeLimit: 524288,
+    allowedMimeTypes: ["image/webp"],
+  });
   if (error) { console.error("Bucket olusturulamadi:", error.message); process.exit(1); }
 }
 let uploaded = 0;

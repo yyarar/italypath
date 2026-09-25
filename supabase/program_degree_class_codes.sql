@@ -7,8 +7,9 @@
 -- kisa kodlari dondurur (~4 KB gz). Uygulama kodlari lib/universities.server.ts icinde
 -- extractDegreeClassCodes ile normalize eder (tek normalizasyon kaynagi JS; 900/900 esit dogrulandi).
 --
--- Guvenlik: security_invoker = true -> program_admission_details tablosunun RLS okuma politikasi
--- aynen gecerli. Yazma yetkisi yok; anon/authenticated yalnizca SELECT.
+-- Guvenlik: security_invoker = true -> program_admission_details tablosunun yetki ve RLS kurallari
+-- aynen gecerli. 2026-09-26'dan beri (guvenlik denetimi kart 4) yalnizca sunucu okur: service_role
+-- SELECT; anon/authenticated hic yetki tasimaz.
 -- Geri alma: drop view if exists public.program_degree_class_codes;
 
 create or replace view public.program_degree_class_codes
@@ -36,4 +37,4 @@ comment on view public.program_degree_class_codes is
   'Program basina resmi bolum sinifi kodlari (bosluk ayrimli, ham). Uygulama extractDegreeClassCodes ile normalize eder. Salt okunur.';
 
 revoke all on public.program_degree_class_codes from public, anon, authenticated;
-grant select on public.program_degree_class_codes to anon, authenticated;
+grant select on public.program_degree_class_codes to service_role;

@@ -51,6 +51,47 @@ if (!existsSync(catFile)) {
   }
 }
 
+// Upload limits (security audit card 4, 2026-09-26): the app's rules in
+// lib/documents/limits.ts must match the documents bucket and user_documents
+// rules in supabase/rls_hardening.sql, or uploads fail with a generic error.
+const limitsFile = "lib/documents/limits.ts";
+const hardeningFile = "supabase/rls_hardening.sql";
+if (!existsSync(limitsFile) || !existsSync(hardeningFile)) {
+  failures.push(`missing file: ${limitsFile} or ${hardeningFile}`);
+} else {
+  const limits = readFileSync(limitsFile, "utf8");
+  const hardening = readFileSync(hardeningFile, "utf8");
+  if (!limits.includes("MAX_DOCUMENT_BYTES = 5 * 1024 * 1024")) {
+    failures.push("limits.ts: MAX_DOCUMENT_BYTES must be 5 MB");
+  }
+  if (!hardening.includes("5242880,")) {
+    failures.push("rls_hardening.sql: documents bucket file_size_limit must be 5242880 (5 MB)");
+  }
+  const appMimes = [...limits.matchAll(/\["([a-z]+\/[a-z-]+)", "[a-z]+"\]/g)].map((m) => m[1]);
+  const bucketMimes = hardening.match(/array\[('application\/pdf'[^\]]*)\]/);
+  const sqlMimes = bucketMimes ? [...bucketMimes[1].matchAll(/'([^']+)'/g)].map((m) => m[1]) : [];
+  if (appMimes.length === 0 || appMimes.join(",") !== sqlMimes.join(",")) {
+    failures.push(`MIME list differs: limits.ts [${appMimes}] vs rls_hardening.sql [${sqlMimes}]`);
+  }
+  if (!limits.includes("MAX_DOCUMENT_FILE_NAME_LENGTH = 255") || !hardening.includes("char_length(file_name) between 1 and 255")) {
+    failures.push("file name limit must be 255 in limits.ts and rls_hardening.sql");
+  }
+  if (!hardening.includes("if v_count >= 30 then") || !hardening.includes(") < 30")) {
+    failures.push("rls_hardening.sql: 30-document cap missing from the table trigger or the storage insert policy");
+  }
+  const page = readFileSync("app/documents/page.tsx", "utf8");
+  if (!page.includes("MAX_DOCUMENT_BYTES") || !page.includes("documentExtensionFor(file.type)")) {
+    failures.push("app/documents/page.tsx must check size and type with lib/documents/limits.ts");
+  }
+  const hook = readFileSync("lib/documents/useUserDocuments.ts", "utf8");
+  if (hook.includes("file.name.split") || !hook.includes("documentExtensionFor(file.type)")) {
+    failures.push("useUserDocuments.ts must take the extension from the MIME allowlist, not the file name");
+  }
+  if (!hook.includes("documentRecordName(file.name)")) {
+    failures.push("useUserDocuments.ts must bound file_name with documentRecordName");
+  }
+}
+
 if (failures.length) {
   console.error("check:documents-ui FAILED");
   for (const f of failures) console.error(" - " + f);

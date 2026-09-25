@@ -6,13 +6,12 @@ import { Loader2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useUserDocuments } from "@/lib/documents/useUserDocuments";
 import { type DocumentCategoryKey } from "@/lib/documents/categories";
+import { MAX_DOCUMENT_BYTES, documentExtensionFor } from "@/lib/documents/limits";
 import DocumentsHeader from "@/components/documents/DocumentsHeader";
 import UploadDock from "@/components/documents/UploadDock";
 import CategoryPickerSheet from "@/components/documents/CategoryPickerSheet";
 import CategoryGroup from "@/components/documents/CategoryGroup";
 import DocumentsEmptyState from "@/components/documents/DocumentsEmptyState";
-
-const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
 export default function DocumentsPage() {
   const { t } = useLanguage();
@@ -24,11 +23,11 @@ export default function DocumentsPage() {
 
   const handleFileSelected = (file: File) => {
     setError(null);
-    if (file.size > MAX_FILE_SIZE) {
+    if (file.size > MAX_DOCUMENT_BYTES) {
       setError(t.documents.errors.size);
       return;
     }
-    if (!file.type.startsWith("image/") && file.type !== "application/pdf") {
+    if (!documentExtensionFor(file.type)) {
       setError(t.documents.errors.type);
       return;
     }
