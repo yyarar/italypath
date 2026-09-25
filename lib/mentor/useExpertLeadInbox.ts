@@ -5,9 +5,14 @@ import { useUser } from "@clerk/nextjs";
 
 import type { ExpertLeadStatus } from "@/lib/mentor/expertLeads";
 import {
+  DEFAULT_EXPERT_LEAD_FILTER,
+  EXPERT_LEAD_PAGE_SIZE,
+  appendExpertLeads,
+  expertLeadCursorFilter,
   removeExpertLead,
   replaceExpertLead,
   resolveExpertLeadSelection,
+  splitExpertLeadPage,
   transitionExpertLeadIdentity,
   type ExpertLeadFilter,
   type ExpertLeadIdentityState,
@@ -21,6 +26,7 @@ const EXPERT_LEAD_COLUMNS =
 type ExpertLeadInboxError =
   | "access_check_failed"
   | "load_failed"
+  | "load_more_failed"
   | "status_failed"
   | "note_failed"
   | "delete_failed"
@@ -32,7 +38,10 @@ export interface UseExpertLeadInboxResult {
   selectedLead: ExpertLeadRow | null;
   filter: ExpertLeadFilter;
   newCount: number;
+  suspectedCount: number;
+  hasMore: boolean;
   loading: boolean;
+  loadingMore: boolean;
   savingStatus: boolean;
   savingNote: boolean;
   deleting: boolean;
@@ -40,6 +49,7 @@ export interface UseExpertLeadInboxResult {
   setFilter: (filter: ExpertLeadFilter) => void;
   selectLead: (id: string | null) => void;
   reload: () => Promise<void>;
+  loadMore: () => Promise<void>;
   updateStatus: (status: ExpertLeadStatus) => Promise<void>;
   saveNote: (note: string) => Promise<void>;
   deleteLead: () => Promise<void>;
@@ -63,24 +73,36 @@ export function useExpertLeadInbox(): UseExpertLeadInboxResult {
   });
   const leadsRef = useRef<ExpertLeadRow[]>([]);
   const selectedIdRef = useRef<string | null>(null);
-  const filterRef = useRef<ExpertLeadFilter>("all");
+  const filterRef = useRef<ExpertLeadFilter>(DEFAULT_EXPERT_LEAD_FILTER);
+  const listRequestRef = useRef(0);
 
   const [authorized, setAuthorized] = useState<boolean | null>(null);
   const [stateOwnerId, setStateOwnerId] = useState<string | null>(null);
   const [leads, setLeads] = useState<ExpertLeadRow[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [filter, setFilterState] = useState<ExpertLeadFilter>("all");
+  const [filter, setFilterState] = useState<ExpertLeadFilter>(
+    DEFAULT_EXPERT_LEAD_FILTER,
+  );
+  const [newCount, setNewCount] = useState(0);
+  const [suspectedCount, setSuspectedCount] = useState(0);
+  const [hasMore, setHasMore] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [savingStatus, setSavingStatus] = useState(false);
   const [savingNote, setSavingNote] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [error, setError] = useState<ExpertLeadInboxError>(null);
 
   const purgeExpertLeadState = useCallback(() => {
+    listRequestRef.current += 1;
     leadsRef.current = [];
     selectedIdRef.current = null;
     setLeads([]);
     setSelectedId(null);
+    setNewCount(0);
+    setSuspectedCount(0);
+    setHasMore(false);
+    setLoadingMore(false);
     setSavingStatus(false);
     setSavingNote(false);
     setDeleting(false);
@@ -111,6 +133,49 @@ export function useExpertLeadInbox(): UseExpertLeadInboxResult {
     selectedIdRef.current = nextSelectedId;
     setSelectedId(nextSelectedId);
   }, []);
+
+  // Loads the first page for `listFilter` and the badge counts. A newer list
+  // request (filter change, reload, identity change) makes this one stale.
+  const loadFirstPage = useCallback(
+    async (scope: ExpertLeadRequestScope, listFilter: ExpertLeadFilter) => {
+      const requestId = ++listRequestRef.current;
+      setLoadingMore(false);
+      const [pageResult, newResult, suspectedResult] = await Promise.all([
+        fetchLeadPage(supabase, listFilter, null),
+        countLeads(supabase, "new"),
+        countLeads(supabase, "suspected"),
+      ]);
+      if (!isScopeCurrent(scope) || requestId !== listRequestRef.current) return;
+
+      if (pageResult.error || newResult.error || suspectedResult.error) {
+        purgeExpertLeadState();
+        setError("load_failed");
+        setLoading(false);
+        return;
+      }
+
+      const page = splitExpertLeadPage(pageResult.data ?? []);
+      setHasMore(page.hasMore);
+      setNewCount(newResult.count ?? 0);
+      setSuspectedCount(suspectedResult.count ?? 0);
+      commitRows(page.rows);
+      setLoading(false);
+    },
+    [commitRows, isScopeCurrent, purgeExpertLeadState, supabase],
+  );
+
+  const refreshCounts = useCallback(
+    async (scope: ExpertLeadRequestScope) => {
+      const [newResult, suspectedResult] = await Promise.all([
+        countLeads(supabase, "new"),
+        countLeads(supabase, "suspected"),
+      ]);
+      if (!isScopeCurrent(scope)) return;
+      if (!newResult.error) setNewCount(newResult.count ?? 0);
+      if (!suspectedResult.error) setSuspectedCount(suspectedResult.count ?? 0);
+    },
+    [isScopeCurrent, supabase],
+  );
 
   const reload = useCallback(async () => {
     const scope = captureScope();
@@ -153,42 +218,57 @@ export function useExpertLeadInbox(): UseExpertLeadInboxResult {
 
     identityRef.current = { ...identityRef.current, authorized: true };
     setAuthorized(true);
-    const { data, error: loadError } = await supabase
-      .from("expert_leads")
-      .select(EXPERT_LEAD_COLUMNS)
-      .order("created_at", { ascending: false })
-      .returns<ExpertLeadRow[]>();
-    if (!isScopeCurrent(scope)) return;
-
-    if (loadError) {
-      purgeExpertLeadState();
-      setError("load_failed");
-      setLoading(false);
-      return;
-    }
-
-    commitRows(data ?? []);
-    setLoading(false);
+    await loadFirstPage(scope, filterRef.current);
   }, [
     captureScope,
-    commitRows,
     isScopeCurrent,
+    loadFirstPage,
     purgeExpertLeadState,
     resolvedUserId,
     supabase,
   ]);
 
-  const setFilter = useCallback((nextFilter: ExpertLeadFilter) => {
-    filterRef.current = nextFilter;
-    setFilterState(nextFilter);
-    const nextSelectedId = resolveExpertLeadSelection(
-      leadsRef.current,
-      selectedIdRef.current,
-      nextFilter,
+  const setFilter = useCallback(
+    (nextFilter: ExpertLeadFilter) => {
+      filterRef.current = nextFilter;
+      setFilterState(nextFilter);
+      const scope = captureScope();
+      if (!scope || identityRef.current.authorized !== true) return;
+      commitRows([]);
+      setHasMore(false);
+      setLoadingMore(false);
+      setLoading(true);
+      setError(null);
+      void loadFirstPage(scope, nextFilter);
+    },
+    [captureScope, commitRows, loadFirstPage],
+  );
+
+  const loadMore = useCallback(async () => {
+    const scope = captureScope();
+    const requestId = listRequestRef.current;
+    const filterAtRequest = filterRef.current;
+    const last = leadsRef.current.at(-1) ?? null;
+    if (!scope || !last || identityRef.current.authorized !== true) return;
+
+    setLoadingMore(true);
+    setError(null);
+    const { data, error: loadError } = await fetchLeadPage(
+      supabase,
+      filterAtRequest,
+      last,
     );
-    selectedIdRef.current = nextSelectedId;
-    setSelectedId(nextSelectedId);
-  }, []);
+    if (!isScopeCurrent(scope) || requestId !== listRequestRef.current) return;
+
+    setLoadingMore(false);
+    if (loadError) {
+      setError("load_more_failed");
+      return;
+    }
+    const page = splitExpertLeadPage(data ?? []);
+    setHasMore(page.hasMore);
+    commitRows(appendExpertLeads(leadsRef.current, page.rows));
+  }, [captureScope, commitRows, isScopeCurrent, supabase]);
 
   const selectLead = useCallback((id: string | null) => {
     const allowed = id
@@ -232,8 +312,17 @@ export function useExpertLeadInbox(): UseExpertLeadInboxResult {
 
       commitRows(replaceExpertLead(leadsRef.current, data));
       setSavingStatus(false);
+      void refreshCounts(scope);
     },
-    [accessReady, captureScope, commitRows, isScopeCurrent, selectedLead, supabase],
+    [
+      accessReady,
+      captureScope,
+      commitRows,
+      isScopeCurrent,
+      refreshCounts,
+      selectedLead,
+      supabase,
+    ],
   );
 
   const saveNote = useCallback(
@@ -290,7 +379,16 @@ export function useExpertLeadInbox(): UseExpertLeadInboxResult {
 
     commitRows(removeExpertLead(leadsRef.current, lead.id));
     setDeleting(false);
-  }, [accessReady, captureScope, commitRows, isScopeCurrent, selectedLead, supabase]);
+    void refreshCounts(scope);
+  }, [
+    accessReady,
+    captureScope,
+    commitRows,
+    isScopeCurrent,
+    refreshCounts,
+    selectedLead,
+    supabase,
+  ]);
 
   useLayoutEffect(() => {
     mountedRef.current = true;
@@ -337,8 +435,11 @@ export function useExpertLeadInbox(): UseExpertLeadInboxResult {
     leads: visibleLeads,
     selectedLead,
     filter,
-    newCount: visibleLeads.filter((lead) => lead.status === "new").length,
+    newCount: accessReady ? newCount : 0,
+    suspectedCount: accessReady ? suspectedCount : 0,
+    hasMore: accessReady && hasMore,
     loading,
+    loadingMore,
     savingStatus,
     savingNote,
     deleting,
@@ -346,8 +447,36 @@ export function useExpertLeadInbox(): UseExpertLeadInboxResult {
     setFilter,
     selectLead,
     reload,
+    loadMore,
     updateStatus,
     saveNote,
     deleteLead,
   };
+}
+
+type MentorSupabaseClient = ReturnType<typeof useMentorSupabaseClient>;
+
+// One page of the operator list, newest first, fetched with one extra row so
+// the caller knows whether a "show more" page exists.
+function fetchLeadPage(
+  supabase: MentorSupabaseClient,
+  filter: ExpertLeadFilter,
+  after: ExpertLeadRow | null,
+) {
+  let query = supabase.from("expert_leads").select(EXPERT_LEAD_COLUMNS);
+  query =
+    filter === "all" ? query.neq("status", "suspected") : query.eq("status", filter);
+  if (after) query = query.or(expertLeadCursorFilter(after));
+  return query
+    .order("created_at", { ascending: false })
+    .order("id", { ascending: false })
+    .limit(EXPERT_LEAD_PAGE_SIZE + 1)
+    .returns<ExpertLeadRow[]>();
+}
+
+function countLeads(supabase: MentorSupabaseClient, status: ExpertLeadStatus) {
+  return supabase
+    .from("expert_leads")
+    .select("id", { count: "exact", head: true })
+    .eq("status", status);
 }

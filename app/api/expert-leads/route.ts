@@ -63,10 +63,18 @@ export async function POST(request: Request) {
 
   try {
     const result = await storeExpertLead(validation.value);
-    if (result === "rate_limited") {
+    if (result.kind === "rate_limited") {
       return json({ ok: false, error: "rate_limited" }, 429);
     }
-    return json({ ok: true }, result === "created" ? 201 : 200);
+    if (result.kind === "rejected") {
+      return json(
+        result.field
+          ? { ok: false, errors: { [result.field]: "invalid" } }
+          : { ok: false, error: "invalid_input" },
+        400,
+      );
+    }
+    return json({ ok: true }, result.kind === "created" ? 201 : 200);
   } catch (error) {
     console.error("Expert lead submission failed:", error);
     return json({ ok: false, error: "temporarily_unavailable" }, 503);

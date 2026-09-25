@@ -28,6 +28,7 @@ import {
   createOwnerScopedNonceRegistry,
   createSerializedReconciliationQueue,
   deriveMentorRealtimeState,
+  mentorPrivateChannelOptions,
   transitionMessageScope,
   type ConversationEvent,
   type MentorChannelState,
@@ -685,6 +686,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
         return supabase
           .channel(
             `mentor-operator-conversations:${scope.ownerId}:${scope.filter}:${scope.epoch}:${realtimeGeneration}`,
+            mentorPrivateChannelOptions(),
           )
           .on(
             "postgres_changes",
@@ -744,6 +746,7 @@ export function useMentorOperatorInbox(): UseMentorOperatorInboxResult {
         supabase
           .channel(
             `mentor-operator-messages:${ownerId}:${conversationId}:${epoch}:${realtimeGeneration}`,
+            mentorPrivateChannelOptions(),
           )
           .on(
             "postgres_changes",

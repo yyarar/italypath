@@ -20,6 +20,13 @@ export interface MessageScope<T> {
 // desk shows its load error and retry instead of an endless loading line.
 export const MENTOR_REQUEST_TIMEOUT_MS = 15_000;
 
+// Desk channels are private: Realtime admits a join only through the
+// realtime.messages policies in supabase/volunteer_mentor.sql. A fresh object
+// per channel, because the Realtime client keeps and mutates the options.
+export function mentorPrivateChannelOptions() {
+  return { config: { private: true } };
+}
+
 export function withMentorTimeout<T>(
   promise: PromiseLike<T>,
   timeoutMs: number = MENTOR_REQUEST_TIMEOUT_MS,

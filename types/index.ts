@@ -159,7 +159,7 @@ export interface ExpertLeadRow {
     | "undecided";
   target_intake: string;
   help_request: string;
-  status: "new" | "contacted" | "completed";
+  status: "new" | "contacted" | "completed" | "suspected";
   internal_note: string;
   created_at: string;
   updated_at: string;

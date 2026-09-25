@@ -39,10 +39,17 @@ create table if not exists public.expert_leads (
   constraint expert_leads_help_request_check
     check (help_request = btrim(help_request) and char_length(help_request) between 10 and 3000),
   constraint expert_leads_status_check
-    check (status in ('new', 'contacted', 'completed')),
+    check (status in ('new', 'contacted', 'completed', 'suspected')),
   constraint expert_leads_internal_note_check
     check (char_length(internal_note) <= 4000)
 );
+
+-- Existing databases: widen the status check to the 'suspected' value.
+alter table public.expert_leads
+  drop constraint if exists expert_leads_status_check;
+alter table public.expert_leads
+  add constraint expert_leads_status_check
+    check (status in ('new', 'contacted', 'completed', 'suspected'));
 
 create index if not exists expert_leads_status_created_idx
   on public.expert_leads (status, created_at desc);
@@ -65,9 +72,15 @@ create trigger expert_leads_set_updated_at
   before update on public.expert_leads
   for each row execute function public.set_expert_leads_updated_at();
 
--- Abuse cap (2026-09-25, Kerem decision): at most 50 new leads per hour across
--- the whole site, so an unauthenticated flood cannot fill the Free-tier database.
--- A same-submission retry skips the cap and is answered by the unique constraint.
+-- Abuse limits (2026-09-25, Kerem decisions). Counted across the whole site
+-- over the last hour:
+--   * from the 51st lead on, a lead is still accepted but stored as
+--     'suspected', so a flood cannot turn real students away and the team
+--     reviews those leads in a separate filter;
+--   * from the 151st lead on, inserts are refused (expert_lead_rate_limited)
+--     so an unauthenticated flood cannot fill the Free-tier database.
+-- A same-submission retry skips both checks and is answered by the unique
+-- constraint.
 create or replace function public.enforce_expert_leads_hourly_cap()
 returns trigger
 language plpgsql
@@ -89,8 +102,11 @@ begin
   into v_recent_leads
   from public.expert_leads
   where created_at > timezone('utc', now()) - interval '1 hour';
-  if v_recent_leads >= 50 then
+  if v_recent_leads >= 150 then
     raise exception 'expert_lead_rate_limited' using errcode = 'P0001';
+  end if;
+  if v_recent_leads >= 50 then
+    new.status := 'suspected';
   end if;
   return new;
 end;

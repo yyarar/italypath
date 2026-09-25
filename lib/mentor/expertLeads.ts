@@ -1,4 +1,6 @@
-export const EXPERT_LEAD_STATUSES = ["new", "contacted", "completed"] as const;
+// "suspected": stored by the hourly volume threshold in supabase/expert_leads.sql;
+// the team can move a genuine lead back to "new".
+export const EXPERT_LEAD_STATUSES = ["new", "contacted", "completed", "suspected"] as const;
 export type ExpertLeadStatus = (typeof EXPERT_LEAD_STATUSES)[number];
 
 export const EXPERT_STUDY_LEVELS = ["bachelor", "master", "undecided"] as const;
