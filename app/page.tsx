@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import HomePageClient from "@/components/HomePageClient";
 import { CURATED_CITIES } from "@/lib/cities/data";
+import { SCHOLARSHIP_REGIONS } from "@/lib/scholarships/regions";
 import { getUniversitiesDirectory } from "@/lib/universities.server";
 import { getTotalDepartments } from "@/lib/universitiesFilters";
 import type { UniversityStats } from "@/lib/universityStats";
@@ -30,5 +31,12 @@ async function getHomeStats(): Promise<UniversityStats> {
 export default async function Home() {
   const stats = await getHomeStats();
 
-  return <HomePageClient stats={stats} citiesCount={CURATED_CITIES.length} />;
+  // Sehir ve bolge sayilari sunucuda sayilir; veri dosyalari istemci paketine girmez.
+  return (
+    <HomePageClient
+      stats={stats}
+      citiesCount={CURATED_CITIES.length}
+      scholarshipRegionsCount={SCHOLARSHIP_REGIONS.length}
+    />
+  );
 }
