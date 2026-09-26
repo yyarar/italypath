@@ -71,22 +71,6 @@ export const translations = {
       cta: "Şehir rehberleri",
       imageAlt: "Bologna’nın kızıl kiremitli çatıları, gün batımına doğru şehir üzerinden panoramik görünüm",
     },
-    homeSat: {
-      eyebrow: "SAT Soru Bankası",
-      panelTitle: "1.000+ resmi SAT matematik sorusu",
-      panelSubtitle: "Konu konu çöz, ilerlemeni kaydet.",
-      mathSection: "Matematik",
-      mathDomains: "Cebir · İleri Matematik · Problem Çözme · Geometri",
-      rwSection: "Okuma ve Yazma",
-      rwDomains: "Okuma · Dil bilgisi · İfade",
-      difficultyLabel: "Zorluk",
-      difficultyEasy: "Kolay",
-      difficultyMedium: "Orta",
-      difficultyHard: "Zor",
-      progressLabel: "Karne · Rozetler · Seri",
-      cta: "Soru çözmeye başla",
-      ariaOpen: "SAT soru bankasına git",
-    },
     homeClose: {
       eyebrow: "Hazırsan",
       title: "İtalya yolculuğunu bugün başlat.",
@@ -173,26 +157,6 @@ export const translations = {
       sameField: "Aynı alanda diğer üniversiteler",
       sameFieldNote: "Resmî İtalyan bölüm sınıfı koduna göre eşleştirildi.",
       programs: "program",
-    },
-    featureAnimations: {
-      marquee: [
-        "Milano",
-        "Roma",
-        "Bologna",
-        "Padova",
-        "Torino",
-        "Sapienza",
-        "Bocconi",
-        "Politecnico di Milano",
-        "Floransa",
-        "Pisa"
-      ],
-      docList: [
-        { title: "Transkript yüklendi", subtitle: "Belge Cüzdanı • şimdi" },
-        { title: "Pasaport doğrulandı", subtitle: "Güvenli depolama • 2 dk önce" },
-        { title: "Dil sertifikası eklendi", subtitle: "Kontrol tamamlandı • 5 dk önce" },
-        { title: "Diploma PDF kaydedildi", subtitle: "Şifreli klasör • 8 dk önce" }
-      ]
     },
     detail: {
       back: "Geri Dön",
@@ -1354,22 +1318,6 @@ export const translations = {
       cta: "City guides",
       imageAlt: "Panorama over Bologna’s red terracotta rooftops stretching toward the horizon at dusk",
     },
-    homeSat: {
-      eyebrow: "SAT Question Bank",
-      panelTitle: "1,000+ official SAT math questions",
-      panelSubtitle: "Practice topic by topic, save your progress.",
-      mathSection: "Math",
-      mathDomains: "Algebra · Advanced Math · Problem-Solving · Geometry",
-      rwSection: "Reading & Writing",
-      rwDomains: "Reading · Grammar · Expression",
-      difficultyLabel: "Difficulty",
-      difficultyEasy: "Easy",
-      difficultyMedium: "Medium",
-      difficultyHard: "Hard",
-      progressLabel: "Report card · Badges · Streak",
-      cta: "Start practicing",
-      ariaOpen: "Open the SAT question bank",
-    },
     homeClose: {
       eyebrow: "When you're ready",
       title: "Start your Italy journey today.",
@@ -1456,26 +1404,6 @@ export const translations = {
       sameField: "Other universities in the same field",
       sameFieldNote: "Matched by the official Italian degree class code.",
       programs: "programs",
-    },
-    featureAnimations: {
-      marquee: [
-        "Milan",
-        "Rome",
-        "Bologna",
-        "Padua",
-        "Turin",
-        "Sapienza",
-        "Bocconi",
-        "Politecnico di Milano",
-        "Florence",
-        "Pisa"
-      ],
-      docList: [
-        { title: "Transcript uploaded", subtitle: "Document Wallet • now" },
-        { title: "Passport verified", subtitle: "Secure storage • 2 min ago" },
-        { title: "Language certificate added", subtitle: "Validation complete • 5 min ago" },
-        { title: "Diploma PDF saved", subtitle: "Encrypted folder • 8 min ago" }
-      ]
     },
     detail: {
       back: "Go Back",

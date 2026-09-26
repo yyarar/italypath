@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur; guncel mimari ve calisma kurallarinin kaynak dokumanidir. `AGENT_COMMITS.md` tarihsel ve eksik degisiklik notlaridir (Git gecmisi esastir). `AGENT_CONTEXT_FIX_REPORT.md` 2026-06-11'de uygulanmis eski bir audit arsividir. En son context degerlendirmesi `docs/CONTEXT_AUDIT_2026-09-19.md` icindedir; bu dosyadaki 2026-09-21 duzeltmeleri o raporun uygulama sirasinin 1. ve 2. adimidir. Okumaya kok `AGENTS.md` ile basla; tek acik is listesi `docs/STATUS.md`, tasarim/plan belgelerinin durumu `docs/superpowers/INDEX.md` icindedir (3. adim, 2026-09-21).
 
-Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun) · 2026-09-26: veri katmani, kanonik okul adresi, JSON-LD kacisi, okul fotograflari ve hata sayfalari (guvenlik denetimi kart 2) · 2026-09-26: AI mentor masasi, `/api/chat` ve Gemini/AI SDK paketleri kaldirildi (guvenlik denetimi kart 6; dalda, push bekliyor) · 2026-09-26: katalog yetkileri ve kullanici yazma sinirlari canlida (guvenlik denetimi kart 4) · 2026-09-26: favori/belge/profil/SAT kancalari yerel Clerk oturum anahtarina gecti, sure siniri ve "yuklenemedi" durumu, tiklaninca imzalanan belge linki, SAT ilerleme view/RPC'si, `safeStorage` (guvenlik denetimi kart 7; dalda, push bekliyor) · 2026-09-26: hesap silme webhook'u, on gorusme formu gizlilik satiri ve saklama temizligi (guvenlik denetimi kart 8; dalda, push bekliyor)
+Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun) · 2026-09-26: veri katmani, kanonik okul adresi, JSON-LD kacisi, okul fotograflari ve hata sayfalari (guvenlik denetimi kart 2) · 2026-09-26: AI mentor masasi, `/api/chat` ve Gemini/AI SDK paketleri kaldirildi (guvenlik denetimi kart 6; dalda, push bekliyor) · 2026-09-26: katalog yetkileri ve kullanici yazma sinirlari canlida (guvenlik denetimi kart 4) · 2026-09-26: favori/belge/profil/SAT kancalari yerel Clerk oturum anahtarina gecti, sure siniri ve "yuklenemedi" durumu, tiklaninca imzalanan belge linki, SAT ilerleme view/RPC'si, `safeStorage` (guvenlik denetimi kart 7; dalda, push bekliyor) · 2026-09-26: hesap silme webhook'u, on gorusme formu gizlilik satiri ve saklama temizligi (guvenlik denetimi kart 8; dalda, push bekliyor) · 2026-09-26: `check:offline`, ISR layout guard'i, `check:hub-onboarding` cevrimdisi varsayilan, `test:mentor-db` yerel ayar, kullanilmayan bilesen/betik dosyalari ve stilleri silindi (guvenlik denetimi kart 11; yerel main'de, push bekliyor)
 
 Sayilar bu dosyada tarihli snapshot olarak gecer. Guncel sayim "Canli university/program verisi" bolumundedir; eski tarihli bolumlerdeki sayilari bugunku gercek sayma.
 
@@ -139,6 +139,7 @@ italypath-main/
 ├── public/data/italy-regions.geojson
 ├── public/llms.txt                 # AI asistanlari icin discovery dosyasi; proxy allowlist'te (2026-09-21)
 ├── scripts/
+│   ├── check-offline.mjs            # Tum cevrimdisi check/test + lint + tsc sirayla; her push'tan once (2026-09-26)
 │   ├── check-route-access.mjs
 │   ├── check-ai-search-readiness.mjs # public/llms.txt icerigi + robots + proxy allowlist (/llms.txt) statik kontrolu
 │   ├── check-program-metadata.mjs   # Turkce program metadata sablonu guard'i
@@ -148,7 +149,7 @@ italypath-main/
 │   ├── test-mentor-db.mjs           # Gercek PostgreSQL RLS/RPC/concurrency testleri
 │   ├── check-sat-bank.mjs
 │   ├── check-auth-ui.mjs            # /giris ve auth migration butunlugu smoke check
-│   ├── check-hub-onboarding.mjs     # /hosgeldin + yeni hub smoke/kapsama check
+│   ├── check-hub-onboarding.mjs     # /hosgeldin + yeni hub smoke; canli alan kapsamasi yalniz ITALYPATH_API_BASE ile
 │   ├── check-cities-data.mjs
 │   ├── check-program-details.mjs
 │   ├── check-university-data-source.mjs
@@ -156,8 +157,6 @@ italypath-main/
 │   ├── check-universities-server-compose.mjs
 │   ├── validate-supabase-university-data.mjs
 │   ├── validate-data-integrity.mjs
-│   ├── save-scraped.mjs             # LEGACY deadline scrape kaydetme yardimcisi
-│   ├── scrape-deadlines-runbook.md  # LEGACY scrape runbook (LLM extract icermez); guncel veri girisi yolu degil
 │   ├── import-*-program-details.mjs # Bologna/Ca'Foscari/Genoa/Milan/Milano-Bicocca/Padua/Polimi/Polito/Sapienza
 │   ├── sat/                        # PDF -> JSON pipeline ve import scriptleri
 │   └── clean-med-data.mjs
@@ -320,7 +319,7 @@ Dogrulama: `npm run check:program-details` (canli; tum okullarin link kolonlari 
 
 ### Program deadline kaynagi
 
-Gercek EU/non-EU basvuru tarihleri Supabase `program_admission_details` tablosundaki `application_deadline_eu` ve `application_deadline_non_eu` alanlarindan gelir. Bos kalan local `Department.deadline`/override altyapisi 2026-07-22'de kaldirildi. Tarihsel scrape tasarim/plan belgeleri `docs/superpowers/` altinda yalnizca arsiv niteligindedir.
+Gercek EU/non-EU basvuru tarihleri Supabase `program_admission_details` tablosundaki `application_deadline_eu` ve `application_deadline_non_eu` alanlarindan gelir. Bos kalan local `Department.deadline`/override altyapisi 2026-07-22'de kaldirildi; scrape hattinin kalan parcalari (`lib/deadlines/targets.ts`, `scripts/save-scraped.mjs`, `scripts/scrape-deadlines-runbook.md`) 2026-09-26'da silindi (Kerem karari). Tarihsel scrape tasarim/plan belgeleri `docs/superpowers/` altinda yalnizca arsiv niteligindedir.
 
 ---
 
@@ -783,11 +782,14 @@ Supabase env eksikse university API ve Supabase dogrulama scriptleri hata verir.
 
 ## Komutlar
 
+Her push'tan once: `npm run check:offline` (2026-09-26, guvenlik denetimi O5#4). Asagidaki cevrimdisi `check:*`/`test:*` betiklerini, `lint`'i ve `npx tsc --noEmit`'i sirayla calistirir, hata olsa da sonuna kadar gider ve ozet basar (~20 sn). Canli okuma yapan `check:data` ve `check:program-details` burada calismaz. package.json'a yeni `check:*`/`test:*` eklenince `scripts/check-offline.mjs` icindeki OFFLINE veya LIVE listesine yazilir; siniflandirilmamis betik `check:offline`'i kirmizi yapar.
+
 ```bash
 npm install
 npm run dev
 npm run build
 npm run lint
+npm run check:offline
 npm run check:routes
 npm run check:sat-bank
 npm run check:auth-ui
@@ -826,6 +828,13 @@ Ek dogrulama:
 node scripts/check-universities-server-compose.mjs
 ```
 
+Notlar (2026-09-26):
+
+- `test:mentor-db` gecici yerel PostgreSQL kurar (Homebrew `postgresql@16`/`@17` veya `POSTGRES_BIN`). macOS'ta `LC_ALL` bos kabukta sunucu baslamiyordu; betik artik `LC_ALL` bossa `C` varsayar, elle ayar gerekmez.
+- `check:hub-onboarding` varsayilan olarak cevrimdisidir; canli alan kapsamasi adimini "ATLANDI" diye yazar. Canli okuma icin `ITALYPATH_API_BASE=https://italypath.app npm run check:hub-onboarding` (seyrek; Vercel challenge). Adres verilip ulasilamazsa PASS yerine HATA verir.
+- `check:seo-vitals` ISR sayfalarini ve onlari saran layout/template dosyalarini (`app/layout.tsx`, `app/template.tsx`, `app/universities/layout.tsx`, iki universities detay layout'u) tarar: `force-dynamic`, veri hatasi yakalama ve `cookies()`, `headers()`, `auth()`, `currentUser()`, `connection()` cagrisi hatadir.
+- Aylik bagimlilik kontrolu `npm audit --omit=dev` ve `npm outdated` (`docs/USAGE_LIMITS.md` kontrol takvimi).
+
 Yedek (canli okuma + repo disina sifreli arsiv yazma; 2026-09-25): `npm run backup:supabase -- --dry-run`, `-- --run`, `-- --verify`, `-- --drill`. Canliya yazan her `--apply`/silme/migration oncesi ve haftada bir calisir; egress harcar. Ayrinti ve prova kaydi `SUPABASE_SECURITY_RUNBOOK.md` bolum 7.
 
 Canli veriye yazan tek seferlik duzeltme (2026-09-26, G3#2/G3#4): `node scripts/fix-admission-link-fields.mjs` kuru calistirir; `--apply --project-ref kskbnxxyviowmrlskwke` yalnizca yedek + Kerem onayiyla. Her `import-*-program-details` betigi de `--dry-run` (varsayilan) / `--apply --project-ref kskbnxxyviowmrlskwke` alir.
@@ -860,7 +869,7 @@ Tek acik is listesi 2026-09-21'den beri `docs/STATUS.md` icindedir (zaman kritik
 14. Sehir rehberlerinde generic fallback iddialari uretme; arastirilmamis sehri acikca `unresearched` olarak goster. Tiered kayitlarda sehir bazinda fiyat/Numbeo verisi cogaltma; merkezi, surumlu tier maliyet modelini kullan.
 15. Terracotta renkli metin/ikon icin `text-[var(--editorial-terracotta-ink)]` kullan; `--editorial-terracotta` base tokeni yalnizca buton/arka plan/cerceve icin. `npm run check:seo-vitals` bunu zorlar.
 16. `components/RouteTransition.tsx` icindeki `<AnimatePresence initial={false}>` kaldirilmaz; ilk yuklemede sayfa iceriginin gorunur gelmesini bu saglar.
-17. Egress diyeti: agir kabul metinleri (`source_quotes`, sartlar, belgeler) yalnizca program sayfasina ve yalnizca o programin satiri olarak gelir (`getProgramPageData()`); okul sayfasi, liste/API/sitemap/chat `getUniversitiesDirectory()` kullanir. ISR sayfalarinda (`/`, detay sayfalari) `revalidate` + bos `generateStaticParams()` korunur, sunucu tarafinda `searchParams`/`cookies()`/`headers()` okunmaz ve veri hatasi yakalanmaz (son saglam sayfa kalsin; yedek govde onbellege yazilir).
+17. Egress diyeti: agir kabul metinleri (`source_quotes`, sartlar, belgeler) yalnizca program sayfasina ve yalnizca o programin satiri olarak gelir (`getProgramPageData()`); okul sayfasi, liste/API/sitemap/chat `getUniversitiesDirectory()` kullanir. ISR sayfalarinda (`/`, detay sayfalari) `revalidate` + bos `generateStaticParams()` korunur, sunucu tarafinda `searchParams`/`cookies()`/`headers()`/`auth()`/`currentUser()`/`connection()` okunmaz ve veri hatasi yakalanmaz (son saglam sayfa kalsin; yedek govde onbellege yazilir). Ayni kural ISR sayfalarini saran layout'lar icin de gecerlidir, `app/layout.tsx` dahil (`check:seo-vitals`, 2026-09-26).
 18. Sitemap `lastModified` gercek degisiklige baglidir: DB `updated_at` (okul/program/kabul dosyasi) ile `app/sitemap.ts` icindeki `PAGE_TEMPLATE_LAST_MODIFIED` sabitinin en yenisi. Program/universite sayfa sablonunun GORUNUR icerigi degistiginde sabiti o deploy tarihine cek; uydurma tarih yazma (SEO_AUDIT.md §21).
 19. Yeni Supabase ortami kurarken `program_degree_class_codes` view'ini olustur (`supabase/program_degree_class_codes.sql`); dizin sorgusu view olmadan hata verir. Program sayfasinin `pruneUniversityForProgram` adimini kaldirma; agir kabul dosyasi yalnizca acilan program icin istemciye gider, okul sayfasina hic gitmez. Memo'daki dizin nesneleri paylasilir: yerinde degistirme, kopyala. Okul adresi kanoniktir (`lib/universityPath.ts` + `proxy.ts`); canonical/OG/breadcrumb adreslerini URL parcasindan degil kayittan kur.
 20. `/llms.txt` gibi kok dosyalar proxy matcher'da statik sayilmaz (`.txt` haric tutulmaz). Public olacak her kok dosya `proxy.ts` allowlist'ine ve `scripts/check-route-access.mjs` public listesine birlikte eklenir; icerik guard'i tek basina erisimi kanitlamaz.

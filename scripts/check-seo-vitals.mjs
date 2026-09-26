@@ -1,5 +1,6 @@
 import { execSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import { posix } from "node:path";
 
 // Kalıcı SEO / Core Web Vitals guard'ı (SEO_AUDIT.md §19, 15 Eylül 2026).
 //
@@ -53,6 +54,54 @@ for (const file of isrPages) {
   // Vercel son saglam sayfayi sunmaya devam eder (guvenlik denetimi O2#6, 2026-09-25).
   if (/\bcatch\s*\(/.test(source)) {
     failures.push(`${file}: ISR sayfasi veri hatasini yakalamamali (bos/yedek govde onbellege yazilir)`);
+  }
+}
+
+// ISR sayfalarini saran layout/template dosyalari da ayni sayfanin parcasidir (guvenlik denetimi O5#8,
+// 2026-09-26): kok layout'ta cookies() veya auth() cagrisi TUM sayfalari dinamige dusurur. Liste ISR
+// sayfalarindan yukari yurunerek kurulur (bugun: app/layout.tsx, app/template.tsx, app/universities/layout.tsx,
+// iki universities detay layout'u); yeni bir ust layout eklenirse kendiliginden taranir.
+const isrWrappers = [];
+for (const page of isrPages) {
+  for (let dir = posix.dirname(page); ; dir = posix.dirname(dir)) {
+    for (const name of ["layout.tsx", "template.tsx"]) {
+      const candidate = posix.join(dir, name);
+      if (existsSync(candidate) && !isrWrappers.includes(candidate)) isrWrappers.push(candidate);
+    }
+    if (dir === "app") break;
+  }
+}
+for (const required of [
+  "app/layout.tsx",
+  "app/universities/[id]/layout.tsx",
+  "app/universities/[id]/departments/[deptSlug]/layout.tsx",
+]) {
+  if (!isrWrappers.includes(required)) {
+    failures.push(`${required}: ISR layout'u bulunamadi; guard'i guncelle`);
+  }
+}
+for (const file of isrWrappers) {
+  const source = readFileSync(file, "utf8");
+  if (source.includes("force-dynamic")) {
+    failures.push(`${file}: force-dynamic, altindaki ISR sayfalariyla celisir`);
+  }
+  if (/\bcatch\s*\(/.test(source)) {
+    failures.push(`${file}: ISR layout'u veri hatasini yakalamamali (yedek metadata/govde onbellege yazilir)`);
+  }
+}
+
+// Istek basina okunan API'ler (cerez, basliklar, Clerk oturumu, connection()) sayfayi ve altindaki her sayfayi
+// dinamige dusurur; ISR sayfalarinda ve layout'larinda yasak. Yorumlar taranmaz; "x.headers(" gibi
+// nesne metotlari sayilmaz.
+const requestTimeCall = /(?<![\w.$])(cookies|headers|auth|currentUser|connection)\s*\(/g;
+const stripComments = (source) =>
+  source.replace(/\/\*[\s\S]*?\*\//g, "").replace(/(^|[^:])\/\/.*$/gm, "$1");
+for (const file of [...isrPages, ...isrWrappers]) {
+  const calls = new Set(
+    [...stripComments(readFileSync(file, "utf8")).matchAll(requestTimeCall)].map((match) => `${match[1]}()`),
+  );
+  if (calls.size > 0) {
+    failures.push(`${file}: ${[...calls].join(", ")} istek basina okunur ve ISR'i iptal eder`);
   }
 }
 
