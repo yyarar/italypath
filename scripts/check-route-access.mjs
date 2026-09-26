@@ -61,7 +61,8 @@ function runsThroughProxy(pathname) {
   return proxyMatcherRegexes.some((regex) => regex.test(pathname));
 }
 
-// proxy.ts'deki dal sirasinin aynisi.
+// proxy.ts'deki dal sirasinin aynisi. "static": proxy hic calismaz (statik dosya veya proxy'siz sayfa;
+// 2026-09-26'dan beri matcher yalniz korumali sayfalari, API'leri ve kanonik olmayan okul adreslerini alir).
 function classify(pathname) {
   if (!runsThroughProxy(pathname)) return "static";
   if (isPublicPath(pathname)) return "public";
@@ -122,20 +123,22 @@ const protectedChecks = [
   "/profile",
   "/sat",
   "/api/sat/questions",
-  // Public kaliplarin kardes onekleri ve alt yollari public olmamali.
-  "/database",
+  // Public API kaliplarinin kardes onekleri ve alt yollari public olmamali.
   "/api/expert-leads/export",
   "/api/expert-leads-x",
   "/api/universities/export",
   "/api/webhooks",
   "/api/webhooks/clerk/replay",
   "/api/webhooks/clerkx",
-  "/girisx",
-  "/universities-x",
+  // Korumali sayfalarin alt yollari da proxy'den gecer.
+  "/hub/ayarlar",
+  "/ekip",
+  "/sat/konu/1",
 ];
 
 for (const route of publicChecks) {
-  if (classify(route) !== "public") {
+  // Yol public listede olmali (proxy'ye girerse gecsin) ve proxy onu korumamali.
+  if (!isPublicPath(route) || !["public", "static"].includes(classify(route))) {
     failures.push(`Expected public but got ${classify(route)}: ${route}`);
   }
 }
@@ -155,6 +158,26 @@ for (const route of ["/api/sat/questions"]) {
 
 if (classify("/ekip/mentor") !== "protected-page") {
   failures.push("Expected /ekip/mentor to use the explicit signed-out page redirect policy");
+}
+
+// Proxy kapsami (denetim S9#6): korumali sayfalarin tamami ve alt yollari proxy'den gecer; herkese acik
+// sayfalar ve kanonik okul/program adresleri gecmez; kanonik olmayan okul adresi 308/404 icin gecer.
+for (const route of protectedPageRoutes) {
+  for (const path of [route, `${route}/ornek`]) {
+    if (!runsThroughProxy(path)) {
+      failures.push(`Protected page ${path} must run through the proxy (config.matcher)`);
+    }
+  }
+}
+for (const path of ["/", "/universities", "/universities/7", "/universities/7.rsc", "/universities/7.json", "/universities/7.segments/x.segment.rsc", "/universities/7/departments/computer-science", "/cities", "/scholarships", "/isee", "/communities", "/on-gorusme", "/giris", "/giris/sso-callback", "/ai-mentor", "/yasal/gizlilik", "/data/italy-regions.geojson", "/llms.txt", "/sitemap.xml", "/robots.txt", "/hubx", "/satx"]) {
+  if (runsThroughProxy(path)) {
+    failures.push(`${path} should not run through the proxy (public page or asset; S9#6)`);
+  }
+}
+for (const path of ["/universities/007", "/universities/003/departments/x", "/universities/%37", "/universities/abc", "/universities/1234567890", "/universities/0", "/universities/7x", "/universities/7.junk", "/universities/007.rsc"]) {
+  if (!runsThroughProxy(path)) {
+    failures.push(`${path} must run through the proxy (non-canonical school address -> 308/404)`);
+  }
 }
 
 // 3) Envanter: her sayfa, API ve public dosya ya public ya da acikca korumali olmali.
@@ -212,8 +235,16 @@ for (const file of walk(resolve(root, "public"))) {
 for (const entry of inventory) {
   const result = classify(entry.path);
   const where = relative(root, entry.file);
+  // Sayfa ve rotalar acikca listelenir: proxy'siz kalmak tek basina "public" karari degildir.
+  if (entry.kind === "page" || entry.kind === "route" || entry.kind === "metadata") {
+    if (isPublicPath(entry.path)) continue;
+    if (entry.kind === "page" && isExplicitlyProtectedPage(entry.path) && result === "protected-page") continue;
+    failures.push(
+      `${where} (${entry.path}) is neither in the proxy.ts public allowlist nor in PROTECTED_PAGE_ROUTES + config.matcher (${result})`,
+    );
+    continue;
+  }
   if (result === "public" || result === "static") continue;
-  if (entry.kind === "page" && result === "protected-page") continue;
   if (entry.kind === "api" && protectedApiRoutes.includes(entry.path)) continue;
   failures.push(
     `${where} (${entry.path}) is neither in the proxy.ts public allowlist nor in an explicit protected list (${result})`,
