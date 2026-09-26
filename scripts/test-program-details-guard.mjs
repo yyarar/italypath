@@ -245,4 +245,11 @@ for (const name of importers) {
 const fixer = readFileSync(join(scriptsDir, "fix-admission-link-fields.mjs"), "utf8");
 assert.ok(fixer.includes("createImportClient(") && fixer.includes("sanitizeDetailLinks("), "the link backfill uses the shared guard");
 
+const deadLinkFixer = readFileSync(join(scriptsDir, "fix-dead-program-links-2026-09-26.mjs"), "utf8");
+for (const required of ["createImportClient(", "prepareAdmissionWrite(", "finalizeAdmissionPayloads(", "recordImportManifest("]) {
+  assert.ok(deadLinkFixer.includes(required), `fix-dead-program-links-2026-09-26.mjs must call ${required}`);
+}
+assert.ok(!/\bcreateClient\s*\(/.test(deadLinkFixer), "fix-dead-program-links-2026-09-26.mjs must not build its own Supabase client");
+assert.ok(!deadLinkFixer.includes("NEXT_PUBLIC_SUPABASE_ANON_KEY"), "fix-dead-program-links-2026-09-26.mjs must not use the anon key");
+
 console.log(`[OK] Program-details guard tests passed (${importers.length} importers use the shared guard).`);
