@@ -45,6 +45,11 @@ export function ProgramPortraitHeader({
               alt={`${department.name} - ${university.name}`}
               fill
               priority
+              // LCP gorseli (SEO_AUDIT.md §19.3): priority yalniz on yukleme + eager verir; Next fetchpriority'yi
+              // kendisi eklemez. Sayfa basina tek oncelikli gorsel; liste gorselleri oncelikli degildir (STATUS #12b).
+              fetchPriority="high"
+              // Gercek yerlesim: max-w-7xl (1280) - 2x32 kenar - 20 aralik, sol sutun 0.95/2 -> ~568px (>=1344);
+              // 1024-1343 arasi ~47.5vw-40px; altinda tam genislik.
               sizes="(min-width: 1280px) 580px, (min-width: 1024px) 46vw, 100vw"
               className="object-cover"
             />

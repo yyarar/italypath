@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import HomePageClient from "@/components/HomePageClient";
 import { CURATED_CITIES } from "@/lib/cities/data";
+import { serializeJsonLd } from "@/lib/jsonLd";
+import { siteJsonLd } from "@/lib/site";
 import { getUniversitiesDirectory } from "@/lib/universities.server";
 import { getTotalDepartments } from "@/lib/universitiesFilters";
 import type { UniversityStats } from "@/lib/universityStats";
@@ -30,5 +32,14 @@ async function getHomeStats(): Promise<UniversityStats> {
 export default async function Home() {
   const stats = await getHomeStats();
 
-  return <HomePageClient stats={stats} citiesCount={CURATED_CITIES.length} />;
+  return (
+    <>
+      {/* Site geneli Organization + WebSite JSON-LD yalnizca ana sayfada (lib/site.ts; STATUS #14). */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteJsonLd) }}
+      />
+      <HomePageClient stats={stats} citiesCount={CURATED_CITIES.length} />
+    </>
+  );
 }
