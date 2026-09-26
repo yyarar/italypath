@@ -103,8 +103,8 @@ export default clerkMiddleware(
       return;
     }
 
-    // Listede olmayan sayfa: oturumsuz ziyaretçi de /giris'e gider (Clerk'in barındırılan
-    // sayfasına değil); giriş sonrası sayfa yoksa normal 404 görünür.
+    // Savunma katmani: matcher bugun bu dala yalniz API disi eslesmeyen yol gondermez (listede olmayan
+    // sayfa proxy'ye hic girmez ve 404 alir). Matcher genisletilirse listede olmayan sayfa /giris'e gider.
     await auth.protect({
       unauthenticatedUrl: buildSignInRedirectUrl(request),
     });
@@ -115,11 +115,25 @@ export default clerkMiddleware(
   },
 );
 
+// Proxy yalniz is yapacagi isteklerde calisir (denetim S9#6, 2026-09-26). Herkese acik sayfalar,
+// statik dosyalar ve ISR onbellekten gelen okul/program sayfalari proxy'siz sunulur (Vercel'de her
+// proxy calismasi bir Node fonksiyonu = Active CPU). Listede olmayan adres Next'in 404 sayfasina duser.
+// Yeni korumali sayfa: PROTECTED_PAGE_ROUTES'a VE asagiya birlikte eklenir (check:routes esligi denetler).
 export const config = {
   matcher: [
-    // Next.js'in statik dosyaları hariç her şeyi yakala
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // API rotalarını her zaman yakala
+    // Korumali sayfalar (PROTECTED_PAGE_ROUTES)
+    '/documents/:path*',
+    '/ekip/:path*',
+    '/favorites/:path*',
+    '/hosgeldin/:path*',
+    '/hub/:path*',
+    '/profile/:path*',
+    '/sat/:path*',
+    // Okul adresi: yalniz kanonik olmayan id (ör. 003, %33, abc) proxy'ye girer ve 308/404 alir;
+    // kanonik id (lib/universityPath.ts: basinda sifir yok, en fazla 9 hane) dogrudan sayfaya gider;
+    // Next'in ic RSC bicimleri (7.rsc, 7.json, 7.segments/...) de kanonik sayilir.
+    '/universities/((?![1-9][0-9]{0,8}(?:/|$|\\.rsc$|\\.json$|\\.segments/)).+)',
+    // API rotalari: korumali olanlar kendi auth() kontrolunu da yapar (auth() proxy ister)
     '/(api|trpc)(.*)',
   ],
 };
