@@ -309,7 +309,11 @@ UI paneli: `components/university-details/ProgramAdmissionDetailsPanel.tsx`. Pan
 
 DB setup/policy: `supabase/program_admission_details.sql`.
 
-Dogrulama: `npm run check:program-details`, `npm run check:admission-dossier` ve `node scripts/check-universities-server-compose.mjs`.
+Resmi linkler (2026-09-26, guvenlik denetimi G3#1, G3#2, G3#4, G2#5): izin listesi ve URL kurallari tek dosyadadir, `lib/officialLinkHosts.mjs` (bagimliliksiz `.mjs`, tipleri `officialLinkHosts.d.mts`; hem program sayfasi hem Node betikleri ayni dosyayi kullanir). Liste okulun kendi alan adlarini (`SCHOOL_DOMAINS`, universities.id), bolum bazinda onayli ortak program sitelerini (`PARTNER_DOMAINS_BY_DEPARTMENT`) ve Italyan kamu portallarini (`PUBLIC_PORTAL_DOMAINS`) tutar; eslesme nokta sinirlidir; kisaltici/arsiv alan adlari (`BLOCKED_LINK_DOMAINS`) hicbir link alanina girmez. Program sayfasi (`programDossierShared.tsx` `resolveShowableLink`) bir linki yalnizca gecerli, bosluksuz http(s) ise ve kisaltici/arsiv degilse tiklanabilir gosterir; resmi linklerin yaninda hedef alan adi yazar, okul disi hedefte "Ortak program sitesi / Kamu portali / Dis site" etiketi gosterir (`t.department.partnerSite`, `publicPortal`, `externalSite`; TR/EN). Bunun icin `DepartmentDetailClient` uc bilesene `linkContext = { universityId, departmentId }` gecer.
+
+Kabul dosyasi yazicilari (`scripts/import-*-program-details.mjs`, tek seferlik `scripts/fix-admission-link-fields.mjs`) `scripts/lib/program-details-import.mjs` ortak katmanindan gecer: `--apply` yalnizca `--project-ref kskbnxxyviowmrlskwke` ve eslesen Supabase adresiyle; link alanindaki cumle `uncertainty_notes`'a tasinir, adres yoksa `null`; izin listesinde olmayan host, uzunluk siniri asimi `--apply`'i durdurur; serbest metin taramasi uyari verir; kuru calistirma tam metin farkini `output/` altina yazar; `source_file` klasor + dosya + sha256 ozeti tasir; basarili yazma `supabase/import-manifests/` altina izlenen manifest birakir. Kurallar ve akis `DATA_ENTRY_GUIDE.md`'dedir.
+
+Dogrulama: `npm run check:program-details` (canli; tum okullarin link kolonlari dahil, seyrek calistir), `npm run check:admission-dossier`, `npm run test:program-details-guard` (cevrimdisi) ve `node scripts/check-universities-server-compose.mjs`.
 
 ### Program deadline kaynagi
 
@@ -615,6 +619,8 @@ Server katmani `lib/sat/questions.server.ts`: ilk satiri `import "server-only"` 
 
 Client yuzeyi `app/sat/page.tsx` ve `components/sat/*` altindadir. `MathText` KaTeX ile `$...$` ifadelerini render eder; `lib/sat/answers.ts` SPR sayi/kesir cevap eslestirmesini yapar. Soru fetch ve attempt yazimi `lib/sat/useSatBank.ts` / `lib/sat/useSatAttempts.ts` hook'larindadir.
 
+Ana sayfa (`homeTools.sat.meta`, `VelocityBridge`) ve `/sat` basligi soru sayisini sabit "1.000+ SAT matematik sorusu" olarak yazar (2026-09-26, denetim O4#7; canli bank 1.019 Math sorusu). Her SAT importundan sonra bu metinleri canli sayimla karsilastir.
+
 Yanlislarim v1 tamamen client-side turetilir: `sat_attempts` son denemesinde `is_correct=false` olan soru id'leri konu satirinda sayilir ve `/sat` topics gorunumunde mevcut soru fetch'i istemcide filtrelenerek tekrar oturumu baslatir; yeni tablo/API/route yoktur.
 
 Pipeline `scripts/sat/` altindadir: mekanik PDF/answer/RW/math slice adimlari, ayri LLM extract runbook'u, validate/import adimlari. Ara ciktular `tmp/sat-bank/` altinda kalir ve commit edilmez. Dogrulama: `npm run check:sat-bank`.
@@ -779,6 +785,7 @@ npm run test:expert-leads
 npm run check:cities
 npm run check:program-details
 npm run check:admission-dossier
+npm run test:program-details-guard
 npm run check:data
 npm run check:local-data
 npm run check:university-data-source
@@ -800,6 +807,8 @@ node scripts/check-universities-server-compose.mjs
 ```
 
 Yedek (canli okuma + repo disina sifreli arsiv yazma; 2026-09-25): `npm run backup:supabase -- --dry-run`, `-- --run`, `-- --verify`, `-- --drill`. Canliya yazan her `--apply`/silme/migration oncesi ve haftada bir calisir; egress harcar. Ayrinti ve prova kaydi `SUPABASE_SECURITY_RUNBOOK.md` bolum 7.
+
+Canli veriye yazan tek seferlik duzeltme (2026-09-26, G3#2/G3#4): `node scripts/fix-admission-link-fields.mjs` kuru calistirir; `--apply --project-ref kskbnxxyviowmrlskwke` yalnizca yedek + Kerem onayiyla. Her `import-*-program-details` betigi de `--dry-run` (varsayilan) / `--apply --project-ref kskbnxxyviowmrlskwke` alir.
 
 Dogrulama olmayan legacy arac: `npm run clean:med` kok dizinde `med` dosyasi bekler (repoda yok) ve dosya uretir; kontrol komutu degildir.
 
@@ -833,3 +842,4 @@ Tek acik is listesi 2026-09-21'den beri `docs/STATUS.md` icindedir (zaman kritik
 18. Sitemap `lastModified` gercek degisiklige baglidir: DB `updated_at` (okul/program/kabul dosyasi) ile `app/sitemap.ts` icindeki `PAGE_TEMPLATE_LAST_MODIFIED` sabitinin en yenisi. Program/universite sayfa sablonunun GORUNUR icerigi degistiginde sabiti o deploy tarihine cek; uydurma tarih yazma (SEO_AUDIT.md §21).
 19. Yeni Supabase ortami kurarken `program_degree_class_codes` view'ini olustur (`supabase/program_degree_class_codes.sql`); dizin sorgusu view olmadan hata verir. Program sayfasinin `pruneUniversityForProgram` adimini kaldirma; agir kabul dosyasi yalnizca acilan program icin istemciye gider, okul sayfasina hic gitmez. Memo'daki dizin nesneleri paylasilir: yerinde degistirme, kopyala. Okul adresi kanoniktir (`lib/universityPath.ts` + `proxy.ts`); canonical/OG/breadcrumb adreslerini URL parcasindan degil kayittan kur.
 20. `/llms.txt` gibi kok dosyalar proxy matcher'da statik sayilmaz (`.txt` haric tutulmaz). Public olacak her kok dosya `proxy.ts` allowlist'ine ve `scripts/check-route-access.mjs` public listesine birlikte eklenir; icerik guard'i tek basina erisimi kanitlamaz.
+21. `program_admission_details`'e yazan her betik `scripts/lib/program-details-import.mjs` ortak katmanini kullanir (`createImportClient`, kuru calistirmada `prepareAdmissionWrite`, yazmadan once `finalizeAdmissionPayloads`, sonra `recordImportManifest`); `tmp/` altinda veritabanina yazan betik tutulmaz. Resmi link host'u `lib/officialLinkHosts.mjs` izin listesinde yoksa yazma durur; listeye ekleme (yeni okul alan adi veya bolum icin ortak site) Kerem onayiyla. Arayuzde link yalnizca `resolveShowableLink` ile gosterilir.
