@@ -175,6 +175,7 @@ Durum: KALDIRILDI (2026-09-26). Kerem kararı (2026-09-25): AI mentor kaldırıl
 | Canlıya yazan her işten önce (`--apply`, import, SQL güncelleme/silme, migration) | Supabase yedeği | Aynı komutlar; `--verify` geçmeden canlı yazma başlamaz (`DATA_ENTRY_GUIDE.md`) |
 | Aylık (ayın ilk pazartesi) | Vercel ISR Writes, Fluid Active CPU, Fast Origin Transfer | Kerem'den Usage ekranı; hedef 30 günlük pencerede < %60 |
 | Ayın 27'si civarı | Supabase dönem kapanışı | Kerem'den Usage ekranı |
+| Aylık (ayın ilk pazartesi) | Ön görüşme talepleri saklama temizliği (2026-09-26, Kerem kararı: tamamlanan/ulaşılamayan 6 ay, şüpheli 30 gün) | `npm run cleanup:expert-leads` (kuru çalıştırma, yalnız sayı okur); Kerem onayıyla `-- --apply`. Egress ihmal edilebilir |
 | Aylık | Vercel Usage tamamı, Clerk kullanıcı sayısı | Kerem'den ekran görüntüsü |
 | Yıllık | Alan adı yenileme (2 Mayıs 2027), Clerk Student planının sürmesi | Name.com, Clerk |
 

@@ -18,6 +18,7 @@ const isPublicRoute = createRouteMatcher([
   '/ai-mentor', '/ai-mentor/(.*)',
   '/api/expert-leads',     // Yalnızca POST uzman ön görüşme formu
   '/api/universities',
+  '/api/webhooks/clerk',   // Clerk hesap olayları; yalnızca imzası doğrulanan POST (hesap silme temizliği)
   '/data/(.*)',            // Public static datasets: scholarship map GeoJSON
   '/sign-in', '/sign-in/(.*)',
   '/sign-up', '/sign-up/(.*)',

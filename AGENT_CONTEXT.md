@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur; guncel mimari ve calisma kurallarinin kaynak dokumanidir. `AGENT_COMMITS.md` tarihsel ve eksik degisiklik notlaridir (Git gecmisi esastir). `AGENT_CONTEXT_FIX_REPORT.md` 2026-06-11'de uygulanmis eski bir audit arsividir. En son context degerlendirmesi `docs/CONTEXT_AUDIT_2026-09-19.md` icindedir; bu dosyadaki 2026-09-21 duzeltmeleri o raporun uygulama sirasinin 1. ve 2. adimidir. Okumaya kok `AGENTS.md` ile basla; tek acik is listesi `docs/STATUS.md`, tasarim/plan belgelerinin durumu `docs/superpowers/INDEX.md` icindedir (3. adim, 2026-09-21).
 
-Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun) · 2026-09-26: veri katmani, kanonik okul adresi, JSON-LD kacisi, okul fotograflari ve hata sayfalari (guvenlik denetimi kart 2) · 2026-09-26: AI mentor masasi, `/api/chat` ve Gemini/AI SDK paketleri kaldirildi (guvenlik denetimi kart 6; dalda, push bekliyor) · 2026-09-26: katalog yetkileri ve kullanici yazma sinirlari canlida (guvenlik denetimi kart 4) · 2026-09-26: favori/belge/profil/SAT kancalari yerel Clerk oturum anahtarina gecti, sure siniri ve "yuklenemedi" durumu, tiklaninca imzalanan belge linki, SAT ilerleme view/RPC'si, `safeStorage` (guvenlik denetimi kart 7; dalda, push bekliyor)
+Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun) · 2026-09-26: veri katmani, kanonik okul adresi, JSON-LD kacisi, okul fotograflari ve hata sayfalari (guvenlik denetimi kart 2) · 2026-09-26: AI mentor masasi, `/api/chat` ve Gemini/AI SDK paketleri kaldirildi (guvenlik denetimi kart 6; dalda, push bekliyor) · 2026-09-26: katalog yetkileri ve kullanici yazma sinirlari canlida (guvenlik denetimi kart 4) · 2026-09-26: favori/belge/profil/SAT kancalari yerel Clerk oturum anahtarina gecti, sure siniri ve "yuklenemedi" durumu, tiklaninca imzalanan belge linki, SAT ilerleme view/RPC'si, `safeStorage` (guvenlik denetimi kart 7; dalda, push bekliyor) · 2026-09-26: hesap silme webhook'u, on gorusme formu gizlilik satiri ve saklama temizligi (guvenlik denetimi kart 8; dalda, push bekliyor)
 
 Sayilar bu dosyada tarihli snapshot olarak gecer. Guncel sayim "Canli university/program verisi" bolumundedir; eski tarihli bolumlerdeki sayilari bugunku gercek sayma.
 
@@ -330,6 +330,7 @@ Public route pattern'leri (2026-09-25'ten beri kesin kalip: agac icin `'/yol'` +
 - `/ai-mentor`, `/ai-mentor/(.*)`  # public consultation hub; robots disallow/sitemap exclusion sürer
 - `/api/expert-leads` # tam yol; public, yalnızca POST expert lead gönderimi
 - `/api/universities` # tam yol
+- `/api/webhooks/clerk` # tam yol; Clerk hesap olaylari, yalniz imzasi dogrulanan POST (hesap silme temizligi, 2026-09-26)
 - `/data/(.*)`       # public statik veri (burs haritasi GeoJSON)
 - `/sign-in`, `/sign-in/(.*)`     # eski URL, `next.config.ts` 308 ile `/giris`'e yonlendirir
 - `/sign-up`, `/sign-up/(.*)`     # eski URL, `next.config.ts` 308 ile `/giris?mode=kayit`'e yonlendirir
@@ -358,7 +359,7 @@ Protected ornekler:
 - `/api/sat/questions`
 - `/profile`
 
-Oturumsuz istek davranisi (`proxy.ts` dal sirasi): public -> gecer; `PROTECTED_PAGE_ROUTES` -> `/giris?redirect_url=...`; `/api/*` -> Clerk'in varsayilan API cevabi (HTML giris sayfasina yonlendirme yok); listede olmayan diger yollar -> yine `/giris?redirect_url=...` (2026-09-25 oncesinde Clerk'in barindirilan giris sayfasina gidiyordu). Korumali API handler'lari proxy'ye tek basina guvenmez: `/api/sat/questions` kendi `auth()` kontrolunu yapar ve oturum yoksa 401 doner; `check:routes` her korumali API icin bunu zorlar.
+Oturumsuz istek davranisi (`proxy.ts` dal sirasi): public -> gecer; `PROTECTED_PAGE_ROUTES` -> `/giris?redirect_url=...`; `/api/*` -> Clerk'in varsayilan API cevabi (HTML giris sayfasina yonlendirme yok); listede olmayan diger yollar -> yine `/giris?redirect_url=...` (2026-09-25 oncesinde Clerk'in barindirilan giris sayfasina gidiyordu). Korumali API handler'lari proxy'ye tek basina guvenmez: `/api/sat/questions` kendi `auth()` kontrolunu yapar ve oturum yoksa 401 doner; `check:routes` her korumali API icin bunu zorlar. Herkese acik webhook (`/api/webhooks/clerk`) oturum tasimaz; tek koruma Clerk imzasidir (`verifyWebhook`, `@clerk/nextjs/webhooks`). `check:routes`, `/api/webhooks/` altindaki her public handler'in baska isten once imzayi dogruladigini ve yalniz POST sundugunu zorlar.
 
 Clerk guvenilen kokenler (2026-09-25): `lib/auth/trustedOrigins.ts` tek kaynaktir. `clerkMiddleware` `authorizedParties`, `ClerkProvider` `allowedRedirectOrigins` olarak ayni listeyi alir: Vercel Production'da yalniz `https://italypath.app`; Preview'da ek olarak yayinin kendi `*.vercel.app` adresleri; yerelde `CLERK_DEV_ORIGINS` (verilmezse `http://localhost:3000`). Liste yanlis olursa girisli kullanici oturumsuz gorunur; yayindan sonra canlida bir kez giris denenmelidir.
 
@@ -404,6 +405,8 @@ Clerk Elements v0.24.18 ile bilinen sapmalar (2026-09-25'te 0.24.20'ye yukseltil
 - Virtual routing OAuth donusu icin `/giris/sso-callback` sayfasi korunmali; kaldirilirsa Google donusu 404'e duser
 - `Clerk.FieldError` ve `Clerk.Loading` children-as-function pattern
 - `SignUp.Action resend` `fallback` callback'i `({ resendableAfter }) => ...` imzasiyla cagrilir
+
+Hesap silme (2026-09-26, denetim S7#2): Clerk `user.deleted` olayi `app/api/webhooks/clerk/route.ts`'e gelir; imza `CLERK_WEBHOOK_SIGNING_SECRET` ile dogrulanir (sir yoksa 503, imza gecersizse 400, diger olaylar 200 ile yok sayilir). `lib/account/deleteUserData.server.ts` service role ile once `documents` kovasindaki `{kullanici id}/` dosyalarini Storage API'den, sonra `user_documents`, `favorites`, `user_profiles`, `sat_attempts`, `mentor_conversations` satirlarini siler (`mentor_messages` ve `mentor_rpc_idempotency` cascade ile gider). Saf mantik `lib/account/userDataDeletion.ts`, test `npm run test:account-deletion`. Bir adim hata verirse 500 doner ve Clerk yeniden dener; adimlar tekrar calismaya dayaniklidir. Gunluge kullanici kimligi yazilmaz. `mentor_staff` ve `expert_leads` kullanici kimligine bagli degildir, bu akisla silinmez. Canliya gecis (imza sirri + Clerk panelinde uc nokta) `docs/STATUS.md` #59.
 
 ### Dil sistemi
 
@@ -483,6 +486,8 @@ Ilk gelir modeli ucretli danismanlik; kapi mevcut uzman lead formudur. Fiyat/pak
 - `/on-gorusme`: `app/on-gorusme/page.tsx` server metadata + `ConsultationPageClient`; public route ve sitemap'te.
 - `ConsultPrompt` program detay, universite detay (eski duraklatilmis AI masasi kutusunun yerine), `/scholarships` ve `/isee` sayfalarinda `/on-gorusme`'ye gider. Navbar masaustunde ayrica link var; menu ileride yeniden ele alinacak.
 - Metinler `lib/translations.ts`: `homeTools`, `consultation`, `homeFaq`, `consultPrompt`, `navbar.consultation` (TR+EN).
+- Form gizlilik satiri (2026-09-26, denetim S7#4): gonder dugmesinin altinda `aiMentor.expertDesk.privacyNotice` (TR/EN) ve `/yasal/gizlilik` linki. Hedef donem yil secenekleri sunucu anlik goruntusu `null` olan `useSyncExternalStore` ile sayfa acildiktan sonra uretilir; statik HTML'de yil secenegi yoktur, yilbasindan sonra hidrasyon uyusmazligi olmaz (O4#9). `check:expert-leads` ikisini de zorlar.
+- Saklama (Kerem karari 2026-09-26): `completed` ve `contacted` talepler son islemden (`updated_at`) 6 ay, `suspected` 30 gun sonra silinir; `new` taleplere dokunulmaz. Ayda bir `npm run cleanup:expert-leads` (kuru calisma, yalniz sayi okur), Kerem onayiyla `-- --apply`. Kurallar `scripts/expert-lead-retention.mjs` (`npm run test:expert-lead-retention`). Ekibin ilk WhatsApp mesaji sablonu `docs/legal/2026-09-26-gizlilik-taslagi.md` bolum 5.
 - Guard: `npm run check:home-consultation`. Spec/plan: `docs/superpowers/specs/2026-09-15-homepage-free-consultation-design.md`, `docs/superpowers/plans/2026-09-15-homepage-free-consultation-plan.md`.
 
 SEO 2.5 sonrasi canli audit'te `/` sayfasi gercek H1, CTA/internal link ve canli stats tasir; `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizdir. Hidden SEO text ekleme.
@@ -702,6 +707,8 @@ SEO 2.5 sonrasi `/communities` `force-dynamic` route'tur. Canli HTML'de gercek H
 
 Tasarim notu: `docs/superpowers/specs/2026-06-12-yasal-sayfalar-design.md`.
 
+Hukukcu taslagi (2026-09-26, denetim S7#3): `docs/legal/2026-09-26-gizlilik-taslagi.md` (UYGULANMADI): veri kategorileri, hukuki sebepler, alici gruplari, yurt disi aktarim, saklama sureleri ve kullanim kosullarindan AI ifadeleri. Kerem karari 2026-09-26: yayindaki metin, AI mentor ifadeleri dahil, hukukcu onayina kadar degismez. `scripts/check-mentor-desks.mjs` yayindaki cumleleri birebir aradigi icin metin yayina alinirken guard da guncellenir.
+
 ---
 
 ## Supabase Yuzeyleri
@@ -760,6 +767,7 @@ Gercek production schema dashboard'dan dogrulanmalidir; son tarihli dokum `supab
 | `SUPABASE_SERVICE_ROLE_KEY` | Server-only (eski tip): SAT soru okuma (`lib/sat/questions.server.ts`), expert lead insert (`lib/mentor/expertLeads.server.ts`) ve yetkili admin/import scriptlerinin yazma kismi (`import-*` once `SUPABASE_SECRET_KEY`'i dener). Production ve Preview'da ZORUNLU (yoksa `/sat` ve on gorusme formu calismaz); local'de bu yuzeyler test edilecekse gerekir. Supabase eski tip anahtarlari 2026 sonunda emekliye ayirir; bu yuzeylerin yeni anahtara gecisi ayri istir. Asla client bundle'a veya `NEXT_PUBLIC_*` alanina girmez |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk frontend |
 | `CLERK_SECRET_KEY` | Clerk server |
+| `CLERK_WEBHOOK_SIGNING_SECRET` | Server-only: Clerk panelindeki webhook uc noktasinin imza sirri (`whsec_…`), `/api/webhooks/clerk` hesap silme temizligi (2026-09-26). Production'da gerekli: yoksa uc nokta 503 doner ve silinen hesabin verisi kalir. Yerelde yalniz webhook denenecekse. Kerem ekler (`docs/STATUS.md` #59). Degeri yazdirilmaz |
 | `CLERK_DEV_ORIGINS` | Istege bagli, yalniz yerel: Clerk oturumunun kabul edildigi yerel koken(ler), virgulle ayrilmis; verilmezse `http://localhost:3000`. Vercel Production/Preview'da okunmaz (`lib/auth/trustedOrigins.ts`) |
 | `SUPABASE_DB_URL`, `BACKUP_PASSPHRASE`, `BACKUP_DIR` | Yalniz yerel `.env.local`: `npm run backup:supabase` (Session pooler baglanti dizesi, arsiv parolasi, repo disi yedek klasoru). Vercel'e eklenmez, degerleri yazdirilmaz (`SUPABASE_SECURITY_RUNBOOK.md` bolum 7) |
 
@@ -786,6 +794,8 @@ npm run test:volunteer-desk
 npm run test:mentor-operator
 npm run test:mentor-db
 npm run test:expert-leads
+npm run test:account-deletion
+npm run test:expert-lead-retention
 npm run check:cities
 npm run check:program-details
 npm run check:admission-dossier
@@ -810,6 +820,8 @@ node scripts/check-universities-server-compose.mjs
 ```
 
 Yedek (canli okuma + repo disina sifreli arsiv yazma; 2026-09-25): `npm run backup:supabase -- --dry-run`, `-- --run`, `-- --verify`, `-- --drill`. Canliya yazan her `--apply`/silme/migration oncesi ve haftada bir calisir; egress harcar. Ayrinti ve prova kaydi `SUPABASE_SECURITY_RUNBOOK.md` bolum 7.
+
+On gorusme saklama temizligi (DB yazma; 2026-09-26): `npm run cleanup:expert-leads` varsayilan kuru calismadir (yalniz sayi okur, kisisel veri yazdirmaz); `-- --apply` siler. Ayda bir, `--apply` yalniz Kerem onayiyla.
 
 Dogrulama olmayan legacy arac: `npm run clean:med` kok dizinde `med` dosyasi bekler (repoda yok) ve dosya uretir; kontrol komutu degildir.
 

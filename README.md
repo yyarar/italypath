@@ -36,6 +36,7 @@ SUPABASE_SERVICE_ROLE_KEY=
 SUPABASE_SECRET_KEY=
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
+CLERK_WEBHOOK_SIGNING_SECRET=
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/giris
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/giris?mode=kayit
 NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/hub
@@ -52,6 +53,7 @@ Ornek dosya: `.env.example`. Hangi ortamda ne gerekir:
 | `SUPABASE_SERVICE_ROLE_KEY` | `/sat` veya on gorusme formu test edilecekse | Zorunlu | Zorunlu | Server-only: SAT soru okuma, expert lead insert, admin/import scriptleri. Asla `NEXT_PUBLIC_*` yapma, client dosyasina koyma |
 | `SUPABASE_SECRET_KEY` | Zorunlu | Zorunlu | Zorunlu | Server-only, yeni tip gizli anahtar (`sb_secret_…`): okul/program katalog okumalari ve katalog okuyan betikler. Yoksa okul/program sayfalari, sitemap ve build hata verir. Vercel'de Supabase entegrasyonu tanimlar |
 | `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY` | Zorunlu (test anahtari) | Zorunlu (development anahtari) | Zorunlu (`pk_live`/`sk_live`) | Asagidaki Clerk notlarina bak |
+| `CLERK_WEBHOOK_SIGNING_SECRET` | Yalniz webhook denenecekse | Istege bagli | Zorunlu | Server-only: Clerk webhook imza sirri (`whsec_…`); `/api/webhooks/clerk` hesap silindiginde Supabase verisini siler. Yoksa uc nokta 503 doner |
 
 Canlı Vercel Production ortamında Clerk anahtarları `pk_live_` ve `sk_live_`
 olmalıdır. `pk_test_` / `sk_test_` anahtarları canlı sitede development-mode

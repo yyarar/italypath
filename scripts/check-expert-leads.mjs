@@ -77,6 +77,16 @@ mustInclude(sql, "enable row level security", "Expert lead RLS eksik");
   [expertForm, "website", "Honeypot alan eksik"],
 ].forEach(([source, needle, label]) => mustInclude(source, needle, label));
 
+// Toplama aninda aydinlatma (denetim S7#4): gonder dugmesinin altinda gizlilik politikasi linki, TR+EN.
+mustInclude(expertForm, 'href="/yasal/gizlilik"', "Formda gizlilik politikasi linki eksik");
+mustInclude(expertForm, "copy.privacyNotice.lead", "Formda gizlilik satiri metni eksik");
+if (translations.split("privacyNotice: {").length - 1 < 2) {
+  failures.push("privacyNotice TR+EN cevirileri eksik");
+}
+// Yil secenekleri statik HTML'e derleme yiliyla yazilmamali (denetim O4#9): sunucu anlik goruntusu null.
+mustInclude(expertForm, "useSyncExternalStore(subscribeToNothing, readCurrentUtcYear, readServerYear)", "Yil secenekleri sayfa acildiktan sonra uretilmiyor");
+mustNotInclude(expertForm, "useMemo(() => buildTargetIntakeOptions(), [])", "Yil secenekleri sunucu cizimine geri donmus");
+
 mustInclude(
   translations,
   "Talebini aldık. Ekibimiz WhatsApp üzerinden en kısa sürede sana ulaşacak.",

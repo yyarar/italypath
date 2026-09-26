@@ -1014,6 +1014,10 @@ export const translations = {
         submitting: "GÖNDERİLİYOR…",
         submitError: "Talebin şu anda gönderilemedi. Bilgilerin duruyor; tekrar deneyebilirsin.",
         busyError: "Şu anda çok yoğun talep alıyoruz. Bilgilerin duruyor; birkaç dakika sonra tekrar gönderebilirsin.",
+        privacyNotice: {
+          lead: "Bilgilerini yalnızca bu talebi değerlendirmek ve sana WhatsApp'tan ulaşmak için kullanırız. Ayrıntılar:",
+          link: "Gizlilik Politikası",
+        },
         success: "Talebini aldık. Ekibimiz WhatsApp üzerinden en kısa sürede sana ulaşacak.",
         backToDesks: "MASALARA DÖN",
         fields: {
@@ -2290,6 +2294,10 @@ export const translations = {
         submitting: "SENDING…",
         submitError: "Your request could not be sent right now. Your information is still here, so you can try again.",
         busyError: "We are receiving an unusually high number of requests. Your information is still here; please try again in a few minutes.",
+        privacyNotice: {
+          lead: "We use your details only to review this request and to contact you on WhatsApp. Details:",
+          link: "Privacy Policy",
+        },
         success: "We received your request. Our team will contact you on WhatsApp as soon as possible.",
         backToDesks: "BACK TO DESKS",
         fields: {
