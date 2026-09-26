@@ -2,7 +2,6 @@
 
 import React, { useCallback, useMemo, useState, useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
-import { usePathname, useRouter } from "next/navigation";
 
 import type { University } from "@/types/universities";
 import { useLanguage } from "@/context/LanguageContext";
@@ -12,9 +11,12 @@ import { useUniversitiesData } from "@/lib/useUniversitiesData";
 import {
   UNIVERSITIES_VIEW_MODE_EVENT,
   UNIVERSITIES_VIEW_MODE_STORAGE_KEY,
+  createUniversitiesFilterUrl,
   filterUniversities,
   getCitiesWithCounts,
   getTotalDepartments,
+  parseUniversitiesFilterParams,
+  type UniversitiesExplorerFilters,
   type UniversityViewMode,
 } from "@/lib/universitiesFilters";
 import { UniversitiesFilterBar } from "./UniversitiesFilterBar";
@@ -30,12 +32,7 @@ const MAX_STAGGER_WINDOW = 0.8;
 const MIN_STAGGER = 0.012;
 const MAX_STAGGER = 0.06;
 
-export interface UniversitiesExplorerFilters {
-  searchTerm: string;
-  selectedCity: string;
-  selectedType: string;
-  showFavoritesOnly: boolean;
-}
+export type { UniversitiesExplorerFilters };
 
 interface UniversitiesExplorerProps {
   initialUniversities: University[];
@@ -80,16 +77,12 @@ function subscribeToViewMode(callback: () => void) {
   };
 }
 
-function createFilterUrl(pathname: string, filters: UniversitiesExplorerFilters) {
-  const params = new URLSearchParams();
-
-  if (filters.searchTerm) params.set("q", filters.searchTerm);
-  if (filters.selectedCity) params.set("city", filters.selectedCity);
-  if (filters.selectedType) params.set("type", filters.selectedType);
-  if (filters.showFavoritesOnly) params.set("fav", "1");
-
-  const queryString = params.toString();
-  return queryString ? `${pathname}?${queryString}` : pathname;
+// Filtreler adres satirina window.history.replaceState ile yazilir (her tusta sunucuya gidis yok).
+// Geri tusuyla listeye donulunce sunucu verisi ilk adresin filtrelerini tasiyabilir; baslangic
+// durumu bu yuzden adresin kendisinden okunur (ilk yuklemede sunucuyla ayni ayristirici).
+function readFiltersFromLocation(fallback: UniversitiesExplorerFilters) {
+  if (typeof window === "undefined") return fallback;
+  return parseUniversitiesFilterParams(new URLSearchParams(window.location.search));
 }
 
 export function UniversitiesExplorer({
@@ -98,9 +91,9 @@ export function UniversitiesExplorer({
   initialStats,
   initialCitiesWithCounts,
 }: UniversitiesExplorerProps) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const [filters, setFilters] = useState<UniversitiesExplorerFilters>(initialFilters);
+  const [filters, setFilters] = useState<UniversitiesExplorerFilters>(() =>
+    readFiltersFromLocation(initialFilters)
+  );
 
   const { t, language, toggleLanguage } = useLanguage();
   const { favorites, toggleFavorite, isFavorite, loading: favoritesLoading } = useFavorites();
@@ -134,12 +127,13 @@ export function UniversitiesExplorer({
     filters.searchTerm ||
     filters.showFavoritesOnly;
 
-  const updateUrl = useCallback(
-    (nextFilters: UniversitiesExplorerFilters) => {
-      router.replace(createFilterUrl(pathname, nextFilters), { scroll: false });
-    },
-    [pathname, router]
-  );
+  const updateUrl = useCallback((nextFilters: UniversitiesExplorerFilters) => {
+    window.history.replaceState(
+      null,
+      "",
+      createUniversitiesFilterUrl(window.location.pathname, nextFilters)
+    );
+  }, []);
 
   const updateFilter = useCallback(
     (key: string, value: string) => {
