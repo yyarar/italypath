@@ -19,13 +19,13 @@ export default function VelocityBridge({ stats }: VelocityBridgeProps) {
           { value: stats.universitiesCount, animate: true, label: "üniversite", href: "/universities", ariaLabel: "Üniversite listesine git" },
           { value: stats.programsCount, animate: true, label: "program", href: "/universities", ariaLabel: "Program listesine git" },
           { value: 20, animate: false, label: "bölgesel burs kaydı", href: "/scholarships", ariaLabel: "Bölgesel burs haritasına git" },
-          { value: null, animate: false, display: "1.400+", label: "SAT sorusu", href: "/sat", ariaLabel: "SAT soru bankasına git" },
+          { value: null, animate: false, display: "1.000+", label: "SAT matematik sorusu", href: "/sat", ariaLabel: "SAT soru bankasına git" },
         ]
       : [
           { value: stats.universitiesCount, animate: true, label: "universities", href: "/universities", ariaLabel: "Open university list" },
           { value: stats.programsCount, animate: true, label: "programs", href: "/universities", ariaLabel: "Open program list" },
           { value: 20, animate: false, label: "regional scholarship records", href: "/scholarships", ariaLabel: "Open regional scholarship map" },
-          { value: null, animate: false, display: "1,400+", label: "SAT questions", href: "/sat", ariaLabel: "Open the SAT question bank" },
+          { value: null, animate: false, display: "1,000+", label: "SAT math questions", href: "/sat", ariaLabel: "Open the SAT question bank" },
         ];
 
   return (

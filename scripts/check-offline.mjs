@@ -19,7 +19,6 @@ const OFFLINE = [
   "check:university-details-ui",
   "check:program-metadata",
   "check:admission-dossier",
-  // Kart 9 dalinda (2026-09-26); package.json'a gelene kadar atlanir.
   "test:program-details-guard",
   "check:local-data",
   "check:cities",

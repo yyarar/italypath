@@ -11,7 +11,7 @@ import { ComingSoonNotice } from "./ComingSoonNotice";
 import { ProgramAdmissionDetailsPanel } from "./ProgramAdmissionDetailsPanel";
 import { ProgramSourceTrail } from "./ProgramSourceTrail";
 import { ProgramSummaryStrip } from "./ProgramSummaryStrip";
-import type { ProgramDossierLabels } from "./programDossierShared";
+import type { OfficialLinkContext, ProgramDossierLabels } from "./programDossierShared";
 import { ProgramDirectory } from "./ProgramDirectory";
 import { ProgramNextSteps } from "./ProgramNextSteps";
 import { DetailBreadcrumb } from "./DetailBreadcrumb";
@@ -150,6 +150,14 @@ export function DepartmentDetailClient({
     askExpert: t.department.askExpert,
     expertDeskNote: t.department.expertDeskNote,
     otherAdmissionInformation: t.department.otherAdmissionInformation,
+    partnerSite: t.department.partnerSite,
+    publicPortal: t.department.publicPortal,
+    externalSite: t.department.externalSite,
+  };
+  // Resmi linklerin izin listesi okul + program kimligiyle okunur (lib/officialLinkHosts.mjs).
+  const linkContext: OfficialLinkContext = {
+    universityId: university.id,
+    departmentId: department.id,
   };
 
   return (
@@ -189,6 +197,7 @@ export function DepartmentDetailClient({
             details={department.admissionDetails}
             labels={dossierLabels}
             language={language}
+            linkContext={linkContext}
           />
         ) : null}
 
@@ -211,6 +220,7 @@ export function DepartmentDetailClient({
             details={department.admissionDetails}
             language={language}
             labels={dossierLabels}
+            linkContext={linkContext}
           />
         ) : (
           <ComingSoonNotice
@@ -230,6 +240,7 @@ export function DepartmentDetailClient({
             details={department.admissionDetails}
             labels={dossierLabels}
             language={language}
+            linkContext={linkContext}
           />
         ) : null}
 

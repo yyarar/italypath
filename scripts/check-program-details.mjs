@@ -2,6 +2,8 @@ import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { createClient } from "@supabase/supabase-js";
 
+import { classifyOfficialLink, isAllowedOfficialLinkStatus } from "../lib/officialLinkHosts.mjs";
+
 const ALLOWED_LEVELS = new Set(["bachelor", "master", "single-cycle"]);
 const UNIVERSITY_CHECKS = [
   {
@@ -723,7 +725,7 @@ function isArray(value) {
 }
 
 function isHttpUrl(value) {
-  return typeof value === "string" && /^https?:\/\//.test(value);
+  return classifyOfficialLink(value).status !== "invalid";
 }
 
 const supabase = createSupabaseClient();
@@ -885,6 +887,50 @@ if (supabase) {
         );
       }
     }
+  }
+}
+
+// Tum okullar (2026-09-26, guvenlik denetimi G3#1/G3#2/G3#4): dort link turu (3 URL alani +
+// source_quotes[].url) gecerli, bosluksuz http(s) olmali; kisaltici/arsiv linki olmamali ve host
+// lib/officialLinkHosts.mjs izin listesinde bulunmali (okulun kendi alan adi, bolum icin onayli
+// ortak site veya kamu portali). Tek sorgu tum satirlarin link kolonlarini okur (~1 MB); bu guard
+// canli veriyi okudugu icin seyrek calistir.
+if (supabase) {
+  const LINK_FIELDS = ["official_program_url", "official_call_url", "tuition_or_fees_link"];
+  const rows = [];
+  for (let from = 0; ; from += 500) {
+    const { data, error } = await supabase
+      .from("program_admission_details")
+      .select(`department_id,university_id,${LINK_FIELDS.join(",")},source_quotes`)
+      .order("department_id", { ascending: true })
+      .range(from, from + 499);
+    if (error) {
+      fail(`Failed to fetch admission links for all schools: ${error.message}`);
+      break;
+    }
+    rows.push(...(data ?? []));
+    if (!data || data.length < 500) break;
+  }
+
+  const linkFailures = [];
+  for (const row of rows) {
+    const context = { universityId: row.university_id, departmentId: row.department_id };
+    const links = LINK_FIELDS.filter((field) => row[field] != null).map((field) => [field, row[field]]);
+    (Array.isArray(row.source_quotes) ? row.source_quotes : []).forEach((quote, index) => {
+      links.push([`source_quotes[${index}].url`, quote?.url]);
+    });
+    if (row.official_program_url == null) linkFailures.push(`detail ${row.department_id} has no official_program_url`);
+    for (const [field, value] of links) {
+      const { status, host } = classifyOfficialLink(value, context);
+      if (!isAllowedOfficialLinkStatus(status)) {
+        linkFailures.push(`detail ${row.department_id} (university ${row.university_id}) ${field} is ${status}${host ? ` (${host})` : ""}`);
+      }
+    }
+  }
+  if (linkFailures.length > 0) {
+    fail(`${linkFailures.length} admission link problem(s) across all schools (fix: scripts/fix-admission-link-fields.mjs or lib/officialLinkHosts.mjs allowlist)`);
+    for (const failure of linkFailures.slice(0, 40)) fail(failure);
+    if (linkFailures.length > 40) fail(`… ${linkFailures.length - 40} more link problem(s)`);
   }
 }
 

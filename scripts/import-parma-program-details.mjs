@@ -1,7 +1,17 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { basename, join, resolve } from "node:path";
-import { createClient } from "@supabase/supabase-js";
 
+import {
+  createImportClient,
+  finalizeAdmissionPayloads,
+  parseImportArgs,
+  prepareAdmissionWrite,
+  recordImportManifest,
+  sourceFileRef,
+} from "./lib/program-details-import.mjs";
+
+// Usage: node scripts/import-parma-program-details.mjs [--dry-run | --apply --project-ref kskbnxxyviowmrlskwke]
+const SCRIPT_KEY = "parma";
 const PARMA_UNIVERSITY_ID = 23;
 const EXPECTED_SOURCE_FILE_COUNT = 18;
 const EXPECTED_IMPORT_COUNT = 15;
@@ -49,58 +59,7 @@ const ALLOW_ALIAS_LEVEL_CORRECTIONS = new Set([
   identityKey("Medicine and Surgery", "single-cycle"),
 ]);
 
-const mode = parseMode(process.argv.slice(2));
-
-function parseMode(args) {
-  const allowedArgs = new Set(["--dry-run", "--apply"]);
-  const unknownArgs = args.filter((arg) => !allowedArgs.has(arg));
-  if (unknownArgs.length > 0) throw new Error(`Unknown argument(s): ${unknownArgs.join(", ")}`);
-
-  const wantsDryRun = args.includes("--dry-run");
-  const wantsApply = args.includes("--apply");
-  if (wantsDryRun && wantsApply) throw new Error("Use either --dry-run or --apply, not both.");
-
-  return wantsApply ? "apply" : "dry-run";
-}
-
-function loadDotenvLocal() {
-  const envPath = resolve(process.cwd(), ".env.local");
-  if (!existsSync(envPath)) return;
-
-  for (const line of readFileSync(envPath, "utf8").split(/\r?\n/)) {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith("#")) continue;
-
-    const separatorIndex = trimmed.indexOf("=");
-    if (separatorIndex === -1) continue;
-
-    const key = trimmed.slice(0, separatorIndex).trim();
-    const value = trimmed.slice(separatorIndex + 1).trim().replace(/^['"]|['"]$/g, "");
-    if (key && !process.env[key]) process.env[key] = value;
-  }
-}
-
-function createSupabaseClient() {
-  loadDotenvLocal();
-
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey =
-    mode === "apply"
-      ? process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SECRET_KEY
-      : process.env.SUPABASE_SECRET_KEY;
-
-  if (!supabaseUrl || !supabaseKey) {
-    throw new Error(
-      mode === "apply"
-        ? "NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY or SUPABASE_SECRET_KEY are required for --apply."
-        : "NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SECRET_KEY are required (catalog reads use the server-only secret key)."
-    );
-  }
-
-  return createClient(supabaseUrl, supabaseKey, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
-}
+const { mode, projectRef } = parseImportArgs(process.argv.slice(2));
 
 function normalizeName(value) {
   return value
@@ -630,9 +589,14 @@ function toDetailPayload(source, departmentId) {
     source_quotes: normalizeSourceQuotes(source.raw.source_quotes),
     uncertain: normalizeStringArray(source.raw.uncertain),
     uncertainty_notes: normalizeStringArray(source.raw.uncertainty_notes),
-    source_file: source.file,
+    source_file: sourceFileRef(join(RESULTS_DIR, source.file)),
     updated_at: now,
   };
+}
+
+// Kuru calistirma ve --apply on kontrolu icin: henuz olusmamis bolumler id'siz.
+function previewDetailPayloads(plan) {
+  return plan.detailRows.map(({ source, department }) => toDetailPayload(source, department?.id ?? null));
 }
 
 function toDepartmentPayload(department) {
@@ -762,7 +726,7 @@ async function applyPlan(supabase, plan) {
       refreshedByIdentity.set(identityKey(department.name, department.level), department);
     }
 
-    detailPayloads = plan.detailRows.map(({ source, department }) => {
+    const rawDetailPayloads = plan.detailRows.map(({ source, department }) => {
       let resolved = refreshedByIdentity.get(identityKey(source.departmentName, source.level));
       if (!resolved && department?.id) {
         resolved = refreshedDepartments.find((candidate) => candidate.id === department.id);
@@ -774,6 +738,7 @@ async function applyPlan(supabase, plan) {
       validateDetailPayload(payload);
       return payload;
     });
+    detailPayloads = finalizeAdmissionPayloads(rawDetailPayloads);
 
     admissionDetailSnapshot = await snapshotAdmissionDetails(
       supabase,
@@ -786,6 +751,7 @@ async function applyPlan(supabase, plan) {
     if (error) throw new Error(`Failed to upsert admission details: ${error.message}`);
 
     await verifyApplyResult(supabase, detailPayloads);
+    console.log(`[manifest] ${recordImportManifest(SCRIPT_KEY, detailPayloads, { projectRef })}`);
   } catch (error) {
     await rollbackAdmissionDetails(supabase, admissionDetailSnapshot);
     if (mutatedDepartments) await rollbackPlan(supabase, plan);
@@ -856,11 +822,14 @@ async function main() {
   if (!existsSync(RESULTS_DIR)) throw new Error(`Results directory not found: ${RESULTS_DIR}`);
   mkdirSync(OUTPUT_DIR, { recursive: true });
 
-  const supabase = createSupabaseClient();
+  const supabase = createImportClient({ mode, projectRef });
   const { files, importable, excluded } = loadSourcePrograms();
   const university = await fetchParmaUniversity(supabase);
   const dbDepartments = await fetchParmaDepartments(supabase);
   const plan = createPlan(university, importable, excluded, dbDepartments);
+  // Link temizligi, izin listesi, serbest metin ve uzunluk denetimi + tam metin farki
+  // (output/). --apply'da engelleyici sorun varsa hicbir yazma yapilmadan durur.
+  await prepareAdmissionWrite(supabase, previewDetailPayloads(plan), { mode, scriptName: SCRIPT_KEY });
 
   if (files.length !== EXPECTED_SOURCE_FILE_COUNT) {
     throw new Error(`Expected ${EXPECTED_SOURCE_FILE_COUNT} source JSON files, found ${files.length}.`);

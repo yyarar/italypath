@@ -11,10 +11,13 @@ import {
   normalizeAdmissionSourceUrl,
 } from "./programAdmissionPresentation";
 import {
+  LinkHost,
   buildDossierSources,
   fillTemplate,
   formatSourceDate,
   getUncertaintyLabels,
+  resolveShowableLink,
+  type OfficialLinkContext,
   type ProgramDossierLabels,
 } from "./programDossierShared";
 
@@ -22,6 +25,7 @@ interface ProgramSourceTrailProps {
   details: ProgramAdmissionDetails;
   labels: ProgramDossierLabels;
   language: "tr" | "en";
+  linkContext: OfficialLinkContext;
 }
 
 // Uzman masasi public'tir: giris gerektirmeden ucretsiz on gorusme formunu acar.
@@ -31,9 +35,11 @@ export function ProgramSourceTrail({
   details,
   labels,
   language,
+  linkContext,
 }: ProgramSourceTrailProps) {
   const evidence = buildAdmissionEvidence(details.sourceQuotes);
-  const sources = buildDossierSources(details, evidence, labels);
+  const sources = buildDossierSources(details, evidence, labels, linkContext);
+  const programLink = resolveShowableLink(details.officialProgramUrl, linkContext);
   const uncertaintyLabels = getUncertaintyLabels(details.uncertain, labels);
   const hasUncertainty =
     uncertaintyLabels.length > 0 || details.uncertaintyNotes.length > 0;
@@ -109,7 +115,7 @@ export function ProgramSourceTrail({
                   </span>
                   <div className="min-w-0">
                     <a
-                      href={source.url}
+                      href={source.link.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-start gap-1 break-words text-sm font-bold leading-5 text-[var(--editorial-ink)] transition hover:text-[var(--editorial-terracotta-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
@@ -117,6 +123,7 @@ export function ProgramSourceTrail({
                       {source.title}
                       <ExternalLink className="mt-0.5 h-3.5 w-3.5 shrink-0" />
                     </a>
+                    <LinkHost link={source.link} labels={labels} className="mt-0.5" />
                     <p className="mt-1 text-xs leading-5 text-[var(--editorial-muted)]">
                       {source.purpose}
                     </p>
@@ -162,16 +169,21 @@ export function ProgramSourceTrail({
           <h3 className="font-serif text-xl font-semibold text-[var(--editorial-ink)] sm:text-2xl">
             {labels.nextStep}
           </h3>
-          <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:max-w-xl">
-            <a
-              href={details.officialProgramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center justify-center gap-2 border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-3 py-2 text-center text-sm font-bold text-white transition hover:bg-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
-            >
-              {labels.openOfficialSource}
-              <ExternalLink className="h-3.5 w-3.5" />
-            </a>
+          <div className="mt-4 grid items-start gap-2 sm:grid-cols-2 lg:max-w-xl">
+            {programLink ? (
+              <div>
+                <a
+                  href={programLink.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex min-h-11 items-center justify-center gap-2 border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-3 py-2 text-center text-sm font-bold text-white transition hover:bg-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+                >
+                  {labels.openOfficialSource}
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+                <LinkHost link={programLink} labels={labels} className="mt-1 text-center" />
+              </div>
+            ) : null}
             <Link
               href={EXPERT_DESK_HREF}
               className="inline-flex min-h-11 items-center justify-center gap-2 border border-[var(--editorial-ink)] px-3 py-2 text-center text-sm font-bold text-[var(--editorial-ink)] transition hover:bg-[var(--editorial-ink)] hover:text-[var(--editorial-paper)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
