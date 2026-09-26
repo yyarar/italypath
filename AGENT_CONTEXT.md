@@ -782,7 +782,7 @@ Supabase env eksikse university API ve Supabase dogrulama scriptleri hata verir.
 
 ## Komutlar
 
-Her push'tan once: `npm run check:offline` (2026-09-26, guvenlik denetimi O5#4). Asagidaki cevrimdisi `check:*`/`test:*` betiklerini, `lint`'i ve `npx tsc --noEmit`'i sirayla calistirir, hata olsa da sonuna kadar gider ve ozet basar (~20 sn). Canli okuma yapan `check:data` ve `check:program-details` burada calismaz. package.json'a yeni `check:*`/`test:*` eklenince `scripts/check-offline.mjs` icindeki OFFLINE veya LIVE listesine yazilir; siniflandirilmamis betik `check:offline`'i kirmizi yapar.
+Her push'tan once: `npm run check:offline` (2026-09-26, guvenlik denetimi O5#4). Asagidaki cevrimdisi `check:*`/`test:*` betiklerini, `lint`'i ve tip kontrolunu sirayla calistirir, hata olsa da sonuna kadar gider ve ozet basar (~20 sn). Tip kontrolu once `next typegen` ile rota tiplerini guncel sayfalardan uretir, sonra `tsc --noEmit -p tsconfig.offline.json` calisir; bu ayar `next dev`in bayat kalabilen `.next/dev` tiplerini saymaz (silinen sayfalar yuzunden yanlis kirmizi vermez). Canli okuma yapan `check:data` ve `check:program-details` burada calismaz. package.json'a yeni `check:*`/`test:*` eklenince `scripts/check-offline.mjs` icindeki OFFLINE veya LIVE listesine yazilir; siniflandirilmamis betik `check:offline`'i kirmizi yapar.
 
 ```bash
 npm install

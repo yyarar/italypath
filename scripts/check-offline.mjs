@@ -71,11 +71,17 @@ for (const name of OFFLINE) {
   results.push({ name, ok: run.status === 0, seconds });
 }
 
-// tsc tum projeyi tip denetler (Vercel build'i de denetler; burada push'tan once yakalanir).
-console.log("\n=== tsc --noEmit");
+// tsc tum projeyi tip denetler (Vercel build'i de denetler; burada push'tan once yakalanir). Once
+// `next typegen` rota tiplerini (.next/types) guncel sayfalardan yeniden uretir (build yok, ag yok);
+// tsconfig.offline.json bayat kalabilen .next/dev tiplerini disarida birakir.
+console.log("\n=== next typegen + tsc --noEmit");
 {
   const started = Date.now();
-  const run = spawnSync("npx", ["tsc", "--noEmit"], { stdio: "inherit", env });
+  const typegen = spawnSync("npx", ["next", "typegen"], { stdio: "inherit", env });
+  const run =
+    typegen.status === 0
+      ? spawnSync("npx", ["tsc", "--noEmit", "-p", "tsconfig.offline.json"], { stdio: "inherit", env })
+      : typegen;
   results.push({ name: "tsc --noEmit", ok: run.status === 0, seconds: ((Date.now() - started) / 1000).toFixed(1) });
 }
 
