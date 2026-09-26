@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { m, useReducedMotion, type Variants } from "framer-motion";
 import { ArrowLeft, ExternalLink, Globe } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
@@ -95,7 +95,7 @@ function AtlasHero({ totalLastChecked }: { totalLastChecked: string }) {
   const { t, language } = useLanguage();
 
   return (
-    <motion.section
+    <m.section
       variants={itemVariants}
       className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(240px,0.35fr)] lg:items-end"
     >
@@ -124,7 +124,7 @@ function AtlasHero({ totalLastChecked }: { totalLastChecked: string }) {
           . {t.communities.curationNoteBody}
         </p>
       </div>
-    </motion.section>
+    </m.section>
   );
 }
 
@@ -138,7 +138,7 @@ function AtlasTableOfContents({
   const { t, language } = useLanguage();
 
   return (
-    <motion.nav
+    <m.nav
       variants={itemVariants}
       aria-label={t.communities.tocLabel}
       className="mt-10 border-y border-[var(--editorial-border)] py-6"
@@ -174,7 +174,7 @@ function AtlasTableOfContents({
           );
         })}
       </ul>
-    </motion.nav>
+    </m.nav>
   );
 }
 
@@ -238,7 +238,7 @@ function ChapterBlock({
   const titleId = `${chapter.slug}-title`;
 
   return (
-    <motion.section
+    <m.section
       id={chapter.slug}
       aria-labelledby={titleId}
       initial={{ opacity: 0, y: 14 }}
@@ -273,7 +273,7 @@ function ChapterBlock({
           <EntryRow key={community.id} community={community} />
         ))}
       </div>
-    </motion.section>
+    </m.section>
   );
 }
 
@@ -284,7 +284,7 @@ function AtlasFooterPrompt() {
   )}`;
 
   return (
-    <motion.aside
+    <m.aside
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -307,7 +307,7 @@ function AtlasFooterPrompt() {
         {t.communities.footerCta}
         <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
       </a>
-    </motion.aside>
+    </m.aside>
   );
 }
 
@@ -336,14 +336,14 @@ export default function CommunityAtlas() {
       <div className="mx-auto max-w-7xl px-4 pb-10 pt-6 sm:px-6 lg:px-8">
         <AtlasTopBar />
 
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial={shouldReduceMotion ? false : "hidden"}
           animate={heroAnimation}
         >
           <AtlasHero totalLastChecked={totalLastChecked} />
           <AtlasTableOfContents chapters={COMMUNITY_CHAPTER_META} counts={counts} />
-        </motion.div>
+        </m.div>
 
         {COMMUNITY_CHAPTER_META.map((chapter, index) => (
           <ChapterBlock

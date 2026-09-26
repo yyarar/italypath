@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
 import {
@@ -22,7 +22,7 @@ export default function MentorHub({
       <div className="mx-auto max-w-3xl px-4 pb-12 pt-6 sm:px-6">
         <MentorTopBar mode="hub" />
 
-        <motion.section
+        <m.section
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 110, damping: 22, delay: 0.05 }}
@@ -37,9 +37,9 @@ export default function MentorHub({
           <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--editorial-muted)] sm:text-lg">
             {t.aiMentor.hubIntro}
           </p>
-        </motion.section>
+        </m.section>
 
-        <motion.ol
+        <m.ol
           initial="hidden"
           animate="show"
           variants={{
@@ -66,7 +66,7 @@ export default function MentorHub({
                 : `${t.aiMentor.hubOpenCta} ↗`;
 
             return (
-              <motion.li
+              <m.li
                 key={channel.id}
                 variants={{
                   hidden: { opacity: 0, y: 14 },
@@ -116,10 +116,10 @@ export default function MentorHub({
                     {ctaText}
                   </span>
                 </button>
-              </motion.li>
+              </m.li>
             );
           })}
-        </motion.ol>
+        </m.ol>
       </div>
     </main>
   );

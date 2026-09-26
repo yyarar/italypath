@@ -8,12 +8,14 @@ const paths = {
   cityData: new URL("../lib/cities/data.ts", import.meta.url),
   cityExplorer: new URL("../components/cities/CityGuidesExplorer.tsx", import.meta.url),
   cityPage: new URL("../app/cities/page.tsx", import.meta.url),
+  guidePanel: new URL("../lib/cities/guidePanel.ts", import.meta.url),
   costTiers: new URL("../lib/cities/costTiers.ts", import.meta.url),
   hub: new URL("../lib/hub/recommendations.ts", import.meta.url),
   normalization: new URL("../lib/cities/normalization.ts", import.meta.url),
   scholarships: new URL("../lib/scholarships/regions.ts", import.meta.url),
   tieredData: new URL("../lib/cities/tieredData.ts", import.meta.url),
-  translations: new URL("../lib/translations.ts", import.meta.url),
+  translationsTr: new URL("../lib/translations/tr.ts", import.meta.url),
+  translationsEn: new URL("../lib/translations/en.ts", import.meta.url),
 };
 
 const sources = Object.fromEntries(
@@ -76,10 +78,12 @@ const hubRuntime = loadTypeScriptModule(sources.hub, "lib/hub/recommendations.ts
   "@/lib/cities/data": cityRuntime,
   "@/lib/scholarships/regions": scholarshipRuntime,
 });
-const translationRuntime = loadTypeScriptModule(
-  sources.translations,
-  "lib/translations.ts"
-);
+const translationRuntime = {
+  translations: {
+    tr: loadTypeScriptModule(sources.translationsTr, "lib/translations/tr.ts").tr,
+    en: loadTypeScriptModule(sources.translationsEn, "lib/translations/en.ts").en,
+  },
+};
 
 function assertIncludes(haystack, needle, message) {
   assert.ok(haystack.includes(needle), message);
@@ -577,17 +581,28 @@ assertIncludes(sources.cityPage, "getCityDetailByName", "Server city routing mus
 assertIncludes(sources.cityPage, "getCanonicalCitySlug", "Server city routing must compare canonical slugs.");
 assertIncludes(sources.cityPage, "city.slug === selectedSlug", "Server city routing must compare the resolved and option slugs.");
 assertIncludes(sources.cityPage, "initialSelectedCity={selectedCity.slug}", "Server selection must cross the client boundary as a slug.");
-assertIncludes(sources.cityPage, "createCityUniversitySummaries(universities, selectedCity.slug)", "Initial university filtering must use resolved slug identity.");
+assertIncludes(sources.cityPage, "resolveCityGuidePanel(selectedCity.slug, cityOptions)", "Initial panel must be resolved from the selected option slug.");
+assertIncludes(sources.cityPage, "const citySlug = getCanonicalCitySlug(cityName);", "University grouping must resolve the university city slug.");
+assertIncludes(sources.cityPage, "universitiesByCity={createUniversitiesByCity(universities)}", "Per-city university summaries must come from the server.");
+assertIncludes(sources.guidePanel, "city.slug === selectedSlug", "Panel resolution must compare the resolved and option slugs.");
 assertNotIncludes(sources.cityPage, "city.name.toLowerCase() === normalizedRawCity", "Server selection cannot compare display names literally.");
 
-const activeSlugExpression = "activeCity.slug === city.slug";
+const activeSlugExpression = "selectedSlug === city.slug";
 assert.equal(
   sources.cityExplorer.split(activeSlugExpression).length - 1,
   2,
   "Both responsive city directories must derive active state from canonical slugs."
 );
-assertIncludes(sources.cityExplorer, "city.slug === activeCity.slug", "Mobile select value must compare option slugs.");
-assertIncludes(sources.cityExplorer, "getCanonicalCitySlug(cityName) === activeCity.slug", "University filtering must resolve the university city slug.");
+assertIncludes(sources.cityExplorer, "city.slug === selectedSlug", "Mobile select value must compare option slugs.");
+assertIncludes(sources.cityExplorer, "universitiesByCity[activeCity.slug]", "City universities must be looked up by the city record slug.");
+// Egress/paket diyeti (denetim O3#7, 2026-09-26): /cities okul dizinini yeniden cekmez, sehir rehberi
+// metinleri ve burs bolgeleri ilk pakete girmez (yalniz sehir degisiminde dinamik import).
+assertNotIncludes(sources.cityExplorer, "useUniversitiesData", "City explorer must not re-download the university directory.");
+assertNotIncludes(sources.cityExplorer, 'from "@/lib/cities/data"', "City guide texts must not be in the first bundle.");
+assertNotIncludes(sources.cityExplorer, "@/lib/scholarships/regions", "Scholarship regions must not be in the first bundle.");
+assertIncludes(sources.cityExplorer, 'import("@/lib/cities/guidePanel")', "Other cities must load on switch via dynamic import.");
+assertNotIncludes(sources.cityExplorer, "router.replace", "City selection must not re-render the page on the server.");
+assertIncludes(sources.cityExplorer, "window.history.replaceState", "City selection must update the address with replaceState.");
 assertNotIncludes(sources.cityExplorer, "activeCity.name.toLowerCase() === city.name.toLowerCase()", "Selectors cannot compare display names literally.");
 assertIncludes(sources.cityExplorer, 'activeCity.costModel === "italypath-tier"', "Tier warning and cost provenance need a tier branch.");
 assertIncludes(sources.cityExplorer, "copy.tierWarningItem1", "Tier warning item 1 must render.");

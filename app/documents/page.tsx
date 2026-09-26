@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useUserDocuments } from "@/lib/documents/useUserDocuments";
@@ -78,14 +78,14 @@ export default function DocumentsPage() {
 
         <AnimatePresence>
           {error && (
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: -4 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               className="mt-4 border-l-2 border-[var(--editorial-terracotta)] bg-[var(--editorial-surface)] px-3 py-2 text-[12px] text-[var(--editorial-terracotta-ink)]"
             >
               {error}
-            </motion.p>
+            </m.p>
           )}
         </AnimatePresence>
 

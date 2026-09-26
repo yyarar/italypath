@@ -21,7 +21,7 @@ const constants = read("lib/consultation.ts");
 must(constants, 'export const CONSULT_ANCHOR = "on-gorusme"', "Anchor sabiti");
 must(constants, 'export const CONSULT_PAGE_PATH = "/on-gorusme"', "Sayfa yolu sabiti");
 
-const translations = read("lib/translations.ts");
+const translations = read("lib/translations/tr.ts") + "\n" + read("lib/translations/en.ts");
 for (const ns of ["homeTools: {", "consultation: {", "homeFaq: {", "consultPrompt: {"]) {
   if (countOf(translations, ns) < 2) failures.push(`TR+EN namespace eksik: ${ns}`);
 }

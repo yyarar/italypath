@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, GraduationCap } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
 import type { ProgramMatch } from "@/lib/hub/recommendations";
@@ -80,12 +80,12 @@ export default function ProgramMatchList({ matches }: { matches: ProgramMatch[] 
               ? t.hub.recoSections.collapse
               : t.hub.recoSections.seeAll.replace("{count}", String(matches.length))}
           </span>
-          <motion.span
+          <m.span
             animate={{ rotate: showAll ? 180 : 0 }}
             transition={reduceMotion ? { duration: 0 } : { type: "spring", bounce: 0, duration: 0.3 }}
           >
             <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
-          </motion.span>
+          </m.span>
         </button>
       )}
     </section>

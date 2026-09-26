@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 import ConsultationPageClient from "@/components/consultation/ConsultationPageClient";
-import { translations } from "@/lib/translations";
+import { tr } from "@/lib/translations";
 
-const copy = translations.tr.consultation;
+const copy = tr.consultation;
 
 export const metadata: Metadata = {
   title: copy.pageMetaTitle,

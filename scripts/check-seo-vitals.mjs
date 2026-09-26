@@ -18,8 +18,12 @@ const routeTransition = readFileSync("components/RouteTransition.tsx", "utf8");
 if (!/<AnimatePresence[^>]*initial=\{false\}/.test(routeTransition)) {
   failures.push("RouteTransition: <AnimatePresence initial={false}> zorunlu; yoksa ilk yüklemede tüm sayfalar hidrasyona kadar görünmez kalır (LCP)");
 }
-if (!routeTransition.includes("<motion.div") || !routeTransition.includes("key={pathname}")) {
-  failures.push("RouteTransition: pathname anahtarlı motion.div sarmalayıcısı beklenen yapıda değil; guard'ı güncelle");
+if (!routeTransition.includes("<m.div") || !routeTransition.includes("key={pathname}")) {
+  failures.push("RouteTransition: pathname anahtarlı m.div sarmalayıcısı beklenen yapıda değil; guard'ı güncelle");
+}
+// framer-motion diyeti (denetim O3#10, 2026-09-26): kokte yalniz domAnimation; bilesenler `m` kullanir.
+if (!routeTransition.includes("<LazyMotion features={domAnimation} strict>")) {
+  failures.push("RouteTransition: <LazyMotion features={domAnimation} strict> kok sarmalayicisi eksik");
 }
 
 const tracked = execSync("git ls-files app components lib", { encoding: "utf8" })
@@ -59,7 +63,7 @@ for (const file of isrPages) {
 
 // ISR sayfalarini saran layout/template dosyalari da ayni sayfanin parcasidir (guvenlik denetimi O5#8,
 // 2026-09-26): kok layout'ta cookies() veya auth() cagrisi TUM sayfalari dinamige dusurur. Liste ISR
-// sayfalarindan yukari yurunerek kurulur (bugun: app/layout.tsx, app/template.tsx, app/universities/layout.tsx,
+// sayfalarindan yukari yurunerek kurulur (bugun: app/layout.tsx, app/universities/layout.tsx; app/template.tsx 2026-09-26'da silindi;
 // iki universities detay layout'u); yeni bir ust layout eklenirse kendiliginden taranir.
 const isrWrappers = [];
 for (const page of isrPages) {
@@ -137,6 +141,82 @@ if (!sitemap.includes("encodeURIComponent(dept.slug)")) {
 }
 if (!/export const revalidate = 10800;/.test(sitemap)) {
   failures.push("app/sitemap.ts: revalidate 10800 olmali (dizin memo'su 3 saat)");
+}
+
+// Sayfa agirligi (guvenlik ve optimizasyon denetimi karti 10, 2026-09-26).
+// /isee ve /communities istek basina degisen icerik tasimaz; force-dynamic her ziyarette sunucu isi uretir.
+for (const file of ["app/isee/page.tsx", "app/communities/page.tsx"]) {
+  if (readFileSync(file, "utf8").includes("force-dynamic")) {
+    failures.push(`${file}: force-dynamic olmamali (sayfa statik uretilir, H1 ve icerik HTML'de kalir)`);
+  }
+}
+// Kok template.tsx her gezinmede yalniz ek bir sarmalayici uretiyordu (denetim O2#7).
+if (existsSync("app/template.tsx")) {
+  failures.push("app/template.tsx geri gelmemeli (islevsiz sarmalayici)");
+}
+// Font diyeti (denetim O3#9, STATUS #10): Spectral yalniz 400 ve 600 yuklenir; serif metinde font-medium (500) yok.
+const rootLayout = readFileSync("app/layout.tsx", "utf8");
+if (!/Spectral\(\{[\s\S]*?weight: \["400", "600"\],/.test(rootLayout)) {
+  failures.push('app/layout.tsx: Spectral weight listesi ["400", "600"] olmali (500 ve 700 on yukleme maliyeti)');
+}
+for (const file of tracked) {
+  const source = readFileSync(file, "utf8");
+  for (const match of source.matchAll(/className=(?:"([^"]*)"|\{`([^`]*)`\})/g)) {
+    const classes = match[1] ?? match[2] ?? "";
+    if (/(^|\s)font-serif(\s|$)/.test(classes) && /(^|\s)font-medium(\s|$)/.test(classes)) {
+      failures.push(`${file}: serif metinde font-medium (Spectral 500 yuklenmiyor); font-normal veya font-semibold kullan`);
+    }
+  }
+}
+
+// Tam `motion` bileseni tum ozellikleri (surukleme, yerlesim) her sayfaya ceker; `m` + LazyMotion kullanilir.
+// layout/layoutId kullanan bilesen LayoutMotion (domMax, ayri paket) icinde cizilmelidir.
+// Yalnizca LayoutMotion sarmalayicisi icinde cizilen bilesenler (cagiran dosya LayoutMotion import eder).
+const RENDERED_INSIDE_LAYOUT_MOTION = new Set([
+  "components/sat/SatDomainGroup.tsx",
+  "components/sat/TopicRow.tsx",
+  "components/ui/expandable-screen.tsx",
+]);
+for (const file of tracked) {
+  const source = readFileSync(file, "utf8");
+  const motionImport = source.match(/import\s*\{([^}]*)\}\s*from\s*["']framer-motion["']/);
+  if (motionImport && /(^|[\s,])motion([\s,]|$)/.test(motionImport[1])) {
+    failures.push(`${file}: framer-motion'dan \`motion\` yerine \`m\` import et (LazyMotion paket diyeti)`);
+  }
+  if (/<motion\./.test(source)) {
+    failures.push(`${file}: <motion.*> yerine <m.*> kullan`);
+  }
+  const usesLayout = /\blayoutId=|\slayout=\{|\slayout="|\slayout\s*$/m.test(source);
+  if (
+    usesLayout &&
+    file !== "components/motion/LayoutMotion.tsx" &&
+    !RENDERED_INSIDE_LAYOUT_MOTION.has(file) &&
+    !source.includes('import LayoutMotion from "@/components/motion/LayoutMotion"')
+  ) {
+    failures.push(`${file}: layout/layoutId kullanan bilesen LayoutMotion icinde olmali`);
+  }
+}
+
+// Ceviri diyeti (denetim O3#4): Ingilizce metinler ilk pakete girmez. en.ts yalniz lib/translations/index.ts
+// icindeki dinamik import ile yuklenir; tr.ts ile ayni anahtar agacini `Translations` tipi zorlar.
+const translationIndex = readFileSync("lib/translations/index.ts", "utf8");
+if (!translationIndex.includes('import("./en")')) {
+  failures.push("lib/translations/index.ts: Ingilizce metinler dinamik import(\"./en\") ile yuklenmeli");
+}
+if (!readFileSync("lib/translations/en.ts", "utf8").includes("export const en: Translations = {")) {
+  failures.push("lib/translations/en.ts: `export const en: Translations` (TR/EN anahtar esligi tip denetimi) kaybolmus");
+}
+const clientTracked = execSync("git ls-files app components lib context", { encoding: "utf8" })
+  .split("\n")
+  .filter((file) => /\.(tsx|ts)$/.test(file));
+for (const file of clientTracked) {
+  const source = readFileSync(file, "utf8");
+  if (/from\s+["'](?:@\/lib\/translations\/en|\.\/en|\.\.\/translations\/en)["']/.test(source)) {
+    failures.push(`${file}: lib/translations/en.ts statik import edilmemeli (loadEnglishTranslations kullan)`);
+  }
+}
+if (existsSync("lib/translations.ts")) {
+  failures.push("lib/translations.ts geri gelmemeli: metinler lib/translations/tr.ts ve en.ts'te");
 }
 
 const css = readFileSync("app/globals.css", "utf8");

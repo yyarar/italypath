@@ -486,9 +486,12 @@ assert.deepEqual(formHidden.otherBuildings, { sqm: 0, mortgageTry: 0 }, "hidden 
 // ---------------------------------------------------------------------------
 // 4) Çeviriler
 // ---------------------------------------------------------------------------
-const translationsSource = await readFile(path.join(root, "lib/translations.ts"), "utf8");
+const translationsSource =
+  (await readFile(path.join(root, "lib/translations/tr.ts"), "utf8")) +
+  "\n" +
+  (await readFile(path.join(root, "lib/translations/en.ts"), "utf8"));
 assert.equal(
-  translationsSource.split("\n    iseeTool: {").length - 1,
+  translationsSource.split("\n  iseeTool: {").length - 1,
   2,
   "iseeTool namespace must exist once in TR and once in EN",
 );
@@ -622,7 +625,10 @@ assert.equal(fullHousehold.disabledMembers, 1);
 near(calculateScale(fullHousehold).value, 2.85 + 0.2 + 0.3 + 0.5, "full household increments flow through the form", 0.001);
 
 // Çeviri ağacı: TR ve EN anahtarları birebir, şablon değişkenleri aynı.
-const { translations } = await importTs("lib/translations.ts");
+const translations = {
+  tr: (await importTs("lib/translations/tr.ts")).tr,
+  en: (await importTs("lib/translations/en.ts")).en,
+};
 function keyTree(node, prefix = "") {
   if (Array.isArray(node)) return [`${prefix}[${node.length}]`];
   if (node && typeof node === "object") {

@@ -1,5 +1,5 @@
 // Ana sayfa fotoğrafları: public/images/home altında. Kaynak Unsplash, Unsplash License
-// (ücretsiz ticari kullanım, atıf zorunlu değil). Alt metinler lib/translations.ts homePhotos'ta.
+// (ücretsiz ticari kullanım, atıf zorunlu değil). Alt metinler lib/translations/ (tr.ts + en.ts) homePhotos'ta.
 export const HOME_PHOTOS = {
   bologna: { src: "/images/home/city-bologna.jpg", source: "https://unsplash.com/photos/pzmRFayfbQA" },
   firenze: { src: "/images/home/city-firenze.jpg", source: "https://unsplash.com/photos/X35Ivset6-Y" },

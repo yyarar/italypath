@@ -108,8 +108,10 @@ if (!existsSync(helperPath)) {
   }
 }
 
-const translationsModule = await importTsModule("lib/translations.ts");
-const { translations } = translationsModule;
+const translations = {
+  tr: (await importTsModule("lib/translations/tr.ts")).tr,
+  en: (await importTsModule("lib/translations/en.ts")).en,
+};
 
 for (const language of ["tr", "en"]) {
   const placeholder = translations[language].list.searchPlaceholder;
@@ -166,6 +168,18 @@ if (!userClient.includes('import("@/lib/supabaseClient")') || /^import\s+\{[^}]*
 }
 if (/export\s+const\s+supabase\s*=/.test(read("lib/supabaseClient.ts"))) {
   fail("lib/supabaseClient.ts: kullanilmayan tekil supabase istemcisi geri gelmemeli");
+}
+
+// Denetim O2#3 (2026-09-26): filtre degisikligi sayfayi sunucuda yeniden uretmez; adres satiri
+// window.history.replaceState ile guncellenir ve geri tusunda filtreler adresten okunur.
+if (explorer.includes("router.replace") || !explorer.includes("window.history.replaceState")) {
+  fail("UniversitiesExplorer.tsx: filtreler router.replace yerine window.history.replaceState ile yazilmali");
+}
+if (!explorer.includes("parseUniversitiesFilterParams(new URLSearchParams(window.location.search))")) {
+  fail("UniversitiesExplorer.tsx: baslangic filtreleri adresten, sunucuyla ayni ayristiriciyla okunmali");
+}
+if (!read("app/universities/page.tsx").includes("parseUniversitiesFilterParams(params)")) {
+  fail("app/universities/page.tsx: sunucu filtreleri lib/universitiesFilters.ts ayristiricisiyla okumali");
 }
 
 if (failures.length > 0) {

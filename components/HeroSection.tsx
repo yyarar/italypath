@@ -13,7 +13,9 @@ import {
   Landmark,
   MessageCircle,
 } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
+
+import LayoutMotion from "@/components/motion/LayoutMotion";
 
 import { useLanguage } from "@/context/LanguageContext";
 import { CONSULT_ANCHOR } from "@/lib/consultation";
@@ -102,7 +104,7 @@ export default function HeroSection({ stats }: HeroSectionProps) {
       <div className="pointer-events-none absolute -left-40 bottom-0 -z-10 h-[28rem] w-[28rem] rounded-full bg-[rgba(231,201,184,0.24)] blur-3xl" />
 
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:px-8">
-        <motion.div
+        <m.div
           initial={reduceMotion ? false : { opacity: 0, transform: "translateY(22px)" }}
           animate={{ opacity: 1, transform: "translateY(0px)" }}
           transition={{ type: "spring", bounce: 0, duration: 0.45 }}
@@ -159,9 +161,9 @@ export default function HeroSection({ stats }: HeroSectionProps) {
               </figure>
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
-        <motion.aside
+        <m.aside
           initial={reduceMotion ? false : { opacity: 0, transform: "translateY(28px) scale(0.97)" }}
           animate={{ opacity: 1, transform: "translateY(0px) scale(1)" }}
           transition={{ type: "spring", bounce: 0, duration: 0.55, delay: 0.08 }}
@@ -180,41 +182,44 @@ export default function HeroSection({ stats }: HeroSectionProps) {
             </div>
 
             <div className="grid grid-cols-3 gap-1 rounded-full bg-[rgba(21,32,28,0.055)] p-1" role="tablist" aria-label={copy.plannerLabel}>
-              {(Object.keys(focuses) as FocusId[]).map((id) => {
-                const item = focuses[id];
-                const Icon = item.icon;
-                const active = focus === id;
+              {/* Secili sekmenin arka plani layoutId ile kayar; yerlesim ozellikleri ayri pakette. */}
+              <LayoutMotion>
+                {(Object.keys(focuses) as FocusId[]).map((id) => {
+                  const item = focuses[id];
+                  const Icon = item.icon;
+                  const active = focus === id;
 
-                return (
-                  <button
-                    key={id}
-                    type="button"
-                    role="tab"
-                    aria-selected={active}
-                    aria-controls="home-focus-panel"
-                    id={`home-focus-tab-${id}`}
-                    tabIndex={active ? 0 : -1}
-                    onClick={() => {
-                      setAnimateFocusChange(true);
-                      setFocus(id);
-                    }}
-                    onKeyDown={(event) => handleFocusKeyDown(event, id)}
-                    className={`home-pressable relative flex min-h-10 items-center justify-center gap-1.5 rounded-full px-2 text-xs font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] sm:text-sm ${
-                      active ? "text-[var(--editorial-ink)]" : "text-[var(--editorial-muted)] hover:text-[var(--editorial-ink)]"
-                    }`}
-                  >
-                    {active && (
-                      <motion.span
-                        layoutId="home-focus-pill"
-                        className="absolute inset-0 rounded-full bg-[var(--editorial-surface)] shadow-[0_3px_12px_rgba(21,32,28,0.09)]"
-                        transition={animateFocusChange ? { duration: 0.22, ease: EASE_OUT } : { duration: 0 }}
-                      />
-                    )}
-                    <Icon className="relative h-3.5 w-3.5" aria-hidden="true" />
-                    <span className="relative">{item.label}</span>
-                  </button>
-                );
-              })}
+                  return (
+                    <button
+                      key={id}
+                      type="button"
+                      role="tab"
+                      aria-selected={active}
+                      aria-controls="home-focus-panel"
+                      id={`home-focus-tab-${id}`}
+                      tabIndex={active ? 0 : -1}
+                      onClick={() => {
+                        setAnimateFocusChange(true);
+                        setFocus(id);
+                      }}
+                      onKeyDown={(event) => handleFocusKeyDown(event, id)}
+                      className={`home-pressable relative flex min-h-10 items-center justify-center gap-1.5 rounded-full px-2 text-xs font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)] sm:text-sm ${
+                        active ? "text-[var(--editorial-ink)]" : "text-[var(--editorial-muted)] hover:text-[var(--editorial-ink)]"
+                      }`}
+                    >
+                      {active && (
+                        <m.span
+                          layoutId="home-focus-pill"
+                          className="absolute inset-0 rounded-full bg-[var(--editorial-surface)] shadow-[0_3px_12px_rgba(21,32,28,0.09)]"
+                          transition={animateFocusChange ? { duration: 0.22, ease: EASE_OUT } : { duration: 0 }}
+                        />
+                      )}
+                      <Icon className="relative h-3.5 w-3.5" aria-hidden="true" />
+                      <span className="relative">{item.label}</span>
+                    </button>
+                  );
+                })}
+              </LayoutMotion>
             </div>
 
             <div
@@ -225,7 +230,7 @@ export default function HeroSection({ stats }: HeroSectionProps) {
             >
               <div className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[rgba(219,232,225,0.12)] blur-2xl" />
               <AnimatePresence mode="popLayout" initial={false}>
-                <motion.div
+                <m.div
                   key={focus}
                   initial={reduceMotion || !animateFocusChange ? { opacity: 1 } : { opacity: 0, transform: "translateX(16px)", filter: "blur(2px)" }}
                   animate={{
@@ -284,11 +289,11 @@ export default function HeroSection({ stats }: HeroSectionProps) {
                       {selected.secondary.label}
                     </Link>
                   )}
-                </motion.div>
+                </m.div>
               </AnimatePresence>
             </div>
           </div>
-        </motion.aside>
+        </m.aside>
       </div>
     </section>
   );

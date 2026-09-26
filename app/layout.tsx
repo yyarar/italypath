@@ -9,7 +9,7 @@ import "./globals.css";
 // Editoryal başlık serifi (Times/Georgia varsayılanı yerine gerçek marka fontu).
 const spectral = Spectral({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "600"],
   variable: "--font-spectral",
   display: "swap",
 });

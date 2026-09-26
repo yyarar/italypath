@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -25,7 +25,7 @@ export default function LevelUpCelebration({ level, onDismiss }: LevelUpCelebrat
   const reduceMotion = useReducedMotion();
 
   return (
-    <motion.div
+    <m.div
       className="fixed inset-0 z-50 flex items-center justify-center bg-[rgba(21,32,28,0.62)] px-4 py-10"
       role="dialog"
       aria-modal="true"
@@ -34,7 +34,7 @@ export default function LevelUpCelebration({ level, onDismiss }: LevelUpCelebrat
       animate={{ opacity: 1 }}
       transition={{ duration: reduceMotion ? 0 : 0.22 }}
     >
-      <motion.div
+      <m.div
         className="relative w-full max-w-sm overflow-hidden rounded-[1.5rem] border border-white/70 bg-[rgba(255,254,250,0.9)] px-6 py-8 text-center shadow-2xl backdrop-blur-2xl"
         initial={reduceMotion ? false : { opacity: 0, y: 18, scale: 0.96 }}
         animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
@@ -42,7 +42,7 @@ export default function LevelUpCelebration({ level, onDismiss }: LevelUpCelebrat
       >
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
           {[...Array(14)].map((_, index) => (
-            <motion.span
+            <m.span
               key={index}
               className="absolute left-1/2 top-1/2 h-px w-24 origin-left bg-[var(--editorial-sage)] opacity-20"
               style={{ rotate: `${index * 25.714}deg` }}
@@ -52,7 +52,7 @@ export default function LevelUpCelebration({ level, onDismiss }: LevelUpCelebrat
             />
           ))}
           {confetti.map((piece, index) => (
-            <motion.span
+            <m.span
               key={`${piece.x}-${piece.y}`}
               className={`absolute left-1/2 top-1/2 h-2.5 w-1.5 ${
                 index % 2 === 0 ? "bg-[var(--editorial-sage)]" : "bg-[#b8872f]"
@@ -69,14 +69,14 @@ export default function LevelUpCelebration({ level, onDismiss }: LevelUpCelebrat
         </div>
 
         <div className="relative mx-auto flex h-28 w-28 items-center justify-center rounded-[1.4rem] border border-[#b8872f] bg-[var(--editorial-band)]">
-          <motion.span
+          <m.span
             className="font-serif text-6xl leading-none text-[var(--editorial-sage)]"
             initial={reduceMotion ? false : { scale: 0.72 }}
             animate={reduceMotion ? { scale: 1 } : { scale: [0.72, 1.08, 1] }}
             transition={{ duration: reduceMotion ? 0 : 0.42, delay: 0.1 }}
           >
             {level}
-          </motion.span>
+          </m.span>
           <span className="absolute -right-2 -top-2 h-5 w-5 border border-[#b8872f] bg-[#b8872f]" aria-hidden="true" />
           <span className="absolute -bottom-2 -left-2 h-5 w-5 border border-[#b8872f] bg-[#b8872f]" aria-hidden="true" />
         </div>
@@ -94,7 +94,7 @@ export default function LevelUpCelebration({ level, onDismiss }: LevelUpCelebrat
         >
           {t.sat.levelUpDismiss}
         </button>
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   );
 }

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Heart, ArrowLeft, GraduationCap, MapPin, ChevronRight, Sparkles } from 'lucide-react';
 import { useFavorites } from '@/lib/useFavorites';
 import { useLanguage } from '@/context/LanguageContext';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useUniversitiesData } from '@/lib/useUniversitiesData';
 import { DEFAULT_UNIVERSITY_IMAGE } from '@/lib/universityDefaults';
 import { remotePhotoProps } from '@/lib/remotePhoto';
@@ -63,7 +63,7 @@ export default function FavoritesPage() {
 
       <div className="p-4 space-y-4 max-w-2xl mx-auto">
         {favoriteUnis.length === 0 ? (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -100,7 +100,7 @@ export default function FavoritesPage() {
             <div className="space-y-3">
               <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] px-1">{t.favorites.emptyRecommendTitle}</p>
               {recommendedUnis.map((uni, i) => (
-                <motion.div
+                <m.div
                   key={uni.id}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -132,10 +132,10 @@ export default function FavoritesPage() {
                       <ChevronRight className="w-4 h-4 text-slate-300 shrink-0" />
                     </div>
                   </Link>
-                </motion.div>
+                </m.div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         ) : (
           favoriteUnis.map((uni) => (
             <Link key={uni.id} href={`/universities/${uni.id}`}>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Settings2 } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import { useLanguage } from "@/context/LanguageContext";
@@ -56,7 +56,7 @@ export default function PreferencesStrip() {
   const languageLabel = language === "tr" ? "Türkçe" : "English";
 
   return (
-    <motion.section
+    <m.section
       initial={reduceMotion ? false : { opacity: 0, transform: "translateY(14px)" }}
       animate={{ opacity: 1, transform: "translateY(0px)" }}
       transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.08 }}
@@ -106,6 +106,6 @@ export default function PreferencesStrip() {
           </p>
         </div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }

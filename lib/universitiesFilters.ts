@@ -6,6 +6,38 @@ export const UNIVERSITIES_VIEW_MODE_EVENT = "italypath-universities-view-mode-ch
 export type UniversityViewMode = "grid" | "compact";
 export type UniversityLanguage = "tr" | "en";
 
+// Liste sayfasinin adres satirindaki filtreler (q, city, type, fav). Sunucu sayfasi ve istemci ayni
+// ayristiriciyi kullanir; boylece ilk yuklemede iki taraf ayni durumu uretir.
+export interface UniversitiesExplorerFilters {
+  searchTerm: string;
+  selectedCity: string;
+  selectedType: string;
+  showFavoritesOnly: boolean;
+}
+
+export function parseUniversitiesFilterParams(params: URLSearchParams): UniversitiesExplorerFilters {
+  const selectedType = params.get("type") ?? "";
+
+  return {
+    searchTerm: params.get("q") ?? "",
+    selectedCity: params.get("city") ?? "",
+    selectedType: selectedType === "Devlet" || selectedType === "Özel" ? selectedType : "",
+    showFavoritesOnly: params.get("fav") === "1",
+  };
+}
+
+export function createUniversitiesFilterUrl(pathname: string, filters: UniversitiesExplorerFilters) {
+  const params = new URLSearchParams();
+
+  if (filters.searchTerm) params.set("q", filters.searchTerm);
+  if (filters.selectedCity) params.set("city", filters.selectedCity);
+  if (filters.selectedType) params.set("type", filters.selectedType);
+  if (filters.showFavoritesOnly) params.set("fav", "1");
+
+  const queryString = params.toString();
+  return queryString ? `${pathname}?${queryString}` : pathname;
+}
+
 export interface UniversityFilterOptions {
   searchTerm: string;
   selectedCity: string;

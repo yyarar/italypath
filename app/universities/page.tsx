@@ -8,6 +8,7 @@ import {
   filterUniversities,
   getCitiesWithCounts,
   getTotalDepartments,
+  parseUniversitiesFilterParams,
 } from "@/lib/universitiesFilters";
 
 // Tum okullar sunucu HTML'ine girer: Googlebot /api/universities'i robots.txt nedeniyle cekemedigi icin
@@ -19,22 +20,17 @@ type UniversitiesPageProps = {
   searchParams?: Promise<Record<string, SearchParamValue>>;
 };
 
-function getSingleParam(value: SearchParamValue) {
-  if (Array.isArray(value)) return value[0] ?? "";
-  return value ?? "";
-}
-
+// Istemci ayni ayristiriciyi window.location.search ile kullanir (lib/universitiesFilters.ts).
 function parseUniversitiesSearchParams(
   searchParams: Record<string, SearchParamValue>
 ): UniversitiesExplorerFilters {
-  const selectedType = getSingleParam(searchParams.type);
-
-  return {
-    searchTerm: getSingleParam(searchParams.q),
-    selectedCity: getSingleParam(searchParams.city),
-    selectedType: selectedType === "Devlet" || selectedType === "Özel" ? selectedType : "",
-    showFavoritesOnly: getSingleParam(searchParams.fav) === "1",
-  };
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(searchParams)) {
+    for (const item of Array.isArray(value) ? value : value === undefined ? [] : [value]) {
+      params.append(key, item);
+    }
+  }
+  return parseUniversitiesFilterParams(params);
 }
 
 function createDepartmentHtmlPreview(department: Department): Department {

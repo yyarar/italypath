@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-[var(--editorial-border)] bg-[var(--editorial-paper)] py-12">
       <Reveal className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <span className="font-serif text-2xl font-medium tracking-[-0.02em] text-[var(--editorial-ink)]">ItalyPath</span>
+        <span className="font-serif text-2xl font-semibold tracking-[-0.02em] text-[var(--editorial-ink)]">ItalyPath</span>
         <p className="mt-2 max-w-md text-sm leading-6 text-[var(--editorial-muted)]">
           {language === "tr"
             ? "İtalya'da eğitim planını daha sakin, düzenli ve güvenilir şekilde kurman için."

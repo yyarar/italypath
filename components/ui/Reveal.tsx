@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
 // Paylasilan sinematik giris: hafif yukari kayma + blur cozulmesi, ozel easing.
@@ -27,7 +27,7 @@ export default function Reveal({ children, className, delay = 0, y = 18, blur = 
   }
 
   return (
-    <motion.div
+    <m.div
       className={className}
       initial={{ opacity: 0, transform: `translateY(${y}px)`, filter: `blur(${blur}px)` }}
       whileInView={{ opacity: 1, transform: "translateY(0px)", filter: "blur(0px)" }}
@@ -35,6 +35,6 @@ export default function Reveal({ children, className, delay = 0, y = 18, blur = 
       transition={{ duration: 0.55, ease: REVEAL_EASE, delay }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

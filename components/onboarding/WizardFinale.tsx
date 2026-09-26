@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 interface WizardFinaleProps {
   eyebrow: string;
@@ -14,7 +14,7 @@ export default function WizardFinale({
   subtitle,
 }: WizardFinaleProps) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 110, damping: 22 }}
@@ -32,12 +32,12 @@ export default function WizardFinale({
         {subtitle}
       </p>
       <div className="mx-auto mt-8 h-[2px] w-24 overflow-hidden bg-[var(--editorial-border)]">
-        <motion.div
+        <m.div
           className="h-full w-1/3 bg-[var(--editorial-sage)]"
           animate={{ x: ["-100%", "300%"] }}
           transition={{ repeat: Infinity, duration: 1.1, ease: "easeInOut" }}
         />
       </div>
-    </motion.div>
+    </m.div>
   );
 }

@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
 import {
   useCallback,
   useEffect,
@@ -29,14 +28,17 @@ import ConsultPrompt from '@/components/consultation/ConsultPrompt';
 import { useLanguage } from '@/context/LanguageContext';
 import {
   getScholarshipRegionBySlug,
+  isRegionSlug,
   SCHOLARSHIP_DEFAULT_REGION,
   SCHOLARSHIP_REGIONS,
 } from '@/lib/scholarships/regions';
 import type { Language } from '@/types';
 import type { RegionSlug, ScholarshipRegionRecord } from '@/types/scholarships';
 
+// Dosya degisince surumu artir: tarayici ve CDN onbellegi eski haritayi tutmaz.
+// 2026-09-26: sinirlari koruyan sadelestirme (mapshaper -simplify 8% keep-shapes, precision 0.001).
 const REGIONS_GEOJSON_URL = '/data/italy-regions.geojson';
-const REGIONS_GEOJSON_VERSION = '2026-05-14';
+const REGIONS_GEOJSON_VERSION = '2026-09-26';
 
 const MAP_WIDTH = 760;
 const MAP_HEIGHT = 980;
@@ -803,16 +805,24 @@ interface ScholarshipsExplorerProps {
   initialSelectedRegion: RegionSlug;
 }
 
+// Secim adres satirina window.history.replaceState ile yazilir (sunucuya gidis yok). Geri tusuyla
+// sayfaya donulunce sunucu verisi ilk adresi tasiyabilir; secim bu yuzden adresin kendisinden okunur.
+function readRegionFromLocation(fallback: RegionSlug): RegionSlug {
+  if (typeof window === 'undefined') return fallback;
+  const region = new URLSearchParams(window.location.search).get('region') ?? '';
+  return isRegionSlug(region) ? region : SCHOLARSHIP_DEFAULT_REGION;
+}
+
 export default function ScholarshipsExplorer({
   initialSelectedRegion,
 }: ScholarshipsExplorerProps) {
   const { t, language, toggleLanguage } = useLanguage();
-  const router = useRouter();
-  const pathname = usePathname();
 
   const [regionShapes, setRegionShapes] = useState<RegionShape[]>([]);
   const [mapStatus, setMapStatus] = useState<MapStatus>('loading');
-  const [selectedSlug, setSelectedSlug] = useState<RegionSlug>(initialSelectedRegion);
+  const [selectedSlug, setSelectedSlug] = useState<RegionSlug>(() =>
+    readRegionFromLocation(initialSelectedRegion)
+  );
 
   const selectedRegion = getScholarshipRegionBySlug(selectedSlug);
   const copy = t.scholarships;
@@ -828,9 +838,10 @@ export default function ScholarshipsExplorer({
       }
 
       const query = params.toString();
-      router.replace(query ? `${pathname}?${query}` : pathname, { scroll: false });
+      const { pathname } = window.location;
+      window.history.replaceState(null, '', query ? `${pathname}?${query}` : pathname);
     },
-    [pathname, router]
+    []
   );
 
   const handleMapKeyDown = useCallback(
@@ -852,7 +863,6 @@ export default function ScholarshipsExplorer({
       try {
         const response = await fetch(`${REGIONS_GEOJSON_URL}?v=${REGIONS_GEOJSON_VERSION}`, {
           signal: controller.signal,
-          cache: 'no-store',
         });
 
         if (!response.ok) {

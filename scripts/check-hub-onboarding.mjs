@@ -42,7 +42,7 @@ if (/from\s+["']@\/app\/data["']/.test(hubSource) && /universitiesData/.test(hub
   failures.push("app/hub/page.tsx local seed universitiesData kullanıyor");
 }
 
-const translations = read("lib/translations.ts");
+const translations = read("lib/translations/tr.ts") + "\n" + read("lib/translations/en.ts");
 ["onboarding:", "recoHero:", "recoSections:", "invite:", "profileStrip:"].forEach(
   (key) => {
     const count = translations.split(key).length - 1;

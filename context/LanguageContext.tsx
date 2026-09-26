@@ -4,18 +4,22 @@ import React, {
   createContext,
   useContext,
   useEffect,
+  useState,
   useSyncExternalStore,
 } from 'react';
 import { safeGetItem, safeSetItem } from '@/lib/safeStorage';
-import { translations } from '@/lib/translations';
-
-// Dil tipi (Sadece tr veya en olabilir)
-type Language = 'tr' | 'en';
+import {
+  getLoadedEnglishTranslations,
+  loadEnglishTranslations,
+  tr,
+  type Language,
+  type Translations,
+} from '@/lib/translations';
 
 interface LanguageContextType {
   language: Language;
   toggleLanguage: () => void;
-  t: typeof translations['tr']; // Çeviri nesnesinin tipi
+  t: Translations; // Çeviri nesnesinin tipi
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -40,15 +44,43 @@ function subscribeToLanguage(onStoreChange: () => void) {
   };
 }
 
+// Ingilizce metinler ilk pakette yok (lib/translations/index.ts). Kayitli dil Ingilizceyse paket
+// sayfa acilir acilmaz istenir; gelene kadar arayuz Turkce kalir, sonra birlikte Ingilizceye gecer.
+if (typeof window !== 'undefined' && getStoredLanguage() === 'en') {
+  loadEnglishTranslations().catch(() => undefined);
+}
+
+// Istenen dil Ingilizceyse metinler yuklenince onlari, o ana kadar Turkceyi dondurur. `language`
+// ekrandaki metnin dilidir (tarih/sayi bicimi ve TR/EN dugmesi metinle ayni kalir).
+export function useActiveTranslations(requested: Language): { language: Language; t: Translations } {
+  const [english, setEnglish] = useState<Translations | null>(getLoadedEnglishTranslations);
+
+  useEffect(() => {
+    if (requested !== 'en' || english) return;
+    let active = true;
+    loadEnglishTranslations()
+      .then((loaded) => {
+        if (active) setEnglish(loaded);
+      })
+      .catch(() => undefined);
+    return () => {
+      active = false;
+    };
+  }, [requested, english]);
+
+  return requested === 'en' && english ? { language: 'en', t: english } : { language: 'tr', t: tr };
+}
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const language = useSyncExternalStore(
+  const requestedLanguage = useSyncExternalStore(
     subscribeToLanguage,
     getStoredLanguage,
     getServerLanguage,
   );
+  const { language, t } = useActiveTranslations(requestedLanguage);
 
   const toggleLanguage = () => {
-    const newLang = language === 'tr' ? 'en' : 'tr';
+    const newLang = requestedLanguage === 'tr' ? 'en' : 'tr';
     safeSetItem(LANGUAGE_STORAGE_KEY, newLang);
     window.dispatchEvent(new Event(LANGUAGE_CHANGE_EVENT));
   };
@@ -58,7 +90,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, [language]);
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t: translations[language] }}>
+    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );

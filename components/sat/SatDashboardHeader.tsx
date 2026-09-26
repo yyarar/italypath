@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { Check, Flame, Target, TrendingUp } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
@@ -82,7 +82,7 @@ export default function SatDashboardHeader({
             <div className="relative h-28 w-28 shrink-0">
               <svg aria-hidden="true" viewBox="0 0 112 112" className="h-28 w-28 -rotate-90">
                 <circle cx="56" cy="56" r={radius} fill="none" stroke="var(--editorial-border)" strokeWidth="8" />
-                <motion.circle
+                <m.circle
                   cx="56"
                   cy="56"
                   r={radius}
@@ -126,7 +126,7 @@ export default function SatDashboardHeader({
                 {dailyDone ? t.sat.dashboardDailyDone : t.sat.dashboardDailyLabel}
               </p>
               <div className="mt-3 h-1 w-full max-w-20 overflow-hidden rounded-full bg-[var(--editorial-border)]">
-                <motion.div className="h-full rounded-full bg-[var(--editorial-sage)]" initial={reduceMotion ? false : { width: 0 }} animate={{ width: `${dailyProgress}%` }} transition={spring} />
+                <m.div className="h-full rounded-full bg-[var(--editorial-sage)]" initial={reduceMotion ? false : { width: 0 }} animate={{ width: `${dailyProgress}%` }} transition={spring} />
               </div>
             </div>
 
@@ -135,7 +135,7 @@ export default function SatDashboardHeader({
               <p className="font-serif text-4xl leading-none tracking-[-0.04em] text-[var(--editorial-ink)]">{levelProgress.level}</p>
               <p className="mt-2 text-[11px] leading-4 text-[var(--editorial-muted)]">{t.sat.levelLabel} {levelProgress.level}</p>
               <div className="mt-3 h-1 w-full max-w-20 overflow-hidden rounded-full bg-[var(--editorial-border)]">
-                <motion.div className="h-full rounded-full bg-[#b8872f]" initial={reduceMotion ? false : { width: 0 }} animate={{ width: `${xpProgress}%` }} transition={spring} />
+                <m.div className="h-full rounded-full bg-[#b8872f]" initial={reduceMotion ? false : { width: 0 }} animate={{ width: `${xpProgress}%` }} transition={spring} />
               </div>
             </div>
           </div>
@@ -147,7 +147,7 @@ export default function SatDashboardHeader({
             <div className="min-w-0 flex-1">
               <p className="text-sm font-bold tracking-[-0.01em] text-[var(--editorial-sage)]">{t.sat.focusEyebrow}</p>
               <p className="mt-1.5 text-sm leading-5 text-[var(--editorial-ink)]">{focusBody}</p>
-              <motion.button
+              <m.button
                 type="button"
                 onClick={onFocus}
                 whileTap={reduceMotion ? undefined : { scale: 0.975 }}
@@ -155,7 +155,7 @@ export default function SatDashboardHeader({
                 className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-[var(--editorial-terracotta)] px-5 py-2.5 text-[13px] font-bold tracking-[-0.01em] text-white shadow-[0_7px_18px_rgba(183,91,56,0.18)] outline-none transition-colors hover:bg-[#a94e2f] focus-visible:ring-2 focus-visible:ring-[var(--editorial-terracotta)] focus-visible:ring-offset-2"
               >
                 {focusCta}
-              </motion.button>
+              </m.button>
             </div>
           </aside>
         </div>

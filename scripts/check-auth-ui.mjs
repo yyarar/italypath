@@ -171,6 +171,15 @@ if (navbar.includes("SignInButton")) {
   failures.push("components/Navbar.tsx: still imports/uses SignInButton");
 }
 mustContain(navbar, "/giris", "components/Navbar.tsx");
+// Denetim O3#3 (2026-09-26): SignedIn/SignedOut eski Pages Router kodunu ana sayfa paketine cekiyordu.
+// Acik kontrol kullanilir; Clerk yuklenirken (undefined) giris dugmesi yanip sonmez, UserButton yalniz girisliyken.
+mustNotContain(navbar, "<SignedIn", "components/Navbar.tsx");
+mustNotContain(navbar, "<SignedOut", "components/Navbar.tsx");
+if (/import\s*\{[^}]*\bSigned(?:In|Out)\b[^}]*\}\s*from\s*["']@clerk\/nextjs["']/.test(navbar)) {
+  failures.push("components/Navbar.tsx: must not import SignedIn/SignedOut from @clerk/nextjs");
+}
+mustContain(navbar, "isSignedIn === false", "components/Navbar.tsx");
+mustContain(navbar, "isSignedIn === true", "components/Navbar.tsx");
 
 for (const path of [
   "components/HomeClosingCta.tsx",

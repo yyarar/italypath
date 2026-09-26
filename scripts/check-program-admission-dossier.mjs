@@ -328,7 +328,7 @@ assert.ok(
   readSource("components/university-details/DepartmentDetailClient.tsx").includes("departmentId: department.id"),
   "DepartmentDetailClient must pass the program id so partner sites are recognised",
 );
-const translationsSource = readSource("lib/translations.ts");
+const translationsSource = readSource("lib/translations/tr.ts") + "\n" + readSource("lib/translations/en.ts");
 for (const text of [
   'partnerSite: "Ortak program sitesi"',
   'partnerSite: "Joint program site"',
@@ -337,7 +337,7 @@ for (const text of [
   'externalSite: "Dış site"',
   'externalSite: "External site"',
 ]) {
-  assert.ok(translationsSource.includes(text), `lib/translations.ts must contain ${text}`);
+  assert.ok(translationsSource.includes(text), `lib/translations (tr.ts/en.ts) must contain ${text}`);
 }
 
 console.log(
