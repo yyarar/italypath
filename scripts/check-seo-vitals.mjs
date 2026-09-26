@@ -1,5 +1,5 @@
 import { execSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 // Kalıcı SEO / Core Web Vitals guard'ı (SEO_AUDIT.md §19, 15 Eylül 2026).
 //
@@ -88,6 +88,32 @@ if (!sitemap.includes("encodeURIComponent(dept.slug)")) {
 }
 if (!/export const revalidate = 10800;/.test(sitemap)) {
   failures.push("app/sitemap.ts: revalidate 10800 olmali (dizin memo'su 3 saat)");
+}
+
+// Sayfa agirligi (guvenlik ve optimizasyon denetimi karti 10, 2026-09-26).
+// /isee ve /communities istek basina degisen icerik tasimaz; force-dynamic her ziyarette sunucu isi uretir.
+for (const file of ["app/isee/page.tsx", "app/communities/page.tsx"]) {
+  if (readFileSync(file, "utf8").includes("force-dynamic")) {
+    failures.push(`${file}: force-dynamic olmamali (sayfa statik uretilir, H1 ve icerik HTML'de kalir)`);
+  }
+}
+// Kok template.tsx her gezinmede yalniz ek bir sarmalayici uretiyordu (denetim O2#7).
+if (existsSync("app/template.tsx")) {
+  failures.push("app/template.tsx geri gelmemeli (islevsiz sarmalayici)");
+}
+// Font diyeti (denetim O3#9, STATUS #10): Spectral yalniz 400 ve 600 yuklenir; serif metinde font-medium (500) yok.
+const rootLayout = readFileSync("app/layout.tsx", "utf8");
+if (!/Spectral\(\{[\s\S]*?weight: \["400", "600"\],/.test(rootLayout)) {
+  failures.push('app/layout.tsx: Spectral weight listesi ["400", "600"] olmali (500 ve 700 on yukleme maliyeti)');
+}
+for (const file of tracked) {
+  const source = readFileSync(file, "utf8");
+  for (const match of source.matchAll(/className=(?:"([^"]*)"|\{`([^`]*)`\})/g)) {
+    const classes = match[1] ?? match[2] ?? "";
+    if (/(^|\s)font-serif(\s|$)/.test(classes) && /(^|\s)font-medium(\s|$)/.test(classes)) {
+      failures.push(`${file}: serif metinde font-medium (Spectral 500 yuklenmiyor); font-normal veya font-semibold kullan`);
+    }
+  }
 }
 
 const css = readFileSync("app/globals.css", "utf8");

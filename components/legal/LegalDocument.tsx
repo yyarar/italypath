@@ -17,7 +17,7 @@ export default function LegalDocumentView({ doc }: { doc: LegalDocument }) {
       </Link>
 
       <header className="mt-8 border-b border-[var(--editorial-border)] pb-6">
-        <h1 className="font-serif text-3xl font-medium tracking-[-0.02em] text-[var(--editorial-ink)] sm:text-4xl">
+        <h1 className="font-serif text-3xl font-semibold tracking-[-0.02em] text-[var(--editorial-ink)] sm:text-4xl">
           {doc.title}
         </h1>
         <p className="mt-3 text-sm text-[var(--editorial-muted)]">
@@ -40,7 +40,7 @@ export default function LegalDocumentView({ doc }: { doc: LegalDocument }) {
         {doc.sections.map((section, index) => (
           <section key={`section-${index}`} className="space-y-4">
             {section.heading ? (
-              <h2 className="font-serif text-xl font-medium tracking-[-0.01em] text-[var(--editorial-ink)]">
+              <h2 className="font-serif text-xl font-semibold tracking-[-0.01em] text-[var(--editorial-ink)]">
                 {section.heading}
               </h2>
             ) : null}

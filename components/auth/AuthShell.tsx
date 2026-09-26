@@ -20,7 +20,7 @@ export function AuthShell({ children }: AuthShellProps) {
     <main className="flex min-h-dvh flex-col items-center justify-center bg-[var(--editorial-paper)] px-4 py-10">
       <Link
         href="/"
-        className="mb-8 font-serif text-2xl font-medium tracking-[-0.02em] text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+        className="mb-8 font-serif text-2xl font-semibold tracking-[-0.02em] text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
       >
         ItalyPath
       </Link>
