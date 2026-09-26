@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur; guncel mimari ve calisma kurallarinin kaynak dokumanidir. `AGENT_COMMITS.md` tarihsel ve eksik degisiklik notlaridir (Git gecmisi esastir). `AGENT_CONTEXT_FIX_REPORT.md` 2026-06-11'de uygulanmis eski bir audit arsividir. En son context degerlendirmesi `docs/CONTEXT_AUDIT_2026-09-19.md` icindedir; bu dosyadaki 2026-09-21 duzeltmeleri o raporun uygulama sirasinin 1. ve 2. adimidir. Okumaya kok `AGENTS.md` ile basla; tek acik is listesi `docs/STATUS.md`, tasarim/plan belgelerinin durumu `docs/superpowers/INDEX.md` icindedir (3. adim, 2026-09-21).
 
-Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun) · 2026-09-26: veri katmani, kanonik okul adresi, JSON-LD kacisi, okul fotograflari ve hata sayfalari (guvenlik denetimi kart 2) · 2026-09-26: AI mentor masasi, `/api/chat` ve Gemini/AI SDK paketleri kaldirildi (guvenlik denetimi kart 6; dalda, push bekliyor) · 2026-09-26: katalog yetkileri ve kullanici yazma sinirlari canlida (guvenlik denetimi kart 4) · 2026-09-26: favori/belge/profil/SAT kancalari yerel Clerk oturum anahtarina gecti, sure siniri ve "yuklenemedi" durumu, tiklaninca imzalanan belge linki, SAT ilerleme view/RPC'si, `safeStorage` (guvenlik denetimi kart 7; dalda, push bekliyor) · 2026-09-26: hesap silme webhook'u, on gorusme formu gizlilik satiri ve saklama temizligi (guvenlik denetimi kart 8; dalda, push bekliyor) · 2026-09-26: `check:offline`, ISR layout guard'i, `check:hub-onboarding` cevrimdisi varsayilan, `test:mentor-db` yerel ayar, kullanilmayan bilesen/betik dosyalari ve stilleri silindi (guvenlik denetimi kart 11; yerel main'de, push bekliyor) · 2026-09-26: sayfa agirligi ve sunucu isi (guvenlik ve optimizasyon denetimi kart 10: ceviri bolme, LazyMotion, burs haritasi, `/cities`, `replaceState`, statik `/isee` ve `/communities`, Spectral 400/600; dalda, push bekliyor)
+Son guncelleme: 2026-09-26, 1. dalga paralel ajanlar (site JSON-LD yalniz ana sayfada, FAQPage, LCP fetchPriority, robots /ekip, uzman formu tek cevap + sure siniri, SAT yazici kilidi, burs dogrulama notu veriden, `check:docs`) · 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun) · 2026-09-26: veri katmani, kanonik okul adresi, JSON-LD kacisi, okul fotograflari ve hata sayfalari (guvenlik denetimi kart 2) · 2026-09-26: AI mentor masasi, `/api/chat` ve Gemini/AI SDK paketleri kaldirildi (guvenlik denetimi kart 6; dalda, push bekliyor) · 2026-09-26: katalog yetkileri ve kullanici yazma sinirlari canlida (guvenlik denetimi kart 4) · 2026-09-26: favori/belge/profil/SAT kancalari yerel Clerk oturum anahtarina gecti, sure siniri ve "yuklenemedi" durumu, tiklaninca imzalanan belge linki, SAT ilerleme view/RPC'si, `safeStorage` (guvenlik denetimi kart 7; dalda, push bekliyor) · 2026-09-26: hesap silme webhook'u, on gorusme formu gizlilik satiri ve saklama temizligi (guvenlik denetimi kart 8; dalda, push bekliyor) · 2026-09-26: `check:offline`, ISR layout guard'i, `check:hub-onboarding` cevrimdisi varsayilan, `test:mentor-db` yerel ayar, kullanilmayan bilesen/betik dosyalari ve stilleri silindi (guvenlik denetimi kart 11; yerel main'de, push bekliyor) · 2026-09-26: sayfa agirligi ve sunucu isi (guvenlik ve optimizasyon denetimi kart 10: ceviri bolme, LazyMotion, burs haritasi, `/cities`, `replaceState`, statik `/isee` ve `/communities`, Spectral 400/600; dalda, push bekliyor)
 
 Sayilar bu dosyada tarihli snapshot olarak gecer. Guncel sayim "Canli university/program verisi" bolumundedir; eski tarihli bolumlerdeki sayilari bugunku gercek sayma.
 
@@ -45,7 +45,7 @@ italypath-main/
 │   ├── global-error.tsx            # Kok layout hata verirse markali 500 sayfasi (TR/EN, lib/translations globalError)
 │   ├── page.tsx                    # Home server wrapper (ISR 3h); stats getUniversitiesDirectory() kaynakli
 │   ├── sitemap.ts                  # getUniversitiesDirectory() ile dinamik sitemap; lastModified = DB updated_at ∨ PAGE_TEMPLATE_LAST_MODIFIED
-│   ├── robots.ts                   # Public/protected indexleme kurallari
+│   ├── robots.ts                   # Public/protected indexleme kurallari (/ekip listede degil; app/ekip/layout.tsx noindex)
 │   ├── data.ts                     # Legacy local seed/yedek; runtime tarafindan import edilmez
 │   ├── api/
 │   │   ├── universities/route.ts   # force-dynamic, no-store, Supabase-backed public API
@@ -321,13 +321,13 @@ Dogrulama: `npm run check:program-details` (canli; tum okullarin link kolonlari 
 
 ### Program deadline kaynagi
 
-Gercek EU/non-EU basvuru tarihleri Supabase `program_admission_details` tablosundaki `application_deadline_eu` ve `application_deadline_non_eu` alanlarindan gelir. Bos kalan local `Department.deadline`/override altyapisi 2026-07-22'de kaldirildi; scrape hattinin kalan parcalari (`lib/deadlines/targets.ts`, `scripts/save-scraped.mjs`, `scripts/scrape-deadlines-runbook.md`) 2026-09-26'da silindi (Kerem karari). Tarihsel scrape tasarim/plan belgeleri `docs/superpowers/` altinda yalnizca arsiv niteligindedir.
+Gercek EU/non-EU basvuru tarihleri Supabase `program_admission_details` tablosundaki `application_deadline_eu` ve `application_deadline_non_eu` alanlarindan gelir. Bos kalan local `Department.deadline`/override altyapisi 2026-07-22'de kaldirildi; scrape hattinin kalan parcalari (`lib/deadlines/targets.ts`, `scripts/save-scraped.mjs`, `scripts/scrape-deadlines-runbook.md`) 2026-09-26'da silindi (Kerem karari). Tarihsel scrape tasarim/plan belgeleri `docs/superpowers/` altinda yalnizca arsiv niteligindedir. <!-- check-docs: ignore -->
 
 ---
 
 ## Auth ve Route Matrix
 
-Route guvenligi sadece `proxy.ts` ile saglanir. `middleware.ts` olusturma. Bu bolum ve `proxy.ts` erisim modelinin TEK kaynagidir; README ve diger bolumler buna uyar. `/ai-mentor` public'tir (gonullu masa sayfa icinde `/giris`'e yonlendirir, uzman formu public); `/api/sat/*` ve `/ekip/*` protected'dir.
+Route guvenligi sadece `proxy.ts` ile saglanir. `middleware.ts` olusturma. Bu bolum ve `proxy.ts` erisim modelinin TEK kaynagidir; README ve diger bolumler buna uyar. `/ai-mentor` public'tir (gonullu masa sayfa icinde `/giris`'e yonlendirir, uzman formu public); `/api/sat/*` ve `/ekip/*` protected'dir. <!-- check-docs: ignore -->
 
 Public route pattern'leri (2026-09-25'ten beri kesin kalip: agac icin `'/yol'` + `'/yol/(.*)'` cifti, tek uc nokta icin tam yol; `'/yol(.*)'` bicimi ayni onekle baslayan kardes yollari da actigi icin kullanilmaz ve `check:routes` bunu reddeder):
 
@@ -380,6 +380,8 @@ Navbar artik signed-out durumda **modal acmaz**; giris durumu `SignedIn`/`Signed
 
 ## Ozellik Mimarileri
 
+Burs dogrulama notlari (2026-09-26, STATUS #33): ana sayfa CTA notu (`homeScholarshipsCta.note`) ve `/scholarships` giris notu (`scholarships.verifiedAsOf`) sabit tarih tasimaz; bolge sayilari, en yeni `lastVerifiedAt` tarihleri ve akademik yil `SCHOLARSHIP_REGIONS` kayitlarindan `lib/scholarships/verification.ts` ile turetilir (ana sayfada sunucuda hesaplanip prop gecer, bolge verisi istemci paketine girmez; `ScholarshipsExplorer` kendi icinde hesaplar). `check:scholarships-ui` bu iki anahtarda sabit 20XX yilini reddeder ve notu gercek veriyle doldurup denetler.
+
 ### Auth (Giris/Kayit)
 
 `/giris` tek sayfa giris+kayit deneyimidir. Clerk altyapisi korunur; UI tamamen `@clerk/elements` (Level 2 - headless primitives) ile bizim tarafimizda.
@@ -424,7 +426,7 @@ Canonical marka/domain karari: **ItalyPath** ile devam ediliyor; canonical domai
 SEO Adim 1 (`SEO 1` commit'i):
 
 - `app/layout.tsx` icinde `metadataBase: new URL("https://italypath.app")`
-- `app/robots.ts` ve `app/sitemap.ts` `https://italypath.app` uretir
+- `app/robots.ts` ve `app/sitemap.ts` `https://italypath.app` uretir. `/ekip` robots disallow listesinde DEGILDIR (ekip paneli yolu ilan edilmez; 2026-09-26, guvenlik denetimi S1#10, STATUS #79): dizin disi kalmasi `app/ekip/layout.tsx` `robots: { index: false, follow: false }` metadata'si ve proxy korumasiyla saglanir; `check:mentor-desks` bunu zorlar
 - `/universities` ve `/isee` icin server `layout.tsx` metadata eklendi
 - cities/scholarships/communities Open Graph URL'leri `.app` oldu
 - dynamic university/program layout'larinda canonical + Open Graph URL var
@@ -451,7 +453,7 @@ SEO Adim 2.5 (`SEO 2.5` deploy'u):
 SEO Adim 3 Part 1 (`288dd5d`, breadcrumb polish `b1fd488`):
 
 - Ana sayfaya explicit `alternates.canonical: "/"` eklendi
-- `app/layout.tsx` site geneli gercek bilgiye dayali `Organization` + `WebSite` JSON-LD tasir; dogrulanmamis logo/sosyal hesap/SearchAction eklenmez
+- Site geneli `Organization` + `WebSite` JSON-LD `lib/site.ts` (`siteJsonLd`, `SITE_URL`, `SITE_DESCRIPTION`) icinde tanimlanir ve yalnizca ana sayfada (`app/page.tsx`) yayinlanir (2026-09-26, STATUS #14; onceden `app/layout.tsx` her sayfada tekrar ediyordu); dogrulanmamis logo/sosyal hesap/SearchAction eklenmez; `check:seo-vitals` kok layout'a geri donusu engeller. `/on-gorusme` sunucu sayfasi gorunen SSS ile ayni kaynaktan (`tr.homeFaq.items`, 4 soru) `FAQPage` JSON-LD yayinlar (STATUS #12). Okul ve program portre gorseli `priority` + `fetchPriority="high"` + gercek sutuna gore `sizes` tasir, liste gorselleri onceliksizdir (Next 16 `priority` tek basina `fetchpriority` yazmaz; `check:seo-vitals`)
 - Tum JSON-LD `<script>` govdeleri `lib/jsonLd.ts` `serializeJsonLd` ile yazilir (`<`, `>`, `&` Unicode kacisli; 2026-09-26, S5#3); `check:seo-vitals` ham `JSON.stringify`'a izin vermez. Sitemap program slug'larini `encodeURIComponent` ile yazar ve 3 saatte bir yenilenir (dizin memo'suyla ayni)
 - University detail sayfalari 3 seviyeli, program detail sayfalari 4 seviyeli `BreadcrumbList` JSON-LD tasir
 - University/program kaydi bulunamazsa route `notFound()` ile gercek HTTP 404 dondurur; veri kaynagi hatasi 2026-09-26'dan beri firlatilir (ISR son saglam sayfayi sunar; eski "veri yuklenemedi" govdesi kaldirildi)
@@ -535,7 +537,7 @@ SEO `layout.tsx` Server Component'lerinde `generateMetadata()` ile uretilir. `ge
 - ItalyPath Gönüllü Ekip: aktif, giriş gerektiren Supabase üzerinde kalıcı site içi insan yazışmasıdır. Misafir `desk=volunteer` seçerse `/giris?redirect_url=/ai-mentor?desk=volunteer` akışına gider.
 - ItalyPath Uzman: aktif public `expert-lead` formudur. Form altı zorunlu alanla ücretsiz WhatsApp ön görüşme talebi toplar; e-posta, onay kutusu, CAPTCHA, IP saklama, telefon bazlı dedupe veya otomatik silme yoktur. `submission_id` yalnızca retry/double-click idempotency'si içindir.
 
-AI masasi (ItalyPath AI, Gemini) 2026-07-23'ten beri arayuzde duraklatilmisti; 2026-09-26'da tamamen kaldirildi (Kerem karari 2026-09-25, guvenlik denetimi S1#1, S5#6, S6#5, O3#6, O3#9): `app/api/chat/route.ts`, `MentorChatRoom`/`EntryPair`/`StarterPrompts`/`LockedDeskNotice`, AI ceviri anahtarlari, AI SDK/Gemini/`react-markdown` paketleri ve Spectral 700 agirligi (AI yanitlari disindaki tek kullanim, program dizinindeki program sayisi, Kerem karariyla `font-semibold` oldu; `app/layout.tsx` o tarihte 400/500/600 yukluyordu, kart 10'dan beri yalniz 400/600). Eski `?desk=ai` baglantilari hub'a duser. `check:mentor-desks` kaldirilan dosya ve paketlerin geri gelmesini engeller.
+AI masasi (ItalyPath AI, Gemini) 2026-07-23'ten beri arayuzde duraklatilmisti; 2026-09-26'da tamamen kaldirildi (Kerem karari 2026-09-25, guvenlik denetimi S1#1, S5#6, S6#5, O3#6, O3#9): `app/api/chat/route.ts`, `MentorChatRoom`/`EntryPair`/`StarterPrompts`/`LockedDeskNotice`, AI ceviri anahtarlari, AI SDK/Gemini/`react-markdown` paketleri ve Spectral 700 agirligi (AI yanitlari disindaki tek kullanim, program dizinindeki program sayisi, Kerem karariyla `font-semibold` oldu; `app/layout.tsx` o tarihte 400/500/600 yukluyordu, kart 10'dan beri yalniz 400/600). Eski `?desk=ai` baglantilari hub'a duser. `check:mentor-desks` kaldirilan dosya ve paketlerin geri gelmesini engeller. <!-- check-docs: ignore -->
 
 Gonullu masa mimarisi:
 
@@ -555,6 +557,7 @@ Uzman lead mimarisi gönüllü konuşma tablolarını, hook'larını veya Realti
 - Public form `components/mentor/expert/ExpertLeadDesk.tsx` içindedir; `POST /api/expert-leads` server-side doğrulama ve server-only service-role insert sınırıdır.
 - `expert_leads` ayrı tablo, constraint ve RLS yüzeyidir. Anon/normal authenticated kullanıcı okuyamaz veya mutate edemez; insert yalnızca server route ile olur.
 - `/ekip/uzman` protected route'tur ve mevcut tek aktif `mentor_staff` operatörü için `is_active_mentor_staff()` + RLS doğrulamasını kullanır. `useExpertLeadInbox` Realtime/polling/notification kullanmaz; yetki veya kullanıcı değişiminde lead state'ini fail-closed temizler.
+- Form cevabi ve sure sinirlari (2026-09-26, STATUS #47/#51): tuzak (`website`) dolu istek, kaydedilen talep ve ayni talebin tekrari disaridan ayni cevabi alir (`200 {ok:true}`, tek `accepted()` yardimcisi; eski 201/200 ayrimi kalkti); tuzak alani sifre yoneticisi bayraklari (`autoComplete="off"`, `tabIndex={-1}`, `aria-hidden`, `data-1p-ignore`, `data-lpignore`, `data-bwignore`, `data-form-type="other"`) tasir, istemci alani gondermeden once temizlemez; formda `method="post"`, `action` yok (JSON olmayan govde 4xx JSON); form istegi 15 sn (`AbortSignal.timeout`), sunucu eklemesi 10 sn (`abortSignal`), sure asimi `503 timeout` + `expertDesk.timeoutError` (TR/EN); rota `maxDuration = 15`; sablon doldurma `fillExpertLeadTemplate` (`$&` guvenli). `check:expert-leads` + `test:expert-leads` zorlar.
 - Kotuye kullanim siniri (2026-09-25, Kerem kararlari; guvenlik denetimi S3#3): `expert_leads_hourly_cap` BEFORE INSERT tetikleyicisi son bir saatte tum site genelinde sayar. 51. talepten itibaren talep reddedilmez, `status = 'suspected'` ile kaydedilir (ogrenci normal basari ekranini gorur); 151. talepten itibaren insert reddedilir (`expert_lead_rate_limited`). Ayni `submission_id` ile tekrar deneme her iki kontrolden once gecer. Route tavani 429 `rate_limited` olarak doner, form girdiyi koruyarak "yogunluk" mesaji gosterir. Ilk 50 siniri canliya 2026-09-25'te uygulandi (migration `expert_leads_hourly_cap`); supheli esik + 150 tavan surumu 2026-09-25 22:20 UTC'de (migration `expert_leads_suspected_threshold`).
 - Route yalnizca `application/json` kabul eder ve Origin basligi varsa site host'uyla eslesmelidir (baska sitenin ziyaretci tarayicilari uzerinden gonderim yapmasini engeller); aksi 403. Dogrulama (`lib/mentor/expertLeadValidation.ts`, denetim S2#4) uzunlugu Postgres gibi kod noktasi olarak sayar; C0/C1 kontrol karakterlerini, yazi yonu kontrol karakterlerini, sifir genislikli/gorunmez bicim karakterlerini ve eslesmemis surrogate'lari `invalid_characters` ile reddeder. Aciklamada yalniz satir sonu ve emoji dizilerinin ihtiyac duydugu U+200C/U+200D serbesttir (sekme artik reddedilir). Ad en az iki harf ister (`too_few_letters`; form bunu mevcut ad mesajiyla gosterir). Dogrulamayi gecip Postgres'in reddettigi girdi (23514 kural ihlali, 22P05 karakter) 503 degil 400 doner; kural adi biliniyorsa ilgili alan hatasi olarak.
 - Operator gelen kutusu (`useExpertLeadInbox`, denetim S2#2): varsayilan filtre "Yeni"; filtreler Yeni, Iletisime gecildi, Tamamlandi, Tumu (supheliler haric), Supheli. Filtre sunucuda uygulanir, liste 50'lik sayfalarla (`created_at desc, id desc` imlecli) "Daha fazla goster" ile yuklenir; yeni ve supheli sayilari ayri HEAD sayimidir. Supheli bir talep durumu "Yeni" yapilarak listeye alinir.
@@ -617,7 +620,7 @@ Yeni Hub layout'u profil varsa: `DossierTopStrip` -> `ProfileStrip` -> `Recommen
 
 Profil yoksa onerilerin yerinde `ProfileInviteCard` gosterilir; kompakt favori/belge kartlari ve footer yine kalir. Dort sorunun hepsi bossa kullanici profilsiz sayilir; en az bir cevap varsa guard'li oneriler uretilir.
 
-Emekli edilenler: `StageStrip`, `DossierHero`, Hub `BentoGrid`, `KisaListeCell`, `BelgeCell`, `BursNotuCell`, `ToplulukNotuCell`, `lib/hub/stages.ts`, `lib/hub/useHubStage.ts`. `italyPathStage` localStorage anahtari artik okunmaz; `/hub` ilk yuklemede sessizce siler.
+Emekli edilenler: `StageStrip`, `DossierHero`, Hub `BentoGrid`, `KisaListeCell`, `BelgeCell`, `BursNotuCell`, `ToplulukNotuCell`, `lib/hub/stages.ts`, `lib/hub/useHubStage.ts`. `italyPathStage` localStorage anahtari artik okunmaz; `/hub` ilk yuklemede sessizce siler. <!-- check-docs: ignore -->
 
 Dogrulama: `npm run check:hub-onboarding` ve `npm run check:university-data-source`.
 
@@ -631,7 +634,7 @@ Server katmani `lib/sat/questions.server.ts`: ilk satiri `import "server-only"` 
 
 Client yuzeyi `app/sat/page.tsx` ve `components/sat/*` altindadir. `MathText` KaTeX ile `$...$` ifadelerini render eder; `lib/sat/answers.ts` SPR sayi/kesir cevap eslestirmesini yapar. Soru fetch ve attempt yazimi `lib/sat/useSatBank.ts` / `lib/sat/useSatAttempts.ts` hook'larindadir.
 
-Ana sayfa (`homeTools.sat.meta`, `VelocityBridge`) ve `/sat` basligi soru sayisini sabit "1.000+ SAT matematik sorusu" olarak yazar (2026-09-26, denetim O4#7; canli bank 1.019 Math sorusu). Her SAT importundan sonra bu metinleri canli sayimla karsilastir.
+Ana sayfa (`homeTools.sat.meta`, `VelocityBridge` -> `t.homeNumbers`) ve `/sat` basligi soru sayisini tek sabitten yazar: `lib/translations/tr.ts` + `en.ts` basindaki `SAT_QUESTION_COUNT_CLAIM` (`t.sat.questionCount`; TR "1.000+", EN "1,000+"; 2026-09-26, STATUS #64; canli bank 1.019 Math sorusu, ifade Kerem kararıyla sabit). Her SAT importundan sonra bu sabiti canli sayimla karsilastir. `VelocityBridge` metinleri `homeNumbers` altinda, bolge sayisi sunucudan (`app/page.tsx`, `SCHOLARSHIP_REGIONS.length`) prop olarak gelir.
 
 Ilerleme okumasi (2026-09-26, guvenlik denetimi O4#3, `supabase/sat_progress.sql`): istemci `sat_attempts`'in tamamini cekmez. `sat_latest_attempts` view'i (`security_invoker`) soru basina en son denemeyi verir (1.000'lik sayfalarla); `sat_attempt_summary(p_time_zone)` RPC'si bugunku deneme sayisi, guncel seri ve en uzun seriyi tarayicinin saat diliminde tek satir dondurur. Ikisi yalniz authenticated'a acik. Yuklenemezse `/sat` "ilerlemen yuklenemedi, tekrar dene" gosterir. Yeni cevapta view ve ozet istemcide iyimser guncellenir.
 
@@ -794,6 +797,7 @@ npm run dev
 npm run build
 npm run lint
 npm run check:offline
+npm run check:docs
 npm run check:routes
 npm run check:sat-bank
 npm run check:auth-ui
@@ -836,12 +840,15 @@ Notlar (2026-09-26):
 
 - `test:mentor-db` gecici yerel PostgreSQL kurar (Homebrew `postgresql@16`/`@17` veya `POSTGRES_BIN`). macOS'ta `LC_ALL` bos kabukta sunucu baslamiyordu; betik artik `LC_ALL` bossa `C` varsayar, elle ayar gerekmez.
 - `check:hub-onboarding` varsayilan olarak cevrimdisidir; canli alan kapsamasi adimini "ATLANDI" diye yazar. Canli okuma icin `ITALYPATH_API_BASE=https://italypath.app npm run check:hub-onboarding` (seyrek; Vercel challenge). Adres verilip ulasilamazsa PASS yerine HATA verir.
-- `check:seo-vitals` ISR sayfalarini ve onlari saran layout/template dosyalarini (`app/layout.tsx`, `app/template.tsx`, `app/universities/layout.tsx`, iki universities detay layout'u) tarar: `force-dynamic`, veri hatasi yakalama ve `cookies()`, `headers()`, `auth()`, `currentUser()`, `connection()` cagrisi hatadir.
+- `check:docs` (2026-09-26, STATUS #31): belgelerdeki `npm run` referanslarinin package.json'da, backtick/link icindeki repo yollarinin (app/, components/, lib/, scripts/, docs/, supabase/, public/, kok .md/.ts/.mjs) diskte oldugunu denetler. Kesin kapsam (hata): `AGENTS.md`, `DATA_ENTRY_GUIDE.md`, `SUPABASE_SECURITY_RUNBOOK.md`, `docs/USAGE_LIMITS.md`, `README.md`; `docs/STATUS.md` ve bu dosya yalniz uyari verir. Silinmis dosyaya bilerek atif yapan satirin sonuna `<!-- check-docs: ignore -->` yazilir. `check:offline` icinde calisir (33 adim).
+- `check:seo-vitals` ISR sayfalarini ve onlari saran layout dosyalarini (`app/layout.tsx`, `app/universities/layout.tsx`, iki universities detay layout'u; `app/template.tsx` kart 10'da silindi) tarar: `force-dynamic`, veri hatasi yakalama ve `cookies()`, `headers()`, `auth()`, `currentUser()`, `connection()` cagrisi hatadir. <!-- check-docs: ignore -->
 - Aylik bagimlilik kontrolu `npm audit --omit=dev` ve `npm outdated` (`docs/USAGE_LIMITS.md` kontrol takvimi).
 
 Yedek (canli okuma + repo disina sifreli arsiv yazma; 2026-09-25): `npm run backup:supabase -- --dry-run`, `-- --run`, `-- --verify`, `-- --drill`. Canliya yazan her `--apply`/silme/migration oncesi ve haftada bir calisir; egress harcar. Ayrinti ve prova kaydi `SUPABASE_SECURITY_RUNBOOK.md` bolum 7.
 
 Canli veriye yazan tek seferlik duzeltme (2026-09-26, G3#2/G3#4): `node scripts/fix-admission-link-fields.mjs` kuru calistirir; `--apply --project-ref kskbnxxyviowmrlskwke` yalnizca yedek + Kerem onayiyla. Her `import-*-program-details` betigi de `--dry-run` (varsayilan) / `--apply --project-ref kskbnxxyviowmrlskwke` alir.
+
+SAT yazicilari (`scripts/sat/import-bank.mjs`, `scripts/sat/patch-sat-questions.mjs`) da kabul dosyasi yazicilariyla ayni ortak katmani (`scripts/lib/program-details-import.mjs`: `parseImportArgs`, `createImportClient`, `assertTarget`) kullanir (2026-09-26, STATUS #65): bayraksiz calistirma kuru calistirmadir, yazma yalniz `--apply --project-ref kskbnxxyviowmrlskwke` ve `.env.local` adresi bu projeye aitse; `test:sat-patch` sahte istemciyle kanitlar. `scripts/sat/import-explanations.mjs` ve `import-authored-explanations.mjs` henuz bu kilidi kullanmaz (STATUS #92).
 
 On gorusme saklama temizligi (DB yazma; 2026-09-26): `npm run cleanup:expert-leads` varsayilan kuru calismadir (yalniz sayi okur, kisisel veri yazdirmaz); `-- --apply` siler. Ayda bir, `--apply` yalniz Kerem onayiyla.
 
@@ -861,7 +868,7 @@ Tek acik is listesi 2026-09-21'den beri `docs/STATUS.md` icindedir (zaman kritik
 2. Global state icin React Context ve mevcut hook pattern'leri yeterli. Redux/Zustand/Jotai ekleme.
 3. Hook'lar mevcut pattern geregi `lib/` altinda tutulur.
 4. SEO gereken dinamik route'larda `generateMetadata()` Server Component `layout.tsx` dosyasinda kalir; client page'e tasima.
-5. Route guvenligi `proxy.ts` uzerinden yonetilir; `middleware.ts` olusturma.
+5. Route guvenligi `proxy.ts` uzerinden yonetilir; `middleware.ts` olusturma. <!-- check-docs: ignore -->
 6. Runtime kodunda `app/data.ts` import etme. Live university/program data icin liste yuzeylerinde `getUniversitiesDirectory()` veya `/api/universities`, okul sayfasi icin `getUniversityById()` (dizin kaydi), program sayfasi icin `getProgramPageData()` (dizin + yalnizca o programin kabul satiri), domain tipleri icin `types/universities.ts` kullan. Tam veri seti compose'unu veya okul basina tum kabul dosyalarini ceken sorguyu runtime'a geri getirme (egress). Katalog okumalari yalnizca `lib/universities.server.ts` icinde, server-only `SUPABASE_SECRET_KEY` ile yapilir; anon anahtara geri dusme ekleme. anon/authenticated'a katalog grant'i veya okuma politikasi verme (2026-09-26'dan beri kapali).
 7. UI metinleri `lib/translations/tr.ts` ve `en.ts` icinde TR/EN paralel tutulur; `en.ts` yalniz `loadEnglishTranslations()` ile (dinamik) yuklenir.
 8. Supabase generated types yok; yeni DB row ihtiyacinda `types/index.ts` icine explicit interface ekle.

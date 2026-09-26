@@ -1086,3 +1086,14 @@ Sağlama: dizin dışı toplam 3+3+246+2+847 = 1.101 > sitemap 1.004 → yaklaş
 2. Kerem: dizin isteği turu Gün 2-6 (§24.3).
 3. Sonraki tur (30 Eylül civarı): Sayfalar ekranının üstü ("dizinde" sayısı), Tarama istatistikleri + ana makine durumu, Performans **28 gün**, 404 satırı, "Tarandı, dizine eklenmedi" örneği.
 4. Düşük öncelik (sırasıyla): `clerk.italypath.app` kökü için Clerk ayarları incelemesi; `/communities` sitemap lastmod; `inLanguage` uyarısı (25.1).
+
+## 26. Şema ve LCP görseli turu — 26 Eylül 2026
+
+Durum: UYGULANDI (kod), ÖLÇÜM BEKLİYOR · Commit 762cbf0 (1. dalga paralel ajan), yerel main birleştirmesi 8369212; push bekliyor. Canlı ölçüm yok; doğrulama yerel `next dev --webpack` HTML çıktısıyla (~10 istek).
+
+1. `/on-gorusme` FAQPage JSON-LD: 4 soru, sunucu HTML'indeki Türkçe SSS ile aynı kaynak (`tr.homeFaq.items`); gizli soru yok (kural: schema yalnız görünen bilgi). Ana sayfadaki aynı SSS'ye şema eklenmedi (kapsam). `check:home-consultation` zorlar.
+2. Program ve okul portre görseli: `priority` ve `sizes` zaten vardı (224f816, 3d22f67) ama Next 16.3.6 `priority` ile `fetchpriority` yazmıyor (kurulu Next kaynağında doğrulandı: ayrı prop). `fetchPriority="high"` eklendi; yerel HTML'de hem `<img>` hem `<link rel="preload" as="image">` taşıyor. Okul portresi `sizes` 52vw → "(min-width: 1344px) 610px, (min-width: 1024px) 51vw, 100vw" (gerçek sütun 610px; 1920'de ~1000px istek bitiyor). Program portresi "580px / 46vw / 100vw" gerçek sütuna (≈568px) yakın, değişmedi. Sayfa başına tek öncelikli görsel; liste görselleri (`ProgramTransitionEntry`, `UniversityRows`) önceliksiz; `check:seo-vitals` zorlar. Unsplash yükleyici w=900'de kestiği için dosya zaten hafif; kazanım görselin font/CSS yarışında öne alınması (§19.3 kök neden notu geçerli).
+3. `Organization` + `WebSite` JSON-LD kök layout'tan `lib/site.ts` + `app/page.tsx`'e taşındı: yalnız ana sayfada, içerik aynı; `/on-gorusme` yalnız FAQPage, okul sayfası yalnız BreadcrumbList, program sayfası BreadcrumbList + EducationalOccupationalProgram. `check:seo-vitals` kök layout'a JSON-LD dönüşünü engeller.
+4. `robots.txt` `/ekip`i ilan etmiyor; `app/ekip/layout.tsx` noindex/nofollow; proxy koruması aynı. Kerem kararı bekliyor (STATUS #79).
+
+Yayın sonrası ölçüm (§19.7 protokolü, en fazla 3-4 koşu; kart 10 Lighthouse turuyla birlikte): program sayfasında LCP öğesi ve görsel yükleme süresi, soğuk/sıcak (21 Eylül tabanı: sıcakta 3,9 sn görsel yüklemesi); `/on-gorusme` için Rich Results Test (FAQPage); ana sayfa dışındaki bir sayfada Organization şemasının kaybının Search Console'da uyarı üretmediği kontrolü.
