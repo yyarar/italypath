@@ -63,6 +63,11 @@ tmp/
 *-admission-requirements/
 *-english-programmes/
 output/*-program-details-import-report.json
+# Kuru calistirma farki/manifest onizlemesi ve yazma oncesi satir yedekleri (2026-09-26);
+# izlenen manifest supabase/import-manifests/ altindadir.
+output/*-program-details-dry-run-*
+output/*-admission-details-before-*.json
+output/admission-link-fields-fix-*
 
 # City-guide research working results
 city-content-research/results/

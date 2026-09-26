@@ -1,13 +1,22 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { basename, join, resolve } from "node:path";
-import { createClient } from "@supabase/supabase-js";
+
+import {
+  createImportClient,
+  finalizeAdmissionPayloads,
+  parseImportArgs,
+  prepareAdmissionWrite,
+  recordImportManifest,
+  sourceFileRef,
+} from "./lib/program-details-import.mjs";
 
 // Importer for the 2026-09-19 "dosyasız 108 program" round: existing department
 // rows that had no admission dossier were researched one by one. Only the 41 rows
 // Kerem approved for import are handled here (see
 // dosyasiz-108-program-research/KARARLAR.md); the 67 deletion candidates are a
 // separate, backed-up step.
-// Usage: node scripts/import-dosyasiz-108-program-details.mjs [--dry-run|--apply]
+// Usage: node scripts/import-dosyasiz-108-program-details.mjs [--dry-run | --apply --project-ref kskbnxxyviowmrlskwke]
+const SCRIPT_KEY = "dosyasiz-108";
 const SOURCE_GENERATED_AT = "2026-09-19";
 const RESULTS_DIR = resolve(process.cwd(), "dosyasiz-108-program-research/results");
 const OUTPUT_DIR = resolve(process.cwd(), "output");
@@ -96,42 +105,7 @@ const EXTRA_UNCERTAINTY_NOTES = new Map([
   [883, "Re-checked 2026-09-19 before import: the programme's admissions page and the Cattolica International page still show the A.Y. 2025/26 call (intake October 2025); no A.Y. 2026/27 call has been published yet, so all dates above are from the previous year."],
 ]);
 
-const mode = parseMode(process.argv.slice(2));
-
-function parseMode(args) {
-  const allowed = new Set(["--dry-run", "--apply"]);
-  const unknown = args.filter((a) => !allowed.has(a));
-  if (unknown.length > 0) throw new Error(`Unknown argument(s): ${unknown.join(", ")}`);
-  if (args.includes("--dry-run") && args.includes("--apply")) throw new Error("Use either --dry-run or --apply, not both.");
-  return args.includes("--apply") ? "apply" : "dry-run";
-}
-
-function loadDotenvLocal() {
-  const envPath = resolve(process.cwd(), ".env.local");
-  if (!existsSync(envPath)) return;
-  for (const line of readFileSync(envPath, "utf8").split(/\r?\n/)) {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith("#")) continue;
-    const i = trimmed.indexOf("=");
-    if (i === -1) continue;
-    const key = trimmed.slice(0, i).trim();
-    const value = trimmed.slice(i + 1).trim().replace(/^['"]|['"]$/g, "");
-    if (key && !process.env[key]) process.env[key] = value;
-  }
-}
-
-function createSupabaseClient() {
-  loadDotenvLocal();
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey =
-    mode === "apply"
-      ? process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY
-      : process.env.SUPABASE_SECRET_KEY;
-  if (!supabaseUrl || !supabaseKey) {
-    throw new Error(mode === "apply" ? "URL and service key required for --apply." : "URL and SUPABASE_SECRET_KEY required (catalog reads use the server-only secret key).");
-  }
-  return createClient(supabaseUrl, supabaseKey, { auth: { persistSession: false, autoRefreshToken: false } });
-}
+const { mode, projectRef } = parseImportArgs(process.argv.slice(2));
 
 function flattenText(value) {
   if (value == null) return null;
@@ -208,7 +182,7 @@ function toDetailPayload(departmentId, spec, record) {
     source_quotes: normalizeSourceQuotes(record.source_quotes, officialProgramUrl, file),
     uncertain: Array.isArray(record.uncertain) ? record.uncertain.map(flattenText).filter(Boolean) : [],
     uncertainty_notes: [flattenText(record.uncertainty_notes), EXTRA_UNCERTAINTY_NOTES.get(departmentId)].filter(Boolean),
-    source_file: `dosyasiz-108-program-research/results/${file}`,
+    source_file: sourceFileRef(join(RESULTS_DIR, file)),
     imported_at: now,
     updated_at: now,
   };
@@ -315,11 +289,12 @@ async function applyPlan(supabase, plan) {
       if (error) throw new Error(`Failed department update ${id}: ${error.message}`);
       updated.push(live);
     }
-    const payloads = plan.rows.map((r) => r.payload);
+    const payloads = finalizeAdmissionPayloads(plan.rows.map((r) => r.payload));
     const { error } = await supabase.from("program_admission_details").insert(payloads);
     if (error) throw new Error(`Failed to insert admission details: ${error.message}`);
     insertedIds.push(...payloads.map((p) => p.department_id));
-    return { detailInserts: insertedIds.length, departmentUpdates: updated.length, backup: basename(backupPath) };
+    const manifest = recordImportManifest(SCRIPT_KEY, payloads, { projectRef });
+    return { detailInserts: insertedIds.length, departmentUpdates: updated.length, backup: basename(backupPath), manifest };
   } catch (error) {
     if (insertedIds.length > 0) {
       await supabase.from("program_admission_details").delete().in("department_id", insertedIds);
@@ -334,8 +309,14 @@ async function applyPlan(supabase, plan) {
 
 async function main() {
   mkdirSync(OUTPUT_DIR, { recursive: true });
-  const supabase = createSupabaseClient();
+  const supabase = createImportClient({ mode, projectRef });
   const plan = buildPlan(await fetchLiveRows(supabase));
+  // Link temizligi, izin listesi, serbest metin ve uzunluk denetimi + tam metin farki
+  // (output/). --apply'da engelleyici sorun varsa hicbir yazma yapilmadan durur.
+  const guardedPayloads = await prepareAdmissionWrite(supabase, plan.rows.map((r) => r.payload).filter(Boolean), { mode, scriptName: SCRIPT_KEY });
+  plan.rows.forEach((row) => {
+    if (row.payload) row.payload = guardedPayloads.find((payload) => payload.department_id === row.id) ?? row.payload;
+  });
   let report = summarize(plan);
   writeFileSync(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`);
   console.log(JSON.stringify({ ...report, rows: `${report.rows.length} rows (see ${basename(REPORT_PATH)})` }, null, 2));

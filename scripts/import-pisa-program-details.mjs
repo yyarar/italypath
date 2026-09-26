@@ -1,7 +1,17 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
-import { createClient } from "@supabase/supabase-js";
 
+import {
+  createImportClient,
+  finalizeAdmissionPayloads,
+  parseImportArgs,
+  prepareAdmissionWrite,
+  recordImportManifest,
+  sourceFileRef,
+} from "./lib/program-details-import.mjs";
+
+// Usage: node scripts/import-pisa-program-details.mjs [--dry-run | --apply --project-ref kskbnxxyviowmrlskwke]
+const SCRIPT_KEY = "pisa";
 const PISA_UNIVERSITY_ID = 19;
 const EXPECTED_IMPORT_COUNT = 18;
 const SOURCE_GENERATED_AT = "2026-06-19";
@@ -55,58 +65,7 @@ const SOURCE_TO_EXISTING_SLUG_ALIASES = new Map([
   ],
 ]);
 
-const mode = parseMode(process.argv.slice(2));
-
-function parseMode(args) {
-  const allowedArgs = new Set(["--dry-run", "--apply"]);
-  const unknownArgs = args.filter((arg) => !allowedArgs.has(arg));
-  if (unknownArgs.length > 0) throw new Error(`Unknown argument(s): ${unknownArgs.join(", ")}`);
-
-  const wantsDryRun = args.includes("--dry-run");
-  const wantsApply = args.includes("--apply");
-  if (wantsDryRun && wantsApply) throw new Error("Use either --dry-run or --apply, not both.");
-
-  return wantsApply ? "apply" : "dry-run";
-}
-
-function loadDotenvLocal() {
-  const envPath = resolve(process.cwd(), ".env.local");
-  if (!existsSync(envPath)) return;
-
-  for (const line of readFileSync(envPath, "utf8").split(/\r?\n/)) {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith("#")) continue;
-
-    const separatorIndex = trimmed.indexOf("=");
-    if (separatorIndex === -1) continue;
-
-    const key = trimmed.slice(0, separatorIndex).trim();
-    const value = trimmed.slice(separatorIndex + 1).trim().replace(/^['"]|['"]$/g, "");
-    if (key && !process.env[key]) process.env[key] = value;
-  }
-}
-
-function createSupabaseClient() {
-  loadDotenvLocal();
-
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey =
-    mode === "apply"
-      ? process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SECRET_KEY
-      : process.env.SUPABASE_SECRET_KEY;
-
-  if (!supabaseUrl || !supabaseKey) {
-    throw new Error(
-      mode === "apply"
-        ? "NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY or SUPABASE_SECRET_KEY are required for --apply."
-        : "NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SECRET_KEY are required (catalog reads use the server-only secret key)."
-    );
-  }
-
-  return createClient(supabaseUrl, supabaseKey, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
-}
+const { mode, projectRef } = parseImportArgs(process.argv.slice(2));
 
 function normalizeName(value) {
   return value
@@ -646,9 +605,14 @@ function toDetailPayload(source, departmentId) {
     source_quotes: normalizeSourceQuotes(raw.source_quotes),
     uncertain: normalizeStringArray(raw.uncertain),
     uncertainty_notes: normalizeStringArray(raw.uncertainty_notes),
-    source_file: source.file,
+    source_file: sourceFileRef(join(RESULTS_DIR, source.file)),
     updated_at: now,
   };
+}
+
+// Kuru calistirma ve --apply on kontrolu icin: henuz olusmamis bolumler id'siz.
+function previewDetailPayloads(plan) {
+  return plan.detailRows.map(({ source, department }) => toDetailPayload(source, department?.id ?? null));
 }
 
 function toDepartmentPayload(department) {
@@ -795,7 +759,7 @@ async function applyPlan(supabase, plan) {
       if (!refreshedByIdentity.has(key)) refreshedByIdentity.set(key, department);
     }
 
-    detailPayloads = plan.detailRows.map(({ source, department }) => {
+    const rawDetailPayloads = plan.detailRows.map(({ source, department }) => {
       let resolved = refreshedByIdentity.get(identityKey(source.departmentName, source.level));
       if (!resolved && department?.id) {
         resolved = refreshedDepartments.find((candidate) => candidate.id === department.id);
@@ -807,8 +771,17 @@ async function applyPlan(supabase, plan) {
       validateDetailPayload(payload);
       return payload;
     });
+    detailPayloads = finalizeAdmissionPayloads(rawDetailPayloads);
 
-    const sourceFiles = plan.detailRows.map(({ source }) => source.file);
+    // source_file 2026-09-26'dan beri sourceFileRef bicimindedir (yol + icerik ozeti); canlidaki
+    // eski satirlar yalin dosya adini tasir. Eski ("stale") satir ve snapshot sorgulari ikisini de
+    // arar ki onceki importlarin satirlari da bulunsun.
+    const sourceFiles = [
+      ...new Set([
+        ...detailPayloads.map((detail) => detail.source_file),
+        ...plan.detailRows.map(({ source }) => source.file),
+      ]),
+    ];
     admissionDetailSnapshot = await snapshotAdmissionDetails(
       supabase,
       detailPayloads.map((detail) => detail.department_id),
@@ -843,6 +816,7 @@ async function applyPlan(supabase, plan) {
     }
 
     await verifyApplyResult(supabase, detailPayloads);
+    console.log(`[manifest] ${recordImportManifest(SCRIPT_KEY, detailPayloads, { projectRef })}`);
   } catch (error) {
     await rollbackAdmissionDetails(supabase, admissionDetailSnapshot);
     if (mutatedDepartments) await rollbackPlan(supabase, plan);
@@ -909,11 +883,14 @@ async function main() {
   if (!existsSync(RESULTS_DIR)) throw new Error(`Results directory not found: ${RESULTS_DIR}`);
   mkdirSync(OUTPUT_DIR, { recursive: true });
 
-  const supabase = createSupabaseClient();
+  const supabase = createImportClient({ mode, projectRef });
   const sourcePrograms = loadSourcePrograms();
   const university = await fetchPisaUniversity(supabase);
   const dbDepartments = await fetchPisaDepartments(supabase);
   const plan = createPlan(university, sourcePrograms, dbDepartments);
+  // Link temizligi, izin listesi, serbest metin ve uzunluk denetimi + tam metin farki
+  // (output/). --apply'da engelleyici sorun varsa hicbir yazma yapilmadan durur.
+  await prepareAdmissionWrite(supabase, previewDetailPayloads(plan), { mode, scriptName: SCRIPT_KEY });
 
   if (sourcePrograms.length !== EXPECTED_IMPORT_COUNT) {
     throw new Error(`Expected ${EXPECTED_IMPORT_COUNT} source JSON files, found ${sourcePrograms.length}.`);
