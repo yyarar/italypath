@@ -6,7 +6,7 @@
 // Bu betik iki isi ayri ayri yapar:
 // 1) DOGRULAMA (her zaman calisir, yazmaz): 5 satirin uc link alanini (official_program_url,
 //    official_call_url, tuition_or_fees_link) canli HTTP durumuyla yeniden kontrol eder ve
-//    output/dead-program-links-2026-09-26-live-check.json + konsola yazar.
+//    tmp/uni-research/fix-dead-program-links-2026-09-26-live-check.json + konsola yazar.
 // 2) DUZELTME (yalniz --replacements <dosya.json> verilirse): department_id -> { alan: yeni
 //    deger, note? } eslemesini okur, scripts/lib/program-details-import.mjs uzerinden
 //    (prepareAdmissionWrite/finalizeAdmissionPayloads/recordImportManifest) kuru calistirir;
@@ -20,7 +20,7 @@
 //
 // 2026-09-26 yeniden kontrolu (bu betigin ilk calistirmasi): 5 programin da UC link alani da
 // (program/cagri/ucret) canli HTTP 200 donuyor ve sayfa icerigi kayittaki program adi/seviye/dil
-// ile eslesiyor (bkz. output/dead-program-links-2026-09-26-live-check.json). Bu yuzden bu
+// ile eslesiyor (bkz. tmp/uni-research/fix-dead-program-links-2026-09-26-live-check.json). Bu yuzden bu
 // calistirmada --replacements verilmedi: hicbir satir degismedi.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { relative, resolve } from "node:path";
@@ -49,7 +49,7 @@ const READ_COLUMNS = [
   "source_file",
   "updated_at",
 ];
-const OUTPUT_DIR = resolve(process.cwd(), "output");
+const OUTPUT_DIR = resolve(process.cwd(), "tmp/uni-research");
 const FETCH_TIMEOUT_MS = 15000;
 // Gercek tarayici UA + basliklar: bazi WAF'lar (ornek: securityintelligence-erasmusmundus.eu,
 // 2026-09-26 kontrolunde gorulmus) betik/bot UA'sini engelliyor ama gercek tarayiciyi (ve
