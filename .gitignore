@@ -78,3 +78,10 @@ city-content-research/results/
 # Agent skill packs (npx skills) - calisma dizini artifaktlari, commit edilmez
 .agents/
 skills-lock.json
+
+# HyperFrames tanitim videosu projeleri (2026-09-26); render ve capture ciktilari repo disinda
+videos/
+
+# HyperFrames / brag video ciktilari (repo disi, 2026-09-26)
+brag-output*/
+videos/
