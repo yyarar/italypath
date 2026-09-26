@@ -1,6 +1,6 @@
 # ItalyPath — Servis Abonelikleri ve Kullanım Limitleri
 
-Durum: AKTIF REFERANS · Oluşturma: 2026-09-25 · Son güncelleme: 2026-09-26 (sayfa ağırlığı ve sunucu işi, kart 10) · 2026-09-26 (aylık bağımlılık kontrolü, güvenlik kartı 11) · 2026-09-26 (Gemini kaldırıldı, güvenlik kartı 6) · 2026-09-25 (yedek satırları, G2#2) · Kanıt: Supabase MCP (org planı, DB/Storage boyutu, edge log sayımı), Kerem'in panel ekranları (Vercel Usage, Supabase Usage, Clerk Overview, Name.com; 2026-09-25), resmî limit/fiyat sayfaları (her satırda URL)
+Durum: AKTIF REFERANS · Oluşturma: 2026-09-25 · Son güncelleme: 2026-09-26 (Gemini fatura kontrolü kapandı, Kerem kararı) · 2026-09-26 (sayfa ağırlığı ve sunucu işi, kart 10) · 2026-09-26 (aylık bağımlılık kontrolü, güvenlik kartı 11) · 2026-09-26 (Gemini kaldırıldı, güvenlik kartı 6) · 2026-09-25 (yedek satırları, G2#2) · Kanıt: Supabase MCP (org planı, DB/Storage boyutu, edge log sayımı), Kerem'in panel ekranları (Vercel Usage, Supabase Usage, Clerk Overview, Name.com; 2026-09-25), resmî limit/fiyat sayfaları (her satırda URL)
 
 Bu belge projenin kullandığı dış servislerin planını, limitini, ölçülmüş kullanımını ve limit aşımında ne olduğunu tutar. Kullanım limitleri sorumluluğu 2026-09-25'ten beri ayrı bir ajan rolüdür. Yeni bir servis eklenirse buraya satır açılır; plan değişirse tarih ve kanıtla güncellenir. Açık işler `docs/STATUS.md`'dedir.
 
@@ -159,7 +159,7 @@ Plan: **Student** ("Personal workspace", Clerk ekranı 2026-09-25). Kaynak: http
 Durum: KALDIRILDI (2026-09-26). Kerem kararı (2026-09-25): AI mentor kaldırılacak.
 
 - 2026-09-26: Kerem Google AI Studio'daki tüm Gemini anahtarlarını sildi ve Vercel'den `GEMINI_API_KEY`'i kaldırdı. Aynı gün kod tarafı (`/api/chat`, AI masası, `ai`/`@ai-sdk/*`/`@google/generative-ai` paketleri) dalda kaldırıldı; push Kerem onayıyla. Ayrıntı `docs/STATUS.md` Kapananlar.
-- Kalan elle kontrol (Kerem): Şubat 2026'dan bu yana Gemini kullanım/faturası (Google AI Studio → Usage; ödeme bağlıysa Google Cloud Billing).
+- Elle fatura kontrolü (Şubat 2026'dan bu yana Gemini kullanım/faturası): **kapandı, yapılmayacak** (Kerem kararı, 2026-09-26). Gerekçe: anahtarlar silindi, GitHub uyarısı kapandı.
 
 ## Name.com ve iletişim adresi
 

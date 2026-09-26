@@ -5,13 +5,15 @@ import type { University } from '@/types/universities';
 // Dizin memo'su 3 saat tutulur; sitemap daha sik yenilenirse ayni veriyi yeniden yazar (O1#6).
 export const revalidate = 10800;
 
-// Sayfa sablonunun son anlamli icerik degisikligi: 2026-09-19'da program sayfalarina "Ayni alanda
-// diger universiteler" bolumu eklendi. Onceki kayitlar: 2026-09-17 program detay duzeni (kunye,
+// Sayfa sablonunun son anlamli icerik degisikligi: 2026-09-26 yayini (995e617): program sayfasinda
+// resmi link etiketleri (hedef alan adi, okul disi hedef etiketi), "Bu program icin uzmana danis"
+// butonu, okul/program sayfa duzeni (kart 6, 9, 10). Onceki kayitlar: 2026-09-21 "Sonraki adimlar"
+// blogu; 2026-09-19 "Ayni alanda diger universiteler" bolumu; 2026-09-17 program detay duzeni (kunye,
 // madde madde kabul metinleri, Turkce baslik/aciklama); 2026-09-15 on gorusme bolumu (a1eea73).
 // Sablon icerigi yeniden degisirse bu tarihi guncelle. Veritabani zaman damgalari (updated_at)
 // bundan yeniyse onlar kullanilir. Google lastmod'u yeniden tarama onceligi icin kullanir;
 // tarih uydurma, gercek degisiklige bagla (SEO_AUDIT.md §21).
-const PAGE_TEMPLATE_LAST_MODIFIED = new Date('2026-09-21T00:00:00Z');
+const PAGE_TEMPLATE_LAST_MODIFIED = new Date('2026-09-26T00:00:00Z');
 // /isee görünür içeriği 2026-09-17'de ISEE Parificato aracıyla yenilendi; program şablonundan bağımsız izlenir (SEO_AUDIT.md §21).
 const ISEE_PAGE_LAST_MODIFIED = new Date('2026-09-19T00:00:00Z');
 
