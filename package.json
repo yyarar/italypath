@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "eslint",
     "check:offline": "node scripts/check-offline.mjs",
+    "check:docs": "node scripts/check-docs.mjs",
     "check:routes": "node scripts/check-route-access.mjs",
     "check:sat-bank": "node scripts/check-sat-bank.mjs",
     "check:cities": "node scripts/check-cities-data.mjs",
