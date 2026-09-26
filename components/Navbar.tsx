@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { SignedIn, SignedOut, UserButton, useAuth } from "@clerk/nextjs";
+import { UserButton, useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import { Globe2 } from "lucide-react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
@@ -15,7 +15,12 @@ interface NavbarProps {
 
 export default function Navbar({ homeFloating = false }: NavbarProps) {
   const { t, toggleLanguage, language } = useLanguage();
+  // SignedIn/SignedOut yerine acik kontrol (denetim O3#3): Clerk yuklenirken isSignedIn undefined'dir ve
+  // iki dugme de gizli kalir (giris dugmesi yanip sonmez); SignedIn/SignedOut eski Pages Router kodunu da
+  // ana sayfa paketine cekiyordu.
   const { isSignedIn } = useAuth();
+  const showSignedOut = isSignedIn === false;
+  const showSignedIn = isSignedIn === true;
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   const aiMentorHref = isSignedIn ? "/ai-mentor" : "/giris?redirect_url=%2Fai-mentor";
@@ -60,7 +65,7 @@ export default function Navbar({ homeFloating = false }: NavbarProps) {
         <div className="flex h-16 items-center justify-between">
           <Link
             href="/"
-            className="font-serif text-2xl font-medium tracking-[-0.02em] text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
+            className="font-serif text-2xl font-semibold tracking-[-0.02em] text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
           >
             ItalyPath
           </Link>
@@ -87,7 +92,7 @@ export default function Navbar({ homeFloating = false }: NavbarProps) {
               {language === "tr" ? "EN" : "TR"}
             </button>
 
-            <SignedOut>
+            {showSignedOut && (
               <Link href="/giris">
                 <span
                   className="home-pressable ml-2 inline-flex min-h-10 cursor-pointer items-center rounded-full border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-4 py-2 text-sm font-semibold text-white shadow-[0_5px_16px_rgba(31,79,70,0.2)] hover:bg-[#173d36]"
@@ -95,14 +100,14 @@ export default function Navbar({ homeFloating = false }: NavbarProps) {
                   {t.navbar.login}
                 </span>
               </Link>
-            </SignedOut>
+            )}
 
-            <SignedIn>
+            {showSignedIn && (
               <div className="ml-2 flex items-center gap-3">
                 <span className="text-sm font-medium text-[var(--editorial-muted)]">{t.navbar.profile}</span>
                 <UserButton afterSignOutUrl="/" />
               </div>
-            </SignedIn>
+            )}
           </div>
 
           <div className="flex items-center gap-2 md:hidden">
@@ -115,29 +120,31 @@ export default function Navbar({ homeFloating = false }: NavbarProps) {
               {language === "tr" ? "EN" : "TR"}
             </button>
 
-            <SignedOut>
+            {showSignedOut && (
               <Link
                 href="/giris"
                 className="home-pressable inline-flex min-h-10 items-center rounded-full border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-3 py-1.5 text-xs font-semibold text-white"
               >
                 {t.navbar.login}
               </Link>
-            </SignedOut>
-            <SignedIn>
-              <Link
-                href="/hub"
-                className="home-pressable inline-flex min-h-10 items-center rounded-full border border-[var(--editorial-border)] px-3 py-1.5 text-xs font-semibold text-[var(--editorial-ink)]"
-              >
-                {t.navbar.hub}
-              </Link>
-              <Link
-                href="/sat"
-                className="home-pressable inline-flex min-h-10 items-center rounded-full border border-[var(--editorial-border)] px-3 py-1.5 text-xs font-semibold text-[var(--editorial-ink)]"
-              >
-                {t.navbar.sat}
-              </Link>
-              <UserButton afterSignOutUrl="/" />
-            </SignedIn>
+            )}
+            {showSignedIn && (
+              <>
+                <Link
+                  href="/hub"
+                  className="home-pressable inline-flex min-h-10 items-center rounded-full border border-[var(--editorial-border)] px-3 py-1.5 text-xs font-semibold text-[var(--editorial-ink)]"
+                >
+                  {t.navbar.hub}
+                </Link>
+                <Link
+                  href="/sat"
+                  className="home-pressable inline-flex min-h-10 items-center rounded-full border border-[var(--editorial-border)] px-3 py-1.5 text-xs font-semibold text-[var(--editorial-ink)]"
+                >
+                  {t.navbar.sat}
+                </Link>
+                <UserButton afterSignOutUrl="/" />
+              </>
+            )}
           </div>
         </div>
       </div>
