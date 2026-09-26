@@ -48,23 +48,10 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-hanken), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: var(--font-spectral), ui-serif, Georgia, Cambria, "Times New Roman", serif;
-  --animate-pulsating-button: pulsating-button var(--duration, 1.5s) ease-out infinite;
   --animate-hub-stage-pulse: hub-stage-pulse 2.4s ease-out infinite;
 }
 
 /* ─── Keyframes ─────────────────────────────────────────────── */
-
-@keyframes border-beam {
-  0% {
-    offset-distance: 0%;
-    -webkit-offset-distance: 0%;
-  }
-
-  100% {
-    offset-distance: 100%;
-    -webkit-offset-distance: 100%;
-  }
-}
 
 @keyframes shimmer {
   0% {
@@ -131,36 +118,6 @@
   }
 }
 
-@keyframes beam-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes marquee-x {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(calc(-100% - var(--gap, 0.75rem)));
-  }
-}
-
-@keyframes marquee-y {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(calc(-100% - var(--gap, 0.75rem)));
-  }
-}
-
 @keyframes soft-beam-sweep {
   0% {
     transform: rotate(0deg) scale(1);
@@ -194,17 +151,6 @@
   100% {
     transform: translateY(-6px);
     opacity: 0;
-  }
-}
-
-@keyframes pulsating-button {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 var(--pulse-color);
-  }
-
-  50% {
-    box-shadow: 0 0 0 8px var(--pulse-color);
   }
 }
 
@@ -481,42 +427,6 @@
   }
 }
 
-/* Border Beam wrapper */
-.border-beam-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.border-beam-wrapper::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: conic-gradient(from var(--beam-angle, 0deg),
-      transparent 0%,
-      #4f46e5 15%,
-      #818cf8 30%,
-      #c4b5fd 45%,
-      transparent 60%,
-      transparent 100%);
-  border-radius: inherit;
-  animation: beam-rotate var(--beam-duration) linear infinite;
-  z-index: 0;
-}
-
-.border-beam-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  background: white;
-  border-radius: calc(var(--beam-inner-radius, 10px));
-  z-index: 1;
-}
-
-.border-beam-wrapper>* {
-  position: relative;
-  z-index: 2;
-}
-
 /* Floating Labels */
 .float-field {
   position: relative;
@@ -572,31 +482,13 @@
   animation: fade-in-up 0.6s ease both;
 }
 
-.animate-marquee-x {
-  animation: marquee-x var(--duration, 30s) linear infinite;
-}
-
-.animate-marquee-y {
-  animation: marquee-y var(--duration, 30s) linear infinite;
-}
-
 .animate-soft-beam {
   animation: soft-beam-sweep var(--duration, 10s) linear infinite;
   will-change: transform;
 }
 
-.animate-border-beam {
-  animation-name: border-beam;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
 .animate-soft-fade-up {
   animation: soft-fade-up var(--duration, 6s) ease-in-out infinite;
-}
-
-.animate-pulsating-button {
-  animation: var(--animate-pulsating-button);
 }
 
 .animate-hub-stage-pulse {
@@ -677,14 +569,9 @@ main {
   .blob,
   .shimmer,
   .animate-fade-in-up,
-  .border-beam-wrapper::before,
   .pulse-ring::before,
-  .animate-marquee-x,
-  .animate-marquee-y,
   .animate-soft-beam,
-  .animate-border-beam,
   .animate-soft-fade-up,
-  .animate-pulsating-button,
   .animate-hub-stage-pulse {
     animation: none !important;
   }
