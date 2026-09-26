@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { MapPinOff } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export default function NotFound() {
     const { t } = useLanguage();
 
     return (
         <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 text-center">
-            <motion.div
+            <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -34,7 +34,7 @@ export default function NotFound() {
                 >
                     {t.notFound.btn}
                 </Link>
-            </motion.div>
+            </m.div>
         </div>
     );
 }

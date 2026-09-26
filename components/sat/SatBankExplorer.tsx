@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { ArrowLeft, Award, BarChart3, BookOpen, SquareRadical, XCircle } from "lucide-react";
 
 import BadgesView from "@/components/sat/BadgesView";
@@ -10,6 +10,7 @@ import LevelUpCelebration from "@/components/sat/LevelUpCelebration";
 import MistakesView from "@/components/sat/MistakesView";
 import QuestionCard from "@/components/sat/QuestionCard";
 import SatDashboardHeader, { type SatFocusRecommendation } from "@/components/sat/SatDashboardHeader";
+import LayoutMotion from "@/components/motion/LayoutMotion";
 import SatDomainGroup from "@/components/sat/SatDomainGroup";
 import SessionSummary from "@/components/sat/SessionSummary";
 import TopicCompleted from "@/components/sat/TopicCompleted";
@@ -528,7 +529,7 @@ export default function SatBankExplorer() {
           {!loading ? (
             <div className="flex min-w-0 items-center gap-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {totalWrongCount > 0 ? (
-                <motion.button
+                <m.button
                   type="button"
                   aria-label={`${t.sat.mistakesTitle} · ${totalWrongCount}`}
                   onClick={() => setView({ mode: "mistakes" })}
@@ -537,10 +538,10 @@ export default function SatBankExplorer() {
                 >
                   <XCircle className="h-4 w-4" strokeWidth={1.8} />
                   <span className="hidden sm:inline">{t.sat.mistakesTitle}</span> · {totalWrongCount}
-                </motion.button>
+                </m.button>
               ) : null}
               {attemptedProgress.length > 0 ? (
-                <motion.button
+                <m.button
                   type="button"
                   aria-label={t.sat.reportCardButton}
                   onClick={() => setView({ mode: "report" })}
@@ -549,9 +550,9 @@ export default function SatBankExplorer() {
                 >
                   <BarChart3 className="h-4 w-4" strokeWidth={1.8} />
                   <span className="hidden sm:inline">{t.sat.reportCardButton}</span>
-                </motion.button>
+                </m.button>
               ) : null}
-              <motion.button
+              <m.button
                 type="button"
                 aria-label={t.sat.badgesButton}
                 onClick={() => setView({ mode: "badges" })}
@@ -560,7 +561,7 @@ export default function SatBankExplorer() {
               >
                 <Award className="h-4 w-4" strokeWidth={1.8} />
                 <span className="hidden sm:inline">{t.sat.badgesButton}</span>
-              </motion.button>
+              </m.button>
             </div>
           ) : null}
         </nav>
@@ -626,60 +627,63 @@ export default function SatBankExplorer() {
                 </span>
                 <h2 className="font-serif text-3xl font-normal tracking-[-0.03em] text-[var(--editorial-ink)] sm:text-4xl">{section.label}</h2>
               </div>
-              {section.key === "math" ? (
-                <div className="grid gap-3.5">
-                  {mathDomainGroups.map((group) => {
-                    const labelKey = domainLabelKey(group.domain) as keyof typeof t.sat;
-                    return (
-                      <SatDomainGroup
-                        key={group.domain}
-                        label={t.sat[labelKey] ?? group.domain}
-                        topicCount={group.topicCount}
-                        startedCount={group.startedCount}
-                        masteryPct={group.masteryPct}
-                        expanded={expandedDomains.has(group.domain)}
-                        onToggle={() => toggleDomain(group.domain)}
-                      >
-                        {group.topics.map((topic) => {
-                          const progress = topicProgress.get(topicKey(topic));
-                          const key = topicKey(topic);
-                          return (
-                            <TopicRow
-                              key={key}
-                              topic={topic}
-                              solvedCount={progress?.solvedCount ?? 0}
-                              correctCount={progress?.correctCount ?? 0}
-                              wrongCount={progress?.wrongCount ?? 0}
-                              armed={armedTopicKey === key}
-                              onSelect={() => armTopic(topic)}
-                              onSelectDifficulty={(difficulty) => void openTopic(topic, difficulty)}
-                            />
-                          );
-                        })}
-                      </SatDomainGroup>
-                    );
-                  })}
-                </div>
-              ) : (
-                <div className="overflow-hidden rounded-2xl border border-[rgba(31,79,70,0.16)] bg-[rgba(255,254,250,0.82)] shadow-[0_10px_35px_rgba(21,32,28,0.035)]">
-                  {sectionTopics.map((topic) => {
-                    const progress = topicProgress.get(topicKey(topic));
-                    const key = topicKey(topic);
-                    return (
-                      <TopicRow
-                        key={key}
-                        topic={topic}
-                        solvedCount={progress?.solvedCount ?? 0}
-                        correctCount={progress?.correctCount ?? 0}
-                        wrongCount={progress?.wrongCount ?? 0}
-                        armed={armedTopicKey === key}
-                        onSelect={() => armTopic(topic)}
-                        onSelectDifficulty={(difficulty) => void openTopic(topic, difficulty)}
-                      />
-                    );
-                  })}
-                </div>
-              )}
+              {/* Konu satirlari layout="position" ile kayar; yerlesim ozellikleri ayri pakette. */}
+              <LayoutMotion>
+                {section.key === "math" ? (
+                  <div className="grid gap-3.5">
+                    {mathDomainGroups.map((group) => {
+                      const labelKey = domainLabelKey(group.domain) as keyof typeof t.sat;
+                      return (
+                        <SatDomainGroup
+                          key={group.domain}
+                          label={t.sat[labelKey] ?? group.domain}
+                          topicCount={group.topicCount}
+                          startedCount={group.startedCount}
+                          masteryPct={group.masteryPct}
+                          expanded={expandedDomains.has(group.domain)}
+                          onToggle={() => toggleDomain(group.domain)}
+                        >
+                          {group.topics.map((topic) => {
+                            const progress = topicProgress.get(topicKey(topic));
+                            const key = topicKey(topic);
+                            return (
+                              <TopicRow
+                                key={key}
+                                topic={topic}
+                                solvedCount={progress?.solvedCount ?? 0}
+                                correctCount={progress?.correctCount ?? 0}
+                                wrongCount={progress?.wrongCount ?? 0}
+                                armed={armedTopicKey === key}
+                                onSelect={() => armTopic(topic)}
+                                onSelectDifficulty={(difficulty) => void openTopic(topic, difficulty)}
+                              />
+                            );
+                          })}
+                        </SatDomainGroup>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="overflow-hidden rounded-2xl border border-[rgba(31,79,70,0.16)] bg-[rgba(255,254,250,0.82)] shadow-[0_10px_35px_rgba(21,32,28,0.035)]">
+                    {sectionTopics.map((topic) => {
+                      const progress = topicProgress.get(topicKey(topic));
+                      const key = topicKey(topic);
+                      return (
+                        <TopicRow
+                          key={key}
+                          topic={topic}
+                          solvedCount={progress?.solvedCount ?? 0}
+                          correctCount={progress?.correctCount ?? 0}
+                          wrongCount={progress?.wrongCount ?? 0}
+                          armed={armedTopicKey === key}
+                          onSelect={() => armTopic(topic)}
+                          onSelectDifficulty={(difficulty) => void openTopic(topic, difficulty)}
+                        />
+                      );
+                    })}
+                  </div>
+                )}
+              </LayoutMotion>
             </section>
           );
         })}

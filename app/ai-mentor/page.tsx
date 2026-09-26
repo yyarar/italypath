@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 
@@ -89,7 +89,7 @@ export default function AIMentorPage() {
   return (
     <AnimatePresence mode="wait" initial={false}>
       {activeChannel ? (
-        <motion.div
+        <m.div
           key={`desk-${activeChannel.id}`}
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,9 +101,9 @@ export default function AIMentorPage() {
           ) : activeChannel.experience === "expert-lead" ? (
             <ExpertLeadDesk channel={activeChannel} onBackToHub={handleBackToHub} />
           ) : null}
-        </motion.div>
+        </m.div>
       ) : (
-        <motion.div
+        <m.div
           key="hub"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -111,7 +111,7 @@ export default function AIMentorPage() {
           transition={VIEW_TRANSITION}
         >
           <MentorHub onSelectChannel={handleSelectChannel} />
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

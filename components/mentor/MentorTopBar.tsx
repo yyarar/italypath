@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { ArrowLeft, Globe } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
@@ -82,7 +82,7 @@ export default function MentorTopBar(props: MentorTopBarProps) {
 
       <div className="flex items-center gap-3">
         <AnimatePresence mode="wait" initial={false}>
-          <motion.span
+          <m.span
             key={statusKey}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -91,7 +91,7 @@ export default function MentorTopBar(props: MentorTopBarProps) {
             className={`text-[10px] font-bold uppercase tracking-[0.14em] ${statusColor}`}
           >
             {statusLabel}
-          </motion.span>
+          </m.span>
         </AnimatePresence>
 
         {languageButton}

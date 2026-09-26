@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { ArrowRight, Check, X } from "lucide-react";
 
 import MathText from "@/components/sat/MathText";
@@ -70,7 +70,7 @@ export default function QuestionCard({ question, onAnswered, onNext, isLast }: Q
             const isSelected = selected === key;
             const isCorrectChoice = answered && question.correctAnswer.includes(key);
             return (
-              <motion.button
+              <m.button
                 key={key}
                 type="button"
                 disabled={answered}
@@ -87,7 +87,7 @@ export default function QuestionCard({ question, onAnswered, onNext, isLast }: Q
               >
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-[var(--editorial-border)] font-semibold text-[var(--editorial-sage)]">{key}</span>
                 <MathText text={question.choices?.[key] ?? ""} />
-              </motion.button>
+              </m.button>
             );
           })}
         </div>
@@ -111,13 +111,13 @@ export default function QuestionCard({ question, onAnswered, onNext, isLast }: Q
             aria-label={t.sat.sprPlaceholder}
           />
           {!answered ? (
-            <motion.button
+            <m.button
               type="submit"
               whileTap={reduceMotion ? undefined : { scale: 0.97 }}
               className="min-h-12 rounded-xl bg-[var(--editorial-sage)] px-5 py-3 text-xs font-bold text-white shadow-[0_7px_18px_rgba(31,79,70,0.16)] transition-colors hover:bg-[#173d36]"
             >
               {t.sat.checkAnswer}
-            </motion.button>
+            </m.button>
           ) : null}
           <p className="w-full text-[12px] text-[var(--editorial-muted)]">{t.sat.sprHint}</p>
         </form>
@@ -142,7 +142,7 @@ export default function QuestionCard({ question, onAnswered, onNext, isLast }: Q
                 </>
               )}
             </p>
-            <motion.button
+            <m.button
               type="button"
               onClick={onNext}
               whileTap={reduceMotion ? undefined : { scale: 0.97 }}
@@ -150,7 +150,7 @@ export default function QuestionCard({ question, onAnswered, onNext, isLast }: Q
             >
               {isLast ? t.sat.finishTopic : t.sat.nextQuestion}
               <ArrowRight className="h-4 w-4" strokeWidth={1.9} />
-            </motion.button>
+            </m.button>
           </div>
           {question.explanationEn ? (
             <section className="mt-5 rounded-xl border border-[var(--editorial-border)] bg-[var(--editorial-paper)] p-4 text-[14px] leading-7 text-[var(--editorial-ink)] sm:p-5">

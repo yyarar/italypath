@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { ArrowRight, Award, Check, Trophy, type LucideIcon } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
@@ -59,8 +59,8 @@ export default function TopicRow({
   const spring = reduceMotion ? { duration: 0 } : { type: "spring" as const, bounce: 0, duration: 0.34 };
 
   return (
-    <motion.div layout="position" transition={spring} className="border-b border-[var(--editorial-border)] last:border-b-0">
-      <motion.button
+    <m.div layout="position" transition={spring} className="border-b border-[var(--editorial-border)] last:border-b-0">
+      <m.button
         type="button"
         aria-expanded={armed}
         onClick={onSelect}
@@ -85,7 +85,7 @@ export default function TopicRow({
             <span>{solvedCount}/{topic.questionCount}</span>
           </div>
           <div className="h-1.5 overflow-hidden rounded-full bg-[var(--editorial-border)]">
-            <motion.div
+            <m.div
               className={`h-full rounded-full ${tierMeta[tier].barClassName}`}
               initial={reduceMotion ? false : { width: 0 }}
               animate={{ width: `${accuracy}%` }}
@@ -103,11 +103,11 @@ export default function TopicRow({
           {actionLabel}
           {remaining > 0 || !started ? <ArrowRight className="h-4 w-4" strokeWidth={1.9} /> : null}
         </span>
-      </motion.button>
+      </m.button>
 
       <AnimatePresence initial={false}>
         {armed ? (
-          <motion.div
+          <m.div
             initial={reduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
             animate={reduceMotion ? { opacity: 1 } : { height: "auto", opacity: 1 }}
             exit={reduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
@@ -118,7 +118,7 @@ export default function TopicRow({
               <p className="text-xs font-semibold text-[var(--editorial-muted)]">{t.sat.difficultySelectLabel}</p>
               <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
                 {difficultyOptions.map((option) => (
-                  <motion.button
+                  <m.button
                     key={option.value}
                     type="button"
                     onClick={() => onSelectDifficulty(option.value)}
@@ -131,13 +131,13 @@ export default function TopicRow({
                     }
                   >
                     {option.label}
-                  </motion.button>
+                  </m.button>
                 ))}
               </div>
             </div>
-          </motion.div>
+          </m.div>
         ) : null}
       </AnimatePresence>
-    </motion.div>
+    </m.div>
   );
 }

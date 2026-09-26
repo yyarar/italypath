@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import { Calculator, ChevronDown } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
@@ -41,12 +41,12 @@ export default function SatDomainGroup({
     : { type: "spring" as const, bounce: 0, duration: 0.36 };
 
   return (
-    <motion.section
+    <m.section
       layout="position"
       transition={spring}
       className="overflow-hidden rounded-2xl border border-[rgba(31,79,70,0.16)] bg-[rgba(255,254,250,0.82)] shadow-[0_10px_35px_rgba(21,32,28,0.035)]"
     >
-      <motion.button
+      <m.button
         type="button"
         aria-expanded={expanded}
         onClick={onToggle}
@@ -63,7 +63,7 @@ export default function SatDomainGroup({
             <p className="text-[11px] leading-4 text-[var(--editorial-muted)] sm:text-xs">{summary}</p>
           </div>
           <div className="mt-2.5 h-1 overflow-hidden rounded-full bg-[var(--editorial-border)]">
-            <motion.div
+            <m.div
               className="h-full rounded-full bg-[var(--editorial-sage)]"
               initial={reduceMotion ? false : { width: 0 }}
               animate={{ width: `${progress}%` }}
@@ -71,14 +71,14 @@ export default function SatDomainGroup({
             />
           </div>
         </div>
-        <motion.span animate={{ rotate: expanded ? 180 : 0 }} transition={spring} className="flex h-9 w-9 items-center justify-center rounded-full text-[var(--editorial-sage)] group-hover:bg-white/70">
+        <m.span animate={{ rotate: expanded ? 180 : 0 }} transition={spring} className="flex h-9 w-9 items-center justify-center rounded-full text-[var(--editorial-sage)] group-hover:bg-white/70">
           <ChevronDown className="h-5 w-5" strokeWidth={1.9} />
-        </motion.span>
-      </motion.button>
+        </m.span>
+      </m.button>
 
       <AnimatePresence initial={false}>
         {expanded ? (
-          <motion.div
+          <m.div
             key="content"
             initial={reduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
             animate={reduceMotion ? { opacity: 1 } : { height: "auto", opacity: 1 }}
@@ -87,9 +87,9 @@ export default function SatDomainGroup({
             className="overflow-hidden"
           >
             <div className="border-t border-[var(--editorial-border)]">{children}</div>
-          </motion.div>
+          </m.div>
         ) : null}
       </AnimatePresence>
-    </motion.section>
+    </m.section>
   );
 }

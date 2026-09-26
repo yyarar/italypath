@@ -1,7 +1,7 @@
 "use client";
 
 import { Route } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -20,7 +20,7 @@ export default function RecommendationHero({
   const reduceMotion = useReducedMotion();
 
   return (
-    <motion.section
+    <m.section
       initial={reduceMotion ? false : { opacity: 0, transform: "translateY(18px) scale(0.985)" }}
       animate={{ opacity: 1, transform: "translateY(0px) scale(1)" }}
       transition={{ type: "spring", bounce: 0, duration: 0.42 }}
@@ -50,6 +50,6 @@ export default function RecommendationHero({
           </span>
         )}
       </p>
-    </motion.section>
+    </m.section>
   );
 }

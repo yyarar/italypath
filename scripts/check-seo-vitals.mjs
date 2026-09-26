@@ -17,8 +17,12 @@ const routeTransition = readFileSync("components/RouteTransition.tsx", "utf8");
 if (!/<AnimatePresence[^>]*initial=\{false\}/.test(routeTransition)) {
   failures.push("RouteTransition: <AnimatePresence initial={false}> zorunlu; yoksa ilk yüklemede tüm sayfalar hidrasyona kadar görünmez kalır (LCP)");
 }
-if (!routeTransition.includes("<motion.div") || !routeTransition.includes("key={pathname}")) {
-  failures.push("RouteTransition: pathname anahtarlı motion.div sarmalayıcısı beklenen yapıda değil; guard'ı güncelle");
+if (!routeTransition.includes("<m.div") || !routeTransition.includes("key={pathname}")) {
+  failures.push("RouteTransition: pathname anahtarlı m.div sarmalayıcısı beklenen yapıda değil; guard'ı güncelle");
+}
+// framer-motion diyeti (denetim O3#10, 2026-09-26): kokte yalniz domAnimation; bilesenler `m` kullanir.
+if (!routeTransition.includes("<LazyMotion features={domAnimation} strict>")) {
+  failures.push("RouteTransition: <LazyMotion features={domAnimation} strict> kok sarmalayicisi eksik");
 }
 
 const tracked = execSync("git ls-files app components lib", { encoding: "utf8" })
@@ -113,6 +117,41 @@ for (const file of tracked) {
     if (/(^|\s)font-serif(\s|$)/.test(classes) && /(^|\s)font-medium(\s|$)/.test(classes)) {
       failures.push(`${file}: serif metinde font-medium (Spectral 500 yuklenmiyor); font-normal veya font-semibold kullan`);
     }
+  }
+}
+
+// Tam `motion` bileseni tum ozellikleri (surukleme, yerlesim) her sayfaya ceker; `m` + LazyMotion kullanilir.
+// layout/layoutId kullanan bilesen LayoutMotion (domMax, ayri paket) icinde cizilmelidir.
+const UNUSED_LEGACY_MOTION_FILES = new Set([
+  "components/ui/animated-list.tsx",
+  "components/ui/border-beam.tsx",
+  "components/ui/marquee.tsx",
+  "components/ui/scroll-based-velocity.tsx",
+]);
+// Yalnizca LayoutMotion sarmalayicisi icinde cizilen bilesenler (cagiran dosya LayoutMotion import eder).
+const RENDERED_INSIDE_LAYOUT_MOTION = new Set([
+  "components/sat/SatDomainGroup.tsx",
+  "components/sat/TopicRow.tsx",
+  "components/ui/expandable-screen.tsx",
+]);
+for (const file of tracked) {
+  if (UNUSED_LEGACY_MOTION_FILES.has(file)) continue;
+  const source = readFileSync(file, "utf8");
+  const motionImport = source.match(/import\s*\{([^}]*)\}\s*from\s*["']framer-motion["']/);
+  if (motionImport && /(^|[\s,])motion([\s,]|$)/.test(motionImport[1])) {
+    failures.push(`${file}: framer-motion'dan \`motion\` yerine \`m\` import et (LazyMotion paket diyeti)`);
+  }
+  if (/<motion\./.test(source)) {
+    failures.push(`${file}: <motion.*> yerine <m.*> kullan`);
+  }
+  const usesLayout = /\blayoutId=|\slayout=\{|\slayout="|\slayout\s*$/m.test(source);
+  if (
+    usesLayout &&
+    file !== "components/motion/LayoutMotion.tsx" &&
+    !RENDERED_INSIDE_LAYOUT_MOTION.has(file) &&
+    !source.includes('import LayoutMotion from "@/components/motion/LayoutMotion"')
+  ) {
+    failures.push(`${file}: layout/layoutId kullanan bilesen LayoutMotion icinde olmali`);
   }
 }
 

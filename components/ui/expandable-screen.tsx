@@ -8,7 +8,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 type ExpandableScreenContextValue = {
@@ -140,7 +140,7 @@ export function ExpandableScreenTrigger({ children, className }: ExpandableScree
   return (
     <AnimatePresence initial={false}>
       {!isExpanded && (
-        <motion.div
+        <m.div
           layoutId={layoutId}
           style={{ borderRadius: triggerRadius }}
           initial={{ opacity: 0, scale: 0.985 }}
@@ -151,7 +151,7 @@ export function ExpandableScreenTrigger({ children, className }: ExpandableScree
           onClick={expand}
         >
           {children}
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );
@@ -168,7 +168,7 @@ export function ExpandableScreenContent({
   return (
     <AnimatePresence initial={false}>
       {isExpanded && (
-        <motion.div
+        <m.div
           layoutId={layoutId}
           style={{ borderRadius: contentRadius }}
           initial={{ opacity: 0 }}
@@ -191,7 +191,7 @@ export function ExpandableScreenContent({
             </button>
           )}
           {children}
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

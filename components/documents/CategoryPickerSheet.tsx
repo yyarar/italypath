@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { m, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { DOCUMENT_CATEGORY_ORDER, type DocumentCategoryKey } from "@/lib/documents/categories";
 
@@ -28,14 +28,14 @@ export default function CategoryPickerSheet({
   return (
     <AnimatePresence>
       {open && (
-        <motion.div
+        <m.div
           className="fixed inset-0 z-50 flex items-end justify-center bg-[rgba(21,32,28,0.32)]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onCancel}
         >
-          <motion.div
+          <m.div
             className="w-full max-w-md border-t border-[var(--editorial-border)] bg-[var(--editorial-surface)] px-6 pb-8 pt-6"
             initial={reduce ? { opacity: 0 } : { y: "100%" }}
             animate={reduce ? { opacity: 1 } : { y: 0 }}
@@ -91,8 +91,8 @@ export default function CategoryPickerSheet({
                 {busy ? t.documents.uploading : t.documents.sheet.save}
               </button>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

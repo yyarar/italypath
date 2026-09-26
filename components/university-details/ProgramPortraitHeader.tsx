@@ -3,7 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, MapPin } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
+
+import LayoutMotion from "@/components/motion/LayoutMotion";
 
 import { DEFAULT_UNIVERSITY_IMAGE } from "@/lib/universityDefaults";
 import { remotePhotoProps } from "@/lib/remotePhoto";
@@ -53,13 +55,15 @@ export function ProgramPortraitHeader({
               <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--editorial-terracotta-ink)]">
                 {eyebrow}
               </p>
-              <motion.h1
-                layoutId={`dept-title-${university.id}-${department.slug}`}
-                transition={{ type: "spring", stiffness: 280, damping: 28 }}
-                className="mt-4 break-words font-serif text-4xl font-semibold leading-[0.98] text-[var(--editorial-ink)] sm:text-5xl lg:text-6xl"
-              >
-                {department.name}
-              </motion.h1>
+              <LayoutMotion>
+                <m.h1
+                  layoutId={`dept-title-${university.id}-${department.slug}`}
+                  transition={{ type: "spring", stiffness: 280, damping: 28 }}
+                  className="mt-4 break-words font-serif text-4xl font-semibold leading-[0.98] text-[var(--editorial-ink)] sm:text-5xl lg:text-6xl"
+                >
+                  {department.name}
+                </m.h1>
+              </LayoutMotion>
               <Link
                 href={`/universities/${university.id}`}
                 className="mt-5 inline-flex font-serif text-2xl font-semibold text-[var(--editorial-sage)] transition hover:text-[var(--editorial-ink)]"

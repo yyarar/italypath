@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import {
   AlertTriangle,
   ArrowLeft,
@@ -291,7 +291,7 @@ export default function CityGuidesExplorer({
           {/* Right Column: Selected City Detailed File */}
           <aside className="city-material min-w-0 overflow-hidden rounded-[2rem] p-5 shadow-[0_26px_80px_rgba(21,32,28,0.09)] sm:p-7 lg:rounded-[2.5rem] lg:p-9">
             <AnimatePresence mode="wait" initial={false}>
-              <motion.div
+              <m.div
                 key={activeCity.slug}
                 initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -595,7 +595,7 @@ export default function CityGuidesExplorer({
                 )}
               </div>
             </section>
-              </motion.div>
+              </m.div>
             </AnimatePresence>
           </aside>
         </div>

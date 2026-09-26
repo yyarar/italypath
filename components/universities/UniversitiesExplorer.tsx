@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useMemo, useState, useSyncExternalStore } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 import type { University } from "@/types/universities";
 import { useLanguage } from "@/context/LanguageContext";
@@ -269,14 +269,14 @@ export function UniversitiesExplorer({
         />
 
         {filteredUniversities.length > 0 ? (
-          <motion.div
+          <m.div
             initial="hidden"
             animate="show"
             variants={containerVariants}
             className="mt-6 divide-y divide-[var(--editorial-border)] border border-[var(--editorial-border)] bg-[var(--editorial-surface)]"
           >
             {filteredUniversities.map((university) => (
-              <motion.div key={university.id} variants={rowVariants}>
+              <m.div key={university.id} variants={rowVariants}>
                 {activeViewMode === "grid" ? (
                   <UniversityGuideRow
                     university={university}
@@ -300,9 +300,9 @@ export function UniversitiesExplorer({
                     onToggleFavorite={toggleFavorite}
                   />
                 )}
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         ) : (
           <UniversitiesEmptyState
             title={filters.showFavoritesOnly ? t.list.emptyFav : t.list.noResults}
