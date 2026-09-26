@@ -1,6 +1,6 @@
 # ItalyPath — Servis Abonelikleri ve Kullanım Limitleri
 
-Durum: AKTIF REFERANS · Oluşturma: 2026-09-25 · Son güncelleme: 2026-09-26 (sayfa ağırlığı ve sunucu işi, kart 10) · 2026-09-26 (Gemini kaldırıldı, güvenlik kartı 6) · 2026-09-25 (yedek satırları, G2#2) · Kanıt: Supabase MCP (org planı, DB/Storage boyutu, edge log sayımı), Kerem'in panel ekranları (Vercel Usage, Supabase Usage, Clerk Overview, Name.com; 2026-09-25), resmî limit/fiyat sayfaları (her satırda URL)
+Durum: AKTIF REFERANS · Oluşturma: 2026-09-25 · Son güncelleme: 2026-09-26 (sayfa ağırlığı ve sunucu işi, kart 10) · 2026-09-26 (aylık bağımlılık kontrolü, güvenlik kartı 11) · 2026-09-26 (Gemini kaldırıldı, güvenlik kartı 6) · 2026-09-25 (yedek satırları, G2#2) · Kanıt: Supabase MCP (org planı, DB/Storage boyutu, edge log sayımı), Kerem'in panel ekranları (Vercel Usage, Supabase Usage, Clerk Overview, Name.com; 2026-09-25), resmî limit/fiyat sayfaları (her satırda URL)
 
 Bu belge projenin kullandığı dış servislerin planını, limitini, ölçülmüş kullanımını ve limit aşımında ne olduğunu tutar. Kullanım limitleri sorumluluğu 2026-09-25'ten beri ayrı bir ajan rolüdür. Yeni bir servis eklenirse buraya satır açılır; plan değişirse tarih ve kanıtla güncellenir. Açık işler `docs/STATUS.md`'dedir.
 
@@ -177,6 +177,7 @@ Durum: KALDIRILDI (2026-09-26). Kerem kararı (2026-09-25): AI mentor kaldırıl
 | Ayın 27'si civarı | Supabase dönem kapanışı | Kerem'den Usage ekranı |
 | Aylık (ayın ilk pazartesi) | Ön görüşme talepleri saklama temizliği (2026-09-26, Kerem kararı: tamamlanan/ulaşılamayan 6 ay, şüpheli 30 gün) | `npm run cleanup:expert-leads` (kuru çalıştırma, yalnız sayı okur); Kerem onayıyla `-- --apply`. Egress ihmal edilebilir |
 | Aylık | Vercel Usage tamamı, Clerk kullanıcı sayısı | Kerem'den ekran görüntüsü |
+| Aylık (ayın ilk pazartesi; 2026-09-26, güvenlik denetimi S6#7) | Bağımlılık güvenliği ve sürüm geriliği | Yerelde `npm audit --omit=dev` ve `npm outdated` (canlı siteye/Supabase'e istek yok). Sonuç `docs/STATUS.md` "Kanıtlanmış son durum" tablosuna tarihli yazılır; yamalar ayrı push yapılmadan bir sonraki kod push'una eklenir (acil güvenlik yaması hariç), öncesinde `npm run check:offline`. Ana sürüm geçişleri (ör. Clerk Core 3) ayrı iş olarak STATUS'a girer. İlk koşu 2026-09-26: audit 0 açık |
 | Yıllık | Alan adı yenileme (2 Mayıs 2027), Clerk Student planının sürmesi | Name.com, Clerk |
 
 ## Kullanımı koruyan kurallar (ajanlar için)

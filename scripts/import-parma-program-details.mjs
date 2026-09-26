@@ -170,16 +170,6 @@ function optionalText(value) {
   return String(value);
 }
 
-function labelledText(label, value) {
-  const normalized = optionalText(value);
-  return normalized ? `${label}: ${normalized}` : null;
-}
-
-function joinTextParts(parts) {
-  const normalized = parts.filter(Boolean);
-  return normalized.length > 0 ? normalized.join("\n\n") : null;
-}
-
 function normalizeStringArray(value) {
   if (!Array.isArray(value)) return [];
 

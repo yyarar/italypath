@@ -72,22 +72,6 @@ export const tr = {
     cta: "Şehir rehberleri",
     imageAlt: "Bologna’nın kızıl kiremitli çatıları, gün batımına doğru şehir üzerinden panoramik görünüm",
   },
-  homeSat: {
-    eyebrow: "SAT Soru Bankası",
-    panelTitle: "1.000+ resmi SAT matematik sorusu",
-    panelSubtitle: "Konu konu çöz, ilerlemeni kaydet.",
-    mathSection: "Matematik",
-    mathDomains: "Cebir · İleri Matematik · Problem Çözme · Geometri",
-    rwSection: "Okuma ve Yazma",
-    rwDomains: "Okuma · Dil bilgisi · İfade",
-    difficultyLabel: "Zorluk",
-    difficultyEasy: "Kolay",
-    difficultyMedium: "Orta",
-    difficultyHard: "Zor",
-    progressLabel: "Karne · Rozetler · Seri",
-    cta: "Soru çözmeye başla",
-    ariaOpen: "SAT soru bankasına git",
-  },
   homeClose: {
     eyebrow: "Hazırsan",
     title: "İtalya yolculuğunu bugün başlat.",
@@ -174,26 +158,6 @@ export const tr = {
     sameField: "Aynı alanda diğer üniversiteler",
     sameFieldNote: "Resmî İtalyan bölüm sınıfı koduna göre eşleştirildi.",
     programs: "program",
-  },
-  featureAnimations: {
-    marquee: [
-      "Milano",
-      "Roma",
-      "Bologna",
-      "Padova",
-      "Torino",
-      "Sapienza",
-      "Bocconi",
-      "Politecnico di Milano",
-      "Floransa",
-      "Pisa"
-    ],
-    docList: [
-      { title: "Transkript yüklendi", subtitle: "Belge Cüzdanı • şimdi" },
-      { title: "Pasaport doğrulandı", subtitle: "Güvenli depolama • 2 dk önce" },
-      { title: "Dil sertifikası eklendi", subtitle: "Kontrol tamamlandı • 5 dk önce" },
-      { title: "Diploma PDF kaydedildi", subtitle: "Şifreli klasör • 8 dk önce" }
-    ]
   },
   detail: {
     back: "Geri Dön",
