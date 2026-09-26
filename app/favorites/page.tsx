@@ -15,7 +15,7 @@ import { remotePhotoProps } from '@/lib/remotePhoto';
 const RECOMMENDED_IDS = [1, 3, 7];
 
 export default function FavoritesPage() {
-  const { favorites, loading } = useFavorites();
+  const { favorites, loading, error: favoritesError, reload: reloadFavorites } = useFavorites();
   const { t } = useLanguage();
   const { universities, loading: universitiesLoading, error: universitiesError } = useUniversitiesData();
 
@@ -24,6 +24,21 @@ export default function FavoritesPage() {
   const recommendedUnis = universities.filter((u) => RECOMMENDED_IDS.includes(u.id));
 
   if (loading || universitiesLoading) return <div className="p-10 text-center">{t.favorites.loading}</div>;
+
+  if (favoritesError) {
+    return (
+      <div className="min-h-screen bg-slate-50 p-10 text-center">
+        <p className="text-sm text-slate-500">{t.favorites.loadError}</p>
+        <button
+          type="button"
+          onClick={reloadFavorites}
+          className="mt-4 inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-bold text-slate-700 shadow-sm transition hover:bg-slate-100"
+        >
+          {t.favorites.retry}
+        </button>
+      </div>
+    );
+  }
 
   if (universitiesError) {
     return (

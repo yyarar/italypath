@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { useAuth, useUser } from "@clerk/nextjs";
-import { createClerkSupabaseClient } from "@/lib/supabaseClient";
+import { useEffect, useState } from "react";
+import { useUser } from "@clerk/nextjs";
+import { useUserSupabaseClient } from "@/lib/useUserSupabaseClient";
 
 export function useDocumentsCount(): {
   count: number;
@@ -10,28 +10,17 @@ export function useDocumentsCount(): {
   unavailable: boolean;
 } {
   const { user } = useUser();
-  const { getToken } = useAuth();
+  const userId = user?.id;
+  const getClient = useUserSupabaseClient();
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [unavailable, setUnavailable] = useState(false);
-
-  const supabase = useMemo(
-    () =>
-      createClerkSupabaseClient(async () => {
-        try {
-          return await getToken({ template: "supabase" });
-        } catch {
-          return null;
-        }
-      }),
-    [getToken],
-  );
 
   useEffect(() => {
     let isActive = true;
 
     async function load() {
-      if (!user?.id) {
+      if (!userId) {
         if (!isActive) return;
         setCount(0);
         setLoading(false);
@@ -42,29 +31,30 @@ export function useDocumentsCount(): {
       setLoading(true);
       setUnavailable(false);
 
-      const { count: c, error } = await supabase
-        .from("user_documents")
-        .select("id", { count: "exact", head: true })
-        .eq("user_id", user.id);
-
-      if (!isActive) return;
-
-      if (error) {
-        console.error("[hub] document count fetch failed:", error);
-        setCount(0);
-        setUnavailable(true);
-      } else {
-        setCount(c ?? 0);
+      try {
+        const supabase = await getClient();
+        const { count: c, error } = await supabase
+          .from("user_documents")
+          .select("id", { count: "exact", head: true })
+          .eq("user_id", userId);
+        if (error) throw error;
+        if (isActive) setCount(c ?? 0);
+      } catch (err) {
+        console.error("[hub] document count fetch failed:", err);
+        if (isActive) {
+          setCount(0);
+          setUnavailable(true);
+        }
+      } finally {
+        if (isActive) setLoading(false);
       }
-
-      setLoading(false);
     }
 
     void load();
     return () => {
       isActive = false;
     };
-  }, [supabase, user?.id]);
+  }, [getClient, userId]);
 
   return { count, loading, unavailable };
 }

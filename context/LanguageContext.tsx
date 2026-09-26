@@ -6,6 +6,7 @@ import React, {
   useEffect,
   useSyncExternalStore,
 } from 'react';
+import { safeGetItem, safeSetItem } from '@/lib/safeStorage';
 import { translations } from '@/lib/translations';
 
 // Dil tipi (Sadece tr veya en olabilir)
@@ -22,12 +23,8 @@ const LANGUAGE_STORAGE_KEY = 'italyPathLang';
 const LANGUAGE_CHANGE_EVENT = 'italyPathLanguageChange';
 
 function getStoredLanguage(): Language {
-  try {
-    const savedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY);
-    return savedLang === 'tr' || savedLang === 'en' ? savedLang : 'tr';
-  } catch {
-    return 'tr';
-  }
+  const savedLang = safeGetItem(LANGUAGE_STORAGE_KEY);
+  return savedLang === 'tr' || savedLang === 'en' ? savedLang : 'tr';
 }
 
 function getServerLanguage(): Language {
@@ -52,7 +49,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const toggleLanguage = () => {
     const newLang = language === 'tr' ? 'en' : 'tr';
-    localStorage.setItem(LANGUAGE_STORAGE_KEY, newLang);
+    safeSetItem(LANGUAGE_STORAGE_KEY, newLang);
     window.dispatchEvent(new Event(LANGUAGE_CHANGE_EVENT));
   };
 

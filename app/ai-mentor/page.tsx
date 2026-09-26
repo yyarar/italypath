@@ -9,10 +9,14 @@ import {
   getMentorChannel,
   type MentorChannelId,
 } from "@/lib/mentor/channels";
+import { safeSetItem } from "@/lib/safeStorage";
 
 import ExpertLeadDesk from "@/components/mentor/expert/ExpertLeadDesk";
 import MentorHub from "@/components/mentor/MentorHub";
 import VolunteerDesk from "@/components/mentor/volunteer/VolunteerDesk";
+
+// Hub tercih seridi (components/hub/PreferencesStrip.tsx) son masayi buradan okur.
+const LAST_MENTOR_DESK_KEY = "italyPathLastMentorDesk";
 
 const VIEW_TRANSITION = {
   duration: 0.22,
@@ -51,13 +55,13 @@ export default function AIMentorPage() {
           return;
         }
         setActiveChannelId("volunteer");
-        window.localStorage.setItem("italyPathLastMentorDesk", "volunteer");
+        safeSetItem(LAST_MENTOR_DESK_KEY, "volunteer");
         return;
       }
 
       if (desk === "expert") {
         setActiveChannelId("expert");
-        window.localStorage.setItem("italyPathLastMentorDesk", "expert");
+        safeSetItem(LAST_MENTOR_DESK_KEY, "expert");
       }
     };
     applyDeskParam();
@@ -73,9 +77,7 @@ export default function AIMentorPage() {
       }
       if (channel.availability === "paused") return;
       setActiveChannelId(id);
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem("italyPathLastMentorDesk", id);
-      }
+      safeSetItem(LAST_MENTOR_DESK_KEY, id);
     },
     [isLoaded, isSignedIn, router],
   );

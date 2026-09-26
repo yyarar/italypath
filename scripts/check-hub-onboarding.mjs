@@ -60,6 +60,61 @@ if (!layoutSource.includes('signUpFallbackRedirectUrl="/hosgeldin"')) {
   failures.push('app/layout.tsx signUpFallbackRedirectUrl="/hosgeldin" değil');
 }
 
+// Kullanici verisi kancalari (guvenlik denetimi S1#3, O4#5, S5#5; 2026-09-26):
+// Clerk'in yerel oturum anahtari (eski "supabase" JWT sablonu yok), mentor
+// masasindaki sure siniri, "bos" yerine "yuklenemedi" durumu.
+const userDataHooks = [
+  "lib/useFavorites.ts",
+  "lib/documents/useUserDocuments.ts",
+  "lib/hub/useUserProfile.ts",
+  "lib/hub/useDocumentsCount.ts",
+  "lib/sat/useSatAttempts.ts",
+];
+for (const path of userDataHooks) {
+  const source = read(path);
+  if (/template:\s*["']supabase["']/.test(source)) {
+    failures.push(`${path} eski Clerk "supabase" JWT sablonunu kullaniyor`);
+  }
+  if (!source.includes("useUserSupabaseClient()")) {
+    failures.push(`${path} ortak useUserSupabaseClient kancasini kullanmiyor`);
+  }
+  if (source.includes("createClerkSupabaseClient")) {
+    failures.push(`${path} kendi Supabase istemcisini kuruyor (ortak kanca kullanilmali)`);
+  }
+}
+const userClientSource = read("lib/useUserSupabaseClient.ts");
+if (!userClientSource.includes("withMentorTimeout(getToken())")) {
+  failures.push("useUserSupabaseClient.ts: Clerk anahtar beklemesi sure sinirina bagli degil");
+}
+if (!userClientSource.includes("requestTimeoutMs: USER_DATA_REQUEST_TIMEOUT_MS")) {
+  failures.push("useUserSupabaseClient.ts: Supabase istekleri sure sinirina bagli degil");
+}
+for (const [path, needle] of [
+  ["app/favorites/page.tsx", "t.favorites.loadError"],
+  ["app/documents/page.tsx", "t.documents.loadError"],
+  ["app/hub/page.tsx", "t.hub.profileLoadError"],
+  ["app/hosgeldin/page.tsx", "t.onboarding.loadError"],
+  ["components/sat/SatBankExplorer.tsx", "t.sat.progressLoadError"],
+]) {
+  if (!read(path).includes(needle)) failures.push(`${path}: yukleme hatasi durumu (${needle}) gosterilmiyor`);
+}
+["loadError:", "profileLoadError:", "progressLoadError:"].forEach((key) => {
+  const count = translations.split(key).length - 1;
+  if (count < 2) failures.push(`Çeviri anahtarı TR+EN eksik: ${key} (bulunan: ${count})`);
+});
+for (const path of [
+  "components/universities/UniversitiesExplorer.tsx",
+  "components/hub/PreferencesStrip.tsx",
+  "context/LanguageContext.tsx",
+  "app/ai-mentor/page.tsx",
+  "lib/useFavorites.ts",
+]) {
+  const source = read(path);
+  if (/\blocalStorage\./.test(source) || !source.includes("@/lib/safeStorage")) {
+    failures.push(`${path}: tarayici hafizasina yalniz lib/safeStorage.ts ile erisilmeli`);
+  }
+}
+
 const API_BASE = process.env.ITALYPATH_API_BASE ?? "https://italypath.app";
 const recoSource = read("lib/hub/recommendations.ts");
 

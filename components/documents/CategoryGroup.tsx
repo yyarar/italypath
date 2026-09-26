@@ -9,9 +9,10 @@ interface CategoryGroupProps {
   categoryKey: DocumentCategoryKey;
   docs: UserDocument[];
   onDelete: (id: string, storagePath: string) => void;
+  onView: (storagePath: string) => Promise<string | null>;
 }
 
-export default function CategoryGroup({ categoryKey, docs, onDelete }: CategoryGroupProps) {
+export default function CategoryGroup({ categoryKey, docs, onDelete, onView }: CategoryGroupProps) {
   const { t } = useLanguage();
   return (
     <section className="mt-8 first:mt-7">
@@ -24,7 +25,13 @@ export default function CategoryGroup({ categoryKey, docs, onDelete }: CategoryG
         </span>
       </div>
       {docs.map((doc, i) => (
-        <DocumentRow key={doc.id} doc={doc} onDelete={onDelete} isLast={i === docs.length - 1} />
+        <DocumentRow
+          key={doc.id}
+          doc={doc}
+          onDelete={onDelete}
+          onView={onView}
+          isLast={i === docs.length - 1}
+        />
       ))}
     </section>
   );
