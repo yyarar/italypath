@@ -32,6 +32,11 @@ import {
   SCHOLARSHIP_DEFAULT_REGION,
   SCHOLARSHIP_REGIONS,
 } from '@/lib/scholarships/regions';
+import {
+  fillScholarshipVerificationNote,
+  formatScholarshipDate,
+  summarizeScholarshipVerification,
+} from '@/lib/scholarships/verification';
 import type { Language } from '@/types';
 import type { RegionSlug, ScholarshipRegionRecord } from '@/types/scholarships';
 
@@ -358,18 +363,9 @@ function buildRegionShapes(payload: unknown): RegionShape[] {
   return shapes;
 }
 
-function formatLastVerified(value: string | null, language: Language) {
-  if (!value) return null;
-
-  const date = new Date(`${value}T00:00:00`);
-  if (Number.isNaN(date.getTime())) return value;
-
-  return new Intl.DateTimeFormat(language === 'tr' ? 'tr-TR' : 'en-US', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  }).format(date);
-}
+// Giris notundaki bolge sayilari ve tarihler bolge kayitlarindan turetilir (STATUS #33); veri modulu
+// zaten bu bilesende oldugu icin ozet burada bir kez hesaplanir.
+const VERIFICATION_SUMMARY = summarizeScholarshipVerification(SCHOLARSHIP_REGIONS);
 
 function domainLabel(url: string) {
   try {
@@ -679,7 +675,7 @@ function RegionFilePanel({
   copy: ScholarshipsText;
 }) {
   const isVerified = region.completeness === 'verified-full';
-  const lastVerified = formatLastVerified(region.lastVerifiedAt, language);
+  const lastVerified = formatScholarshipDate(region.lastVerifiedAt, language);
 
   return (
     <aside className="min-w-0 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-5 shadow-[0_24px_70px_rgba(21,32,28,0.08)] lg:sticky lg:top-5 lg:max-h-[760px] lg:overflow-y-auto">
@@ -910,7 +906,11 @@ export default function ScholarshipsExplorer({
         <ScholarshipsIntro
           title={copy.title}
           intro={copy.intro}
-          verifiedAsOf={copy.verifiedAsOf}
+          verifiedAsOf={fillScholarshipVerificationNote(
+            copy.verifiedAsOf,
+            VERIFICATION_SUMMARY,
+            language
+          )}
         />
 
         <main className="mt-8 grid min-w-0 gap-24 lg:grid-cols-[minmax(0,1.12fr)_minmax(360px,0.88fr)] lg:items-start lg:gap-6">

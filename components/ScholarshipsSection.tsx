@@ -5,9 +5,19 @@ import { ArrowRight, Landmark, MapPinned } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
 import Reveal from "@/components/ui/Reveal";
+import {
+  fillScholarshipVerificationNote,
+  type ScholarshipVerificationSummary,
+} from "@/lib/scholarships/verification";
 
-export default function ScholarshipsSection() {
+interface ScholarshipsSectionProps {
+  // Sunucuda (app/page.tsx) SCHOLARSHIP_REGIONS'tan hesaplanir; bolge verisi ana sayfa paketine girmez.
+  verification: ScholarshipVerificationSummary;
+}
+
+export default function ScholarshipsSection({ verification }: ScholarshipsSectionProps) {
   const { t, language } = useLanguage();
+  const note = fillScholarshipVerificationNote(t.homeScholarshipsCta.note, verification, language);
   const regions: Array<{ slug: "lazio" | "lombardia" | "emilia-romagna"; name: string }> =
     language === "tr"
       ? [
@@ -70,7 +80,7 @@ export default function ScholarshipsSection() {
                 </Link>
               ))}
             </div>
-            <p className="py-4 text-xs leading-5 text-[var(--editorial-muted)]">{t.homeScholarshipsCta.note}</p>
+            <p className="py-4 text-xs leading-5 text-[var(--editorial-muted)]">{note}</p>
           </div>
         </Reveal>
       </div>
