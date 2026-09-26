@@ -9,31 +9,37 @@ import type { UniversityStats } from "@/lib/universityStats";
 
 interface VelocityBridgeProps {
   stats: UniversityStats;
+  scholarshipRegionsCount: number;
 }
 
-export default function VelocityBridge({ stats }: VelocityBridgeProps) {
-  const { language } = useLanguage();
-  const items: Array<{ value: number | null; animate: boolean; display?: string; label: string; href: string; ariaLabel: string }> =
-    language === "tr"
-      ? [
-          { value: stats.universitiesCount, animate: true, label: "üniversite", href: "/universities", ariaLabel: "Üniversite listesine git" },
-          { value: stats.programsCount, animate: true, label: "program", href: "/universities", ariaLabel: "Program listesine git" },
-          { value: 20, animate: false, label: "bölgesel burs kaydı", href: "/scholarships", ariaLabel: "Bölgesel burs haritasına git" },
-          { value: null, animate: false, display: "1.000+", label: "SAT matematik sorusu", href: "/sat", ariaLabel: "SAT soru bankasına git" },
-        ]
-      : [
-          { value: stats.universitiesCount, animate: true, label: "universities", href: "/universities", ariaLabel: "Open university list" },
-          { value: stats.programsCount, animate: true, label: "programs", href: "/universities", ariaLabel: "Open program list" },
-          { value: 20, animate: false, label: "regional scholarship records", href: "/scholarships", ariaLabel: "Open regional scholarship map" },
-          { value: null, animate: false, display: "1,000+", label: "SAT math questions", href: "/sat", ariaLabel: "Open the SAT question bank" },
-        ];
+interface NumberItem {
+  value: number | null;
+  animate: boolean;
+  display?: string;
+  label: string;
+  href: string;
+  ariaLabel: string;
+}
+
+// Ana sayfa "Rakamlarla ItalyPath" blogu. Metinler lib/translations (homeNumbers); SAT soru sayisi
+// iddiasi t.sat.questionCount ile arac vitrini ve /sat sayfasiyla ortaktir. Bolge sayisi sunucudan
+// (app/page.tsx) gelir; burs veri dosyasi istemci paketine girmez (sayfa agirligi, kart 10).
+export default function VelocityBridge({ stats, scholarshipRegionsCount }: VelocityBridgeProps) {
+  const { t } = useLanguage();
+  const copy = t.homeNumbers;
+  const items: NumberItem[] = [
+    { value: stats.universitiesCount, animate: true, label: copy.universities.label, href: "/universities", ariaLabel: copy.universities.ariaLabel },
+    { value: stats.programsCount, animate: true, label: copy.programs.label, href: "/universities", ariaLabel: copy.programs.ariaLabel },
+    { value: scholarshipRegionsCount, animate: false, label: copy.scholarshipRegions.label, href: "/scholarships", ariaLabel: copy.scholarshipRegions.ariaLabel },
+    { value: null, animate: false, display: t.sat.questionCount, label: copy.satQuestions.label, href: "/sat", ariaLabel: copy.satQuestions.ariaLabel },
+  ];
 
   return (
     <section className="bg-[var(--editorial-paper)] pb-20 text-[#faf7f0] lg:pb-28">
       <Reveal className="mx-4 max-w-7xl rounded-[2rem] bg-[var(--editorial-sage)] px-5 py-10 shadow-[0_22px_60px_rgba(31,79,70,0.16)] sm:mx-6 sm:rounded-[2.5rem] sm:px-8 lg:mx-8 lg:px-12 lg:py-14 xl:mx-auto">
         <p className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#9fc3b6]">
           <span className="h-px w-7 bg-[#9fc3b6]" aria-hidden="true" />
-          {language === "tr" ? "Rakamlarla ItalyPath" : "ItalyPath in numbers"}
+          {copy.eyebrow}
         </p>
 
         <div className="mt-6 grid grid-cols-2 border-t border-white/15 lg:grid-cols-4">

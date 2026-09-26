@@ -2,9 +2,8 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { createClient } from "@supabase/supabase-js";
-
-import { EXPECTED_PROJECT_REF, EXPECTED_PROJECT_URL, hashRows, sha256 } from "./lib/authored-explanations-import.mjs";
+import { LIVE_PROJECT_REF, createImportClient, parseImportArgs } from "../lib/program-details-import.mjs";
+import { hashRows, sha256 } from "./lib/authored-explanations-import.mjs";
 import {
   GUARD_FIELDS,
   WRITABLE_FIELDS,
@@ -20,48 +19,34 @@ const ALL_COLUMNS =
   "id,section,domain,skill,skill_slug,difficulty,question_type,prompt,choices,correct_answer,figure_path,explanation_tr,explanation_en,source_file,needs_review,created_at";
 const PAGE_SIZE = 500;
 
-// CLI: node scripts/sat/patch-sat-questions.mjs --package <path> [--apply] [--backup <path>]
-//      node scripts/sat/patch-sat-questions.mjs --rollback <backupPath> [--apply]
-// Varsayilan mod her zaman dry-run'dir; --apply olmadan hicbir yazi olmaz.
+// Mevcut SAT sorularina denetimli yama (prompt/choices/needs_review). Kabul dosyasi yazicilariyla ayni
+// hedef kilidi (scripts/lib/program-details-import.mjs; guvenlik denetimi G2#6 / STATUS #65, 2026-09-26).
+//
+// Kullanim:
+//   node scripts/sat/patch-sat-questions.mjs --package <path>                                   # kuru calistirma (varsayilan)
+//   node scripts/sat/patch-sat-questions.mjs --package <path> --apply --project-ref kskbnxxyviowmrlskwke [--backup <path>]
+//   node scripts/sat/patch-sat-questions.mjs --rollback <backupPath>                            # geri alma provasi
+//   node scripts/sat/patch-sat-questions.mjs --rollback <backupPath> --apply --project-ref kskbnxxyviowmrlskwke
+//
+// Varsayilan mod her zaman dry-run'dir; --apply olmadan hicbir yazi olmaz. --apply yalniz --project-ref canli
+// proje kimligiyle ve .env.local'daki NEXT_PUBLIC_SUPABASE_URL o projeye aitse calisir (assertTarget); kuru
+// calistirma da canli satirlari okudugu icin adres ayni sekilde denetlenir. Anahtar: SUPABASE_SECRET_KEY
+// (yazmada yoksa SUPABASE_SERVICE_ROLE_KEY).
 
 function parseArgs(argv) {
-  const options = { package: null, apply: false, rollback: null, backup: null };
-  for (let index = 0; index < argv.length; index += 1) {
-    const arg = argv[index];
-    if (arg === "--apply") options.apply = true;
-    else if (arg === "--package" && argv[index + 1]) options.package = path.resolve(process.cwd(), argv[++index]);
-    else if (arg === "--rollback" && argv[index + 1]) options.rollback = path.resolve(process.cwd(), argv[++index]);
-    else if (arg === "--backup" && argv[index + 1]) options.backup = path.resolve(process.cwd(), argv[++index]);
-    else throw new Error(`Bilinmeyen veya eksik arguman: ${arg}`);
-  }
+  const parsed = parseImportArgs(argv, { valueFlags: ["--package", "--rollback", "--backup"] });
+  const resolvePath = (flag) => (parsed.values[flag] ? path.resolve(process.cwd(), parsed.values[flag]) : null);
+  const options = {
+    mode: parsed.mode,
+    projectRef: parsed.projectRef,
+    package: resolvePath("--package"),
+    rollback: resolvePath("--rollback"),
+    backup: resolvePath("--backup"),
+  };
   if (options.package && options.rollback) throw new Error("--package ile --rollback birlikte kullanilamaz.");
   if (!options.package && !options.rollback) throw new Error("--package <yol> veya --rollback <yedekYolu> zorunlu.");
   if (options.rollback && options.backup) throw new Error("--backup yalniz --package modunda anlamlidir.");
   return options;
-}
-
-function loadEnvLocal() {
-  const values = {};
-  const envFile = path.join(REPO_ROOT, ".env.local");
-  if (!existsSync(envFile)) return values;
-  for (const line of readFileSync(envFile, "utf8").split(/\r?\n/)) {
-    const match = line.match(/^([A-Z0-9_]+)=(.*)$/);
-    if (match) values[match[1]] = match[2].replace(/^['"]|['"]$/g, "");
-  }
-  return values;
-}
-
-function createServiceClient() {
-  const env = { ...loadEnvLocal(), ...process.env };
-  if (env.NEXT_PUBLIC_SUPABASE_URL !== EXPECTED_PROJECT_URL) {
-    throw new Error("Beklenmeyen Supabase projesi; islem reddedildi.");
-  }
-  if (!env.SUPABASE_SERVICE_ROLE_KEY) {
-    throw new Error("SUPABASE_SERVICE_ROLE_KEY gerekli (yalniz script tarafi).");
-  }
-  return createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
 }
 
 async function fetchAllRows(client) {
@@ -100,7 +85,7 @@ function validateBackup(backup) {
   if (backup?.kind !== "sat-question-patch-backup" || backup.schema_version !== 1) {
     throw new Error("Gecersiz yedek kind/schema_version.");
   }
-  if (backup.project_ref !== EXPECTED_PROJECT_REF) throw new Error("Yedek project_ref pinlenen projeyle eslesmiyor.");
+  if (backup.project_ref !== LIVE_PROJECT_REF) throw new Error("Yedek project_ref pinlenen projeyle eslesmiyor.");
   if (!Array.isArray(backup.records) || backup.records.length === 0) throw new Error("Yedek records bos olamaz.");
   const ids = new Set();
   for (const record of backup.records) {
@@ -164,7 +149,7 @@ async function conditionalRollback(client, backup, ids, { write }) {
 }
 
 async function dryRun(client, pkg) {
-  const ids = validatePackage(pkg, EXPECTED_PROJECT_REF);
+  const ids = validatePackage(pkg, LIVE_PROJECT_REF);
   const allRows = await fetchAllRows(client);
   const byId = new Map(allRows.map((row) => [row.id, row]));
   const mismatches = [];
@@ -191,7 +176,7 @@ async function dryRun(client, pkg) {
     summary: {
       mode: "dry-run",
       status: "ready",
-      project_ref: EXPECTED_PROJECT_REF,
+      project_ref: LIVE_PROJECT_REF,
       run_label: pkg.run_label,
       package_sha256: sha256(JSON.stringify(pkg)),
       targets: pkg.records.length,
@@ -209,7 +194,7 @@ async function apply(client, pkg, backupPath) {
   const backup = {
     schema_version: 1,
     kind: "sat-question-patch-backup",
-    project_ref: EXPECTED_PROJECT_REF,
+    project_ref: LIVE_PROJECT_REF,
     run_label: pkg.run_label,
     package_sha256: sha256(JSON.stringify(pkg)),
     created_at: new Date().toISOString(),
@@ -266,7 +251,7 @@ async function apply(client, pkg, backupPath) {
   return {
     mode: "apply",
     status: "verified",
-    project_ref: EXPECTED_PROJECT_REF,
+    project_ref: LIVE_PROJECT_REF,
     run_label: pkg.run_label,
     applied: applied.length,
     non_targets_unchanged: postNonTargets.length,
@@ -288,7 +273,7 @@ async function rollback(client, backupPath, shouldApply) {
   return {
     mode: shouldApply ? "rollback" : "rollback-dry-run",
     status: result.failed.length ? "failed" : "verified",
-    project_ref: EXPECTED_PROJECT_REF,
+    project_ref: LIVE_PROJECT_REF,
     run_label: backup.run_label,
     backup_path: backupPath,
     backup_sha256: sha256(backupBytes),
@@ -302,12 +287,17 @@ async function rollback(client, backupPath, shouldApply) {
   };
 }
 
-async function main() {
-  const options = parseArgs(process.argv.slice(2));
-  const client = createServiceClient();
-  if (options.rollback) return rollback(client, options.rollback, options.apply);
+// clientFactory yalniz cevrimdisi testler icindir (sahte istemci; hedef kilidi yine calisir).
+export async function main(argv = process.argv.slice(2), { clientFactory } = {}) {
+  const options = parseArgs(argv);
+  // Paket ve yedek project_ref'i canli projeye pinlidir, kuru calistirma da canli satirlari okur: --project-ref
+  // verilmese bile adres canli projeye ait olmali (onceki davranis). --apply'da bayrak zorunlu (assertTarget).
+  const projectRef = options.mode === "apply" ? options.projectRef : (options.projectRef ?? LIVE_PROJECT_REF);
+  const client = createImportClient({ mode: options.mode, projectRef, clientFactory });
+  const shouldApply = options.mode === "apply";
+  if (options.rollback) return rollback(client, options.rollback, shouldApply);
   const pkg = readPackage(options.package);
-  if (!options.apply) return (await dryRun(client, pkg)).summary;
+  if (!shouldApply) return (await dryRun(client, pkg)).summary;
   return apply(client, pkg, resolveBackupPath(options, pkg));
 }
 

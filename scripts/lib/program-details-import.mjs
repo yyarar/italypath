@@ -149,9 +149,10 @@ export function loadDotenvLocal(cwd = process.cwd()) {
 /**
  * Katalog okumalari server-only SUPABASE_SECRET_KEY ile (anon anahtara donulmez); --apply'da
  * yazma icin once SUPABASE_SECRET_KEY, yoksa SUPABASE_SERVICE_ROLE_KEY. Hedef assertTarget ile
- * denetlenir.
+ * denetlenir. clientFactory yalniz cevrimdisi testler icindir (sahte istemci; hedef denetimi yine
+ * burada calisir); yazicilar bu parametreyi vermez.
  */
-export function createImportClient({ mode, projectRef }) {
+export function createImportClient({ mode, projectRef, clientFactory = createClient }) {
   loadDotenvLocal();
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey =
@@ -166,7 +167,7 @@ export function createImportClient({ mode, projectRef }) {
     );
   }
   assertTarget({ mode, projectRef, supabaseUrl });
-  return createClient(supabaseUrl, supabaseKey, { auth: { persistSession: false, autoRefreshToken: false } });
+  return clientFactory(supabaseUrl, supabaseKey, { auth: { persistSession: false, autoRefreshToken: false } });
 }
 
 // ---------------------------------------------------------------------------

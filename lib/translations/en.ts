@@ -2,6 +2,10 @@ import type { Translations } from "./tr";
 
 // Ingilizce arayuz metinleri. Yalnizca ziyaretci Ingilizceyi sectiginde dinamik import ile yuklenir
 // (lib/translations/index.ts loadEnglishTranslations); statik import etme.
+
+// SAT soru sayisi iddiasi; tr.ts'teki sabitin Ingilizce bicimi (ayni kural: her SAT importundan sonra karsilastir).
+const SAT_QUESTION_COUNT_CLAIM = "1,000+";
+
 export const en: Translations = {
   navbar: {
     universities: "Universities",
@@ -67,6 +71,13 @@ export const en: Translations = {
     statPrograms: "programs",
     statRegions: "regions",
   },
+  homeNumbers: {
+    eyebrow: "ItalyPath in numbers",
+    universities: { label: "universities", ariaLabel: "Open the university list" },
+    programs: { label: "programs", ariaLabel: "Open the program list" },
+    scholarshipRegions: { label: "regional scholarship records", ariaLabel: "Open the regional scholarship map" },
+    satQuestions: { label: "SAT math questions", ariaLabel: "Open the SAT question bank" },
+  },
   homeStory: {
     eyebrow: "Bologna, Italy",
     title: "See Italy up close.",
@@ -104,7 +115,7 @@ export const en: Translations = {
     universities: { title: "University and program guide", body: "Compare English-taught programs by level, city, and admission requirements." },
     scholarships: { title: "Regional scholarship map", body: "Scholarship, housing, and meal support region by region.", meta: "20 regions" },
     isee: { title: "ISEE calculator", body: "Estimate the ISEE value that decides scholarships.", meta: "2 minutes" },
-    sat: { title: "SAT question bank", body: "Practice by topic and review your mistakes.", meta: "1,000+ math questions" },
+    sat: { title: "SAT question bank", body: "Practice by topic and review your mistakes.", meta: `${SAT_QUESTION_COUNT_CLAIM} math questions` },
     cities: { title: "City guides", body: "Cost of living, transport, and city character.", meta: "{count} cities" },
     communities: { title: "Community atlas", body: "A curated guide to student communities in Italy.", meta: "WhatsApp · Telegram" },
     hub: { title: "Workspace and documents", body: "Personal program picks, favorites, and a document wallet." },
@@ -646,7 +657,8 @@ export const en: Translations = {
   },
   sat: {
     title: "SAT Question Bank",
-    subtitle: "Practice topic by topic with 1,000+ official SAT math questions; your progress is saved.",
+    questionCount: SAT_QUESTION_COUNT_CLAIM,
+    subtitle: `Practice topic by topic with ${SAT_QUESTION_COUNT_CLAIM} official SAT math questions; your progress is saved.`,
     reportCardButton: "My Report Card",
     reportCardTitle: "Topic Report Card",
     reportCardSubtitle: "See attempted topics from weakest to strongest and choose your next practice focus.",

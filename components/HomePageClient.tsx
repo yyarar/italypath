@@ -19,12 +19,14 @@ interface HomePageClientProps {
   stats: UniversityStats;
   citiesCount: number;
   scholarshipVerification: ScholarshipVerificationSummary;
+  scholarshipRegionsCount: number;
 }
 
 export default function HomePageClient({
   stats,
   citiesCount,
   scholarshipVerification,
+  scholarshipRegionsCount,
 }: HomePageClientProps) {
   return (
     <div className="min-h-screen overflow-hidden bg-[var(--editorial-paper)] font-sans text-[var(--editorial-ink)]">
@@ -33,7 +35,7 @@ export default function HomePageClient({
       <HomeToolsSection stats={stats} citiesCount={citiesCount} />
       <ConsultationSection variant="home" />
       <HomeStoryBand />
-      <VelocityBridge stats={stats} />
+      <VelocityBridge stats={stats} scholarshipRegionsCount={scholarshipRegionsCount} />
       <ScholarshipsSection verification={scholarshipVerification} />
       <IseeSection />
       <ConsultationFaq />

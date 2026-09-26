@@ -1,5 +1,10 @@
 // Turkce arayuz metinleri (varsayilan dil). Sunucu ve ilk yukleme bu dosyayla calisir.
 // Ingilizce karsiligi en.ts'tedir; iki dosya ayni anahtar agacini tasir (en.ts `Translations` tipiyle denetlenir).
+
+// SAT soru sayisi iddiasi: ana sayfa (Rakamlarla ItalyPath blogu, arac vitrini) ve /sat ayni degeri gosterir.
+// Sabit ifade Kerem karari (canli sayi 2026-09-26: 1.019); her SAT importundan sonra canli sayimla karsilastir.
+const SAT_QUESTION_COUNT_CLAIM = "1.000+";
+
 export const tr = {
   navbar: {
     universities: "Üniversiteler",
@@ -65,6 +70,13 @@ export const tr = {
     statPrograms: "program",
     statRegions: "bölge",
   },
+  homeNumbers: {
+    eyebrow: "Rakamlarla ItalyPath",
+    universities: { label: "üniversite", ariaLabel: "Üniversite listesine git" },
+    programs: { label: "program", ariaLabel: "Program listesine git" },
+    scholarshipRegions: { label: "bölgesel burs kaydı", ariaLabel: "Bölgesel burs haritasına git" },
+    satQuestions: { label: "SAT matematik sorusu", ariaLabel: "SAT soru bankasına git" },
+  },
   homeStory: {
     eyebrow: "Bologna, İtalya",
     title: "İtalya’yı yakından tanı.",
@@ -102,7 +114,7 @@ export const tr = {
     universities: { title: "Üniversite ve program rehberi", body: "İngilizce programları seviye, şehir ve kabul şartlarına göre karşılaştır." },
     scholarships: { title: "Bölgesel burs haritası", body: "Bölge bölge burs, yurt ve yemek desteği.", meta: "20 bölge" },
     isee: { title: "ISEE hesaplayıcı", body: "Burs için kritik ISEE değerini tahmin et.", meta: "2 dakika" },
-    sat: { title: "SAT soru bankası", body: "Konu konu soru çöz, yanlışlarını tekrar et.", meta: "1.000+ matematik sorusu" },
+    sat: { title: "SAT soru bankası", body: "Konu konu soru çöz, yanlışlarını tekrar et.", meta: `${SAT_QUESTION_COUNT_CLAIM} matematik sorusu` },
     cities: { title: "Şehir rehberleri", body: "Yaşam maliyeti, ulaşım ve şehir karakteri.", meta: "{count} şehir" },
     communities: { title: "Topluluk atlası", body: "İtalya'daki öğrenci topluluklarının seçilmiş rehberi.", meta: "WhatsApp · Telegram" },
     hub: { title: "Çalışma dosyası ve belgeler", body: "Sana özel program önerileri, favoriler ve belge cüzdanı." },
@@ -644,7 +656,8 @@ export const tr = {
   },
   sat: {
     title: "SAT Soru Bankası",
-    subtitle: "1.000+ resmi SAT matematik sorusuyla konu konu pratik yap; ilerlemen kaydedilsin.",
+    questionCount: SAT_QUESTION_COUNT_CLAIM,
+    subtitle: `${SAT_QUESTION_COUNT_CLAIM} resmi SAT matematik sorusuyla konu konu pratik yap; ilerlemen kaydedilsin.`,
     reportCardButton: "Karnem",
     reportCardTitle: "Konu Karnesi",
     reportCardSubtitle: "Çözdüğün konuları zayıftan güçlüye sırala; sıradaki çalışma odağını hızlıca gör.",

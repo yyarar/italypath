@@ -36,11 +36,13 @@ const scholarshipVerification = summarizeScholarshipVerification(SCHOLARSHIP_REG
 export default async function Home() {
   const stats = await getHomeStats();
 
+  // Sehir ve bolge sayilari sunucuda sayilir; veri dosyalari istemci paketine girmez.
   return (
     <HomePageClient
       stats={stats}
       citiesCount={CURATED_CITIES.length}
       scholarshipVerification={scholarshipVerification}
+      scholarshipRegionsCount={SCHOLARSHIP_REGIONS.length}
     />
   );
 }
