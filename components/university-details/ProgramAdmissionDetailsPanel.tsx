@@ -20,12 +20,15 @@ import {
 import {
   DossierSectionTitle,
   EvidenceLink,
+  LinkHost,
   ToggleButton,
   SourceMeta,
   buildDossierSources,
   fillTemplate,
   latestQuote,
+  resolveShowableLink,
   sourceNameForEvidence,
+  type OfficialLinkContext,
   type ProgramDossierLabels,
 } from "./programDossierShared";
 
@@ -33,6 +36,7 @@ interface ProgramAdmissionDetailsPanelProps {
   details?: ProgramAdmissionDetails;
   labels: ProgramDossierLabels;
   language: "tr" | "en";
+  linkContext: OfficialLinkContext;
 }
 
 const COLLAPSED_SEGMENT_COUNT = 3;
@@ -126,11 +130,13 @@ export function ProgramAdmissionDetailsPanel({
   details,
   labels,
   language,
+  linkContext,
 }: ProgramAdmissionDetailsPanelProps) {
   if (!details) return null;
 
   const evidence = buildAdmissionEvidence(details.sourceQuotes);
-  const sources = buildDossierSources(details, evidence, labels);
+  const sources = buildDossierSources(details, evidence, labels, linkContext);
+  const callLink = resolveShowableLink(details.officialCallUrl, linkContext);
   const evidenceFor = (field: AdmissionFieldKey) =>
     latestQuote(getAdmissionFieldEvidence(evidence, field));
 
@@ -234,16 +240,19 @@ export function ProgramAdmissionDetailsPanel({
                       sourceName={sourceName}
                       language={language}
                     />
-                    {!deadline.value && details.officialCallUrl ? (
-                      <a
-                        href={details.officialCallUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-2 inline-flex min-h-11 items-center gap-1 text-sm font-bold text-[var(--editorial-terracotta-ink)] transition hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
-                      >
-                        {labels.verifyInOfficialCall}
-                        <ExternalLink className="h-3.5 w-3.5" />
-                      </a>
+                    {!deadline.value && callLink ? (
+                      <>
+                        <a
+                          href={callLink.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 inline-flex min-h-11 items-center gap-1 text-sm font-bold text-[var(--editorial-terracotta-ink)] transition hover:text-[var(--editorial-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+                        >
+                          {labels.verifyInOfficialCall}
+                          <ExternalLink className="h-3.5 w-3.5" />
+                        </a>
+                        <LinkHost link={callLink} labels={labels} className="-mt-2" />
+                      </>
                     ) : null}
                   </article>
                 );
