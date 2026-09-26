@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Spectral, Hanken_Grotesk } from "next/font/google";
 import { Analytics } from '@vercel/analytics/next';
 import { getTrustedOrigins } from "@/lib/auth/trustedOrigins";
-import { serializeJsonLd } from "@/lib/jsonLd";
+import { SITE_DESCRIPTION, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 // Editoryal başlık serifi (Times/Georgia varsayılanı yerine gerçek marka fontu).
@@ -24,30 +24,8 @@ import { LanguageProvider } from '@/context/LanguageContext';
 import RouteTransition from '@/components/RouteTransition';
 import MobileZoomLock from '@/components/MobileZoomLock';
 
-const SITE_URL = "https://italypath.app";
-const SITE_DESCRIPTION =
-  "İtalya’da üniversite okumak isteyen öğrenciler için İngilizce programlar, burslar, ISEE hesaplayıcı, şehir rehberleri ve başvuru araçları.";
-
-// Site geneli structured data: Organization + WebSite (yalnızca gerçek bilgi).
-// Logo: public/ içinde gerçek bir ItalyPath logosu olmadığı için eklenmedi.
-// sameAs: doğrulanmış resmi sosyal hesap olmadığı için eklenmedi.
-// WebSite SearchAction (sitelinks searchbox) Google tarafından kullanımdan kaldırıldığı için eklenmedi.
-const siteJsonLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "ItalyPath",
-    url: SITE_URL,
-    description: SITE_DESCRIPTION,
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "ItalyPath",
-    url: SITE_URL,
-    inLanguage: "tr",
-  },
-];
+// Site geneli Organization + WebSite JSON-LD lib/site.ts'tedir ve yalnizca ana sayfada
+// (app/page.tsx) yayinlanir; her sayfada tekrar etmez (STATUS #14, 2026-09-26).
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -90,10 +68,6 @@ export default function RootLayout({
           suppressHydrationWarning
           className={`bg-[var(--editorial-paper)] font-sans text-[var(--editorial-ink)] antialiased`}
         >
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteJsonLd) }}
-          />
           <MobileZoomLock />
           <LanguageProvider>
             <main className="min-h-screen overflow-x-hidden pb-24">

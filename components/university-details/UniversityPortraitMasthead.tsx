@@ -73,7 +73,11 @@ export function UniversityPortraitMasthead({
               alt={university.name}
               fill
               priority
-              sizes="(min-width: 1024px) 52vw, 100vw"
+              // LCP gorseli: priority yalniz on yukleme + eager verir; fetchpriority'yi Next eklemez (STATUS #12b).
+              fetchPriority="high"
+              // Gercek yerlesim: max-w-7xl (1280) - 2x32 kenar - 20 aralik, sol sutun 1.02/2 -> ~610px (>=1344);
+              // 1024-1343 arasi ~51vw-43px; altinda tam genislik. Genis ekranda 52vw fazlaydi (1920'de ~1000px).
+              sizes="(min-width: 1344px) 610px, (min-width: 1024px) 51vw, 100vw"
               className="object-cover"
             />
           </div>

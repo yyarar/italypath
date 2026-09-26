@@ -112,7 +112,8 @@ for (const file of [...isrPages, ...isrWrappers]) {
 // JSON-LD (guvenlik denetimi S5#3, 2026-09-25): <script> govdesi lib/jsonLd.ts serializeJsonLd ile yazilir;
 // dangerouslySetInnerHTML icinde ham JSON.stringify yasak.
 const jsonLdFiles = [
-  "app/layout.tsx",
+  "app/page.tsx",
+  "app/on-gorusme/page.tsx",
   "app/universities/[id]/page.tsx",
   "app/universities/[id]/departments/[deptSlug]/page.tsx",
 ];
@@ -127,10 +128,46 @@ for (const file of jsonLdFiles) {
     failures.push(`${file}: JSON-LD etiketi serializeJsonLd ile yazilmali`);
   }
 }
+// Site geneli Organization + WebSite JSON-LD yalnizca ana sayfada yayinlanir (STATUS #14, 2026-09-26);
+// kok layout'a JSON-LD geri donerse ~1.000 sayfada tekrar eder.
+if (readFileSync("app/layout.tsx", "utf8").includes("application/ld+json")) {
+  failures.push("app/layout.tsx: site geneli JSON-LD ana sayfaya tasindi (lib/site.ts + app/page.tsx); kok layout'a JSON-LD ekleme");
+}
+if (!readFileSync("app/page.tsx", "utf8").includes("siteJsonLd")) {
+  failures.push("app/page.tsx: Organization + WebSite JSON-LD (lib/site.ts siteJsonLd) ana sayfada yayinlanmali");
+}
+// On gorusme FAQPage semasi sayfada gorunen SSS ile ayni kaynaktan uretilir (STATUS #12a).
+if (!readFileSync("app/on-gorusme/page.tsx", "utf8").includes("tr.homeFaq.items")) {
+  failures.push("app/on-gorusme/page.tsx: FAQPage JSON-LD tr.homeFaq.items (sayfada gorunen SSS) kaynagindan uretilmeli");
+}
 const jsonLdHelper = readFileSync("lib/jsonLd.ts", "utf8");
 for (const escape of ['"\\\\u003c"', '"\\\\u003e"', '"\\\\u0026"']) {
   if (!jsonLdHelper.includes(escape)) {
     failures.push(`lib/jsonLd.ts: ${escape} kacisi eksik`);
+  }
+}
+
+// LCP gorseli (SEO_AUDIT.md §19.3, STATUS #12b, 2026-09-26): okul ve program sayfasinda ekranin ustundeki tek
+// portre gorseli priority + fetchPriority="high" + gercek yerlesime gore sizes tasir (Next `priority` tek basina
+// fetchpriority yazmaz). Liste gorselleri oncelikli olmaz; aksi halde LCP gorseliyle bant genisligi icin yarisir.
+for (const file of [
+  "components/university-details/ProgramPortraitHeader.tsx",
+  "components/university-details/UniversityPortraitMasthead.tsx",
+]) {
+  const source = readFileSync(file, "utf8");
+  for (const token of ["priority", 'fetchPriority="high"', 'sizes="(min-width:']) {
+    if (!source.includes(token)) {
+      failures.push(`${file}: LCP portre gorselinde ${token} eksik`);
+    }
+  }
+}
+for (const file of [
+  "components/university-details/ProgramTransitionEntry.tsx",
+  "components/universities/UniversityRows.tsx",
+]) {
+  const source = readFileSync(file, "utf8");
+  if (/\bpriority\b/.test(source) || source.includes('fetchPriority="high"')) {
+    failures.push(`${file}: liste gorseli oncelikli olmamali (sayfa basina tek LCP gorseli)`);
   }
 }
 

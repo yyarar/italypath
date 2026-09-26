@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import HomePageClient from "@/components/HomePageClient";
 import { CURATED_CITIES } from "@/lib/cities/data";
+import { serializeJsonLd } from "@/lib/jsonLd";
 import { SCHOLARSHIP_REGIONS } from "@/lib/scholarships/regions";
 import { summarizeScholarshipVerification } from "@/lib/scholarships/verification";
+import { siteJsonLd } from "@/lib/site";
 import { getUniversitiesDirectory } from "@/lib/universities.server";
 import { getTotalDepartments } from "@/lib/universitiesFilters";
 import type { UniversityStats } from "@/lib/universityStats";
@@ -38,11 +40,18 @@ export default async function Home() {
 
   // Sehir ve bolge sayilari sunucuda sayilir; veri dosyalari istemci paketine girmez.
   return (
-    <HomePageClient
-      stats={stats}
-      citiesCount={CURATED_CITIES.length}
-      scholarshipVerification={scholarshipVerification}
-      scholarshipRegionsCount={SCHOLARSHIP_REGIONS.length}
-    />
+    <>
+      {/* Site geneli Organization + WebSite JSON-LD yalnizca ana sayfada (lib/site.ts; STATUS #14). */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteJsonLd) }}
+      />
+      <HomePageClient
+        stats={stats}
+        citiesCount={CURATED_CITIES.length}
+        scholarshipVerification={scholarshipVerification}
+        scholarshipRegionsCount={SCHOLARSHIP_REGIONS.length}
+      />
+    </>
   );
 }

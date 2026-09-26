@@ -349,7 +349,14 @@ if (translations.split("mentorOperator:").length - 1 < 2) {
 }
 
 mustInclude(proxySource, '"/ekip"', "/ekip protected redirect listesinde değil");
-mustInclude(robotsDisallowSource, "'/ekip'", "/ekip robots disallow eksik");
+// Ekip paneli yolu robots.txt'te ilan edilmez (guvenlik denetimi S1#10, STATUS #79); dizin disi
+// kalmasi app/ekip/layout.tsx noindex metadata'si ve proxy korumasiyla saglanir.
+mustNotInclude(robotsDisallowSource, "'/ekip'", "/ekip robots.txt'te ilan edilmemeli");
+mustInclude(
+  read("app/ekip/layout.tsx"),
+  "robots: { index: false, follow: false }",
+  "app/ekip/layout.tsx noindex metadata eksik",
+);
 mustInclude(
   privacyDataSection,
   "Gönüllü mentor görüşmeleri",
