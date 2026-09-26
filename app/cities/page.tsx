@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 
-import CityGuidesExplorer, {
-  type CityGuideOption,
-  type CityGuideUniversitySummary,
-} from "@/components/cities/CityGuidesExplorer";
+import CityGuidesExplorer from "@/components/cities/CityGuidesExplorer";
 import {
   getCanonicalCitySlug,
   getCityDetailByName,
 } from "@/lib/cities/data";
+import {
+  resolveCityGuidePanel,
+  type CityGuideOption,
+  type CityGuideUniversitySummary,
+} from "@/lib/cities/guidePanel";
 import {
   createCityGuideSlug,
   getCityGuideName,
@@ -49,8 +51,10 @@ function createCityOptions(universities: Awaited<ReturnType<typeof getUniversiti
       const resolved = getCityDetailByName(cityName);
       const slug = resolved?.slug ?? createCityGuideSlug(cityName);
       const existing = options.get(slug);
+      const name = existing?.name ?? cityName;
       options.set(slug, {
-        name: existing?.name ?? cityName,
+        name,
+        nameEn: getCityDetailByName(name)?.nameEn || name,
         count: (existing?.count ?? 0) + 1,
         slug,
       });
@@ -75,26 +79,30 @@ function resolveSelectedCity(rawCity: string, cityOptions: CityGuideOption[]) {
 
   return match ?? cityOptions.find((city) => city.slug === "milano") ?? {
     name: "Milano",
+    nameEn: "Milan",
     count: 0,
     slug: "milano",
   };
 }
 
-function createCityUniversitySummaries(
-  universities: Awaited<ReturnType<typeof getUniversitiesDirectory>>,
-  citySlug: string
-): CityGuideUniversitySummary[] {
-  return universities
-    .filter((university) => {
-      const cityName = getCityGuideName(university.city);
-      return cityName ? getCanonicalCitySlug(cityName) === citySlug : false;
-    })
-    .map((university) => ({
+// Sehir basina okul ozeti (ad, tur, program sayisi) sunucuda gruplanir; tarayici sehir degistirince
+// okul dizinini /api/universities'ten yeniden cekmez. Anahtar, panelin sehir kaydindaki slug'dir.
+function createUniversitiesByCity(
+  universities: Awaited<ReturnType<typeof getUniversitiesDirectory>>
+): Record<string, CityGuideUniversitySummary[]> {
+  const byCity: Record<string, CityGuideUniversitySummary[]> = {};
+  universities.forEach((university) => {
+    const cityName = getCityGuideName(university.city);
+    if (!cityName) return;
+    const citySlug = getCanonicalCitySlug(cityName);
+    (byCity[citySlug] ??= []).push({
       id: university.id,
       name: university.name,
       type: university.type,
       departmentCount: university.departments.length,
-    }));
+    });
+  });
+  return byCity;
 }
 
 function CityGuidesDataUnavailable() {
@@ -133,8 +141,9 @@ export default async function CityGuidesPage({ searchParams }: CityGuidesPagePro
   return (
     <CityGuidesExplorer
       initialSelectedCity={selectedCity.slug}
-      initialCitiesWithCounts={cityOptions}
-      initialCityUniversities={createCityUniversitySummaries(universities, selectedCity.slug)}
+      initialPanel={resolveCityGuidePanel(selectedCity.slug, cityOptions)}
+      citiesWithCounts={cityOptions}
+      universitiesByCity={createUniversitiesByCity(universities)}
     />
   );
 }
