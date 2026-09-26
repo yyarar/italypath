@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import type { University } from "@/types/universities";
 import { useLanguage } from "@/context/LanguageContext";
 import { useFavorites } from "@/lib/useFavorites";
+import { safeGetItem, safeSetItem } from "@/lib/safeStorage";
 import { useUniversitiesData } from "@/lib/useUniversitiesData";
 import {
   UNIVERSITIES_VIEW_MODE_EVENT,
@@ -56,7 +57,7 @@ function getDisplayedDepartmentCount(university: University) {
 
 function readStoredViewMode(): UniversityViewMode {
   if (typeof window === "undefined") return "grid";
-  const storedMode = window.localStorage.getItem(UNIVERSITIES_VIEW_MODE_STORAGE_KEY);
+  const storedMode = safeGetItem(UNIVERSITIES_VIEW_MODE_STORAGE_KEY);
   return storedMode === "compact" ? "compact" : "grid";
 }
 
@@ -170,7 +171,7 @@ export function UniversitiesExplorer({
 
   const handleViewModeChange = useCallback((nextMode: UniversityViewMode) => {
     if (typeof window === "undefined") return;
-    window.localStorage.setItem(UNIVERSITIES_VIEW_MODE_STORAGE_KEY, nextMode);
+    safeSetItem(UNIVERSITIES_VIEW_MODE_STORAGE_KEY, nextMode);
     window.dispatchEvent(new Event(UNIVERSITIES_VIEW_MODE_EVENT));
   }, []);
 

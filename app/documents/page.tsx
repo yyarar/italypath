@@ -15,7 +15,8 @@ import DocumentsEmptyState from "@/components/documents/DocumentsEmptyState";
 
 export default function DocumentsPage() {
   const { t } = useLanguage();
-  const { groups, flatDocs, loading, uploading, upload, remove } = useUserDocuments();
+  const { groups, flatDocs, loading, loadError, uploading, upload, remove, reload, createViewUrl } =
+    useUserDocuments();
 
   const [pendingFile, setPendingFile] = useState<File | null>(null);
   const [pendingCategory, setPendingCategory] = useState<DocumentCategoryKey | null>(null);
@@ -44,6 +45,16 @@ export default function DocumentsPage() {
     } finally {
       setPendingFile(null);
       setPendingCategory(null);
+    }
+  };
+
+  const handleView = async (storagePath: string): Promise<string | null> => {
+    setError(null);
+    try {
+      return await createViewUrl(storagePath);
+    } catch {
+      setError(t.documents.errors.viewFail);
+      return null;
     }
   };
 
@@ -85,12 +96,31 @@ export default function DocumentsPage() {
           </p>
         )}
 
-        {!loading && flatDocs.length === 0 && !uploading && <DocumentsEmptyState />}
+        {loadError && !loading && (
+          <div className="mt-10 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] px-6 py-8 text-center">
+            <p className="text-[13px] text-[var(--editorial-ink)]">{t.documents.loadError}</p>
+            <button
+              type="button"
+              onClick={() => void reload()}
+              className="mt-4 border border-[var(--editorial-sage)] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-sage)] transition-colors hover:bg-[var(--editorial-sage)] hover:text-white"
+            >
+              {t.documents.retry}
+            </button>
+          </div>
+        )}
+
+        {!loading && !loadError && flatDocs.length === 0 && !uploading && <DocumentsEmptyState />}
 
         {flatDocs.length > 0 && (
           <div className="pb-4">
             {groups.map((g) => (
-              <CategoryGroup key={g.key} categoryKey={g.key} docs={g.docs} onDelete={handleDelete} />
+              <CategoryGroup
+                key={g.key}
+                categoryKey={g.key}
+                docs={g.docs}
+                onDelete={handleDelete}
+                onView={handleView}
+              />
             ))}
           </div>
         )}

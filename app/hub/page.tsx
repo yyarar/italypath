@@ -31,7 +31,11 @@ export default function HubPage() {
   const { t } = useLanguage();
   const { isLoaded: userLoaded } = useUser();
   const { isSignedIn } = useAuth();
-  const { favorites, loading: favoritesLoading } = useFavorites();
+  const {
+    favorites,
+    loading: favoritesLoading,
+    error: favoritesUnavailable,
+  } = useFavorites();
   const {
     count: documentsCount,
     loading: documentsCountLoading,
@@ -41,6 +45,7 @@ export default function HubPage() {
     profile,
     loading: profileLoading,
     unavailable: profileUnavailable,
+    reload: reloadProfile,
   } = useUserProfile();
   const {
     universities,
@@ -152,7 +157,20 @@ export default function HubPage() {
       <main className="mx-auto max-w-6xl px-4 py-5 sm:px-6 sm:py-8 lg:px-8">
         <DossierTopStrip />
 
-        {hasProfile ? (
+        {profileUnavailable ? (
+          <div className="hub-material mt-6 rounded-[1.5rem] p-6">
+            <p className="text-sm text-[var(--editorial-muted)]">
+              {t.hub.profileLoadError}
+            </p>
+            <button
+              type="button"
+              onClick={reloadProfile}
+              className="hub-pressable mt-4 inline-flex min-h-10 items-center rounded-full border border-[var(--editorial-sage)] px-4 text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--editorial-sage)] hover:bg-[var(--editorial-sage-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+            >
+              {t.hub.retry}
+            </button>
+          </div>
+        ) : hasProfile ? (
           <>
             <ProfileStrip profile={profile} />
             {universitiesError || !recommendation ? (
@@ -189,10 +207,14 @@ export default function HubPage() {
           <CompactStatCard
             href="/favorites"
             label={t.hub.compact.shortlist}
-            value={t.hub.compact.shortlistUnit.replace(
-              "{count}",
-              String(favorites.length),
-            )}
+            value={
+              favoritesUnavailable
+                ? "—"
+                : t.hub.compact.shortlistUnit.replace(
+                    "{count}",
+                    String(favorites.length),
+                  )
+            }
             icon={Heart}
             iconClassName="text-[var(--editorial-terracotta-ink)]"
           />

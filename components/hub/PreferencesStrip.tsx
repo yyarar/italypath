@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { safeGetItem } from "@/lib/safeStorage";
 import {
   UNIVERSITIES_VIEW_MODE_EVENT,
   UNIVERSITIES_VIEW_MODE_STORAGE_KEY,
@@ -16,13 +17,13 @@ const MENTOR_DESK_KEY = "italyPathLastMentorDesk";
 
 function readViewMode(): UniversityViewMode {
   if (typeof window === "undefined") return "grid";
-  const stored = window.localStorage.getItem(UNIVERSITIES_VIEW_MODE_STORAGE_KEY);
+  const stored = safeGetItem(UNIVERSITIES_VIEW_MODE_STORAGE_KEY);
   return stored === "compact" ? "compact" : "grid";
 }
 
 function readMentorDesk(): string | null {
   if (typeof window === "undefined") return null;
-  return window.localStorage.getItem(MENTOR_DESK_KEY);
+  return safeGetItem(MENTOR_DESK_KEY);
 }
 
 export default function PreferencesStrip() {

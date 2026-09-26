@@ -127,6 +127,34 @@ for (const toolPath of ["scripts/sat/patch-sat-questions.mjs", "scripts/sat/audi
   if (!existsSync(resolve(process.cwd(), toolPath))) fail(`${toolPath} eksik`);
 }
 
+// 9) Ilerleme okumasi (guvenlik denetimi O4#3, 2026-09-26): soru basina en son
+// deneme + tek satirlik gun ozeti; tum denemeler istemciye cekilmez.
+const progressSql = read("supabase/sat_progress.sql");
+for (const needle of [
+  "with (security_invoker = true)",
+  "select distinct on (a.user_id, a.question_id)",
+  "revoke all on public.sat_latest_attempts from public, anon, authenticated;",
+  "grant select on public.sat_latest_attempts to authenticated;",
+  "security invoker",
+  "set search_path = ''",
+  "where a.user_id = (select public.requesting_user_id())",
+  "revoke all on function public.sat_attempt_summary(text) from public, anon, authenticated;",
+  "grant execute on function public.sat_attempt_summary(text) to authenticated;",
+]) {
+  if (!progressSql.includes(needle)) fail(`sat_progress.sql: "${needle}" eksik`);
+}
+if (/security\s+definer/i.test(progressSql)) fail("sat_progress.sql: security definer kullanilmamali");
+const attemptsHook = read("lib/sat/useSatAttempts.ts");
+if (!attemptsHook.includes('.from("sat_latest_attempts")') || !attemptsHook.includes('rpc("sat_attempt_summary"')) {
+  fail("useSatAttempts.ts: ilerleme sat_latest_attempts + sat_attempt_summary ile okunmali");
+}
+if (/from\("sat_attempts"\)\s*\.select/.test(attemptsHook)) {
+  fail("useSatAttempts.ts: sat_attempts tablosunun tamami istemciye cekilmemeli");
+}
+if (!read("scripts/test-mentor-db.mjs").includes('"supabase/sat_progress.sql"')) {
+  fail("test-mentor-db.mjs: sat_progress.sql yerel DB testinde yuklenmeli");
+}
+
 if (failures.length > 0) {
   console.error("check:sat-bank FAIL");
   for (const f of failures) console.error(` - ${f}`);

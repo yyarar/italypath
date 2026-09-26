@@ -149,6 +149,25 @@ for (const file of sourceFiles) {
   }
 }
 
+// Guvenlik denetimi S5#5 ve O3#5 (2026-09-26): site verisini engelleyen
+// ziyaretcide /universities cokmesin; girissiz ziyaretci Supabase istemcisini
+// indirmesin (favoriler yalniz giris yapilinca dinamik import ile yukler).
+const explorer = read("components/universities/UniversitiesExplorer.tsx");
+if (/\blocalStorage\./.test(explorer) || !explorer.includes("@/lib/safeStorage")) {
+  fail("UniversitiesExplorer.tsx: tarayici hafizasina yalniz lib/safeStorage.ts ile erisilmeli");
+}
+const favoritesHook = read("lib/useFavorites.ts");
+if (/from\s+["']@\/lib\/supabaseClient["']/.test(favoritesHook) || /@supabase\/supabase-js/.test(favoritesHook)) {
+  fail("lib/useFavorites.ts: Supabase istemcisi statik import edilmemeli (girissiz ziyaretci paketi indirir)");
+}
+const userClient = read("lib/useUserSupabaseClient.ts");
+if (!userClient.includes('import("@/lib/supabaseClient")') || /^import\s+\{[^}]*\}\s+from\s+["']@\/lib\/supabaseClient["']/m.test(userClient)) {
+  fail("lib/useUserSupabaseClient.ts: supabase-js yalniz dinamik import ile yuklenmeli");
+}
+if (/export\s+const\s+supabase\s*=/.test(read("lib/supabaseClient.ts"))) {
+  fail("lib/supabaseClient.ts: kullanilmayan tekil supabase istemcisi geri gelmemeli");
+}
+
 if (failures.length > 0) {
   console.error("[FAIL] Universities field-guide check failed.");
   for (const failure of failures) {

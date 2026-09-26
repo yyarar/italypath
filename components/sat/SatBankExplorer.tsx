@@ -73,7 +73,16 @@ export default function SatBankExplorer() {
   const { t } = useLanguage();
   const reduceMotion = useReducedMotion();
   const { topics, loading: topicsLoading, error } = useSatTopics();
-  const { attempts, recordAttempt, loading: attemptsLoading, streak, todayCount, longestStreak } = useSatAttempts();
+  const {
+    attempts,
+    recordAttempt,
+    loading: attemptsLoading,
+    error: attemptsError,
+    reload: reloadAttempts,
+    streak,
+    todayCount,
+    longestStreak,
+  } = useSatAttempts();
   const [view, setView] = useState<View>({ mode: "topics" });
   const [sessionError, setSessionError] = useState<string | null>(null);
   const [celebrationLevel, setCelebrationLevel] = useState<number | null>(null);
@@ -578,6 +587,18 @@ export default function SatBankExplorer() {
           <p className="mb-4 border border-[var(--editorial-border)] bg-[var(--editorial-surface)] p-4 text-sm text-[var(--editorial-muted)]">
             {t.sat.emptyBank}
           </p>
+        ) : null}
+        {attemptsError && !loading ? (
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-l-2 border-[var(--editorial-terracotta)] bg-[var(--editorial-surface)] px-3 py-2">
+            <p className="text-[12px] text-[var(--editorial-terracotta-ink)]">{t.sat.progressLoadError}</p>
+            <button
+              type="button"
+              onClick={reloadAttempts}
+              className="min-h-9 rounded-xl px-3 text-xs font-semibold text-[var(--editorial-sage)] outline-none transition-colors hover:bg-[var(--editorial-sage-soft)] focus-visible:ring-2 focus-visible:ring-[var(--editorial-sage)]"
+            >
+              {t.sat.progressRetry}
+            </button>
+          </div>
         ) : null}
         {sessionError ? (
           <p className="mb-4 border-l-2 border-[var(--editorial-terracotta)] bg-[var(--editorial-surface)] px-3 py-2 text-[12px] text-[var(--editorial-terracotta-ink)]">
