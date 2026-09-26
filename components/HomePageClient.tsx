@@ -32,7 +32,7 @@ export default function HomePageClient({
     <div className="min-h-screen overflow-hidden bg-[var(--editorial-paper)] font-sans text-[var(--editorial-ink)]">
       <Navbar homeFloating />
       <HeroSection stats={stats} />
-      <HomeToolsSection stats={stats} citiesCount={citiesCount} />
+      <HomeToolsSection stats={stats} citiesCount={citiesCount} scholarshipRegionsCount={scholarshipRegionsCount} />
       <ConsultationSection variant="home" />
       <HomeStoryBand />
       <VelocityBridge stats={stats} scholarshipRegionsCount={scholarshipRegionsCount} />
