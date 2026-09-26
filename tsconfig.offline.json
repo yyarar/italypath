@@ -1,0 +1,7 @@
+{
+  // check:offline tip kontrolu (2026-09-26). tsconfig.json ile ayni; tek fark `next dev`in urettigi
+  // .next/dev tiplerini saymaz: dev sunucusu kapaliyken bayat kalir ve silinmis sayfalara atif yaparak
+  // yanlis kirmizi verir. Rota tipleri once `next typegen` ile .next/types altina tazelenir.
+  "extends": "./tsconfig.json",
+  "exclude": ["node_modules", ".next/dev"]
+}
