@@ -9,6 +9,7 @@ import { readFileSync } from "node:fs";
 // siniflandirilmamis betik bu kontrolu kirmizi yapar (canli okuma yanlislikla her push'ta calismasin).
 
 const OFFLINE = [
+  "check:docs",
   "check:routes",
   "check:auth-production",
   "check:auth-ui",

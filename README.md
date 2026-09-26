@@ -113,7 +113,7 @@ Signed-out kullanıcı protected veya listede olmayan bir sayfa açarsa `proxy.t
 (`/api/sat/*`) HTML login sayfasına yönlendirilmez; Clerk'in API cevabını alır.
 `/api/sat/questions` handler'ı ayrıca kendi `auth()` kontrolünü yapar.
 
-Route guvenligi `proxy.ts` ile yonetilir; `middleware.ts` olusturulmaz.
+Route guvenligi `proxy.ts` ile yonetilir; `middleware.ts` olusturulmaz. <!-- check-docs: ignore -->
 
 ## Bakim Notlari
 
