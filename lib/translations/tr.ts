@@ -997,6 +997,7 @@ export const tr = {
       submitting: "GÖNDERİLİYOR…",
       submitError: "Talebin şu anda gönderilemedi. Bilgilerin duruyor; tekrar deneyebilirsin.",
       busyError: "Şu anda çok yoğun talep alıyoruz. Bilgilerin duruyor; birkaç dakika sonra tekrar gönderebilirsin.",
+      timeoutError: "Gönderim çok uzun sürdü ve tamamlanamadı. Bilgilerin duruyor; tekrar deneyebilirsin.",
       privacyNotice: {
         lead: "Bilgilerini yalnızca bu talebi değerlendirmek ve sana WhatsApp'tan ulaşmak için kullanırız. Ayrıntılar:",
         link: "Gizlilik Politikası",

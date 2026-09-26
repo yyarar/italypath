@@ -998,6 +998,7 @@ export const en: Translations = {
       submitting: "SENDING…",
       submitError: "Your request could not be sent right now. Your information is still here, so you can try again.",
       busyError: "We are receiving an unusually high number of requests. Your information is still here; please try again in a few minutes.",
+      timeoutError: "Sending took too long and did not complete. Your information is still here, so you can try again.",
       privacyNotice: {
         lead: "We use your details only to review this request and to contact you on WhatsApp. Details:",
         link: "Privacy Policy",

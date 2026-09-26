@@ -6,6 +6,7 @@ import { type FormEvent, useMemo, useState, useSyncExternalStore } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import {
   EXPERT_FIELDS,
+  EXPERT_LEAD_REQUEST_TIMEOUT_MS,
   EXPERT_STUDY_LEVELS,
   buildTargetIntakeOptions,
   type ExpertLeadDraft,
@@ -36,6 +37,21 @@ function readServerYear() {
   return null;
 }
 
+// Bounds one submission at the mentor desks' 15 s (security card 7 pattern). A
+// browser without AbortSignal.timeout submits unbounded rather than failing.
+function submissionTimeoutSignal(): AbortSignal | undefined {
+  return typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function"
+    ? AbortSignal.timeout(EXPERT_LEAD_REQUEST_TIMEOUT_MS)
+    : undefined;
+}
+
+// AbortSignal.timeout rejects with TimeoutError; nothing else aborts this
+// request, so an AbortError also means the wait ran out.
+function isTimeoutError(error: unknown): boolean {
+  const name = (error as { name?: unknown } | null)?.name;
+  return name === "TimeoutError" || name === "AbortError";
+}
+
 function createInitialDraft(): ExpertLeadDraft {
   return {
     submissionId: crypto.randomUUID(),
@@ -57,7 +73,9 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
     Partial<Record<ExpertLeadField, string>>
   >({});
   const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<"generic" | "busy" | null>(null);
+  const [submitError, setSubmitError] = useState<"generic" | "busy" | "timeout" | null>(
+    null,
+  );
   const currentYear = useSyncExternalStore(subscribeToNothing, readCurrentUtcYear, readServerYear);
   const intakeOptions = useMemo(
     () => (currentYear === null ? [] : buildTargetIntakeOptions(new Date(Date.UTC(currentYear, 0, 1)))),
@@ -95,6 +113,7 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(draft),
+        signal: submissionTimeoutSignal(),
       });
       const result = (await response.json()) as {
         ok?: boolean;
@@ -107,11 +126,16 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
           setSubmitError("busy");
           return;
         }
+        if (result.error === "timeout") {
+          setSubmitError("timeout");
+          return;
+        }
         throw new Error("expert_lead_submit_failed");
       }
       onSubmitted();
-    } catch {
-      setSubmitError("generic");
+    } catch (error) {
+      // The same submissionId is kept, so a retry after a timeout is idempotent.
+      setSubmitError(isTimeoutError(error) ? "timeout" : "generic");
     } finally {
       setSubmitting(false);
     }
@@ -130,8 +154,11 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
     ) : null;
   };
 
+  // method="post": should the browser submit before hydration, the phone number
+  // travels in the request body, not in the address bar or server logs. No
+  // `action`: the API accepts JSON only, so a non-JS submission is refused (4xx).
   return (
-    <form noValidate onSubmit={handleSubmit} className="space-y-6">
+    <form noValidate method="post" onSubmit={handleSubmit} className="space-y-6">
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <label
@@ -286,11 +313,20 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
         </div>
       </div>
 
+      {/* Bot trap (#47). Hidden from people and assistive tech; the data-* flags
+          ask password managers and autofill to leave it alone, because a filled
+          trap is silently treated as spam. */}
       <div aria-hidden="true" className="pointer-events-none absolute h-px w-px overflow-hidden opacity-0">
         <input
           tabIndex={-1}
           name="website"
+          type="text"
           autoComplete="off"
+          aria-hidden="true"
+          data-1p-ignore
+          data-lpignore="true"
+          data-bwignore
+          data-form-type="other"
           value={draft.website}
           onChange={(event) => setField("website", event.target.value)}
         />
@@ -298,7 +334,11 @@ export default function ExpertLeadForm({ onSubmitted }: ExpertLeadFormProps) {
 
       {submitError ? (
         <p role="alert" className="text-sm text-[var(--editorial-terracotta-ink)]">
-          {submitError === "busy" ? copy.busyError : copy.submitError}
+          {submitError === "busy"
+            ? copy.busyError
+            : submitError === "timeout"
+              ? copy.timeoutError
+              : copy.submitError}
         </p>
       ) : null}
 

@@ -2,6 +2,10 @@ import { validateExpertLeadPayload } from "@/lib/mentor/expertLeadValidation";
 import { storeExpertLead } from "@/lib/mentor/expertLeads.server";
 
 export const dynamic = "force-dynamic";
+// Body parsing plus one bounded insert (EXPERT_LEAD_INSERT_TIMEOUT_MS, 10 s) fit
+// inside this; the cap keeps a stalled request from holding the function open
+// and stays well under the Vercel Hobby limit.
+export const maxDuration = 15;
 
 const MAX_BODY_BYTES = 20_000;
 const NO_STORE_HEADERS = {
@@ -14,6 +18,14 @@ function json(body: unknown, status: number) {
     status,
     headers: NO_STORE_HEADERS,
   });
+}
+
+// One response for every accepted submission: a stored lead, a retry of an
+// already stored lead and a honeypot hit are indistinguishable from outside, so
+// a bot cannot learn whether its submission was kept (#47). The form reads only
+// `ok`.
+function accepted() {
+  return json({ ok: true }, 200);
 }
 
 // Only the site's own form may post here: a JSON content type forces a CORS
@@ -55,7 +67,7 @@ export async function POST(request: Request) {
 
   const validation = validateExpertLeadPayload(body);
   if (validation.kind === "honeypot") {
-    return json({ ok: true }, 200);
+    return accepted();
   }
   if (validation.kind === "invalid") {
     return json({ ok: false, errors: validation.errors }, 400);
@@ -66,6 +78,10 @@ export async function POST(request: Request) {
     if (result.kind === "rate_limited") {
       return json({ ok: false, error: "rate_limited" }, 429);
     }
+    if (result.kind === "timed_out") {
+      console.error("Expert lead insert timed out");
+      return json({ ok: false, error: "timeout" }, 503);
+    }
     if (result.kind === "rejected") {
       return json(
         result.field
@@ -74,7 +90,7 @@ export async function POST(request: Request) {
         400,
       );
     }
-    return json({ ok: true }, result.kind === "created" ? 201 : 200);
+    return accepted();
   } catch (error) {
     console.error("Expert lead submission failed:", error);
     return json({ ok: false, error: "temporarily_unavailable" }, 503);

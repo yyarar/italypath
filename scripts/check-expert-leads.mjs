@@ -289,6 +289,55 @@ mustInclude(expertForm, "copy.busyError", "Expert lead formu yogunluk mesajini g
 mustInclude(translations, "busyError", "Expert lead yogunluk metni eksik");
 mustInclude(translations, "invalidCharacters", "Expert lead gorunmez karakter metni eksik");
 
+// #47 (2026-09-26): bot tuzagi ile gercek kayit disaridan ayirt edilemez (tek kabul cevabi);
+// tuzak alani sifre yoneticisi ve otomatik doldurma icin isaretli, istemci gondermeden once temizlemez.
+mustInclude(route, "function accepted()", "Expert lead route tek kabul cevabini (accepted) tanimlamiyor");
+if ((route.match(/return accepted\(\);/g) ?? []).length < 2) {
+  failures.push("Tuzak dali ve basarili kayit ayni accepted() cevabini donmuyor");
+}
+mustNotInclude(route, "? 201 : 200", "Expert lead route kayit/tekrar ayrimini durum koduyla sizdiriyor");
+mustNotInclude(route, ", 201)", "Expert lead route 201 donuyor; tuzak cevabindan ayirt edilebilir");
+mustInclude(expertLeadTests, "indistinguishable", "Tuzak cevabi = basari cevabi testi eksik");
+const websiteIndex = expertForm.indexOf('name="website"');
+const honeypotStart = websiteIndex >= 0 ? expertForm.lastIndexOf("<input", websiteIndex) : -1;
+const honeypotEnd = websiteIndex >= 0 ? expertForm.indexOf("/>", websiteIndex) : -1;
+const honeypotInput =
+  honeypotStart >= 0 && honeypotEnd >= 0 ? expertForm.slice(honeypotStart, honeypotEnd + 2) : "";
+[
+  "tabIndex={-1}",
+  'autoComplete="off"',
+  'aria-hidden="true"',
+  "data-1p-ignore",
+  'data-lpignore="true"',
+  'data-form-type="other"',
+].forEach((needle) => mustInclude(honeypotInput, needle, "Tuzak alani ozniteligi eksik"));
+mustInclude(
+  expertForm,
+  'aria-hidden="true" className="pointer-events-none absolute h-px w-px overflow-hidden opacity-0"',
+  "Tuzak alani gorsel olarak gizli degil",
+);
+mustInclude(expertForm, "body: JSON.stringify(draft)", "Form taslagi oldugu gibi gondermiyor");
+mustNotInclude(expertForm, "...draft, website", "Form tuzak alanini gondermeden once temizliyor (tuzagi bosa cikarir)");
+
+// #51 (2026-09-26): kucukler. method=post, form ve sunucu sure siniri, guvenli sablon doldurma.
+mustInclude(expertForm, 'method="post"', "Formda method=post yok; JS yuklenmeden gonderim kisisel veriyi adrese tasir");
+mustNotInclude(expertForm, " action=", "Form action tasiyamaz; API yalniz JSON kabul eder");
+mustInclude(expertForm, "signal: submissionTimeoutSignal()", "Form istegi sure siniri tasimiyor");
+mustInclude(expertForm, "AbortSignal.timeout(EXPERT_LEAD_REQUEST_TIMEOUT_MS)", "Form 15 sn AbortSignal.timeout kullanmiyor");
+mustInclude(expertForm, "copy.timeoutError", "Form sure asimi mesajini gostermiyor");
+if (translations.split("timeoutError:").length - 1 < 2) {
+  failures.push("timeoutError TR+EN cevirileri eksik");
+}
+mustInclude(server, ".abortSignal(", "Sunucu ekleme cagrisi sure siniri tasimiyor");
+mustInclude(server, 'kind: "timed_out"', "Sunucu sure asimini ayri sonuc olarak donmuyor");
+mustInclude(route, 'error: "timeout" }, 503', "Sure asimi 503 JSON donmuyor");
+mustInclude(route, "export const maxDuration", "Expert lead rotasinda maxDuration yok");
+mustNotInclude(expertOperatorDetail, '.replace("{name}"', "Silme onayi adi String.replace ile yaziliyor ($& bozar)");
+mustInclude(expertOperatorDetail, "fillExpertLeadTemplate(copy.deleteConfirm", "Silme onayi guvenli sablon doldurucu kullanmiyor");
+mustNotInclude(expertOperatorList, '.replace("{count}"', "Sayac metni String.replace ile yaziliyor");
+mustInclude(expertLeadTests, "$&", "Ad icinde $& deseni testi eksik");
+mustInclude(expertLeadTests, "application/x-www-form-urlencoded", "JSON olmayan govde 4xx testi eksik");
+
 if (failures.length > 0) {
   console.error("Expert lead guard failed:");
   failures.forEach((failure) => console.error(`- ${failure}`));

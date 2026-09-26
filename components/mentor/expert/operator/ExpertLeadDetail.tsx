@@ -6,6 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import {
   EXPERT_LEAD_STATUSES,
   buildWhatsAppHref,
+  fillExpertLeadTemplate,
   type ExpertLeadStatus,
 } from "@/lib/mentor/expertLeads";
 import type { UseExpertLeadInboxResult } from "@/lib/mentor/useExpertLeadInbox";
@@ -57,7 +58,7 @@ export default function ExpertLeadDetail({
 
   const whatsappHref = buildWhatsAppHref(lead.whatsapp_phone);
   const handleDelete = () => {
-    const message = copy.deleteConfirm.replace("{name}", lead.full_name);
+    const message = fillExpertLeadTemplate(copy.deleteConfirm, { name: lead.full_name });
     if (!window.confirm(message)) return;
     void onDelete();
   };

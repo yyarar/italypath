@@ -7,6 +7,7 @@ import {
   EXPERT_LEAD_FILTERS,
   type ExpertLeadFilter,
 } from "@/lib/mentor/expertLeadInboxState";
+import { fillExpertLeadTemplate } from "@/lib/mentor/expertLeads";
 import type { ExpertLeadRow } from "@/types";
 
 export interface ExpertLeadListProps {
@@ -59,11 +60,11 @@ export default function ExpertLeadList({
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--editorial-border)] pb-4">
         <div className="space-y-1">
           <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-terracotta-ink)]">
-            {copy.newCount.replace("{count}", String(newCount))}
+            {fillExpertLeadTemplate(copy.newCount, { count: newCount })}
           </p>
           {suspectedCount > 0 ? (
             <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--editorial-muted)]">
-              {copy.suspectedCount.replace("{count}", String(suspectedCount))}
+              {fillExpertLeadTemplate(copy.suspectedCount, { count: suspectedCount })}
             </p>
           ) : null}
         </div>
