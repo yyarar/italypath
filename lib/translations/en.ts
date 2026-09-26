@@ -453,7 +453,8 @@ export const en: Translations = {
     title: "Regional Scholarship Map",
     description: "Compare scholarship, housing, and canteen logic across Italian regions on one screen. Start with official institutions and key financial thresholds.",
     button: "Open Scholarship Map",
-    note: "Eight detailed regions verified against the 2026/27 official calls on September 24, 2026; the 12 registry-only regions as of March 9, 2026."
+    // Placeholders are filled from SCHOLARSHIP_REGIONS via lib/scholarships/verification.ts; no fixed dates here (STATUS #33).
+    note: "{fullCount} detailed regions verified against the {academicYear} official calls on {fullDate}; the {registryCount} registry-only regions as of {registryDate}."
   },
   scholarships: {
     heroBadge: "Public Feature",
@@ -461,7 +462,8 @@ export const en: Translations = {
     pageIdentity: "ItalyPath Scholarship Atlas",
     subtitle: "This page summarizes regional scholarship institutions and core call logic in Italy using official sources. Always re-check the latest call on the official institution page before applying.",
     intro: "Scholarship processes in Italy are regional. Pick a region on the map, then open the official institution and source pages.",
-    verifiedAsOf: "Detailed regions verified as of September 24, 2026; registry entries as of March 9, 2026",
+    // Placeholders are filled from SCHOLARSHIP_REGIONS via lib/scholarships/verification.ts; no fixed dates here (STATUS #33).
+    verifiedAsOf: "{fullCount} detailed regions verified as of {fullDate}; {registryCount} registry entries as of {registryDate}",
     regionSelectorTitle: "Select Region",
     regionSelectorHelper: "V1 uses a map-ready region grid selector. Selection is synced with URL query.",
     detailsTitle: "Region Details",

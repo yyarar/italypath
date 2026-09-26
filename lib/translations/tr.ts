@@ -451,7 +451,8 @@ export const tr = {
     title: "Bölgesel Burs Haritası",
     description: "İtalya'da bölge bazlı burs, yurt ve yemek desteği yapısını tek ekranda gör. İlk adımda resmi kurumları ve kritik eşikleri hızlıca karşılaştır.",
     button: "Burs Haritasını Aç",
-    note: "Ayrıntılı 8 bölge 24 Eylül 2026'da 2026/27 resmi bandolarıyla, kurum dizini 12 bölge 9 Mart 2026'da doğrulandı."
+    // Yer tutucular lib/scholarships/verification.ts ile SCHOLARSHIP_REGIONS'tan doldurulur; sabit tarih yazma (STATUS #33).
+    note: "Ayrıntılı {fullCount} bölge {fullDate} tarihinde {academicYear} resmi bandolarıyla, kurum dizini {registryCount} bölge {registryDate} tarihinde doğrulandı."
   },
   scholarships: {
     heroBadge: "Public Feature",
@@ -459,7 +460,8 @@ export const tr = {
     pageIdentity: "ItalyPath Burs Atlası",
     subtitle: "Bu ekran, İtalya'daki bölgesel burs kurumlarını ve temel çağrı mantığını resmi kaynaklara dayanarak özetler. Başvuru öncesi her zaman ilgili kurumun güncel bandosunu tekrar doğrula.",
     intro: "İtalya'da burs işleri bölge bazlı yürür. Haritadan bölge seç, yetkili kurumu ve resmi kaynak sayfalarını hızlıca aç.",
-    verifiedAsOf: "Ayrıntılı bölgeler 24 Eylül 2026, kurum dizini 9 Mart 2026 itibarıyla doğrulandı",
+    // Yer tutucular lib/scholarships/verification.ts ile SCHOLARSHIP_REGIONS'tan doldurulur; sabit tarih yazma (STATUS #33).
+    verifiedAsOf: "Ayrıntılı {fullCount} bölge {fullDate}, kurum dizini {registryCount} bölge {registryDate} itibarıyla doğrulandı",
     regionSelectorTitle: "Bölge Seçimi",
     regionSelectorHelper: "V1 sürümünde map-ready grid seçici kullanılır. Seçim URL ile senkron tutulur.",
     detailsTitle: "Bölge Detayı",
