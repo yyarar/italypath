@@ -16,6 +16,9 @@ const eslintConfig = defineConfig([
     ".claude/**",
     ".superpowers/**",
     ".worktrees/**",
+    // Git disi arastirma/import ciktilari; kaynak kod degil (guvenlik denetimi O5#6, 2026-09-26).
+    "tmp/**",
+    "output/**",
   ]),
 ]);
 

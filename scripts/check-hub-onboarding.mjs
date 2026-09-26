@@ -115,7 +115,10 @@ for (const path of [
   }
 }
 
-const API_BASE = process.env.ITALYPATH_API_BASE ?? "https://italypath.app";
+// Canli kapsama adimi yalniz ITALYPATH_API_BASE verilince calisir (canli okuma; guvenlik denetimi S3#8,
+// 2026-09-26). Verilmezse betik cevrimdisi kalir ve bunu acikca yazar; verilip adrese ulasilamazsa
+// (ag hatasi, Vercel challenge, JSON olmayan yanit) PASS yerine HATA verir.
+const API_BASE = process.env.ITALYPATH_API_BASE?.trim().replace(/\/+$/, "") || "";
 const recoSource = read("lib/hub/recommendations.ts");
 
 function extractKeywords(source) {
@@ -126,10 +129,17 @@ function extractKeywords(source) {
     .filter((value) => !value.includes("-"));
 }
 
-try {
-  const res = await fetch(`${API_BASE}/api/universities`);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const universities = await res.json();
+async function checkLiveCoverage() {
+  let universities;
+  try {
+    const res = await fetch(`${API_BASE}/api/universities`, { signal: AbortSignal.timeout(20_000) });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    universities = await res.json();
+    if (!Array.isArray(universities)) throw new Error("yanit universite listesi degil");
+  } catch (err) {
+    failures.push(`Canlı kapsama testi çalışamadı (${API_BASE}/api/universities): ${err.message}`);
+    return;
+  }
   const keywords = extractKeywords(recoSource);
   if (keywords.length === 0) {
     failures.push("recommendations.ts içinden FIELD_KEYWORDS okunamadı");
@@ -164,8 +174,15 @@ try {
       }
     }
   }
-} catch (err) {
-  warnings.push(`Canlı kapsama testi atlandı (ağ hatası): ${err.message}`);
+}
+
+if (API_BASE) {
+  await checkLiveCoverage();
+} else {
+  console.log(
+    "ATLANDI: canlı alan kapsaması (FIELD_KEYWORDS, CITY_GROUPS) çalışmadı; ITALYPATH_API_BASE verilmedi. " +
+      "Canlı okuma için: ITALYPATH_API_BASE=https://italypath.app npm run check:hub-onboarding",
+  );
 }
 
 for (const warning of warnings) console.warn(`UYARI: ${warning}`);
@@ -174,4 +191,8 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
-console.log("check-hub-onboarding: PASS");
+console.log(
+  API_BASE
+    ? `check-hub-onboarding: PASS (çevrimdışı kontroller + canlı kapsama, ${API_BASE})`
+    : "check-hub-onboarding: PASS (yalnız çevrimdışı kontroller; canlı kapsama atlandı)",
+);

@@ -6,6 +6,11 @@ import { createServer } from "node:net";
 
 const postgresToolNames = ["initdb", "pg_ctl", "psql"];
 
+// On macOS the postmaster refuses to start when LC_ALL is unset ("postmaster
+// became multithreaded during startup"). The spawned PostgreSQL tools inherit
+// this environment, so fall back to the C locale (audit O5#2, 2026-09-26).
+if (!process.env.LC_ALL) process.env.LC_ALL = "C";
+
 function toolsFromDirectory(directory) {
   return {
     initdb: join(directory, "initdb"),
