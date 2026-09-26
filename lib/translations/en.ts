@@ -113,7 +113,7 @@ export const en: Translations = {
     liveData: "Live university data",
     universitiesMeta: "{universities} universities · {programs} programs",
     universities: { title: "University and program guide", body: "Compare English-taught programs by level, city, and admission requirements." },
-    scholarships: { title: "Regional scholarship map", body: "Scholarship, housing, and meal support region by region.", meta: "20 regions" },
+    scholarships: { title: "Regional scholarship map", body: "Scholarship, housing, and meal support region by region.", meta: "{count} regions" },
     isee: { title: "ISEE calculator", body: "Estimate the ISEE value that decides scholarships.", meta: "2 minutes" },
     sat: { title: "SAT question bank", body: "Practice by topic and review your mistakes.", meta: `${SAT_QUESTION_COUNT_CLAIM} math questions` },
     cities: { title: "City guides", body: "Cost of living, transport, and city character.", meta: "{count} cities" },

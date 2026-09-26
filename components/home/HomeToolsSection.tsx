@@ -22,6 +22,7 @@ import { formatStatValue, type UniversityStats } from "@/lib/universityStats";
 interface HomeToolsSectionProps {
   stats: UniversityStats;
   citiesCount: number;
+  scholarshipRegionsCount: number;
 }
 
 interface ToolCard {
@@ -38,7 +39,7 @@ interface ToolCard {
 }
 
 // Ana sayfadaki ücretsiz araç vitrini: sitenin tüm araçları tek bakışta.
-export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectionProps) {
+export default function HomeToolsSection({ stats, citiesCount, scholarshipRegionsCount }: HomeToolsSectionProps) {
   const { t } = useLanguage();
   const c = t.homeTools;
   const alts = t.homePhotos;
@@ -63,6 +64,7 @@ export default function HomeToolsSection({ stats, citiesCount }: HomeToolsSectio
     {
       icon: MapPinned,
       ...c.scholarships,
+      meta: c.scholarships.meta.replace("{count}", String(scholarshipRegionsCount)),
       href: "/scholarships",
       photo: { src: HOME_PHOTOS.portico.src, alt: alts.portico },
       surface: "bg-[#eef3ef]",

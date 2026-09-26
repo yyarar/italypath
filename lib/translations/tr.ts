@@ -112,7 +112,7 @@ export const tr = {
     liveData: "Canlı üniversite verisi",
     universitiesMeta: "{universities} üniversite · {programs} program",
     universities: { title: "Üniversite ve program rehberi", body: "İngilizce programları seviye, şehir ve kabul şartlarına göre karşılaştır." },
-    scholarships: { title: "Bölgesel burs haritası", body: "Bölge bölge burs, yurt ve yemek desteği.", meta: "20 bölge" },
+    scholarships: { title: "Bölgesel burs haritası", body: "Bölge bölge burs, yurt ve yemek desteği.", meta: "{count} bölge" },
     isee: { title: "ISEE hesaplayıcı", body: "Burs için kritik ISEE değerini tahmin et.", meta: "2 dakika" },
     sat: { title: "SAT soru bankası", body: "Konu konu soru çöz, yanlışlarını tekrar et.", meta: `${SAT_QUESTION_COUNT_CLAIM} matematik sorusu` },
     cities: { title: "Şehir rehberleri", body: "Yaşam maliyeti, ulaşım ve şehir karakteri.", meta: "{count} şehir" },
