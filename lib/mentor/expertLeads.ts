@@ -62,3 +62,23 @@ export function buildWhatsAppHref(value: string): string | null {
   const normalized = normalizeWhatsAppPhone(value);
   return normalized ? `https://wa.me/${normalized.slice(1)}` : null;
 }
+
+// Time budgets for one submission (security audit 2026-09-25, #51). The form
+// waits the same 15 s as the mentor desks (card 7 pattern); the server-side
+// insert is bounded shorter so a stalled database call answers with a JSON 503
+// before the form gives up on its own.
+export const EXPERT_LEAD_REQUEST_TIMEOUT_MS = 15_000;
+export const EXPERT_LEAD_INSERT_TIMEOUT_MS = 10_000;
+
+// Fills {key} slots in a translation string. The replacement is given as a
+// function so String.replace never interprets "$&", "$1" or "$$" that may
+// appear in a person's name (#51).
+export function fillExpertLeadTemplate(
+  template: string,
+  values: Record<string, string | number>,
+): string {
+  return Object.entries(values).reduce(
+    (result, [key, value]) => result.replaceAll(`{${key}}`, () => String(value)),
+    template,
+  );
+}

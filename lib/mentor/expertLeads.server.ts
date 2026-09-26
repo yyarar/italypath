@@ -2,13 +2,17 @@ import "server-only";
 
 import { createClient } from "@supabase/supabase-js";
 
-import type { ExpertLeadSubmission } from "@/lib/mentor/expertLeads";
+import {
+  EXPERT_LEAD_INSERT_TIMEOUT_MS,
+  type ExpertLeadSubmission,
+} from "@/lib/mentor/expertLeads";
 import type { ExpertLeadField } from "@/lib/mentor/expertLeadValidation";
 
 export type ExpertLeadStoreResult =
   | { kind: "created" }
   | { kind: "duplicate" }
   | { kind: "rate_limited" }
+  | { kind: "timed_out" }
   | { kind: "rejected"; field: ExpertLeadField | null };
 
 // Check constraints in supabase/expert_leads.sql, keyed to the form field they guard.
@@ -41,17 +45,24 @@ function createServiceRoleClient() {
 export async function storeExpertLead(
   value: ExpertLeadSubmission,
 ): Promise<ExpertLeadStoreResult> {
-  const { error } = await createServiceRoleClient().from("expert_leads").insert({
-    submission_id: value.submissionId,
-    full_name: value.fullName,
-    whatsapp_phone: value.whatsappPhone,
-    study_level: value.studyLevel,
-    field_of_interest: value.fieldOfInterest,
-    target_intake: value.targetIntake,
-    help_request: value.helpRequest,
-  });
+  // A stalled database call ends here, not at the platform's function limit,
+  // so the route can answer with a JSON 503 the form knows how to explain.
+  const timeout = AbortSignal.timeout(EXPERT_LEAD_INSERT_TIMEOUT_MS);
+  const { error } = await createServiceRoleClient()
+    .from("expert_leads")
+    .insert({
+      submission_id: value.submissionId,
+      full_name: value.fullName,
+      whatsapp_phone: value.whatsappPhone,
+      study_level: value.studyLevel,
+      field_of_interest: value.fieldOfInterest,
+      target_intake: value.targetIntake,
+      help_request: value.helpRequest,
+    })
+    .abortSignal(timeout);
 
   if (!error) return { kind: "created" };
+  if (timeout.aborted) return { kind: "timed_out" };
   if (
     error.code === "23505" &&
     error.message.includes("expert_leads_submission_id_key")

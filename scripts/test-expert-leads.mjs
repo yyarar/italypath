@@ -6,6 +6,7 @@ import ts from "typescript";
 
 const root = process.cwd();
 const expertLeadsPath = path.join(root, "lib", "mentor", "expertLeads.ts");
+const routePath = path.join(root, "app", "api", "expert-leads", "route.ts");
 const validationPath = path.join(
   root,
   "lib",
@@ -23,11 +24,13 @@ async function importHelpers() {
   const tempDir = await mkdtemp(path.join(tmpdir(), "expert-leads-"));
 
   try {
-    const [expertLeadsSource, validationSource, inboxStateSource] = await Promise.all([
-      readFile(expertLeadsPath, "utf8"),
-      readFile(validationPath, "utf8"),
-      readFile(inboxStatePath, "utf8"),
-    ]);
+    const [expertLeadsSource, validationSource, inboxStateSource, routeSource] =
+      await Promise.all([
+        readFile(expertLeadsPath, "utf8"),
+        readFile(validationPath, "utf8"),
+        readFile(inboxStatePath, "utf8"),
+        readFile(routePath, "utf8"),
+      ]);
     const compilerOptions = {
       module: ts.ModuleKind.ES2022,
       target: ts.ScriptTarget.ES2020,
@@ -44,6 +47,19 @@ async function importHelpers() {
     const compiledInboxState = ts.transpileModule(inboxStateSource, {
       compilerOptions,
     }).outputText;
+    // The route runs against a stub store so no database is touched; the stub
+    // answers whatever the test puts in globalThis.__expertLeadStore.
+    const compiledRoute = ts
+      .transpileModule(routeSource, { compilerOptions })
+      .outputText.replace(
+        'from "@/lib/mentor/expertLeadValidation"',
+        'from "./expertLeadValidation.mjs"',
+      )
+      .replace('from "@/lib/mentor/expertLeads.server"', 'from "./expertLeads.server.mjs"');
+    const storeStub =
+      "export async function storeExpertLead(value) {\n" +
+      "  return globalThis.__expertLeadStore(value);\n" +
+      "}\n";
 
     await Promise.all([
       writeFile(
@@ -61,14 +77,23 @@ async function importHelpers() {
         compiledInboxState,
         "utf8",
       ),
+      writeFile(path.join(tempDir, "route.mjs"), compiledRoute, "utf8"),
+      writeFile(path.join(tempDir, "expertLeads.server.mjs"), storeStub, "utf8"),
     ]);
 
-    const [expertLeads, validation, inboxState] = await Promise.all([
+    const [expertLeads, validation, inboxState, route] = await Promise.all([
       import(`file://${tempDir}/expertLeads.mjs`),
       import(`file://${tempDir}/expertLeadValidation.mjs`),
       import(`file://${tempDir}/expertLeadInboxState.mjs`),
+      import(`file://${tempDir}/route.mjs`),
     ]);
-    return { ...expertLeads, ...validation, ...inboxState };
+    return {
+      ...expertLeads,
+      ...validation,
+      ...inboxState,
+      postExpertLead: route.POST,
+      expertLeadRouteMaxDuration: route.maxDuration,
+    };
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }
@@ -76,11 +101,16 @@ async function importHelpers() {
 
 const {
   EXPERT_FIELDS,
+  EXPERT_LEAD_INSERT_TIMEOUT_MS,
+  EXPERT_LEAD_REQUEST_TIMEOUT_MS,
   EXPERT_LEAD_STATUSES,
   EXPERT_STUDY_LEVELS,
   buildTargetIntakeOptions,
   buildWhatsAppHref,
+  expertLeadRouteMaxDuration,
+  fillExpertLeadTemplate,
   normalizeWhatsAppPhone,
+  postExpertLead,
   DEFAULT_EXPERT_LEAD_FILTER,
   EXPERT_LEAD_FILTERS,
   appendExpertLeads,
@@ -356,5 +386,146 @@ assert.deepEqual(transitionExpertLeadIdentity(initial, undefined), {
   changed: true,
 });
 assert.equal(transitionExpertLeadIdentity(initial, "owner-b").ownerId, "owner-b");
+
+// Operator copy: a name that contains String.replace patterns is shown literally (#51).
+assert.equal(
+  fillExpertLeadTemplate("Permanently delete the request from {name}?", {
+    name: "Ada $& $1 $$ $<n> $' Öğrenci",
+  }),
+  "Permanently delete the request from Ada $& $1 $$ $<n> $' Öğrenci?",
+  "replacement patterns inside a name must appear literally in the confirm text",
+);
+assert.equal(fillExpertLeadTemplate("YENİ TALEP: {count}", { count: 12 }), "YENİ TALEP: 12");
+assert.equal(
+  fillExpertLeadTemplate("{a} ve {a}", { a: "x" }),
+  "x ve x",
+  "every slot with the same key is filled",
+);
+
+// Time budgets (#51): the server insert gives up before the form does, and the
+// route's function cap leaves room for the insert to answer.
+assert.equal(EXPERT_LEAD_REQUEST_TIMEOUT_MS, 15_000);
+assert.ok(
+  EXPERT_LEAD_INSERT_TIMEOUT_MS < EXPERT_LEAD_REQUEST_TIMEOUT_MS,
+  "the server insert timeout must be shorter than the form's wait",
+);
+assert.ok(
+  Number.isInteger(expertLeadRouteMaxDuration) &&
+    expertLeadRouteMaxDuration * 1000 > EXPERT_LEAD_INSERT_TIMEOUT_MS &&
+    expertLeadRouteMaxDuration <= 60,
+  "maxDuration must cover the insert timeout and stay within the Vercel Hobby limit",
+);
+
+// API route (#47, #51), against a stub store: no database is touched.
+const storeCalls = [];
+let storeResult = { kind: "created" };
+globalThis.__expertLeadStore = async (value) => {
+  storeCalls.push(value);
+  if (storeResult instanceof Error) throw storeResult;
+  return storeResult;
+};
+
+async function postLead(body, headers = { "content-type": "application/json" }) {
+  const response = await postExpertLead(
+    new Request("https://italypath.app/api/expert-leads", { method: "POST", headers, body }),
+  );
+  return {
+    status: response.status,
+    contentType: response.headers.get("content-type"),
+    cacheControl: response.headers.get("cache-control"),
+    text: await response.text(),
+  };
+}
+
+async function quietly(run) {
+  const originalError = console.error;
+  console.error = () => {};
+  try {
+    return await run();
+  } finally {
+    console.error = originalError;
+  }
+}
+
+const stored = await postLead(JSON.stringify(validPayload));
+assert.equal(stored.status, 200);
+assert.deepEqual(JSON.parse(stored.text), { ok: true });
+assert.match(stored.contentType, /application\/json/);
+assert.equal(storeCalls.length, 1, "a valid lead reaches the store once");
+
+const trapped = await postLead(
+  JSON.stringify({ ...validPayload, website: "https://spam.example" }),
+);
+assert.deepEqual(
+  trapped,
+  stored,
+  "a honeypot hit must be indistinguishable from a stored lead (status, headers, body)",
+);
+assert.equal(storeCalls.length, 1, "a honeypot hit must not reach the store");
+
+const trappedGarbage = await postLead(JSON.stringify({ website: "x" }));
+assert.deepEqual(
+  trappedGarbage,
+  stored,
+  "a honeypot hit with an otherwise invalid payload still looks accepted",
+);
+assert.equal(storeCalls.length, 1);
+
+storeResult = { kind: "duplicate" };
+const retried = await postLead(JSON.stringify(validPayload));
+assert.deepEqual(retried, stored, "a retry of a stored lead looks like the first submission");
+
+storeResult = { kind: "rate_limited" };
+const busy = await postLead(JSON.stringify(validPayload));
+assert.equal(busy.status, 429);
+assert.deepEqual(JSON.parse(busy.text), { ok: false, error: "rate_limited" });
+
+storeResult = { kind: "timed_out" };
+const timedOut = await quietly(() => postLead(JSON.stringify(validPayload)));
+assert.equal(timedOut.status, 503, "a database timeout is a 503");
+assert.deepEqual(JSON.parse(timedOut.text), { ok: false, error: "timeout" });
+assert.match(timedOut.contentType, /application\/json/);
+
+storeResult = new Error("expert_lead_insert_failed:XX000");
+const failed = await quietly(() => postLead(JSON.stringify(validPayload)));
+assert.equal(failed.status, 503);
+assert.deepEqual(JSON.parse(failed.text), { ok: false, error: "temporarily_unavailable" });
+
+storeResult = { kind: "created" };
+const callsBeforeRefusals = storeCalls.length;
+
+// A browser submitting the form without JavaScript (method="post", no action)
+// sends a URL-encoded body: refused with a JSON 4xx, never stored, never parsed.
+const formEncoded = await postLead(
+  new URLSearchParams({ fullName: "Ada Öğrenci", whatsappPhone: "+905321234567" }).toString(),
+  { "content-type": "application/x-www-form-urlencoded" },
+);
+assert.ok(
+  formEncoded.status >= 400 && formEncoded.status < 500,
+  `a form-encoded body must be refused with 4xx, got ${formEncoded.status}`,
+);
+assert.match(formEncoded.contentType, /application\/json/);
+assert.equal(JSON.parse(formEncoded.text).ok, false);
+
+const plainText = await postLead("hello", {});
+assert.ok(plainText.status >= 400 && plainText.status < 500, "a text body must be refused with 4xx");
+assert.equal(JSON.parse(plainText.text).ok, false);
+
+const brokenJson = await postLead("{not json");
+assert.equal(brokenJson.status, 400);
+assert.deepEqual(JSON.parse(brokenJson.text), { ok: false, error: "invalid_json" });
+
+const crossSite = await postLead(JSON.stringify(validPayload), {
+  "content-type": "application/json",
+  origin: "https://evil.example",
+  host: "italypath.app",
+});
+assert.equal(crossSite.status, 403, "a foreign Origin is refused");
+assert.equal(storeCalls.length, callsBeforeRefusals, "refused requests never reach the store");
+for (const refused of [formEncoded, plainText, brokenJson, crossSite]) {
+  assert.equal(refused.cacheControl, "no-store, max-age=0");
+}
+
+delete globalThis.__expertLeadStore;
 
 console.log("Expert lead domain validation tests passed.");
