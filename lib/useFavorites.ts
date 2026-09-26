@@ -1,30 +1,33 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from 'react';
-import { useAuth, useUser } from '@clerk/nextjs';
-import { createClerkSupabaseClient } from '@/lib/supabaseClient';
+import { useState, useEffect, useCallback } from 'react';
+import { useUser } from '@clerk/nextjs';
+import { safeGetItem, safeSetItem } from '@/lib/safeStorage';
+import { useUserSupabaseClient } from '@/lib/useUserSupabaseClient';
+
+const GUEST_FAVORITES_KEY = 'italyPathFavorites';
+
+function toUniversityIds(values: unknown[]): number[] {
+    return values
+        .map((id) => Number(id))
+        .filter((id) => Number.isFinite(id));
+}
 
 /**
  * Birleşik Favori Hook'u
- * - Giriş yapmamış kullanıcılar → localStorage
+ * - Giriş yapmamış kullanıcılar → localStorage (Supabase istemcisi hiç yüklenmez)
  * - Giriş yapmış kullanıcılar → Supabase DB
- * Her iki durumda da aynı API: { favorites, toggleFavorite, isFavorite, loading }
+ * Her iki durumda da aynı API: { favorites, toggleFavorite, isFavorite, loading, error, reload }
+ * error: giriş yapmış kullanıcının favorileri yüklenemedi (boş liste değil).
  */
 export function useFavorites() {
     const { user, isLoaded } = useUser();
-    const { getToken } = useAuth();
+    const userId = user?.id;
+    const getClient = useUserSupabaseClient();
     const [favorites, setFavorites] = useState<number[]>([]);
     const [loading, setLoading] = useState(true);
-    const supabase = useMemo(
-        () => createClerkSupabaseClient(async () => {
-            try {
-                return await getToken({ template: 'supabase' });
-            } catch {
-                return null;
-            }
-        }),
-        [getToken]
-    );
+    const [error, setError] = useState(false);
+    const [reloadKey, setReloadKey] = useState(0);
 
     // Favorileri yükle
     useEffect(() => {
@@ -34,51 +37,50 @@ export function useFavorites() {
 
         async function loadFavorites() {
             setLoading(true);
+            setError(false);
             setFavorites([]);
 
-            try {
-                if (user) {
-                    // Giriş yapmış → Supabase'den çek
-                    const { data, error } = await supabase
+            if (userId) {
+                // Giriş yapmış → Supabase'den çek
+                try {
+                    const supabase = await getClient();
+                    const { data, error: loadError } = await supabase
                         .from('favorites')
                         .select('university_id')
-                        .eq('user_id', user.id);
+                        .eq('user_id', userId);
 
-                    if (error) {
-                        throw error;
+                    if (loadError) {
+                        throw loadError;
                     }
 
                     if (isActive) {
-                        setFavorites(
-                            (data ?? [])
-                                .map((f) => Number(f.university_id))
-                                .filter((id) => Number.isFinite(id))
-                        );
+                        setFavorites(toUniversityIds((data ?? []).map((f) => f.university_id)));
                     }
-                    return;
+                } catch (err) {
+                    console.error("Favori yükleme hatası:", err);
+                    if (isActive) {
+                        setError(true);
+                    }
+                } finally {
+                    if (isActive) {
+                        setLoading(false);
+                    }
                 }
+                return;
+            }
 
-                // Giriş yapmamış → localStorage'dan oku
-                const saved = localStorage.getItem('italyPathFavorites');
-                if (!saved) return;
-
-                const parsed = JSON.parse(saved);
+            // Giriş yapmamış → localStorage'dan oku
+            try {
+                const saved = safeGetItem(GUEST_FAVORITES_KEY);
+                const parsed: unknown = saved ? JSON.parse(saved) : [];
                 if (!Array.isArray(parsed)) {
                     throw new Error('Geçersiz favori verisi');
                 }
-
                 if (isActive) {
-                    setFavorites(
-                        parsed
-                            .map((id) => Number(id))
-                            .filter((id) => Number.isFinite(id))
-                    );
+                    setFavorites(toUniversityIds(parsed));
                 }
             } catch (err) {
                 console.error("Favori yükleme hatası:", err);
-                if (isActive) {
-                    setFavorites([]);
-                }
             } finally {
                 if (isActive) {
                     setLoading(false);
@@ -91,7 +93,11 @@ export function useFavorites() {
         return () => {
             isActive = false;
         };
-    }, [user, isLoaded, supabase]);
+    }, [userId, isLoaded, getClient, reloadKey]);
+
+    const reload = useCallback(() => {
+        setReloadKey((key) => key + 1);
+    }, []);
 
     // Favori ekle/çıkar
     const toggleFavorite = useCallback(
@@ -105,26 +111,27 @@ export function useFavorites() {
                 : [...favorites, universityId];
             setFavorites(newFavorites);
 
-            if (user) {
+            if (userId) {
                 // Supabase'e yaz
                 try {
+                    const supabase = await getClient();
                     if (alreadyFavorite) {
-                        const { error } = await supabase
+                        const { error: deleteError } = await supabase
                             .from('favorites')
                             .delete()
-                            .eq('user_id', user.id)
+                            .eq('user_id', userId)
                             .eq('university_id', String(universityId));
 
-                        if (error) {
-                            throw error;
+                        if (deleteError) {
+                            throw deleteError;
                         }
                     } else {
-                        const { error } = await supabase
+                        const { error: insertError } = await supabase
                             .from('favorites')
-                            .insert([{ user_id: user.id, university_id: String(universityId) }]);
+                            .insert([{ user_id: userId, university_id: String(universityId) }]);
 
-                        if (error) {
-                            throw error;
+                        if (insertError) {
+                            throw insertError;
                         }
                     }
                 } catch (err) {
@@ -132,17 +139,12 @@ export function useFavorites() {
                     console.error("Favori güncelleme hatası:", err);
                     setFavorites(previousFavorites);
                 }
-            } else {
-                // localStorage'a yaz
-                try {
-                    localStorage.setItem('italyPathFavorites', JSON.stringify(newFavorites));
-                } catch (err) {
-                    console.error("Favori kaydetme hatası:", err);
-                    setFavorites(previousFavorites);
-                }
+            } else if (!safeSetItem(GUEST_FAVORITES_KEY, JSON.stringify(newFavorites))) {
+                // Tarayıcı hafızası kapalı: favori yalnız bu sekmede kalır.
+                console.error("Favori kaydetme hatası: tarayıcı hafızası kullanılamıyor");
             }
         },
-        [favorites, user, supabase]
+        [favorites, userId, getClient]
     );
 
     // Belirli bir üniversitenin favori olup olmadığını kontrol et
@@ -151,5 +153,5 @@ export function useFavorites() {
         [favorites]
     );
 
-    return { favorites, toggleFavorite, isFavorite, loading, isLoggedIn: !!user };
+    return { favorites, toggleFavorite, isFavorite, loading, error, reload, isLoggedIn: !!user };
 }

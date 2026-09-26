@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { useAuth, useUser } from "@clerk/nextjs";
-import { createClerkSupabaseClient } from "@/lib/supabaseClient";
+import { useCallback, useEffect, useState } from "react";
+import { useUser } from "@clerk/nextjs";
+import { useUserSupabaseClient } from "@/lib/useUserSupabaseClient";
 import type { UserProfileRow } from "@/types";
 import {
   EMPTY_PROFILE,
@@ -26,27 +26,18 @@ function rowToProfile(row: UserProfileRow | null): UserProfile {
 export function useUserProfile(): {
   profile: UserProfile;
   loading: boolean;
+  /** Profil yuklenemedi (bos profil degil); reload ile tekrar denenir. */
   unavailable: boolean;
+  reload: () => void;
   saveProfile: (next: UserProfile) => Promise<boolean>;
 } {
   const { user, isLoaded } = useUser();
-  const { getToken } = useAuth();
   const userId = user?.id;
+  const getClient = useUserSupabaseClient();
   const [profile, setProfile] = useState<UserProfile>(EMPTY_PROFILE);
   const [loading, setLoading] = useState(true);
   const [unavailable, setUnavailable] = useState(false);
-
-  const supabase = useMemo(
-    () =>
-      createClerkSupabaseClient(async () => {
-        try {
-          return await getToken({ template: "supabase" });
-        } catch {
-          return null;
-        }
-      }),
-    [getToken],
-  );
+  const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
     if (!isLoaded) return;
@@ -64,29 +55,35 @@ export function useUserProfile(): {
       setLoading(true);
       setUnavailable(false);
 
-      const { data, error } = await supabase
-        .from("user_profiles")
-        .select("user_id, level, fields, budget, city_pref")
-        .eq("user_id", userId)
-        .maybeSingle();
-
-      if (!isActive) return;
-
-      if (error) {
-        console.error("[hub] profil yukleme hatasi:", error);
-        setProfile(EMPTY_PROFILE);
-        setUnavailable(true);
-      } else {
-        setProfile(rowToProfile((data as UserProfileRow | null) ?? null));
+      try {
+        const supabase = await getClient();
+        const { data, error } = await supabase
+          .from("user_profiles")
+          .select("user_id, level, fields, budget, city_pref")
+          .eq("user_id", userId)
+          .maybeSingle();
+        if (error) throw error;
+        if (isActive) setProfile(rowToProfile((data as UserProfileRow | null) ?? null));
+      } catch (err) {
+        console.error("[hub] profil yukleme hatasi:", err);
+        if (isActive) {
+          setProfile(EMPTY_PROFILE);
+          setUnavailable(true);
+        }
+      } finally {
+        if (isActive) setLoading(false);
       }
-      setLoading(false);
     }
 
     void load();
     return () => {
       isActive = false;
     };
-  }, [supabase, userId, isLoaded]);
+  }, [getClient, userId, isLoaded, reloadKey]);
+
+  const reload = useCallback(() => {
+    setReloadKey((key) => key + 1);
+  }, []);
 
   const saveProfile = useCallback(
     async (next: UserProfile): Promise<boolean> => {
@@ -95,27 +92,29 @@ export function useUserProfile(): {
       const previous = profile;
       setProfile(next);
 
-      const { error } = await supabase.from("user_profiles").upsert(
-        {
-          user_id: userId,
-          level: next.level,
-          fields: next.fields,
-          budget: next.budget,
-          city_pref: next.cityPref,
-          updated_at: new Date().toISOString(),
-        },
-        { onConflict: "user_id" },
-      );
-
-      if (error) {
-        console.error("[hub] profil kaydetme hatasi:", error);
+      try {
+        const supabase = await getClient();
+        const { error } = await supabase.from("user_profiles").upsert(
+          {
+            user_id: userId,
+            level: next.level,
+            fields: next.fields,
+            budget: next.budget,
+            city_pref: next.cityPref,
+            updated_at: new Date().toISOString(),
+          },
+          { onConflict: "user_id" },
+        );
+        if (error) throw error;
+        return true;
+      } catch (err) {
+        console.error("[hub] profil kaydetme hatasi:", err);
         setProfile(previous);
         return false;
       }
-      return true;
     },
-    [profile, supabase, userId],
+    [profile, getClient, userId],
   );
 
-  return { profile, loading, unavailable, saveProfile };
+  return { profile, loading, unavailable, reload, saveProfile };
 }

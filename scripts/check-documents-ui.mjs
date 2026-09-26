@@ -92,6 +92,26 @@ if (!existsSync(limitsFile) || !existsSync(hardeningFile)) {
   }
 }
 
+// Signed links (security audit S7#5, 2026-09-26): a document is signed only
+// when "View" is clicked, for 60-120 seconds; new uploads are not cacheable.
+{
+  const hook = readFileSync("lib/documents/useUserDocuments.ts", "utf8");
+  const row = readFileSync("components/documents/DocumentRow.tsx", "utf8");
+  const expiry = Number(hook.match(/SIGNED_URL_EXPIRES_IN_SECONDS = (\d+);/)?.[1]);
+  if (!(expiry >= 60 && expiry <= 120)) {
+    failures.push(`useUserDocuments.ts: signed link lifetime must be 60-120 s (found ${expiry})`);
+  }
+  if (hook.includes("createSignedUrls(")) {
+    failures.push("useUserDocuments.ts: documents must not be signed in bulk at list load");
+  }
+  if (!hook.includes('cacheControl: "0"')) {
+    failures.push('useUserDocuments.ts: uploads must pass cacheControl: "0"');
+  }
+  if (row.includes("signed_url") || !row.includes("onView(doc.storage_path)")) {
+    failures.push("DocumentRow.tsx: the signed link must be created on click through onView");
+  }
+}
+
 if (failures.length) {
   console.error("check:documents-ui FAILED");
   for (const f of failures) console.error(" - " + f);

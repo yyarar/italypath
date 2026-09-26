@@ -25,7 +25,8 @@ type StepId = "level" | "fields" | "budget" | "city";
 const STEPS: StepId[] = ["level", "fields", "budget", "city"];
 
 export default function HosgeldinPage() {
-  const { profile, loading, saveProfile } = useUserProfile();
+  const { t } = useLanguage();
+  const { profile, loading, unavailable, reload, saveProfile } = useUserProfile();
 
   if (loading) {
     return (
@@ -33,6 +34,25 @@ export default function HosgeldinPage() {
         <div className="mx-auto max-w-xl space-y-4">
           <div className="h-8 bg-[var(--editorial-surface)] shimmer" />
           <div className="h-40 bg-[var(--editorial-surface)] shimmer" />
+        </div>
+      </div>
+    );
+  }
+
+  // Kayitli cevaplar okunamadiysa bos sihirbaz acilmaz; kaydetmek onlarin
+  // uzerine yazardi.
+  if (unavailable) {
+    return (
+      <div className="min-h-screen bg-[var(--editorial-paper)] px-4 py-12 sm:px-6">
+        <div className="mx-auto max-w-xl border border-[var(--editorial-terracotta)] bg-[var(--editorial-surface)] px-4 py-4">
+          <p className="text-sm text-[var(--editorial-ink)]">{t.onboarding.loadError}</p>
+          <button
+            type="button"
+            onClick={reload}
+            className="mt-4 inline-flex items-center gap-2 border border-[var(--editorial-sage)] bg-[var(--editorial-sage)] px-5 py-3 text-[12px] font-bold uppercase tracking-[0.16em] text-white transition-colors hover:bg-[#173d36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--editorial-sage)]"
+          >
+            {t.onboarding.retry}
+          </button>
         </div>
       </div>
     );

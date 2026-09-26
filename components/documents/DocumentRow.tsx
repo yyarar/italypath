@@ -8,6 +8,8 @@ import type { UserDocument } from "@/types";
 interface DocumentRowProps {
   doc: UserDocument;
   onDelete: (id: string, storagePath: string) => void;
+  /** Kisa omurlu imzali link; basarisizsa null (hata mesajini sayfa gosterir). */
+  onView: (storagePath: string) => Promise<string | null>;
   isLast: boolean;
 }
 
@@ -18,9 +20,31 @@ function fileKind(name: string): string {
   return (ext || "DOC").slice(0, 3).toUpperCase();
 }
 
-export default function DocumentRow({ doc, onDelete, isLast }: DocumentRowProps) {
+export default function DocumentRow({ doc, onDelete, onView, isLast }: DocumentRowProps) {
   const { t, language } = useLanguage();
   const [confirming, setConfirming] = useState(false);
+  const [opening, setOpening] = useState(false);
+
+  const handleView = async () => {
+    if (opening) return;
+    setOpening(true);
+    // Sekme tiklama aninda acilir (acilir pencere engelleyicisi beklemeden
+    // sonra acilani durdurur); adresi link hazir olunca verilir.
+    const viewer = window.open("", "_blank");
+    if (viewer) viewer.opener = null;
+    try {
+      const url = await onView(doc.storage_path);
+      if (!url) {
+        viewer?.close();
+      } else if (viewer) {
+        viewer.location.href = url;
+      } else {
+        window.location.assign(url);
+      }
+    } finally {
+      setOpening(false);
+    }
+  };
 
   const dateLabel = new Date(doc.created_at).toLocaleDateString(
     language === "tr" ? "tr-TR" : "en-US",
@@ -61,22 +85,16 @@ export default function DocumentRow({ doc, onDelete, isLast }: DocumentRowProps)
         </div>
       ) : (
         <div className="flex shrink-0 items-center gap-4">
-          {doc.signed_url ? (
-            <a
-              href={doc.signed_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-sage)]"
-            >
-              <ExternalLink className="h-3 w-3" strokeWidth={2} />
-              {t.documents.row.view}
-            </a>
-          ) : (
-            <span className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-border)]">
-              <ExternalLink className="h-3 w-3" strokeWidth={2} />
-              {t.documents.row.view}
-            </span>
-          )}
+          <button
+            type="button"
+            onClick={() => void handleView()}
+            disabled={opening}
+            aria-busy={opening}
+            className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-[0.12em] text-[var(--editorial-sage)] disabled:text-[var(--editorial-muted)]"
+          >
+            <ExternalLink className="h-3 w-3" strokeWidth={2} />
+            {t.documents.row.view}
+          </button>
           <button
             type="button"
             onClick={() => setConfirming(true)}
