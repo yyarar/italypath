@@ -2,7 +2,7 @@
 
 Bu dosya yeni agent'larin projeyi hizli ve dogru anlamasi icin tutulur; guncel mimari ve calisma kurallarinin kaynak dokumanidir. `AGENT_COMMITS.md` tarihsel ve eksik degisiklik notlaridir (Git gecmisi esastir). `AGENT_CONTEXT_FIX_REPORT.md` 2026-06-11'de uygulanmis eski bir audit arsividir. En son context degerlendirmesi `docs/CONTEXT_AUDIT_2026-09-19.md` icindedir; bu dosyadaki 2026-09-21 duzeltmeleri o raporun uygulama sirasinin 1. ve 2. adimidir. Okumaya kok `AGENTS.md` ile basla; tek acik is listesi `docs/STATUS.md`, tasarim/plan belgelerinin durumu `docs/superpowers/INDEX.md` icindedir (3. adim, 2026-09-21).
 
-Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun) · 2026-09-26: veri katmani, kanonik okul adresi, JSON-LD kacisi, okul fotograflari ve hata sayfalari (guvenlik denetimi kart 2) · 2026-09-26: AI mentor masasi, `/api/chat` ve Gemini/AI SDK paketleri kaldirildi (guvenlik denetimi kart 6; dalda, push bekliyor) · 2026-09-26: katalog yetkileri ve kullanici yazma sinirlari canlida (guvenlik denetimi kart 4) · 2026-09-26: favori/belge/profil/SAT kancalari yerel Clerk oturum anahtarina gecti, sure siniri ve "yuklenemedi" durumu, tiklaninca imzalanan belge linki, SAT ilerleme view/RPC'si, `safeStorage` (guvenlik denetimi kart 7; dalda, push bekliyor) · 2026-09-26: hesap silme webhook'u, on gorusme formu gizlilik satiri ve saklama temizligi (guvenlik denetimi kart 8; dalda, push bekliyor)
+Son guncelleme: 2026-09-21 (dogrulandigi commit: `acdb71a`; canli Supabase sayimi ayni gun) · 2026-09-26: veri katmani, kanonik okul adresi, JSON-LD kacisi, okul fotograflari ve hata sayfalari (guvenlik denetimi kart 2) · 2026-09-26: AI mentor masasi, `/api/chat` ve Gemini/AI SDK paketleri kaldirildi (guvenlik denetimi kart 6; dalda, push bekliyor) · 2026-09-26: katalog yetkileri ve kullanici yazma sinirlari canlida (guvenlik denetimi kart 4) · 2026-09-26: favori/belge/profil/SAT kancalari yerel Clerk oturum anahtarina gecti, sure siniri ve "yuklenemedi" durumu, tiklaninca imzalanan belge linki, SAT ilerleme view/RPC'si, `safeStorage` (guvenlik denetimi kart 7; dalda, push bekliyor) · 2026-09-26: hesap silme webhook'u, on gorusme formu gizlilik satiri ve saklama temizligi (guvenlik denetimi kart 8; dalda, push bekliyor) · 2026-09-26: sayfa agirligi ve sunucu isi (guvenlik ve optimizasyon denetimi kart 10: ceviri bolme, LazyMotion, burs haritasi, `/cities`, `replaceState`, statik `/isee` ve `/communities`, Spectral 400/600; dalda, push bekliyor)
 
 Sayilar bu dosyada tarihli snapshot olarak gecer. Guncel sayim "Canli university/program verisi" bolumundedir; eski tarihli bolumlerdeki sayilari bugunku gercek sayma.
 
@@ -42,7 +42,7 @@ italypath-main/
 ├── AGENTS.md                       # Kisa giris: okuma sirasi + degismez kurallar (ONCE BUNU OKU)
 ├── app/
 │   ├── layout.tsx                  # ClerkProvider, LanguageProvider, MobileZoomLock, RouteTransition
-│   ├── global-error.tsx            # Kok layout hata verirse markali 500 sayfasi (TR/EN, lib/translations.ts globalError)
+│   ├── global-error.tsx            # Kok layout hata verirse markali 500 sayfasi (TR/EN, lib/translations globalError)
 │   ├── page.tsx                    # Home server wrapper (ISR 3h); stats getUniversitiesDirectory() kaynakli
 │   ├── sitemap.ts                  # getUniversitiesDirectory() ile dinamik sitemap; lastModified = DB updated_at ∨ PAGE_TEMPLATE_LAST_MODIFIED
 │   ├── robots.ts                   # Public/protected indexleme kurallari
@@ -68,7 +68,7 @@ italypath-main/
 │   │           ├── layout.tsx      # Server generateMetadata (getProgramPageData, sayfayla ayni veri)
 │   │           └── page.tsx        # Server SEO wrapper (getProgramPageData + pruneUniversityForProgram, EducationalOccupationalProgram JSON-LD) + client program portrait
 │   ├── cities/page.tsx
-│   ├── communities/page.tsx        # Public atlas; force-dynamic SEO 2.5 wrapper
+│   ├── communities/page.tsx        # Public atlas; statik prerender (2026-09-26'ya kadar force-dynamic)
 │   ├── topluluklar/page.tsx        # redirect -> /communities
 │   ├── yasal/[slug]/page.tsx       # Public legal pages (gizlilik/kullanim/cerez)
 │   ├── scholarships/page.tsx
@@ -83,7 +83,8 @@ italypath-main/
 │   ├── Navbar.tsx
 │   ├── HomePageClient.tsx          # Home client leaf; Navbar/Hero/sections/Footer composition
 │   ├── MobileZoomLock.tsx          # Coarse pointer pinch/double-tap/edge-swipe guard
-│   ├── RouteTransition.tsx
+│   ├── RouteTransition.tsx         # LazyMotion(domAnimation, strict) + AnimatePresence initial={false}
+│   ├── motion/LayoutMotion.tsx     # layout/layoutId icin domMax'i ayri paketten yukleyen sarmalayici
 │   ├── HeroSection.tsx
 │   ├── home/HomeToolsSection.tsx   # Ana sayfa 7 ucretsiz arac vitrini
 │   ├── consultation/               # On gorusme bolumu, SSS, mobil sabit buton, ConsultPrompt, /on-gorusme client leaf
@@ -121,8 +122,9 @@ italypath-main/
 │   ├── programMetadata.ts          # Program sayfasi Turkce title/description (saf modul); guard check:program-metadata
 │   ├── relatedLinks.ts             # buildRelatedLinks: ayni sehir okullari, sehir rehberi, bolge bursu, ayni degree_class kodlu programlar
 │   ├── useFavorites.ts
-│   ├── translations.ts
+│   ├── translations/               # tr.ts (varsayilan, statik), en.ts (yalniz dinamik import), index.ts (loadEnglishTranslations)
 │   ├── cities/data.ts
+│   ├── cities/guidePanel.ts        # /cities sag paneli: sunucu ilk sehir, tarayici diger sehirleri dinamik import ile
 │   ├── communities/chapters.ts
 │   ├── community-links.ts
 │   ├── legal/documents.ts          # Yasal sayfa metinleri (TR) + footer/sitemap linkleri
@@ -136,7 +138,7 @@ italypath-main/
 │   ├── universities.ts             # University/Department/admission domain tipleri
 │   ├── cities.ts
 │   └── scholarships.ts
-├── public/data/italy-regions.geojson
+├── public/data/italy-regions.geojson  # Burs haritasi; sinirlari koruyan sadelestirme (2026-09-26, ~100 KB / gzip ~27 KB)
 ├── public/llms.txt                 # AI asistanlari icin discovery dosyasi; proxy allowlist'te (2026-09-21)
 ├── scripts/
 │   ├── check-route-access.mjs
@@ -371,7 +373,7 @@ Clerk guvenilen kokenler (2026-09-25): `lib/auth/trustedOrigins.ts` tek kaynakti
 
 Guvenlik basliklari (2026-09-25, `next.config.ts` `headers()`, tum yollar): `X-Frame-Options: DENY`; zorunlu `Content-Security-Policy` yalniz `frame-ancestors 'none'; object-src 'none'; base-uri 'self'`; ayrica `Content-Security-Policy-Report-Only` izin listesi (self, satir ici betik, Clerk Frontend API, Supabase https/wss, Clerk gorselleri, okul fotograflari icin Unsplash/Pexels (2026-09-26); test anahtarinda Clerk development instance, `next dev`'de eval/HMR). Nonce tabanli CSP kullanilmaz (ISR onbellegini bozar). Rapor-modu ihlalleri yalniz tarayici konsolunda gorunur (rapor adresi yok); zorunlu hale getirmeden once `/giris`, `/documents`, `/sat` girisli denenmeli. Kayit formunda `SignUp.Captcha` vardir: Clerk panelinde bot korumasi aciksa kayit sirasinda Cloudflare Turnstile yuklenir ve izin listesinde yoktur; zorunlu hale getirmeden once rapor-modunda kayit akisi kontrol edilmeli. `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (kamera, mikrofon, konum, browsing-topics kapali), `poweredByHeader: false`.
 
-Navbar artik signed-out durumda **modal acmaz**; `<Link href="/giris">` ile tam sayfa `/giris`'e gider. Protected CTA linkleri signed-out durumda `/giris?redirect_url=...` adresine gider (`/sign-in?redirect_url=...` referanslari kalmadi). Mobil BottomNav 2026-07-23 tarihinde uygulama genelinden kaldirildi.
+Navbar artik signed-out durumda **modal acmaz**; giris durumu `SignedIn`/`SignedOut` yerine `isSignedIn === true` / `=== false` ile ayrilir (Clerk yuklenirken ikisi de gizli; 2026-09-26, denetim O3#3, `check:auth-ui`); `<Link href="/giris">` ile tam sayfa `/giris`'e gider. Protected CTA linkleri signed-out durumda `/giris?redirect_url=...` adresine gider (`/sign-in?redirect_url=...` referanslari kalmadi). Mobil BottomNav 2026-07-23 tarihinde uygulama genelinden kaldirildi.
 
 `npm run check:routes`, public/protected matrix'i Clerk'in kendi yol eslestiricisiyle (`@clerk/shared/pathMatcher`) dener, kardes onek ve alt yol negatif denemelerini yapar, `app/**/page.tsx`, `app/**/route.ts`, `app/robots.ts`, `app/sitemap.ts` ve `public/*` dosyalarini tarayip ne allowlist'te ne acik korumali listede olan yolu hata sayar, `authorizedParties` sozlesmesini ve scholarship GeoJSON fetch kurallarini kontrol eder. Yeni public sayfa/dosya eklerken `proxy.ts` allowlist'i, yeni korumali sayfada `PROTECTED_PAGE_ROUTES`, yeni korumali API'de script icindeki `protectedApiRoutes` listesi guncellenir. `npm run check:auth-ui`, `/giris` sayfasinin ve auth migration'inin butunlugunu, `redirect_url` ayni koken kontrolunu ve `allowedRedirectOrigins` baglantisini dogrular.
 
@@ -401,7 +403,7 @@ Bilesenler `components/auth/` altinda:
 - 6 haneli dogrulama adimi `SignUpForm.tsx` icindeki Clerk Elements strategy'sinde render edilir
 - `PasswordResetFlow.tsx`: 2 adimli sifremi unuttum akisi
 
-Tum metinler `lib/translations.ts` `auth.*` namespace altinda (TR + EN paralel). Esas referans (Clerk Elements mimarisi): `docs/superpowers/specs/2026-07-01-clerk-elements-auth-rebuild-design.md` ve `docs/superpowers/plans/2026-07-01-clerk-elements-auth-rebuild.md`; production redirect sertlestirmesi `docs/superpowers/*/2026-06-27-auth-production-redirect-hardening*`. 16 Haziran tasarim/plani (`2026-06-16-auth-redesign-*`) ilk surumun arsividir.
+Tum metinler `lib/translations/` (`tr.ts` + `en.ts`) `auth.*` namespace altinda (TR + EN paralel). Esas referans (Clerk Elements mimarisi): `docs/superpowers/specs/2026-07-01-clerk-elements-auth-rebuild-design.md` ve `docs/superpowers/plans/2026-07-01-clerk-elements-auth-rebuild.md`; production redirect sertlestirmesi `docs/superpowers/*/2026-06-27-auth-production-redirect-hardening*`. 16 Haziran tasarim/plani (`2026-06-16-auth-redesign-*`) ilk surumun arsividir.
 
 Clerk Elements v0.24.18 ile bilinen sapmalar (2026-09-25'te 0.24.20'ye yukseltildi; sapmalar gecerli varsayilir, gelecek auth degisikliklerinde dikkat):
 
@@ -414,7 +416,7 @@ Hesap silme (2026-09-26, denetim S7#2): Clerk `user.deleted` olayi `app/api/webh
 
 ### Dil sistemi
 
-`context/LanguageContext.tsx`, TR/EN dil tercihini React Context + `localStorage` ile saklar ve `document.documentElement.lang` ile senkronlar. Tarayici hafizasina (dil, gorunum modu, son mentor masasi, misafir favorileri) yalniz `lib/safeStorage.ts` ile erisilir: site verisini engelleyen ziyaretcide hata firlatmaz, yazilamayan deger sekme acik kaldikca bellekte kalir (guvenlik denetimi S5#5, 2026-09-26; `check:hub-onboarding` ve `check:universities-ui` zorlar). UI metinleri `lib/translations.ts` icindedir. Yeni metinler hard-code edilmemeli; TR/EN paralel eklenmeli.
+`context/LanguageContext.tsx`, TR/EN dil tercihini React Context + `localStorage` ile saklar ve `document.documentElement.lang` ile senkronlar. Tarayici hafizasina (dil, gorunum modu, son mentor masasi, misafir favorileri) yalniz `lib/safeStorage.ts` ile erisilir: site verisini engelleyen ziyaretcide hata firlatmaz, yazilamayan deger sekme acik kaldikca bellekte kalir (guvenlik denetimi S5#5, 2026-09-26; `check:hub-onboarding` ve `check:universities-ui` zorlar). UI metinleri `lib/translations/` altindadir (2026-09-26, denetim O3#4): `tr.ts` (varsayilan; sunucu ve ilk yukleme) ve `en.ts` (`export const en: Translations`, yani TR ile ayni anahtar agaci derleyicide zorunlu). Ingilizce metinler ilk pakete girmez: `lib/translations/index.ts` `loadEnglishTranslations()` dinamik import eder; kayitli dil Ingilizceyse paket sayfa acilirken istenir, gelene kadar arayuz Turkce kalir (`useActiveTranslations`, `global-error.tsx` de kullanir). `en.ts`'yi statik import etme (`check:seo-vitals`). Yeni metinler hard-code edilmemeli; iki dosyaya birlikte eklenmeli.
 
 ### SEO ve domain durumu
 
@@ -445,7 +447,7 @@ SEO Adim 2.5 (`SEO 2.5` deploy'u):
 - `/` server wrapper oldu; server'da canli stats hesaplar (o tarihte `getUniversitiesData()`, 2026-09-15'ten beri `getUniversitiesDirectory()`); o tarihte hata durumunda stats `null` donuyordu, 2026-09-26'dan beri hata firlatilir (bos istatistik 3 saat onbellekte kalmasin)
 - Home UI `components/HomePageClient.tsx` client leaf'ine tasindi
 - `/isee` server wrapper oldu; hesaplayici client leaf'e tasindi (2026-09-17'den beri `components/isee/IseeParificatoClient.tsx`)
-- `/communities` `force-dynamic` ile static prerender + analytics kaynakli marker'dan cikarildi; atlas HTML'de gercek H1/chapter/topluluk satirlari tasimaya devam eder
+- `/communities` `force-dynamic` ile static prerender + analytics kaynakli marker'dan cikarildi; atlas HTML'de gercek H1/chapter/topluluk satirlari tasimaya devam eder. 2026-09-26 (denetim O2#4): `/isee` ve `/communities` yeniden statik; H1 ve icerik build HTML'inde dogrulandi, marker `<Analytics />`'ten gelir ve son `</main>`'den sonradir (asagidaki SEO 3.5 notu)
 
 SEO Adim 3 Part 1 (`288dd5d`, breadcrumb polish `b1fd488`):
 
@@ -460,7 +462,7 @@ SEO Adim 3.5 (2026-09-15, kontrast + vitals guard; ayrinti `SEO_AUDIT.md` §19):
 - `--editorial-terracotta-ink: #9f4629` tokeni eklendi; terracotta renkli METIN/ikon her yerde `text-[var(--editorial-terracotta-ink)]` kullanir (kucuk puntoda WCAG AA). Base `--editorial-terracotta` yalnizca buton/arka plan/cerceve icindir.
 - `components/RouteTransition.tsx` icindeki `<AnimatePresence initial={false}>` ilk yuklemede alt agactaki tum framer-motion `initial` durumlarini devre disi birakir; sunucu HTML'i `opacity:1` ile gelir. Bu prop kaldirilirsa tum sayfalarda H1 hidrasyona kadar gizlenir. Guard: `npm run check:seo-vitals`.
 - Mobil zoom kilidi (`maximumScale: 1`, `userScalable: false`, `MobileZoomLock`) bilincli urun karari; SEO siralama sinyali degildir, yeniden onerme.
-- Gercek LCP darbogazi (devtools throttling ile dogrulandi): 2026-09-15 oncesinde soguk instance'da eski tam compose (`getUniversitiesData()`, kaldirildi) beklenirken HTML govdesi ~5 sn gecikirdi (egress diyeti + ISR ile cozuldu, `SEO_AUDIT.md` §20); sicak instance'da hala render-blocking CSS, 10 preload font dosyasi (164 KiB) ve JS ile bant genisligi yarisir. Simule Lighthouse'un "render delay" degeri bu yuzden animasyon kaniti degildir.
+- Gercek LCP darbogazi (devtools throttling ile dogrulandi): 2026-09-15 oncesinde soguk instance'da eski tam compose (`getUniversitiesData()`, kaldirildi) beklenirken HTML govdesi ~5 sn gecikirdi (egress diyeti + ISR ile cozuldu, `SEO_AUDIT.md` §20); sicak instance'da hala render-blocking CSS, 10 preload font dosyasi (164 KiB) ve JS ile bant genisligi yarisir (2026-09-26: font on yuklemesi 6 dosya; Spectral yalniz 400 ve 600, `check:seo-vitals`). Simule Lighthouse'un "render delay" degeri bu yuzden animasyon kaniti degildir.
 - Statik prerender edilen sayfalardaki `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi `app/layout.tsx` `<Analytics />` bileseninden gelir ve footer sonrasindadir; icerik sunucu HTML'inde oldugu surece zararsizdir.
 
 Son canli SEO kabul audit notlari (2026-07-22):
@@ -489,7 +491,7 @@ Ilk gelir modeli ucretli danismanlik; kapi mevcut uzman lead formudur. Fiyat/pak
 - `components/consultation/ConsultationSection.tsx` gercek `ExpertLeadForm`'u kullanir (`POST /api/expert-leads`); `variant="page"` basligi h1 yapar. Yeni tablo/kolon yok.
 - `/on-gorusme`: `app/on-gorusme/page.tsx` server metadata + `ConsultationPageClient`; public route ve sitemap'te.
 - `ConsultPrompt` program detay, universite detay (eski duraklatilmis AI masasi kutusunun yerine), `/scholarships` ve `/isee` sayfalarinda `/on-gorusme`'ye gider. Navbar masaustunde ayrica link var; menu ileride yeniden ele alinacak.
-- Metinler `lib/translations.ts`: `homeTools`, `consultation`, `homeFaq`, `consultPrompt`, `navbar.consultation` (TR+EN).
+- Metinler `lib/translations/` (`tr.ts` + `en.ts`): `homeTools`, `consultation`, `homeFaq`, `consultPrompt`, `navbar.consultation`.
 - Form gizlilik satiri (2026-09-26, denetim S7#4): gonder dugmesinin altinda `aiMentor.expertDesk.privacyNotice` (TR/EN) ve `/yasal/gizlilik` linki. Hedef donem yil secenekleri sunucu anlik goruntusu `null` olan `useSyncExternalStore` ile sayfa acildiktan sonra uretilir; statik HTML'de yil secenegi yoktur, yilbasindan sonra hidrasyon uyusmazligi olmaz (O4#9). `check:expert-leads` ikisini de zorlar.
 - Saklama (Kerem karari 2026-09-26): `completed` ve `contacted` talepler son islemden (`updated_at`) 6 ay, `suspected` 30 gun sonra silinir; `new` taleplere dokunulmaz. Ayda bir `npm run cleanup:expert-leads` (kuru calisma, yalniz sayi okur), Kerem onayiyla `-- --apply`. Kurallar `scripts/expert-lead-retention.mjs` (`npm run test:expert-lead-retention`). Ekibin ilk WhatsApp mesaji sablonu `docs/legal/2026-09-26-gizlilik-taslagi.md` bolum 5.
 - Guard: `npm run check:home-consultation`. Spec/plan: `docs/superpowers/specs/2026-09-15-homepage-free-consultation-design.md`, `docs/superpowers/plans/2026-09-15-homepage-free-consultation-plan.md`.
@@ -503,7 +505,7 @@ SEO 2.5 sonrasi canli audit'te `/` sayfasi gercek H1, CTA/internal link ve canli
 - async Server Component wrapper'dir; `getUniversitiesDirectory()` ile hafif canli veri alir (`searchParams` okudugu icin dinamik)
 - ilk HTML'e tum okullari koyar (okul basi 3 program etiketi); Googlebot API'yi cekemedigi icin okul linkleri HTML'de olmali
 - `components/universities/UniversitiesExplorer.tsx` client leaf'ine `initialUniversities`, initial filters ve stats gecer
-- URL sync search/filter: `q`, `city`, `type`, `fav`
+- URL sync search/filter: `q`, `city`, `type`, `fav`. Adres `window.history.replaceState` ile yazilir (2026-09-26, denetim O2#3; `router.replace` her tusta sayfayi sunucuda yeniden uretiyordu). Baslangic filtreleri adresten, sunucuyla ayni `parseUniversitiesFilterParams` ile okunur; geri tusu filtreleri korur. Ayni kural `/cities` ve `/scholarships` secimleri icin gecerli (`check:universities-ui`, `check:cities`, `check:scholarships-ui`)
 - view mode: `grid | compact`
 - localStorage key: `italyPathUniversitiesViewMode`
 - helper'lar: `lib/universitiesFilters.ts`
@@ -534,7 +536,7 @@ SEO `layout.tsx` Server Component'lerinde `generateMetadata()` ile uretilir. `ge
 - ItalyPath Gönüllü Ekip: aktif, giriş gerektiren Supabase üzerinde kalıcı site içi insan yazışmasıdır. Misafir `desk=volunteer` seçerse `/giris?redirect_url=/ai-mentor?desk=volunteer` akışına gider.
 - ItalyPath Uzman: aktif public `expert-lead` formudur. Form altı zorunlu alanla ücretsiz WhatsApp ön görüşme talebi toplar; e-posta, onay kutusu, CAPTCHA, IP saklama, telefon bazlı dedupe veya otomatik silme yoktur. `submission_id` yalnızca retry/double-click idempotency'si içindir.
 
-AI masasi (ItalyPath AI, Gemini) 2026-07-23'ten beri arayuzde duraklatilmisti; 2026-09-26'da tamamen kaldirildi (Kerem karari 2026-09-25, guvenlik denetimi S1#1, S5#6, S6#5, O3#6, O3#9): `app/api/chat/route.ts`, `MentorChatRoom`/`EntryPair`/`StarterPrompts`/`LockedDeskNotice`, AI ceviri anahtarlari, AI SDK/Gemini/`react-markdown` paketleri ve Spectral 700 agirligi (AI yanitlari disindaki tek kullanim, program dizinindeki program sayisi, Kerem karariyla `font-semibold` oldu; `app/layout.tsx` 400/500/600 yukler). Eski `?desk=ai` baglantilari hub'a duser. `check:mentor-desks` kaldirilan dosya ve paketlerin geri gelmesini engeller.
+AI masasi (ItalyPath AI, Gemini) 2026-07-23'ten beri arayuzde duraklatilmisti; 2026-09-26'da tamamen kaldirildi (Kerem karari 2026-09-25, guvenlik denetimi S1#1, S5#6, S6#5, O3#6, O3#9): `app/api/chat/route.ts`, `MentorChatRoom`/`EntryPair`/`StarterPrompts`/`LockedDeskNotice`, AI ceviri anahtarlari, AI SDK/Gemini/`react-markdown` paketleri ve Spectral 700 agirligi (AI yanitlari disindaki tek kullanim, program dizinindeki program sayisi, Kerem karariyla `font-semibold` oldu; `app/layout.tsx` o tarihte 400/500/600 yukluyordu, kart 10'dan beri yalniz 400/600). Eski `?desk=ai` baglantilari hub'a duser. `check:mentor-desks` kaldirilan dosya ve paketlerin geri gelmesini engeller.
 
 Gonullu masa mimarisi:
 
@@ -658,13 +660,15 @@ Katalogda bulunmayan sehirler uydurma generic bilgi yerine acik bir `unresearche
 
 Slug kurali: app-facing Turkce sehir anahtarini koru (`floransa`, `venedik`, ileride `cenova`). Source-page slug'i (`firenze`, `venezia`, `genova`) app slug'i olarak kullanma.
 
+Veri akisi (2026-09-26, denetim O3#7): `app/cities/page.tsx` dizinden sehir seceneklerini (ad, Ingilizce ad, okul sayisi), sehir basina okul ozetlerini ve secili sehrin panelini (`lib/cities/guidePanel.ts` `resolveCityGuidePanel`: sehir kaydi + bolge burs ozeti) hazirlar. Istemci okul dizinini `/api/universities`'ten cekmez; diger sehirlerin rehber metni ve burs bolgeleri yalniz sehir degisince `guidePanel` modulunun dinamik importuyla gelir. Secim adresi `replaceState` ile yazilir, geri tusunda adresten okunur.
+
 Kalici dogrulama: `npm run check:cities`.
 
 ### Scholarships
 
 `/scholarships` public route'tur. `components/scholarships/ScholarshipsExplorer.tsx`, `lib/scholarships/regions.ts`, `types/scholarships.ts`, `public/data/italy-regions.geojson` kullanir.
 
-GeoJSON lokal `/data/italy-regions.geojson` uzerinden fetch edilir; `/data/(.*)` public olmalidir.
+GeoJSON lokal `/data/italy-regions.geojson` uzerinden fetch edilir; `/data/(.*)` public olmalidir. 2026-09-26 (denetim O3#1): dosya sinirlari koruyan aracla sadelestirildi (`mapshaper -simplify 8% keep-shapes -filter-fields reg_name`, `precision=0.001`; 2,9 MB -> 101 KB, gzip ~27 KB; 20 bolge, komsu sinirlar ortak). Kaynak yuksek cozunurluklu dosya Git gecmisindedir. Fetch tarayici onbellegine girer (`no-store` yok); dosya degisirse `REGIONS_GEOJSON_VERSION` (`?v=`) artirilir ve `scripts/check-scholarships-editorial-atlas.mjs` icindeki surum + sha256 guncellenir (guard dosya degisip surum ayni kalirsa kirilir, gzip 50 KB ustunu reddeder).
 
 SEO Adim 2 sonrasi `app/scholarships/page.tsx` server-rendered gorunur intro/region nav tasir; map/GeoJSON client deneyimi korunur. Son canli audit'te `/scholarships` bailout temizdir.
 
@@ -683,16 +687,16 @@ UI:
 
 Resmi topluluk iddiasi, fake uye sayisi veya social proof ekleme.
 
-SEO 2.5 sonrasi `/communities` `force-dynamic` route'tur. Canli HTML'de gercek H1, intro, chapter nav ve topluluk satirlari bulunur; `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizdir. Topluluk verisi yine resmi iddia/fake social proof olmadan kullanilmali.
+SEO 2.5'ten 2026-09-26'ya kadar `/communities` `force-dynamic` route'tu; artik statik prerender edilir (denetim O2#4). HTML'de gercek H1, intro, chapter nav ve topluluk satirlari bulunur; `BAILOUT_TO_CLIENT_SIDE_RENDERING` izi temizdir. Topluluk verisi yine resmi iddia/fake social proof olmadan kullanilmali.
 
 ### ISEE
 
 `/isee` yalnizca **ISEE Parificato** tahmini yapar (ailesi Turkiye'de yasayan ogrenciler). Normal ISEE hesabi 2026-09-17'de kaldirildi; geri getirme.
 
-- `app/isee/page.tsx` server wrapper (`force-dynamic`), `components/isee/IseeParificatoClient.tsx` client leaf: H1, 4 adimli sihirbaz (`IseeWizard` + `steps/*`), sonuc (`IseeResult`), gorunur aciklama + limit kartlari (`IseeExplainer`), `ConsultPrompt`.
+- `app/isee/page.tsx` server wrapper (statik prerender; 2026-09-26'ya kadar `force-dynamic`), `components/isee/IseeParificatoClient.tsx` client leaf: H1, 4 adimli sihirbaz (`IseeWizard` + `steps/*`), sonuc (`IseeResult`), gorunur aciklama + limit kartlari (`IseeExplainer`), `ConsultPrompt`.
 - Saf hesap katmani `lib/isee/`: `parificato.ts` (DPCM 159/2013 muafiyet/katsayilari, bina m2 x 500 EUR, TL -> EUR), `reference.ts` (Banca d'Italia yillik ortalama kurlar, bes sehrin 2026/27 ISEE/ISPE limitleri, kaynak URL + dogrulama tarihi), `verdict.ts` (ortalamaya gore mavi/sari/kirmizi; bir sehrin kendi limiti asiliyorsa isik en az sari; sehir bazinda altinda/sinirda/ustunde), `wizardState.ts` (form durumu, adim dogrulama). Bu dosyalar React/Next icermez ve birbirinden yalnizca `import type` alir.
 - Veri bakimi: yeni yil kuru (Ocak) ve yeni sartname limitleri (yaz) yalnizca `lib/isee/reference.ts` icinde guncellenir; her deger resmi kaynaga bagli olmalidir. Burs haritasi (`lib/scholarships/regions.ts`) ayri veri kaynagidir: 8 `verified-full` bolge 2026-09-24'te 2026/27 resmi bandolariyla guncellendi (Lazio ve Lombardia esikleri ISEE araciyla ayni), 12 `registry-only` bolge hala 2026-03-09 tarihli kurum dizinidir.
-- Metinler `lib/translations.ts` `iseeTool` (TR+EN); tutarlar `components/isee/format.ts` ile deterministik bicimlenir (Intl yok, hydration guvenli). Isik renkleri `app/globals.css` `--isee-*` tokenlaridir.
+- Metinler `lib/translations/` `iseeTool` (`tr.ts` + `en.ts`); tutarlar `components/isee/format.ts` ile deterministik bicimlenir (Intl yok, hydration guvenli). Isik renkleri `app/globals.css` `--isee-*` tokenlaridir.
 - Dev sunucusu `globals.css` token eklemelerini bazen eski Turbopack onbelleginden sunar; tarayicida `--isee-*` bos donerse `.next/dev` silinip sunucu yeniden baslatilir (uretim build'i etkilenmez).
 - Form bos acilir, durum yalnizca bellekte tutulur (localStorage/URL yok).
 - Dogrulama: `npm run check:isee` (dort elle hesaplanmis aile, kenar durumlar, isik sinirlari, veri butunlugu, kaynak guard'lari).
@@ -850,7 +854,7 @@ Tek acik is listesi 2026-09-21'den beri `docs/STATUS.md` icindedir (zaman kritik
 4. SEO gereken dinamik route'larda `generateMetadata()` Server Component `layout.tsx` dosyasinda kalir; client page'e tasima.
 5. Route guvenligi `proxy.ts` uzerinden yonetilir; `middleware.ts` olusturma.
 6. Runtime kodunda `app/data.ts` import etme. Live university/program data icin liste yuzeylerinde `getUniversitiesDirectory()` veya `/api/universities`, okul sayfasi icin `getUniversityById()` (dizin kaydi), program sayfasi icin `getProgramPageData()` (dizin + yalnizca o programin kabul satiri), domain tipleri icin `types/universities.ts` kullan. Tam veri seti compose'unu veya okul basina tum kabul dosyalarini ceken sorguyu runtime'a geri getirme (egress). Katalog okumalari yalnizca `lib/universities.server.ts` icinde, server-only `SUPABASE_SECRET_KEY` ile yapilir; anon anahtara geri dusme ekleme. anon/authenticated'a katalog grant'i veya okuma politikasi verme (2026-09-26'dan beri kapali).
-7. UI metinleri `lib/translations.ts` icinde TR/EN paralel tutulur.
+7. UI metinleri `lib/translations/tr.ts` ve `en.ts` icinde TR/EN paralel tutulur; `en.ts` yalniz `loadEnglishTranslations()` ile (dinamik) yuklenir.
 8. Supabase generated types yok; yeni DB row ihtiyacinda `types/index.ts` icine explicit interface ekle.
 9. SEO icin hidden keyword block, `display:none` SEO metni veya botlara farkli icerik ekleme. Kullaniciya gorunmeyen SEO text yasak.
 10. Public SEO sayfalarinda page-level CSR bailout riskine dikkat et. `useSearchParams`/Suspense kullanimi kritik ilk HTML'i skeleton'a dusuruyorsa server wrapper + client leaf pattern'ini tercih et.
@@ -859,7 +863,7 @@ Tek acik is listesi 2026-09-21'den beri `docs/STATUS.md` icindedir (zaman kritik
 13. Expert lead client dosyalari veya `NEXT_PUBLIC_*` değişkenleri hiçbir zaman `SUPABASE_SERVICE_ROLE_KEY` alamaz; public form insert'i yalnızca server-only `app/api/expert-leads` sınırından geçer.
 14. Sehir rehberlerinde generic fallback iddialari uretme; arastirilmamis sehri acikca `unresearched` olarak goster. Tiered kayitlarda sehir bazinda fiyat/Numbeo verisi cogaltma; merkezi, surumlu tier maliyet modelini kullan.
 15. Terracotta renkli metin/ikon icin `text-[var(--editorial-terracotta-ink)]` kullan; `--editorial-terracotta` base tokeni yalnizca buton/arka plan/cerceve icin. `npm run check:seo-vitals` bunu zorlar.
-16. `components/RouteTransition.tsx` icindeki `<AnimatePresence initial={false}>` kaldirilmaz; ilk yuklemede sayfa iceriginin gorunur gelmesini bu saglar.
+16. `components/RouteTransition.tsx` icindeki `<AnimatePresence initial={false}>` kaldirilmaz; ilk yuklemede sayfa iceriginin gorunur gelmesini bu saglar. framer-motion yalniz `LazyMotion` + `m` ile kullanilir (kok `domAnimation`, `strict`); `motion` import etme. `layout`/`layoutId` kullanan bilesen `components/motion/LayoutMotion.tsx` icinde cizilir (domMax ayri paket). `check:seo-vitals` zorlar (2026-09-26, denetim O3#10).
 17. Egress diyeti: agir kabul metinleri (`source_quotes`, sartlar, belgeler) yalnizca program sayfasina ve yalnizca o programin satiri olarak gelir (`getProgramPageData()`); okul sayfasi, liste/API/sitemap/chat `getUniversitiesDirectory()` kullanir. ISR sayfalarinda (`/`, detay sayfalari) `revalidate` + bos `generateStaticParams()` korunur, sunucu tarafinda `searchParams`/`cookies()`/`headers()` okunmaz ve veri hatasi yakalanmaz (son saglam sayfa kalsin; yedek govde onbellege yazilir).
 18. Sitemap `lastModified` gercek degisiklige baglidir: DB `updated_at` (okul/program/kabul dosyasi) ile `app/sitemap.ts` icindeki `PAGE_TEMPLATE_LAST_MODIFIED` sabitinin en yenisi. Program/universite sayfa sablonunun GORUNUR icerigi degistiginde sabiti o deploy tarihine cek; uydurma tarih yazma (SEO_AUDIT.md §21).
 19. Yeni Supabase ortami kurarken `program_degree_class_codes` view'ini olustur (`supabase/program_degree_class_codes.sql`); dizin sorgusu view olmadan hata verir. Program sayfasinin `pruneUniversityForProgram` adimini kaldirma; agir kabul dosyasi yalnizca acilan program icin istemciye gider, okul sayfasina hic gitmez. Memo'daki dizin nesneleri paylasilir: yerinde degistirme, kopyala. Okul adresi kanoniktir (`lib/universityPath.ts` + `proxy.ts`); canonical/OG/breadcrumb adreslerini URL parcasindan degil kayittan kur.

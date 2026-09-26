@@ -1,6 +1,6 @@
 # ItalyPath — Servis Abonelikleri ve Kullanım Limitleri
 
-Durum: AKTIF REFERANS · Oluşturma: 2026-09-25 · Son güncelleme: 2026-09-26 (Gemini kaldırıldı, güvenlik kartı 6) · 2026-09-25 (yedek satırları, G2#2) · Kanıt: Supabase MCP (org planı, DB/Storage boyutu, edge log sayımı), Kerem'in panel ekranları (Vercel Usage, Supabase Usage, Clerk Overview, Name.com; 2026-09-25), resmî limit/fiyat sayfaları (her satırda URL)
+Durum: AKTIF REFERANS · Oluşturma: 2026-09-25 · Son güncelleme: 2026-09-26 (sayfa ağırlığı ve sunucu işi, kart 10) · 2026-09-26 (Gemini kaldırıldı, güvenlik kartı 6) · 2026-09-25 (yedek satırları, G2#2) · Kanıt: Supabase MCP (org planı, DB/Storage boyutu, edge log sayımı), Kerem'in panel ekranları (Vercel Usage, Supabase Usage, Clerk Overview, Name.com; 2026-09-25), resmî limit/fiyat sayfaları (her satırda URL)
 
 Bu belge projenin kullandığı dış servislerin planını, limitini, ölçülmüş kullanımını ve limit aşımında ne olduğunu tutar. Kullanım limitleri sorumluluğu 2026-09-25'ten beri ayrı bir ajan rolüdür. Yeni bir servis eklenirse buraya satır açılır; plan değişirse tarih ve kanıtla güncellenir. Açık işler `docs/STATUS.md`'dedir.
 
@@ -183,6 +183,7 @@ Durum: KALDIRILDI (2026-09-26). Kerem kararı (2026-09-25): AI mentor kaldırıl
 
 - Yeni bir veri yüzeyi Supabase'den yalnızca ihtiyacı olan satırı ve kolonu çeker; liste yüzeyi `getUniversitiesDirectory()`, detay hedefli sorgu (`AGENT_CONTEXT.md` kural 6 ve 17).
 - **Deploy sayısı kullanım demektir.** Her push yeni bir Vercel deploy'u üretir: ISR önbelleği (ISR Writes), memo'lar (Supabase egress) ve soğuk instance'lar (Active CPU) sıfırlanır. Push'ları topla; yalnız belge commit'lerini tek başına push etme, bir sonraki kod push'uyla gönder.
+- Sabit içerikli sayfa `force-dynamic` olmaz (her ziyarette fonksiyon + CPU). Filtre ve seçimler adres satırına `window.history.replaceState` ile yazılır; `router.replace`/`router.push` dinamik sayfada her tuşta sunucu render'ı üretir (kart 10, 2026-09-26: `/isee` ve `/communities` statik, üç gezgin `replaceState`). Burs haritası GeoJSON'u tarayıcı önbelleğine girer (~27 KB gzip).
 - ISR sayfalarının çıktısı deterministik kalır: render'da `new Date()`, `Math.random()` veya istek başına değişen veri yok (değişen içerik her yenilemede yazma üretir).
 - Canlıya karşı polling en az 60 sn aralıkla, Lighthouse art arda en fazla 3-4 koşu (Vercel Firewall challenge'ı).
 - Yeni `next/image` kaynağı veya yeni görsel genişliği görsel dönüşüm kotasını tüketir (Hobby 5.000/ay).

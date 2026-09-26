@@ -118,6 +118,6 @@ Route guvenligi `proxy.ts` ile yonetilir; `middleware.ts` olusturulmaz.
 ## Bakim Notlari
 
 - Tailwind v4 token/theme degisiklikleri `app/globals.css` icinde yapilir; `tailwind.config.*` eklenmez.
-- UI metinleri `lib/translations.ts` icinde TR/EN paralel tutulur.
+- UI metinleri `lib/translations/tr.ts` ve `en.ts` icinde TR/EN paralel tutulur (Ingilizce yalniz gerektiginde yuklenir).
 - Generated Supabase type dosyasi yoktur; yeni DB row tipleri `types/index.ts` icine explicit interface olarak eklenir.
 - Research/import artifact klasorleri ve `output/*` dosyalari commit karari verilmeden temizlenmez.
