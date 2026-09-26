@@ -1,14 +1,27 @@
+// Kerem'in el yazisi 213 SAT aciklamasinin tek seferlik importu. Kabul dosyasi yazicilariyla ayni
+// hedef kilidini kullanir (scripts/lib/program-details-import.mjs; guvenlik denetimi G2#6 / STATUS #92,
+// 2026-09-26).
+//
+// Kullanim:
+//   node scripts/sat/import-authored-explanations.mjs                                                 # kuru calistirma (varsayilan): yazmaz
+//   node scripts/sat/import-authored-explanations.mjs --apply --project-ref kskbnxxyviowmrlskwke        # canliya yazar
+//   node scripts/sat/import-authored-explanations.mjs --rollback backup.json [--apply --project-ref kskbnxxyviowmrlskwke]
+//   node scripts/sat/import-authored-explanations.mjs [--input path] [--backup path]
+//
+// --apply yalniz --project-ref canli proje kimligiyle ve .env.local'daki NEXT_PUBLIC_SUPABASE_URL o
+// projeye aitse calisir (assertTarget); kuru calistirma da canli satirlari okudugu icin adres ayni
+// sekilde denetlenir. Okuma ve yazma server-only SUPABASE_SECRET_KEY ile (yazmada yoksa
+// SUPABASE_SERVICE_ROLE_KEY). Girdi paketi SHA256SUMS ile dogrulanir; hedef tam olarak 213 kayit ve
+// 1019 satirlik sat_questions ile eslesmelidir.
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { createClient } from "@supabase/supabase-js";
-
+import { LIVE_PROJECT_REF, createImportClient, parseImportArgs } from "../lib/program-details-import.mjs";
 import {
   EXPECTED_AUTHORED_COUNT,
   EXPECTED_OFFICIAL_COUNT,
   EXPECTED_PROJECT_REF,
-  EXPECTED_PROJECT_URL,
   EXPECTED_QUESTION_COUNT,
   applyRecords,
   buildBackup,
@@ -32,41 +45,21 @@ const BASE_COLUMNS =
 const ATTEMPT_COLUMNS = "id,user_id,question_id,selected_answer,is_correct,answered_at";
 
 function parseArgs(argv) {
-  const options = { apply: false, input: DEFAULT_INPUT, rollback: null, backup: DEFAULT_BACKUP };
-  for (let index = 0; index < argv.length; index += 1) {
-    const arg = argv[index];
-    if (arg === "--apply") options.apply = true;
-    else if (arg === "--input" && argv[index + 1]) options.input = path.resolve(process.cwd(), argv[++index]);
-    else if (arg === "--rollback" && argv[index + 1]) options.rollback = path.resolve(process.cwd(), argv[++index]);
-    else if (arg === "--backup" && argv[index + 1]) options.backup = path.resolve(process.cwd(), argv[++index]);
-    else throw new Error(`Unknown or incomplete argument: ${arg}`);
-  }
+  const parsed = parseImportArgs(argv, { valueFlags: ["--input", "--rollback", "--backup"] });
+  const resolvePath = (flag, fallback) => (parsed.values[flag] ? path.resolve(process.cwd(), parsed.values[flag]) : fallback);
+  const options = {
+    mode: parsed.mode,
+    // Adres her zaman pinlenir: --apply zaten --project-ref ister (assertTarget), kuru calistirma
+    // canli satirlari okudugu icin --project-ref verilmemisse LIVE_PROJECT_REF varsayilir (onceki
+    // davranis: EXPECTED_PROJECT_URL her zaman denetlenirdi).
+    projectRef: parsed.mode === "apply" ? parsed.projectRef : (parsed.projectRef ?? LIVE_PROJECT_REF),
+    apply: parsed.mode === "apply",
+    input: resolvePath("--input", DEFAULT_INPUT),
+    rollback: resolvePath("--rollback", null),
+    backup: resolvePath("--backup", DEFAULT_BACKUP),
+  };
   if (options.rollback && options.input !== DEFAULT_INPUT) throw new Error("--input cannot be combined with --rollback.");
   return options;
-}
-
-function loadEnvLocal() {
-  const values = {};
-  const envFile = path.join(REPO_ROOT, ".env.local");
-  if (!existsSync(envFile)) return values;
-  for (const line of readFileSync(envFile, "utf8").split(/\r?\n/)) {
-    const match = line.match(/^([A-Z0-9_]+)=(.*)$/);
-    if (match) values[match[1]] = match[2].replace(/^['"]|['"]$/g, "");
-  }
-  return values;
-}
-
-function createServiceClient() {
-  const env = { ...loadEnvLocal(), ...process.env };
-  if (env.NEXT_PUBLIC_SUPABASE_URL !== EXPECTED_PROJECT_URL) {
-    throw new Error("Refusing to use an unexpected Supabase project.");
-  }
-  if (!env.SUPABASE_SERVICE_ROLE_KEY) {
-    throw new Error("SUPABASE_SERVICE_ROLE_KEY is required server-side.");
-  }
-  return createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
 }
 
 export async function fetchAll(client, table, columns) {
@@ -306,9 +299,10 @@ export async function runRollback({ client, backupPath, apply }) {
   };
 }
 
-async function main() {
-  const options = parseArgs(process.argv.slice(2));
-  const client = createServiceClient();
+// clientFactory yalniz cevrimdisi testler icindir (sahte istemci; hedef kilidi yine calisir).
+export async function main(argv = process.argv.slice(2), { clientFactory } = {}) {
+  const options = parseArgs(argv);
+  const client = createImportClient({ mode: options.mode, projectRef: options.projectRef, clientFactory });
   if (options.rollback) return runRollback({ client, backupPath: options.rollback, apply: options.apply });
   const canonical = readCanonicalPackage(options.input);
   if (!options.apply) return (await runDryRun({ client, canonical })).summary;

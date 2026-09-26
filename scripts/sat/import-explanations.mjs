@@ -1,8 +1,24 @@
-import { createHash } from "node:crypto";
+// Resmi SAT aciklamalarinin (806 kayit) tek seferlik importu. Kabul dosyasi yazicilariyla ayni hedef
+// kilidini kullanir (scripts/lib/program-details-import.mjs; guvenlik denetimi G2#6 / STATUS #92,
+// 2026-09-26).
+//
+// Kullanim:
+//   node scripts/sat/import-explanations.mjs                                                    # kuru calistirma (varsayilan): yazmaz
+//   node scripts/sat/import-explanations.mjs --apply --project-ref kskbnxxyviowmrlskwke            # canliya yazar
+//   node scripts/sat/import-explanations.mjs --rollback backup.json [--apply --project-ref kskbnxxyviowmrlskwke]
+//   node scripts/sat/import-explanations.mjs [--input path] [--backup-dir path]
+//
+// --apply yalniz --project-ref canli proje kimligiyle ve .env.local'daki NEXT_PUBLIC_SUPABASE_URL o
+// projeye aitse calisir (assertTarget); kuru calistirma da canli satirlari okudugu icin adres ayni
+// sekilde denetlenir. Okuma ve yazma server-only SUPABASE_SECRET_KEY ile (yazmada yoksa
+// SUPABASE_SERVICE_ROLE_KEY). Girdi paketi SHA256SUMS ile dogrulanir; hedef tam olarak 806 kayit ve
+// 1019 satirlik sat_questions ile eslesmelidir.
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { basename, dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
-import { createClient } from "@supabase/supabase-js";
+import { LIVE_PROJECT_REF, createImportClient, parseImportArgs } from "../lib/program-details-import.mjs";
+import { hashRows, sha256, stableJson } from "./lib/authored-explanations-import.mjs";
 
 const ROOT = resolve(import.meta.dirname, "../..");
 const DEFAULT_INPUT = resolve(ROOT, "tmp/sat-bank/explanations-en/package/explanations-en.json");
@@ -13,20 +29,29 @@ const BASE_COLUMNS =
 const TARGET_COLUMNS = "id,explanation_en,needs_review";
 const ATTEMPT_COLUMNS = "id,user_id,question_id,selected_answer,is_correct,answered_at";
 
-function parseArgs(args) {
-  const options = { apply: false, input: DEFAULT_INPUT, backupDir: resolve(ROOT, "tmp/sat-bank/explanations-backups"), rollback: null };
-  for (let index = 0; index < args.length; index++) {
-    const arg = args[index];
-    if (arg === "--apply") options.apply = true;
-    else if (arg === "--input" && args[index + 1]) options.input = resolve(process.cwd(), args[++index]);
-    else if (arg === "--backup-dir" && args[index + 1]) options.backupDir = resolve(process.cwd(), args[++index]);
-    else if (arg === "--rollback" && args[index + 1]) options.rollback = resolve(process.cwd(), args[++index]);
-    else if (arg === "--help") {
-      console.log("Usage: node scripts/sat/import-explanations.mjs [--input path] [--backup-dir path] [--apply] | --rollback backup.json [--apply]");
-      process.exit(0);
-    } else throw new Error(`Unknown or incomplete argument: ${arg}`);
+function parseArgs(argv) {
+  const parsed = parseImportArgs(argv, {
+    valueFlags: ["--input", "--backup-dir", "--rollback"],
+    booleanFlags: ["--help"],
+  });
+  if (parsed.flags.has("--help")) {
+    console.log(
+      "Usage: node scripts/sat/import-explanations.mjs [--input path] [--backup-dir path] [--apply --project-ref kskbnxxyviowmrlskwke] | --rollback backup.json [--apply --project-ref kskbnxxyviowmrlskwke]"
+    );
+    process.exit(0);
   }
-  return options;
+  const resolvePath = (flag, fallback) => (parsed.values[flag] ? resolve(process.cwd(), parsed.values[flag]) : fallback);
+  return {
+    mode: parsed.mode,
+    // Adres her zaman pinlenir: --apply zaten --project-ref ister (assertTarget), kuru calistirma
+    // canli satirlari okudugu icin --project-ref verilmemisse LIVE_PROJECT_REF varsayilir (onceki
+    // davranis: EXPECTED_PROJECT_URL her zaman denetlenirdi).
+    projectRef: parsed.mode === "apply" ? parsed.projectRef : (parsed.projectRef ?? LIVE_PROJECT_REF),
+    apply: parsed.mode === "apply",
+    input: resolvePath("--input", DEFAULT_INPUT),
+    backupDir: resolvePath("--backup-dir", resolve(ROOT, "tmp/sat-bank/explanations-backups")),
+    rollback: resolvePath("--rollback", null),
+  };
 }
 
 async function rollback(client, options) {
@@ -47,8 +72,9 @@ async function rollback(client, options) {
   const baseHashBefore = hashRows(baseBefore);
   const attemptsHashBefore = hashRows(attemptsBefore);
   if (!options.apply) {
-    report({ mode: "rollback-dry-run", status: "ready", backup_sha256: sha256(readFileSync(options.rollback)), would_restore: 806, writes: 0 });
-    return;
+    const summary = { mode: "rollback-dry-run", status: "ready", backup_sha256: sha256(readFileSync(options.rollback)), would_restore: 806, writes: 0 };
+    report(summary);
+    return summary;
   }
   await updateExplanationRows(client, backup.rows);
   const targetAfter = await fetchAll(client, TARGET_COLUMNS);
@@ -59,33 +85,9 @@ async function rollback(client, options) {
   if (exact !== 806 || baseHashAfter !== baseHashBefore || attemptsHashAfter !== attemptsHashBefore) {
     throw new Error("Rollback post-state validation failed; stop and inspect the backup before any further action.");
   }
-  report({ mode: "rollback", status: "verified", restored: exact, base_columns_hash_unchanged: true, sat_attempts_hash_unchanged: true });
-}
-
-function sha256(value) {
-  return createHash("sha256").update(value).digest("hex");
-}
-
-function stableJson(value) {
-  if (Array.isArray(value)) return `[${value.map(stableJson).join(",")}]`;
-  if (value && typeof value === "object") {
-    return `{${Object.keys(value)
-      .sort()
-      .map((key) => `${JSON.stringify(key)}:${stableJson(value[key])}`)
-      .join(",")}}`;
-  }
-  return JSON.stringify(value);
-}
-
-function loadEnvLocal() {
-  const env = {};
-  const path = resolve(ROOT, ".env.local");
-  if (!existsSync(path)) return env;
-  for (const line of readFileSync(path, "utf8").split(/\r?\n/)) {
-    const match = line.match(/^([A-Z0-9_]+)=(.*)$/);
-    if (match) env[match[1]] = match[2].replace(/^"|"$/g, "");
-  }
-  return env;
+  const summary = { mode: "rollback", status: "verified", restored: exact, base_columns_hash_unchanged: true, sat_attempts_hash_unchanged: true };
+  report(summary);
+  return summary;
 }
 
 function verifyChecksums(packageDir) {
@@ -148,16 +150,6 @@ function readCanonical(inputPath) {
   };
 }
 
-function createServiceClient() {
-  const env = { ...loadEnvLocal(), ...process.env };
-  if (!env.NEXT_PUBLIC_SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
-    throw new Error("NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required server-side.");
-  }
-  return createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
-}
-
 async function fetchAll(client, columns) {
   const rows = [];
   for (let from = 0; ; from += PAGE_SIZE) {
@@ -196,17 +188,14 @@ async function updateExplanationRows(client, rows) {
   }
 }
 
-function hashRows(rows) {
-  return sha256(stableJson([...rows].sort((a, b) => String(a.id).localeCompare(String(b.id)))));
-}
-
 function report(summary) {
   console.log(JSON.stringify(summary, null, 2));
 }
 
-async function main() {
-  const options = parseArgs(process.argv.slice(2));
-  const client = createServiceClient();
+// clientFactory yalniz cevrimdisi testler icindir (sahte istemci; hedef kilidi yine calisir).
+export async function main(argv = process.argv.slice(2), { clientFactory } = {}) {
+  const options = parseArgs(argv);
+  const client = createImportClient({ mode: options.mode, projectRef: options.projectRef, clientFactory });
   if (options.rollback) return rollback(client, options);
   const canonical = readCanonical(options.input);
   let targetRows;
@@ -214,8 +203,9 @@ async function main() {
     targetRows = await fetchAll(client, TARGET_COLUMNS);
   } catch (error) {
     if (!options.apply && /explanation_en/i.test(error.message ?? "")) {
-      report({ mode: "dry-run", status: "schema-prerequisite-missing", checksum_files: canonical.checksumFiles, canonical_records: 806, writes: 0 });
-      return;
+      const summary = { mode: "dry-run", status: "schema-prerequisite-missing", checksum_files: canonical.checksumFiles, canonical_records: 806, writes: 0 };
+      report(summary);
+      return summary;
     }
     throw error;
   }
@@ -244,7 +234,7 @@ async function main() {
   const nonTargetHashBefore = hashRows(nonTargetBefore);
 
   if (!options.apply) {
-    report({
+    const summary = {
       mode: "dry-run",
       status: "ready",
       checksum_files: canonical.checksumFiles,
@@ -259,8 +249,9 @@ async function main() {
       non_target_non_null: nonTargetBefore.filter((row) => row.explanation_en !== null).length,
       sat_attempts: attemptsBefore.length,
       writes: 0,
-    });
-    return;
+    };
+    report(summary);
+    return summary;
   }
 
   mkdirSync(options.backupDir, { recursive: true });
@@ -300,7 +291,7 @@ async function main() {
   ) {
     throw new Error(`Post-write validation failed. Backup: ${backupPath} (${backupHash}).`);
   }
-  report({
+  const summary = {
     mode: "apply",
     status: "verified",
     changed: toChange.length,
@@ -311,10 +302,15 @@ async function main() {
     sat_attempts_hash_unchanged: attemptsHashAfter === attemptsHashBefore,
     backup_path: backupPath,
     backup_sha256: backupHash,
-  });
+  };
+  report(summary);
+  return summary;
 }
 
-main().catch((error) => {
-  console.error(`SAT explanation import failed: ${error.message ?? error}`);
-  process.exit(1);
-});
+const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isMain) {
+  main().catch((error) => {
+    console.error(`SAT explanation import failed: ${error.message ?? error}`);
+    process.exitCode = 1;
+  });
+}
