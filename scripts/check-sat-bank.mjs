@@ -62,7 +62,7 @@ if (!questionCard.includes("<MathText text={question.explanationEn} />")) {
 }
 
 // 5) Ceviri butunlugu
-const translations = read("lib/translations.ts");
+const translations = read("lib/translations/tr.ts") + "\n" + read("lib/translations/en.ts");
 const satKeyCount = (translations.match(/\bsat:\s*{/g) ?? []).length;
 if (satKeyCount < 2) fail("translations.ts: sat namespace hem tr hem en icinde olmali");
 if (!translations.includes('explanationTitle: "Açıklama"')) fail("translations.ts: TR explanation title eksik");

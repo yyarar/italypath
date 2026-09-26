@@ -14,7 +14,8 @@ const paths = {
   normalization: new URL("../lib/cities/normalization.ts", import.meta.url),
   scholarships: new URL("../lib/scholarships/regions.ts", import.meta.url),
   tieredData: new URL("../lib/cities/tieredData.ts", import.meta.url),
-  translations: new URL("../lib/translations.ts", import.meta.url),
+  translationsTr: new URL("../lib/translations/tr.ts", import.meta.url),
+  translationsEn: new URL("../lib/translations/en.ts", import.meta.url),
 };
 
 const sources = Object.fromEntries(
@@ -77,10 +78,12 @@ const hubRuntime = loadTypeScriptModule(sources.hub, "lib/hub/recommendations.ts
   "@/lib/cities/data": cityRuntime,
   "@/lib/scholarships/regions": scholarshipRuntime,
 });
-const translationRuntime = loadTypeScriptModule(
-  sources.translations,
-  "lib/translations.ts"
-);
+const translationRuntime = {
+  translations: {
+    tr: loadTypeScriptModule(sources.translationsTr, "lib/translations/tr.ts").tr,
+    en: loadTypeScriptModule(sources.translationsEn, "lib/translations/en.ts").en,
+  },
+};
 
 function assertIncludes(haystack, needle, message) {
   assert.ok(haystack.includes(needle), message);

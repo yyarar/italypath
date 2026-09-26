@@ -108,8 +108,10 @@ if (!existsSync(helperPath)) {
   }
 }
 
-const translationsModule = await importTsModule("lib/translations.ts");
-const { translations } = translationsModule;
+const translations = {
+  tr: (await importTsModule("lib/translations/tr.ts")).tr,
+  en: (await importTsModule("lib/translations/en.ts")).en,
+};
 
 for (const language of ["tr", "en"]) {
   const placeholder = translations[language].list.searchPlaceholder;

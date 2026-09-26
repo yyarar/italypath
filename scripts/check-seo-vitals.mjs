@@ -116,6 +116,28 @@ for (const file of tracked) {
   }
 }
 
+// Ceviri diyeti (denetim O3#4): Ingilizce metinler ilk pakete girmez. en.ts yalniz lib/translations/index.ts
+// icindeki dinamik import ile yuklenir; tr.ts ile ayni anahtar agacini `Translations` tipi zorlar.
+const translationIndex = readFileSync("lib/translations/index.ts", "utf8");
+if (!translationIndex.includes('import("./en")')) {
+  failures.push("lib/translations/index.ts: Ingilizce metinler dinamik import(\"./en\") ile yuklenmeli");
+}
+if (!readFileSync("lib/translations/en.ts", "utf8").includes("export const en: Translations = {")) {
+  failures.push("lib/translations/en.ts: `export const en: Translations` (TR/EN anahtar esligi tip denetimi) kaybolmus");
+}
+const clientTracked = execSync("git ls-files app components lib context", { encoding: "utf8" })
+  .split("\n")
+  .filter((file) => /\.(tsx|ts)$/.test(file));
+for (const file of clientTracked) {
+  const source = readFileSync(file, "utf8");
+  if (/from\s+["'](?:@\/lib\/translations\/en|\.\/en|\.\.\/translations\/en)["']/.test(source)) {
+    failures.push(`${file}: lib/translations/en.ts statik import edilmemeli (loadEnglishTranslations kullan)`);
+  }
+}
+if (existsSync("lib/translations.ts")) {
+  failures.push("lib/translations.ts geri gelmemeli: metinler lib/translations/tr.ts ve en.ts'te");
+}
+
 const css = readFileSync("app/globals.css", "utf8");
 if (!css.includes("--editorial-terracotta-ink: #9f4629")) {
   failures.push("globals.css: --editorial-terracotta-ink: #9f4629 tokenı eksik veya değişmiş (paper zemininde 5,78:1; en koyu kart zemininde 5,14:1)");

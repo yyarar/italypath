@@ -4,7 +4,8 @@ import { gzipSync } from "node:zlib";
 
 const explorer = readFileSync("components/scholarships/ScholarshipsExplorer.tsx", "utf8");
 const page = readFileSync("app/scholarships/page.tsx", "utf8");
-const translations = readFileSync("lib/translations.ts", "utf8");
+const translations =
+  readFileSync("lib/translations/tr.ts", "utf8") + "\n" + readFileSync("lib/translations/en.ts", "utf8");
 
 const failures = [];
 

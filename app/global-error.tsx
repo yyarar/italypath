@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useSyncExternalStore } from "react";
-import { translations } from "@/lib/translations";
+import { useActiveTranslations } from "@/context/LanguageContext";
 import "./globals.css";
 
 // Kok layout'un kendisi hata verdiginde gosterilir (sayfa hatalari app/error.tsx'e duser).
@@ -28,13 +28,15 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  const language = useSyncExternalStore(subscribeToNothing, readStoredLanguage, () => "tr" as const);
+  const storedLanguage = useSyncExternalStore(subscribeToNothing, readStoredLanguage, () => "tr" as const);
+  // Ingilizce metinler ayri pakettir; gelene kadar sayfa Turkce gorunur.
+  const { language, t } = useActiveTranslations(storedLanguage);
 
   useEffect(() => {
     console.error("[ItalyPath global error]", error);
   }, [error]);
 
-  const copy = translations[language].globalError;
+  const copy = t.globalError;
 
   return (
     <html lang={language}>
