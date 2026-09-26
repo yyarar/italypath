@@ -276,6 +276,70 @@ assert.equal(
   "a b\nc d",
 );
 
+// 10. Resmi linkler (2026-09-26, guvenlik denetimi G3#1/G3#2/G3#4): link yalnizca gecerli
+// http(s) ise ve kisaltici/arsiv degilse tiklanabilir; yaninda hedef alan adi, okul disi hedefte
+// "ortak program sitesi / kamu portali / dis site" etiketi (TR/EN). Izin listesi tek kaynak:
+// lib/officialLinkHosts.mjs.
+const { classifyOfficialLink } = await import(
+  new URL("../lib/officialLinkHosts.mjs", import.meta.url).href
+);
+assert.equal(classifyOfficialLink("https://www.unibz.it/en", { universityId: 6 }).status, "school");
+assert.equal(
+  classifyOfficialLink("https://www.unibz.it/en (Italian version)", { universityId: 6 }).status,
+  "invalid",
+);
+assert.equal(classifyOfficialLink("https://forms.gle/x", { universityId: 6 }).status, "blocked");
+
+const readSource = (path) => readFileSync(resolve(process.cwd(), path), "utf8");
+const dossierShared = readSource("components/university-details/programDossierShared.tsx");
+assert.ok(
+  dossierShared.includes('from "@/lib/officialLinkHosts.mjs"') &&
+    dossierShared.includes("isShowableOfficialLinkStatus"),
+  "programDossierShared must validate links with lib/officialLinkHosts.mjs",
+);
+for (const raw of ["href={href}", "href={evidence.url}", "href={url}"]) {
+  assert.ok(!dossierShared.includes(raw), `programDossierShared must not render an unvalidated ${raw}`);
+}
+assert.ok(
+  /const link = resolveShowableLink\(url, linkContext\);\s*if \(!url \|\| !link\) return;/.test(dossierShared) &&
+    /const link = resolveShowableLink\(group\.url, linkContext\);\s*if \(!link\) continue;/.test(dossierShared),
+  "buildDossierSources must drop sources whose link is not a valid http(s) URL",
+);
+for (const path of [
+  "components/university-details/ProgramSummaryStrip.tsx",
+  "components/university-details/ProgramAdmissionDetailsPanel.tsx",
+  "components/university-details/ProgramSourceTrail.tsx",
+]) {
+  const source = readSource(path);
+  assert.ok(
+    source.includes("buildDossierSources(details, evidence, labels, linkContext)"),
+    `${path} must build sources with the school/program link context`,
+  );
+  assert.ok(
+    !/<a\s+href=\{(details\.|source\.url|evidence\.url)/.test(source),
+    `${path} must not render official links without resolveShowableLink`,
+  );
+}
+assert.ok(
+  readSource("components/university-details/ProgramSourceTrail.tsx").includes("<LinkHost link={source.link}"),
+  "the source trail shows the destination host next to each official source",
+);
+assert.ok(
+  readSource("components/university-details/DepartmentDetailClient.tsx").includes("departmentId: department.id"),
+  "DepartmentDetailClient must pass the program id so partner sites are recognised",
+);
+const translationsSource = readSource("lib/translations.ts");
+for (const text of [
+  'partnerSite: "Ortak program sitesi"',
+  'partnerSite: "Joint program site"',
+  'publicPortal: "Kamu portalı"',
+  'publicPortal: "Public portal"',
+  'externalSite: "Dış site"',
+  'externalSite: "External site"',
+]) {
+  assert.ok(translationsSource.includes(text), `lib/translations.ts must contain ${text}`);
+}
+
 console.log(
   "[OK] Program admission dossier presentation preserves evidence and handles dense/sparse data.",
 );

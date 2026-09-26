@@ -20,6 +20,7 @@ import {
   fillTemplate,
   formatSourceDate,
   latestQuote,
+  type OfficialLinkContext,
   type ProgramDossierLabels,
 } from "./programDossierShared";
 
@@ -27,15 +28,17 @@ interface ProgramSummaryStripProps {
   details: ProgramAdmissionDetails;
   labels: ProgramDossierLabels;
   language: "tr" | "en";
+  linkContext: OfficialLinkContext;
 }
 
 export function ProgramSummaryStrip({
   details,
   labels,
   language,
+  linkContext,
 }: ProgramSummaryStripProps) {
   const evidence = buildAdmissionEvidence(details.sourceQuotes);
-  const sources = buildDossierSources(details, evidence, labels);
+  const sources = buildDossierSources(details, evidence, labels, linkContext);
   const latestRetrievedAt = latestAdmissionSourceDate(
     evidence.map((item) => item.retrievedAt),
   );
@@ -124,14 +127,20 @@ export function ProgramSummaryStrip({
           <SourceNavLink
             href={details.officialProgramUrl}
             label={labels.officialProgramPage}
+            linkContext={linkContext}
+            labels={labels}
           />
           <SourceNavLink
             href={details.officialCallUrl}
             label={labels.officialCall}
+            linkContext={linkContext}
+            labels={labels}
           />
           <SourceNavLink
             href={details.tuitionOrFeesLink}
             label={labels.tuitionFees}
+            linkContext={linkContext}
+            labels={labels}
           />
         </nav>
       </header>
