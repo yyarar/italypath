@@ -419,7 +419,8 @@ const UNIVERSITY_CHECKS = [
   {
     universityId: 7,
     label: "Bocconi",
-    expectedDetailCount: 34,
+    // 2026-09-27 dogrulama turu: 307 World Bachelor in Business Kerem karariyla silindi (USC/Common App).
+    expectedDetailCount: 33,
     criticalPrograms: [
       {
         name: "Economics",
@@ -434,15 +435,6 @@ const UNIVERSITY_CHECKS = [
         missingProgramMessage: "Missing expected Bocconi program: Finance (bachelor)",
         requiresDetails: true,
         expectedDurationYears: 3,
-      },
-      {
-        name: "World Bachelor in Business",
-        level: "bachelor",
-        missingProgramMessage:
-          "Missing expected Bocconi program: World Bachelor in Business (bachelor)",
-        requiresDetails: true,
-        expectedDurationYears: 3,
-        expectedUncertainField: "language_requirements",
       },
       {
         name: "HEC-Bocconi Double Program in Data, Society and Organizations",
@@ -473,7 +465,6 @@ const UNIVERSITY_CHECKS = [
         missingProgramMessage: "Missing expected Bocconi program: IM CEMS MIM (master)",
         requiresDetails: true,
         expectedDurationYears: 2,
-        expectedUncertainField: "degree_class",
       },
       {
         name: "LSE-Bocconi Double Degree",
