@@ -103,7 +103,8 @@ const UNIVERSITY_CHECKS = [
   {
     universityId: 5,
     label: "Polito",
-    expectedDetailCount: 34,
+    // 2026-09-27 dogrulama turu: 1222 Industrial Production and Technological Innovation Engineering Kerem karariyla silindi.
+    expectedDetailCount: 33,
     criticalPrograms: [
       {
         name: "Architecture",
@@ -132,14 +133,6 @@ const UNIVERSITY_CHECKS = [
         level: "master",
         missingProgramMessage:
           "Missing expected Polito program: Cybersecurity Engineering (master)",
-        requiresDetails: true,
-        expectedDurationYears: 2,
-      },
-      {
-        name: "Industrial Production and Technological Innovation Engineering",
-        level: "master",
-        missingProgramMessage:
-          "Missing expected Polito program: Industrial Production and Technological Innovation Engineering (master)",
         requiresDetails: true,
         expectedDurationYears: 2,
       },
