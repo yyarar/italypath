@@ -9,7 +9,8 @@ const UNIVERSITY_CHECKS = [
   {
     universityId: 3,
     label: "Bologna",
-    expectedDetailCount: 97,
+    // 2026-09-28 dogrulama turu: 1150 Computer Engineering ve 1160 Mathematics Kerem karariyla silindi.
+    expectedDetailCount: 95,
     criticalPrograms: [
       {
         name: "Medicine and Surgery",
