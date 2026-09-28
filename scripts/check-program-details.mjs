@@ -311,7 +311,8 @@ const UNIVERSITY_CHECKS = [
   {
     universityId: 10,
     label: "Milan",
-    expectedDetailCount: 45,
+    // 2026-09-28 dogrulama turu: 1214, 1215, 1217, 1218 Kerem karariyla silindi (tam Ingilizce yol yok).
+    expectedDetailCount: 41,
     criticalPrograms: [
       {
         name: "Artificial Intelligence",
@@ -334,7 +335,6 @@ const UNIVERSITY_CHECKS = [
           "Missing expected Milan program: International Medical School (IMS) (single-cycle)",
         requiresDetails: true,
         expectedDurationYears: 6,
-        expectedUncertainField: "admission_type",
       },
       {
         name: "Quantitative Biology",
