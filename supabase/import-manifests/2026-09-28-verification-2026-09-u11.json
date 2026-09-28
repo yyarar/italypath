@@ -1,0 +1,384 @@
+{
+  "script": "verification-2026-09-u11",
+  "mode": "apply",
+  "project_ref": "kskbnxxyviowmrlskwke",
+  "generated_at": "2026-09-28T16:57:10.653Z",
+  "rows": [
+    {
+      "department_id": 338,
+      "university_id": 11,
+      "official_program_url": "https://www.business-management.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/564-business-management",
+      "tuition_or_fees_link": "https://www.business-management.unito.it/do/home.pl/View?doc=tuition_fees_and_financial_aid.html",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.business-management.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/338.json#sha256=4306a6fcc85a033e"
+    },
+    {
+      "department_id": 340,
+      "university_id": 11,
+      "official_program_url": "https://www.efds.unito.it/",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/705-economics-and-finance-data-science",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.efds.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/340.json#sha256=afdbc2b165db4196"
+    },
+    {
+      "department_id": 341,
+      "university_id": 11,
+      "official_program_url": "https://www.globallaw.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/543-global-law-and-transnational-legal-studies",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.globallaw.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/341.json#sha256=e03e620d2d89582b"
+    },
+    {
+      "department_id": 343,
+      "university_id": 11,
+      "official_program_url": "https://www.medinto.unito.it/do/home.pl",
+      "official_call_url": "https://en.unito.it/studying-unito/enrolment-procedure/5-or-6-year-postgraduate-degrees-restricted-number-places-0",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees",
+      "hosts": [
+        "en.unito.it",
+        "www.medinto.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/343.json#sha256=309a6b13e3983a1f"
+    },
+    {
+      "department_id": 807,
+      "university_id": 11,
+      "official_program_url": "https://www.agic.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/468-area-global-studies-international-cooperation",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.agic.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/807.json#sha256=a47967ad5c673222"
+    },
+    {
+      "department_id": 808,
+      "university_id": 11,
+      "official_program_url": "https://www.business-administration.unito.it/do/home.pl",
+      "official_call_url": "https://www.business-administration.unito.it/do/home.pl/View?doc=admission_requirements.html",
+      "tuition_or_fees_link": "https://www.business-administration.unito.it/do/home.pl/View?doc=Tuition_Fees_and_financial_aid.html",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "webapps.unito.it",
+        "www.business-administration.unito.it",
+        "www.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/808.json#sha256=5d3534ed16a338db"
+    },
+    {
+      "department_id": 809,
+      "university_id": 11,
+      "official_program_url": "https://cmb.campusnet.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/345-cellular-and-molecular-biology",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees",
+      "hosts": [
+        "apply.unito.it",
+        "cmb.campusnet.unito.it",
+        "en.unito.it",
+        "www.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/809.json#sha256=4feff049f1eab9c8"
+    },
+    {
+      "department_id": 810,
+      "university_id": 11,
+      "official_program_url": "https://www.economics.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/282-economics",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.economics.unito.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/810.json#sha256=643f3644c0289e30"
+    },
+    {
+      "department_id": 811,
+      "university_id": 11,
+      "official_program_url": "https://www.europeanlegalstudies.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/342-european-legal-studies",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.europeanlegalstudies.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/811.json#sha256=6b8b715f30b0836c"
+    },
+    {
+      "department_id": 812,
+      "university_id": 11,
+      "official_program_url": "https://www.materials-science.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/246-materials-science",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.materials-science.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/812.json#sha256=842726ae758a287f"
+    },
+    {
+      "department_id": 813,
+      "university_id": 11,
+      "official_program_url": "https://www.molecularbiotechnology.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/393-molecular-biotechnology",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.molecularbiotechnology.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/813.json#sha256=fd558149130b0c84"
+    },
+    {
+      "department_id": 814,
+      "university_id": 11,
+      "official_program_url": "https://www.finance-insurance.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/288-quantitative-finance-and-insurance",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.finance-insurance.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/814.json#sha256=6e3adc3fbecc0b01"
+    },
+    {
+      "department_id": 815,
+      "university_id": 11,
+      "official_program_url": "https://www.master-sds.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/384-stochastics-and-data-science",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.master-sds.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/815.json#sha256=2a47dd564ce96a3f"
+    },
+    {
+      "department_id": 816,
+      "university_id": 11,
+      "official_program_url": "https://en.san.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/670-scienze-animali-curriculum-animal-nutrition-and-feed-safety",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.san.unito.it",
+        "en.unito.it",
+        "www.san.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/816.json#sha256=ee07e3dcf6d6d171"
+    },
+    {
+      "department_id": 817,
+      "university_id": 11,
+      "official_program_url": "https://www.pic.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/669-filosofia-international-curriculum",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "filosofialm.campusnet.unito.it",
+        "www.pic.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/817.json#sha256=899cf941e2de8a84"
+    },
+    {
+      "department_id": 818,
+      "university_id": 11,
+      "official_program_url": "https://www.lingue.unito.it/do/home.pl/View?doc=/Lauree_Magistrali/english_and_american_studies.html",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/671-english-and-american-studies",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.lingue.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/818.json#sha256=b5329908e1bf48e8"
+    },
+    {
+      "department_id": 1281,
+      "university_id": 11,
+      "official_program_url": "https://www.eap.unito.it/do/home.pl",
+      "official_call_url": "https://www.epog.eu/admission-and-scholarships/admission/",
+      "tuition_or_fees_link": "https://www.epog.eu/admission-and-scholarships/tuition-fees/",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.eap.unito.it",
+        "www.epog.eu",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1281.json#sha256=8c5a7f2e03a07620"
+    },
+    {
+      "department_id": 1282,
+      "university_id": 11,
+      "official_program_url": "https://www.eisd.unito.it/do/home.pl",
+      "official_call_url": "https://www.eisd.unito.it/do/home.pl/View?doc=how_to_apply.html",
+      "tuition_or_fees_link": "https://www.eisd.unito.it/do/home.pl/View?doc=tuition_fees_and_financial_aid.html",
+      "hosts": [
+        "apply.unito.it",
+        "elmi.univ-cotedazur.fr",
+        "en.unito.it",
+        "univ-cotedazur.fr",
+        "www.eisd.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1282.json#sha256=d3d35fc6c541228d"
+    },
+    {
+      "department_id": 1283,
+      "university_id": 11,
+      "official_program_url": "https://www.culturalheritage.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/694-cultural-heritage-and-creativity-tourism-and-territorial-development",
+      "tuition_or_fees_link": "https://www.culturalheritage.unito.it/do/home.pl/View?doc=tuition_fees_and_financial_aid.html",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.culturalheritage.unito.it",
+        "www.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1283.json#sha256=7168a6916113ada6"
+    },
+    {
+      "department_id": 1284,
+      "university_id": 11,
+      "official_program_url": "https://www.digitalhumanities.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/695-language-technologies-and-digital-humanities",
+      "tuition_or_fees_link": "https://www.digitalhumanities.unito.it/do/home.pl/View?doc=tuition_fees_and_financial_aid.html",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.digitalhumanities.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1284.json#sha256=21a87d301b91c2d6"
+    },
+    {
+      "department_id": 1285,
+      "university_id": 11,
+      "official_program_url": "https://www.biotechnologyneuroscience.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/684-biotechnology-neuroscience",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.biotechnologyneuroscience.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1285.json#sha256=1800fef20b41e835"
+    },
+    {
+      "department_id": 1286,
+      "university_id": 11,
+      "official_program_url": "https://bcsd.campusnet.unito.it/",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/698-biotechnological-and-chemical-sciences-diagnostics",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees",
+      "hosts": [
+        "apply.unito.it",
+        "bcsd.campusnet.unito.it",
+        "en.unito.it",
+        "www.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1286.json#sha256=4f60e47c193a2515"
+    },
+    {
+      "department_id": 1287,
+      "university_id": 11,
+      "official_program_url": "https://www.aibh.unito.it/do/home.pl",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/700-artificial-intelligence-biomedicine-and-healthcare",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.aibh.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1287.json#sha256=4059cf6ce27a0b23"
+    },
+    {
+      "department_id": 1289,
+      "university_id": 11,
+      "official_program_url": "https://www.mfs.unito.it/do/home.pl",
+      "official_call_url": "https://mfs-apply.eitfood.eu/",
+      "tuition_or_fees_link": "https://www.mfs.unito.it/do/home.pl/View?doc=tuition_fees_and_financial_aid.html",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "mfs-apply.eitfood.eu",
+        "www.mfs.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1289.json#sha256=141dbe5db5821539"
+    },
+    {
+      "department_id": 1290,
+      "university_id": 11,
+      "official_program_url": "https://www.sve.unito.it/do/home.pl/View?doc=viticulture_and_enology_sciences.html",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/677-scienze-viticole-ed-enologiche-international-curriculum",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.sve.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1290.json#sha256=5a0b9be0692f1a5f"
+    },
+    {
+      "department_id": 1291,
+      "university_id": 11,
+      "official_program_url": "https://www.geography.unito.it/",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/336-geography-and-territorial-sciences",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.geografia.unito.it",
+        "www.geography.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1291.json#sha256=c2c31e8984a1c39e"
+    },
+    {
+      "department_id": 1292,
+      "university_id": 11,
+      "official_program_url": "https://www.aihpc.unito.it/",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/709-artificial-intelligence-and-high-performance-computing-technologies",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.aihpc.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1292.json#sha256=b71bd07f2a514cc7"
+    },
+    {
+      "department_id": 1293,
+      "university_id": 11,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/digital-skills-for-sustainable-societal-transitions",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "en.unito.it",
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1293.json#sha256=1257cd9a8bec2174"
+    }
+  ]
+}
