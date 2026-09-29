@@ -9,7 +9,8 @@ const UNIVERSITY_CHECKS = [
   {
     universityId: 3,
     label: "Bologna",
-    expectedDetailCount: 97,
+    // 2026-09-28 dogrulama turu: 1150 Computer Engineering ve 1160 Mathematics Kerem karariyla silindi.
+    expectedDetailCount: 95,
     criticalPrograms: [
       {
         name: "Medicine and Surgery",
@@ -103,7 +104,8 @@ const UNIVERSITY_CHECKS = [
   {
     universityId: 5,
     label: "Polito",
-    expectedDetailCount: 34,
+    // 2026-09-27 dogrulama turu: 1222 Industrial Production and Technological Innovation Engineering Kerem karariyla silindi.
+    expectedDetailCount: 33,
     criticalPrograms: [
       {
         name: "Architecture",
@@ -132,14 +134,6 @@ const UNIVERSITY_CHECKS = [
         level: "master",
         missingProgramMessage:
           "Missing expected Polito program: Cybersecurity Engineering (master)",
-        requiresDetails: true,
-        expectedDurationYears: 2,
-      },
-      {
-        name: "Industrial Production and Technological Innovation Engineering",
-        level: "master",
-        missingProgramMessage:
-          "Missing expected Polito program: Industrial Production and Technological Innovation Engineering (master)",
         requiresDetails: true,
         expectedDurationYears: 2,
       },
@@ -317,7 +311,8 @@ const UNIVERSITY_CHECKS = [
   {
     universityId: 10,
     label: "Milan",
-    expectedDetailCount: 45,
+    // 2026-09-28 dogrulama turu: 1214, 1215, 1217, 1218 Kerem karariyla silindi (tam Ingilizce yol yok).
+    expectedDetailCount: 41,
     criticalPrograms: [
       {
         name: "Artificial Intelligence",
@@ -340,7 +335,6 @@ const UNIVERSITY_CHECKS = [
           "Missing expected Milan program: International Medical School (IMS) (single-cycle)",
         requiresDetails: true,
         expectedDurationYears: 6,
-        expectedUncertainField: "admission_type",
       },
       {
         name: "Quantitative Biology",
@@ -419,7 +413,8 @@ const UNIVERSITY_CHECKS = [
   {
     universityId: 7,
     label: "Bocconi",
-    expectedDetailCount: 34,
+    // 2026-09-27 dogrulama turu: 307 World Bachelor in Business Kerem karariyla silindi (USC/Common App).
+    expectedDetailCount: 33,
     criticalPrograms: [
       {
         name: "Economics",
@@ -434,15 +429,6 @@ const UNIVERSITY_CHECKS = [
         missingProgramMessage: "Missing expected Bocconi program: Finance (bachelor)",
         requiresDetails: true,
         expectedDurationYears: 3,
-      },
-      {
-        name: "World Bachelor in Business",
-        level: "bachelor",
-        missingProgramMessage:
-          "Missing expected Bocconi program: World Bachelor in Business (bachelor)",
-        requiresDetails: true,
-        expectedDurationYears: 3,
-        expectedUncertainField: "language_requirements",
       },
       {
         name: "HEC-Bocconi Double Program in Data, Society and Organizations",
@@ -473,7 +459,6 @@ const UNIVERSITY_CHECKS = [
         missingProgramMessage: "Missing expected Bocconi program: IM CEMS MIM (master)",
         requiresDetails: true,
         expectedDurationYears: 2,
-        expectedUncertainField: "degree_class",
       },
       {
         name: "LSE-Bocconi Double Degree",

@@ -1,0 +1,453 @@
+{
+  "script": "verification-2026-09-u10",
+  "mode": "apply",
+  "project_ref": "kskbnxxyviowmrlskwke",
+  "generated_at": "2026-09-28T11:30:20.357Z",
+  "rows": [
+    {
+      "department_id": 332,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/bachelor/ancient-civilizations-contemporary-world",
+      "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-ancient-civilizations-for-the-contemporary-world-%28classe-l-1%29.pdf?22-APR-26",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/332.json#sha256=614e8d78f0472acc"
+    },
+    {
+      "department_id": 334,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/bachelor/economics-behavior-data-and-policy",
+      "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-economics-behavior-data-and-policy-%28classe-l-33-r%29.pdf?24-APR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-current-year",
+      "hosts": [
+        "apps.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/334.json#sha256=965b74b625159ed1"
+    },
+    {
+      "department_id": 335,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/bachelor/international-politics-law-and-economics-iple",
+      "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-international-politics-law-and-economics-%28iple%29---%28classe-l-36-r%29.pdf?27-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-current-year",
+      "hosts": [
+        "apps.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/335.json#sha256=b91e8f01d344571e"
+    },
+    {
+      "department_id": 336,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/single-cycle-master/international-medical-school-ims",
+      "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-medicine-and-surgery---international-medical-school-%28classe-lm-41-r%29.pdf?31-AUG-26",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-current-year",
+      "hosts": [
+        "apps.unimi.it",
+        "www.unimi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/336.json#sha256=1ae071626e967af2"
+    },
+    {
+      "department_id": 630,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/law-and-sustainable-development",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-law-and-sustainable-development-%28classe-lm-sc_giur-r%29.pdf?30-MAR-26",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-current-year",
+      "hosts": [
+        "apps.unimi.it",
+        "llmsd.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/630.json#sha256=e57473153c05ec4f"
+    },
+    {
+      "department_id": 631,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/biomedical-omics-bo",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-biomedical-omics-%28classe-lm-9-r%29.pdf",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apply.unimi.it",
+        "apps.unimi.it",
+        "bo.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/631.json#sha256=a52fd3699a03d532"
+    },
+    {
+      "department_id": 632,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/medical-biotechnology-and-molecular-medicine",
+      "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-medical-biotechology-and-molecular-medicine-%28classe-lm-9-r%29.pdf?27-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/632.json#sha256=75db0320bf25bc56"
+    },
+    {
+      "department_id": 633,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/biotechnology-bioeconomy",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-biotechnology-for-the-bioeconomy-%28classe-lm-7-r%29.pdf?30-MAR-26",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apply.unimi.it",
+        "apps.unimi.it",
+        "biotechnologybioeconomy.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/633.json#sha256=f317ce0e400175fa"
+    },
+    {
+      "department_id": 635,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/global-environment-and-development",
+      "official_call_url": "https://merged.info/application/application-procedure/",
+      "tuition_or_fees_link": "https://merged.info/application/tuition-fee/",
+      "hosts": [
+        "apps.unimi.it",
+        "merged.cdl.unimi.it",
+        "merged.info",
+        "www.ku.dk",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/635.json#sha256=2e8c5907811c7bfd"
+    },
+    {
+      "department_id": 636,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/sustainable-natural-resource-management",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-sustainable-natural-resource-management-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-current-year",
+      "hosts": [
+        "apps.unimi.it",
+        "snrm.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/636.json#sha256=306b4f5c4ad4e20e"
+    },
+    {
+      "department_id": 637,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/valorization-and-sustainable-development-mountain-areas",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-valorization-and-sustainable-development-of-mountain-areas-%28classe-lm-73-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-current-year",
+      "hosts": [
+        "apps.unimi.it",
+        "mountainside.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/637.json#sha256=447bea272ac80523"
+    },
+    {
+      "department_id": 638,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/cosmetic-industrial-science",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cosmetic-industrial-science-%28classe-lm-71-r%29.pdf",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "cosmis.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/638.json#sha256=589880bc6e1c431c"
+    },
+    {
+      "department_id": 640,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/safety-assessment-xenobiotics-and-biotechnological-products",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-safety-assessment-of-xenobiotics-and-biotechnological-products-%28classe-lm-9-.pdf?30-MAR-26",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "safetyassessment.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/640.json#sha256=150a6cbec6bbdef7"
+    },
+    {
+      "department_id": 641,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/artificial-intelligence-science-and-technology",
+      "official_call_url": "https://www.unimib.it/sites/default/files/2026-03/AI4ST_ENG_26_27_0.pdf",
+      "tuition_or_fees_link": "https://en.unimib.it/study/services-students-and-graduates/fees-and-funding",
+      "hosts": [
+        "apply.unimib.it",
+        "en.unimib.it",
+        "www.unimi.it",
+        "www.unimib.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/641.json#sha256=cb0c714bf669fbdb"
+    },
+    {
+      "department_id": 644,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/data-science-economics-and-health",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-data-science-for-economics-and-health-%28classe-lm-data%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "dseh.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/644.json#sha256=542211ffe165981f"
+    },
+    {
+      "department_id": 645,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/environmental-change-and-global-sustainability-ecgs",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-environmental-change-and-global-sustainability-%28classe-lm-75-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "ecgs.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/645.json#sha256=3ec7a9837be2ac17"
+    },
+    {
+      "department_id": 646,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/geophysics",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-geophysics-%28classe-lm-79-r%29.pdf?30-MAR-26",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apply.unimi.it",
+        "apps.unimi.it",
+        "geophysics.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/646.json#sha256=dfb906a9876292c0"
+    },
+    {
+      "department_id": 647,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/sustainable-industrial-chemistry",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-sustainable-industrial-chemistry-%28classe-lm-71-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "sic.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/647.json#sha256=87176c8a4afa36ef"
+    },
+    {
+      "department_id": 648,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/molecular-biology-cell",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-molecular-biology-of-the-cell-%28classe-lm-6-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "mbc.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/648.json#sha256=d2337d3c0efdb948"
+    },
+    {
+      "department_id": 649,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/molecular-biotechnology-and-bioinformatics",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-molecular-biotechnology-and-bioinformatics-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "mbb.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/649.json#sha256=569edbebba99d437"
+    },
+    {
+      "department_id": 650,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/plant-science",
+      "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-plant-science-%28classe-lm-6-r-%29.pdf?27-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/650.json#sha256=457e8d06aaa81f8f"
+    },
+    {
+      "department_id": 651,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/quantitative-biology",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-quantitative-biology-%28classe-lm-8-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "qbio.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/651.json#sha256=69ceb8098edd0c34"
+    },
+    {
+      "department_id": 652,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/computational-social-and-political-science",
+      "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-computational-social-and-political-science-%28classe-lm-62-r-lm-88-r-%29.pdf?27-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/652.json#sha256=b7eb0dc4fb5d593c"
+    },
+    {
+      "department_id": 653,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/economics-and-political-science-eps",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-economics-and-political-science-%28eps%29-%28classi-lm-56-r-lm-62-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "eps.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/653.json#sha256=a958d863cfd11fe9"
+    },
+    {
+      "department_id": 655,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/global-politics-and-society-gps",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-global-politics-and-society-%28gps%29-%28classe-lm-62-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-current-year",
+      "hosts": [
+        "apply.unimi.it",
+        "apps.unimi.it",
+        "gps.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/655.json#sha256=fa69c7f1440d4511"
+    },
+    {
+      "department_id": 656,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/international-relations-rel",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-international-relations-%28classe-lm-52-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "rel.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/656.json#sha256=5cb9edf047aa96c8"
+    },
+    {
+      "department_id": 657,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/management-human-resources-people-data-and-intelligent-technologies",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-management-of-human-resource-people-data-and-intelligent-technologies.pdf?30-MAR-26",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "mhr.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/657.json#sha256=69a242af082378ff"
+    },
+    {
+      "department_id": 659,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/migration-studies-and-new-societies",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-migration-studies-and-new-societies-%28classe-lm-90-r%29.pdf?03-JUN-26=",
+      "tuition_or_fees_link": "https://migrations.cdl.unimi.it/en/enrolment",
+      "hosts": [
+        "apps.unimi.it",
+        "migrations.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/659.json#sha256=d70b506dde72aa0e"
+    },
+    {
+      "department_id": 660,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/public-and-corporate-communication-com",
+      "official_call_url": "https://apps.unimi.it/files/bandi/call-2027-1-public-and-corporate-communication-%28classe-lm-59-r%29.pdf?27-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/660.json#sha256=5d6da1c6bdb05acd"
+    },
+    {
+      "department_id": 661,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/politics-philosophy-and-public-affairs-pppa",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-politics-philosophy-and-public-affairs-%28pppa%29-%28classi-lm-62-r-lm-78-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "pppa.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/661.json#sha256=ae3cf051ada40a27"
+    },
+    {
+      "department_id": 662,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/cultural-intellectual-and-visual-history",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-cultural-intellectual-and-visual-history-%28classe-lm-84-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-current-year",
+      "hosts": [
+        "apps.unimi.it",
+        "visual.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/662.json#sha256=4715bf7239bc8caa"
+    },
+    {
+      "department_id": 664,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/philosophical-sciences",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-philosophical-sciences-%28classe-lm-78-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apply.unimi.it",
+        "apps.unimi.it",
+        "scienzefilosofiche.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/664.json#sha256=93a4ed07084f2e1e"
+    },
+    {
+      "department_id": 1213,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/bachelor/artificial-intelligence",
+      "official_call_url": "https://en.unipv.it/sites/sten/files/2026-05/Artificial%20Intelligence%202026-2027_ENG_def.pdf",
+      "tuition_or_fees_link": "https://en.unipv.it/en/education/bachelors-and-master-degree-programs/fees-and-funding",
+      "hosts": [
+        "apps.unimi.it",
+        "en.unipv.it",
+        "gestionedidattica.unipv.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1213.json#sha256=fec12b46974ee19c"
+    },
+    {
+      "department_id": 1216,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/earth-sciences",
+      "official_call_url": "https://apps.unimi.it/files/bandi/admission-notice-2027-1-earth-sciences-%28classe-lm-74-r%29.pdf?30-MAR-26=",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them/fees-current-year",
+      "hosts": [
+        "apps.unimi.it",
+        "scienzeterra.cdl.unimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1216.json#sha256=74e25a51b8dd676b"
+    }
+  ]
+}

@@ -1,0 +1,1038 @@
+{
+  "script": "verification-2026-09-u3",
+  "mode": "apply",
+  "project_ref": "kskbnxxyviowmrlskwke",
+  "generated_at": "2026-09-27T23:16:01.691Z",
+  "rows": [
+    {
+      "department_id": 261,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6623",
+      "official_call_url": "https://corsi.unibo.it/s/3441/p/en/programme-enrolment-requirements-deadlines-and-methods-1/bce_bandocent-s_2026-27-en.pdf/%40%40download/file/BCE_BandoCenT-S_2026-27-EN.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/261.json#sha256=157ee19734065147"
+    },
+    {
+      "department_id": 262,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6609",
+      "official_call_url": "https://corsi.unibo.it/s/3394/p/en/enrolling-clabe/clabe-clame-call-for-applications-2025_26-1.pdf/%40%40download/file/CLABE-CLAME%20Call%20for%20Applications%202025_26%20%281%29.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/262.json#sha256=ff384c0ea29dfd05"
+    },
+    {
+      "department_id": 263,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6611",
+      "official_call_url": "https://corsi.unibo.it/s/3440/p/en/programme-enrolment-1-1/call-finma-2026-2027.pdf/%40%40download/file/Call%2520FINMA%25202026-2027.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/263.json#sha256=f8be2f1730ddf45b"
+    },
+    {
+      "department_id": 264,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6646",
+      "official_call_url": "https://corsi.unibo.it/s/3394/p/en/enrolling-clef/abstract-bando-etac_clef_2026-en.pdf/%40%40download/file/Abstract%20bando%20ETAC_CLEF_2026%20EN.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/264.json#sha256=9f149adaf12558f4"
+    },
+    {
+      "department_id": 265,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6645",
+      "official_call_url": "https://corsi.unibo.it/s/3440/p/en/programme-enrollment-new-2/abstract-bando-etac-2025.pdf/%40%40download/file/Abstract%20bando%20ETAC_CLEF_2026%20EN.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/265.json#sha256=1cacfddf4efa673a"
+    },
+    {
+      "department_id": 266,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6647",
+      "official_call_url": "https://corsi.unibo.it/s/3394/p/en/enrolling-epos/epos-call-for-applications-2026-2027-eng.pdf/%40%40download/file/EPOS%20Call%20for%20Applications%202026-2027%20ENG.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/266.json#sha256=fdb043c7a2e99df7"
+    },
+    {
+      "department_id": 267,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/5909",
+      "official_call_url": "https://apply.unipd.it/courses/course/207-biology-human-and-environmental-health",
+      "tuition_or_fees_link": "https://www.unipd.it/en/contribuzione-studentesca",
+      "hosts": [
+        "apply.unipd.it",
+        "corsi.unibo.it",
+        "www.unibo.it",
+        "www.unipd.it",
+        "wwwassets.unipd.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/267.json#sha256=1f3979933105aab0"
+    },
+    {
+      "department_id": 268,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6653",
+      "official_call_url": "https://corsi.unibo.it/1cycle/EuropeanStudies/how-to-enrol",
+      "tuition_or_fees_link": "https://corsi.unibo.it/1cycle/EuropeanStudies/overview",
+      "hosts": [
+        "corsi.unibo.it",
+        "ghum.kuleuven.be",
+        "onderwijsaanbod.kuleuven.be",
+        "www.kuleuven.be",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/268.json#sha256=63d93001bfe2249c"
+    },
+    {
+      "department_id": 269,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6343",
+      "official_call_url": "https://corsi.unibo.it/s/3390/p/en/programme-enrolment-new-genomics/call-for-applications_genomics_a-y-2024-25.pdf/%40%40download/file/Call%20for%20Applications_GENOMICS__A.Y.%202026-27.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/269.json#sha256=fe7b8a70d1abb177"
+    },
+    {
+      "department_id": 270,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6650",
+      "official_call_url": "https://corsi.unibo.it/s/3427/p/en/programme-enrolment-requirements-deadlines-and-methods/bis-call-for-appliation-2026-27-en.pdf/%40%40download/file/BIS%20-%20Call%20for%20appliation%202026-27%20-%20EN.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/270.json#sha256=8f570fe4d048afec"
+    },
+    {
+      "department_id": 271,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6614",
+      "official_call_url": "https://corsi.unibo.it/s/3427/p/en/how-to-apply-and-enrol-in-the-programme/clabe-clame-call-for-applications-2025_26-1.pdf/%40%40download/file/CLABE-CLAME%20Call%20for%20Applications%202025_26%20%281%29.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/271.json#sha256=d5b03858a9c6e712"
+    },
+    {
+      "department_id": 272,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6264",
+      "official_call_url": "https://corsi.unibo.it/s/3317/p/en/enrolling-1/bando-medicine-and-surgery-2024-2025-1.pdf/%40%40download/file/BANDO%20MEDICINE%20AND%20SURGERY%20%2B%20VETERINARY%20MEDICINE%202026-2027.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/272.json#sha256=6d00f8f152e05e7d"
+    },
+    {
+      "department_id": 273,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6342",
+      "official_call_url": "https://corsi.unibo.it/s/3440/p/en/programme-enrolment-requirements-deadlines-and-methods/bando-tolc-pharmacy-2025_2026-emendato.pdf/%40%40download/file/Bando%20Pharmacy%202026_2027.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/273.json#sha256=c390026c9ce42398"
+    },
+    {
+      "department_id": 274,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6661",
+      "official_call_url": "https://corsi.unibo.it/s/3394/p/en/enrolling-stats-maths-1/call-sm-2026-2027-en.pdf/%40%40download/file/Call%20SM%202026-2027%20EN.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/274.json#sha256=714f04d841edaee7"
+    },
+    {
+      "department_id": 275,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/first-and-single-cycle-degree/programme/2026/6197",
+      "official_call_url": "https://corsi.unibo.it/s/976/p/en/programme-enrolment-new-1/bando-medicine-and-surgery-veterinary-medicine-2025-2026.pdf/%40%40download/file/BANDO%20MEDICINE%20AND%20SURGERY%20%2B%20VETERINARY%20MEDICINE%202026-2027.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/275.json#sha256=8ce1156b78cdb99d"
+    },
+    {
+      "department_id": 582,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6797",
+      "official_call_url": "https://corsi.unibo.it/s/3427/p/en/how-to-apply-and-enrol-in-the-programme-1/call-lm-bas-26_27-engl.pdf/%40%40download/file/Call%20LM%20BAS%2026_27%20Engl.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/582.json#sha256=e1d7a59145369352"
+    },
+    {
+      "department_id": 583,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/9140",
+      "official_call_url": "https://apply.unipr.it/courses/course/9-masters-degree-food-safety-and-food-risk-management",
+      "tuition_or_fees_link": "https://www.unipr.it/en/tasse-borse-di-studio-e-agevolazioni-studenti-e-studentesse-internazionali",
+      "hosts": [
+        "apply.unipr.it",
+        "corsi.unibo.it",
+        "www.unibo.it",
+        "www.unipr.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/583.json#sha256=ee0421a4b18cfbe1"
+    },
+    {
+      "department_id": 584,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6784",
+      "official_call_url": "https://corsi.unibo.it/s/971/p/en/iscriversi-nuova-imahs-template-2-con-verifica-dell-adeguatezza-della-preparazione/admission-notice-imahs-a-y-2026-27.pdf/%40%40download/file/Admission%20notice%20Imahs%20a.y.%202026-27.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/584.json#sha256=640c179b0e49bffe"
+    },
+    {
+      "department_id": 585,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6786",
+      "official_call_url": "https://corsi.unibo.it/s/971/p/en/programme-enrolment-requirements-deadlines-and-methods/admission-notice-lm2627englishversion-pasa.pdf/%40%40download/file/Admission%20Notice%20LM2627EnglishVersion%20Pasa.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/585.json#sha256=1ed5a399a24fa2a5"
+    },
+    {
+      "department_id": 586,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6756",
+      "official_call_url": "https://corsi.unibo.it/2cycle/AppliedEconomicsMarkets/how-to-enrol",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/586.json#sha256=d3cfe89ac50cc0ef"
+    },
+    {
+      "department_id": 587,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6823",
+      "official_call_url": "https://corsi.unibo.it/s/3424/p/en/iscriversi-nuova/bando-lm-dtm-con-prot_2026-2027.pdf/%40%40download/file/Bando%20LM%20DTM%20con%20PROT_2026-2027.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/587.json#sha256=a1a0a37a7b438534"
+    },
+    {
+      "department_id": 588,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6757",
+      "official_call_url": "https://corsi.unibo.it/s/3394/p/en/enrolling-lmec/call-lmec-2026-27-englishversion.pdf/%40%40download/file/Call%20LMEC%202026-27%20EnglishVersion.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/teaching/enrolment-transfer-and-final-examination/tuition-fees-and-exemptions/tuition-fees",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/588.json#sha256=d725e84f75139f05"
+    },
+    {
+      "department_id": 589,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6758",
+      "official_call_url": "https://corsi.unibo.it/2cycle/EconomicsPolicy/how-to-enrol",
+      "tuition_or_fees_link": "https://www.unibo.it/en/teaching/enrolment-transfer-and-final-examination/tuition-fees-and-exemptions/tuition-fees",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/589.json#sha256=6c2e4c05f357882d"
+    },
+    {
+      "department_id": 590,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6759",
+      "official_call_url": "https://eu-hem.eu/enrollment-process-university-of-oslo/",
+      "tuition_or_fees_link": "https://corsi.unibo.it/2cycle/euHealthEconomicsManagement/how-to-enrol",
+      "hosts": [
+        "corsi.unibo.it",
+        "eu-hem.eu",
+        "www.mci.edu",
+        "www.uio.no",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/590.json#sha256=600facda608d6e9e"
+    },
+    {
+      "department_id": 591,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6795",
+      "official_call_url": "https://corsi.unibo.it/s/3394/p/en/enrolling-gioca/call-gioca-2026-2027_eng-abstract-version.pdf/%40%40download/file/Call%20GIOCA%202026-2027_ENG%20abstract%20version.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/591.json#sha256=b04c1a27eee7392c"
+    },
+    {
+      "department_id": 592,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6803",
+      "official_call_url": "https://corsi.unibo.it/s/3394/p/en/enrolling-im/bando-im-2026-2027_-en.pdf/%40%40download/file/Bando%20IM%202026-2027_%20en.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/592.json#sha256=42fd798b948a8202"
+    },
+    {
+      "department_id": 593,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6763",
+      "official_call_url": "https://corsi.unibo.it/s/3427/p/en/enrolligipe/bando-ipe-2627eng.pdf/%40%40download/file/Bando%20IPE%202627ENG.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/593.json#sha256=ff7594818402f10d"
+    },
+    {
+      "department_id": 594,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6762",
+      "official_call_url": "https://corsi.unibo.it/2cycle/leif/how-to-enrol",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/594.json#sha256=d244c70e71dc2679"
+    },
+    {
+      "department_id": 595,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6829",
+      "official_call_url": "https://corsi.unibo.it/s/3394/p/en/how-to-enrol2-2/a_prot-628-26_avviso-lego-2026-2027-ultimo-def-26-02-2026.pdf/%40%40download/file/A_Prot%20628%2026_AVVISO%20LEGo%202026-2027%20ULTIMO%20DEF%2026.02.2026.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/595.json#sha256=258826d36e3d372a"
+    },
+    {
+      "department_id": 596,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6760",
+      "official_call_url": "https://corsi.unibo.it/s/3440/p/en/programme-enrolment-new/rep-230-prot-5639-del-19-12-25-avviso_resd-lm26_27_english.pdf/%40%40download/file/Rep.230%20prot%205639%20del%2019.12.25%20Avviso_RESD%20LM26_27_English.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/596.json#sha256=94807b5bac68f453"
+    },
+    {
+      "department_id": 598,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6761",
+      "official_call_url": "https://corsi.unibo.it/s/3440/p/en/programme-enrollment-new-1/avviso_team_2025-26-eng.pdf/%40%40download/file/Rep.231%20prot5640%20del%2019.12.25%20AvvisoLM2627EnglishVersion_TEaM.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/598.json#sha256=cb32574f968b8c69"
+    },
+    {
+      "department_id": 599,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/9239",
+      "official_call_url": "https://www.unimore.it/it/ateneo/bandi/call-applications-international-inter-university-masters-degree-programme-advanced-0",
+      "tuition_or_fees_link": "https://www.unimore.it/en/services/fees-and-benefits",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.ingmo.unimore.it",
+        "www.unibo.it",
+        "www.unimore.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/599.json#sha256=cc7503d1d90c02fd"
+    },
+    {
+      "department_id": 600,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6704",
+      "official_call_url": "https://corsi.unibo.it/s/3427/p/en/programme-enrolment-new/bando-lm-mae-26-27_eng.pdf/%40%40download/file/Bando%20LM%20MAE%2026-27_ENG.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/600.json#sha256=372279167ebd200b"
+    },
+    {
+      "department_id": 601,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6727",
+      "official_call_url": "https://corsi.unibo.it/2cycle/ArchitectureCreativePractices/how-to-enrol",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/601.json#sha256=0b7cdc29174fb35a"
+    },
+    {
+      "department_id": 602,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6700",
+      "official_call_url": "https://corsi.unibo.it/s/3387/p/en/enrolling-new-4/call-for-admissions-2026-27.pdf/%40%40download/file/Call%20for%20admissions%202026-27-rev-00.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/602.json#sha256=88e6dadfa493c193"
+    },
+    {
+      "department_id": 603,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6711",
+      "official_call_url": "https://corsi.unibo.it/s/3387/p/en/enrolling-new-1/call-for-admissions-2026-27.pdf/%40%40download/file/Call%20for%20admissions%202026-27-rev-00.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/603.json#sha256=11fd4d165262506d"
+    },
+    {
+      "department_id": 605,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6728",
+      "official_call_url": "https://corsi.unibo.it/2cycle/ArchitectureEngineering/programme-enrolment-requirements-deadlines-and-methods",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/605.json#sha256=0cca2430ef6ca315"
+    },
+    {
+      "department_id": 606,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6706",
+      "official_call_url": "https://corsi.unibo.it/s/3387/p/en/enrolling-new-1/call-for-admissions-2026-27.pdf/%40%40download/file/Call%20for%20admissions%202026-27-rev-00.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/606.json#sha256=aef2915bc310b3e7"
+    },
+    {
+      "department_id": 607,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6708",
+      "official_call_url": "https://corsi.unibo.it/s/3387/p/en/enrolling-new-2/call-for-admissions-2026-27.pdf/%40%40download/file/Call%20for%20admissions%202026-27-rev-00.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/607.json#sha256=168f061aac5e62ef"
+    },
+    {
+      "department_id": 608,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6712",
+      "official_call_url": "https://corsi.unibo.it/s/3387/p/en/enrolling-new-7/call-for-admissions-2026-27.pdf/%40%40download/file/Call%20for%20admissions%202026-27-rev-00.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/608.json#sha256=bb6fb00e431c24b3"
+    },
+    {
+      "department_id": 609,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6699",
+      "official_call_url": "https://corsi.unibo.it/s/3424/p/en/how-to-enrol/bando-ingegn-scienze-inf-curr-ies_2026_2027_eng.pdf/%40%40download/file/Bando%20Ingegn%20Scienze%20Inf%20-%20curr.%20IES_2026_2027_ENG.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/609.json#sha256=1385de60eb2bd8a8"
+    },
+    {
+      "department_id": 610,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6713",
+      "official_call_url": "https://corsi.unibo.it/s/3387/p/en/enrolling-new-11/call-for-applications_eve_2025_2026.pdf/%40%40download/file/Call%20for%20Applications_EVE_2026_2027.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/teaching/enrolment-transfer-and-final-examination/tuition-fees-and-exemptions/tuition-fees",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/610.json#sha256=c5cad0e9deb14de8"
+    },
+    {
+      "department_id": 611,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6714",
+      "official_call_url": "https://corsi.unibo.it/s/3387/p/en/enrolling-new-4/call-for-admissions-2026-27.pdf/%40%40download/file/Call%20for%20admissions%202026-27-rev-00.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/teaching/enrolment-transfer-and-final-examination/tuition-fees-and-exemptions/tuition-fees",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/611.json#sha256=54fc7d2eab531778"
+    },
+    {
+      "department_id": 612,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6716",
+      "official_call_url": "https://corsi.unibo.it/s/3387/p/en/enrolling-new-5/call-for-admissions-2026-27.pdf/%40%40download/file/Call%20for%20admissions%202026-27-rev-00.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/612.json#sha256=995e0b717cedc3ea"
+    },
+    {
+      "department_id": 613,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/5917",
+      "official_call_url": "https://dia.unipr.it/en/node/100412",
+      "tuition_or_fees_link": "https://www.unipr.it/en/contribution-benefits-university-for-graduate-courses",
+      "hosts": [
+        "corsi.unibo.it",
+        "dia.unipr.it",
+        "www.unibo.it",
+        "www.unipr.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/613.json#sha256=127124ffd48e5a74"
+    },
+    {
+      "department_id": 614,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6710",
+      "official_call_url": "https://corsi.unibo.it/s/3441/p/en/new-programme-enrolment-requirements-deadlines-and-methods/call-for-applications-to-engineering-for-historic-building-rehabilitation-a-y-2025-26.pdf/%40%40download/file/Call%20for%20applications%20a.y.%202026-27%20_%20LM%20Dicam%20Ra.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/614.json#sha256=0e29bdb096b05e3d"
+    },
+    {
+      "department_id": 615,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6722",
+      "official_call_url": "https://corsi.unibo.it/s/3387/p/en/enrolling-new-6/call-for-admissions-2026-27.pdf/%40%40download/file/Call%20for%20admissions%202026-27-rev-00.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/615.json#sha256=bd6d11890151ea3b"
+    },
+    {
+      "department_id": 616,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6720",
+      "official_call_url": "https://corsi.unibo.it/s/3427/p/en/programma-enrolment-new/bando-lm-aerospace_ita_2025-26-def-1.pdf/%40%40download/file/Bando%20LM%20MES%2026-27_ENG.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/616.json#sha256=9b37797d0dd821e6"
+    },
+    {
+      "department_id": 617,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6707",
+      "official_call_url": "https://corsi.unibo.it/s/3441/p/en/enrol-new/call-for-applications-to-offshore-engineering-for-energy-transition-a-y-2025-26.pdf/%40%40download/file/Call%20for%20applications%20a.y.%202026-27%20_%20LM%20Dicam%20Ra.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/617.json#sha256=67b6209a7e0e505b"
+    },
+    {
+      "department_id": 619,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6736",
+      "official_call_url": "https://corsi.unibo.it/s/3391/p/en/digital-humanities-and-digital-knowledge-dhdk/call-dhdk-2026.pdf/%40%40download/file/Call%20DHDK%202026.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/619.json#sha256=09614031b7601677"
+    },
+    {
+      "department_id": 620,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6780",
+      "official_call_url": "https://corsi.unibo.it/s/3440/p/en/programme-enrolment-new-2/fast_call_25_26.pdf/%40%40download/file/Call%20for%20Applications%20-%20FAST%20-%2026_27%20-%20EN_CV%20-%20R2.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/620.json#sha256=2cfda609287f8ef8"
+    },
+    {
+      "department_id": 621,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6033",
+      "official_call_url": "https://corsi.unibo.it/s/3391/p/en/how-to-enrol/gloc_avvisolm2627englishversion-1.pdf/%40%40download/file/GLOC_AvvisoLM2627EnglishVersion.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/621.json#sha256=0af56058a8136c2b"
+    },
+    {
+      "department_id": 622,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6808",
+      "official_call_url": "https://corsi.unibo.it/s/3441/p/en/programme-enrolment-requirements-deadlines-and-methods/admissionnoticeicontact-2026-27.pdf/%40%40download/file/AdmissionNoticeICONTACT-2026-27.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/622.json#sha256=8e388aacdd3f5434"
+    },
+    {
+      "department_id": 623,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6689",
+      "official_call_url": "https://corsi.unibo.it/s/3391/p/en/italian-studies/modello-avviso-lm-la-25-26_definitivo_2024-11-29_en.pdf/%40%40download/file/ITS%20admission%20notice%202026-27.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/623.json#sha256=7d148838fa65252e"
+    },
+    {
+      "department_id": 624,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6824",
+      "official_call_url": "https://corsi.unibo.it/s/3391/p/en/embodied-social-and-cultural-system-cod-6824-lm-semiotica/avviso-lm-semiotics-25-26_en.pdf/%40%40download/file/CALL%20EMBODIED%20a.y.%202026-%2027%20EN.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/624.json#sha256=68c0ac0db9bfadfb"
+    },
+    {
+      "department_id": 625,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6819",
+      "official_call_url": "https://corsi.unibo.it/s/3391/p/en/how-to-enroll/amac_call.pdf/%40%40download/file/AMaC_Call%2026-27.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/625.json#sha256=191e08204cd52458"
+    },
+    {
+      "department_id": 626,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6347",
+      "official_call_url": "https://corsi.unibo.it/2cycle/Interpreting/how-to-enrol",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/626.json#sha256=90f1e341ffc3054c"
+    },
+    {
+      "department_id": 627,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6724",
+      "official_call_url": "https://corsi.unibo.it/s/3391/p/en/how-to-enrol-1/lsc_call_2025_26_en.pdf/%40%40download/file/LSC_Call_2026_27_EN.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/627.json#sha256=8b881657a8b80933"
+    },
+    {
+      "department_id": 628,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6826",
+      "official_call_url": "https://corsi.unibo.it/s/3427/p/en/how-to-enroll-new-spectra-1/bando-predef-lm-spectra-26-27_tipo-lm_-vb-pu-def-1.pdf/%40%40download/file/Bando%2520predef%2520LM%2520SPECTRA%252026-27_tipo%2520LM_%2520vb%2520pu%2520DEF%2520%281%29.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/628.json#sha256=43e6e3badadb2938"
+    },
+    {
+      "department_id": 629,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6682",
+      "official_call_url": "https://corsi.unibo.it/s/3394/p/en/programme-enrolment-new-1/call-for-applications-legs_2026-2027.pdf/%40%40download/file/Call%20for%20Applications%20-%20LEGS_2026-2027.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/629.json#sha256=1227766fc36e501e"
+    },
+    {
+      "department_id": 1143,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6755",
+      "official_call_url": "https://corsi.unibo.it/s/3386/p/en/enrolling-acs1/call-for-applications-advanced-cosmetic-sciences-2025-26-1.pdf/%40%40download/file/Call%20for%20Applications%20Advanced%20Cosmetic%20Sciences%202025-26%20%281%29.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1143.json#sha256=6989c4a46aa59f89"
+    },
+    {
+      "department_id": 1144,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6694",
+      "official_call_url": "https://imapp.eu/how-to-apply/application-procedure/",
+      "tuition_or_fees_link": "https://imapp.eu/scholarships-fees/tuition-fees/",
+      "hosts": [
+        "corsi.unibo.it",
+        "imapp.eu",
+        "international.tu-dortmund.de",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1144.json#sha256=707449f16d1341d5"
+    },
+    {
+      "department_id": 1145,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6790",
+      "official_call_url": "https://master-asc.eu/application-process",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "master-asc.eu",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1145.json#sha256=c9edf0f7b4104dc4"
+    },
+    {
+      "department_id": 1146,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6262",
+      "official_call_url": "https://corsi.unibo.it/2cycle/ComparativeBiotechnologies/how-to-enrol",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1146.json#sha256=f39bc9be2a8232bf"
+    },
+    {
+      "department_id": 1147,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6244",
+      "official_call_url": "https://corsi.unibo.it/2cycle/Archaeology/how-to-enrol",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1147.json#sha256=26a676af92278332"
+    },
+    {
+      "department_id": 1149,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6258",
+      "official_call_url": "https://corsi.unibo.it/2cycle/ChemicalInnovationRegulation/how-to-enrol",
+      "tuition_or_fees_link": "https://www.emmcchir.org/admissions/costs-and-funding",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.emmcchir.org",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1149.json#sha256=12bbb942893e5543"
+    },
+    {
+      "department_id": 1151,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6246",
+      "official_call_url": "https://corsi.unibo.it/s/3391/p/en/how-to-enrol-3/avviso-dm.pdf/%40%40download/file/Avviso%20DM.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1151.json#sha256=922312e2a2844a1f"
+    },
+    {
+      "department_id": 1152,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6751",
+      "official_call_url": "https://corsi.unibo.it/s/3427/p/en/iscriversimirees/bando-lm-mirees-revised-ter-26-27_tipo-lm_def-pu.pdf/%40%40download/file/Bando%20LM%20MIREES%20revised%20TER%2026-27_tipo%20LM_DEF%20pu.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1152.json#sha256=95dbce1bae002d59"
+    },
+    {
+      "department_id": 1154,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6793",
+      "official_call_url": "https://corsi.unibo.it/s/3386/p/en/how-to-enrolgeoss/rames-admission-notice-a-y-26-27.pdf/%40%40download/file/RaMES%20admission%20notice%20a.y.%2026-27.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1154.json#sha256=80d078917caabd0e"
+    },
+    {
+      "department_id": 1155,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6693",
+      "official_call_url": "https://corsi.unibo.it/s/3394/p/en/enrolling-grenfin/avviso-lm-25-26_grenfin_en.pdf/%40%40download/file/okModelloAvvisoLM2627EnglishVersion%201.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1155.json#sha256=58253db70856f153"
+    },
+    {
+      "department_id": 1156,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6750",
+      "official_call_url": "https://corsi.unibo.it/s/3427/p/en/enrollinglmsideng/bando-lm-sid-26-27_tipo-lm_def-pu-2.pdf/%40%40download/file/Bando%20LM%20SID%2026-27_tipo%20LM_DEF%20pu%20%282%29.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1156.json#sha256=b0097976e40d01a1"
+    },
+    {
+      "department_id": 1158,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6791",
+      "official_call_url": "https://corsi.unibo.it/s/3386/p/en/how-to-enrol/avviso-lm-locate-25-26_en-1.pdf/%40%40download/file/call%20for%20applications%20LoCaTe%202026-27.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1158.json#sha256=2ab6eb983d63e0d3"
+    },
+    {
+      "department_id": 1159,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6250",
+      "official_call_url": "https://corsi.unibo.it/s/3386/p/en/programme-enrolment-requirements-deadlines-and-methods-1/call-batteries-lm2026-27.pdf/%40%40download/file/Call%20Batteries%20LM2026-27.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1159.json#sha256=b70f16af68a6d6c1"
+    },
+    {
+      "department_id": 1161,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6266",
+      "official_call_url": "https://corsi.unibo.it/s/3317/p/en/enrolling/2025-26-admission-notice-medicalbiotechnology-en.pdf/%40%40download/file/MedicalBiotechnology-6266-admissionNotice2627-EN.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1161.json#sha256=3774e2b236a6b261"
+    },
+    {
+      "department_id": 1162,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6254",
+      "official_call_url": "https://corsi.unibo.it/s/3390/p/en/programme-enrolment-new-mcb/rev-29_01-call-applications-lm-mcb_a-y-2025-2026.pdf/%40%40download/file/DEF%20Admission%20Notice%20MCB%2026_27.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1162.json#sha256=4239c0d1c0cc4655"
+    },
+    {
+      "department_id": 1163,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6249",
+      "official_call_url": "https://corsi.unibo.it/s/3390/p/en/programme-enrolment-requirements-deadlines-and-methods/admission-notice-pib-26-27_def_20-03-2026.pdf/%40%40download/file/Admission%20Notice%20PIB%2026-27_DEF_20.03.2026_.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1163.json#sha256=8424dbec9191c3a0"
+    },
+    {
+      "department_id": 1164,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6242",
+      "official_call_url": "https://corsi.unibo.it/magistrale/ScienzeFilosofiche/iscriversi-al-corso",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1164.json#sha256=57d93ca01ca55e9e"
+    },
+    {
+      "department_id": 1168,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6776",
+      "official_call_url": "https://corsi.unibo.it/s/3394/p/en/how-to-enrol/bando-pao-pa-2026-2027-def-signed-prot.pdf/%40%40download/file/BANDO%20PAO%20PA%202026-2027%20DEF%20signed%20prot.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1168.json#sha256=644774ce53c505a4"
+    },
+    {
+      "department_id": 1170,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6692",
+      "official_call_url": "https://corsi.unibo.it/s/3394/p/en/enrolling-qf/admission-notice_qf_english_2026-27.pdf/%40%40download/file/Admission%20Notice_QF_English_2026-27.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1170.json#sha256=517dda2028f970de"
+    },
+    {
+      "department_id": 1171,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6794",
+      "official_call_url": "https://corsi.unibo.it/s/3386/p/en/iscriversi2/admission-notice_wacoma_ay-26-27.pdf/%40%40download/file/WACOMA%2026-27.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1171.json#sha256=becba85dd2ccded7"
+    },
+    {
+      "department_id": 1172,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6684",
+      "official_call_url": "https://corsi.unibo.it/s/3386/p/en/iscriversi2-1/admission-notice-lm-score-a-y-25-26.pdf/%40%40download/file/Call%2520for%2520applications%2520LM-11%2520R%2520Science%2520for%2520the%2520Conservation-Restoration%2520of%2520Cultural%2520Heritage%2520a.y.%25202026-2027.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1172.json#sha256=fd65c2924344ee99"
+    },
+    {
+      "department_id": 1173,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6697",
+      "official_call_url": "https://corsi.unibo.it/s/3386/p/en/enrolling-in-the-programme-requirements-deadlines-and-procedures-2/call-for-application_lm-science-of-climate_25-26_difa.pdf/%40%40download/file/Avviso_LM_Science_of_Climate_26-27_EN.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1173.json#sha256=0732143de9059bee"
+    },
+    {
+      "department_id": 1176,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6811",
+      "official_call_url": "https://corsi.unibo.it/s/3394/p/en/enrolling-business-analytics/admission-notice-ba2627englishversion_1.pdf/%40%40download/file/Admission%20Notice%20BA2627EnglishVersion_1.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1176.json#sha256=757fb961aa2fe274"
+    },
+    {
+      "department_id": 1177,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6747",
+      "official_call_url": "https://corsi.unibo.it/s/3424/p/en/programme-enrolment-requirements-deadlines-and-methods-3/avviso-wop-ohp_26-27_eng_def.pdf/%40%40download/file/Avviso%20WOP-OHP_26-27_ENG_DEF.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1177.json#sha256=3a168a811fcd6e55"
+    }
+  ]
+}

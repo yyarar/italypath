@@ -230,15 +230,15 @@ Calisma zamani fonksiyonlari (2026-09-15 egress diyeti; 2026-09-26 guvenlik dene
 
 Katalog okuma anahtari (2026-09-26, S9#1 kod tarafi): `lib/universities.server.ts` `import "server-only"` ile baslar ve dort katalog kaynagini yalnizca server-only `SUPABASE_SECRET_KEY` (Supabase'in yeni tip gizli anahtari, `sb_secret_…`) ile okur. Anahtar yoksa veya `sb_secret_` ile baslamiyorsa acik hata firlatilir; herkese acik anon anahtara geri dusulmez. Ayni kural katalog okuyan betiklerde de gecerlidir (`check-program-details.mjs`, `validate-supabase-university-data.mjs`, `import-*.mjs` okuma/dry-run kismi). Vercel'de degisken Supabase entegrasyonunca tanimlidir (Production, Preview, Development); yerelde `.env.local`'a elle eklenir. 2026-09-26'dan beri (guvenlik karti 4, `supabase/data_api_privileges.sql`) anon ve authenticated rollerinin dort katalog kaynaginda (ve `university_departments` id dizisinde) hicbir yetkisi ve okuma politikasi yoktur; ziyaretci anahtariyla istek 42501 doner. Istemciye katalog grant'i veya okuma politikasi geri eklemek egress acigini yeniden acar (`check:university-data-source` SQL'i de denetler). Ayni projeye bagli `~/remake` iOS uygulamasi bu yuzden katalog okuyamaz (`docs/STATUS.md` #56).
 
-Canli Supabase sayimi (2026-09-21, `select count(*)`; 19 Eylul 2026 veri temizliginde 8 okul + 67 program silindi, 41 arastirilmis kabul dosyasi import edildi):
+Canli Supabase sayimi (2026-09-29, `select count(*)`; 27-29 Eylul yildizli 8 okul dogrulama turunda 12 program Kerem kararlariyla silindi, 941 -> 929; `docs/STATUS.md` Kapananlar 2026-09-29):
 
 - `56` university, `39` sehir
-- `941` department (program)
-- level dagilimi: `167 bachelor`, `741 master`, `33 single-cycle`
-- language dagilimi: `941 en`, `130 it` (cok dilli satirlar iki kez sayilir)
-- `941` program_admission_details satiri: her programin kabul dosyasi var, dosyasiz program YOK
-- `803` programda view'den gelen resmi degree class kodu var
-- sitemap `1.004` URL (7 statik + 56 okul + 941 program)
+- `929` department (program)
+- level dagilimi: `165 bachelor`, `731 master`, `33 single-cycle`
+- language dagilimi: `929 en`, `142 it` (cok dilli satirlar iki kez sayilir)
+- `929` program_admission_details satiri: her programin kabul dosyasi var, dosyasiz program YOK
+- `859` programda view'den gelen resmi degree class kodu var (`program_degree_class_codes.degree_class_codes` bos olmayan satir)
+- sitemap `992` URL (7 statik + 56 okul + 929 program; sayimdan hesap, canli sitemap bu turda olculmedi)
 
 Eski belgelerde gecen `64 okul / 1017 program / 1.087 URL` (22 Temmuz 2026) sayilari tarihseldir; bugunku gercek olarak kullanma.
 

@@ -1,0 +1,296 @@
+{
+  "script": "verification-2026-09-u2",
+  "mode": "apply",
+  "project_ref": "kskbnxxyviowmrlskwke",
+  "generated_at": "2026-09-29T12:53:19.637Z",
+  "rows": [
+    {
+      "department_id": 249,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33502",
+      "official_call_url": "https://www.uniroma1.it/sites/default/files/field_file_allegati/14824_en_1.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "i3s.web.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/249.json#sha256=57a3262895037412"
+    },
+    {
+      "department_id": 250,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33455",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/12952_bioinformatics_e.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/250.json#sha256=5be87ac8b7e246fe"
+    },
+    {
+      "department_id": 256,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33457",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/14229_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/256.json#sha256=94e83274109c1797"
+    },
+    {
+      "department_id": 257,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/28614",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/28614_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "universitaly-private.cineca.it",
+        "www.uniroma1.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/257.json#sha256=b63a89c1197e6d49"
+    },
+    {
+      "department_id": 259,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33482",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33482_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/259.json#sha256=12c6f5e278a8e8fc"
+    },
+    {
+      "department_id": 538,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33607",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33607_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/538.json#sha256=4e63b42039c478f6"
+    },
+    {
+      "department_id": 541,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33514",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33514_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/541.json#sha256=b0e497501c15e7cb"
+    },
+    {
+      "department_id": 543,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33447",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33447_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "management.web.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/543.json#sha256=09723b68430c47c1"
+    },
+    {
+      "department_id": 546,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33574",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/12948_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/546.json#sha256=2e0c81d54924f60d"
+    },
+    {
+      "department_id": 547,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33508",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33508_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/547.json#sha256=226eec931889a862"
+    },
+    {
+      "department_id": 548,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33509",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/en/course/33509/apply",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.diag.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/548.json#sha256=5386433f26ce04ac"
+    },
+    {
+      "department_id": 550,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33516",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/en/course/33516/apply",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/550.json#sha256=6fb74c95d28f2236"
+    },
+    {
+      "department_id": 551,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33519",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33519_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/551.json#sha256=6d9525992e736de2"
+    },
+    {
+      "department_id": 554,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33440",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33440_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "ecodir.web.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/554.json#sha256=b5138b43d60ce4ad"
+    },
+    {
+      "department_id": 563,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33468",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33468_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/563.json#sha256=ecbbe315e276abd5"
+    },
+    {
+      "department_id": 568,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33441",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/en/course/33441/apply",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/568.json#sha256=6cad2f0c5057ea3e"
+    },
+    {
+      "department_id": 574,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33602",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/en/course/33602/apply",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.phys.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/574.json#sha256=ae6805e77f7c8adf"
+    },
+    {
+      "department_id": 575,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33433",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/16249_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/575.json#sha256=d5a23efe89a56e48"
+    },
+    {
+      "department_id": 578,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33484",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33484_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/578.json#sha256=362dd440137fce8e"
+    },
+    {
+      "department_id": 580,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/34180",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/34180_e.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "cdaingtrasporti.web.uniroma1.it",
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/580.json#sha256=e3e068ed1018c236"
+    },
+    {
+      "department_id": 581,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33517",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33517_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "sma.dss.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/581.json#sha256=2b7f150e81865dbc"
+    },
+    {
+      "department_id": 1182,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33515",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33515_e_1.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1182.json#sha256=f1633551da019df0"
+    },
+    {
+      "department_id": 1183,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33454",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/33454_e.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "farmed.web.uniroma1.it",
+        "www.mur.gov.it",
+        "www.uniroma1.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1183.json#sha256=dd7a62dbee930140"
+    }
+  ]
+}

@@ -1,0 +1,378 @@
+{
+  "script": "verification-2026-09-u5",
+  "mode": "apply",
+  "project_ref": "kskbnxxyviowmrlskwke",
+  "generated_at": "2026-09-27T17:48:26.645Z",
+  "rows": [
+    {
+      "department_id": 287,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/architecture",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/calls-for-application-regulations-and-ranking-lists/calls-regulations-26-27",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/287.json#sha256=3a84f1e3cfb74827"
+    },
+    {
+      "department_id": 288,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/civil-and-environmental-engineering",
+      "official_call_url": "https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/288.json#sha256=38ce55e2c2ed5bd9"
+    },
+    {
+      "department_id": 289,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/electronic-and-communications-engineering",
+      "official_call_url": "https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/289.json#sha256=ffe7fd98ff16a036"
+    },
+    {
+      "department_id": 290,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/automotive-engineering",
+      "official_call_url": "https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/290.json#sha256=3400ca3da9fee9be"
+    },
+    {
+      "department_id": 291,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/computer-engineering",
+      "official_call_url": "https://www.polito.it/sites/default/files/2025-12/Call%20for%20applications%20for%20admissions%20Engineering%20_%20LP%202026-27.pdf",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/291.json#sha256=c647ed4c6c422722"
+    },
+    {
+      "department_id": 292,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/bachelor-s-degree-programmes/mechanical-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/bachelor-s-degree-programmes/calls-for-application-regulations-and-ranking-lists/calls-regulations-26-27",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/292.json#sha256=4036bff5c11db12b"
+    },
+    {
+      "department_id": 784,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-heritage",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/784.json#sha256=0805c313b903059d"
+    },
+    {
+      "department_id": 785,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-for-sustainability",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "didattica.polito.it",
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/785.json#sha256=86e49eb2feeff2ce"
+    },
+    {
+      "department_id": 786,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/automotive-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/786.json#sha256=ae53cd47d2fdfc3c"
+    },
+    {
+      "department_id": 787,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/civil-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/787.json#sha256=547d5fe683f47e8c"
+    },
+    {
+      "department_id": 788,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/communications-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/788.json#sha256=e752e3902c857895"
+    },
+    {
+      "department_id": 789,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/cybersecurity-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "didattica.polito.it",
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/789.json#sha256=0e3727fc862bb4e5"
+    },
+    {
+      "department_id": 790,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/data-science-and-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/790.json#sha256=b2ad97c58913a798"
+    },
+    {
+      "department_id": 791,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/digital-skills-for-sustainable-societal-transitions",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/791.json#sha256=f4e3b58f35a4d48e"
+    },
+    {
+      "department_id": 792,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/georesources-and-geoenergy-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/792.json#sha256=04ec256e74f9bc0e"
+    },
+    {
+      "department_id": 793,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/ict-engineering-for-smart-societies",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/793.json#sha256=6fbfe3d433d7edb0"
+    },
+    {
+      "department_id": 794,
+      "university_id": 5,
+      "official_program_url": "https://www.scienzechimiche.unina.it/iccbe",
+      "official_call_url": "https://www.scienzechimiche.unina.it/iccbe",
+      "tuition_or_fees_link": "https://www.international.unina.it/education/admission-regulation/",
+      "hosts": [
+        "www.international.unina.it",
+        "www.polito.it",
+        "www.scienzechimiche.unina.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/794.json#sha256=d580e183f948304e"
+    },
+    {
+      "department_id": 795,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/chemical-and-sustainable-processes-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/795.json#sha256=0dbc68ac8e98d567"
+    },
+    {
+      "department_id": 796,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/materials-engineering-for-industry-40",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/796.json#sha256=e388ff943e247cd9"
+    },
+    {
+      "department_id": 797,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/building-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/797.json#sha256=46378c06b7dd4e3b"
+    },
+    {
+      "department_id": 798,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/energy-and-nuclear-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "hysetmaster.polito.it",
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/798.json#sha256=b80d37f79a004194"
+    },
+    {
+      "department_id": 799,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/engineering-and-management",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/799.json#sha256=e07d35b4633b3443"
+    },
+    {
+      "department_id": 800,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/computer-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/800.json#sha256=bedffb673213a536"
+    },
+    {
+      "department_id": 801,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/mechanical-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/801.json#sha256=e70fa42b89d1b3a2"
+    },
+    {
+      "department_id": 802,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/environmental-and-land-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/802.json#sha256=f3d4aa08f9c21306"
+    },
+    {
+      "department_id": 803,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/mechatronic-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/803.json#sha256=a7ea848cecd3e0b0"
+    },
+    {
+      "department_id": 804,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/804.json#sha256=2cde7f64cbd81ec5"
+    },
+    {
+      "department_id": 805,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/urban-and-regional-planning",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/805.json#sha256=4f8bb14e927906b7"
+    },
+    {
+      "department_id": 806,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/quantum-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/806.json#sha256=e28b5c61f9ea6348"
+    },
+    {
+      "department_id": 1219,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/architecture-construction-city",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "didattica.polito.it",
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1219.json#sha256=0e566bd7c711dea1"
+    },
+    {
+      "department_id": 1220,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/electrical-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1220.json#sha256=faab9a4fc80557c3"
+    },
+    {
+      "department_id": 1221,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/electronic-engineering",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1221.json#sha256=221fbc6cce5750e2"
+    },
+    {
+      "department_id": 1223,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/nanotechnologies-for-icts",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1223.json#sha256=89bbf4f2d65372c4"
+    }
+  ]
+}

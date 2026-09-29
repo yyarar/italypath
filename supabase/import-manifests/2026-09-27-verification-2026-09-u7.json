@@ -1,0 +1,400 @@
+{
+  "script": "verification-2026-09-u7",
+  "mode": "apply",
+  "project_ref": "kskbnxxyviowmrlskwke",
+  "generated_at": "2026-09-27T09:42:59.291Z",
+  "rows": [
+    {
+      "department_id": 308,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/bachelor-science/management-arts-and-cultures",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/fees",
+      "hosts": [
+        "www.unibocconi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/308.json#sha256=503f3dca21bb79bb"
+    },
+    {
+      "department_id": 309,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/bachelor-science/economics",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/fees",
+      "hosts": [
+        "www.unibocconi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/309.json#sha256=3196b0511cef1eb4"
+    },
+    {
+      "department_id": 310,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/bachelor-science/management-and-computer-science",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/310.json#sha256=419c21151acccfad"
+    },
+    {
+      "department_id": 311,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/law/bachelor-global-law",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/fees",
+      "hosts": [
+        "www.unibocconi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/311.json#sha256=2f6105eccad7fca4"
+    },
+    {
+      "department_id": 312,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/bachelor-science/finance",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/fees",
+      "hosts": [
+        "www.unibocconi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/312.json#sha256=f2ac9c880541f2d2"
+    },
+    {
+      "department_id": 313,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/bachelor-science/management",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/313.json#sha256=b250111750864a13"
+    },
+    {
+      "department_id": 314,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/bachelor-science/international-politics-and-government",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/314.json#sha256=3565ac45c5f619e6"
+    },
+    {
+      "department_id": 315,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/bachelor-science/mathematical-and-computing-sciences-artificial-intelligence",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/fees",
+      "hosts": [
+        "www.unibocconi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/315.json#sha256=ef23632742514ad3"
+    },
+    {
+      "department_id": 834,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/accounting-and-financial-management",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/834.json#sha256=d569e1827acc2b1b"
+    },
+    {
+      "department_id": 835,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/artificial-intelligence",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/835.json#sha256=d9077f710c0af916"
+    },
+    {
+      "department_id": 836,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/cyber-risk-strategy-and-governance",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/joint-degree-programs-politecnico-di-milano",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/836.json#sha256=3763403a81ee9d12"
+    },
+    {
+      "department_id": 837,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/data-analytics-and-artificial-intelligence-health-sciences",
+      "official_call_url": "https://www.hunimed.eu/course/master-daihs/",
+      "tuition_or_fees_link": "https://www.hunimed.eu/course/master-daihs/",
+      "hosts": [
+        "www.hunimed.eu",
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/837.json#sha256=58b6c4e05f55486f"
+    },
+    {
+      "department_id": 838,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/data-science-and-business-analytics",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/838.json#sha256=a91d6750e86af245"
+    },
+    {
+      "department_id": 839,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/economic-and-social-sciences",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/839.json#sha256=f7aa899eef28cdd7"
+    },
+    {
+      "department_id": 840,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/economics-and-management-arts-culture-media-and-entertainment",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/840.json#sha256=d6903ceeaf21fdfe"
+    },
+    {
+      "department_id": 841,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/economics-and-management-government-and-international-organizations",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/841.json#sha256=9749e4b415eeea0a"
+    },
+    {
+      "department_id": 842,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/finance",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/842.json#sha256=5dd42b0ad2ce9eed"
+    },
+    {
+      "department_id": 843,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/innovation-technology-and-entrepreneurship",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/843.json#sha256=4600a16e214fa5ff"
+    },
+    {
+      "department_id": 844,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/international-management",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/844.json#sha256=dac19f41a30991d8"
+    },
+    {
+      "department_id": 845,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/marketing-management",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/845.json#sha256=d64207e0e19cabfd"
+    },
+    {
+      "department_id": 846,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/politics-and-policy-analysis",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/846.json#sha256=f1f54bcc81e8635c"
+    },
+    {
+      "department_id": 847,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/transformative-sustainability",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/joint-degree-programs-politecnico-di-milano",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/847.json#sha256=e13baeb1b89b1fbc"
+    },
+    {
+      "department_id": 1224,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/finance/finance-global-experience-track",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/im-global-experience-and-finance-global-experience",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1224.json#sha256=66918633b7b5a585"
+    },
+    {
+      "department_id": 1225,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/law/master-arts-global-law-organizations-business-enterprises-and-institutions",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1225.json#sha256=4c3befa65ae6f6e9"
+    },
+    {
+      "department_id": 1226,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/bachelor-science/international-politics-and-government/hec-bocconi-double-degree",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/hec-bocconi-double-degree",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/hec-bocconi-double-program-fees-funding-and-housing",
+      "hosts": [
+        "www.unibocconi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1226.json#sha256=86d018cb88d3e00a"
+    },
+    {
+      "department_id": 1227,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/international-management/im-asia-essec-bocconi-double-degree",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/im-cems-mim-im-asia-china-mim-im-asia-dd-bocconi-essec-and-im-concentration-dd",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1227.json#sha256=747009997dbbe709"
+    },
+    {
+      "department_id": 1228,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/international-management/im-asia-china-mim",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/im-cems-mim-im-asia-china-mim-im-asia-dd-bocconi-essec-and-im-concentration-dd",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1228.json#sha256=53c8e7aca35e1389"
+    },
+    {
+      "department_id": 1229,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/international-management/im-cems-mim",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/im-cems-mim-im-asia-china-mim-im-asia-dd-bocconi-essec-and-im-concentration-dd",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1229.json#sha256=df3d8833730cde00"
+    },
+    {
+      "department_id": 1230,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/international-management/im-concentration-dd-essec-luxury-management",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/im-cems-mim-im-asia-china-mim-im-asia-dd-bocconi-essec-and-im-concentration-dd",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1230.json#sha256=7341ec6f1839e2d7"
+    },
+    {
+      "department_id": 1231,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/international-management/im-concentrations",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/admissions",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1231.json#sha256=92b1d6fc512f8601"
+    },
+    {
+      "department_id": 1232,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/international-management/im-global-experience",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/im-global-experience-and-finance-global-experience",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1232.json#sha256=e2f1f374c3c45e83"
+    },
+    {
+      "department_id": 1233,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/politics-and-policy-analysis/lse-bocconi-double-degree",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/sciences-po-bocconi-and-lse-bocconi-double-degrees",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1233.json#sha256=c6a12dbb215b816d"
+    },
+    {
+      "department_id": 1234,
+      "university_id": 7,
+      "official_program_url": "https://www.unibocconi.it/en/programs/master-science/politics-and-policy-analysis/sciences-po-bocconi-double-degree",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/sciences-po-bocconi-and-lse-bocconi-double-degrees",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.sciencespo.fr",
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1234.json#sha256=c4a48af7e1ef2140"
+    }
+  ]
+}

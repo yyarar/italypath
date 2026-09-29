@@ -1,0 +1,663 @@
+{
+  "script": "verification-2026-09-u1",
+  "mode": "apply",
+  "project_ref": "kskbnxxyviowmrlskwke",
+  "generated_at": "2026-09-27T10:42:40.882Z",
+  "rows": [
+    {
+      "department_id": 241,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-programmes/programme-detail/civil-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/how-to-enrol",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/241.json#sha256=000ae01c8a03e009"
+    },
+    {
+      "department_id": 245,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-programmes/programme-detail/interaction-design",
+      "official_call_url": "https://www.polimi.it/fileadmin/user_upload/futuri_studenti/Design_LT/Call_for_admission_Design26-27_EN.pdf",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/245.json#sha256=481f52235265c185"
+    },
+    {
+      "department_id": 246,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-programmes/programme-detail/architectural-design",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/architecture",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/246.json#sha256=2c9f337d68db6012"
+    },
+    {
+      "department_id": 492,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/aeronautical-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/492.json#sha256=fad01e8e4097168f"
+    },
+    {
+      "department_id": 493,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/agricultural-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/493.json#sha256=c7f33dc1bde8b213"
+    },
+    {
+      "department_id": 494,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/architectural-design-and-history",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/494.json#sha256=65ae161ad70369c9"
+    },
+    {
+      "department_id": 495,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/architectural-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/495.json#sha256=f0ea6490d5f88d38"
+    },
+    {
+      "department_id": 496,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/architecture",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/496.json#sha256=5dd47ab00a45e57e"
+    },
+    {
+      "department_id": 497,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/automation-and-control-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/497.json#sha256=f9ef3a2fd4724796"
+    },
+    {
+      "department_id": 498,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/bioinformatics-for-computational-genomics",
+      "official_call_url": "https://bcg.cdl.unimi.it/en/enrolment",
+      "tuition_or_fees_link": "https://www.unimi.it/en/study/bachelor-and-master-study/fees-and-how-pay-them",
+      "hosts": [
+        "apps.unimi.it",
+        "bcg.cdl.unimi.it",
+        "www.polimi.it",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/498.json#sha256=67cb96a14edffa34"
+    },
+    {
+      "department_id": 499,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/biomedical-engineering-1",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/499.json#sha256=9743171d2129c065"
+    },
+    {
+      "department_id": 500,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/building-engineering-for-sustainability",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.auic.polimi.it",
+        "www.bes.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/500.json#sha256=d637945de53a34a0"
+    },
+    {
+      "department_id": 501,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/chemical-engineering-1",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/501.json#sha256=4a68ac7d216dceb7"
+    },
+    {
+      "department_id": 502,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/civil-engineering-1",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/502.json#sha256=3c00a3afdfd271eb"
+    },
+    {
+      "department_id": 503,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/civil-engineering-for-risk-mitigation",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.ingcat.polimi.it",
+        "www.master-cerm.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/503.json#sha256=8a604557190f3975"
+    },
+    {
+      "department_id": 504,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/communication-design-1",
+      "official_call_url": "https://www.design.polimi.it/fileadmin/user_upload/upload/Formazione/Documenti/Guide_alla_carriera/Guida_Ammissione_CdLM_Design_2026_27_EN.pdf",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.design.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/504.json#sha256=e8ca8d22b469bb1d"
+    },
+    {
+      "department_id": 505,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/computer-science-and-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "aunicalogin.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/505.json#sha256=fda29cecb901e3b7"
+    },
+    {
+      "department_id": 506,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/cyber-risk-strategy-and-governance",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/joint-degree-programs-politecnico-di-milano",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.polimi.it",
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/506.json#sha256=69dbafcc0b985619"
+    },
+    {
+      "department_id": 507,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/design-engineering",
+      "official_call_url": "https://www.design.polimi.it/fileadmin/user_upload/upload/Formazione/Documenti/Guide_alla_carriera/Guida_Ammissione_CdLM_Design_2026_27_EN.pdf",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "aunicalogin.polimi.it",
+        "www.design.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/507.json#sha256=3d978df04ab53665"
+    },
+    {
+      "department_id": 508,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/design-for-the-fashion-system",
+      "official_call_url": "https://www.design.polimi.it/fileadmin/user_upload/upload/Formazione/Documenti/Guide_alla_carriera/Guida_Ammissione_CdLM_Design_2026_27_EN.pdf",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "aunicalogin.polimi.it",
+        "www.design.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/508.json#sha256=244cf3803d1e4245"
+    },
+    {
+      "department_id": 509,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/digital-and-interaction-design",
+      "official_call_url": "https://www.design.polimi.it/fileadmin/user_upload/upload/Formazione/Documenti/Guide_alla_carriera/Guida_Ammissione_CdLM_Design_2026_27_EN.pdf",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "aunicalogin.polimi.it",
+        "www.design.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/509.json#sha256=3fa6fa24255ca3c1"
+    },
+    {
+      "department_id": 510,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/electrical-engineering-m",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "aunicalogin.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/510.json#sha256=50952aa966b62112"
+    },
+    {
+      "department_id": 511,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/electronics-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "aunicalogin.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/511.json#sha256=5ff5edce7c799877"
+    },
+    {
+      "department_id": 512,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/energy-engineering-1",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "aunicalogin.polimi.it",
+        "www.ccs-energetica.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/512.json#sha256=14b570fb1b86dbea"
+    },
+    {
+      "department_id": 513,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/engineering-physics",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.ccs-fisica.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/513.json#sha256=7cd13fe841eca49d"
+    },
+    {
+      "department_id": 514,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/environmental-and-land-planning-engineering-1",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.iat.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/514.json#sha256=f3e83ffcbdbf589e"
+    },
+    {
+      "department_id": 515,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/food-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/515.json#sha256=344becd27ea18d8b"
+    },
+    {
+      "department_id": 516,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/geoinformatics-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.geoinformatics.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/516.json#sha256=ba74135f7dcc8023"
+    },
+    {
+      "department_id": 517,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/health-informatics",
+      "official_call_url": "https://www.unisr.it/en/servizi/ammissioni/health-informatics",
+      "tuition_or_fees_link": "https://www.unisr.it/en/servizi/tasse-contributi/corsi-di-laurea-triennale-e-magistrale",
+      "hosts": [
+        "www.polimi.it",
+        "www.unisr.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/517.json#sha256=8502a1bcb29f600e"
+    },
+    {
+      "department_id": 518,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/high-performance-computing-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "aunicalogin.polimi.it",
+        "masterhpc.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/518.json#sha256=f2f9ed081527083e"
+    },
+    {
+      "department_id": 519,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/industrial-safety-and-risk-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "aunicalogin.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/519.json#sha256=0ab86d0bfb30144f"
+    },
+    {
+      "department_id": 520,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/integrated-product-design",
+      "official_call_url": "https://www.design.polimi.it/fileadmin/user_upload/upload/Formazione/Documenti/Guide_alla_carriera/Guida_Ammissione_CdLM_Design_2026_27_EN.pdf",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "aunicalogin.polimi.it",
+        "www.design.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/520.json#sha256=5dd9b5bb746cfb63"
+    },
+    {
+      "department_id": 521,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/interior-and-spatial-design",
+      "official_call_url": "https://www.design.polimi.it/fileadmin/user_upload/upload/Formazione/Documenti/Guide_alla_carriera/Guida_Ammissione_CdLM_Design_2026_27_EN.pdf",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.design.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/521.json#sha256=637efc4c54cfb06d"
+    },
+    {
+      "department_id": 522,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/landscape-architecture-land-landscape-heritage",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.auic.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/522.json#sha256=1b7cbb9f2f89895d"
+    },
+    {
+      "department_id": 523,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/management-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/523.json#sha256=b1bf7437b7ca6ef7"
+    },
+    {
+      "department_id": 524,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/management-of-built-environment",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.auic.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/524.json#sha256=2910be73f0009f9f"
+    },
+    {
+      "department_id": 525,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/materials-engineering-and-nanotechnology",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/525.json#sha256=7957ad2656b85d7d"
+    },
+    {
+      "department_id": 526,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/mathematical-engineering-1",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/526.json#sha256=ad97e5f3b94c65b1"
+    },
+    {
+      "department_id": 527,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/mechanical-engineering-1",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/527.json#sha256=9d9c3bba45014efa"
+    },
+    {
+      "department_id": 528,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/mobility-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/528.json#sha256=2308a1cfab696647"
+    },
+    {
+      "department_id": 529,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/music-and-acoustic-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it",
+        "www.suono.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/529.json#sha256=c68bb00284f3eadb"
+    },
+    {
+      "department_id": 530,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/nuclear-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.ingnucleare.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/530.json#sha256=100fb52222a3cf29"
+    },
+    {
+      "department_id": 531,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/product-service-system-design",
+      "official_call_url": "https://www.design.polimi.it/fileadmin/user_upload/upload/Formazione/Documenti/Guide_alla_carriera/Guida_Ammissione_CdLM_Design_2026_27_EN.pdf",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.design.polimi.it",
+        "www.polimi.it",
+        "www.pssd.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/531.json#sha256=93406eef5d00de4b"
+    },
+    {
+      "department_id": 532,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/space-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/532.json#sha256=61d49cacafc69c54"
+    },
+    {
+      "department_id": 533,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/sustainable-architecture-and-landscape-design",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/533.json#sha256=818077567c8967fb"
+    },
+    {
+      "department_id": 534,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/telecommunication-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/534.json#sha256=282c079087d15819"
+    },
+    {
+      "department_id": 535,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/transformative-sustainability",
+      "official_call_url": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/application-and-admissions/joint-degree-programs-politecnico-di-milano",
+      "tuition_or_fees_link": "https://www.unibocconi.it/en/applying-bocconi/master-science-and-ma-programs/fees",
+      "hosts": [
+        "www.polimi.it",
+        "www.unibocconi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/535.json#sha256=3accf843b4e59ce0"
+    },
+    {
+      "department_id": 536,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-magistrale-programmes/programme-detail/urban-planning-and-policy-design",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/536.json#sha256=da1126a522931145"
+    },
+    {
+      "department_id": 1178,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-programmes/programme-detail/engineering-science",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/how-to-enrol",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1178.json#sha256=b414fe923b1c0ce1"
+    },
+    {
+      "department_id": 1179,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-programmes/programme-detail/industrial-engineering",
+      "official_call_url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-programmes/engineering/how-to-enrol",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "onlineservices.polimi.it",
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1179.json#sha256=7437911258166203"
+    },
+    {
+      "department_id": 1180,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-programmes/programme-detail/medtec-school",
+      "official_call_url": "https://www.hunimed.eu/apply-med-schools/",
+      "tuition_or_fees_link": "https://www.hunimed.eu/fees-scholarships-med-schools/",
+      "hosts": [
+        "www.hunimed.eu",
+        "www.polimi.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1180.json#sha256=323e8e4e3071836a"
+    },
+    {
+      "department_id": 1181,
+      "university_id": 1,
+      "official_program_url": "https://www.polimi.it/en/education/laurea-programmes/programme-detail/process-engineering",
+      "official_call_url": "https://www.polimi.it/fileadmin/user_upload/futuri_studenti/Engineering_BSc_call_for_admission_2026-27__English_.pdf",
+      "tuition_or_fees_link": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/laurea-laurea-magistrale-and-single-cycle-programmes",
+      "hosts": [
+        "www.polimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1181.json#sha256=3d7ea5d59fb04189"
+    }
+  ]
+}

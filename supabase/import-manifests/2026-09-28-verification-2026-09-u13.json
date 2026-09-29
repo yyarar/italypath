@@ -1,0 +1,273 @@
+{
+  "script": "verification-2026-09-u13",
+  "mode": "apply",
+  "project_ref": "kskbnxxyviowmrlskwke",
+  "generated_at": "2026-09-28T22:35:36.753Z",
+  "rows": [
+    {
+      "department_id": 349,
+      "university_id": 13,
+      "official_program_url": "https://economia.uniroma2.it/ba/bae",
+      "official_call_url": "https://economia.uniroma2.it/ba/business-administration-economics/call-for-application/",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "economia.uniroma2.it",
+        "web.uniroma2.it",
+        "www-2023.studenti.uniroma2.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/349.json#sha256=b936f3af36466258"
+    },
+    {
+      "department_id": 350,
+      "university_id": 13,
+      "official_program_url": "https://engineering-sciences.uniroma2.it/",
+      "official_call_url": "https://engineering-sciences.uniroma2.it/call-for-applications/",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "engineering-sciences.uniroma2.it",
+        "web.uniroma2.it",
+        "www-2023.studenti.uniroma2.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/350.json#sha256=ee62e1109f264330"
+    },
+    {
+      "department_id": 351,
+      "university_id": 13,
+      "official_program_url": "https://economia.uniroma2.it/ba/globalgovernance",
+      "official_call_url": "https://economia.uniroma2.it/ba/globalgovernance",
+      "tuition_or_fees_link": "https://economia.uniroma2.it/ba/globalgovernance/tuition-fees/",
+      "hosts": [
+        "ambsofia.esteri.it",
+        "economia.uniroma2.it",
+        "web.uniroma2.it",
+        "www-2023.studenti.uniroma2.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/351.json#sha256=0b80577b81b6992d"
+    },
+    {
+      "department_id": 353,
+      "university_id": 13,
+      "official_program_url": "https://medschool.uniroma2.it/",
+      "official_call_url": "https://web.uniroma2.it/it/percorso/offerta_formativa/corso/medicine_and_surgery",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "medschool.uniroma2.it",
+        "universitaly-private.cineca.it",
+        "web.uniroma2.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/353.json#sha256=263402ceaa58c3d9"
+    },
+    {
+      "department_id": 766,
+      "university_id": 13,
+      "official_program_url": "https://web.uniroma2.it/en/contenuto/management-engineering",
+      "official_call_url": "https://web.uniroma2.it/it/contenuto/ingegneria-gestionale-aa-2026-20271300",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "gestionale.uniroma2.it",
+        "web.uniroma2.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/766.json#sha256=5c29b7391018316c"
+    },
+    {
+      "department_id": 767,
+      "university_id": 13,
+      "official_program_url": "https://economia.uniroma2.it/master-science/ba",
+      "official_call_url": "https://economia.uniroma2.it/master-science/ba/new-intake/",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "economia.uniroma2.it",
+        "web.uniroma2.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/767.json#sha256=c3227c13093295d4"
+    },
+    {
+      "department_id": 768,
+      "university_id": 13,
+      "official_program_url": "https://economia.uniroma2.it/master-science/economics",
+      "official_call_url": "https://economia.uniroma2.it/master-science/economics/call-for-applications-a-y-2026-2027/",
+      "tuition_or_fees_link": "https://economia.uniroma2.it/master-science/economics/tuition-fees/",
+      "hosts": [
+        "economia.uniroma2.it",
+        "web.uniroma2.it",
+        "www-2023.studenti.uniroma2.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/768.json#sha256=76608af8bd981fd3"
+    },
+    {
+      "department_id": 769,
+      "university_id": 13,
+      "official_program_url": "https://economia.uniroma2.it/master-science/eebl",
+      "official_call_url": "https://economia.uniroma2.it/master-science/eebl/call-for-applications-a-y-2026-2027/",
+      "tuition_or_fees_link": "https://economia.uniroma2.it/master-science/eebl/tuition-fees/",
+      "hosts": [
+        "economia.uniroma2.it",
+        "web.uniroma2.it",
+        "www-2023.studenti.uniroma2.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/769.json#sha256=bf46a9bb1a829203"
+    },
+    {
+      "department_id": 770,
+      "university_id": 13,
+      "official_program_url": "https://economia.uniroma2.it/master-science/financeandbanking",
+      "official_call_url": "https://economia.uniroma2.it/master-science/financeandbanking/call-for-applications-a-y-2026-2027/",
+      "tuition_or_fees_link": "https://economia.uniroma2.it/master-science/financeandbanking/tuition-fees/",
+      "hosts": [
+        "economia.uniroma2.it",
+        "web.uniroma2.it",
+        "www-2023.studenti.uniroma2.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/770.json#sha256=751d919289676a69"
+    },
+    {
+      "department_id": 771,
+      "university_id": 13,
+      "official_program_url": "https://web.uniroma2.it/en/contenuto/ict_and_internet_engineering-60574",
+      "official_call_url": "https://web.uniroma2.it/it/contenuto/ict-and-internet-engineering-aa-2026-2027",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "web.uniroma2.it",
+        "www-2023.internet.uniroma2.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/771.json#sha256=925f9bdaa583a2e2"
+    },
+    {
+      "department_id": 772,
+      "university_id": 13,
+      "official_program_url": "https://web.uniroma2.it/en/contenuto/mechatronics_engineering-29180",
+      "official_call_url": "https://mechatronics.uniroma2.it/how-to-apply-for-mechatronics/admission-a-y-2026-27/",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "mechatronics.uniroma2.it",
+        "web.uniroma2.it",
+        "www.mur.gov.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/772.json#sha256=c2b082a122562772"
+    },
+    {
+      "department_id": 773,
+      "university_id": 13,
+      "official_program_url": "https://web.uniroma2.it/en/contenuto/art_history_in_rome__from_late_antiquity_to_the_present",
+      "official_call_url": "https://web.uniroma2.it/it/percorso/offerta_formativa/sezione/art_history_in_rome__from_late_antiquity_to_the_present",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "segreteria.lettere.uniroma2.it",
+        "web.uniroma2.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/773.json#sha256=a7aba14a18c5d3d6"
+    },
+    {
+      "department_id": 775,
+      "university_id": 13,
+      "official_program_url": "https://web.uniroma2.it/en/contenuto/tourism_strategy__cultural_heritage_and_made_in_italy",
+      "official_call_url": "https://web.uniroma2.it/contenuto/tourism-strategy-cultural-heritage-and-made-in-italy-aa-2026-2027",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "owncloud.uniroma2.it",
+        "segreteria.lettere.uniroma2.it",
+        "web.uniroma2.it",
+        "www-2023.tourismstrategy.lettere.uniroma2.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/775.json#sha256=b18060ad9fb6e25c"
+    },
+    {
+      "department_id": 776,
+      "university_id": 13,
+      "official_program_url": "https://web.uniroma2.it/en/contenuto/astrophysics",
+      "official_call_url": "https://scienze.uniroma2.it/wp-content/uploads/2026/05/AVVISO-IMMATRICOLAZIONE-_-MAGISTRALI-Scienze-MM-FF-NN-a.a.2026-2027.pdf",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "scienze.uniroma2.it",
+        "web.uniroma2.it",
+        "www-en.fisica.uniroma2.it",
+        "www.master-mass.eu",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/776.json#sha256=045dd0200595f6cb"
+    },
+    {
+      "department_id": 777,
+      "university_id": 13,
+      "official_program_url": "https://web.uniroma2.it/en/contenuto/biotechnology-56817",
+      "official_call_url": "https://biotechnology.uniroma2.it/admissions/call-for-applications/",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "biotechnology.uniroma2.it",
+        "web.uniroma2.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/777.json#sha256=1fd3838a2a7d930a"
+    },
+    {
+      "department_id": 778,
+      "university_id": 13,
+      "official_program_url": "https://web.uniroma2.it/en/contenuto/physics_of_complex_systems_and_big_data",
+      "official_call_url": "https://scienze.uniroma2.it/wp-content/uploads/2026/05/AVVISO-IMMATRICOLAZIONE-_-MAGISTRALI-Scienze-MM-FF-NN-a.a.2026-2027.pdf",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "scienze.uniroma2.it",
+        "web.uniroma2.it",
+        "www-2023.studenti.uniroma2.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/778.json#sha256=c3bb4cb5fe988ac6"
+    },
+    {
+      "department_id": 779,
+      "university_id": 13,
+      "official_program_url": "https://web.uniroma2.it/en/contenuto/physics_of_fundamental_interactions_and_experimental_techniques",
+      "official_call_url": "https://scienze.uniroma2.it/wp-content/uploads/2026/05/AVVISO-IMMATRICOLAZIONE-_-MAGISTRALI-Scienze-MM-FF-NN-a.a.2026-2027.pdf",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "scienze.uniroma2.it",
+        "web.uniroma2.it",
+        "www-2023.studenti.uniroma2.it",
+        "www-en.fisica.uniroma2.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/779.json#sha256=2e8760b66cd22f3c"
+    },
+    {
+      "department_id": 781,
+      "university_id": 13,
+      "official_program_url": "https://web.uniroma2.it/en/contenuto/chemistry_for_nano-engineering-28519",
+      "official_call_url": "https://master-cne.eu/index.php/application-information/",
+      "tuition_or_fees_link": "https://master-cne.eu/index.php/self-funded-students/",
+      "hosts": [
+        "application.master-cne.eu",
+        "chem-nano-eng.uniroma2.it",
+        "master-cne.eu",
+        "web.uniroma2.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/781.json#sha256=284e505602474e80"
+    },
+    {
+      "department_id": 782,
+      "university_id": 13,
+      "official_program_url": "https://web.uniroma2.it/en/contenuto/Sport-and-Health-Promotion",
+      "official_call_url": "https://web.uniroma2.it/contenuto/sport-and-health-promotion-aa-2026-2027",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "pahp.med.uniroma2.it",
+        "web.uniroma2.it",
+        "www.mur.gov.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/782.json#sha256=392c6a24699e7565"
+    },
+    {
+      "department_id": 1236,
+      "university_id": 13,
+      "official_program_url": "https://farmacia.uniroma2.it/",
+      "official_call_url": "https://farmacia.uniroma2.it/call-for-applications-a-y-2026-2027/",
+      "tuition_or_fees_link": "https://web.uniroma2.it/en/percorso/admissions/sezione/tuition_fees",
+      "hosts": [
+        "farmacia.uniroma2.it",
+        "web.uniroma2.it",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1236.json#sha256=39f3644103b1c919"
+    }
+  ]
+}
