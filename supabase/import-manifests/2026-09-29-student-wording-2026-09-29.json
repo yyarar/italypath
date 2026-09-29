@@ -1,0 +1,141 @@
+{
+  "script": "student-wording-2026-09-29",
+  "mode": "apply",
+  "project_ref": "kskbnxxyviowmrlskwke",
+  "generated_at": "2026-09-29T14:01:47.517Z",
+  "rows": [
+    {
+      "department_id": 256,
+      "university_id": 2,
+      "official_program_url": "https://corsidilaurea.uniroma1.it/en/course/33457",
+      "official_call_url": "https://corsidilaurea.uniroma1.it/sites/default/files/offertaformativa/documenti_ufficiali/187/14229_e_0.pdf",
+      "tuition_or_fees_link": "https://www.uniroma1.it/en/pagina/tuition-fees-and-benefits",
+      "hosts": [
+        "corsidilaurea.uniroma1.it",
+        "www.uniroma1.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/256.json#sha256=94e83274109c1797"
+    },
+    {
+      "department_id": 590,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6759",
+      "official_call_url": "https://eu-hem.eu/enrollment-process-university-of-oslo/",
+      "tuition_or_fees_link": "https://corsi.unibo.it/2cycle/euHealthEconomicsManagement/how-to-enrol",
+      "hosts": [
+        "corsi.unibo.it",
+        "eu-hem.eu",
+        "www.mci.edu",
+        "www.uio.no",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/590.json#sha256=600facda608d6e9e"
+    },
+    {
+      "department_id": 635,
+      "university_id": 10,
+      "official_program_url": "https://www.unimi.it/en/education/master-programme/global-environment-and-development",
+      "official_call_url": "https://merged.info/application/application-procedure/",
+      "tuition_or_fees_link": "https://merged.info/application/tuition-fee/",
+      "hosts": [
+        "apps.unimi.it",
+        "merged.cdl.unimi.it",
+        "merged.info",
+        "www.ku.dk",
+        "www.unimi.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/635.json#sha256=2e8c5907811c7bfd"
+    },
+    {
+      "department_id": 804,
+      "university_id": 5,
+      "official_program_url": "https://www.polito.it/en/education/master-s-degree-programmes/physics-of-complex-systems",
+      "official_call_url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification",
+      "tuition_or_fees_link": "https://www.polito.it/en/education/services-and-life-at-politecnico/right-to-education-and-tuition-fees/tuition-fees",
+      "hosts": [
+        "www.polito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/804.json#sha256=2cde7f64cbd81ec5"
+    },
+    {
+      "department_id": 1145,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6790",
+      "official_call_url": "https://master-asc.eu/application-process",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "master-asc.eu",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1145.json#sha256=c9edf0f7b4104dc4"
+    },
+    {
+      "department_id": 1149,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6258",
+      "official_call_url": "https://corsi.unibo.it/2cycle/ChemicalInnovationRegulation/how-to-enrol",
+      "tuition_or_fees_link": "https://www.emmcchir.org/admissions/costs-and-funding",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.emmcchir.org",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1149.json#sha256=12bbb942893e5543"
+    },
+    {
+      "department_id": 1177,
+      "university_id": 3,
+      "official_program_url": "https://www.unibo.it/en/study/second-cycle-degree/programme/2026/6747",
+      "official_call_url": "https://corsi.unibo.it/s/3424/p/en/programme-enrolment-requirements-deadlines-and-methods-3/avviso-wop-ohp_26-27_eng_def.pdf/%40%40download/file/Avviso%20WOP-OHP_26-27_ENG_DEF.pdf",
+      "tuition_or_fees_link": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/fees-and-exemptions-amounts-deadlines",
+      "hosts": [
+        "corsi.unibo.it",
+        "www.unibo.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1177.json#sha256=3a168a811fcd6e55"
+    },
+    {
+      "department_id": 1281,
+      "university_id": 11,
+      "official_program_url": "https://www.eap.unito.it/do/home.pl",
+      "official_call_url": "https://www.epog.eu/admission-and-scholarships/admission/",
+      "tuition_or_fees_link": "https://www.epog.eu/admission-and-scholarships/tuition-fees/",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.eap.unito.it",
+        "www.epog.eu",
+        "www.universitaly.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1281.json#sha256=8c5a7f2e03a07620"
+    },
+    {
+      "department_id": 1289,
+      "university_id": 11,
+      "official_program_url": "https://www.mfs.unito.it/do/home.pl",
+      "official_call_url": "https://mfs-apply.eitfood.eu/",
+      "tuition_or_fees_link": "https://www.mfs.unito.it/do/home.pl/View?doc=tuition_fees_and_financial_aid.html",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "mfs-apply.eitfood.eu",
+        "www.mfs.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1289.json#sha256=141dbe5db5821539"
+    },
+    {
+      "department_id": 1290,
+      "university_id": 11,
+      "official_program_url": "https://www.sve.unito.it/do/home.pl/View?doc=viticulture_and_enology_sciences.html",
+      "official_call_url": "https://apply.unito.it/en_GB/courses/course/677-scienze-viticole-ed-enologiche-international-curriculum",
+      "tuition_or_fees_link": "https://en.unito.it/studying-unito/tuition-fees/tuition-fees-international-students",
+      "hosts": [
+        "apply.unito.it",
+        "en.unito.it",
+        "www.sve.unito.it"
+      ],
+      "source_file": "../../yildizli-8-okul-dogrulama-research/final/1290.json#sha256=5a0b9be0692f1a5f"
+    }
+  ]
+}
