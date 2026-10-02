@@ -6,11 +6,11 @@ import { LIVE_PROJECT_REF, createImportClient, parseImportArgs } from "../lib/pr
 import { hashRows, sha256 } from "./lib/authored-explanations-import.mjs";
 import {
   GUARD_FIELDS,
-  WRITABLE_FIELDS,
+  assertAfterShape,
   changedFields,
-  normalizeChoices,
   rowMatchesExpected,
   validatePackage,
+  writePayload,
 } from "./lib/question-patch.mjs";
 
 const REPO_ROOT = path.resolve(import.meta.dirname, "../..");
@@ -19,8 +19,11 @@ const ALL_COLUMNS =
   "id,section,domain,skill,skill_slug,difficulty,question_type,prompt,choices,correct_answer,figure_path,explanation_tr,explanation_en,source_file,needs_review,created_at";
 const PAGE_SIZE = 500;
 
-// Mevcut SAT sorularina denetimli yama (prompt/choices/needs_review). Kabul dosyasi yazicilariyla ayni
-// hedef kilidi (scripts/lib/program-details-import.mjs; guvenlik denetimi G2#6 / STATUS #65, 2026-09-26).
+// Mevcut SAT sorularina denetimli yama (prompt/choices/needs_review; paket isterse ayrica explanation_en,
+// STATUS #99, 2026-10-02). Kabul dosyasi yazicilariyla ayni hedef kilidi
+// (scripts/lib/program-details-import.mjs; guvenlik denetimi G2#6 / STATUS #65, 2026-09-26).
+// explanation_en yalniz paketin `after`'inda varsa yazilir, o zaman beklenen eski degerle karsilastirilir
+// ve yedege girer; uc alanli eski paketler ve yedekler bu alana dokunmaz.
 //
 // Kullanim:
 //   node scripts/sat/patch-sat-questions.mjs --package <path>                                   # kuru calistirma (varsayilan)
@@ -95,10 +98,7 @@ function validateBackup(backup) {
     for (const field of GUARD_FIELDS) {
       if (!(field in (record.before ?? {}))) throw new Error(`${record.id}: yedek before.${field} eksik.`);
     }
-    const afterKeys = Object.keys(record.after ?? {}).sort();
-    if (afterKeys.join(",") !== [...WRITABLE_FIELDS].sort().join(",")) {
-      throw new Error(`${record.id}: yedek after tam olarak ${WRITABLE_FIELDS.join("/")} tasimali.`);
-    }
+    assertAfterShape(record.id, record.after, "yedek after");
   }
   return backup;
 }
@@ -131,11 +131,7 @@ async function conditionalRollback(client, backup, ids, { write }) {
       restored.push(id);
       continue;
     }
-    const payload = {
-      prompt: record.before.prompt,
-      choices: normalizeChoices(record.before.choices),
-      needs_review: record.before.needs_review,
-    };
+    const payload = writePayload(record.before, record.after);
     const { data, error } = await client.from("sat_questions").update(payload).eq("id", id).select(ALL_COLUMNS);
     const ok =
       !error &&
@@ -207,20 +203,12 @@ async function apply(client, pkg, backupPath) {
 
   const applied = [];
   for (const record of pkg.records) {
-    const payload = {
-      prompt: record.after.prompt,
-      choices: normalizeChoices(record.after.choices),
-      needs_review: record.after.needs_review,
-    };
+    const payload = writePayload(record.after, record.after);
     const { data, error } = await client.from("sat_questions").update(payload).eq("id", record.id).select(ALL_COLUMNS);
     const ok =
       !error &&
       data?.length === 1 &&
-      changedFields(record.after, {
-        prompt: data[0].prompt,
-        choices: data[0].choices,
-        needs_review: data[0].needs_review,
-      }).length === 0 &&
+      changedFields(record.after, data[0]).length === 0 &&
       JSON.stringify(data[0].correct_answer) === JSON.stringify(record.expected_before.correct_answer);
     if (!ok) {
       let undo = null;

@@ -61,6 +61,22 @@ if (!questionCard.includes("<MathText text={question.explanationEn} />")) {
   fail("QuestionCard.tsx: aciklama MathText ile render edilmeli");
 }
 
+// 4b) Formul ayirma kurali tek modulde (STATUS #100, 2026-10-02): site ve icerik taramasi ayni dosyayi
+// kullanir; `$$...$$` ayri satir formuludur. Kural iki yerde ayri ayri yazilirsa yeniden ayrisir.
+const mathText = read("components/sat/MathText.tsx");
+if (!mathText.includes('from "@/lib/sat/mathSegments.mjs"') || !mathText.includes("splitMathText(")) {
+  fail("MathText.tsx: formulleri lib/sat/mathSegments.mjs splitMathText ile ayirmali");
+}
+if (/\.split\(/.test(mathText)) fail("MathText.tsx: kendi ayirma kuralini yazmamali (ortak modul)");
+if (!mathText.includes("displayMode")) fail("MathText.tsx: ayri satir formulu displayMode ile cizilmeli");
+const contentAuditLib = read("scripts/sat/lib/content-audit.mjs");
+if (!contentAuditLib.includes("lib/sat/mathSegments.mjs") || /\.split\(/.test(contentAuditLib)) {
+  fail("content-audit.mjs: formulleri ortak modulle (lib/sat/mathSegments.mjs) ayirmali");
+}
+if (!read("lib/sat/mathSegments.mjs").includes("\\$\\$[^$]+\\$\\$")) {
+  fail("mathSegments.mjs: cift dolarli (ayri satir) formul kurali eksik");
+}
+
 // 5) Ceviri butunlugu
 const translations = read("lib/translations/tr.ts") + "\n" + read("lib/translations/en.ts");
 const satKeyCount = (translations.match(/\bsat:\s*{/g) ?? []).length;

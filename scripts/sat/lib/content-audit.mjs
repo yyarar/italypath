@@ -1,14 +1,31 @@
 import katex from "katex";
 
-const ESCAPED_DOLLAR = "\u0000";
+import { mapTextOutsideMath, splitMathText } from "../../../lib/sat/mathSegments.mjs";
 
-// components/sat/MathText.tsx ile birebir ayni segmentasyon sozlesmesi.
+// Segmentasyon sozlesmesi components/sat/MathText.tsx ile ayni modulden gelir
+// (lib/sat/mathSegments.mjs): `$...$` satir ici, `$$...$$` ayri satirda, `\$` gercek dolar.
 export function mathSegments(text) {
-  return String(text)
-    .replaceAll("\\$", ESCAPED_DOLLAR)
-    .split(/(\$[^$]+\$)/g)
-    .filter((seg) => seg.startsWith("$") && seg.endsWith("$") && seg.length > 2)
-    .map((seg) => seg.slice(1, -1).replaceAll(ESCAPED_DOLLAR, "\\$"));
+  return splitMathText(text)
+    .filter((segment) => segment.kind !== "text")
+    .map((segment) => segment.value);
+}
+
+// Satir sonu yerine harf olarak yazilmis ters egik cizgi + n (STATUS #99, 2026-10-02).
+// Formul disindaki metinde LaTeX komutu olmaz; oradaki her `\n` bozuk satir sonudur.
+// Formul icindeki `\ne`, `\neq`, `\nu` gibi komutlar ve `\\n` (satir kirmasi + n) kusur degildir.
+const LITERAL_NEWLINE_ESCAPE = /(?<!\\)\\n/g;
+
+export function literalNewlineEscapeCount(text) {
+  let count = 0;
+  mapTextOutsideMath(String(text ?? ""), (part) => {
+    count += (part.match(LITERAL_NEWLINE_ESCAPE) ?? []).length;
+    return part;
+  });
+  return count;
+}
+
+export function fixLiteralNewlineEscapes(text) {
+  return mapTextOutsideMath(String(text ?? ""), (part) => part.replace(LITERAL_NEWLINE_ESCAPE, "\n"));
 }
 
 // Govde genelinde guvenli (dogal Ingilizceyle karismayan) marker aileleri.
@@ -54,11 +71,12 @@ export function findMarkers(text) {
 
 export function katexIssues(text) {
   const issues = [];
-  for (const tex of mathSegments(text)) {
+  for (const segment of splitMathText(text)) {
+    if (segment.kind === "text") continue;
     try {
-      katex.renderToString(tex, { throwOnError: true });
+      katex.renderToString(segment.value, { throwOnError: true, displayMode: segment.kind === "display" });
     } catch (error) {
-      issues.push({ tex, message: String(error?.message ?? error) });
+      issues.push({ tex: segment.value, message: String(error?.message ?? error) });
     }
   }
   return issues;

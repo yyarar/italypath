@@ -8,7 +8,7 @@ import path from "node:path";
 
 import { LIVE_PROJECT_REF } from "../lib/program-details-import.mjs";
 import { bankToRows, main as importBank, planInsert } from "./import-bank.mjs";
-import { changedFields, normalizeChoices, rowMatchesExpected, validatePackage } from "./lib/question-patch.mjs";
+import { changedFields, normalizeChoices, rowMatchesExpected, validatePackage, writePayload } from "./lib/question-patch.mjs";
 import { main as patchQuestions } from "./patch-sat-questions.mjs";
 
 // --- Paket kurallari -----------------------------------------------------------------
@@ -41,6 +41,42 @@ assert.deepEqual(rowMatchesExpected({ ...base, correct_answer: ["B"] }, base), [
 assert.deepEqual(rowMatchesExpected({ ...base, prompt: "changed" }, base), ["prompt"], "prompt farki yakalanmali");
 assert.deepEqual(changedFields(base, { prompt: base.prompt, choices: base.choices, needs_review: true }), ["needs_review"], "flag-only diff dogru");
 assert.equal(normalizeChoices(null), null, "spr choices null kalmali");
+
+// --- Istege bagli alan: explanation_en (STATUS #99, 2026-10-02) ----------------------------------
+const explanationBase = { ...base, explanation_en: "Old line.\\nChoice A is wrong." };
+const explanationRecord = (over = {}) => ({
+  id: "abc12345",
+  expected_before: { ...explanationBase },
+  after: { prompt: base.prompt, choices: base.choices, needs_review: false, explanation_en: "Old line.\nChoice A is wrong." },
+  ...over,
+});
+assert.doesNotThrow(() => validatePackage(pkg([explanationRecord()]), LIVE_PROJECT_REF), "yalniz aciklamayi degistiren paket gecmeli");
+assert.throws(
+  () => validatePackage(pkg([explanationRecord({ expected_before: { ...base } })]), LIVE_PROJECT_REF),
+  /expected_before\.explanation_en zorunlu/, "aciklama yaziliyorsa beklenen eski aciklama sart"
+);
+assert.throws(
+  () => validatePackage(pkg([explanationRecord({ after: { ...explanationRecord().after, explanation_en: "  " } })]), LIVE_PROJECT_REF),
+  /bos olmayan metin/, "bos aciklama yazilamaz"
+);
+assert.throws(
+  () => validatePackage(pkg([explanationRecord({ after: { ...explanationRecord().after, explanation_tr: "x" } })]), LIVE_PROJECT_REF),
+  /tasimali/, "izinli olmayan alan reddedilmeli"
+);
+assert.throws(
+  () => validatePackage(pkg([explanationRecord({ after: { ...explanationRecord().after, explanation_en: explanationBase.explanation_en } })]), LIVE_PROJECT_REF),
+  /ayni/, "aciklama da ayniysa no-op reddedilmeli"
+);
+assert.deepEqual(
+  rowMatchesExpected({ ...explanationBase, explanation_en: "drifted" }, explanationBase), ["explanation_en"],
+  "canlidaki aciklama beklenenle ayni degilse yakalanmali"
+);
+assert.deepEqual(rowMatchesExpected({ ...base, explanation_en: "anything" }, base), [], "uc alanli eski pakette aciklama korunmaz, karsilastirilmaz");
+assert.deepEqual(changedFields(explanationBase, explanationRecord().after), ["explanation_en"], "yalniz aciklama farki dogru");
+assert.deepEqual(changedFields(base, { ...base, explanation_en: "x" }), [], "bir tarafta yoksa aciklama karsilastirilmaz");
+assert.deepEqual(Object.keys(writePayload(record().after, record().after)).sort(), ["choices", "needs_review", "prompt"], "eski paket aciklama alanini hic yazmaz");
+assert.equal(writePayload(explanationRecord().after, explanationRecord().after).explanation_en, "Old line.\nChoice A is wrong.", "yeni paket aciklamayi yazar");
+assert.equal(writePayload(explanationBase, explanationRecord().after).explanation_en, explanationBase.explanation_en, "geri alma yedekteki eski aciklamayi yazar");
 
 // --- Sahte Supabase istemcisi -----------------------------------------------------------
 const LIVE_URL = `https://${LIVE_PROJECT_REF}.supabase.co`;
@@ -164,6 +200,51 @@ try {
     const backup = JSON.parse(readFileSync(backupPath, "utf8"));
     assert.equal(backup.project_ref, LIVE_PROJECT_REF);
     assert.equal(backup.records[0].before.prompt, "old $x$");
+    assert.deepEqual(Object.keys(calls.updates[0].payload).sort(), ["choices", "needs_review", "prompt"], "patch: uc alanli paket aciklamaya dokunmaz");
+  }
+
+  // Yalniz aciklamayi degistiren paket: yazma, yedek, beklenen eski deger korumasi ve geri alma.
+  {
+    const liveExplained = { ...liveTarget, ...explanationBase };
+    const explanationPackagePath = path.join(dir, "explanation-package.json");
+    writeFileSync(explanationPackagePath, JSON.stringify(pkg([explanationRecord()])));
+    const explanationBackupPath = path.join(dir, "explanation-backup.json");
+    const explanationArgs = (...extra) => ["--package", explanationPackagePath, ...extra];
+    const applyFlags = ["--apply", "--project-ref", LIVE_PROJECT_REF];
+
+    {
+      const { calls, clientFactory } = fakeSupabase([{ ...liveExplained, explanation_en: "someone else edited" }, liveOther]);
+      setEnv(LIVE_URL);
+      await assert.rejects(
+        patchQuestions(explanationArgs(...applyFlags, "--backup", path.join(dir, "never.json")), { clientFactory }),
+        /Dry-run FAIL.*explanation_en/, "patch: canli aciklama beklenenden farkliysa yazi yok"
+      );
+      assert.equal(calls.updates.length, 0);
+      assert.ok(!existsSync(path.join(dir, "never.json")), "patch: basarisiz on kontrolde yedek dosyasi olusmaz");
+    }
+
+    const { calls, clientFactory, table } = fakeSupabase([liveExplained, liveOther]);
+    setEnv(LIVE_URL);
+    const dry = await patchQuestions(explanationArgs(), { clientFactory });
+    assert.equal(dry.status, "ready");
+    assert.equal(calls.updates.length, 0, "patch: aciklama paketi kuru calistirmada yazmaz");
+
+    const applied = await patchQuestions(explanationArgs(...applyFlags, "--backup", explanationBackupPath), { clientFactory });
+    assert.equal(applied.status, "verified");
+    assert.equal(calls.updates.length, 1);
+    assert.equal(table.get("abc12345").explanation_en, "Old line.\nChoice A is wrong.", "patch: aciklama yazildi");
+    assert.equal(table.get("abc12345").prompt, base.prompt, "patch: soru metni degismedi");
+    assert.deepEqual(table.get("abc12345").correct_answer, base.correct_answer, "patch: dogru cevap degismedi");
+    assert.equal(table.get("def67890").explanation_en, null, "patch: hedef disi satirin aciklamasi degismedi");
+    const explanationBackup = JSON.parse(readFileSync(explanationBackupPath, "utf8"));
+    assert.equal(explanationBackup.records[0].before.explanation_en, explanationBase.explanation_en, "patch: yedek eski aciklamayi tasir");
+
+    const rehearsal = await patchQuestions(["--rollback", explanationBackupPath], { clientFactory });
+    assert.equal(rehearsal.would_restore, 1, "patch: geri alma provasi yazmadan sayar");
+    assert.equal(calls.updates.length, 1);
+    const restored = await patchQuestions(["--rollback", explanationBackupPath, ...applyFlags], { clientFactory });
+    assert.equal(restored.restored, 1);
+    assert.equal(table.get("abc12345").explanation_en, explanationBase.explanation_en, "patch: geri alma eski aciklamayi geri yazar");
   }
 
   // --- import-bank.mjs ------------------------------------------------------------------
