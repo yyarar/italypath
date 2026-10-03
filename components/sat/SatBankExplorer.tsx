@@ -253,19 +253,25 @@ export default function SatBankExplorer() {
     return { topic: firstTopic.topic, kind: "start", accuracyPct: accuracyPct(firstTopic.correctCount, firstTopic.solvedCount) };
   }, [topicProgress, topics]);
 
-  const mathDomainGroups = useMemo(() => {
-    const groups = new Map<string, SatTopic[]>();
+  // Her bolum ayni alan grubu gorunumunu kullanir; sira lib/sat/domains.ts (bolum basina).
+  const domainGroups = useMemo(() => {
+    const groups = new Map<string, { section: SatSection; domain: string; topics: SatTopic[] }>();
 
     for (const topic of topics) {
-      if (topic.section !== "math") continue;
-      const groupTopics = groups.get(topic.domain) ?? [];
-      groupTopics.push(topic);
-      groups.set(topic.domain, groupTopics);
+      const groupKey = `${topic.section}/${topic.domain}`;
+      const group = groups.get(groupKey) ?? { section: topic.section, domain: topic.domain, topics: [] };
+      group.topics.push(topic);
+      groups.set(groupKey, group);
     }
 
-    return Array.from(groups.entries())
-      .sort(([domainA], [domainB]) => domainOrderIndex(domainA) - domainOrderIndex(domainB))
-      .map(([domain, domainTopics]) => ({
+    return Array.from(groups.values())
+      .sort(
+        (a, b) =>
+          a.section.localeCompare(b.section) ||
+          domainOrderIndex(a.section, a.domain) - domainOrderIndex(b.section, b.domain)
+      )
+      .map(({ section, domain, topics: domainTopics }) => ({
+        section,
         domain,
         topics: domainTopics,
         topicCount: domainTopics.length,
@@ -279,7 +285,7 @@ export default function SatBankExplorer() {
       }));
   }, [topicProgress, topics]);
 
-  const initialExpandedDomain = focusRecommendation?.topic.domain ?? mathDomainGroups[0]?.domain ?? null;
+  const initialExpandedDomain = focusRecommendation?.topic.domain ?? domainGroups[0]?.domain ?? null;
 
   // Kullanici bir domain'e dokunana kadar odak domain acik gelir; dokununca
   // kullanicinin secimi gecerli olur. Efekt icinde senkron setState yok.
@@ -629,13 +635,15 @@ export default function SatBankExplorer() {
               </div>
               {/* Konu satirlari layout="position" ile kayar; yerlesim ozellikleri ayri pakette. */}
               <LayoutMotion>
-                {section.key === "math" ? (
-                  <div className="grid gap-3.5">
-                    {mathDomainGroups.map((group) => {
+                <div className="grid gap-3.5">
+                  {domainGroups
+                    .filter((group) => group.section === section.key)
+                    .map((group) => {
                       const labelKey = domainLabelKey(group.domain) as keyof typeof t.sat;
                       return (
                         <SatDomainGroup
                           key={group.domain}
+                          section={group.section}
                           label={t.sat[labelKey] ?? group.domain}
                           topicCount={group.topicCount}
                           startedCount={group.startedCount}
@@ -662,27 +670,7 @@ export default function SatBankExplorer() {
                         </SatDomainGroup>
                       );
                     })}
-                  </div>
-                ) : (
-                  <div className="overflow-hidden rounded-2xl border border-[rgba(31,79,70,0.16)] bg-[rgba(255,254,250,0.82)] shadow-[0_10px_35px_rgba(21,32,28,0.035)]">
-                    {sectionTopics.map((topic) => {
-                      const progress = topicProgress.get(topicKey(topic));
-                      const key = topicKey(topic);
-                      return (
-                        <TopicRow
-                          key={key}
-                          topic={topic}
-                          solvedCount={progress?.solvedCount ?? 0}
-                          correctCount={progress?.correctCount ?? 0}
-                          wrongCount={progress?.wrongCount ?? 0}
-                          armed={armedTopicKey === key}
-                          onSelect={() => armTopic(topic)}
-                          onSelectDifficulty={(difficulty) => void openTopic(topic, difficulty)}
-                        />
-                      );
-                    })}
-                  </div>
-                )}
+                </div>
               </LayoutMotion>
             </section>
           );

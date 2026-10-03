@@ -1,13 +1,25 @@
-export const DOMAIN_ORDER = [
-  "Algebra",
-  "Advanced Math",
-  "Problem-Solving and Data Analysis",
-  "Geometry and Trigonometry",
-];
+import type { SatSection } from "@/lib/sat/types";
 
-export function domainOrderIndex(domain: string): number {
-  const i = DOMAIN_ORDER.indexOf(domain);
-  return i === -1 ? DOMAIN_ORDER.length : i;
+// Bolum basina alan sirasi (College Board sirasi). Okuma ve Yazma: plan 2026-10-03.
+export const DOMAIN_ORDER: Record<SatSection, readonly string[]> = {
+  math: [
+    "Algebra",
+    "Advanced Math",
+    "Problem-Solving and Data Analysis",
+    "Geometry and Trigonometry",
+  ],
+  "reading-writing": [
+    "Information and Ideas",
+    "Craft and Structure",
+    "Expression of Ideas",
+    "Standard English Conventions",
+  ],
+};
+
+export function domainOrderIndex(section: SatSection, domain: string): number {
+  const order = DOMAIN_ORDER[section];
+  const i = order.indexOf(domain);
+  return i === -1 ? order.length : i;
 }
 
 export function domainLabelKey(domain: string): string {
@@ -16,6 +28,10 @@ export function domainLabelKey(domain: string): string {
     case "Advanced Math": return "domainAdvancedMath";
     case "Problem-Solving and Data Analysis": return "domainProblemSolving";
     case "Geometry and Trigonometry": return "domainGeometry";
+    case "Information and Ideas": return "domainInformationIdeas";
+    case "Craft and Structure": return "domainCraftStructure";
+    case "Expression of Ideas": return "domainExpressionIdeas";
+    case "Standard English Conventions": return "domainStandardEnglish";
     default: return "domainOther";
   }
 }
