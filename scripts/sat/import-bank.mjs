@@ -9,7 +9,10 @@
 // aitse calisir (assertTarget). Okuma ve yazma server-only SUPABASE_SECRET_KEY ile (yazmada yoksa
 // SUPABASE_SERVICE_ROLE_KEY). Kuru calistirma canli id'leri okur; eklenecek soru ve figur sayisini yazar.
 // Sozlesme: var olan id'ler asla ezilmez (fark varsa INSERT-ONLY FAIL, yazi yok); mevcut sorular yalniz
-// scripts/sat/patch-sat-questions.mjs ile guncellenir. Girdi: tmp/sat-bank/bank.json (validate-bank temiz).
+// scripts/sat/patch-sat-questions.mjs ile guncellenir. Girdi: tmp/sat-bank/bank.json (validate-bank temiz);
+// SAT_BANK_OUT=<klasor> verilirse <klasor>/bank.json ve figurler <klasor>/figures/<id>.webp (Okuma ve Yazma,
+// plan 2026-10-03). Banka kaydinda explanation_en varsa yalniz YENI satira yazilir; var olan id'lerin
+// karsilastirmasina girmez (matematik bank.json'da bu alan yok, davranis ayni).
 import { readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -55,6 +58,14 @@ export function planInsert(rows, liveRows) {
   return { newRows, conflicts };
 }
 
+// Eklenecek satirlara bankadaki aciklamayi ekler (yalniz yeni id'ler; karsilastirma kolonlari degismez).
+export function withExplanations(newRows, bank) {
+  const explanationById = new Map(
+    bank.filter((q) => typeof q.explanation_en === "string" && q.explanation_en.trim()).map((q) => [q.id, q.explanation_en])
+  );
+  return newRows.map((row) => (explanationById.has(row.id) ? { ...row, explanation_en: explanationById.get(row.id) } : row));
+}
+
 async function fetchLiveRows(supabase) {
   const live = [];
   for (let from = 0; ; from += PAGE_SIZE) {
@@ -97,18 +108,20 @@ export async function main(argv = process.argv.slice(2), { clientFactory, outRoo
   const newIds = new Set(newRows.map((row) => row.id));
   const figures = bank.filter((q) => q.figure_path && newIds.has(q.id));
   const skipped = rows.length - newRows.length;
+  const insertRows = withExplanations(newRows, bank);
+  const explained = insertRows.filter((row) => "explanation_en" in row).length;
 
   if (mode !== "apply") {
     console.log(
-      `Kuru calistirma: ${newRows.length} yeni soru eklenecek, ${skipped} mevcut id degismeden atlanacak, ` +
+      `Kuru calistirma: ${newRows.length} yeni soru eklenecek (${explained} aciklamali), ${skipped} mevcut id degismeden atlanacak, ` +
         `${figures.length} yeni figur yuklenecek. Yazmak icin: --apply --project-ref ${LIVE_PROJECT_REF}`
     );
     return { mode, wouldInsert: newRows.length, skipped, wouldUpload: figures.length, writes: 0 };
   }
 
   // 2) Yalniz DB'de hic olmayan id'leri chunk'lar halinde insert et
-  for (let index = 0; index < newRows.length; index += PAGE_SIZE) {
-    const { error } = await supabase.from("sat_questions").insert(newRows.slice(index, index + PAGE_SIZE));
+  for (let index = 0; index < insertRows.length; index += PAGE_SIZE) {
+    const { error } = await supabase.from("sat_questions").insert(insertRows.slice(index, index + PAGE_SIZE));
     if (error) throw new Error(`Insert hatasi (chunk ${index}): ${error.message}`);
   }
 
