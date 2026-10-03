@@ -1,6 +1,8 @@
 // SAT yazicilarinin cevrimdisi testi: paket kurallari (lib/question-patch.mjs) ve iki yazicinin
 // (import-bank.mjs, patch-sat-questions.mjs) kabul dosyasi yazicilariyla ortak hedef kilidi
 // (STATUS #65, 2026-09-26). Veritabanina baglanmaz: Supabase istemcisi sahte, girdiler gecici klasorde.
+// Okuma ve Yazma (plan 2026-10-03): import-bank aciklamayi yalniz yeni satira yazar; RW acma paketi
+// (rw/build-rw-release-package.mjs) salt okur ve yalniz needs_review degistirir.
 import assert from "node:assert/strict";
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -10,6 +12,7 @@ import { LIVE_PROJECT_REF } from "../lib/program-details-import.mjs";
 import { bankToRows, main as importBank, planInsert } from "./import-bank.mjs";
 import { changedFields, normalizeChoices, rowMatchesExpected, validatePackage, writePayload } from "./lib/question-patch.mjs";
 import { main as patchQuestions } from "./patch-sat-questions.mjs";
+import { main as buildRwRelease } from "./rw/build-rw-release-package.mjs";
 
 // --- Paket kurallari -----------------------------------------------------------------
 const base = {
@@ -94,10 +97,17 @@ function fakeSupabase(initialRows) {
       return {
         select(_columns, options) {
           if (options?.head) return Promise.resolve({ count: table.size, error: null });
+          // eq zincirlenir (RW acma paketi iki filtre kullanir); sorgu dogrudan beklenirse de sonuc doner.
+          const filters = [];
+          const rows = () => sorted().filter((row) => filters.every(([column, value]) => row[column] === value));
           const query = {
             order: () => query,
-            range: (from, to) => Promise.resolve({ data: sorted().slice(from, to + 1), error: null }),
-            eq: (column, value) => Promise.resolve({ data: sorted().filter((row) => row[column] === value), error: null }),
+            range: (from, to) => Promise.resolve({ data: rows().slice(from, to + 1), error: null }),
+            eq: (column, value) => {
+              filters.push([column, value]);
+              return query;
+            },
+            then: (resolve, reject) => Promise.resolve({ data: rows(), error: null }).then(resolve, reject),
           };
           return query;
         },
@@ -296,6 +306,7 @@ try {
     assert.deepEqual(calls.inserts.map((row) => row.id), ["22222222"]);
     assert.deepEqual(calls.uploads, ["22222222.webp"]);
     assert.equal(table.get("11111111").prompt, "p1", "var olan satir degismez");
+    assert.deepEqual(calls.inserts[0], bankToRows([newQuestion])[0], "import-bank: aciklamasiz (matematik) kayit eskisi gibi eklenir");
   }
   writeBank([{ ...existingQuestion, prompt: "changed" }, newQuestion]);
   {
@@ -303,6 +314,115 @@ try {
     setEnv(LIVE_URL);
     await assert.rejects(importBank(["--apply", "--project-ref", LIVE_PROJECT_REF], { clientFactory, outRoot }), /INSERT-ONLY FAIL/, "import-bank: var olan id farkliysa yazi yok");
     assert.equal(calls.inserts.length, 0);
+  }
+
+  // --- Okuma ve Yazma bankasi (plan 2026-10-03): aciklama yalniz yeni satira, karsilastirmaya girmez ---------
+  // SAT_BANK_OUT=<klasor> ile ayni yol: <klasor>/bank.json, figur <klasor>/figures/<id>.webp -> depo nesnesi <id>.webp.
+  const rwExplanation = "Choice B is the best answer because the text says so.\n\nChoice A is incorrect.";
+  const rwNew = {
+    id: "33333333", section: "reading-writing", domain: "Craft and Structure", skill: "Words in Context",
+    skill_slug: "words-in-context", difficulty: 2, question_type: "mcq", prompt: "A <u>marked</u> text with ______.",
+    choices: { A: "a", B: "b", C: "c", D: "d" }, correct_answer: ["B"], figure_path: "figures/33333333.webp",
+    explanation_en: rwExplanation, source_file: "Words in Context 2 Answer Key.pdf", needs_review: true,
+  };
+  const rwExisting = { ...rwNew, id: "44444444", figure_path: null, explanation_en: "Bank explanation, newer than live." };
+  const liveRwExisting = { ...bankToRows([rwExisting])[0], explanation_en: "Live explanation." };
+  const rwRoot = path.join(dir, "rw");
+  mkdirSync(path.join(rwRoot, "figures"), { recursive: true });
+  writeFileSync(path.join(rwRoot, "bank.json"), JSON.stringify({ bank: [rwNew, rwExisting], failures: [] }));
+  writeFileSync(path.join(rwRoot, "figures", "33333333.webp"), Buffer.from("RIFF"));
+
+  assert.deepEqual(planInsert(bankToRows([rwExisting]), [liveRwExisting]).conflicts, [], "planInsert: aciklama farki catisma sayilmaz");
+  {
+    const { calls, clientFactory } = fakeSupabase([liveRwExisting]);
+    setEnv(LIVE_URL);
+    const result = await importBank([], { clientFactory, outRoot: rwRoot });
+    assert.deepEqual(result, { mode: "dry-run", wouldInsert: 1, skipped: 1, wouldUpload: 1, writes: 0 }, "import-bank RW: kuru calistirma");
+    assert.equal(calls.inserts.length + calls.updates.length + calls.uploads.length, 0);
+  }
+  {
+    const { calls, clientFactory, table } = fakeSupabase([liveRwExisting]);
+    setEnv(LIVE_URL);
+    const result = await importBank(["--apply", "--project-ref", LIVE_PROJECT_REF], { clientFactory, outRoot: rwRoot });
+    assert.deepEqual(result, { mode: "apply", inserted: 1, skipped: 1, uploaded: 1, total: 2 }, "import-bank RW: var olan id catisma degil");
+    assert.deepEqual(calls.inserts.map((row) => row.id), ["33333333"], "import-bank RW: yalniz yeni id eklenir");
+    assert.equal(calls.updates.length, 0, "import-bank RW: var olan id'ye yazi yok");
+    assert.deepEqual(calls.inserts[0], { ...bankToRows([rwNew])[0], explanation_en: rwExplanation }, "import-bank RW: yeni satir aciklamasiyla eklenir");
+    assert.equal(calls.inserts[0].figure_path, "33333333.webp");
+    assert.deepEqual(calls.uploads, ["33333333.webp"], "import-bank RW: figures/<id>.webp -> <id>.webp");
+    assert.equal(table.get("33333333").needs_review, true, "import-bank RW: karantinada eklenir");
+    assert.equal(table.get("44444444").explanation_en, "Live explanation.", "import-bank RW: var olan aciklama degismez");
+  }
+
+  // --- RW acma paketi (scripts/sat/rw/build-rw-release-package.mjs): salt okuma, yalniz needs_review ---------
+  const rwRow = (id, skillSlug, over = {}) => ({
+    id, section: "reading-writing", domain: "Craft and Structure", skill: skillSlug, skill_slug: skillSlug, difficulty: 1,
+    question_type: "mcq", prompt: `Passage ${id} with <i>a title</i>.`, choices: { A: "a", B: "b", C: "c", D: "d" },
+    correct_answer: ["C"], figure_path: null, explanation_en: `Why ${id}.`, source_file: "x.pdf", needs_review: true, ...over,
+  });
+  const releaseRows = [
+    rwRow("a0000001", "words-in-context"),
+    rwRow("a0000002", "words-in-context"),
+    rwRow("a0000003", "transitions"),
+    rwRow("a0000004", "transitions", { needs_review: false }), // zaten acik: pakete girmez
+    { ...liveTarget, id: "a0000005", needs_review: true }, // karantinadaki matematik satiri: pakete girmez
+  ];
+  const releaseDir = path.join(dir, "release");
+  const releaseOptions = (clientFactory, now = new Date("2026-10-03T12:00:00.000Z")) => ({ clientFactory, outDir: releaseDir, now });
+  {
+    const { calls, clientFactory } = fakeSupabase(releaseRows);
+    setEnv(LIVE_URL);
+    await rejectsBeforeConnecting(buildRwRelease(["--all", "--apply", "--project-ref", LIVE_PROJECT_REF], releaseOptions(clientFactory)), /yazmaz/, calls, "release: --apply reddedilir");
+    await rejectsBeforeConnecting(buildRwRelease([], releaseOptions(clientFactory)), /zorunlu/, calls, "release: secim yok");
+    await rejectsBeforeConnecting(buildRwRelease(["--all", "--skills", "transitions"], releaseOptions(clientFactory)), /zorunlu/, calls, "release: iki secim birden");
+    setEnv(OTHER_URL);
+    await rejectsBeforeConnecting(buildRwRelease(["--all"], releaseOptions(clientFactory)), /points to project/, calls, "release: yanlis adrese gitmez");
+  }
+  {
+    // (d) bos secim reddedilir, dosya yazilmaz
+    const { clientFactory } = fakeSupabase(releaseRows);
+    setEnv(LIVE_URL);
+    await assert.rejects(buildRwRelease(["--skills", "no-such-skill"], releaseOptions(clientFactory)), /satiri olmayan beceri: no-such-skill/, "release: karantinasiz beceri");
+    await assert.rejects(buildRwRelease(["--skills", "transitions,no-such-skill"], releaseOptions(clientFactory)), /no-such-skill/, "release: bir beceri bossa paket yok");
+    assert.ok(!existsSync(releaseDir), "release: reddedilen secimde paket dosyasi olusmaz");
+    const { clientFactory: emptyFactory } = fakeSupabase([rwRow("a0000004", "transitions", { needs_review: false }), liveTarget]);
+    await assert.rejects(buildRwRelease(["--all"], releaseOptions(emptyFactory)), /bos paket yazilmaz/, "release: karantinada RW yoksa --all reddedilir");
+    assert.ok(!existsSync(releaseDir));
+  }
+  {
+    const { clientFactory } = fakeSupabase(releaseRows);
+    setEnv(LIVE_URL);
+    const all = await buildRwRelease(["--all"], releaseOptions(clientFactory));
+    assert.deepEqual([all.packed, all.per_skill], [3, { transitions: 1, "words-in-context": 2 }], "release --all: yalniz karantinadaki RW satirlari");
+  }
+  {
+    // (c) paket yalniz needs_review degistirir, validatePackage ve patch araci kabul eder
+    const { calls, clientFactory, table } = fakeSupabase(releaseRows);
+    setEnv(LIVE_URL);
+    const result = await buildRwRelease(["--skills", "transitions,words-in-context"], releaseOptions(clientFactory));
+    assert.deepEqual([result.quarantined_rw, result.packed, result.per_skill], [3, 3, { transitions: 1, "words-in-context": 2 }]);
+    assert.equal(calls.inserts.length + calls.updates.length + calls.uploads.length, 0, "release: veritabanina yazmaz");
+    const releasePkg = JSON.parse(readFileSync(result.package_path, "utf8"));
+    assert.doesNotThrow(() => validatePackage(releasePkg, LIVE_PROJECT_REF), "release: paket gecerli");
+    assert.deepEqual(releasePkg.records.map((item) => item.id), ["a0000001", "a0000002", "a0000003"]);
+    for (const item of releasePkg.records) {
+      const live = table.get(item.id);
+      assert.deepEqual(changedFields(item.expected_before, item.after), ["needs_review"], `release ${item.id}: yalniz needs_review`);
+      assert.deepEqual(item.after, { prompt: live.prompt, choices: live.choices, needs_review: false });
+      assert.deepEqual(rowMatchesExpected(live, item.expected_before), [], `release ${item.id}: beklenen eski deger canliyla ayni`);
+    }
+    await assert.rejects(buildRwRelease(["--skills", "transitions,words-in-context"], releaseOptions(clientFactory)), /ezilmez/, "release: ayni paket ezilmez");
+
+    const applied = await patchQuestions(
+      ["--package", result.package_path, "--apply", "--project-ref", LIVE_PROJECT_REF, "--backup", path.join(dir, "release-backup.json")],
+      { clientFactory }
+    );
+    assert.deepEqual([applied.status, applied.applied, applied.non_targets_unchanged], ["verified", 3, 2], "release: patch araci paketi uygular");
+    for (const item of releasePkg.records) {
+      assert.deepEqual(table.get(item.id), { ...releaseRows.find((row) => row.id === item.id), needs_review: false }, `release ${item.id}: yalniz needs_review degisti`);
+    }
+    assert.ok(calls.updates.every((update) => Object.keys(update.payload).sort().join() === "choices,needs_review,prompt"), "release: aciklamaya dokunulmaz");
+    await assert.rejects(buildRwRelease(["--all"], releaseOptions(clientFactory, new Date("2026-10-03T13:00:00.000Z"))), /bos paket yazilmaz/, "release: acilanlar yeniden paketlenmez");
   }
 } finally {
   rmSync(dir, { recursive: true, force: true });
