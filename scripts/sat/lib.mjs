@@ -8,7 +8,10 @@ export const SOURCE_ROOT =
 export const FORMATTED_ROOT = join(SOURCE_ROOT, "Question Bank (Formatted)");
 export const UNFORMATTED_ROOT = join(SOURCE_ROOT, "Question Bank (Unformatted)");
 export const ANSWERS_ROOT = join(FORMATTED_ROOT, "Answers");
-export const OUT_ROOT = resolve(process.cwd(), "tmp", "sat-bank");
+// SAT_BANK_OUT verilirse cikti koku odur (worktree'den ana klasordeki tmp'ye yazmak icin, RW boru hatti).
+export const OUT_ROOT = process.env.SAT_BANK_OUT
+  ? resolve(process.env.SAT_BANK_OUT)
+  : resolve(process.cwd(), "tmp", "sat-bank");
 
 export function ensureOutDirs() {
   for (const dir of [OUT_ROOT, join(OUT_ROOT, "math-images"), join(OUT_ROOT, "math-questions"), join(OUT_ROOT, "figures")]) {

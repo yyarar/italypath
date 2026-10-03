@@ -2,11 +2,13 @@
 
 import type { ReactNode } from "react";
 import { AnimatePresence, m, useReducedMotion } from "framer-motion";
-import { Calculator, ChevronDown } from "lucide-react";
+import { BookOpenText, Calculator, ChevronDown } from "lucide-react";
 
 import { useLanguage } from "@/context/LanguageContext";
+import type { SatSection } from "@/lib/sat/types";
 
 interface SatDomainGroupProps {
+  section: SatSection;
   label: string;
   topicCount: number;
   startedCount: number;
@@ -21,6 +23,7 @@ function clampPercent(value: number) {
 }
 
 export default function SatDomainGroup({
+  section,
   label,
   topicCount,
   startedCount,
@@ -31,6 +34,7 @@ export default function SatDomainGroup({
 }: SatDomainGroupProps) {
   const { t } = useLanguage();
   const reduceMotion = useReducedMotion();
+  const Icon = section === "math" ? Calculator : BookOpenText;
   const progress = clampPercent(masteryPct);
   const summary = t.sat.domainSummary
     .replace("{topicCount}", String(topicCount))
@@ -55,7 +59,7 @@ export default function SatDomainGroup({
         className="group grid min-h-[4.6rem] w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 py-3.5 text-left outline-none transition-colors hover:bg-[rgba(219,232,225,0.32)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--editorial-sage)] sm:gap-4 sm:px-5"
       >
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--editorial-sage-soft)] text-[var(--editorial-sage)]">
-          <Calculator className="h-5 w-5" strokeWidth={1.7} />
+          <Icon className="h-5 w-5" strokeWidth={1.7} />
         </span>
         <div className="min-w-0">
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">

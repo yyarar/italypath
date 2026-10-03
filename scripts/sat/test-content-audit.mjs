@@ -1,11 +1,19 @@
 import assert from "node:assert/strict";
-import { mapTextOutsideMath, splitMathText } from "../../lib/sat/mathSegments.mjs";
+import {
+  MARK_TAGS,
+  mapTextOutsideMath,
+  splitMathText,
+  splitPassageBlocks,
+  splitRichText,
+  stripMarks,
+} from "../../lib/sat/mathSegments.mjs";
 import {
   auditRow,
   findMarkers,
   fixLiteralNewlineEscapes,
   katexIssues,
   literalNewlineEscapeCount,
+  markIssues,
   mathSegments,
   mathWordResidue,
 } from "./lib/content-audit.mjs";
@@ -104,5 +112,119 @@ assert.ok(katexIssues("Broken $\\frak{$ math").length + findMarkers("Broken $\\f
 
 // auditRow butunlesik
 assert.deepEqual(auditRow({ prompt: "What is $2+2$?", choices: { A: "$4$", B: "$5$", C: "$6$", D: "$7$" } }), [], "temiz soru bos donmeli");
+
+// --- Satir ici isaretler (RW metin sozlesmesi, plan 2026-10-03) ----------------------------------
+const seg = (kind, value, marks = "") => ({ kind, value, italic: marks.includes("i"), underline: marks.includes("u") });
+assert.deepEqual(MARK_TAGS, ["<u>", "</u>", "<i>", "</i>"], "dort etiket");
+assert.deepEqual(splitRichText("Plain text, no marks."), [seg("text", "Plain text, no marks.")], "duz metin tek parca");
+assert.deepEqual(
+  splitRichText("The <u>underlined portion</u> is key."),
+  [seg("text", "The "), seg("text", "underlined portion", "u"), seg("text", " is key.")],
+  "tek isaret"
+);
+assert.deepEqual(
+  splitRichText("<u>see <i>Ulysses</i> now</u>."),
+  [seg("text", "see ", "u"), seg("text", "Ulysses", "ui"), seg("text", " now", "u"), seg("text", ".")],
+  "iki ayri tur ic ice"
+);
+assert.deepEqual(
+  splitRichText("If $a<b$ and $x<i>y$ then <i>c</i>"),
+  [seg("text", "If "), seg("inline", "a<b"), seg("text", " and "), seg("inline", "x<i>y"), seg("text", " then "), seg("text", "c", "i")],
+  "formul icindeki < isaret degil; formul parcasi isaret tasimaz"
+);
+assert.deepEqual(
+  splitRichText("<i>a $x$ b</i> c"),
+  [seg("text", "a ", "i"), seg("inline", "x"), seg("text", " b", "i"), seg("text", " c")],
+  "italik formulun iki yaninda surer"
+);
+assert.deepEqual(splitRichText("x <b>y</b> a<U>b"), [seg("text", "x <b>y</b> a<U>b")], "dort etiket disindaki < duz metin");
+for (const sample of ["<u>never closed", "stray</i> close", "<i><i>double</i>", "</u></i><u>", "<u>a\n$$x$$\n</i>b"]) {
+  assert.doesNotThrow(() => splitRichText(sample), `dengesiz girdi cokmemeli: ${sample}`);
+}
+assert.deepEqual(splitRichText("<u>never closed"), [seg("text", "never closed", "u")], "kapanmayan isaret sonda kapanmis sayilir");
+assert.deepEqual(splitRichText("stray</i> close"), [seg("text", "stray close")], "karsiliksiz kapanis atilir");
+assert.deepEqual(splitRichText("a<u></u>b"), [seg("text", "ab")], "ayni isaretli komsu parcalar birlesir");
+for (const sample of [
+  "What is $2+2$?",
+  "It costs \\$2.00 and $x$ is \\$3.",
+  "$a$$b$ back to back, then $c$",
+  "No math at all.\nSecond line.",
+  "",
+  "Area is:\n$$A = \\pi r^2$$\nHere $r = 5$ holds.",
+  "A\n\n$$x$$\n\nB",
+]) {
+  assert.deepEqual(
+    splitRichText(sample).map(({ kind, value }) => ({ kind, value })),
+    splitMathText(sample),
+    `isaretsiz metinde splitMathText ile ayni: ${sample}`
+  );
+}
+assert.equal(
+  stripMarks("A <u>b</u> <i>c</i> <b>d</b> <U>e $x<i>y$ \\$5\n"),
+  "A b c <b>d</b> <U>e $x<i>y$ \\$5\n",
+  "stripMarks yalniz dort etiketi siler; formul ve diger yazi aynen kalir"
+);
+assert.equal(stripMarks("No marks, $a<b$ and \\$4."), "No marks, $a<b$ and \\$4.", "isaretsiz metin degismez");
+
+// markIssues: bes sorun turu
+const issueKinds = (text) => markIssues(text).map((issue) => issue.split(":")[0]);
+for (const clean of [
+  "Plain sentence.",
+  "The <u>quick</u> fox read <u><i>Ulysses</i></u> twice.",
+  "<i>line one</i>\n<i>line two</i>",
+  "<i>a $x$ b</i>",
+  "Compare $a<b$ and $x<i>y$ freely.",
+  "Costs \\$5 < \\$6.",
+]) {
+  assert.deepEqual(markIssues(clean), [], `temiz: ${clean}`);
+}
+assert.deepEqual(issueKinds("<u>never closed"), ["mark-unbalanced"], "kapanmamis isaret");
+assert.deepEqual(issueKinds("stray</i> close"), ["mark-unbalanced"], "karsiliksiz kapanis");
+assert.deepEqual(issueKinds("<u>a <u>b</u> c</u>"), ["mark-nested"], "ayni tur ic ice");
+assert.deepEqual(markIssues("<u>a<i>b</u>c</i>"), ["mark-overlap: </u> closes before <i>"], "kesisen iki tur");
+assert.deepEqual(issueKinds("<i>a<u>b</i>c</u>"), ["mark-overlap"], "kesisen iki tur (ters sira)");
+assert.deepEqual(markIssues("<u><i>x</i></u>"), [], "duzgun ic ice: u disarida");
+assert.deepEqual(markIssues("<i><u>x</u></i>"), [], "duzgun ic ice: i disarida");
+assert.doesNotThrow(() => splitRichText("<u>a<i>b</u>c</i>"), "kesisen isaretler cizimde cokmez");
+assert.deepEqual(issueKinds("x <i></i> y"), ["mark-empty"], "bos isaret");
+assert.deepEqual(issueKinds("x <u> </u> y"), ["mark-empty"], "yalniz bosluk tasiyan isaret bos sayilir");
+assert.deepEqual(issueKinds("<i>line one\nline two</i>"), ["mark-newline"], "satir sonunu asan isaret");
+for (const tagLike of ["<b>bold</b>", "a </em> b", "<br>", "the <u class=\"x\">", "the <u word", "<U>caps</U>"]) {
+  assert.ok(issueKinds(tagLike).includes("mark-tag-like"), `etikete benzeyen yazi: ${tagLike}`);
+}
+
+// --- Pasaj satirlari (RW; site PassageText ve onizleme ayni kurali kullanir) ---------------------------
+const kinds = (text) => splitPassageBlocks(text).map((block) => block.lines.map((line) => line.kind));
+const texts = (text) => splitPassageBlocks(text).map((block) => block.lines.map((line) => line.text));
+assert.deepEqual(splitPassageBlocks(""), [], "bos metin blok uretmez");
+assert.deepEqual(
+  splitPassageBlocks("One sentence. <u>Two</u> sentences.\n\nWhich choice best states the main idea?"),
+  [
+    { lines: [{ text: "One sentence. <u>Two</u> sentences.", kind: "plain" }] },
+    { lines: [{ text: "Which choice best states the main idea?", kind: "plain" }] },
+  ],
+  "duz yazi: paragraf basina tek satir, isaretler aynen kalir"
+);
+assert.deepEqual(kinds("The following text is a poem."), [["plain"]], "tek satirlik paragraf plain");
+const poem = "The following text is from a poem.\n\nWhen little lights come out,\nQuivering down through water,\n\n—Then, and then only,\nOld age might sink\n\nWhich choice best states the main idea?";
+assert.deepEqual(kinds(poem), [["plain"], ["verse", "verse"], ["verse", "verse"], ["plain"]], "siir: her kitadaki her dize verse");
+assert.deepEqual(texts(poem)[2], ["—Then, and then only,", "Old age might sink"], "dize metni aynen");
+assert.deepEqual(
+  kinds("CECILY: Have we got to part?\nALGERNON: I am afraid so.\nCECILY: It is always painful."),
+  [["verse", "verse", "verse"]],
+  "diyalog satirlari da verse"
+);
+const notes = "While researching a topic, a student has taken the following notes:\n• Sue is a fossil.\n• Sue is a member of the genus <i>Tyrannosaurus.</i>\n\nWhich choice most effectively uses the notes?";
+assert.deepEqual(kinds(notes), [["plain", "bullet", "bullet"], ["plain"]], "not listesi: giris satiri plain, maddeler bullet");
+assert.equal(texts(notes)[0][1], "• Sue is a fossil.", "madde imi metinde kalir");
+assert.deepEqual(kinds("• First note.\n• Second note."), [["bullet", "bullet"]], "girissiz not listesi");
+const twoTexts = "Text 1\nLewis is best known for <i>The Death of Cleopatra</i>.\n\nText 2\nArt historians have ignored the busts.\n\nBased on the texts, both authors would agree with which statement?";
+assert.deepEqual(kinds(twoTexts), [["label", "plain"], ["label", "plain"], ["plain"]], "Text 1 / Text 2: etiket + pasaj");
+assert.deepEqual(kinds("Text 1\nFirst line,\nsecond line."), [["label", "verse", "verse"]], "etiketin altinda siir: dizeler verse");
+assert.deepEqual(
+  ["Text 12", "Text 1 says", "text 1", " Text 2"].map((line) => kinds(line)[0][0]),
+  ["plain", "plain", "plain", "plain"],
+  "yalniz tam `Text 1` / `Text 2` etikettir"
+);
 
 console.log("test-content-audit PASS");

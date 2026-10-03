@@ -5,6 +5,7 @@ import { m, useReducedMotion } from "framer-motion";
 import { ArrowRight, Check, X } from "lucide-react";
 
 import MathText from "@/components/sat/MathText";
+import PassageText from "@/components/sat/PassageText";
 import { useLanguage } from "@/context/LanguageContext";
 import { isMcqAnswerCorrect, isSprAnswerCorrect } from "@/lib/sat/answers";
 import type { SatChoiceKey, SatQuestion } from "@/lib/sat/types";
@@ -27,6 +28,17 @@ export default function QuestionCard({ question, onAnswered, onNext, isLast }: Q
   const [result, setResult] = useState<"correct" | "wrong" | null>(null);
 
   const answered = result !== null;
+  // Okuma ve Yazma'da grafik/tablo pasajin ustunde, matematikte soru metninin altinda (plan 2026-10-03).
+  const figureAbovePrompt = question.section === "reading-writing";
+  const figure = question.figureUrl ? (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={question.figureUrl}
+      alt={t.sat.figureAlt}
+      className="mb-7 max-w-full rounded-xl border border-[var(--editorial-border)] bg-white"
+      loading="lazy"
+    />
+  ) : null;
 
   function submit(answer: string) {
     if (answered || !answer.trim()) return;
@@ -50,19 +62,18 @@ export default function QuestionCard({ question, onAnswered, onNext, isLast }: Q
         </span>
       </header>
 
+      {figureAbovePrompt ? figure : null}
+
       <div className="mb-7 whitespace-pre-line text-base leading-8 text-[var(--editorial-ink)]">
-        <MathText text={question.prompt} />
+        {/* Okuma ve Yazma pasaji satir satir (siir, not listesi, Text 1/2 etiketi); matematik eskisi gibi tek MathText. */}
+        {question.section === "reading-writing" ? (
+          <PassageText text={question.prompt} />
+        ) : (
+          <MathText text={question.prompt} />
+        )}
       </div>
 
-      {question.figureUrl ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={question.figureUrl}
-          alt={t.sat.figureAlt}
-          className="mb-7 max-w-full rounded-xl border border-[var(--editorial-border)] bg-white"
-          loading="lazy"
-        />
-      ) : null}
+      {figureAbovePrompt ? null : figure}
 
       {question.questionType === "mcq" && question.choices ? (
         <div className="grid gap-2.5">

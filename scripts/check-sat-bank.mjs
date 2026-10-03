@@ -60,15 +60,79 @@ if (!questionCard.includes("answered ? (") || !questionCard.includes("question.e
 if (!questionCard.includes("<MathText text={question.explanationEn} />")) {
   fail("QuestionCard.tsx: aciklama MathText ile render edilmeli");
 }
+// Okuma ve Yazma'da gorsel soru metninin ustunde, matematikte altinda (plan 2026-10-03).
+{
+  const above = questionCard.indexOf("{figureAbovePrompt ? figure : null}");
+  const prompt = questionCard.indexOf("<MathText text={question.prompt} />");
+  const below = questionCard.indexOf("{figureAbovePrompt ? null : figure}");
+  if (
+    !questionCard.includes('const figureAbovePrompt = question.section === "reading-writing";') ||
+    above === -1 || prompt === -1 || below === -1 || !(above < prompt && prompt < below)
+  ) {
+    fail("QuestionCard.tsx: gorsel reading-writing'de soru metninin ustunde, matematikte altinda cizilmeli");
+  }
+}
+// Okuma ve Yazma pasaji satir satir (PassageText, splitPassageBlocks); matematik soru metni eskisi gibi
+// whitespace-pre-line kutusunda tek MathText. Onizleme ayni kurali kullanir (sitenin aynasi kalsin).
+{
+  const promptBox = questionCard.match(
+    /<div className="mb-7 whitespace-pre-line text-base leading-8 text-\[var\(--editorial-ink\)\]">([\s\S]*?)<\/div>/
+  );
+  const branches = promptBox?.[1].match(
+    /\{question\.section === "reading-writing" \? \(\s*<PassageText text=\{question\.prompt\} \/>\s*\) : \(\s*<MathText text=\{question\.prompt\} \/>\s*\)\}/
+  );
+  if (!branches) {
+    fail("QuestionCard.tsx: soru metni kutusunda RW PassageText, matematik tek <MathText text={question.prompt} /> olmali");
+  }
+  const passage = read("components/sat/PassageText.tsx");
+  if (
+    !passage.includes('from "@/lib/sat/mathSegments.mjs"') ||
+    !passage.includes("splitPassageBlocks(text)") ||
+    !passage.includes("<MathText text={line.text} />") ||
+    /\.split\(/.test(passage) ||
+    passage.includes("dangerouslySetInnerHTML")
+  ) {
+    fail("PassageText.tsx: satirlari splitPassageBlocks ile ayirip MathText ile cizmeli (kendi ayirma kurali ve ham HTML yok)");
+  }
+  if (!read("scripts/sat/rw/render-rw-preview.mjs").includes("splitPassageBlocks(text)")) {
+    fail("render-rw-preview.mjs: soru metnini sitedeki gibi splitPassageBlocks ile cizmeli");
+  }
+}
+// Okuma ve Yazma alan grubu: dort alan bolum sirasinda ve TR/EN etiketli.
+{
+  const domains = read("lib/sat/domains.ts");
+  const rwDomains = {
+    "Information and Ideas": "domainInformationIdeas",
+    "Craft and Structure": "domainCraftStructure",
+    "Expression of Ideas": "domainExpressionIdeas",
+    "Standard English Conventions": "domainStandardEnglish",
+  };
+  const rwStart = domains.indexOf('"reading-writing": [');
+  const rwOrder = rwStart === -1 ? "" : domains.slice(rwStart, domains.indexOf("]", rwStart));
+  let previous = -1;
+  for (const [domain, labelKey] of Object.entries(rwDomains)) {
+    const index = rwOrder.indexOf(`"${domain}"`);
+    if (index === -1 || index < previous) fail(`domains.ts: "${domain}" reading-writing sirasinda eksik ya da yerinde degil`);
+    previous = index;
+    if (!domains.includes(`case "${domain}": return "${labelKey}";`)) fail(`domains.ts: "${domain}" etiket anahtari ${labelKey} olmali`);
+    for (const file of ["lib/translations/tr.ts", "lib/translations/en.ts"]) {
+      if (!new RegExp(`\\b${labelKey}: "`).test(read(file))) fail(`${file}: sat.${labelKey} eksik`);
+    }
+  }
+}
 
 // 4b) Formul ayirma kurali tek modulde (STATUS #100, 2026-10-02): site ve icerik taramasi ayni dosyayi
 // kullanir; `$$...$$` ayri satir formuludur. Kural iki yerde ayri ayri yazilirsa yeniden ayrisir.
+// Okuma ve Yazma (plan 2026-10-03): ayni modulun splitRichText'i alti cizili/italik isaretlerini de ayirir.
 const mathText = read("components/sat/MathText.tsx");
-if (!mathText.includes('from "@/lib/sat/mathSegments.mjs"') || !mathText.includes("splitMathText(")) {
-  fail("MathText.tsx: formulleri lib/sat/mathSegments.mjs splitMathText ile ayirmali");
+if (!mathText.includes('from "@/lib/sat/mathSegments.mjs"') || !mathText.includes("splitRichText(")) {
+  fail("MathText.tsx: metni lib/sat/mathSegments.mjs splitRichText ile ayirmali (formul + alti cizili/italik)");
 }
 if (/\.split\(/.test(mathText)) fail("MathText.tsx: kendi ayirma kuralini yazmamali (ortak modul)");
 if (!mathText.includes("displayMode")) fail("MathText.tsx: ayri satir formulu displayMode ile cizilmeli");
+if ((mathText.match(/dangerouslySetInnerHTML=\{/g) ?? []).length !== 1 ||!mathText.includes("<u ") || !mathText.includes("<em>")) {
+  fail("MathText.tsx: isaretler React <u>/<em> dugumuyle cizilmeli; dangerouslySetInnerHTML yalniz KaTeX ciktisinda");
+}
 const contentAuditLib = read("scripts/sat/lib/content-audit.mjs");
 if (!contentAuditLib.includes("lib/sat/mathSegments.mjs") || /\.split\(/.test(contentAuditLib)) {
   fail("content-audit.mjs: formulleri ortak modulle (lib/sat/mathSegments.mjs) ayirmali");
