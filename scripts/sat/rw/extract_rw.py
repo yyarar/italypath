@@ -3,6 +3,8 @@
 # Metin yalniz PDF karakterlerinden kodla kurulur; elle ya da yapay zekayla duzeltme yok.
 # Soru govdesi (stem + siklar) anahtar ve soru dosyalarinda AYNI kod yolundan gecer; iki cikti
 # sonra 1:1 karsilastirilir (kapi 4).
+# figure: { kind, page, bbox, clip } (PDF noktasi, 1 tabanli sayfa). clip, kirpma payinin girebilecegi bos
+# alandir: ust sinir "ID" seridinin alti, alt sinir seklin altindaki ilk metin satiri (Gorev 4 kirpmasi).
 #
 # Calistirma (once envanter: node scripts/sat/rw/inventory-rw.mjs):
 #   SAT_BANK_OUT=/Users/keremyarar/italypath-main/tmp/sat-bank/rw /usr/bin/python3 scripts/sat/rw/extract_rw.py
@@ -601,7 +603,15 @@ def collect_lines(pages, spans, stats, with_figure):
             if fig:
                 if figure:
                     raise ValueError(f"sayfa {pi + 1}: ikinci sekil")
-                figure = {"kind": fig["kind"], "page": pi + 1, "bbox": [round(v, 2) for v in fig["bbox"]]}
+                # clip: kirpma payinin tasamayacagi bos alan (ust: serit alti, alt: parcanin sonu; parse_body
+                # alt siniri seklin altindaki ilk metin satirina indirir). Gorev 4 payi buna kistirir.
+                page = pages[pi]
+                figure = {
+                    "kind": fig["kind"],
+                    "page": pi + 1,
+                    "bbox": [round(v, 2) for v in fig["bbox"]],
+                    "clip": [0.0, round(y0, 2), round(page.width, 2), round(min(y1, page.height), 2)],
+                }
                 drop = set(id(c) for c in fig["chars"])
                 chars = [c for c in chars if id(c) not in drop]
         elif drawings:
@@ -640,6 +650,12 @@ def parse_body(pages, spans, stats):
             figure["bbox"] = [round(min(b[0], l0["x0"]), 2), b[1], round(max(b[2], l0["x1"]), 2), round(max(b[3], l0["bottom"]), 2)]
             stats["figure_note_line"] += 1
             stem_lines = stem_lines[1:]
+    if figure:
+        below = [l["top"] for l in lines if l["page"] + 1 == figure["page"] and l["top"] >= figure["bbox"][3]]
+        if below:
+            figure["clip"][3] = round(min(figure["clip"][3], min(below)), 2)
+        if not (figure["clip"][1] <= figure["bbox"][1] and figure["bbox"][3] <= figure["clip"][3]):
+            raise ValueError(f"sekil kutusu bos alanin disinda: {figure}")
     stem_units, breaks = assemble(stem_lines, stats, "hard", intro_para=True)
     choices = {}
     for k, s in enumerate(starts):
