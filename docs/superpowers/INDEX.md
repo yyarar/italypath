@@ -84,3 +84,4 @@ Yeni belge eklerken: H1 altına `Durum (tarih): **DURUM** — kanıt.` satırı 
 | `plans/2026-09-15-university-data-egress-isr-plan.md` | plan | 2026-09-15 | **UYGULANDI** | SEO_AUDIT §20 (2026-09-16) |
 | `plans/2026-09-17-isee-parificato-calculator-plan.md` | plan | 2026-09-17 | **UYGULANDI** | 193a242 (2026-09-19) |
 | `plans/2026-09-17-program-detail-pages-plan.md` | plan | 2026-09-17 | **KISMEN** | Task 1-5 ve 7-9 uygulandı, Task 6 İPTAL; görev tablosu dosyanın başında; SEO_AUDIT §23 |
+| `plans/2026-10-03-sat-reading-writing-import-plan.md` | plan | 2026-10-03 | **UYGULANMADI** | Plan yazıldı (dal `feat/sat-rw`); kapsam 589 soru (Kerem, 2026-10-03); ilerleme `tmp/sat-bank/rw/DEVAM.md` (Git dışı) |
