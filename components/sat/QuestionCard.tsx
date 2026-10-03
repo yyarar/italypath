@@ -5,6 +5,7 @@ import { m, useReducedMotion } from "framer-motion";
 import { ArrowRight, Check, X } from "lucide-react";
 
 import MathText from "@/components/sat/MathText";
+import PassageText from "@/components/sat/PassageText";
 import { useLanguage } from "@/context/LanguageContext";
 import { isMcqAnswerCorrect, isSprAnswerCorrect } from "@/lib/sat/answers";
 import type { SatChoiceKey, SatQuestion } from "@/lib/sat/types";
@@ -64,7 +65,12 @@ export default function QuestionCard({ question, onAnswered, onNext, isLast }: Q
       {figureAbovePrompt ? figure : null}
 
       <div className="mb-7 whitespace-pre-line text-base leading-8 text-[var(--editorial-ink)]">
-        <MathText text={question.prompt} />
+        {/* Okuma ve Yazma pasaji satir satir (siir, not listesi, Text 1/2 etiketi); matematik eskisi gibi tek MathText. */}
+        {question.section === "reading-writing" ? (
+          <PassageText text={question.prompt} />
+        ) : (
+          <MathText text={question.prompt} />
+        )}
       </div>
 
       {figureAbovePrompt ? null : figure}

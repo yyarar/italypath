@@ -25,3 +25,19 @@ export interface RichSegment extends MathSegment {
 export function splitRichText(text: string): RichSegment[];
 
 export function stripMarks(text: string): string;
+
+/** Okuma ve Yazma pasaj satiri turu (splitPassageBlocks). */
+export type PassageLineKind = "plain" | "label" | "bullet" | "verse";
+
+export interface PassageLine {
+  /** Satirin isaretli metni; `bullet` satirinda bastaki `• ` dahil. */
+  text: string;
+  kind: PassageLineKind;
+}
+
+export interface PassageBlock {
+  /** Bir paragrafin (`\n\n` ile ayrilmis) satirlari (`\n` ile ayrilmis). */
+  lines: PassageLine[];
+}
+
+export function splitPassageBlocks(text: string): PassageBlock[];

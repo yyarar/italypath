@@ -1,9 +1,11 @@
 // Okuma ve Yazma yan yana onizleme sayfasi (plan 2026-10-03, Gorev 5 ikinci madde; Gorev 10 pilotu).
 // Her soru icin solda resmi goruntu (formatted-images/<id>.png; yoksa formatsiz soru PDF'inin sayfasi
 // pdftoppm ile <RW_OUT>/unformatted-pages/<id>-p<N>.png olarak cizilir), sagda bizim kayit sitedeki
-// QuestionCard kuralinca telefon genisliginde: cipler, RW'de gorsel metnin USTUNDE, prompt pre-line,
-// siklar (dogru olan isaretli), aciklama. Metin lib/sat/mathSegments.mjs splitRichText ile parcalanir
-// (site ile ayni modul): alti cizili <u>, italik <em>, her sey HTML-kacisli.
+// QuestionCard kuralinca telefon genisliginde: cipler, RW'de gorsel metnin USTUNDE, prompt satir satir
+// (components/sat/PassageText.tsx ile ayni kural: splitPassageBlocks; siir/diyalog dizesi ve not maddesi
+// asili girintili, Text 1/2 etiketi kalin), siklar (dogru olan isaretli), aciklama. Metin
+// lib/sat/mathSegments.mjs splitRichText ile parcalanir (site ile ayni modul): alti cizili <u>, italik <em>,
+// her sey HTML-kacisli.
 // Sayfa kendi kendine yeter: satir ici CSS, JS yok, ag yok; goruntuler goreli yolla (../formatted-images/...).
 // Cikti Git disi <RW_OUT>/preview/<ad>.html (soru icerigi telifli; yayinlanmaz, yuklenmez).
 //
@@ -16,7 +18,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
-import { splitRichText } from "../../../lib/sat/mathSegments.mjs";
+import { splitPassageBlocks, splitRichText } from "../../../lib/sat/mathSegments.mjs";
 import { listPdfsRecursive } from "../lib.mjs";
 import {
   CHOICE_KEYS,
@@ -144,6 +146,22 @@ function richHtml(text) {
     .join("");
 }
 
+/** PassageText ile ayni cizim: paragraf bloklari, satir basina blok; madde imi sabit genislikte. */
+function passageHtml(text) {
+  return splitPassageBlocks(text)
+    .map((block) => {
+      const lines = block.lines
+        .map((line) =>
+          line.kind === "bullet"
+            ? `<div class="line line-bullet"><span class="bullet">•</span><span>${richHtml(line.text.slice(2))}</span></div>`
+            : `<div class="line line-${line.kind}">${richHtml(line.text)}</div>`
+        )
+        .join("");
+      return `<div class="para">${lines}</div>`;
+    })
+    .join("");
+}
+
 function relUrl(absPath) {
   return path.relative(PREVIEW_DIR, absPath).split(path.sep).map(encodeURIComponent).join("/");
 }
@@ -188,7 +206,7 @@ function cardHtml(record) {
     `<article class="card">`,
     `<header class="chips"><span class="chip">${esc(record.domain ?? "")} · ${esc(record.skill ?? "")}</span><span class="chip chip-level">${DIFFICULTY[record.difficulty] ?? "?"}</span></header>`,
     figureHtml(record),
-    `<div class="prompt">${richHtml(record.prompt)}</div>`,
+    `<div class="prompt">${passageHtml(record.prompt)}</div>`,
     `<div class="choices">${choices}</div>`,
     explanation,
     `</article>`,
@@ -248,6 +266,13 @@ h1 { margin: 0 0 12px; font-family: var(--serif); font-weight: 600; font-size: 3
 .figure-missing small { font-weight: 400; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11px; color: var(--editorial-muted); }
 .prompt { margin-bottom: 28px; white-space: pre-line; font-size: 16px; line-height: 32px; color: var(--editorial-ink); }
 .pre { white-space: pre-line; }
+/* PassageText (components/sat/PassageText.tsx): space-y-8, font-semibold, pl-[1.5em] -indent-[1.5em], w-[1.25em] */
+.para + .para { margin-top: 32px; }
+.line-label { font-weight: 600; }
+.line-verse { padding-left: 1.5em; text-indent: -1.5em; }
+.line-bullet { display: flex; }
+.line-bullet .bullet { width: 1.25em; flex-shrink: 0; }
+.line-bullet > span:last-child { min-width: 0; }
 .card u { text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .choices { display: grid; gap: 10px; }
 .choice { display: flex; align-items: flex-start; gap: 12px; min-height: 56px; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--editorial-border); background: rgba(255,254,250,0.82); font-size: 14px; line-height: 24px; }

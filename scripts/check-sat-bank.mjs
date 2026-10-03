@@ -72,6 +72,32 @@ if (!questionCard.includes("<MathText text={question.explanationEn} />")) {
     fail("QuestionCard.tsx: gorsel reading-writing'de soru metninin ustunde, matematikte altinda cizilmeli");
   }
 }
+// Okuma ve Yazma pasaji satir satir (PassageText, splitPassageBlocks); matematik soru metni eskisi gibi
+// whitespace-pre-line kutusunda tek MathText. Onizleme ayni kurali kullanir (sitenin aynasi kalsin).
+{
+  const promptBox = questionCard.match(
+    /<div className="mb-7 whitespace-pre-line text-base leading-8 text-\[var\(--editorial-ink\)\]">([\s\S]*?)<\/div>/
+  );
+  const branches = promptBox?.[1].match(
+    /\{question\.section === "reading-writing" \? \(\s*<PassageText text=\{question\.prompt\} \/>\s*\) : \(\s*<MathText text=\{question\.prompt\} \/>\s*\)\}/
+  );
+  if (!branches) {
+    fail("QuestionCard.tsx: soru metni kutusunda RW PassageText, matematik tek <MathText text={question.prompt} /> olmali");
+  }
+  const passage = read("components/sat/PassageText.tsx");
+  if (
+    !passage.includes('from "@/lib/sat/mathSegments.mjs"') ||
+    !passage.includes("splitPassageBlocks(text)") ||
+    !passage.includes("<MathText text={line.text} />") ||
+    /\.split\(/.test(passage) ||
+    passage.includes("dangerouslySetInnerHTML")
+  ) {
+    fail("PassageText.tsx: satirlari splitPassageBlocks ile ayirip MathText ile cizmeli (kendi ayirma kurali ve ham HTML yok)");
+  }
+  if (!read("scripts/sat/rw/render-rw-preview.mjs").includes("splitPassageBlocks(text)")) {
+    fail("render-rw-preview.mjs: soru metnini sitedeki gibi splitPassageBlocks ile cizmeli");
+  }
+}
 // Okuma ve Yazma alan grubu: dort alan bolum sirasinda ve TR/EN etiketli.
 {
   const domains = read("lib/sat/domains.ts");
