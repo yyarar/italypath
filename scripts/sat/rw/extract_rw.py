@@ -449,7 +449,7 @@ def break_kind(a, b):
     if b.get("bullet"):
         return "hard" if same_page else "para_or_hard"
     last = a["units"][-1]["t"]
-    need = 0.0 if last in JOIN_NO_SPACE_END else SPACE_W
+    need = 0.0 if last in JOIN_NO_SPACE_END or glued_break_end(a["units"]) else SPACE_W
     room = RIGHT_EDGE - a["x1"] - need
     if b["seg_w"] > room - HARD_MARGIN:
         return "soft"
@@ -461,10 +461,23 @@ def break_kind(a, b):
     return "hard"
 
 
+def glued_break_end(units):
+    # Satir sonundaki bosluksuz kirma firsati: tire/uzun cizgi ya da uc nokta ("\u2026" veya "..."), onundeki
+    # karaktere bitisik. Metin katmani sarilmis satir sonunda bosluk karakteri tasimaz (9483 sozcuk sarmasinin
+    # hicbirinde yok), bu yuzden birlesim kuralla verilir: bitisik kirma firsatindan sonra bosluk eklenmez.
+    if not units:
+        return False
+    if units[-1]["t"] in JOIN_NO_SPACE_END or units[-1]["t"] == "\u2026":
+        n = 1
+    elif len(units) >= 3 and all(u["t"] == "." for u in units[-3:]):
+        n = 3
+    else:
+        return False
+    return len(units) > n and units[-n - 1]["t"] != " "
+
+
 def join_units(a_units, b_units):
-    last = a_units[-1]["t"]
-    first = b_units[0]["t"]
-    if (last in JOIN_NO_SPACE_END and len(a_units) > 1 and a_units[-2]["t"] != " ") or first in JOIN_NO_SPACE_START:
+    if glued_break_end(a_units) or b_units[0]["t"] in JOIN_NO_SPACE_START:
         return []
     return [{"t": " ", "italic": False, "ul": False, "bold": False}]
 

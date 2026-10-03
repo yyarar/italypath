@@ -228,8 +228,9 @@ const questionRecords = questionsDoc.records;
 // siklara "A. "-"D. " etiketi, cevap bolumune basliklar ("ID: <id> Answer", "Correct Answer:", "Rationale",
 // "Question Difficulty:") satir satir eklenir.
 // 4b: karakter dizileri (bosluksuz) ayni olmali. 4c: ayni dizide sinir (ws) yerleri ayni olmali; tek belgelenmis
-// fark, cikaricinin bosluksuz birlestirdigi kaynak satir sonlari (satir tire ya da uzun cizgiyle bitiyor ve
-// cizginin onunde bosluk yok, ya da sonraki satir uzun cizgiyle basliyor); orada bizde duz bosluk olamaz.
+// fark, cikaricinin bosluksuz birlestirdigi kaynak satir sonlari (satir tire, uzun cizgi ya da uc noktayla
+// bitiyor ve onunde bosluk yok, ya da sonraki satir uzun cizgiyle basliyor); orada bizde duz bosluk olamaz.
+// Metin katmani sarmada bosluk karakteri tasimaz; kural cikaricidaki glued_break_end ile aynidir.
 const LIGATURES = { "\ufb00": "ff", "\ufb01": "fi", "\ufb02": "fl", "\ufb03": "ffi", "\ufb04": "ffl" };
 const SUPSUB = "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079\u2080\u2081\u2082\u2083\u2084\u2085\u2086\u2087\u2088\u2089";
 const BLANK = "\u2423";
@@ -304,7 +305,7 @@ function headLeftover(head, r) {
 }
 
 const engine = { compared: 0, equal: 0, figureQuestions: 0, figureLeftoverExactOrder: 0, exceptions: Object.keys(PDFTOTEXT_EXCEPTIONS).length };
-const boundary = { compared: 0, equal: 0, notCompared: 0, boundaries: 0, joinedAfterDash: 0, joinedBeforeEmDash: 0, exceptions: Object.keys(WORD_BOUNDARY_EXCEPTIONS).length };
+const boundary = { compared: 0, equal: 0, notCompared: 0, boundaries: 0, joinedAfterDash: 0, joinedAfterEllipsis: 0, joinedBeforeEmDash: 0, exceptions: Object.keys(WORD_BOUNDARY_EXCEPTIONS).length };
 const figureLeftovers = [];
 const gate4b = gate("4b", "ikinci motor (pdftotext -layout, anahtar PDF)");
 const gate4c = gate("4c", "sozcuk sinirlari (pdftotext -layout ile bosluk yerleri)");
@@ -409,6 +410,14 @@ const gate4c = gate("4c", "sozcuk sinirlari (pdftotext -layout ile bosluk yerler
   );
 }
 
+// Kaynakta i'den once bitisik uc nokta ("\u2026" ya da "...") var mi (onundeki karakterle arasinda bosluk yok).
+function gluedEllipsisBefore(source, i) {
+  if (source[i - 1].c === "\u2026") return !source[i - 1].ws;
+  if (i < 4) return false;
+  const dots = source.slice(i - 3, i);
+  return dots.every((t) => t.c === ".") && dots.every((t) => !t.ws);
+}
+
 function checkBoundaries(r, source, oursTokens) {
   // 4c: 4b'nin esledigi ayni karakter dizisinde bosluk yerleri.
   const { fail, g } = gate4c;
@@ -421,10 +430,11 @@ function checkBoundaries(r, source, oursTokens) {
     // Cikaricinin bosluksuz birlestirdigi kaynak satir sonu: bizde ya bosluk yok (birlesik) ya da gercek
     // satir sonu var (siir dizesi "roll" + uzun cizgi gibi); duz bosluk kural disidir.
     const afterDash = s.nl && LINE_END_DASHES.has(source[i - 1].c) && !source[i - 1].ws;
+    const afterEllipsis = s.nl && gluedEllipsisBefore(source, i);
     const beforeEmDash = s.nl && s.c === "\u2014";
-    if (afterDash || beforeEmDash) {
+    if (afterDash || afterEllipsis || beforeEmDash) {
       if (!o.ws) {
-        boundary[afterDash ? "joinedAfterDash" : "joinedBeforeEmDash"] += 1;
+        boundary[afterDash ? "joinedAfterDash" : afterEllipsis ? "joinedAfterEllipsis" : "joinedBeforeEmDash"] += 1;
         continue;
       }
       if (o.nl) continue;
@@ -432,7 +442,7 @@ function checkBoundaries(r, source, oursTokens) {
     const from = Math.max(0, i - 30);
     issues.push({
       at: i,
-      kind: afterDash || beforeEmDash ? "cizgide satir sonu: bizde duz bosluk" : s.ws ? "kaynakta bosluk var, bizde yok" : "bizde bosluk var, kaynakta yok",
+      kind: afterDash || afterEllipsis || beforeEmDash ? "bitisik kirma firsatinda satir sonu: bizde duz bosluk" : s.ws ? "kaynakta bosluk var, bizde yok" : "bizde bosluk var, kaynakta yok",
       source: spaced(source.slice(from, i + 30)),
       ours: spaced(oursTokens.slice(from, i + 30)),
     });
