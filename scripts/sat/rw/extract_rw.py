@@ -531,15 +531,34 @@ def assemble(lines, stats, page_break_mode, intro_para=False):
 # ---------------------------------------------------------------- isaretli metin
 
 
+BLANK_MIN_RUN = 3  # kaynakta bosluklar hep 6 alt cizgi (321/321); 3+ bosluk sayilir
+
+
 def merge_blanks(units):
-    # Alt cizgi dizisi (bosluk) tam alti alt cizgiye indirilir.
+    # Alt cizgi dizileri (2026-10-03 olcumu, 589 soru): 6'lik dizi 321 (hepsi soru kokunde bosluk), tekli
+    # alt cizgi 10 (7edfb2c5: K5_106 gibi kimlikler; iki yani harf/rakam). Kural: 3+ dizi bosluktur ve tam
+    # alti alt cizgi olur; iki yani harf/rakam olan tekli alt cizgi aynen kalir; baska her durum hata.
     out = []
-    for u in units:
-        if u["t"] == "_" and out and out[-1]["t"].startswith("_") and out[-1].get("blank"):
+    i = 0
+    while i < len(units):
+        if units[i]["t"] != "_":
+            out.append(units[i])
+            i += 1
             continue
-        if u["t"] == "_":
-            u = dict(u, t="______", blank=True)
-        out.append(u)
+        j = i
+        while j < len(units) and units[j]["t"] == "_":
+            j += 1
+        run = j - i
+        before = units[i - 1]["t"] if i > 0 else ""
+        after = units[j]["t"] if j < len(units) else ""
+        if run >= BLANK_MIN_RUN:
+            out.append(dict(units[i], t="______", blank=True))
+        elif run == 1 and before[-1:].isalnum() and after[:1].isalnum():
+            out.append(units[i])
+        else:
+            context = "".join(u["t"] for u in units[max(0, i - 12) : j + 12])
+            raise ValueError(f"belirsiz alt cizgi dizisi ({run}): {context!r}")
+        i = j
     return out
 
 

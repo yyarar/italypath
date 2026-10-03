@@ -45,6 +45,9 @@ const FIGURE_WORD_ALLOWLIST = {
 // normallestirmelerden sonra 589 sorunun tamami tutuyor. Eklenecek her kayit { reason, evidence } tasir.
 const PDFTOTEXT_EXCEPTIONS = {};
 
+// Kapi 4c istisnalari: pdftotext'in sozcuk sinirini yanlis verdigi, kanitiyla belgelenmis id'ler. Bugun bos.
+const WORD_BOUNDARY_EXCEPTIONS = {};
+
 const keysDoc = readJson(join(RW_OUT, "extract-keys.json"));
 const questionsDoc = readJson(join(RW_OUT, "extract-questions.json"));
 const inventory = readJson(join(RW_OUT, "source-inventory.json")).files;
@@ -213,27 +216,74 @@ const questionRecords = questionsDoc.records;
   g.counts = { compared: keyRecords.length, equal };
 }
 
-// ------------------------------------------------------------------ 4b ikinci motor (pdftotext)
-// Belgelenmis normallestirmeler (iki tarafa da): tum bosluklar (nbsp, en/em bosluk, U+200B sifir genislikli
-// bosluk, U+00AD yumusak tire dahil) silinir; bitisik harf glifleri harflere acilir; Unicode ust/alt simge
-// rakamlari ASCII rakama doner (cikarici 9 pt rakamlari simgeye cevirir, pdftotext duz rakam verir); alt
-// cizgi dizisi tek alt cizgiye iner. Yalniz bizim tarafa: stripMarks, "\$" -> "$", satir basindaki "• "
-// silinir (madde imi vektor dairedir, metinde yok); siklara "A."-"D." etiketi, cevap bolumune basliklar
-// ("ID: <id> Answer", "Correct Answer:", "Rationale", "Question Difficulty:") eklenir.
-// pdftotext -layout kullanilir: varsayilan kip satir sonundaki tireyi siler ("well-" + "known" -> "wellknown").
-const LIGATURES = { "ﬀ": "ff", "ﬁ": "fi", "ﬂ": "fl", "ﬃ": "ffi", "ﬄ": "ffl" };
-const SUPSUB = "⁰¹²³⁴⁵⁶⁷⁸⁹₀₁₂₃₄₅₆₇₈₉";
+// ------------------------------------------------------------------ 4b ikinci motor + 4c sozcuk sinirlari
+// Kaynak: pdftotext -layout (varsayilan kip satir sonundaki tireyi siler: "well-" + "known" -> "wellknown").
+// Iki taraf da karakter dizisine cevrilir; her karakter oncesinde bosluk olup olmadigini (ws) ve o boslukta
+// satir sonu bulunup bulunmadigini (nl) tasir. Belgelenmis normallestirmeler (iki tarafa da): bosluk sayilan
+// karakterler (her tur bosluk, nbsp, en/em bosluk, U+200B) karakter degil sinirdir; U+00AD yumusak tire
+// silinir; bitisik harf glifleri harflere acilir; Unicode ust/alt simge rakamlari ASCII rakama doner
+// (cikarici 9 pt rakamlari simgeye cevirir, pdftotext duz rakam verir). Bosluk: kaynakta 3+ alt cizgi, bizde
+// tam "______" tek bir bosluk simgesine doner; tekli alt cizgi iki tarafta da tekli kalir (baska dizi eslesmez).
+// Yalniz bizim tarafa: stripMarks, "\$" -> "$", satir basindaki "\u2022 " silinir (madde imi vektor dairedir);
+// siklara "A. "-"D. " etiketi, cevap bolumune basliklar ("ID: <id> Answer", "Correct Answer:", "Rationale",
+// "Question Difficulty:") satir satir eklenir.
+// 4b: karakter dizileri (bosluksuz) ayni olmali. 4c: ayni dizide sinir (ws) yerleri ayni olmali; tek belgelenmis
+// fark, cikaricinin bosluksuz birlestirdigi kaynak satir sonlari (satir tire ya da uzun cizgiyle bitiyor ve
+// cizginin onunde bosluk yok, ya da sonraki satir uzun cizgiyle basliyor); orada bizde duz bosluk olamaz.
+const LIGATURES = { "\ufb00": "ff", "\ufb01": "fi", "\ufb02": "fl", "\ufb03": "ffi", "\ufb04": "ffl" };
+const SUPSUB = "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079\u2080\u2081\u2082\u2083\u2084\u2085\u2086\u2087\u2088\u2089";
+const BLANK = "\u2423";
+const SPACE_CHAR = /[\s\u00a0\u2002\u2003\u200b]/u;
+const LINE_END_DASHES = new Set(["-", "\u2010", "\u2013", "\u2014"]);
 
-function normalize(text) {
-  return text
-    .replace(/[ﬀ-ﬄ]/g, (c) => LIGATURES[c])
-    .replace(/[⁰¹²³⁴-⁹₀-₉]/g, (c) => String(SUPSUB.indexOf(c) % 10))
-    .replace(/[\s ­​  ]+/gu, "")
-    .replace(/_+/g, "_");
+function tokenize(text, side) {
+  let t = text
+    .replace(/[\ufb00-\ufb04]/g, (c) => LIGATURES[c])
+    .replace(/[\u2070\u00b9\u00b2\u00b3\u2074-\u2079\u2080-\u2089]/g, (c) => String(SUPSUB.indexOf(c) % 10))
+    .replace(/\u00ad/g, "");
+  t = side === "source" ? t.replace(/_{3,}/g, BLANK) : t.replace(/(?<!_)_{6}(?!_)/g, BLANK);
+  const out = [];
+  let ws = false;
+  let nl = false;
+  for (const c of t) {
+    if (SPACE_CHAR.test(c)) {
+      ws = true;
+      if (c === "\n") nl = true;
+      continue;
+    }
+    out.push({ c, ws, nl });
+    ws = false;
+    nl = false;
+  }
+  return out;
 }
 
-function ours(text) {
-  return normalize(stripMarks(text).replace(/^• /gm, "").replaceAll("\\$", "$"));
+const chars = (tokens) => tokens.map((t) => t.c).join("");
+const spaced = (tokens) => tokens.map((t, i) => (i > 0 && t.ws ? " " : "") + t.c).join("");
+
+function oursPlain(text) {
+  return stripMarks(text).replace(/^\u2022 /gm, "").replaceAll("\\$", "$");
+}
+
+function oursRegion(r) {
+  // Kaynakta "ID: <id>" seridinden sonra gelen her sey, bizim alanlardan ayni sirayla.
+  return [
+    r.stem,
+    ...LETTERS.map((k) => `${k}. ${r.choices[k]}`),
+    `ID: ${r.id} Answer`,
+    "Correct Answer:",
+    r.answer,
+    "Rationale",
+    r.rationale,
+    "Question Difficulty:",
+    r.difficulty_label,
+  ]
+    .map(oursPlain)
+    .join("\n");
+}
+
+function oursChars(text) {
+  return chars(tokenize(oursPlain(text), "ours"));
 }
 
 function pdftotext(args) {
@@ -243,7 +293,7 @@ function pdftotext(args) {
 function headLeftover(head, r) {
   // Baslik + kunye tablosu: yalniz bu sozcukler olmali. -layout kipinde sarilan hucreler satir satir
   // karisir ("Standard English" / "Conventions"), bu yuzden sozcuk sozcuk ve uzundan kisaya silinir.
-  const words = (text) => text.split(" ").map(normalize);
+  const words = (text) => text.split(" ").map((w) => chars(tokenize(w, "source")));
   const tokens = [`QuestionID${r.id}`, "Assessment", "Test", "Domain", "Skill", "Difficulty", "SAT", ...words("Reading and Writing"), ...words(r.domain), ...words(r.skill)];
   let rest = head;
   for (const token of tokens.sort((a, b) => b.length - a.length || (a < b ? -1 : 1))) {
@@ -254,9 +304,12 @@ function headLeftover(head, r) {
 }
 
 const engine = { compared: 0, equal: 0, figureQuestions: 0, figureLeftoverExactOrder: 0, exceptions: Object.keys(PDFTOTEXT_EXCEPTIONS).length };
+const boundary = { compared: 0, equal: 0, notCompared: 0, boundaries: 0, joinedAfterDash: 0, joinedBeforeEmDash: 0, exceptions: Object.keys(WORD_BOUNDARY_EXCEPTIONS).length };
 const figureLeftovers = [];
+const gate4b = gate("4b", "ikinci motor (pdftotext -layout, anahtar PDF)");
+const gate4c = gate("4c", "sozcuk sinirlari (pdftotext -layout ile bosluk yerleri)");
 {
-  const { g, fail } = gate("4b", "ikinci motor (pdftotext -layout, anahtar PDF)");
+  const { g, fail } = gate4b;
   const byFile = new Map();
   for (const r of keyRecords) {
     if (!byFile.has(r.source_file)) byFile.set(r.source_file, []);
@@ -270,76 +323,123 @@ const figureLeftovers = [];
     sorted.forEach((r, index) => {
       engine.compared += 1;
       const lastPage = index + 1 < sorted.length ? sorted[index + 1].page - 1 : entry.pages;
-      const source = normalize(pages.slice(r.page - 1, lastPage).join("\n"));
+      const sourceTokens = tokenize(pages.slice(r.page - 1, lastPage).join("\n"), "source");
+      const source = chars(sourceTokens);
       const banner = `ID:${r.id}`;
       const answerBanner = `ID:${r.id}Answer`;
-      const bodyStart = source.indexOf(banner);
-      const answerStart = source.indexOf(answerBanner);
-      if (bodyStart < 0 || answerStart < bodyStart) {
+      const bannerAt = source.indexOf(banner);
+      const answerAt = source.indexOf(answerBanner);
+      if (bannerAt < 0 || answerAt < bannerAt) {
         fail(`${r.id}: pdftotext ciktisinda serit bulunamadi`);
+        boundary.notCompared += 1;
         return;
       }
       const problems = [];
-      const head = headLeftover(source.slice(0, bodyStart), r);
+      const head = headLeftover(source.slice(0, bannerAt), r);
       if (head) problems.push({ part: "kunye", source: head, ours: "" });
-      const oursBody = ours(r.stem) + LETTERS.map((k) => `${k}.${ours(r.choices[k])}`).join("");
-      const oursAnswer = `CorrectAnswer:${r.answer}Rationale${ours(r.rationale)}QuestionDifficulty:${r.difficulty_label}`;
-      if (!r.figure) {
-        const body = source.slice(bodyStart + banner.length, answerStart);
-        const answer = source.slice(answerStart + answerBanner.length);
-        if (body !== oursBody) problems.push({ part: "govde", ...snippetDiff(body, oursBody) });
-        if (answer !== oursAnswer) problems.push({ part: "cevap", ...snippetDiff(answer, oursAnswer) });
-      } else {
+      const oursTokens = tokenize(oursRegion(r), "ours");
+      let region = sourceTokens.slice(bannerAt + banner.length);
+      if (r.figure) {
         // Sekilli soru: bizim metin parcalari sirayla bulunmali; artan tek parca seridin hemen arkasinda
         // durmali ve karakterleri sekil kutusunun pdftotext kirpmasiyla (ayni coklu kume) ayni olmali.
         engine.figureQuestions += 1;
+        const text = chars(region);
         const chunks = [
-          ...r.stem.split("\n").map(ours),
-          ...LETTERS.map((k) => `${k}.${ours(r.choices[k])}`),
+          ...r.stem.split("\n").map(oursChars),
+          ...LETTERS.map((k) => oursChars(`${k}. ${r.choices[k]}`)),
           answerBanner,
           `CorrectAnswer:${r.answer}`,
           "Rationale",
-          ...r.rationale.split("\n\n").map(ours),
+          ...r.rationale.split("\n\n").map(oursChars),
           `QuestionDifficulty:${r.difficulty_label}`,
         ].filter(Boolean);
-        let cursor = bodyStart + banner.length;
+        let cursor = 0;
         const leftovers = [];
         let missing = null;
         for (const chunk of chunks) {
-          const at = source.indexOf(chunk, cursor);
+          const at = text.indexOf(chunk, cursor);
           if (at < 0) {
             missing = chunk;
             break;
           }
-          if (at > cursor) leftovers.push({ at: cursor, text: source.slice(cursor, at) });
+          if (at > cursor) leftovers.push({ at: cursor, text: text.slice(cursor, at) });
           cursor = at + chunk.length;
         }
-        if (cursor < source.length && !missing) leftovers.push({ at: cursor, text: source.slice(cursor) });
+        if (cursor < text.length && !missing) leftovers.push({ at: cursor, text: text.slice(cursor) });
         const [x0, top, x1, bottom] = r.figure.bbox;
-        const crop = normalize(
-          pdftotext(["-f", String(r.figure.page), "-l", String(r.figure.page), "-r", "72", "-x", String(Math.floor(x0 - 1)), "-y", String(Math.floor(top - 1)), "-W", String(Math.ceil(x1 - x0 + 2)), "-H", String(Math.ceil(bottom - top + 2)), pdf])
+        const crop = chars(
+          tokenize(
+            pdftotext(["-f", String(r.figure.page), "-l", String(r.figure.page), "-r", "72", "-x", String(Math.floor(x0 - 1)), "-y", String(Math.floor(top - 1)), "-W", String(Math.ceil(x1 - x0 + 2)), "-H", String(Math.ceil(bottom - top + 2)), pdf]),
+            "source"
+          )
         );
         const leftover = leftovers.map((l) => l.text).join("");
         const sortChars = (s) => [...s].sort().join("");
         if (missing) problems.push({ part: "sekilli govde", missing: missing.slice(0, 120) });
-        else if (leftovers.length !== 1 || leftovers[0].at !== bodyStart + banner.length) {
+        else if (leftovers.length !== 1 || leftovers[0].at !== 0) {
           problems.push({ part: "sekil yazisi", leftovers: leftovers.map((l) => l.text.slice(0, 80)) });
         } else if (sortChars(leftover) !== sortChars(crop)) {
           problems.push({ part: "sekil yazisi", source: leftover, crop });
         } else {
           if (leftover === crop) engine.figureLeftoverExactOrder += 1;
           figureLeftovers.push({ id: r.id, kind: r.figure.kind, chars: leftover.length, exactOrder: leftover === crop });
+          region = region.slice(leftover.length);
         }
+      }
+      if (problems.length === 0 && chars(region) !== chars(oursTokens)) {
+        problems.push({ part: r.figure ? "sekil sonrasi metin" : "govde + cevap", ...snippetDiff(chars(region), chars(oursTokens)) });
       }
       if (problems.length === 0) engine.equal += 1;
       else if (PDFTOTEXT_EXCEPTIONS[r.id]) g.notes.push(`${r.id}: istisna (${PDFTOTEXT_EXCEPTIONS[r.id].reason})`);
       else fail(`${r.id}: ${JSON.stringify(problems)}`);
+      if (problems.length > 0) {
+        boundary.notCompared += 1;
+        return;
+      }
+      checkBoundaries(r, region, oursTokens);
     });
   }
   g.counts = { ...engine };
   g.notes.push(
     "Sekilli sorularda sekil yazisi (baslik, eksen, gosterge, tablo hucresi) kayitta yoktur; yalniz pdftotext'in tam sayfa ciktisindaki artan parcanin, sekil kutusunun pdftotext kirpmasiyla ayni karakter coklu kumesi oldugu dogrulanir (sira degil). Gorselin dogrulugu Gorev 4/9 goz kontroluyle."
   );
+  gate4c.g.counts = { ...boundary };
+  gate4c.g.notes.push(
+    "Sinir = karakterler arasinda herhangi bir bosluk (tur ve uzunluk onemsiz). Bolgenin ilk karakteri (serit ya da sekil yazisindan sonra) karsilastirilmaz. Sekil yazisinin kendi bosluklari karsilastirilmaz."
+  );
+}
+
+function checkBoundaries(r, source, oursTokens) {
+  // 4c: 4b'nin esledigi ayni karakter dizisinde bosluk yerleri.
+  const { fail, g } = gate4c;
+  boundary.compared += 1;
+  const issues = [];
+  for (let i = 1; i < source.length; i += 1) {
+    const s = source[i];
+    const o = oursTokens[i];
+    if (s.ws) boundary.boundaries += 1;
+    // Cikaricinin bosluksuz birlestirdigi kaynak satir sonu: bizde ya bosluk yok (birlesik) ya da gercek
+    // satir sonu var (siir dizesi "roll" + uzun cizgi gibi); duz bosluk kural disidir.
+    const afterDash = s.nl && LINE_END_DASHES.has(source[i - 1].c) && !source[i - 1].ws;
+    const beforeEmDash = s.nl && s.c === "\u2014";
+    if (afterDash || beforeEmDash) {
+      if (!o.ws) {
+        boundary[afterDash ? "joinedAfterDash" : "joinedBeforeEmDash"] += 1;
+        continue;
+      }
+      if (o.nl) continue;
+    } else if (s.ws === o.ws) continue;
+    const from = Math.max(0, i - 30);
+    issues.push({
+      at: i,
+      kind: afterDash || beforeEmDash ? "cizgide satir sonu: bizde duz bosluk" : s.ws ? "kaynakta bosluk var, bizde yok" : "bizde bosluk var, kaynakta yok",
+      source: spaced(source.slice(from, i + 30)),
+      ours: spaced(oursTokens.slice(from, i + 30)),
+    });
+  }
+  if (issues.length === 0) boundary.equal += 1;
+  else if (WORD_BOUNDARY_EXCEPTIONS[r.id]) g.notes.push(`${r.id}: istisna (${WORD_BOUNDARY_EXCEPTIONS[r.id].reason})`);
+  else fail(`${r.id}: ${JSON.stringify(issues)}`);
 }
 
 // ------------------------------------------------------------------ 5 ikinci anahtar (formatli)
@@ -453,9 +553,15 @@ function fieldsOf(q) {
       if (text.includes("\n\n\n")) fail(`${at}: art arda uc satir sonu`);
       if (text !== text.trim()) fail(`${at}: bas/son bosluk`);
       if (/ {2}|\t| \n|\n /.test(text)) fail(`${at}: fazla bosluk`);
-      if (/[ﬀ-ﬄ ­​  ]/.test(text)) fail(`${at}: bitisik harf / ozel bosluk kalintisi`);
-      for (const run of plain.match(/_+/g) ?? []) if (run !== "______") fail(`${at}: bosluk ${run.length} alt cizgi (tam 6 olmali)`);
-      if ((text.match(/•/g) ?? []).length !== (text.match(/(?:^|\n)• /g) ?? []).length) fail(`${at}: satir basinda olmayan madde imi`);
+      if (/[\ufb00-\ufb04\u00a0\u00ad\u200b\u2002\u2003]/.test(text)) fail(`${at}: bitisik harf / ozel bosluk kalintisi`);
+      // Alt cizgi: ya tam 6 (bosluk) ya da iki yani harf/rakam olan tek alt cizgi (K5_106 gibi kimlik).
+      for (const run of plain.matchAll(/_+/g)) {
+        const before = plain[run.index - 1] ?? "";
+        const after = plain[run.index + run[0].length] ?? "";
+        const identifier = run[0].length === 1 && /[\p{L}\p{N}]/u.test(before) && /[\p{L}\p{N}]/u.test(after);
+        if (run[0].length !== 6 && !identifier) fail(`${at}: ${run[0].length} alt cizgi (bosluk tam 6, kimlik ici tek)`);
+      }
+      if ((text.match(/\u2022/g) ?? []).length !== (text.match(/(?:^|\n)\u2022 /g) ?? []).length) fail(`${at}: satir basinda olmayan madde imi`);
       if (field !== "prompt" && /(?<!\n)\n(?!\n)/.test(text)) fail(`${at}: sik/aciklamada tek satir sonu`);
     }
   }
