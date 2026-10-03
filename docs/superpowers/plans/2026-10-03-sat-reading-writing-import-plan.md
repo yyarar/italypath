@@ -1,6 +1,6 @@
 # SAT Reading and Writing Soru Bankası: Çıkarma ve Yayın Planı
 
-Durum (2026-10-03): **UYGULANMADI** — plan yazıldı; kaynak incelemesi yapıldı (aşağıdaki sayılar 2026-10-03 ölçümü). Kerem kararları (2026-10-03): kapsam yalnız 589 soru; uygulama bu oturumun yönettiği yardımcı ajanlarla. Çalışma dalı `feat/sat-rw` (`.worktrees/sat-rw`).
+Durum (2026-10-03 gece): **KISMEN** — Görev 1-11 bitti: 589 soru çıkarıldı ve kapılardan geçti (pdftotext ile karakter ve kelime arası 589/589, ikinci anahtar 562/562, kör çözücü 583 + 6 hakem, görsel 184 soru, açıklama göz kontrolü 196; 12 kanıtlı kaynak düzeltmesi), site kodu dalda (`check:offline` 34/34, build), pilot Kerem onayı, sorular canlıya gizli (`needs_review`) eklendi (yedek `italypath-supabase-20261003T210103Z` + `--verify`; canlı sayım 1.608 = 1.019 matematik + 589 gizli, 306 görsel; içerik özeti yerel bankayla aynı). Kalan: Görev 12 (main'e birleştirme + push), 13 (açma), 14 (kayıt). Dal `feat/sat-rw` (son kod commit'i 957468c). İlk durum: plan yazıldı; kaynak incelemesi yapıldı (aşağıdaki sayılar 2026-10-03 ölçümü). Kerem kararları (2026-10-03): kapsam yalnız 589 soru; uygulama bu oturumun yönettiği yardımcı ajanlarla. Çalışma dalı `feat/sat-rw` (`.worktrees/sat-rw`).
 
 > Ajanlar için: her görev bağımsız yürütülür. Görevini bitiren ajan yalnız kendi görevinin dosyalarını commit eder (`git add <dosya>`; `git add -A` yok), push yapmaz, canlı veritabanına yazmaz. Bu plandaki checkbox'lar ilerleme göstermez; ilerleme `tmp/sat-bank/rw/DEVAM.md` (ana klasör, Git dışı) dosyasında tutulur. Görev metinleri kodu satır satır vermez: çıkarma kodu gerçek PDF'lere karşı geliştirilir; bağlayıcı olan veri sözleşmeleri, dosya yolları ve kabul sayılarıdır.
 
@@ -54,63 +54,7 @@ Dosya başına beklenen soru sayısı (zorluk 1 / 2 / 3):
 | Şiir / diyalog (satır sonu korunan) | 10 | Kısa satırlar; satır sonları anlam taşır. Şıklarda ` / ` ile satır içi alıntılanan dizeler ayrıdır |
 | İki metin (Text 1 / Text 2) | 34 | Kalın etiket satırları |
 | Boşluk (`______`) | 321 | Alt çizgi karakterleri |
-| Dolar işareti | 0 (metinde) | Tek `# SAT Reading and Writing Soru Bankası: Çıkarma ve Yayın Planı
-
-Durum (2026-10-03): **UYGULANMADI** — plan yazıldı; kaynak incelemesi yapıldı (aşağıdaki sayılar 2026-10-03 ölçümü). Kerem kararları (2026-10-03): kapsam yalnız 589 soru; uygulama bu oturumun yönettiği yardımcı ajanlarla. Çalışma dalı `feat/sat-rw` (`.worktrees/sat-rw`).
-
-> Ajanlar için: her görev bağımsız yürütülür. Görevini bitiren ajan yalnız kendi görevinin dosyalarını commit eder (`git add <dosya>`; `git add -A` yok), push yapmaz, canlı veritabanına yazmaz. Bu plandaki checkbox'lar ilerleme göstermez; ilerleme `tmp/sat-bank/rw/DEVAM.md` (ana klasör, Git dışı) dosyasında tutulur. Görev metinleri kodu satır satır vermez: çıkarma kodu gerçek PDF'lere karşı geliştirilir; bağlayıcı olan veri sözleşmeleri, dosya yolları ve kabul sayılarıdır.
-
-**Amaç:** Masaüstündeki `SAT Question Bank PDFs` klasöründen 589 Reading and Writing sorusunu (pasaj, 4 şık, doğru cevap, resmî İngilizce açıklama, zorluk) mevcut `/sat` soru bankasına eklemek.
-
-**Yaklaşım:** Sorular yapay zekâsız, doğrudan PDF metin katmanından çıkarılır (Formatsız sürümün cevap anahtarı dosyaları). Doğruluk dört bağımsız kapıyla kanıtlanır (çift kaynak karşılaştırması, ikinci cevap anahtarı, kör çözücü, resmî görüntüyle göz karşılaştırması). Sorular canlıya `needs_review = true` (karantina) ile eklenir; site yayını çıktıktan sonra açılır.
-
-**Araçlar:** Python 3.9 + `pdfplumber` 0.11.8 (yalnız çıkarma adımı), poppler (`pdftotext`, `pdftoppm`, `pdfimages`), Node 24 (`/usr/local/bin/node`), `sharp` (repo bağımlılığı). Yeni npm paketi eklenmez.
-
-## Kaynak incelemesi (2026-10-03)
-
-| | Formatsız (`Question Bank (Unformatted)`) | Formatlı (`Question Bank (Formatted)`) |
-| --- | --- | --- |
-| Üretim | College Board soru bankasının tarayıcı çıktısı (Ağustos 2025) | Tabloya dizilmiş derleme |
-| Soru metni | Gerçek metin katmanı | JPEG resim (metin katmanında yalnız sıra no + id) |
-| Cevap | `Answer Keys/Reading and Writing/**`: doğru cevap + Rationale + zorluk | `Answers/Reading and Writing/*~Key.pdf`: yalnız harf |
-| Soru sayısı | 589 (soru dosyaları ve anahtar dosyaları aynı 589 id) | 846 |
-
-- Ortak id: 587. Yalnız formatsızda: `96f3accc`, `4ba0695d`. Yalnız formatlıda: 259 (kapsam dışı, Kerem kararı).
-- Formatlı `Inferences 3~Key.pdf` cevap harfi taşımıyor (soru dosyasının kopyası). Karşılaştırılabilir 562 harfin 562'si iki sürümde aynı.
-- `tmp/sat-bank/answers.json` içindeki RW kayıtları formatlı anahtardan gelir; Inferences 3'ün 25 kaydı harf yerine sayı taşır. RW için bu dosya cevap kaynağı DEĞİLDİR; yalnız karşılaştırmada kullanılır.
-- Dosya adı tuzakları: formatsızda `Test Structure and Purpose 1.pdf` (yazım hatası; beceri adı dosya adından değil soru künyesinden alınır); formatlıda `-Command of Evidence N.pdf`, `-Inferences N.pdf` (baştaki tire).
-- Zorluk: dosya adındaki 1/2/3 = Easy/Medium/Hard (589/589 tutuyor). Dağılım: Easy 192, Medium 190, Hard 207. Cevap dağılımı: A 150, B 143, C 130, D 166.
-- Gömülü resim yok (her soruda yalnız 46×15 zorluk simgesi). Grafik ve tablolar vektör çizimdir.
-
-Dosya başına beklenen soru sayısı (zorluk 1 / 2 / 3):
-
-| Alan | Beceri | 1 | 2 | 3 | Toplam |
-| --- | --- | ---: | ---: | ---: | ---: |
-| Information and Ideas | Central Ideas and Details | 16 | 15 | 17 | 48 |
-| Information and Ideas | Command of Evidence | 36 | 32 | 36 | 104 |
-| Information and Ideas | Inferences | 13 | 13 | 26 | 52 |
-| Craft and Structure | Words in Context | 24 | 23 | 21 | 68 |
-| Craft and Structure | Text Structure and Purpose | 17 | 17 | 14 | 48 |
-| Craft and Structure | Cross-Text Connections | 15 | 9 | 10 | 34 |
-| Expression of Ideas | Rhetorical Synthesis | 18 | 27 | 21 | 66 |
-| Expression of Ideas | Transitions | 20 | 14 | 15 | 49 |
-| Standard English Conventions | Boundaries | 16 | 21 | 24 | 61 |
-| Standard English Conventions | Form, Structure, and Sense | 17 | 19 | 23 | 59 |
-| | | | | | **589** |
-
-Özel biçim taşıyan sorular (çıkarıcının 2026-10-03 sayımı):
-
-| Durum | Soru | PDF'te nasıl görünür |
-| --- | ---: | --- |
-| Altı çizili bölüm | 46 (33'ünün kökünde "underlined" geçer, 13'ü Words in Context) | Metnin altında 0,75 pt yüksekliğinde koyu dolgu dikdörtgen |
-| İtalik | 176 | Font adı `Roboto-Italic` |
-| Not listesi (Rhetorical Synthesis) | 66 | Madde imi vektör daire; metin satırları normal |
-| Grafik | 23 (hepsi Command of Evidence) | Vektör çizim + farklı (serif) fontla eksen/başlık yazıları |
-| Tablo | 25 (hepsi Command of Evidence; `5c7e0d62` "Round Table" der, tablosu yoktur) | Çerçeve çizgileri + hücre metni |
-| Şiir / diyalog (satır sonu korunan) | 10 | Kısa satırlar; satır sonları anlam taşır. Şıklarda ` / ` ile satır içi alıntılanan dizeler ayrıdır |
-| İki metin (Text 1 / Text 2) | 34 | Kalın etiket satırları |
-| Boşluk (`______`) | 321 | Alt çizgi karakterleri |
- bir tablo başlığındadır, görsele girer |
+| Dolar işareti | 0 (metinde) | Tek `$` bir tablo başlığındadır, görsele girer |
 
 Ham metin hacmi: soru ~0,53 MB, açıklama ~0,67 MB.
 
