@@ -42,19 +42,75 @@ Dosya başına beklenen soru sayısı (zorluk 1 / 2 / 3):
 | Standard English Conventions | Form, Structure, and Sense | 17 | 19 | 23 | 59 |
 | | | | | | **589** |
 
-Özel biçim taşıyan sorular (yaklaşık sayılar; kesin sayıyı çıkarıcı raporlar):
+Özel biçim taşıyan sorular (çıkarıcının 2026-10-03 sayımı):
 
 | Durum | Soru | PDF'te nasıl görünür |
 | --- | ---: | --- |
-| Altı çizili bölüm | ~38 (33'ünün kökünde "underlined" geçer) | Metnin altında 0,75 pt yüksekliğinde koyu dolgu dikdörtgen |
+| Altı çizili bölüm | 46 (33'ünün kökünde "underlined" geçer, 13'ü Words in Context) | Metnin altında 0,75 pt yüksekliğinde koyu dolgu dikdörtgen |
 | İtalik | 176 | Font adı `Roboto-Italic` |
 | Not listesi (Rhetorical Synthesis) | 66 | Madde imi vektör daire; metin satırları normal |
 | Grafik | 23 (hepsi Command of Evidence) | Vektör çizim + farklı (serif) fontla eksen/başlık yazıları |
-| Tablo | 26 (hepsi Command of Evidence) | Çerçeve çizgileri + hücre metni |
-| Şiir | 23 | Kısa satırlar; satır sonları anlam taşır |
+| Tablo | 25 (hepsi Command of Evidence; `5c7e0d62` "Round Table" der, tablosu yoktur) | Çerçeve çizgileri + hücre metni |
+| Şiir / diyalog (satır sonu korunan) | 10 | Kısa satırlar; satır sonları anlam taşır. Şıklarda ` / ` ile satır içi alıntılanan dizeler ayrıdır |
 | İki metin (Text 1 / Text 2) | 34 | Kalın etiket satırları |
 | Boşluk (`______`) | 321 | Alt çizgi karakterleri |
-| Dolar işareti | 1 | Düz metin |
+| Dolar işareti | 0 (metinde) | Tek `# SAT Reading and Writing Soru Bankası: Çıkarma ve Yayın Planı
+
+Durum (2026-10-03): **UYGULANMADI** — plan yazıldı; kaynak incelemesi yapıldı (aşağıdaki sayılar 2026-10-03 ölçümü). Kerem kararları (2026-10-03): kapsam yalnız 589 soru; uygulama bu oturumun yönettiği yardımcı ajanlarla. Çalışma dalı `feat/sat-rw` (`.worktrees/sat-rw`).
+
+> Ajanlar için: her görev bağımsız yürütülür. Görevini bitiren ajan yalnız kendi görevinin dosyalarını commit eder (`git add <dosya>`; `git add -A` yok), push yapmaz, canlı veritabanına yazmaz. Bu plandaki checkbox'lar ilerleme göstermez; ilerleme `tmp/sat-bank/rw/DEVAM.md` (ana klasör, Git dışı) dosyasında tutulur. Görev metinleri kodu satır satır vermez: çıkarma kodu gerçek PDF'lere karşı geliştirilir; bağlayıcı olan veri sözleşmeleri, dosya yolları ve kabul sayılarıdır.
+
+**Amaç:** Masaüstündeki `SAT Question Bank PDFs` klasöründen 589 Reading and Writing sorusunu (pasaj, 4 şık, doğru cevap, resmî İngilizce açıklama, zorluk) mevcut `/sat` soru bankasına eklemek.
+
+**Yaklaşım:** Sorular yapay zekâsız, doğrudan PDF metin katmanından çıkarılır (Formatsız sürümün cevap anahtarı dosyaları). Doğruluk dört bağımsız kapıyla kanıtlanır (çift kaynak karşılaştırması, ikinci cevap anahtarı, kör çözücü, resmî görüntüyle göz karşılaştırması). Sorular canlıya `needs_review = true` (karantina) ile eklenir; site yayını çıktıktan sonra açılır.
+
+**Araçlar:** Python 3.9 + `pdfplumber` 0.11.8 (yalnız çıkarma adımı), poppler (`pdftotext`, `pdftoppm`, `pdfimages`), Node 24 (`/usr/local/bin/node`), `sharp` (repo bağımlılığı). Yeni npm paketi eklenmez.
+
+## Kaynak incelemesi (2026-10-03)
+
+| | Formatsız (`Question Bank (Unformatted)`) | Formatlı (`Question Bank (Formatted)`) |
+| --- | --- | --- |
+| Üretim | College Board soru bankasının tarayıcı çıktısı (Ağustos 2025) | Tabloya dizilmiş derleme |
+| Soru metni | Gerçek metin katmanı | JPEG resim (metin katmanında yalnız sıra no + id) |
+| Cevap | `Answer Keys/Reading and Writing/**`: doğru cevap + Rationale + zorluk | `Answers/Reading and Writing/*~Key.pdf`: yalnız harf |
+| Soru sayısı | 589 (soru dosyaları ve anahtar dosyaları aynı 589 id) | 846 |
+
+- Ortak id: 587. Yalnız formatsızda: `96f3accc`, `4ba0695d`. Yalnız formatlıda: 259 (kapsam dışı, Kerem kararı).
+- Formatlı `Inferences 3~Key.pdf` cevap harfi taşımıyor (soru dosyasının kopyası). Karşılaştırılabilir 562 harfin 562'si iki sürümde aynı.
+- `tmp/sat-bank/answers.json` içindeki RW kayıtları formatlı anahtardan gelir; Inferences 3'ün 25 kaydı harf yerine sayı taşır. RW için bu dosya cevap kaynağı DEĞİLDİR; yalnız karşılaştırmada kullanılır.
+- Dosya adı tuzakları: formatsızda `Test Structure and Purpose 1.pdf` (yazım hatası; beceri adı dosya adından değil soru künyesinden alınır); formatlıda `-Command of Evidence N.pdf`, `-Inferences N.pdf` (baştaki tire).
+- Zorluk: dosya adındaki 1/2/3 = Easy/Medium/Hard (589/589 tutuyor). Dağılım: Easy 192, Medium 190, Hard 207. Cevap dağılımı: A 150, B 143, C 130, D 166.
+- Gömülü resim yok (her soruda yalnız 46×15 zorluk simgesi). Grafik ve tablolar vektör çizimdir.
+
+Dosya başına beklenen soru sayısı (zorluk 1 / 2 / 3):
+
+| Alan | Beceri | 1 | 2 | 3 | Toplam |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Information and Ideas | Central Ideas and Details | 16 | 15 | 17 | 48 |
+| Information and Ideas | Command of Evidence | 36 | 32 | 36 | 104 |
+| Information and Ideas | Inferences | 13 | 13 | 26 | 52 |
+| Craft and Structure | Words in Context | 24 | 23 | 21 | 68 |
+| Craft and Structure | Text Structure and Purpose | 17 | 17 | 14 | 48 |
+| Craft and Structure | Cross-Text Connections | 15 | 9 | 10 | 34 |
+| Expression of Ideas | Rhetorical Synthesis | 18 | 27 | 21 | 66 |
+| Expression of Ideas | Transitions | 20 | 14 | 15 | 49 |
+| Standard English Conventions | Boundaries | 16 | 21 | 24 | 61 |
+| Standard English Conventions | Form, Structure, and Sense | 17 | 19 | 23 | 59 |
+| | | | | | **589** |
+
+Özel biçim taşıyan sorular (çıkarıcının 2026-10-03 sayımı):
+
+| Durum | Soru | PDF'te nasıl görünür |
+| --- | ---: | --- |
+| Altı çizili bölüm | 46 (33'ünün kökünde "underlined" geçer, 13'ü Words in Context) | Metnin altında 0,75 pt yüksekliğinde koyu dolgu dikdörtgen |
+| İtalik | 176 | Font adı `Roboto-Italic` |
+| Not listesi (Rhetorical Synthesis) | 66 | Madde imi vektör daire; metin satırları normal |
+| Grafik | 23 (hepsi Command of Evidence) | Vektör çizim + farklı (serif) fontla eksen/başlık yazıları |
+| Tablo | 25 (hepsi Command of Evidence; `5c7e0d62` "Round Table" der, tablosu yoktur) | Çerçeve çizgileri + hücre metni |
+| Şiir / diyalog (satır sonu korunan) | 10 | Kısa satırlar; satır sonları anlam taşır. Şıklarda ` / ` ile satır içi alıntılanan dizeler ayrıdır |
+| İki metin (Text 1 / Text 2) | 34 | Kalın etiket satırları |
+| Boşluk (`______`) | 321 | Alt çizgi karakterleri |
+ bir tablo başlığındadır, görsele girer |
 
 Ham metin hacmi: soru ~0,53 MB, açıklama ~0,67 MB.
 
@@ -171,12 +227,13 @@ Banka kaydı (`tmp/sat-bank/rw/bank.json` → `bank[]`; matematik `bank.json` il
 1. Sayım: 589 kayıt; dosya, beceri ve zorluk dağılımı yukarıdaki tablolarla aynı.
 2. Künye: `skill` ve `domain` dosyanın klasörü/adıyla tutarlı; `difficulty_label` dosya adındaki rakamla tutarlı.
 3. Şekil: dört şık dolu; `answer` A-D; `rationale` dolu. Uyarı: açıklamanın ilk cümlesi doğru şıkkın harfini anmıyorsa listelenir.
-4. Çift kaynak: `extract-keys.json` ile `extract-questions.json` içinde aynı id'nin `stem` ve `choices` değerleri birebir aynı (589/589).
+4. Çift kaynak: `extract-keys.json` ile `extract-questions.json` içinde aynı id'nin `stem` ve `choices` değerleri birebir aynı (589/589). Not (2026-10-03): iki baskının sayfa düzeni aynı çıktı, bu kapı tek başına bağımsız kanıt sayılmaz.
+4b. Bağımsız motor: her sorunun metni (soru, şıklar, açıklama) poppler `pdftotext` çıktısıyla, boşluklar ve belgelenmiş dönüşümler dışında karakter karakter aynı sırada eşleşir. Görselli 48 soruda görselin kendi yazısı karşılaştırma dışıdır (Görev 9 göz kontrolü kapsar).
 5. İkinci anahtar: formatlı `Answers/Reading and Writing/*~Key.pdf` harfleri (tablo satırı `sıra  id  harf`) ile karşılaştırma; karşılaştırılabilen her harf aynı olmalı (beklenen 562/562). Karşılaştırılamayan id'ler raporda listelenir (beklenen 27: Inferences 3'ün 25'i + yalnız formatsızdaki 2).
 6. Sözleşme: `markIssues` her metinde boş; `stripMarks` sonrası `<` ile başlayan etiket benzeri kalmaz; kaçışsız `$` yok; `Question ID`, `Correct Answer`, `Rationale`, `Question Difficulty`, `Assessment` gibi sayfa/künye kalıntısı yok; art arda üç satır sonu yok; baş/son boşluk yok.
 7. Altı çizili: kökünde "underlined" geçen her sorunun `prompt`'unda en az bir `<u>` var; `<u>` taşıyıp kökünde "underlined" geçmeyen sorular raporda listelenir (Words in Context'te beklenir).
 8. Boşluk: kökünde "completes the text" geçen her soruda `______` var.
-9. Görsel: kökünde "graph" ya da "table" geçen her sorunun `figure` kaydı var (beklenen 23 + 26); başka soruda `figure` varsa listelenir. `figure_path` dosyası Görev 4'ten sonra diskte olmalı (dosya yoksa uyarı, `--require-figures` ile hata).
+9. Görsel: kökünde "graph" ya da "table" geçen her sorunun `figure` kaydı var (beklenen 23 + 25; tablosuz/grafiksiz olup bu sözcüğü kullanan sorular gerekçeli izin listesinde); başka soruda `figure` varsa listelenir. `figure_path` dosyası Görev 4'ten sonra diskte olmalı (dosya yoksa uyarı, `--require-figures` ile hata).
 10. `corrections.json` varsa uygulanır: her kayıt `{ id, field, find, replace, reason, evidence }`; `find` metinde tam bir kez geçmezse hata. Düzeltmeler raporda sayılır.
 
 `bank.json` kaydı: yukarıdaki banka tablosu; `prompt` = `stem`, `explanation_en` = `rationale`, `needs_review` = `true`.
@@ -189,7 +246,7 @@ Banka kaydı (`tmp/sat-bank/rw/bank.json` → `bank[]`; matematik `bank.json` il
 
 **Yöntem:** kaynak sayfa `pdftoppm -r 200 -png` ile çizilir, `bbox` 8 pt kenar payıyla `sharp` ile kırpılır, beyaz zemin, en çok 1.400 px genişlik, WebP. Dosya 512 KB'ı aşarsa kalite düşürülür.
 
-**Kabul:** 49 dosya (23 grafik + 26 tablo); her biri ≤ 512 KB ve WebP; kırpıntının dört kenarında içerik kesilmemiş (kenar şeridi tamamen beyaz; rapor kenarı beyaz olmayanları listeler). Göz kontrolü Görev 9'da.
+**Kabul:** 48 dosya (23 grafik + 25 tablo); her biri ≤ 512 KB ve WebP; kırpıntının dört kenarında içerik kesilmemiş (kenar şeridi tamamen beyaz; rapor kenarı beyaz olmayanları listeler). Göz kontrolü Görev 9'da.
 
 ### Görev 5: Resmî görüntüler ve önizleme
 
@@ -217,7 +274,7 @@ Banka kaydı (`tmp/sat-bank/rw/bank.json` → `bank[]`; matematik `bank.json` il
 
 **Dosyalar:** `scripts/sat/import-bank.mjs`, `scripts/sat/rw/build-rw-release-package.mjs`, `scripts/sat/test-question-patch.mjs`.
 
-- `import-bank.mjs`: banka kaydında `explanation_en` varsa eklenen satıra yazılır (yalnız yeni id'lerde; var olan id'lerin karşılaştırma kolonları değişmez, insert-only sözleşme aynı). `SAT_BANK_OUT=<…>/tmp/sat-bank/rw` ile çalışınca yalnız RW bankasını okur. Kuru çalıştırma beklenen çıktı: 589 yeni soru, 0 atlanan, 49 yeni görsel.
+- `import-bank.mjs`: banka kaydında `explanation_en` varsa eklenen satıra yazılır (yalnız yeni id'lerde; var olan id'lerin karşılaştırma kolonları değişmez, insert-only sözleşme aynı). `SAT_BANK_OUT=<…>/tmp/sat-bank/rw` ile çalışınca yalnız RW bankasını okur. Kuru çalıştırma beklenen çıktı: 589 yeni soru, 0 atlanan, 48 yeni görsel.
 - `build-rw-release-package.mjs --skills <slug,…> | --all` (salt okuma): canlıdaki `section = reading-writing` ve `needs_review = true` satırlarını okur, `patch-sat-questions.mjs` paket biçiminde (`scripts/sat/lib/question-patch.mjs` `validatePackage`) `needs_review: true → false` paketi kurar; `prompt` ve `choices` beklenen eski değer olarak girer, değişmez. Paket `tmp/sat-bank/rw/release/` altına yazılır.
 - Test: `npm run test:sat-patch` sahte istemciyle (1) açıklamalı yeni satırın açıklamasıyla eklendiğini, (2) var olan id'de açıklama farkının yazma üretmediğini, (3) açma paketinin yalnız `needs_review` değiştirdiğini kanıtlar.
 
@@ -229,7 +286,7 @@ Banka kaydı (`tmp/sat-bank/rw/bank.json` → `bank[]`; matematik `bank.json` il
 
 - `build-rw-solver-packages.mjs`: `bank.json`'dan 8 paket (≈74 soru; her pakette becerilerin karışımı). Paket kaydı: `id`, `prompt` (işaretli), `choices`, `figure` (varsa dosya yolu). Cevap, açıklama ve zorluk pakete GİRMEZ.
 - 8 ajan (Sonnet), birer paket: soruyu yalnız paketteki metin ve görselden çözer; `result-NN.json` → `[{ id, answer, confidence: "high" | "medium" | "low", note }]`. Ajan kaynak PDF'lere, `bank.json`'a ve anahtarlara bakmaz. Soru eksik, bozuk ya da çözülemez görünüyorsa `note` alanına yazar.
-- `gate-rw.mjs`: sonuçları resmî cevapla karşılaştırır → `gate-report.json` (uyuşan, uyuşmayan, `note` taşıyan).
+- `gate-rw.mjs`: sonuçları resmî cevapla karşılaştırır → `gate-report.json` (uyuşan, uyuşmayan, `note` taşıyan). Paket kaydı sorunun metin özetini (`hash`) taşır; metin sonradan değişirse o sorunun sonucu bayat sayılır ve yeniden açılır. Kapatma kararları `gate-resolutions.json` içinde, güncel özetle tutulur.
 - Ana oturum her uyuşmazlığı ve her notu resmî görüntüyle karşılaştırır. Çıkarma kusuruysa betik düzeltilir (tekrarlayan kusur) ya da `corrections.json`'a kanıtıyla girer (tekil kusur); metin doğruysa "çözücü yanıldı" notuyla kapanır. Kapı: açık uyuşmazlık 0.
 
 ### Görev 9: Görsel sadakat
@@ -249,9 +306,9 @@ Banka kaydı (`tmp/sat-bank/rw/bank.json` → `bank[]`; matematik `bank.json` il
 1. `feat/sat-rw` güncel `main` ile birleştirilir; `npm run check:offline` ve `npm run build`.
 2. `validate-rw.mjs --require-figures` temiz; `gate-report.json` açık kayıt 0.
 3. `npm run backup:supabase -- --run`, ardından `-- --verify`.
-4. `SAT_BANK_OUT=…/tmp/sat-bank/rw node scripts/sat/import-bank.mjs` (kuru): 589 yeni, 0 atlanan, 49 görsel.
+4. `SAT_BANK_OUT=…/tmp/sat-bank/rw node scripts/sat/import-bank.mjs` (kuru): 589 yeni, 0 atlanan, 48 görsel.
 5. Kerem onayı → `--apply --project-ref kskbnxxyviowmrlskwke`.
-6. Salt okuma doğrulama: toplam 1.608; `reading-writing` 589, hepsi `needs_review = true`; matematik 1.019 ve `needs_review` 0; `sat-figures` deposu 258 → 307 nesne; beceri başına sayılar tabloyla aynı; rastgele 10 satır `bank.json` ile birebir.
+6. Salt okuma doğrulama: toplam 1.608; `reading-writing` 589, hepsi `needs_review = true`; matematik 1.019 ve `needs_review` 0; `sat-figures` deposu 258 → 306 nesne; beceri başına sayılar tabloyla aynı; rastgele 10 satır `bank.json` ile birebir.
 
 Bu adımdan sonra sitede ve uygulamada görünen hiçbir şey değişmez.
 
