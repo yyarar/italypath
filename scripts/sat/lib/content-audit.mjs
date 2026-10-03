@@ -85,9 +85,10 @@ export function katexIssues(text) {
 // Satir ici isaretler (RW metin sozlesmesi, plan 2026-10-03; okuma kurali splitRichText).
 // Formul icindeki `<` LaTeX'tir, taranmaz. Bos dizi = temiz; her sorun "tur: ayrinti":
 // mark-unbalanced (karsiliksiz kapanis / kapanmamis), mark-nested (ayni tur ic ice),
+// mark-overlap (kesisen iki tur: <u>a<i>b</u>c</i>; en icteki isaretten once kapanis),
 // mark-empty (bos ya da yalniz bosluk), mark-newline (satir sonunu asiyor),
 // mark-tag-like (dort etiket disinda etikete benzeyen yazi: <b>, </em>, <u class=..>, <br>).
-// `<u><i>..</i></u>` (iki ayri tur) serbesttir.
+// Duzgun ic ice iki ayri tur (`<u><i>..</i></u>`, `<i><u>..</u></i>`) serbesttir.
 const TAG_LIKE = /<\/?[A-Za-z][^<>\n]*>?/g;
 
 export function markIssues(text) {
@@ -124,6 +125,7 @@ export function markIssues(text) {
         issues.push(`mark-unbalanced: </${name}> without <${name}>`);
         continue;
       }
+      if (at !== open.length - 1) issues.push(`mark-overlap: </${name}> closes before <${open.at(-1).name}>`);
       const [mark] = open.splice(at, 1);
       if (mark.content.trim() === "") issues.push(`mark-empty: <${name}></${name}>`);
       if (mark.newline) issues.push(`mark-newline: <${name}> spans a line break`);

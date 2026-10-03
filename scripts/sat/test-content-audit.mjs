@@ -174,6 +174,11 @@ for (const clean of [
 assert.deepEqual(issueKinds("<u>never closed"), ["mark-unbalanced"], "kapanmamis isaret");
 assert.deepEqual(issueKinds("stray</i> close"), ["mark-unbalanced"], "karsiliksiz kapanis");
 assert.deepEqual(issueKinds("<u>a <u>b</u> c</u>"), ["mark-nested"], "ayni tur ic ice");
+assert.deepEqual(markIssues("<u>a<i>b</u>c</i>"), ["mark-overlap: </u> closes before <i>"], "kesisen iki tur");
+assert.deepEqual(issueKinds("<i>a<u>b</i>c</u>"), ["mark-overlap"], "kesisen iki tur (ters sira)");
+assert.deepEqual(markIssues("<u><i>x</i></u>"), [], "duzgun ic ice: u disarida");
+assert.deepEqual(markIssues("<i><u>x</u></i>"), [], "duzgun ic ice: i disarida");
+assert.doesNotThrow(() => splitRichText("<u>a<i>b</u>c</i>"), "kesisen isaretler cizimde cokmez");
 assert.deepEqual(issueKinds("x <i></i> y"), ["mark-empty"], "bos isaret");
 assert.deepEqual(issueKinds("x <u> </u> y"), ["mark-empty"], "yalniz bosluk tasiyan isaret bos sayilir");
 assert.deepEqual(issueKinds("<i>line one\nline two</i>"), ["mark-newline"], "satir sonunu asan isaret");
