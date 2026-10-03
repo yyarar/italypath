@@ -1,6 +1,6 @@
 import katex from "katex";
 
-import { mapTextOutsideMath, splitMathText } from "../../../lib/sat/mathSegments.mjs";
+import { MARK_TAGS, mapTextOutsideMath, splitMathText } from "../../../lib/sat/mathSegments.mjs";
 
 // Segmentasyon sozlesmesi components/sat/MathText.tsx ile ayni modulden gelir
 // (lib/sat/mathSegments.mjs): `$...$` satir ici, `$$...$$` ayri satirda, `\$` gercek dolar.
@@ -79,6 +79,59 @@ export function katexIssues(text) {
       issues.push({ tex: segment.value, message: String(error?.message ?? error) });
     }
   }
+  return issues;
+}
+
+// Satir ici isaretler (RW metin sozlesmesi, plan 2026-10-03; okuma kurali splitRichText).
+// Formul icindeki `<` LaTeX'tir, taranmaz. Bos dizi = temiz; her sorun "tur: ayrinti":
+// mark-unbalanced (karsiliksiz kapanis / kapanmamis), mark-nested (ayni tur ic ice),
+// mark-empty (bos ya da yalniz bosluk), mark-newline (satir sonunu asiyor),
+// mark-tag-like (dort etiket disinda etikete benzeyen yazi: <b>, </em>, <u class=..>, <br>).
+// `<u><i>..</i></u>` (iki ayri tur) serbesttir.
+const TAG_LIKE = /<\/?[A-Za-z][^<>\n]*>?/g;
+
+export function markIssues(text) {
+  const issues = [];
+  const open = [];
+  const take = (chunk) => {
+    for (const mark of open) {
+      mark.content += chunk;
+      if (chunk.includes("\n")) mark.newline = true;
+    }
+  };
+  let partCount = 0;
+  mapTextOutsideMath(String(text ?? ""), (part) => {
+    // Iki metin parcasi arasinda bir formul vardir; acik isaretin icerigi sayilir.
+    if (partCount++ > 0) take("$");
+    let cursor = 0;
+    for (const match of part.matchAll(TAG_LIKE)) {
+      const token = match[0];
+      take(part.slice(cursor, match.index));
+      cursor = match.index + token.length;
+      if (!MARK_TAGS.includes(token)) {
+        issues.push(`mark-tag-like: ${token.slice(0, 24)}`);
+        take(token);
+        continue;
+      }
+      const name = token.at(-2);
+      if (!token.startsWith("</")) {
+        if (open.some((mark) => mark.name === name)) issues.push(`mark-nested: <${name}> inside <${name}>`);
+        open.push({ name, content: "", newline: false });
+        continue;
+      }
+      const at = open.findLastIndex((mark) => mark.name === name);
+      if (at === -1) {
+        issues.push(`mark-unbalanced: </${name}> without <${name}>`);
+        continue;
+      }
+      const [mark] = open.splice(at, 1);
+      if (mark.content.trim() === "") issues.push(`mark-empty: <${name}></${name}>`);
+      if (mark.newline) issues.push(`mark-newline: <${name}> spans a line break`);
+    }
+    take(part.slice(cursor));
+    return part;
+  });
+  for (const mark of open) issues.push(`mark-unbalanced: <${mark.name}> not closed`);
   return issues;
 }
 

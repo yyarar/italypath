@@ -12,3 +12,16 @@ export interface MathSegment {
 export function splitMathText(text: string): MathSegment[];
 
 export function mapTextOutsideMath(text: string, fn: (textPart: string) => string): string;
+
+/** Satir ici isaret etiketleri (RW metin sozlesmesi): `<u>`, `</u>`, `<i>`, `</i>`. */
+export const MARK_TAGS: readonly string[];
+
+export interface RichSegment extends MathSegment {
+  /** Formul parcalarinda her zaman false. */
+  italic: boolean;
+  underline: boolean;
+}
+
+export function splitRichText(text: string): RichSegment[];
+
+export function stripMarks(text: string): string;
