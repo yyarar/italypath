@@ -1,6 +1,6 @@
 # ItalyPath SEO Audit ve Devir Notu
 
-> Son belge güncellemesi: 23 Eylül 2026  
+> Son belge güncellemesi: 1 Ekim 2026  
 > Bulguların ana doğrulama tarihi: 28 Ağustos 2026  
 > İncelenen site: `https://italypath.app`  
 > Kapsam: Google Search Console, canlı teknik kontroller, sitemap/robots, indekslenebilirlik, temel on-page SEO, yapılandırılmış veri ve PageSpeed Insights  
@@ -1010,10 +1010,10 @@ Gerekçe: Google siteye kendiliğinden dönmüyor (§21.2); "dizine eklenmesini 
 |---|---|---:|---|
 | 1 | Okul id 3, 4, 1, 10, 15, 7, 5, 8, 14, 18 (Bologna … Trento) | 468 | ✅ 21 Eylül |
 | 2 | id 6, 9, 11, 25, 20, 2, 13, 16, 63 (+17 Gün 3'e kaydı) | 223 | ✅ 25 Eylül (9/10; 10. istekte "kota aşıldı", günlük kota fiilen ~9-10) |
-| 3 | id 17 (Messina, Gün 2'den), 19, 21, 12, 29, 23, 22, 33, 28, 26 (+32 Gün 4'e kayar) | 150 | bekliyor |
-| 4 | id 57, 51, 27, 24, 42, 37, 44, 64, 61, 41 | 62 | bekliyor |
-| 5 | id 47, 52, 31, 40, 54, 35, 43, 55, 46, 53 | 20 | bekliyor |
-| 6 | id 48, 56, 59, 50, 30, 38 + `/`, `/cities`, `/communities`, `/on-gorusme` | 6 | bekliyor |
+| 3 | id 17 (Messina, Gün 2'den), 19, 21, 12, 29, 23, 22, 33, 28, 26 (+32 Gün 4'e kayar) | 150 | ✅ 1 Ekim |
+| 4 | id 32 (Tuscia, Gün 3'ten), 57, 51, 27, 24, 42, 37, 44, 64, 61 (+41 Gün 5'e kayar) | 71 | bekliyor |
+| 5 | id 41 (UniCamillus, Gün 4'ten), 47, 52, 31, 40, 54, 35, 43, 55, 46 (+53 Gün 6'ya kayar) | 22 | bekliyor |
+| 6 | id 53 (Cagliari, Gün 5'ten), 48, 56, 59, 50, 30, 38 + `/`, `/cities`, `/communities`, `/on-gorusme` (11 adres; kota dolarsa sonuncusu ertesi gün) | 7 | bekliyor |
 
 `/universities`, `/isee`, `/scholarships` 16 Eylül'de gönderildi (24.1), tekrar gerekmez. Sıralı adres listesi Kerem'e dosya olarak verildi; gerekirse `universities` ⨝ `university_departments` sayımıyla yeniden üretilir.
 
@@ -1097,3 +1097,53 @@ Durum: UYGULANDI (kod), ÖLÇÜM BEKLİYOR · Commit 762cbf0 (1. dalga paralel a
 4. `robots.txt` `/ekip`i ilan etmiyor; `app/ekip/layout.tsx` noindex/nofollow; proxy koruması aynı. Kerem onayı 26 Eylül akşamı (STATUS #79 kapandı).
 
 Yayın sonrası ölçüm (§19.7 protokolü, en fazla 3-4 koşu; kart 10 Lighthouse turuyla birlikte): program sayfasında LCP öğesi ve görsel yükleme süresi, soğuk/sıcak (21 Eylül tabanı: sıcakta 3,9 sn görsel yüklemesi); `/on-gorusme` için Rich Results Test (FAQPage); ana sayfa dışındaki bir sayfada Organization şemasının kaybının Search Console'da uyarı üretmediği kontrolü.
+
+## 27. Search Console kontrolü, 2. tur — 1 Ekim 2026
+
+Durum: UYGULANDI (27.1 ajan ölçümü, 27.2 Kerem'in GSC ekranları; Sayfalar raporu 21 Eylül'den beri yenilenmediği için dizin kovaları sonraki tura kaldı). §25.4/3 kontrol listesinin uygulanması. Ölçüm yükü: canlıya ~8 sayfa isteği (tarayıcı paneli, same-origin fetch), 1 Supabase log sorgusu, 1 salt okunur sayım; Lighthouse koşulmadı (ISR Writes/challenge, `docs/USAGE_LIMITS.md`).
+
+### 27.1 Giriş gerektirmeyen kontroller (ajan, 1 Ekim)
+
+| Kontrol | Sonuç |
+|---|---|
+| Canlı veri (Supabase sayımı) | 56 okul / 929 program / 929 kabul dosyası; 26 Eylül'den beri **389 dosya güncellendi** (kart 9 link düzeltmesi + yıldızlı 8 okul turu) |
+| Canlı `sitemap.xml` | **992 URL** (7 statik + 56 okul + 929 program; 23 Eylül: 1.004, 12 program silindi). `lastmod`: 26 Eylül 672, 27 Eylül 199, 28 Eylül 79, 29 Eylül 40, `/isee` 19 Eylül, `/communities` yok. Tarihler gerçek değişikliğe bağlı (şablon tarihi 26 Eylül + DB `updated_at`) |
+| Silinen adres | `/universities/36` → **404** (§24.2 beklentisi doğru) |
+| Program sayfası (Politecnico di Milano / Civil Engineering) | 200, `noindex` yok, tek H1, TR başlık şablonu. JSON-LD: `BreadcrumbList` + `EducationalOccupationalProgram`; `Organization`/`WebSite` artık yalnız ana sayfada (§26/3 canlıda doğrulandı). `inLanguage` uyarısı (§25.1) duruyor |
+| Program sayfası ağırlığı | Ham HTML 141 KB (23 Eylül) → **212 KB**. Neden içerik: bu programın kabul dosyası 27 Eylül'de yeniden doğrulandı (18,8 B karakter; site ortalaması 17,0 B). Çeviri sözlüğü HTML'e gömülmüyor (işaretçi sayımı 0); flight yükü 54 KB ve yalnız bu programın dosyasını taşıyor. Şablon regresyonu değil; `ExpandableText` çift metni (§12/P4-2) büyümeyi katlıyor, aday iş |
+| LCP görseli (§26/2) | 1 `<img fetchpriority="high">` + 1 `<link rel="preload" as="image">` sunucu HTML'inde; canlıda |
+| Font preload | Ana sayfa ve program sayfasında **6** (§19.3'te 10). §19.6/2 ölçütü (≤ 6) sağlandı; LCP'ye etkisi ölçülmedi |
+| Ana sayfa JSON-LD | `[Organization, WebSite]` (tek script) |
+| `/on-gorusme` FAQPage (§26/1) | Sunucu HTML'inde 4 soru. schema.org doğrulayıcı: **0 hata, 0 uyarı**. Google Rich Results Test: tarama başarılı, **"hiçbir öğe algılanmadı"**. Yorum: Google SSS zengin sonucunu Ağustos 2023'ten beri yalnız tanınmış resmî kurum/sağlık sitelerine veriyor; arama sonucunda görünür kazanç beklenmez. İşaretleme geçerli ve zararsız; yapay zekâ arama araçları için değeri sürer |
+| Okul sayfası başlığı | "University of Bologna - ItalyPath": TR başlık/açıklama şablonu yalnız program sayfalarında (§23 Deploy 1); 56 okul sayfası eski biçimde, aday iş |
+| Supabase edge logları (son 24 sa) | Tek-program kabul çekimi **523** (87 IP, ort. 202 ms); dizin yükü **93** (93 IP) × 4 istek; okul bazlı toplu kabul çekimi **0**, tam çekim **0**, 200 dışı **0**. Kart 2 (program sayfası yalnız kendi satırı) canlıda doğrulandı; tahmini egress ~10 MB/gün (25 Eylül: ~40-65 MB). Program sayfası üretim hacmi yüksek seyrediyor (23 Eylül 295 okul çekimi → 523 program çekimi; birimler farklı, eğilim göstergesi) |
+
+### 27.2 Search Console ekranları (Kerem'in ekran görüntüleri, 1 Ekim)
+
+| Rapor | Önceki | 1 Ekim | Yorum |
+|---|---|---|---|
+| Sayfalar raporu "Son güncelleme" | 21.09.2026 (23 Eylül turu) | **21.09.2026, aynı** | Rapor 10 gündür yenilenmedi; nedenler tablosu 23 Eylül'dekiyle birebir aynı. 21 Eylül sonrası dizin hareketi bu raporda görünmüyor. Google Search Status Dashboard'da tarama/dizin olayı yok (1 Ekim) |
+| Dizine eklenen | 22 (16 Eylül) | **35** (21 Eylül verisi) | +13, 16-21 Eylül arasında |
+| Dizine eklenmedi | 1.090 (16 Eylül) | 1,1 B, 5 neden | — |
+| `noindex` ile hariç | 847, Başladı (22 Tem) | 847, Başladı | veri aynı gün |
+| Keşfedildi, dizine eklenmedi | 246, başlatılmadı | 246, doğrulama **Başladı** (23 Eylül) | sayı aynı gün verisi |
+| Diğer satırlar | — | tarandı-eklenmedi 2, robots 3, yönlendirmeli 3, yönlendirme hatası 0 (Başarılı); 404 satırı yok | — |
+| Tarama istatistikleri (90 gün) | 67,1 B istek / 186 MB / **605 ms** (16 Eylül; 28 Haziran zirvesi pencerede) | **2,95 B istek / 39,9 MB / 219 ms** | Pencere artık 28 Haziran'daki ~60 B'lik ilk taramayı içermiyor. Ortalama yanıt 605 → 219 ms (ISR, §20). Grafikte istek zirvesi ~10 Temmuz; Eylül tabanı düşük |
+| Ana makineler | italypath.app 66.809, sorunsuz | italypath.app **2.678**, clerk.italypath.app 248, www 28; üçü de "Hiç sorun olmadı" | §24.4 (Supabase teorisi) kesin kapandı |
+| Performans, 28 gün | 7 tık / 646 gös. / %1,1 / konum 8,4 (16 Eylül) | **10 tık / 984 gös. / %1 / konum 9,5** | +%43 tık, +%52 gösterim. Günlük gösterim 14-15 Eylül'de ~100 ile zirve yaptı, 22-28 Eylül'de ~10-20; tık günde 0-2 |
+| Site haritası | 21 Eylül gönderildi ve okundu, 1.004 | gönderim 21 Eylül, **son okuma 29 Eylül**, 1.004 | Google kendiliğinden yeniden okudu. Canlı sitemap 992 (27.1); 12 program 27-29 Eylül'de silindi, okuma daha eski kopyayı görmüş. Yeniden gönderim önerildi |
+
+### 27.3 Yorum
+
+- **Dizin raporu donuk:** 21 Eylül'den sonrası için `noindex`/keşfedildi kovalarında karar verilemez. Eldeki tek yeni bilgi: 16-21 Eylül arasında dizinde 22 → 35.
+- **Düzeltme (§25.1 ve §25.3'teki çıkarım):** Supabase'de görülen artış "Google taraması artıyor" diye yorumlanmıştı. GSC'ye göre Googlebot 90 günde yalnız 2.678 istek atmış (~30/gün, büyük kısmı Temmuz zirvesi). Supabase'deki günde 523 program sayfası üretimi (27.1) Googlebot'la açıklanamaz; kaynak diğer tarayıcılardır (Bing, yapay zekâ botları vb.; `robots.txt` ve `/llms.txt` bunlara bilinçli olarak açık, `docs/AI_SEARCH_VISIBILITY_PLAN.md`). Google'ın payı küçük. Kaynak dağılımı Vercel panelinden (Firewall/Logs) görülebilir; ISR Writes ve CPU tüketimini bu trafik belirliyor (`docs/USAGE_LIMITS.md`), STATUS #97.
+- **Hız engeli kalmadı:** Googlebot'un gördüğü ortalama yanıt 219 ms; üç ana makinede sorun yok.
+- **Performans:** 28 günlük toplam artıda, ama günlük eğri 15 Eylül'den sonra geriledi. Sayılar küçük (gürültü payı yüksek); 17 Eylül'de program başlıkları değişti, 19 ve 27-29 Eylül'de sayfalar silindi, 24 Eylül'de Google'ın Eylül 2026 spam güncellemesi başladı (1 Ekim'de sürüyor). Tek nedene bağlamak için veri yetersiz; izleme.
+- **Ana kaldıraç değişmedi:** dizin isteği turu; yalnız Gün 1-2 yapıldı.
+
+### 27.4 Aksiyonlar
+
+1. Kerem: dizin isteği turu Gün 3-6 (§24.3; liste `tmp/seo/gsc-dizin-istegi-plani.txt`).
+2. Kerem: site haritasını yeniden gönder (Google 992'yi görsün). **Yapıldı: 1 Ekim 2026** (Kerem teyidi); okunan sayı sonraki turda doğrulanacak.
+3. Sonraki tur: Sayfalar raporunun "Son güncelleme" tarihi 21.09'dan ileri gittiğinde (tahmini 8 Ekim civarı) aynı dört ekran. Ölçüt: dizinde > 35, `noindex` < 847, keşfedildi < 246, 404 satırının belirmesi.
+4. Karar bekleyen: program sayfası üretim hacminin kaynağı (STATUS #97); küçük temizlikler (STATUS #96).
