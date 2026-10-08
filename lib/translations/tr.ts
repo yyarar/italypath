@@ -896,7 +896,7 @@ export const tr = {
       wrongFeedback: "Yanlış — doğru cevap:",
       summaryTitle: "Konu Özeti",
       backToTopics: "Konulara Dön",
-      sectionSummary: "{topicCount} konu · {solvedCount} çözüldü",
+      sectionSummary: "{topicCount} konu · {solvedCount} konuya başlandı",
     },
     figureAlt: "Soru görseli",
     loading: "Yükleniyor…",

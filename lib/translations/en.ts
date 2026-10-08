@@ -895,7 +895,7 @@ export const en: Translations = {
       wrongFeedback: "Wrong — the correct answer:",
       summaryTitle: "Topic Summary",
       backToTopics: "Back to Topics",
-      sectionSummary: "{topicCount} topics · {solvedCount} solved",
+      sectionSummary: "{topicCount} topics · {solvedCount} started",
     },
     figureAlt: "Question figure",
     loading: "Loading…",
