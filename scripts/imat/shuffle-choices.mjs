@@ -8,7 +8,8 @@
 // Girdi extract/<yil>.json (metin ya da goruntuden yazim sonucu); cikti extract/<yil>.shuffled.json: ayni kayitlar,
 // `choices` yeni sirada, `correct_answer` = asil A'nin yeni harfi; ust duzeyde
 // shuffleMap: { "<id>": { original: "A", shuffled: "<harf>", order: [...] } }. order[k] = yeni k. harfte duran
-// asil harf (yeni A'nin metni asil order[0] sikkidir).
+// asil harf (yeni A'nin metni asil order[0] sikkidir). Bloke soru (merge-vision.mjs blocked: true) karistirilmadan
+// gecer (shuffleMap'te yok, correct_answer yok); validate-bank onu bankaya almaz.
 // Tohum: sha256("imat-shuffle-v1:" + id) baytlari; gerekirse sonraki blok sha256(onceki blok). Fisher-Yates,
 // sapmasiz secim (bayt reddi). Ayni girdi her calismada ayni ciktiyi verir.
 import { createHash } from "node:crypto";
@@ -30,8 +31,9 @@ const ALL_A_YEARS = Object.freeze({
   2024: "son sayfa notu: tum sorularda dogru cevap A",
   2025: "vurgu anahtari keys/2025.json: 60/60 vurgu A sikkinda (extract-key-2025.py)",
 });
+export const SHUFFLE_YEARS = Object.freeze(Object.keys(ALL_A_YEARS).map(Number));
 // Bu yillarda kanit dosyasi keys/<yil>.json zorunlu (yoksa karistirma durur).
-const KEY_PROOF_YEARS = Object.freeze([2025]);
+export const KEY_PROOF_YEARS = Object.freeze([2025]);
 
 // sha256 zinciri: bayt bayt okunur; blok bitince sonraki blok onceki blogun sha256'si.
 function byteStream(seed) {
@@ -110,10 +112,16 @@ function shuffleYear(year) {
   const ids = new Set();
   const questions = [];
   const shuffleMap = {};
+  const blocked = [];
   for (const question of data.questions) {
     if (!question.id || ids.has(question.id)) throw new Error(`${year}: eksik ya da tekrar eden id ${question.id}`);
     if (question.id !== questionId(year, question.number)) throw new Error(`${year}:${question.number}: id kurala uymuyor`);
     ids.add(question.id);
+    if (question.blocked) {
+      blocked.push(question.number);
+      questions.push(question);
+      continue;
+    }
     const { question: shuffled, entry } = shuffleQuestion(question);
     questions.push(shuffled);
     shuffleMap[question.id] = entry;
@@ -121,8 +129,9 @@ function shuffleYear(year) {
   const output = { ...data, questions, shuffleMap };
   const out = join(EXTRACT_DIR, `${year}.shuffled.json`);
   writeJson(out, output);
-  const counts = distribution(questions.map((q) => q.correct_answer));
+  const counts = distribution(questions.filter((q) => !q.blocked).map((q) => q.correct_answer));
   console.log(`${year}: ${questions.length} soru -> ${out}`);
+  if (blocked.length > 0) console.log(`  bloke, karistirilmadi: ${blocked.join(", ")}`);
   console.log(`  dogru cevap dagilimi ${LETTERS.map((letter) => `${letter} ${counts[letter]}`).join(", ")} (kural: ${ALL_A_YEARS[year]})`);
 }
 

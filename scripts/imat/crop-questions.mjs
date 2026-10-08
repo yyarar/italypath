@@ -97,7 +97,9 @@ async function questionPackages(year, { all, numbers }) {
   for (const q of selected) {
     const crop = await cropQuestion(year, q);
     if (crop.masked) masked.push(q.number);
-    entries.push({ id: q.id, year, number: q.number, section: q.section, image: crop.image, cropBox: crop.cropBox, textHint: q.prompt, choicesHint: q.choices });
+    // merge-vision sonrasi extract'ta yazim vardir; ipucu her zaman ilk metin katmani (textHint) olur.
+    const hint = q.textHint ?? { prompt: q.prompt, choices: q.choices };
+    entries.push({ id: q.id, year, number: q.number, section: q.section, image: crop.image, cropBox: crop.cropBox, textHint: hint.prompt, choicesHint: hint.choices });
   }
   if (masked.length > 0) console.log(`${year}: dogru cevap vurgusu maskelendi: ${masked.join(", ")}`);
   if (numbers) {

@@ -49,6 +49,7 @@
     "test:sat-patch": "node scripts/sat/test-question-patch.mjs",
     "test:sat-explanations": "node scripts/sat/test-explanations-writer-lock.mjs",
     "test:imat-scoring": "node scripts/imat/test-scoring.mjs",
+    "test:imat-validate": "node scripts/imat/test-validate-bank.mjs",
     "cleanup:expert-leads": "node scripts/cleanup-expert-leads.mjs",
     "backup:supabase": "node --no-warnings scripts/backup-supabase.mjs",
     "clean:med": "node --no-warnings scripts/clean-med-data.mjs"
