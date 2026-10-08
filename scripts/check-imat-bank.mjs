@@ -154,11 +154,43 @@ if (!bankSql.includes("'imat-figures'")) fail("imat_bank.sql: imat-figures bucke
 if (!bankSql.includes("524288")) fail("imat_bank.sql: imat-figures bucket boyut siniri 524288 olmali");
 if (!bankSql.includes("image/webp")) fail("imat_bank.sql: imat-figures bucket yalniz image/webp kabul etmeli");
 
-// 7) Kaynaktan yukleme betigi (Gorev 12'ye kadar dosya yoksa atlanir)
-if (existsSync(resolve(process.cwd(), "scripts/imat/import-bank.mjs"))) {
-  const importer = read("scripts/imat/import-bank.mjs");
-  if (/upsert/i.test(importer)) fail("scripts/imat/import-bank.mjs: upsert kullanilmamali (INSERT-ONLY)");
-  if (!importer.includes("INSERT-ONLY")) fail("scripts/imat/import-bank.mjs: INSERT-ONLY sozlesme notu eksik");
+// 7) Yazicilar (Gorev 12): import insert-only, var olan satir yalniz yama araciyla (yedek + geri alma),
+// acma paketi yazmaz.
+{
+  const writers = {
+    importer: "scripts/imat/import-bank.mjs",
+    patcher: "scripts/imat/patch-imat-questions.mjs",
+    release: "scripts/imat/build-release-package.mjs",
+  };
+  const sources = {};
+  for (const [key, path] of Object.entries(writers)) {
+    if (!existsSync(resolve(process.cwd(), path))) fail(`${path}: dosya yok`);
+    else sources[key] = read(path);
+  }
+  if (sources.importer !== undefined) {
+    const importer = sources.importer;
+    if (!importer.includes("INSERT-ONLY")) fail(`${writers.importer}: INSERT-ONLY sozlesme notu eksik`);
+    if (/\.upsert\s*\(/.test(importer)) fail(`${writers.importer}: upsert( kullanilmamali (INSERT-ONLY)`);
+    if (/upsert\s*:\s*true/.test(importer)) fail(`${writers.importer}: gorsel upload upsert: true olmamali (var olan dosya ezilmez)`);
+    if (/\.update\s*\(/.test(importer)) fail(`${writers.importer}: update( kullanilmamali (var olan satir yalniz yama araciyla degisir)`);
+  }
+  if (sources.patcher !== undefined) {
+    for (const word of ["backup", "rollback"]) {
+      if (!sources.patcher.includes(word)) fail(`${writers.patcher}: ${word} yolu eksik (yazidan once yedek, geri alma)`);
+    }
+  }
+  if (sources.release !== undefined) {
+    const release = sources.release;
+    if (/["'`]--apply["'`]/.test(release) || /mode\s*===?\s*["']apply["']/.test(release)) {
+      fail(`${writers.release}: --apply islememeli (acma paketi yazmaz; yazi patch-imat-questions.mjs ile)`);
+    }
+    if (/\.(insert|update|upsert|delete|upload|remove)\s*\(/.test(release)) fail(`${writers.release}: veritabanina/depoya yazmamali`);
+  }
+  for (const [key, path] of Object.entries(writers)) {
+    if (sources[key] !== undefined && !sources[key].includes("createImportClient(")) {
+      fail(`${path}: istemci ortak hedef kilidiyle (createImportClient) kurulmali`);
+    }
+  }
 }
 
 // 8) Deneme arayuzu (Gorev 7): ortak soru karti bes sik, deneme ekrani cevap anahtari gostermez,
