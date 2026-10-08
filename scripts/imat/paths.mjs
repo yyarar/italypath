@@ -24,6 +24,8 @@ export const BACKUPS_DIR = join(IMAT_OUT, "backups");
 export const INVENTORY_PATH = join(IMAT_OUT, "inventory.json");
 export const BANK_PATH = join(IMAT_OUT, "bank.json");
 export const CORRECTIONS_PATH = join(IMAT_OUT, "corrections.json");
+// Karistirma istisnasi: [{ id, reason }] (siklari sekil icinde cizili soru; shuffle-choices.mjs, validate-bank.mjs).
+export const SHUFFLE_EXEMPT_PATH = join(IMAT_OUT, "shuffle-exempt.json");
 
 // Yil -> kaynak dosya (2026-10-08 envanteri; dosya adlari degismez).
 export const SOURCE_FILES = Object.freeze({

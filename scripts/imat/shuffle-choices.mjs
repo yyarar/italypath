@@ -10,6 +10,8 @@
 // shuffleMap: { "<id>": { original: "A", shuffled: "<harf>", order: [...] } }. order[k] = yeni k. harfte duran
 // asil harf (yeni A'nin metni asil order[0] sikkidir). Bloke soru (merge-vision.mjs blocked: true) karistirilmadan
 // gecer (shuffleMap'te yok, correct_answer yok); validate-bank onu bankaya almaz.
+// Istisna: <IMAT_OUT>/shuffle-exempt.json [{ id, reason }] (yoksa bos). Listede olan soru (siklari sekil icinde cizili,
+// harfler gorselde basili) kagit sirasinda kalir, correct_answer "A"; shuffleMap[id] = { exempt: true, reason }.
 // Tohum: sha256("imat-shuffle-v1:" + id) baytlari; gerekirse sonraki blok sha256(onceki blok). Fisher-Yates,
 // sapmasiz secim (bayt reddi). Ayni girdi her calismada ayni ciktiyi verir.
 import { createHash } from "node:crypto";
@@ -18,7 +20,7 @@ import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { checkInventory } from "./inventory.mjs";
-import { EXTRACT_DIR, KEYS_DIR, argValue, parseYears, questionId, readJson, writeJson } from "./paths.mjs";
+import { EXTRACT_DIR, KEYS_DIR, SHUFFLE_EXEMPT_PATH, argValue, parseYears, questionId, readJson, writeJson } from "./paths.mjs";
 
 export const SHUFFLE_VERSION = "imat-shuffle-v1";
 const LETTERS = ["A", "B", "C", "D", "E"];
@@ -69,7 +71,7 @@ export function shuffleOrder(id) {
   return order;
 }
 
-export function shuffleQuestion(question) {
+function assertSourceA(question) {
   if (question.correct_answer !== undefined && question.correct_answer !== "A") {
     throw new Error(`${question.id}: kaynakta dogru cevap A olmali, kayit ${question.correct_answer}`);
   }
@@ -77,6 +79,36 @@ export function shuffleQuestion(question) {
   if (keys.join("") !== LETTERS.join("") || keys.some((key) => !String(question.choices[key]).trim())) {
     throw new Error(`${question.id}: 5 dolu sik (A-E) bekleniyor`);
   }
+}
+
+// shuffle-exempt.json -> Map id -> reason. Dosya yoksa bos; bicim bozuksa hata.
+export function readShuffleExempt(path = SHUFFLE_EXEMPT_PATH) {
+  if (!existsSync(path)) return new Map();
+  const list = readJson(path);
+  if (!Array.isArray(list)) throw new Error(`${path}: dizi olmali ([{ id, reason }])`);
+  const map = new Map();
+  list.forEach((entry, index) => {
+    const at = `${path} kayit ${index + 1}`;
+    if (typeof entry?.id !== "string" || !/^[0-9a-f]{8}$/.test(entry.id)) throw new Error(`${at}: gecersiz id`);
+    if (typeof entry.reason !== "string" || !entry.reason.trim()) throw new Error(`${at}: reason bos`);
+    if (map.has(entry.id)) throw new Error(`${at}: ${entry.id} tekrarli`);
+    map.set(entry.id, entry.reason);
+  });
+  return map;
+}
+
+// Istisna: kagit sirasi korunur, dogru cevap A kalir.
+export function exemptQuestion(question, reason) {
+  assertSourceA(question);
+  if (typeof reason !== "string" || !reason.trim()) throw new Error(`${question.id}: istisna gerekcesi bos`);
+  return {
+    question: { ...question, choices: { ...question.choices }, correct_answer: "A" },
+    entry: { exempt: true, reason },
+  };
+}
+
+export function shuffleQuestion(question) {
+  assertSourceA(question);
   const order = shuffleOrder(question.id);
   const choices = Object.fromEntries(LETTERS.map((letter, k) => [letter, question.choices[order[k]]]));
   const shuffled = LETTERS[order.indexOf("A")];
@@ -109,10 +141,12 @@ function shuffleYear(year) {
       throw new Error(`${year}: keys/${year}.json soru numaralari extract ile ayni degil (${keyNumbers.length} / ${numbers.size})`);
     }
   }
+  const exempt = readShuffleExempt();
   const ids = new Set();
   const questions = [];
   const shuffleMap = {};
   const blocked = [];
+  const exempted = [];
   for (const question of data.questions) {
     if (!question.id || ids.has(question.id)) throw new Error(`${year}: eksik ya da tekrar eden id ${question.id}`);
     if (question.id !== questionId(year, question.number)) throw new Error(`${year}:${question.number}: id kurala uymuyor`);
@@ -122,7 +156,8 @@ function shuffleYear(year) {
       questions.push(question);
       continue;
     }
-    const { question: shuffled, entry } = shuffleQuestion(question);
+    if (exempt.has(question.id)) exempted.push(question.number);
+    const { question: shuffled, entry } = exempt.has(question.id) ? exemptQuestion(question, exempt.get(question.id)) : shuffleQuestion(question);
     questions.push(shuffled);
     shuffleMap[question.id] = entry;
   }
@@ -132,6 +167,7 @@ function shuffleYear(year) {
   const counts = distribution(questions.filter((q) => !q.blocked).map((q) => q.correct_answer));
   console.log(`${year}: ${questions.length} soru -> ${out}`);
   if (blocked.length > 0) console.log(`  bloke, karistirilmadi: ${blocked.join(", ")}`);
+  if (exempted.length > 0) console.log(`  istisna (kagit sirasi, dogru A): ${exempted.join(", ")} (${SHUFFLE_EXEMPT_PATH})`);
   console.log(`  dogru cevap dagilimi ${LETTERS.map((letter) => `${letter} ${counts[letter]}`).join(", ")} (kural: ${ALL_A_YEARS[year]})`);
 }
 
@@ -158,6 +194,12 @@ function selfTest() {
     if (used < 4) problems.push(`${year}: yalniz ${used} harf kullaniliyor (${JSON.stringify(counts)})`);
     console.log(`${year} (sentetik 60 id): ${LETTERS.map((letter) => `${letter} ${counts[letter]}`).join(", ")}`);
   }
+  {
+    const choices = Object.fromEntries(LETTERS.map((letter) => [letter, `cizim ${letter}`]));
+    const { question, entry } = exemptQuestion({ id: "0badf00d", choices }, "fixture");
+    if (JSON.stringify(question.choices) !== JSON.stringify(choices) || question.correct_answer !== "A") problems.push("istisna kagit sirasini/A'yi korumadi");
+    if (entry.exempt !== true || entry.reason !== "fixture") problems.push("istisna kaydi { exempt: true, reason } degil");
+  }
   try {
     shuffleQuestion({ id: "deadbeef", correct_answer: "C", choices: { A: "1", B: "2", C: "3", D: "4", E: "5" } });
     problems.push("A olmayan kaynak cevabi reddedilmedi");
@@ -168,7 +210,7 @@ function selfTest() {
     console.error(`Oz-test basarisiz (${problems.length}):\n  ${problems.join("\n  ")}`);
     process.exit(1);
   }
-  console.log("Oz-test gecti: determinizm, permutasyon, dogru sik eslemesi, dagilim.");
+  console.log("Oz-test gecti: determinizm, permutasyon, dogru sik eslemesi, dagilim, istisna.");
 }
 
 function main() {

@@ -16,7 +16,7 @@ import sharp from "sharp";
 import { MOCK_SECTION_COUNTS, SECTIONS } from "../../lib/imat/taxonomy.mjs";
 import { normalizeForCompare, textHash } from "./lib/text.mjs";
 import { questionId } from "./paths.mjs";
-import { shuffleQuestion } from "./shuffle-choices.mjs";
+import { exemptQuestion, shuffleQuestion } from "./shuffle-choices.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const VALIDATOR = join(HERE, "validate-bank.mjs");
@@ -95,6 +95,25 @@ async function buildFixture(root, { year = 2025, examSet } = {}) {
     },
   ]);
   return extract;
+}
+
+// Karistirma istisnasi: siklar sekil icinde cizili soru (shuffle-exempt.json); karistirilmis dosyada kagit sirasi, dogru A.
+const EXEMPT_REASON = "choices are drawn inside the figure; cannot be reordered";
+function exemptFixture(root, year, number, { correct } = {}) {
+  const id = questionId(year, number);
+  write(join(root, "shuffle-exempt.json"), [{ id, reason: EXEMPT_REASON }]);
+  const extractPath = join(root, "extract", `${year}.json`);
+  const extract = read(extractPath);
+  const source = extract.questions.find((q) => q.number === number);
+  source.choices = Object.fromEntries(LETTERS.map((letter) => [letter, "[see figure]"]));
+  write(extractPath, extract);
+  const shuffledPath = join(root, "extract", `${year}.shuffled.json`);
+  const data = read(shuffledPath);
+  const { question, entry } = exemptQuestion(source, EXEMPT_REASON);
+  if (correct) question.correct_answer = correct;
+  data.questions = data.questions.map((q) => (q.number === number ? question : q));
+  data.shuffleMap[id] = entry;
+  write(shuffledPath, data);
 }
 
 // Hem extract hem karistirilmis dosyada ayni soruyu degistirir (eski karistirma uyarisi karismasin).
@@ -270,6 +289,27 @@ try {
         if (!isShuffled) q.prompt = "Fixture question 8, edited after the shuffle.";
       }),
     expectFailure(new RegExp(`kapi 5: .*${id(8)}.*shuffle-choices`))
+  );
+
+  await scenario(
+    "sekilli siklar karistirma istisnasi gecer",
+    (root) => exemptFixture(root, 2025, 10),
+    (result) => {
+      assert.equal(result.status, 0, "istisna kaydi gecmeli");
+      const q = result.output.bank.find((item) => item.number === 10);
+      assert.equal(q.correct_answer, "A");
+      assert.deepEqual(q.shuffle, { exempt: true, reason: EXEMPT_REASON });
+      assert.deepEqual(Object.values(q.choices), LETTERS.map(() => "[see figure]"));
+      assert.equal(q.text_hash, textHash(q.prompt, q.choices));
+      const report = read(join(result.root, "validate-report.json"));
+      assert.deepEqual(report.shuffleExempt, [{ id: id(10), year: 2025, number: 10, reason: EXEMPT_REASON }]);
+    }
+  );
+
+  await scenario(
+    "sahte istisna (dogru cevap A degil) kapi 5",
+    (root) => exemptFixture(root, 2025, 10, { correct: "C" }),
+    expectFailure(new RegExp(`kapi 5: .*${id(10)}.*istisna.*correct_answer`))
   );
 
   console.log("test:imat-validate gecti");

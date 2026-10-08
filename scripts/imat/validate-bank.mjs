@@ -14,7 +14,9 @@
 // harf, bolum/konu taksonomide, exam_set mock <=> deneme yili), 3 isaret/formul (markIssues, katexIssues, dengesiz $,
 // okunamayan [?]), 4 kaynak metin (metin yili, goruntuden yazilmamis soru: pdftotext ile bosluksuz ardisik eslesme;
 // hasImage soru goruntuden yazilmis olmali), 5 anahtar (2021-2025 shuffle kaydi zorunlu, deterministik sira,
-// correct_answer === shuffle.shuffled, karistirilmis dosya extract ile guncel; keys dosyasi hep A ve tam), 6 sekil
+// correct_answer === shuffle.shuffled, karistirilmis dosya extract ile guncel; keys dosyasi hep A ve tam; istisna:
+// shuffle-exempt.json listesindeki soru kagit sirasinda, correct_answer "A", shuffle { exempt: true, reason }; listede
+// olmayan istisna ya da listede olup karistirilmis kayit hata; istisnalar validate-report.json shuffleExempt), 6 sekil
 // (figureBox -> figure_path <yil>/<id>.webp, WebP, <= 512 KB; dosya yoksa --require-figures ile hata; beyaz dolgulu
 // kenar figure-crop-report.json'dan uyari), 7 kimlik,
 // 8 duzeltmeler. Bloke soru (merge-vision blocked) excluded'a gider, kapilardan gecmez.
@@ -41,13 +43,14 @@ import {
   IMAT_SOURCE_DIR,
   INVENTORY_PATH,
   KEYS_DIR,
+  SHUFFLE_EXEMPT_PATH,
   argValue,
   parseYears,
   questionId,
   readJson,
   writeJson,
 } from "./paths.mjs";
-import { KEY_PROOF_YEARS, SHUFFLE_YEARS, shuffleOrder } from "./shuffle-choices.mjs";
+import { KEY_PROOF_YEARS, SHUFFLE_YEARS, readShuffleExempt, shuffleOrder } from "./shuffle-choices.mjs";
 
 const MAX_FIGURE_BYTES = 512 * 1024;
 const GK_LR = ["reading-general", "logic"];
@@ -248,6 +251,13 @@ const appliedCorrections = [];
 // ------------------------------------------------------------------ banka kayitlari: 2, 3, 5, 6
 const bank = [];
 const excluded = [];
+const exemptRecords = [];
+let exemptList = new Map();
+try {
+  exemptList = readShuffleExempt(SHUFFLE_EXEMPT_PATH);
+} catch (error) {
+  G[5].fail(`shuffle-exempt.json okunamadi: ${error.message}`);
+}
 
 function topicFor(year, q, examSet) {
   const { fail } = G[2];
@@ -309,7 +319,20 @@ for (const paper of papers) {
         // dosya yok: yukarida bir kez hata verildi
       } else if (!sq || !recorded) {
         G[5].fail(`${at}: karistirilmis dosyada kayit ya da shuffle yok (shuffle-choices.mjs yeniden)`, year);
+      } else if (recorded.exempt === true) {
+        // Istisna: kagit sirasi, dogru A (siklar sekil icinde cizili).
+        if (!exemptList.has(q.id)) G[5].fail(`${at}: shuffle istisnasi shuffle-exempt.json listesinde yok`, year);
+        if (typeof recorded.reason !== "string" || !recorded.reason.trim()) G[5].fail(`${at}: istisna gerekcesi bos`, year);
+        if (sq.correct_answer !== "A") G[5].fail(`${at}: istisna kaydinda correct_answer ${sq.correct_answer} (A olmali)`, year);
+        const stale = sq.prompt !== q.prompt || CHOICE_LETTERS.some((letter) => sq.choices?.[letter] !== q.choices?.[letter]);
+        if (stale) G[5].fail(`${at}: karistirilmis dosya extract ile ayni degil (eski); shuffle-choices.mjs --years ${year} yeniden calistir`, year);
+        choices = {};
+        for (const letter of CHOICE_LETTERS) if (text.choices[letter] !== undefined) choices[letter] = text.choices[letter];
+        correct = "A";
+        shuffle = { exempt: true, reason: recorded.reason };
+        exemptRecords.push({ id: q.id, year, number: q.number, reason: recorded.reason });
       } else {
+        if (exemptList.has(q.id)) G[5].fail(`${at}: shuffle-exempt.json listesinde ama karistirilmis (shuffle-choices.mjs --years ${year} yeniden)`, year);
         const expectedOrder = shuffleOrder(q.id);
         const order = Array.isArray(recorded.order) ? recorded.order : [];
         if (recorded.original !== "A") G[5].fail(`${at}: shuffle.original ${recorded.original} (A olmali)`, year);
@@ -384,6 +407,8 @@ for (const paper of papers) {
     });
   }
 }
+
+G[5].g.counts.exempt = exemptRecords.length;
 
 // ------------------------------------------------------------------ 4 kaynak metin (metin yili)
 {
@@ -511,6 +536,7 @@ const report = {
     };
   }),
   corrections: appliedCorrections,
+  shuffleExempt: exemptRecords,
 };
 writeJson(join(IMAT_OUT, "validate-report.json"), report);
 
