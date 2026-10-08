@@ -103,6 +103,48 @@ export interface SatAttemptRow {
   answered_at?: string;
 }
 
+export interface ImatQuestionRow {
+  id: string;
+  year: number;
+  number: number;
+  exam_set: string;
+  section: string;
+  topic: string;
+  topic_slug: string;
+  prompt: string;
+  choices: Record<string, string> | null;
+  correct_answer: string | null;
+  figure_path: string | null;
+  source_file: string;
+  source_page: number | null;
+  needs_review: boolean | null;
+}
+
+export interface ImatAttemptRow {
+  id?: string;
+  user_id: string;
+  question_id: string;
+  selected_answer: string;
+  is_correct: boolean;
+  answered_at?: string;
+}
+
+export interface ImatExamSessionRow {
+  id: string;
+  user_id: string;
+  year: number;
+  started_at: string;
+  deadline_at: string;
+  draft_answers: Record<string, string> | null;
+  submitted_at: string | null;
+  answers: Record<string, string> | null;
+  correct_count: number | null;
+  wrong_count: number | null;
+  blank_count: number | null;
+  score: number | string | null;
+  section_breakdown: Record<string, { correct: number; wrong: number; blank: number }> | null;
+}
+
 export interface MentorStaffRow {
   user_id: string;
   display_name: string;

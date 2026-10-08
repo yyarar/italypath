@@ -473,6 +473,7 @@ const userDataSqlFiles = [
   "supabase/data_api_privileges.sql",
   "supabase/archive_legacy_content_tables.sql",
   "supabase/sat_progress.sql",
+  "supabase/imat_bank.sql",
 ].map((file) => resolve(file));
 
 function userDataSql(sql, { allowFailure = false } = {}) {
@@ -622,6 +623,34 @@ function documentObjectSql(path) {
 function satAttemptSql(userId, answer, answeredAt = "timezone('utc', now())") {
   return `insert into public.sat_attempts (user_id, question_id, selected_answer, is_correct, answered_at)
 values (${quote(userId)}, 'sat-probe-q1', ${quote(answer)}, true, ${answeredAt});`;
+}
+
+// IMAT (2026-10-08): question rows, attempts and mock-exam session calls.
+const imatSections = ["reading-general", "logic", "biology", "chemistry", "physics-math"];
+
+function imatAttemptSql(userId, answer, isCorrect, answeredAt = "timezone('utc', now())") {
+  return `insert into public.imat_attempts (user_id, question_id, selected_answer, is_correct, answered_at)
+values (${quote(userId)}, 'm0000001', ${quote(answer)}, ${isCorrect}, ${answeredAt});`;
+}
+
+function imatStartSql(year = 2024) {
+  return `select concat_ws('|', id, resumed, deadline_at = started_at + interval '100 minutes',
+    started_at > now() - interval '5 minutes', draft_answers)
+from public.imat_start_exam(${year});`;
+}
+
+function imatStart(userId, year = 2024) {
+  const [id, resumed, deadlineIs100Minutes, startedNow, draft] = scalar(userDataSql(asUser(userId, imatStartSql(year)))).split("|");
+  return { id, resumed, deadlineIs100Minutes, startedNow, draft };
+}
+
+function imatSubmitSql(sessionId, answers) {
+  return `select concat_ws('|', correct_count, wrong_count, blank_count, score, submitted_at is not null)
+from public.imat_submit_exam(${quote(sessionId)}::uuid, ${quote(JSON.stringify(answers))}::jsonb);`;
+}
+
+function imatDraftSql(sessionId, answersJson) {
+  return `select public.imat_save_exam_draft(${quote(sessionId)}::uuid, ${quote(answersJson)}::jsonb);`;
 }
 
 async function runUserDataTests() {
@@ -923,6 +952,341 @@ async function runUserDataTests() {
     userDataSql(asUser("sat-a", satAttemptSql("sat-a", "A")));
   });
 
+  await test("imat_questions: no client role can read; service role can", async () => {
+    userDataSql(`
+      set role service_role;
+      insert into public.imat_questions (id, year, number, exam_set, section, topic, topic_slug, prompt, choices, correct_answer, source_file, source_page, needs_review)
+      select 'm' || lpad(i::text, 7, '0'), 2024, i, 'mock', (array['reading-general','logic','biology','chemistry','physics-math'])[1 + (i - 1) % 5], 'T', 'biology-general', 'Q' || i, '{"A":"a","B":"b","C":"c","D":"d","E":"e"}'::jsonb, 'A', 'imat.deneme.24.pdf', 1, false from generate_series(1, 60) as i;
+      -- Same paper position in the bank set, and one 2023 mock question left at the default quarantine.
+      insert into public.imat_questions (id, year, number, exam_set, section, topic, topic_slug, prompt, choices, correct_answer, source_file, source_page, needs_review)
+      values ('b2024001', 2024, 1, 'bank', 'logic', 'T', 'logic-general', 'Bank Q', '{"A":"a","B":"b","C":"c","D":"d","E":"e"}'::jsonb, 'A', 'imat.24.pdf', 1, false);
+      insert into public.imat_questions (id, year, number, exam_set, section, topic, topic_slug, prompt, choices, correct_answer, source_file)
+      values ('y2023001', 2023, 1, 'mock', 'logic', 'T', 'logic-general', 'Q 2023', '{"A":"a","B":"b","C":"c","D":"d","E":"e"}'::jsonb, 'A', 'imat.deneme.23.pdf');
+    `);
+    assertFailure(
+      userDataSql(asAnon("select count(*) from public.imat_questions;"), { allowFailure: true }),
+      "permission denied",
+      "anon read of imat_questions",
+    );
+    assertFailure(
+      userDataSql(asUser("imat-a", "select count(*) from public.imat_questions;"), { allowFailure: true }),
+      "permission denied",
+      "authenticated read of imat_questions",
+    );
+    const serverRead = scalar(userDataSql(`
+      set role service_role;
+      select concat_ws(':',
+        (select count(*) from public.imat_questions where year = 2024 and exam_set = 'mock' and needs_review = false),
+        (select count(*) from public.imat_questions),
+        (select needs_review from public.imat_questions where id = 'y2023001')
+      );
+    `));
+    assert(serverRead === "60:62:t", `service_role read of imat_questions: ${serverRead}`);
+
+    const insertQuestion = (id, number, choices, correct) => `
+      set role service_role;
+      insert into public.imat_questions (id, year, number, exam_set, section, topic, topic_slug, prompt, choices, correct_answer, source_file)
+      values (${quote(id)}, 2024, ${number}, 'mock', 'logic', 'T', 'logic-general', 'Bad', ${quote(choices)}::jsonb, ${quote(correct)}, 'x.pdf');`;
+    const fiveChoices = '{"A":"a","B":"b","C":"c","D":"d","E":"e"}';
+    for (const [sql, expected, label] of [
+      [insertQuestion("bad00001", 70, '{"A":"a","B":"b","C":"c","D":"d"}', "A"), "imat_questions_choices_shape", "four choices"],
+      [insertQuestion("bad00002", 70, '["A","B","C","D","E"]', "A"), "imat_questions_choices_shape", "choices array"],
+      [insertQuestion("bad00003", 70, fiveChoices, "F"), "imat_questions_correct_answer_check", "answer F"],
+      [insertQuestion("bad00004", 1, fiveChoices, "A"), "imat_questions_paper_position", "second mock 2024 question 1"],
+      [insertQuestion("bad00005", 81, fiveChoices, "A"), "imat_questions_number_check", "question 81"],
+    ]) {
+      assertFailure(userDataSql(sql, { allowFailure: true }), expected, label);
+    }
+
+    const grants = scalar(userDataSql(`
+      select concat_ws(':',
+        has_table_privilege('anon', 'public.imat_questions', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('authenticated', 'public.imat_questions', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('service_role', 'public.imat_questions', 'select'),
+        has_table_privilege('service_role', 'public.imat_questions', 'insert'),
+        has_table_privilege('service_role', 'public.imat_questions', 'truncate,references,trigger'),
+        (select relrowsecurity from pg_class where oid = 'public.imat_questions'::regclass),
+        (select count(*) from pg_policies where schemaname = 'public' and tablename = 'imat_questions')
+      );
+    `));
+    assert(grants === "f:f:t:t:f:t:0", `unexpected imat_questions grants: ${grants}`);
+  });
+
+  await test("imat_attempts: owners only, one-letter answers, 2,000 per 24 hours", async () => {
+    userDataSql(asUser("imat-a", imatAttemptSql("imat-a", "A", true, "'2000-01-01T00:00:00Z'")));
+    const stamped = scalar(userDataSql("select answered_at > now() - interval '5 minutes' from public.imat_attempts where user_id = 'imat-a';"));
+    assert(stamped === "t", "imat answered_at must be stamped with server time");
+    for (const badAnswer of ["AB", "F", "a", ""]) {
+      assertFailure(
+        userDataSql(asUser("imat-a", imatAttemptSql("imat-a", badAnswer, false)), { allowFailure: true }),
+        "imat_attempts_selected_answer_letter",
+        `imat answer ${JSON.stringify(badAnswer)}`,
+      );
+    }
+    assertFailure(
+      userDataSql(asUser("imat-b", imatAttemptSql("imat-a", "B", false)), { allowFailure: true }),
+      "row-level security",
+      "imat attempt recorded for another user",
+    );
+    const visibleToB = scalar(userDataSql(asUser("imat-b", "select count(*) from public.imat_attempts where user_id = 'imat-a';")));
+    assert(visibleToB === "0", `user B can read user A's imat attempts: ${visibleToB}`);
+    for (const sql of [
+      "update public.imat_attempts set is_correct = true where user_id = 'imat-a';",
+      "delete from public.imat_attempts where user_id = 'imat-a';",
+    ]) {
+      assertFailure(
+        userDataSql(asUser("imat-a", sql), { allowFailure: true }),
+        "permission denied",
+        `imat attempt change: ${sql}`,
+      );
+    }
+
+    userDataSql(asUser("imat-a", imatAttemptSql("imat-a", "B", false)));
+    const latestSql = `
+      select coalesce(string_agg(question_id || '=' || selected_answer || ':' || is_correct, ',' order by question_id), '-')
+      from public.imat_latest_attempts;`;
+    const latestA = scalar(userDataSql(asUser("imat-a", latestSql)));
+    assert(latestA === "m0000001=B:false", `latest imat answers for imat-a: ${latestA}`);
+    const latestB = scalar(userDataSql(asUser("imat-b", latestSql)));
+    assert(latestB === "-", `imat-b sees imat-a's latest answers: ${latestB}`);
+    assertFailure(
+      userDataSql(asAnon("select count(*) from public.imat_latest_attempts;"), { allowFailure: true }),
+      "permission denied",
+      "anon read of imat_latest_attempts",
+    );
+
+    userDataSql(asUser("imat-a", `
+      insert into public.imat_attempts (user_id, question_id, selected_answer, is_correct)
+      select 'imat-a', 'm0000001', 'A', true from generate_series(3, 2000);
+    `));
+    assertFailure(
+      userDataSql(asUser("imat-a", imatAttemptSql("imat-a", "A", true)), { allowFailure: true }),
+      "imat_attempt_rate_limited",
+      "2,001st imat attempt in 24 hours",
+    );
+    userDataSql(asUser("imat-b", imatAttemptSql("imat-b", "C", false)));
+    userDataSql("update public.imat_attempts set answered_at = answered_at - interval '25 hours' where user_id = 'imat-a';");
+    userDataSql(asUser("imat-a", imatAttemptSql("imat-a", "A", true)));
+
+    const grants = scalar(userDataSql(`
+      select concat_ws(':',
+        has_table_privilege('anon', 'public.imat_attempts', 'select,insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('authenticated', 'public.imat_attempts', 'select'),
+        has_table_privilege('authenticated', 'public.imat_attempts', 'insert'),
+        has_table_privilege('authenticated', 'public.imat_attempts', 'update,delete,truncate,references,trigger'),
+        has_table_privilege('authenticated', 'public.imat_latest_attempts', 'select'),
+        has_table_privilege('authenticated', 'public.imat_latest_attempts', 'insert,update,delete,truncate,references,trigger'),
+        has_table_privilege('anon', 'public.imat_latest_attempts', 'select,insert,update,delete,truncate,references,trigger'),
+        (select 'security_invoker=true' = any(reloptions) from pg_class where oid = 'public.imat_latest_attempts'::regclass),
+        (select count(*) from pg_indexes where schemaname = 'public' and indexname = 'imat_attempts_user_answered_idx')
+      );
+    `));
+    assert(grants === "f:t:t:f:t:f:f:t:1", `unexpected imat_attempts grants: ${grants}`);
+  });
+
+  await test("imat_exam_sessions: start/draft/submit via functions, owners only", async () => {
+    const first = imatStart("imat-a");
+    assert(/^[0-9a-f-]{36}$/.test(first.id), `imat_start_exam returned no session id: ${first.id}`);
+    assert(
+      first.resumed === "f" && first.deadlineIs100Minutes === "t" && first.startedNow === "t" && first.draft === "{}",
+      `unexpected new imat session: ${JSON.stringify(first)}`,
+    );
+    const again = imatStart("imat-a");
+    assert(again.id === first.id && again.resumed === "t", `open session was not resumed: ${JSON.stringify(again)}`);
+
+    userDataSql(asUser("imat-a", imatDraftSql(
+      first.id,
+      '{"m0000001":"A","m0000002":"Z","m0000003":"b","m0000004":1,"m0000005":["A"],"b2024001":"A","y2023001":"A","zzz":"A"}',
+    )));
+    const draftSql = `select coalesce((select draft_answers::text from public.imat_exam_sessions where id = ${quote(first.id)}), 'none');`;
+    const draft = scalar(userDataSql(asUser("imat-a", draftSql)));
+    assert(draft === '{"m0000001": "A"}', `draft was not filtered to the year's mock letters: ${draft}`);
+    const resumedDraft = imatStart("imat-a");
+    assert(
+      resumedDraft.id === first.id && resumedDraft.draft === '{"m0000001": "A"}',
+      `resumed session lost its draft: ${JSON.stringify(resumedDraft)}`,
+    );
+    userDataSql(asUser("imat-a", imatDraftSql(first.id, '["A"]')));
+    const clearedDraft = scalar(userDataSql(asUser("imat-a", draftSql)));
+    assert(clearedDraft === "{}", `non-object draft must be stored as {}: ${clearedDraft}`);
+    userDataSql(asUser("imat-a", imatDraftSql(first.id, '{"m0000001":"A","m0000002":"C"}')));
+
+    assertFailure(
+      userDataSql(asUser("imat-b", imatDraftSql(first.id, '{"m0000001":"E"}')), { allowFailure: true }),
+      "imat_exam_not_found",
+      "draft save on another user's session",
+    );
+    assertFailure(
+      userDataSql(asUser("imat-b", imatSubmitSql(first.id, {})), { allowFailure: true }),
+      "imat_exam_not_found",
+      "submit of another user's session",
+    );
+    const visibleToB = scalar(userDataSql(asUser("imat-b", `select count(*) from public.imat_exam_sessions where id = ${quote(first.id)};`)));
+    assert(visibleToB === "0", `user B can read user A's exam session: ${visibleToB}`);
+    assertFailure(
+      userDataSql(asUser("imat-a", `update public.imat_exam_sessions set score = 90 where id = ${quote(first.id)};`), { allowFailure: true }),
+      "permission denied",
+      "direct update of an exam session",
+    );
+    assertFailure(
+      userDataSql(asUser("imat-a", "insert into public.imat_exam_sessions (user_id, year, deadline_at) values ('imat-a', 2024, now());"), { allowFailure: true }),
+      "permission denied",
+      "direct insert of an exam session",
+    );
+    assertFailure(
+      userDataSql(`set role authenticated;\n${imatStartSql()}`, { allowFailure: true }),
+      "imat_exam_not_found",
+      "start without a signed-in user",
+    );
+    assertFailure(
+      userDataSql(asAnon("select public.imat_start_exam(2024);"), { allowFailure: true }),
+      "permission denied",
+      "anon call of imat_start_exam",
+    );
+    const draftAfterB = scalar(userDataSql(asUser("imat-a", draftSql)));
+    assert(draftAfterB === '{"m0000001": "A", "m0000002": "C"}', `user B changed user A's draft: ${draftAfterB}`);
+
+    // 40 correct (A), 15 wrong (B), 5 blank; junk keys and letters are dropped.
+    const answers = { zzz: "A", y2023001: "A", m0000056: "a", m0000057: "AB" };
+    for (let number = 1; number <= 55; number += 1) {
+      answers[`m${String(number).padStart(7, "0")}`] = number <= 40 ? "A" : "B";
+    }
+    const submitted = scalar(userDataSql(asUser("imat-a", imatSubmitSql(first.id, answers))));
+    assert(submitted === "40|15|5|54.00|t", `unexpected imat submit result: ${submitted}`);
+    const expectedBreakdown = JSON.stringify(Object.fromEntries(imatSections.map((section) => [section, { correct: 8, wrong: 3, blank: 1 }])));
+    const stored = scalar(userDataSql(asUser("imat-a", `
+      select concat_ws('|',
+        correct_count, wrong_count, blank_count, score,
+        section_breakdown = ${quote(expectedBreakdown)}::jsonb,
+        (select string_agg(k, ',' order by k) from jsonb_object_keys(section_breakdown) as k),
+        (select count(*) from jsonb_object_keys(answers)),
+        answers ? 'zzz' or answers ? 'm0000056' or answers ? 'm0000057',
+        draft_answers,
+        submitted_at > started_at and submitted_at <= now()
+      )
+      from public.imat_exam_sessions where id = ${quote(first.id)};`)));
+    assert(
+      stored === "40|15|5|54.00|t|biology,chemistry,logic,physics-math,reading-general|55|f|{}|t",
+      `unexpected stored imat session: ${stored}`,
+    );
+    const breakdownShape = scalar(userDataSql(asUser("imat-a", `
+      select bool_and((select string_agg(f, ',' order by f) from jsonb_object_keys(v) as f) = 'blank,correct,wrong')
+      from public.imat_exam_sessions, jsonb_each(section_breakdown) as e(k, v)
+      where id = ${quote(first.id)};`)));
+    assert(breakdownShape === "t", `section_breakdown entries must have correct, wrong, blank: ${breakdownShape}`);
+
+    assertFailure(
+      userDataSql(asUser("imat-a", imatSubmitSql(first.id, answers)), { allowFailure: true }),
+      "imat_exam_already_submitted",
+      "second submit",
+    );
+    assertFailure(
+      userDataSql(asUser("imat-a", imatDraftSql(first.id, '{"m0000001":"B"}')), { allowFailure: true }),
+      "imat_exam_not_found",
+      "draft save after submit",
+    );
+    const second = imatStart("imat-a");
+    assert(second.id !== first.id && second.resumed === "f", `start after submit must open a new session: ${JSON.stringify(second)}`);
+
+    // An expired open session is not resumed; a late submit is still scored.
+    userDataSql(`update public.imat_exam_sessions
+      set started_at = started_at - interval '2 hours', deadline_at = deadline_at - interval '2 hours'
+      where id = ${quote(second.id)};`);
+    const third = imatStart("imat-a");
+    assert(third.id !== second.id && third.resumed === "f", `expired session must not be resumed: ${JSON.stringify(third)}`);
+    const late = scalar(userDataSql(asUser("imat-a", imatSubmitSql(second.id, { m0000001: "A", m0000002: "B" }))));
+    assert(late === "1|1|58|1.10|t", `late submit result: ${late}`);
+    const lateFlag = scalar(userDataSql(asUser("imat-a", `select submitted_at > deadline_at from public.imat_exam_sessions where id = ${quote(second.id)};`)));
+    assert(lateFlag === "t", `late submit must keep its server time: ${lateFlag}`);
+
+    const grants = scalar(userDataSql(`
+      select concat_ws(':',
+        has_table_privilege('authenticated', 'public.imat_exam_sessions', 'select'),
+        has_table_privilege('authenticated', 'public.imat_exam_sessions', 'insert,update,delete'),
+        has_table_privilege('authenticated', 'public.imat_exam_sessions', 'truncate,references,trigger'),
+        has_table_privilege('anon', 'public.imat_exam_sessions', 'select,insert,update,delete,truncate,references,trigger'),
+        has_function_privilege('authenticated', 'public.imat_start_exam(integer)', 'execute'),
+        has_function_privilege('authenticated', 'public.imat_save_exam_draft(uuid, jsonb)', 'execute'),
+        has_function_privilege('authenticated', 'public.imat_submit_exam(uuid, jsonb)', 'execute'),
+        has_function_privilege('anon', 'public.imat_start_exam(integer)', 'execute'),
+        has_function_privilege('anon', 'public.imat_save_exam_draft(uuid, jsonb)', 'execute'),
+        has_function_privilege('anon', 'public.imat_submit_exam(uuid, jsonb)', 'execute')
+      );
+    `));
+    assert(grants === "t:f:f:f:t:t:t:f:f:f", `unexpected imat_exam_sessions grants: ${grants}`);
+  });
+
+  await test("imat_exam_sessions: not available while questions are quarantined; 20 starts per day", async () => {
+    const open = imatStart("imat-c");
+    assert(open.resumed === "f", `imat-c could not start: ${JSON.stringify(open)}`);
+    userDataSql("set role service_role; update public.imat_questions set needs_review = true where year = 2024 and exam_set = 'mock';");
+    assertFailure(
+      userDataSql(asUser("imat-c", imatStartSql()), { allowFailure: true }),
+      "imat_exam_not_available",
+      "start while the year is quarantined",
+    );
+    assertFailure(
+      userDataSql(asUser("imat-c", imatSubmitSql(open.id, { m0000001: "A" })), { allowFailure: true }),
+      "imat_exam_not_available",
+      "submit while the year is quarantined",
+    );
+    userDataSql("set role service_role; update public.imat_questions set needs_review = false where year = 2024 and exam_set = 'mock' and id <> 'm0000060';");
+    assertFailure(
+      userDataSql(asUser("imat-c", imatStartSql()), { allowFailure: true }),
+      "imat_exam_not_available",
+      "start with 59 released questions",
+    );
+    userDataSql("set role service_role; update public.imat_questions set needs_review = false where id = 'm0000060';");
+    assertFailure(
+      userDataSql(asUser("imat-c", imatStartSql(2023)), { allowFailure: true }),
+      "imat_exam_not_available",
+      "start for a year without a full mock",
+    );
+    const restored = scalar(userDataSql(asUser("imat-c", imatSubmitSql(open.id, { m0000001: "A" }))));
+    assert(restored === "1|0|59|1.50|t", `submit after release: ${restored}`);
+
+    const ids = new Set();
+    for (let index = 0; index < 20; index += 1) {
+      const session = imatStart("imat-d");
+      assert(session.resumed === "f", `start ${index + 1} resumed an old session: ${JSON.stringify(session)}`);
+      ids.add(session.id);
+      userDataSql(asUser("imat-d", imatSubmitSql(session.id, {})));
+    }
+    assert(ids.size === 20, `20 starts must open 20 sessions: ${ids.size}`);
+    assertFailure(
+      userDataSql(asUser("imat-d", imatStartSql()), { allowFailure: true }),
+      "imat_exam_rate_limited",
+      "21st start in 24 hours",
+    );
+    assert(imatStart("imat-c").resumed === "f", "the start cap must be per account");
+    userDataSql("update public.imat_exam_sessions set started_at = started_at - interval '25 hours', deadline_at = deadline_at - interval '25 hours' where user_id = 'imat-d';");
+    assert(imatStart("imat-d").resumed === "f", "starts older than 24 hours must not count");
+  });
+
+  await test("imat functions: search_path pinned and security definer", async () => {
+    const configs = scalar(userDataSql(`
+      select string_agg(p.proname || '=' || p.prosecdef || '=' || array_to_string(coalesce(p.proconfig, '{}'), ','), ';' order by p.proname)
+      from pg_proc p
+      where p.pronamespace = 'public'::regnamespace
+        and p.proname in ('enforce_imat_attempts_daily_cap', 'imat_start_exam', 'imat_save_exam_draft', 'imat_submit_exam');
+    `));
+    assert(
+      configs === 'enforce_imat_attempts_daily_cap=false=search_path=""'
+        + ';imat_save_exam_draft=true=search_path=""'
+        + ';imat_start_exam=true=search_path=""'
+        + ';imat_submit_exam=true=search_path=""',
+      `unexpected imat function settings: ${configs}`,
+    );
+    const publicExecute = scalar(userDataSql(`
+      select count(*)
+      from pg_proc p, aclexplode(p.proacl) as acl
+      where p.pronamespace = 'public'::regnamespace
+        and p.proname in ('imat_start_exam', 'imat_save_exam_draft', 'imat_submit_exam')
+        and acl.grantee = 0;
+    `));
+    assert(publicExecute === "0", `imat functions must not be executable by PUBLIC: ${publicExecute}`);
+  });
+
   await test("storage buckets: private 5 MB documents, owner folders, 30 files; WebP figures", async () => {
     const buckets = scalar(userDataSql(`
       select string_agg(
@@ -933,6 +1297,7 @@ async function runUserDataTests() {
     `));
     assert(
       buckets === "documents|f|5242880|application/pdf,image/jpeg,image/png,image/webp,image/heic,image/heif"
+        + ";imat-figures|t|524288|image/webp"
         + ";sat-figures|t|524288|image/webp",
       `unexpected bucket settings: ${buckets}`,
     );
@@ -1072,10 +1437,13 @@ async function runUserDataTests() {
         has_table_privilege('anon', 'public.program_admission_details', 'select'),
         has_table_privilege('authenticated', 'public.favorites', 'update'),
         (select count(*) from public.favorites where user_id = 'fav-a'),
-        (select count(*) from pg_indexes where indexname = 'favorites_user_university_unique')
+        (select count(*) from pg_indexes where indexname = 'favorites_user_university_unique'),
+        has_table_privilege('authenticated', 'public.imat_exam_sessions', 'insert,update,delete'),
+        has_function_privilege('anon', 'public.imat_submit_exam(uuid, jsonb)', 'execute'),
+        (select count(*) from public.imat_questions)
       );
     `));
-    assert(state === "f:f:100:0", `SQL rerun changed card 4 state: ${state}`);
+    assert(state === "f:f:100:0:f:f:62", `SQL rerun changed card 4 state: ${state}`);
   });
 }
 
