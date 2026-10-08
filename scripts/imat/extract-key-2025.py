@@ -7,8 +7,10 @@
 #   IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank /usr/bin/python3 scripts/imat/extract-key-2025.py
 #
 # Cikti: keys/2025.json = { "1": "A", ..., "60": "E" }.
+# Cikis 0: anahtar yazildi. 60 vurgunun hepsi A ise bu dosya "hep A" kaynak kuralinin kanitidir; 2025 de
+#          shuffle-choices.mjs ile karistirilir (ana oturum karari, Gorev 10).
 # Cikis 1: vurgusuz ya da birden cok vurgulu soru (ya da sahipsiz vurgu) var; dosya yazilmaz.
-# Cikis 2: dosya yazilir ama dagilim dengesiz (bir harf sorularin yarisindan fazla): dur, ana oturuma raporla.
+# Cikis 2: dosya yazilir ama dagilim dengesiz ve hepsi A degil (bir harf sorularin yarisindan fazla): dur, raporla.
 import json
 import os
 import sys
@@ -77,6 +79,9 @@ def main():
     print(f"yazildi: {out} ({len(key)} soru)")
     print("dagilim " + ", ".join(f"{letter} {dist.get(letter, 0)}" for letter in LETTERS))
     top_letter, top_count = dist.most_common(1)[0]
+    if top_letter == "A" and top_count == len(key):
+        print(f"Kaynak kurali tutuyor: {len(key)}/{len(key)} vurgu A sikkinda; 2025 shuffle-choices.mjs ile karistirilir.")
+        return 0
     if top_count > len(key) // 2:
         print(f"DUR: {top_letter} harfi {top_count}/{len(key)}; dagilim dengesiz (yarisindan fazla). Ana oturuma raporla.")
         return 2

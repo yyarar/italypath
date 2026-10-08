@@ -1,8 +1,8 @@
-// IMAT sik karistirma (plan Gorev 9): kaynakta dogru cevabi hep A olan kagitlarda (2021-2024) siklari soru
-// kimligine bagli deterministik sirayla karistirir. 2025 (anahtar vurgudan) ve 2011-2020 (Cambridge anahtari)
-// icin cagrilmaz.
+// IMAT sik karistirma (plan Gorev 9-10): kaynakta dogru cevabi hep A olan kagitlarda (2021-2025) siklari soru
+// kimligine bagli deterministik sirayla karistirir. 2025'te kanit vurgu anahtaridir: keys/2025.json zorunlu ve
+// 60/60 A olmali (extract-key-2025.py). 2011-2020 (Cambridge anahtari) icin cagrilmaz.
 //
-//   PATH=/usr/local/bin:$PATH IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank node scripts/imat/shuffle-choices.mjs --years 2024
+//   PATH=/usr/local/bin:$PATH IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank node scripts/imat/shuffle-choices.mjs --years 2024,2025
 //   ... node scripts/imat/shuffle-choices.mjs --self-test   (determinizm + dagilim; dosya okumaz/yazmaz)
 //
 // Girdi extract/<yil>.json (metin ya da goruntuden yazim sonucu); cikti extract/<yil>.shuffled.json: ayni kayitlar,
@@ -28,7 +28,10 @@ const ALL_A_YEARS = Object.freeze({
   2022: "MUR surumu (MUR 2022 sayfasi): dogru cevap her soruda A (specs/assets/2026-10-08-imat-answer-key-sources.md)",
   2023: "son sayfa notu: tum sorularda dogru cevap A",
   2024: "son sayfa notu: tum sorularda dogru cevap A",
+  2025: "vurgu anahtari keys/2025.json: 60/60 vurgu A sikkinda (extract-key-2025.py)",
 });
+// Bu yillarda kanit dosyasi keys/<yil>.json zorunlu (yoksa karistirma durur).
+const KEY_PROOF_YEARS = Object.freeze([2025]);
 
 // sha256 zinciri: bayt bayt okunur; blok bitince sonraki blok onceki blogun sha256'si.
 function byteStream(seed) {
@@ -93,10 +96,16 @@ function shuffleYear(year) {
   const data = readJson(input);
   if (data.year !== year) throw new Error(`${input}: year ${data.year}`);
   const keyFile = join(KEYS_DIR, `${year}.json`);
+  if (KEY_PROOF_YEARS.includes(year) && !existsSync(keyFile)) throw new Error(`${year}: kanit dosyasi yok (${keyFile}); once extract-key-2025.py`);
   if (existsSync(keyFile)) {
     const key = readJson(keyFile);
     const notA = Object.entries(key).filter(([, letter]) => letter !== "A");
     if (notA.length > 0) throw new Error(`${year}: keys/${year}.json kaynak kuralina (hep A) uymuyor: ${notA.length} soru`);
+    const numbers = new Set(data.questions.map((q) => String(q.number)));
+    const keyNumbers = Object.keys(key);
+    if (keyNumbers.length !== numbers.size || keyNumbers.some((n) => !numbers.has(n))) {
+      throw new Error(`${year}: keys/${year}.json soru numaralari extract ile ayni degil (${keyNumbers.length} / ${numbers.size})`);
+    }
   }
   const ids = new Set();
   const questions = [];

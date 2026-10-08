@@ -24,8 +24,10 @@ Packages live in `<IMAT_OUT>/vision/<year>/`. Each package is a JSON array. Ther
 **Question packages** (`package-NN-img.json`, or `package-NN.json` when every question of a text-layer year was packaged). One entry per question, `image` is a crop of that question (the question box plus a 6 pt margin, 200 dpi):
 
 ```json
-{ "id": "1a2b3c4d", "year": 2024, "number": 7, "section": "physics-math", "image": "/abs/path/vision/2024/q-07.png", "textHint": "...", "choicesHint": { "A": "...", "B": "...", "C": "...", "D": "...", "E": "..." } }
+{ "id": "1a2b3c4d", "year": 2024, "number": 7, "section": "physics-math", "image": "/abs/path/vision/2024/q-07.png", "cropBox": [172, 300, 1573, 842], "textHint": "...", "choicesHint": { "A": "...", "B": "...", "C": "...", "D": "...", "E": "..." } }
 ```
+
+`cropBox` is where the crop sits on the page image; the controller uses it. Ignore it and measure `figure.box` in the crop image as usual.
 
 **Page packages** (`package-NN.json` for a year with a broken text layer). One entry per page, `image` is the whole page (200 dpi). You return every question whose number line is printed on the page:
 

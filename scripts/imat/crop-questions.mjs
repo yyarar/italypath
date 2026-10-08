@@ -6,16 +6,20 @@
 //   vision/<yil>/package-NN.json = [{ year, page, image, textHint: null, choicesHint: null, expectedNumbers: [] }]
 // Metin yili (2024, 2025): extract/<yil>.json'daki bbox + 6 pt pay (sayfaya kistirilir) 200 dpi sayfa PNG'sinden
 // sharp ile kirpilir -> vision/<yil>/q-NN.png. Varsayilan yalniz hasImage sorulari (goruntuden yazima gidenler):
-//   vision/<yil>/package-NN-img.json = [{ id, year, number, section, image, textHint: prompt, choicesHint: choices }]
+//   vision/<yil>/package-NN-img.json = [{ id, year, number, section, image, cropBox, textHint: prompt, choicesHint: choices }]
+// cropBox = kirpintinin sayfadaki yeri [x0, y0, x1, y1], 200 dpi sayfa pikseli; kirpinti icinde olculen sekil kutusu
+// (result figure.box) bununla sayfaya tasinir (merge-vision.mjs, crop-figures.mjs).
 // --all: tum sorular, paketler package-NN.json. Paket basina 10 soru. --numbers: yalniz bu sorularin kirpintisi
 // yenilenir, paket yazilmaz. Ayni kipteki eski paket dosyalari yeniden yazilmadan once silinir; sonuc dosyalarina
-// (result-*) dokunulmaz. image her zaman mutlak yol. Kirpintidaki dogru cevap vurgusu (2025) maskelenir.
+// (result-*) dokunulmaz. image her zaman mutlak yol. Kirpintidaki dogru cevap vurgusu yalniz 2025'te maskelenir
+// (lib/highlight.mjs; maske sonrasi yesil izli piksel kalirsa hata).
 import { existsSync, mkdirSync, readdirSync, rmSync } from "node:fs";
 import { join } from "node:path";
 
 import sharp from "sharp";
 
 import { checkInventory } from "./inventory.mjs";
+import { HIGHLIGHT_YEARS, maskHighlight, tintedPixels } from "./lib/highlight.mjs";
 import { EXTRACT_DIR, PAGE_DPI, VISION_DIR, argValue, pad2, pagePath, parseYears, readJson, writeJson } from "./paths.mjs";
 
 const MARGIN_PT = 6;
@@ -66,66 +70,14 @@ async function cropQuestion(year, question) {
   const lower = Math.min(meta.height, Math.ceil((bottom + MARGIN_PT) * scale));
   const out = join(VISION_DIR, String(year), `q-${pad2(question.number)}.png`);
   const crop = await sharp(source).extract({ left, top: upper, width: right - left, height: lower - upper }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
-  const masked = maskHighlight(crop.data, crop.info);
+  let masked = false;
+  if (HIGHLIGHT_YEARS.includes(year)) {
+    masked = maskHighlight(crop.data, crop.info) !== null;
+    const tinted = tintedPixels(crop.data, crop.info);
+    if (tinted > 0) throw new Error(`${year}:${question.number}: maske sonrasi ${tinted} yesil izli piksel`);
+  }
   await sharp(crop.data, { raw: crop.info }).png().toFile(out);
-  return { image: out, masked };
-}
-
-// 2025 kagidinda dogru sik acik yesil zemin + kesik cerceveyle vurgulu; goruntuden yazim modeli anahtari gormemeli.
-// Yesil zemin beyaza (yazi kenari griye) cevrilir, yesil alanin dort kenarindaki cerceve seridi (HIGHLIGHT_EDGE_PX) beyazlatilir.
-// Sik metni kenardan en az ~6 px iceride (olculdu: sol 15 px, ust/alt 6-15 px). Yerinde degistirir.
-const HIGHLIGHT = [204, 255, 204];
-const HIGHLIGHT_TOL = 14;
-const HIGHLIGHT_MIN_PX = 2000;
-const HIGHLIGHT_EDGE_PX = 4;
-function maskHighlight(data, { width, height, channels }) {
-  const isGreen = (i) => HIGHLIGHT.every((value, c) => Math.abs(data[i + c] - value) <= HIGHLIGHT_TOL);
-  let count = 0;
-  let minX = width;
-  let minY = height;
-  let maxX = -1;
-  let maxY = -1;
-  for (let y = 0; y < height; y += 1) {
-    for (let x = 0; x < width; x += 1) {
-      const i = (y * width + x) * channels;
-      if (!isGreen(i)) continue;
-      count += 1;
-      minX = Math.min(minX, x);
-      maxX = Math.max(maxX, x);
-      minY = Math.min(minY, y);
-      maxY = Math.max(maxY, y);
-    }
-  }
-  if (count < HIGHLIGHT_MIN_PX) return false;
-  const white = (x, y) => {
-    if (x < 0 || y < 0 || x >= width || y >= height) return;
-    const i = (y * width + x) * channels;
-    for (let c = 0; c < channels; c += 1) data[i + c] = 255;
-  };
-  // Yesil zemin uzerindeki yazi kenari (siyah + yesil karisimi) da geri cozulur: yesilimsi piksel -> G degerinde gri.
-  for (let y = minY; y <= maxY; y += 1) {
-    for (let x = minX; x <= maxX; x += 1) {
-      const i = (y * width + x) * channels;
-      if (data[i + 1] - Math.max(data[i], data[i + 2]) > 6) {
-        data[i] = data[i + 1];
-        data[i + 2] = data[i + 1];
-      }
-    }
-  }
-  const e = HIGHLIGHT_EDGE_PX;
-  for (let x = minX - e; x <= maxX + e; x += 1) {
-    for (let d = -e; d <= 2; d += 1) {
-      white(x, minY + d);
-      white(x, maxY - d);
-    }
-  }
-  for (let y = minY - e; y <= maxY + e; y += 1) {
-    for (let d = -e; d <= 2; d += 1) {
-      white(minX + d, y);
-      white(maxX - d, y);
-    }
-  }
-  return true;
+  return { image: out, masked, cropBox: [left, upper, right, lower] };
 }
 
 async function questionPackages(year, { all, numbers }) {
@@ -145,7 +97,7 @@ async function questionPackages(year, { all, numbers }) {
   for (const q of selected) {
     const crop = await cropQuestion(year, q);
     if (crop.masked) masked.push(q.number);
-    entries.push({ id: q.id, year, number: q.number, section: q.section, image: crop.image, textHint: q.prompt, choicesHint: q.choices });
+    entries.push({ id: q.id, year, number: q.number, section: q.section, image: crop.image, cropBox: crop.cropBox, textHint: q.prompt, choicesHint: q.choices });
   }
   if (masked.length > 0) console.log(`${year}: dogru cevap vurgusu maskelendi: ${masked.join(", ")}`);
   if (numbers) {
