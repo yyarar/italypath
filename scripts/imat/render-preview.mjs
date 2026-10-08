@@ -1,7 +1,8 @@
 // IMAT yan yana pilot onizleme (plan 2026-10-08 Gorev 13 Step 1; kalip scripts/sat/rw/render-rw-preview.mjs).
 // Her soru icin solda kagit (resmi PDF'in 200 dpi sayfa goruntusunden kirpinti), sagda bizim kayit sitedeki
 // components/imat/ImatQuestionCard.tsx kuralinca telefon genisliginde (390 px): cipler (yil, numara, bolum, konu, id),
-// soru metni (reading-general splitPassageBlocks ile satir satir, diger bolumler tek MathText), sekil metnin ALTINDA,
+// soru metni (her bolumde tek MathText: `\n` duz satir sonu, `\n\n` paragraf boslugu, asili girinti yok; SAT Okuma-Yazma'nin
+// satir satir dize kurali IMAT'ta kullanilmaz), sekil metnin ALTINDA,
 // bes sik A-E, dogru sik isaretli. Karistirilan yillarda (shuffle.order) her sikkin kagittaki harfi kucuk notla
 // yazilir; karistirma istisnasinda gerekce gosterilir. Metin lib/sat/mathSegments.mjs splitRichText ile parcalanir
 // (site ile ayni modul): <u> alti cizili, <i> italik, `$..$` / `$$..$$` katex.renderToString; duz metin HTML-kacisli.
@@ -30,7 +31,7 @@ import { fileURLToPath } from "node:url";
 import katex from "katex";
 import sharp from "sharp";
 
-import { splitPassageBlocks, splitRichText } from "../../lib/sat/mathSegments.mjs";
+import { splitRichText } from "../../lib/sat/mathSegments.mjs";
 import { CHOICE_KEYS, figureAbsPath, parseCliArgs, readBank, selectIds } from "./gate-imat.mjs";
 import { BANK_PATH, EXTRACT_DIR, IMAT_OUT, PAGE_DPI, PREVIEW_DIR, pad2, pagePath, parseYears, readJson } from "./paths.mjs";
 
@@ -193,23 +194,6 @@ function richHtml(text, ctx) {
     .join("");
 }
 
-/** components/sat/PassageText.tsx ile ayni cizim: paragraf bloklari, satir basina blok; madde imi sabit genislikte. */
-function passageHtml(text, ctx) {
-  const blocks = splitPassageBlocks(text)
-    .map((block) => {
-      const lines = block.lines
-        .map((line) =>
-          line.kind === "bullet"
-            ? `<div class="line line-bullet"><span class="bullet">•</span><span>${richHtml(line.text.slice(2), ctx)}</span></div>`
-            : `<div class="line line-${line.kind}">${richHtml(line.text, ctx)}</div>`
-        )
-        .join("");
-      return `<div class="para">${lines}</div>`;
-    })
-    .join("");
-  return `<div class="passage">${blocks}</div>`;
-}
-
 /** Karistirma kaydi dogru cevapla tutarli mi; sorun metni ya da null. */
 function shuffleProblem(record) {
   const shuffle = record.shuffle;
@@ -234,8 +218,8 @@ function figureHtml(record) {
 
 function cardHtml(record, ctx) {
   const order = Array.isArray(record.shuffle?.order) && !record.shuffle.exempt ? record.shuffle.order : null;
-  const prompt =
-    record.section === "reading-general" ? passageHtml(record.prompt, ctx) : `<span>${richHtml(record.prompt, ctx)}</span>`;
+  // Kart kurali: her bolumde tek MathText; .prompt white-space: pre-line ile `\n` satir sonu, `\n\n` paragraf boslugu olur.
+  const prompt = `<span>${richHtml(record.prompt, ctx)}</span>`;
   const choices = CHOICE_KEYS.map((key, index) => {
     const correct = key === record.correct_answer;
     const notes = [];
@@ -381,13 +365,6 @@ h1 { margin: 0 0 12px; font-family: var(--serif); font-weight: 600; font-size: 3
 .chip-topic { background: var(--editorial-sage-soft); color: var(--editorial-sage); }
 .chip-id { font-family: var(--mono); font-weight: 500; }
 .prompt { margin-bottom: 28px; white-space: pre-line; overflow-wrap: break-word; font-size: 16px; line-height: 32px; }
-/* PassageText (components/sat/PassageText.tsx): space-y-8, font-semibold, pl-[1.5em] -indent-[1.5em], w-[1.25em] */
-.passage > .para + .para { margin-top: 32px; }
-.line-label { font-weight: 600; }
-.line-verse { padding-left: 1.5em; text-indent: -1.5em; }
-.line-bullet { display: flex; }
-.line-bullet .bullet { width: 1.25em; flex-shrink: 0; }
-.line-bullet > span:last-child { min-width: 0; }
 .card u { text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 /* MathText: ayri satirdaki formul kendi icinde kayar */
 .math-display { display: block; overflow-x: auto; }

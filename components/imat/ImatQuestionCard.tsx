@@ -4,7 +4,6 @@ import { m, useReducedMotion } from "framer-motion";
 import { Check, X } from "lucide-react";
 
 import MathText from "@/components/sat/MathText";
-import PassageText from "@/components/sat/PassageText";
 import { useLanguage } from "@/context/LanguageContext";
 import { CHOICE_KEYS } from "@/lib/imat/scoring.mjs";
 import type { ImatChoiceKey, ImatQuestion } from "@/lib/imat/types";
@@ -44,12 +43,11 @@ export default function ImatQuestionCard({
         ) : null}
       </header>
 
+      {/* Tum bolumlerde soru metni tek MathText: `\n` duz satir sonu, `\n\n` paragraf boslugu (whitespace-pre-line),
+          asili girinti yok. IMAT metninde `\n` siir dizesi degil olagan satir sonudur (pasaj, kaynak satiri, soru cumlesi,
+          madde); SAT Okuma-Yazma'nin satir satir dize kurali burada kullanilmaz. <i>/<u> isaretlerini MathText cizer. */}
       <div className="mb-7 whitespace-pre-line break-words text-base leading-8 text-[var(--editorial-ink)]">
-        {question.section === "reading-general" ? (
-          <PassageText text={question.prompt} />
-        ) : (
-          <MathText text={question.prompt} />
-        )}
+        <MathText text={question.prompt} />
       </div>
 
       {question.figureUrl ? (
