@@ -161,6 +161,57 @@ if (existsSync(resolve(process.cwd(), "scripts/imat/import-bank.mjs"))) {
   if (!importer.includes("INSERT-ONLY")) fail("scripts/imat/import-bank.mjs: INSERT-ONLY sozlesme notu eksik");
 }
 
+// 8) Deneme arayuzu (Gorev 7): ortak soru karti bes sik, deneme ekrani cevap anahtari gostermez,
+// gorsel soru metninin altinda, metin bilesenleri SAT'tan; /imat sayfasi client leaf.
+{
+  const cardPath = "components/imat/ImatQuestionCard.tsx";
+  const runnerPath = "components/imat/mock/MockExamRunner.tsx";
+  const pagePath = "app/imat/page.tsx";
+  for (const path of [cardPath, runnerPath, pagePath]) {
+    if (!existsSync(resolve(process.cwd(), path))) fail(`${path}: dosya yok`);
+  }
+  const scoringModule = await import(pathToFileURL(resolve(process.cwd(), "lib/imat/scoring.mjs")).href);
+  if (scoringModule.CHOICE_KEYS.join("") !== "ABCDE") fail("scoring.mjs: CHOICE_KEYS tam olarak A-E bes harf olmali");
+
+  if (existsSync(resolve(process.cwd(), cardPath))) {
+    const card = read(cardPath);
+    if (!card.includes('import MathText from "@/components/sat/MathText"')) {
+      fail(`${cardPath}: MathText @/components/sat/MathText'ten import edilmeli (kopya yok)`);
+    }
+    if (!card.includes('import PassageText from "@/components/sat/PassageText"')) {
+      fail(`${cardPath}: PassageText @/components/sat/PassageText'ten import edilmeli (kopya yok)`);
+    }
+    if (!/import\s*\{[^}]*\bCHOICE_KEYS\b[^}]*\}\s*from\s*"@\/lib\/imat\/scoring\.mjs"/.test(card)) {
+      fail(`${cardPath}: CHOICE_KEYS @/lib/imat/scoring.mjs'ten import edilmeli (A-E tek kaynak)`);
+    }
+    if (!card.includes("CHOICE_KEYS.map(")) fail(`${cardPath}: siklar CHOICE_KEYS.map( ile cizilmeli (bes sik A-E)`);
+    const promptIndex = card.indexOf("question.prompt");
+    const figureIndex = card.indexOf("question.figureUrl");
+    if (promptIndex < 0 || figureIndex < 0 || figureIndex < promptIndex) {
+      fail(`${cardPath}: gorsel (question.figureUrl) soru metninin (question.prompt) ALTINDA cizilmeli`);
+    }
+  }
+
+  if (existsSync(resolve(process.cwd(), runnerPath))) {
+    const runner = read(runnerPath);
+    for (const forbidden of ["correctAnswer", "isCorrect", "revealed={true}"]) {
+      if (runner.includes(forbidden)) {
+        fail(`${runnerPath}: "${forbidden}" gecmemeli (deneme sirasinda dogru/yanlis gosterilmez)`);
+      }
+    }
+    if (/\srevealed(?=[\s/>])/.test(runner)) {
+      fail(`${runnerPath}: revealed kisaltmasi (true) kullanilmamali (deneme sirasinda dogru/yanlis gosterilmez)`);
+    }
+    if (!runner.includes('mode="exam"')) fail(`${runnerPath}: soru karti mode="exam" ile cizilmeli`);
+  }
+
+  if (existsSync(resolve(process.cwd(), pagePath))) {
+    const page = read(pagePath);
+    if (!/^["']use client["'];?\s*$/m.test(page.split("\n")[0] ?? "")) fail(`${pagePath}: ilk satir "use client" olmali`);
+    if (!page.includes("<ImatExplorer />")) fail(`${pagePath}: <ImatExplorer /> cizmeli`);
+  }
+}
+
 if (failures.length > 0) {
   console.error("check:imat-bank FAIL");
   for (const f of failures) console.error(` - ${f}`);
