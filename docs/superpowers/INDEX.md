@@ -86,3 +86,4 @@ Yeni belge eklerken: H1 altına `Durum (tarih): **DURUM** — kanıt.` satırı 
 | `plans/2026-09-17-isee-parificato-calculator-plan.md` | plan | 2026-09-17 | **UYGULANDI** | 193a242 (2026-09-19) |
 | `plans/2026-09-17-program-detail-pages-plan.md` | plan | 2026-09-17 | **KISMEN** | Task 1-5 ve 7-9 uygulandı, Task 6 İPTAL; görev tablosu dosyanın başında; SEO_AUDIT §23 |
 | `plans/2026-10-03-sat-reading-writing-import-plan.md` | plan | 2026-10-03 | **KISMEN** | Görev 1-11 bitti (dal `feat/sat-rw`, 957468c): 589 soru kapılardan geçti ve 3 Ekim'de canlıya gizli eklendi (canlı sayım 1.608, sunulan 1.019); push ve açma Kerem'in sözünü bekliyor; ilerleme `tmp/sat-bank/rw/DEVAM.md` (Git dışı) |
+| `plans/2026-10-08-imat-soru-bankasi-plan.md` | plan | 2026-10-08 | **UYGULANMADI** | Plan yazıldı (8 Ekim 2026): 20 görev, iki teslim (deneme sınavları 2023-2025; banka 2011-2022); dal `feat/imat`; ilerleme `tmp/imat-bank/DEVAM.md` (Git dışı) |
