@@ -51,6 +51,7 @@ Yeni belge eklerken: H1 altına `Durum (tarih): **DURUM** — kanıt.` satırı 
 | `specs/2026-09-17-program-detail-pages-design.md` | spec | 2026-09-17 | **KISMEN** | Task 1-5 ve 7-9 uygulandı (Deploy 1-4, 17-21 Eylül; SEO_AUDIT §23); Task 6 İPTAL (Kerem, 21 Eylül); kapsam dışı listesi §23.3 |
 | `specs/extraction-prompt-template.md` | spec | — | **LEGACY** | İptal edilen deadline scrape hattının parçası; güncel veri girişi yolu değil |
 | `specs/sat-math-extraction-prompt.md` | spec | — | **AKTİF REFERANS** | SAT pipeline LLM extract runbook'u (201464f, 2026-07-03); AGENT_CONTEXT 'SAT Soru Bankasi' bölümü |
+| `specs/2026-10-08-imat-soru-bankasi-design.md` | spec | 2026-10-08 | **UYGULANMADI** | Tasarım Kerem onayıyla yazıldı (8 Ekim 2026); plan `plans/2026-10-08-imat-soru-bankasi-plan.md`; dal `feat/imat`; anahtar kaynak kaydı `specs/assets/2026-10-08-imat-answer-key-sources.md` |
 | `plans/2026-05-10-italypath-editorial-ui.md` | plan | 2026-05-10 | **UYGULANDI** | 5eab41f (2026-05-10) |
 | `plans/2026-05-12-universities-field-guide-redesign.md` | plan | 2026-05-12 | **UYGULANDI** | ad109fc (2026-05-12) |
 | `plans/2026-05-14-communities-editorial-atlas.md` | plan | 2026-05-14 | **UYGULANDI** | 6055c7a (2026-05-14) |
