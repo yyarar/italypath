@@ -1,4 +1,5 @@
 // IMAT boru hattinin ortak yollari (plan 2026-10-08). Kaynak klasore yazilmaz.
+import { createHash } from "node:crypto";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { join, resolve } from "node:path";
@@ -55,3 +56,38 @@ export function ensureOutDirs() {
 }
 export function readJson(path) { return JSON.parse(readFileSync(path, "utf8")); }
 export function writeJson(path, data) { writeFileSync(path, JSON.stringify(data, null, 2) + "\n", "utf8"); }
+
+// Soru kimligi: sha256("imat:<yil>:<numara>") ilk 8 hex (extract_text.py ayni kurali uygular; site id'yi veriden okur).
+export function questionId(year, number) {
+  return createHash("sha256").update(`imat:${year}:${number}`).digest("hex").slice(0, 8);
+}
+
+// Komut satiri: `--ad deger` degeri (yoksa null).
+export function argValue(argv, name) {
+  const index = argv.indexOf(name);
+  if (index < 0) return null;
+  const value = argv[index + 1];
+  if (value === undefined || value.startsWith("--")) throw new Error(`${name} bir deger ister`);
+  return value;
+}
+
+// `--years 2023,2024` -> [2023, 2024]; izin verilmeyen yil hata.
+export function parseYears(value, allowed = ALL_YEARS) {
+  if (!value) throw new Error("--years zorunlu (ornek: --years 2024,2025)");
+  const years = value.split(",").map((part) => Number(part.trim()));
+  for (const year of years) {
+    if (!allowed.includes(year)) throw new Error(`Gecersiz yil: ${year} (izinli: ${allowed.join(", ")})`);
+  }
+  return [...new Set(years)].sort((a, b) => a - b);
+}
+
+// Iki haneli sayfa/soru/paket numarasi (p-01, q-07, package-03).
+export function pad2(n) {
+  return String(n).padStart(2, "0");
+}
+
+// Sayfa goruntuleri: 200 dpi, pages/<yil>/p-NN.png (1 tabanli). PDF noktasi -> piksel: x * PAGE_DPI / 72.
+export const PAGE_DPI = 200;
+export function pagePath(year, page) {
+  return join(PAGES_DIR, String(year), `p-${pad2(page)}.png`);
+}
