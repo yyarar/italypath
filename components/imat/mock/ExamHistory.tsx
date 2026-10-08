@@ -2,7 +2,7 @@
 
 import { ArrowLeft, ChevronRight } from "lucide-react";
 
-import { fillTemplate, formatDateTime, formatScore } from "@/components/imat/mock/MockExamResult";
+import { fillTemplate, formatDateTime, formatScore } from "@/components/imat/mock/format";
 import { useLanguage } from "@/context/LanguageContext";
 import { MAX_SCORE } from "@/lib/imat/scoring.mjs";
 import type { ImatExamSession } from "@/lib/imat/types";

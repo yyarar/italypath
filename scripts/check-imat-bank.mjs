@@ -203,6 +203,8 @@ if (existsSync(resolve(process.cwd(), "scripts/imat/import-bank.mjs"))) {
       fail(`${runnerPath}: revealed kisaltmasi (true) kullanilmamali (deneme sirasinda dogru/yanlis gosterilmez)`);
     }
     if (!runner.includes('mode="exam"')) fail(`${runnerPath}: soru karti mode="exam" ile cizilmeli`);
+    if (runner.includes('mode="practice"')) fail(`${runnerPath}: mode="practice" gecmemeli (pratik modu dogru sikki boyar)`);
+    if (!runner.includes("revealed={false}")) fail(`${runnerPath}: soru karti acikca revealed={false} ile cizilmeli`);
   }
 
   if (existsSync(resolve(process.cwd(), pagePath))) {

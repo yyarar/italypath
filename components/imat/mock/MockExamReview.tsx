@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft } from "lucide-react";
 
 import ImatQuestionCard from "@/components/imat/ImatQuestionCard";
-import { fillTemplate, formatScore } from "@/components/imat/mock/MockExamResult";
+import { fillTemplate, formatScore } from "@/components/imat/mock/format";
 import { useLanguage } from "@/context/LanguageContext";
 import { MAX_SCORE } from "@/lib/imat/scoring.mjs";
 import type { ImatExamSession, ImatQuestion } from "@/lib/imat/types";

@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useId, useState } from "react";
 import Link from "next/link";
+import { useUser } from "@clerk/nextjs";
 import { ArrowLeft } from "lucide-react";
 
 import ExamHistory from "@/components/imat/mock/ExamHistory";
@@ -9,12 +10,8 @@ import MockExamIntro from "@/components/imat/mock/MockExamIntro";
 import MockExamList from "@/components/imat/mock/MockExamList";
 import MockExamResult from "@/components/imat/mock/MockExamResult";
 import MockExamReview from "@/components/imat/mock/MockExamReview";
-import MockExamRunner, {
-  readLocalExams,
-  removeLocalExam,
-  type MockExamRunnerSession,
-  type MockExamSubmitted,
-} from "@/components/imat/mock/MockExamRunner";
+import MockExamRunner, { type MockExamRunnerSession, type MockExamSubmitted } from "@/components/imat/mock/MockExamRunner";
+import { readLocalExams, removeLocalExam } from "@/components/imat/mock/localExam";
 import { useLanguage } from "@/context/LanguageContext";
 import type { ImatExamSession, ImatQuestion } from "@/lib/imat/types";
 import { fetchImatMockQuestions, useImatCatalog } from "@/lib/imat/useImatBank";
@@ -25,7 +22,8 @@ type Tab = "mock" | "practice";
 type MockView =
   | { mode: "list" }
   | { mode: "intro"; year: number }
-  | { mode: "running"; session: MockExamRunnerSession; questions: ImatQuestion[] }
+  // expiredLocal: bu cihazdaki suresi dolmus kayit teslim ediliyor (sunucu bulamazsa kurallar ekranina donulur).
+  | { mode: "running"; session: MockExamRunnerSession; questions: ImatQuestion[]; expiredLocal?: boolean }
   | { mode: "result"; session: ImatExamSession; questions?: ImatQuestion[]; autoSubmitted?: boolean }
   | { mode: "review"; sessionId: string }
   | { mode: "history" };
@@ -61,6 +59,9 @@ function BackHomeLink({ label }: { label: string }) {
 export default function ImatExplorer() {
   const { t } = useLanguage();
   const tabsId = useId();
+  // Yerel deneme kayitlari Clerk kullanicisina baglidir; ayni tarayicidaki baska hesabin kaydi gorunmez.
+  const { user } = useUser();
+  const userId = user?.id ?? null;
   const { mocks, loading: catalogLoading, error: catalogError } = useImatCatalog();
   const { startExam, listSessions } = useImatExam();
 
@@ -103,7 +104,7 @@ export default function ImatExplorer() {
     setStartingYear(year);
     setStartError(null);
     try {
-      const local = readLocalExams().find((record) => record.year === year) ?? null;
+      const local = readLocalExams(userId).find((record) => record.year === year) ?? null;
       const questions = await fetchImatMockQuestions(year);
       if (local && !(Date.parse(local.deadlineAt) > Date.now())) {
         setView({
@@ -116,6 +117,7 @@ export default function ImatExplorer() {
             draftAnswers: {},
           },
           questions,
+          expiredLocal: true,
         });
         return;
       }
@@ -173,11 +175,21 @@ export default function ImatExplorer() {
         key={runningSession.id}
         session={runningSession}
         questions={view.questions}
+        userId={userId}
         onSubmitted={(result) => handleSubmitted(runningSession, result)}
         onAlreadySubmitted={() => {
           reloadSessions();
           setView({ mode: "history" });
         }}
+        onSessionNotFound={
+          view.expiredLocal
+            ? () => {
+                // Kayit calistiricida silindi; yeni deneme kurallar ekranindan baslar (dongu yok).
+                setStartError(null);
+                setView({ mode: "intro", year: runningSession.year });
+              }
+            : undefined
+        }
         onExit={openList}
       />
     );
@@ -257,6 +269,7 @@ export default function ImatExplorer() {
               loading={catalogLoading}
               catalogError={Boolean(catalogError)}
               sessions={sessionsState.sessions}
+              userId={userId}
               startingYear={startingYear}
               error={startErrorText}
               onStart={(year) => {

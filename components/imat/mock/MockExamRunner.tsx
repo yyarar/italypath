@@ -7,117 +7,15 @@ import { ArrowLeft, ArrowRight, Eraser, Flag } from "lucide-react";
 import ImatQuestionCard from "@/components/imat/ImatQuestionCard";
 import ExamNavigator from "@/components/imat/mock/ExamNavigator";
 import ExamTimer from "@/components/imat/mock/ExamTimer";
-import { fillTemplate } from "@/components/imat/mock/MockExamResult";
+import { fillTemplate } from "@/components/imat/mock/format";
+import { readLocalExam, removeLocalExam, writeLocalExam } from "@/components/imat/mock/localExam";
 import { useLanguage } from "@/context/LanguageContext";
-import {
-  createExamState,
-  examReducer,
-  localStorageKey,
-  mergeDrafts,
-  unansweredCount,
-} from "@/lib/imat/examState.mjs";
-import { CHOICE_KEYS } from "@/lib/imat/scoring.mjs";
+import { createExamState, examReducer, mergeDrafts, unansweredCount } from "@/lib/imat/examState.mjs";
 import type { ImatChoiceKey, ImatQuestion } from "@/lib/imat/types";
 import { isImatRpcError, useImatExam, type ImatSubmitResult } from "@/lib/imat/useImatExam";
 
 // Sunucuya ara kayit en cok bu aralikla (degisiklik varsa); sayfa gizlenince hemen.
 const DRAFT_SAVE_INTERVAL_MS = 60 * 1000;
-
-// ---------------------------------------------------------------------------
-// Tarayici hafizasi: yalniz kolaylik (spec 2026-10-08). Kayit oturum kimligiyle tutulur;
-// liste "Devam Et" icin yil ve son teslim zamanini buradan okur. Her erisim try/catch icinde.
-
-export interface LocalExamRecord {
-  sessionId: string;
-  year: number;
-  startedAt: string;
-  deadlineAt: string;
-  answers: Record<string, ImatChoiceKey>;
-  flags: Record<string, boolean>;
-  savedAt: number;
-}
-
-const LOCAL_PREFIX = localStorageKey("");
-
-function isPlainObject(value: unknown): value is Record<string, unknown> {
-  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
-}
-
-function parseLocalExam(raw: string | null): LocalExamRecord | null {
-  if (!raw) return null;
-  try {
-    const value: unknown = JSON.parse(raw);
-    if (!isPlainObject(value)) return null;
-    const { sessionId, year, startedAt, deadlineAt, savedAt } = value;
-    if (
-      typeof sessionId !== "string" ||
-      typeof year !== "number" ||
-      typeof startedAt !== "string" ||
-      typeof deadlineAt !== "string" ||
-      typeof savedAt !== "number"
-    ) {
-      return null;
-    }
-    const answers: Record<string, ImatChoiceKey> = {};
-    if (isPlainObject(value.answers)) {
-      for (const [questionId, letter] of Object.entries(value.answers)) {
-        if ((CHOICE_KEYS as readonly unknown[]).includes(letter)) answers[questionId] = letter as ImatChoiceKey;
-      }
-    }
-    const flags: Record<string, boolean> = {};
-    if (isPlainObject(value.flags)) {
-      for (const [questionId, flagged] of Object.entries(value.flags)) {
-        if (flagged === true) flags[questionId] = true;
-      }
-    }
-    return { sessionId, year, startedAt, deadlineAt, answers, flags, savedAt };
-  } catch {
-    return null;
-  }
-}
-
-export function readLocalExam(sessionId: string): LocalExamRecord | null {
-  try {
-    return parseLocalExam(window.localStorage.getItem(localStorageKey(sessionId)));
-  } catch {
-    return null;
-  }
-}
-
-// Teslim edilmemis yerel kayitlar, en yeni baslayan once. Sunucu tarafinda (window yok) bos.
-export function readLocalExams(): LocalExamRecord[] {
-  if (typeof window === "undefined") return [];
-  try {
-    const records: LocalExamRecord[] = [];
-    for (let i = 0; i < window.localStorage.length; i += 1) {
-      const key = window.localStorage.key(i);
-      if (!key || !key.startsWith(LOCAL_PREFIX)) continue;
-      const record = parseLocalExam(window.localStorage.getItem(key));
-      if (record && localStorageKey(record.sessionId) === key) records.push(record);
-    }
-    return records.sort((a, b) => Date.parse(b.startedAt) - Date.parse(a.startedAt));
-  } catch {
-    return [];
-  }
-}
-
-function writeLocalExam(record: LocalExamRecord) {
-  try {
-    window.localStorage.setItem(localStorageKey(record.sessionId), JSON.stringify(record));
-  } catch {
-    // Gizli pencere veya dolu kota: sunucu taslagi yine 60 sn'de bir yazilir.
-  }
-}
-
-export function removeLocalExam(sessionId: string) {
-  try {
-    window.localStorage.removeItem(localStorageKey(sessionId));
-  } catch {
-    // Hafiza erisilemiyorsa silinecek kayit da yoktur.
-  }
-}
-
-// ---------------------------------------------------------------------------
 
 export interface MockExamRunnerSession {
   id: string;
@@ -136,9 +34,15 @@ interface MockExamRunnerProps {
   session: MockExamRunnerSession;
   // Kagit sirasiyla 60 soru; deneme yaniti cevap anahtari tasimaz.
   questions: ImatQuestion[];
+  // Clerk kullanici kimligi: yerel kayit bu kimlikle yazilir ve yalniz bu kimlikle okunur.
+  userId: string | null;
   onSubmitted: (result: MockExamSubmitted) => void;
   // Oturum baska bir yerden zaten teslim edilmis: gecmisten acilir.
   onAlreadySubmitted: () => void;
+  // Yalniz suresi dolmus yerel kayit teslim edilirken verilir: sunucu oturumu bu kullanicida bulamazsa
+  // (imat_exam_not_found) yerel kayit silinir ve bu cagrilir; sonsuz "Devam Et" dongusu olmaz.
+  // Verilmezse not_found da teslim hatasi gibi gosterilir (takilan oturum anahtari da not_found doner).
+  onSessionNotFound?: () => void;
   // Teslim hatasinda listeye donus (cevaplar bu cihazda kalir).
   onExit: () => void;
 }
@@ -154,8 +58,10 @@ function answerSignature(questionIds: readonly string[], answers: Readonly<Recor
 export default function MockExamRunner({
   session,
   questions,
+  userId,
   onSubmitted,
   onAlreadySubmitted,
+  onSessionNotFound,
   onExit,
 }: MockExamRunnerProps) {
   const { t } = useLanguage();
@@ -171,7 +77,7 @@ export default function MockExamRunner({
   // kaydetme zamani bilinmiyor, 0 sayilir), yoksa sunucudaki taslak.
   const [state, dispatch] = useReducer(examReducer, null, () => {
     const initial = createExamState({ sessionId: session.id, questionIds });
-    const local = readLocalExam(session.id);
+    const local = readLocalExam(session.id, userId);
     const merged = mergeDrafts(
       local ? { answers: local.answers, savedAt: local.savedAt } : null,
       { answers: session.draftAnswers, savedAt: 0 },
@@ -197,8 +103,9 @@ export default function MockExamRunner({
 
   // Her degisiklikte tarayici hafizasina yaz (acilista da: liste "Devam Et"i buradan bilir).
   useEffect(() => {
-    if (finishedRef.current) return;
+    if (finishedRef.current || !userId) return;
     writeLocalExam({
+      userId,
       sessionId: session.id,
       year: session.year,
       startedAt: session.startedAt,
@@ -207,7 +114,7 @@ export default function MockExamRunner({
       flags: state.flags,
       savedAt: Date.now(),
     });
-  }, [session.id, session.year, session.startedAt, session.deadlineAt, state.answers, state.flags]);
+  }, [userId, session.id, session.year, session.startedAt, session.deadlineAt, state.answers, state.flags]);
 
   const flushDraft = useCallback(async () => {
     if (finishedRef.current || savingRef.current || submittingRef.current) return;
@@ -266,6 +173,12 @@ export default function MockExamRunner({
           onAlreadySubmitted();
           return;
         }
+        if (onSessionNotFound && isImatRpcError(error) && error.code === "imat_exam_not_found") {
+          finishedRef.current = true;
+          removeLocalExam(session.id);
+          onSessionNotFound();
+          return;
+        }
         // Cevaplar tarayici hafizasinda kalir; "Tekrar dene" ayni taslagi yeniden gonderir.
         setSubmitErrorKey(isImatRpcError(error) && error.code === "imat_exam_not_available" ? "notAvailable" : "submitError");
         setPhase("error");
@@ -273,7 +186,7 @@ export default function MockExamRunner({
         submittingRef.current = false;
       }
     },
-    [onAlreadySubmitted, onSubmitted, session.id, submitExam],
+    [onAlreadySubmitted, onSessionNotFound, onSubmitted, session.id, submitExam],
   );
 
   const handleExpire = useCallback(() => {

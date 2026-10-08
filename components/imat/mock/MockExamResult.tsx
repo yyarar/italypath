@@ -3,30 +3,13 @@
 import { m, useReducedMotion } from "framer-motion";
 import { AlarmClock } from "lucide-react";
 
+import { fillTemplate, formatScore } from "@/components/imat/mock/format";
 import { useLanguage } from "@/context/LanguageContext";
 import { MAX_SCORE, isLate } from "@/lib/imat/scoring.mjs";
 import { SECTIONS } from "@/lib/imat/taxonomy.mjs";
 import type { ImatExamSession } from "@/lib/imat/types";
 
-// Deterministik bicimlendirme (Intl yok; components/isee/format.ts kalibi): TR 58,5 / EN 58.5.
-export function formatScore(score: number, language: "tr" | "en"): string {
-  const safe = Number.isFinite(score) ? score : 0;
-  const fixed = safe.toFixed(1);
-  const normalized = fixed === "-0.0" ? "0.0" : fixed;
-  return language === "tr" ? normalized.replace(".", ",") : normalized;
-}
-
-export function fillTemplate(template: string, vars: Record<string, string | number>): string {
-  return template.replace(/\{(\w+)\}/g, (match, key: string) => (key in vars ? String(vars[key]) : match));
-}
-
-// Yerel saatle YYYY-MM-DD HH:mm (dil ayarindan bagimsiz, deterministik).
-export function formatDateTime(iso: string): string {
-  const date = new Date(iso);
-  if (Number.isNaN(date.getTime())) return "";
-  const pad = (value: number) => String(value).padStart(2, "0");
-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
-}
+const AUTO_SUBMIT_GRACE_MS = 60 * 1000;
 
 interface MockExamResultProps {
   // Teslim edilmis oturumun ozeti (submittedAt ve sayimlar dolu).
@@ -40,9 +23,13 @@ interface MockExamResultProps {
 export default function MockExamResult({ session, autoSubmitted = false, onReview, onRetake, onBack }: MockExamResultProps) {
   const { t, language } = useLanguage();
   const reduceMotion = useReducedMotion();
-  // Otomatik teslim sure dolunca yapilir; sunucu saati son tarihten milisaniyeler sonra yazacagi icin
-  // "gec" notu yalniz elle yapilan gec teslimde gosterilir (otomatik teslim notu durumu zaten anlatir).
-  const late = !autoSubmitted && session.submittedAt ? isLate(session.submittedAt, session.deadlineAt) : false;
+  // Sayac sifirda otomatik teslim eder; sunucu teslim saatini son tarihten milisaniyeler sonra yazar.
+  // Bu yuzden otomatik teslim yalniz 60 sn'den fazla gecikmisse (ornegin saatler sonra acilan oturum)
+  // "gec" sayilir; elle teslim her gecikmede.
+  const late =
+    session.submittedAt !== null &&
+    isLate(session.submittedAt, session.deadlineAt) &&
+    (!autoSubmitted || Date.parse(session.submittedAt) - Date.parse(session.deadlineAt) > AUTO_SUBMIT_GRACE_MS);
   const scoreText = fillTemplate(t.imat.mock.scoreOf, {
     score: formatScore(session.score ?? 0, language),
     max: MAX_SCORE,

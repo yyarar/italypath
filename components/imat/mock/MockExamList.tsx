@@ -1,11 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { m, useReducedMotion } from "framer-motion";
 import { ArrowRight, History } from "lucide-react";
 
-import { fillTemplate, formatDateTime, formatScore } from "@/components/imat/mock/MockExamResult";
-import { readLocalExams } from "@/components/imat/mock/MockExamRunner";
+import { fillTemplate, formatDateTime, formatScore } from "@/components/imat/mock/format";
+import { readLocalExams } from "@/components/imat/mock/localExam";
 import { useLanguage } from "@/context/LanguageContext";
 import { MAX_SCORE } from "@/lib/imat/scoring.mjs";
 import type { ImatExamSession, ImatMockSummary } from "@/lib/imat/types";
@@ -17,6 +17,8 @@ interface MockExamListProps {
   catalogError: boolean;
   // Teslim edilmis oturumlar (en yeni once); kartta o yilin son sonucu.
   sessions: ImatExamSession[];
+  // Clerk kullanici kimligi: "Devam Et" yalniz bu kullanicinin yerel kayitlarindan.
+  userId: string | null;
   startingYear: number | null;
   error: string | null;
   onStart: (year: number) => void;
@@ -29,6 +31,7 @@ export default function MockExamList({
   loading,
   catalogError,
   sessions,
+  userId,
   startingYear,
   error,
   onStart,
@@ -37,9 +40,10 @@ export default function MockExamList({
 }: MockExamListProps) {
   const { t, language } = useLanguage();
   const reduceMotion = useReducedMotion();
-  // Teslim edilmemis denemeler yalniz bu cihazin hafizasinda bilinir. Kartlar katalog yuklendikten
-  // sonra (istemcide) cizildigi icin sunucu HTML'i bu degere bagli degildir.
-  const [openYears] = useState(() => new Set(readLocalExams().map((record) => record.year)));
+  // Teslim edilmemis denemeler yalniz bu cihazin hafizasinda bilinir (yalniz bu kullanicinin kayitlari).
+  // Kartlar katalog yuklendikten sonra (istemcide) cizildigi icin sunucu HTML'i bu degere bagli degildir;
+  // liste her acilista yeniden kurulur, Clerk kullanicisi gelince yeniden okunur.
+  const openYears = useMemo(() => new Set(readLocalExams(userId).map((record) => record.year)), [userId]);
   const sortedMocks = useMemo(() => [...mocks].sort((a, b) => b.year - a.year), [mocks]);
 
   const lastResultByYear = useMemo(() => {
