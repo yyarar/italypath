@@ -14,6 +14,7 @@
     "check:docs": "node scripts/check-docs.mjs",
     "check:routes": "node scripts/check-route-access.mjs",
     "check:sat-bank": "node scripts/check-sat-bank.mjs",
+    "check:imat-bank": "node scripts/check-imat-bank.mjs",
     "check:cities": "node scripts/check-cities-data.mjs",
     "check:program-details": "node scripts/check-program-details.mjs",
     "check:program-metadata": "node scripts/check-program-metadata.mjs",

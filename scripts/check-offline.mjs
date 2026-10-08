@@ -32,6 +32,7 @@ const OFFLINE = [
   "check:expert-leads",
   "check:home-consultation",
   "check:sat-bank",
+  "check:imat-bank",
   "test:volunteer-desk",
   "test:mentor-operator",
   "test:expert-leads",

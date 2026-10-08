@@ -120,8 +120,10 @@ const protectedChecks = [
   "/favorites",
   "/hosgeldin",
   "/hub",
+  "/imat",
   "/profile",
   "/sat",
+  "/api/imat/questions",
   "/api/sat/questions",
   // Public API kaliplarinin kardes onekleri ve alt yollari public olmamali.
   "/api/expert-leads/export",
@@ -134,6 +136,7 @@ const protectedChecks = [
   "/hub/ayarlar",
   "/ekip",
   "/sat/konu/1",
+  "/imat/deneme/2024",
 ];
 
 for (const route of publicChecks) {
@@ -150,7 +153,7 @@ for (const route of protectedChecks) {
   }
 }
 
-for (const route of ["/api/sat/questions"]) {
+for (const route of ["/api/sat/questions", "/api/imat/questions"]) {
   if (classify(route) !== "protected-api") {
     failures.push(`Expected ${route} to keep Clerk's API response (no HTML redirect), got ${classify(route)}`);
   }
@@ -169,7 +172,7 @@ for (const route of protectedPageRoutes) {
     }
   }
 }
-for (const path of ["/", "/universities", "/universities/7", "/universities/7.rsc", "/universities/7.json", "/universities/7.segments/x.segment.rsc", "/universities/7/departments/computer-science", "/cities", "/scholarships", "/isee", "/communities", "/on-gorusme", "/giris", "/giris/sso-callback", "/ai-mentor", "/yasal/gizlilik", "/data/italy-regions.geojson", "/llms.txt", "/sitemap.xml", "/robots.txt", "/hubx", "/satx"]) {
+for (const path of ["/", "/universities", "/universities/7", "/universities/7.rsc", "/universities/7.json", "/universities/7.segments/x.segment.rsc", "/universities/7/departments/computer-science", "/cities", "/scholarships", "/isee", "/communities", "/on-gorusme", "/giris", "/giris/sso-callback", "/ai-mentor", "/yasal/gizlilik", "/data/italy-regions.geojson", "/llms.txt", "/sitemap.xml", "/robots.txt", "/hubx", "/imatx", "/satx"]) {
   if (runsThroughProxy(path)) {
     failures.push(`${path} should not run through the proxy (public page or asset; S9#6)`);
   }
@@ -182,7 +185,7 @@ for (const path of ["/universities/007", "/universities/003/departments/x", "/un
 
 // 3) Envanter: her sayfa, API ve public dosya ya public ya da acikca korumali olmali.
 // Yeni bir sayfa listeye eklenmezse oturumsuz ziyaretci giris duvarina duser; bu adim onu yakalar.
-const protectedApiRoutes = ["/api/sat/questions"];
+const protectedApiRoutes = ["/api/sat/questions", "/api/imat/questions"];
 
 function walk(dir) {
   if (!existsSync(dir)) return [];

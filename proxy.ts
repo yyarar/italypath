@@ -42,6 +42,7 @@ const PROTECTED_PAGE_ROUTES = [
   "/favorites",
   "/hosgeldin",
   "/hub",
+  "/imat",
   "/profile",
   "/sat",
 ];
@@ -127,6 +128,7 @@ export const config = {
     '/favorites/:path*',
     '/hosgeldin/:path*',
     '/hub/:path*',
+    '/imat/:path*',
     '/profile/:path*',
     '/sat/:path*',
     // Okul adresi: yalniz kanonik olmayan id (ör. 003, %33, abc) proxy'ye girer ve 308/404 alir;
