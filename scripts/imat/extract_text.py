@@ -19,7 +19,7 @@
 # ust/alt simge Unicode; $...$ uretilmez.
 # Italik (lib/sat/mathSegments.mjs sozlesmesi, Gorev 11 duzeltmesi): yazi tipi adi Italic/Oblique olan karakterler
 # satir icinde ardisik dizilere toplanir; dizi en az 3 bosluksuz karakter tasiyorsa <i>...</i> ile sarilir. Sarilmaz:
-# tek harf ya da 3 karakterlik bosluksuz harf/rakam/isaret dizisi (matematik degiskeni: x, R, ADB), denklem puntolu ya
+# tek harf ya da 3 karakterlik bosluksuz harf/rakam/isaret dizisi (matematik degiskeni ya da nokta adi), denklem puntolu ya
 # da eslenmeyen glif iceren dizi (formul nesnesi), tum bosluksuz karakterleri italik olan blok (tipografik blok
 # bicimi: italik pasaj, tamami italik sik). Blok = "\n\n" ile ayrilan paragraf; alinti kaynak satiri pasajindan ayri
 # bloktur (pasaj tamamen italik, kaynak satirindaki kitap adi isaretlenir). Isaretler satir sonunu asmaz: satir
@@ -372,11 +372,11 @@ def run_qualifies(units, segments):
     pieces = ["".join(units[i]["t"] for i in range(a, b)) for a, b in segments]
     text = " ".join(pieces)
     if sum(1 for ch in text if not ch.isspace()) < MARK_MIN_CHARS:
-        return False  # tek harf / iki harf (x, cm)
+        return False  # tek ya da iki karakter (degisken, birim)
     if any(units[i].get("formula") for a, b in segments for i in range(a, b)):
         return False  # formul nesnesinin parcasi
     if not any(ch.isspace() for ch in text) and len(text) <= MARK_MIN_CHARS and all(ch.isalnum() or ch in MATH_RUN_CHARS for ch in text):
-        return False  # kisa matematik dizisi (ADB, 2x)
+        return False  # kisa matematik dizisi (uc nokta adi, katsayili degisken)
     return True
 
 
@@ -863,35 +863,44 @@ def self_test():
         assert re.sub(r"</?i>", "", got) == plain, f"{label}: isaretler silinince metin degisiyor"
         checks += 1
 
-    # 1 kismi italik dizi -> isaret (kitap adi; noktalama disarida)
-    expect(("Who wrote ", ("To the Lighthouse", True), "?"), "Who wrote <i>To the Lighthouse</i>?", "kismi dizi")
+    # Fikstur metinleri uydurmadir (hicbir kagittan parca yok; bankaya 4 kelimelik pencereyle karsi denetlendi).
+    # 1 kismi italik dizi -> isaret (uydurma kitap adi; noktalama disarida)
+    expect(("Lena borrowed ", ("The Copper Lantern Diaries", True), " twice."), "Lena borrowed <i>The Copper Lantern Diaries</i> twice.", "kismi dizi")
     # 2 tamamen italik paragraf -> isaret yok; sonraki paragraf ayri blok
-    expect((("A whole passage set in italics.", True), "\n\n", "Which is true?"), "A whole passage set in italics.\n\nWhich is true?", "tamamen italik paragraf")
+    expect(
+        (("Marbled clouds drifted over the quiet harbour town.", True), "\n\n", "Pick the closest summary."),
+        "Marbled clouds drifted over the quiet harbour town.\n\nPick the closest summary.",
+        "tamamen italik paragraf",
+    )
     # 3 tek italik harf (matematik degiskeni) -> isaret yok
-    expect(("For every real value of ", ("x", True), "?"), "For every real value of x?", "tek harf")
-    # 4 iki harf (birim) ve uc karakterlik bosluksuz matematik dizisi -> isaret yok
-    expect(("radius 5 ", ("cm", True), " and angle ", ("ADB", True)), "radius 5 cm and angle ADB", "kisa matematik dizisi")
+    expect(("Solve for the unknown ", ("q", True), " below."), "Solve for the unknown q below.", "tek harf")
+    # 4 iki karakter ve uc karakterlik bosluksuz matematik dizisi -> isaret yok
+    expect(("a span of 7 ", ("uv", True), " near corner ", ("PQK", True)), "a span of 7 uv near corner PQK", "kisa matematik dizisi")
     # 5 formul nesnesi karakteri tasiyan dizi -> isaret yok
-    expect(("a radius of ", ("meeBv", True, True)), "a radius of meeBv", "formul nesnesi")
+    expect(("the ratio ", ("rtWz", True, True), " holds"), "the ratio rtWz holds", "formul nesnesi")
     # 6 satir basina dengeli: art arda iki italik satir ayri ayri kapanir/acilir, blok kismi
     expect(
-        ("From the given statements", "\n", ("If today is Saturday, then I am a philosopher", True), "\n", ("I am not a philosopher", True), "\n", "Which conclusion?"),
-        "From the given statements\n<i>If today is Saturday, then I am a philosopher</i>\n<i>I am not a philosopher</i>\nWhich conclusion?",
+        ("Consider both claims", "\n", ("Every violinist in Orvella owns a blue scarf", True), "\n", ("Tomas owns no blue scarf", True), "\n", "What follows?"),
+        "Consider both claims\n<i>Every violinist in Orvella owns a blue scarf</i>\n<i>Tomas owns no blue scarf</i>\nWhat follows?",
         "satir basina dengeli",
     )
     # 7 satir sonunu asan dizi: alt satirdaki kisa parca da isaretlenir (dizi bir butun)
-    expect(("See ", ("The Long Title", True), "\n", ("Of", True), " here"), "See <i>The Long Title</i>\n<i>Of</i> here", "satir asan dizi")
+    expect(
+        ("Read ", ("The Glass Orchard of", True), "\n", ("Vel", True), " again"),
+        "Read <i>The Glass Orchard of</i>\n<i>Vel</i> again",
+        "satir asan dizi",
+    )
     # 8 pasaj tamamen italik, kaynak satiri ayri blok: pasaj isaretsiz, kaynak satirindaki kitap adi isaretli
     expect(
-        (("A quoted passage in italics.", True), "|", "Author ", ("Book Title", True), " - Publisher", "\n\n", "Question?"),
-        "A quoted passage in italics.\nAuthor <i>Book Title</i> - Publisher\n\nQuestion?",
+        (("Gulls argued loudly above the drying nets.", True), "|", "Mira Totten ", ("Salt and Rope Tales", True), " - Northwind Press", "\n\n", "Choose one."),
+        "Gulls argued loudly above the drying nets.\nMira Totten <i>Salt and Rope Tales</i> - Northwind Press\n\nChoose one.",
         "pasaj + kaynak satiri",
     )
     # 9 tamamen italik sik (tek blok) -> isaret yok; bosluk yalniz iki yani italikse italik
-    expect((("Love in the Time of Cholera", True),), "Love in the Time of Cholera", "tamamen italik sik")
-    expect(("Bloom ", ("Ulysses", True), " and ", ("Dubliners", True)), "Bloom <i>Ulysses</i> and <i>Dubliners</i>", "iki ayri dizi")
+    expect((("Seven Lamps for a Patient Clockmaker", True),), "Seven Lamps for a Patient Clockmaker", "tamamen italik sik")
+    expect(("Corvin ", ("Ashfall", True), " and ", ("Tidewort", True)), "Corvin <i>Ashfall</i> and <i>Tidewort</i>", "iki ayri dizi")
     # 10 dolar kacisi isaretle birlikte korunur
-    expect(("Cost ", ("in $ terms", True), " now"), "Cost <i>in \\$ terms</i> now", "dolar kacisi")
+    expect(("Price ", ("in $ units", True), " shown"), "Price <i>in \\$ units</i> shown", "dolar kacisi")
     return checks
 
 
