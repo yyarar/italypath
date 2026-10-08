@@ -10,6 +10,7 @@ import {
   FolderOpen,
   GraduationCap,
   MapPinned,
+  Stethoscope,
   Users,
   type LucideIcon,
 } from "lucide-react";
@@ -35,6 +36,8 @@ interface ToolCard {
   iconSurface: string;
   photo: { src: string; alt: string };
   wide?: boolean;
+  // Son kart: lg'de tam satir (8 aracta ucuncu satirda yalniz kalmasin), sm'de iki sutun.
+  fullRow?: boolean;
   dark?: boolean;
 }
 
@@ -88,6 +91,15 @@ export default function HomeToolsSection({ stats, citiesCount, scholarshipRegion
       iconSurface: "bg-[var(--editorial-terracotta)] text-white",
     },
     {
+      icon: Stethoscope,
+      ...c.imat,
+      meta: `${c.imat.meta} · ${c.signInNote}`,
+      href: "/imat",
+      photo: { src: HOME_PHOTOS.library.src, alt: alts.library },
+      surface: "bg-[#f2e8e0]",
+      iconSurface: "bg-[var(--editorial-terracotta)] text-white",
+    },
+    {
       icon: Building2,
       ...c.cities,
       meta: c.cities.meta.replace("{count}", String(citiesCount)),
@@ -112,6 +124,7 @@ export default function HomeToolsSection({ stats, citiesCount, scholarshipRegion
       photo: { src: HOME_PHOTOS.desk.src, alt: alts.desk },
       surface: "bg-[#15201c]",
       iconSurface: "bg-white/10 text-[#f3d2bf]",
+      fullRow: true,
       dark: true,
     },
   ];
@@ -135,7 +148,7 @@ export default function HomeToolsSection({ stats, citiesCount, scholarshipRegion
           {tools.map((tool, index) => {
             const Icon = tool.icon;
             return (
-              <Reveal key={tool.href} delay={index * 0.04} className={tool.wide ? "sm:col-span-2" : ""}>
+              <Reveal key={tool.href} delay={index * 0.04} className={tool.fullRow ? "sm:col-span-2 lg:col-span-4" : tool.wide ? "sm:col-span-2" : ""}>
                 <Link
                   href={tool.href}
                   className="home-feature-card home-pressable group block h-full rounded-[1.75rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--editorial-sage)]"
@@ -147,14 +160,14 @@ export default function HomeToolsSection({ stats, citiesCount, scholarshipRegion
                   >
                     <div
                       className={`relative -mx-5 -mt-5 mb-5 overflow-hidden rounded-t-[1.7rem] sm:-mx-6 sm:-mt-6 ${
-                        tool.wide ? "h-44 sm:h-52" : "h-36"
+                        tool.wide || tool.fullRow ? "h-44 sm:h-52" : "h-36"
                       }`}
                     >
                       <Image
                         src={tool.photo.src}
                         alt={tool.photo.alt}
                         fill
-                        sizes={tool.wide ? "(min-width: 1024px) 620px, (min-width: 640px) 100vw, 100vw" : "(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw"}
+                        sizes={tool.fullRow ? "(min-width: 1280px) 1216px, 100vw" : tool.wide ? "(min-width: 1024px) 620px, (min-width: 640px) 100vw, 100vw" : "(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw"}
                         className="home-hover-image object-cover"
                       />
                     </div>
