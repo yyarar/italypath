@@ -40,6 +40,7 @@ const OFFLINE = [
   "test:sat-audit",
   "test:sat-patch",
   "test:sat-explanations",
+  "test:imat-scoring",
   // Gecici yerel PostgreSQL kurar (Homebrew postgresql@16/17 veya POSTGRES_BIN); ag kullanmaz.
   "test:mentor-db",
   "lint",
