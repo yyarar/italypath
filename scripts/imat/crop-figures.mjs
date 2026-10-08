@@ -7,16 +7,21 @@
 // Kaynak pages/<yil>/p-NN.png (render-pages.mjs, 200 dpi); kaynak klasore yazilmaz.
 // Pay: kutunun her yaninda en cok 8 pt (sayfaya kistirilir). Bir yanin dis bandi (SEARCH_BAND_PX) beyaz degilse (komsu
 // yazi) o yanin payi piksel piksel daraltilir; bant beyaz olunca durur. Payi 0'a inip yine beyaz bant bulunmayan yan
-// (komsu yazi sekle bitisik: tablo cizgisinin hemen ustunde harf kuyrugu gibi) kutudan kesilir ve PAD_PX beyaz dolguyla
-// genisletilir; bu yanlar raporda paddedSides, ekranda UYARI olarak listelenir ve gozle (Gorev 11 gorsel sadakat)
-// kontrol edilir: dolgu yaninda kutu sekli kesiyor olabilir. 2025'te dogru cevap vurgusu maskelenir (lib/highlight.mjs).
-// sharp: en cok 1400 px genislik, WebP kalite 90/82/74/66 ile <= 512 KB. Kenar kontrolu: kodlanmis gorselin dort
-// kenarindaki 2 piksellik serit tamamen beyaz (her kanal >= 245) olmali; degilse hata (cikis 1).
+// "kenar beyaz degil" demektir: ya komsu yazi sekle bitisik (tablo cizgisinin hemen ustunde harf kuyrugu) ya da kutu
+// sekli kesiyor; betik ikisini ayirt edemez. Boyle bir yan yalniz figures/edge-signoff.json'da
+// [{ id, side, pageBox, note }] ayni id + yan + pageBox ile onayliysa (gorsel kontrolden sonra yazilir) kutudan kesilir
+// ve PAD_PX beyaz dolguyla genisletilir (raporda paddedSides). Onaysizsa sekil YAZILMAZ (eski dosya silinir), raporda
+// written: false, cikis 1. 2025'te dogru cevap vurgusu maskelenir (lib/highlight.mjs).
+// sharp: en cok 1400 px genislik, WebP kalite 90/82/74/66 ile <= 512 KB; secilen tampon dosyaya oldugu gibi yazilir
+// (yeniden kodlanmaz; raporun quality alani dosyanin kalitesidir). Kenar kontrolu: yazilan gorselin dort kenarindaki
+// 2 piksellik serit tamamen beyaz (her kanal >= 245) olmali; degilse hata (cikis 1).
 // Cikti figures/<yil>/<id>.webp ve figures/figure-crop-report.json [{ id, year, number, kind, bytes, width, height,
-// page, cropPx, marginPx, paddedSides, quality, pageBox }] (istenmeyen yillarin kayitlari korunur). Var olan dosya, sayfa kutusu raporla
-// ayniysa atlanir (yine olculur); --force hepsini yeniden kirpar. Bloke soru atlanir. Ayni girdi ayni dosyayi verir.
-import { existsSync, mkdirSync, readdirSync, statSync } from "node:fs";
-import { basename, join } from "node:path";
+// page, cropPx, marginPx, paddedSides, quality, pageBox, written }] (istenmeyen yillarin kayitlari korunur). Var olan
+// dosya, sayfa kutusu raporla ayni ve written: true ise atlanir (yine olculur, onay yine aranir); --force hepsini
+// yeniden kirpar. Bloke soru atlanir. Ayni girdi ayni dosyayi verir. validate-bank kapi 6 ayni onay kuralini uygular.
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { basename, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 import sharp from "sharp";
 
@@ -25,14 +30,45 @@ import { EXTRACT_DIR, FIGURES_DIR, PAGE_DPI, argValue, pagePath, parseYears, rea
 
 const MARGIN_PT = 8;
 const SEARCH_BAND_PX = 4; // secimde 4 px beyaz bant (WebP kenar gurultusune pay); son kontrol 2 px
-const PAD_PX = 8;
-const SIDES = ["left", "top", "right", "bottom"];
-const MAX_WIDTH = 1400;
+export const PAD_PX = 8;
+export const SIDES = Object.freeze(["left", "top", "right", "bottom"]);
+export const MAX_WIDTH = 1400;
 const MAX_BYTES = 512 * 1024;
-const QUALITIES = [90, 82, 74, 66];
+export const QUALITIES = Object.freeze([90, 82, 74, 66]);
 const EDGE_PX = 2;
 const WHITE_MIN = 245;
-const REPORT_PATH = join(FIGURES_DIR, "figure-crop-report.json");
+export const CROP_REPORT_PATH = join(FIGURES_DIR, "figure-crop-report.json");
+export const EDGE_SIGNOFF_PATH = join(FIGURES_DIR, "edge-signoff.json");
+
+// edge-signoff.json: [{ id, side, pageBox: [x0, y0, x1, y1] (sayfa pikseli, rapordaki pageBox), note }]. Dosya yoksa bos.
+// Bicim bozuksa hata. Donus: Map("<id>|<yan>" -> kayit).
+export function readEdgeSignoff(path = EDGE_SIGNOFF_PATH) {
+  if (!existsSync(path)) return new Map();
+  const list = readJson(path);
+  if (!Array.isArray(list)) throw new Error(`${path}: dizi olmali`);
+  const out = new Map();
+  list.forEach((entry, index) => {
+    const at = `edge-signoff.json ${index + 1}`;
+    if (!/^[0-9a-f]{8}$/.test(String(entry?.id))) throw new Error(`${at}: gecersiz id`);
+    if (!SIDES.includes(entry.side)) throw new Error(`${at}: side ${entry.side} (left|top|right|bottom)`);
+    if (!Array.isArray(entry.pageBox) || entry.pageBox.length !== 4 || entry.pageBox.some((v) => !Number.isInteger(v))) {
+      throw new Error(`${at}: pageBox 4 tamsayi olmali`);
+    }
+    if (typeof entry.note !== "string" || !entry.note.trim()) throw new Error(`${at}: note bos`);
+    const key = `${entry.id}|${entry.side}`;
+    if (out.has(key)) throw new Error(`${at}: ${entry.id} ${entry.side} iki kez`);
+    out.set(key, entry);
+  });
+  return out;
+}
+
+// Dolgulu yanlardan onayi olmayanlar (onay = ayni id + yan + pageBox birebir).
+export function unsignedSides(id, sides, pageBox, signoff) {
+  return (sides ?? []).filter((side) => {
+    const entry = signoff.get(`${id}|${side}`);
+    return !entry || JSON.stringify(entry.pageBox) !== JSON.stringify(pageBox);
+  });
+}
 
 // Her kenarda beyaz olmayan piksel sayisi (dis `band` piksellik serit); rect verilirse tampon icindeki o dikdortgen.
 function darkEdges(data, { width, height, channels }, band = EDGE_PX, rect = [0, 0, width, height]) {
@@ -71,13 +107,15 @@ function pageBoxOf(at, figure) {
   return [Math.max(cx0, cx0 + x0), Math.max(cy0, cy0 + y0), Math.min(cx1, cx0 + x1), Math.min(cy1, cy0 + y1)];
 }
 
-async function readStats(path) {
-  const meta = await sharp(path).metadata();
-  const { data, info } = await sharp(path).removeAlpha().raw().toBuffer({ resolveWithObject: true });
-  return { width: meta.width, height: meta.height, format: meta.format, bytes: statSync(path).size, dark: darkEdges(data, info) };
+// Tampon (WebP) olcumu: boyut, bicim, kenar.
+async function readStats(buffer) {
+  const meta = await sharp(buffer).metadata();
+  const { data, info } = await sharp(buffer).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  return { width: meta.width, height: meta.height, format: meta.format, bytes: buffer.length, dark: darkEdges(data, info) };
 }
 
-async function cropFigure(year, q, pageBox, out) {
+// Secilen WebP tamponunu ve kirpma ayrintisini doner; dosyaya yazmaz (onay main'de).
+async function cropFigure(year, q, pageBox) {
   const page = q.figureBox.page ?? q.page;
   const source = pagePath(year, page);
   if (!existsSync(source)) throw new Error(`${year}:${q.number} ${q.id}: sayfa goruntusu yok (${source}); once render-pages.mjs`);
@@ -133,20 +171,20 @@ async function cropFigure(year, q, pageBox, out) {
     quality = level;
     if (webp.length <= MAX_BYTES) break;
   }
-  await sharp(webp).toFile(out);
-  return { page, cropPx: chosen.cropPx, marginPx: chosen.marginPx, paddedSides: chosen.paddedSides, quality };
+  return { buffer: webp, detail: { page, cropPx: chosen.cropPx, marginPx: chosen.marginPx, paddedSides: chosen.paddedSides, quality } };
 }
 
 async function main() {
   const argv = process.argv.slice(2);
   const years = parseYears(argValue(argv, "--years"));
   const force = argv.includes("--force");
-  const previous = existsSync(REPORT_PATH) ? readJson(REPORT_PATH) : [];
+  const signoff = readEdgeSignoff();
+  const previous = existsSync(CROP_REPORT_PATH) ? readJson(CROP_REPORT_PATH) : [];
   const previousById = new Map(previous.map((entry) => [entry.id, entry]));
   const report = previous.filter((entry) => !years.includes(entry.year));
   const problems = [];
-  const padded = [];
-  const counts = { cropped: 0, kept: 0, blockedSkipped: 0 };
+  const signed = [];
+  const counts = { cropped: 0, kept: 0, refused: 0, blockedSkipped: 0 };
   for (const year of years) {
     const extractPath = join(EXTRACT_DIR, `${year}.json`);
     if (!existsSync(extractPath)) throw new Error(`${year}: ${extractPath} yok`);
@@ -164,39 +202,57 @@ async function main() {
       const out = join(dir, `${q.id}.webp`);
       const pageBox = pageBoxOf(at, q.figureBox).map((v) => Math.round(v));
       const old = previousById.get(q.id);
+      let buffer;
       let detail;
-      if (!force && existsSync(out) && old && JSON.stringify(old.pageBox) === JSON.stringify(pageBox)) {
+      let kept = false;
+      if (!force && existsSync(out) && old?.written === true && JSON.stringify(old.pageBox) === JSON.stringify(pageBox)) {
+        buffer = readFileSync(out);
         detail = { page: old.page, cropPx: old.cropPx, marginPx: old.marginPx, paddedSides: old.paddedSides ?? [], quality: old.quality };
-        counts.kept += 1;
+        kept = true;
       } else {
-        detail = await cropFigure(year, q, pageBox, out);
-        counts.cropped += 1;
+        ({ buffer, detail } = await cropFigure(year, q, pageBox));
       }
-      const stats = await readStats(out);
-      const entry = { id: q.id, year, number: q.number, kind: q.figureBox.kind, bytes: stats.bytes, width: stats.width, height: stats.height, ...detail, pageBox };
-      report.push(entry);
+      const unsigned = unsignedSides(q.id, detail.paddedSides, pageBox, signoff);
+      const written = unsigned.length === 0;
+      if (written) {
+        if (!kept) writeFileSync(out, buffer);
+        if (!readFileSync(out).equals(buffer)) problems.push(`${at}: diskteki dosya secilen tampondan farkli`);
+        if (detail.paddedSides.length > 0) signed.push(`${at}: ${detail.paddedSides.join(", ")}`);
+        counts[kept ? "kept" : "cropped"] += 1;
+      } else {
+        rmSync(out, { force: true });
+        counts.refused += 1;
+        for (const side of unsigned) {
+          problems.push(
+            `${at}: kenar beyaz degil (sekil kesilmis olabilir); gorsel kontrol sonrasi edge-signoff.json'a yaz: ${JSON.stringify({ id: q.id, side, pageBox })} (sekil yazilmadi)`
+          );
+        }
+      }
+      const stats = await readStats(buffer);
+      report.push({ id: q.id, year, number: q.number, kind: q.figureBox.kind, bytes: stats.bytes, width: stats.width, height: stats.height, ...detail, pageBox, written });
       if (stats.format !== "webp") problems.push(`${at}: bicim ${stats.format}`);
       if (stats.bytes > MAX_BYTES) problems.push(`${at}: ${stats.bytes} bayt > 512 KB`);
       if (stats.width > MAX_WIDTH) problems.push(`${at}: genislik ${stats.width}`);
       const sides = darkSides(stats.dark);
       if (sides.length > 0) problems.push(`${at}: beyaz olmayan kenar (${sides.join(", ")}); figureBox yazi ya da sekil kesiyor`);
-      if (detail.paddedSides.length > 0) padded.push(`${at}: ${detail.paddedSides.join(", ")}`);
     }
     for (const name of readdirSync(dir).sort()) {
       if (name.endsWith(".webp") && !wanted.has(name)) console.log(`  uyari ${year}/${name}: figureBox'i olmayan ya da bloke soru (dosya birakildi)`);
     }
   }
   report.sort((a, b) => a.year - b.year || a.number - b.number);
-  writeJson(REPORT_PATH, report);
-  const current = report.filter((entry) => years.includes(entry.year));
+  writeJson(CROP_REPORT_PATH, report);
+  const current = report.filter((entry) => years.includes(entry.year) && entry.written);
   const largest = current.reduce((max, entry) => Math.max(max, entry.bytes), 0);
-  console.log(`${current.length} sekil (${JSON.stringify(counts)}), en buyuk ${(largest / 1024).toFixed(1)} KB -> ${FIGURES_DIR}`);
-  for (const message of padded) console.log(`  UYARI beyaz dolgu (komsu yazi bitisik; gozle kontrol) ${message}`);
+  console.log(`${current.length} sekil yazili (${JSON.stringify(counts)}), en buyuk ${(largest / 1024).toFixed(1)} KB -> ${FIGURES_DIR}`);
+  for (const message of signed) console.log(`  bilgi beyaz dolgu, edge-signoff.json onayli: ${message}`);
   for (const message of problems) console.log(`  SORUN ${message}`);
   if (problems.length > 0) process.exitCode = 1;
 }
 
-main().catch((error) => {
-  console.error(error.message);
-  process.exit(1);
-});
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((error) => {
+    console.error(error.message);
+    process.exit(1);
+  });
+}

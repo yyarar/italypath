@@ -6,7 +6,7 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -84,6 +84,24 @@ async function buildFixture(root, { year = 2025, examSet } = {}) {
   const figure = join(root, "figures", String(year), `${questionId(year, 1)}.webp`);
   mkdirSync(dirname(figure), { recursive: true });
   await sharp({ create: { width: 24, height: 16, channels: 3, background: "#ffffff" } }).webp().toFile(figure);
+  write(join(root, "figures", "figure-crop-report.json"), [
+    {
+      id: questionId(year, 1),
+      year,
+      number: 1,
+      kind: "diagram",
+      bytes: statSync(figure).size,
+      width: 24,
+      height: 16,
+      page: 1,
+      cropPx: [10, 10, 120, 90],
+      marginPx: { left: 0, top: 0, right: 0, bottom: 0 },
+      paddedSides: [],
+      quality: 90,
+      pageBox: [10, 10, 120, 90],
+      written: true,
+    },
+  ]);
   write(join(root, "corrections.json"), [
     {
       id: questionId(year, 2),
@@ -310,6 +328,44 @@ try {
     "sahte istisna (dogru cevap A degil) kapi 5",
     (root) => exemptFixture(root, 2025, 10, { correct: "C" }),
     expectFailure(new RegExp(`kapi 5: .*${id(10)}.*istisna.*correct_answer`))
+  );
+
+  // Kapi 6: dolgulu kenar yalniz edge-signoff.json onayiyla (id + yan + pageBox birebir).
+  const padTop = (root) => {
+    const path = join(root, "figures", "figure-crop-report.json");
+    const list = read(path);
+    list[0].paddedSides = ["top"];
+    write(path, list);
+  };
+  await scenario("dolgulu kenar onaysiz kapi 6", padTop, expectFailure(new RegExp(`kapi 6: .*${id(1)}.*top kenari.*edge-signoff`)));
+  await scenario(
+    "dolgulu kenar baska pageBox ile onayli kapi 6",
+    (root) => {
+      padTop(root);
+      write(join(root, "figures", "edge-signoff.json"), [{ id: id(1), side: "top", pageBox: [10, 11, 120, 90], note: "fixture" }]);
+    },
+    expectFailure(new RegExp(`kapi 6: .*${id(1)}.*top kenari`))
+  );
+  await scenario(
+    "dolgulu kenar onayli gecer",
+    (root) => {
+      padTop(root);
+      write(join(root, "figures", "edge-signoff.json"), [{ id: id(1), side: "top", pageBox: [10, 10, 120, 90], note: "fixture: checked" }]);
+    },
+    (result) => {
+      assert.equal(result.status, 0, "onayli dolgu gecmeli");
+      assert.deepEqual(result.output.failures, []);
+    }
+  );
+  await scenario(
+    "dosya rapordan farkli kapi 6",
+    (root) => {
+      const path = join(root, "figures", "figure-crop-report.json");
+      const list = read(path);
+      list[0].bytes += 1;
+      write(path, list);
+    },
+    expectFailure(new RegExp(`kapi 6: .*${id(1)}.*figure-crop-report`))
   );
 
   console.log("test:imat-validate gecti");

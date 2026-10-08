@@ -17,8 +17,8 @@
 // correct_answer === shuffle.shuffled, karistirilmis dosya extract ile guncel; keys dosyasi hep A ve tam; istisna:
 // shuffle-exempt.json listesindeki soru kagit sirasinda, correct_answer "A", shuffle { exempt: true, reason }; listede
 // olmayan istisna ya da listede olup karistirilmis kayit hata; istisnalar validate-report.json shuffleExempt), 6 sekil
-// (figureBox -> figure_path <yil>/<id>.webp, WebP, <= 512 KB; dosya yoksa --require-figures ile hata; beyaz dolgulu
-// kenar figure-crop-report.json'dan uyari), 7 kimlik,
+// (figureBox -> figure_path <yil>/<id>.webp, WebP, <= 512 KB; dosya ya da figure-crop-report.json kaydi yoksa
+// --require-figures ile hata; dosya boyutu raporla ayni; dolgulu kenar edge-signoff.json onaysizsa hata), 7 kimlik,
 // 8 duzeltmeler. Bloke soru (merge-vision blocked) excluded'a gider, kapilardan gecmez.
 //
 // corrections.json: [{ id, field, before, after, sourcePage, reason }]; field "prompt" ya da "choices.<harf>" (harf
@@ -50,6 +50,7 @@ import {
   readJson,
   writeJson,
 } from "./paths.mjs";
+import { CROP_REPORT_PATH, EDGE_SIGNOFF_PATH, readEdgeSignoff, unsignedSides } from "./crop-figures.mjs";
 import { KEY_PROOF_YEARS, SHUFFLE_YEARS, readShuffleExempt, shuffleOrder } from "./shuffle-choices.mjs";
 
 const MAX_FIGURE_BYTES = 512 * 1024;
@@ -464,17 +465,37 @@ G[5].g.counts.exempt = exemptRecords.length;
 
 // ------------------------------------------------------------------ 6 sekil dosyalari
 {
+  // Kenar onayi (crop-figures.mjs ile ayni kural): figure-crop-report.json'daki her dolgulu yan, edge-signoff.json'da
+  // ayni id + yan + pageBox ile onayli olmali; degilse hata (kutu sekli kesiyor olabilir).
   const { g, fail, warn } = G[6];
   const referenced = new Set();
   let present = 0;
-  const cropReportPath = join(FIGURES_DIR, "figure-crop-report.json");
-  const cropReport = new Map((existsSync(cropReportPath) ? readJson(cropReportPath) : []).map((entry) => [entry.id, entry]));
+  const cropReport = new Map((existsSync(CROP_REPORT_PATH) ? readJson(CROP_REPORT_PATH) : []).map((entry) => [entry.id, entry]));
+  let signoff = new Map();
+  try {
+    signoff = readEdgeSignoff(EDGE_SIGNOFF_PATH);
+  } catch (error) {
+    fail(`edge-signoff.json okunamadi: ${error.message}`);
+  }
+  let signedPadded = 0;
   for (const record of bank) {
     if (!record.figure_path) continue;
     referenced.add(record.figure_path);
     const at = `${record.year}:${record.number} ${record.id}`;
-    const padded = cropReport.get(record.id)?.paddedSides ?? [];
-    if (padded.length > 0) warn(`${at}: sekil kenari beyaz dolgulu (${padded.join(", ")}); kutu sekli kesmiyor mu gozle bak`);
+    const crop = cropReport.get(record.id);
+    if (!crop) {
+      if (requireFigures) fail(`${at}: figure-crop-report.json kaydi yok (crop-figures.mjs)`, record.year);
+      else warn(`${at}: figure-crop-report.json kaydi yok`);
+    } else {
+      const padded = crop.paddedSides ?? [];
+      for (const side of unsignedSides(record.id, padded, crop.pageBox, signoff)) {
+        fail(`${at}: ${side} kenari beyaz degil ve edge-signoff.json onayi yok (sekil kesilmis olabilir)`, record.year);
+      }
+      if (padded.length > 0 && unsignedSides(record.id, padded, crop.pageBox, signoff).length === 0) {
+        signedPadded += 1;
+        g.notes.push(`${at}: beyaz dolgu onayli (${padded.join(", ")})`);
+      }
+    }
     const file = join(FIGURES_DIR, record.figure_path);
     if (!existsSync(file)) {
       if (requireFigures) fail(`${at}: ${record.figure_path} yok (crop-figures.mjs)`, record.year);
@@ -486,6 +507,7 @@ G[5].g.counts.exempt = exemptRecords.length;
     if (head.toString("ascii", 0, 4) !== "RIFF" || head.toString("ascii", 8, 12) !== "WEBP") fail(`${at}: ${record.figure_path} WebP degil`, record.year);
     const bytes = statSync(file).size;
     if (bytes > MAX_FIGURE_BYTES) fail(`${at}: ${record.figure_path} ${bytes} bayt > 512 KB`, record.year);
+    if (crop && crop.bytes !== bytes) fail(`${at}: dosya ${bytes} bayt, figure-crop-report.json ${crop.bytes} (crop-figures.mjs yeniden)`, record.year);
   }
   for (const year of years) {
     const dir = join(FIGURES_DIR, String(year));
@@ -494,7 +516,7 @@ G[5].g.counts.exempt = exemptRecords.length;
       if (name.endsWith(".webp") && !referenced.has(`${year}/${name}`)) warn(`${year}/${name}: bankada karsiligi yok (eski ya da bloke soru)`);
     }
   }
-  g.counts = { figures: referenced.size, present, requireFigures };
+  g.counts = { figures: referenced.size, present, signedPadded, requireFigures };
 }
 
 // ------------------------------------------------------------------ cikti
