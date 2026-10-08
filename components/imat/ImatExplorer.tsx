@@ -19,7 +19,8 @@ import PracticeTopics from "@/components/imat/practice/PracticeTopics";
 import { buildTopicProgress, mistakeTopicsOf } from "@/components/imat/practice/progress";
 import { orderPracticeQuestions } from "@/components/imat/practice/shuffle";
 import { useLanguage } from "@/context/LanguageContext";
-import type { ImatExamSession, ImatQuestion, ImatTopic } from "@/lib/imat/types";
+import { SECTIONS } from "@/lib/imat/taxonomy.mjs";
+import type { ImatExamSession, ImatQuestion, ImatSection, ImatTopic } from "@/lib/imat/types";
 import { useImatAttempts } from "@/lib/imat/useImatAttempts";
 import { fetchImatMockQuestions, fetchImatPracticeQuestions, useImatCatalog } from "@/lib/imat/useImatBank";
 import { isImatRpcError, useImatExam } from "@/lib/imat/useImatExam";
@@ -101,6 +102,9 @@ export default function ImatExplorer() {
   const [practiceView, setPracticeView] = useState<PracticeView>({ mode: "topics" });
   const [practiceNotice, setPracticeNotice] = useState<PracticeNotice | null>(null);
   const [openingTopic, setOpeningTopic] = useState(false);
+  // Konu listesinde acik bolum gruplari burada tutulur: oturum, ozet ve Yanlislarim gorunumleri ile sekme
+  // degisimi PracticeTopics'i kapatsa da secim korunur. null: kullanici henuz dokunmadi, ilk grup acik.
+  const [userExpandedSections, setUserExpandedSections] = useState<Set<ImatSection> | null>(null);
 
   // Teslim edilmis denemeler: kartlardaki "son sonuc" ve gecmis listesi.
   useEffect(() => {
@@ -128,6 +132,20 @@ export default function ImatExplorer() {
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [scrollKey, tab]);
+
+  const firstPracticeSection = useMemo(
+    () => SECTIONS.find((section) => topics.some((topic) => topic.section === section)) ?? null,
+    [topics],
+  );
+  const expandedSections: ReadonlySet<ImatSection> =
+    userExpandedSections ?? new Set<ImatSection>(firstPracticeSection ? [firstPracticeSection] : []);
+
+  function toggleSection(section: ImatSection) {
+    const next = new Set(expandedSections);
+    if (next.has(section)) next.delete(section);
+    else next.add(section);
+    setUserExpandedSections(next);
+  }
 
   // Yanlislarim yalniz kendi gorunumunde gerekir; her denemede gereksiz yeniden hesaplanmaz.
   const mistakeTopics = useMemo(
@@ -385,6 +403,8 @@ export default function ImatExplorer() {
                 <PracticeTopics
                   topics={topics}
                   attempts={attempts}
+                  expandedSections={expandedSections}
+                  onToggleSection={toggleSection}
                   onOpenTopic={(topic, questionIds) => void openTopic(topic, questionIds)}
                   onOpenMistakes={() => {
                     setPracticeNotice(null);

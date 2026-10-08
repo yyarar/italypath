@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { m, useReducedMotion } from "framer-motion";
 import { CircleX } from "lucide-react";
 
@@ -16,15 +16,24 @@ import type { ImatAttemptState } from "@/lib/imat/useImatAttempts";
 interface PracticeTopicsProps {
   topics: ImatTopic[];
   attempts: Map<string, ImatAttemptState>;
+  // Hangi bolum gruplarinin acik oldugu ust bilesende tutulur (oturumdan donunce korunur).
+  expandedSections: ReadonlySet<ImatSection>;
+  onToggleSection: (section: ImatSection) => void;
   onOpenTopic: (topic: ImatTopic, questionIds?: string[]) => void;
   onOpenMistakes: () => void;
 }
 
 // Konu pratigi ana gorunumu: bolum gruplari, alt konu satirlari ve "Yanlislarim" girisi.
-export default function PracticeTopics({ topics, attempts, onOpenTopic, onOpenMistakes }: PracticeTopicsProps) {
+export default function PracticeTopics({
+  topics,
+  attempts,
+  expandedSections,
+  onToggleSection,
+  onOpenTopic,
+  onOpenMistakes,
+}: PracticeTopicsProps) {
   const { t } = useLanguage();
   const reduceMotion = useReducedMotion();
-  const [userExpanded, setUserExpanded] = useState<Set<ImatSection> | null>(null);
 
   const { groups, totalWrongCount } = useMemo(() => {
     const progress = buildTopicProgress(topics, attempts);
@@ -43,16 +52,6 @@ export default function PracticeTopics({ topics, attempts, onOpenTopic, onOpenMi
         {t.imat.practice.comingSoon}
       </p>
     );
-  }
-
-  // Kullanici bir gruba dokunana kadar ilk grup acik gelir; dokununca kullanicinin secimi gecerli olur.
-  const expandedSections = userExpanded ?? new Set<ImatSection>(groups[0] ? [groups[0].section] : []);
-
-  function toggleSection(section: ImatSection) {
-    const next = new Set(expandedSections);
-    if (next.has(section)) next.delete(section);
-    else next.add(section);
-    setUserExpanded(next);
   }
 
   return (
@@ -82,7 +81,7 @@ export default function PracticeTopics({ topics, attempts, onOpenTopic, onOpenMi
               topicCount={group.items.length}
               solvedCount={group.solvedCount}
               expanded={expandedSections.has(group.section)}
-              onToggle={() => toggleSection(group.section)}
+              onToggle={() => onToggleSection(group.section)}
             >
               {group.items.map((item) => (
                 <ImatTopicRow
