@@ -212,6 +212,7 @@ for (const file of tracked) {
 const RENDERED_INSIDE_LAYOUT_MOTION = new Set([
   "components/sat/SatDomainGroup.tsx",
   "components/sat/TopicRow.tsx",
+  "components/imat/practice/ImatSectionGroup.tsx",
   "components/ui/expandable-screen.tsx",
 ]);
 for (const file of tracked) {
