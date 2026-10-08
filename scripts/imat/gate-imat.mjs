@@ -8,8 +8,10 @@
 // Girdi (hepsi <IMAT_OUT> altinda, Git disi):
 //   bank.json               validate-bank.mjs ciktisi { bank: [...] } (--bank ile baska yol)
 //   solver/result-NN.json   [{ id, hash, answer: "A".."E" | null, confidence: 0..1, note }]
-//   visual/package-NN.json  build-visual-packages.mjs ciktisi (hangi id'lere bakilacak)
-//   visual/result-NN.json   [{ id, hash, findings: [{ kind, detail }] }]
+//   solver/result-rerun-<zaman>.json  ayni bicim (build-solver-packages.mjs --ids paketinin sonucu)
+//   visual/package-NN.json  build-visual-packages.mjs ciktisi (hangi id'lere bakilacak); --ids ile
+//                           package-rerun-<zaman>.json da okunur (ad sirasinda sonra gelir, ayni id'de o kazanir)
+//   visual/result-NN.json   [{ id, hash, findings: [{ kind, detail }] }] (ya da result-rerun-<zaman>.json)
 //   gate-resolutions.json   [{ id, gate: "solver" | "visual", hash, resolution, note }] (yoksa [] olarak yaratilir)
 // hash = lib/text.mjs textHash(prompt, choices): bankadaki son metin (karistirilmis siklar), text_hash ile ayni.
 // Kural: sonuc yok -> acik; hash guncel metinle ayni degil -> eski -> acik; cevap anahtarla ayni degil -> acik;
@@ -83,6 +85,24 @@ export function paperChoices(record) {
     out[order[k]] = record.choices[key];
   });
   return Object.fromEntries(CHOICE_KEYS.map((key) => [key, out[key]]));
+}
+
+/** Paket dosya adi: package-NN.json ya da --ids ile yazilan package-rerun-<zaman>.json (gate ikisini de okur). */
+export const PACKAGE_FILE_PATTERN = /^package-(\d+|rerun-\d{8}T\d{6}Z)\.json$/;
+
+/** Yeniden paket zaman damgasi (UTC, dosya adina uygun): 20261008T231542Z. */
+export function rerunStamp(date = new Date()) {
+  return date.toISOString().replace(/[-:]/g, "").replace(/\.\d+Z$/, "Z");
+}
+
+/** --ids degeri ("id,id,...") -> bankadaki kayitlar (girdi sirasi, tekrarsiz); bilinmeyen ya da bos id hata. */
+export function selectIds(bank, value) {
+  const ids = [...new Set(String(value ?? "").split(",").map((id) => id.trim()).filter(Boolean))];
+  if (ids.length === 0) throw new Error("--ids en az bir id ister (virgulle ayrilmis).");
+  const byId = new Map(bank.map((record) => [record.id, record]));
+  const unknown = ids.filter((id) => !byId.has(id));
+  if (unknown.length > 0) throw new Error(`--ids bankada olmayan id: ${unknown.join(", ")}`);
+  return ids.map((id) => byId.get(id));
 }
 
 /** Basit arguman ayristirici: `--ad deger`, `--ad=deger`, bayraklar. Bilinmeyen arguman hata. */
@@ -547,6 +567,15 @@ export function runSelfTest() {
   check(() => assert.deepEqual(paperChoices(shuffledRecord), { A: "p1", B: "p2", C: "p3", D: "p4", E: "p5" }));
   check(() => assert.deepEqual(paperChoices({ ...shuffledRecord, shuffle: { exempt: true, reason: "r" } }), shuffledRecord.choices));
 
+  // --ids yeniden paketleri: zaman damgasi, dosya adi kalibi (eski adlar da), id secimi
+  const stamp = rerunStamp(new Date("2026-10-08T23:15:42.123Z"));
+  check(() => assert.equal(stamp, "20261008T231542Z"));
+  check(() => assert.ok(PACKAGE_FILE_PATTERN.test("package-01.json") && PACKAGE_FILE_PATTERN.test(`package-rerun-${stamp}.json`)));
+  check(() => assert.ok(!PACKAGE_FILE_PATTERN.test("package-01-img.json") && !PACKAGE_FILE_PATTERN.test("package-rerun-x.json") && !PACKAGE_FILE_PATTERN.test("manifest.json")));
+  check(() => assert.deepEqual(selectIds(bank, ` ${y2024[1].id},${y2023[0].id},${y2024[1].id} `).map((record) => record.id), [y2024[1].id, y2023[0].id]));
+  check(() => assert.throws(() => selectIds(bank, "ffffffff"), /bankada olmayan/));
+  check(() => assert.throws(() => selectIds(bank, " , "), /en az bir id/));
+
   return checks;
 }
 
@@ -568,7 +597,7 @@ function readJsonFiles(dir, pattern) {
 
 function readPackaged() {
   const packaged = new Map();
-  const files = readJsonFiles(VISUAL_DIR, /^package-\d+\.json$/);
+  const files = readJsonFiles(VISUAL_DIR, PACKAGE_FILE_PATTERN);
   for (const { file, entries } of files) {
     for (const question of entries?.questions ?? []) packaged.set(question.id, { reasons: question.reasons ?? [], file });
   }

@@ -4,6 +4,7 @@
 // kayit sayar.
 //
 //   PATH=/usr/local/bin:$PATH IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank node scripts/imat/build-visual-packages.mjs --years 2023,2024,2025 [--size 15] [--random-pct 10] [--bank <yol>]
+//   ... node scripts/imat/build-visual-packages.mjs --ids <id,id,...> [--bank <yol>]   (yeniden bakis paketi)
 //
 // Hedef (gate-imat.mjs visualReasons): sekilli (figure_path) ya da metninde/siklarinda `$` gecen her soru; arti
 // kalanlardan ceil(%--random-pct) kadar rastgele (sha256(tohum:id) sirasi; buyuk oran kucugun ust kumesidir).
@@ -16,10 +17,26 @@
 // Cevap anahtari pakete girmez; ancak 2025 sayfa goruntusu dogru sikki vurgulu, 2023 son sayfasi "hep A" notunu
 // gosterir: gorsel ajan soru cozmez, yalniz metin karsilastirir (kabul edilen risk). Bu paketler kor cozucuye verilmez.
 // Yeniden calistirma ayni dosyalari yazar; result-*.json'a dokunmaz. Sayfa goruntusu eksikse cikis 1.
+// --ids: metni degisen sorular icin tek paket visual/package-rerun-<zaman>.json (en cok 15 soru; kind "rerun", ayni
+// kayit bicimi, kagit harf sirasi; reasons = hedef nedenleri + "rerun"). package-NN.json'lara ve manifest.json'a
+// dokunmaz; ajan sonucu result-rerun-<zaman>.json'a yazar. gate-imat.mjs bu paketi de okur (PACKAGE_FILE_PATTERN).
+// --years/--size/--random-pct ile birlikte kullanilmaz.
 import { existsSync, mkdirSync, readdirSync, rmSync } from "node:fs";
 import path from "node:path";
 
-import { CHOICE_KEYS, figureAbsPath, paperChoices, parseCliArgs, positiveInt, readBank, recordHash, seededKey, visualReasons } from "./gate-imat.mjs";
+import {
+  CHOICE_KEYS,
+  figureAbsPath,
+  paperChoices,
+  parseCliArgs,
+  positiveInt,
+  readBank,
+  recordHash,
+  rerunStamp,
+  seededKey,
+  selectIds,
+  visualReasons,
+} from "./gate-imat.mjs";
 import { BANK_PATH, EXTRACT_DIR, VISION_DIR, VISUAL_DIR, pad2, pagePath, parseYears, readJson, writeJson } from "./paths.mjs";
 
 const SEED = "imat-visual-random-v1";
@@ -43,8 +60,61 @@ function extraPages(years) {
   return extra;
 }
 
+// Paket kaydi (normal ve --ids kipi ayni bicim); eksik sayfa/sekil listelere yazilir.
+function packageEntry(record, reasons, extra, missing) {
+  const pageImage = pagePath(record.year, record.source_page);
+  const more = (extra.get(record.id) ?? []).map((page) => pagePath(record.year, page));
+  for (const file of [pageImage, ...more]) if (!existsSync(file)) missing.pages.push(`${record.id} ${path.basename(file)}`);
+  const crop = path.join(VISION_DIR, String(record.year), `q-${pad2(record.number)}.png`);
+  const figure = figureAbsPath(record);
+  if (figure && !existsSync(figure)) missing.figures.push(record.id);
+  const entry = {
+    id: record.id,
+    hash: recordHash(record),
+    year: record.year,
+    number: record.number,
+    pageImage,
+    ...(more.length > 0 ? { pageImageMore: more } : {}),
+    questionImage: existsSync(crop) ? crop : null,
+    prompt: record.prompt,
+    choices: paperChoices(record),
+    figure,
+    reasons,
+  };
+  if (CHOICE_KEYS.some((key) => typeof entry.choices[key] !== "string")) throw new Error(`${entry.id}: kagit sirasi kurulamadi (shuffle.order bozuk)`);
+  return entry;
+}
+
+// --ids: tek yeniden bakis paketi (package-rerun-<zaman>.json); var olan paketlere ve manifest'e dokunmaz.
+function buildRerun(all, idsArg, bankPath) {
+  const records = selectIds(all, idsArg).sort((a, b) => a.year - b.year || a.number - b.number);
+  if (records.length > MAX_SIZE) throw new Error(`--ids en cok ${MAX_SIZE} soru (verilen ${records.length}); birkac calismaya bol.`);
+  const missing = { pages: [], figures: [] };
+  const extra = extraPages([...new Set(records.map((record) => record.year))]);
+  const questions = records.map((record) => packageEntry(record, [...visualReasons(record), "rerun"], extra, missing));
+  const stamp = rerunStamp();
+  const name = `package-rerun-${stamp}.json`;
+  mkdirSync(VISUAL_DIR, { recursive: true });
+  writeJson(path.join(VISUAL_DIR, name), { package: `rerun-${stamp}`, kind: "rerun", choiceOrder: "paper", count: questions.length, questions });
+  console.log(`Yeniden bakis paketi: ${questions.length} soru (${bankPath}) -> ${path.join(VISUAL_DIR, name)}`);
+  console.log(`Sonuc dosyasi: ${path.join(VISUAL_DIR, `result-rerun-${stamp}.json`)} | sekilli ${questions.filter((question) => question.figure).length} | soru goruntulu ${questions.filter((question) => question.questionImage).length}`);
+  if (missing.figures.length > 0) console.log(`UYARI: sekil dosyasi yok: ${missing.figures.join(", ")} (crop-figures.mjs).`);
+  if (missing.pages.length > 0) {
+    console.log(`HATA: sayfa goruntusu yok: ${missing.pages.join(", ")} (render-pages.mjs).`);
+    return 1;
+  }
+  return 0;
+}
+
 function main() {
-  const args = parseCliArgs(process.argv.slice(2), { values: ["--years", "--size", "--random-pct", "--bank"] });
+  const args = parseCliArgs(process.argv.slice(2), { values: ["--years", "--size", "--random-pct", "--bank", "--ids"] });
+  if (args.values["--ids"] !== undefined) {
+    if (["--years", "--size", "--random-pct"].some((name) => args.values[name] !== undefined)) {
+      throw new Error("--ids, --years/--size/--random-pct ile birlikte kullanilmaz.");
+    }
+    const bankPath = path.resolve(args.values["--bank"] ?? BANK_PATH);
+    return buildRerun(readBank(bankPath), args.values["--ids"], bankPath);
+  }
   const years = parseYears(args.values["--years"]);
   const size = positiveInt(args.values["--size"] ?? MAX_SIZE, "--size");
   if (size > MAX_SIZE) throw new Error(`--size en cok ${MAX_SIZE}.`);
@@ -64,32 +134,10 @@ function main() {
   const random = rest.slice(0, randomCount).map((record) => ({ record, reasons: ["random"] }));
 
   const extra = extraPages(years);
-  const missingPages = [];
-  const missingFigures = [];
-  const questions = [...targets, ...random].map(({ record, reasons }) => {
-    const pageImage = pagePath(record.year, record.source_page);
-    const more = (extra.get(record.id) ?? []).map((page) => pagePath(record.year, page));
-    for (const file of [pageImage, ...more]) if (!existsSync(file)) missingPages.push(`${record.id} ${path.basename(file)}`);
-    const crop = path.join(VISION_DIR, String(record.year), `q-${pad2(record.number)}.png`);
-    const figure = figureAbsPath(record);
-    if (figure && !existsSync(figure)) missingFigures.push(record.id);
-    return {
-      id: record.id,
-      hash: recordHash(record),
-      year: record.year,
-      number: record.number,
-      pageImage,
-      ...(more.length > 0 ? { pageImageMore: more } : {}),
-      questionImage: existsSync(crop) ? crop : null,
-      prompt: record.prompt,
-      choices: paperChoices(record),
-      figure,
-      reasons,
-    };
-  });
-  for (const question of questions) {
-    if (CHOICE_KEYS.some((key) => typeof question.choices[key] !== "string")) throw new Error(`${question.id}: kagit sirasi kurulamadi (shuffle.order bozuk)`);
-  }
+  const missing = { pages: [], figures: [] };
+  const questions = [...targets, ...random].map(({ record, reasons }) => packageEntry(record, reasons, extra, missing));
+  const missingPages = missing.pages;
+  const missingFigures = missing.figures;
 
   // hedef ve rastgele ayri, her biri en cok --size'lik esit boyutlu paketlere (boyut farki en cok 1)
   const packages = [];

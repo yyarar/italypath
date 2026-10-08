@@ -9,6 +9,7 @@
 #   --layout mur        sayfa duzeni (varsayilan mur: 2023-2025 MUR denemesi; cambridge sonraki gorevde eklenir)
 #   --dump <yil>:<no>   tek soruyu ekrana yazar (dosya yazmaz; hasImage nedenleri stderr'e)
 #   --jobs <n>          paralel surec sayisi (yil basina; cikti sirasi degismez)
+#   --self-test         italik isaret kurali oz sinamasi (PDF ve pdfplumber gerekmez; npm run test:imat-extract)
 #
 # Cikti: extract/<yil>.json = { year, source: "text", questions: [{ id, number, section, page, bbox, prompt,
 # choices, hasImage, imageBoxes }] }. bbox ve imageBoxes PDF noktasi [x0, top, x1, bottom], page 1 tabanli.
@@ -16,6 +17,13 @@
 # (rect/curve), ya da metin katmaninin tasiyamadigi formul (vektor cizgi, denklem puntosu, eslenmeyen glif).
 # Metin sozlesmesi: duz metin; paragraf "\n\n", sabit satir sonu "\n"; alinti kaynak satiri yerinde ayri satir;
 # ust/alt simge Unicode; $...$ uretilmez.
+# Italik (lib/sat/mathSegments.mjs sozlesmesi, Gorev 11 duzeltmesi): yazi tipi adi Italic/Oblique olan karakterler
+# satir icinde ardisik dizilere toplanir; dizi en az 3 bosluksuz karakter tasiyorsa <i>...</i> ile sarilir. Sarilmaz:
+# tek harf ya da 3 karakterlik bosluksuz harf/rakam/isaret dizisi (matematik degiskeni: x, R, ADB), denklem puntolu ya
+# da eslenmeyen glif iceren dizi (formul nesnesi), tum bosluksuz karakterleri italik olan blok (tipografik blok
+# bicimi: italik pasaj, tamami italik sik). Blok = "\n\n" ile ayrilan paragraf; alinti kaynak satiri pasajindan ayri
+# bloktur (pasaj tamamen italik, kaynak satirindaki kitap adi isaretlenir). Isaretler satir sonunu asmaz: satir
+# sonunda kapanir, dizi alt satirda surerse yeniden acilir. Kalin isaretlenmez.
 import hashlib
 import json
 import os
@@ -23,8 +31,6 @@ import re
 import sys
 from collections import Counter
 from concurrent.futures import ProcessPoolExecutor
-
-import pdfplumber
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))
@@ -65,6 +71,10 @@ PICTURE_MIN = 15.0  # resim sayilmak icin en kucuk kenar (pt); 2025 vurgu cercev
 DRAWING_MIN = 4  # cizim kumesi en az bu kadar rect/curve
 PARA_GAP = 1.55  # satir araligi normalin bu katindan buyukse paragraf sonu
 HARD_MARGIN = 1.0
+ITALIC_FONT = re.compile(r"Italic|Oblique", re.I)
+MARK_MIN_CHARS = 3  # italik dizi en az bu kadar bosluksuz karakterle isaretlenir
+# Bosluksuz, en cok MARK_MIN_CHARS uzunlukta ve yalniz harf/rakam/bu isaretlerden olusan italik dizi matematiktir.
+MATH_RUN_CHARS = set("+-\u2212\u00b1\u00d7\u00f7\u00b7\u22c5=<>\u2264\u2265\u2260\u2248/^*()[]{}.,'\u2032\u2033")
 
 
 def close_to(value, targets, tol=0.05):
@@ -81,6 +91,15 @@ def mid_y(o):
 
 def font_name(c):
     return c["fontname"].split("+")[-1]
+
+
+def is_italic(c):
+    return bool(ITALIC_FONT.search(c["font"]))
+
+
+def is_formula_char(c):
+    # Denklem nesnesi puntosu ya da eslenmeyen glif (image_signals ile ayni olcut): bu karakteri tasiyan dizi isaretlenmez.
+    return bool(c.get("unmapped")) or not close_to(c["size"], TEXT_SIZES)
 
 
 def color(v):
@@ -143,6 +162,8 @@ def box(o):
 
 
 def load_pages(path):
+    import pdfplumber  # yalniz PDF okurken; --self-test pdfplumber'siz calisir
+
     with pdfplumber.open(path) as pdf:
         return [Page(p, i) for i, p in enumerate(pdf.pages)]
 
@@ -228,7 +249,7 @@ def make_row(chars, base, page_index):
         c = ordered[i]
         sp = c["t"] == " "
         if prev is not None and not sp and prev["t"] != " " and c["x0"] - prev["x1"] > 1.5:
-            units.append({"t": " ", "x0": prev["x1"], "x1": c["x0"]})
+            units.append({"t": " ", "x0": prev["x1"], "x1": c["x0"], "italic": False, "formula": False})
         if c.get("script"):
             j = i + 1
             while j < len(ordered) and ordered[j].get("script") == c["script"] and ordered[j]["x0"] - ordered[j - 1]["x1"] <= 1.0:
@@ -237,11 +258,17 @@ def make_row(chars, base, page_index):
             text, ok = map_script("".join(x["t"] for x in run), c["script"])
             if not ok:
                 unmapped_script.extend(run)
-            units.append({"t": text, "x0": run[0]["x0"], "x1": run[-1]["x1"]})
+            units.append({
+                "t": text, "x0": run[0]["x0"], "x1": run[-1]["x1"],
+                "italic": all(is_italic(x) for x in run), "formula": any(is_formula_char(x) for x in run),
+            })
             prev = run[-1]
             i = j
             continue
-        units.append({"t": c["t"], "x0": c["x0"], "x1": c["x1"]})
+        units.append({
+            "t": c["t"], "x0": c["x0"], "x1": c["x1"],
+            "italic": not sp and is_italic(c), "formula": not sp and is_formula_char(c),
+        })
         prev = c
         i += 1
     clean = []
@@ -308,12 +335,121 @@ def glued_break_end(units):
 def join_units(a_units, b_units):
     if glued_break_end(a_units) or b_units[0]["t"] in JOIN_NO_SPACE_START:
         return []
-    return [{"t": " "}]
+    return [{"t": " ", "italic": False, "formula": False}]
+
+
+def is_break(u):
+    return u["t"] in ("\n", "\n\n")
+
+
+def is_blank(u):
+    return u["t"] == " "
+
+
+def italic_flags(units):
+    # Harf birimi kendi yazi tipinden; bosluk ancak ayni satirdaki en yakin iki komsu harf birimi italikse italik.
+    n = len(units)
+    flags = [False] * n
+    for i, u in enumerate(units):
+        if is_break(u):
+            continue
+        if not is_blank(u):
+            flags[i] = bool(u.get("italic"))
+            continue
+        j = i - 1
+        while j >= 0 and is_blank(units[j]):
+            j -= 1
+        k = i + 1
+        while k < n and is_blank(units[k]):
+            k += 1
+        flags[i] = (j >= 0 and k < n and not is_break(units[j]) and not is_break(units[k])
+                    and bool(units[j].get("italic")) and bool(units[k].get("italic")))
+    return flags
+
+
+def run_qualifies(units, segments):
+    # segments: ayni mantiksal dizinin satir parcalari [(bas, son)], son dahil degil.
+    pieces = ["".join(units[i]["t"] for i in range(a, b)) for a, b in segments]
+    text = " ".join(pieces)
+    if sum(1 for ch in text if not ch.isspace()) < MARK_MIN_CHARS:
+        return False  # tek harf / iki harf (x, cm)
+    if any(units[i].get("formula") for a, b in segments for i in range(a, b)):
+        return False  # formul nesnesinin parcasi
+    if not any(ch.isspace() for ch in text) and len(text) <= MARK_MIN_CHARS and all(ch.isalnum() or ch in MATH_RUN_CHARS for ch in text):
+        return False  # kisa matematik dizisi (ADB, 2x)
+    return True
+
+
+def italic_marks(units):
+    # Doner: her birim icin isaretli mi. Blok tamamen italikse hic isaret yok; aksi halde satir icindeki her italik
+    # dizi run_qualifies'a gore. Satir sonunu (\n) asan dizi tek dizi sayilir ama isaret satir basina ayri yazilir.
+    flags = italic_flags(units)
+    marked = [False] * len(units)
+    blocks, start = [], 0
+    for i, u in enumerate(units):
+        if u["t"] == "\n\n" or (u["t"] == "\n" and u.get("block")):
+            blocks.append((start, i))
+            start = i + 1
+    blocks.append((start, len(units)))
+    for b0, b1 in blocks:
+        letters = [i for i in range(b0, b1) if not is_blank(units[i]) and not is_break(units[i])]
+        if not letters or all(flags[i] for i in letters):
+            continue  # bos ya da tamamen italik blok: tipografik bicim, isaretlenmez
+        lines, s0 = [], b0
+        for i in range(b0, b1):
+            if units[i]["t"] == "\n":
+                lines.append((s0, i))
+                s0 = i + 1
+        lines.append((s0, b1))
+        runs = []  # mantiksal diziler: [[(bas, son), ...], ...]
+        tail = None  # onceki satirin son harfinde biten dizinin sirasi
+        for l0, l1 in lines:
+            line_letters = [i for i in range(l0, l1) if not is_blank(units[i])]
+            first = line_letters[0] if line_letters else None
+            last = line_letters[-1] if line_letters else None
+            next_tail = None
+            i = l0
+            while i < l1:
+                if not flags[i]:
+                    i += 1
+                    continue
+                j = i
+                while j < l1 and flags[j]:
+                    j += 1
+                if tail is not None and i == first:
+                    runs[tail].append((i, j))  # dizi satir sonunu asiyor: ayni dizi, ayri isaret
+                    index = tail
+                else:
+                    runs.append([(i, j)])
+                    index = len(runs) - 1
+                if j - 1 == last:
+                    next_tail = index
+                i = j
+            tail = next_tail
+        for run in runs:
+            if run_qualifies(units, run):
+                for a, b in run:
+                    for i in range(a, b):
+                        marked[i] = True
+    return marked
 
 
 def render(units):
-    # Gercek dolar isareti metin sozlesmesinde \$ (formul siniri sanilmasin).
-    text = "".join(u["t"] for u in units).replace("$", "\\$")
+    # Gercek dolar isareti metin sozlesmesinde \$ (formul siniri sanilmasin). Italik isaretleri italic_marks'tan;
+    # isaret hicbir zaman satir sonu birimini kapsamaz (satir icinde dengeli).
+    marked = italic_marks(units)
+    out, open_ = [], False
+    for u, m in zip(units, marked):
+        if m and not open_:
+            out.append("<i>")
+            open_ = True
+        elif not m and open_:
+            out.append("</i>")
+            open_ = False
+        out.append(u["t"])
+    if open_:
+        out.append("</i>")
+    text = "".join(out).replace("$", "\\$")
     text = re.sub(r"[ ]*\n[ ]*", "\n", text)
     text = re.sub(r" {2,}", " ", text)
     return text.strip()
@@ -449,7 +585,8 @@ def assemble(rows, right_edge, layout, stats, kind_name):
         if kind == "para":
             out.append({"t": "\n\n"})
         elif kind == "hard":
-            out.append({"t": "\n"})
+            # Pasajdan kaynak satirina gecis italik blok siniridir (pasajin tamami italik olabilir, kaynak satiri degil).
+            out.append({"t": "\n", "block": layout.is_citation(b) and not layout.is_citation(a)})
         else:
             out.extend(join_units(out, b["units"]))
         out.extend(b["units"])
@@ -690,7 +827,79 @@ def parse_args(argv):
     return opts
 
 
+def self_test():
+    # Italik isaret kurali (render/italic_marks) sentetik birimlerle; PDF yok. Doner 0, hata AssertionError.
+    def units(*parts):
+        # parts: ("metin", italik?, formul?) ya da "\n" / "\n\n" / "|" (kaynak satiri blok siniri).
+        out = []
+        for part in parts:
+            if part in ("\n", "\n\n"):
+                out.append({"t": part})
+                continue
+            if part == "|":
+                out.append({"t": "\n", "block": True})
+                continue
+            text, italic, formula = (part + (False, False))[:3] if isinstance(part, tuple) else (part, False, False)
+            for ch in text:
+                out.append({"t": ch, "italic": italic and ch != " ", "formula": formula and ch != " "})
+        return out
+
+    def balanced_per_line(text):
+        for line in text.split("\n"):
+            depth = 0
+            for tag in re.findall(r"</?i>", line):
+                depth += 1 if tag == "<i>" else -1
+                assert depth in (0, 1), f"ic ice ya da karsiliksiz isaret: {line!r}"
+            assert depth == 0, f"satir sonunu asan isaret: {line!r}"
+
+    checks = 0
+
+    def expect(parts, wanted, label):
+        nonlocal checks
+        got = render(units(*parts))
+        assert got == wanted, f"{label}: {got!r} != {wanted!r}"
+        balanced_per_line(got)
+        plain = "".join(u["t"] for u in units(*parts)).replace("$", "\\$").strip()
+        assert re.sub(r"</?i>", "", got) == plain, f"{label}: isaretler silinince metin degisiyor"
+        checks += 1
+
+    # 1 kismi italik dizi -> isaret (kitap adi; noktalama disarida)
+    expect(("Who wrote ", ("To the Lighthouse", True), "?"), "Who wrote <i>To the Lighthouse</i>?", "kismi dizi")
+    # 2 tamamen italik paragraf -> isaret yok; sonraki paragraf ayri blok
+    expect((("A whole passage set in italics.", True), "\n\n", "Which is true?"), "A whole passage set in italics.\n\nWhich is true?", "tamamen italik paragraf")
+    # 3 tek italik harf (matematik degiskeni) -> isaret yok
+    expect(("For every real value of ", ("x", True), "?"), "For every real value of x?", "tek harf")
+    # 4 iki harf (birim) ve uc karakterlik bosluksuz matematik dizisi -> isaret yok
+    expect(("radius 5 ", ("cm", True), " and angle ", ("ADB", True)), "radius 5 cm and angle ADB", "kisa matematik dizisi")
+    # 5 formul nesnesi karakteri tasiyan dizi -> isaret yok
+    expect(("a radius of ", ("meeBv", True, True)), "a radius of meeBv", "formul nesnesi")
+    # 6 satir basina dengeli: art arda iki italik satir ayri ayri kapanir/acilir, blok kismi
+    expect(
+        ("From the given statements", "\n", ("If today is Saturday, then I am a philosopher", True), "\n", ("I am not a philosopher", True), "\n", "Which conclusion?"),
+        "From the given statements\n<i>If today is Saturday, then I am a philosopher</i>\n<i>I am not a philosopher</i>\nWhich conclusion?",
+        "satir basina dengeli",
+    )
+    # 7 satir sonunu asan dizi: alt satirdaki kisa parca da isaretlenir (dizi bir butun)
+    expect(("See ", ("The Long Title", True), "\n", ("Of", True), " here"), "See <i>The Long Title</i>\n<i>Of</i> here", "satir asan dizi")
+    # 8 pasaj tamamen italik, kaynak satiri ayri blok: pasaj isaretsiz, kaynak satirindaki kitap adi isaretli
+    expect(
+        (("A quoted passage in italics.", True), "|", "Author ", ("Book Title", True), " - Publisher", "\n\n", "Question?"),
+        "A quoted passage in italics.\nAuthor <i>Book Title</i> - Publisher\n\nQuestion?",
+        "pasaj + kaynak satiri",
+    )
+    # 9 tamamen italik sik (tek blok) -> isaret yok; bosluk yalniz iki yani italikse italik
+    expect((("Love in the Time of Cholera", True),), "Love in the Time of Cholera", "tamamen italik sik")
+    expect(("Bloom ", ("Ulysses", True), " and ", ("Dubliners", True)), "Bloom <i>Ulysses</i> and <i>Dubliners</i>", "iki ayri dizi")
+    # 10 dolar kacisi isaretle birlikte korunur
+    expect(("Cost ", ("in $ terms", True), " now"), "Cost <i>in \\$ terms</i> now", "dolar kacisi")
+    return checks
+
+
 def main(argv):
+    if argv == ["--self-test"]:
+        checks = self_test()
+        print(f"extract_text oz sinama: {checks} kontrol gecti (kismi dizi, tamamen italik blok, tek harf, kisa matematik, formul, satir basina denge, kaynak satiri)")
+        return 0
     opts = parse_args(argv)
     inv = check_inventory()
     for year in opts["years"]:

@@ -14,7 +14,7 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 import { MOCK_SECTION_COUNTS, SECTIONS } from "../../lib/imat/taxonomy.mjs";
-import { normalizeForCompare, textHash } from "./lib/text.mjs";
+import { locateInSource, normalizeForCompare, textHash } from "./lib/text.mjs";
 import { questionId } from "./paths.mjs";
 import { exemptQuestion, shuffleQuestion } from "./shuffle-choices.mjs";
 
@@ -193,7 +193,11 @@ try {
     assert.notEqual(textHash("p", { ...choices, A: "b", B: "a" }), expected);
     assert.equal(normalizeForCompare("  one <u>two</u>\n\n three\tfour "), "one two three four");
     assert.equal(normalizeForCompare("x $<u>$ y"), "x $<u>$ y", "formul icindeki < korunur");
-    console.log("ok - textHash / normalizeForCompare");
+    // Kapi 4: italik/alti cizili isaret kaynak metinle karsilastirmadan once silinir (extract_text.py <i> yazar).
+    const marked = [{ field: "prompt", text: "Who wrote <i>The Long Book</i>?" }, { field: "choices.A", text: "A) <u>an</u> author" }];
+    assert.ok(locateInSource(marked, "1. Who wrote The Long Book?\n   A) an author").ok, "isaretli metin kaynakla eslesmeli");
+    assert.equal(locateInSource(marked, "1. Who wrote The Short Book?\n   A) an author").ok, false);
+    console.log("ok - textHash / normalizeForCompare / isaretli kaynak karsilastirmasi");
   }
 
   const id = (number, year = 2025) => questionId(year, number);

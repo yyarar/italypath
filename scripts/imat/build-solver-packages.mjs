@@ -4,6 +4,7 @@
 // karsilastirir.
 //
 //   PATH=/usr/local/bin:$PATH IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank node scripts/imat/build-solver-packages.mjs [--packages 8] [--years 2023,2024,2025] [--bank <yol>]
+//   ... node scripts/imat/build-solver-packages.mjs --ids <id,id,...> [--bank <yol>]   (yeniden cozum paketi)
 //
 // Pakete GIRMEZ: correct_answer, shuffle, topic/topic_slug, source_file/source_page, numara. Girer: id, hash, year,
 // section, prompt, choices (bankadaki karistirilmis sira), figure (figures/<yil>/<id>.webp mutlak yolu ya da null).
@@ -13,11 +14,14 @@
 // Dagitim sabit tohumlu ve girdi sirasindan bagimsiz: bolum sirasina gore (bolum icinde sha256(tohum:id)) siralanip
 // paketlere sirayla dagitilir -> her pakette her bolumden pay, boyutlar en cok 1 farkli; paket ici sira yine tohumla
 // karistirilir. Yeniden calistirma ayni dosyalari yazar; result-*.json'a dokunmaz. Sekil dosyasi eksikse cikis 1.
+// --ids: metni degisen (text_hash'i eski) sorular icin tek paket solver/package-rerun-<zaman>.json yazar (ayni kayit
+// bicimi ve yasak alan kurali; sira tohumlu). package-NN.json'lara ve manifest.json'a dokunmaz; ajan sonucu
+// result-rerun-<zaman>.json'a yazar (gate-imat.mjs result-*.json okur). --packages/--years ile birlikte kullanilmaz.
 import { existsSync, mkdirSync, readdirSync, rmSync } from "node:fs";
 import path from "node:path";
 
 import { SECTIONS } from "../../lib/imat/taxonomy.mjs";
-import { CHOICE_KEYS, figureAbsPath, parseCliArgs, positiveInt, readBank, recordHash, seededKey } from "./gate-imat.mjs";
+import { CHOICE_KEYS, figureAbsPath, parseCliArgs, positiveInt, readBank, recordHash, rerunStamp, seededKey, selectIds } from "./gate-imat.mjs";
 import { BANK_PATH, SOLVER_DIR, pad2, parseYears, writeJson } from "./paths.mjs";
 
 const SEED = "imat-solver-v1";
@@ -27,10 +31,50 @@ const FORBIDDEN_KEYS = ["correct_answer", "shuffle", "topic", "topic_slug", "sou
 
 const packageName = (index) => `package-${pad2(index + 1)}.json`;
 
+function packageEntry(record, missingFigures) {
+  const figure = figureAbsPath(record);
+  if (figure && !existsSync(figure)) missingFigures.push(record.id);
+  const entry = {
+    id: record.id,
+    hash: recordHash(record),
+    year: record.year,
+    section: record.section,
+    prompt: record.prompt,
+    choices: Object.fromEntries(CHOICE_KEYS.map((key) => [key, record.choices[key]])),
+    figure,
+  };
+  const keys = Object.keys(entry);
+  if (keys.join() !== ENTRY_KEYS.join() || keys.some((key) => FORBIDDEN_KEYS.includes(key))) throw new Error(`${record.id}: paket alanlari sozlesme disi`);
+  return entry;
+}
+
+// --ids: tek yeniden cozum paketi (package-rerun-<zaman>.json); var olan paketlere ve manifest'e dokunmaz.
+function buildRerun(all, idsArg, bankPath) {
+  const records = selectIds(all, idsArg);
+  records.sort((a, b) => seededKey(`${SEED}:order`, a.id).localeCompare(seededKey(`${SEED}:order`, b.id)));
+  const missingFigures = [];
+  const questions = records.map((record) => packageEntry(record, missingFigures));
+  const stamp = rerunStamp();
+  const name = `package-rerun-${stamp}.json`;
+  mkdirSync(SOLVER_DIR, { recursive: true });
+  writeJson(path.join(SOLVER_DIR, name), { package: `rerun-${stamp}`, count: questions.length, questions });
+  console.log(`Yeniden cozum paketi: ${questions.length} soru (${bankPath}) -> ${path.join(SOLVER_DIR, name)}`);
+  console.log(`Sonuc dosyasi: ${path.join(SOLVER_DIR, `result-rerun-${stamp}.json`)} | sekilli soru: ${questions.filter((question) => question.figure).length}`);
+  if (missingFigures.length > 0) {
+    console.log(`HATA: sekil dosyasi yok: ${missingFigures.length} soru (${missingFigures.join(", ")}); crop-figures.mjs calismadan cozucu dalgasi baslamaz.`);
+    return 1;
+  }
+  return 0;
+}
+
 function main() {
-  const args = parseCliArgs(process.argv.slice(2), { values: ["--packages", "--years", "--bank"] });
-  const count = positiveInt(args.values["--packages"] ?? 8, "--packages");
+  const args = parseCliArgs(process.argv.slice(2), { values: ["--packages", "--years", "--bank", "--ids"] });
   const bankPath = path.resolve(args.values["--bank"] ?? BANK_PATH);
+  if (args.values["--ids"] !== undefined) {
+    if (args.values["--packages"] !== undefined || args.values["--years"] !== undefined) throw new Error("--ids, --packages ve --years ile birlikte kullanilmaz.");
+    return buildRerun(readBank(bankPath), args.values["--ids"], bankPath);
+  }
+  const count = positiveInt(args.values["--packages"] ?? 8, "--packages");
   const all = readBank(bankPath);
   const years = args.values["--years"] ? parseYears(args.values["--years"]) : [...new Set(all.map((record) => record.year))].sort((a, b) => a - b);
   const bank = all.filter((record) => years.includes(record.year));
@@ -66,22 +110,7 @@ function main() {
     files: [],
   };
   packages.forEach((records, index) => {
-    const questions = records.map((record) => {
-      const figure = figureAbsPath(record);
-      if (figure && !existsSync(figure)) missingFigures.push(record.id);
-      const entry = {
-        id: record.id,
-        hash: recordHash(record),
-        year: record.year,
-        section: record.section,
-        prompt: record.prompt,
-        choices: Object.fromEntries(CHOICE_KEYS.map((key) => [key, record.choices[key]])),
-        figure,
-      };
-      const keys = Object.keys(entry);
-      if (keys.join() !== ENTRY_KEYS.join() || keys.some((key) => FORBIDDEN_KEYS.includes(key))) throw new Error(`${record.id}: paket alanlari sozlesme disi`);
-      return entry;
-    });
+    const questions = records.map((record) => packageEntry(record, missingFigures));
     const name = packageName(index);
     writeJson(path.join(SOLVER_DIR, name), { package: index + 1, count: questions.length, questions });
     const sections = Object.fromEntries(SECTIONS.map((section) => [section, records.filter((record) => record.section === section).length]));
