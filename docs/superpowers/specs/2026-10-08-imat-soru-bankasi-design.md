@@ -1,7 +1,7 @@
 # Tasarım: IMAT Soru Bankası ve Deneme Sınavı
 
 Tarih: 2026-10-08
-Durum (2026-10-08): **UYGULANMADI** — tasarım Kerem onayıyla (sohbet, 8 Ekim 2026) yazıldı; plan `docs/superpowers/plans/2026-10-08-imat-soru-bankasi-plan.md`; çalışma dalı `feat/imat` (`.worktrees/imat`). Kod, şema ve canlı veritabanı değişmedi.
+Durum (2026-10-09): **KISMEN** — Teslim 1 (deneme sınavları 2023-2025) uygulandı, yayında değil: kod `feat/imat` dalında (bc1e241 … b05ea1e; `check:offline` 40/40, 5e0a2fa; push yok); şema `supabase/imat_bank.sql` 9 Ekim'de Kerem onayıyla canlıya uygulandı (migration `imat_bank`; öncesinde yedek `italypath-supabase-20261008T222433Z` + `--verify`); 180 soru + 5 görsel canlıda gizli (canlı sayım 2026-10-09: 180 satır, `needs_review` 180, yıl başına 60). Site yayını (push) ve açma Kerem'in sözünü bekliyor; Teslim 2 (2011-2022 bankası) başlamadı. Tasarım Kerem onayıyla (sohbet, 8 Ekim 2026) yazıldı; plan `docs/superpowers/plans/2026-10-08-imat-soru-bankasi-plan.md` (uygulama sapmaları orada "Uygulama notları"); çalışma dalı `feat/imat` (`.worktrees/imat`).
 
 ## Amaç
 
@@ -72,7 +72,7 @@ Hariç (bilinçli; Kerem 2026-10-08):
 
 ## Seçilen Yaklaşım
 
-**Ayrı IMAT modülü, SAT motorunu ödünç alarak.** Yeni route, yeni tablolar, yeni API; metin/formül çizimi (`MathText`, `PassageText`, `lib/sat/mathSegments.mjs` sözleşmesi), görsel deposu kuralları, insert-only içe aktarma, karantina (`needs_review`), compare-and-swap yama aracı ve kapı disiplini SAT'tan aynen alınır. SAT dosyalarına dokunulmaz (Eduitalya uygulaması `/api/sat/questions` sözleşmesine bağlı; `check:sat-bank` değişmez).
+**Ayrı IMAT modülü, SAT motorunu ödünç alarak.** Yeni route, yeni tablolar, yeni API; metin/formül çizimi (`MathText` ve `lib/sat/mathSegments.mjs` sözleşmesi; SAT Okuma-Yazma'nın satır satır dize çizimi `PassageText` IMAT'ta kullanılmaz, bkz. "Sayfa yapısı"), görsel deposu kuralları, insert-only içe aktarma, karantina (`needs_review`), compare-and-swap yama aracı ve kapı disiplini SAT'tan aynen alınır. SAT dosyalarına dokunulmaz (Eduitalya uygulaması `/api/sat/questions` sözleşmesine bağlı; `check:sat-bank` değişmez).
 
 Reddedilenler:
 
@@ -198,7 +198,7 @@ API sözleşmesi (`app/api/imat/questions/route.ts`, yalnız GET):
 
 ### Sayfa yapısı
 
-`app/imat/page.tsx` client leaf → `components/imat/ImatExplorer.tsx` (iki sekme). Dosyalar `components/imat/*` ve `lib/imat/*`; SAT'tan yalnız `MathText`, `PassageText` ve `lib/sat/mathSegments.mjs` import edilir. `ImatQuestionCard` A-E beş şık (SAT `QuestionCard` A-D kalır, değişmez).
+`app/imat/page.tsx` client leaf → `components/imat/ImatExplorer.tsx` (iki sekme). Dosyalar `components/imat/*` ve `lib/imat/*`; SAT'tan yalnız `MathText` ve `lib/sat/mathSegments.mjs` import edilir. `ImatQuestionCard` A-E beş şık (SAT `QuestionCard` A-D kalır, değişmez). Soru metni her bölümde (okuma-genel dahil) tek `MathText` ile `whitespace-pre-line` kutuda düz paragraf çizilir (`\n` satır sonu, `\n\n` paragraf boşluğu); SAT Okuma-Yazma'nın satır satır dize kuralı (`PassageText` / `splitPassageBlocks`, asılı girinti) IMAT kartında yoktur (2026-10-08 pilot bulgusu: pasaj şiir gibi görünüyordu; f1bfd75, `check:imat-bank` madde 8 zorlar). Görsel soru metninin altındadır; deneme kipinde kart doğru cevabı ne alır ne gösterir.
 
 **Deneme sekmesi:**
 

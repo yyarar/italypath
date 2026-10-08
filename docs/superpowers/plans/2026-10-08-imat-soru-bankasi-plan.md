@@ -1,6 +1,18 @@
 # IMAT Soru Bankası ve Deneme Sınavı: Uygulama Planı
 
-Durum (2026-10-08): **UYGULANMADI** — plan yazıldı; tasarım `docs/superpowers/specs/2026-10-08-imat-soru-bankasi-design.md` (Kerem onayı 8 Ekim 2026). Çalışma dalı `feat/imat` (`.worktrees/imat`). Kod, şema ve canlı veritabanı değişmedi. İlerleme `tmp/imat-bank/DEVAM.md` (ana klasör, Git dışı) dosyasında tutulur; bu plandaki checkbox'lar ilerleme göstermez.
+Durum (2026-10-09): **KISMEN** — Görev 0-13'ün kodu ve verisi bitti: dal `feat/imat` (bc1e241 … b05ea1e; `check:offline` 40/40, 5e0a2fa; push yok); şema `supabase/imat_bank.sql` 9 Ekim'de Kerem onayıyla canlıda (migration `imat_bank`; yedek `italypath-supabase-20261008T222433Z` + `--verify`); 180 soru + 5 görsel canlıda gizli (`needs_review` 180). Açık: Görev 13'ün build, `main` birleştirme, yayın (Kerem kapısı 3) ve açma (kapı 4) adımları; Görev 14-19 (Teslim 2) başlamadı. Plan yazım tarihi 2026-10-08; tasarım `docs/superpowers/specs/2026-10-08-imat-soru-bankasi-design.md` (Kerem onayı 8 Ekim 2026). Çalışma dalı `feat/imat` (`.worktrees/imat`). İlerleme `tmp/imat-bank/DEVAM.md` (ana klasör, Git dışı) dosyasında tutulur; bu plandaki checkbox'lar ilerleme göstermez.
+
+Uygulama notları (2026-10-09; plandan sapmalar, kanıt commit'leri dalda):
+
+- 2025 kâğıdı da "hep A": yeşil vurgu 60/60 soruda A şıkkında. Plan 2025'i vurgudan okuyup karıştırmamayı öngörüyordu; 2021-2025'in hepsi sabit tohumla karıştırıldı (tohum `imat-shuffle-v1:<id>`; 23db27c, tasarım 1aadc5b).
+- Karıştırma istisnası: 2023 Q47'nin şıkları şeklin içinde çizili; sırası korunur, doğru A kalır. Liste `shuffle-exempt.json` (Git dışı, gerekçeli); `validate-bank.mjs` denetler (22a78c3). Kerem 9 Ekim'de "[şekle bak]" şıklarıyla kalmasını onayladı.
+- İtalik kuralı: `extract_text.py` MUR metninde en az 3 karakterlik italik koşuları `<i>` ile işaretler; tamamı italik bloklar ve tek harfler işaretsiz kalır (b7dfaad; uydurma fikstürlü öz test 89cee1b). İşaret eklenince değişen 8 soru yeniden çözüldü ve görsel kontrolden geçti.
+- Kenar onayı: kırpılan şeklin içeriği dolgu kenarına değiyorsa `figures/edge-signoff.json` ile tek tek onaylanır; WebP doğrudan yazılır (5424cd2).
+- Yazıcılar: `import-bank.mjs` ve `patch-imat-questions.mjs` `--apply` için `IMAT_OUT` (yama için ya da `--backup`) ister: worktree'nin kendi `tmp/` klasöründeki bayat bir kopya canlıya yazılmaz, yedek de oraya düşmez. Boş şık reddedilir; görsel yalnız yeni eklenen satırlar için yüklenir (5e0a2fa).
+- Soru kartı: her bölümde (okuma-genel dahil) soru metni tek `MathText`, `whitespace-pre-line` kutuda düz paragraf; `PassageText` kullanılmaz (pilot bulgusu, f1bfd75; `check:imat-bank` madde 8). Önizleme (`render-preview.mjs`) aynı kuralla çizer.
+- Kör çözücü ve görsel sadakat paket kurucuları (`build-solver-packages.mjs`, `build-visual-packages.mjs`) `--ids` ile yalnız metni değişen soruları tek yeniden bakış paketine koyar; var olan paketlere dokunmaz (b7dfaad).
+- Plana ek testler: `test:imat-crop` (5424cd2) ve `test:imat-extract` (b7dfaad; Python standart kitaplık); OFFLINE listesi 40 adım.
+- Önizleme girdileri `.claude/launch.json`'da (ana klasör, Git dışı): `imat-worktree-dev` port 3114 (plandaki 3112 yerine), `imat-preview` port 3115 (`tmp/imat-bank/preview` için statik sunucu).
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -8,7 +20,7 @@ Durum (2026-10-08): **UYGULANMADI** — plan yazıldı; tasarım `docs/superpowe
 
 **Goal:** `/imat` altında giriş yapmış kullanıcıya 2023-2025 IMAT sınavlarını gerçek kurallarla deneme olarak, 2011-2022 sorularını bölüm/alt konu bazında konu pratiği olarak sunmak.
 
-**Architecture:** Ayrı IMAT modülü (route `/imat`, API `/api/imat/questions`, tablolar `imat_questions` / `imat_attempts` / `imat_exam_sessions`, depo `imat-figures`); SAT'tan yalnız metin/formül çizimi (`MathText`, `PassageText`, `lib/sat/mathSegments.mjs`) ve içerik denetim yardımcıları (`scripts/sat/lib/content-audit.mjs`) import edilir, SAT dosyaları değişmez. Deneme puanı sunucuda (`imat_submit_exam`) hesaplanır; deneme sırasında doğru cevap istemciye gitmez. Boru hattı `scripts/imat/` altında, SAT Okuma-Yazma boru hattının kapı disipliniyle (sayım, metin karşılaştırma, anahtar, kör çözücü, görsel sadakat, pilot, karantina, açma).
+**Architecture:** Ayrı IMAT modülü (route `/imat`, API `/api/imat/questions`, tablolar `imat_questions` / `imat_attempts` / `imat_exam_sessions`, depo `imat-figures`); SAT'tan yalnız metin/formül çizimi (`MathText`, `lib/sat/mathSegments.mjs`; `PassageText` kullanılmaz, bkz. Uygulama notları) ve içerik denetim yardımcıları (`scripts/sat/lib/content-audit.mjs`) import edilir, SAT dosyaları değişmez. Deneme puanı sunucuda (`imat_submit_exam`) hesaplanır; deneme sırasında doğru cevap istemciye gitmez. Boru hattı `scripts/imat/` altında, SAT Okuma-Yazma boru hattının kapı disipliniyle (sayım, metin karşılaştırma, anahtar, kör çözücü, görsel sadakat, pilot, karantina, açma).
 
 **Tech Stack:** Next.js 16.3.6 (App Router), Clerk 6.x, Supabase (PostgreSQL 17 canlı; yerel test PostgreSQL 16/17), Tailwind v4 token'ları, framer-motion (`LazyMotion` + `m`), KaTeX; Node 24 (`/usr/local/bin/node`), Python 3.9 + `pdfplumber` 0.11.8, poppler (`pdftotext`, `pdftoppm`, `pdfimages`, `pdfinfo`), `sharp`. Yeni npm paketi eklenmez.
 
@@ -545,10 +557,10 @@ git commit -m "feat(imat): client hooks for catalog, attempts and exam sessions"
 
 **Files:**
 - Create: `app/imat/page.tsx`, `components/imat/ImatExplorer.tsx`, `components/imat/ImatQuestionCard.tsx`, `components/imat/mock/MockExamList.tsx`, `components/imat/mock/MockExamIntro.tsx`, `components/imat/mock/MockExamRunner.tsx`, `components/imat/mock/ExamTimer.tsx`, `components/imat/mock/ExamNavigator.tsx`, `components/imat/mock/MockExamResult.tsx`, `components/imat/mock/MockExamReview.tsx`, `components/imat/mock/ExamHistory.tsx`
-- Modify: `scripts/check-imat-bank.mjs` (madde 8: `ImatQuestionCard` A-E beş şık; `MockExamRunner` cevap sonrası doğru/yanlış göstermez (`isCorrect`/`correctAnswer` geçmez); görsel soru metninin ALTINDA; `MathText` ve `PassageText` SAT'tan import)
+- Modify: `scripts/check-imat-bank.mjs` (madde 8: `ImatQuestionCard` A-E beş şık; `MockExamRunner` cevap sonrası doğru/yanlış göstermez (`isCorrect`/`correctAnswer` geçmez); görsel soru metninin ALTINDA; `MathText` SAT'tan import; soru metni her bölümde tek `<MathText text={question.prompt} />`, `PassageText`/`splitPassageBlocks` geçmez)
 
 **Interfaces:**
-- `ImatQuestionCard` props: `{ question: ImatQuestion; mode: "practice" | "exam"; selected: ImatChoiceKey | null; revealed: boolean; onSelect(letter) }`. `mode="exam"`: seçim yalnız vurgulanır, doğru/yanlış yok (`question.correctAnswer` null). `mode="practice"` + `revealed`: doğru yeşil, yanlış kırmızı (SAT `QuestionCard` görünümü). Metin: `question.section === "reading-general"` ise `PassageText`, diğerlerinde `MathText`; şıklar `MathText`.
+- `ImatQuestionCard` props: `{ question: ImatQuestion; mode: "practice" | "exam"; selected: ImatChoiceKey | null; revealed: boolean; onSelect(letter) }`. `mode="exam"`: seçim yalnız vurgulanır, doğru/yanlış yok (`question.correctAnswer` null). `mode="practice"` + `revealed`: doğru yeşil, yanlış kırmızı (SAT `QuestionCard` görünümü). Metin: her bölümde (okuma-genel dahil) tek `MathText`, `whitespace-pre-line` kutuda düz paragraf (`\n` satır sonu, `\n\n` paragraf boşluğu; 2026-10-08 pilot bulgusu, f1bfd75; ilk taslak okuma-genel için `PassageText` diyordu); şıklar `MathText`.
 - `ImatExplorer` durumu: `{ tab: "mock" | "practice" }` + mock görünümü `{ mode: "list" } | { mode: "intro", year } | { mode: "running", session, questions } | { mode: "result", session, questions? } | { mode: "review", sessionId } | { mode: "history" }`.
 - `MockExamRunner` props: `{ session: { id, year, startedAt, deadlineAt, draftAnswers }, questions: ImatQuestion[], onSubmitted(result) }`. İç mantık: `useReducer(examReducer, createExamState(...))` + `hydrate` ile `mergeDrafts(localStorage, server draft)`; `ExamTimer` `deadlineAt - Date.now()` (her saniye; `<= 10 dk` vurgulu; `0` → otomatik `submit`); `saveDraft` 60 sn'de bir değişiklik varsa ve `visibilitychange` hidden'da; localStorage her değişiklikte (`try/catch`); teslim onayı `unansweredCount` ile `submitConfirm` metni; teslim başarılıysa localStorage anahtarı silinir.
 - `MockExamResult` props: `{ session: ImatExamSession-özeti, onReview, onRetake, onBack }` (puan `/ 90`, doğru/yanlış/boş, 5 bölümlük tablo, `isLate` ise `late` notu).
@@ -698,7 +710,7 @@ git commit -m "feat(imat): insert-only importer, compare-and-swap patcher and re
 - Çıktı (Git dışı): `preview/2025.html`, `preview/2023-2024-ornek.html`
 
 **Interfaces:**
-- `render-preview.mjs --years 2025 --out 2025 | --ids <id,…> --out <ad>`: her soru için solda `pages/<yıl>/p-NN.png` (sayfa görüntüsü), sağda bizim kayıt sitedeki `ImatQuestionCard` kuralınca (`splitRichText`/`splitPassageBlocks`, A-E, doğru şık işaretli, karıştırılmış yıllarda orijinal harf notu); satır içi CSS, JS yok, ağ yok.
+- `render-preview.mjs --years 2025 --out 2025 | --ids <id,…> --out <ad>`: her soru için solda `pages/<yıl>/p-NN.png` (sayfa görüntüsü), sağda bizim kayıt sitedeki `ImatQuestionCard` kuralınca (`splitRichText`, her bölümde düz paragraf; `splitPassageBlocks` yok, f1bfd75; A-E, doğru şık işaretli, karıştırılmış yıllarda orijinal harf notu); satır içi CSS, JS yok, ağ yok.
 
 - [ ] **Step 1: Önizleme: 2025'in 60 sorusu + 2023 ve 2024'ten 10'ar soru → Kerem kapısı 1 (dosya yolu verilir; soru metni sohbete yazılmaz)**
 - [ ] **Step 2: Şema canlıya (Kerem kapısı; sıra): `npm run backup:supabase -- --run` → `--verify` → Kerem onayıyla `supabase/imat_bank.sql` (Supabase Dashboard SQL Editor; MCP `execute_sql` yalnız okuma) → salt okuma kontrol: `select count(*) from imat_questions` = 0, `has_table_privilege('anon','public.imat_questions','select')` = false, üç fonksiyon `prosecdef`**
