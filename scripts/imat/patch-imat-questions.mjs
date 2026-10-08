@@ -12,7 +12,8 @@
 // Kurallar:
 // - Kuru calistirma her hedefin canli degerini paketteki `expected` ile karsilastirir; biri tutmazsa durur.
 // - --apply once ayni kontrolu yapar, sonra yazmadan once tam eski satirlari yedege yazar (varsayilan
-//   <IMAT_OUT>/backups/<zaman>-before-apply.json; var olan yedek ezilmez). Her kayit icin yazidan hemen once
+//   <IMAT_OUT>/backups/<zaman>-before-apply.json; var olan yedek ezilmez). --package --apply icin IMAT_OUT ya da
+//   --backup acikca verilmeli: yedek worktree'nin kendi tmp/ klasorune dusmesin (--rollback zaten acik yedek yolu alir). Her kayit icin yazidan hemen once
 //   canli satir yeniden okunur ve `expected` ile karsilastirilir; yazi da id + needs_review + correct_answer
 //   kosuluyla gider (compare-and-swap). Bir kayit tutmazsa durur ve o ana kadar yazilanlari geri alir.
 // - Sonda hedef disi satirlarin ozeti ve toplam sayim degismemis olmali.
@@ -284,6 +285,12 @@ async function rollback(client, backupPath, shouldApply) {
 // clientFactory, backupsDir ve now yalniz cevrimdisi testler icindir (sahte istemci, gecici klasor).
 export async function main(argv = process.argv.slice(2), { clientFactory, backupsDir = BACKUPS_DIR, now = new Date() } = {}) {
   const options = parseArgs(argv);
+  if (options.mode === "apply" && options.package && !options.backup && !process.env.IMAT_OUT) {
+    throw new Error(
+      "--apply icin IMAT_OUT (yedek <IMAT_OUT>/backups/ altina) ya da --backup <yol> zorunlu: yedek worktree'nin " +
+        "kendi tmp/ klasorune yazilmaz. Hicbir sey yazilmadi."
+    );
+  }
   // Kuru calistirma da canli satirlari okur: --project-ref verilmese bile adres canli projeye ait olmali.
   const projectRef = options.mode === "apply" ? options.projectRef : (options.projectRef ?? LIVE_PROJECT_REF);
   const client = createImportClient({ mode: options.mode, projectRef, clientFactory });

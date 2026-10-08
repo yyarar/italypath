@@ -9,11 +9,14 @@
 // - Var olan id asla ezilmez: canlidaki satir yerel kayittan herhangi bir kolonda farkliysa INSERT-ONLY FAIL,
 //   hicbir satir ve gorsel yazilmaz. Var olan sorular yalniz scripts/imat/patch-imat-questions.mjs ile degisir.
 // - Girdi <IMAT_OUT>/bank.json (validate-bank temiz: failures bos); her kayit karantinada (needs_review true).
-// - Gorseller <IMAT_OUT>/figures/<yil>/<id>.webp -> imat-figures bucket'inda <yil>/<id>.webp; ezme yok
-//   (upsert: false), depoda zaten olan dosya atlanir ve raporlanir. Bucket ve tablo supabase/imat_bank.sql ile kurulur.
+// - Gorseller yalniz eklenecek (yeni) satirlar icin yuklenir (SAT ile ayni): <IMAT_OUT>/figures/<yil>/<id>.webp ->
+//   imat-figures bucket'inda <yil>/<id>.webp; ezme yok (upsert: false), depoda zaten olan dosya atlanir ve raporlanir.
+//   Atlanan (canlida zaten olan) satirlarin gorsellerine dokunulmaz, yalniz sayilir. Bucket ve tablo
+//   supabase/imat_bank.sql ile kurulur.
 // - Kuru calistirma canli id'leri ve depo listesini okur, "N yeni / M atlanan / K gorsel" yazar, yazmaz. Adres
 //   kuru calistirmada da canli projeye ait olmali. --apply yalniz --project-ref canli proje kimligiyle ve
-//   .env.local'daki NEXT_PUBLIC_SUPABASE_URL o projeye aitse calisir (assertTarget).
+//   .env.local'daki NEXT_PUBLIC_SUPABASE_URL o projeye aitse calisir (assertTarget); ayrica IMAT_OUT acikca
+//   verilmeli (worktree'nin kendi tmp/ klasorundeki bayat bir kopya yazilmasin).
 // Cikti yalniz kimlik ve sayilardir; soru metni yazdirilmaz.
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { join, resolve } from "node:path";
@@ -141,6 +144,12 @@ const isDuplicateObject = (error) => String(error?.statusCode) === "409" || /alr
 export async function main(argv = process.argv.slice(2), { clientFactory, outRoot = IMAT_OUT } = {}) {
   const { mode, projectRef, values } = parseImportArgs(argv, { valueFlags: ["--years"] });
   const years = values["--years"] ? parseYears(values["--years"]) : null;
+  if (mode === "apply" && !process.env.IMAT_OUT) {
+    throw new Error(
+      "--apply icin IMAT_OUT zorunlu: ana depodaki bankayi acikca ver (IMAT_OUT=<ana depo>/tmp/imat-bank); " +
+        "worktree'nin kendi tmp/ klasoru kullanilmaz. Hicbir sey yazilmadi."
+    );
+  }
   const rows = loadBank(outRoot, years);
   const localFigures = rows.filter((row) => row.figure_path).length;
   console.log(`Yerel banka temiz: ${rows.length} kayit, ${localFigures} gorsel (WebP, <= 512 KB); hepsi karantinada.`);
@@ -162,19 +171,22 @@ export async function main(argv = process.argv.slice(2), { clientFactory, outRoo
     );
   }
 
-  // 2) Gorsel plani: secilen her gorselli kayit; depoda olan atlanir (ezilmez)
-  const figurePaths = rows.filter((row) => row.figure_path).map((row) => row.figure_path);
+  // 2) Gorsel plani: yalniz eklenecek satirlarin gorselleri; depoda olan atlanir (ezilmez). Atlanan satirlarin
+  // gorselleri yuklenmez, yalniz sayilir.
+  const figurePaths = newRows.filter((row) => row.figure_path).map((row) => row.figure_path);
+  const figuresSkippedRows = rows.filter((row) => row.figure_path).length - figurePaths.length;
   const existingFigures = await existingFigurePaths(supabase, figurePaths);
   const toUpload = figurePaths.filter((figurePath) => !existingFigures.has(figurePath));
   const skipped = rows.length - newRows.length;
 
   if (mode !== "apply") {
+    const figuresExisting = figurePaths.length - toUpload.length;
     console.log(
       `Kuru calistirma: ${newRows.length} yeni / ${skipped} atlanan / ${toUpload.length} gorsel ` +
-        `(${figurePaths.length - toUpload.length} gorsel depoda zaten var, atlanir). Yazi yok. ` +
-        `Yazmak icin: --apply --project-ref ${LIVE_PROJECT_REF}`
+        `(${figuresExisting} yeni satir gorseli depoda zaten var, atlanir; atlanan satirlarin ${figuresSkippedRows} gorseline dokunulmaz). ` +
+        `Yazi yok. Yazmak icin: IMAT_OUT=<klasor> ... --apply --project-ref ${LIVE_PROJECT_REF}`
     );
-    return { mode, wouldInsert: newRows.length, skipped, wouldUpload: toUpload.length, figuresExisting: figurePaths.length - toUpload.length, writes: 0 };
+    return { mode, wouldInsert: newRows.length, skipped, wouldUpload: toUpload.length, figuresExisting, figuresSkippedRows, writes: 0 };
   }
 
   // 3) Gorseller once: satir hic gorselsiz gorunmez; var olan dosya EZILMEZ (upsert: false, cakisma atlanir)
@@ -206,8 +218,11 @@ export async function main(argv = process.argv.slice(2), { clientFactory, outRoo
   }
   const { count, error: countError } = await supabase.from(TABLE).select("id", { count: "exact", head: true });
   if (countError) throw liveReadError(countError);
-  console.log(`Import tamam: ${newRows.length} yeni / ${skipped} atlanan / ${uploaded} gorsel (${figuresExisting} gorsel zaten vardi). DB toplam: ${count}`);
-  return { mode, inserted: newRows.length, skipped, uploaded, figuresExisting, total: count };
+  console.log(
+    `Import tamam: ${newRows.length} yeni / ${skipped} atlanan / ${uploaded} gorsel (${figuresExisting} gorsel zaten vardi; ` +
+      `atlanan satirlarin ${figuresSkippedRows} gorseline dokunulmadi). DB toplam: ${count}`
+  );
+  return { mode, inserted: newRows.length, skipped, uploaded, figuresExisting, figuresSkippedRows, total: count };
 }
 
 const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);

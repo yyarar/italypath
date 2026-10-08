@@ -16,7 +16,8 @@ const PACKAGE_KEYS = ["project_ref", "table", "created_at", "items"];
 const ITEM_KEYS = ["id", "expected", "after"];
 const ID_PATTERN = /^[0-9a-f]{8}$/;
 
-// Tam olarak A-E, hepsi metin; sirali ve kirpilmis kopya doner. Eksik/fazla sik hata.
+// Tam olarak A-E, hepsi bos olmayan metin; sirali ve kirpilmis kopya doner. Eksik/fazla/bos sik hata
+// (bos sik canli, hatta acilmis bir soruda bir sikki silerdi; DB kisiti yalniz anahtarlari denetler).
 export function normalizeChoices(choices, label = "choices") {
   if (!choices || typeof choices !== "object" || Array.isArray(choices)) throw new Error(`${label}: A-E siklari nesnesi olmali.`);
   const extra = Object.keys(choices).filter((key) => !CHOICE_KEYS.includes(key));
@@ -26,6 +27,7 @@ export function normalizeChoices(choices, label = "choices") {
     if (!(key in choices)) throw new Error(`${label}: ${key} sikki eksik.`);
     if (typeof choices[key] !== "string") throw new Error(`${label}.${key}: sik metin olmali.`);
     normalized[key] = choices[key].trim();
+    if (!normalized[key]) throw new Error(`${label}.${key}: sik bos olamaz.`);
   }
   return normalized;
 }

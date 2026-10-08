@@ -73,6 +73,13 @@ assert.throws(
   () => validatePackage(pkg([item({ after: { ...item().after, choices: { ...CHOICES, A: " one " } } })]), LIVE_PROJECT_REF),
   /kirpilmis/, "kirpilmamis sik yazilmamali"
 );
+for (const blank of ["", "  "]) {
+  assert.throws(
+    () => validatePackage(pkg([item({ after: { ...item().after, choices: { ...CHOICES, B: blank } } })]), LIVE_PROJECT_REF),
+    /after\.choices\.B: sik bos olamaz/, `after'da bos sik (${JSON.stringify(blank)}) reddedilmeli`
+  );
+  assert.throws(() => normalizeChoices({ ...CHOICES, E: blank }), /E: sik bos olamaz/, `normalizeChoices bos sik (${JSON.stringify(blank)})`);
+}
 assert.throws(
   () => validatePackage(pkg([item({ after: { ...item().after, correct_answer: "B" } })]), LIVE_PROJECT_REF),
   /tasimali/, "after'a fazla alan (correct_answer) reddedilmeli"
@@ -224,9 +231,11 @@ function fakeSupabase(initialRows, { missingTable = false, objects = [], unliste
   return { client, calls, clientFactory, table, stored };
 }
 
+// IMAT_OUT --apply icin zorunlu; testlerde yollar secenekle verilir, bu deger hicbir yazida kullanilmaz.
 function setEnv(url) {
   process.env.NEXT_PUBLIC_SUPABASE_URL = url;
   process.env.SUPABASE_SECRET_KEY = TEST_KEY;
+  process.env.IMAT_OUT = "/nonexistent/imat-out-set-by-test";
 }
 
 async function rejectsBeforeConnecting(promise, pattern, calls, label) {
@@ -260,6 +269,9 @@ try {
   assert.equal(bankToRows([fresh])[0].figure_path, "2023/bbbb0002.webp", "figure_path <yil>/<id>.webp");
   assert.throws(() => bankToRows([{ ...fresh, figure_path: "figures/bbbb0002.webp" }]), /figure_path/, "beklenmeyen gorsel yolu reddedilir");
   assert.throws(() => bankToRows([{ ...fresh, choices: without(CHOICES, "E") }]), /E sikki eksik/, "eksik sik reddedilir");
+  for (const blank of ["", "  "]) {
+    assert.throws(() => bankToRows([{ ...fresh, choices: { ...CHOICES, C: blank } }]), /choices\.C: sik bos olamaz/, `bankToRows bos sik (${JSON.stringify(blank)})`);
+  }
 
   assert.deepEqual(
     planInsert(bankToRows([existing, fresh]), [liveExisting]),
@@ -301,6 +313,16 @@ try {
     await rejectsBeforeConnecting(importBank([], importOptions(clientFactory)), /points to project/, calls, "import: kuru calistirma da yanlis adrese gitmez");
   }
   {
+    // --apply IMAT_OUT olmadan reddedilir (worktree'nin kendi tmp/ kopyasi yazilmasin); kuru calistirma etkilenmez.
+    const { calls, clientFactory } = fakeSupabase([liveExisting]);
+    setEnv(LIVE_URL);
+    delete process.env.IMAT_OUT;
+    await rejectsBeforeConnecting(importBank(applyFlags, importOptions(clientFactory)), /--apply icin IMAT_OUT zorunlu/, calls, "import: IMAT_OUT yok");
+    const dry = await importBank([], importOptions(clientFactory));
+    assert.deepEqual([dry.mode, dry.writes, calls.writes], ["dry-run", 0, 0], "import: IMAT_OUT'suz kuru calistirma calisir, yazmaz");
+    setEnv(LIVE_URL);
+  }
+  {
     // failures dolu banka ve karantinasiz kayit: istemci kurulmadan reddedilir
     const { calls, clientFactory } = fakeSupabase([]);
     setEnv(LIVE_URL);
@@ -324,7 +346,7 @@ try {
     const { calls, clientFactory } = fakeSupabase([liveExisting], { objects: ["2025/bbbb0004.webp"] });
     setEnv(LIVE_URL);
     const result = await importBank([], importOptions(clientFactory));
-    assert.deepEqual(result, { mode: "dry-run", wouldInsert: 3, skipped: 1, wouldUpload: 1, figuresExisting: 1, writes: 0 }, "import: kuru calistirma sayimlari");
+    assert.deepEqual(result, { mode: "dry-run", wouldInsert: 3, skipped: 1, wouldUpload: 1, figuresExisting: 1, figuresSkippedRows: 0, writes: 0 }, "import: kuru calistirma sayimlari");
     assert.equal(calls.writes + calls.inserts.length + calls.uploads.length + calls.updates.length, 0, "import: kuru calistirma yazmaz");
     assert.deepEqual([calls.factory[0].url, calls.factory[0].key], [LIVE_URL, TEST_KEY], "import: istemci ortamdaki adres ve gizli anahtarla kurulur");
     assert.equal(calls.factory[0].options.auth.persistSession, false);
@@ -352,7 +374,7 @@ try {
     const { calls, clientFactory, table, stored } = fakeSupabase([liveExisting], { objects: ["2025/bbbb0004.webp"] });
     setEnv(LIVE_URL);
     const result = await importBank(applyFlags, importOptions(clientFactory));
-    assert.deepEqual(result, { mode: "apply", inserted: 3, skipped: 1, uploaded: 1, figuresExisting: 1, total: 4 }, "import: dogru ref + dogru adres gecer");
+    assert.deepEqual(result, { mode: "apply", inserted: 3, skipped: 1, uploaded: 1, figuresExisting: 1, figuresSkippedRows: 0, total: 4 }, "import: dogru ref + dogru adres gecer");
     assert.deepEqual(calls.inserts.map((row) => row.id), ["bbbb0002", "bbbb0003", "bbbb0004"]);
     assert.deepEqual(calls.inserts, bankToRows([fresh, freshNoFig, otherYear]), "import: eklenen satirlar bankToRows ile ayni");
     assert.deepEqual(calls.uploads, ["2023/bbbb0002.webp"], "import: var olan gorsel yuklenmez");
@@ -363,7 +385,10 @@ try {
 
     // Ikinci kuru calistirma: 0 yeni, hepsi degismeden atlanir.
     const again = await importBank([], importOptions(clientFactory));
-    assert.deepEqual([again.wouldInsert, again.skipped, again.wouldUpload, again.figuresExisting], [0, 4, 0, 2], "import: tekrar kosunca bos");
+    assert.deepEqual(
+      [again.wouldInsert, again.skipped, again.wouldUpload, again.figuresExisting, again.figuresSkippedRows], [0, 4, 0, 0, 2],
+      "import: tekrar kosunca bos; atlanan satirlarin gorselleri yalniz sayilir"
+    );
   }
   {
     // Depo listesinde gorunmeyen ama upload'da "zaten var" donen gorsel de ezilmez, atlanir.
@@ -372,6 +397,20 @@ try {
     const result = await importBank(applyFlags, importOptions(clientFactory));
     assert.deepEqual([result.uploaded, result.figuresExisting], [1, 1], "import: upload'da zaten var donen gorsel atlanir");
     assert.deepEqual(calls.uploads, ["2023/bbbb0002.webp", "2025/bbbb0004.webp"]);
+  }
+  {
+    // Canlida zaten olan satirin gorseli depoda olmasa da yuklenmez (SAT gibi: gorsel yalniz yeni satir icin).
+    const { calls, clientFactory, stored } = fakeSupabase([liveExisting, bankToRows([fresh])[0]]);
+    setEnv(LIVE_URL);
+    const dry = await importBank([], importOptions(clientFactory));
+    assert.deepEqual(
+      [dry.wouldInsert, dry.skipped, dry.wouldUpload, dry.figuresExisting, dry.figuresSkippedRows], [2, 2, 1, 0, 1],
+      "import: atlanan satirin gorseli plana girmez, ayri sayilir"
+    );
+    const result = await importBank(applyFlags, importOptions(clientFactory));
+    assert.deepEqual([result.inserted, result.uploaded, result.figuresSkippedRows], [2, 1, 1]);
+    assert.deepEqual(calls.uploads, ["2025/bbbb0004.webp"], "import: yalniz yeni satirin gorseli yuklenir");
+    assert.ok(!stored.has("2023/bbbb0002.webp"), "import: atlanan satirin gorseline dokunulmaz");
   }
   writeBank([{ ...existing, prompt: "changed locally" }, fresh]);
   {
@@ -419,6 +458,21 @@ try {
     setEnv(OTHER_URL);
     await rejectsBeforeConnecting(patchQuestions(patchArgs(...applyFlags), patchOptions(clientFactory)), /points to project/, calls, "patch: dogru ref, yanlis adres");
     await rejectsBeforeConnecting(patchQuestions(patchArgs(), patchOptions(clientFactory)), /points to project/, calls, "patch: kuru calistirma da yanlis adrese gitmez");
+  }
+  {
+    // --package --apply: IMAT_OUT ya da --backup zorunlu (yedek worktree tmp/'una dusmesin). Kural gecince
+    // sonraki engel (yanlis adres) devreye girer: bu, IMAT_OUT kontrolunun gectigini baglanmadan gosterir.
+    const { calls, clientFactory } = fakeSupabase([target, other]);
+    setEnv(LIVE_URL);
+    delete process.env.IMAT_OUT;
+    await rejectsBeforeConnecting(patchQuestions(patchArgs(...applyFlags), patchOptions(clientFactory)), /IMAT_OUT .*--backup <yol> zorunlu/, calls, "patch: IMAT_OUT ve --backup yok");
+    process.env.NEXT_PUBLIC_SUPABASE_URL = OTHER_URL;
+    await rejectsBeforeConnecting(patchQuestions(patchArgs(...applyFlags, "--backup", backupPath), patchOptions(clientFactory)), /points to project/, calls, "patch: --backup varsa IMAT_OUT gerekmez");
+    await rejectsBeforeConnecting(patchQuestions(["--rollback", backupPath, ...applyFlags], patchOptions(clientFactory)), /points to project/, calls, "patch: geri alma acik yedek yolu alir, IMAT_OUT gerekmez");
+    await rejectsBeforeConnecting(patchQuestions(patchArgs(), patchOptions(clientFactory)), /points to project/, calls, "patch: kuru calistirma IMAT_OUT istemez");
+    assert.equal(calls.writes, 0);
+    assert.ok(!existsSync(backupPath) && !existsSync(backupsDir), "patch: reddedilen uygulamada yedek yazilmaz");
+    setEnv(LIVE_URL);
   }
   {
     const { calls, clientFactory } = fakeSupabase([target, other]);
