@@ -82,7 +82,7 @@ Each result file is a JSON array, one object per question, in question-number or
 - Plain sub- and superscripts: when an index is only digits and signs (H₂SO₄, Ca²⁺, cm³, 10⁻⁵, mol L⁻¹, R₁, x²), write it with Unicode sub/superscript characters and no LaTeX, exactly like the text-layer years. State symbols such as (s), (aq), (g) are written inline in parentheses.
 - Symbols that exist as Unicode characters and are printed inline in text (π, α, Ω, °, ≤, ≥, ≠, →, ⇄, ∀, ∅) stay as Unicode characters outside formulas. Use − (U+2212) for a minus sign printed as minus.
 - A real dollar sign is written `\$`.
-- Markup: `<u>...</u>` only for words the paper underlines and `<i>...</i>` only for words the paper sets in italics inside otherwise upright text (a book title, a species name, an emphasised word). Do not wrap a whole passage, a whole quoted statement or a whole line that is entirely in italics or bold. No other tags, no Markdown.
+- Markup: `<u>...</u>` only for words the paper underlines and `<i>...</i>` only for words the paper sets in italics inside otherwise upright text (a book title, a species name, an emphasised word). Do not wrap a whole block that is entirely in italics (a whole passage or paragraph between blank lines, or a whole choice): that is typographic style, not emphasis. A statement line printed in italics inside a larger upright paragraph IS wrapped (one `<i>...</i>` per line, closed before the line break). Never wrap a single italic letter (a math variable). Bold is never marked. No other tags, no Markdown.
 - Diagrams are never drawn or described in the text. The prompt keeps the printed words around them ("The diagram shows ...").
 
 ## 6. Figures
