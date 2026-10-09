@@ -26,6 +26,8 @@ export const BANK_PATH = join(IMAT_OUT, "bank.json");
 export const CORRECTIONS_PATH = join(IMAT_OUT, "corrections.json");
 // Karistirma istisnasi: [{ id, reason }] (siklari sekil icinde cizili soru; shuffle-choices.mjs, validate-bank.mjs).
 export const SHUFFLE_EXEMPT_PATH = join(IMAT_OUT, "shuffle-exempt.json");
+// Kirpma duzeltmesi: { "<id>": { bbox: [x0, top, x1, bottom], note } } (PDF noktasi, extract bbox'i yerine; crop-questions.mjs).
+export const CROP_OVERRIDES_PATH = join(IMAT_OUT, "crop-overrides.json");
 
 // Yil -> kaynak dosya (2026-10-08 envanteri; dosya adlari degismez).
 export const SOURCE_FILES = Object.freeze({

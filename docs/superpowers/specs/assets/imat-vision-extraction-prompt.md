@@ -21,7 +21,7 @@ The question bank stores every question as text (prompt + choices A-E) plus, whe
 
 Packages live in `<IMAT_OUT>/vision/<year>/`. Each package is a JSON array. There are two kinds.
 
-**Question packages** (`package-NN-img.json`, or `package-NN.json` when every question of a text-layer year was packaged). One entry per question, `image` is a crop of that question (the question box plus a 6 pt margin, 200 dpi):
+**Question packages** (`package-NN-img.json`, or `package-NN.json` when every question of a text-layer year was packaged). One entry per question, `image` is a crop of that question (the question box plus a 6 pt margin, 200 dpi; the box can be a controller correction from `crop-overrides.json` when the extracted box cut a figure):
 
 ```json
 { "id": "1a2b3c4d", "year": 2024, "number": 7, "section": "physics-math", "image": "/abs/path/vision/2024/q-07.png", "cropBox": [172, 300, 1573, 842], "textHint": "...", "choicesHint": { "A": "...", "B": "...", "C": "...", "D": "...", "E": "..." } }

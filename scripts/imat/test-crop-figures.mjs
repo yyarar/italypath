@@ -1,7 +1,10 @@
 // crop-figures.mjs fikstur testi (Gorev 10 duzeltme turu 1): gecici IMAT_OUT'ta beyaz sayfa + siyah dikdortgen; kutu
 // dikdortgeni ustten kesiyor. Onaysiz: cikis 1, sekil yazilmaz (eski dosya silinir). Yanlis pageBox ile onay: yine 1.
 // Dogru onay: cikis 0 ve diskteki dosya, rapordaki parametrelerle yeniden kurulan tamponla bayt bayt ayni (yeniden
-// kodlama olsaydi farkli olurdu). PDF ve ag yok.
+// kodlama olsaydi farkli olurdu). Ag yok.
+// Ikinci bolum crop-questions.mjs kirpma duzeltmesi (crop-overrides.json, Gorev 16 araclari): uydurma 15 kaynak PDF
+// (lib/fixture-pdf.mjs; envanter pdfinfo ister) + 2011 sayfa goruntusu; duzeltme kutusu sayfaya kistirilir, --numbers
+// paketteki girdinin cropBox'ini yeniler, diger girdiler ve result-* dosyalari degismez.
 //
 //   PATH=/usr/local/bin:$PATH node scripts/imat/test-crop-figures.mjs   (npm run test:imat-crop)
 import assert from "node:assert/strict";
@@ -14,10 +17,13 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 import { MAX_WIDTH, PAD_PX, QUALITIES } from "./crop-figures.mjs";
-import { questionId } from "./paths.mjs";
+import { makePdf } from "./lib/fixture-pdf.mjs";
+import { PAGE_DPI, SOURCE_FILES, questionId } from "./paths.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SCRIPT = join(HERE, "crop-figures.mjs");
+const CROP_QUESTIONS = join(HERE, "crop-questions.mjs");
+const INVENTORY = join(HERE, "inventory.mjs");
 const YEAR = 2023;
 const ID = questionId(YEAR, 1);
 // Dikdortgen 100..300 x 100..250; kutunun ustu (150) dikdortgenin icinde, 8 pt (22 px) paydan cok yukarida devam ediyor.
@@ -123,6 +129,97 @@ try {
     assert.equal(run(root).status, 1);
     assert.ok(!existsSync(out));
     console.log("ok - onay kaldirilinca dosya silinir");
+  }
+
+  // crop-questions.mjs: crop-overrides.json ve --numbers paket yenilemesi (uydurma 2011 kagidi, sayfa 600x800 px).
+  {
+    const root = mkdtempSync(join(tmpdir(), "imat-crop-questions-"));
+    roots.push(root);
+    const env = { ...process.env, IMAT_OUT: root, IMAT_SOURCE_DIR: join(root, "sources") };
+    const node = (script, args) => {
+      const result = spawnSync(process.execPath, [script, ...args], { env, encoding: "utf8" });
+      return { status: result.status, out: `${result.stdout}${result.stderr}` };
+    };
+    mkdirSync(join(root, "sources"), { recursive: true });
+    for (const [year, name] of Object.entries(SOURCE_FILES)) writeFileSync(join(root, "sources", name), makePdf([[{ x: 50, top: 60, text: `fixture paper ${year}` }]]));
+    const inventory = node(INVENTORY, []);
+    assert.equal(inventory.status, 0, inventory.out);
+    const page = join(root, "pages", "2011", "p-01.png");
+    mkdirSync(dirname(page), { recursive: true });
+    await sharp({ create: { width: 600, height: 800, channels: 3, background: "#ffffff" } }).png().toFile(page);
+    const question = (number, bbox, hasImage) => ({
+      id: questionId(2011, number),
+      number,
+      section: "biology",
+      page: 1,
+      bbox,
+      prompt: `Fixture question ${number}?`,
+      choices: { A: "one", B: "two", C: "three", D: "four", E: "five" },
+      hasImage,
+      imageBoxes: [],
+    });
+    const extractPath = join(root, "extract", "2011.json");
+    write(extractPath, { year: 2011, source: "text", questions: [question(1, [20, 20, 120, 60], true), question(2, [20, 100, 120, 140], true), question(3, [20, 160, 120, 180], false)] });
+    const px = (pt) => (pt * PAGE_DPI) / 72;
+    const boxFor = ([x0, y0, x1, y1]) => [Math.floor(px(x0 - 6)), Math.floor(px(y0 - 6)), Math.ceil(px(x1 + 6)), Math.ceil(px(y1 + 6))];
+    const dir = join(root, "vision", "2011");
+    const packagePath = join(dir, "package-01-img.json");
+
+    const first = node(CROP_QUESTIONS, ["--years", "2011"]);
+    assert.equal(first.status, 0, first.out);
+    const before = read(packagePath);
+    assert.deepEqual(before.map((entry) => [entry.number, entry.cropBox]), [[1, boxFor([20, 20, 120, 60])], [2, boxFor([20, 100, 120, 140])]]);
+    const resultPath = join(dir, "result-01-img-a.json");
+    writeFileSync(resultPath, "[]\n");
+    console.log("ok - crop-questions: hasImage paketi, cropBox = bbox + 6 pt");
+
+    // Duzeltme: soru 1'in kutusu sayfanin altina ve sagina tasiyor (sekil kesik) -> sayfaya kistirilir.
+    const overridesPath = join(root, "crop-overrides.json");
+    write(overridesPath, { [questionId(2011, 1)]: { bbox: [10, 15, 400, 900], note: "fixture: drawn choices continue below the bbox" } });
+    const refreshed = node(CROP_QUESTIONS, ["--years", "2011", "--numbers", "1"]);
+    assert.equal(refreshed.status, 0, refreshed.out);
+    assert.match(refreshed.out, /kirpma duzeltmesi: 1/);
+    assert.match(refreshed.out, /package-01-img\.json: 1 girdi yenilendi \(1\)/);
+    const clamped = [Math.floor(px(4)), Math.floor(px(9)), 600, 800];
+    const after = read(packagePath);
+    assert.deepEqual(after[0], { ...before[0], cropBox: clamped }, "soru 1: cropBox duzeltme kutusundan, sayfaya kistirilmis");
+    assert.deepEqual(after[1], before[1], "soru 2 degismez");
+    const meta = await sharp(join(dir, "q-01.png")).metadata();
+    assert.deepEqual([meta.width, meta.height], [clamped[2] - clamped[0], clamped[3] - clamped[1]], "kirpinti cropBox boyutunda");
+    assert.equal(readFileSync(resultPath, "utf8"), "[]\n", "result-* dosyasina dokunulmaz");
+    console.log("ok - crop-overrides.json: kutu sayfaya kistirilir, --numbers paket girdisini yeniler, digerleri ayni");
+
+    // --numbers duzeltmesiz soruda da cropBox'i yeniler (bbox degistiyse paket eskimez).
+    const extract = read(extractPath);
+    extract.questions[1].bbox = [20, 100, 160, 150];
+    write(extractPath, extract);
+    const second = node(CROP_QUESTIONS, ["--years", "2011", "--numbers", "2"]);
+    assert.equal(second.status, 0, second.out);
+    assert.deepEqual(read(packagePath).map((entry) => entry.cropBox), [clamped, boxFor([20, 100, 160, 150])]);
+    // Pakette olmayan soru: yalniz kirpinti, paket ayni.
+    const third = node(CROP_QUESTIONS, ["--years", "2011", "--numbers", "3"]);
+    assert.equal(third.status, 0, third.out);
+    assert.match(third.out, /pakette yok: 3/);
+    assert.deepEqual(read(packagePath).map((entry) => entry.cropBox), [clamped, boxFor([20, 100, 160, 150])]);
+    console.log("ok - --numbers duzeltmesiz soruda cropBox yenilenir; pakette olmayan soru paketi degistirmez");
+
+    // Tam paket yazimi da duzeltmeyi uygular.
+    const full = node(CROP_QUESTIONS, ["--years", "2011"]);
+    assert.equal(full.status, 0, full.out);
+    assert.deepEqual(read(packagePath)[0].cropBox, clamped);
+
+    // Gecersiz duzeltme kaydi: cikis 1, kirpinti yazilmaz.
+    for (const bad of [{ bbox: [10, 15, 400], note: "x" }, { bbox: [400, 15, 10, 900], note: "x" }, { bbox: [10, 15, 400, 900], note: "" }]) {
+      write(overridesPath, { [questionId(2011, 1)]: bad });
+      const rejected = node(CROP_QUESTIONS, ["--years", "2011", "--numbers", "1"]);
+      assert.equal(rejected.status, 1, rejected.out);
+      assert.match(rejected.out, /crop-overrides\.json/);
+    }
+    // Sayfanin tamamen disinda kalan kutu: cikis 1.
+    write(overridesPath, { [questionId(2011, 1)]: { bbox: [300, 400, 500, 600], note: "fixture: off page" } });
+    const offPage = node(CROP_QUESTIONS, ["--years", "2011", "--numbers", "1"]);
+    assert.equal(offPage.status, 1, offPage.out);
+    console.log("ok - gecersiz ya da sayfa disi duzeltme reddedilir");
   }
   console.log("test:imat-crop gecti");
 } finally {
