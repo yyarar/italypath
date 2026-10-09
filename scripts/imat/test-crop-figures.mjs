@@ -4,12 +4,14 @@
 // kodlama olsaydi farkli olurdu). Ag yok.
 // Ikinci bolum crop-questions.mjs kirpma duzeltmesi (crop-overrides.json, Gorev 16 araclari): uydurma 15 kaynak PDF
 // (lib/fixture-pdf.mjs; envanter pdfinfo ister) + 2011 sayfa goruntusu; duzeltme kutusu sayfaya kistirilir, --numbers
-// paketteki girdinin cropBox'ini yeniler, diger girdiler ve result-* dosyalari degismez.
+// paketteki girdinin cropBox'ini yeniler, diger girdiler ve result-* dosyalari degismez. merge-vision.mjs eski kirpinti
+// korumasi: kirpinti gecis sonucundan yeniyse yil durur (soru numarasi yazilir); figure cozumu korumayi kaldirir; bayt
+// bayt ayni kirpinti yeniden yazilmaz (tarihi degismez).
 //
 //   PATH=/usr/local/bin:$PATH node scripts/imat/test-crop-figures.mjs   (npm run test:imat-crop)
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, utimesSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -24,6 +26,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const SCRIPT = join(HERE, "crop-figures.mjs");
 const CROP_QUESTIONS = join(HERE, "crop-questions.mjs");
 const INVENTORY = join(HERE, "inventory.mjs");
+const MERGE = join(HERE, "merge-vision.mjs");
 const YEAR = 2023;
 const ID = questionId(YEAR, 1);
 // Dikdortgen 100..300 x 100..250; kutunun ustu (150) dikdortgenin icinde, 8 pt (22 px) paydan cok yukarida devam ediyor.
@@ -169,9 +172,29 @@ try {
     assert.equal(first.status, 0, first.out);
     const before = read(packagePath);
     assert.deepEqual(before.map((entry) => [entry.number, entry.cropBox]), [[1, boxFor([20, 20, 120, 60])], [2, boxFor([20, 100, 120, 140])]]);
-    const resultPath = join(dir, "result-01-img-a.json");
-    writeFileSync(resultPath, "[]\n");
     console.log("ok - crop-questions: hasImage paketi, cropBox = bbox + 6 pt");
+
+    // Uydurma gecis sonuclari (iki gecis ayni): soru 1 sekilli, soru 2 sekilsiz, metin ipucuyla ayni. Tarihler: kirpintilar
+    // sonuclardan eski (gecisler bu kirpintilari okudu); birlestirme gecer.
+    const OLD = new Date("2000-01-01T00:00:00Z");
+    const LATER = new Date("2000-01-02T00:00:00Z");
+    const passResult = before.map((entry) => ({
+      id: entry.id,
+      number: entry.number,
+      prompt: entry.textHint,
+      choices: entry.choicesHint,
+      figure: entry.number === 1 ? { kind: "diagram", box: [10, 10, 200, 100] } : null,
+      notes: "",
+    }));
+    const resultPaths = ["a", "b"].map((pass) => join(dir, `result-01-img-${pass}.json`));
+    for (const path of resultPaths) write(path, passResult);
+    const resultText = readFileSync(resultPaths[0], "utf8");
+    for (const number of [1, 2]) utimesSync(join(dir, `q-0${number}.png`), OLD, OLD);
+    for (const path of resultPaths) utimesSync(path, LATER, LATER);
+    const merged = node(MERGE, ["--years", "2011"]);
+    assert.equal(merged.status, 0, merged.out);
+    assert.deepEqual(read(extractPath).questions[0].figureBox.cropBox, before[0].cropBox);
+    console.log("ok - merge-vision: kirpinti sonuclardan eski, birlestirme gecer");
 
     // Duzeltme: soru 1'in kutusu sayfanin altina ve sagina tasiyor (sekil kesik) -> sayfaya kistirilir.
     const overridesPath = join(root, "crop-overrides.json");
@@ -186,8 +209,26 @@ try {
     assert.deepEqual(after[1], before[1], "soru 2 degismez");
     const meta = await sharp(join(dir, "q-01.png")).metadata();
     assert.deepEqual([meta.width, meta.height], [clamped[2] - clamped[0], clamped[3] - clamped[1]], "kirpinti cropBox boyutunda");
-    assert.equal(readFileSync(resultPath, "utf8"), "[]\n", "result-* dosyasina dokunulmaz");
+    assert.equal(readFileSync(resultPaths[0], "utf8"), resultText, "result-* dosyasina dokunulmaz");
     console.log("ok - crop-overrides.json: kutu sayfaya kistirilir, --numbers paket girdisini yeniler, digerleri ayni");
+
+    // Eski kirpinti korumasi: soru 1'in kirpintisi artik sonuclardan yeni -> yil durur, soru numarasi yazilir.
+    const extractBefore = readFileSync(extractPath, "utf8");
+    const stale = node(MERGE, ["--years", "2011"]);
+    assert.equal(stale.status, 1, stale.out);
+    assert.match(stale.out, /2011: kirpinti gecis sonucundan yeni, sonuc eski kirpintiyi anlatiyor \(soru 1\)/);
+    assert.equal(readFileSync(extractPath, "utf8"), extractBefore, "yil yazilmaz");
+    // Yeni kirpintida olculmus figure cozumu korumayi kaldirir.
+    write(join(dir, "resolutions.json"), [{ id: questionId(2011, 1), field: "figure", value: { kind: "diagram", box: [20, 30, 500, 700] }, note: "fixture: re-measured on the new crop" }]);
+    const resolved = node(MERGE, ["--years", "2011"]);
+    assert.equal(resolved.status, 0, resolved.out);
+    const q1 = read(extractPath).questions[0];
+    assert.deepEqual([q1.figureBox.cropBox, q1.figureBox.box], [clamped, [20, 30, 500, 700]]);
+    // Tam yeniden calistirma: degismeyen kirpinti yeniden yazilmaz (tarihi ayni), koruma bosuna tetiklenmez.
+    assert.equal(node(CROP_QUESTIONS, ["--years", "2011"]).status, 0);
+    assert.equal(statSync(join(dir, "q-02.png")).mtimeMs, OLD.getTime(), "ayni kirpinti yeniden yazilmadi");
+    assert.equal(node(MERGE, ["--years", "2011"]).status, 0);
+    console.log("ok - merge-vision eski kirpinti korumasi: yil durur, figure cozumu kaldirir, ayni kirpinti tarih degistirmez");
 
     // --numbers duzeltmesiz soruda da cropBox'i yeniler (bbox degistiyse paket eskimez).
     const extract = read(extractPath);

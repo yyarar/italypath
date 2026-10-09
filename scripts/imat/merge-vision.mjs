@@ -24,7 +24,11 @@
 // { kind, box, space: "crop", image, page, cropBox }. Ipucu karsilastirmasi (lib/text.mjs alignToHint): formul disindaki
 // her karakter ipucuyla ayni sirada olmali; fark -> blocked "hint-mismatch", vision/<yil>/hint-mismatch.json yalniz
 // kelime konumlarini yazar. Ayni girdiyle iki calisma ayni dosyalari uretir.
-import { existsSync, readdirSync } from "node:fs";
+// Eski kirpinti korumasi (soru kipi): paket girdisinin kirpintisi (image) o paketin gecis sonuclarindan (result-NN-img-a/b)
+// yeniyse (mtime) sonuc eski kirpintiyi anlatir (figure.box eski kirpinti pikselinde, cropBox yeni); bu sorular icin yil
+// durur ve numaralar yazilir. Cozum: soruyu iki gecisle yeniden okumak ya da resolutions.json'a o id icin figure cozumu
+// (yeni kirpintida olculmus) yazmak; figure cozumu o soru icin korumayi kaldirir.
+import { existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 import sharp from "sharp";
@@ -353,12 +357,15 @@ async function mergeQuestionYear(year, dir, packages) {
   const byId = new Map(data.questions.map((q) => [q.id, q]));
   const entries = new Map();
   const results = { a: new Map(), b: new Map() };
+  const resultTimes = new Map(); // soru id -> iki gecis sonucundan eskisinin mtime'i
   for (const name of packages) {
     const pkg = readJson(join(dir, name));
+    const resultTime = Math.min(...["a", "b"].map((pass) => statSync(join(dir, resultName(name, pass))).mtimeMs));
     for (const item of pkg) {
       if (!item.id || !byId.has(item.id)) throw new MergeProblem(`${name}: ${item.id} extract'ta yok`);
       if (entries.has(item.id)) throw new MergeProblem(`${name}: ${item.id} iki pakette`);
       entries.set(item.id, item);
+      resultTimes.set(item.id, resultTime);
     }
     for (const pass of ["a", "b"]) {
       const file = resultName(name, pass);
@@ -374,6 +381,17 @@ async function mergeQuestionYear(year, dir, packages) {
     }
   }
   const resolutions = loadResolutions(dir, new Set(entries.keys()));
+  const stale = [];
+  for (const [id, item] of entries) {
+    if (typeof item.image !== "string" || !existsSync(item.image)) throw new MergeProblem(`${year}:${item.number}: kirpinti yok (${item.image}); crop-questions.mjs yeniden`);
+    if (statSync(item.image).mtimeMs > resultTimes.get(id) && !resolutions.has(`${id}|figure`)) stale.push(item.number);
+  }
+  if (stale.length > 0) {
+    throw new MergeProblem(
+      `${year}: kirpinti gecis sonucundan yeni, sonuc eski kirpintiyi anlatiyor (soru ${stale.sort((x, y) => x - y).join(", ")}): ` +
+        "bu sorulari iki gecisle yeniden oku ya da resolutions.json'a yeni kirpintida olculmus figure cozumu yaz"
+    );
+  }
   const conflicts = [];
   const mismatches = [];
   const stats = { questions: 0, conflictQuestions: 0, hintMismatchQuestions: 0, figures: 0, blocked: 0, resolved: 0 };

@@ -27,7 +27,7 @@ Packages live in `<IMAT_OUT>/vision/<year>/`. Each package is a JSON array. Ther
 { "id": "1a2b3c4d", "year": 2024, "number": 7, "section": "physics-math", "image": "/abs/path/vision/2024/q-07.png", "cropBox": [172, 300, 1573, 842], "textHint": "...", "choicesHint": { "A": "...", "B": "...", "C": "...", "D": "...", "E": "..." } }
 ```
 
-`cropBox` is where the crop sits on the page image; the controller uses it. Ignore it and measure `figure.box` in the crop image as usual.
+`cropBox` is where the crop sits on the page image; the controller uses it. Ignore it and measure `figure.box` in the crop image as usual. (Controller rule: when a crop is re-made after its results were written, `merge-vision.mjs` stops that year until the question is read again in both passes or gets a `figure` resolution measured on the new crop.)
 
 **Page packages** (`package-NN.json` for a year with a broken text layer). One entry per page, `image` is the whole page (200 dpi). You return every question whose number line is printed on the page:
 

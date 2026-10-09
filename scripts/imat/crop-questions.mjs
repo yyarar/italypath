@@ -19,9 +19,11 @@
 // Kirpma duzeltmesi (Git disi IMAT_OUT/crop-overrides.json): { "<soru id>": { "bbox": [x0, top, x1, bottom], "note": "..." } }
 // PDF noktasi, extract bbox'i ile ayni uzay; o sorunun kirpintisinda extract bbox'i yerine kullanilir (ayni 6 pt pay,
 // sayfaya kistirilir). Cikaricinin bbox'i sekli tam icermediginde (kesik kirpinti) yazilir; sonra --numbers ile yeniden
-// kirpilir. Kutu sayfa disinda kalirsa ya da kayit gecersizse cikis 1. Kirpinti degisince o paketin result-* gecisleri
-// eski kirpintiyi anlatir: soru yeniden okunmadan merge-vision.mjs calistirilmaz (runbook).
-import { existsSync, mkdirSync, readdirSync, rmSync } from "node:fs";
+// kirpilir. Kutu sayfa disinda kalirsa ya da kayit gecersizse cikis 1.
+// Eski kirpinti kurali: kirpinti gecis sonucundan (result-*) yeniyse merge-vision.mjs o yili durdurur; soru iki gecisle
+// yeniden okunur ya da resolutions.json'a yeni kirpintida olculmus figure cozumu yazilir. Bayt bayt ayni kirpinti yeniden
+// yazilmaz (tarihi degismez; tam yeniden calistirma korumayi bosuna tetiklemez).
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -117,7 +119,8 @@ async function cropQuestion(year, question, override) {
     const tinted = tintedPixels(crop.data, crop.info);
     if (tinted > 0) throw new Error(`${year}:${question.number}: maske sonrasi ${tinted} yesil izli piksel`);
   }
-  await sharp(crop.data, { raw: crop.info }).png().toFile(out);
+  const png = await sharp(crop.data, { raw: crop.info }).png().toBuffer();
+  if (!existsSync(out) || !readFileSync(out).equals(png)) writeFileSync(out, png);
   return { image: out, masked, cropBox: [left, upper, right, lower] };
 }
 
