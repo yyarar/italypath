@@ -172,3 +172,121 @@ export function locateInSource(parts, sourceText) {
   const at = where[lo] ?? { field: parts.at(-1)?.field ?? "prompt", word: -1 };
   return { ok: false, chars: needle.length, matched: lo, field: at.field, word: at.word };
 }
+
+// ------------------------------------------------------------------ kapi 4, Cambridge dizilimi (2011-2022)
+// Cambridge kagitlarinda sik harfi yalindir ve pdftotext -layout satir sirasi cikaricinin satir sirasindan farkli olabilir
+// (2011 ortali sik harfi, sutunlar). Karsilastirma sira bagimsizdir: soru metni + 5 sik (harf yalin) parcalara ayrilir ve
+// sorunun kaynak bolgesindeki (pdftotext, bbox) parcalarla coklu kume olarak iki yonde karsilastirilir.
+// Parca: harf dizisi, rakam dizisi ya da tek isaret; bosluk ve harf/rakam siniri ayirir (ust simge pdftotext'te ayri
+// satira duser: cm³ -> "cm" "3"). Formul (`$...$`) atlanir. charStream normallestirmelerine ek olarak kisa tire (U+2013)
+// "-" sayilir: cikarici simge icindeki kisa tireyi eksi simgesine cevirir (ASCII'de "-"), pdftotext kisa tire verir.
+
+// Parcalar: [{ token, word }] (word: metindeki kelime sirasi, 0 tabanli; rapor yalniz konum verir).
+export function textTokens(text, { math = "drop" } = {}) {
+  const { chars, words } = charStream(String(text ?? "").replace(/–/g, "-"), { math });
+  const out = [];
+  let current = "";
+  let kind = null;
+  let word = -1;
+  let start = -1;
+  const flush = () => {
+    if (current) out.push({ token: current, word: start });
+    current = "";
+    kind = null;
+  };
+  chars.forEach((c, index) => {
+    if (c === MATH_TOKEN) {
+      flush();
+      return;
+    }
+    if (words[index] !== word) {
+      flush();
+      word = words[index];
+    }
+    const k = /\p{L}/u.test(c) ? "letter" : /\p{N}/u.test(c) ? "digit" : "mark";
+    if (k !== kind || k === "mark") flush();
+    if (!current) start = word;
+    current += c;
+    kind = k;
+  });
+  flush();
+  return out;
+}
+
+// Kaynak metne duzenin karakter eslemesi (extract_text.py CHAR_MAP; cikariciyla ayni).
+export function applyCharMap(text, map) {
+  if (!map || Object.keys(map).length === 0) return String(text);
+  return [...String(text)].map((c) => map[c] ?? c).join("");
+}
+
+// Cozulmus metin katmanli yil (2021): pdftotext glif numarasini karakter olarak verir; extract_text.py make_decoder ile ayni
+// kural: numara + kaydirma 32..126 ise ASCII, degilse DECODE_EXTRA (extra: { "<numara>": metin }), tabloda yoksa oldugu gibi.
+// Bosluk karakterleri (pdftotext'in duzen boslugu, satir ve sayfa sonu) cozulmez.
+export function decodeShifted(text, shift, extra = {}) {
+  return [...String(text)]
+    .map((c) => {
+      if (/\s/u.test(c)) return c;
+      const n = c.codePointAt(0);
+      if (n + shift >= 32 && n + shift <= 126) return String.fromCharCode(n + shift);
+      return extra[String(n)] ?? c;
+    })
+    .join("");
+}
+
+// Cozulmus yilda pdftotext'in geri veremedigi karakterler: glif numarasi bir bosluk kod noktasina (sekme, satir sonu,
+// dikey sekme, sayfa sonu, satir basi, bosluk) denk gelen glifler pdftotext ciktisinda duzen boslugundan ayirt edilemez
+// (kaydirma 29: & ' ( ) * =). Bu parcalar iki taraftan da karsilastirma disi birakilir.
+export function unrecoverableChars(shift) {
+  const out = [];
+  for (let n = 0; n < 127; n += 1) {
+    if (/\s/u.test(String.fromCharCode(n)) && n + shift >= 32 && n + shift <= 126) out.push(String.fromCharCode(n + shift));
+  }
+  return out;
+}
+
+// parts: [{ field, text }] (sozlesme metni); source: sorunun kaynak bolgesi (pdftotext, esleme sonrasi). extra: kaynakta
+// olup metinde olmasi gerekmeyen parcalar (soru numarasi). exclude: karsilastirma disi parcalar.
+// Donus { ok, spacingOnly, tokens, excluded, missing: [{ field, word }], dropped }: missing = metinde olup kaynakta (o kadar kez)
+// olmayan parca (yanlis/fazla metin), dropped = kaynakta olup metinde olmayan parca sayisi (dusmus metin).
+// Yalniz bosluk farki (pdftotext harfleri bitisik verir: "P Q R S" -> "PQRS", ya da kelimeyi boler): iki taraftaki artik
+// parcalar ayni karakterlerden olusur ve her artik parca karsi tarafin bosluksuz metninde ardisik gecer -> ok, spacingOnly.
+export function compareTokens(parts, source, { extra = [], exclude = [] } = {}) {
+  const skip = new Set(exclude);
+  const ours = [];
+  let excluded = 0;
+  for (const { field, text } of parts) {
+    for (const { token, word } of textTokens(text, { math: "drop" })) {
+      if (skip.has(token)) excluded += 1;
+      else ours.push({ token, field, word });
+    }
+  }
+  const theirs = textTokens(source, { math: "plain" }).map(({ token }) => token).filter((token) => !skip.has(token));
+  const available = new Map();
+  for (const token of theirs) available.set(token, (available.get(token) ?? 0) + 1);
+  const missing = [];
+  for (const item of ours) {
+    const left = available.get(item.token) ?? 0;
+    if (left > 0) available.set(item.token, left - 1);
+    else missing.push(item);
+  }
+  const wanted = new Map();
+  for (const token of [...ours.map((item) => item.token), ...extra.map(String)]) wanted.set(token, (wanted.get(token) ?? 0) + 1);
+  const dropped = [];
+  for (const token of theirs) {
+    const left = wanted.get(token) ?? 0;
+    if (left > 0) wanted.set(token, left - 1);
+    else dropped.push(token);
+  }
+  const base = { tokens: ours.length, excluded, missing: missing.map(({ field, word }) => ({ field, word })), dropped: dropped.length };
+  if (missing.length === 0 && dropped.length === 0) return { ok: true, spacingOnly: false, ...base };
+  const sorted = (tokens) => [...tokens.join("")].sort().join("");
+  const oursStream = ours.map((item) => item.token).join("");
+  const theirStream = theirs.join("");
+  const spacingOnly =
+    missing.length > 0 &&
+    dropped.length > 0 &&
+    sorted(missing.map((item) => item.token)) === sorted(dropped) &&
+    missing.every((item) => theirStream.includes(item.token)) &&
+    dropped.every((token) => oursStream.includes(token));
+  return { ok: spacingOnly, spacingOnly, ...base };
+}

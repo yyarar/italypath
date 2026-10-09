@@ -22,6 +22,8 @@
 #   --jobs <n>          paralel surec sayisi (yil basina; cikti sirasi degismez)
 #   --self-test         italik isaret kurali + cambridge ve mur-legacy duzeni oz sinamasi (uydurma fikstur; PDF ve pdfplumber
 #                       gerekmez; npm run test:imat-extract)
+#   --char-maps         duzen basina CHAR_MAP ve DECODE_EXTRA tablosunu JSON olarak yazar (sinav metni yok; validate-bank.mjs
+#                       kapi 4 pdftotext ciktisini cikariciyla ayni eslemelerle normallestirir)
 # Guvenilmeyen PDF (indirilmis kagit) `/usr/bin/python3 -I` ile okunur; -I kullanici paketlerini kapattigindan pdfplumber
 # load_pages icinde kullanici site-packages yolundan yuklenir.
 #
@@ -1720,7 +1722,16 @@ def mur_legacy_self_test():
     return checks
 
 
+def char_maps():
+    # Kapi 4 (validate-bank.mjs) icin: duzen basina karakter eslemesi ve cozulmus yilin ASCII disi glif tablosu.
+    return {"layouts": {name: dict(cls.CHAR_MAP) for name, cls in LAYOUTS.items()},
+            "decodeExtra": {str(n): text for n, text in DECODE_EXTRA.items()}}
+
+
 def main(argv):
+    if argv == ["--char-maps"]:
+        print(json.dumps(char_maps(), ensure_ascii=True, sort_keys=True))
+        return 0
     if argv == ["--self-test"]:
         checks = self_test() + cambridge_self_test() + mur_legacy_self_test()
         print(f"extract_text oz sinama: {checks} kontrol gecti (italik: kismi dizi, tamamen italik blok, tek harf, kisa matematik, formul, satir basina denge, kaynak satiri; cambridge: soru/sik/baslik/sayfa alti, iki haneli numara, ortali harf, sekil izgarasi, goruntu siki, simge, tablo, 2021 kod kaydirmasi, kalin numara, eksik numara kapisi, yukari sik harfi, simge basi; mur-legacy: kapak, 2011 ve 2014+ bicimi, MIUR/KEYIMAT sayfa alti)")

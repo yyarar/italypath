@@ -23,6 +23,14 @@ export const BROKEN_TEXT_YEARS = Object.freeze([2023]);
 export const DECODED_TEXT_YEARS = Object.freeze({ 2021: 29 });
 const TEXT_LAYERS_WITH_TEXT = Object.freeze(["ok", "decoded"]);
 
+// Kagit dizilimi (extract_text.py --layout; yil listesi yalniz burada): 2011-2022 Cambridge gecmis kagitlari ("cambridge":
+// sik harfi yalin, "A  metin"), 2023-2025 MUR denemeleri ("mur": "A) metin"). Kapi 4 karsilastirma bicimi buna gore
+// (validate-bank.mjs: mur sirali ve "A) ", cambridge sira bagimsiz parca karsilastirmasi).
+export const CAMBRIDGE_LAST_YEAR = 2022;
+export function paperLayoutOf(year) {
+  return year <= CAMBRIDGE_LAST_YEAR ? "cambridge" : "mur";
+}
+
 export function textLayerOf(year) {
   if (BROKEN_TEXT_YEARS.includes(year)) return { textLayer: "broken" };
   if (DECODED_TEXT_YEARS[year] !== undefined) return { textLayer: "decoded", decodeShift: DECODED_TEXT_YEARS[year] };

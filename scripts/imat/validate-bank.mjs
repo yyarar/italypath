@@ -12,8 +12,7 @@
 //
 // Kapilar: 1 sayim (expectedQuestions; deneme yilinda MOCK_SECTION_COUNTS ve bolum sirasi), 2 kunye (5 dolu sik, tek
 // harf, bolum/konu taksonomide, exam_set mock <=> deneme yili), 3 isaret/formul (markIssues, katexIssues, dengesiz $,
-// okunamayan [?]), 4 kaynak metin (metin yili, goruntuden yazilmamis soru: pdftotext ile bosluksuz ardisik eslesme;
-// hasImage soru goruntuden yazilmis olmali; cozulmus metin katmanli yilda, 2021, pdftotext yerine decode-check kabulu), 5 anahtar (2021-2025 shuffle kaydi zorunlu, deterministik sira,
+// okunamayan [?]), 4 kaynak metin (asagida), 5 anahtar (2021-2025 shuffle kaydi zorunlu, deterministik sira,
 // correct_answer === shuffle.shuffled, karistirilmis dosya extract ile guncel; keys dosyasi hep A ve tam; istisna:
 // shuffle-exempt.json listesindeki soru kagit sirasinda, correct_answer "A", shuffle { exempt: true, reason }; listede
 // olmayan istisna ya da listede olup karistirilmis kayit hata; istisnalar validate-report.json shuffleExempt), 6 sekil
@@ -21,17 +20,46 @@
 // --require-figures ile hata; dosya boyutu raporla ayni; dolgulu kenar edge-signoff.json onaysizsa hata), 7 kimlik,
 // 8 duzeltmeler. Bloke soru (merge-vision blocked) excluded'a gider, kapilardan gecmez.
 //
+// Kapi 4 kaynak metin: metin yilinda (inventory textLayer "ok" ya da "decoded") goruntuden yazilmamis her soru kaynak
+// PDF'in pdftotext -layout ciktisiyla karsilastirilir; hasImage soru goruntuden yazilmis olmali. Once kaynak PDF'in
+// varligi ve envanterdeki sha256'si (her metin yilinda, cozulmus yil dahil). Bicim yilin kagit dizilimine gore
+// (inventory.mjs paperLayoutOf; yil listesi yalniz orada):
+//   mur (2023-2025): sik "A) metin", tum sayfa metninde bosluksuz ve ardisik (lib/text.mjs locateInSource).
+//   cambridge (2011-2022): sik harfi yalin ("A metin"); pdftotext sirasi cikaricinin satir sirasindan farkli olabildiginden
+//     sira bagimsiz: soru metni + 5 sik parcalara ayrilir ve sorunun kaynak bolgesindeki (bbox + 2 pt, pdftotext -x -y -W
+//     -H) parcalarla iki yonde coklu kume olarak karsilastirilir (lib/text.mjs compareTokens): metindeki her parca bolgede
+//     en az o kadar kez gecmeli (yoksa "parca yok": yanlis/fazla metin) ve bolgedeki her parca (soru numarasi haric)
+//     metinde olmali (yoksa "metinde olmayan parca": dusmus metin); yalniz bosluk farki (bitisik harfler) gecer, sayilir.
+//     Kaynak metin cikariciyla ayni eslemelerden gecer (extract_text.py --char-maps: CHAR_MAP, U+00AD -> "-" gibi).
+//     Bolgede metin yoksa "metin yok". Bilgi icin sirali karsilastirma da sayilir (inOrder). Soru sayfa asarsa bbox
+//     yalniz ilk sayfadadir: devami "parca yok" verir (2011-2022 verisinde yok, 2026-10-09).
+//   cozulmus metin katmani (2021): decode-check kabulu (vision/<yil>/decode-check.json accepted true) zorunlu; pdftotext
+//     ciktisi envanterdeki kaydirmayla cozulur (extract_text.py ile ayni kural ve DECODE_EXTRA); glif numarasi bosluk kod
+//     noktasina denk gelen karakterler (kaydirma 29: & ' ( ) * =) pdftotext'te geri alinamaz, karsilastirma disi kalir.
+// validate-report.json kapi 4 counts.years[<yil>]: layout, textOnly, passed, inOrder, failed/missing/dropped/noText/
+// spacingOnly (soru numaralari), excludedTokens (cozulmus yil).
+//
 // corrections.json: [{ id, field, before, after, sourcePage, reason }]; field "prompt" ya da "choices.<harf>" (harf
 // kagittaki, karistirma oncesi harf); before alanin tam degeri olmali, degilse hata. Duzeltme kagit metnine
 // karistirmadan once uygulanir; kapi 4 duzeltilmemis metne bakar; text_hash bankadaki son metinden.
-import { execFileSync } from "node:child_process";
+import { execFileSync, spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
 import { MOCK_SECTION_COUNTS, MOCK_YEARS, SECTIONS, findTopic, generalSlug } from "../../lib/imat/taxonomy.mjs";
 import { hasUnbalancedDollar, katexIssues, markIssues } from "../sat/lib/content-audit.mjs";
-import { CHOICE_LETTERS, locateInSource, normalizeForCompare, textHash } from "./lib/text.mjs";
+import {
+  CHOICE_LETTERS,
+  applyCharMap,
+  compareTokens,
+  decodeShifted,
+  locateInSource,
+  normalizeForCompare,
+  textHash,
+  unrecoverableChars,
+} from "./lib/text.mjs";
 import {
   ALL_YEARS,
   BANK_PATH,
@@ -52,9 +80,12 @@ import {
   writeJson,
 } from "./paths.mjs";
 import { CROP_REPORT_PATH, EDGE_SIGNOFF_PATH, readEdgeSignoff, unsignedSides } from "./crop-figures.mjs";
-import { hasTextLayer } from "./inventory.mjs";
+import { hasTextLayer, paperLayoutOf } from "./inventory.mjs";
 import { KEY_PROOF_YEARS, SHUFFLE_YEARS, readShuffleExempt, shuffleOrder } from "./shuffle-choices.mjs";
 
+const EXTRACT_PY = join(dirname(fileURLToPath(import.meta.url)), "extract_text.py");
+const PYTHON = "/usr/bin/python3";
+const REGION_MARGIN_PT = 2;
 const MAX_FIGURE_BYTES = 512 * 1024;
 const GK_LR = ["reading-general", "logic"];
 const UNREADABLE = "[?]";
@@ -416,24 +447,39 @@ G[5].g.counts.exempt = exemptRecords.length;
 // ------------------------------------------------------------------ 4 kaynak metin (metin yili)
 {
   const { g, fail, warn } = G[4];
-  const counts = { compared: 0, equal: 0, visionRewritten: 0, textYears: [], decodedYears: [] };
+  const counts = { compared: 0, equal: 0, visionRewritten: 0, textYears: [], decodedYears: [], years: {} };
   const textPapers = papers.filter((paper) => hasTextLayer(paper.entry) && paper.extract.source === "text");
   if (noPdftotext && textPapers.length > 0) warn(`--no-pdftotext: kaynak karsilastirmasi atlandi (${textPapers.map((paper) => paper.year).join(", ")})`);
+  let charMaps = null;
+  const loadCharMaps = () => {
+    // Cikariciyla ayni eslemeler (extract_text.py --char-maps; sinav metni yok). Okunamazsa hata.
+    if (charMaps) return charMaps;
+    const run = spawnSync(PYTHON, ["-I", EXTRACT_PY, "--char-maps"], { encoding: "utf8" });
+    if (run.status !== 0) throw new Error(`extract_text.py --char-maps cikis ${run.status} (${String(run.stderr || run.error || "").trim().split("\n").pop()})`);
+    charMaps = JSON.parse(run.stdout);
+    return charMaps;
+  };
+  const pdftotext = (pdf, page, region) => {
+    const args = ["-layout", "-f", String(page), "-l", String(page)];
+    if (region) {
+      const [x0, top, x1, bottom] = region;
+      const x = Math.max(0, Math.floor(x0 - REGION_MARGIN_PT));
+      const y = Math.max(0, Math.floor(top - REGION_MARGIN_PT));
+      args.push("-x", String(x), "-y", String(y), "-W", String(Math.ceil(x1 + REGION_MARGIN_PT) - x), "-H", String(Math.ceil(bottom + REGION_MARGIN_PT) - y));
+    }
+    return execFileSync("pdftotext", [...args, pdf, "-"], { encoding: "utf8" });
+  };
   for (const paper of textPapers) {
     const { year, entry, questions } = paper;
+    const layout = paperLayoutOf(year);
+    const decoded = entry.textLayer === "decoded";
     counts.textYears.push(year);
+    const yearCounts = { layout, textOnly: 0, passed: 0, failed: [] };
+    if (layout === "cambridge") Object.assign(yearCounts, { inOrder: 0, missing: [], dropped: [], noText: [], spacingOnly: [] });
+    counts.years[year] = yearCounts;
     const pdf = join(IMAT_SOURCE_DIR, entry.file);
     let pdfOk = !noPdftotext;
-    if (entry.textLayer === "decoded") {
-      // Cozulmus metin katmani (2021): pdftotext glif kaydirmali metin verir, karsilastirma anlamsiz. Yerine kod kaydirmasinin
-      // sayfa goruntusuyle kabulu (vision/<yil>/decode-check.json accepted true) aranir; hasImage kurali aynen gecerli.
-      counts.decodedYears.push(year);
-      pdfOk = false;
-      const checkPath = join(VISION_DIR, String(year), "decode-check.json");
-      const accepted = existsSync(checkPath) ? readJson(checkPath).accepted ?? null : null;
-      if (accepted !== true) fail(`${year}: cozulmus metin katmani ama decode-check kabul edilmedi (accepted ${accepted}; ${checkPath})`, year);
-      else warn(`${year}: cozulmus metin katmani (kaydirma ${entry.decodeShift}); pdftotext karsilastirmasi yerine decode-check kabulu (accepted true)`);
-    }
+    // Kaynak PDF varligi ve sha256: her metin yilinda once (cozulmus yil dahil).
     if (pdfOk && !existsSync(pdf)) {
       fail(`${year}: kaynak PDF yok (${pdf})`, year);
       pdfOk = false;
@@ -441,7 +487,47 @@ G[5].g.counts.exempt = exemptRecords.length;
       fail(`${year}: kaynak PDF envanterdeki sha256 ile ayni degil (inventory.mjs --check)`, year);
       pdfOk = false;
     }
+    let exclude = [];
+    if (decoded) {
+      // Cozulmus metin katmani (2021): cikarma decode-check kabuluyle yapildi; kabul yine zorunlu. pdftotext ciktisi ayni
+      // kaydirmayla cozulup karsilastirilir.
+      counts.decodedYears.push(year);
+      const checkPath = join(VISION_DIR, String(year), "decode-check.json");
+      const accepted = existsSync(checkPath) ? readJson(checkPath).accepted ?? null : null;
+      if (accepted !== true) fail(`${year}: cozulmus metin katmani ama decode-check kabul edilmedi (accepted ${accepted}; ${checkPath})`, year);
+      exclude = unrecoverableChars(entry.decodeShift);
+      yearCounts.excludedTokens = 0;
+      g.notes.push(
+        `${year}: cozulmus metin katmani (kaydirma ${entry.decodeShift}); pdftotext ciktisi ayni kaydirmayla cozulup karsilastirildi; ` +
+          `pdftotext'te geri alinamayan ${exclude.join(" ")} karsilastirma disi`
+      );
+    }
+    let maps = null;
+    if (pdfOk && (layout === "cambridge" || decoded)) {
+      try {
+        maps = loadCharMaps();
+      } catch (error) {
+        fail(`${year}: ${error.message}`, year);
+        pdfOk = false;
+      }
+    }
+    const normalize = (text) => {
+      const decodedText = decoded ? decodeShifted(text, entry.decodeShift, maps.decodeExtra) : text;
+      return applyCharMap(decodedText, maps.layouts[layout]);
+    };
     const pages = new Map();
+    const pageText = (at, page) => {
+      if (!pages.has(page)) {
+        try {
+          const raw = pdftotext(pdf, page, null);
+          pages.set(page, layout === "mur" && !decoded ? raw : normalize(raw));
+        } catch (error) {
+          fail(`${at}: pdftotext sayfa ${page} okunamadi (${String(error.message).split("\n")[0]})`, year);
+          pages.set(page, null);
+        }
+      }
+      return pages.get(page);
+    };
     for (const q of questions) {
       if (q.blocked) continue;
       const at = label(year, q);
@@ -453,26 +539,73 @@ G[5].g.counts.exempt = exemptRecords.length;
         fail(`${at}: hasImage soru goruntuden yazilmadi (once merge-vision.mjs)`, year);
         continue;
       }
+      yearCounts.textOnly += 1;
       if (!pdfOk) continue;
-      if (!pages.has(q.page)) {
-        try {
-          pages.set(q.page, execFileSync("pdftotext", ["-layout", "-f", String(q.page), "-l", String(q.page), pdf, "-"], { encoding: "utf8" }));
-        } catch (error) {
-          fail(`${at}: pdftotext sayfa ${q.page} okunamadi (${String(error.message).split("\n")[0]})`, year);
-          pages.set(q.page, null);
-        }
-      }
-      const source = pages.get(q.page);
+      const source = pageText(at, q.page);
       if (source === null) continue;
       counts.compared += 1;
-      const parts = [{ field: "prompt", text: q.prompt }, ...CHOICE_LETTERS.map((letter) => ({ field: `choices.${letter}`, text: `${letter}) ${q.choices?.[letter] ?? ""}` }))];
-      const result = locateInSource(parts, source);
-      if (result.ok) counts.equal += 1;
-      else fail(`${at}: kaynak sayfa ${q.page} ile eslesmiyor (${result.field}, ${result.word + 1}. kelime; ${result.matched}/${result.chars} karakter tutuyor)`, year);
+      if (layout === "mur") {
+        const parts = [{ field: "prompt", text: q.prompt }, ...CHOICE_LETTERS.map((letter) => ({ field: `choices.${letter}`, text: `${letter}) ${q.choices?.[letter] ?? ""}` }))];
+        const result = locateInSource(parts, source);
+        if (result.ok) {
+          counts.equal += 1;
+          yearCounts.passed += 1;
+        } else {
+          yearCounts.failed.push(q.number);
+          fail(`${at}: kaynak sayfa ${q.page} ile eslesmiyor (${result.field}, ${result.word + 1}. kelime; ${result.matched}/${result.chars} karakter tutuyor)`, year);
+        }
+        continue;
+      }
+      // cambridge: yalin sik harfi, sorunun kaynak bolgesiyle sira bagimsiz parca karsilastirmasi
+      const parts = [{ field: "prompt", text: q.prompt }, ...CHOICE_LETTERS.map((letter) => ({ field: `choices.${letter}`, text: `${letter} ${q.choices?.[letter] ?? ""}` }))];
+      if (locateInSource(parts, source).ok) yearCounts.inOrder += 1;
+      const box = q.bbox;
+      if (!Array.isArray(box) || box.length !== 4 || !box.every(Number.isFinite) || box[2] <= box[0] || box[3] <= box[1]) {
+        yearCounts.failed.push(q.number);
+        fail(`${at}: bbox yok ya da gecersiz; soru bolgesi okunamadi`, year);
+        continue;
+      }
+      let region;
+      try {
+        region = normalize(pdftotext(pdf, q.page, box));
+      } catch (error) {
+        yearCounts.failed.push(q.number);
+        fail(`${at}: pdftotext sayfa ${q.page} soru bolgesi okunamadi (${String(error.message).split("\n")[0]})`, year);
+        continue;
+      }
+      if (!region.replace(/\s/gu, "")) {
+        yearCounts.failed.push(q.number);
+        yearCounts.noText.push(q.number);
+        fail(`${at}: kaynak sayfa ${q.page} soru bolgesinde metin yok (pdftotext; bbox ${box.join(", ")})`, year);
+        continue;
+      }
+      const result = compareTokens(parts, region, { extra: [String(q.number)], exclude });
+      if (decoded) yearCounts.excludedTokens += result.excluded;
+      if (result.ok) {
+        counts.equal += 1;
+        yearCounts.passed += 1;
+        if (result.spacingOnly) {
+          yearCounts.spacingOnly.push(q.number);
+          g.notes.push(`${at}: kaynakla yalniz bosluk farki (pdftotext harfleri bitisik ya da kelimeyi bolunmus veriyor)`);
+        }
+        continue;
+      }
+      yearCounts.failed.push(q.number);
+      if (result.missing.length > 0) {
+        yearCounts.missing.push(q.number);
+        const first = result.missing[0];
+        fail(`${at}: kaynak sayfa ${q.page} soru bolgesinde ${result.missing.length} parca yok (ilk: ${first.field} ${first.word + 1}. kelime)`, year);
+      }
+      if (result.dropped > 0) {
+        yearCounts.dropped.push(q.number);
+        fail(`${at}: kaynak sayfa ${q.page} soru bolgesinde metinde olmayan ${result.dropped} parca var (dusmus metin olabilir)`, year);
+      }
     }
   }
   g.counts = counts;
-  g.notes.push("Karsilastirma duzeltilmemis kagit metniyle, bosluksuz ve formulsuz; normallestirmeler scripts/imat/lib/text.mjs basinda.");
+  g.notes.push(
+    "Karsilastirma duzeltilmemis kagit metniyle, formulsuz; mur sirali ve bosluksuz, cambridge sorunun kaynak bolgesinde sira bagimsiz parca; normallestirmeler scripts/imat/lib/text.mjs basinda."
+  );
 }
 
 // ------------------------------------------------------------------ 6 sekil dosyalari

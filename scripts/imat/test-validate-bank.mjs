@@ -1,6 +1,8 @@
 // validate-bank.mjs fikstur testi (plan Gorev 10): gecici IMAT_OUT'ta sentetik 2025 (deneme) kagidi kurar, betigi
-// alt surec olarak calistirir; saglam fikstur gecer, her bozulma kendi kapisinda hata verir. PDF, ag, veritabani yok
-// (fikstur source "vision": kapi 4 calismaz). Soru metinleri uydurmadir.
+// alt surec olarak calistirir; saglam fikstur gecer, her bozulma kendi kapisinda hata verir. Ag, veritabani yok.
+// Cogu senaryoda fikstur source "vision" (kapi 4 calismaz); kapi 4 senaryolari (Gorev 16 araclari) lib/fixture-pdf.mjs
+// ile uydurma metinli PDF yazar ve pdftotext (poppler) + /usr/bin/python3 (extract_text.py --char-maps) ister.
+// Soru metinleri uydurmadir.
 //
 //   PATH=/usr/local/bin:$PATH node scripts/imat/test-validate-bank.mjs   (npm run test:imat-validate)
 import assert from "node:assert/strict";
@@ -14,7 +16,8 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 import { MOCK_SECTION_COUNTS, SECTIONS } from "../../lib/imat/taxonomy.mjs";
-import { locateInSource, normalizeForCompare, textHash } from "./lib/text.mjs";
+import { makePdf } from "./lib/fixture-pdf.mjs";
+import { applyCharMap, compareTokens, decodeShifted, locateInSource, normalizeForCompare, textHash, unrecoverableChars } from "./lib/text.mjs";
 import { questionId } from "./paths.mjs";
 import { exemptQuestion, shuffleQuestion } from "./shuffle-choices.mjs";
 
@@ -145,7 +148,8 @@ function mutateQuestion(root, year, number, fn) {
 }
 
 function run(root, args) {
-  const result = spawnSync(process.execPath, [VALIDATOR, ...args], { env: { ...process.env, IMAT_OUT: root }, encoding: "utf8" });
+  const env = { ...process.env, IMAT_OUT: root, IMAT_SOURCE_DIR: join(root, "sources") };
+  const result = spawnSync(process.execPath, [VALIDATOR, ...args], { env, encoding: "utf8" });
   const bankPath = join(root, "bank.json");
   let output = null;
   try {
@@ -154,6 +158,83 @@ function run(root, args) {
     output = null;
   }
   return { root, status: result.status, stdout: result.stdout, stderr: result.stderr, output };
+}
+
+// ------------------------------------------------------------------ kapi 4 fikstur yardimcilari
+// Kaynak PDF'i sources/ altina yazar; envanterdeki bytes ve sha256 PDF'e esitlenir (sha: false ise envanter eski kalir).
+function writeSourcePdf(root, year, pages, { sha = true, ...options } = {}) {
+  const pdf = makePdf(pages, options);
+  const file = join(root, "sources", `fixture-${year}.pdf`);
+  mkdirSync(dirname(file), { recursive: true });
+  writeFileSync(file, pdf);
+  if (sha) {
+    const inventoryPath = join(root, "inventory.json");
+    const digest = createHash("sha256").update(pdf).digest("hex");
+    write(inventoryPath, read(inventoryPath).map((entry) => (entry.year === year ? { ...entry, bytes: pdf.length, sha256: digest } : entry)));
+  }
+}
+
+// Metin yili: source "text"; compared disindaki her soru goruntuden yazilmis sayilir (kapi 4 atlar). edit(q) compared
+// sorulari degistirebilir; karistirilmis dosya extract'tan yeniden kurulur (eski karistirma hatasi karismasin).
+function textYear(root, year, compared, edit = () => {}) {
+  const extractPath = join(root, "extract", `${year}.json`);
+  const extract = read(extractPath);
+  extract.source = "text";
+  for (const q of extract.questions) {
+    if (compared.includes(q.number)) edit(q);
+    else q.visionRewritten = true;
+  }
+  write(extractPath, extract);
+  write(join(root, "extract", `${year}.shuffled.json`), shuffled(extract));
+}
+
+// Soru satirlari (uydurma): numara x 50, metin x 80; sik harfi x 80, sik metni x 110. numberLine: numaranin satiri (2011
+// ortali sik harfi gibi ikinci satira konabilir). Kagit bicimi: Cambridge numara "3", yalin harf "A"; MUR "3." ve "A)".
+// Donus { lines, bbox } (bbox PDF noktasi, extract bbox'i gibi).
+function questionLines(number, top, prompt, choices, { numberLine = 0, numberText = String(number), letterText = (letter) => letter } = {}) {
+  const lines = [{ x: 50, top: top + 12 * numberLine, text: numberText }];
+  prompt.forEach((text, k) => lines.push({ x: 80, top: top + 12 * k, text }));
+  const start = top + 12 * prompt.length + 8;
+  LETTERS.forEach((letter, k) => {
+    lines.push({ x: 80, top: start + 12 * k, text: letterText(letter) });
+    lines.push({ x: 110, top: start + 12 * k, text: choices[letter] });
+  });
+  return { lines, bbox: [48, top - 1, 560, start + 12 * 4 + 11] };
+}
+
+const choicesOf = (number) => Object.fromEntries(LETTERS.map((letter) => [letter, `option ${letter.toLowerCase()}${number}`]));
+const CAMBRIDGE_Q3_PROMPT = "Fixture question 3: which well-known option is listed first; or last?";
+// Cambridge kagidi (2022), sayfa 1'de soru 3 ve 4 (digerleri goruntuden yazilmis). Soru 3: tire ve noktali virgul Word
+// ciktisi gibi U+00AD ve U+037E (CHAR_MAP olmadan tutmaz). Soru 4: numara ikinci satirda, pdftotext sirasi cikaricinin
+// sirasindan farkli (sirali karsilastirma tutmaz, parca karsilastirmasi tutar).
+function cambridgeFixture(root, { pdfPrompt3 = CAMBRIDGE_Q3_PROMPT, extractPrompt3 = CAMBRIDGE_Q3_PROMPT, q3Box = null } = {}) {
+  const q3 = questionLines(3, 100, [pdfPrompt3.replace("-", "\u00ad")], choicesOf(3));
+  const q4 = questionLines(4, 220, ["Fixture question 4:", "which option is listed first?"], choicesOf(4), { numberLine: 1 });
+  textYear(root, 2022, [3, 4], (q) => {
+    if (q.number === 3) q.prompt = extractPrompt3;
+    q.bbox = q.number === 3 ? (q3Box ?? q3.bbox) : q4.bbox;
+  });
+  writeSourcePdf(root, 2022, [[...q3.lines, ...q4.lines]], { toUnicode: { 0xad: 0xad, 0x3b: 0x37e } });
+}
+
+// MUR kagidi (2025), sayfa 1'de soru 3: "3." numara, "A) " sik harfi. bare: true sik harfleri yalin (MUR kurali tutmamali).
+function murFixture(root, { bare = false } = {}) {
+  const q3 = questionLines(3, 100, ["Fixture question 3: which option is listed first?"], choicesOf(3), {
+    numberText: "3.",
+    letterText: bare ? (letter) => letter : (letter) => `${letter})`,
+  });
+  textYear(root, 2025, [3], (q) => (q.bbox = q3.bbox));
+  writeSourcePdf(root, 2025, [q3.lines]);
+}
+
+// Cozulmus metin katmanli yil (2021): PDF metni 29 kaydirmali (lib/fixture-pdf.mjs shift). Kaydirmada pdftotext'in
+// verebildigi karakterlerle uydurma soru (harf; parantez geri alinamaz, karsilastirma disi kalir).
+const DECODED_PROMPT = "Which option (alpha) is listed first";
+const DECODED_CHOICES = { A: "option alpha", B: "option beta", C: "option gamma", D: "option delta", E: "option epsilon" };
+function decodedPdf(root, { sha = true } = {}) {
+  const q3 = questionLines(3, 100, [DECODED_PROMPT], DECODED_CHOICES);
+  writeSourcePdf(root, 2021, [q3.lines], { shift: 29, sha });
+  return q3.bbox;
 }
 
 const roots = [];
@@ -198,6 +279,44 @@ try {
     assert.ok(locateInSource(marked, "1. Who wrote The Long Book?\n   A) an author").ok, "isaretli metin kaynakla eslesmeli");
     assert.equal(locateInSource(marked, "1. Who wrote The Short Book?\n   A) an author").ok, false);
     console.log("ok - textHash / normalizeForCompare / isaretli kaynak karsilastirmasi");
+  }
+
+  // Kapi 4, Cambridge parca karsilastirmasi (lib/text.mjs compareTokens; uydurma metin).
+  {
+    const parts = [
+      { field: "prompt", text: "Which lamp in the invented hall burns longest?" },
+      ...["one lamp", "two lamps", "three lamps", "four lamps", "five lamps"].map((text, k) => ({ field: `choices.${LETTERS[k]}`, text: `${LETTERS[k]} ${text}` })),
+    ];
+    const choiceLines = "    A   one lamp\n    B   two lamps\n    C   three lamps\n    D   four lamps\n    E   five lamps\n";
+    const page = `7   Which lamp in the invented\n    hall burns longest?\n${choiceLines}`;
+    assert.deepEqual(compareTokens(parts, page, { extra: ["7"] }), { ok: true, spacingOnly: false, tokens: 24, excluded: 0, missing: [], dropped: 0 });
+    const reordered = `    hall burns longest?\n7   Which lamp in the invented\n${choiceLines}`;
+    assert.equal(locateInSource(parts, reordered).ok, false, "sirali karsilastirma tutmaz");
+    assert.equal(compareTokens(parts, reordered, { extra: ["7"] }).ok, true, "sirasi farkli satir gecer");
+    const sourceDropped = compareTokens(parts, page.replace("invented", ""), { extra: ["7"] });
+    assert.deepEqual([sourceDropped.ok, sourceDropped.missing, sourceDropped.dropped], [false, [{ field: "prompt", word: 4 }], 0], "kaynakta olmayan kelime");
+    const oursDropped = compareTokens([{ field: "prompt", text: "Which lamp in the hall burns longest?" }, ...parts.slice(1)], page, { extra: ["7"] });
+    assert.deepEqual([oursDropped.ok, oursDropped.missing, oursDropped.dropped], [false, [], 1], "metinden dusmus kelime");
+    assert.equal(compareTokens(parts, page.replace("five", "nine"), { extra: ["7"] }).ok, false, "degismis kelime");
+    assert.equal(compareTokens(parts, `${page}    A   one lamp\n`).dropped, 4, "fazla satir (soru numarasi extra degil)");
+    // Yalniz bosluk farki: pdftotext harfleri bitisik verir ya da kelimeyi boler.
+    const spaced = [{ field: "prompt", text: "Order the cards." }, { field: "choices.A", text: "A P Q R S" }];
+    const merged = compareTokens(spaced, "Order the cards.\nA PQRS");
+    assert.deepEqual([merged.ok, merged.spacingOnly, merged.missing.length, merged.dropped], [true, true, 4, 1], "bitisik harfler");
+    const split = compareTokens(spaced, "Ord er the cards.\nA P Q R S");
+    assert.deepEqual([split.ok, split.spacingOnly], [true, true], "bolunmus kelime");
+    assert.equal(compareTokens(spaced, "Order the cards.\nA PQRT").ok, false, "bitisik ama farkli harf");
+    // Kisa tire = "-" (cikarici simgedeki kisa tireyi eksiye cevirir); ust simge ayri satirda.
+    assert.equal(compareTokens([{ field: "prompt", text: "Charge 10\u207b\u2077 C" }], "        \u20137\nCharge 10    C").ok, true, "ust simge ve kisa tire");
+    // Esleme ve cozme (extract_text.py ile ayni kural).
+    assert.equal(applyCharMap("well\u00adknown\u037e", { "\u00ad": "-", "\u037e": ";" }), "well-known;");
+    const shifted = [..."Hi (A)"].map((c) => (c === " " ? " " : String.fromCharCode(c.charCodeAt(0) - 29))).join("");
+    // "(" ve ")" glif numarasi 11 ve 12 (dikey sekme, sayfa sonu): bosluk olarak kalir, cozulmez.
+    assert.equal(decodeShifted(`${shifted}\n\u00b1`, 29, { 177: "\u2013" }), "Hi \u000bA\u000c\n\u2013");
+    assert.deepEqual(unrecoverableChars(29), ["&", "'", "(", ")", "*", "="]);
+    const excluded = compareTokens([{ field: "prompt", text: "Hi (A)" }], "Hi   A", { exclude: unrecoverableChars(29) });
+    assert.deepEqual([excluded.ok, excluded.tokens, excluded.excluded], [true, 2, 2], "geri alinamayan karakterler karsilastirma disi");
+    console.log("ok - kapi 4 Cambridge parca karsilastirmasi / esleme / 2021 cozme");
   }
 
   const id = (number, year = 2025) => questionId(year, number);
@@ -271,35 +390,120 @@ try {
     { year: 2022, examSet: "mock", args: ["--years", "2022", "--require-figures"] }
   );
 
-  // Cozulmus metin katmanli yil (2021, inventory textLayer "decoded"): metin yili gibi islenir. Kapi 4 pdftotext yerine
-  // (kaynak glif kaydirmali) decode-check kabulunu ister; hasImage soru yine goruntuden yazilmis olmali; karistirma kaydi
+  const gate4Of = (result) => read(join(result.root, "validate-report.json")).gates.find((g) => String(g.gate) === "4");
+
+  // Kapi 4, Cambridge dizilimi (2022; inventory.mjs paperLayoutOf): yalin sik harfi, sira bagimsiz parca karsilastirmasi.
+  await scenario(
+    "kapi 4 Cambridge: yalin harf, Word tiresi/noktali virgulu ve sirasi farkli satir gecer",
+    (root) => cambridgeFixture(root),
+    (result) => {
+      assert.equal(result.status, 0, "cikis 0 bekleniyor");
+      assert.deepEqual(result.output.failures, []);
+      const gate4 = gate4Of(result);
+      assert.equal(gate4.counts.compared, 2);
+      assert.equal(gate4.counts.equal, 2);
+      const year = gate4.counts.years["2022"];
+      assert.equal(year.layout, "cambridge");
+      assert.equal(year.textOnly, 2);
+      assert.equal(year.passed, 2);
+      assert.equal(year.inOrder, 1, "soru 4 sirali karsilastirmada tutmaz (numara ikinci satirda)");
+      assert.deepEqual([year.missing, year.dropped, year.noText, year.spacingOnly], [[], [], [], []]);
+    },
+    { year: 2022 }
+  );
+  const without = (text, word) => text.replace(`${word} `, "");
+  await scenario(
+    "kapi 4 Cambridge: kaynakta olmayan kelime (kaynaktan dusmus) hata",
+    (root) => cambridgeFixture(root, { pdfPrompt3: without(CAMBRIDGE_Q3_PROMPT, "listed") }),
+    expectFailure(new RegExp(`kapi 4: 2022:3 ${id(3, 2022)}: kaynak sayfa 1 soru bolgesinde 1 parca yok \\(ilk: prompt 8\\. kelime\\)`)),
+    { year: 2022 }
+  );
+  await scenario(
+    "kapi 4 Cambridge: metinden dusmus kelime hata",
+    (root) => cambridgeFixture(root, { extractPrompt3: without(CAMBRIDGE_Q3_PROMPT, "listed") }),
+    expectFailure(new RegExp(`kapi 4: 2022:3 ${id(3, 2022)}: kaynak sayfa 1 soru bolgesinde metinde olmayan 1 parca var`)),
+    { year: 2022 }
+  );
+  await scenario(
+    "kapi 4 Cambridge: soru bolgesinde metin yok hata",
+    (root) => cambridgeFixture(root, { q3Box: [48, 500, 560, 560] }),
+    expectFailure(new RegExp(`kapi 4: 2022:3 ${id(3, 2022)}: kaynak sayfa 1 soru bolgesinde metin yok`)),
+    { year: 2022 }
+  );
+  // MUR dizilimi (2023-2025) degismedi: sirali, bosluksuz, sik "A) ".
+  await scenario(
+    "kapi 4 MUR: \"A) \" bicimi gecer",
+    (root) => murFixture(root),
+    (result) => {
+      assert.equal(result.status, 0, "cikis 0 bekleniyor");
+      assert.deepEqual(result.output.failures, []);
+      const gate4 = gate4Of(result);
+      assert.equal(gate4.counts.compared, 1);
+      assert.equal(gate4.counts.equal, 1);
+      assert.equal(gate4.counts.years["2025"].layout, "mur");
+    }
+  );
+  await scenario(
+    "kapi 4 MUR: yalin sik harfi tutmaz",
+    (root) => murFixture(root, { bare: true }),
+    expectFailure(new RegExp(`kapi 4: 2025:3 ${id(3)}: kaynak sayfa 1 ile eslesmiyor \\(choices\\.A`))
+  );
+
+  // Cozulmus metin katmanli yil (2021, inventory textLayer "decoded"): metin yili gibi islenir. Kapi 4 once kaynak PDF'in
+  // varligini ve sha256'sini denetler, decode-check kabulunu ister, sonra pdftotext ciktisini envanterdeki kaydirmayla
+  // cozup Cambridge parca karsilastirmasini yapar; hasImage soru yine goruntuden yazilmis olmali; karistirma kaydi
   // (2021-2025) zorunlu kalir.
-  const decodedYear = (root, { accepted = true, rewritten = true } = {}) => {
+  const decodedYear = (root, { accepted = true, rewritten = true, pdf = "ok", prompt = DECODED_PROMPT } = {}) => {
     const inventoryPath = join(root, "inventory.json");
     write(inventoryPath, read(inventoryPath).map((entry) => ({ ...entry, textLayer: "decoded", decodeShift: 29 })));
-    for (const name of ["2021.json", "2021.shuffled.json"]) {
-      const path = join(root, "extract", name);
-      const data = read(path);
-      data.source = "text";
-      if (rewritten) data.questions.find((q) => q.number === 1).visionRewritten = true;
-      write(path, data);
-    }
+    const bbox = pdf === "missing" ? [48, 99, 560, 180] : decodedPdf(root, { sha: pdf !== "sha" });
+    textYear(root, 2021, [1, 3], (q) => {
+      if (q.number === 1) {
+        if (rewritten) q.visionRewritten = true;
+        return;
+      }
+      q.prompt = prompt;
+      q.choices = { ...DECODED_CHOICES };
+      q.bbox = bbox;
+    });
     write(join(root, "vision", "2021", "decode-check.json"), { year: 2021, shift: 29, accepted });
   };
   await scenario(
-    "cozulmus metin katmanli yil (2021) metin yili gibi gecer",
+    "cozulmus metin katmanli yil (2021) metin yili gibi gecer, pdftotext kaydirmayla cozulur",
     (root) => decodedYear(root),
     (result) => {
       assert.equal(result.status, 0, "cikis 0 bekleniyor");
       assert.deepEqual(result.output.failures, []);
       assert.equal(result.output.bank.length, 60);
       assert.ok(result.output.bank.every((q) => q.year === 2021 && q.shuffle && q.correct_answer === q.shuffle.shuffled), "2021 karistirma kaydi");
-      assert.ok(result.output.warnings.some((m) => /^kapi 4: 2021: cozulmus metin katmani/.test(m)), "kapi 4 uyarisi: pdftotext yerine decode-check");
-      const gate4 = read(join(result.root, "validate-report.json")).gates.find((g) => String(g.gate) === "4");
+      const gate4 = gate4Of(result);
       assert.deepEqual(gate4.counts.decodedYears, [2021]);
       assert.deepEqual(gate4.counts.textYears, [2021], "cozulmus yil metin yili sayilir");
-      assert.equal(gate4.counts.compared, 0, "glif kaydirmali pdftotext ile karsilastirilmaz");
+      assert.equal(gate4.counts.compared, 1, "cozulmus pdftotext ile karsilastirilir");
+      assert.equal(gate4.counts.equal, 1);
+      const year = gate4.counts.years["2021"];
+      assert.equal(year.layout, "cambridge");
+      assert.equal(year.excludedTokens, 2, "parantezler pdftotext'te geri alinamaz, karsilastirma disi");
+      assert.ok(gate4.notes.some((m) => /^2021: cozulmus metin katmani \(kaydirma 29\)/.test(m)), "kapi 4 notu");
     },
+    { year: 2021 }
+  );
+  await scenario(
+    "cozulmus yilda kaynakta olmayan kelime kapi 4",
+    (root) => decodedYear(root, { prompt: DECODED_PROMPT.replace("first", "last") }),
+    expectFailure(new RegExp(`kapi 4: 2021:3 ${id(3, 2021)}: kaynak sayfa 1 soru bolgesinde 1 parca yok`)),
+    { year: 2021 }
+  );
+  await scenario(
+    "cozulmus yilda kaynak PDF yok kapi 4",
+    (root) => decodedYear(root, { pdf: "missing" }),
+    expectFailure(/kapi 4: 2021: kaynak PDF yok/),
+    { year: 2021 }
+  );
+  await scenario(
+    "cozulmus yilda kaynak PDF sha256 farkli kapi 4",
+    (root) => decodedYear(root, { pdf: "sha" }),
+    expectFailure(/kapi 4: 2021: kaynak PDF envanterdeki sha256 ile ayni degil/),
     { year: 2021 }
   );
   await scenario(
