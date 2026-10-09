@@ -9,7 +9,7 @@ import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-import { THRESHOLD, compareYear, isPlaceholder, normalizeText, pairQuestions, stemKey, verdictOf } from "./compare-mur-order.mjs";
+import { MIN_TEXT_KEY, THRESHOLD, compareYear, isPlaceholder, normalizeText, pairQuestions, stemKey, verdictOf } from "./compare-mur-order.mjs";
 
 const HERE = import.meta.dirname;
 const LETTERS = ["A", "B", "C", "D", "E"];
@@ -31,15 +31,15 @@ const okExtraction = (questions) => ({ ok: true, problems: [], questions });
 // --- normallestirme: kucuk harf, isaret etiketleri, noktalama, bosluk; kok anahtari ilk 80 karakter ------------------
 {
   assert.equal(normalizeText("  The <i>Copper</i>  Lantern,\n\nlit  at dusk!  "), "the copper lantern lit at dusk");
-  assert.equal(normalizeText("Costs \\$5 – or (maybe) “ten”?"), "costs $5 or maybe ten", "\\$ gercek dolar; tire, parantez, tirnak noktalama");
-  assert.equal(normalizeText("x × y ≤ z"), "x × y ≤ z", "matematik isaretleri noktalama degil, kalir");
+  assert.equal(normalizeText("Costs \\$5 \u2013 or (maybe) \u201cten\u201d?"), "costs $5 or maybe ten", "\\$ gercek dolar; tire, parantez, tirnak noktalama");
+  assert.equal(normalizeText("x \u00d7 y \u2264 z"), "x \u00d7 y \u2264 z", "matematik isaretleri noktalama degil, kalir");
   assert.equal(normalizeText(null), "");
   const long = "Word ".repeat(40);
   assert.equal(stemKey(long).length, 80);
   assert.equal(stemKey(long), normalizeText(long).slice(0, 80));
   assert.equal(stemKey("Which jar, of these, is red?"), stemKey("which jar of these   is red"));
-  assert.equal(isPlaceholder("�"), true, "yalin etiket (goruntu sikki)");
-  assert.equal(isPlaceholder("12 � 4"), true, "eslenmeyen glif tasiyan sik da karsilastirilamaz");
+  assert.equal(isPlaceholder("\ufffd"), true, "yalin etiket (goruntu sikki)");
+  assert.equal(isPlaceholder("12 \ufffd 4"), true, "eslenmeyen glif tasiyan sik da karsilastirilamaz");
   assert.equal(isPlaceholder("  ...  "), true, "noktalamadan ibaret sik bos sayilir");
   assert.equal(isPlaceholder(""), true);
   assert.equal(isPlaceholder("jar 3"), false);
@@ -88,6 +88,21 @@ const okExtraction = (questions) => ({ ok: true, problems: [], questions });
   assert.deepEqual(amb3.unpairedNumbers, [1, 2]);
 }
 
+// --- kisa kok anahtari metinle eslesmez (en az MIN_TEXT_KEY karakter); ayni numarada yine numarayla eslesir --------------
+{
+  assert.equal(MIN_TEXT_KEY, 8);
+  const ours = [q(1, "Why so?", LETTERS), q(2, "Abcd efg!", LETTERS), q(3, "Which harbour is the oldest on the invented isle?", LETTERS), q(4, "Tide?", LETTERS)];
+  const mur = [q(1, "Why so?", LETTERS), q(2, "Which harbour is the oldest on the invented isle?", LETTERS), q(3, "Abcd efg", LETTERS), q(4, "Lamp.", LETTERS), q(5, "Tide", LETTERS)];
+  const got = pairQuestions(mur, ours);
+  assert.equal(stemKey("Why so?").length, 6);
+  assert.equal(stemKey("Abcd efg!").length, 8, "tam 8 karakter: esikte");
+  assert.deepEqual(got.pairs.map((p) => [p.ours, p.mur, p.by]), [[1, 1, "number"], [2, 3, "text"], [3, 2, "text"]], "kisa kok ayni numarada numarayla eslesir; 8 karakter metinle eslesir");
+  assert.deepEqual(got.unpairedNumbers, [4], "\"tide\" (4 karakter) baska numarada: metinle eslesmez");
+  assert.deepEqual(got.unpairedMurNumbers, [4, 5]);
+  assert.deepEqual(got.shortStemMurNumbers, [4, 5], "kisa koklu, eslesmeyen MUR sorulari ayrica listelenir");
+  assert.deepEqual(got.ambiguousMurNumbers, []);
+}
+
 // --- karsilastirma: match, mismatch, unverifiable (yer tutucu iki tarafta, bos), belirsiz normallestirme ------------
 {
   const ours = invented(8);
@@ -97,8 +112,8 @@ const okExtraction = (questions) => ({ ok: true, problems: [], questions });
   const wrong = LETTERS.find((l) => l !== key[2]);
   mur[1] = allA(ours[1], wrong);
   // 3: MUR A sikki goruntu (U+FFFD); 4: bizim anahtarli sik goruntu; 5: MUR A bos.
-  mur[2] = { ...mur[2], choices: { ...mur[2].choices, A: "�" } };
-  const ours4 = { ...ours[3], choices: { ...ours[3].choices, [key[4]]: "�" } };
+  mur[2] = { ...mur[2], choices: { ...mur[2].choices, A: "\ufffd" } };
+  const ours4 = { ...ours[3], choices: { ...ours[3].choices, [key[4]]: "\ufffd" } };
   mur[4] = { ...mur[4], choices: { ...mur[4].choices, A: "" } };
   // 6: MUR A metni bizim hicbir sikkimiza esit degil (bicim farki).
   mur[5] = { ...mur[5], choices: { ...mur[5].choices, A: "a different jar altogether" } };
@@ -119,6 +134,8 @@ const okExtraction = (questions) => ({ ok: true, problems: [], questions });
   ], "MUR A'nin bizim kagitta hangi sikka denk geldigi (yalniz harf)");
   assert.deepEqual(entry.unverifiableDetail.map((d) => [d.number, d.why]), [[3, "mur-placeholder"], [4, "ours-placeholder"], [5, "mur-placeholder"], [7, "ambiguous"]]);
   assert.equal(entry.ratio, 0.5);
+  assert.equal(entry.verified, 4, "verified = matched + mismatched");
+  assert.equal(entry.coverage, 0.5, "coverage = verified / expected (esik yok)");
   assert.equal(entry.verdict, "inconclusive");
   assert.equal(entry.pairing.byNumber, 8);
   // Rapor yalniz sayi ve harf tasir: fikstur metninden hicbir kelime gecmez.
@@ -134,19 +151,40 @@ const okExtraction = (questions) => ({ ok: true, problems: [], questions });
     q(1, "Which reading did the cold lantern give?", ["-3 marks", "3 marks", "7 marks", "9 marks", "11 marks"]),
     q(2, "Which reading did the warm lantern give?", ["-3 marks", "3 marks", "7 marks", "9 marks", "11 marks"]),
     q(3, "Which pair of seeds was planted?", ["Gg", "gg", "GG", "Hh", "hh"]),
-    q(4, "Which reading did the third lantern give?", ["–4 marks", "4 marks", "8 marks", "6 marks", "12 marks"]),
+    q(4, "Which reading did the third lantern give?", ["\u20134 marks", "4 marks", "8 marks", "6 marks", "12 marks"]),
   ];
   const key = { 1: "A", 2: "A", 3: "B", 4: "B" };
   const mur = [
     q(1, ours[0].prompt, ["-3 marks", "3 marks", "7 marks", "9 marks", "11 marks"]),
     q(2, ours[1].prompt, ["3 marks", "-3 marks", "7 marks", "9 marks", "11 marks"]),
     q(3, ours[2].prompt, ["gg", "Gg", "GG", "Hh", "hh"]),
-    q(4, ours[3].prompt, ["4 marks.", "–4 marks", "8 marks", "6 marks", "12 marks"]),
+    q(4, ours[3].prompt, ["4 marks.", "\u20134 marks", "8 marks", "6 marks", "12 marks"]),
   ];
   const entry = compareYear({ year: 2099, expected: 4, extraction: okExtraction(mur), ours, key });
   assert.deepEqual([entry.matched, entry.mismatched, entry.unverifiable], [2, 1, 1]);
   assert.deepEqual(entry.mismatchDetail, [{ number: 2, murNumber: 2, key: "A", murAIs: "B" }], "isaretsiz 3, anahtar -3 diyor: uyusmazlik (eslesme sanilmaz)");
   assert.deepEqual(entry.unverifiableDetail.map((d) => [d.number, d.why]), [[4, "ambiguous"]], "siki bicimde aday yok: karar verilmez");
+}
+
+// --- tek aday yalniz normallestirmeyle esitse ve bizim baska bir sikkimiz goruntuyse karar verilmez -------------------
+{
+  // MUR "-3 marks" bizim "3 marks" ile yalniz noktalama silinince esit; goruntu sikki gercek esi olabilir: unverifiable.
+  const ours = [
+    q(1, "First invented reading of the brass gauge.", ["3 marks", "\ufffd", "7 marks", "9 marks", "11 marks"]),
+    q(2, "Second invented reading of the brass gauge.", ["3 marks", "5 marks", "7 marks", "9 marks", "11 marks"]),
+    q(3, "Third invented reading of the brass gauge.", ["3 marks", "\ufffd", "9 marks", "7 marks", "11 marks"]),
+    q(4, "Fourth invented reading of the brass gauge.", ["3 marks", "\ufffd", "7 marks", "9 marks", "11 marks"]),
+  ];
+  const key = { 1: "A", 2: "A", 3: "C", 4: "A" };
+  const mur = [
+    q(1, ours[0].prompt, ["-3 marks", "\ufffd", "7 marks", "9 marks", "11 marks"]),
+    q(2, ours[1].prompt, ["-3 marks", "5 marks", "7 marks", "9 marks", "11 marks"]),
+    q(3, ours[2].prompt, ["-3 marks", "\ufffd", "9 marks", "7 marks", "11 marks"]),
+    q(4, ours[3].prompt, ["3 marks", "\ufffd", "7 marks", "9 marks", "11 marks"]),
+  ];
+  const entry = compareYear({ year: 2099, expected: 4, extraction: okExtraction(mur), ours, key });
+  assert.deepEqual(entry.unverifiableDetail.map((d) => [d.number, d.why]), [[1, "placeholder-sibling"], [3, "placeholder-sibling"]], "eslesme de uyusmazlik da sayilmaz");
+  assert.deepEqual([entry.matched, entry.mismatched], [2, 0], "2: goruntu sikki yok (kurala gore esit); 4: siki bicim de esit");
 }
 
 // --- numara + metin eslesmesi karsilastirmaya tasinir: MUR sirasi farkli kagitta anahtar dogrulanir ----------------
@@ -168,6 +206,8 @@ const okExtraction = (questions) => ({ ok: true, problems: [], questions });
   assert.deepEqual(partial.pairing.unpairedNumbers, [4]);
   assert.deepEqual(partial.pairing.unpairedMurNumbers, [5]);
   assert.equal(partial.ratio, 1);
+  assert.equal(partial.verified, 4);
+  assert.equal(partial.coverage, 0.8, "eslesmeyen soru kapsami dusurur; karar degismez");
   assert.equal(partial.verdict, "confirmed");
 }
 
@@ -187,6 +227,8 @@ const okExtraction = (questions) => ({ ok: true, problems: [], questions });
   assert.equal(edge.matched, 19);
   assert.equal(edge.mismatched, 1);
   assert.equal(edge.ratio, 0.95);
+  assert.equal(edge.verified, 20);
+  assert.equal(edge.coverage, 1);
   assert.equal(edge.verdict, "confirmed");
   assert.deepEqual(edge.mismatchNumbers, [10], "confirmed yilda uyusmayan numara cozucu kapisina listelenir");
   mur[10] = allA(ours[10], LETTERS.find((l) => l !== key[11]));
@@ -194,8 +236,10 @@ const okExtraction = (questions) => ({ ok: true, problems: [], questions });
   assert.equal(below.ratio, 0.9);
   assert.equal(below.verdict, "inconclusive");
   assert.match(below.reason, /%95/);
-  const none = compareYear({ year: 2099, expected: 2, extraction: okExtraction([q(1, "Only an image here.", ["�", "�", "�", "�", "�"]), q(2, "Another image.", ["�", "�", "�", "�", "�"])]), ours: [q(1, "Only an image here.", LETTERS), q(2, "Another image.", LETTERS)], key: { 1: "A", 2: "B" } });
+  const none = compareYear({ year: 2099, expected: 2, extraction: okExtraction([q(1, "Only an image here.", ["\ufffd", "\ufffd", "\ufffd", "\ufffd", "\ufffd"]), q(2, "Another image.", ["\ufffd", "\ufffd", "\ufffd", "\ufffd", "\ufffd"])]), ours: [q(1, "Only an image here.", LETTERS), q(2, "Another image.", LETTERS)], key: { 1: "A", 2: "B" } });
   assert.equal(none.ratio, null);
+  assert.equal(none.verified, 0);
+  assert.equal(none.coverage, 0);
   assert.equal(none.verdict, "inconclusive");
 }
 
@@ -210,6 +254,8 @@ const okExtraction = (questions) => ({ ok: true, problems: [], questions });
   assert.deepEqual(failed.extraction.problems, [{ number: 3, error: "4 sik bulundu" }]);
   assert.equal(failed.matched, null);
   assert.equal(failed.ratio, null);
+  assert.equal(failed.verified, null);
+  assert.equal(failed.coverage, null);
   assert.deepEqual(failed.mismatchNumbers, []);
   // Cikarim "basarili" dese bile soru sayisi beklenen degilse (eksik numara) yil inconclusive; dolgu yapilmaz.
   const short = compareYear({ year: 2099, expected: 4, extraction: okExtraction([1, 2, 4].map((n) => allA(ours[n - 1], key[n]))), ours, key });

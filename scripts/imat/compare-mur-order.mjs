@@ -12,17 +12,22 @@
 //      Cikarim beklenen sayiya (expectedQuestions: 80/60) ulasmazsa yil inconclusive + neden; dolgu yok.
 //   2. Eslesme: once ayni numara (kok anahtari ayni), tutmazsa kok anahtariyla yil icinde. Kok anahtari: kucuk harf, <i>/<u>
 //      isaretleri silinir, noktalama (Unicode P) silinir, bosluklar tek bosluk, ilk 80 karakter. Iki kagittan birinde birden
-//      cok soruda gecen anahtar soru tanimlamaz (ne numarayla ne metinle eslesir; ambiguousMurNumbers).
+//      cok soruda gecen anahtar soru tanimlamaz (ne numarayla ne metinle eslesir; ambiguousMurNumbers); MIN_TEXT_KEY (8)
+//      karakterden kisa anahtar metinle eslesmez (shortStemMurNumbers; ayni numarada numarayla eslesebilir).
 //   3. Eslesen her soruda MUR A (normalize) == bizim anahtarli sik (normalize): match; degil: mismatch (murAIs: MUR A metninin
 //      bizim kagittaki harfi, yoksa null). Iki taraftan biri yer tutucu (U+FFFD) ya da bossa: unverifiable. MUR A bizim birden
 //      cok sikkimiza esitse (normallestirme "-3"/"3", "Gg"/"gg" farkini siler) siki bicim (harf ve noktalama korunur) karar
-//      verir; orada da tek aday yoksa unverifiable (ambiguous). Eslesmeyen soru karsilastirmaya girmez (pairing listeleri).
-//   4. Oran = match / (match + mismatch). >= %95 confirmed (mismatchNumbers Gorev 18 cozucu kapisinda oncelikli), < %95 ya da
+//      verir; orada da tek aday yoksa unverifiable (ambiguous). Tek aday yalniz normallestirmeyle esitse (siki bicim farkli)
+//      ve bizim bir sikkimiz goruntuyse gercek es o olabilir: unverifiable (placeholder-sibling). Eslesmeyen soru
+//      karsilastirmaya girmez (pairing listeleri).
+//   4. Oran = match / (match + mismatch); verified = match + mismatch, coverage = verified / expected (bilgi; esik yok).
+//      >= %95 confirmed (mismatchNumbers Gorev 18 cozucu kapisinda oncelikli), < %95 ya da
 //      dogrulanabilir soru yok: inconclusive (hata degil: MUR surumu "hep A" degil ya da duzen farkli).
 //
 // Cikti keys/mur-order-report.json (yil bazinda birlestirilir; baska yillarin kaydi korunur): yil basina extraction (ok,
-// soru sayisi, sorunlar), pairing (byNumber, byText, unpairedNumbers, unpairedMurNumbers, ambiguousMurNumbers, sameChoiceSet:
-// bes sik metni kume olarak ayni olan eslesme sayisi), matched, mismatched, unverifiable, ratio, verdict, reason,
+// soru sayisi, sorunlar), pairing (byNumber, byText, unpairedNumbers, unpairedMurNumbers, ambiguousMurNumbers,
+// shortStemMurNumbers, sameChoiceSet: bes sik metni kume olarak ayni olan eslesme sayisi), matched, mismatched,
+// unverifiable, ratio, verified, coverage, verdict, reason,
 // mismatchNumbers + mismatchDetail ({ number, murNumber, key, murAIs }), unverifiableNumbers + unverifiableDetail ({ why }).
 // Numaralar bizim (Cambridge) kagidin numaralaridir; murNumber MUR kopyasindaki yeri. Rapor ve konsol yalniz sayi, numara,
 // harf ve neden kodu tasir; soru metni yazilmaz. Cikis 0: tum yillar islendi (inconclusive dahil); 2: girdi hatasi.
@@ -41,6 +46,9 @@ export const MUR_ORDER_REPORT_PATH = join(KEYS_DIR, "mur-order-report.json");
 export const THRESHOLD = 0.95;
 const THRESHOLD_PERCENT = 95; // tamsayi karsilastirma (kayan nokta yok): match * 100 >= 95 * (match + mismatch)
 const STEM_CHARS = 80;
+// Metinle eslesme icin kok anahtarinin en kisa boyu: daha kisa kok ("why so", "tide") soru tanimlamaz (yalniz ayni numarada
+// numarayla eslesebilir).
+export const MIN_TEXT_KEY = 8;
 const LETTERS = Object.freeze(["A", "B", "C", "D", "E"]);
 const PLACEHOLDER = "�";
 const PYTHON = "/usr/bin/python3";
@@ -79,7 +87,7 @@ const countKeys = (questions) => {
  * MUR sorularini bizim sorularla esler (saf islev). Once numara (kok anahtari ayni), sonra kok anahtari (yil icinde).
  * Kok anahtari iki kagittan birinde tek degilse soru tanimlamaz: eslesmez (ambiguousMurNumbers).
  * @returns {{ pairs: { ours: number, mur: number, by: "number"|"text" }[], byNumber: number, byText: number,
- *   unpairedNumbers: number[], unpairedMurNumbers: number[], ambiguousMurNumbers: number[] }}
+ *   unpairedNumbers: number[], unpairedMurNumbers: number[], ambiguousMurNumbers: number[], shortStemMurNumbers: number[] }}
  */
 export function pairQuestions(murQuestions, ourQuestions) {
   const murCounts = countKeys(murQuestions);
@@ -101,8 +109,13 @@ export function pairQuestions(murQuestions, ourQuestions) {
       rest.push(m);
     }
   }
+  const shortStem = [];
   for (const m of rest) {
     const key = stemKey(m.prompt);
+    if (key.length < MIN_TEXT_KEY) {
+      shortStem.push(m.number);
+      continue;
+    }
     if (!unique(key)) {
       if ((ourCounts.get(key) ?? 0) > 0) ambiguous.push(m.number);
       continue;
@@ -122,6 +135,7 @@ export function pairQuestions(murQuestions, ourQuestions) {
     unpairedNumbers: ourQuestions.map((q) => q.number).filter((n) => !pairedOurs.has(n)).sort(byNumber),
     unpairedMurNumbers: murQuestions.map((q) => q.number).filter((n) => !pairedMur.has(n)).sort(byNumber),
     ambiguousMurNumbers: ambiguous.sort(byNumber),
+    shortStemMurNumbers: shortStem.sort(byNumber),
   };
 }
 
@@ -144,6 +158,9 @@ function judge(murQuestion, ourQuestion, keyLetter) {
     const strict = strictText(murA);
     equal = equal.filter((letter) => strictText(ours[letter]) === strict);
     if (equal.length !== 1) return { result: "unverifiable", why: "ambiguous" };
+  } else if (equal.length === 1 && strictText(ours[equal[0]]) !== strictText(murA) && LETTERS.some((letter) => isPlaceholder(ours[letter]))) {
+    // Tek aday yalniz normallestirmeyle esit ("-3 marks" / "3 marks") ve bizim bir sikkimiz goruntu: gercek es o olabilir.
+    return { result: "unverifiable", why: "placeholder-sibling" };
   }
   if (equal.length === 1 && equal[0] === keyLetter) return { result: "match" };
   return { result: "mismatch", murAIs: equal.length === 1 ? equal[0] : null };
@@ -169,6 +186,8 @@ export function compareYear({ year, expected, extraction, ours, key }) {
     mismatched: null,
     unverifiable: null,
     ratio: null,
+    verified: null,
+    coverage: null,
     verdict: "inconclusive",
     reason: null,
     mismatchNumbers: [],
@@ -218,12 +237,15 @@ export function compareYear({ year, expected, extraction, ours, key }) {
       unpairedNumbers: pairing.unpairedNumbers,
       unpairedMurNumbers: pairing.unpairedMurNumbers,
       ambiguousMurNumbers: pairing.ambiguousMurNumbers,
+      shortStemMurNumbers: pairing.shortStemMurNumbers,
       sameChoiceSet,
     },
     matched: counts.match,
     mismatched: counts.mismatch,
     unverifiable: counts.unverifiable,
     ratio,
+    verified,
+    coverage: Math.round((verified / expected) * 10000) / 10000,
     verdict,
     reason,
     mismatchNumbers: mismatchDetail.map((d) => d.number),

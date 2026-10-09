@@ -315,6 +315,18 @@ def build_rows(page, layout):
     return out
 
 
+SCRIPT_CHARS = frozenset(SUP.values()) | frozenset(SUB.values())
+
+
+def starts_with_script(text):
+    # Metin ya da satirlarindan biri (bastaki bosluk ve <i>/<u> isaretleri atlanarak) ust/alt simgeyle basliyor mu.
+    for part in text.split("\n"):
+        line = re.sub(r"^(?:\s|</?[iu]>)+", "", part)
+        if line and line[0] in SCRIPT_CHARS:
+            return True
+    return False
+
+
 def map_script(text, script):
     # Ust/alt simge dizisi -> Unicode. "(s)", "(aq)" gibi harfli durum simgesi duz kalir; eslenemeyen baska
     # karakter (ondalik nokta, harf) duz yazilir ve formul isareti doner (goruntuden yazima gider).
@@ -693,7 +705,9 @@ class CambridgeLayout:
     name = "cambridge"
     TEXT_SIZES = (4.98, 5.25, 6.0, 6.75, 7.02, 7.5, 9.0, 9.75, 10.0, 10.02, 10.14, 10.98, 11.25, 12.0, 18.0)
     BASE_MIN = 9.5  # 9 pt ust/alt simge (CO2, 20th) satir kurmaz
-    ROW_TOL = 3.5  # soru numarasi metinden 3 pt yukarida olabilir; satir araligi 12.7 pt
+    # Soru numarasi metinden 3 pt, kalin sik harfi 3.75 pt yukarida olabilir (2012 Q80, 2013 Q52: 3.5 iken harf ayri satir
+    # kurar, 9 pt us orta noktaya en yakin harf satirina gider ve sikkin basina gecerdi); satir araligi 12.7 pt.
+    ROW_TOL = 4.0
     SCRIPT_BY_OFFSET = True  # satiri baskin punto kurar; 9.75 pt Times ust/alt simge 11.25 pt satirda (2019, 2021 denklemleri)
     # Word ciktisi: tire glifi yumusak tire (U+00AD) olarak, noktali virgul Yunanca soru isareti olarak gelir; ince bosluklar.
     CHAR_MAP = {"\u00ad": "-", "\u037e": ";", "\u202f": " ", "\u200a": " ", "\u200b": ""}
@@ -1123,9 +1137,15 @@ def parse_pages(pages, year, layout, total=None):
                 placeholders[n] = "".join(unfilled)
                 stats["choice_image_only"] += len(unfilled)
             text_box = union([[r["x0"], r["ink_top"], r["x1"], r["ink_bottom"]] for r in rows])
+            # Guvenlik agi: soru metni ya da bir sik (ya da bir satiri) simgeyle basliyorsa simge yanlis satira baglanmis olabilir
+            # (2012 Q80 / 2013 Q52 turu); dogru cekirdek gosterimi de olabilir. Ikisi de goruntuden yazima gider ("script-start").
+            script_start = starts_with_script(prompt) or any(starts_with_script(v) for v in choices.values())
+            if script_start:
+                image_boxes.append(text_box)
             bbox = union([text_box] + image_boxes)
             has_image = bool(image_boxes)
-            why = [key for key in ("picture", "drawing") if key in signals] + signals.get("formula_reasons", []) + (["table"] if "table" in signals else [])
+            why = ([key for key in ("picture", "drawing") if key in signals] + signals.get("formula_reasons", []) + (["table"] if "table" in signals else [])
+                   + (["script-start"] if script_start else []))
             reasons[n] = why
             for w in why:
                 stats["hasImage_" + w] += 1
@@ -1593,6 +1613,33 @@ def cambridge_self_test():
             data = json.load(fh)
         assert sorted(data) == ["questions", "source", "year"] and [q["number"] for q in data["questions"]] == [1, 2], "cikti semasi"
     checks += 1
+    # Kalin sik harfi metinden 3.75 pt yukarida (A/C/E), 3.0 pt (B/D): harf ve metin tek satir kurar; 9 pt us "10"un sagindaki
+    # yerinde kalir. ROW_TOL 3.5 iken harf ayri satir kurar, us orta noktaya en yakin harf satirina gider ve sikkin basina gecer.
+    def raised(letter, text, exp, top, lift):
+        body = chars_at(text, 95.8, top + lift)
+        return chars_at(letter, 74.0, top, font="Arial-BoldMT") + body + chars_at(exp, body[-1]["x1"], top + 0.28, size=9.0)
+    split = heading("Chemistry") + question(1, "How many grains of salt fill the invented barrel?", 60.0)
+    for k, lift in enumerate((3.75, 3.0, 3.75, 3.0, 3.75)):
+        split += raised("ABCDE"[k], f"{k + 2}.5 \u00d7 10", f"2{k}", 100.0 + 25.5 * k, lift)
+    res = parse_pages([Page(FakePdfPage(split), 0, layout)], 2099, layout, 1)
+    assert not res["problems"], f"cambridge yukari harf: {res['problems']}"
+    got = res["records"][0]
+    want = {letter: f"{k + 2}.5 \u00d7 10" + map_script(f"2{k}", "sup")[0] for k, letter in enumerate("ABCDE")}
+    assert got["choices"] == want, f"cambridge yukari harf: us sikkin basina gecti {got['choices']}"
+    assert got["hasImage"] is False and res["reasons"][1] == [], f"cambridge yukari harf: {res['reasons']}"
+    checks += 1
+    # Guvenlik agi: soru metni ya da bir sik (ya da bir satiri) ust/alt simgeyle basliyorsa goruntuden yazima gider ("script-start"):
+    # cekirdek gosterimi (atom numarasi alt simge) dogru olabilir ama satira yanlis baglanmis simge de boyle gorunur.
+    lead = (heading("Chemistry") + question(1, "Which pair of invented ions matches?", 60.0)
+            + chars_at("A", 89.0, 100.0, font="Arial-BoldMT") + chars_at("7", 119.0, 104.0, size=7.5) + chars_at("Zq and Wv", 123.0, 100.0)
+            + [c for k, w in enumerate(("two", "three", "four", "five")) for c in chars_at("BCDE"[k], 89.0, 125.5 + 25.5 * k, font="Arial-BoldMT") + chars_at(w, 119.0, 125.5 + 25.5 * k)])
+    res = parse_pages([Page(FakePdfPage(lead), 0, layout)], 2099, layout, 1)
+    assert not res["problems"], f"cambridge simge basi: {res['problems']}"
+    got = res["records"][0]
+    assert got["choices"]["A"] == "\u2087Zq and Wv", f"cambridge simge basi: {got['choices']['A']!r}"
+    assert got["hasImage"] is True and "script-start" in res["reasons"][1] and got["imageBoxes"], f"cambridge simge basi: {res['reasons']}"
+    assert starts_with_script("plain line\n\u00b2\u00b3 loose row") and starts_with_script("<i>\u2083</i>x") and not starts_with_script("x\u00b2 + 1"), "simge basi kurali"
+    checks += 1
     return checks
 
 
@@ -1674,7 +1721,7 @@ def mur_legacy_self_test():
 def main(argv):
     if argv == ["--self-test"]:
         checks = self_test() + cambridge_self_test() + mur_legacy_self_test()
-        print(f"extract_text oz sinama: {checks} kontrol gecti (italik: kismi dizi, tamamen italik blok, tek harf, kisa matematik, formul, satir basina denge, kaynak satiri; cambridge: soru/sik/baslik/sayfa alti, iki haneli numara, ortali harf, sekil izgarasi, goruntu siki, simge, tablo, 2021 kod kaydirmasi, kalin numara, eksik numara kapisi; mur-legacy: kapak, 2011 ve 2014+ bicimi, MIUR/KEYIMAT sayfa alti)")
+        print(f"extract_text oz sinama: {checks} kontrol gecti (italik: kismi dizi, tamamen italik blok, tek harf, kisa matematik, formul, satir basina denge, kaynak satiri; cambridge: soru/sik/baslik/sayfa alti, iki haneli numara, ortali harf, sekil izgarasi, goruntu siki, simge, tablo, 2021 kod kaydirmasi, kalin numara, eksik numara kapisi, yukari sik harfi, simge basi; mur-legacy: kapak, 2011 ve 2014+ bicimi, MIUR/KEYIMAT sayfa alti)")
         return 0
     opts = parse_args(argv)
     if opts["source"]:
