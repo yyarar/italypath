@@ -6,15 +6,22 @@
 #   IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank /usr/bin/python3 scripts/imat/extract_text.py --years 2024,2025
 # Secenekler:
 #   --years <yil,yil>   zorunlu; yalniz metin katmani saglam yillar
-#   --layout <ad>       sayfa duzeni: mur (varsayilan; 2023-2025 MUR denemesi) | cambridge (2011-2022 gecmis kagitlari)
+#   --layout <ad>       sayfa duzeni: mur (varsayilan; 2023-2025 MUR denemesi) | cambridge (2011-2022 gecmis kagitlari) |
+#                       mur-legacy (2011-2020 MUR "hep A" kopyalari, keys/sources/<yil>-mur.pdf; --source ile)
 #   --decode-shift <n>  glif numarasi -> kod noktasi kaydirmasi (yalniz 2021: --layout cambridge --decode-shift 29;
 #                       metin katmani "bozuk" yil ancak bununla okunur; orkestrasyon scripts/imat/decode-2021.mjs)
+#   --source <pdf> --out <json> --expected <n>
+#                       envanter disi tek kagit (tek --years yili): envanter/kaynak klasoru kontrolu yok, sayim --expected'a
+#                       gore; sorun yoksa yalniz --out yazilir (orkestrasyon scripts/imat/compare-mur-order.mjs)
 #   --dump <yil>:<no>   tek soruyu ekrana yazar (dosya yazmaz; hasImage nedenleri stderr'e)
 #   --rows <yil>        o yilin tum satirlarini JSON olarak ekrana yazar ({ page, top, bottom, x0, x1, text }; dosya yazmaz;
 #                       decode-2021.mjs goz kontrolu orneklemi bunu kullanir)
+#   UYARI: --rows ve --dump sinav metnini konsola basar; ciktisi sohbete, rapora, commit'e ya da Git'e kopyalanmaz.
 #   --jobs <n>          paralel surec sayisi (yil basina; cikti sirasi degismez)
-#   --self-test         italik isaret kurali + cambridge duzeni oz sinamasi (uydurma fikstur; PDF ve pdfplumber gerekmez;
-#                       npm run test:imat-extract)
+#   --self-test         italik isaret kurali + cambridge ve mur-legacy duzeni oz sinamasi (uydurma fikstur; PDF ve pdfplumber
+#                       gerekmez; npm run test:imat-extract)
+# Guvenilmeyen PDF (indirilmis kagit) `/usr/bin/python3 -I` ile okunur; -I kullanici paketlerini kapattigindan pdfplumber
+# load_pages icinde kullanici site-packages yolundan yuklenir.
 #
 # Cikti: extract/<yil>.json = { year, source: "text", questions: [{ id, number, section, page, bbox, prompt,
 # choices, hasImage, imageBoxes }] }. bbox ve imageBoxes PDF noktasi [x0, top, x1, bottom], page 1 tabanli.
@@ -29,11 +36,14 @@
 # bicimi: italik pasaj, tamami italik sik). Blok = "\n\n" ile ayrilan paragraf; alinti kaynak satiri pasajindan ayri
 # bloktur (pasaj tamamen italik, kaynak satirindaki kitap adi isaretlenir). Isaretler satir sonunu asmaz: satir
 # sonunda kapanir, dizi alt satirda surerse yeniden acilir. Kalin isaretlenmez.
+import contextlib
 import hashlib
+import io
 import json
 import os
 import re
 import sys
+import tempfile
 from collections import Counter
 from concurrent.futures import ProcessPoolExecutor
 
@@ -213,7 +223,14 @@ def box(o):
 
 
 def load_pages(path, layout, decode=None):
-    import pdfplumber  # yalniz PDF okurken; --self-test pdfplumber'siz calisir
+    # Yalniz PDF okurken; --self-test pdfplumber'siz calisir. -I altinda kullanici paketleri kapalidir (pdfplumber orada).
+    try:
+        import pdfplumber
+    except ImportError:
+        import site
+
+        sys.path.append(site.getusersitepackages())
+        import pdfplumber
 
     with pdfplumber.open(path) as pdf:
         return [Page(p, i, layout, decode) for i, p in enumerate(pdf.pages)]
@@ -573,6 +590,9 @@ class MurLayout:
         ("physicsandmathematics", "physics-math"),
     )
 
+    def __init__(self, year=None):
+        self.year = year
+
     @staticmethod
     def _key(text):
         return re.sub(r"\s+", "", text).lower()
@@ -660,7 +680,7 @@ def is_bold(c):
 
 class CambridgeLayout:
     # Kural (pdftotext -layout bicimiyle: soru "^\s{0,6}(\d{1,2})\s{2,}\S", sik "^\s+([A-E])\s{3,}\S"), pdfplumber satirina
-    # uygulanir: soru satiri sol sutunda numara (x0 <= 62; 2011 duz, sonrasi kalin), sekme boslugu (>= 6 pt), metin; sik
+    # uygulanir: soru satiri sol sutunda numara (x0 <= 62; 2011 duz, 2012+ kalin sart), sekme boslugu (>= 6 pt), metin; sik
     # satiri girintili kalin harf A-E (x0 70-106), sekme boslugu, metin. Yalniz tek kalin harften olusan satir yalin
     # etikettir: icerigi goruntu olan sik (formul/sekil; alt satir yoksa metin U+FFFD). Sirali 5 sik bulunamazsa sekil
     # izgarasi aranir: soru satirlarinda tek kalin harf etiketleri (satir ve sira fark etmez; "B" "A"dan yukarida, "C D" ayni
@@ -688,6 +708,9 @@ class CambridgeLayout:
     NUMBER_X_MAX = 62.0  # numara x0: 44.8 (2014-2022), 46.2 (2012-2013), 55.0 (2011)
     CHOICE_X = (70.0, 106.0)  # sik harfi x0: 74.0, 76.3, 78.1, 89.0; sekil izgarasi etiketi 99.5-104.0
     GAP_MIN = 6.0  # sekme boslugu; kelime boslugu ~3 pt
+    # Bu yildan itibaren soru numarasi kalin olmalidir (2011 kagidi duz; 2012-2022 hepsi kalin, 2026-10-09 olculdu).
+    # Duz numarali sol sutun satiri (liste, tablo) soru baslatmaz. Yil verilmezse kural uygulanir.
+    NUMBER_BOLD_FROM = 2012
     SECTIONS = {
         "generalknowledgeandlogicalreasoning": "gk-lr",
         "logicalreasoningandgeneralknowledge": "gk-lr",
@@ -697,6 +720,10 @@ class CambridgeLayout:
         "chemistry": "chemistry",
         "physicsandmathematics": "physics-math",
     }
+
+    def __init__(self, year=None):
+        self.year = year
+        self.bold_number = year is None or year >= self.NUMBER_BOLD_FROM
 
     @staticmethod
     def _key(text):
@@ -716,6 +743,8 @@ class CambridgeLayout:
     def question_start(self, row, expected):
         m = re.match(r"(\d{1,2})(?= |$)", row["text"])
         if not m or int(m.group(1)) != expected or row["x0"] > self.NUMBER_X_MAX:
+            return False
+        if self.bold_number and not is_bold(first_glyph(row)):
             return False
         gap = prefix_gap(row, len(m.group(1)))
         return gap is None or gap >= self.GAP_MIN
@@ -770,7 +799,20 @@ class CambridgeLayout:
         return len(str(n))
 
 
-LAYOUTS = {"mur": MurLayout, "cambridge": CambridgeLayout}
+class MurLegacyLayout(CambridgeLayout):
+    # MUR CompitoInglese 2011-2020 kagitlari (Bakanligin "hep A" kopyalari; plan Gorev 15b, compare-mur-order.mjs). Dizgi
+    # Cambridge kagitlariyla aynidir; kurallar CambridgeLayout'tan degismeden gelir. 2026-10-09 olcumu (pdfplumber satirlari,
+    # on yil; sayfa goruntusu 2011 s.1/3, 2012 s.35, 2013 s.25, 2014 s.1/3, 2018 s.1/3):
+    #   soru numarasi x0 55.0 (2011-2013; Cambridge 2012-2013 46.2), 44.8-44.9 (2014-2020); 2011 duz Arial, 2012-2020 kalin
+    #   sik harfi kalin, x0 76.3/78.1 (2011-2013), 89.0-89.1 (2014-2020); sekil izgarasi etiketi 83.4 (2011), 99.5-101.0
+    #   metin puntosu 10.98 (2011-2013; 2012'de 10.99-11.02 de), 11.25 (2014-2020); tablo 10.0-10.14, ust/alt simge 7.02-9.0
+    #   sayfa 1: Bakanlik basligi (2011 metin, Times bold 13.98; 2012-2020 goruntu) ve kapak satirlari ilk sorudan once
+    #   sayfa alti "IMAT 2011 (c) MIUR 2011 3", "(c) UCLES 2012 Page 25 / 29", "KEYIMAT14 (c) UCLES 2014 Page 1 / 40" (Cambridge kurali)
+    # Fark icerikte: siklar "hep A" sirasinda, 2012-2020'de soru sirasi da Cambridge kagidindan farkli (eslesme kok metniyle).
+    name = "mur-legacy"
+
+
+LAYOUTS = {"mur": MurLayout, "cambridge": CambridgeLayout, "mur-legacy": MurLegacyLayout}
 
 
 # ---------------------------------------------------------------- soru bolme
@@ -1158,7 +1200,7 @@ def run_one(args):
     # Kagit duzeyindeki bolme hatasi (baslik/bitis bulunamadi) yalniz o yili durdurur; sorun olarak doner.
     path, year, layout_name, total, shift = args
     try:
-        return parse_paper(path, year, LAYOUTS[layout_name](), total, make_decoder(shift) if shift is not None else None)
+        return parse_paper(path, year, LAYOUTS[layout_name](year), total, make_decoder(shift) if shift is not None else None)
     except ValueError as err:
         return {"year": year, "pages": None, "records": [], "problems": [{"year": year, "error": str(err)}], "stats": {},
                 "reasons": {}, "placeholders": {}}
@@ -1168,7 +1210,7 @@ def validate(result, inv_entry, mock_years, mock_counts):
     problems = list(result["problems"])
     year = result["year"]
     recs = result["records"]
-    if result["pages"] is not None and result["pages"] != inv_entry["pages"]:
+    if result["pages"] is not None and inv_entry.get("pages") is not None and result["pages"] != inv_entry["pages"]:
         problems.append({"year": year, "error": f"sayfa sayisi {result['pages']} (envanter {inv_entry['pages']})"})
     numbers = [r["number"] for r in recs]
     expected = inv_entry["expectedQuestions"]
@@ -1182,11 +1224,12 @@ def validate(result, inv_entry, mock_years, mock_counts):
 
 
 def parse_args(argv):
-    opts = {"years": None, "layout": "mur", "dump": None, "jobs": 2, "decode_shift": None, "rows": None}
+    opts = {"years": None, "layout": "mur", "dump": None, "jobs": 2, "decode_shift": None, "rows": None, "source": None, "out": None,
+            "expected": None}
     i = 0
     while i < len(argv):
         name = argv[i]
-        if name in ("--years", "--layout", "--dump", "--jobs", "--decode-shift", "--rows") and i + 1 < len(argv):
+        if name in ("--years", "--layout", "--dump", "--jobs", "--decode-shift", "--rows", "--source", "--out", "--expected") and i + 1 < len(argv):
             opts[name[2:].replace("-", "_")] = argv[i + 1]
             i += 2
         else:
@@ -1203,6 +1246,14 @@ def parse_args(argv):
         opts["decode_shift"] = int(opts["decode_shift"])
     if opts["layout"] not in LAYOUTS:
         sys.exit(f"bilinmeyen duzen: {opts['layout']} (var olan: {', '.join(LAYOUTS)})")
+    if opts["source"] or opts["out"] or opts["expected"]:
+        if not (opts["source"] and opts["out"] and opts["expected"]):
+            sys.exit("--source, --out ve --expected birlikte verilir")
+        if opts["dump"] or opts["rows"] or len(opts["years"]) != 1:
+            sys.exit("--source tek --years yili alir; --dump/--rows ile kullanilmaz")
+        if not os.path.isfile(opts["source"]):
+            sys.exit(f"kaynak yok: {opts['source']}")
+        opts["expected"] = int(opts["expected"])
     if opts["dump"]:
         m = re.fullmatch(r"(\d{4}):(\d{1,2})", opts["dump"])
         if not m:
@@ -1289,18 +1340,28 @@ def self_test():
     return checks
 
 
+def fixture_chars(text, x0, top, size=11.25, font="ArialMT"):
+    # Oz sinama fiksturu: pdfplumber karakter sozlukleri (sabit genislik 0.5 punto).
+    out, x = [], x0
+    for ch in text:
+        out.append({"text": ch, "fontname": "FAKEAA+" + font, "size": size, "x0": x, "x1": x + 0.5 * size, "top": top, "bottom": top + size})
+        x += 0.5 * size
+    return out
+
+
+class FakePdfPage:
+    # Oz sinama fiksturu: pdfplumber sayfasi yerine (karakter, resim, cizim nesneleri; A4).
+    def __init__(self, chars, images=(), rects=(), lines=(), curves=()):
+        self.chars, self.images, self.rects, self.lines, self.curves = chars, list(images), list(rects), list(lines), list(curves)
+        self.width, self.height = 595.0, 842.0
+
+
 def cambridge_self_test():
     # Cambridge duzeni uctan uca: sahte PDF sayfalari (karakter, resim, cizim nesneleri) -> Page -> satir -> soru kaydi.
     # Fikstur metinleri uydurmadir (hicbir kagittan parca yok): ada, liman, lamba adlari ve "Pick option N." kaliplari.
     checks = 0
-    layout = CambridgeLayout()
-
-    def chars_at(text, x0, top, size=11.25, font="ArialMT"):
-        out, x = [], x0
-        for ch in text:
-            out.append({"text": ch, "fontname": "FAKEAA+" + font, "size": size, "x0": x, "x1": x + 0.5 * size, "top": top, "bottom": top + size})
-            x += 0.5 * size
-        return out
+    layout = CambridgeLayout(2099)
+    chars_at = fixture_chars
 
     def question(number, text, top, number_top=None):
         return chars_at(str(number), 44.8, top if number_top is None else number_top, font="Arial-BoldMT") + chars_at(text, 89.0, top)
@@ -1319,11 +1380,6 @@ def cambridge_self_test():
 
     def box(x0, top, x1, bottom, **extra):
         return dict({"x0": x0, "x1": x1, "top": top, "bottom": bottom}, **extra)
-
-    class FakePdfPage:
-        def __init__(self, chars, images=(), rects=(), lines=(), curves=()):
-            self.chars, self.images, self.rects, self.lines, self.curves = chars, list(images), list(rects), list(lines), list(curves)
-            self.width, self.height = 595.0, 842.0
 
     white = (1.0, 1.0, 1.0)
     # Sayfa 1: bolum basligi, Q1 (numara 3 pt yukarida; gorunmez beyaz cerceve), Q2 ("A " ile baslayan govde satiri, paragraf,
@@ -1456,7 +1512,8 @@ def cambridge_self_test():
                + line("The glass lamp that", 154.0) + letter("C", 160.3) + line("hangs by the gate.", 166.6)
                + line("The copper lamp", 191.0) + chars_at("D", 76.3, 203.5, font="Arial,Bold") + line("beside the old", 203.5) + line("mill wheel.", 216.0)
                + chars_at("E", 76.3, 241.0, font="Arial,Bold") + line("None of them.", 241.0))
-    res = parse_pages([Page(FakePdfPage(centred), 0, layout)], 2099, layout, 1)
+    layout_2011 = CambridgeLayout(2011)
+    res = parse_pages([Page(FakePdfPage(centred), 0, layout_2011)], 2011, layout_2011, 1)
     assert not res["problems"], f"cambridge ortali harf: {res['problems']}"
     got = res["records"][0]
     assert got["prompt"] == "Which lamp is brightest?", f"cambridge ortali harf govde: {got['prompt']!r}"
@@ -1499,15 +1556,135 @@ def cambridge_self_test():
     raw = build_rows(Page(FakePdfPage(enc), 0, layout), layout)
     assert not any("Pick" in r["text"] for r in raw), "cambridge decode: kaydirmasiz metin okunur cikti"
     checks += 1
+    # Kalin numara kurali (2012 ve sonrasi): sol sutunda duz yazili numara + sekme soru baslatmaz (liste/tablo satiri);
+    # 2011 kagidinda numaralar duzdur, kural uygulanmaz.
+    plain_no = build_rows(Page(FakePdfPage(chars_at("2", 44.8, 100.0) + chars_at("seventh shelf lamps", 89.0, 100.0)), 0, layout), layout)[0]
+    assert not CambridgeLayout(2012).question_start(plain_no, 2), "cambridge: 2012+ duz numara soru baslatti"
+    assert not CambridgeLayout(2099).question_start(plain_no, 2) and not CambridgeLayout().question_start(plain_no, 2), "cambridge: yilsiz duzen kalin numara istemeli"
+    assert CambridgeLayout(2011).question_start(plain_no, 2), "cambridge: 2011 duz numara soru baslatmadi"
+    assert CambridgeLayout(2012).question_start(r38, 38), "cambridge: kalin numara soru baslatmadi"
+    inline = (heading("Biology") + question(1, "Which shelf holds the brass lamps?", 60.0) + chars_at("2", 44.8, 85.0) + chars_at("seventh shelf lamps", 89.0, 85.0)
+              + five(110.0) + question(2, "Pick option two.", 260.0) + five(290.0))
+    res = parse_pages([Page(FakePdfPage(inline), 0, layout)], 2099, layout, 2)
+    assert not res["problems"] and [r["number"] for r in res["records"]] == [1, 2], f"cambridge kalin numara: {res['problems']}"
+    assert res["records"][0]["prompt"] == "Which shelf holds the brass lamps?\n\n2 seventh shelf lamps", f"cambridge kalin numara: {res['records'][0]['prompt']!r}"
+    assert res["records"][1]["prompt"] == "Pick option two.", f"cambridge kalin numara Q2: {res['records'][1]['prompt']!r}"
+    checks += 1
+    # Eksik numara kapisi: 3 numarali soru yok (1, 2, 4). Ayni sayfada 4'un satirlari 2'ye katilir (bolme hatasi yok) ama sayim
+    # tutmaz; sonraki sayfada ise 2 iki sayfaya yayilir. Ikisinde de sorun doner ve hicbir dosya yazilmaz (dolgu yok).
+    gap = (heading("Chemistry") + question(1, "Pick option one.", 60.0) + five(90.0) + question(2, "Pick option two.", 230.0) + five(260.0)
+           + question(4, "Pick option four.", 400.0) + five(430.0))
+    same_page = parse_pages([Page(FakePdfPage(gap), 0, layout)], 2099, layout, 4)
+    assert not same_page["problems"] and [r["number"] for r in same_page["records"]] == [1, 2], f"eksik numara: {same_page['problems']}"
+    head = heading("Chemistry") + question(1, "Pick option one.", 60.0) + five(90.0) + question(2, "Pick option two.", 230.0) + five(260.0)
+    next_page = parse_pages([Page(FakePdfPage(head), 0, layout), Page(FakePdfPage(question(4, "Pick option four.", 60.0) + five(90.0)), 1, layout)], 2099, layout, 4)
+    with tempfile.TemporaryDirectory() as tmp:
+        target = os.path.join(tmp, "nested", "2099.json")
+        for res, why in ((same_page, "soru numaralari 1..4 degil"), (next_page, "iki sayfaya yayiliyor")):
+            with contextlib.redirect_stdout(io.StringIO()) as printed:
+                code, written = emit([res], {2099: {"pages": None, "expectedQuestions": 4}}, [], {}, lambda year: target)
+            assert code == 1 and written == [] and not os.path.exists(target), f"eksik numara kapisi: cikti yazildi ({why})"
+            assert why in printed.getvalue() and "cikti yazilmadi" in printed.getvalue(), f"eksik numara kapisi: sorun yazilmadi ({why})"
+        ok = parse_pages([Page(FakePdfPage(head), 0, layout)], 2099, layout, 2)
+        with contextlib.redirect_stdout(io.StringIO()):
+            code, written = emit([ok], {2099: {"pages": 1, "expectedQuestions": 2}}, [], {}, lambda year: target)
+        assert code == 0 and written == [target] and os.path.exists(target), f"tam kagit yazilmadi ({code})"
+        with open(target, encoding="utf-8") as fh:
+            data = json.load(fh)
+        assert sorted(data) == ["questions", "source", "year"] and [q["number"] for q in data["questions"]] == [1, 2], "cikti semasi"
+    checks += 1
+    return checks
+
+
+def mur_legacy_self_test():
+    # MUR 2011-2020 kagit duzeni (mur-legacy) uctan uca, uydurma fiksturle: sayfa 1 Bakanlik basligi (Times bold 13.98,
+    # denklem puntosu) ve kapak satirlari ilk sorudan once okunmaz, 2011 bicimi (duz numara x0 55, kalin sik harfi x0 78.1)
+    # ve 2014+ bicimi (kalin numara x0 44.8, sik harfi x0 89.0), MIUR/KEYIMAT sayfa altlari atilir, 2012+ duz numara soru
+    # baslatmaz.
+    checks = 0
+    chars_at = fixture_chars
+
+    def header():
+        return chars_at("Ministero dell'Esempio e della Prova", 150.0, 44.0, size=13.98, font="TimesNewRoman,Bold")
+
+    def centred(text, top, size=10.98):
+        return chars_at(text, 300.0 - 0.25 * size * len(text), top, size=size)
+
+    # 2011 bicimi: duz numara (Arial) x0 55.0, metin x0 76.3; kalin sik harfi x0 78.1, sik metni x0 127.5; punto 10.98.
+    def q2011(number, text, top):
+        return chars_at(str(number), 55.0, top, size=10.98, font="Arial") + chars_at(text, 76.3, top, size=10.98, font="Arial")
+
+    def c2011(top, words):
+        return [c for k, w in enumerate(words) for c in chars_at("ABCDE"[k], 78.1, top + 24.0 * k, size=10.98, font="Arial,Bold") + chars_at(w, 127.5, top + 24.0 * k, size=10.98, font="Arial")]
+
+    layout = MurLegacyLayout(2011)
+    assert layout.name == "mur-legacy" and LAYOUTS["mur-legacy"] is MurLegacyLayout, "mur-legacy kayitta yok"
+    p1 = (header() + centred("ADMISSION TEST FOR AN INVENTED COURSE", 150.0, size=12.0) + centred("Academic Year 2099/2100", 180.0, size=12.0)
+          + centred("General Knowledge and Logical Reasoning", 220.0)
+          + q2011(1, "Which quay lies nearest to the invented isle of Brannoch?", 250.0) + c2011(280.0, ("North quay", "South quay", "Old quay", "Mill quay", "Salt quay"))
+          + q2011(2, "How many lamps hang on the third pier?", 420.0) + c2011(450.0, ("two", "three", "four", "five", "six"))
+          + chars_at("IMAT 2099 \u00a9 MIUR 2099 1", 222.7, 796.3, size=10.02, font="Arial"))
+    p2 = (centred("Biology", 80.0)
+          + q2011(3, "Which jar keeps the seeds driest?", 110.0) + c2011(140.0, ("clay jar", "glass jar", "tin jar", "wood jar", "reed jar"))
+          + chars_at("IMAT 2099 \u00a9 MIUR 2099 2", 222.7, 796.3, size=10.02, font="Arial"))
+    p3 = centred("Developed for an invented board.", 690.0, size=10.0)
+    pages = [Page(FakePdfPage(p), i, layout) for i, p in enumerate((p1, p2, p3))]
+    res = parse_pages(pages, 2011, layout, 3)
+    assert not res["problems"], f"mur-legacy 2011: sorun {res['problems']}"
+    recs = {r["number"]: r for r in res["records"]}
+    assert sorted(recs) == [1, 2, 3] and [recs[n]["section"] for n in (1, 2, 3)] == ["gk-lr", "gk-lr", "biology"], f"mur-legacy 2011: {sorted(recs)}"
+    assert recs[1]["prompt"] == "Which quay lies nearest to the invented isle of Brannoch?", f"mur-legacy 2011 Q1: {recs[1]['prompt']!r}"
+    assert recs[1]["choices"] == {"A": "North quay", "B": "South quay", "C": "Old quay", "D": "Mill quay", "E": "Salt quay"}, f"mur-legacy 2011 Q1: {recs[1]['choices']}"
+    assert recs[3]["prompt"] == "Which jar keeps the seeds driest?" and recs[3]["choices"]["E"] == "reed jar" and recs[3]["page"] == 2, f"mur-legacy 2011 Q3: {recs[3]['prompt']!r}"
+    checks += 1
+
+    # 2014+ bicimi: kalin numara x0 44.8, metin x0 89.0; kalin sik harfi x0 89.0, sik metni x0 119.0; sayfa alti uc parcali.
+    def q2014(number, text, top, bold=True):
+        return chars_at(str(number), 44.8, top, font="Arial-BoldMT" if bold else "ArialMT") + chars_at(text, 89.0, top)
+
+    def c2014(top, words):
+        return [c for k, w in enumerate(words) for c in chars_at("ABCDE"[k], 89.0, top + 25.5 * k, font="Arial-BoldMT") + chars_at(w, 119.0, top + 25.5 * k)]
+
+    def foot(page):
+        return chars_at("KEYIMAT99", 44.8, 800.0, size=10.0) + chars_at("\u00a9 Example 2099", 260.0, 800.0, size=10.0) + chars_at(f"Page {page} / 2", 500.0, 800.0, size=10.0)
+
+    layout = MurLegacyLayout(2099)
+    # 2012-2020 kagitlarinda Bakanlik basligi goruntudur (metin katmaninda yok): fiksturde de yok.
+    p1 = (centred("ADMISSION TEST FOR AN INVENTED COURSE", 150.0, size=11.25) + centred("General Knowledge and Logical Reasoning", 200.0, size=11.25)
+          + q2014(1, "Which lantern burns the longest on the invented coast?", 260.0)
+          + q2014(2, "brass lanterns are listed above.", 285.0, bold=False)
+          + c2014(320.0, ("the brass one", "the tin one", "the glass one", "the paper one", "the iron one"))
+          + q2014(2, "Pick the quieter harbour.", 500.0) + c2014(530.0, ("Avel", "Druin", "Fenwick", "Oskar", "Quill"))
+          + foot(1))
+    p2 = centred("Chemistry", 60.0, size=11.25) + q2014(3, "Pick the heavier flask.", 100.0) + c2014(130.0, ("one", "two", "three", "four", "five")) + foot(2)
+    pages = [Page(FakePdfPage(p), i, layout) for i, p in enumerate((p1, p2))]
+    res = parse_pages(pages, 2099, layout, 3)
+    assert not res["problems"], f"mur-legacy 2014+: sorun {res['problems']}"
+    recs = {r["number"]: r for r in res["records"]}
+    assert sorted(recs) == [1, 2, 3], f"mur-legacy 2014+: {sorted(recs)}"
+    assert recs[1]["prompt"] == "Which lantern burns the longest on the invented coast?\n\n2 brass lanterns are listed above.", f"mur-legacy 2014+ Q1: {recs[1]['prompt']!r}"
+    assert recs[1]["choices"]["A"] == "the brass one" and recs[2]["prompt"] == "Pick the quieter harbour." and recs[2]["choices"]["E"] == "Quill", f"mur-legacy 2014+ Q2: {recs[2]['prompt']!r}"
+    assert recs[3]["section"] == "chemistry" and recs[3]["choices"]["C"] == "three", "mur-legacy 2014+ Q3"
+    footer_row = build_rows(Page(FakePdfPage(foot(1)), 0, layout), layout)[0]
+    assert layout.classify(footer_row) == ("noise", "footer"), "mur-legacy: KEYIMAT sayfa alti atilmadi"
+    checks += 1
     return checks
 
 
 def main(argv):
     if argv == ["--self-test"]:
-        checks = self_test() + cambridge_self_test()
-        print(f"extract_text oz sinama: {checks} kontrol gecti (italik: kismi dizi, tamamen italik blok, tek harf, kisa matematik, formul, satir basina denge, kaynak satiri; cambridge: soru/sik/baslik/sayfa alti, iki haneli numara, ortali harf, sekil izgarasi, goruntu siki, simge, tablo, 2021 kod kaydirmasi)")
+        checks = self_test() + cambridge_self_test() + mur_legacy_self_test()
+        print(f"extract_text oz sinama: {checks} kontrol gecti (italik: kismi dizi, tamamen italik blok, tek harf, kisa matematik, formul, satir basina denge, kaynak satiri; cambridge: soru/sik/baslik/sayfa alti, iki haneli numara, ortali harf, sekil izgarasi, goruntu siki, simge, tablo, 2021 kod kaydirmasi, kalin numara, eksik numara kapisi; mur-legacy: kapak, 2011 ve 2014+ bicimi, MIUR/KEYIMAT sayfa alti)")
         return 0
     opts = parse_args(argv)
+    if opts["source"]:
+        # Envanter disi tek kagit (MUR 2011-2020 kopyasi): kaynak klasoru ve envanter kontrolu yok; kapi ayni.
+        year = opts["years"][0]
+        mock_years, mock_counts = mock_section_counts()
+        res = run_one((os.path.abspath(opts["source"]), year, opts["layout"], opts["expected"], opts["decode_shift"]))
+        code, _ = emit([res], {year: {"pages": None, "expectedQuestions": opts["expected"]}}, mock_years, mock_counts,
+                       lambda y: os.path.abspath(opts["out"]))
+        return code
     inv = check_inventory()
     for year in opts["years"]:
         if year not in inv:
@@ -1516,7 +1693,7 @@ def main(argv):
             sys.exit(f"{year}: metin katmani bozuk; goruntuden yazilir (crop-questions.mjs) ya da kod kaydirmasiyla cozulur (--decode-shift, decode-2021.mjs)")
     if opts["rows"]:
         year = opts["years"][0]
-        layout = LAYOUTS[opts["layout"]]()
+        layout = LAYOUTS[opts["layout"]](year)
         decode = make_decoder(opts["decode_shift"]) if opts["decode_shift"] is not None else None
         rows = [{"page": r["page"] + 1, "top": round(r["top"], 2), "bottom": round(r["bottom"], 2), "x0": round(r["x0"], 2),
                  "x1": round(r["x1"], 2), "text": r["text"]}
@@ -1539,9 +1716,17 @@ def main(argv):
         print(json.dumps(rec, ensure_ascii=False, indent=2))
         print(f"hasImage nedenleri: {results[0]['reasons'].get(number) or '-'}", file=sys.stderr)
         return 0
+    code, _ = emit(results, inv, mock_years, mock_counts, lambda year: os.path.join(EXTRACT_DIR, f"{year}.json"))
+    return code
+
+
+def emit(results, entries, mock_years, mock_counts, out_path):
+    # Kapi + yazim: her yil icin ozet; herhangi bir yilda sorun (eksik/sira disi numara, sayfa sayisi, bolme hatasi) varsa
+    # hicbir dosya yazilmaz (dolgu yok). entries[yil] = { pages (None: kontrol yok), expectedQuestions }; out_path(yil) -> yol.
+    # Doner: (cikis kodu, yazilan yollar).
     problems = []
     for res in results:
-        problems += validate(res, inv[res["year"]], mock_years, mock_counts)
+        problems += validate(res, entries[res["year"]], mock_years, mock_counts)
         recs = res["records"]
         sections = Counter(r["section"] for r in recs)
         five = sum(1 for r in recs if len(r["choices"]) == 5 and all(r["choices"].values()))
@@ -1555,13 +1740,15 @@ def main(argv):
         print("  SORUN", json.dumps(p, ensure_ascii=False))
     if problems:
         print("Sorun var; cikti yazilmadi.")
-        return 1
-    os.makedirs(EXTRACT_DIR, exist_ok=True)
+        return 1, []
+    written = []
     for res in results:
-        out = os.path.join(EXTRACT_DIR, f"{res['year']}.json")
+        out = out_path(res["year"])
+        os.makedirs(os.path.dirname(out), exist_ok=True)
         write_json(out, {"year": res["year"], "source": "text", "questions": res["records"]})
         print(f"yazildi: {out}")
-    return 0
+        written.append(out)
+    return 0, written
 
 
 if __name__ == "__main__":

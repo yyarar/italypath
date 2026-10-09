@@ -53,6 +53,7 @@
     "test:imat-crop": "node scripts/imat/test-crop-figures.mjs",
     "test:imat-patch": "node scripts/imat/test-question-patch.mjs",
     "test:imat-keys": "node scripts/imat/test-keys.mjs",
+    "test:imat-mur-order": "node scripts/imat/test-mur-order.mjs",
     "test:imat-extract": "python3 scripts/imat/extract_text.py --self-test",
     "cleanup:expert-leads": "node scripts/cleanup-expert-leads.mjs",
     "backup:supabase": "node --no-warnings scripts/backup-supabase.mjs",

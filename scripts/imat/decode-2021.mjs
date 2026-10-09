@@ -11,8 +11,8 @@
 //        Kabul karari ana oturumundur: satirlar sayfa goruntusuyle karsilastirilir, dosyaya accepted true/false ve note yazilir.
 //        Ayni orneklem yeniden uretilirse var olan accepted/note korunur; orneklem degisirse null'a doner.
 //   PATH=/usr/local/bin:$PATH IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank node scripts/imat/decode-2021.mjs --extract
-//     -> extract_text.py --layout cambridge --decode-shift 29 --years 2021 (extract/2021.json). accepted false ise calismaz
-//        (2021 tamamen goruntuden yazilir, Gorev 16); null ise calisir ama "kabul bekliyor" yazar.
+//     -> extract_text.py --layout cambridge --decode-shift 29 --years 2021 (extract/2021.json). Yalniz accepted true ise calisir;
+//        false: 2021 tamamen goruntuden yazilir (Gorev 16); null: once ana oturum kabulu (cikarma yapilmaz).
 //
 // Satir metni sinav icerigidir: yalniz IMAT_OUT altina (Git disi) yazilir, ekrana basilmaz.
 import { spawnSync } from "node:child_process";
@@ -122,8 +122,11 @@ function extract() {
   if (!existsSync(CHECK_PATH)) throw new Error(`once --check (${CHECK_PATH} yok)`);
   const { accepted } = readJson(CHECK_PATH);
   if (accepted === false) throw new Error("decode-check reddedildi: 2021 tamamen goruntuden yazilir (Gorev 16); cikarma yapilmadi");
+  if (accepted !== true) {
+    throw new Error(`decode-check kabul bekliyor (accepted ${JSON.stringify(accepted ?? null)}): ana oturum orneklemi sayfa goruntusuyle karsilastirip accepted: true yazmadan cikarma yapilmaz`);
+  }
   runExtract(["--years", String(YEAR)], { capture: false });
-  console.log(accepted === true ? "decode-check kabul edildi." : "UYARI: decode-check kabul bekliyor (accepted null); cikti kabul gelene kadar kullanilmaz.");
+  console.log("decode-check kabul edildi.");
 }
 
 function main(argv) {

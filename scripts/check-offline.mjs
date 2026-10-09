@@ -46,7 +46,9 @@ const OFFLINE = [
   "test:imat-crop",
   "test:imat-patch",
   "test:imat-keys",
-  // Python 3 standart kitaplik (pdfplumber gerekmez): MUR metin cikaricisinin italik isaret kurali.
+  "test:imat-mur-order",
+  // Python 3 standart kitaplik (pdfplumber gerekmez): extract_text.py oz sinamasi (italik isaret kurali, cambridge ve
+  // mur-legacy duzenleri, eksik numara kapisi; uydurma fikstur).
   "test:imat-extract",
   // Gecici yerel PostgreSQL kurar (Homebrew postgresql@16/17 veya POSTGRES_BIN); ag kullanmaz.
   "test:mentor-db",
