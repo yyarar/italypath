@@ -1,7 +1,7 @@
 # Tasarım: IMAT Soru Bankası ve Deneme Sınavı
 
 Tarih: 2026-10-08
-Durum (2026-10-09): **KISMEN** — Teslim 1 (deneme sınavları 2023-2025) uygulandı, yayında değil: kod `feat/imat` dalında (bc1e241 … b05ea1e; `check:offline` 40/40, 5e0a2fa; push yok); şema `supabase/imat_bank.sql` 9 Ekim'de Kerem onayıyla canlıya uygulandı (migration `imat_bank`; öncesinde yedek `italypath-supabase-20261008T222433Z` + `--verify`); 180 soru + 5 görsel canlıda gizli (canlı sayım 2026-10-09: 180 satır, `needs_review` 180, yıl başına 60). Site yayını (push) ve açma Kerem'in sözünü bekliyor; Teslim 2 (2011-2022 bankası) başlamadı. Tasarım Kerem onayıyla (sohbet, 8 Ekim 2026) yazıldı; plan `docs/superpowers/plans/2026-10-08-imat-soru-bankasi-plan.md` (uygulama sapmaları orada "Uygulama notları"); çalışma dalı `feat/imat` (`.worktrees/imat`).
+Durum (2026-10-09 gece): **KISMEN** — Teslim 1 (deneme sınavları 2023-2025) canlıda: kod `feat/imat` dalından main'e birleştirildi ve push edildi (yayın 0e48058; `check:offline` 40/40; Kerem'in girişli uçtan uca denemesi sonrası); şema `supabase/imat_bank.sql` 9 Ekim'de Kerem onayıyla canlıda (migration `imat_bank`; öncesinde yedek `italypath-supabase-20261008T222433Z` + `--verify`); 180 soru + 5 görsel açık (canlı sayım 2026-10-09: 180 satır, `needs_review` 0, yıl başına 60; açma öncesi yedekler `…20261009T012236Z` ve `…20261009T014304Z`). Kanıt ve kapanış kaydı STATUS #102. Teslim 2 (2011-2022 bankası) başlamadı. Tasarım Kerem onayıyla (sohbet, 8 Ekim 2026) yazıldı; plan `docs/superpowers/plans/2026-10-08-imat-soru-bankasi-plan.md` (uygulama sapmaları orada "Uygulama notları"); çalışma dalı `feat/imat` (`.worktrees/imat`).
 
 ## Amaç
 
