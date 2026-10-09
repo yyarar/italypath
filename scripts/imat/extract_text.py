@@ -6,10 +6,15 @@
 #   IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank /usr/bin/python3 scripts/imat/extract_text.py --years 2024,2025
 # Secenekler:
 #   --years <yil,yil>   zorunlu; yalniz metin katmani saglam yillar
-#   --layout mur        sayfa duzeni (varsayilan mur: 2023-2025 MUR denemesi; cambridge sonraki gorevde eklenir)
+#   --layout <ad>       sayfa duzeni: mur (varsayilan; 2023-2025 MUR denemesi) | cambridge (2011-2022 gecmis kagitlari)
+#   --decode-shift <n>  glif numarasi -> kod noktasi kaydirmasi (yalniz 2021: --layout cambridge --decode-shift 29;
+#                       metin katmani "bozuk" yil ancak bununla okunur; orkestrasyon scripts/imat/decode-2021.mjs)
 #   --dump <yil>:<no>   tek soruyu ekrana yazar (dosya yazmaz; hasImage nedenleri stderr'e)
+#   --rows <yil>        o yilin tum satirlarini JSON olarak ekrana yazar ({ page, top, bottom, x0, x1, text }; dosya yazmaz;
+#                       decode-2021.mjs goz kontrolu orneklemi bunu kullanir)
 #   --jobs <n>          paralel surec sayisi (yil basina; cikti sirasi degismez)
-#   --self-test         italik isaret kurali oz sinamasi (PDF ve pdfplumber gerekmez; npm run test:imat-extract)
+#   --self-test         italik isaret kurali + cambridge duzeni oz sinamasi (uydurma fikstur; PDF ve pdfplumber gerekmez;
+#                       npm run test:imat-extract)
 #
 # Cikti: extract/<yil>.json = { year, source: "text", questions: [{ id, number, section, page, bbox, prompt,
 # choices, hasImage, imageBoxes }] }. bbox ve imageBoxes PDF noktasi [x0, top, x1, bottom], page 1 tabanli.
@@ -44,8 +49,9 @@ TAXONOMY = os.path.join(REPO, "lib", "imat", "taxonomy.mjs")
 LIGATURES = {"\ufb00": "ff", "\ufb01": "fi", "\ufb02": "fl", "\ufb03": "ffi", "\ufb04": "ffl"}
 SPACE_CHARS = {" ", "\u00a0", "\u2002", "\u2003"}
 # Kucuk puntolu ust/alt simge -> Unicode (H2O -> H\u2082O, cm2 -> cm\u00b2).
-SUP = dict(zip("0123456789+-\u2212()=n", "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079\u207a\u207b\u207b\u207d\u207e\u207c\u207f"))
-SUB = dict(zip("0123456789+-\u2212()=", "\u2080\u2081\u2082\u2083\u2084\u2085\u2086\u2087\u2088\u2089\u208a\u208b\u208b\u208d\u208e\u208c"))
+# Simge icindeki kisa tire (U+2013) eksi isaretidir (Cambridge: 10\u207b\u2077, SO\u2084\u00b2\u207b).
+SUP = dict(zip("0123456789+-\u2212\u2013()=n", "\u2070\u00b9\u00b2\u00b3\u2074\u2075\u2076\u2077\u2078\u2079\u207a\u207b\u207b\u207b\u207d\u207e\u207c\u207f"))
+SUB = dict(zip("0123456789+-\u2212\u2013()=", "\u2080\u2081\u2082\u2083\u2084\u2085\u2086\u2087\u2088\u2089\u208a\u208b\u208b\u208b\u208d\u208e\u208c"))
 # Satir sonunda bunlardan biri (onundeki harfe bitisik) varsa sarilan satir bosluksuz birlesir.
 JOIN_NO_SPACE_END = {"-", "\u2010", "\u2013", "\u2014"}
 JOIN_NO_SPACE_START = {"\u2014"}
@@ -99,7 +105,7 @@ def is_italic(c):
 
 def is_formula_char(c):
     # Denklem nesnesi puntosu ya da eslenmeyen glif (image_signals ile ayni olcut): bu karakteri tasiyan dizi isaretlenmez.
-    return bool(c.get("unmapped")) or not close_to(c["size"], TEXT_SIZES)
+    return bool(c.get("unmapped")) or bool(c.get("eq"))
 
 
 def color(v):
@@ -129,73 +135,152 @@ def char_text(c):
     return LIGATURES.get(t, t)
 
 
+def make_decoder(shift):
+    # 2021 kagidi: metin katmani glif numarasi tasir ("(cid:N)"); N + shift ASCII kod noktasidir (3 -> bosluk, 68 -> a).
+    # Yalniz 32..126 araligina dusen numaralar kaydirilir; ASCII disi glifler sayfa goruntusuyle dogrulanmis
+    # DECODE_EXTRA tablosundan, tabloda olmayan glif "(cid:N)" kalir (eslenmez -> formul isareti, goruntuden yazim).
+    def decode(text):
+        m = CID_RE.match(text)
+        if not m:
+            return text
+        n = int(m.group(1))
+        if 32 <= n + shift <= 126:
+            return chr(n + shift)
+        return DECODE_EXTRA.get(n, text)
+    return decode
+
+
+def is_white(col):
+    if col is None:
+        return False
+    vals = list(col) if isinstance(col, (tuple, list)) else [col]
+    try:
+        vals = [float(v) for v in vals]
+    except (TypeError, ValueError):
+        return False
+    if len(vals) == 4:
+        return all(v <= 0.01 for v in vals)  # CMYK beyaz
+    return bool(vals) and all(v >= 0.99 for v in vals)
+
+
+def is_invisible(o):
+    # Beyaz cizgi ve beyaz dolgu: Cambridge kagitlarinda her sorunun gorunmez cercevesi ve kose noktalari.
+    stroked = bool(o.get("stroke")) and not is_white(o.get("stroking_color"))
+    filled = bool(o.get("fill")) and not is_white(o.get("non_stroking_color"))
+    return not stroked and not filled
+
+
 class Page:
-    def __init__(self, pdf_page, index):
+    def __init__(self, pdf_page, index, layout, decode=None):
         self.index = index  # 0 tabanli
         self.width = float(pdf_page.width)
         self.height = float(pdf_page.height)
         self.chars = []
         seen = {}
         for c in pdf_page.chars:
+            src = c["text"]
+            if decode is not None:
+                src = decode(src)
+            src = layout.CHAR_MAP.get(src, src)
+            if src == "":
+                continue  # sifir genislikli bosluk
+            c = dict(c, text=src)
             # Kalin taklidi: ayni glif 0.5 pt icinde dort kez basilir (2024 denklem nesneleri); biri kalir.
             key = (c["text"], round(float(c["x0"]) * 2), round(float(c["top"]) * 2))
             if any((key[0], key[1] + dx, key[2] + dy) in seen for dx in (-1, 0, 1) for dy in (-1, 0, 1)):
                 continue
             seen[key] = True
             text = char_text(c)
+            size = round(float(c["size"]), 2)
             self.chars.append({
                 "raw": c["text"],
                 "t": text if text is not None else "\ufffd",
                 "unmapped": text is None,
+                "eq": not close_to(size, layout.TEXT_SIZES),  # denklem nesnesi puntosu
                 "x0": float(c["x0"]), "x1": float(c["x1"]), "top": float(c["top"]), "bottom": float(c["bottom"]),
-                "size": round(float(c["size"]), 2),
+                "size": size,
                 "font": font_name(c),
             })
+        keep = (lambda o: not is_invisible(o)) if layout.IGNORE_INVISIBLE else (lambda o: True)
         self.images = [box(o) for o in pdf_page.images]
-        self.rects = [dict(box(o), fill=bool(o.get("fill")), fill_color=color(o.get("non_stroking_color"))) for o in pdf_page.rects]
-        self.lines = [box(o) for o in pdf_page.lines]
-        self.curves = [box(o) for o in pdf_page.curves]
+        self.rects = [dict(box(o), fill=bool(o.get("fill")), fill_color=color(o.get("non_stroking_color"))) for o in pdf_page.rects if keep(o)]
+        self.lines = [box(o) for o in pdf_page.lines if keep(o)]
+        self.curves = [box(o) for o in pdf_page.curves if keep(o)]
 
 
 def box(o):
     return {"x0": float(o["x0"]), "x1": float(o["x1"]), "top": float(o["top"]), "bottom": float(o["bottom"])}
 
 
-def load_pages(path):
+def load_pages(path, layout, decode=None):
     import pdfplumber  # yalniz PDF okurken; --self-test pdfplumber'siz calisir
 
     with pdfplumber.open(path) as pdf:
-        return [Page(p, i) for i, p in enumerate(pdf.pages)]
+        return [Page(p, i, layout, decode) for i, p in enumerate(pdf.pages)]
 
 
 # ---------------------------------------------------------------- satir kurma (duzenden bagimsiz)
 
 
-def is_base(c):
-    return not is_space(c["raw"]) and c["size"] >= BASE_MIN and close_to(c["size"], TEXT_SIZES) and not c["unmapped"]
+def is_base(c, base_min):
+    return not is_space(c["raw"]) and c["size"] >= base_min and not c["eq"] and not c["unmapped"]
 
 
-def build_rows(page):
+def build_rows(page, layout):
     # Metin puntosundaki karakterler satir kurar; geri kalanlar (kucuk punto, denklem puntosu, buyuk parantez)
     # dikeyde en yakin satira eklenir. Kucuk puntolu karakter ust ya da alt simge olarak isaretlenir.
-    base = [c for c in page.chars if is_base(c)]
-    rest = [c for c in page.chars if not is_base(c) and not is_space(c["raw"])]
-    rows = []
-    for c in sorted(base, key=lambda c: (round(mid_y(c), 1), c["x0"])):
-        if rows and abs(rows[-1]["mid"] - mid_y(c)) <= 2.5:
-            rows[-1]["chars"].append(c)
+    base_min = layout.BASE_MIN
+    base = [c for c in page.chars if is_base(c, base_min)]
+    rest = [c for c in page.chars if not is_base(c, base_min) and not is_space(c["raw"])]
+    minor = []
+    if layout.SCRIPT_BY_OFFSET and base:
+        # Iki gecis: satirlari sayfanin baskin puntosuna yakin (>= %90) glifler kurar; daha kucuk metin puntosu (9.75 pt
+        # Times simge, 10 pt tablo) bir satirin bandindaysa o satira katilir (taban cizgisi 1 pt'den fazla kaymissa ust/alt
+        # simge), degilse kendi satirlarini kurar. Boylece satirdan once siralanan ust simge satiri baslatmaz.
+        dom = Counter(c["size"] for c in base).most_common(1)[0][0]
+        minor = [c for c in base if c["size"] < 0.9 * dom]
+        base = [c for c in base if c["size"] >= 0.9 * dom]
+
+    def group(chars):
+        out = []
+        for c in sorted(chars, key=lambda c: (round(mid_y(c), 1), c["x0"])):
+            if out and abs(out[-1]["mid"] - mid_y(c)) <= layout.ROW_TOL:
+                out[-1]["chars"].append(c)
+            else:
+                out.append({"mid": mid_y(c), "chars": [c]})
+        return out
+
+    rows = group(base)
+    shifted, loose = [], []
+    for c in minor:
+        inside = [r for r in rows if min(x["top"] for x in r["chars"]) - 1.0 <= mid_y(c) <= max(x["bottom"] for x in r["chars"]) + 1.0]
+        if not inside:
+            loose.append(c)
+            continue
+        r = min(inside, key=lambda r: abs(r["mid"] - mid_y(c)))
+        bottoms = sorted(x["bottom"] for x in r["chars"])
+        base_line = bottoms[len(bottoms) // 2]
+        if abs(c["bottom"] - base_line) > 1.0:
+            shifted.append((r, c, "sub" if c["bottom"] > base_line else "sup"))
         else:
-            rows.append({"mid": mid_y(c), "chars": [c]})
+            r["chars"].append(c)
+    rows += group(loose)
     for r in rows:
         r["base"] = list(r["chars"])
         r["band"] = (min(c["top"] for c in r["base"]), max(c["bottom"] for c in r["base"]))
+    for r, c, script in shifted:
+        r["chars"].append(dict(c, attached=abs(r["mid"] - mid_y(c)), script=script))
     for c in rest:
         if not rows:
             continue
         best = min(rows, key=lambda r: abs(r["mid"] - mid_y(c)))
         cc = dict(c, attached=abs(best["mid"] - mid_y(c)))
-        if c["size"] < BASE_MIN:
-            cc["script"] = "sub" if c["bottom"] > best["band"][1] + 0.5 else "sup"
+        if c["size"] < base_min:
+            if layout.SCRIPT_BY_OFFSET:
+                # Word alt simgesi tabana cok yakin durur (alt kenari satirla ayni): yon orta noktadan.
+                cc["script"] = "sub" if mid_y(c) > (best["band"][0] + best["band"][1]) / 2 else "sup"
+            else:
+                cc["script"] = "sub" if c["bottom"] > best["band"][1] + 0.5 else "sup"
         best["chars"].append(cc)
     # Bosluk karakteri: orta noktasi satir bandinda olan en yakin satira (kucuk puntolu bosluklar dahil).
     for c in page.chars:
@@ -463,6 +548,19 @@ class MurLayout:
     # Times-Bold 12; sayfa basligi "Ministero ..." (Times-Bold 14), sayfa numarasi (Times-Roman 10, alt bant)
     # ve "FINE DELLE DOMANDE" satiri atilir; FINE'dan sonrasi okunmaz.
     name = "mur"
+    TEXT_SIZES = TEXT_SIZES
+    BASE_MIN = BASE_MIN
+    ROW_TOL = 2.5
+    SCRIPT_BY_OFFSET = False
+    CHAR_MAP = {}
+    IGNORE_INVISIBLE = False
+    PICTURE_MIN = PICTURE_MIN
+    PICTURE_LONG_MIN = PICTURE_MIN
+    END_MARKER = True  # "FINE DELLE DOMANDE"
+    BLOCK_CHOICES = False  # sik satirlari sirayla: harften sonraki satirlar bir sonraki harfe kadar
+    TABLE_GAP = None  # cizgisiz tablo isareti yok
+    PAGE_BOTTOM = None  # sayfanin son sorusunun bandi son satirin 40 pt altina kadar
+    CHOICE_PREFIX = 2  # "A)"
     QUESTION_RE = re.compile(r"^\s*(\d{1,2})\.\s")
     CHOICE_RE = re.compile(r"^\s*([A-E])\)\s")
     NUMBER_X_MAX = 80.0  # soru numarasi x0 = 68
@@ -506,23 +604,192 @@ class MurLayout:
         # Alinti kaynak satiri: 9 pt, saga yasli (pasajin altinda).
         return row["size"] == 9 and row["x0"] > 200.0
 
+    def number_prefix(self, n):
+        return len(f"{n}.")
 
-LAYOUTS = {"mur": MurLayout}
+    def is_label_row(self, row):
+        return False
+
+    def figure_grid(self, rows):
+        return None
+
+
+# ---------------------------------------------------------------- Cambridge duzeni (2011-2022 gecmis kagitlari)
+
+# 2021 kagidinin ASCII disi glifleri (glif numarasi -> metin). Arial/Times glif sirasi; her giris 2026-10-09'da sayfa
+# goruntusuyle dogrulandi (sayfa: ornek yeri). Tabloda olmayan glif eslenmez (goruntuden yazim).
+DECODE_EXTRA = {
+    124: "\u00f6",  # o umlaut (s. 9, ozel ad)
+    131: "\u00b0",  # derece (s. 27, 30, 36)
+    133: "\u00a3",  # sterlin (s. 5, siklar)
+    139: "\u00a9",  # telif isareti (her sayfa alti)
+    177: "\u2013",  # kisa tire; ust simgede eksi (s. 4, 7, 28, 32)
+    181: "\u2018",  # acilan tek tirnak (s. 2)
+    182: "\u2019",  # kapanan tek tirnak / kesme (s. 2)
+    238: "\u00d7",  # carpi, Times (s. 40)
+    314: "\u2192",  # sag ok, tepkime (s. 28)
+    3031: " ",  # ince bosluk, 5.25 pt (s. 27: sayi ile birim arasi)
+    3032: "",  # sifir genislikli bosluk (s. 26, 28)
+    19659: "\u21cc",  # denge oku, MS-UIGothic (s. 16; 2018 kagidinda ayni glif U+21CC)
+}
+
+
+def prefix_gap(row, n_chars):
+    # Satirin ilk n karakteri (numara/sik harfi) ile ardindaki ilk harf birimi arasindaki bosluk (pt); devam yoksa None.
+    units = row["units"]
+    i, seen, x1 = 0, 0, None
+    while i < len(units) and seen < n_chars:
+        if units[i]["t"] != " ":
+            seen += len(units[i]["t"])
+            x1 = units[i]["x1"]
+        i += 1
+    while i < len(units) and units[i]["t"] == " ":
+        i += 1
+    if i >= len(units) or x1 is None:
+        return None
+    return units[i]["x0"] - x1
+
+
+def first_glyph(row):
+    return min(row["chars"], key=lambda c: (c["x0"], c["top"]))
+
+
+def is_bold(c):
+    return "bold" in c["font"].lower()
+
+
+class CambridgeLayout:
+    # Kural (pdftotext -layout bicimiyle: soru "^\s{0,6}(\d{1,2})\s{2,}\S", sik "^\s+([A-E])\s{3,}\S"), pdfplumber satirina
+    # uygulanir: soru satiri sol sutunda numara (x0 <= 62; 2011 duz, sonrasi kalin), sekme boslugu (>= 6 pt), metin; sik
+    # satiri girintili kalin harf A-E (x0 70-106), sekme boslugu, metin. Yalniz tek kalin harften olusan satir yalin
+    # etikettir: icerigi goruntu olan sik (formul/sekil; alt satir yoksa metin U+FFFD). Sirali 5 sik bulunamazsa sekil
+    # izgarasi aranir: soru satirlarinda tek kalin harf etiketleri (satir ve sira fark etmez; "B" "A"dan yukarida, "C D" ayni
+    # satirda, grafik eksen yazisiyla karisik) A-E'yi birer kez veriyorsa tum siklar U+FFFD, ilk etiket satirindan sonrasi
+    # sekle aittir. U+FFFD sik yalniz soru bandinda goruntu isareti varsa kabul edilir.
+    # Bolum basligi ortali (x0 >= 120) tek satir, harfleri SECTIONS'ta. Sayfa alti ("IMAT 2011 (c) UCLES 2011 3",
+    # "(c) UCLES 2012 Page 4 / 40") ve "BLANK PAGE" atilir. Bitis isareti yok: son soru basladiktan sonraki sayfalar okunmaz.
+    # Puntolar: metin 11.25 (2011: 10.98), tablo 9.75-10.14, kapak 12-18, ust/alt simge 9 pt ve alti; listede olmayan punto
+    # (2011 Times/Symbol 8.74-14.55) denklem nesnesi.
+    name = "cambridge"
+    TEXT_SIZES = (4.98, 5.25, 6.0, 6.75, 7.02, 7.5, 9.0, 9.75, 10.0, 10.02, 10.14, 10.98, 11.25, 12.0, 18.0)
+    BASE_MIN = 9.5  # 9 pt ust/alt simge (CO2, 20th) satir kurmaz
+    ROW_TOL = 3.5  # soru numarasi metinden 3 pt yukarida olabilir; satir araligi 12.7 pt
+    SCRIPT_BY_OFFSET = True  # satiri baskin punto kurar; 9.75 pt Times ust/alt simge 11.25 pt satirda (2019, 2021 denklemleri)
+    # Word ciktisi: tire glifi yumusak tire (U+00AD) olarak, noktali virgul Yunanca soru isareti olarak gelir; ince bosluklar.
+    CHAR_MAP = {"\u00ad": "-", "\u037e": ";", "\u202f": " ", "\u200a": " ", "\u200b": ""}
+    IGNORE_INVISIBLE = True  # her sorunun beyaz cercevesi ve kose noktalari
+    PICTURE_MIN = 5.0  # satir ici formul goruntusu (or. 37x9 pt) de resimdir; 2 pt'lik ince seritler degil
+    PICTURE_LONG_MIN = 8.0
+    END_MARKER = False
+    BLOCK_CHOICES = True  # sik satirlari bloklarla (2011 ortali harf)
+    TABLE_GAP = 12.0  # en az iki satirda >= 12 pt sutun boslugu: cizgisiz tablo -> goruntuden yazim (2011 cizgisi ince tablolar)
+    PAGE_BOTTOM = 780.0  # sayfanin son sorusunun bandi sayfa altina (alt bilgi ~796) kadar
+    CHOICE_PREFIX = 1  # "A"
+    NUMBER_X_MAX = 62.0  # numara x0: 44.8 (2014-2022), 46.2 (2012-2013), 55.0 (2011)
+    CHOICE_X = (70.0, 106.0)  # sik harfi x0: 74.0, 76.3, 78.1, 89.0; sekil izgarasi etiketi 99.5-104.0
+    GAP_MIN = 6.0  # sekme boslugu; kelime boslugu ~3 pt
+    SECTIONS = {
+        "generalknowledgeandlogicalreasoning": "gk-lr",
+        "logicalreasoningandgeneralknowledge": "gk-lr",
+        "thinkingskills": "gk-lr",
+        "thinkingskillsgeneralknowledgeandlogicalreasoning": "gk-lr",
+        "biology": "biology",
+        "chemistry": "chemistry",
+        "physicsandmathematics": "physics-math",
+    }
+
+    @staticmethod
+    def _key(text):
+        return re.sub(r"[^a-z]", "", text.lower())
+
+    def classify(self, row):
+        text = row["text"]
+        key = self._key(text)
+        if "\u00a9" in text and row["top"] > 760:
+            return "noise", "footer"
+        if key == "blankpage":
+            return "noise", "blank-page"
+        if row["x0"] >= 120 and key in self.SECTIONS:
+            return "section", self.SECTIONS[key]
+        return "content", None
+
+    def question_start(self, row, expected):
+        m = re.match(r"(\d{1,2})(?= |$)", row["text"])
+        if not m or int(m.group(1)) != expected or row["x0"] > self.NUMBER_X_MAX:
+            return False
+        gap = prefix_gap(row, len(m.group(1)))
+        return gap is None or gap >= self.GAP_MIN
+
+    def is_label_row(self, row):
+        # Yalin etiket satiri: sik sutununda tek kalin harf A-E, baska bir sey yok.
+        return (len(row["text"]) == 1 and row["text"] in "ABCDE" and all(is_bold(c) for c in row["chars"])
+                and self.CHOICE_X[0] <= row["x0"] <= self.CHOICE_X[1])
+
+    @staticmethod
+    def bold_labels(row):
+        # Satirdaki tek glifli kalin A-E parcalari (parca = 1.5 pt'den yakin glifler); sekil izgarasi etiketleri.
+        glyphs = sorted(row["chars"], key=lambda c: c["x0"])
+        tokens, cur = [], []
+        for c in glyphs:
+            if cur and c["x0"] - cur[-1]["x1"] > 1.5:
+                tokens.append(cur)
+                cur = []
+            cur.append(c)
+        if cur:
+            tokens.append(cur)
+        return [t[0]["t"] for t in tokens if len(t) == 1 and t[0]["t"] in "ABCDE" and is_bold(t[0])]
+
+    def figure_grid(self, rows):
+        # Sekil izgarasi: soru satirindan sonraki satirlarda kalin tek harf etiketleri A-E'yi birer kez veriyorsa ilk etiket
+        # satirinin sirasi, degilse None.
+        seen, first = [], None
+        for i, row in enumerate(rows[1:], 1):
+            found = self.bold_labels(row)
+            if found and first is None:
+                first = i
+            seen.extend(found)
+        if first is None or sorted(seen) != list("ABCDE"):
+            return None
+        return first
+
+    def choice_start(self, row, letter):
+        if self.is_label_row(row):
+            return row["text"] == letter
+        text = row["text"]
+        if not (text.startswith(letter + " ") and self.CHOICE_X[0] <= row["x0"] <= self.CHOICE_X[1]):
+            return 0
+        if not is_bold(first_glyph(row)):
+            return 0
+        gap = prefix_gap(row, 1)
+        return 1 if gap is not None and gap >= self.GAP_MIN else 0
+
+    def is_citation(self, row):
+        return False
+
+    def number_prefix(self, n):
+        return len(str(n))
+
+
+LAYOUTS = {"mur": MurLayout, "cambridge": CambridgeLayout}
 
 
 # ---------------------------------------------------------------- soru bolme
 
 
-def split_questions(pages, layout):
-    # Satirlar sayfa sayfa yururken: soru baslangici, sik baslangiclari, bolum basliklari.
+def split_questions(pages, layout, total=None):
+    # Satirlar sayfa sayfa yururken: soru baslangici, sik baslangiclari, bolum basliklari. Bitis isareti olmayan duzende
+    # (cambridge) son soru (total) basladiktan sonraki sayfa okunmaz (bos sayfa, arka kapak).
     questions = []
     section = None
     current = None
     expected = 1
     ended = False
     for page in pages:
-        for row in build_rows(page):
+        for row in build_rows(page, layout):
             if ended:
+                break
+            if not layout.END_MARKER and total and current and current["number"] == total and row["page"] > current["rows"][0]["page"]:
+                ended = True
                 break
             kind, payload = layout.classify(row)
             if kind == "end":
@@ -548,10 +815,11 @@ def split_questions(pages, layout):
                 raise ValueError(f"soru {current['number']}: bolum basligindan sonra sahipsiz satir (sayfa {row['page'] + 1})")
             letters = "ABCDE"
             k = len(current["choice_starts"])
-            if k < 5 and layout.choice_start(row, letters[k]):
-                current["choice_starts"].append(len(current["rows"]))
+            if k < 5:
+                count = int(layout.choice_start(row, letters[k]))
+                current["choice_starts"].extend([len(current["rows"])] * min(count, 5 - k))
             current["rows"].append(row)
-    if not ended:
+    if layout.END_MARKER and not ended:
         raise ValueError("FINE DELLE DOMANDE satiri bulunamadi")
     return questions
 
@@ -609,12 +877,32 @@ def is_highlight(col):
     return isinstance(col, tuple) and len(col) == 3 and abs(col[0] - 0.8008) < 0.02 and col[1] > 0.98 and abs(col[2] - 0.8008) < 0.02
 
 
-def image_signals(page, band, rows):
+def is_picture(im, layout):
+    w, h = im["x1"] - im["x0"], im["bottom"] - im["top"]
+    return min(w, h) >= layout.PICTURE_MIN and max(w, h) >= layout.PICTURE_LONG_MIN
+
+
+def has_column_gap(row, min_gap):
+    # Satir icinde ardisik iki glif arasinda >= min_gap pt bosluk (tablo sutunu). Bastaki kisa isaretten (<= 3 karakter:
+    # soru numarasi, sik harfi, liste numarasi) sonraki sekme sayilmaz.
+    glyphs = [u for u in row["units"] if u["t"] != " "]
+    lead = len(row["text"].split(" ")[0])
+    seen = 0
+    for a, b in zip(glyphs, glyphs[1:]):
+        seen += len(a["t"])
+        gap = b["x0"] - a["x1"]
+        if seen == lead and lead <= 3:
+            continue
+        if gap >= min_gap:
+            return True
+    return False
+
+
+def image_signals(page, band, rows, layout):
     # band: [x0, top, x1, bottom] soru alani. Doner: ({neden: [kutu]}).
     x0, top, x1, bottom = band
     found = {}
-    pictures = [im for im in page.images if overlaps(im, x0, top, x1, bottom)
-                and im["x1"] - im["x0"] >= PICTURE_MIN and im["bottom"] - im["top"] >= PICTURE_MIN]
+    pictures = [im for im in page.images if overlaps(im, x0, top, x1, bottom) and is_picture(im, layout)]
     if pictures:
         found["picture"] = [as_list(im) for im in pictures]
     frames = page.images
@@ -639,7 +927,7 @@ def image_signals(page, band, rows):
     reasons = []
     if formula:
         reasons.append("vector-lines")
-    eq_chars = [c for r in rows for c in r["chars"] if not close_to(c["size"], TEXT_SIZES)]
+    eq_chars = [c for r in rows for c in r["chars"] if c.get("eq")]
     if eq_chars:
         reasons.append("equation-size")
     bad = [c for r in rows for c in r["chars"] if c.get("unmapped")]
@@ -655,46 +943,124 @@ def image_signals(page, band, rows):
     if formula or flagged:
         found["formula"] = [union(formula + [as_list(c) for c in flagged])]
         found["formula_reasons"] = reasons
+    if layout.TABLE_GAP is not None:
+        # Cizgisiz tablo: en az iki satirda sutun boslugu; satir satir okuma sutunlari karistirir (cambridge).
+        tabular = [r for r in rows if has_column_gap(r, layout.TABLE_GAP)]
+        if len(tabular) >= 2:
+            found["table"] = [union([[r["x0"], r["ink_top"], r["x1"], r["ink_bottom"]] for r in tabular])]
     return found
 
 
-def parse_paper(path, year, layout):
-    pages = load_pages(path)
+def row_mid(row):
+    return (row["top"] + row["bottom"]) / 2
+
+
+def block_choices(rows, starts, layout):
+    # Sik satirlarini bloklara gore dagitir (cambridge). Blok = ust kenarlari arasi 1.4 satir puntosundan az olan ardisik
+    # satirlar; siklar bos satirla ayrilir. 2011'de cok satirli sikkin harfi satirlarin ortasinda ayri satirdir: sikkin ilk
+    # satiri harften once gelir ama ayni bloktadir. Her harf kendi blogunu alir; harfsiz blok onceki sikka eklenir (sekil
+    # arasindaki devam); bir blokta birden cok harf varsa blok harflerde bolunur (harften onceki satir onceki sikka).
+    # A'nin blogunda A'dan onceki satirlar ancak sik metni sutunundaysa (harfin sagi + sekme) A'ya aittir; govde sutunundaki
+    # satir govdede kalir. Doner: (govde sonu sirasi, [sik basina satir siralari]).
+    blocks, cur = [], [1] if len(rows) > 1 else []
+    for i in range(2, len(rows)):
+        if rows[i]["page"] != rows[i - 1]["page"] or rows[i]["top"] - rows[i - 1]["top"] > 1.4 * max(rows[i]["size"], rows[i - 1]["size"]):
+            blocks.append(cur)
+            cur = []
+        cur.append(i)
+    if cur:
+        blocks.append(cur)
+    label = rows[starts[0]]
+    text_x = label["x0"] + 8.0 + layout.GAP_MIN  # harf genisligi ~8 pt
+    stem_end = starts[0]
+    block_a = next(b for b in blocks if starts[0] in b)
+    for i in reversed([i for i in block_a if i < starts[0]]):
+        if rows[i]["x0"] < text_x or abs(row_mid(rows[i]) - row_mid(label)) > 1.4 * label["size"]:
+            break
+        stem_end = i
+    groups = [[] for _ in starts]
+    owner = None
+    for b in blocks:
+        members = [i for i in b if i >= stem_end]
+        if not members:
+            continue
+        inside = [starts.index(i) for i in members if i in starts]
+        if len(inside) == 1:
+            owner = inside[0]
+            groups[owner].extend(members)
+            continue
+        for i in members:  # harfsiz blok onceki sikka; cok harfli blok harflerde bolunur
+            if i in starts:
+                owner = starts.index(i)
+            groups[0 if owner is None else owner].append(i)
+    return stem_end, groups
+
+
+def parse_paper(path, year, layout, total=None, decode=None):
+    return parse_pages(load_pages(path, layout, decode), year, layout, total)
+
+
+def parse_pages(pages, year, layout, total=None):
     stats = Counter()
-    questions = split_questions(pages, layout)
+    questions = split_questions(pages, layout, total)
     content_rows = [r for q in questions for r in q["rows"]]
     right_edge = max(r["x1"] for r in content_rows)
-    records, problems, reasons = [], [], {}
+    records, problems, reasons, placeholders = [], [], {}, {}
     for idx, q in enumerate(questions):
         n = q["number"]
         try:
             rows = q["rows"]
             if len({r["page"] for r in rows}) != 1:
                 raise ValueError(f"soru iki sayfaya yayiliyor ({sorted({r['page'] + 1 for r in rows})})")
-            if len(q["choice_starts"]) != 5:
-                raise ValueError(f"{len(q['choice_starts'])} sik bulundu")
-            page = pages[rows[0]["page"]]
-            first = strip_prefix(rows[0], len(f"{n}."))
             starts = q["choice_starts"]
-            stem_rows = ([first] if first else []) + rows[1:starts[0]]
+            grid_at = None
+            if len(starts) != 5:
+                grid_at = layout.figure_grid(rows)
+                if grid_at is None:
+                    raise ValueError(f"{len(starts)} sik bulundu")
+            page = pages[rows[0]["page"]]
+            first = strip_prefix(rows[0], layout.number_prefix(n))
+            if grid_at is not None:
+                stem_end, groups = grid_at, []
+            elif layout.BLOCK_CHOICES:
+                stem_end, groups = block_choices(rows, starts, layout)
+            else:
+                stem_end = starts[0]
+                groups = [list(range(s, starts[k + 1] if k + 1 < 5 else len(rows))) for k, s in enumerate(starts)]
+            stem_rows = ([first] if first else []) + rows[1:stem_end]
             if not stem_rows:
                 raise ValueError("soru metni bos")
             prompt = assemble(stem_rows, right_edge, layout, stats, "stem")
             choices = {}
-            for k, s in enumerate(starts):
-                e = starts[k + 1] if k + 1 < 5 else len(rows)
-                crow = strip_prefix(rows[s], 2)
-                if crow is None:
-                    raise ValueError(f"sik {'ABCDE'[k]} bos")
-                units = list(crow["units"])
-                for a, b in zip([crow] + rows[s + 1:e], rows[s + 1:e]):
+            unfilled = []  # yalin etiketli, metni goruntude olan siklar (U+FFFD)
+            if grid_at is not None:
+                choices = {letter: "\ufffd" for letter in "ABCDE"}
+                unfilled = list("ABCDE")
+                stats["grid_rows_in_figure"] += len(rows) - grid_at
+            for k, group in enumerate(groups):
+                s = starts[k]
+                letter = "ABCDE"[k]
+                parts = []
+                for i in group:
+                    if i != s:
+                        parts.append(rows[i])
+                    elif not layout.is_label_row(rows[s]):
+                        crow = strip_prefix(rows[s], layout.CHOICE_PREFIX)
+                        if crow is None:
+                            raise ValueError(f"sik {letter} bos")
+                        parts.append(crow)
+                units = list(parts[0]["units"]) if parts else []
+                for a, b in zip(parts, parts[1:]):
                     if break_kind(a, b, right_edge, layout) != "soft":
                         stats["choice_hard_like"] += 1
                     units.extend(join_units(units, b["units"]))
                     units.extend(b["units"])
-                choices["ABCDE"[k]] = render(units)
-                if not choices["ABCDE"[k]]:
-                    raise ValueError(f"sik {'ABCDE'[k]} bos")
+                choices[letter] = render(units) if units else ""
+                if not choices[letter]:
+                    if not layout.is_label_row(rows[s]):
+                        raise ValueError(f"sik {letter} bos")
+                    choices[letter] = "\ufffd"  # yalin etiket, icerik goruntude
+                    unfilled.append(letter)
             # Soru bandi: ilk satirin ustunden sonraki sorunun/basligin ustune (ayni sayfada) ya da sayfa sonuna.
             band_top = min(r["ink_top"] for r in rows) - 2.0
             nxt = questions[idx + 1]["rows"][0] if idx + 1 < len(questions) else None
@@ -702,15 +1068,22 @@ def parse_paper(path, year, layout):
                 band_bottom = q["closed_at"][1]
             elif nxt is not None and nxt["page"] == page.index:
                 band_bottom = nxt["ink_top"] - 1.0
+            elif layout.PAGE_BOTTOM is not None:
+                band_bottom = layout.PAGE_BOTTOM  # sayfanin son sorusu: sekil son satirin altina iner (izgara siklari)
             else:
                 band_bottom = max(r["ink_bottom"] for r in rows) + 40.0
             band = [0.0, band_top, page.width, min(band_bottom, page.height)]
-            signals = image_signals(page, band, rows)
-            image_boxes = [b for key in ("picture", "drawing", "formula") for b in signals.get(key, [])]
+            signals = image_signals(page, band, rows, layout)
+            image_boxes = [b for key in ("picture", "drawing", "formula", "table") for b in signals.get(key, [])]
+            if unfilled and not image_boxes:
+                raise ValueError(f"sik {''.join(unfilled)} bos ve soru bandinda goruntu yok")
+            if unfilled:
+                placeholders[n] = "".join(unfilled)
+                stats["choice_image_only"] += len(unfilled)
             text_box = union([[r["x0"], r["ink_top"], r["x1"], r["ink_bottom"]] for r in rows])
             bbox = union([text_box] + image_boxes)
             has_image = bool(image_boxes)
-            why = [key for key in ("picture", "drawing") if key in signals] + signals.get("formula_reasons", [])
+            why = [key for key in ("picture", "drawing") if key in signals] + signals.get("formula_reasons", []) + (["table"] if "table" in signals else [])
             reasons[n] = why
             for w in why:
                 stats["hasImage_" + w] += 1
@@ -727,7 +1100,8 @@ def parse_paper(path, year, layout):
             })
         except ValueError as err:
             problems.append({"year": year, "number": n, "error": str(err)})
-    return {"year": year, "pages": len(pages), "records": records, "problems": problems, "stats": dict(stats), "reasons": reasons}
+    return {"year": year, "pages": len(pages), "records": records, "problems": problems, "stats": dict(stats), "reasons": reasons,
+            "placeholders": placeholders}
 
 
 def question_id(year, number):
@@ -781,15 +1155,20 @@ def write_json(path, data):
 
 
 def run_one(args):
-    path, year, layout_name = args
-    return parse_paper(path, year, LAYOUTS[layout_name]())
+    # Kagit duzeyindeki bolme hatasi (baslik/bitis bulunamadi) yalniz o yili durdurur; sorun olarak doner.
+    path, year, layout_name, total, shift = args
+    try:
+        return parse_paper(path, year, LAYOUTS[layout_name](), total, make_decoder(shift) if shift is not None else None)
+    except ValueError as err:
+        return {"year": year, "pages": None, "records": [], "problems": [{"year": year, "error": str(err)}], "stats": {},
+                "reasons": {}, "placeholders": {}}
 
 
 def validate(result, inv_entry, mock_years, mock_counts):
     problems = list(result["problems"])
     year = result["year"]
     recs = result["records"]
-    if result["pages"] != inv_entry["pages"]:
+    if result["pages"] is not None and result["pages"] != inv_entry["pages"]:
         problems.append({"year": year, "error": f"sayfa sayisi {result['pages']} (envanter {inv_entry['pages']})"})
     numbers = [r["number"] for r in recs]
     expected = inv_entry["expectedQuestions"]
@@ -803,19 +1182,25 @@ def validate(result, inv_entry, mock_years, mock_counts):
 
 
 def parse_args(argv):
-    opts = {"years": None, "layout": "mur", "dump": None, "jobs": 2}
+    opts = {"years": None, "layout": "mur", "dump": None, "jobs": 2, "decode_shift": None, "rows": None}
     i = 0
     while i < len(argv):
         name = argv[i]
-        if name in ("--years", "--layout", "--dump", "--jobs") and i + 1 < len(argv):
-            opts[name[2:]] = argv[i + 1]
+        if name in ("--years", "--layout", "--dump", "--jobs", "--decode-shift", "--rows") and i + 1 < len(argv):
+            opts[name[2:].replace("-", "_")] = argv[i + 1]
             i += 2
         else:
             sys.exit(f"bilinmeyen secenek: {name}")
+    if opts["rows"]:
+        opts["years"] = opts["rows"]
     if not opts["years"] and not opts["dump"]:
         sys.exit("--years zorunlu (ornek: --years 2024,2025)")
     opts["years"] = sorted({int(y) for y in opts["years"].split(",")}) if opts["years"] else []
+    if opts["rows"] and len(opts["years"]) != 1:
+        sys.exit("--rows tek yil alir (ornek: --rows 2021)")
     opts["jobs"] = int(opts["jobs"])
+    if opts["decode_shift"] is not None:
+        opts["decode_shift"] = int(opts["decode_shift"])
     if opts["layout"] not in LAYOUTS:
         sys.exit(f"bilinmeyen duzen: {opts['layout']} (var olan: {', '.join(LAYOUTS)})")
     if opts["dump"]:
@@ -904,20 +1289,242 @@ def self_test():
     return checks
 
 
+def cambridge_self_test():
+    # Cambridge duzeni uctan uca: sahte PDF sayfalari (karakter, resim, cizim nesneleri) -> Page -> satir -> soru kaydi.
+    # Fikstur metinleri uydurmadir (hicbir kagittan parca yok): ada, liman, lamba adlari ve "Pick option N." kaliplari.
+    checks = 0
+    layout = CambridgeLayout()
+
+    def chars_at(text, x0, top, size=11.25, font="ArialMT"):
+        out, x = [], x0
+        for ch in text:
+            out.append({"text": ch, "fontname": "FAKEAA+" + font, "size": size, "x0": x, "x1": x + 0.5 * size, "top": top, "bottom": top + size})
+            x += 0.5 * size
+        return out
+
+    def question(number, text, top, number_top=None):
+        return chars_at(str(number), 44.8, top if number_top is None else number_top, font="Arial-BoldMT") + chars_at(text, 89.0, top)
+
+    def choice(letter, text, top):
+        return chars_at(letter, 89.0, top, font="Arial-BoldMT") + (chars_at(text, 110.0, top) if text else [])
+
+    def footer(page_no):
+        return chars_at(f"IMAT 2099 \u00a9 Example Board 2099 Page {page_no} / 5", 72.0, 805.0, size=10.0, font="Helvetica")
+
+    def heading(text, top=39.6):
+        return chars_at(text, 300.0 - 0.25 * 11.25 * len(text), top)
+
+    def five(top, words=("one", "two", "three", "four", "five")):
+        return [c for k, w in enumerate(words) for c in choice("ABCDE"[k], w, top + 25.5 * k)]
+
+    def box(x0, top, x1, bottom, **extra):
+        return dict({"x0": x0, "x1": x1, "top": top, "bottom": bottom}, **extra)
+
+    class FakePdfPage:
+        def __init__(self, chars, images=(), rects=(), lines=(), curves=()):
+            self.chars, self.images, self.rects, self.lines, self.curves = chars, list(images), list(rects), list(lines), list(curves)
+            self.width, self.height = 595.0, 842.0
+
+    white = (1.0, 1.0, 1.0)
+    # Sayfa 1: bolum basligi, Q1 (numara 3 pt yukarida; gorunmez beyaz cerceve), Q2 ("A " ile baslayan govde satiri, paragraf,
+    # iki satirlik sik).
+    p1 = (heading("General Knowledge and Logical Reasoning", 51.6)
+          + question(1, "Which harbour lies closest to the invented island of Quellmore?", 80.0, number_top=77.0)
+          + choice("A", "Port Avel", 105.0) + choice("B", "Saltmere", 130.5) + choice("C", "Druin Bay", 156.0)
+          + choice("D", "Fenwick Cove", 181.5) + choice("E", "Oskar Point", 207.0)
+          + question(2, "Every lamplighter in Brindle walks home before dawn.", 250.0)
+          + chars_at("A clockmaker in Brindle also walks home before dawn.", 89.0, 262.75)
+          + chars_at("What follows?", 89.0, 290.0)
+          + choice("A", "Nothing at all", 315.0) + choice("B", "The clockmaker is tired", 340.5)
+          + choice("C", "The clockmaker may be a", 366.0) + chars_at("lamplighter.", 110.0, 378.75)
+          + choice("D", "Brindle has no clocks", 404.0) + choice("E", "Dawn comes late", 429.5)
+          + footer(1))
+    frame = [box(45.5, 70.0, 554.8, 70.0, stroke=True, stroking_color=white), box(45.5, 70.0, 45.5, 230.0, stroke=True, stroking_color=white)]
+    dots = [box(45.3, 69.8, 45.7, 70.2, fill=True, non_stroking_color=white, stroke=False, stroking_color=0) for _ in range(4)]
+    # Sayfa 2: Biology; Q3 resimli soru; Q4 B sikki yalniz harf + sagda resim (formul goruntusu).
+    p2 = (heading("Biology")
+          + question(3, "Which organelle is drawn in the sketch?", 70.0) + five(175.0)
+          + question(4, "Pick the value shown in option B.", 320.0)
+          + choice("A", "12", 345.0) + choice("B", "", 370.5) + choice("C", "14", 396.0) + choice("D", "15", 421.5) + choice("E", "16", 447.0)
+          + footer(2))
+    p2_images = [box(200.0, 90.0, 300.0, 160.0), box(110.0, 366.0, 140.0, 390.0)]
+    # Sayfa 3: Physics and Mathematics; Q5-Q8 (Q6 govdesinde sagda "7 seventh shelf" listesi soru baslangici degil).
+    p3 = heading("Physics and Mathematics")
+    for k, n in enumerate((5, 6, 7, 8)):
+        top = 70.0 + 180.0 * k
+        p3 += question(n, f"Pick option {n}.", top)
+        if n == 6:
+            p3 += chars_at("7 seventh shelf", 113.0, top + 15.0)
+        p3 += five(top + 40.0)
+    p3 += footer(3)
+    # Sayfa 4: Q9 sekil izgarasi siklari (B etiketi A'dan 4.5 pt yukarida ayri satir, "C D" ayni satir, "E"; aradaki yazi
+    # sekle aittir), Q10 iki haneli numara.
+    p4 = (question(9, "Which sketch shows a closed loop?", 40.0)
+          + chars_at("B", 300.0, 65.5, font="Arial-BoldMT") + chars_at("A", 89.0, 70.0, font="Arial-BoldMT")
+          + chars_at("loop drawn here", 120.0, 120.0) + chars_at("open line here", 330.0, 120.0)
+          + chars_at("C", 89.0, 150.0, font="Arial-BoldMT") + chars_at("D", 300.0, 150.0, font="Arial-BoldMT")
+          + chars_at("E", 89.0, 230.0, font="Arial-BoldMT")
+          + question(10, "Pick option ten.", 420.0) + five(460.0)
+          + footer(4))
+    p4_curves = [box(120.0 + 6 * k, 80.0, 180.0 + 6 * k, 110.0, stroke=True, stroking_color=(0.0,)) for k in range(5)]
+    # Sayfa 5: arka kapak (son sorudan sonra; okunmaz) + bos sayfa isareti.
+    p5 = chars_at("BLANK PAGE", 264.6, 236.3, size=10.0, font="Arial-BoldMT") + chars_at("Developed for an invented board.", 49.6, 690.0, size=10.0)
+    fake = [FakePdfPage(p1, lines=frame, curves=dots), FakePdfPage(p2, images=p2_images), FakePdfPage(p3), FakePdfPage(p4, curves=p4_curves), FakePdfPage(p5)]
+    pages = [Page(fp, i, layout) for i, fp in enumerate(fake)]
+    res = parse_pages(pages, 2099, layout, 10)
+    assert not res["problems"], f"cambridge: sorun {res['problems']}"
+    recs = {r["number"]: r for r in res["records"]}
+    assert sorted(recs) == list(range(1, 11)), f"cambridge: numaralar {sorted(recs)}"
+    checks += 1
+    sections = [recs[n]["section"] for n in range(1, 11)]
+    assert sections == ["gk-lr"] * 2 + ["biology"] * 2 + ["physics-math"] * 6, f"cambridge: bolumler {sections}"
+    checks += 1
+    q1 = recs[1]
+    assert q1["prompt"] == "Which harbour lies closest to the invented island of Quellmore?", f"cambridge Q1: {q1['prompt']!r}"
+    assert q1["choices"] == {"A": "Port Avel", "B": "Saltmere", "C": "Druin Bay", "D": "Fenwick Cove", "E": "Oskar Point"}, f"cambridge Q1 siklar: {q1['choices']}"
+    assert q1["hasImage"] is False and q1["imageBoxes"] == [], "cambridge Q1: gorunmez beyaz cerceve resim sayildi"
+    checks += 1
+    q2 = recs[2]
+    assert q2["prompt"] == "Every lamplighter in Brindle walks home before dawn.\nA clockmaker in Brindle also walks home before dawn.\n\nWhat follows?", f"cambridge Q2: {q2['prompt']!r}"
+    assert q2["choices"]["A"] == "Nothing at all" and q2["choices"]["C"] == "The clockmaker may be a lamplighter.", f"cambridge Q2 siklar: {q2['choices']}"
+    checks += 1
+    assert recs[3]["hasImage"] is True and recs[3]["choices"]["E"] == "five", "cambridge Q3: resim bandinda hasImage yok"
+    q4 = recs[4]
+    assert q4["choices"] == {"A": "12", "B": "\ufffd", "C": "14", "D": "15", "E": "16"} and q4["hasImage"] is True, f"cambridge Q4: {q4['choices']} {q4['hasImage']}"
+    checks += 1
+    assert recs[6]["prompt"] == "Pick option 6.\n7 seventh shelf", f"cambridge Q6: {recs[6]['prompt']!r}"
+    assert recs[7]["prompt"] == "Pick option 7." and recs[7]["page"] == 3, "cambridge Q7: liste satiri soru baslatti"
+    checks += 1
+    q9 = recs[9]
+    assert q9["choices"] == {k: "\ufffd" for k in "ABCDE"} and q9["hasImage"] is True, f"cambridge Q9: {q9['choices']} {q9['hasImage']}"
+    assert q9["prompt"] == "Which sketch shows a closed loop?", f"cambridge Q9: {q9['prompt']!r}"
+    checks += 1
+    q10 = recs[10]
+    assert q10["prompt"] == "Pick option ten." and q10["choices"]["E"] == "five" and q10["page"] == 4, f"cambridge Q10: {q10['prompt']!r}"
+    checks += 1
+    # Satir siniflari: sayfa alti, bos sayfa, baslik bicimleri (yumusak tire kisa tireye doner).
+    def row_of(text, x0, top, size=11.25, font="ArialMT"):
+        return build_rows(Page(FakePdfPage(chars_at(text, x0, top, size, font)), 0, layout), layout)[0]
+    assert layout.classify(row_of("IMAT 2011 \u00a9 Example Board 2011 7", 222.7, 796.3, size=10.02, font="Arial")) == ("noise", "footer")
+    assert layout.classify(row_of("\u00a9 Example Board 2012 Page 4 / 40", 263.0, 802.8, size=10.0, font="Arial")) == ("noise", "footer")
+    assert layout.classify(row_of("BLANK PAGE", 264.6, 236.3, size=10.0)) == ("noise", "blank-page")
+    assert layout.classify(row_of("Thinking Skills \u00ad General Knowledge and Logical Reasoning", 156.5, 257.9)) == ("section", "gk-lr")
+    assert layout.classify(row_of("Thinking Skills", 266.0, 246.6)) == ("section", "gk-lr")
+    assert layout.classify(row_of("Chemistry", 274.2, 39.6)) == ("section", "chemistry")
+    assert layout.classify(row_of("Chemistry and more", 89.0, 39.6)) == ("content", None)
+    # Word ciktisi karakterleri: yumusak tire gorunen tiredir, Yunanca soru isareti noktali virguldur, ince bosluk bosluktur.
+    assert row_of("a well\u00adknown pair\u037e x\u202fkg", 89.0, 100.0)["text"] == "a well-known pair; x kg"
+    checks += 1
+    # Metin puntosuna yakin ama kucuk ve kaymis glif (9.75 pt alt simge, 11.25 pt satirda) simgedir: duz harf olarak satira
+    # girmez, eslenemeyen alt simge formul isaretidir; tamami 9.75 pt tablo satiri ise duz metin kalir.
+    sub = chars_at("Q", 89.0, 100.0) + [dict(c, size=9.75, top=104.0, bottom=113.75, fontname="FAKEAA+TimesNewRomanPS-ItalicMT") for c in chars_at("k", 94.7, 104.0)] + chars_at(" holds", 100.0, 100.0)
+    srow = build_rows(Page(FakePdfPage(sub), 0, layout), layout)[0]
+    assert srow["text"] == "Qk holds" and [c["t"] for c in srow["unmapped_script"]] == ["k"], f"cambridge alt simge: {srow['text']!r}"
+    # Ust simge satirdan once siralansa da (kucuk punto, ust kenar yukarida) satiri baslatmaz: harf, metin ve simge tek satir.
+    lead = (chars_at("A", 89.0, 380.0, font="Arial-BoldMT") + chars_at("XY", 119.0, 383.0)
+            + [dict(c, size=9.75, bottom=389.75, fontname="FAKEAA+TimesNewRomanPSMT") for c in chars_at("+", 131.0, 380.0)]
+            + chars_at(" + Z", 136.0, 383.0) + chars_at("filler body text line", 89.0, 420.0))
+    lrows = build_rows(Page(FakePdfPage(lead), 0, layout), layout)
+    assert lrows[0]["text"] == "A XY\u207a + Z" and layout.choice_start(lrows[0], "A"), f"cambridge ust simge: {[r['text'] for r in lrows]}"
+    # Word alt simgesi tabana cok yakin (7.5 pt, alt kenari satirin alt kenariyla ayni): orta noktasi bandin ortasinin
+    # altindaysa alt simge, ustundeyse ust simge.
+    chem = chars_at("XQ", 89.0, 70.11) + chars_at("3", 100.25, 73.83, size=7.5) + chars_at(" and m", 104.0, 70.11) + chars_at("2", 137.75, 70.11, size=7.5)
+    crow = build_rows(Page(FakePdfPage(chem), 0, layout), layout)[0]
+    assert crow["text"] == "XQ\u2083 and m\u00b2", f"cambridge alt/ust simge yonu: {crow['text']!r}"
+    table = row_of("Row 2 Lanterns stacked", 95.0, 300.0, size=9.75)
+    assert table["text"] == "Row 2 Lanterns stacked" and not table["unmapped_script"], "cambridge: 9.75 pt tablo satiri simge sayildi"
+    checks += 1
+    # Iki haneli numara ve satir basi kurallari dogrudan.
+    r38 = build_rows(Page(FakePdfPage(question(38, "Pick the lighter lantern.", 40.0)), 0, layout), layout)[0]
+    assert layout.question_start(r38, 38) and not layout.question_start(r38, 3), "cambridge: iki haneli numara"
+    stem_a = row_of("A narrow bridge crosses it twice.", 89.0, 100.0)
+    assert not layout.choice_start(stem_a, "A"), "cambridge: 'A ' ile baslayan govde satiri sik sayildi"
+    bold_a = build_rows(Page(FakePdfPage(chars_at("A", 89.0, 100.0, font="Arial-BoldMT") + chars_at(" narrow bridge", 94.6, 100.0)), 0, layout), layout)[0]
+    assert not layout.choice_start(bold_a, "A"), "cambridge: sekme boslugu olmayan kalin 'A' sik sayildi"
+    plain_a = build_rows(Page(FakePdfPage(chars_at("A", 89.0, 100.0) + chars_at("12 14", 150.0, 100.0)), 0, layout), layout)[0]
+    assert not layout.choice_start(plain_a, "A"), "cambridge: kalin olmayan 'A' tablo satiri sik sayildi"
+    checks += 1
+    # 2011 bicimi: cok satirli sikta harf satirlarin ortasinda (6.3 pt kayik, ayri satir); sikkin ilk satiri harften once gelir.
+    # Satirlar dikeyde en yakin harfe gider; A'dan once gelen ve sik metni sutununda duran satir govdeye girmez.
+    def letter(l, top):
+        return chars_at(l, 76.3, top, font="Arial,Bold")
+    def line(text, top):
+        return chars_at(text, 125.9, top)
+    centred = (heading("Chemistry") + chars_at("1", 55.0, 60.0, font="Arial") + chars_at("Which lamp is brightest?", 76.3, 60.0)
+               + line("The brass lamp on the", 91.7) + letter("A", 98.0) + line("northern quay.", 104.3)
+               + chars_at("B", 76.3, 129.0, font="Arial,Bold") + line("The tin lamp.", 129.0)
+               + line("The glass lamp that", 154.0) + letter("C", 160.3) + line("hangs by the gate.", 166.6)
+               + line("The copper lamp", 191.0) + chars_at("D", 76.3, 203.5, font="Arial,Bold") + line("beside the old", 203.5) + line("mill wheel.", 216.0)
+               + chars_at("E", 76.3, 241.0, font="Arial,Bold") + line("None of them.", 241.0))
+    res = parse_pages([Page(FakePdfPage(centred), 0, layout)], 2099, layout, 1)
+    assert not res["problems"], f"cambridge ortali harf: {res['problems']}"
+    got = res["records"][0]
+    assert got["prompt"] == "Which lamp is brightest?", f"cambridge ortali harf govde: {got['prompt']!r}"
+    assert got["choices"] == {"A": "The brass lamp on the northern quay.", "B": "The tin lamp.", "C": "The glass lamp that hangs by the gate.",
+                              "D": "The copper lamp beside the old mill wheel.", "E": "None of them."}, f"cambridge ortali harf: {got['choices']}"
+    checks += 1
+    # Cizgisiz tablo (iki ya da daha cok satirda sutun boslugu >= 12 pt): satir okumasi sutunlari karistirir -> goruntuden
+    # yazim (hasImage, neden "table"). Liste isareti ("1", "A") ile metin arasindaki sekme sayilmaz.
+    tab = (heading("Biology") + question(1, "Which shelf holds the most jars?", 60.0)
+           + chars_at("Shelf", 120.0, 90.0) + chars_at("Jars", 300.0, 90.0)
+           + chars_at("North", 120.0, 102.75) + chars_at("14", 300.0, 102.75)
+           + chars_at("1", 113.0, 130.0, font="Arial-BoldMT") + chars_at("one note line", 140.0, 130.0)
+           + five(160.0))
+    res = parse_pages([Page(FakePdfPage(tab), 0, layout)], 2099, layout, 1)
+    assert res["records"][0]["hasImage"] is True and "table" in res["reasons"][1], f"cambridge tablo: {res['reasons']}"
+    listing = (heading("Biology") + question(1, "Which items are sealed?", 60.0)
+               + chars_at("1", 113.0, 90.0, font="Arial-BoldMT") + chars_at("the red jar", 140.0, 90.0)
+               + chars_at("2", 113.0, 102.75, font="Arial-BoldMT") + chars_at("the blue jar", 140.0, 102.75) + five(130.0))
+    res = parse_pages([Page(FakePdfPage(listing), 0, layout)], 2099, layout, 1)
+    assert res["records"][0]["hasImage"] is False, f"cambridge numarali liste tablo sayildi: {res['reasons']}"
+    checks += 1
+    # Goruntusuz yalin etiket: sik metni yok ve soru bandinda goruntu yok -> soru sorun olarak doner, kayit yazilmaz.
+    bare = (heading("Chemistry") + question(1, "Pick the heavier flask.", 70.0) + choice("A", "one", 100.0) + choice("B", "", 125.5)
+            + choice("C", "three", 151.0) + choice("D", "four", 176.5) + choice("E", "five", 202.0))
+    res = parse_pages([Page(FakePdfPage(bare), 0, layout)], 2099, layout, 1)
+    assert res["records"] == [] and [p["number"] for p in res["problems"]] == [1] and "goruntu yok" in res["problems"][0]["error"], f"cambridge: {res['problems']}"
+    checks += 1
+    # 2021 kod noktasi kaydirmasi: (cid:N) -> chr(N + 29) metin katmanina girmeden; bilinmeyen glif eslenmez.
+    decode = make_decoder(29)
+    assert decode("(cid:43)") == "H" and decode("(cid:3)") == " " and decode("x") == "x" and decode("(cid:2999)") == "(cid:2999)"
+    # ASCII disi tablo (2021 sayfa goruntuleriyle dogrulandi): kisa tire, tirnak, sicaklik derecesi, ince/sifir bosluk.
+    assert decode("(cid:177)") == "\u2013" and decode("(cid:182)") == "\u2019" and decode("(cid:131)") == "\u00b0"
+    assert decode("(cid:3031)") == " " and decode("(cid:3032)") == ""
+    # Simge icindeki kisa tire eksi isaretidir.
+    assert map_script("\u20137", "sup") == ("\u207b\u2077", True), map_script("\u20137", "sup")
+    cid = lambda s: "".join(f"(cid:{ord(ch) - 29})" for ch in s)
+    enc = [dict(c, text=cid(c["text"])) for c in question(5, "Pick the brass lamp.", 40.0)]
+    row = build_rows(Page(FakePdfPage(enc), 0, layout, decode=decode), layout)[0]
+    assert row["text"] == "5 Pick the brass lamp." and layout.question_start(row, 5), f"cambridge decode: {row['text']!r}"
+    raw = build_rows(Page(FakePdfPage(enc), 0, layout), layout)
+    assert not any("Pick" in r["text"] for r in raw), "cambridge decode: kaydirmasiz metin okunur cikti"
+    checks += 1
+    return checks
+
+
 def main(argv):
     if argv == ["--self-test"]:
-        checks = self_test()
-        print(f"extract_text oz sinama: {checks} kontrol gecti (kismi dizi, tamamen italik blok, tek harf, kisa matematik, formul, satir basina denge, kaynak satiri)")
+        checks = self_test() + cambridge_self_test()
+        print(f"extract_text oz sinama: {checks} kontrol gecti (italik: kismi dizi, tamamen italik blok, tek harf, kisa matematik, formul, satir basina denge, kaynak satiri; cambridge: soru/sik/baslik/sayfa alti, iki haneli numara, ortali harf, sekil izgarasi, goruntu siki, simge, tablo, 2021 kod kaydirmasi)")
         return 0
     opts = parse_args(argv)
     inv = check_inventory()
     for year in opts["years"]:
         if year not in inv:
             sys.exit(f"envanterde yok: {year}")
-        if inv[year]["textLayer"] != "ok":
-            sys.exit(f"{year}: metin katmani bozuk; goruntuden yazilir (crop-questions.mjs)")
+        if inv[year]["textLayer"] != "ok" and opts["decode_shift"] is None:
+            sys.exit(f"{year}: metin katmani bozuk; goruntuden yazilir (crop-questions.mjs) ya da kod kaydirmasiyla cozulur (--decode-shift, decode-2021.mjs)")
+    if opts["rows"]:
+        year = opts["years"][0]
+        layout = LAYOUTS[opts["layout"]]()
+        decode = make_decoder(opts["decode_shift"]) if opts["decode_shift"] is not None else None
+        rows = [{"page": r["page"] + 1, "top": round(r["top"], 2), "bottom": round(r["bottom"], 2), "x0": round(r["x0"], 2),
+                 "x1": round(r["x1"], 2), "text": r["text"]}
+                for page in load_pages(os.path.join(SOURCE_DIR, inv[year]["file"]), layout, decode) for r in build_rows(page, layout)]
+        print(json.dumps(rows, ensure_ascii=False))
+        return 0
     mock_years, mock_counts = mock_section_counts()
-    tasks = [(os.path.join(SOURCE_DIR, inv[y]["file"]), y, opts["layout"]) for y in opts["years"]]
+    tasks = [(os.path.join(SOURCE_DIR, inv[y]["file"]), y, opts["layout"], inv[y]["expectedQuestions"], opts["decode_shift"]) for y in opts["years"]]
     if opts["jobs"] <= 1 or len(tasks) == 1:
         results = [run_one(t) for t in tasks]
     else:
@@ -940,6 +1547,9 @@ def main(argv):
         five = sum(1 for r in recs if len(r["choices"]) == 5 and all(r["choices"].values()))
         flagged = [r["number"] for r in recs if r["hasImage"]]
         print(f"{res['year']}: {len(recs)} soru, 5 dolu sikli {five}, bolumler {dict(sections)}, hasImage {len(flagged)} {flagged}")
+        if res["placeholders"]:
+            items = ", ".join(f"{n}:{letters}" for n, letters in sorted(res["placeholders"].items()))
+            print(f"  goruntu siklari (U+FFFD, goruntuden yazilir) {len(res['placeholders'])} soru: {items}")
         print(f"  istatistik {json.dumps(dict(sorted(res['stats'].items())), ensure_ascii=False)}")
     for p in problems:
         print("  SORUN", json.dumps(p, ensure_ascii=False))
