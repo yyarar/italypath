@@ -407,6 +407,8 @@ try {
       assert.equal(year.textOnly, 2);
       assert.equal(year.passed, 2);
       assert.equal(year.inOrder, 1, "soru 4 sirali karsilastirmada tutmaz (numara ikinci satirda)");
+      assert.deepEqual(year.notInOrder, [4], "parcalar tutup sirasi tutmayan soru gorsel kapi listesinde");
+      assert.deepEqual(read(join(result.root, "validate-report.json")).gates.find((g) => String(g.gate) === "4").counts.years["2022"].notInOrder, [4]);
       assert.deepEqual([year.missing, year.dropped, year.noText, year.spacingOnly], [[], [], [], []]);
     },
     { year: 2022 }
@@ -489,9 +491,12 @@ try {
     { year: 2021 }
   );
   await scenario(
-    "cozulmus yilda kaynakta olmayan kelime kapi 4",
+    "cozulmus yilda degismis kelime kapi 4 (soru basina tek hata)",
     (root) => decodedYear(root, { prompt: DECODED_PROMPT.replace("first", "last") }),
-    expectFailure(new RegExp(`kapi 4: 2021:3 ${id(3, 2021)}: kaynak sayfa 1 soru bolgesinde 1 parca yok`)),
+    (result) => {
+      expectFailure(new RegExp(`kapi 4: 2021:3 ${id(3, 2021)}: kaynak sayfa 1 soru bolgesinde 1 parca yok \\(ilk: prompt 6\\. kelime\\); metinde olmayan 1 parca var`))(result);
+      assert.equal(result.output.failures.filter((m) => m.startsWith(`kapi 4: 2021:3 `)).length, 1, "eksik + fazla parca tek hata");
+    },
     { year: 2021 }
   );
   await scenario(

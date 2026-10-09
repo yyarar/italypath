@@ -39,13 +39,15 @@
 //     en az o kadar kez gecmeli (yoksa "parca yok": yanlis/fazla metin) ve bolgedeki her parca (soru numarasi haric)
 //     metinde olmali (yoksa "metinde olmayan parca": dusmus metin); yalniz bosluk farki (bitisik harfler) gecer, sayilir.
 //     Kaynak metin cikariciyla ayni eslemelerden gecer (extract_text.py --char-maps: CHAR_MAP, U+00AD -> "-" gibi).
-//     Bolgede metin yoksa "metin yok". Bilgi icin sirali karsilastirma da sayilir (inOrder). Soru sayfa asarsa bbox
-//     yalniz ilk sayfadadir: devami "parca yok" verir (2011-2022 verisinde yok, 2026-10-09).
+//     Bolgede metin yoksa "metin yok". Soru basina tek hata iletisi. Sirali karsilastirma da yapilir (inOrder sayisi):
+//     parca karsilastirmasini gecip sirali karsilastirmayi gecmeyen soru notInOrder listesine girer (sik yer degistirmesi
+//     ya da kaymis satir parcalarda gorunmez; bu sorular gorsel kapiya gider: build-visual-packages.mjs --ids). Soru sayfa
+//     asarsa bbox yalniz ilk sayfadadir: devami "parca yok" verir (2011-2022 verisinde yok, 2026-10-09).
 //   cozulmus metin katmani (2021): decode-check kabulu (vision/<yil>/decode-check.json accepted true) zorunlu; pdftotext
 //     ciktisi envanterdeki kaydirmayla cozulur (extract_text.py ile ayni kural ve DECODE_EXTRA); glif numarasi bosluk kod
 //     noktasina denk gelen karakterler (kaydirma 29: & ' ( ) * =) pdftotext'te geri alinamaz, karsilastirma disi kalir.
-// validate-report.json kapi 4 counts.years[<yil>]: layout, textOnly, passed, inOrder, failed/missing/dropped/noText/
-// spacingOnly (soru numaralari), excludedTokens (cozulmus yil).
+// validate-report.json kapi 4 counts.years[<yil>]: layout, textOnly, passed, inOrder, failed/notInOrder/missing/dropped/
+// noText/spacingOnly (soru numaralari), excludedTokens (cozulmus yil).
 //
 // corrections.json: [{ id, field, before, after, sourcePage, reason }]; field "prompt" ya da "choices.<harf>" (harf
 // kagittaki, karistirma oncesi harf); before alanin tam degeri olmali, degilse hata. Duzeltme kagit metnine
@@ -503,7 +505,7 @@ G[5].g.counts.exempt = exemptRecords.length;
     const decoded = entry.textLayer === "decoded";
     counts.textYears.push(year);
     const yearCounts = { layout, textOnly: 0, passed: 0, failed: [] };
-    if (layout === "cambridge") Object.assign(yearCounts, { inOrder: 0, missing: [], dropped: [], noText: [], spacingOnly: [] });
+    if (layout === "cambridge") Object.assign(yearCounts, { inOrder: 0, notInOrder: [], missing: [], dropped: [], noText: [], spacingOnly: [] });
     counts.years[year] = yearCounts;
     const pdf = join(IMAT_SOURCE_DIR, entry.file);
     let pdfOk = !noPdftotext;
@@ -572,8 +574,12 @@ G[5].g.counts.exempt = exemptRecords.length;
       const source = pageText(at, q.page);
       if (source === null) continue;
       counts.compared += 1;
+      // Karsilastirma bicimi: MUR "A) metin", Cambridge yalin harf "A metin".
+      const parts = [
+        { field: "prompt", text: q.prompt },
+        ...CHOICE_LETTERS.map((letter) => ({ field: `choices.${letter}`, text: `${letter}${layout === "mur" ? ")" : ""} ${q.choices?.[letter] ?? ""}` })),
+      ];
       if (layout === "mur") {
-        const parts = [{ field: "prompt", text: q.prompt }, ...CHOICE_LETTERS.map((letter) => ({ field: `choices.${letter}`, text: `${letter}) ${q.choices?.[letter] ?? ""}` }))];
         const result = locateInSource(parts, source);
         if (result.ok) {
           counts.equal += 1;
@@ -584,9 +590,9 @@ G[5].g.counts.exempt = exemptRecords.length;
         }
         continue;
       }
-      // cambridge: yalin sik harfi, sorunun kaynak bolgesiyle sira bagimsiz parca karsilastirmasi
-      const parts = [{ field: "prompt", text: q.prompt }, ...CHOICE_LETTERS.map((letter) => ({ field: `choices.${letter}`, text: `${letter} ${q.choices?.[letter] ?? ""}` }))];
-      if (locateInSource(parts, source).ok) yearCounts.inOrder += 1;
+      // cambridge: sorunun kaynak bolgesiyle sira bagimsiz parca karsilastirmasi; sirali karsilastirma ayrica kaydedilir.
+      const inOrder = locateInSource(parts, source).ok;
+      if (inOrder) yearCounts.inOrder += 1;
       const box = q.bbox;
       if (!Array.isArray(box) || box.length !== 4 || !box.every(Number.isFinite) || box[2] <= box[0] || box[3] <= box[1]) {
         yearCounts.failed.push(q.number);
@@ -612,22 +618,28 @@ G[5].g.counts.exempt = exemptRecords.length;
       if (result.ok) {
         counts.equal += 1;
         yearCounts.passed += 1;
+        // Parcalar tutuyor ama sira tutmuyor: sik yer degistirmesi ya da kaymis satir parca karsilastirmasinda gorunmez;
+        // bu sorular gorsel kapiya gider (build-visual-packages.mjs --ids).
+        if (!inOrder) yearCounts.notInOrder.push(q.number);
         if (result.spacingOnly) {
           yearCounts.spacingOnly.push(q.number);
           g.notes.push(`${at}: kaynakla yalniz bosluk farki (pdftotext harfleri bitisik ya da kelimeyi bolunmus veriyor)`);
         }
         continue;
       }
+      // Soru basina tek hata: eksik ve fazla parca ayni iletide.
       yearCounts.failed.push(q.number);
+      const problems = [];
       if (result.missing.length > 0) {
         yearCounts.missing.push(q.number);
         const first = result.missing[0];
-        fail(`${at}: kaynak sayfa ${q.page} soru bolgesinde ${result.missing.length} parca yok (ilk: ${first.field} ${first.word + 1}. kelime)`, year);
+        problems.push(`${result.missing.length} parca yok (ilk: ${first.field} ${first.word + 1}. kelime)`);
       }
       if (result.dropped > 0) {
         yearCounts.dropped.push(q.number);
-        fail(`${at}: kaynak sayfa ${q.page} soru bolgesinde metinde olmayan ${result.dropped} parca var (dusmus metin olabilir)`, year);
+        problems.push(`metinde olmayan ${result.dropped} parca var (dusmus metin olabilir)`);
       }
+      fail(`${at}: kaynak sayfa ${q.page} soru bolgesinde ${problems.join("; ")}`, year);
     }
   }
   g.counts = counts;
