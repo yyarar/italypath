@@ -1,8 +1,8 @@
 // build-classify-packages.mjs + validate-topics.mjs fikstur testi (plan Gorev 17 hazirligi): gecici IMAT_OUT'ta uydurma
 // bank.json kurar, iki betigi alt surec olarak calistirir. Ag, veritabani yok. Soru metinleri uydurmadir.
 // Konu: 2011-2022 cikarimindaki gecici birlesik bolum "gk-lr" (General Knowledge and Logical Reasoning) siniflamada
-// sectionChoice kaydi olur (grup reading-general+logic, iki bolumun adaylari bolumleriyle); deneme yillarinda (2023-2025)
-// bolum sabit kalir.
+// bayraksiz sectionChoice kaydi olur (grup reading-general+logic, iki bolumun adaylari bolumleriyle); gercek bolum
+// (banka yilindaki reading-general/logic dahil) ve deneme yillari (2023-2025) sabit kalir; --split-gk-lr kaldirildi.
 //
 //   PATH=/usr/local/bin:$PATH node scripts/imat/test-classify.mjs   (npm run test:imat-classify)
 import assert from "node:assert/strict";
@@ -113,7 +113,7 @@ try {
     const root = fixture();
     const result = build(root);
     check(
-      "gk-lr sorusu bayraksiz da sectionChoice kaydi (grup reading-general+logic, iki bolumun adaylari)",
+      "gk-lr sorusu bayraksiz sectionChoice kaydi (grup reading-general+logic, iki bolumun adaylari); gercek logic sabit",
       () => {
         assert.equal(result.status, 0, "cikis 0 bekleniyor");
         assert.deepEqual(summary(root), [
@@ -140,34 +140,29 @@ try {
           ["biology", 3, 0],
           ["chemistry", 1, 0],
         ]);
+        assert.equal(packages(root)[2].questions[0].sectionChoice, undefined, "banka yilindaki gercek logic sabit");
+        assert.equal("split_gk_lr" in manifest, false);
         assert.match(result.stdout, /Bolum secimi istenen \(birlesik GK\/LR\): 3 soru/);
       },
       result
     );
   }
-  {
+  for (const flag of ["--split-gk-lr", "--split-gk-lr=1"]) {
     const root = fixture();
-    const result = build(root, ["--split-gk-lr"]);
+    const result = build(root, [flag]);
     check(
-      "--split-gk-lr: banka yilindaki gercek logic de bolum secimine girer; deneme yili sabit kalir",
+      `${flag} kaldirildi: hata, paket yazilmaz`,
       () => {
-        assert.equal(result.status, 0, "cikis 0 bekleniyor");
-        assert.deepEqual(summary(root), [
-          ["reading-general+logic", [`${id(2015, 1)}*`, `${id(2015, 2)}*`, `${id(2015, 3)}*`, `${id(2016, 1)}*`]],
-          ["reading-general", [id(2024, 1)]],
-          ["logic", [id(2024, 5)]],
-          ["biology", [id(2015, 4), id(2015, 5), id(2024, 10)]],
-          ["chemistry", [id(2015, 6)]],
-        ]);
-        assert.equal(packages(root)[0].questions[3].section, "logic");
-        assert.equal(read(join(root, "classify", "manifest.json")).split_gk_lr, true);
+        assert.equal(result.status, 1, "cikis 1 bekleniyor");
+        assert.match(result.stderr, /--split-gk-lr kaldirildi/);
+        assert.deepEqual(packages(root), []);
       },
       result
     );
   }
   {
     const root = fixture([...BANK.slice(0, 7), { ...record(2024, 1, "gk-lr") }, ...BANK.slice(8)]);
-    const result = build(root, ["--split-gk-lr"]);
+    const result = build(root);
     check(
       "deneme yilinda gk-lr bolumu hata (paket yazilmaz)",
       () => {
@@ -183,10 +178,11 @@ try {
   const resultFile = (root, n, entries) => write(join(root, "classify", `result-${String(n).padStart(2, "0")}.json`), entries);
   const answer = (year, number, section, topicSlug, confidence = 0.9) => ({ id: id(year, number), section, topicSlug, confidence, reason: "fixture: tested concept" });
   // Bayraksiz paketler (yukaridaki ilk durum): 01 birlesik, 02 reading-general, 03 logic, 04 biology, 05 chemistry.
-  function classified(overrides = {}) {
+  function classified(overrides = {}, editPackages = () => {}) {
     const root = fixture();
     const built = build(root);
     assert.equal(built.status, 0, `${built.stdout}\n${built.stderr}`);
+    editPackages(root);
     const files = {
       1: [answer(2015, 1, "reading-general", "text-comprehension"), answer(2015, 2, "logic", "critical-thinking", 0.8), answer(2015, 3, "logic", "numeric-problem-solving", 0.5)],
       2: [answer(2024, 1, "reading-general", "vocabulary-in-context")],
@@ -230,7 +226,6 @@ try {
         assert.equal(Object.keys(topics).length, BANK.length + 1);
         assert.deepEqual(Object.keys(topics), [...Object.keys(topics)].sort(), "id sirasi");
         assert.equal(report.counts.sectionChoice, 3, "bolumu siniflandiricinin sectigi kayit");
-        assert.equal(report.counts.sectionChanged, 0, "gk-lr secimi bolum degisikligi sayilmaz");
         assert.equal(report.counts.keptFromPrevious, 1);
         assert.deepEqual([report.bySection["reading-general"].total, report.bySection.logic.total], [2, 4]);
       },
@@ -247,6 +242,27 @@ try {
     { 1: [answer(2015, 1, "reading-general", "text-comprehension"), answer(2015, 2, "logic", "text-comprehension"), answer(2015, 3, "logic", "numeric-problem-solving")] },
     new RegExp(`^result-01\\.json\\[1\\] ${id(2015, 2)}: topicSlug text-comprehension reading-general bolumunde, secilen bolum logic`)
   );
+  {
+    // Eski --split-gk-lr paketi: gercek logic kaydinda sectionChoice. Paket hatasi; sonuc reading-general dese de kabul yok.
+    const stale = classified({ 3: [answer(2016, 1, "reading-general", "text-comprehension"), answer(2024, 5, "logic", "data-spatial-problem-solving")] }, (root) => {
+      const path = join(root, "classify", "package-03.json");
+      const pack = read(path);
+      Object.assign(pack.questions[0], { sectionChoice: true, candidates: bothSections });
+      write(path, pack);
+    });
+    check(
+      "validate-topics: gercek bolumlu kayitta sectionChoice paket hatasi (bolum degismez)",
+      () => {
+        assert.equal(stale.result.status, 1, "cikis 1 bekleniyor");
+        const pattern = new RegExp(`^package-03\\.json ${id(2016, 1)}: sectionChoice true, bolum logic`);
+        assert.ok(stale.report.errors.some((message) => pattern.test(message)), `beklenen hata yok: ${pattern}\n  ${stale.report.errors.join("\n  ")}`);
+        const fixed = new RegExp(`^result-03\\.json\\[0\\] ${id(2016, 1)}: bolum reading-general, paket logic \\(bolum degistirilemez\\)`);
+        assert.ok(stale.report.errors.some((message) => fixed.test(message)), `beklenen hata yok: ${fixed}\n  ${stale.report.errors.join("\n  ")}`);
+        assert.deepEqual(stale.topics, PREVIOUS, "hata varsa topics.json degismez");
+      },
+      stale.result
+    );
+  }
   expectError(
     "validate-topics: sabit bolumlu kayitta bolum degistirilemez",
     { 2: [answer(2024, 1, "logic", "critical-thinking")] },

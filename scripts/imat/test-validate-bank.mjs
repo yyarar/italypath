@@ -598,10 +598,26 @@ try {
     },
     expectFailure(new RegExp(`kapi 2: 2025:1 ${id(1)}: gecersiz bolum gk-lr`))
   );
+  // Gercek bolum (kagit bolum basligi) siniflamayla degismez: her yilda farkli bolum tek kapi 2 hatasi; yil sayimi extract
+  // bolumuyle kalir.
+  const extractCounts = { "reading-general": 4, logic: 5, biology: 23, chemistry: 15, "physics-math": 13 };
+  const realSectionChange = (year, number, section, pattern) => (result) => {
+    expectFailure(pattern)(result);
+    assert.equal(gate2Failures(result).length, 1, `tek kapi 2 hatasi\n  ${gate2Failures(result).join("\n  ")}`);
+    const q = result.output.bank.find((item) => item.number === number);
+    assert.deepEqual([q.section, q.topic_slug], [section, null], "kayit extract bolumunde, konusuz");
+    assert.deepEqual(read(join(result.root, "validate-report.json")).years[String(year)].bySection, extractCounts, "sayim extract bolumuyle");
+  };
   await scenario(
-    "gercek bolum topics.json ile degismez kapi 2",
+    "deneme yilinda gercek bolum topics.json ile degismez kapi 2",
     (root) => writeTopics(root, { [id(10)]: { section: "chemistry", topicSlug: "stoichiometry" } }),
-    expectFailure(new RegExp(`kapi 2: 2025:10 ${id(10)}: topics.json bolumu chemistry, kayit biology`))
+    realSectionChange(2025, 10, "biology", new RegExp(`kapi 2: 2025:10 ${id(10)}: topics.json bolumu chemistry, kayit biology \\(bolum degistirilemez`))
+  );
+  await scenario(
+    "banka yilinda gercek logic bolumu topics.json ile reading-general olamaz kapi 2",
+    (root) => writeTopics(root, { [id(5, 2022)]: { section: "reading-general", topicSlug: "text-comprehension" } }),
+    realSectionChange(2022, 5, "logic", new RegExp(`kapi 2: 2022:5 ${id(5, 2022)}: topics.json bolumu reading-general, kayit logic \\(bolum degistirilemez`)),
+    { year: 2022 }
   );
 
   await scenario(

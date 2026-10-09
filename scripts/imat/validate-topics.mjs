@@ -5,9 +5,10 @@
 // Girdi: classify/package-NN.json (build-classify-packages.mjs) ve classify/result-NN.json
 // [{ id, section, topicSlug, confidence: 0..1, reason }]. Kurallar (her ihlal hata):
 // - paketteki her id icin tam bir sonuc; sonuc kendi numarali paketinin id'sini tasir (result-03 -> package-03);
-// - topicSlug taksonomide, secilen bolumun konusu ve kaydin aday listesinde; bolum paketteki bolumle ayni (yalniz
-//   sectionChoice kaydinda iki aday bolum reading-general/logic arasi secim serbest: birlesik "gk-lr" sorusu ya da
-//   --split-gk-lr); confidence 0-1 sayi; reason dolu metin.
+// - paket kaydinda sectionChoice: true yalniz ve her zaman bolumu birlesik "gk-lr" olan kayitta (paths.mjs GK_LR_SECTION);
+//   uyusmazlik paket hatasi (eski --split-gk-lr paketi: build-classify-packages.mjs yeniden);
+// - topicSlug taksonomide, secilen bolumun konusu ve kaydin aday listesinde; bolum paketteki bolumle ayni (yalniz gk-lr
+//   kaydinda iki aday bolum reading-general/logic arasi secim; gercek bolum degismez); confidence 0-1 sayi; reason dolu.
 // confidence < 0.7 -> konu <bolum>-general (dusuk eminlik sayilir). Hicbir pakette olmayan id uyari (eski dalga).
 // Cikti: hata yoksa classify/topics.json { "<id>": { section, topicSlug } } (id sirasi; bu paketlerde olmayan eski
 // kayitlar korunur); her durumda classify/validate-report.json (bolum/konu sayimi, dusuk eminlik, hatalar).
@@ -49,7 +50,12 @@ for (const { name, n } of packageFiles) {
   for (const q of data?.questions ?? []) {
     if (packaged.has(q.id)) errors.push(`${q.id}: iki pakette (${packaged.get(q.id).file}, ${name})`);
     const candidates = Array.isArray(q.candidates) ? q.candidates : null;
-    packaged.set(q.id, { file: name, n, section: q.section, sectionChoice: q.sectionChoice === true, candidates });
+    // Bolum secimi yalniz birlesik gk-lr kaydinda gecerlidir (gercek bolum siniflamayla degismez).
+    const combined = q.section === GK_LR_SECTION;
+    if ((q.sectionChoice === true) !== combined) {
+      errors.push(`${name} ${q.id}: sectionChoice ${q.sectionChoice === true}, bolum ${q.section} (sectionChoice yalniz ve her zaman ${GK_LR_SECTION} kaydinda; build-classify-packages.mjs yeniden)`);
+    }
+    packaged.set(q.id, { file: name, n, section: q.section, sectionChoice: combined && q.sectionChoice === true, candidates });
   }
 }
 
@@ -105,8 +111,7 @@ for (const { name, n } of resultFiles) {
       slug = generalSlug(section);
       lowConfidence.push({ id: entry.id, section, chosen: entry.topicSlug, confidence });
     }
-    // sectionChanged: gercek bolumu olan kayitta (--split-gk-lr) bolum degisti; birlesik gk-lr kaydinda secim degisiklik sayilmaz.
-    assigned.set(entry.id, { section, topicSlug: slug, sectionChoice: pack.sectionChoice, sectionChanged: section !== pack.section && pack.section !== GK_LR_SECTION });
+    assigned.set(entry.id, { section, topicSlug: slug, sectionChoice: pack.sectionChoice });
   });
 }
 const missing = [...packaged.keys()].filter((id) => !assigned.has(id)).sort();
@@ -138,7 +143,6 @@ writeJson(REPORT_PATH, {
     classified: assigned.size,
     lowConfidence: lowConfidence.length,
     sectionChoice: [...assigned.values()].filter((entry) => entry.sectionChoice).length,
-    sectionChanged: [...assigned.values()].filter((entry) => entry.sectionChanged).length,
     keptFromPrevious: ok ? kept.length : 0,
     unknownIds: unknown,
     errors: errors.length,

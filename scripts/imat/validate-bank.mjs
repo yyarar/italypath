@@ -20,13 +20,13 @@
 // --require-figures ile hata; dosya boyutu raporla ayni; dolgulu kenar edge-signoff.json onaysizsa hata), 7 kimlik,
 // 8 duzeltmeler. Bloke soru (merge-vision blocked) excluded'a gider, kapilardan gecmez.
 //
-// Kapi 2 bolum ve konu (classify/topics.json, validate-topics.mjs): gercek bolumlu soruda bolum extract'tan gelir,
-// topics.json yalniz konuyu verir (farkli bolum hata; banka yilinda yalniz reading-general <-> logic izinli,
-// --split-gk-lr). 2011-2022 cikarimindaki birlesik "gk-lr" bolumu (paths.mjs GK_LR_SECTION) taksonomi bolumu degildir:
-// banka yilinda bolum topics.json'dan gelir (reading-general ya da logic) ve konu o bolumun konusu olmali; kayit yoksa
-// soru siniflanmamis sayilir (kapi 2 hatasi; bank.json kaydinda section "gk-lr", topic/topic_slug null). Deneme yilinda
-// gk-lr gecersiz bolumdur. Yil bazinda bySection cozulmus bolumle sayar (bloke soru extract bolumuyle; siniflanmamis
-// soru "gk-lr" anahtarinda).
+// Kapi 2 bolum ve konu (classify/topics.json, validate-topics.mjs; spec "Konu taksonomisi"): gercek bolumlu soruda bolum
+// extract'tan (kagit bolum basligi) gelir ve siniflandirici degistiremez; topics.json yalniz konuyu verir, farkli bolum
+// her yilda hata. Yalniz 2011-2022 cikarimindaki birlesik "gk-lr" bolumu (paths.mjs GK_LR_SECTION; taksonomi bolumu
+// degil) siniflamayla ayrilir: banka yilinda bolum topics.json'dan gelir (reading-general ya da logic) ve konu o bolumun
+// konusu olmali; kayit yoksa soru siniflanmamis sayilir (kapi 2 hatasi; bank.json kaydinda section "gk-lr",
+// topic/topic_slug null). Deneme yilinda gk-lr gecersiz bolumdur. Yil bazinda bySection extract bolumuyle sayar; yalniz
+// banka yilindaki gk-lr sorusu cozulmus bolumle (siniflanmamissa ya da bloke ise "gk-lr" anahtarinda).
 //
 // Kapi 4 kaynak metin: metin yilinda (inventory textLayer "ok" ya da "decoded") goruntuden yazilmamis her soru kaynak
 // PDF'in pdftotext -layout ciktisiyla karsilastirilir; hasImage soru goruntuden yazilmis olmali. Once kaynak PDF'in
@@ -304,13 +304,14 @@ try {
   G[5].fail(`shuffle-exempt.json okunamadi: ${error.message}`);
 }
 
-// Bolum ve konu (kapi 2; kural dosya basinda). Siniflanmamis ya da gecersiz birlesik gk-lr sorusu tek hata verir ve
-// bolum "gk-lr", konu null kalir.
-function topicFor(year, q, examSet) {
+// Bolum ve konu (kapi 2; kural dosya basinda). Bolum hatasi soru basina tek hata verir; kayit extract bolumunu ve null
+// konuyu tasir.
+function topicFor(year, q) {
   const { fail } = G[2];
   const at = label(year, q);
   const assigned = topics?.[q.id];
   const unresolved = { section: q.section, slug: null, label: null };
+  let section = q.section;
   if (q.section === GK_LR_SECTION) {
     if (MOCK_YEARS.includes(year)) {
       fail(`${at}: gecersiz bolum ${q.section} (birlesik GK/LR yalniz banka yilinda; deneme yilinda bolum kagit sirasindan)`, year);
@@ -324,18 +325,15 @@ function topicFor(year, q, examSet) {
       fail(`${at}: topics.json bolumu ${assigned.section} (${q.section} sorusu ${GK_LR.join(" ya da ")} olmali)`, year);
       return unresolved;
     }
+    section = assigned.section;
   } else if (!SECTIONS.includes(q.section)) {
     fail(`${at}: gecersiz bolum ${q.section}`, year);
+    return unresolved;
+  } else if (assigned && assigned.section !== q.section) {
+    fail(`${at}: topics.json bolumu ${assigned.section}, kayit ${q.section} (bolum degistirilemez; yalniz birlesik ${GK_LR_SECTION} siniflamayla ayrilir)`, year);
+    return unresolved;
   }
-  let section = q.section;
-  let slug = generalSlug(SECTIONS.includes(section) ? section : SECTIONS[0]);
-  if (assigned) {
-    section = assigned.section;
-    slug = assigned.topicSlug;
-    if (q.section !== GK_LR_SECTION && section !== q.section && !(examSet === "bank" && GK_LR.includes(section) && GK_LR.includes(q.section))) {
-      fail(`${at}: topics.json bolumu ${section}, kayit ${q.section} (yalniz banka yilinda GK/LR arasi izinli)`, year);
-    }
-  }
+  const slug = assigned ? assigned.topicSlug : generalSlug(section);
   const topic = findTopic(slug);
   if (!topic) fail(`${at}: topic_slug ${slug} taksonomide yok`, year);
   else if (topic.section !== section) fail(`${at}: topic_slug ${slug} ${topic.section} bolumunde, soru ${section}`, year);
@@ -434,7 +432,7 @@ for (const paper of papers) {
     if (typeof text.prompt !== "string" || !text.prompt.trim()) fail2(`${at}: soru metni bos`, year);
     if (!CHOICE_LETTERS.includes(correct)) fail2(`${at}: dogru cevap tek harf A-E degil (${correct})`, year);
     if (!Number.isInteger(q.page) || q.page < 1) fail2(`${at}: kaynak sayfa yok`, year);
-    const topic = topicFor(year, q, examSet);
+    const topic = topicFor(year, q);
     const normalized = CHOICE_LETTERS.map((letter) => normalizeForCompare(choices?.[letter]));
     if (new Set(normalized).size < normalized.length) G[2].warn(`${at}: ayni metinli siklar var`);
 
@@ -711,9 +709,10 @@ writeJson(BANK_PATH, { bank, failures, warnings, excluded });
 const perYear = {};
 for (const paper of papers) {
   const records = bank.filter((record) => record.year === paper.year);
-  // Cozulmus bolum (bankadaki kayit); bloke soru bankada yok, extract bolumuyle sayilir.
+  // Extract bolumu; yalniz banka yilindaki gk-lr sorusu bankadaki cozulmus bolumle (bloke soru bankada yok: "gk-lr").
   const sectionOf = new Map(records.map((record) => [record.id, record.section]));
-  const sections = paper.questions.map((q) => sectionOf.get(q.id) ?? q.section);
+  const combinedYear = !MOCK_YEARS.includes(paper.year);
+  const sections = paper.questions.map((q) => (combinedYear && q.section === GK_LR_SECTION ? (sectionOf.get(q.id) ?? q.section) : q.section));
   const bySection = Object.fromEntries(SECTIONS.map((section) => [section, sections.filter((section_) => section_ === section).length]));
   const combined = sections.filter((section) => section === GK_LR_SECTION).length;
   if (combined > 0) bySection[GK_LR_SECTION] = combined;

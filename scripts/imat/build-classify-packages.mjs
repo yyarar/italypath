@@ -2,16 +2,16 @@
 // secer (runbook docs/superpowers/specs/assets/imat-classify-prompt.md), sonucu classify/result-NN.json'a yazar;
 // validate-topics.mjs dogrulayip classify/topics.json'u kurar (validate-bank.mjs topic/topic_slug kaynagi).
 //
-//   PATH=/usr/local/bin:$PATH IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank node scripts/imat/build-classify-packages.mjs --years 2023,2024,2025 [--size 30] [--split-gk-lr] [--bank <yol>]
+//   PATH=/usr/local/bin:$PATH IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank node scripts/imat/build-classify-packages.mjs --years 2023,2024,2025 [--size 30] [--bank <yol>]
 //
 // Kayit: { id, section, prompt, choices, figure (WebP mutlak yolu ya da null), candidates: [{ slug, label }] }; aday
 // listesi taxonomy.mjs topicsForSection(section) (bolumun general kutusu dahil). Cevap, karistirma izi ve kaynak girmez.
-// Bolum secimi (sectionChoice: true): iki bolumun (reading-general, logic) adaylari birlikte verilir ({ slug, label,
-// section }); ajan bolumu de secer ve secilen adayin bolumunu yazar. Yalniz deneme yili olmayan soruda:
-// - bolumu birlesik "gk-lr" olan soru (2011-2022 cikarimi: kagittaki "General Knowledge and Logical Reasoning"; paths.mjs
-//   GK_LR_SECTION): her zaman, bayrak gerekmez (baska turlu siniflanamaz); paket kaydinda section "gk-lr" kalir;
-// - --split-gk-lr (varsayilan kapali): bolumu zaten reading-general/logic olan soru da.
-// Deneme yillarinda (2023-2025) bolum kagit sirasindan gelir ve hicbir kosulda degismez (gk-lr orada gecersiz bolum).
+// Bolum secimi (sectionChoice: true; spec "Konu taksonomisi"): yalniz deneme yili olmayan ve bolumu birlesik "gk-lr" olan
+// soruda (2011-2022 cikarimi: kagittaki "General Knowledge and Logical Reasoning"; paths.mjs GK_LR_SECTION), her zaman,
+// bayraksiz. Iki bolumun (reading-general, logic) adaylari birlikte verilir ({ slug, label, section }); paket kaydinda
+// section "gk-lr" kalir, ajan secilen adayin bolumunu yazar. Gercek bolum (reading-general/logic dahil) kagit bolum
+// basligindan gelir ve siniflamayla hicbir kosulda degismez; eski --split-gk-lr bayragi kaldirildi (verilirse hata).
+// Deneme yilinda (2023-2025) gk-lr gecersiz bolumdur (readBank reddeder).
 // Paketler: grup (bolum; birlesik GK/LR tek grup) basina, grup icinde yil/numara sirasi, en cok --size soruluk esit
 // dilimler; grup sirasi kagit bolum sirasi. Yeniden calistirma ayni dosyalari yazar; result-*.json'a dokunmaz.
 import { mkdirSync, readdirSync, rmSync } from "node:fs";
@@ -31,18 +31,20 @@ function candidatesFor(sectionChoice, section) {
 }
 
 function main() {
-  const args = parseCliArgs(process.argv.slice(2), { values: ["--years", "--size", "--bank"], booleans: ["--split-gk-lr"] });
+  const argv = process.argv.slice(2);
+  if (argv.some((arg) => arg.split("=")[0] === "--split-gk-lr")) {
+    throw new Error("--split-gk-lr kaldirildi: gk-lr sorulari bayraksiz bolum secimine girer; gercek bolum siniflamayla degismez.");
+  }
+  const args = parseCliArgs(argv, { values: ["--years", "--size", "--bank"] });
   const years = parseYears(args.values["--years"]);
   const size = positiveInt(args.values["--size"] ?? 30, "--size");
-  const splitGkLr = args.flags.has("--split-gk-lr");
   const bankPath = path.resolve(args.values["--bank"] ?? BANK_PATH);
   const bank = readBank(bankPath, { allowCombinedSection: true }).filter((record) => years.includes(record.year));
   if (bank.length === 0) throw new Error(`Secilen yillarda soru yok: ${years.join(", ")}`);
 
   const groups = new Map([[GK_LR_GROUP, []], ...SECTIONS.map((section) => [section, []])]);
   for (const record of [...bank].sort((a, b) => a.year - b.year || a.number - b.number)) {
-    const sectionChoice =
-      !MOCK_YEARS.includes(record.year) && (record.section === GK_LR_SECTION || (splitGkLr && GK_LR.includes(record.section)));
+    const sectionChoice = record.section === GK_LR_SECTION && !MOCK_YEARS.includes(record.year);
     groups.get(sectionChoice ? GK_LR_GROUP : record.section).push({
       id: record.id,
       section: record.section,
@@ -77,7 +79,6 @@ function main() {
     years,
     bank_count: bank.length,
     size,
-    split_gk_lr: splitGkLr,
     result_file_rule: "package-NN.json -> result-NN.json: [{ id, section, topicSlug, confidence: 0..1, reason }]",
     files: packages.map(({ group, items }, index) => ({
       file: packageName(index),
@@ -92,7 +93,7 @@ function main() {
   console.log(`Siniflama paketleri: ${packages.length} paket, ${bank.length} soru (${years.join(", ")}) -> ${CLASSIFY_DIR}`);
   console.log(`Paketler: ${packages.map(({ group, items }) => `${group} ${items.length}`).join(" | ")}`);
   const choice = manifest.files.reduce((sum, file) => sum + file.section_choice, 0);
-  if (splitGkLr || choice > 0) console.log(`Bolum secimi istenen (birlesik GK/LR): ${choice} soru`);
+  if (choice > 0) console.log(`Bolum secimi istenen (birlesik GK/LR): ${choice} soru`);
   return 0;
 }
 

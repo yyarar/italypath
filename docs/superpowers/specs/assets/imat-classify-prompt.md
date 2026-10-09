@@ -37,7 +37,7 @@ Students practise by topic, so each question needs one topic slug from its secti
 }
 ```
 
-In a `sectionChoice` entry (`"group": "reading-general+logic"`), the candidates of both sections are listed together and each candidate carries its `section`.
+In a `sectionChoice` entry (`"group": "reading-general+logic"`), the candidates of both sections are listed together and each candidate carries its `section`. Such an entry shows `"section": "gk-lr"`, the temporary combined section of the 2011-2022 papers: never copy it; your result must carry the `section` of the candidate you chose (`reading-general` or `logic`).
 
 ## 4. Output: the result file
 
