@@ -20,9 +20,10 @@
 // PDF noktasi, extract bbox'i ile ayni uzay; o sorunun kirpintisinda extract bbox'i yerine kullanilir (ayni 6 pt pay,
 // sayfaya kistirilir). Cikaricinin bbox'i sekli tam icermediginde (kesik kirpinti) yazilir; sonra --numbers ile yeniden
 // kirpilir. Kutu sayfa disinda kalirsa ya da kayit gecersizse cikis 1.
-// Eski kirpinti kurali: kirpinti gecis sonucundan (result-*) yeniyse merge-vision.mjs o yili durdurur; soru iki gecisle
-// yeniden okunur ya da resolutions.json'a yeni kirpintida olculmus figure cozumu yazilir. Bayt bayt ayni kirpinti yeniden
-// yazilmaz (tarihi degismez; tam yeniden calistirma korumayi bosuna tetiklemez).
+// Eski kirpinti kurali: kirpinti gecis sonucundan (result-*) yeniyse ve gecislerden biri sekil kutusu tasiyorsa
+// merge-vision.mjs o yili durdurur (sekilsiz soruda yalniz uyari); soru iki gecisle yeniden okunur ya da resolutions.json'a
+// yeni kirpintida olculmus figure cozumu yazilir. Bayt bayt ayni kirpinti yeniden yazilmaz (tarihi degismez; tam yeniden
+// calistirma korumayi bosuna tetiklemez).
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";

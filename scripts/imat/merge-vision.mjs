@@ -25,9 +25,10 @@
 // her karakter ipucuyla ayni sirada olmali; fark -> blocked "hint-mismatch", vision/<yil>/hint-mismatch.json yalniz
 // kelime konumlarini yazar. Ayni girdiyle iki calisma ayni dosyalari uretir.
 // Eski kirpinti korumasi (soru kipi): paket girdisinin kirpintisi (image) o paketin gecis sonuclarindan (result-NN-img-a/b)
-// yeniyse (mtime) sonuc eski kirpintiyi anlatir (figure.box eski kirpinti pikselinde, cropBox yeni); bu sorular icin yil
-// durur ve numaralar yazilir. Cozum: soruyu iki gecisle yeniden okumak ya da resolutions.json'a o id icin figure cozumu
-// (yeni kirpintida olculmus) yazmak; figure cozumu o soru icin korumayi kaldirir.
+// yeniyse (mtime) sonucun sekil kutusu eski kirpintiyi anlatir (figure.box eski kirpinti pikselinde, cropBox yeni). Gecis a
+// ya da b sekil kutusu tasiyorsa yil durur ve numaralar yazilir; iki geciste de sekil yoksa yalniz uyari satiri (numaralar;
+// metin kirpinti kaymasindan bagimsizdir). Cozum: soruyu iki gecisle yeniden okumak ya da resolutions.json'a o id icin
+// figure cozumu (yeni kirpintida olculmus) yazmak; figure cozumu o soru icin korumayi kaldirir.
 import { existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
@@ -382,16 +383,23 @@ async function mergeQuestionYear(year, dir, packages) {
   }
   const resolutions = loadResolutions(dir, new Set(entries.keys()));
   const stale = [];
+  const staleNoFigure = [];
+  const hasFigure = (raw) => raw?.figure !== null && raw?.figure !== undefined && raw.figure.kind !== null && raw.figure.kind !== undefined;
   for (const [id, item] of entries) {
     if (typeof item.image !== "string" || !existsSync(item.image)) throw new MergeProblem(`${year}:${item.number}: kirpinti yok (${item.image}); crop-questions.mjs yeniden`);
-    if (statSync(item.image).mtimeMs > resultTimes.get(id) && !resolutions.has(`${id}|figure`)) stale.push(item.number);
+    if (statSync(item.image).mtimeMs <= resultTimes.get(id) || resolutions.has(`${id}|figure`)) continue;
+    if (hasFigure(results.a.get(id)) || hasFigure(results.b.get(id))) stale.push(item.number);
+    else staleNoFigure.push(item.number);
   }
+  const byNumber = (x, y) => x - y;
   if (stale.length > 0) {
     throw new MergeProblem(
-      `${year}: kirpinti gecis sonucundan yeni, sonuc eski kirpintiyi anlatiyor (soru ${stale.sort((x, y) => x - y).join(", ")}): ` +
+      `${year}: kirpinti gecis sonucundan yeni, sekil kutusu eski kirpintiyi anlatiyor (soru ${stale.sort(byNumber).join(", ")}): ` +
         "bu sorulari iki gecisle yeniden oku ya da resolutions.json'a yeni kirpintida olculmus figure cozumu yaz"
     );
   }
+  const warnings = [];
+  if (staleNoFigure.length > 0) warnings.push(`kirpinti gecis sonucundan yeni, iki geciste de sekil yok (soru ${staleNoFigure.sort(byNumber).join(", ")}); metin kullanildi`);
   const conflicts = [];
   const mismatches = [];
   const stats = { questions: 0, conflictQuestions: 0, hintMismatchQuestions: 0, figures: 0, blocked: 0, resolved: 0 };
@@ -464,6 +472,7 @@ async function mergeQuestionYear(year, dir, packages) {
       [join(dir, "hint-mismatch.json"), mismatches],
     ],
     stats,
+    warnings,
   };
 }
 
@@ -502,6 +511,7 @@ async function main() {
       }
       for (const [path, content] of merged.files) writeJson(path, content);
       console.log(`${year}: ${JSON.stringify(merged.stats)} -> ${merged.files.map(([path]) => path.split("/").slice(-2).join("/")).join(", ")}`);
+      for (const warning of merged.warnings ?? []) console.log(`${year}: uyari: ${warning}`);
     } catch (error) {
       if (!(error instanceof MergeProblem)) throw error;
       problems.push(`${year}: ${error.message} (yil yazilmadi)`);
