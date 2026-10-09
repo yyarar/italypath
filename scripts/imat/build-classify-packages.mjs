@@ -6,10 +6,12 @@
 //
 // Kayit: { id, section, prompt, choices, figure (WebP mutlak yolu ya da null), candidates: [{ slug, label }] }; aday
 // listesi taxonomy.mjs topicsForSection(section) (bolumun general kutusu dahil). Cevap, karistirma izi ve kaynak girmez.
-// --split-gk-lr (varsayilan kapali; 2011-2022 icin): deneme yili olmayan ve bolumu reading-general/logic olan soruda
-// (kagittaki birlesik "General Knowledge and Logical Reasoning" bolumu) iki bolumun adaylari birlikte verilir
-// ({ slug, label, section }), kayitta sectionChoice: true: ajan bolumu de secer. Deneme yillarinda (2023-2025) bolum
-// kagit sirasindan gelir ve hicbir kosulda degismez.
+// Bolum secimi (sectionChoice: true): iki bolumun (reading-general, logic) adaylari birlikte verilir ({ slug, label,
+// section }); ajan bolumu de secer ve secilen adayin bolumunu yazar. Yalniz deneme yili olmayan soruda:
+// - bolumu birlesik "gk-lr" olan soru (2011-2022 cikarimi: kagittaki "General Knowledge and Logical Reasoning"; paths.mjs
+//   GK_LR_SECTION): her zaman, bayrak gerekmez (baska turlu siniflanamaz); paket kaydinda section "gk-lr" kalir;
+// - --split-gk-lr (varsayilan kapali): bolumu zaten reading-general/logic olan soru da.
+// Deneme yillarinda (2023-2025) bolum kagit sirasindan gelir ve hicbir kosulda degismez (gk-lr orada gecersiz bolum).
 // Paketler: grup (bolum; birlesik GK/LR tek grup) basina, grup icinde yil/numara sirasi, en cok --size soruluk esit
 // dilimler; grup sirasi kagit bolum sirasi. Yeniden calistirma ayni dosyalari yazar; result-*.json'a dokunmaz.
 import { mkdirSync, readdirSync, rmSync } from "node:fs";
@@ -17,10 +19,9 @@ import path from "node:path";
 
 import { MOCK_YEARS, SECTIONS, topicsForSection } from "../../lib/imat/taxonomy.mjs";
 import { CHOICE_KEYS, figureAbsPath, parseCliArgs, positiveInt, readBank } from "./gate-imat.mjs";
-import { BANK_PATH, CLASSIFY_DIR, pad2, parseYears, writeJson } from "./paths.mjs";
+import { BANK_PATH, CLASSIFY_DIR, GK_LR_SECTION, GK_LR_SECTIONS as GK_LR, pad2, parseYears, writeJson } from "./paths.mjs";
 
-const GK_LR = Object.freeze(["reading-general", "logic"]);
-const GK_LR_GROUP = "reading-general+logic";
+const GK_LR_GROUP = GK_LR.join("+");
 
 const packageName = (index) => `package-${pad2(index + 1)}.json`;
 
@@ -35,12 +36,13 @@ function main() {
   const size = positiveInt(args.values["--size"] ?? 30, "--size");
   const splitGkLr = args.flags.has("--split-gk-lr");
   const bankPath = path.resolve(args.values["--bank"] ?? BANK_PATH);
-  const bank = readBank(bankPath).filter((record) => years.includes(record.year));
+  const bank = readBank(bankPath, { allowCombinedSection: true }).filter((record) => years.includes(record.year));
   if (bank.length === 0) throw new Error(`Secilen yillarda soru yok: ${years.join(", ")}`);
 
   const groups = new Map([[GK_LR_GROUP, []], ...SECTIONS.map((section) => [section, []])]);
   for (const record of [...bank].sort((a, b) => a.year - b.year || a.number - b.number)) {
-    const sectionChoice = splitGkLr && !MOCK_YEARS.includes(record.year) && GK_LR.includes(record.section);
+    const sectionChoice =
+      !MOCK_YEARS.includes(record.year) && (record.section === GK_LR_SECTION || (splitGkLr && GK_LR.includes(record.section)));
     groups.get(sectionChoice ? GK_LR_GROUP : record.section).push({
       id: record.id,
       section: record.section,
@@ -90,7 +92,7 @@ function main() {
   console.log(`Siniflama paketleri: ${packages.length} paket, ${bank.length} soru (${years.join(", ")}) -> ${CLASSIFY_DIR}`);
   console.log(`Paketler: ${packages.map(({ group, items }) => `${group} ${items.length}`).join(" | ")}`);
   const choice = manifest.files.reduce((sum, file) => sum + file.section_choice, 0);
-  if (splitGkLr) console.log(`Bolum secimi istenen (birlesik GK/LR): ${choice} soru`);
+  if (splitGkLr || choice > 0) console.log(`Bolum secimi istenen (birlesik GK/LR): ${choice} soru`);
   return 0;
 }
 

@@ -43,6 +43,7 @@ const OFFLINE = [
   "test:sat-explanations",
   "test:imat-scoring",
   "test:imat-validate",
+  "test:imat-classify",
   "test:imat-crop",
   "test:imat-patch",
   "test:imat-keys",

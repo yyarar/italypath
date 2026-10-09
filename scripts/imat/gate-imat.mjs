@@ -29,9 +29,9 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { SECTIONS } from "../../lib/imat/taxonomy.mjs";
+import { MOCK_YEARS, SECTIONS } from "../../lib/imat/taxonomy.mjs";
 import { CHOICE_LETTERS, textHash } from "./lib/text.mjs";
-import { BANK_PATH, FIGURES_DIR, IMAT_OUT, SOLVER_DIR, VISUAL_DIR, questionId, writeJson } from "./paths.mjs";
+import { BANK_PATH, FIGURES_DIR, GK_LR_SECTION, IMAT_OUT, SOLVER_DIR, VISUAL_DIR, questionId, writeJson } from "./paths.mjs";
 import { SHUFFLE_YEARS } from "./shuffle-choices.mjs";
 
 export const CHOICE_KEYS = CHOICE_LETTERS;
@@ -133,8 +133,11 @@ export function positiveInt(value, name, { allowZero = false } = {}) {
   return number;
 }
 
-/** bank.json okur ({ bank: [...] }); temel sekli ve text_hash'i dogrular. */
-export function readBank(bankPath) {
+/**
+ * bank.json okur ({ bank: [...] }); temel sekli ve text_hash'i dogrular. Bolum taksonomide olmali; yalniz
+ * allowCombinedSection (build-classify-packages) deneme yili olmayan soruda siniflanmamis birlesik "gk-lr" bolumunu kabul eder.
+ */
+export function readBank(bankPath, { allowCombinedSection = false } = {}) {
   if (!existsSync(bankPath)) throw new Error(`Banka dosyasi yok: ${bankPath} (once validate-bank.mjs ya da --bank).`);
   const data = JSON.parse(readFileSync(bankPath, "utf8"));
   const bank = Array.isArray(data) ? data : data?.bank;
@@ -145,7 +148,11 @@ export function readBank(bankPath) {
     if (seen.has(record.id)) throw new Error(`${bankPath}: tekrarlanan id ${record.id}`);
     seen.add(record.id);
     if (!Number.isInteger(record.year) || !Number.isInteger(record.number)) throw new Error(`${record.id}: year/number tamsayi degil.`);
-    if (!SECTIONS.includes(record.section)) throw new Error(`${record.id}: gecersiz bolum ${record.section}.`);
+    const combined = record.section === GK_LR_SECTION && !MOCK_YEARS.includes(record.year);
+    if (!SECTIONS.includes(record.section) && !(allowCombinedSection && combined)) {
+      const hint = combined ? " (birlesik GK/LR siniflanmamis: build-classify-packages, validate-topics, validate-bank)" : "";
+      throw new Error(`${record.id}: gecersiz bolum ${record.section}${hint}.`);
+    }
     if (typeof record.prompt !== "string") throw new Error(`${record.id}: prompt yok.`);
     for (const key of CHOICE_KEYS) {
       if (typeof record.choices?.[key] !== "string") throw new Error(`${record.id}: ${key} sikki yok.`);

@@ -519,6 +519,86 @@ try {
     { year: 2021 }
   );
 
+  // Kapi 2, birlesik GK/LR bolumu (2011-2022 cikarimi gecici "gk-lr" yazar; Gorev 17): banka yilinda bolum
+  // classify/topics.json'dan gelir (reading-general ya da logic); kayit yoksa soru kapi 2 hatasi (tek hata) olarak kalir.
+  // Fikstur kagidinda 1-9 (reading-general 1-4 + logic 5-9) "gk-lr" yapilir.
+  const GK_LR_NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const combinedSection = (root, year = 2022) => {
+    for (const number of GK_LR_NUMBERS) mutateQuestion(root, year, number, (q) => (q.section = "gk-lr"));
+  };
+  const writeTopics = (root, entries) => write(join(root, "classify", "topics.json"), entries);
+  const resolvedTopics = (year = 2022) =>
+    Object.fromEntries(
+      GK_LR_NUMBERS.map((number) => [
+        id(number, year),
+        number <= 5 ? { section: "reading-general", topicSlug: "text-comprehension" } : { section: "logic", topicSlug: "critical-thinking" },
+      ])
+    );
+  const gate2Failures = (result) => result.output.failures.filter((message) => message.startsWith("kapi 2: "));
+  await scenario(
+    "birlesik gk-lr bolumu topics.json kaydi olmadan kapi 2 (soru basina tek hata)",
+    (root) => combinedSection(root),
+    (result) => {
+      expectFailure(new RegExp(`kapi 2: 2022:3 ${id(3, 2022)}: bolum gk-lr siniflanmadi`))(result);
+      assert.equal(gate2Failures(result).length, GK_LR_NUMBERS.length, `soru basina tek kapi 2 hatasi\n  ${gate2Failures(result).join("\n  ")}`);
+      const q3 = result.output.bank.find((q) => q.number === 3);
+      assert.deepEqual([q3.section, q3.topic_slug, q3.topic], ["gk-lr", null, null], "siniflanmamis soru bolum/konu almaz");
+      const report = read(join(result.root, "validate-report.json"));
+      assert.deepEqual(report.years["2022"].bySection, { "reading-general": 0, logic: 0, biology: 23, chemistry: 15, "physics-math": 13, "gk-lr": 9 });
+    },
+    { year: 2022 }
+  );
+  await scenario(
+    "birlesik gk-lr bolumu topics.json ile reading-general/logic olur",
+    (root) => {
+      combinedSection(root);
+      // Baska yilin (Teslim 1) kaydi da dosyada: bu calismada kullanilmaz, sorun degil.
+      writeTopics(root, { ...resolvedTopics(), [id(10, 2025)]: { section: "biology", topicSlug: "evolution" } });
+    },
+    (result) => {
+      assert.equal(result.status, 0, "cikis 0 bekleniyor");
+      assert.deepEqual(result.output.failures, []);
+      const byNumber = new Map(result.output.bank.map((q) => [q.number, q]));
+      assert.deepEqual([byNumber.get(1).section, byNumber.get(1).topic_slug, byNumber.get(1).topic], ["reading-general", "text-comprehension", "Text comprehension"]);
+      assert.deepEqual([byNumber.get(7).section, byNumber.get(7).topic_slug, byNumber.get(7).topic], ["logic", "critical-thinking", "Critical thinking"]);
+      assert.deepEqual([byNumber.get(10).section, byNumber.get(10).topic_slug], ["biology", "biology-general"], "kaydi olmayan gercek bolum degismez");
+      const report = read(join(result.root, "validate-report.json"));
+      assert.deepEqual(report.years["2022"].bySection, { "reading-general": 5, logic: 4, biology: 23, chemistry: 15, "physics-math": 13 }, "bolum sayimi cozulmus bolumle");
+    },
+    { year: 2022 }
+  );
+  await scenario(
+    "birlesik gk-lr: topics.json bolumu reading-general/logic degil kapi 2",
+    (root) => {
+      combinedSection(root);
+      writeTopics(root, { ...resolvedTopics(), [id(2, 2022)]: { section: "biology", topicSlug: "cell-and-viruses" } });
+    },
+    expectFailure(new RegExp(`kapi 2: 2022:2 ${id(2, 2022)}: topics.json bolumu biology \\(gk-lr sorusu reading-general ya da logic olmali\\)`)),
+    { year: 2022 }
+  );
+  await scenario(
+    "birlesik gk-lr: diger bolumun konusu kapi 2",
+    (root) => {
+      combinedSection(root);
+      writeTopics(root, { ...resolvedTopics(), [id(3, 2022)]: { section: "logic", topicSlug: "text-comprehension" } });
+    },
+    expectFailure(new RegExp(`kapi 2: 2022:3 ${id(3, 2022)}: topic_slug text-comprehension reading-general bolumunde, soru logic`)),
+    { year: 2022 }
+  );
+  await scenario(
+    "deneme yilinda gk-lr bolumu topics.json ile de gecersiz kapi 2",
+    (root) => {
+      mutateQuestion(root, 2025, 1, (q) => (q.section = "gk-lr"));
+      writeTopics(root, { [id(1)]: { section: "reading-general", topicSlug: "text-comprehension" } });
+    },
+    expectFailure(new RegExp(`kapi 2: 2025:1 ${id(1)}: gecersiz bolum gk-lr`))
+  );
+  await scenario(
+    "gercek bolum topics.json ile degismez kapi 2",
+    (root) => writeTopics(root, { [id(10)]: { section: "chemistry", topicSlug: "stoichiometry" } }),
+    expectFailure(new RegExp(`kapi 2: 2025:10 ${id(10)}: topics.json bolumu chemistry, kayit biology`))
+  );
+
   await scenario(
     "duzeltmede before eslesmiyor kapi 8",
     (root) => {

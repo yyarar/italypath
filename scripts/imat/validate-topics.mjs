@@ -5,8 +5,9 @@
 // Girdi: classify/package-NN.json (build-classify-packages.mjs) ve classify/result-NN.json
 // [{ id, section, topicSlug, confidence: 0..1, reason }]. Kurallar (her ihlal hata):
 // - paketteki her id icin tam bir sonuc; sonuc kendi numarali paketinin id'sini tasir (result-03 -> package-03);
-// - topicSlug taksonomide ve secilen bolumun konusu; bolum paketteki bolumle ayni (yalniz sectionChoice kaydinda
-//   reading-general/logic arasi secim serbest); confidence 0-1 sayi; reason dolu metin.
+// - topicSlug taksonomide, secilen bolumun konusu ve kaydin aday listesinde; bolum paketteki bolumle ayni (yalniz
+//   sectionChoice kaydinda iki aday bolum reading-general/logic arasi secim serbest: birlesik "gk-lr" sorusu ya da
+//   --split-gk-lr); confidence 0-1 sayi; reason dolu metin.
 // confidence < 0.7 -> konu <bolum>-general (dusuk eminlik sayilir). Hicbir pakette olmayan id uyari (eski dalga).
 // Cikti: hata yoksa classify/topics.json { "<id>": { section, topicSlug } } (id sirasi; bu paketlerde olmayan eski
 // kayitlar korunur); her durumda classify/validate-report.json (bolum/konu sayimi, dusuk eminlik, hatalar).
@@ -15,9 +16,8 @@ import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 import { findTopic, generalSlug, topicsForSection } from "../../lib/imat/taxonomy.mjs";
-import { CLASSIFY_DIR, readJson, writeJson } from "./paths.mjs";
+import { CLASSIFY_DIR, GK_LR_SECTION, GK_LR_SECTIONS as GK_LR, readJson, writeJson } from "./paths.mjs";
 
-const GK_LR = ["reading-general", "logic"];
 const MIN_CONFIDENCE = 0.7;
 const TOPICS_PATH = join(CLASSIFY_DIR, "topics.json");
 const REPORT_PATH = join(CLASSIFY_DIR, "validate-report.json");
@@ -48,7 +48,8 @@ for (const { name, n } of packageFiles) {
   const data = readJson(join(CLASSIFY_DIR, name));
   for (const q of data?.questions ?? []) {
     if (packaged.has(q.id)) errors.push(`${q.id}: iki pakette (${packaged.get(q.id).file}, ${name})`);
-    packaged.set(q.id, { file: name, n, section: q.section, sectionChoice: q.sectionChoice === true });
+    const candidates = Array.isArray(q.candidates) ? q.candidates : null;
+    packaged.set(q.id, { file: name, n, section: q.section, sectionChoice: q.sectionChoice === true, candidates });
   }
 }
 
@@ -89,6 +90,9 @@ for (const { name, n } of resultFiles) {
     const topic = findTopic(entry.topicSlug);
     if (!topic) problems.push(`topicSlug ${entry.topicSlug} taksonomide yok`);
     else if (topic.section !== section) problems.push(`topicSlug ${entry.topicSlug} ${topic.section} bolumunde, secilen bolum ${section}`);
+    else if (pack.candidates && !pack.candidates.some((c) => c.slug === entry.topicSlug && (c.section ?? pack.section) === section)) {
+      problems.push(`topicSlug ${entry.topicSlug} kaydin aday listesinde yok`);
+    }
     const confidence = entry.confidence;
     if (typeof confidence !== "number" || !(confidence >= 0 && confidence <= 1)) problems.push(`confidence ${JSON.stringify(confidence)} (0-1 sayi)`);
     if (typeof entry.reason !== "string" || !entry.reason.trim()) problems.push("reason bos");
@@ -101,7 +105,8 @@ for (const { name, n } of resultFiles) {
       slug = generalSlug(section);
       lowConfidence.push({ id: entry.id, section, chosen: entry.topicSlug, confidence });
     }
-    assigned.set(entry.id, { section, topicSlug: slug, sectionChanged: section !== pack.section });
+    // sectionChanged: gercek bolumu olan kayitta (--split-gk-lr) bolum degisti; birlesik gk-lr kaydinda secim degisiklik sayilmaz.
+    assigned.set(entry.id, { section, topicSlug: slug, sectionChoice: pack.sectionChoice, sectionChanged: section !== pack.section && pack.section !== GK_LR_SECTION });
   });
 }
 const missing = [...packaged.keys()].filter((id) => !assigned.has(id)).sort();
@@ -132,6 +137,7 @@ writeJson(REPORT_PATH, {
     packaged: packaged.size,
     classified: assigned.size,
     lowConfidence: lowConfidence.length,
+    sectionChoice: [...assigned.values()].filter((entry) => entry.sectionChoice).length,
     sectionChanged: [...assigned.values()].filter((entry) => entry.sectionChanged).length,
     keptFromPrevious: ok ? kept.length : 0,
     unknownIds: unknown,

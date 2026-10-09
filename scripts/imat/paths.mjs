@@ -29,6 +29,12 @@ export const SHUFFLE_EXEMPT_PATH = join(IMAT_OUT, "shuffle-exempt.json");
 // Kirpma duzeltmesi: { "<id>": { bbox: [x0, top, x1, bottom], note } } (PDF noktasi, extract bbox'i yerine; crop-questions.mjs).
 export const CROP_OVERRIDES_PATH = join(IMAT_OUT, "crop-overrides.json");
 
+// Birlesik GK/LR bolumu: 2011-2022 kagitlarindaki "General Knowledge and Logical Reasoning" (2012: "Thinking Skills")
+// cikarimda gecici "gk-lr" bolumu olur (extract_text.py); taksonomi bolumu degildir. Siniflamada (build-classify-packages
+// sectionChoice, validate-topics) reading-general ya da logic secilir; validate-bank bolumu classify/topics.json'dan alir.
+export const GK_LR_SECTION = "gk-lr";
+export const GK_LR_SECTIONS = Object.freeze(["reading-general", "logic"]);
+
 // Yil -> kaynak dosya (2026-10-08 envanteri; dosya adlari degismez).
 export const SOURCE_FILES = Object.freeze({
   2011: "IMAT-past-paper-2011.pdf",
