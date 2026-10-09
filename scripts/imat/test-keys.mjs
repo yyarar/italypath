@@ -4,10 +4,15 @@
 //
 //   PATH=/usr/local/bin:$PATH node scripts/imat/test-keys.mjs   (npm run test:imat-keys)
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
+import { mkdtempSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 
 import { compareKeys, compareYear } from "./compare-keys.mjs";
 import {
   KEY_SOURCES,
+  KEY_YEARS,
   buildDownloadList,
   listMatchesApproved,
   looksLikePdf,
@@ -16,6 +21,7 @@ import {
 } from "./download-keys.mjs";
 import { parseKeyText } from "./extract-keys.mjs";
 
+const HERE = import.meta.dirname;
 const LETTERS = ["A", "B", "C", "D", "E"];
 // Uydurma anahtar: soru n -> LETTERS[(n * 3) % 5] (her harf esit sayida).
 const letterOf = (n) => LETTERS[(n * 3) % 5];
@@ -24,10 +30,10 @@ const fakeKey = (count) => Object.fromEntries(Array.from({ length: count }, (_, 
 // --- Indirme listesi (kontrolcu karari 1: Locomotive/ehabona yok; 2012 iki Cambridge surumu) -----------------
 {
   const list = buildDownloadList();
-  assert.equal(list.length, 33, "11 Cambridge anahtari + 10 medschool + 10 MUR + 2021 Cambridge kagit/anahtar");
+  assert.equal(list.length, 33, "11 Cambridge anahtari + 10 medschool + 10 MUR + 2021 Cambridge dizilimli kagit/anahtar");
   assert.equal(new Set(list.map((e) => e.file)).size, list.length, "dosya adlari benzersiz");
   for (const entry of list) {
-    assert.match(entry.file, /^\d{4}-[a-z]+(-[a-z]+)?\.pdf$/, `${entry.file}: duz ad, klasor yok`);
+    assert.match(entry.file, /^\d{4}-[a-z]+(-[a-z]+)*\.pdf$/, `${entry.file}: duz ad, klasor yok`);
     assert.equal(entry.file, `${entry.year}-${entry.source}.pdf`);
     const url = new URL(entry.url);
     assert.equal(url.protocol, "https:", `${entry.file}: https`);
@@ -42,16 +48,19 @@ const fakeKey = (count) => Object.fromEntries(Array.from({ length: count }, (_, 
     assert.deepEqual(sources, expected, `${year} kaynaklari`);
     assert.equal(list.find((e) => e.year === year && e.source === "mur").url, `https://accessoprogrammato.mur.gov.it/compiti/CompitoInglese${year}.pdf`);
   }
-  assert.deepEqual(list.filter((e) => e.year === 2021).map((e) => e.source).sort(), ["cambridge", "cambridge-paper"]);
-  assert.ok(list.find((e) => e.file === "2021-cambridge-paper.pdf").url.includes("654635-imat-past-paper-2021.pdf"));
-  assert.ok(list.find((e) => e.file === "2021-cambridge.pdf").url.includes("654636-imat-past-paper-2021-answer-key.pdf"));
+  // 2021: Cambridge'in kendi dizilimi; yerel 2021 kagidi (MUR, hep A) ile karismasin diye "cambridge-form".
+  assert.deepEqual(list.filter((e) => e.year === 2021).map((e) => e.source).sort(), ["cambridge-form", "cambridge-form-paper"]);
+  assert.ok(list.find((e) => e.file === "2021-cambridge-form-paper.pdf").url.includes("654635-imat-past-paper-2021.pdf"));
+  assert.ok(list.find((e) => e.file === "2021-cambridge-form.pdf").url.includes("654636-imat-past-paper-2021-answer-key.pdf"));
+  assert.ok(!list.some((e) => e.file === "2021-cambridge.pdf"), "2021 icin duz cambridge adi yok");
   const old2012 = list.find((e) => e.file === "2012-cambridge-old.pdf");
   assert.ok(old2012.url.startsWith("https://web.archive.org/web/20180516201335id_/"), "2012 eski surum 2018 anlik goruntusu");
   assert.equal(old2012.expectedKB, 38);
   assert.equal(list.find((e) => e.file === "2012-cambridge.pdf").expectedKB, 58);
   assert.equal(list.find((e) => e.file === "2012-medschool.pdf").expectedKB, 58, "medschool 2012 = yeni surum");
   assert.ok(list.filter((e) => e.source === "mur").every((e) => e.expectedKB === null), "MUR boyutu kayitta yok");
-  assert.deepEqual(KEY_SOURCES, ["cambridge", "cambridge-old", "medschool"], "anahtar okunan kaynaklar (MUR ve kagit degil)");
+  assert.deepEqual(KEY_SOURCES, ["cambridge", "cambridge-old", "medschool", "cambridge-form"], "anahtar okunan kaynaklar (MUR ve kagit degil)");
+  assert.deepEqual(KEY_YEARS, [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021]);
 
   // --download yalniz Kerem'e gosterilen listeyle (download-list.json) ayni kod listesini indirir.
   const approved = { files: list.map((e) => ({ ...e })) };
@@ -112,7 +121,8 @@ const fakeKey = (count) => Object.fromEntries(Array.from({ length: count }, (_, 
   const parsed = parseKeyText(lines.join("\n"), { expected: 5 });
   assert.deepEqual(parsed.problems, []);
   assert.deepEqual(parsed.key, { 1: "A", 2: "B", 3: "C", 4: "D", 5: "A" });
-  assert.ok(parsed.warnings.some((w) => w.includes("Page 1 of 2")), "eslesmeyen sayi iceren satir uyari olur");
+  assert.ok(parsed.warnings.some((w) => w.includes("satir 6")), "eslesmeyen sayi iceren satir uyari olur");
+  assert.ok(!parsed.warnings.some((w) => w.includes("Page")), "uyari kaynak metni basmaz (yalniz satir no + sayi)");
 }
 
 // --- Bolum etiketli anahtar (22/18/12/8) -------------------------------------------------------------------------
@@ -178,6 +188,39 @@ const fakeKey = (count) => Object.fromEntries(Array.from({ length: count }, (_, 
   assert.ok(empty.problems.some((p) => p.includes("metin")), "metin katmani yok");
 
   assert.throws(() => parseKeyText("1 A", {}), /expected/);
+}
+
+// --- Iki harfli / isaretli / gecersiz cevap: tek harfe indirilmez, hata olur (JSON yazilmaz) ---------------------
+{
+  // Son ikisi: harften sonra bosluk + harfsiz isaret; yalniz "cift olan satirda artik isaret" kurali yakalar.
+  const forms = ["1 A/B", "1 A*", "1 A-B", "1 A (B)", "1 A or B", "1 A, C", "1 a", "1 A *", "1 A (accepted)"];
+  for (const form of forms) {
+    const parsed = parseKeyText([form, "2 B", "3 C"].join("\n"), { expected: 3 });
+    assert.ok(parsed.problems.some((p) => p.startsWith("soru 1")), `"${form}": soru 1 icin hata`);
+    assert.equal(parsed.key[1], undefined, `"${form}": soru 1'e harf yazilmaz`);
+    assert.equal(parsed.key[2], "B");
+    for (const message of [...parsed.problems, ...parsed.warnings]) assert.ok(!message.includes(form), `"${form}": mesaj kaynak satiri basmaz`);
+  }
+  const notALetter = parseKeyText([...Array.from({ length: 6 }, (_, i) => `${i + 1} ${letterOf(i + 1)}`), "7 F"].join("\n"), { expected: 7 });
+  assert.ok(notALetter.problems.some((p) => p.startsWith("soru 7")), "A-E disi harf hata");
+  assert.equal(notALetter.key[7], undefined);
+  const loose = parseKeyText(["1 A", "2 B", "Version C"].join("\n"), { expected: 2 });
+  assert.ok(loose.problems.some((p) => p.includes("satir 3")), "numarasiz serbest cevap harfi de hata");
+}
+
+// --- CLI: --year zorunlu, mesaj --year der (ag ve dosya yok) ---------------------------------------------------------
+{
+  const out = mkdtempSync(join(tmpdir(), "imat-keys-test-"));
+  try {
+    for (const [script, args] of [["extract-keys.mjs", ["--source", "cambridge"]], ["compare-keys.mjs", []]]) {
+      const run = spawnSync(process.execPath, [join(HERE, script), ...args], { encoding: "utf8", env: { ...process.env, IMAT_OUT: out } });
+      assert.equal(run.status, 2, `${script}: --year yoksa cikis 2`);
+      assert.match(run.stderr, /--year zorunlu/, `${script}: mesaj --year der`);
+      assert.doesNotMatch(run.stderr, /--years/, `${script}: --years demez`);
+    }
+  } finally {
+    rmSync(out, { recursive: true, force: true });
+  }
 }
 
 // --- compareKeys --------------------------------------------------------------------------------------------------

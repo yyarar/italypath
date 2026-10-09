@@ -26,8 +26,11 @@ export const MANIFEST_PATH = join(SOURCES_DIR, "manifest.json");
 export const LIST_PATH = join(SOURCES_DIR, "download-list.json");
 export const SOURCE_RECORD = "docs/superpowers/specs/assets/2026-10-08-imat-answer-key-sources.md";
 
-// Cevap anahtari okunan kaynaklar (extract-keys.mjs, compare-keys.mjs). "mur" ve "cambridge-paper" kagittir.
-export const KEY_SOURCES = Object.freeze(["cambridge", "cambridge-old", "medschool"]);
+// Cevap anahtari okunan kaynaklar (extract-keys.mjs). "mur" ve "cambridge-form-paper" kagittir. "cambridge-form"
+// yalniz 2021: Cambridge'in kendi 2021 dizilimi; yerel 2021 kagidi MUR surumudur (hep A), bu anahtar ona uygulanmaz.
+export const KEY_SOURCES = Object.freeze(["cambridge", "cambridge-old", "medschool", "cambridge-form"]);
+// Anahtar cikarilan yillar (extract-keys.mjs); 2011-2020 capraz kontrol compare-keys.mjs'te.
+export const KEY_YEARS = Object.freeze([2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021]);
 
 // Cambridge orijinali (Wayback, ham dosya). Boyutlar kayittaki yaklasik KB degeridir.
 const CAMBRIDGE_KEYS = Object.freeze({
@@ -60,7 +63,8 @@ const MEDSCHOOL_TIMESTAMPS = Object.freeze({
   2019: "20250504140030",
   2020: "20250505160808",
 });
-// Cambridge 2021 kendi kagidi + anahtari (yerel 2021 dosyasi MUR surumu; yalniz metin eslemesiyle capraz kontrol).
+// Cambridge 2021 kendi kagidi + anahtari ("cambridge-form"; yerel 2021 dosyasi MUR surumu; yalniz metin eslemesiyle
+// capraz kontrol).
 const CAMBRIDGE_2021 = Object.freeze({
   paper: ["https://web.archive.org/web/20220929205913id_/https://www.admissionstesting.org/Images/654635-imat-past-paper-2021.pdf", null],
   key: ["https://web.archive.org/web/20220929215620id_/https://www.admissionstesting.org/Images/654636-imat-past-paper-2021-answer-key.pdf", 92],
@@ -70,7 +74,8 @@ function entry(year, source, url, expectedKB, note) {
   return { year, source, file: `${year}-${source}.pdf`, url, expectedKB, note };
 }
 
-// Indirme listesi (33 dosya): yil sirasiyla cambridge, cambridge-old, medschool, mur, cambridge-paper.
+// Indirme listesi (33 dosya): 2011-2020 yil sirasiyla cambridge, cambridge-old (2012), medschool, mur; sonra 2021
+// cambridge-form (anahtar) ve cambridge-form-paper (kagit).
 export function buildDownloadList() {
   const list = [];
   for (let year = 2011; year <= 2020; year += 1) {
@@ -81,8 +86,8 @@ export function buildDownloadList() {
     list.push(entry(year, "medschool", medschool, kb, "medschool.it kopyasi (kayit: Cambridge ile ayni)"));
     list.push(entry(year, "mur", `https://accessoprogrammato.mur.gov.it/compiti/CompitoInglese${year}.pdf`, null, "MUR kagidi (sira kontrolu Gorev 15)"));
   }
-  list.push(entry(2021, "cambridge", CAMBRIDGE_2021.key[0], CAMBRIDGE_2021.key[1], "Cambridge 2021 anahtari (Cambridge kagidina ait)"));
-  list.push(entry(2021, "cambridge-paper", CAMBRIDGE_2021.paper[0], CAMBRIDGE_2021.paper[1], "Cambridge 2021 kagidi"));
+  list.push(entry(2021, "cambridge-form", CAMBRIDGE_2021.key[0], CAMBRIDGE_2021.key[1], "Cambridge 2021 anahtari (Cambridge dizilimi; yerel MUR 2021 kagidina uygulanmaz)"));
+  list.push(entry(2021, "cambridge-form-paper", CAMBRIDGE_2021.paper[0], CAMBRIDGE_2021.paper[1], "Cambridge 2021 kagidi (Cambridge dizilimi)"));
   return list;
 }
 

@@ -1,5 +1,6 @@
-// IMAT cevap anahtarlarini kaynaklar arasi karsilastirir (plan 2026-10-08, Gorev 14). Girdi extract-keys.mjs
-// ciktisi keys/<yil>.<kaynak>.json (cambridge zorunlu; medschool ve 2012 icin cambridge-old varsa).
+// IMAT cevap anahtarlarini kaynaklar arasi karsilastirir (plan 2026-10-08, Gorev 14). Yalniz 2011-2020; girdi
+// extract-keys.mjs ciktisi keys/<yil>.<kaynak>.json (cambridge zorunlu; medschool ve 2012 icin cambridge-old varsa).
+// 2021 burada yok: tek kaynak (cambridge-form, Cambridge dizilimi); capraz kontrolu metin eslemesiyle sonraki gorevde.
 //
 //   PATH=/usr/local/bin:$PATH IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank node scripts/imat/compare-keys.mjs --year 2012
 //   ... --year 2011,2012,2013,2014,2015,2016,2017,2018,2019,2020
@@ -13,11 +14,14 @@ import { existsSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { KEY_SOURCES, readManifest } from "./download-keys.mjs";
-import { KEY_YEARS } from "./extract-keys.mjs";
+import { KEY_YEARS, readManifest } from "./download-keys.mjs";
 import { KEYS_DIR, argValue, parseYears, readJson, writeJson } from "./paths.mjs";
 
 export const COMPARE_REPORT_PATH = join(KEYS_DIR, "compare-report.json");
+const COMPARE_YEARS = Object.freeze(KEY_YEARS.filter((year) => year <= 2020));
+// Esas karsilastirma (blocked) bu kaynaklarla; cambridge-old yalniz versionDiff.
+const PRIMARY_SOURCES = Object.freeze(["cambridge", "medschool"]);
+const LOADED_SOURCES = Object.freeze(["cambridge", "cambridge-old", "medschool"]);
 
 const questionNumbers = (key) => Object.keys(key).filter((k) => /^\d+$/.test(k)).map(Number);
 
@@ -52,7 +56,7 @@ export function compareKeys(sources) {
  */
 export function compareYear(keysBySource) {
   if (!keysBySource.cambridge) throw new Error("compareYear: cambridge anahtari zorunlu");
-  const primary = Object.fromEntries(KEY_SOURCES.filter((s) => s !== "cambridge-old" && keysBySource[s]).map((s) => [s, keysBySource[s]]));
+  const primary = Object.fromEntries(PRIMARY_SOURCES.filter((s) => keysBySource[s]).map((s) => [s, keysBySource[s]]));
   const result = compareKeys(primary);
   if (!keysBySource["cambridge-old"]) return result;
   const diff = compareKeys({ "cambridge-old": keysBySource["cambridge-old"], cambridge: keysBySource.cambridge });
@@ -73,13 +77,15 @@ function identicalSources(year, sources, manifest) {
 const formatAnswers = (answers) => Object.entries(answers).map(([s, l]) => `${s} ${l ?? "-"}`).join(" / ");
 
 function main(argv) {
-  const years = parseYears(argValue(argv, "--year"), KEY_YEARS);
+  const yearArg = argValue(argv, "--year");
+  if (!yearArg) throw new Error("--year zorunlu (ornek: --year 2012 ya da --year 2011,2012)");
+  const years = parseYears(yearArg, COMPARE_YEARS);
   const manifest = readManifest();
   const report = existsSync(COMPARE_REPORT_PATH) ? readJson(COMPARE_REPORT_PATH) : { years: {} };
   let blockedTotal = 0;
   for (const year of years) {
     const keys = {};
-    for (const source of KEY_SOURCES) {
+    for (const source of LOADED_SOURCES) {
       const path = join(KEYS_DIR, `${year}.${source}.json`);
       if (existsSync(path)) keys[source] = readJson(path);
     }

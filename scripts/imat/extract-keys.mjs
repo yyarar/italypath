@@ -4,26 +4,30 @@
 //
 //   PATH=/usr/local/bin:$PATH IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank node scripts/imat/extract-keys.mjs --year 2017 --source cambridge
 //   ... --year 2011,2012,2013 --source medschool   (virgulle birden cok yil)
+//   ... --year 2021 --source cambridge-form          (Cambridge'in kendi 2021 dizilimi; yerel MUR 2021 kagidina ait degil)
 //
 // Cikti: keys/<yil>.<kaynak>.json = { "1": "C", ..., "60": "B" } (+ bolum etiketi varsa "sections": [{ label, from, to }]);
 // ham metin keys/<yil>.<kaynak>.txt (yalniz IMAT_OUT altinda kalir; soru metni icerebilir, Git'e girmez).
-// Kayit sayisi expectedQuestions(yil) degilse, celisen tekrar ya da aralik disi numara varsa JSON yazilmaz (eskisi
-// silinir), cikis 1.
-// Konsol yalniz numara/harf/sayi basar (soru metni yok).
+// Kayit sayisi expectedQuestions(yil) degilse, celisen tekrar, aralik disi numara ya da tek harfli A-E olmayan cevap
+// (iki harf, isaret, gecersiz harf) varsa JSON yazilmaz (eskisi silinir), cikis 1.
+// Konsol yalniz numara/harf/sayi/satir no basar (PDF metni yok).
 import { spawnSync } from "node:child_process";
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { KEY_SOURCES, verifiedSourcePath } from "./download-keys.mjs";
+import { KEY_SOURCES, KEY_YEARS, verifiedSourcePath } from "./download-keys.mjs";
 import { expectedQuestions } from "./inventory.mjs";
 import { KEYS_DIR, argValue, parseYears, writeJson } from "./paths.mjs";
 
-export const KEY_YEARS = Object.freeze([2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021]);
-
 // "1 A", "1. A", "2) B", "Q3 C", "Question 4: D", "5A"; bir satirda birden cok (iki/uc sutun: "1 A 31 C").
-const PAIR = /(?<![\w.])(?:Q(?:uestion)?\.?\s*)?(\d{1,3})\s*[.):]?\s*([A-E])(?!\w)/g;
-const STRAY = /(?:^|\s)([A-E]|\d{1,3})(?=$|\s|[.):,;])/g;
+// Harften sonra yalniz bosluk ya da satir sonu: "1 A/B", "1 A*", "1 A-B", "1 A, C" cift sayilmaz.
+const PAIR = /(?<![\w.])(?:Q(?:uestion)?\.?\s*)?(\d{1,3})\s*[.):]?\s*([A-E])(?=\s|$)/g;
+// Ciftlerden arta kalan metinde: harf komsusu olmayan A-E ("A/B", "(B)", "A*" icindekiler) ...
+const LOOSE_LETTER = /(?<![A-Za-z])[A-E](?![A-Za-z])/;
+// ... ya da numara + tek harf (A-E disi ya da kucuk: "7 F", "3 c").
+const NUMBER_LETTER = /(?<![\w.])(\d{1,3})\s*[.):]?\s*[A-Za-z](?![A-Za-z])/g;
+const NUMBER = /(?<![\w.])(\d{1,3})(?!\w)/g;
 
 // Bilinen bolum basliklari (kucuk harf). Etiket oldugu gibi saklanir; esleme Gorev 17'de.
 const SECTION_LABELS = new Set([
@@ -69,10 +73,11 @@ export function parseKeyText(text, { expected } = {}) {
   let current = { label: null, numbers: [] };
   groups.push(current);
 
-  const lines = text.replace(/ /g, " ").replace(/\t/g, " ").split(/\r?\n|\f/);
+  const lines = text.replace(/\u00a0/g, " ").replace(/\t/g, " ").split(/\r?\n|\f/);
   if (lines.every((line) => line.trim() === "")) {
     return { key, sections: null, problems: ["metin yok (PDF metin katmani bos; goruntuden okunmali)"], warnings };
   }
+  const inRange = (n) => n >= 1 && n <= expected;
   lines.forEach((line, index) => {
     const pairs = [...line.matchAll(PAIR)].map((m) => [Number(m[1]), m[2]]);
     const rest = line.replace(PAIR, " ").replace(/\s+/g, " ").trim();
@@ -80,10 +85,22 @@ export function parseKeyText(text, { expected } = {}) {
     if (label) {
       current = { label, numbers: [] };
       groups.push(current);
-    } else {
-      // Ciftlenmemis tek harf ya da soru araligindaki sayi (ornek: iki harfli cevap, bozuk satir): bilgi icin.
-      const stray = [...rest.matchAll(STRAY)].map((m) => m[1]).filter((t) => /^[A-E]$/.test(t) || Number(t) <= expected);
-      if (stray.length > 0) warnings.push(`satir ${index + 1}: eslesmeyen parca "${rest.slice(0, 40)}"`);
+    } else if (rest) {
+      // Cift olan satirda artik isaret ("1 A (B)", "1 A or B"), serbest A-E harfi ya da numara + gecersiz harf:
+      // iki harfli / isaretli / gecersiz cevap. Tek harfe indirilmez; satirdaki sorular hata olur (JSON yazilmaz).
+      const restNumbers = [...rest.matchAll(NUMBER)].map((m) => Number(m[1])).filter(inRange);
+      const badLetter = [...rest.matchAll(NUMBER_LETTER)].some((m) => inRange(Number(m[1])));
+      if (pairs.length > 0 || LOOSE_LETTER.test(rest) || badLetter) {
+        const numbers = [...new Set([...pairs.map(([n]) => n).filter(inRange), ...restNumbers])].sort((a, b) => a - b);
+        problems.push(
+          numbers.length > 0
+            ? `soru ${numbers.join(", ")}: tek harfli A-E cevap degil (isaret, ikinci harf ya da gecersiz harf; satir ${index + 1})`
+            : `satir ${index + 1}: numarasiz cevap harfi`,
+        );
+        return; // kaynak metin basilmaz (telif kurali); yalniz numara ve satir
+      }
+      // Yalniz sayi kalan satir (ornek: sayfa numarasi): bilgi icin, metin basilmaz.
+      if (restNumbers.length > 0) warnings.push(`satir ${index + 1}: eslesmeyen ${restNumbers.length} sayi`);
     }
     for (const [number, letter] of pairs) {
       if (number < 1 || number > expected) {
@@ -132,7 +149,7 @@ function sectionRanges(groups, expected, warnings) {
 
 const PDF_TEXT_PY = [
   "import site, sys",
-  "site.addsitedir(site.getusersitepackages())", // -I kullanici paketlerini kapatir; pdfplumber orada (bilinen yer)
+  "sys.path.append(site.getusersitepackages())", // -I kullanici paketlerini kapatir; pdfplumber orada (.pth calismaz)
   "import pdfplumber",
   "with pdfplumber.open(sys.argv[1]) as pdf:",
   "    for page in pdf.pages:",
@@ -153,7 +170,9 @@ function letterCounts(key) {
 }
 
 function main(argv) {
-  const years = parseYears(argValue(argv, "--year"), KEY_YEARS);
+  const yearArg = argValue(argv, "--year");
+  if (!yearArg) throw new Error("--year zorunlu (ornek: --year 2017 ya da --year 2011,2012)");
+  const years = parseYears(yearArg, KEY_YEARS);
   const source = argValue(argv, "--source");
   if (!KEY_SOURCES.includes(source)) throw new Error(`--source ${KEY_SOURCES.join(" | ")} olmali`);
   mkdirSync(KEYS_DIR, { recursive: true });
