@@ -6,6 +6,7 @@
 // extract/<yil>.shuffled.json (once shuffle-choices.mjs; merge-vision sonrasi yeniden), keys/<yil>.json (2025'te
 // zorunlu "hep A" kaniti), (varsa) classify/topics.json { "<id>": { section, topicSlug } } ve corrections.json,
 // figures/<yil>/<id>.webp, kapi 4 icin kaynak PDF (pdftotext -layout).
+// (varsa) exclusions.json [{ id, reason }]: elle haric tutulan sorular (urun karari) bloke gibi islenir, bankaya girmez.
 // Cikti: bank.json { bank, failures, warnings, excluded } ve validate-report.json (yil bazinda sayim, kapilar).
 // Herhangi bir kapida hata varsa cikis 1; bank.json yine yazilir (import-bank failures doluysa reddeder).
 // Hata/uyari metinleri soru metni tasimaz: konum = alan + kelime sirasi.
@@ -75,6 +76,7 @@ import {
   BANK_PATH,
   CLASSIFY_DIR,
   CORRECTIONS_PATH,
+  EXCLUSIONS_PATH,
   EXTRACT_DIR,
   FIGURES_DIR,
   GK_LR_SECTION,
@@ -199,6 +201,29 @@ for (const year of years) {
   const keyPath = join(KEYS_DIR, `${year}.json`);
   const key = existsSync(keyPath) ? readJson(keyPath) : null;
   papers.push({ year, entry, extract, questions: [...(extract.questions ?? [])].sort((a, b) => a.number - b.number), shuffled, key });
+}
+
+// Elle haric tutma (exclusions.json): soru bloke sayilir; listedeki id bu yillarda yoksa uyari.
+const exclusions = existsSync(EXCLUSIONS_PATH) ? readJson(EXCLUSIONS_PATH) : [];
+if (!Array.isArray(exclusions)) throw new Error(`${EXCLUSIONS_PATH}: dizi bekleniyor`);
+const exclusionById = new Map();
+for (const [index, item] of exclusions.entries()) {
+  if (!item || typeof item.id !== "string" || typeof item.reason !== "string" || item.reason.trim() === "") {
+    throw new Error(`${EXCLUSIONS_PATH} [${index}]: { id, reason } bekleniyor`);
+  }
+  exclusionById.set(item.id, item.reason);
+}
+const exclusionHits = new Set();
+for (const paper of papers) {
+  for (const q of paper.questions) {
+    if (!exclusionById.has(q.id)) continue;
+    q.blocked = true;
+    q.blockReason = `manual: ${exclusionById.get(q.id)}`;
+    exclusionHits.add(q.id);
+  }
+}
+for (const id of exclusionById.keys()) {
+  if (!exclusionHits.has(id)) warnings.push(`exclusions.json: ${id} bu yillarda yok`);
 }
 
 // ------------------------------------------------------------------ 1 sayim + 7 kimlik

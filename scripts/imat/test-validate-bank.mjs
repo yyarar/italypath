@@ -638,6 +638,19 @@ try {
   );
 
   await scenario(
+    "elle haric tutulan soru (exclusions.json) bankaya girmez",
+    (root) => write(join(root, "exclusions.json"), [{ id: id(7), reason: "product decision: not a well-posed exam question" }]),
+    (result) => {
+      assert.equal(result.status, 0, "elle haric tutma tek basina hata degil");
+      const { bank, excluded } = result.output;
+      assert.equal(bank.length, 59);
+      assert.equal(excluded.length, 1);
+      assert.equal(excluded[0].id, id(7));
+      assert.ok(excluded[0].reason.startsWith("manual: "), excluded[0].reason);
+    }
+  );
+
+  await scenario(
     "bloke soru bankaya girmez",
     (root) =>
       mutateQuestion(root, 2025, 7, (q) => {
