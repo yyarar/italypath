@@ -18,7 +18,8 @@
 // numaraya gore sayfa sirasiyla birlesir (ilk parca cumle sonu isaretiyle bitiyorsa "\n\n", degilse bosluk; siklar
 // harf harf hangi parcadaysa oradan). Cikti extract/<yil>.json { year, source: "vision", questions } (metin yili ile ayni
 // soru bicimi + figureBox { kind, box, space: "page", image, page }).
-// Soru kipi (2024, 2025: hasImage sorulari): yazim extract/<yil>.json'a yerinde islenir (source "text" kalir); soru
+// Soru kipi (metin yili, textLayer "ok" ya da "decoded": 2011-2022, 2024, 2025; hasImage sorulari): yazim
+// extract/<yil>.json'a yerinde islenir (source "text" kalir); soru
 // visionRewritten: true, textHint { prompt, choices } (ilk metin katmani, sonraki calismalar bunu kullanir), figureBox
 // { kind, box, space: "crop", image, page, cropBox }. Ipucu karsilastirmasi (lib/text.mjs alignToHint): formul disindaki
 // her karakter ipucuyla ayni sirada olmali; fark -> blocked "hint-mismatch", vision/<yil>/hint-mismatch.json yalniz

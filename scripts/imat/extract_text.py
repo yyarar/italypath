@@ -8,8 +8,10 @@
 #   --years <yil,yil>   zorunlu; yalniz metin katmani saglam yillar
 #   --layout <ad>       sayfa duzeni: mur (varsayilan; 2023-2025 MUR denemesi) | cambridge (2011-2022 gecmis kagitlari) |
 #                       mur-legacy (2011-2020 MUR "hep A" kopyalari, keys/sources/<yil>-mur.pdf; --source ile)
-#   --decode-shift <n>  glif numarasi -> kod noktasi kaydirmasi (yalniz 2021: --layout cambridge --decode-shift 29;
-#                       metin katmani "bozuk" yil ancak bununla okunur; orkestrasyon scripts/imat/decode-2021.mjs)
+#   --decode-shift <n>  glif numarasi -> kod noktasi kaydirmasi. Envanter yilinda kaydirma inventory.json'dan gelir (textLayer
+#                       "decoded", decodeShift; 2021: 29); verilirse ayni olmali, "ok" yilda reddedilir. Cozulmus yilin cikarimi
+#                       vision/<yil>/decode-check.json accepted true ister (--rows ve --dump istemez). --source kipinde kaydirma
+#                       yalniz bu secenekle. Orkestrasyon scripts/imat/decode-2021.mjs.
 #   --source <pdf> --out <json> --expected <n>
 #                       envanter disi tek kagit (tek --years yili): envanter/kaynak klasoru kontrolu yok, sayim --expected'a
 #                       gore; sorun yoksa yalniz --out yazilir (orkestrasyon scripts/imat/compare-mur-order.mjs)
@@ -1733,22 +1735,18 @@ def main(argv):
                        lambda y: os.path.abspath(opts["out"]))
         return code
     inv = check_inventory()
-    for year in opts["years"]:
-        if year not in inv:
-            sys.exit(f"envanterde yok: {year}")
-        if inv[year]["textLayer"] != "ok" and opts["decode_shift"] is None:
-            sys.exit(f"{year}: metin katmani bozuk; goruntuden yazilir (crop-questions.mjs) ya da kod kaydirmasiyla cozulur (--decode-shift, decode-2021.mjs)")
+    shifts = year_shifts(inv, opts)
     if opts["rows"]:
         year = opts["years"][0]
         layout = LAYOUTS[opts["layout"]](year)
-        decode = make_decoder(opts["decode_shift"]) if opts["decode_shift"] is not None else None
+        decode = make_decoder(shifts[year]) if shifts[year] is not None else None
         rows = [{"page": r["page"] + 1, "top": round(r["top"], 2), "bottom": round(r["bottom"], 2), "x0": round(r["x0"], 2),
                  "x1": round(r["x1"], 2), "text": r["text"]}
                 for page in load_pages(os.path.join(SOURCE_DIR, inv[year]["file"]), layout, decode) for r in build_rows(page, layout)]
         print(json.dumps(rows, ensure_ascii=False))
         return 0
     mock_years, mock_counts = mock_section_counts()
-    tasks = [(os.path.join(SOURCE_DIR, inv[y]["file"]), y, opts["layout"], inv[y]["expectedQuestions"], opts["decode_shift"]) for y in opts["years"]]
+    tasks = [(os.path.join(SOURCE_DIR, inv[y]["file"]), y, opts["layout"], inv[y]["expectedQuestions"], shifts[y]) for y in opts["years"]]
     if opts["jobs"] <= 1 or len(tasks) == 1:
         results = [run_one(t) for t in tasks]
     else:
@@ -1765,6 +1763,46 @@ def main(argv):
         return 0
     code, _ = emit(results, inv, mock_years, mock_counts, lambda year: os.path.join(EXTRACT_DIR, f"{year}.json"))
     return code
+
+
+def decode_check_accepted(year):
+    # vision/<yil>/decode-check.json accepted alani (decode-2021.mjs --check yazar, ana oturum kabul eder); dosya yoksa None.
+    path = os.path.join(OUT_ROOT, "vision", str(year), "decode-check.json")
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as fh:
+        return json.load(fh).get("accepted")
+
+
+def year_shifts(inv, opts):
+    # Yil -> glif kaydirmasi (None: kaydirma yok), envanterin textLayer alanindan. "decoded" yilin kaydirmasi envanterden gelir
+    # (--decode-shift verilirse ayni olmali); cikarma (--rows ve --dump disinda) decode-check kabulu ister. "ok" yila kaydirma
+    # uygulanmaz (toplu calistirmada 2021 disina tasmasin); "broken" yil goruntuden yazilir.
+    shifts = {}
+    for year in opts["years"]:
+        if year not in inv:
+            sys.exit(f"envanterde yok: {year}")
+        layer = inv[year].get("textLayer")
+        if layer == "broken":
+            sys.exit(f"{year}: metin katmani bozuk; goruntuden yazilir (crop-questions.mjs sayfa kipi)")
+        if layer == "decoded":
+            shift = inv[year].get("decodeShift")
+            if not isinstance(shift, int):
+                sys.exit(f"{year}: envanterde decodeShift yok (cozulmus metin katmani; inventory.mjs)")
+            if opts["decode_shift"] is not None and opts["decode_shift"] != shift:
+                sys.exit(f"{year}: --decode-shift {opts['decode_shift']} envanterdeki kaydirmayla ({shift}) celisiyor")
+            if not opts["rows"] and not opts["dump"]:
+                accepted = decode_check_accepted(year)
+                if accepted is not True:
+                    sys.exit(f"{year}: cozulmus metin katmani ama decode-check kabul edilmedi (accepted {accepted}); once decode-2021.mjs --check ve ana oturum kabulu")
+            shifts[year] = shift
+        elif layer == "ok":
+            if opts["decode_shift"] is not None:
+                sys.exit("--decode-shift yalniz cozulmus metin katmanli yilda (envanter textLayer \"decoded\") gecerli; kaydirma envanterden okunur")
+            shifts[year] = None
+        else:
+            sys.exit(f"{year}: bilinmeyen textLayer: {layer}")
+    return shifts
 
 
 def emit(results, entries, mock_years, mock_counts, out_path):

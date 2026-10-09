@@ -13,8 +13,26 @@ import { fileURLToPath } from "node:url";
 
 import { ALL_YEARS, INVENTORY_PATH, SOURCE_FILES, ensureOutDirs, readJson, sourcePdf, writeJson } from "./paths.mjs";
 
-// Metin katmani bozuk yillar (fontlarda ToUnicode yok; pdftotext cop verir): goruntuden yazilir.
-export const BROKEN_TEXT_YEARS = Object.freeze([2021, 2023]);
+// Metin katmani durumu (textLayer): "ok" saglam; "decoded" glif numarasi tasir ama kod kaydirmasiyla (decodeShift) okunur
+// (extract_text.py kaydirmayi envanterden alir, cikarma decode-check kabulu ister; pdftotext cop verir); "broken" okunamaz,
+// goruntuden yazilir (sayfa kipi). "ok" ve "decoded" metin yilidir: yalniz hasImage sorulari kirpilip goruntuden yazilir.
+// Metin katmani bozuk yillar (fontlarda ToUnicode yok): goruntuden yazilir.
+export const BROKEN_TEXT_YEARS = Object.freeze([2023]);
+// Kod kaydirmasiyla cozulen yillar -> kaydirma (glif numarasi + kaydirma = ASCII; plan Gorev 15, decode-2021.mjs;
+// vision/2021/decode-check.json 2026-10-09 kabul edildi).
+export const DECODED_TEXT_YEARS = Object.freeze({ 2021: 29 });
+const TEXT_LAYERS_WITH_TEXT = Object.freeze(["ok", "decoded"]);
+
+export function textLayerOf(year) {
+  if (BROKEN_TEXT_YEARS.includes(year)) return { textLayer: "broken" };
+  if (DECODED_TEXT_YEARS[year] !== undefined) return { textLayer: "decoded", decodeShift: DECODED_TEXT_YEARS[year] };
+  return { textLayer: "ok" };
+}
+
+// Metin yili mi ("ok" ya da "decoded"): soru kipi (hasImage kirpintilari), kaynak metin kapisi.
+export function hasTextLayer(entry) {
+  return TEXT_LAYERS_WITH_TEXT.includes(entry?.textLayer);
+}
 
 export function expectedQuestions(year) {
   return year <= 2012 ? 80 : 60;
@@ -36,7 +54,7 @@ function describe(year) {
     bytes: statSync(path).size,
     sha256: createHash("sha256").update(readFileSync(path)).digest("hex"),
     pages: pageCount(path),
-    textLayer: BROKEN_TEXT_YEARS.includes(year) ? "broken" : "ok",
+    ...textLayerOf(year),
     expectedQuestions: expectedQuestions(year),
   };
 }
@@ -56,7 +74,7 @@ export function inventoryProblems() {
       problems.push(`${entry.year}: envanterde yok`);
       continue;
     }
-    for (const key of ["file", "bytes", "sha256", "pages", "textLayer", "expectedQuestions"]) {
+    for (const key of ["file", "bytes", "sha256", "pages", "textLayer", "decodeShift", "expectedQuestions"]) {
       if (old[key] !== entry[key]) problems.push(`${entry.year}: ${key} ${old[key]} -> ${entry[key]}`);
     }
     saved.delete(entry.year);
@@ -86,7 +104,8 @@ function main() {
   writeJson(INVENTORY_PATH, inventory);
   const pages = inventory.reduce((sum, entry) => sum + entry.pages, 0);
   const broken = inventory.filter((entry) => entry.textLayer === "broken").map((entry) => entry.year);
-  console.log(`Yazildi: ${INVENTORY_PATH} (${inventory.length} dosya, ${pages} sayfa; metni bozuk: ${broken.join(", ")})`);
+  const decoded = inventory.filter((entry) => entry.textLayer === "decoded").map((entry) => `${entry.year} (kaydirma ${entry.decodeShift})`);
+  console.log(`Yazildi: ${INVENTORY_PATH} (${inventory.length} dosya, ${pages} sayfa; metni bozuk: ${broken.join(", ")}; cozulmus: ${decoded.join(", ")})`);
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

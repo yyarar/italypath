@@ -271,6 +271,50 @@ try {
     { year: 2022, examSet: "mock", args: ["--years", "2022", "--require-figures"] }
   );
 
+  // Cozulmus metin katmanli yil (2021, inventory textLayer "decoded"): metin yili gibi islenir. Kapi 4 pdftotext yerine
+  // (kaynak glif kaydirmali) decode-check kabulunu ister; hasImage soru yine goruntuden yazilmis olmali; karistirma kaydi
+  // (2021-2025) zorunlu kalir.
+  const decodedYear = (root, { accepted = true, rewritten = true } = {}) => {
+    const inventoryPath = join(root, "inventory.json");
+    write(inventoryPath, read(inventoryPath).map((entry) => ({ ...entry, textLayer: "decoded", decodeShift: 29 })));
+    for (const name of ["2021.json", "2021.shuffled.json"]) {
+      const path = join(root, "extract", name);
+      const data = read(path);
+      data.source = "text";
+      if (rewritten) data.questions.find((q) => q.number === 1).visionRewritten = true;
+      write(path, data);
+    }
+    write(join(root, "vision", "2021", "decode-check.json"), { year: 2021, shift: 29, accepted });
+  };
+  await scenario(
+    "cozulmus metin katmanli yil (2021) metin yili gibi gecer",
+    (root) => decodedYear(root),
+    (result) => {
+      assert.equal(result.status, 0, "cikis 0 bekleniyor");
+      assert.deepEqual(result.output.failures, []);
+      assert.equal(result.output.bank.length, 60);
+      assert.ok(result.output.bank.every((q) => q.year === 2021 && q.shuffle && q.correct_answer === q.shuffle.shuffled), "2021 karistirma kaydi");
+      assert.ok(result.output.warnings.some((m) => /^kapi 4: 2021: cozulmus metin katmani/.test(m)), "kapi 4 uyarisi: pdftotext yerine decode-check");
+      const gate4 = read(join(result.root, "validate-report.json")).gates.find((g) => String(g.gate) === "4");
+      assert.deepEqual(gate4.counts.decodedYears, [2021]);
+      assert.deepEqual(gate4.counts.textYears, [2021], "cozulmus yil metin yili sayilir");
+      assert.equal(gate4.counts.compared, 0, "glif kaydirmali pdftotext ile karsilastirilmaz");
+    },
+    { year: 2021 }
+  );
+  await scenario(
+    "cozulmus yilda decode-check kabul edilmemis kapi 4",
+    (root) => decodedYear(root, { accepted: null }),
+    expectFailure(/kapi 4: 2021: .*decode-check kabul edilmedi/),
+    { year: 2021 }
+  );
+  await scenario(
+    "cozulmus yilda goruntuden yazilmamis hasImage kapi 4",
+    (root) => decodedYear(root, { rewritten: false }),
+    expectFailure(new RegExp(`kapi 4: .*${id(1, 2021)}.*goruntuden yazilmadi`)),
+    { year: 2021 }
+  );
+
   await scenario(
     "duzeltmede before eslesmiyor kapi 8",
     (root) => {

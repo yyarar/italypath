@@ -1,4 +1,4 @@
-// IMAT 2021 metin katmani cozumu (plan Gorev 15). Yerel 2021 kagidinin (inventory.json: textLayer "broken") metin katmani
+// IMAT 2021 metin katmani cozumu (plan Gorev 15). Yerel 2021 kagidinin (inventory.json: textLayer "decoded", decodeShift 29) metin katmani
 // glif numarasi tasir: pdfplumber "(cid:N)" verir, N + 29 ASCII kod noktasidir (pdftotext ciktisinda ":" -> "W" kaydirmasi;
 // bosluk ve satir sonu dokunulmaz). Cozum extract_text.py icinde karakter duzeyinde yapilir (--decode-shift 29): satirlar
 // kurulmadan once her glif kaydirilir, boylece yazi tipi bilgisi (italik isareti, kalin sik harfi) korunur. ASCII disi glifler

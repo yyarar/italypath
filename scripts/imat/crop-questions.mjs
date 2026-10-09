@@ -2,9 +2,10 @@
 //
 //   PATH=/usr/local/bin:$PATH IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank node scripts/imat/crop-questions.mjs --years 2023,2024,2025 [--all] [--numbers 5,48]
 //
-// Metin katmani bozuk yil (2023, 2021): sayfa kipi. Kirpma yok; her girdi bir sayfa goruntusu, paket basina 3 sayfa:
+// Metin katmani bozuk yil (inventory textLayer "broken": 2023): sayfa kipi. Kirpma yok; her girdi bir sayfa goruntusu, paket basina 3 sayfa:
 //   vision/<yil>/package-NN.json = [{ year, page, image, textHint: null, choicesHint: null, expectedNumbers: [] }]
-// Metin yili (2024, 2025): extract/<yil>.json'daki bbox + 6 pt pay (sayfaya kistirilir) 200 dpi sayfa PNG'sinden
+// Metin yili (textLayer "ok" ya da "decoded": 2011-2022, 2024, 2025; 2021 kod kaydirmasiyla cozulmus):
+// extract/<yil>.json'daki bbox + 6 pt pay (sayfaya kistirilir) 200 dpi sayfa PNG'sinden
 // sharp ile kirpilir -> vision/<yil>/q-NN.png. Varsayilan yalniz hasImage sorulari (goruntuden yazima gidenler):
 //   vision/<yil>/package-NN-img.json = [{ id, year, number, section, image, cropBox, textHint: prompt, choicesHint: choices }]
 // cropBox = kirpintinin sayfadaki yeri [x0, y0, x1, y1], 200 dpi sayfa pikseli; kirpinti icinde olculen sekil kutusu

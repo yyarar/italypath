@@ -13,7 +13,7 @@
 // Kapilar: 1 sayim (expectedQuestions; deneme yilinda MOCK_SECTION_COUNTS ve bolum sirasi), 2 kunye (5 dolu sik, tek
 // harf, bolum/konu taksonomide, exam_set mock <=> deneme yili), 3 isaret/formul (markIssues, katexIssues, dengesiz $,
 // okunamayan [?]), 4 kaynak metin (metin yili, goruntuden yazilmamis soru: pdftotext ile bosluksuz ardisik eslesme;
-// hasImage soru goruntuden yazilmis olmali), 5 anahtar (2021-2025 shuffle kaydi zorunlu, deterministik sira,
+// hasImage soru goruntuden yazilmis olmali; cozulmus metin katmanli yilda, 2021, pdftotext yerine decode-check kabulu), 5 anahtar (2021-2025 shuffle kaydi zorunlu, deterministik sira,
 // correct_answer === shuffle.shuffled, karistirilmis dosya extract ile guncel; keys dosyasi hep A ve tam; istisna:
 // shuffle-exempt.json listesindeki soru kagit sirasinda, correct_answer "A", shuffle { exempt: true, reason }; listede
 // olmayan istisna ya da listede olup karistirilmis kayit hata; istisnalar validate-report.json shuffleExempt), 6 sekil
@@ -44,6 +44,7 @@ import {
   INVENTORY_PATH,
   KEYS_DIR,
   SHUFFLE_EXEMPT_PATH,
+  VISION_DIR,
   argValue,
   parseYears,
   questionId,
@@ -51,6 +52,7 @@ import {
   writeJson,
 } from "./paths.mjs";
 import { CROP_REPORT_PATH, EDGE_SIGNOFF_PATH, readEdgeSignoff, unsignedSides } from "./crop-figures.mjs";
+import { hasTextLayer } from "./inventory.mjs";
 import { KEY_PROOF_YEARS, SHUFFLE_YEARS, readShuffleExempt, shuffleOrder } from "./shuffle-choices.mjs";
 
 const MAX_FIGURE_BYTES = 512 * 1024;
@@ -414,14 +416,24 @@ G[5].g.counts.exempt = exemptRecords.length;
 // ------------------------------------------------------------------ 4 kaynak metin (metin yili)
 {
   const { g, fail, warn } = G[4];
-  const counts = { compared: 0, equal: 0, visionRewritten: 0, textYears: [] };
-  const textPapers = papers.filter((paper) => paper.entry.textLayer === "ok" && paper.extract.source === "text");
+  const counts = { compared: 0, equal: 0, visionRewritten: 0, textYears: [], decodedYears: [] };
+  const textPapers = papers.filter((paper) => hasTextLayer(paper.entry) && paper.extract.source === "text");
   if (noPdftotext && textPapers.length > 0) warn(`--no-pdftotext: kaynak karsilastirmasi atlandi (${textPapers.map((paper) => paper.year).join(", ")})`);
   for (const paper of textPapers) {
     const { year, entry, questions } = paper;
     counts.textYears.push(year);
     const pdf = join(IMAT_SOURCE_DIR, entry.file);
     let pdfOk = !noPdftotext;
+    if (entry.textLayer === "decoded") {
+      // Cozulmus metin katmani (2021): pdftotext glif kaydirmali metin verir, karsilastirma anlamsiz. Yerine kod kaydirmasinin
+      // sayfa goruntusuyle kabulu (vision/<yil>/decode-check.json accepted true) aranir; hasImage kurali aynen gecerli.
+      counts.decodedYears.push(year);
+      pdfOk = false;
+      const checkPath = join(VISION_DIR, String(year), "decode-check.json");
+      const accepted = existsSync(checkPath) ? readJson(checkPath).accepted ?? null : null;
+      if (accepted !== true) fail(`${year}: cozulmus metin katmani ama decode-check kabul edilmedi (accepted ${accepted}; ${checkPath})`, year);
+      else warn(`${year}: cozulmus metin katmani (kaydirma ${entry.decodeShift}); pdftotext karsilastirmasi yerine decode-check kabulu (accepted true)`);
+    }
     if (pdfOk && !existsSync(pdf)) {
       fail(`${year}: kaynak PDF yok (${pdf})`, year);
       pdfOk = false;
