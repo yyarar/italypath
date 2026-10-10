@@ -140,11 +140,11 @@ Neden artıyor: program sayfası `getUniversityById()` ile okulun **tüm** kabul
 
 ### IMAT soru bankası etkisi (2026-10-09, STATUS #102)
 
-IMAT şeması (`supabase/imat_bank.sql`) 9 Ekim'de canlıda; 180 deneme sorusu gizli (`needs_review`), site kodu henüz yayında değil (`feat/imat` dalı, push yok). Yayından sonra beklenen etki (tahmin, ölçüm değil):
+IMAT şeması (`supabase/imat_bank.sql`) 9 Ekim'de canlıda; site 9 Ekim'de (0e48058) ve 10 Ekim'de (d02fa8a) yayında; 937 soru açık (180 deneme + 757 konu pratiği, 121 görsel). Beklenen etki (tahmin, ölçüm değil; 10 Ekim güncellemesi):
 
-- Egress: `lib/imat/questions.server.ts` IMAT bankasının tamamını soğuk sunucu başına bir kez çeker (180 soru, ham ~0,3 MB; 3 saat bellekte, her deploy sıfırlar). Çekim yalnız biri `/imat` sayfasını açıp soru adresini çağırınca olur. SAT bankasıyla aynı kalıp; Teslim 2 (2011-2022, ~760 soru) eklenince bu miktar birkaç katına çıkar, o zaman yeniden ölçülür.
+- Egress: `lib/imat/questions.server.ts` IMAT bankasının tamamını soğuk sunucu başına bir kez çeker (937 soru, ham ~1 MB; 3 saat bellekte, her deploy sıfırlar). Çekim yalnız biri `/imat` sayfasını açıp soru adresini çağırınca olur. SAT bankasıyla aynı kalıp; ilk canlı ölçüm bir sonraki kullanım turunda.
 - Veritabanı yazması: deneme taslağı (`imat_save_exam_draft`) 60 saniyede bir ve yalnız cevaplar değiştiyse yazılır; 100 dakikalık oturumda en çok ~100 yazma. Konu pratiğinde her cevap bir `imat_attempts` satırı.
-- Sınırlar (veritabanında): hesap başına 24 saatte en çok 20 deneme başlatma ve 2.000 pratik cevabı. `imat-figures` deposu 5 dosya (en çok 512 KB, WebP); Storage ve veritabanı boyutuna etkisi önemsiz.
+- Sınırlar (veritabanında): hesap başına 24 saatte en çok 20 deneme başlatma ve 2.000 pratik cevabı. `imat-figures` deposu 121 dosya (en çok 512 KB, WebP; toplam birkaç MB); Storage ve veritabanı boyutuna etkisi küçük.
 - Vercel: `/imat` proxy kapsamında, soru adresi `force-dynamic`; ikisi de yalnız girişli gerçek kullanımda Function Invocations ve Active CPU harcar. Push = deploy kuralı geçerli: IMAT yayını bir sonraki toplu push'la gider.
 
 ### Olay geçmişi
