@@ -117,7 +117,7 @@ export const tr = {
     scholarships: { title: "Bölgesel burs haritası", body: "Bölge bölge burs, yurt ve yemek desteği.", meta: "{count} bölge" },
     isee: { title: "ISEE hesaplayıcı", body: "Burs için kritik ISEE değerini tahmin et.", meta: "2 dakika" },
     sat: { title: "SAT soru bankası", body: "Konu konu soru çöz, yanlışlarını tekrar et.", meta: `${SAT_QUESTION_COUNT_CLAIM} SAT sorusu` },
-    imat: { title: "IMAT deneme ve konu pratiği", body: "Son üç yılın IMAT sınavını gerçek süreyle çöz. Konu pratiği yakında.", meta: "2023-2025 deneme sınavları" },
+    imat: { title: "IMAT deneme ve konu pratiği", body: "Son üç yılın IMAT sınavını gerçek süreyle çöz; 2011-2022 sorularını konu konu tekrar et.", meta: "2023-2025 deneme · 2011-2022 konu pratiği" },
     cities: { title: "Şehir rehberleri", body: "Yaşam maliyeti, ulaşım ve şehir karakteri.", meta: "{count} şehir" },
     communities: { title: "Topluluk atlası", body: "İtalya'daki öğrenci topluluklarının seçilmiş rehberi.", meta: "WhatsApp · Telegram" },
     hub: { title: "Çalışma dosyası ve belgeler", body: "Sana özel program önerileri, favoriler ve belge cüzdanı." },

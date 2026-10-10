@@ -116,7 +116,7 @@ export const en: Translations = {
     scholarships: { title: "Regional scholarship map", body: "Scholarship, housing, and meal support region by region.", meta: "{count} regions" },
     isee: { title: "ISEE calculator", body: "Estimate the ISEE value that decides scholarships.", meta: "2 minutes" },
     sat: { title: "SAT question bank", body: "Practice by topic and review your mistakes.", meta: `${SAT_QUESTION_COUNT_CLAIM} SAT questions` },
-    imat: { title: "IMAT mock exams and topic practice", body: "Take the last three IMAT papers under real exam timing. Topic practice is coming soon.", meta: "2023-2025 mock exams" },
+    imat: { title: "IMAT mock exams and topic practice", body: "Take the last three IMAT papers under real exam timing; revise the 2011-2022 questions topic by topic.", meta: "2023-2025 mock exams · 2011-2022 topic practice" },
     cities: { title: "City guides", body: "Cost of living, transport, and city character.", meta: "{count} cities" },
     communities: { title: "Community atlas", body: "A curated guide to student communities in Italy.", meta: "WhatsApp · Telegram" },
     hub: { title: "Workspace and documents", body: "Personal program picks, favorites, and a document wallet." },
