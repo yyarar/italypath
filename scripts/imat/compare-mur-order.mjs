@@ -43,8 +43,8 @@ import { EXTRACT_DIR, IMAT_OUT, KEYS_DIR, argValue, parseYears, readJson, writeJ
 export const MUR_ORDER_YEARS = Object.freeze([2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020]);
 export const EXTRACT_MUR_DIR = join(IMAT_OUT, "extract-mur");
 export const MUR_ORDER_REPORT_PATH = join(KEYS_DIR, "mur-order-report.json");
-export const THRESHOLD = 0.95;
 const THRESHOLD_PERCENT = 95; // tamsayi karsilastirma (kayan nokta yok): match * 100 >= 95 * (match + mismatch)
+export const THRESHOLD = THRESHOLD_PERCENT / 100;
 const STEM_CHARS = 80;
 // Metinle eslesme icin kok anahtarinin en kisa boyu: daha kisa kok ("why so", "tide") soru tanimlamaz (yalniz ayni numarada
 // numarayla eslesebilir).

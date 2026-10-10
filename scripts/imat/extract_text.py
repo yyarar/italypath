@@ -5,7 +5,7 @@
 # Calistirma (once envanter: node scripts/imat/inventory.mjs):
 #   IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank /usr/bin/python3 scripts/imat/extract_text.py --years 2024,2025
 # Secenekler:
-#   --years <yil,yil>   zorunlu; yalniz metin katmani saglam yillar
+#   --years <yil,yil>   zorunlu; yalniz metin katmani okunur yillar (inventory textLayer "ok" ya da "decoded")
 #   --layout <ad>       sayfa duzeni: mur (varsayilan; 2023-2025 MUR denemesi) | cambridge (2011-2022 gecmis kagitlari) |
 #                       mur-legacy (2011-2020 MUR "hep A" kopyalari, keys/sources/<yil>-mur.pdf; --source ile)
 #   --decode-shift <n>  glif numarasi -> kod noktasi kaydirmasi. Envanter yilinda kaydirma inventory.json'dan gelir (textLayer

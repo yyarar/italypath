@@ -18,7 +18,7 @@ import sharp from "sharp";
 import { MOCK_SECTION_COUNTS, SECTIONS } from "../../lib/imat/taxonomy.mjs";
 import { makePdf } from "./lib/fixture-pdf.mjs";
 import { applyCharMap, compareTokens, decodeShifted, locateInSource, normalizeForCompare, textHash, unrecoverableChars } from "./lib/text.mjs";
-import { questionId } from "./paths.mjs";
+import { ALL_YEARS, questionId } from "./paths.mjs";
 import { exemptQuestion, shuffleQuestion } from "./shuffle-choices.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -637,17 +637,147 @@ try {
     expectFailure(new RegExp(`kapi 6: .*${id(1)}`))
   );
 
+  // Elle haric tutma (exclusions.json; kapi 8): banka yilinda soru bloke sayilir. id 8 kucuk harf hex olmali, tekrar
+  // edemez, hicbir yila ait olmayan id hata; deneme yili (2023-2025) sorusu haric tutulamaz (59 soruluk deneme sunucuda
+  // gizlenir: fail closed); --years disindaki yilin id'si kapi 8 uyarisi (validate-report'ta gorunur).
+  const REASON = "product decision: not a well-posed exam question";
+  const writeExclusions = (root, list) => write(join(root, "exclusions.json"), list);
+  const gate8Of = (result) => read(join(result.root, "validate-report.json")).gates.find((g) => String(g.gate) === "8");
   await scenario(
     "elle haric tutulan soru (exclusions.json) bankaya girmez",
-    (root) => write(join(root, "exclusions.json"), [{ id: id(7), reason: "product decision: not a well-posed exam question" }]),
+    (root) => writeExclusions(root, [{ id: id(7, 2022), reason: REASON }]),
     (result) => {
       assert.equal(result.status, 0, "elle haric tutma tek basina hata degil");
       const { bank, excluded } = result.output;
       assert.equal(bank.length, 59);
       assert.equal(excluded.length, 1);
-      assert.equal(excluded[0].id, id(7));
+      assert.equal(excluded[0].id, id(7, 2022));
       assert.ok(excluded[0].reason.startsWith("manual: "), excluded[0].reason);
+      assert.deepEqual(gate8Of(result).counts.exclusions, { listed: 1, applied: 1, otherYears: 0 });
+    },
+    { year: 2022 }
+  );
+  await scenario(
+    "deneme yili sorusu haric tutulamaz kapi 8",
+    (root) => writeExclusions(root, [{ id: id(7), reason: REASON }]),
+    (result) => {
+      expectFailure(new RegExp(`kapi 8: exclusions\\.json: ${id(7)} deneme yili 2025 sorusu`))(result);
+      assert.equal(result.output.bank.length, 60, "deneme sorusu bankadan dusmez");
     }
+  );
+  {
+    const unknown = questionId(1999, 1);
+    const known = new Set(ALL_YEARS.flatMap((year) => Array.from({ length: 80 }, (_, k) => questionId(year, k + 1))));
+    assert.ok(!known.has(unknown), "fikstur: bilinmeyen id hicbir yil/numaraya ait olmamali");
+    await scenario(
+      "hicbir yilda olmayan id kapi 8",
+      (root) => writeExclusions(root, [{ id: unknown, reason: REASON }]),
+      expectFailure(new RegExp(`kapi 8: exclusions\\.json: ${unknown} hicbir yilda yok`)),
+      { year: 2022 }
+    );
+  }
+  await scenario(
+    "bozuk id kapi 8",
+    (root) => writeExclusions(root, [{ id: id(7, 2022).slice(0, 7), reason: REASON }]),
+    expectFailure(/kapi 8: exclusions\.json \[0\]: id 8 kucuk harf hex olmali/),
+    { year: 2022 }
+  );
+  await scenario(
+    "tekrarli id kapi 8",
+    (root) => writeExclusions(root, [{ id: id(7, 2022), reason: REASON }, { id: id(7, 2022), reason: REASON }]),
+    expectFailure(new RegExp(`kapi 8: exclusions\\.json \\[1\\]: ${id(7, 2022)} iki kez`)),
+    { year: 2022 }
+  );
+  await scenario(
+    "--years disindaki yilin id'si kapi 8 uyarisi",
+    (root) => writeExclusions(root, [{ id: id(7, 2022), reason: REASON }]),
+    (result) => {
+      assert.equal(result.status, 0, "baska yilin kaydi hata degil");
+      assert.equal(result.output.bank.length, 60);
+      const message = `exclusions.json: ${id(7, 2022)} bu yillarda yok (2022)`;
+      assert.ok(gate8Of(result).warnings.includes(message), `kapi 8 uyarisi yok\n  ${gate8Of(result).warnings.join("\n  ")}`);
+      assert.ok(result.output.warnings.includes(`kapi 8: ${message}`));
+      assert.deepEqual(gate8Of(result).counts.exclusions, { listed: 1, applied: 0, otherYears: 1 });
+    }
+  );
+
+  // Karistirilmayan yil (2011-2020; Gorev 14): keys/<yil>.json, keys/<yil>.cambridge.json kaynagiyla soru soru ayni
+  // olmali; keys/compare-report.json'daki blocked numara exclusions.json'da degilse kapi 5 hatasi. Eksik dosya hata.
+  const KEY_YEAR = 2020;
+  const keyLetter = (number) => LETTERS[number % 5];
+  const cambridgeKeys = (root, { cambridge = (key) => key, blocked = [], report = true, cambridgeFile = true } = {}) => {
+    const key = Object.fromEntries(Array.from({ length: 60 }, (_, k) => [String(k + 1), keyLetter(k + 1)]));
+    write(join(root, "keys", `${KEY_YEAR}.json`), key);
+    if (cambridgeFile) write(join(root, "keys", `${KEY_YEAR}.cambridge.json`), cambridge({ ...key }));
+    if (report) {
+      const record = { sources: ["cambridge", "medschool"], questions: 60, agreed: 60 - blocked.length, disagreements: [], blocked };
+      write(join(root, "keys", "compare-report.json"), { years: { [KEY_YEAR]: record } });
+    }
+  };
+  await scenario(
+    "karistirilmayan yil: anahtar Cambridge kaynagiyla ayni gecer",
+    (root) => cambridgeKeys(root),
+    (result) => {
+      assert.equal(result.status, 0, "cikis 0 bekleniyor");
+      assert.deepEqual(result.output.failures, []);
+      assert.equal(result.output.bank.length, 60);
+      for (const q of result.output.bank) {
+        assert.equal(q.correct_answer, keyLetter(q.number));
+        assert.equal(q.shuffle, null);
+        assert.equal(q.exam_set, "bank");
+      }
+    },
+    { year: KEY_YEAR }
+  );
+  await scenario(
+    "karistirilmayan yil: Cambridge kaynagindan farkli harf kapi 5",
+    (root) => cambridgeKeys(root, { cambridge: (key) => ({ ...key, 5: keyLetter(6) }) }),
+    expectFailure(new RegExp(`kapi 5: ${KEY_YEAR}: keys/${KEY_YEAR}\\.json keys/${KEY_YEAR}\\.cambridge\\.json ile 1 soruda farkli: 5$`)),
+    { year: KEY_YEAR }
+  );
+  await scenario(
+    "karistirilmayan yil: Cambridge kaynaginda eksik soru kapi 5",
+    (root) =>
+      cambridgeKeys(root, {
+        cambridge: (key) => {
+          delete key[60];
+          return key;
+        },
+      }),
+    expectFailure(new RegExp(`kapi 5: ${KEY_YEAR}: keys/${KEY_YEAR}\\.json 60 soru, keys/${KEY_YEAR}\\.cambridge\\.json 59`)),
+    { year: KEY_YEAR }
+  );
+  await scenario(
+    "karistirilmayan yil: compare-report blocked numara kapi 5",
+    (root) => cambridgeKeys(root, { blocked: [6] }),
+    expectFailure(new RegExp(`kapi 5: ${KEY_YEAR}:6 ${id(6, KEY_YEAR)}: keys/compare-report\\.json blocked`)),
+    { year: KEY_YEAR }
+  );
+  await scenario(
+    "karistirilmayan yil: blocked numara exclusions.json'da gecer",
+    (root) => {
+      cambridgeKeys(root, { blocked: [6] });
+      writeExclusions(root, [{ id: id(6, KEY_YEAR), reason: "fixture: sources disagree on the key" }]);
+    },
+    (result) => {
+      assert.equal(result.status, 0, "cikis 0 bekleniyor");
+      assert.deepEqual(result.output.failures, []);
+      assert.equal(result.output.bank.length, 59);
+      assert.deepEqual(result.output.excluded.map((item) => item.id), [id(6, KEY_YEAR)]);
+    },
+    { year: KEY_YEAR }
+  );
+  await scenario(
+    "karistirilmayan yil: Cambridge kaynak dosyasi yok kapi 5",
+    (root) => cambridgeKeys(root, { cambridgeFile: false }),
+    expectFailure(new RegExp(`kapi 5: ${KEY_YEAR}: keys/${KEY_YEAR}\\.cambridge\\.json yok`)),
+    { year: KEY_YEAR }
+  );
+  await scenario(
+    "karistirilmayan yil: compare-report yok kapi 5",
+    (root) => cambridgeKeys(root, { report: false }),
+    expectFailure(new RegExp(`kapi 5: ${KEY_YEAR}: keys/compare-report\\.json yok`)),
+    { year: KEY_YEAR }
   );
 
   await scenario(

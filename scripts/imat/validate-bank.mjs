@@ -6,7 +6,8 @@
 // extract/<yil>.shuffled.json (once shuffle-choices.mjs; merge-vision sonrasi yeniden), keys/<yil>.json (2025'te
 // zorunlu "hep A" kaniti), (varsa) classify/topics.json { "<id>": { section, topicSlug } } ve corrections.json,
 // figures/<yil>/<id>.webp, kapi 4 icin kaynak PDF (pdftotext -layout).
-// (varsa) exclusions.json [{ id, reason }]: elle haric tutulan sorular (urun karari) bloke gibi islenir, bankaya girmez.
+// (varsa) exclusions.json [{ id, reason }]: elle haric tutulan sorular (urun karari) bloke gibi islenir, bankaya girmez;
+// kapi 8 denetler (asagida). Yalniz ice aktarmadan once etkilidir: canli satiri kapatmak patch-imat-questions.mjs isi.
 // Cikti: bank.json { bank, failures, warnings, excluded } ve validate-report.json (yil bazinda sayim, kapilar).
 // Herhangi bir kapida hata varsa cikis 1; bank.json yine yazilir (import-bank failures doluysa reddeder).
 // Hata/uyari metinleri soru metni tasimaz: konum = alan + kelime sirasi.
@@ -16,10 +17,14 @@
 // dengesiz $, okunamayan [?]), 4 kaynak metin (asagida), 5 anahtar (2021-2025 shuffle kaydi zorunlu, deterministik sira,
 // correct_answer === shuffle.shuffled, karistirilmis dosya extract ile guncel; keys dosyasi hep A ve tam; istisna:
 // shuffle-exempt.json listesindeki soru kagit sirasinda, correct_answer "A", shuffle { exempt: true, reason }; listede
-// olmayan istisna ya da listede olup karistirilmis kayit hata; istisnalar validate-report.json shuffleExempt), 6 sekil
+// olmayan istisna ya da listede olup karistirilmis kayit hata; istisnalar validate-report.json shuffleExempt. 2011-2020:
+// keys/<yil>.json, keys/<yil>.cambridge.json ile her soru numarasinda ayni harf ve ayni sayi; keys/compare-report.json
+// (compare-keys.mjs) o yilin blocked numarasi exclusions.json'da degilse hata; dosya ya da yil kaydi yoksa hata), 6 sekil
 // (figureBox -> figure_path <yil>/<id>.webp, WebP, <= 512 KB; dosya ya da figure-crop-report.json kaydi yoksa
 // --require-figures ile hata; dosya boyutu raporla ayni; dolgulu kenar edge-signoff.json onaysizsa hata), 7 kimlik,
-// 8 duzeltmeler. Bloke soru (merge-vision blocked) excluded'a gider, kapilardan gecmez.
+// 8 duzeltmeler ve elle haric tutma (exclusions.json: id 8 kucuk harf hex, tekrar yok, reason dolu; hicbir yil/numaraya
+// ait olmayan id hata; deneme yili (2023-2025) sorusu haric tutulamaz: 59 soruluk deneme sunucuda gizlenir, fail closed;
+// --years disindaki yilin id'si uyari). Bloke soru (merge-vision blocked) excluded'a gider, kapilardan gecmez.
 //
 // Kapi 2 bolum ve konu (classify/topics.json, validate-topics.mjs; spec "Konu taksonomisi"): gercek bolumlu soruda bolum
 // extract'tan (kagit bolum basligi) gelir ve siniflandirici degistiremez; topics.json yalniz konuyu verir, farkli bolum
@@ -93,6 +98,7 @@ import {
   readJson,
   writeJson,
 } from "./paths.mjs";
+import { COMPARE_REPORT_PATH } from "./compare-keys.mjs";
 import { CROP_REPORT_PATH, EDGE_SIGNOFF_PATH, readEdgeSignoff, unsignedSides } from "./crop-figures.mjs";
 import { hasTextLayer, paperLayoutOf } from "./inventory.mjs";
 import { KEY_PROOF_YEARS, SHUFFLE_YEARS, readShuffleExempt, shuffleOrder } from "./shuffle-choices.mjs";
@@ -139,7 +145,7 @@ const GATE_NAMES = [
   ["5", "anahtar ve karistirma"],
   ["6", "sekil"],
   ["7", "kimlik"],
-  ["8", "duzeltmeler"],
+  ["8", "duzeltmeler ve haric tutma"],
 ];
 const G = Object.fromEntries(GATE_NAMES.map(([id, name]) => [id, gate(id, name)]));
 
@@ -203,27 +209,49 @@ for (const year of years) {
   papers.push({ year, entry, extract, questions: [...(extract.questions ?? [])].sort((a, b) => a.number - b.number), shuffled, key });
 }
 
-// Elle haric tutma (exclusions.json): soru bloke sayilir; listedeki id bu yillarda yoksa uyari.
-const exclusions = existsSync(EXCLUSIONS_PATH) ? readJson(EXCLUSIONS_PATH) : [];
-if (!Array.isArray(exclusions)) throw new Error(`${EXCLUSIONS_PATH}: dizi bekleniyor`);
+// Bilinen kimlikler: her yil 1-80 (kapi 8 duzeltmeleri ve elle haric tutma ayni kurali kullanir).
+const knownIds = new Map();
+for (const year of ALL_YEARS) for (let n = 1; n <= 80; n += 1) knownIds.set(questionId(year, n), year);
+
+// Elle haric tutma (exclusions.json; kapi 8, kural dosya basinda): gecerli kayittaki soru bloke sayilir.
 const exclusionById = new Map();
-for (const [index, item] of exclusions.entries()) {
-  if (!item || typeof item.id !== "string" || typeof item.reason !== "string" || item.reason.trim() === "") {
-    throw new Error(`${EXCLUSIONS_PATH} [${index}]: { id, reason } bekleniyor`);
+{
+  const { fail, warn } = G[8];
+  const raw = existsSync(EXCLUSIONS_PATH) ? readJson(EXCLUSIONS_PATH) : [];
+  if (!Array.isArray(raw)) fail("exclusions.json dizi olmali");
+  const list = Array.isArray(raw) ? raw : [];
+  const loaded = new Set(papers.map((paper) => paper.year));
+  let otherYears = 0;
+  list.forEach((item, index) => {
+    const at = `exclusions.json [${index}]`;
+    const id = item?.id;
+    if (typeof id !== "string" || !/^[0-9a-f]{8}$/.test(id)) return fail(`${at}: id 8 kucuk harf hex olmali (${JSON.stringify(id ?? null)})`);
+    if (typeof item.reason !== "string" || !item.reason.trim()) return fail(`${at}: ${id} reason bos`);
+    if (exclusionById.has(id)) return fail(`${at}: ${id} iki kez`);
+    const year = knownIds.get(id);
+    if (!year) return fail(`exclusions.json: ${id} hicbir yilda yok`);
+    if (MOCK_YEARS.includes(year)) {
+      return fail(`exclusions.json: ${id} deneme yili ${year} sorusu; deneme kagidi 60 soru kalmali (59 soruluk denemeyi sunucu gizler), haric tutulamaz`, years.includes(year) ? year : undefined);
+    }
+    exclusionById.set(id, item.reason);
+    if (!loaded.has(year)) {
+      otherYears += 1;
+      warn(`exclusions.json: ${id} bu yillarda yok (${year})`);
+    }
+  });
+  let applied = 0;
+  for (const paper of papers) {
+    for (const q of paper.questions) {
+      if (!exclusionById.has(q.id)) continue;
+      q.blocked = true;
+      q.blockReason = `manual: ${exclusionById.get(q.id)}`;
+      applied += 1;
+    }
   }
-  exclusionById.set(item.id, item.reason);
-}
-const exclusionHits = new Set();
-for (const paper of papers) {
-  for (const q of paper.questions) {
-    if (!exclusionById.has(q.id)) continue;
-    q.blocked = true;
-    q.blockReason = `manual: ${exclusionById.get(q.id)}`;
-    exclusionHits.add(q.id);
-  }
-}
-for (const id of exclusionById.keys()) {
-  if (!exclusionHits.has(id)) warnings.push(`exclusions.json: ${id} bu yillarda yok`);
+  // Yuklu yilin bilinen id'si soruya denk gelmiyorsa (kagit numarasi asiliyor) o da hicbir soruya ait degildir.
+  const hit = new Set(papers.flatMap((paper) => paper.questions.map((q) => q.id)));
+  for (const id of exclusionById.keys()) if (loaded.has(knownIds.get(id)) && !hit.has(id)) fail(`exclusions.json: ${id} hicbir yilda yok`);
+  G[8].g.counts.exclusions = { listed: list.length, applied, otherYears };
 }
 
 // ------------------------------------------------------------------ 1 sayim + 7 kimlik
@@ -268,9 +296,6 @@ for (const paper of papers) {
     questionYear.set(q.id, paper.year);
   }
 }
-const knownIds = new Map();
-for (const year of ALL_YEARS) for (let n = 1; n <= 80; n += 1) knownIds.set(questionId(year, n), year);
-
 const appliedCorrections = [];
 {
   const { g, fail, warn } = G[8];
@@ -315,7 +340,7 @@ const appliedCorrections = [];
     if (c.sourcePage !== q.page) g.notes.push(`${at}: sourcePage ${c.sourcePage}, soru sayfasi ${q.page}`);
     appliedCorrections.push({ id: c.id, year, number: q.number, field: c.field, sourcePage: c.sourcePage, reason: c.reason });
   });
-  g.counts = { listed: list.length, applied: appliedCorrections.length, otherYears: skipped };
+  Object.assign(g.counts, { listed: list.length, applied: appliedCorrections.length, otherYears: skipped });
 }
 
 // ------------------------------------------------------------------ banka kayitlari: 2, 3, 5, 6
@@ -365,6 +390,43 @@ function topicFor(year, q) {
   return { section, slug, label: topic?.label ?? null };
 }
 
+// 2011-2020 anahtari (kapi 5, kural dosya basinda): keys/<yil>.json kaynagi keys/<yil>.cambridge.json ile soru soru ayni;
+// compare-report blocked numarasi yalniz exclusions.json'daysa gecer. Donus tam iletiler; yalniz numara tasir.
+let compareReport;
+function cambridgeKeyProblems(paper) {
+  const { year, key } = paper;
+  const problems = [];
+  const cambridgePath = join(KEYS_DIR, `${year}.cambridge.json`);
+  if (!existsSync(cambridgePath)) problems.push(`${year}: keys/${year}.cambridge.json yok (anahtar kaynagi; extract-keys.mjs)`);
+  else if (key) {
+    const cambridge = readJson(cambridgePath);
+    const numbersOf = (record) => Object.keys(record).filter((n) => /^\d+$/.test(n));
+    const [ours, theirs] = [numbersOf(key), numbersOf(cambridge)];
+    if (ours.length !== theirs.length) problems.push(`${year}: keys/${year}.json ${ours.length} soru, keys/${year}.cambridge.json ${theirs.length}`);
+    const differ = [...new Set([...ours, ...theirs])].filter((n) => key[n] !== cambridge[n]).map(Number).sort((x, y) => x - y);
+    if (differ.length > 0) problems.push(`${year}: keys/${year}.json keys/${year}.cambridge.json ile ${differ.length} soruda farkli: ${differ.join(", ")}`);
+  }
+  if (compareReport === undefined) {
+    try {
+      compareReport = existsSync(COMPARE_REPORT_PATH) ? readJson(COMPARE_REPORT_PATH) : null;
+    } catch (error) {
+      compareReport = { error: error.message };
+    }
+  }
+  const record = compareReport?.years?.[year];
+  if (compareReport === null) problems.push(`${year}: keys/compare-report.json yok (compare-keys.mjs --year ${year})`);
+  else if (compareReport.error) problems.push(`${year}: keys/compare-report.json okunamadi (${compareReport.error})`);
+  else if (!record || !Array.isArray(record.blocked) || !record.blocked.every(Number.isInteger)) {
+    problems.push(`${year}: keys/compare-report.json ${year} kaydi ya da blocked listesi yok (compare-keys.mjs --year ${year})`);
+  } else {
+    for (const number of [...record.blocked].sort((x, y) => x - y)) {
+      const id = questionId(year, number);
+      if (!exclusionById.has(id)) problems.push(`${year}:${number} ${id}: keys/compare-report.json blocked (kaynaklar farkli harf veriyor); exclusions.json'a yaz ya da anahtari coz`);
+    }
+  }
+  return problems;
+}
+
 function keyProblems(paper) {
   // keys/<yil>.json: "hep A" kaniti; numaralar extract ile ayni, her deger A.
   const { year, key, questions } = paper;
@@ -384,6 +446,10 @@ for (const paper of papers) {
   const shuffleYear = SHUFFLE_YEARS.includes(year);
   for (const problem of shuffleYear ? keyProblems(paper) : []) G[5].fail(`${year}: ${problem}`, year);
   if (!shuffleYear && !paper.key) G[5].fail(`${year}: keys/${year}.json yok (karistirilmayan yilda anahtar zorunlu)`, year);
+  if (!shuffleYear) {
+    for (const problem of cambridgeKeyProblems(paper)) G[5].fail(problem, year);
+    G[5].g.counts.cambridgeKeyYears = [...(G[5].g.counts.cambridgeKeyYears ?? []), year];
+  }
   const shuffledById = new Map((shuffled?.questions ?? []).map((q) => [q.id, q]));
 
   for (const q of questions) {

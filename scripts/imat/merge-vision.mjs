@@ -26,17 +26,22 @@
 // kelime konumlarini yazar. Ayni girdiyle iki calisma ayni dosyalari uretir.
 // Eski kirpinti korumasi (soru kipi): paket girdisinin kirpintisi (image) o paketin gecis sonuclarindan (result-NN-img-a/b)
 // yeniyse (mtime) sonucun sekil kutusu eski kirpintiyi anlatir (figure.box eski kirpinti pikselinde, cropBox yeni). Gecis a
-// ya da b sekil kutusu tasiyorsa yil durur ve numaralar yazilir; iki geciste de sekil yoksa yalniz uyari satiri (numaralar;
-// metin kirpinti kaymasindan bagimsizdir). Cozum: soruyu iki gecisle yeniden okumak ya da resolutions.json'a o id icin
-// figure cozumu (yeni kirpintida olculmus) yazmak; figure cozumu o soru icin korumayi kaldirir.
+// ya da b sekil kutusu tasiyorsa yil durur ve numaralar yazilir. Soru crop-overrides.json'da ise (crop-questions.mjs ile
+// ayni okuyucu) iki geciste sekil olmasa da yil durur: duzeltme eski kirpinti sekli kestigi icin vardir, gecisler sekli
+// hic gormemis olabilir. Digerlerinde iki geciste de sekil yoksa yalniz uyari satiri (numaralar; metin kirpinti
+// kaymasindan bagimsizdir). Cozum: soruyu iki gecisle yeniden okumak ya da resolutions.json'a o id icin figure cozumu
+// (yeni kirpintida olculmus) yazmak; figure cozumu o soru icin korumayi kaldirir.
+// Kirpinti dosyasi yoksa yil kosulsuz durur (fail closed). mtime bir vekildir: dosyalari tarihleri koruyarak kopyala
+// (cp -p); bir sonuc dosyasini yeniden yazmak o paketin butun sorulari icin korumayi kaldirir.
 import { existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 import sharp from "sharp";
 
 import { MOCK_SECTION_COUNTS, MOCK_YEARS, SECTIONS } from "../../lib/imat/taxonomy.mjs";
+import { readCropOverrides } from "./crop-questions.mjs";
 import { CHOICE_LETTERS, alignToHint, normalizeForCompare } from "./lib/text.mjs";
-import { EXTRACT_DIR, INVENTORY_PATH, VISION_DIR, argValue, parseYears, questionId, readJson, writeJson } from "./paths.mjs";
+import { CROP_OVERRIDES_PATH, EXTRACT_DIR, INVENTORY_PATH, VISION_DIR, argValue, parseYears, questionId, readJson, writeJson } from "./paths.mjs";
 
 const FIGURE_KINDS = ["diagram", "table"];
 const MIN_FIGURE_IOU = 0.5;
@@ -382,19 +387,25 @@ async function mergeQuestionYear(year, dir, packages) {
     }
   }
   const resolutions = loadResolutions(dir, new Set(entries.keys()));
+  const overrides = readCropOverrides(CROP_OVERRIDES_PATH);
   const stale = [];
+  const staleOverride = [];
   const staleNoFigure = [];
   const hasFigure = (raw) => raw?.figure !== null && raw?.figure !== undefined && raw.figure.kind !== null && raw.figure.kind !== undefined;
   for (const [id, item] of entries) {
     if (typeof item.image !== "string" || !existsSync(item.image)) throw new MergeProblem(`${year}:${item.number}: kirpinti yok (${item.image}); crop-questions.mjs yeniden`);
     if (statSync(item.image).mtimeMs <= resultTimes.get(id) || resolutions.has(`${id}|figure`)) continue;
     if (hasFigure(results.a.get(id)) || hasFigure(results.b.get(id))) stale.push(item.number);
+    else if (overrides.has(id)) staleOverride.push(item.number);
     else staleNoFigure.push(item.number);
   }
   const byNumber = (x, y) => x - y;
-  if (stale.length > 0) {
+  const stops = [];
+  if (stale.length > 0) stops.push(`sekil kutusu eski kirpintiyi anlatiyor (soru ${stale.sort(byNumber).join(", ")})`);
+  if (staleOverride.length > 0) stops.push(`crop-overrides.json kaydi var, eski kirpinti sekli kesiyordu (soru ${staleOverride.sort(byNumber).join(", ")})`);
+  if (stops.length > 0) {
     throw new MergeProblem(
-      `${year}: kirpinti gecis sonucundan yeni, sekil kutusu eski kirpintiyi anlatiyor (soru ${stale.sort(byNumber).join(", ")}): ` +
+      `${year}: kirpinti gecis sonucundan yeni, ${stops.join("; ")}: ` +
         "bu sorulari iki gecisle yeniden oku ya da resolutions.json'a yeni kirpintida olculmus figure cozumu yaz"
     );
   }

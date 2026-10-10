@@ -13,6 +13,7 @@ Uygulama notları (2026-10-09; plandan sapmalar, kanıt commit'leri dalda):
 - Kör çözücü ve görsel sadakat paket kurucuları (`build-solver-packages.mjs`, `build-visual-packages.mjs`) `--ids` ile yalnız metni değişen soruları tek yeniden bakış paketine koyar; var olan paketlere dokunmaz (b7dfaad).
 - Plana ek testler: `test:imat-crop` (5424cd2) ve `test:imat-extract` (b7dfaad; Python standart kitaplık); OFFLINE listesi 40 adım.
 - Önizleme girdileri `.claude/launch.json`'da (ana klasör, Git dışı): `imat-worktree-dev` port 3114 (plandaki 3112 yerine), `imat-preview` port 3115 (`tmp/imat-bank/preview` için statik sunucu).
+- Anahtar terfisi ve elle hariç tutma (Teslim 2, 10 Ekim): 2011-2020 anahtarları `keys/<yıl>.cambridge.json`'dan `keys/<yıl>.json`'a kopyalandı; `validate-bank.mjs` kapı 5 iki dosyanın soru soru eşitliğini ve `keys/compare-report.json` `blocked` listesini zorlar (`exclusions.json`'da olmayan bloke soru hata). `exclusions.json` (Git dışı, `{ id, reason }`) kapı 8'de denetlenir (bilinmeyen, bozuk ya da tekrarlı id ve deneme yılı sorusu hata) ve yalnız içe aktarmadan önce etkilidir; canlı satırı kapatmak için `patch-imat-questions.mjs` ile `needs_review=true`.
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 

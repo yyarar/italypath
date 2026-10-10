@@ -5,8 +5,9 @@
 // Ikinci bolum crop-questions.mjs kirpma duzeltmesi (crop-overrides.json, Gorev 16 araclari): uydurma 15 kaynak PDF
 // (lib/fixture-pdf.mjs; envanter pdfinfo ister) + 2011 sayfa goruntusu; duzeltme kutusu sayfaya kistirilir, --numbers
 // paketteki girdinin cropBox'ini yeniler, diger girdiler ve result-* dosyalari degismez. merge-vision.mjs eski kirpinti
-// korumasi: kirpinti gecis sonucundan yeni ve gecis sekil kutusu tasiyorsa yil durur (soru numarasi yazilir), sekilsiz
-// soruda yalniz uyari; figure cozumu korumayi kaldirir; bayt bayt ayni kirpinti yeniden yazilmaz (tarihi degismez).
+// korumasi: kirpinti gecis sonucundan yeni ve gecis sekil kutusu tasiyorsa ya da soru crop-overrides.json'da ise yil durur
+// (soru numarasi yazilir), diger sekilsiz soruda yalniz uyari; figure cozumu korumayi kaldirir; bayt bayt ayni kirpinti
+// yeniden yazilmaz (tarihi degismez).
 //
 //   PATH=/usr/local/bin:$PATH node scripts/imat/test-crop-figures.mjs   (npm run test:imat-crop)
 import assert from "node:assert/strict";
@@ -236,7 +237,16 @@ try {
     const warned = node(MERGE, ["--years", "2011"]);
     assert.equal(warned.status, 0, warned.out);
     assert.match(warned.out, /2011: uyari: kirpinti gecis sonucundan yeni, iki geciste de sekil yok \(soru 2\); metin kullanildi/);
-    console.log("ok - merge-vision eski kirpinti korumasi: sekilli soruda yil durur, sekilsizde uyari, figure cozumu kaldirir, ayni kirpinti tarih degistirmez");
+    // Ayni sekilsiz soru crop-overrides.json'da: eski kirpinti sekli kesiyordu, iki gecis de sekli gormemis olabilir -> yil
+    // durur (uyari degil); soru numarasi yazilir. Soru 1'in duzeltmesi figure cozumuyle kapali kalir.
+    const q1Override = read(overridesPath);
+    write(overridesPath, { ...q1Override, [questionId(2011, 2)]: { bbox: [20, 100, 120, 140], note: "fixture: old crop cut the figure" } });
+    const overridden = node(MERGE, ["--years", "2011"]);
+    assert.equal(overridden.status, 1, overridden.out);
+    assert.match(overridden.out, /2011: kirpinti gecis sonucundan yeni, crop-overrides\.json kaydi var, eski kirpinti sekli kesiyordu \(soru 2\)/);
+    assert.doesNotMatch(overridden.out, /soru 1[,)]/, "figure cozumu olan soru 1 durdurmaz");
+    write(overridesPath, q1Override);
+    console.log("ok - merge-vision eski kirpinti korumasi: sekilli ya da duzeltmeli soruda yil durur, sekilsizde uyari, figure cozumu kaldirir, ayni kirpinti tarih degistirmez");
 
     // --numbers duzeltmesiz soruda da cropBox'i yeniler (bbox degistiyse paket eskimez).
     const extract = read(extractPath);

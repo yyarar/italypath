@@ -1,12 +1,14 @@
 // IMAT cevap anahtarlarini kaynaklar arasi karsilastirir (plan 2026-10-08, Gorev 14). Yalniz 2011-2020; girdi
 // extract-keys.mjs ciktisi keys/<yil>.<kaynak>.json (cambridge zorunlu; medschool ve 2012 icin cambridge-old varsa).
-// 2021 burada yok: tek kaynak (cambridge-form, Cambridge dizilimi); capraz kontrolu metin eslemesiyle sonraki gorevde.
+// 2021 burada yok: tek kaynak (cambridge-form, Cambridge dizilimi); metin eslemesiyle capraz kontrol birakildi (arsivdeki
+// Cambridge 2021 kagidi kesik).
 //
 //   PATH=/usr/local/bin:$PATH IMAT_OUT=/Users/keremyarar/italypath-main/tmp/imat-bank node scripts/imat/compare-keys.mjs --year 2012
 //   ... --year 2011,2012,2013,2014,2015,2016,2017,2018,2019,2020
 //
 // Cikti keys/compare-report.json (yil bazinda birlestirilir; baska yillarin kaydi korunur):
-//   blocked: kaynaklarin farkli harf verdigi (ya da bir kaynakta olmayan) sorular; bankaya girmez (Gorev 16 excluded).
+//   blocked: kaynaklarin farkli harf verdigi (ya da bir kaynakta olmayan) sorular; validate-bank kapi 5 zorlar
+//     (exclusions.json'da olmayan blocked soru hata).
 //   versionDiff (yalniz 2012): Cambridge eski (2018) ve yeni surum farki; yeni surum esastir, liste Kerem'e gosterilir.
 //   identicalSources: manifestte sha256'si ayni olan kaynak dosyalari (ayni dosya: uyusma bagimsiz kanit degildir).
 // Konsol ve rapor yalniz numara ve harf tasir (soru metni yok). Cikis 0: blocked yok; 1: blocked var; 2: girdi hatasi.
