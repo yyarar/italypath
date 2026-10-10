@@ -48,6 +48,8 @@ const OFFLINE = [
   "test:imat-patch",
   "test:imat-keys",
   "test:imat-mur-order",
+  // Soru metni tablo bloklari (lib/imat/tableBlocks.mjs; uydurma metin).
+  "test:imat-table",
   // Python 3 ile extract_text.py yil kapilari (uydurma kaynak baytlari; PDF okunmaz, pdfplumber gerekmez).
   "test:imat-inventory",
   // Python 3 standart kitaplik (pdfplumber gerekmez): extract_text.py oz sinamasi (italik isaret kurali, cambridge ve

@@ -195,9 +195,11 @@ if (!bankSql.includes("image/webp")) fail("imat_bank.sql: imat-figures bucket ya
 
 // 8) Deneme arayuzu (Gorev 7): ortak soru karti bes sik, deneme ekrani cevap anahtari gostermez,
 // gorsel soru metninin altinda, metin bileseni SAT'tan (MathText); /imat sayfasi client leaf.
-// Soru metni her bolumde tek MathText ile duz paragraf cizilir (`\n` satir sonu, `\n\n` paragraf boslugu):
-// SAT Okuma-Yazma'nin satir satir dize kurali (PassageText / splitPassageBlocks, asili girinti) IMAT kartinda yok
-// (Gorev 13 pilot bulgusu, 2026-10-08: IMAT pasaji siir gibi gorunuyordu).
+// Soru metni her bolumde ayni yoldan cizilir: splitTableBlocks (lib/imat/tableBlocks.mjs) metni metin ve tablo
+// bloklarina ayirir; metin blogu MathText ile duz paragraf (`\n` satir sonu, `\n\n` paragraf boslugu), ` | ` hucreli
+// blok gercek tablo (STATUS #103 (a), 2026-10-10; metin sozlesmesi degismez). SAT Okuma-Yazma'nin satir satir dize kurali
+// (PassageText / splitPassageBlocks, asili girinti) IMAT kartinda yok (Gorev 13 pilot bulgusu, 2026-10-08: IMAT pasaji
+// siir gibi gorunuyordu); bolume gore dal da yok.
 {
   const cardPath = "components/imat/ImatQuestionCard.tsx";
   const runnerPath = "components/imat/mock/MockExamRunner.tsx";
@@ -218,8 +220,17 @@ if (!bankSql.includes("image/webp")) fail("imat_bank.sql: imat-figures bucket ya
         fail(`${cardPath}: "${forbidden}" gecmemeli (IMAT soru metni satir satir dize olarak degil, duz paragraf cizilir)`);
       }
     }
-    if (!card.includes("<MathText text={question.prompt}") || card.split("question.prompt").length !== 2) {
-      fail(`${cardPath}: soru metni her bolumde tek <MathText text={question.prompt} /> ile cizilmeli (bolume gore dal yok)`);
+    if (!/import\s*\{[^}]*\bsplitTableBlocks\b[^}]*\}\s*from\s*"@\/lib\/imat\/tableBlocks\.mjs"/.test(card)) {
+      fail(`${cardPath}: splitTableBlocks @/lib/imat/tableBlocks.mjs'ten import edilmeli (tablo kurali tek kaynak)`);
+    }
+    if (!card.includes("splitTableBlocks(question.prompt)") || card.split("question.prompt").length !== 2) {
+      fail(`${cardPath}: soru metni her bolumde tek splitTableBlocks(question.prompt) yolundan cizilmeli (bolume gore dal yok)`);
+    }
+    if (!card.includes("<MathText text={block.value}")) {
+      fail(`${cardPath}: soru metninin metin bloklari <MathText text={block.value} /> ile cizilmeli`);
+    }
+    if (/question\.section\s*(?:===?|!==?)|switch\s*\(\s*question\.section|\[question\.section\]\s*\?/.test(card)) {
+      fail(`${cardPath}: question.section'a gore dal olmamali (tum bolumler ayni cizim)`);
     }
     if (!/import\s*\{[^}]*\bCHOICE_KEYS\b[^}]*\}\s*from\s*"@\/lib\/imat\/scoring\.mjs"/.test(card)) {
       fail(`${cardPath}: CHOICE_KEYS @/lib/imat/scoring.mjs'ten import edilmeli (A-E tek kaynak)`);

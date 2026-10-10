@@ -6,6 +6,7 @@ import { Check, X } from "lucide-react";
 import MathText from "@/components/sat/MathText";
 import { useLanguage } from "@/context/LanguageContext";
 import { CHOICE_KEYS } from "@/lib/imat/scoring.mjs";
+import { splitTableBlocks, splitTableRow } from "@/lib/imat/tableBlocks.mjs";
 import type { ImatChoiceKey, ImatQuestion } from "@/lib/imat/types";
 
 interface ImatQuestionCardProps {
@@ -16,6 +17,62 @@ interface ImatQuestionCardProps {
   selected: ImatChoiceKey | null;
   revealed: boolean;
   onSelect: (letter: ImatChoiceKey) => void;
+}
+
+const CELL_BORDER = "border-[var(--editorial-border)]";
+
+// Soru metnindeki tablo: ilk satir baslik (<th>), her hucre MathText. Genis tablo sayfayi degil kendi kutusunu kaydirir.
+function PromptTable({ rows }: { rows: string[][] }) {
+  const [head = [], ...body] = rows;
+  return (
+    <div className={`w-fit max-w-full overflow-x-auto rounded-xl border bg-[var(--editorial-surface)] ${CELL_BORDER}`}>
+      <table className="border-collapse text-sm leading-6 sm:text-[15px] sm:leading-7">
+        <thead className="bg-[var(--editorial-band)]">
+          <tr>
+            {head.map((cell, index) => (
+              <th
+                key={index}
+                scope="col"
+                className={`border-b border-l px-2.5 py-1.5 text-left align-bottom font-semibold first:border-l-0 sm:px-3 sm:py-2 ${CELL_BORDER}`}
+              >
+                <MathText text={cell} />
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {body.map((row, rowIndex) => (
+            <tr key={rowIndex} className={`border-t first:border-t-0 even:bg-[rgba(245,241,232,0.5)] ${CELL_BORDER}`}>
+              {row.map((cell, index) => (
+                <td key={index} className={`border-l px-2.5 py-1.5 align-top first:border-l-0 sm:px-3 sm:py-2 ${CELL_BORDER}`}>
+                  <MathText text={cell} />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+// Tablonun tek satiri olan sik (baslik soru metninin sonunda): hucreli tek satir; genis ekranda esit sutunlar
+// (siklar alt alta hizali), telefonda sutunlar icerige gore (kelime ortadan bolunmesin).
+// Buton icinde <table> gecerli HTML olmadigi icin tablo gorunumu CSS display: table ile span'lerden kurulur.
+function ChoiceRow({ cells }: { cells: string[] }) {
+  return (
+    <span className="min-w-0 flex-1">
+      <span className={`table w-full rounded-lg border sm:table-fixed ${CELL_BORDER}`}>
+        <span className="table-row">
+          {cells.map((cell, index) => (
+            <span key={index} className={`table-cell break-words border-l px-2 py-0.5 align-top first:border-l-0 sm:px-3 ${CELL_BORDER}`}>
+              <MathText text={cell} />
+            </span>
+          ))}
+        </span>
+      </span>
+    </span>
+  );
 }
 
 // Deneme ve konu pratiginin ortak soru karti: bes sik (A-E), gorsel soru metninin altinda.
@@ -43,11 +100,21 @@ export default function ImatQuestionCard({
         ) : null}
       </header>
 
-      {/* Tum bolumlerde soru metni tek MathText: `\n` duz satir sonu, `\n\n` paragraf boslugu (whitespace-pre-line),
-          asili girinti yok. IMAT metninde `\n` siir dizesi degil olagan satir sonudur (pasaj, kaynak satiri, soru cumlesi,
-          madde); SAT Okuma-Yazma'nin satir satir dize kurali burada kullanilmaz. <i>/<u> isaretlerini MathText cizer. */}
-      <div className="mb-7 whitespace-pre-line break-words text-base leading-8 text-[var(--editorial-ink)]">
-        <MathText text={question.prompt} />
+      {/* Tum bolumlerde ayni cizim: soru metni splitTableBlocks ile metin ve tablo bloklarina ayrilir. Metin blogu MathText:
+          `\n` duz satir sonu, `\n\n` paragraf boslugu (whitespace-pre-line), asili girinti yok. IMAT metninde `\n` siir
+          dizesi degil olagan satir sonudur (pasaj, kaynak satiri, soru cumlesi, madde); SAT Okuma-Yazma'nin satir satir dize
+          kurali burada kullanilmaz. ` | ` hucreli satirlardan olusan blok gercek tablo cizilir (metin sozlesmesi degismez).
+          <i>/<u> isaretlerini MathText cizer. */}
+      <div className="mb-7 space-y-6 text-base leading-8 text-[var(--editorial-ink)]">
+        {splitTableBlocks(question.prompt).map((block, index) =>
+          block.kind === "table" ? (
+            <PromptTable key={index} rows={block.rows} />
+          ) : (
+            <div key={index} className="whitespace-pre-line break-words">
+              <MathText text={block.value} />
+            </div>
+          ),
+        )}
       </div>
 
       {question.figureUrl ? (
@@ -77,6 +144,8 @@ export default function ImatQuestionCard({
             isSelected && !showKey
               ? "border-[var(--editorial-sage)] bg-[var(--editorial-sage)] text-white"
               : "border-[var(--editorial-border)] text-[var(--editorial-sage)]";
+          const choiceText = question.choices[key] ?? "";
+          const choiceCells = splitTableRow(choiceText);
 
           return (
             <m.button
@@ -92,7 +161,11 @@ export default function ImatQuestionCard({
               <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border font-semibold ${badgeTone}`}>
                 {key}
               </span>
-              <MathText text={question.choices[key] ?? ""} className="min-w-0 flex-1 break-words" />
+              {choiceCells ? (
+                <ChoiceRow cells={choiceCells} />
+              ) : (
+                <MathText text={choiceText} className="min-w-0 flex-1 break-words" />
+              )}
               {isCorrectChoice ? (
                 <Check className="mt-0.5 h-5 w-5 shrink-0 text-[var(--editorial-sage)]" strokeWidth={2.4} aria-hidden="true" />
               ) : null}
