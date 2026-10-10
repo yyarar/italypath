@@ -42,12 +42,53 @@ import { splitTableBlocks, splitTableRow } from "../../lib/imat/tableBlocks.mjs"
   ]);
 }
 
-// --- iki satirdan yalniz birinde ` | ` varsa blok metindir; tek satirlik ` | ` blogu da metindir ----------------------
+// --- yalniz ` | ` satiri (komsusu tablo satiri degil) metindir: blok icinde de, kendi blogunda da ----------------------
 {
-  const mixed = "Jar count per island\nNorth | South";
+  const mixed = "Jar count per island\nNorth | South\n\nWhich island has more jars?";
   assert.deepEqual(splitTableBlocks(mixed), [{ kind: "text", value: mixed }]);
-  const single = "Which row is right?\n\nNorth | South | East";
+  const single = "Which row is right?\n\nNorth | South | East\n\nCount the jars first.";
   assert.deepEqual(splitTableBlocks(single), [{ kind: "text", value: single }]);
+  const between = "Lantern log\nNorth | South\nThe keeper counted twice.";
+  assert.deepEqual(splitTableBlocks(between), [{ kind: "text", value: between }]);
+}
+
+// --- blok icinde ust uste en az iki ` | ` satiri tablodur; oncesi/sonrasi ayni blokta metin kalir (`\n` ile) -----------
+{
+  assert.deepEqual(splitTableBlocks("Jar count per island\nIsland | Jars\nNorth | 12"), [
+    { kind: "text", value: "Jar count per island" },
+    { kind: "table", rows: [["Island", "Jars"], ["North", "12"]] },
+  ]);
+  assert.deepEqual(splitTableBlocks("Tide table\nsecond caption line\n | high | low\nMonday | 4 | 9\nNote: in metres.\nRounded."), [
+    { kind: "text", value: "Tide table\nsecond caption line" },
+    { kind: "table", rows: [["", "high", "low"], ["Monday", "4", "9"]] },
+    { kind: "text", value: "Note: in metres.\nRounded." },
+  ]);
+  assert.deepEqual(splitTableBlocks("The keeper wrote:\n\nLantern prices\nSize | Price\nsmall | \\$3\n\nWhich is cheapest?"), [
+    { kind: "text", value: "The keeper wrote:\n\nLantern prices" },
+    { kind: "table", rows: [["Size", "Price"], ["small", "\\$3"]] },
+    { kind: "text", value: "Which is cheapest?" },
+  ], "onceki bloktaki metin ile tablonun ustundeki metin `\\n\\n` ile birlesir");
+  assert.deepEqual(splitTableBlocks("A | B\n1 | 2\nbetween the tables\nC | D\n3 | 4"), [
+    { kind: "table", rows: [["A", "B"], ["1", "2"]] },
+    { kind: "text", value: "between the tables" },
+    { kind: "table", rows: [["C", "D"], ["3", "4"]] },
+  ], "ayni blokta metin satiriyla ayrilan iki tablo");
+}
+
+// --- metnin SON satiri yalniz ` | ` satiriysa yalniz baslikli tablo (siklar tablonun satirlaridir) -----------------------
+{
+  assert.deepEqual(splitTableBlocks("Which row is right?\n\nNorth | South | East"), [
+    { kind: "text", value: "Which row is right?" },
+    { kind: "table", rows: [["North", "South", "East"]], headerOnly: true },
+  ]);
+  assert.deepEqual(splitTableBlocks("Which row is right?\n\nJar count\nNorth | South"), [
+    { kind: "text", value: "Which row is right?\n\nJar count" },
+    { kind: "table", rows: [["North", "South"]], headerOnly: true },
+  ], "ustunde baslik satiri olan son satir");
+  assert.deepEqual(splitTableBlocks(" | Monday | Tuesday"), [{ kind: "table", rows: [["", "Monday", "Tuesday"]], headerOnly: true }]);
+  assert.deepEqual(splitTableBlocks("Island | Jars\nNorth | 12"), [{ kind: "table", rows: [["Island", "Jars"], ["North", "12"]] }], "iki satirlik tablo yalniz baslik degil");
+  const notLast = "North | South\n\nWhich row is right?";
+  assert.deepEqual(splitTableBlocks(notLast), [{ kind: "text", value: notLast }], "son satir degilse yalniz satir metin kalir");
 }
 
 // --- hucre icindeki formul bozulmaz; formul icindeki ` | ` hucre ayirmaz, `\$` gercek dolar kalir --------------------

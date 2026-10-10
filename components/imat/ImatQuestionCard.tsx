@@ -20,37 +20,45 @@ interface ImatQuestionCardProps {
 }
 
 const CELL_BORDER = "border-[var(--editorial-border)]";
+// Genis ekranda yalniz baslikli tablo sik satirlarinin sutunlariyla hizalanir: sol = sik dugmesi cercevesi (1px) + px-4
+// (16px) + harf rozeti (28px) + gap-3 (12px) = 57px, sag = px-4 + cerceve = 17px; sutunlar iki tarafta da esit (table-fixed).
+const HEADER_ONLY_INSET = "sm:ml-[57px] sm:mr-[17px] sm:w-auto";
 
 // Soru metnindeki tablo: ilk satir baslik (<th>), her hucre MathText. Genis tablo sayfayi degil kendi kutusunu kaydirir.
-function PromptTable({ rows }: { rows: string[][] }) {
+// headerOnly: metnin son satiri olan tek satirlik baslik; govde satirlari asagidaki siklardir.
+function PromptTable({ rows, headerOnly = false }: { rows: string[][]; headerOnly?: boolean }) {
   const [head = [], ...body] = rows;
   return (
-    <div className={`w-fit max-w-full overflow-x-auto rounded-xl border bg-[var(--editorial-surface)] ${CELL_BORDER}`}>
-      <table className="border-collapse text-sm leading-6 sm:text-[15px] sm:leading-7">
+    <div
+      className={`w-fit max-w-full overflow-x-auto rounded-xl border bg-[var(--editorial-surface)] ${headerOnly ? HEADER_ONLY_INSET : ""} ${CELL_BORDER}`}
+    >
+      <table className={`border-collapse text-sm leading-6 sm:text-[15px] sm:leading-7 ${headerOnly ? "sm:w-full sm:table-fixed" : ""}`}>
         <thead className="bg-[var(--editorial-band)]">
           <tr>
             {head.map((cell, index) => (
               <th
                 key={index}
                 scope="col"
-                className={`border-b border-l px-2.5 py-1.5 text-left align-bottom font-semibold first:border-l-0 sm:px-3 sm:py-2 ${CELL_BORDER}`}
+                className={`border-l px-2.5 py-1.5 text-left align-bottom font-semibold first:border-l-0 sm:px-3 sm:py-2 ${headerOnly ? "" : "border-b"} ${CELL_BORDER}`}
               >
                 <MathText text={cell} />
               </th>
             ))}
           </tr>
         </thead>
-        <tbody>
-          {body.map((row, rowIndex) => (
-            <tr key={rowIndex} className={`border-t first:border-t-0 even:bg-[rgba(245,241,232,0.5)] ${CELL_BORDER}`}>
-              {row.map((cell, index) => (
-                <td key={index} className={`border-l px-2.5 py-1.5 align-top first:border-l-0 sm:px-3 sm:py-2 ${CELL_BORDER}`}>
-                  <MathText text={cell} />
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
+        {body.length > 0 ? (
+          <tbody>
+            {body.map((row, rowIndex) => (
+              <tr key={rowIndex} className={`border-t first:border-t-0 even:bg-[rgba(245,241,232,0.5)] ${CELL_BORDER}`}>
+                {row.map((cell, index) => (
+                  <td key={index} className={`border-l px-2.5 py-1.5 align-top first:border-l-0 sm:px-3 sm:py-2 ${CELL_BORDER}`}>
+                    <MathText text={cell} />
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        ) : null}
       </table>
     </div>
   );
@@ -103,12 +111,13 @@ export default function ImatQuestionCard({
       {/* Tum bolumlerde ayni cizim: soru metni splitTableBlocks ile metin ve tablo bloklarina ayrilir. Metin blogu MathText:
           `\n` duz satir sonu, `\n\n` paragraf boslugu (whitespace-pre-line), asili girinti yok. IMAT metninde `\n` siir
           dizesi degil olagan satir sonudur (pasaj, kaynak satiri, soru cumlesi, madde); SAT Okuma-Yazma'nin satir satir dize
-          kurali burada kullanilmaz. ` | ` hucreli satirlardan olusan blok gercek tablo cizilir (metin sozlesmesi degismez).
+          kurali burada kullanilmaz. Ust uste ` | ` hucreli satirlar gercek tablo, metnin son satiri olan tek ` | ` satiri yalniz
+          baslikli tablo cizilir (metin sozlesmesi degismez).
           <i>/<u> isaretlerini MathText cizer. */}
       <div className="mb-7 space-y-6 text-base leading-8 text-[var(--editorial-ink)]">
         {splitTableBlocks(question.prompt).map((block, index) =>
           block.kind === "table" ? (
-            <PromptTable key={index} rows={block.rows} />
+            <PromptTable key={index} rows={block.rows} headerOnly={block.headerOnly === true} />
           ) : (
             <div key={index} className="whitespace-pre-line break-words">
               <MathText text={block.value} />

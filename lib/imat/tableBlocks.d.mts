@@ -11,6 +11,8 @@ export interface TableBlock {
   kind: "table";
   /** Ilk satir baslik; her satir kendi hucre sayisini korur (bos hucre bos dizgi). */
   rows: string[][];
+  /** Yalniz metnin son satiri olan tek tablo satiri: tek satirlik baslik (siklar tablonun satirlari). */
+  headerOnly?: true;
 }
 
 export type PromptBlock = TextBlock | TableBlock;
